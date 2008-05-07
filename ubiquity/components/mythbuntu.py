@@ -27,7 +27,9 @@ class MythbuntuAdvancedType(FilteredCommand):
 
     def run(self,priority,question):
         if question.startswith('mythbuntu/advanced_install'):
-            advanced = self.frontend.get_advanced()
+            advanced = self.db.get(question)
+            if advanced == '':
+                advanced = self.frontend.get_advanced()
             self.preseed_bool('mythbuntu/advanced_install', advanced)
         return FilteredCommand.run(self, priority, question)
 
@@ -42,7 +44,9 @@ class MythbuntuInstallType(FilteredCommand):
 
     def run(self,priority,question):
         if question.startswith('mythbuntu/install_type'):
-            installtype = self.frontend.get_installtype()
+            installtype = self.db.get(question)
+            if installtype == '':
+                installtype = self.frontend.get_installtype()
             self.preseed('mythbuntu/install_type', installtype)
         return FilteredCommand.run(self, priority, question)
 
@@ -69,79 +73,54 @@ class MythbuntuPlugins(FilteredCommand):
         return (['/usr/share/ubiquity/ask-plugins'], questions)
 
     def run(self,priority,question):
-        if question.startswith('mythbuntu/mytharchive'):
-            mytharchive = self.frontend.get_mytharchive()
-            self.preseed_bool('mythbuntu/mytharchive', mytharchive)
-        elif question.startswith('mythbuntu/mythbrowser'):
-            mythbrowser = self.frontend.get_mythbrowser()
-            self.preseed_bool('mythbuntu/mythbrowser', mythbrowser)
-        elif question.startswith('mythbuntu/mythcontrols'):
-            mythcontrols = self.frontend.get_mythcontrols()
-            self.preseed_bool('mythbuntu/mythcontrols', mythcontrols)
-        elif question.startswith('mythbuntu/mythflix'):
-            mythflix = self.frontend.get_mythflix()
-            self.preseed_bool('mythbuntu/mythflix', mythflix)
-        elif question.startswith('mythbuntu/mythgallery'):
-            mythgallery = self.frontend.get_mythgallery()
-            self.preseed_bool('mythbuntu/mythgallery', mythgallery)
-        elif question.startswith('mythbuntu/mythgame'):
-            mythgame = self.frontend.get_mythgame()
-            self.preseed_bool('mythbuntu/mythgame', mythgame)
-        elif question.startswith('mythbuntu/mythmovies'):
-            mythmovies = self.frontend.get_mythmovies()
-            self.preseed_bool('mythbuntu/mythmovies', mythmovies)
-        elif question.startswith('mythbuntu/mythmusic'):
-            mythmusic = self.frontend.get_mythmusic()
-            self.preseed_bool('mythbuntu/mythmusic', mythmusic)
-        elif question.startswith('mythbuntu/mythnews'):
-            mythnews = self.frontend.get_mythnews()
-            self.preseed_bool('mythbuntu/mythnews', mythnews)
-        elif question.startswith('mythbuntu/mythphone'):
-            mythphone = self.frontend.get_mythphone()
-            self.preseed_bool('mythbuntu/mythphone', mythphone)
-        elif question.startswith('mythbuntu/mythphone'):
-            mythstream = self.frontend.get_mythstream()
-            self.preseed_bool('mythbuntu/mythstream', mythstream)
-        elif question.startswith('mythbuntu/mythvideo'):
-            mythvideo = self.frontend.get_mythvideo()
-            self.preseed_bool('mythbuntu/mythvideo', mythvideo)
-        elif question.startswith('mythbuntu/mythweather'):
-            mythweather = self.frontend.get_mythweather()
-            self.preseed_bool('mythbuntu/mythweather', mythweather)
-        elif question.startswith('mythbuntu/mythweb'):
-            mythweb = self.frontend.get_mythweb()
-            self.preseed_bool('mythbuntu/mythweb', mythweb)
+        answer = self.db.get(question)
+        if answer == '':
+            if question.startswith('mythbuntu/mytharchive'):
+                answer = self.frontend.get_mytharchive()
+            elif question.startswith('mythbuntu/mythbrowser'):
+                answer = self.frontend.get_mythbrowser()
+            elif question.startswith('mythbuntu/mythcontrols'):
+                answer = self.frontend.get_mythcontrols()
+            elif question.startswith('mythbuntu/mythflix'):
+                answer = self.frontend.get_mythflix()
+            elif question.startswith('mythbuntu/mythgallery'):
+                answer = self.frontend.get_mythgallery()
+            elif question.startswith('mythbuntu/mythgame'):
+                answer = self.frontend.get_mythgame()
+            elif question.startswith('mythbuntu/mythmovies'):
+                answer = self.frontend.get_mythmovies()
+            elif question.startswith('mythbuntu/mythmusic'):
+                answer = self.frontend.get_mythmusic()
+            elif question.startswith('mythbuntu/mythnews'):
+                answer = self.frontend.get_mythnews()
+            elif question.startswith('mythbuntu/mythphone'):
+                answer = self.frontend.get_mythphone()
+            elif question.startswith('mythbuntu/mythphone'):
+                answer = self.frontend.get_mythstream()
+            elif question.startswith('mythbuntu/mythvideo'):
+                answer = self.frontend.get_mythvideo()
+            elif question.startswith('mythbuntu/mythweather'):
+                answer = self.frontend.get_mythweather()
+            elif question.startswith('mythbuntu/mythweb'):
+                answer = self.frontend.get_mythweb()
+        self.preseed_bool(question, answer)
         return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):
-        mytharchive = self.frontend.get_mytharchive()
-        self.preseed_bool('mythbuntu/mytharchive', mytharchive)
-        mythbrowser = self.frontend.get_mythbrowser()
-        self.preseed_bool('mythbuntu/mythbrowser', mythbrowser)
-        mythcontrols = self.frontend.get_mythcontrols()
-        self.preseed_bool('mythbuntu/mythcontrols', mythcontrols)
-        mythflix = self.frontend.get_mythflix()
-        self.preseed_bool('mythbuntu/mythflix', mythflix)
-        mythgallery = self.frontend.get_mythgallery()
-        self.preseed_bool('mythbuntu/mythgallery', mythgallery)
-        mythgame = self.frontend.get_mythgame()
-        self.preseed_bool('mythbuntu/mythgame', mythgame)
-        mythmovies = self.frontend.get_mythmovies()
-        self.preseed_bool('mythbuntu/mythmovies', mythmovies)
-        mythmusic = self.frontend.get_mythmusic()
-        self.preseed_bool('mythbuntu/mythmusic', mythmusic)
-        mythnews = self.frontend.get_mythnews()
-        self.preseed_bool('mythbuntu/mythnews', mythnews)
-        mythphone = self.frontend.get_mythphone()
-        self.preseed_bool('mythbuntu/mythphone', mythphone)
-        mythstream = self.frontend.get_mythstream()
-        self.preseed_bool('mythbuntu/mythstream', mythstream)
-        mythvideo = self.frontend.get_mythvideo()
-        self.preseed_bool('mythbuntu/mythvideo', mythvideo)
-        mythweather = self.frontend.get_mythweather()
-        self.preseed_bool('mythbuntu/mythweather', mythweather)
-        mythweb = self.frontend.get_mythweb()
-        self.preseed_bool('mythbuntu/mythweb', mythweb)
+        self.preseed_bool('mythbuntu/mytharchive', self.frontend.get_mytharchive())
+        self.preseed_bool('mythbuntu/mythbrowser', self.frontend.get_mythbrowser())
+        self.preseed_bool('mythbuntu/mythcontrols', self.frontend.get_mythcontrols())
+        self.preseed_bool('mythbuntu/mythflix', self.frontend.get_mythflix())
+        self.preseed_bool('mythbuntu/mythgallery', self.frontend.get_mythgallery())
+        self.preseed_bool('mythbuntu/mythgame', self.frontend.get_mythgame())
+        self.preseed_bool('mythbuntu/mythmovies', self.frontend.get_mythmovies())
+        self.preseed_bool('mythbuntu/mythmusic', self.frontend.get_mythmusic())
+        self.preseed_bool('mythbuntu/mythnews', self.frontend.get_mythnews())
+        self.preseed_bool('mythbuntu/mythphone', self.frontend.get_mythphone())
+        self.preseed_bool('mythbuntu/mythstream', self.frontend.get_mythstream())
+        self.preseed_bool('mythbuntu/mythvideo', self.frontend.get_mythvideo())
+        self.preseed_bool('mythbuntu/mythweather', self.frontend.get_mythweather())
+        self.preseed_bool('mythbuntu/mythweb', self.frontend.get_mythweb())
         FilteredCommand.ok_handler(self)
 
 class MythbuntuThemes(FilteredCommand):
@@ -153,21 +132,19 @@ class MythbuntuThemes(FilteredCommand):
         return (['/usr/share/ubiquity/ask-themes'], questions)
 
     def run(self,priority,question):
-        if question.startswith('mythbuntu/officialthemes'):
-            official = self.frontend.get_officialthemes()
-            official_string=""
-            for theme in official:
-                if not official[theme].get_active():
-                    official_string+=theme + " "
-            self.preseed('mythbuntu/officialthemes', official_string)
-        elif question.startswith('mythbuntu/communitythemes'):
-            community = self.frontend.get_communitythemes()
-            community_string=""
-            for theme in community:
-                if not community[theme].get_active():
-                    community_string+=theme + " "
-            self.preseed('mythbuntu/communitythemes', community_string)
-
+        answer = self.db.get(question)
+        if answer == '':
+            if question.startswith('mythbuntu/officialthemes'):
+                official = self.frontend.get_officialthemes()
+                for theme in official:
+                    if not official[theme].get_active():
+                        answer+=theme + " "
+            elif question.startswith('mythbuntu/communitythemes'):
+                community = self.frontend.get_communitythemes()
+                for theme in community:
+                    if not community[theme].get_active():
+                        answer+=theme + " "
+        self.preseed(question, answer)
         return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):
@@ -197,46 +174,41 @@ class MythbuntuServices(FilteredCommand):
         return (['/usr/share/ubiquity/ask-services'], questions)
 
     def run(self,priority,question):
-        if question.startswith('mythbuntu/vncservice'):
-            vnc = self.frontend.get_vnc()
-            self.preseed_bool('mythbuntu/vncservice', vnc)
-        elif question.startswith('mythbuntu/vnc_password'):
-            if not self.frontend.get_vnc():
-                vnc_pass = "N/A"
-            else:
-                vnc_pass = self.frontend.get_vnc_password()
-            self.preseed('mythbuntu/vnc_password', vnc_pass)
-        elif question.startswith('mythbuntu/sshservice'):
-            ssh = self.frontend.get_ssh()
-            self.preseed_bool('mythbuntu/sshservice', ssh)
-        elif question.startswith('mythbuntu/sambaservice'):
-            samba = self.frontend.get_samba()
-            self.preseed_bool('mythbuntu/sambaservice', samba)
-        elif question.startswith('mythbuntu/nfsservice'):
-            nfs = self.frontend.get_nfs()
-            self.preseed_bool('mythbuntu/nfsservice', nfs)
-        elif question.startswith('mythbuntu/mysqlservice'):
-            mysql_secure = self.frontend.get_mysql_port()
-            self.preseed_bool('mythbuntu/mysqlservice', mysql_secure)
-
+        answer = self.db.get(question)
+        if answer == '':
+            if question.startswith('mythbuntu/vncservice'):
+                answer = self.frontend.get_vnc()
+            elif question.startswith('mythbuntu/vnc_password'):
+                if not self.frontend.get_vnc():
+                    answer = "N/A"
+                else:
+                    answer = self.frontend.get_vnc_password()
+            elif question.startswith('mythbuntu/sshservice'):
+                answer = self.frontend.get_ssh()
+            elif question.startswith('mythbuntu/sambaservice'):
+                answer = self.frontend.get_samba()
+            elif question.startswith('mythbuntu/nfsservice'):
+                answer = self.frontend.get_nfs()
+            elif question.startswith('mythbuntu/mysqlservice'):
+                answer = self.frontend.get_mysql_port()
+        if answer == True or answer == False:
+            self.preseed_bool(question,answer)
+        else:
+            self.preseed(question,answer)
         return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):
         vnc = self.frontend.get_vnc()
-        self.preseed_bool('mythbuntu/vncservice', vnc)
-        if not self.frontend.get_vnc():
+        if not vnc:
             vnc_pass = "N/A"
         else:
             vnc_pass = self.frontend.get_vnc_password()
+        self.preseed_bool('mythbuntu/vncservice', vnc)
         self.preseed('mythbuntu/vnc_password', vnc_pass)
-        ssh = self.frontend.get_ssh()
-        self.preseed_bool('mythbuntu/sshservice', ssh)
-        samba = self.frontend.get_samba()
-        self.preseed_bool('mythbuntu/sambaservice', samba)
-        nfs = self.frontend.get_nfs()
-        self.preseed_bool('mythbuntu/nfsservice', nfs)
-        mysql_secure = self.frontend.get_mysql_port()
-        self.preseed_bool('mythbuntu/mysqlservice', mysql_secure)
+        self.preseed_bool('mythbuntu/sshservice', self.frontend.get_ssh())
+        self.preseed_bool('mythbuntu/sambaservice', self.frontend.get_samba())
+        self.preseed_bool('mythbuntu/nfsservice', self.frontend.get_nfs())
+        self.preseed_bool('mythbuntu/mysqlservice', self.frontend.get_mysql_port())
         FilteredCommand.ok_handler(self)
 
 class MythbuntuPasswords(FilteredCommand):
@@ -252,45 +224,43 @@ class MythbuntuPasswords(FilteredCommand):
         return (['/usr/share/ubiquity/ask-passwords'], questions)
 
     def run(self,priority,question):
-        if question.startswith('mythtv/mysql_admin_password'):
-            if self.frontend.get_secure_mysql():
-                mysql_root = self.frontend.get_mysql_root_password()
-            else:
-                mysql_root = ""
-            self.preseed('mythtv/mysql_admin_password',mysql_root)
-        elif question.startswith('mythtv/mysql_mythtv_user'):
-            if not self.frontend.get_uselivemysqlinfo():
-                mysqluser = self.frontend.get_mysqluser()
-            else:
-                mysqluser = self.db.get('mythtv/mysql_mythtv_user')
-            self.preseed('mythtv/mysql_mythtv_user', mysqluser)
-        elif question.startswith('mythtv/mysql_mythtv_password'):
-            if not self.frontend.get_uselivemysqlinfo():
-                mysqlpass = self.frontend.get_mysqlpass()
-            else:
-                mysqlpass = self.db.get('mythtv/mysql_mythtv_password')
-            self.preseed('mythtv/mysql_mythtv_password', mysqlpass)
-        elif question.startswith('mythtv/mysql_mythtv_dbname'):
-            if not self.frontend.get_uselivemysqlinfo():
-                mysqldatabase = self.frontend.get_mysqldatabase()
-            else:
-                mysqldatabase = self.db.get('mythtv/mysql_mythtv_dbname')
-            self.preseed('mythtv/mysql_mythtv_dbname', mysqldatabase)
-        elif question.startswith('mythtv/mysql_host'):
-            if not self.frontend.get_uselivemysqlinfo():
-                mysqlserver = self.frontend.get_mysqlserver()
-            else:
-                mysqlserver = self.db.get('mythtv/mysql_host')
-            self.preseed('mythtv/mysql_host', mysqlserver)
-        elif question.startswith('mythweb/enable'):
-            auth = self.frontend.get_secure_mythweb()
-            self.preseed_bool('mythweb/enable', auth)
-        elif question.startswith('mythweb/username'):
-            user = self.frontend.get_mythweb_username()
-            self.preseed('mythweb/username', user)
-        elif question.startswith('mythweb/password'):
-            passw = self.frontend.get_mythweb_password()
-            self.preseed('mythweb/password', passw)
+        answer=self.db.get(question)
+        if answer == '':
+            if question.startswith('mythtv/mysql_admin_password'):
+                if self.frontend.get_secure_mysql():
+                    answer = self.frontend.get_mysql_root_password()
+                else:
+                    answer = ""
+            elif question.startswith('mythtv/mysql_mythtv_user'):
+                if not self.frontend.get_uselivemysqlinfo():
+                    answer = self.frontend.get_mysqluser()
+                else:
+                    answer = self.db.get('mythtv/mysql_mythtv_user')
+            elif question.startswith('mythtv/mysql_mythtv_password'):
+                if not self.frontend.get_uselivemysqlinfo():
+                    answer = self.frontend.get_mysqlpass()
+                else:
+                    answer = self.db.get('mythtv/mysql_mythtv_password')
+            elif question.startswith('mythtv/mysql_mythtv_dbname'):
+                if not self.frontend.get_uselivemysqlinfo():
+                    answer = self.frontend.get_mysqldatabase()
+                else:
+                    answer = self.db.get('mythtv/mysql_mythtv_dbname')
+            elif question.startswith('mythtv/mysql_host'):
+                if not self.frontend.get_uselivemysqlinfo():
+                    answer = self.frontend.get_mysqlserver()
+                else:
+                    answer = self.db.get('mythtv/mysql_host')
+            elif question.startswith('mythweb/enable'):
+                answer = self.frontend.get_secure_mythweb()
+            elif question.startswith('mythweb/username'):
+                answer = self.frontend.get_mythweb_username()
+            elif question.startswith('mythweb/password'):
+                answer = self.frontend.get_mythweb_password()
+        if answer == True or answer == False:
+            self.preseed_bool(question,answer)
+        else:
+            self.preseed(question,answer)
         return FilteredCommand.run(self, priority, question)
 
 def ok_handler(self):
@@ -319,12 +289,9 @@ def ok_handler(self):
         else:
             mysqlserver = self.db.get('mythtv/mysql_host')
         self.preseed('mythtv/mysql_host', mysqlserver)
-        auth = self.frontend.get_secure_mythweb()
-        self.preseed_bool('mythweb/enable', auth)
-        user = self.frontend.get_mythweb_username()
-        self.preseed('mythweb/username', user)
-        passw = self.frontend.get_mythweb_password()
-        self.preseed('mythweb/password', passw)
+        self.preseed_bool('mythweb/enable', self.frontend.get_secure_mythweb())
+        self.preseed('mythweb/username', self.frontend.get_mythweb_username())
+        self.preseed('mythweb/password', self.frontend.get_mythweb_password())
         FilteredCommand.ok_handler(self)
 
 class MythbuntuRemote(FilteredCommand):
@@ -342,30 +309,33 @@ class MythbuntuRemote(FilteredCommand):
         return (['/usr/share/ubiquity/ask-ir'], questions)
 
     def run(self,priority,question):
-        if question.startswith('lirc/remote'):
-            device=self.frontend.get_lirc("remote")
-            if question.startswith('lirc/remote_modules'):
-                self.preseed('lirc/remote_modules',device["modules"])
-            elif question.startswith('lirc/remote_lircd_conf'):
-                self.preseed('lirc/remote_lircd_conf',device["lircd_conf"])
-            elif question.startswith('lirc/remote_driver'):
-                self.preseed('lirc/remote_driver',device["driver"])
-            elif question.startswith('lirc/remote_device'):
-                self.preseed('lirc/remote_device',device["device"])
-            elif question.startswith('lirc/remote'):
-                self.preseed('lirc/remote',device["remote"])
-        elif question.startswith('lirc/transmitter'):
-            device=self.frontend.get_lirc("transmitter")
-            if question.startswith('lirc/transmitter_modules'):
-                self.preseed('lirc/transmitter_modules',device["modules"])
-            elif question.startswith('lirc/transmitter_lircd_conf'):
-                self.preseed('lirc/transmitter_lircd_conf',device["lircd_conf"])
-            elif question.startswith('lirc/transmitter_driver'):
-                self.preseed('lirc/transmitter_driver',device["driver"])
-            elif question.startswith('lirc/transmitter_device'):
-                self.preseed('lirc/transmitter_device',device["device"])
+        answer = self.db.get(question)
+        if answer == '':
+            if question.startswith('lirc/remote'):
+                device=self.frontend.get_lirc("remote")
+                if question.startswith('lirc/remote_modules'):
+                    answer = device["modules"]
+                elif question.startswith('lirc/remote_lircd_conf'):
+                    answer = device["lircd_conf"]
+                elif question.startswith('lirc/remote_driver'):
+                    answer = device["driver"]
+                elif question.startswith('lirc/remote_device'):
+                    answer = device["device"]
+                elif question.startswith('lirc/remote'):
+                    answer = device["remote"]
             elif question.startswith('lirc/transmitter'):
-                self.preseed('lirc/transmitter',device["transmitter"])
+                device=self.frontend.get_lirc("transmitter")
+                if question.startswith('lirc/transmitter_modules'):
+                    answer = device["modules"]
+                elif question.startswith('lirc/transmitter_lircd_conf'):
+                    answer = device["lircd_conf"]
+                elif question.startswith('lirc/transmitter_driver'):
+                    answer = device["driver"]
+                elif question.startswith('lirc/transmitter_device'):
+                    answer = device["device"]
+                elif question.startswith('lirc/transmitter'):
+                    answer = device["transmitter"]
+        self.preseed(question,answer)
         return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):
@@ -394,33 +364,29 @@ class MythbuntuDrivers(FilteredCommand):
         return (['/usr/share/ubiquity/ask-drivers'], questions)
 
     def run(self,priority,question):
-        if question.startswith('mythbuntu/video_driver'):
-            video_driver = self.frontend.get_video()
-            self.preseed('mythbuntu/video_driver', video_driver)
-        elif question.startswith('mythbuntu/tvout'):
-            tvout = self.frontend.get_tvout()
-            self.preseed('mythbuntu/tvout', tvout)
-        elif question.startswith('mythbuntu/tvstandard'):
-            tvstandard = self.frontend.get_tvstandard()
-            self.preseed('mythbuntu/tvstandard', tvstandard)
-        elif question.startswith('mythbuntu/hdhomerun'):
-            hdhomerun = self.frontend.get_hdhomerun()
-            self.preseed_bool('mythbuntu/hdhomerun',hdhomerun)
-        elif question.startswith('mythbuntu/xmltv'):
-            xmltv = self.frontend.get_xmltv()
-            self.preseed_bool('mythbuntu/xmltv',xmltv)
-        elif question.startswith('mythbuntu/dvbutils'):
-            dvbutils = self.frontend.get_dvbutils()
-            self.preseed_bool('mythbuntu/dvbutils',dvbutils)
+        answer = self.db.get(question)
+        if answer == '':
+            if question.startswith('mythbuntu/video_driver'):
+                answer = self.frontend.get_video()
+            elif question.startswith('mythbuntu/tvout'):
+                answer = self.frontend.get_tvout()
+            elif question.startswith('mythbuntu/tvstandard'):
+                answer = self.frontend.get_tvstandard()
+            elif question.startswith('mythbuntu/hdhomerun'):
+                answer = self.frontend.get_hdhomerun()
+            elif question.startswith('mythbuntu/xmltv'):
+                answer = self.frontend.get_xmltv()
+            elif question.startswith('mythbuntu/dvbutils'):
+                answer = self.frontend.get_dvbutils()
+        if answer == True or answer == False:
+            self.preseed_bool(question,answer)
+        else:
+            self.preseed(question,answer)
         return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):
-        video_driver = self.frontend.get_video()
-        self.preseed('mythbuntu/video_driver', video_driver)
-        tvout = self.frontend.get_tvout()
-        self.preseed('mythbuntu/tvout', tvout)
-        tvstandard = self.frontend.get_tvstandard()
-        self.preseed('mythbuntu/tvstandard', tvstandard)
-        hdhomerun = self.frontend.get_hdhomerun()
-        self.preseed_bool('mythbuntu/hdhomerun',hdhomerun)
+        self.preseed('mythbuntu/video_driver', self.frontend.get_video())
+        self.preseed('mythbuntu/tvout', self.frontend.get_tvout())
+        self.preseed('mythbuntu/tvstandard', self.frontend.get_tvstandard())
+        self.preseed_bool('mythbuntu/hdhomerun',self.frontend.get_hdhomerun())
         FilteredCommand.ok_handler(self)
