@@ -261,7 +261,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         #After (and if) install is done, decide what to do
         if self.pagesindex == pageslen:
             self.run_success_cmd()
-            if self.get_installtype() == "Frontend":
+            if 'UBIQUITY_AUTOMATIC' in os.environ or self.get_installtype() == "Frontend":
                 if not self.get_reboot_seen():
                     self.finished_dialog.run()
                 elif self.get_reboot():
@@ -518,6 +518,9 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.master_backend_expander.hide()
             self.mythweb_expander.show()
             self.mysql_server_expander.show()
+
+    def set_customtype(self,type):
+        """Sets the custom type (via seeding)"""
 
     def toggle_customtype (self,widget):
         """Called whenever a custom type is toggled"""
