@@ -282,8 +282,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         """Process and validate the results of this step."""
 
         # setting actual step
-        step_num = self.steps.get_current_page()
-        step = self.step_name(step_num)
+        step = self.step_name(self.steps.get_current_page())
 
         #Figure out if this is a mythbuntu specific step
         if step == "mythbuntu_stepBackendSetup":
@@ -395,36 +394,10 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def populate_video(self):
         """Finds the currently active video driver"""
-        #disable reading xorg.conf.  not really a good idea anymore
-        #with how empty it is as of Hardy
         self.video_driver.append_text("Open Source Driver")
         self.video_driver.set_active(5)
         self.tvoutstandard.set_active(0)
         self.tvouttype.set_active(0)
-
-        #vid = open('/etc/X11/xorg.conf')
-        #start_filter = re.compile("Section \"Device\"")
-        #driver_filter = re.compile("Driver")
-        #section=False
-        #for line in vid:
-        #   if not section and start_filter.search(line):
-        #        section=True
-        #    elif section and driver_filter.search(line):
-        #        list = string.split(line, '"')
-        #        if len(list) > 1:
-        #            self.video_driver.append_text("Open Source Driver: " + list[1])
-        #            self.video_driver.set_active(5)
-        #            self.tvoutstandard.set_active(0)
-        #            self.tvouttype.set_active(0)
-        #            break
-        #        else:
-        #            section = False
-        #if not section:
-        #    self.video_driver.append_text("Open Source Driver")
-        #    self.video_driver.set_active(5)
-        #    self.tvoutstandard.set_active(0)
-        #    self.tvouttype.set_active(0)
-        #vid.close()
 
     def allow_go_backward(self, allowed):
         self.back.set_sensitive(allowed and self.allowed_change_step)
