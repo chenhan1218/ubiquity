@@ -22,16 +22,12 @@ from ubiquity.filteredcommand import FilteredCommand
 
 class MythbuntuAdvancedType(FilteredCommand):
     def prepare(self):
-        questions = ['^mythbuntu/advanced_install']
+        questions = ['mythbuntu/advanced_install']
+        answer = self.db.get(questions[0])
+        if answer != '':
+            self.frontend.set_advanced(answer)
+        questions[0]='^'+questions[0]
         return (['/usr/share/ubiquity/ask-advanced'], questions)
-
-    def run(self,priority,question):
-        if question.startswith('mythbuntu/advanced_install'):
-            advanced = self.db.get(question)
-            if advanced == '':
-                advanced = self.frontend.get_advanced()
-            self.preseed_bool('mythbuntu/advanced_install', advanced)
-        return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):
         self.preseed_bool('mythbuntu/advanced_install', self.frontend.get_advanced())
@@ -39,88 +35,34 @@ class MythbuntuAdvancedType(FilteredCommand):
 
 class MythbuntuInstallType(FilteredCommand):
     def prepare(self):
-        questions = ['^mythbuntu/install_type']
+        questions = ['mythbuntu/install_type']
+        answer = self.db.get(questions[0])
+        if answer != '':
+            self.frontend.set_installtype(answer)
+        questions[0] = '^' +questions[0]
         return (['/usr/share/ubiquity/ask-type'], questions)
-
-    def run(self,priority,question):
-        if question.startswith('mythbuntu/install_type'):
-            installtype = self.db.get(question)
-            if installtype == '':
-                installtype = self.frontend.get_installtype()
-            self.preseed('mythbuntu/install_type', installtype)
-        return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):
         self.preseed('mythbuntu/install_type',self.frontend.get_installtype())
         FilteredCommand.ok_handler(self)
 
 class MythbuntuPlugins(FilteredCommand):
+    
     def prepare(self):
-        questions = ['^mythbuntu/mytharchive',
-             '^mythbuntu/mythbrowser',
-             '^mythbuntu/mythcontrols',
-             '^mythbuntu/mythflix',
-             '^mythbuntu/mythgallery',
-             '^mythbuntu/mythgame',
-             '^mythbuntu/mythmovies',
-             '^mythbuntu/mythmusic',
-             '^mythbuntu/mythnews',
-             '^mythbuntu/mythphone',
-             '^mythbuntu/mythstream',
-             '^mythbuntu/mythvideo',
-             '^mythbuntu/mythweather',
-             '^mythbuntu/mythweb']
+        plugins = self.frontend.get_plugins()
+        questions = []
+        for this_plugin in plugins:
+            answer = self.db.get('mythbuntu/' + this_plugin)
+            if answer != plugins[this_plugin].get_active():
+                plugins[this_plugin] = answer
+                self.frontend.set_plugin(this_plugin,answer)
+            questions.append('^mythbuntu/' + this_plugin)
         return (['/usr/share/ubiquity/ask-plugins'], questions)
 
-    def run(self,priority,question):
-        answer = self.db.get(question)
-        if answer == '':
-            if question.startswith('mythbuntu/mytharchive'):
-                answer = self.frontend.get_mytharchive()
-            elif question.startswith('mythbuntu/mythbrowser'):
-                answer = self.frontend.get_mythbrowser()
-            elif question.startswith('mythbuntu/mythcontrols'):
-                answer = self.frontend.get_mythcontrols()
-            elif question.startswith('mythbuntu/mythflix'):
-                answer = self.frontend.get_mythflix()
-            elif question.startswith('mythbuntu/mythgallery'):
-                answer = self.frontend.get_mythgallery()
-            elif question.startswith('mythbuntu/mythgame'):
-                answer = self.frontend.get_mythgame()
-            elif question.startswith('mythbuntu/mythmovies'):
-                answer = self.frontend.get_mythmovies()
-            elif question.startswith('mythbuntu/mythmusic'):
-                answer = self.frontend.get_mythmusic()
-            elif question.startswith('mythbuntu/mythnews'):
-                answer = self.frontend.get_mythnews()
-            elif question.startswith('mythbuntu/mythphone'):
-                answer = self.frontend.get_mythphone()
-            elif question.startswith('mythbuntu/mythphone'):
-                answer = self.frontend.get_mythstream()
-            elif question.startswith('mythbuntu/mythvideo'):
-                answer = self.frontend.get_mythvideo()
-            elif question.startswith('mythbuntu/mythweather'):
-                answer = self.frontend.get_mythweather()
-            elif question.startswith('mythbuntu/mythweb'):
-                answer = self.frontend.get_mythweb()
-        self.preseed_bool(question, answer)
-        return FilteredCommand.run(self, priority, question)
-
     def ok_handler(self):
-        self.preseed_bool('mythbuntu/mytharchive', self.frontend.get_mytharchive())
-        self.preseed_bool('mythbuntu/mythbrowser', self.frontend.get_mythbrowser())
-        self.preseed_bool('mythbuntu/mythcontrols', self.frontend.get_mythcontrols())
-        self.preseed_bool('mythbuntu/mythflix', self.frontend.get_mythflix())
-        self.preseed_bool('mythbuntu/mythgallery', self.frontend.get_mythgallery())
-        self.preseed_bool('mythbuntu/mythgame', self.frontend.get_mythgame())
-        self.preseed_bool('mythbuntu/mythmovies', self.frontend.get_mythmovies())
-        self.preseed_bool('mythbuntu/mythmusic', self.frontend.get_mythmusic())
-        self.preseed_bool('mythbuntu/mythnews', self.frontend.get_mythnews())
-        self.preseed_bool('mythbuntu/mythphone', self.frontend.get_mythphone())
-        self.preseed_bool('mythbuntu/mythstream', self.frontend.get_mythstream())
-        self.preseed_bool('mythbuntu/mythvideo', self.frontend.get_mythvideo())
-        self.preseed_bool('mythbuntu/mythweather', self.frontend.get_mythweather())
-        self.preseed_bool('mythbuntu/mythweb', self.frontend.get_mythweb())
+        plugins = self.frontend.get_plugins()
+        for this_plugin in plugins:
+            self.preseed_bool(this_plugin,plugins[this_plugin])
         FilteredCommand.ok_handler(self)
 
 class MythbuntuThemes(FilteredCommand):
