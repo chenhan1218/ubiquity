@@ -62,7 +62,7 @@
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <child>
-                      <widget class="GtkCheckButton" id="mythweb">
+                      <widget class="GtkCheckButton" id="mythweb_checkbox">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -348,7 +348,7 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkCheckButton" id="mythweather">
+                      <widget class="GtkCheckButton" id="mythweather_checkbox">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -365,7 +365,7 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkCheckButton" id="mythvideo">
+                      <widget class="GtkCheckButton" id="mythvideo_checkbox">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -382,7 +382,7 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkCheckButton" id="mythstream">
+                      <widget class="GtkCheckButton" id="mythstream_checkbox">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -399,7 +399,7 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkCheckButton" id="mythphone">
+                      <widget class="GtkCheckButton" id="mythphone_checkbox">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -416,7 +416,7 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkCheckButton" id="mythnews">
+                      <widget class="GtkCheckButton" id="mythnews_checkbox">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -433,7 +433,7 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkCheckButton" id="mythmusic">
+                      <widget class="GtkCheckButton" id="mythmusic_checkbox">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -450,7 +450,7 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkCheckButton" id="mythmovies">
+                      <widget class="GtkCheckButton" id="mythmovies_checkbox">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -467,7 +467,7 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkCheckButton" id="mythgame">
+                      <widget class="GtkCheckButton" id="mythgame_checkbox">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -484,7 +484,7 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkCheckButton" id="mythgallery">
+                      <widget class="GtkCheckButton" id="mythgallery_checkbox">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -501,7 +501,7 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkCheckButton" id="mythflix">
+                      <widget class="GtkCheckButton" id="mythflix_checkbox">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -518,7 +518,7 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkCheckButton" id="mythcontrols">
+                      <widget class="GtkCheckButton" id="mythcontrols_checkbox">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -535,7 +535,7 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkCheckButton" id="mythbrowser">
+                      <widget class="GtkCheckButton" id="mythbrowser_checkbox">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -553,7 +553,7 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkCheckButton" id="mytharchive">
+                      <widget class="GtkCheckButton" id="mytharchive_checkbox">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
