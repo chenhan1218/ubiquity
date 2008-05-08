@@ -233,10 +233,17 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                     self.progress_loop()
                 elif self.current_page is not None and not self.backup:
                     self.process_step()
-                    self.pagesindex = self.pagesindex + 1
+                    if not self.stay_on_page:
+                        self.pagesindex = self.pagesindex + 1
+                    if 'UBIQUITY_AUTOMATIC' in os.environ:
+                        # if no debconf_progress, create another one, set start to pageindex
+                        self.debconf_progress_step(1)
+                        self.refresh()
                 if self.backup:
                     if self.pagesindex > 0:
-                        self.pagesindex = self.pagesindex - 1
+                        step = self.step_name(self.steps.get_current_page())
+                        if not step == 'stepPartAdvanced':
+                            self.pagesindex = self.pagesindex - 1
 
             self.back.show()
 
@@ -491,9 +498,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.master_backend_expander.hide()
             self.mythweb_expander.show()
             self.mysql_server_expander.show()
-
-    def set_customtype(self,type):
-        """Sets the custom type (via seeding)"""
 
     def toggle_customtype (self,widget):
         """Called whenever a custom type is toggled"""
@@ -846,103 +850,23 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         elif self.fe.get_active():
                 return "Frontend"
 
-    def get_mytharchive(self):
-        """Returns the status of the mytharchive plugin"""
-        if self.mytharchive.get_active():
-            return True
-        else:
-            return False
-
-    def get_mythbrowser(self):
-        """Returns the status of the mythbrowser plugin"""
-        if self.mythbrowser.get_active():
-            return True
-        else:
-            return False
-
-    def get_mythcontrols(self):
-        """Returns the status of the mythcontrols plugin"""
-        if self.mythcontrols.get_active():
-            return True
-        else:
-            return False
-
-    def get_mythmovies(self):
-        """Returns the status of the mythmovies plugin"""
-        if self.mythmovies.get_active():
-            return True
-        else:
-            return False
-
-    def get_mythflix(self):
-        """Returns the status of the mythflix plugin"""
-        if self.mythflix.get_active():
-            return True
-        else:
-            return False
-
-    def get_mythgallery(self):
-        """Returns the status of the mythgallery plugin"""
-        if self.mythgallery.get_active():
-            return True
-        else:
-            return False
-
-    def get_mythgame(self):
-        """Returns the status of the mythgame plugin"""
-        if self.mythgame.get_active():
-            return True
-        else:
-            return False
-
-    def get_mythmusic(self):
-        """Returns the status of the mythmusic plugin"""
-        if self.mythmusic.get_active():
-            return True
-        else:
-            return False
-
-    def get_mythnews(self):
-        """Returns the status of the mythnews plugin"""
-        if self.mythnews.get_active():
-            return True
-        else:
-            return False
-
-    def get_mythphone(self):
-        """Returns the status of the mythphone plugin"""
-        if self.mythphone.get_active():
-            return True
-        else:
-            return False
-
-    def get_mythstream(self):
-        """Returns the status of the mythstream plugin"""
-        if self.mythstream.get_active():
-            return True
-        else:
-            return False
-
-    def get_mythvideo(self):
-        """Returns the status of the mythvideo plugin"""
-        if self.mythvideo.get_active():
-            return True
-        else:
-            return False
-
-    def get_mythweather(self):
-        """Returns the status of the mythweather plugin"""
-        if self.mythweather.get_active():
-            return True
-        else:
-            return False
-
-    def get_mythweb(self):
-        """Returns the status of the mythweb plugin"""
-        if self.mythweb.get_active():
-            return True
-        else:
-            return False
+    def get_plugins(self):
+        """Returns the status of all the plugins"""
+        #TODO: move this to a dictionary in -common
+        return {"mythbuntu/mytharchive", : self.mytharchive,
+                "mythbuntu/mythbrowser", : self.mythbrowser,
+                "mythbuntu/mythcontrols" : self.mythcontrols,
+                "mythbuntu/mythflix" : self.mythflix,
+                "mythbuntu/mythgallery" : self.mythgallery,
+                "mythbuntu/mythgame" : self.mythgame,
+                "mythbuntu/mythmovies" : self.mythmovies,
+                "mythbuntu/mythmusic" : self.mythmusic,
+                "mythbuntu/mythnews" : self.mythnews,
+                "mythbuntu/mythphone" : self.mythphone,
+                "mythbuntu/mythstream" : self.mythstream,
+                "mythbuntu/mythvideo" : self.mythvideo,
+                "mythbuntu/mythweather" : self.mythweather,
+                "mythbuntu/mythweb" : self.mythweb }
 
     def get_officialthemes(self):
         """Returns the status of the official themes"""
