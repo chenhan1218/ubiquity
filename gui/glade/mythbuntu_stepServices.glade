@@ -69,7 +69,7 @@
                         <property name="label" translatable="yes">VNC Service</property>
                         <property name="response_id">0</property>
                         <property name="draw_indicator">True</property>
-                        <signal name="toggled" handler="enablevnc_toggled"/>
+                        <signal name="toggled" handler="toggle_enablevnc"/>
                       </widget>
                       <packing>
                         <property name="expand">False</property>
