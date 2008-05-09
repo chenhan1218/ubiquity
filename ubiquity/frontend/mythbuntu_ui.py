@@ -384,7 +384,11 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             elif n == 'MythbuntuServices':
                 self.set_current_page(self.steps.page_num(self.mythbuntu_stepServices))
 
-#Added Methods
+####################
+#Helper Functions  #
+####################
+#Called for initialization and calculation on a page
+
     def populate_lirc(self):
             """Fills the lirc pages with the appropriate data"""
             self.remote_count = 0
@@ -480,24 +484,279 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         self.connection_results_label.show()
         self.connection_results.set_text(result)
 
-    def toggle_installtype (self,widget):
-        """Called whenever standard or full are toggled"""
-        if self.standardinstall.get_active() :
-            #Make sure that we have everything turned on in case they came back to this page
-            #and changed their mind
-            #Note: This will recursively handle changing the values on the pages
-            self.master_be_fe.set_active(True)
-            self.enablessh.set_active(True)
-            self.enablevnc.set_active(False)
-            self.enablenfs.set_active(False)
-            self.enablesamba.set_active(True)
-            self.enablemysql.set_active(False)
+#####################
+#Preseeing Functions#
+#####################
+#Used to preset the status of an element in the GUI
 
+    def set_advanced(self,enable):
+        """Preseeds whether this is an advanced install"""
+        self.custominstall.set_active(enable)
+
+    def set_installtype(self,type):
+        """Preseeds the type of custom install"""
+        if type == "Set Top Box":
+            self.stb.set_active(True)
+        elif type == "Slave Backend":
+            self.slave_be.set_active(True)
+        elif type == "Master Backend":
+            self.master_be.set_active(True)
+        elif type == "Slave Backend/Frontend":
+            self.slave_be_fe_.set_active(True)
         else:
-            self.theme_mythbuntu.set_sensitive(False)
-            self.master_backend_expander.hide()
-            self.mythweb_expander.show()
-            self.mysql_server_expander.show()
+            self.master_be_fe.set_active(True)
+
+    def set_theme(self,name,value):
+        """Preseeds the status of a theme"""
+        lists = [get_official_theme_dictionary(self),get_community_theme_dictionary(self)]
+        self._preseed_list(lists,name,value)
+
+    def set_plugin(self,name,value):
+        """Preseeds the status of a plugin"""
+        lists = [get_frontend_plugin_dictionary(self),get_backend_plugin_dictionary(self)]
+        self._preseed_list(lists,name,value)
+        
+    def set_service(self,name,value):
+        """Preseeds the status of a service"""
+        lsits = [get_services_dictionary(self)]
+        self._preseed_list(lists,name,value)
+
+    def _preseed_list(self,lists,name,value):
+        """Helper function for preseeding dictionary based lists"""
+        for list in lists:
+            for item in list:
+                if item == name:
+                    list[item].set_active(value)
+                    return
+##################
+#Status Reading  #
+##################
+#Functions for reading the status of Frontend elements
+
+    def get_advanced(self):
+        """Returns if this is an advanced install"""
+        return self.custominstall.get_active()
+
+    def get_installtype(self):
+        """Returns the current custom installation type"""
+        if self.master_be_fe.get_active():
+            return "Master Backend/Frontend"
+        elif self.slave_be_fe.get_active():
+            return "Slave Backend/Frontend"
+        elif self.master_be.get_active():
+            return "Master Backend"
+        elif self.slave_be.get_active():
+            return "Slave Backend"
+        elif self.fe.get_active():
+            return "Frontend"
+        elif self.stb.get_active():
+            return "Set Top Box"
+
+    def get_plugins(self):
+        """Returns the status of all the plugins"""
+        total_list = {}
+        for list in get_frontend_plugin_dictionary(self),get_backend_plugin_dictionary(self):
+            for item in list:
+                total_list[item]=list[item].get_active()
+        return total_list
+
+    def get_officialthemes(self):
+        """Returns the status of the official themes"""
+        return get_official_theme_dictionary(self)
+
+    def get_communitythemes(self):
+        """Returns the status of the community themes"""
+        return get_community_theme_dictionary(self)
+
+    def get_services(self):
+        """Returns the status of all installable services"""
+        return get_services_dictionary(self)
+
+    def get_video(self):
+        """Returns the status of the video graphics drivers"""
+        if (self.modifyvideodriver.get_active()):
+            driver = self.video_driver.get_active()
+            if driver == 0:
+                return "fglrx"
+            elif driver == 1:
+                return "nvidia_legacy"
+            elif driver == 2:
+                return "nvidia"
+            elif driver == 3:
+                return "nvidia_new"
+            elif driver == 4:
+                return "pvr_350"
+            else:
+                return "None"
+        else:
+            return "None"
+
+    def get_tvout(self):
+        """Returns the status of the TV Out type"""
+        if (self.modifyvideodriver.get_active()):
+            return self.tvouttype.get_active_text()
+        else:
+            return "Disable TV-Out"
+
+    def get_tvstandard(self):
+        """Returns the status of the TV Standard type"""
+        if (self.modifyvideodriver.get_active()):
+            return self.tvoutstandard.get_active_text()
+        else:
+            return "Disable TV-Out"
+
+    def get_uselivemysqlinfo(self):
+        if (self.uselivemysqlinfo.get_active()):
+            return True
+        else:
+            return False
+
+    def get_mysqluser(self):
+        return self.mysql_user.get_text()
+
+    def get_mysqlpass(self):
+        return self.mysql_password.get_text()
+
+    def get_mysqldatabase(self):
+        return self.mysql_database.get_text()
+
+    def get_mysqlserver(self):
+        return self.mysql_server.get_text()
+
+    def get_secure_mysql(self):
+        if self.usemysqlrootpassword.get_active():
+            return True
+        else:
+            return False
+
+    def get_mysql_root_password(self):
+        return self.mysql_root_password.get_text()
+
+    def get_secure_mythweb(self):
+        if self.usemythwebpassword.get_active():
+            return True
+        else:
+            return False
+
+    def get_mythweb_username(self):
+        return self.mythweb_username.get_text()
+
+    def get_mythweb_password(self):
+        return self.mythweb_password.get_text()
+
+    def get_vnc(self):
+        if self.enablevnc.get_active():
+            return True
+        else:
+            return False
+
+    def get_vnc_password(self):
+        return self.vnc_password.get_text()
+
+    def get_lirc(self,type):
+        item = {"modules":"","device":"","driver":"","lircd_conf":""}
+        if type == "remote":
+            item["remote"]=self.remote_list.get_active_text()
+            if item["remote"] == "Custom":
+                item["modules"]=self.remote_modules.get_text()
+                item["device"]=self.remote_device.get_text()
+                item["driver"]=self.remote_driver.get_text()
+                item["lircd_conf"]=self.browse_remote_lircd_conf.get_filename()
+        elif type == "transmitter":
+            item["transmitter"]=self.transmitter_list.get_active_text()
+            if item["transmitter"] == "Custom":
+                item["modules"]=self.transmitter_modules.get_text()
+                item["device"]=self.transmitter_device.get_text()
+                item["driver"]=self.transmitter_driver.get_text()
+                item["lircd_conf"]=self.browse_transmitter_lircd_conf.get_filename()
+        return item
+
+    def get_hdhomerun(self):
+        return self.hdhomerun.get_active()
+
+    def get_xmltv(self):
+        return self.xmltv.get_active()
+
+    def get_dvbutils(self):
+        return self.dvbutils.get_active()
+
+##################
+#Toggle functions#
+##################
+#Called when a widget changes and other GUI elements need to react
+
+    def toggle_meta(self,widget):
+        """Called whenever a request to enable / disable meta pages"""
+        if widget is not None:
+            list = []
+            name = widget.get_name()
+            if (name == 'officialthemes'):
+                list = get_official_theme_dictionary(self)
+            elif (name == 'communitythemes'):
+                list = get_community_theme_dictionary(self)
+            elif (name == 'frontendplugins'):
+                list = get_frontend_plugin_dictionary(self)
+            elif (name == 'backendplugins'):
+                list = get_backend_plugin_dictionary(self)
+
+            toggle = widget.get_active()
+            for item in list:
+                if list[item].flags() & gtk.SENSITIVE:
+                    list[item].set_active(toggle)
+
+    def toggle_enablevnc(self,widget):
+        """Called when the checkbox to turn on VNC is toggled"""
+        if (self.enablevnc.get_active()):
+            self.vnc_pass_hbox.set_sensitive(True)
+            self.allow_go_forward(False)
+            self.allow_go_backward(False)
+            self.vnc_error_image.show()
+        else:
+            self.vnc_pass_hbox.set_sensitive(False)
+            self.vnc_password.set_text("")
+            self.allow_go_forward(True)
+            self.allow_go_backward(True)
+            self.vnc_error_image.hide()
+
+    def toggle_tv_out (self,widget):
+        """Called when the tv-out type is toggled"""
+        if (self.tvouttype.get_active() == 0):
+            self.tvoutstandard.set_active(0)
+        elif ((self.tvouttype.get_active() == 1 or self.tvouttype.get_active() == 2) and (self.tvoutstandard.get_active() == 0 or self.tvoutstandard.get_active() >= 11 )):
+            self.tvoutstandard.set_active(10)
+        elif self.tvouttype.get_active() == 3:
+            self.tvoutstandard.set_active(11)
+
+    def toggle_tv_standard(self,widget):
+        """Called when the tv standard is toggled"""
+        if (self.tvoutstandard.get_active() >= 11):
+            self.tvouttype.set_active(3)
+        elif (self.tvoutstandard.get_active() < 11 and self.tvoutstandard.get_active() > 0 and self.tvouttype.get_active() == 0):
+            self.tvouttype.set_active(1)
+        elif (self.tvoutstandard.get_active() < 11 and self.tvouttype.get_active() ==3):
+            self.tvouttype.set_active(1)
+        elif (self.tvoutstandard.get_active() == 0):
+            self.tvouttype.set_active(0)
+
+    def video_changed (self,widget):
+        """Called whenever the modify video driver option is toggled or its kids"""
+        if (widget is not None and widget.get_name() == 'modifyvideodriver'):
+            if (widget.get_active()):
+                self.videodrivers_hbox.set_sensitive(True)
+            else:
+                self.tvout_vbox.set_sensitive(False)
+                self.videodrivers_hbox.set_sensitive(False)
+                self.video_driver.set_active(5)
+                self.tvoutstandard.set_active(0)
+                self.tvouttype.set_active(0)
+        elif (widget is not None and widget.get_name() == 'video_driver'):
+            type = widget.get_active()
+            if (type == 0 or type == 1 or type == 2 or type == 3 or type == 4):
+                self.tvout_vbox.set_sensitive(True)
+            else:
+                self.tvout_vbox.set_sensitive(False)
+                self.tvoutstandard.set_active(0)
+                self.tvouttype.set_active(0)
 
     def toggle_customtype (self,widget):
         """Called whenever a custom type is toggled"""
@@ -547,24 +806,14 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
         def set_all_fe_plugins(self,enable):
             """ Enables all frontend plugins for defaults"""
-            self.mytharchive.set_active(enable)
-            self.mythbrowser.set_active(enable)
-            self.mythcontrols.set_active(enable)
-            self.mythflix.set_active(enable)
-            self.mythgallery.set_active(enable)
-            self.mythgame.set_active(enable)
-            self.mythmovies.set_active(enable)
-            self.mythmusic.set_active(enable)
-            self.mythnews.set_active(enable)
-            self.mythphone.set_active(enable)
-            self.mythstream.set_active(enable)
-            self.mythvideo.set_active(enable)
-            self.mythweather.set_active(enable)
-
+            for item in get_frontend_plugin_dictionary(self):
+                item.set_active(enable)
+                
         def set_all_be_plugins(self,enable):
             """ Enables all backend plugins for defaults"""
-            self.mythweb.set_active(enable)
-
+            for item in get_backend_plugin_dictionary(self):
+                item.set_active(enable)
+                
         if self.master_be_fe.get_active():
             set_all_themes(self,True)
             set_all_fe_plugins(self,True)
@@ -707,20 +956,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         else:
             self.mythweb_expander.hide()
 
-    def enablevnc_toggled(self,widget):
-        """Called when the checkbox to turn on VNC is toggled"""
-        if (self.enablevnc.get_active()):
-            self.vnc_pass_hbox.set_sensitive(True)
-            self.allow_go_forward(False)
-            self.allow_go_backward(False)
-            self.vnc_error_image.show()
-        else:
-            self.vnc_pass_hbox.set_sensitive(False)
-            self.vnc_password.set_text("")
-            self.allow_go_forward(True)
-            self.allow_go_backward(True)
-            self.vnc_error_image.hide()
-
     def uselivemysqlinfo_toggled(self,widget):
         """Called when the checkbox to copy live mysql information is pressed"""
         if (self.uselivemysqlinfo.get_active()):
@@ -793,231 +1028,21 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 self.allow_go_forward(True)
                 self.allow_go_backward(True)
 
-    def video_changed (self,widget):
-        """Called whenever the modify video driver option is toggled or its kids"""
-        if (widget is not None and widget.get_name() == 'modifyvideodriver'):
-            if (widget.get_active()):
-                self.videodrivers_hbox.set_sensitive(True)
-            else:
-                self.tvout_vbox.set_sensitive(False)
-                self.videodrivers_hbox.set_sensitive(False)
-                self.video_driver.set_active(5)
-                self.tvoutstandard.set_active(0)
-                self.tvouttype.set_active(0)
-        elif (widget is not None and widget.get_name() == 'video_driver'):
-            type = widget.get_active()
-            if (type == 0 or type == 1 or type == 2 or type == 3 or type == 4):
-                self.tvout_vbox.set_sensitive(True)
-            else:
-                self.tvout_vbox.set_sensitive(False)
-                self.tvoutstandard.set_active(0)
-                self.tvouttype.set_active(0)
+    def toggle_installtype (self,widget):
+        """Called whenever standard or full are toggled"""
+        if self.standardinstall.get_active() :
+            #Make sure that we have everything turned on in case they came back to this page
+            #and changed their mind
+            #Note: This will recursively handle changing the values on the pages
+            self.master_be_fe.set_active(True)
+            self.enablessh.set_active(True)
+            self.enablevnc.set_active(False)
+            self.enablenfs.set_active(False)
+            self.enablesamba.set_active(True)
+            self.enablemysql.set_active(False)
 
-    def toggle_tv_out (self,widget):
-        """Called when the tv-out type is toggled"""
-        if (self.tvouttype.get_active() == 0):
-            self.tvoutstandard.set_active(0)
-        elif ((self.tvouttype.get_active() == 1 or self.tvouttype.get_active() == 2) and (self.tvoutstandard.get_active() == 0 or self.tvoutstandard.get_active() >= 11 )):
-            self.tvoutstandard.set_active(10)
-        elif self.tvouttype.get_active() == 3:
-            self.tvoutstandard.set_active(11)
-
-    def toggle_tv_standard(self,widget):
-        """Called when the tv standard is toggled"""
-        if (self.tvoutstandard.get_active() >= 11):
-            self.tvouttype.set_active(3)
-        elif (self.tvoutstandard.get_active() < 11 and self.tvoutstandard.get_active() > 0 and self.tvouttype.get_active() == 0):
-            self.tvouttype.set_active(1)
-        elif (self.tvoutstandard.get_active() < 11 and self.tvouttype.get_active() ==3):
-            self.tvouttype.set_active(1)
-        elif (self.tvoutstandard.get_active() == 0):
-            self.tvouttype.set_active(0)
-
-    def get_advanced(self):
-        """Returns if this is an advanced install"""
-        return self.custominstall.get_active()
-
-    def get_installtype(self):
-        """Returns the current custom installation type"""
-        if self.master_be_fe.get_active():
-                return "Master Backend/Frontend"
-        elif self.slave_be_fe.get_active():
-                return "Slave Backend/Frontend"
-        elif self.master_be.get_active():
-                return "Master Backend"
-        elif self.slave_be.get_active():
-                return "Slave Backend"
-        elif self.fe.get_active():
-                return "Frontend"
-
-    def get_plugins(self):
-        """Returns the status of all the plugins"""
-        #TODO: move this to a dictionary in -common
-        return {"mythbuntu/mytharchive", : self.mytharchive,
-                "mythbuntu/mythbrowser", : self.mythbrowser,
-                "mythbuntu/mythcontrols" : self.mythcontrols,
-                "mythbuntu/mythflix" : self.mythflix,
-                "mythbuntu/mythgallery" : self.mythgallery,
-                "mythbuntu/mythgame" : self.mythgame,
-                "mythbuntu/mythmovies" : self.mythmovies,
-                "mythbuntu/mythmusic" : self.mythmusic,
-                "mythbuntu/mythnews" : self.mythnews,
-                "mythbuntu/mythphone" : self.mythphone,
-                "mythbuntu/mythstream" : self.mythstream,
-                "mythbuntu/mythvideo" : self.mythvideo,
-                "mythbuntu/mythweather" : self.mythweather,
-                "mythbuntu/mythweb" : self.mythweb }
-
-    def get_officialthemes(self):
-        """Returns the status of the official themes"""
-        return get_official_theme_dictionary(self)
-
-    def get_communitythemes(self):
-        """Returns the status of the community themes"""
-        return get_community_theme_dictionary(self)
-    def get_video(self):
-        """Returns the status of the video graphics drivers"""
-        if (self.modifyvideodriver.get_active()):
-            driver = self.video_driver.get_active()
-            if driver == 0:
-                return "fglrx"
-            elif driver == 1:
-                return "nvidia_legacy"
-            elif driver == 2:
-                return "nvidia"
-            elif driver == 3:
-                return "nvidia_new"
-            elif driver == 4:
-                return "pvr_350"
-            else:
-                return "None"
         else:
-            return "None"
-
-    def get_tvout(self):
-        """Returns the status of the TV Out type"""
-        if (self.modifyvideodriver.get_active()):
-            return self.tvouttype.get_active_text()
-        else:
-            return "Disable TV-Out"
-
-    def get_tvstandard(self):
-        """Returns the status of the TV Standard type"""
-        if (self.modifyvideodriver.get_active()):
-            return self.tvoutstandard.get_active_text()
-        else:
-            return "Disable TV-Out"
-
-    def get_uselivemysqlinfo(self):
-        if (self.uselivemysqlinfo.get_active()):
-            return True
-        else:
-            return False
-
-    def get_mysqluser(self):
-        return self.mysql_user.get_text()
-
-    def get_mysqlpass(self):
-        return self.mysql_password.get_text()
-
-    def get_mysqldatabase(self):
-        return self.mysql_database.get_text()
-
-    def get_mysqlserver(self):
-        return self.mysql_server.get_text()
-
-    def get_secure_mysql(self):
-        if self.usemysqlrootpassword.get_active():
-            return True
-        else:
-            return False
-
-    def get_mysql_root_password(self):
-        return self.mysql_root_password.get_text()
-
-    def get_secure_mythweb(self):
-        if self.usemythwebpassword.get_active():
-            return True
-        else:
-            return False
-
-    def get_mythweb_username(self):
-        return self.mythweb_username.get_text()
-
-    def get_mythweb_password(self):
-        return self.mythweb_password.get_text()
-
-    def get_vnc(self):
-        if self.enablevnc.get_active():
-            return True
-        else:
-            return False
-
-    def get_vnc_password(self):
-        return self.vnc_password.get_text()
-
-    def get_ssh(self):
-        if self.enablessh.get_active():
-            return True
-        else:
-            return False
-
-    def get_samba(self):
-        if self.enablesamba.get_active():
-            return True
-        else:
-            return False
-
-    def get_nfs(self):
-        if self.enablenfs.get_active():
-            return True
-        else:
-            return False
-
-    def get_mysql_port(self):
-        if self.enablemysql.get_active():
-            return True
-        else:
-            return False
-
-    def get_lirc(self,type):
-        item = {"modules":"","device":"","driver":"","lircd_conf":""}
-        if type == "remote":
-            item["remote"]=self.remote_list.get_active_text()
-            if item["remote"] == "Custom":
-                item["modules"]=self.remote_modules.get_text()
-                item["device"]=self.remote_device.get_text()
-                item["driver"]=self.remote_driver.get_text()
-                item["lircd_conf"]=self.browse_remote_lircd_conf.get_filename()
-        elif type == "transmitter":
-            item["transmitter"]=self.transmitter_list.get_active_text()
-            if item["transmitter"] == "Custom":
-                item["modules"]=self.transmitter_modules.get_text()
-                item["device"]=self.transmitter_device.get_text()
-                item["driver"]=self.transmitter_driver.get_text()
-                item["lircd_conf"]=self.browse_transmitter_lircd_conf.get_filename()
-        return item
-
-    def get_hdhomerun(self):
-        return self.hdhomerun.get_active()
-
-    def get_xmltv(self):
-        return self.xmltv.get_active()
-
-    def get_dvbutils(self):
-        return self.dvbutils.get_active()
-
-    def toggle_meta(self,widget):
-        """Called whenever a request to enable / disable all plugins"""
-        if widget is not None:
-            list = []
-            name = widget.get_name()
-            if (name == 'officialthemes'):
-                list = get_official_theme_dictionary(self)
-            elif (name == 'communitythemes'):
-                list = get_community_theme_dictionary(self)
-
-            toggle = widget.get_active()
-            for item in list:
-                if list[item].flags() & gtk.SENSITIVE:
-                    list[item].set_active(toggle)
+            self.theme_mythbuntu.set_sensitive(False)
+            self.master_backend_expander.hide()
+            self.mythweb_expander.show()
+            self.mysql_server_expander.show()

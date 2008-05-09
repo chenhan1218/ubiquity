@@ -53,7 +53,7 @@ class MythbuntuPlugins(FilteredCommand):
         questions = []
         for this_plugin in plugins:
             answer = self.db.get('mythbuntu/' + this_plugin)
-            if answer != plugins[this_plugin].get_active():
+            if answer != plugins[this_plugin]:
                 plugins[this_plugin] = answer
                 self.frontend.set_plugin(this_plugin,answer)
             questions.append('^mythbuntu/' + this_plugin)
