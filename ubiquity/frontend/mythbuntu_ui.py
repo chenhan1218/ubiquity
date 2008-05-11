@@ -491,6 +491,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def set_advanced(self,enable):
         """Preseeds whether this is an advanced install"""
+        enable = self._create_bool(enable)
         self.custominstall.set_active(enable)
 
     def set_installtype(self,type):
@@ -515,7 +516,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         """Preseeds the status of a plugin"""
         lists = [get_frontend_plugin_dictionary(self),get_backend_plugin_dictionary(self)]
         self._preseed_list(lists,name,value)
-        
+
     def set_service(self,name,value):
         """Preseeds the status of a service"""
         lsits = [get_services_dictionary(self)]
@@ -523,11 +524,21 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def _preseed_list(self,lists,name,value):
         """Helper function for preseeding dictionary based lists"""
+        value = self._create_bool(value)
         for list in lists:
             for item in list:
                 if item == name:
                     list[item].set_active(value)
                     return
+
+    def _create_bool(self,value):
+        """Helper function for making objects into boolean"""
+        if value == 'true' or value == 'True':
+            return True
+        else:
+            return False
+
+
 ##################
 #Status Reading  #
 ##################
@@ -808,12 +819,12 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             """ Enables all frontend plugins for defaults"""
             for item in get_frontend_plugin_dictionary(self):
                 item.set_active(enable)
-                
+
         def set_all_be_plugins(self,enable):
             """ Enables all backend plugins for defaults"""
             for item in get_backend_plugin_dictionary(self):
                 item.set_active(enable)
-                
+
         if self.master_be_fe.get_active():
             set_all_themes(self,True)
             set_all_fe_plugins(self,True)
