@@ -97,7 +97,8 @@ def debconf_escape(text):
 def create_bool(text):
     if text == 'true':
         return True
-    else:
+    elif text == 'false':
         return False
+    return None
 
 # vim:ai:et:sts=4:tw=80:sw=4:
