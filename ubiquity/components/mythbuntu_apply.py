@@ -101,13 +101,13 @@ class MythbuntuApply(FilteredCommand):
             for theme in string.split(community," "):
                 if theme != "":
                     patternline += "|^" + theme
-        samba = self.db.get('mythbuntu/sambaservice')
+        samba = self.db.get('mythbuntu/samba')
         if samba == "false":
             patternline += "|^samba|^samba-common|^smbfs"
-        vnc = self.db.get('mythbuntu/vncservice')
+        vnc = self.db.get('mythbuntu/x11vnc')
         if vnc == "false":
             patternline += "|^vnc4-common|^x11vnc"
-        ssh = self.db.get('mythbuntu/sshservice')
+        ssh = self.db.get('mythbuntu/openssh-server')
         if ssh == "false":
             patternline += "|^openssh-server"
         hdhomerun = self.db.get('mythbuntu/hdhomerun')
