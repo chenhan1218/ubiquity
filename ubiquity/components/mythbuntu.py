@@ -22,19 +22,28 @@ from ubiquity.misc import create_bool
 from ubiquity.filteredcommand import FilteredCommand
 
 class MythbuntuAdvancedType(FilteredCommand):
+
+    def __init__(self,frontend,db=None):
+        self.questions = ['advanced_install']
+        FilteredCommand.__init__(self,frontend,db)
+
     def prepare(self):
-        questions = ['mythbuntu/advanced_install']
-        answer = self.db.get(questions[0])
+        answer = self.db.get('mythbuntu/' + self.questions[0])
         if answer != '':
             self.frontend.set_advanced(answer)
-        questions[0]='^'+questions[0]
-        return (['/usr/share/ubiquity/ask-advanced'], questions)
+        self.questions[0]='^'+self.questions[0]
+        return (['/usr/share/ubiquity/ask-advanced'], self.questions)
 
     def ok_handler(self):
-        self.preseed_bool('mythbuntu/advanced_install', self.frontend.get_advanced())
+        self.preseed_bool(self.questions[0], self.frontend.get_advanced())
         FilteredCommand.ok_handler(self)
 
 class MythbuntuInstallType(FilteredCommand):
+
+    def __init__(self,frontend,db=None):
+        self.questions = ['install_type']
+        FilteredCommand.__init__(self,frontend,db)
+
     def prepare(self):
         questions = ['mythbuntu/install_type']
         answer = self.db.get(questions[0])
@@ -79,7 +88,7 @@ class MythbuntuThemes(FilteredCommand):
             answers = self.db.get('mythbuntu/' + type)
             if answers != '':
                 self.frontend.set_themes(answers)
-            questions.append('^mythbuntu' + type)
+            questions.append('^mythbuntu/' + type)
         return (['/usr/share/ubiquity/ask-themes'], questions)
 
     def ok_handler(self):
@@ -227,67 +236,34 @@ def ok_handler(self):
 class MythbuntuRemote(FilteredCommand):
 
     def __init__(self,frontend,db=None):
-        self.remote = ['remote', 'remote_lircd_conf','remote_modules','remote_driver','remote_device']
-        self.transmitter = ['transmitter', 'transmitter_lircd_conf','transmitter_modules','transmitter_driver','transmitter_device']
+        self.top = ['remote', 'transmitter']
+        self.subitems = ['','lircd_conf','modules','driver','device']
         FilteredCommand.__init__(self,frontend,db)
 
-
     def prepare(self):
-        questions = ['^lirc/remote',
-             '^lirc/remote_lircd_conf',
-             '^lirc/remote_modules',
-             '^lirc/remote_driver',
-             '^lirc/remote_device',
-             '^lirc/transmitter',
-             '^lirc/transmitter_lircd_conf',
-             '^lirc/transmitter_modules',
-             '^lirc/transmitter_driver',
-             '^lirc/transmitter_device']
+        questions = []
+        for question in self.top:
+            for subquestion in self.subitems:
+                if subquestion != '':
+                    real_question = question + '_' + subquestion
+                else:
+                    real_question = question
+                answer = self.db.get('lirc/' + real_question)
+                if answer != '':
+                    self.frontend.set_lirc(real_question,answer)
+                questions.append('^lirc/' + real_question)
         return (['/usr/share/ubiquity/ask-ir'], questions)
 
-    def run(self,priority,question):
-        answer = self.db.get(question)
-        if answer == '':
-            if question.startswith('lirc/remote'):
-                device=self.frontend.get_lirc("remote")
-                if question.startswith('lirc/remote_modules'):
-                    answer = device["modules"]
-                elif question.startswith('lirc/remote_lircd_conf'):
-                    answer = device["lircd_conf"]
-                elif question.startswith('lirc/remote_driver'):
-                    answer = device["driver"]
-                elif question.startswith('lirc/remote_device'):
-                    answer = device["device"]
-                elif question.startswith('lirc/remote'):
-                    answer = device["remote"]
-            elif question.startswith('lirc/transmitter'):
-                device=self.frontend.get_lirc("transmitter")
-                if question.startswith('lirc/transmitter_modules'):
-                    answer = device["modules"]
-                elif question.startswith('lirc/transmitter_lircd_conf'):
-                    answer = device["lircd_conf"]
-                elif question.startswith('lirc/transmitter_driver'):
-                    answer = device["driver"]
-                elif question.startswith('lirc/transmitter_device'):
-                    answer = device["device"]
-                elif question.startswith('lirc/transmitter'):
-                    answer = device["transmitter"]
-        self.preseed(question,answer)
-        return FilteredCommand.run(self, priority, question)
-
     def ok_handler(self):
-        device = self.frontend.get_lirc("remote")
-        self.preseed('lirc/remote_modules',device["modules"])
-        self.preseed('lirc/remote_lircd_conf',device["lircd_conf"])
-        self.preseed('lirc/remote_driver',device["driver"])
-        self.preseed('lirc/remote_device',device["device"])
-        self.preseed('lirc/remote',device["remote"])
-        device = self.frontend.get_lirc("transmitter")
-        self.preseed('lirc/transmitter_modules',device["modules"])
-        self.preseed('lirc/transmitter_lircd_conf',device["lircd_conf"])
-        self.preseed('lirc/transmitter_driver',device["driver"])
-        self.preseed('lirc/transmitter_device',device["device"])
-        self.preseed('lirc/transmitter',device["transmitter"])
+        for question in self.top:
+            device = self.frontend.get_lirc(question)
+            for subquestion in self.subitems:
+                if subquestion != '':
+                    real_question = question + '_' + subquestion
+                else:
+                    real_question = question
+                    subquestion = question
+                self.preseed('lirc/' + real_question,device[subquestion])
         FilteredCommand.ok_handler(self)
 
 class MythbuntuDrivers(FilteredCommand):

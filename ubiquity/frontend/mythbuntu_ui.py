@@ -485,7 +485,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         self.connection_results.set_text(result)
 
 #####################
-#Preseeing Functions#
+#Preseeding Functions#
 #####################
 #Used to preset the status of an element in the GUI
 
@@ -521,6 +521,43 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         """Preseeds the status of a service"""
         lsits = [get_services_dictionary(self)]
         self._preseed_list(lists,name,value)
+
+    def set_lirc(self,question,answer):
+        """Preseeds a lirc configuration item"""
+        if question == "remote_modules":
+            self.remote_modules.set_text(answer)
+        elif question == "remote_device":
+            self.remote_device.set_text(answer)
+        elif question == "remote_driver":
+            self.remote_driver.set_text(answer)
+        elif question == "remote_lircd_conf":
+            print "TODO"
+        elif question == "remote":
+            for i in range(0,self.remote_count):
+                self.remote_list.set_active(i)
+                found=False
+                if self.remote_list.get_active_text() == answer:
+                    found = True
+                    break
+                if not found:
+                    self.remote_list.set_active(0)
+        if question == "transmitter_modules":
+            self.transmitter_modules.set_text(answer)
+        elif question == "transmitter_device":
+            self.transmitter_modules.set_text(answer)
+        elif question == "transmitter_driver":
+            self.transmitter_driver.set_text(answer)
+        elif question == "transmitter_lircd_conf":
+            print "TODO"
+        elif question == "transmitter":
+            for i in range(0,self.transmitter_count):
+                self.transmitter_list.set_active(i)
+                found=False
+                if self.transmitter_list.get_active_text() == answer:
+                    found = True
+                    break
+                if not found:
+                    self.transmitter_list.set_active(0)
 
     def _preseed_list(self,lists,names,value):
         """Helper function for preseeding dictionary based lists"""
