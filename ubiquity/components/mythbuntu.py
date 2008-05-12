@@ -18,6 +18,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from ubiquity.misc import create_bool
 from ubiquity.filteredcommand import FilteredCommand
 
 class MythbuntuAdvancedType(FilteredCommand):
@@ -47,14 +48,13 @@ class MythbuntuInstallType(FilteredCommand):
         FilteredCommand.ok_handler(self)
 
 class MythbuntuPlugins(FilteredCommand):
-    
+
     def prepare(self):
         plugins = self.frontend.get_plugins()
         questions = []
         for this_plugin in plugins:
-            answer = self.db.get('mythbuntu/' + this_plugin)
+            answer = create_bool(self.db.get('mythbuntu/' + this_plugin))
             if answer != plugins[this_plugin]:
-                plugins[this_plugin] = answer
                 self.frontend.set_plugin(this_plugin,answer)
             questions.append('^mythbuntu/' + this_plugin)
         return (['/usr/share/ubiquity/ask-plugins'], questions)
@@ -68,40 +68,28 @@ class MythbuntuPlugins(FilteredCommand):
 class MythbuntuThemes(FilteredCommand):
 #since all themes are pre-installed, we are seeding the ones
 #that will be *removed*
+
+    def __init__(self,frontend,db=None):
+        self.themes = ['officialthemes', 'communitythemes']
+        FilteredCommand.__init__(self,frontend,db)
+
     def prepare(self):
-        questions = ['^mythbuntu/officialthemes',
-             '^mythbuntu/communitythemes']
+        questions = []
+        for type in self.themes:
+            answers = self.db.get('mythbuntu/' + type)
+            if answers != '':
+                self.frontend.set_themes(answers)
+            questions.append('^mythbuntu' + type)
         return (['/usr/share/ubiquity/ask-themes'], questions)
 
-    def run(self,priority,question):
-        answer = self.db.get(question)
-        if answer == '':
-            if question.startswith('mythbuntu/officialthemes'):
-                official = self.frontend.get_officialthemes()
-                for theme in official:
-                    if not official[theme].get_active():
-                        answer+=theme + " "
-            elif question.startswith('mythbuntu/communitythemes'):
-                community = self.frontend.get_communitythemes()
-                for theme in community:
-                    if not community[theme].get_active():
-                        answer+=theme + " "
-        self.preseed(question, answer)
-        return FilteredCommand.run(self, priority, question)
-
     def ok_handler(self):
-        official = self.frontend.get_officialthemes()
-        official_string=""
-        for theme in official:
-            if not official[theme].get_active():
-                official_string+=theme + " "
-        self.preseed('mythbuntu/officialthemes', official_string)
-        community = self.frontend.get_communitythemes()
-        community_string=""
-        for theme in community:
-            if not community[theme].get_active():
-                community_string+=theme + " "
-        self.preseed('mythbuntu/communitythemes', community_string)
+        for type in self.themes:
+            theme_string=""
+            dictionary = self.frontend.get_themes(type)
+            for theme in dictionary:
+                if not dictionary[theme]:
+                    theme_string+=theme + " "
+            self.preseed('mythbuntu/' + type, theme_string)
         FilteredCommand.ok_handler(self)
 
 class MythbuntuServices(FilteredCommand):
@@ -237,6 +225,13 @@ def ok_handler(self):
         FilteredCommand.ok_handler(self)
 
 class MythbuntuRemote(FilteredCommand):
+
+    def __init__(self,frontend,db=None):
+        self.remote = ['remote', 'remote_lircd_conf','remote_modules','remote_driver','remote_device']
+        self.transmitter = ['transmitter', 'transmitter_lircd_conf','transmitter_modules','transmitter_driver','transmitter_device']
+        FilteredCommand.__init__(self,frontend,db)
+
+
     def prepare(self):
         questions = ['^lirc/remote',
              '^lirc/remote_lircd_conf',
@@ -331,4 +326,6 @@ class MythbuntuDrivers(FilteredCommand):
         self.preseed('mythbuntu/tvout', self.frontend.get_tvout())
         self.preseed('mythbuntu/tvstandard', self.frontend.get_tvstandard())
         self.preseed_bool('mythbuntu/hdhomerun',self.frontend.get_hdhomerun())
+        self.preseed_bool('mythbuntu/xmltv',self.frontend.get_xmltv())
+        self.preseed_bool('mythbuntu/dvbutils',self.frontend.get_dvbutils())
         FilteredCommand.ok_handler(self)

@@ -491,7 +491,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def set_advanced(self,enable):
         """Preseeds whether this is an advanced install"""
-        enable = self._create_bool(enable)
+        enable = create_bool(enable)
         self.custominstall.set_active(enable)
 
     def set_installtype(self,type):
@@ -507,10 +507,10 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         else:
             self.master_be_fe.set_active(True)
 
-    def set_theme(self,name,value):
-        """Preseeds the status of a theme"""
+    def set_themes(self,names):
+        """Preseeds the themes that will be removed"""
         lists = [get_official_theme_dictionary(self),get_community_theme_dictionary(self)]
-        self._preseed_list(lists,name,value)
+        self._preseed_list(lists,names,False)
 
     def set_plugin(self,name,value):
         """Preseeds the status of a plugin"""
@@ -522,22 +522,14 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         lsits = [get_services_dictionary(self)]
         self._preseed_list(lists,name,value)
 
-    def _preseed_list(self,lists,name,value):
+    def _preseed_list(self,lists,names,value):
         """Helper function for preseeding dictionary based lists"""
-        value = self._create_bool(value)
+        value = create_bool(value)
         for list in lists:
             for item in list:
-                if item == name:
-                    list[item].set_active(value)
-                    return
-
-    def _create_bool(self,value):
-        """Helper function for making objects into boolean"""
-        if value == 'true' or value == 'True':
-            return True
-        else:
-            return False
-
+                for name in string.split(names):
+                    if item == name:
+                        list[item].set_active(value)
 
 ##################
 #Status Reading  #
@@ -563,25 +555,28 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         elif self.stb.get_active():
             return "Set Top Box"
 
-    def get_plugins(self):
-        """Returns the status of all the plugins"""
-        total_list = {}
-        for list in get_frontend_plugin_dictionary(self),get_backend_plugin_dictionary(self):
+    def _build_static_list(self,lists):
+        """Creates a flat list"""
+        total_list= {}
+        for list in lists:
             for item in list:
                 total_list[item]=list[item].get_active()
         return total_list
 
-    def get_officialthemes(self):
-        """Returns the status of the official themes"""
-        return get_official_theme_dictionary(self)
+    def get_plugins(self):
+        """Returns the status of all the plugins"""
+        return self._build_static_list([get_frontend_plugin_dictionary(self),get_backend_plugin_dictionary(self)])
 
-    def get_communitythemes(self):
-        """Returns the status of the community themes"""
-        return get_community_theme_dictionary(self)
+    def get_themes(self,type):
+        """Returns the status of the official themes"""
+        if type == 'officialthemes':
+            return self._build_static_list(get_official_theme_dictionary(self))
+        else:
+            return self._build_static_list(get_community_theme_dictionary(self))
 
     def get_services(self):
         """Returns the status of all installable services"""
-        return get_services_dictionary(self)
+        return self._build_static_list(get_services_dictionary(self))
 
     def get_video(self):
         """Returns the status of the video graphics drivers"""
@@ -1053,7 +1048,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.enablemysql.set_active(False)
 
         else:
-            self.theme_mythbuntu.set_sensitive(False)
             self.master_backend_expander.hide()
             self.mythweb_expander.show()
             self.mysql_server_expander.show()
