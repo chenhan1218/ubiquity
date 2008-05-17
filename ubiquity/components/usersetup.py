@@ -21,6 +21,13 @@ from ubiquity.filteredcommand import FilteredCommand
 
 class UserSetup(FilteredCommand):
     def prepare(self):
+        if self.frontend.get_hostname() == '':
+            hostname = self.db.get('netcfg/get_hostname')
+            domain = self.db.get('netcfg/get_domain')
+            if hostname and domain:
+                hostname = '%s.%s' % (hostname, domain)
+            if hostname != '':
+                self.frontend.set_hostname(hostname)
         if self.frontend.get_fullname() == '':
             fullname = self.db.get('passwd/user-fullname')
             if fullname != '':
@@ -56,6 +63,15 @@ class UserSetup(FilteredCommand):
             self.preseed('passwd/user-uid', '29999')
         else:
             self.preseed('passwd/user-uid', '')
+        
+        hostname = self.frontend.get_hostname()
+        if hostname is not None and hostname != '':
+            hd = hostname.split('.', 1)
+            self.preseed('netcfg/get_hostname', hd[0])
+            if len(hd) > 1:
+                self.preseed('netcfg/get_domain', hd[1])
+            else:
+                self.preseed('netcfg/get_domain', '')
 
         FilteredCommand.ok_handler(self)
 

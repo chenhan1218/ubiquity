@@ -25,15 +25,6 @@ from ubiquity.filteredcommand import FilteredCommand
 
 class Install(FilteredCommand):
     def prepare(self):
-        hostname = self.frontend.get_hostname()
-        if hostname is not None and hostname != '':
-            hd = hostname.split('.', 1)
-            self.preseed('netcfg/get_hostname', hd[0])
-            if len(hd) > 1:
-                self.preseed('netcfg/get_domain', hd[1])
-            else:
-                self.preseed('netcfg/get_domain', '')
-
         automatic_mode = 'UBIQUITY_AUTOMATIC' in os.environ
 
         if os.access('/usr/share/grub-installer/grub-installer', os.X_OK):

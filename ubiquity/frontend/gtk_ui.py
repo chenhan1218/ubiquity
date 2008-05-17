@@ -2169,6 +2169,8 @@ class Wizard(BaseFrontend):
     def get_hostname (self):
         return self.hostname.get_text()
 
+    def set_hostname(self, value):
+        self.hostname.set_text(value)
 
     def set_summary_text (self, text):
         for child in self.ready_text.get_children():
