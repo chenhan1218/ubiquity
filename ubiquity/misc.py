@@ -99,6 +99,7 @@ def create_bool(text):
         return True
     elif text == 'false':
         return False
-    return None
+    else:
+        return text
 
 # vim:ai:et:sts=4:tw=80:sw=4:
