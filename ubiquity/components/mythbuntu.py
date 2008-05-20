@@ -22,41 +22,47 @@ from ubiquity.misc import create_bool
 from ubiquity.filteredcommand import FilteredCommand
 
 class MythbuntuAdvancedType(FilteredCommand):
+#enable advanced preseeding
 
     def __init__(self,frontend,db=None):
         self.questions = ['advanced_install']
         FilteredCommand.__init__(self,frontend,db)
 
     def prepare(self):
-        answer = self.db.get('mythbuntu/' + self.questions[0])
-        if answer != '':
-            self.frontend.set_advanced(answer)
-        self.questions[0]='^'+self.questions[0]
-        return (['/usr/share/ubiquity/ask-advanced'], self.questions)
+        questions = []
+        for question in self.questions:
+            answer = self.db.get('mythbuntu/' + question)
+            if answer != '':
+                self.frontend.set_advanced(answer)
+            questions.append('^mythbuntu/' + question)
+        return (['/usr/share/ubiquity/ask-advanced'], questions)
 
     def ok_handler(self):
-        self.preseed_bool(self.questions[0], self.frontend.get_advanced())
+        self.preseed_bool('mythbuntu/' + self.questions[0], self.frontend.get_advanced())
         FilteredCommand.ok_handler(self)
 
 class MythbuntuInstallType(FilteredCommand):
+#we are seeding one of the possible install types
 
     def __init__(self,frontend,db=None):
         self.questions = ['install_type']
         FilteredCommand.__init__(self,frontend,db)
 
     def prepare(self):
-        questions = ['mythbuntu/install_type']
-        answer = self.db.get(questions[0])
-        if answer != '':
-            self.frontend.set_installtype(answer)
-        questions[0] = '^' +questions[0]
+        questions = []
+        for question in questions:
+            answer = self.db.get(questions[0])
+            if answer != '':
+                self.frontend.set_installtype(answer)
+            questions.append('^mythbuntu/' + question)
         return (['/usr/share/ubiquity/ask-type'], questions)
 
     def ok_handler(self):
-        self.preseed('mythbuntu/install_type',self.frontend.get_installtype())
+        self.preseed('mythbuntu/' + self.questions[0],self.frontend.get_installtype())
         FilteredCommand.ok_handler(self)
 
 class MythbuntuPlugins(FilteredCommand):
+#we are seeding the status of each of these plugins, true/false
 
     def prepare(self):
         plugins = self.frontend.get_plugins()
@@ -71,7 +77,7 @@ class MythbuntuPlugins(FilteredCommand):
     def ok_handler(self):
         plugins = self.frontend.get_plugins()
         for this_plugin in plugins:
-            self.preseed_bool(this_plugin,plugins[this_plugin])
+            self.preseed_bool('mythbuntu/' + this_plugin,plugins[this_plugin])
         FilteredCommand.ok_handler(self)
 
 class MythbuntuThemes(FilteredCommand):
@@ -102,52 +108,26 @@ class MythbuntuThemes(FilteredCommand):
         FilteredCommand.ok_handler(self)
 
 class MythbuntuServices(FilteredCommand):
+#we are seeding the status of each service
+
     def prepare(self):
-        questions = [
-             '^mythbuntu/vncservice',
-             '^mythbuntu/vnc_password',
-             '^mythbuntu/sshservice',
-             '^mythbuntu/sambaservice',
-             '^mythbuntu/nfsservice',
-             '^mythbuntu/mysqlservice']
+        services = self.frontend.get_services()
+        questions = []
+        for this_service in services:
+            answer = self.db.get('mythbuntu/' + this_service)
+            if answer != '':
+                self.frontend.set_service(this_service,answer)
+        questions.append('^mythbuntu/' + this_service)
         return (['/usr/share/ubiquity/ask-services'], questions)
 
-    def run(self,priority,question):
-        answer = self.db.get(question)
-        if answer == '':
-            if question.startswith('mythbuntu/vncservice'):
-                answer = self.frontend.get_vnc()
-            elif question.startswith('mythbuntu/vnc_password'):
-                if not self.frontend.get_vnc():
-                    answer = "N/A"
-                else:
-                    answer = self.frontend.get_vnc_password()
-            elif question.startswith('mythbuntu/sshservice'):
-                answer = self.frontend.get_ssh()
-            elif question.startswith('mythbuntu/sambaservice'):
-                answer = self.frontend.get_samba()
-            elif question.startswith('mythbuntu/nfsservice'):
-                answer = self.frontend.get_nfs()
-            elif question.startswith('mythbuntu/mysqlservice'):
-                answer = self.frontend.get_mysql_port()
-        if answer == True or answer == False:
-            self.preseed_bool(question,answer)
-        else:
-            self.preseed(question,answer)
-        return FilteredCommand.run(self, priority, question)
-
     def ok_handler(self):
-        vnc = self.frontend.get_vnc()
-        if not vnc:
-            vnc_pass = "N/A"
-        else:
-            vnc_pass = self.frontend.get_vnc_password()
-        self.preseed_bool('mythbuntu/vncservice', vnc)
-        self.preseed('mythbuntu/vnc_password', vnc_pass)
-        self.preseed_bool('mythbuntu/sshservice', self.frontend.get_ssh())
-        self.preseed_bool('mythbuntu/sambaservice', self.frontend.get_samba())
-        self.preseed_bool('mythbuntu/nfsservice', self.frontend.get_nfs())
-        self.preseed_bool('mythbuntu/mysqlservice', self.frontend.get_mysql_port())
+        services = self.frontend.get_services()
+        for this_service in services:
+            answer = services[this_services]
+            if answer is True or answer is False:
+                self.preseed_bool('mythbuntu/' + this_service, answer)
+            else:
+                self.preseed('mythbuntu/' + this_service, answer)
         FilteredCommand.ok_handler(self)
 
 class MythbuntuPasswords(FilteredCommand):
