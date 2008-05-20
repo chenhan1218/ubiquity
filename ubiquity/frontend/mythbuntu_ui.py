@@ -519,7 +519,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def set_service(self,name,value):
         """Preseeds the status of a service"""
-        lsits = [get_services_dictionary(self)]
+        lists = [get_services_dictionary(self),{"x11vnc_password":self.vnc_password}]
         self._preseed_list(lists,name,value)
 
     def set_lirc(self,question,answer):
@@ -561,12 +561,18 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def _preseed_list(self,lists,names,value):
         """Helper function for preseeding dictionary based lists"""
-        value = create_bool(value)
+        new_value = create_bool(value)
         for list in lists:
             for item in list:
                 for name in string.split(names):
                     if item == name:
-                        list[item].set_active(value)
+                        #be careful what type of item we are deealing with
+                        if type(list[item]) == gtk.CheckButton:
+                            list[item].set_active(new_value)
+                        elif type(list[item]) == gtk.Entry:
+                            list[item].set_text(new_value)
+                        else:
+                            list[item].set_active_text(new_value)
 
 ##################
 #Status Reading  #
@@ -597,7 +603,12 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         total_list= {}
         for list in lists:
             for item in list:
-                total_list[item]=list[item].get_active()
+                if type(list[item]) == gtk.CheckButton:
+                    total_list[item]=list[item].get_active()
+                elif type(list[item]) == gtk.Entry:
+                    total_list[item]=list[item].get_text()
+                else:
+                    total_list[item]=list[item].get_active_text()
         return total_list
 
     def get_plugins(self):
@@ -605,15 +616,15 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         return self._build_static_list([get_frontend_plugin_dictionary(self),get_backend_plugin_dictionary(self)])
 
     def get_themes(self,type):
-        """Returns the status of the official themes"""
+        """Returns the status of the theme dictionaries"""
         if type == 'officialthemes':
-            return self._build_static_list(get_official_theme_dictionary(self))
+            return self._build_static_list([get_official_theme_dictionary(self)])
         else:
-            return self._build_static_list(get_community_theme_dictionary(self))
+            return self._build_static_list([get_community_theme_dictionary(self)])
 
     def get_services(self):
         """Returns the status of all installable services"""
-        return self._build_static_list(get_services_dictionary(self))
+        return self._build_static_list([get_services_dictionary(self),{'x11vnc_password':self.vnc_password}])
 
     def get_video(self):
         """Returns the status of the video graphics drivers"""
