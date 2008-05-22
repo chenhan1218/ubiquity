@@ -5,6 +5,9 @@ ubiquity (1.9.0) UNRELEASED; urgency=low
   * Silence deprecation warning in zoommap.
   * Add ubiquity-dm implementation for matchbox-window-manager (thanks,
     Patrick Hétu; see LP #159363).
+  * Make use of RAWMINSIZE, RAWCURSIZE, and RAWMAXSIZE variables from
+    partman-partitioning 59ubuntu2 to set accurate bounds on the resize
+    widget.
 
   [ Evan Dandrea ]
   * Usability fixes for the timezone widget:

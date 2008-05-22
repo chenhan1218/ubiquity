@@ -2658,9 +2658,7 @@ class ResizeWidget(gtk.HPaned):
 
     def _update_min(self):
         total = self.new_os.get_allocation().width + self.old_os.get_allocation().width
-        # The minimum percent needs to be 1% greater than the value debconf
-        # feeds us, otherwise the resize will fail.
-        tmp = (self.min_size / self.part_size) + 0.01
+        tmp = self.min_size / self.part_size
         pixels = int(tmp * total)
         self.old_os.set_size_request(pixels, -1)
 

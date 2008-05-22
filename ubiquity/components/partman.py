@@ -284,42 +284,22 @@ class Partman(FilteredCommand):
             self.debug('Partman: update_partitions = %s',
                        self.update_partitions)
 
-    def parse_size(self, size_str):
-        (num, unit) = size_str.split(' ', 1)
-        if ',' in num:
-            (size_int, size_frac) = num.split(',', 1)
-        else:
-            (size_int, size_frac) = num.split('.', 1)
-        size = float(str("%s.%s" % (size_int, size_frac)))
-        # partman measures sizes in decimal units
-        if unit == 'B':
-            pass
-        elif unit == 'kB':
-            size *= 1000
-        elif unit == 'MB':
-            size *= 1000000
-        elif unit == 'GB':
-            size *= 1000000000
-        elif unit == 'TB':
-            size *= 1000000000000
-        return size
-
     def subst(self, question, key, value):
         if question == 'partman-partitioning/new_size':
             if self.building_cache and self.autopartition_question is None:
                 state = self.__state[-1]
                 assert state[0] == 'partman/active_partition'
                 partition = self.partition_cache[state[1]]
-                if key == 'MINSIZE':
-                    partition['resize_min_size'] = self.parse_size(value)
-                elif key == 'MAXSIZE':
-                    partition['resize_max_size'] = self.parse_size(value)
-            if key == 'MINSIZE':
-                self.resize_min_size = self.parse_size(value)
-            elif key == 'MAXSIZE':
-                self.resize_max_size = self.parse_size(value)
+                if key == 'RAWMINSIZE':
+                    partition['resize_min_size'] = int(value)
+                elif key == 'RAWMAXSIZE':
+                    partition['resize_max_size'] = int(value)
+            if key == 'RAWMINSIZE':
+                self.resize_min_size = int(value)
+            elif key == 'RAWMAXSIZE':
+                self.resize_max_size = int(value)
             elif key == 'ORISIZE':
-                self.resize_orig_size = self.parse_size(value)
+                self.resize_orig_size = int(value)
             elif key == 'PATH':
                 self.resize_path = value
 
