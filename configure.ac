@@ -10,6 +10,11 @@ AM_MAINTAINER_MODE
 
 AM_PROG_LIBTOOL
 
+AM_GNU_GETTEXT([external])
+AM_GNU_GETTEXT_VERSION([0.17])
+
+IT_PROG_INTLTOOL
+
 AC_ISC_POSIX
 AC_PROG_CC
 AC_HEADER_STDC
@@ -61,6 +66,8 @@ AC_SUBST(pixmapsdir)
 
 AC_CONFIG_FILES(
 	Makefile
+	desktop/Makefile
 	pixmaps/Makefile
+	po/Makefile.in
 	)
 AC_OUTPUT

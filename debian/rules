@@ -60,6 +60,7 @@ ifndef OEM_CONFIG_NO_GTK
 		pyexecdir=\$${prefix}/lib/oem-config \
 		pkgpythondir=\$${prefix}/lib/oem-config/oem_config \
 		pkgpyexecdir=\$${prefix}/lib/oem-config/oem_config
+	rm -f debian/oem-config-gtk/usr/share/oem-config/desktop/oem-config-prepare-kde.desktop
 	rm -rf debian/oem-config-gtk/usr/share/oem-config/pixmaps
 endif
 	$(MAKE) -C d-i install

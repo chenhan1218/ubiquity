@@ -2,6 +2,7 @@ oem-config (1.38) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Silence deprecation warning in zoommap.
+  * Internationalise .desktop files (LP: #233949).
 
   [ Evan Dandrea ]
   * Disable the close button (LP: #190234).

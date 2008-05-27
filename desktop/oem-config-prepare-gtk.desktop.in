@@ -2,9 +2,9 @@
 Type=Application
 Version=1.0
 Encoding=UTF-8
-Name=Prepare for shipping to end user
+_Name=Prepare for shipping to end user
 Exec=oem-config-prepare
 Terminal=false
-Categories=KDE;Qt;System;
-OnlyShowIn=KDE;
+Categories=GTK;System;Settings;
+OnlyShowIn=GNOME;XFCE;
 X-Ubuntu-Gettext-Domain=oem-config

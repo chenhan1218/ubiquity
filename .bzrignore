@@ -3,6 +3,7 @@
 ./config.h
 ./config.log
 ./config.status
+./intltool-*
 ./libtool
 ./stamp-h1
 debian/files
@@ -13,6 +14,8 @@ debian/oem-config-kde
 debian/oem-config-udeb
 debian/*.debhelper
 debian/*.substvars
+desktop/Makefile
+desktop/*.desktop
 d-i/apt
 d-i/manifest.old
 d-i/source
@@ -21,6 +24,12 @@ d-i/udeb-control
 lib/frontend/*.bak
 lib/keyboard_names.py
 pixmaps/Makefile
+po/.intltool-merge-cache
+po/Makefile
+po/Makefile.in
+po/POTFILES
+po/remove-potcdate.sed
+po/stamp-it
 src/.deps
 src/.libs
 src/Makefile
