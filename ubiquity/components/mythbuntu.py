@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 
 # Written by Mario Limonciello <superm1@ubuntu.com>.
-# Copyright (C) 2007 Mario Limonciello
+# Copyright (C) 2007-2008 Mario Limonciello
 # Copyright (C) 2007 Jared Greenwald
 #
 # This program is free software; you can redistribute it and/or modify
@@ -131,86 +131,42 @@ class MythbuntuServices(FilteredCommand):
         FilteredCommand.ok_handler(self)
 
 class MythbuntuPasswords(FilteredCommand):
+#we are seeding passwords and whether to enable mythweb
+
     def prepare(self):
-        questions = ['^mythtv/mysql_admin_password',
-             '^mythtv/mysql_mythtv_user',
-             '^mythtv/mysql_mythtv_password',
-             '^mythtv/mysql_mythtv_dbname',
-             '^mythtv/mysql_host',
-             '^mythweb/enable',
-             '^mythweb/username',
-             '^mythweb/password']
+        #mythtv passwords
+        passwords = self.frontend.get_mythtv_passwords()
+        questions = []
+        for this_password in passwords:
+            answer = self.db.get('mythtv/' + this_password)
+            if answer != '':
+                self.frontend.set_password(this_password,answer)
+        questions.append('^mythtv/' + this_password)
+
+        #mythweb passwords
+        passwords = self.frontend.get_mythweb_passwords()
+        for this_password in passwords:
+            answer = self.db.get('mythweb/' + this_password)
+            if answer != '':
+                self.frontend.set_password(this_password,answer)
+        questions.append('^mythweb/' + this_password)
+
         return (['/usr/share/ubiquity/ask-passwords'], questions)
 
-    def run(self,priority,question):
-        answer=self.db.get(question)
-        if answer == '':
-            if question.startswith('mythtv/mysql_admin_password'):
-                if self.frontend.get_secure_mysql():
-                    answer = self.frontend.get_mysql_root_password()
-                else:
-                    answer = ""
-            elif question.startswith('mythtv/mysql_mythtv_user'):
-                if not self.frontend.get_uselivemysqlinfo():
-                    answer = self.frontend.get_mysqluser()
-                else:
-                    answer = self.db.get('mythtv/mysql_mythtv_user')
-            elif question.startswith('mythtv/mysql_mythtv_password'):
-                if not self.frontend.get_uselivemysqlinfo():
-                    answer = self.frontend.get_mysqlpass()
-                else:
-                    answer = self.db.get('mythtv/mysql_mythtv_password')
-            elif question.startswith('mythtv/mysql_mythtv_dbname'):
-                if not self.frontend.get_uselivemysqlinfo():
-                    answer = self.frontend.get_mysqldatabase()
-                else:
-                    answer = self.db.get('mythtv/mysql_mythtv_dbname')
-            elif question.startswith('mythtv/mysql_host'):
-                if not self.frontend.get_uselivemysqlinfo():
-                    answer = self.frontend.get_mysqlserver()
-                else:
-                    answer = self.db.get('mythtv/mysql_host')
-            elif question.startswith('mythweb/enable'):
-                answer = self.frontend.get_secure_mythweb()
-            elif question.startswith('mythweb/username'):
-                answer = self.frontend.get_mythweb_username()
-            elif question.startswith('mythweb/password'):
-                answer = self.frontend.get_mythweb_password()
-        if answer == True or answer == False:
-            self.preseed_bool(question,answer)
-        else:
-            self.preseed(question,answer)
-        return FilteredCommand.run(self, priority, question)
-
 def ok_handler(self):
-        if self.frontend.get_secure_mysql():
-            mysql_root = self.frontend.get_mysql_root_password()
-        else:
-            mysql_root = ""
-        self.preseed('mythtv/mysql_admin_password',mysql_root)
-        if not self.frontend.get_uselivemysqlinfo():
-            mysqluser = self.frontend.get_mysqluser()
-        else:
-            mysqluser = self.db.get('mythtv/mysql_mythtv_user')
-        self.preseed('mythtv/mysql_mythtv_user', mysqluser)
-        if not self.frontend.get_uselivemysqlinfo():
-            mysqlpass = self.frontend.get_mysqlpass()
-        else:
-            mysqlpass = self.db.get('mythtv/mysql_mythtv_password')
-        self.preseed('mythtv/mysql_mythtv_password', mysqlpass)
-        if not self.frontend.get_uselivemysqlinfo():
-            mysqldatabase = self.frontend.get_mysqldatabase()
-        else:
-            mysqldatabase = self.db.get('mythtv/mysql_mythtv_dbname')
-        self.preseed('mythtv/mysql_mythtv_dbname', mysqldatabase)
-        if not self.frontend.get_uselivemysqlinfo():
-            mysqlserver = self.frontend.get_mysqlserver()
-        else:
-            mysqlserver = self.db.get('mythtv/mysql_host')
-        self.preseed('mythtv/mysql_host', mysqlserver)
-        self.preseed_bool('mythweb/enable', self.frontend.get_secure_mythweb())
-        self.preseed('mythweb/username', self.frontend.get_mythweb_username())
-        self.preseed('mythweb/password', self.frontend.get_mythweb_password())
+        #mythtv passwords
+        passwords = self.frontend.get_mythtv_passwords()
+        for this_password in passwords:
+            self.preseed('mythtv/' + this_password, passwords[this_password])
+
+        #mythweb passwords
+        passwords = self.frontend.get_mythweb_passwords()
+        for this_password in passwords:
+            if passwords[this_password] is True or passwords[this_password] is False:
+                self.preseed_bool('mythweb/' + this_password, passwords[this_password])
+            else:
+                self.preseed('mythweb/' + this_password, passwords[this_password])
+
         FilteredCommand.ok_handler(self)
 
 class MythbuntuRemote(FilteredCommand):
@@ -248,40 +204,22 @@ class MythbuntuRemote(FilteredCommand):
 
 class MythbuntuDrivers(FilteredCommand):
     def prepare(self):
-        questions = ['^mythbuntu/video_driver',
-             '^mythbuntu/tvout',
-             '^mythbuntu/tvstandard',
-             '^mythbuntu/hdhomerun',
-             '^mythbuntu/xmltv',
-             '^mythbuntu/dvbutils']
+        #drivers
+        drivers = self.frontend.get_drivers()
+        questions = []
+        for this_driver in drivers:
+            answer = self.db.get('mythbuntu/' + this_driver)
+            if answer != '':
+                self.frontend.set_driver(this_driver,answer)
+        questions.append('^mythbuntu/' + this_driver)
         return (['/usr/share/ubiquity/ask-drivers'], questions)
 
-    def run(self,priority,question):
-        answer = self.db.get(question)
-        if answer == '':
-            if question.startswith('mythbuntu/video_driver'):
-                answer = self.frontend.get_video()
-            elif question.startswith('mythbuntu/tvout'):
-                answer = self.frontend.get_tvout()
-            elif question.startswith('mythbuntu/tvstandard'):
-                answer = self.frontend.get_tvstandard()
-            elif question.startswith('mythbuntu/hdhomerun'):
-                answer = self.frontend.get_hdhomerun()
-            elif question.startswith('mythbuntu/xmltv'):
-                answer = self.frontend.get_xmltv()
-            elif question.startswith('mythbuntu/dvbutils'):
-                answer = self.frontend.get_dvbutils()
-        if answer == True or answer == False:
-            self.preseed_bool(question,answer)
-        else:
-            self.preseed(question,answer)
-        return FilteredCommand.run(self, priority, question)
-
     def ok_handler(self):
-        self.preseed('mythbuntu/video_driver', self.frontend.get_video())
-        self.preseed('mythbuntu/tvout', self.frontend.get_tvout())
-        self.preseed('mythbuntu/tvstandard', self.frontend.get_tvstandard())
-        self.preseed_bool('mythbuntu/hdhomerun',self.frontend.get_hdhomerun())
-        self.preseed_bool('mythbuntu/xmltv',self.frontend.get_xmltv())
-        self.preseed_bool('mythbuntu/dvbutils',self.frontend.get_dvbutils())
+        drivers = self.frontend.get_drivers()
+
+        for this_driver in drivers:
+            if drivers[this_driver] is True or drivers[this_driver] is False:
+                self.preseed_bool('mythbuntu/' + this_driver, drivers[this_driver])
+            else:
+                self.preseed('mythbuntu/' + this_driver, drivers[this_driver])
         FilteredCommand.ok_handler(self)

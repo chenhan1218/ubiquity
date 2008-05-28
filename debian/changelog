@@ -1,4 +1,4 @@
-ubiquity (1.9.0) UNRELEASED; urgency=low
+ubiquity (1.9.0) hardy; urgency=low
 
   [ Colin Watson ]
   * Fix ownership of /home/oem/Desktop in OEM installations (LP: #209683).
@@ -12,6 +12,9 @@ ubiquity (1.9.0) UNRELEASED; urgency=low
     - Add a delay for zooming out.
   * Handle the migration-assistant UI being fed non-UTF data gracefully.
   * Make capitalization of migration-assistant consistent (LP: #225555).
+
+  [ Mario Limonciello ]
+  * Enable --automatic and preseeding support on the Mythbuntu frontend.
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 24 Apr 2008 13:11:05 -0400
 
