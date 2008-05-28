@@ -522,6 +522,28 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         lists = [get_services_dictionary(self),{"x11vnc_password":self.vnc_password}]
         self._preseed_list(lists,name,value)
 
+    def set_driver(self,name,value):
+        """Preseeds the status of a driver"""
+        lists = [{'video_driver': self.video_driver,
+                  'tvout': self.tvouttype,
+                  'tvstandard': self.tvoutstandard,
+                  'hdhomerun': self.hdhomerun,
+                  'xmltv': self.xmltv,
+                  'dvbutils': self.dvbutils}]
+        self._preseed_list(lists,name,value)
+
+    def set_password(self,name,value):
+        """Preseeds a password"""
+        lists = [{'mysql_admin_password':self.mysql_root_password,
+                  'mysql_mythtv_user':self.mysql_user,
+                  'mysql_mythtv_password':self.mysql_password,
+                  'mysql_mythtv_dbname':self.mysql_database,
+                  'mysql_host':self.mysql_server},
+                 {'enable':self.usemythwebpassword,
+                  'username':self.mythweb_username,
+                  'password':self.mythweb_password}]
+        self._preseed_list(lists,name,value)
+
     def set_lirc(self,question,answer):
         """Preseeds a lirc configuration item"""
         if question == "remote_modules":
@@ -571,6 +593,11 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                             list[item].set_active(new_value)
                         elif type(list[item]) == gtk.Entry:
                             list[item].set_text(new_value)
+                        elif type(list[item]) == gtk.ComboBox:
+                            for iteration in range(len(list[item]),0):
+                                list[item].set_active(iteration)
+                                if list[item].get_active_text() == new_value:
+                                    break
                         else:
                             list[item].set_active_text(new_value)
 
@@ -626,86 +653,25 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         """Returns the status of all installable services"""
         return self._build_static_list([get_services_dictionary(self),{'x11vnc_password':self.vnc_password}])
 
-    def get_video(self):
-        """Returns the status of the video graphics drivers"""
-        if (self.modifyvideodriver.get_active()):
-            driver = self.video_driver.get_active()
-            if driver == 0:
-                return "fglrx"
-            elif driver == 1:
-                return "nvidia_legacy"
-            elif driver == 2:
-                return "nvidia"
-            elif driver == 3:
-                return "nvidia_new"
-            elif driver == 4:
-                return "pvr_350"
-            else:
-                return "None"
-        else:
-            return "None"
+    def get_drivers(self):
+        return self._build_static_list([{'video_driver': self.video_driver,
+                                         'tvout': self.tvouttype,
+                                         'tvstandard': self.tvoutstandard,
+                                         'hdhomerun': self.hdhomerun,
+                                         'xmltv': self.xmltv,
+                                         'dvbutils': self.dvbutils}])
 
-    def get_tvout(self):
-        """Returns the status of the TV Out type"""
-        if (self.modifyvideodriver.get_active()):
-            return self.tvouttype.get_active_text()
-        else:
-            return "Disable TV-Out"
+    def get_mythtv_passwords(self):
+        return self._build_static_list([{'mysql_admin_password':self.mysql_root_password,
+                                         'mysql_mythtv_user':self.mysql_user,
+                                         'mysql_mythtv_password':self.mysql_password,
+                                         'mysql_mythtv_dbname':self.mysql_database,
+                                         'mysql_host':self.mysql_server}])
 
-    def get_tvstandard(self):
-        """Returns the status of the TV Standard type"""
-        if (self.modifyvideodriver.get_active()):
-            return self.tvoutstandard.get_active_text()
-        else:
-            return "Disable TV-Out"
-
-    def get_uselivemysqlinfo(self):
-        if (self.uselivemysqlinfo.get_active()):
-            return True
-        else:
-            return False
-
-    def get_mysqluser(self):
-        return self.mysql_user.get_text()
-
-    def get_mysqlpass(self):
-        return self.mysql_password.get_text()
-
-    def get_mysqldatabase(self):
-        return self.mysql_database.get_text()
-
-    def get_mysqlserver(self):
-        return self.mysql_server.get_text()
-
-    def get_secure_mysql(self):
-        if self.usemysqlrootpassword.get_active():
-            return True
-        else:
-            return False
-
-    def get_mysql_root_password(self):
-        return self.mysql_root_password.get_text()
-
-    def get_secure_mythweb(self):
-        if self.usemythwebpassword.get_active():
-            return True
-        else:
-            return False
-
-    def get_mythweb_username(self):
-        return self.mythweb_username.get_text()
-
-    def get_mythweb_password(self):
-        return self.mythweb_password.get_text()
-
-    def get_vnc(self):
-        if self.enablevnc.get_active():
-            return True
-        else:
-            return False
-
-    def get_vnc_password(self):
-        return self.vnc_password.get_text()
+    def get_mythweb_passwords(self):
+        return self._build_static_list([{'enable':self.usemythwebpassword,
+                                         'username':self.mythweb_username,
+                                         'password':self.mythweb_password}])
 
     def get_lirc(self,type):
         item = {"modules":"","device":"","driver":"","lircd_conf":""}
@@ -724,15 +690,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 item["driver"]=self.transmitter_driver.get_text()
                 item["lircd_conf"]=self.browse_transmitter_lircd_conf.get_filename()
         return item
-
-    def get_hdhomerun(self):
-        return self.hdhomerun.get_active()
-
-    def get_xmltv(self):
-        return self.xmltv.get_active()
-
-    def get_dvbutils(self):
-        return self.dvbutils.get_active()
 
 ##################
 #Toggle functions#
