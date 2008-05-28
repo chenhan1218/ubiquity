@@ -25,8 +25,6 @@ import locale
 #Workaround for bugs 149935 and 150029
 os.environ['LC_CTYPE']='C'
 
-import xorgconfig
-
 import re
 import string
 from ubiquity.filteredcommand import FilteredCommand
@@ -118,7 +116,7 @@ class MythbuntuApply(FilteredCommand):
             patternline += "|^xmltv"
         dvbutils = self.db.get('mythbuntu/dvbutils')
         if dvbutils == "false":
-            patternline += "|^dvbutils"
+            patternline += "|^dvb-utils"
         pattern = re.compile(patternline)
         for line in in_f:
             if pattern.search(line) is None:
@@ -130,42 +128,6 @@ class MythbuntuApply(FilteredCommand):
 class AdditionalDrivers(FilteredCommand):
     def prepare(self):
         return (['/usr/share/ubiquity/apply-drivers', '/target'],[])
-
-class VNCHandler:
-    """Used to properly enable VNC in a target configuration"""
-
-    # rather ugly workaround for lp: #136482)
-    locale.setlocale(locale.LC_ALL, 'C')
-
-    def __init__(self,root):
-        self.add_modules = ["vnc"]
-        self.add_screen = [ ['SecurityTypes', 'VncAuth'], ['UserPasswdVerifier', 'VncAuth'], ['PasswordFile', '/root/.vnc/passwd']]
-        self.root = root
-
-        try:
-            self.xorg_conf = xorgconfig.readConfig(root + '/etc/X11/xorg.conf')
-        except (IOError, xorgconfig.ParseException, AttributeError):
-            self.xorg_conf = None
-
-    def run(self):
-        """Adds necessary lines for enabling VNC upon the next boot"""
-
-        # backup the current xorg.conf
-        open(os.path.join(self.root + "/etc/X11/xorg.conf.oldconf"), "w").write(open(self.root + '/etc/X11/xorg.conf').read())
-
-        have_modules = len(self.xorg_conf.getSections("module")) > 0
-        if self.add_modules:
-            if not have_modules:
-                self.xorg_conf.append(self.xorg_conf.makeSection(None, ["Section",
-                    "Module"]))
-            for m in self.add_modules:
-                self.xorg_conf.getSections("module")[0].addModule(m)
-
-        screen_opts=self.xorg_conf.getSections("screen")[0].option
-        for item in self.add_screen:
-            screen_opts.append(screen_opts.makeLine(None,item))
-
-        self.xorg_conf.writeConfig(self.root + '/etc/X11/xorg.conf')
 
 class AdditionalServices(FilteredCommand):
     def prepare(self):
