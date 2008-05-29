@@ -1034,6 +1034,7 @@ class Wizard(BaseFrontend):
         self.allow_change_step(False)
 
         self.backup = True
+        self.stay_on_page = False
 
         # Enabling next button
         self.allow_go_forward(True)
