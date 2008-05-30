@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-04-14 20:32-0400\n"
+"POT-Creation-Date: 2008-05-30 15:56-0400\n"
 "PO-Revision-Date: 2008-04-08 15:30+0000\n"
 "Last-Translator: A S Alam <Unknown>\n"
 "Language-Team: Punjabi <punjabi-l10n@lists.sf.net>\n"
@@ -213,8 +213,10 @@ msgstr "ੲਿਸ ਨਾਂ ਨੂੰ ਵਰਤਿਅਾ ਜਾੲੇਗਾ ਜ�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-msgid "Migrate Documents and Settings"
-msgstr ""
+#, fuzzy
+#| msgid "Importing documents and settings..."
+msgid "Migrate documents and settings"
+msgstr "ਦਸਤਾਵੇਜ਼ ਅਤੇ ਸੈਟਿੰਗਾਂ ਅਾਯਾਤ ਕੀਤੀਅਾਂ ਜਾ ਰਹੀਅਾਂ ਹਨ..."
 
 #. Type: text
 #. Description

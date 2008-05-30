@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: installer-po_debian-installer-ka\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-04-14 20:32-0400\n"
+"POT-Creation-Date: 2008-05-30 15:56-0400\n"
 "PO-Revision-Date: 2008-04-16 23:51+0000\n"
 "Last-Translator: Vladimer Sichinava <vsichi@gnome.org>\n"
 "Language-Team: Georgian <http://mail.gnome.org/mailman/listinfo/gnome-ge-"
@@ -222,7 +222,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-msgid "Migrate Documents and Settings"
+#, fuzzy
+#| msgid "Migrate Documents and Settings"
+msgid "Migrate documents and settings"
 msgstr "დოკუმენტების და პარამეტრების მიგრირება"
 
 #. Type: text

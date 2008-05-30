@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-04-14 20:32-0400\n"
+"POT-Creation-Date: 2008-05-30 15:56-0400\n"
 "PO-Revision-Date: 2008-04-08 15:32+0000\n"
 "Last-Translator: Sunjae Park <darehanl@gmail.com>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
@@ -213,7 +213,9 @@ msgstr "이 이름은 컴퓨터가 네트워크에서 다른 컴퓨터에 보여
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-msgid "Migrate Documents and Settings"
+#, fuzzy
+#| msgid "Migrate Documents and Settings"
+msgid "Migrate documents and settings"
 msgstr "문서와 설정을 이전합니다."
 
 #. Type: text

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-04-14 20:32-0400\n"
+"POT-Creation-Date: 2008-05-30 15:56-0400\n"
 "PO-Revision-Date: 2008-04-08 22:43+0000\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
@@ -211,7 +211,9 @@ msgstr "هذا الاسم سيستخدم إذا جعلت هذا الحاسوب �
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-msgid "Migrate Documents and Settings"
+#, fuzzy
+#| msgid "Migrate Documents and Settings"
+msgid "Migrate documents and settings"
 msgstr "ترحيل المستندات والإعدادات"
 
 #. Type: text
