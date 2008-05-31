@@ -2,7 +2,7 @@
 #Passes on the information gathered in ubiquity
 #about additional services
 # Written by Mario Limonciello <superm1@ubuntu.com>
-# Copyright (C) 2007 Mario Limonciello
+# Copyright (C) 2007-2008 Mario Limonciello
 
 . /usr/share/debconf/confmodule
 
@@ -116,7 +116,7 @@ EOF
 
 vnc_config()
 {
-    db_get mythbuntu/vnc_password
+    db_get mythbuntu/x11vnc_password
     VNC_PASS="$RET"
     cat > /tmp/vnc_pass_script <<EOF
 #!/usr/bin/expect
@@ -156,15 +156,15 @@ mysql_config()
     mv ${MYSQLCONFIG}.new ${MYSQLCONFIG}
 }
 
-db_get mythbuntu/sambaservice
+db_get mythbuntu/samba
 SAMBA="$RET"
-db_get mythbuntu/nfsservice
+db_get mythbuntu/nfs-kernel-server
 NFS="$RET"
-db_get mythbuntu/vncservice
+db_get mythbuntu/x11vnc
 VNC="$RET"
-db_get mythbuntu/sshservice
+db_get mythbuntu/openssh-server
 SSH="$RET"
-db_get mythbuntu/mysqlservice
+db_get mythbuntu/mysql-server
 MYSQL="$RET"
 if [ "$SAMBA" = true ] || [ "$NFS" = true ]; then
     db_get mythbuntu/mythvideo

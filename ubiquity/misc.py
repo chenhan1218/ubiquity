@@ -94,4 +94,12 @@ def debconf_escape(text):
     escaped = text.replace('\\', '\\\\').replace('\n', '\\n')
     return re.sub(r'(\s)', r'\\\1', escaped)
 
+def create_bool(text):
+    if text == 'true':
+        return True
+    elif text == 'false':
+        return False
+    else:
+        return text
+
 # vim:ai:et:sts=4:tw=80:sw=4:

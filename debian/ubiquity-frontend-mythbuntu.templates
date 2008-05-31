@@ -451,27 +451,27 @@ Template: mythbuntu/tvstandard
 Type: string
 Description: for internal use; determines tvstandard
 
-Template: mythbuntu/vncservice
+Template: mythbuntu/x11vnc
 Type: boolean
 Description: for internal use; determines if vnc is enabled
 
-Template: mythbuntu/vnc_password
+Template: mythbuntu/x11vnc_password
 Type: string
 Description: for internal use; stores the chosen vnc password
 
-Template: mythbuntu/sshservice
+Template: mythbuntu/openssh-server
 Type: boolean
 Description: for internal use; determines if ssh is enabled
 
-Template: mythbuntu/sambaservice
+Template: mythbuntu/samba
 Type: boolean
 Description: for internal use; determines if samba is enabled
 
-Template: mythbuntu/nfsservice
+Template: mythbuntu/nfs-kernel-server
 Type: boolean
 Description: for internal use; determines if nfs is enabled
 
-Template: mythbuntu/mysqlservice
+Template: mythbuntu/mysql-server
 Type: boolean
 Description: for internal use; determines if mysql access is enabled
 

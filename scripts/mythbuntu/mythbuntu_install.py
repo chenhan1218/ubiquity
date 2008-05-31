@@ -189,8 +189,8 @@ class Install(install.Install):
     def add_drivers_services(self):
         """Installs Additional Drivers, Services & Firmware"""
         video_driver = self.db.get('mythbuntu/video_driver')
-        vnc = self.db.get('mythbuntu/vncservice')
-        nfs = self.db.get('mythbuntu/nfsservice')
+        vnc = self.db.get('mythbuntu/x11vnc')
+        nfs = self.db.get('mythbuntu/nfs-kernel-server')
         xmltv = self.db.get('mythbuntu/xmltv')
         dvbutils = self.db.get('mythbuntu/xmltv')
         hdhomerun = self.db.get('mythbuntu/hdhomerun')
@@ -306,7 +306,7 @@ class Install(install.Install):
 
     def configure_services(self):
         """Activates any necessary service configuration"""
-        vnc = self.db.get('mythbuntu/vncservice')
+        vnc = self.db.get('mythbuntu/x11vnc')
         #vnc4server is broke in hardy.  Use x11vnc instead
         #if vnc == 'true':
         #    handler = mythbuntu_apply.VNCHandler('/target')
