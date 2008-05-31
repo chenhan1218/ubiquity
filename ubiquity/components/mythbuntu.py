@@ -50,8 +50,8 @@ class MythbuntuInstallType(FilteredCommand):
 
     def prepare(self):
         questions = []
-        for question in questions:
-            answer = self.db.get(questions[0])
+        for question in self.questions:
+            answer = self.db.get('mythbuntu/' + question)
             if answer != '':
                 self.frontend.set_installtype(answer)
             questions.append('^mythbuntu/' + question)
@@ -69,7 +69,7 @@ class MythbuntuPlugins(FilteredCommand):
         questions = []
         for this_plugin in plugins:
             answer = create_bool(self.db.get('mythbuntu/' + this_plugin))
-            if answer != plugins[this_plugin]:
+            if answer != '' and answer != plugins[this_plugin]:
                 self.frontend.set_plugin(this_plugin,answer)
             questions.append('^mythbuntu/' + this_plugin)
         return (['/usr/share/ubiquity/ask-plugins'], questions)
@@ -123,7 +123,7 @@ class MythbuntuServices(FilteredCommand):
     def ok_handler(self):
         services = self.frontend.get_services()
         for this_service in services:
-            answer = services[this_services]
+            answer = services[this_service]
             if answer is True or answer is False:
                 self.preseed_bool('mythbuntu/' + this_service, answer)
             else:
@@ -153,7 +153,7 @@ class MythbuntuPasswords(FilteredCommand):
 
         return (['/usr/share/ubiquity/ask-passwords'], questions)
 
-def ok_handler(self):
+    def ok_handler(self):
         #mythtv passwords
         passwords = self.frontend.get_mythtv_passwords()
         for this_password in passwords:

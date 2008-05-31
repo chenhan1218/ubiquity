@@ -498,12 +498,14 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         """Preseeds the type of custom install"""
         if type == "Set Top Box":
             self.stb.set_active(True)
+        elif type == "Frontend":
+            self.fe.set_active(True)
         elif type == "Slave Backend":
             self.slave_be.set_active(True)
         elif type == "Master Backend":
             self.master_be.set_active(True)
         elif type == "Slave Backend/Frontend":
-            self.slave_be_fe_.set_active(True)
+            self.slave_be_fe.set_active(True)
         else:
             self.master_be_fe.set_active(True)
 
@@ -817,13 +819,15 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
         def set_all_fe_plugins(self,enable):
             """ Enables all frontend plugins for defaults"""
-            for item in get_frontend_plugin_dictionary(self):
-                item.set_active(enable)
+            list = get_frontend_plugin_dictionary(self)
+            for item in list:
+                list[item].set_active(enable)
 
         def set_all_be_plugins(self,enable):
             """ Enables all backend plugins for defaults"""
-            for item in get_backend_plugin_dictionary(self):
-                item.set_active(enable)
+            list = get_backend_plugin_dictionary(self)
+            for item in list:
+                list[item].set_active(enable)
 
         if self.master_be_fe.get_active():
             set_all_themes(self,True)
