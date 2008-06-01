@@ -5,6 +5,9 @@ oem-config (1.38) UNRELEASED; urgency=low
   * Internationalise .desktop files (LP: #233949).
   * Don't fail to set the locale if the mirror/country question doesn't
     exist.
+  * Disable support for console-setup preseeding again, as it interferes
+    with the more important goal of inferring a default keyboard from the
+    selected locale (LP: #219209).
 
   [ Evan Dandrea ]
   * Disable the close button (LP: #190234).
