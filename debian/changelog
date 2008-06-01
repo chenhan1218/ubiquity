@@ -3,6 +3,13 @@ oem-config (1.37.1) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Disable the close button (LP: #190234).
 
+  [ Colin Watson ]
+  * Don't fail to set the locale if the mirror/country question doesn't
+    exist.
+  * Disable support for console-setup preseeding again, as it interferes
+    with the more important goal of inferring a default keyboard from the
+    selected locale (LP: #219209).
+
  -- Colin Watson <cjwatson@ubuntu.com>  Sun, 01 Jun 2008 13:21:49 +0100
 
 oem-config (1.37) hardy; urgency=low

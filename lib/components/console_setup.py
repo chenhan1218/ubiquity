@@ -57,8 +57,7 @@ class ConsoleSetup(FilteredCommand):
         # bother for now.
         return (['/usr/lib/oem-config/console/console-setup.postinst',
                  'configure'],
-                ['^console-setup/layout', '^console-setup/variant'],
-                {'OVERRIDE_ALLOW_PRESEEDING': '1'})
+                ['^console-setup/layout', '^console-setup/variant'])
 
     def run(self, priority, question):
         if self.done:
