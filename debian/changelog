@@ -1,3 +1,10 @@
+oem-config (1.37.1) UNRELEASED; urgency=low
+
+  [ Evan Dandrea ]
+  * Disable the close button (LP: #190234).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 01 Jun 2008 13:21:49 +0100
+
 oem-config (1.37) hardy; urgency=low
 
   * Fix built-in lists of keyboard variant names (patch from ubiquity;
