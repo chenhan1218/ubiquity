@@ -1,4 +1,4 @@
-oem-config (1.37.1) UNRELEASED; urgency=low
+oem-config (1.37.1) hardy-proposed; urgency=low
 
   [ Evan Dandrea ]
   * Disable the close button (LP: #190234).
@@ -10,7 +10,7 @@ oem-config (1.37.1) UNRELEASED; urgency=low
     with the more important goal of inferring a default keyboard from the
     selected locale (LP: #219209).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Sun, 01 Jun 2008 13:21:49 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 01 Jun 2008 13:30:52 +0100
 
 oem-config (1.37) hardy; urgency=low
 
