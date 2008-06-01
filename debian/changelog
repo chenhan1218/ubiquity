@@ -1,4 +1,4 @@
-oem-config (1.38) UNRELEASED; urgency=low
+oem-config (1.38) intrepid; urgency=low
 
   [ Colin Watson ]
   * Silence deprecation warning in zoommap.
@@ -13,7 +13,7 @@ oem-config (1.38) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Disable the close button (LP: #190234).
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 23 May 2008 09:58:17 +0200
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 01 Jun 2008 13:12:28 +0100
 
 oem-config (1.37) hardy; urgency=low
 
