@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: 2008-04-14 02:52+0000\n"
-"Last-Translator: ChenMing <Unknown>\n"
+"PO-Revision-Date: 2008-05-20 15:38+0000\n"
+"Last-Translator: Tao Wei <Unknown>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:56+0000\n"
+"X-Launchpad-Export-Date: 2008-06-02 14:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -93,7 +93,7 @@ msgstr "哪种布局同你的键盘最接近？"
 #. Description
 #: ../oem-config.templates:14001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "您可以在该框内测试您新的键盘布局。"
+msgstr "你可以把新的键盘布局输入到方框来进行检测。"
 
 #. Type: text
 #. Description
@@ -111,7 +111,7 @@ msgstr "你的名字是什么？"
 #. Description
 #: ../oem-config.templates:17001
 msgid "What name do you want to use to log in?"
-msgstr "您想用什么名字作为登录名？"
+msgstr "你想用什么名字来登录？"
 
 #. Type: text
 #. Description
@@ -125,7 +125,7 @@ msgstr "如果有多个用户使用本计算机，你可以在完成安装后建
 #. Description
 #: ../oem-config.templates:19001
 msgid "Choose a password to keep your account safe."
-msgstr "选择一个密码来确保您的帐号安全。"
+msgstr "选择一个密码来维护你的帐户安全。"
 
 #. Type: text
 #. Description

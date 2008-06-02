@@ -1,3 +1,9 @@
+oem-config (1.37.2) UNRELEASED; urgency=low
+
+  * Update translations from Launchpad.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 02 Jun 2008 23:01:58 +0100
+
 oem-config (1.37.1) hardy-proposed; urgency=low
 
   [ Evan Dandrea ]

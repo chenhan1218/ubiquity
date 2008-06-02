@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: 2008-04-12 15:00+0000\n"
+"PO-Revision-Date: 2008-06-01 20:09+0000\n"
 "Last-Translator: Xosé <Unknown>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:56+0000\n"
+"X-Launchpad-Export-Date: 2008-06-02 14:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -32,7 +32,7 @@ msgstr "Paso ${INDEX} de ${TOTAL}"
 #. Description
 #: ../oem-config.templates:4001
 msgid "Choose language"
-msgstr "Escolle un idioma/Choose language"
+msgstr "Escolla unha lingua/Choose language"
 
 #. Type: text
 #. Description
@@ -53,7 +53,7 @@ msgstr "Elixa o fuso horario"
 #. Description
 #: ../oem-config.templates:7001
 msgid "Select a city in your country and time zone."
-msgstr "Escolla a cidade do seu pais e o fuso horario"
+msgstr "Escolla unha cidade do seu país e o fuso horario."
 
 #. Type: text
 #. Description
@@ -196,7 +196,7 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
-"Unha vez que o seu sistema estea configurado ao seu gusto, inicie 'oem-"
-"config-prepare'- Isto fará que se elimine temporalmente o seu usuario 'oem' "
-"e faralle ao usuario final unha serie de preguntas a próxima vez que o "
+"Unha vez que o seu sistema estea configurado ao seu gusto, inicie \"oem-"
+"config-prepare\"- Isto fará que se elimine temporalmente o seu usuario \"oem"
+"\" e faralle ao usuario final unha serie de preguntas a próxima vez que o "
 "sistema se inicie."

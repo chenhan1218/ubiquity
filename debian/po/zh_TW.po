@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: 2008-04-19 09:24+0000\n"
-"Last-Translator: Roy Chan <roy.chan@linux.org.hk>\n"
+"PO-Revision-Date: 2008-05-20 15:01+0000\n"
+"Last-Translator: Tetralet <Unknown>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:56+0000\n"
+"X-Launchpad-Export-Date: 2008-06-02 14:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -27,7 +27,7 @@ msgstr "系統組態"
 #. Description
 #: ../oem-config.templates:3001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr "步驟  ${TOTAL} 之 ${INDEX}"
+msgstr "步驟 ${INDEX}  (共 ${TOTAL} 個)"
 
 #. Type: text
 #. Description
@@ -76,7 +76,7 @@ msgstr "時區："
 #. Description
 #: ../oem-config.templates:11001
 msgid "Current time:"
-msgstr "目前時間："
+msgstr "當前時間："
 
 #. Type: text
 #. Description
@@ -112,7 +112,7 @@ msgstr "您的名字是？"
 #. Description
 #: ../oem-config.templates:17001
 msgid "What name do you want to use to log in?"
-msgstr "您要使用什麼名字登入？"
+msgstr "您要使用什麼名稱登入？"
 
 #. Type: text
 #. Description
