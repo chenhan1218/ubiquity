@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: 2008-04-08 13:18+0000\n"
-"Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
+"PO-Revision-Date: 2008-06-02 09:34+0000\n"
+"Last-Translator: Tim Chan Rithy <Unknown>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:56+0000\n"
+"X-Launchpad-Export-Date: 2008-06-02 14:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -27,13 +27,13 @@ msgstr "ការ​កំណត់​រចនាសម្ព័ន្ធ apt �
 #. Description
 #: ../oem-config.templates:3001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "ជំហាន​ទី ${INDEX} នៃ ${TOTAL}"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:4001
 msgid "Choose language"
-msgstr "ជ្រើស​ភាសា/Choose language"
+msgstr "ជ្រើស​ភាសា"
 
 #. Type: text
 #. Description
@@ -61,63 +61,63 @@ msgstr "ជ្រើស​ទីក្រុង​មួយ​ក្នុង​
 #: ../oem-config.templates:8001
 #, fuzzy
 msgid "Selected city:"
-msgstr "តំបន់​ពេល​វេលា​ដែល​បាន​ជ្រើស"
+msgstr "ទីក្រុង​ដែល​បាន​ជ្រើស ៖"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:9001
 #, fuzzy
 msgid "Selected region:"
-msgstr "តំបន់​ពេល​វេលា​ដែល​បាន​ជ្រើស"
+msgstr "តំបន់​ដែល​បាន​ជ្រើស ៖"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:10001
 msgid "Time zone:"
-msgstr ""
+msgstr "តំបន់​ពេល​វេលា ៖"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:11001
 msgid "Current time:"
-msgstr ""
+msgstr "ពេល​បច្ចុប្បន្ន ៖"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:12001
 #, fuzzy
 msgid "Keyboard layout"
-msgstr "ជ្រើស​ប្លង់​ក្ដារចុច​មួយ"
+msgstr "ប្លង់​ក្ដារ"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:13001
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "ក្តារ​ចុច​ណា​មួយ​ជា​របស់​អ្នក​?"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:14001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "អ្នក​អាច​វាយ​នៅ​ក្នុង​ប្រអប់​នេះ​ដើម្បី​សាកល្បង​ប្លង់​ការ​ចុច​ថ្មី​របស់​អ្នក ។"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:15001
 msgid "Who are you?"
-msgstr ""
+msgstr "អ្នក​ជា​នណារ​?"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:16001
 msgid "What is your name?"
-msgstr ""
+msgstr "តើ​អ្នក​ឈ្មោះ​អ្វី​?"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:17001
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "តើ​អ្នក​ចង់​ប្រើ​ឈ្មោះ​អ្វី​សម្រាប់​ចូល​?"
 
 #. Type: text
 #. Description
@@ -126,26 +126,27 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"ប្រសិន​បើ​មាន​មនុស្ស​ច្រើន​ប្រើ​កុំព្យូទ័រ​នេះ, អ្នក​អាច​កំណត់​គណនី​ច្រើន​ផ្សេង​ទៀត​បន្ទាប់​ពី​ការ​ដំឡើង​ហើយ ។"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:19001
 #, fuzzy
 msgid "Choose a password to keep your account safe."
-msgstr "ជ្រើស​ពាក្យ​សម្ងាត់​សម្រាប់​អ្នក​ប្រើ​ថ្មី ៖"
+msgstr "ជ្រើស​ពាក្យ​សម្ងាត់​ដើម្បី​រក្សារ​គណនី​របស់​អ្នក​ដោយ​សុវត្ថិភាព ។"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:20001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
+msgstr "អ្នក​កំពុង​រត់​ជា​របៀប​ debugging ។ កុំ​ប្រើ​តំលៃ​ពាក្យ​សម្ងាត់​!"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:21001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr ""
+msgstr "បញ្ចូល​ពាក្យ​សម្ងាត់​ដូច​គ្នា​ពីរ​ដង, ដូច្នេះ​វា​អាច​ពិនិត្យ​កំហុស​របស់​ការ​វាយ ។"
 
 #. Type: title
 #. Description

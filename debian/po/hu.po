@@ -2,18 +2,19 @@
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
+# Gabor Kelemen <kelemeng@gnome.hu>, 2007, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: 2008-04-14 22:38+0000\n"
+"PO-Revision-Date: 2008-05-24 13:45+0000\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
-"Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian>\n"
+"Language-Team: Hungarian <gnome@fsf.hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:58+0000\n"
+"X-Launchpad-Export-Date: 2008-06-02 14:59+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -40,7 +41,7 @@ msgstr "Válasszon nyelvet/Choose language"
 msgid ""
 "Once you answer a few questions, the system will be ready for you to use."
 msgstr ""
-"Néhány kérdés megválaszolása után a rendszer készen áll a használatára."
+"Néhány kérdés megválaszolása után a rendszer készen fog állni a használatra."
 
 #. Type: text
 #. Description
@@ -64,7 +65,7 @@ msgstr "Kiválasztott város:"
 #. Description
 #: ../oem-config.templates:9001
 msgid "Selected region:"
-msgstr "Választott régió:"
+msgstr "Kiválasztott régió:"
 
 #. Type: text
 #. Description
@@ -135,7 +136,7 @@ msgstr "Válasszon jelszót, hogy biztonságban lehessen felhasználói fiókja.
 #. Description
 #: ../oem-config.templates:20001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "A rendszer hibakereső módban fut! Ne használjon „értékes\" jelszót!"
+msgstr "A rendszer hibakereső módban fut! Ne használjon „értékes” jelszót!"
 
 #. Type: text
 #. Description
@@ -143,8 +144,7 @@ msgstr "A rendszer hibakereső módban fut! Ne használjon „értékes\" jelsz�
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
-"Írja be ugyanazt a jelszót kétszer, hogy ellenőrizhessük, nem vétett-e "
-"gépelési hibát."
+"Írja be ugyanazt a jelszót kétszer a gépelési hibák ellenőrzése érdekében."
 
 #. Type: title
 #. Description
@@ -157,7 +157,7 @@ msgstr "OEM mód (csak gyártóknak)"
 #. Description
 #: ../oem-config-udeb.templates:1001
 msgid "Prepare for end-user configuration"
-msgstr "Készüljön végfelhasználói beállítás"
+msgstr "Végfelhasználói beállítás előkészítése"
 
 #. Type: text
 #. Description
@@ -170,7 +170,7 @@ msgstr "Végfelhasználói beállítás készítése..."
 #. Description
 #: ../oem-config-udeb.templates:3001
 msgid "Ready for end-user configuration"
-msgstr "A rendszer a végfelhasználói konfigurációra kész"
+msgstr "A rendszer a végfelhasználói beállításra kész"
 
 #. Type: text
 #. Description
@@ -181,10 +181,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
-"Az új rendszer indításától kezdve elérhető lesz az \"oem\" felhasználó a "
-"korábban megadott jelszóval. Ez a felhasználó adminisztrációs "
-"jogosultságokkal fog rendelkezni a \"sudo\" használatával. Így elvégezhetők "
-"lesznek a szükséges további módosítások."
+"Az új rendszer indításakor elérhető lesz az „oem” felhasználó a korábban "
+"megadott jelszóval. Ez a felhasználó adminisztrációs jogosultságokkal fog "
+"rendelkezni a „sudo” használatával. Így elvégezhetők lesznek a szükséges "
+"további módosítások."
 
 #. Type: text
 #. Description

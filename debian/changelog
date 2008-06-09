@@ -1,3 +1,9 @@
+oem-config (1.39) UNRELEASED; urgency=low
+
+  * Merge from hardy-proposed, updating translations.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 09 Jun 2008 11:18:22 +0100
+
 oem-config (1.38) intrepid; urgency=low
 
   [ Colin Watson ]
@@ -14,6 +20,26 @@ oem-config (1.38) intrepid; urgency=low
   * Disable the close button (LP: #190234).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sun, 01 Jun 2008 13:12:28 +0100
+
+oem-config (1.37.2) hardy-proposed; urgency=low
+
+  * Update translations from Launchpad.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 02 Jun 2008 23:04:12 +0100
+
+oem-config (1.37.1) hardy-proposed; urgency=low
+
+  [ Evan Dandrea ]
+  * Disable the close button (LP: #190234).
+
+  [ Colin Watson ]
+  * Don't fail to set the locale if the mirror/country question doesn't
+    exist.
+  * Disable support for console-setup preseeding again, as it interferes
+    with the more important goal of inferring a default keyboard from the
+    selected locale (LP: #219209).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 01 Jun 2008 13:30:52 +0100
 
 oem-config (1.37) hardy; urgency=low
 
