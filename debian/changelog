@@ -1,3 +1,10 @@
+ubiquity (1.9.1) UNRELEASED; urgency=low
+
+  * Fixed the missing definition of HOSTNAME_BADDOTS, which was causing a
+    crash when the user entered a hostname that ended in a dot.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 11 Jun 2008 15:12:16 -0400
+
 ubiquity (1.9.0) intrepid; urgency=low
 
   [ Colin Watson ]

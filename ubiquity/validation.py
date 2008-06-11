@@ -49,6 +49,7 @@ def check_grub_device(device):
 HOSTNAME_LENGTH = 1
 HOSTNAME_BADCHAR = 2
 HOSTNAME_BADHYPHEN = 3
+HOSTNAME_BADDOTS = 4
 
 def check_hostname(name):
 
