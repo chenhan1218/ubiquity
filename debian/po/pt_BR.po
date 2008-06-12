@@ -21,8 +21,7 @@ msgstr ""
 #. This is used as a window title.
 #: ../ubiquity.templates:2001
 msgid "Install"
-msgstr ""
-"Instalar"
+msgstr "Instalar"
 
 #. Type: text
 #. Description
