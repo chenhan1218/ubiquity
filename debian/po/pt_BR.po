@@ -22,8 +22,6 @@ msgstr ""
 #: ../ubiquity.templates:2001
 msgid "Install"
 msgstr ""
-"Instalar\r\n"
-"#-#-#-#-#  pt_BR.po (debian-installer)  #-#-#-#-#\r\n"
 "Instalar"
 
 #. Type: text
