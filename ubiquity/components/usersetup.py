@@ -18,24 +18,34 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 from ubiquity.filteredcommand import FilteredCommand
+import debconf
 
 class UserSetup(FilteredCommand):
     def prepare(self):
         if self.frontend.get_hostname() == '':
-            hostname = self.db.get('netcfg/get_hostname')
-            domain = self.db.get('netcfg/get_domain')
-            if hostname and domain:
-                hostname = '%s.%s' % (hostname, domain)
-            if hostname != '':
-                self.frontend.set_hostname(hostname)
+            try:
+                hostname = self.db.get('netcfg/get_hostname')
+                domain = self.db.get('netcfg/get_domain')
+                if hostname and domain:
+                    hostname = '%s.%s' % (hostname, domain)
+                if hostname != '':
+                    self.frontend.set_hostname(hostname)
+            except debconf.DebconfError:
+                pass
         if self.frontend.get_fullname() == '':
-            fullname = self.db.get('passwd/user-fullname')
-            if fullname != '':
-                self.frontend.set_fullname(fullname)
+            try:
+                fullname = self.db.get('passwd/user-fullname')
+                if fullname != '':
+                    self.frontend.set_fullname(fullname)
+            except debconf.DebconfError:
+                pass
         if self.frontend.get_username() == '':
-            username = self.db.get('passwd/username')
-            if username != '':
-                self.frontend.set_username(username)
+            try:
+                username = self.db.get('passwd/username')
+                if username != '':
+                    self.frontend.set_username(username)
+            except debconf.DebconfError:
+                pass
 
         questions = ['^passwd/user-fullname$', '^passwd/username$',
                      '^passwd/user-password$', '^passwd/user-password-again$',
