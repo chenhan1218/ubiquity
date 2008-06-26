@@ -39,7 +39,7 @@ Description: GTK+ frontend for end-user post-install configuration
 
 Package: oem-config-kde
 Architecture: all
-Depends: ${python:Depends}, oem-config, python-qt4, kwin
+Depends: ${python:Depends}, oem-config, python-qt4, kde-window-manager
 Replaces: oem-config (<< 1.0)
 Provides: oem-config-frontend-${mangled-version}
 XB-Python-Version: ${python:Versions}
