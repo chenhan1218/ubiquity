@@ -1,8 +1,12 @@
 ubiquity (1.9.1) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Fixed the missing definition of HOSTNAME_BADDOTS, which was causing a
     crash when the user entered a hostname that ended in a dot.
   * Fix a crash introduced by the fix for LP: 40590.
+
+  [ Jonathan Riddell ]
+  * ubiquity-frontend-kde depends on kde-window-manager (KDE 4), not kwin (KDE 3)
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 11 Jun 2008 15:12:16 -0400
 
