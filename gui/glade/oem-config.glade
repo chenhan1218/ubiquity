@@ -3,7 +3,6 @@
 <!--*- mode: xml -*-->
 <glade-interface>
   <widget class="GtkWindow" id="oem_config">
-    <property name="visible">True</property>
     <property name="title" translatable="yes">System Configuration</property>
     <property name="window_position">GTK_WIN_POS_CENTER_ALWAYS</property>
     <property name="type_hint">GDK_WINDOW_TYPE_HINT_DIALOG</property>

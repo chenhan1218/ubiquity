@@ -6,6 +6,10 @@ oem-config (1.40) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Switch to glade-3.
 
+  [ Michael Terry ]
+  * Make the UI initially invisible to avoid resize "jittering" as it loads
+    (LP: #241354).
+
  -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 26 Jun 2008 19:10:27 +0100
 
 oem-config (1.39) intrepid; urgency=low
