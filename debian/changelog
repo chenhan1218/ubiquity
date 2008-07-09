@@ -11,6 +11,7 @@ ubiquity (1.9.1) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Update file name for apt-setup 1:0.32.
+  * Add apt-setup local generator to improve preseeding facilities.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 11 Jun 2008 15:12:16 -0400
 
