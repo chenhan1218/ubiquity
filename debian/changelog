@@ -12,6 +12,8 @@ ubiquity (1.9.1) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Update file name for apt-setup 1:0.32.
   * Add apt-setup local generator to improve preseeding facilities.
+  * KDE frontend: Use kdesudo-kde4 for now, and adjust ubiquity-wrapper to
+    look for it in /usr/lib/kde4/bin/ (LP: #247537).
   * Automatic update of included source packages (limited to those packages
     where ubiquity code already expects newer versions): apt-setup
     1:0.37ubuntu2, partconf 1.27, partman-auto 78ubuntu1, partman-auto-loop

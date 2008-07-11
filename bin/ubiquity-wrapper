@@ -65,7 +65,17 @@ def main():
                 toexec.extend(['--desktop', desktop])
             toexec.append('--')
         elif frontend == 'kde_ui':
-            toexec = ['kdesu', '--nonewdcop', '--']
+            kdesu = None
+            if osextras.find_on_path('kdesu'):
+                kdesu = 'kdesu'
+            elif osextras.find_on_path('kdesudo'):
+                kdesu = 'kdesudo'
+            elif os.path.exists('/usr/lib/kde4/bin/kdesudo'):
+                kdesu = '/usr/lib/kde4/bin/kdesudo'
+            if kdesu:
+                toexec = [kdesu, '--nonewdcop', '--']
+            else:
+                toexec = ['sudo']
         else:
             toexec = ['sudo']
 
