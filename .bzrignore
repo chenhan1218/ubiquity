@@ -14,7 +14,7 @@ debian/ubiquity-guadalinex-doc
 debian/ubiquity-ubuntu-artwork
 debian/ubiquity-ubuntu-doc
 debian/ubiquity.install
-debian/*.debhelper
+debian/*.debhelper*
 debian/*.substvars
 ./Makefile
 ./autom4te.cache
