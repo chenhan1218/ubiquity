@@ -1,4 +1,4 @@
-ubiquity (1.9.1) UNRELEASED; urgency=low
+ubiquity (1.9.1) intrepid; urgency=low
 
   [ Evan Dandrea ]
   * Fixed the missing definition of HOSTNAME_BADDOTS, which was causing a
@@ -23,7 +23,7 @@ ubiquity (1.9.1) UNRELEASED; urgency=low
     partman-partitioning 59ubuntu2 (LP: #247519), partman-reiserfs
     41ubuntu1, partman-target 55ubuntu1, partman-xfs 41ubuntu1.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 11 Jun 2008 15:12:16 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 11 Jul 2008 13:19:10 +0100
 
 ubiquity (1.9.0) intrepid; urgency=low
 
