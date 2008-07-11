@@ -12,6 +12,14 @@ ubiquity (1.9.1) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Update file name for apt-setup 1:0.32.
   * Add apt-setup local generator to improve preseeding facilities.
+  * Automatic update of included source packages (limited to those packages
+    where ubiquity code already expects newer versions): apt-setup
+    1:0.37ubuntu2, partconf 1.27, partman-auto 78ubuntu1, partman-auto-loop
+    0ubuntu15, partman-base 121ubuntu3, partman-basicfilesystems 60ubuntu1,
+    partman-basicmethods 39ubuntu1, partman-efi 17ubuntu1, partman-ext3
+    52ubuntu1, partman-jfs 26ubuntu1, partman-newworld 19ubuntu1,
+    partman-partitioning 59ubuntu2 (LP: #247519), partman-reiserfs
+    41ubuntu1, partman-target 55ubuntu1, partman-xfs 41ubuntu1.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 11 Jun 2008 15:12:16 -0400
 
