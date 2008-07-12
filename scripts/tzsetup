@@ -46,8 +46,8 @@ if grep -q "^${newlocale%%[.@]*}[.@ ]" /usr/share/i18n/SUPPORTED; then
 	db_fset debian-installer/locale seen true
 	# Let localechooser know that we're using the same language as
 	# before, so that it doesn't set a default country again.
-	db_fset languagechooser/language-name seen true
-	db_set localechooser/alreadyrun false
+	db_fset localechooser/languagelist seen false
+	rm -f /var/lib/localechooser/preseeded
 	PATH="/usr/lib/ubiquity/localechooser:$PATH" \
 		/usr/lib/ubiquity/localechooser/localechooser
 fi
