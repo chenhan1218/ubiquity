@@ -58,7 +58,7 @@ d-i/source/hw-detect/debian/hw-detect/bin/sysfs-update-devnames bin
 ubiquity/components/hw_detect.py usr/lib/ubiquity/ubiquity/components
 
 # localechooser
-d-i/source/localechooser/languagelist usr/lib/ubiquity/localechooser
+d-i/source/localechooser/debian/localechooser/usr/share/localechooser/languagelist usr/lib/ubiquity/localechooser
 d-i/source/localechooser/translation-check usr/lib/ubiquity/localechooser
 d-i/source/localechooser/debian/localechooser/usr/share/localechooser/languagelist.data.gz usr/lib/ubiquity/localechooser
 d-i/source/localechooser/regionmap usr/lib/ubiquity/localechooser
