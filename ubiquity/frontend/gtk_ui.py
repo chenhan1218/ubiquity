@@ -2659,13 +2659,13 @@ class ResizeWidget(gtk.HPaned):
 
     def _update_min(self):
         total = self.new_os.get_allocation().width + self.old_os.get_allocation().width
-        tmp = self.min_size / self.part_size
+        tmp = float(self.min_size) / self.part_size
         pixels = int(tmp * total)
         self.old_os.set_size_request(pixels, -1)
 
     def _update_max(self):
         total = self.new_os.get_allocation().width + self.old_os.get_allocation().width
-        tmp = ((self.part_size - self.max_size) / self.part_size)
+        tmp = ((float(self.part_size) - self.max_size) / self.part_size)
         pixels = int(tmp * total)
         self.new_os.set_size_request(pixels, -1)
 

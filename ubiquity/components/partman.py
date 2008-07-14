@@ -291,15 +291,15 @@ class Partman(FilteredCommand):
                 assert state[0] == 'partman/active_partition'
                 partition = self.partition_cache[state[1]]
                 if key == 'RAWMINSIZE':
-                    partition['resize_min_size'] = float(value)
+                    partition['resize_min_size'] = int(value)
                 elif key == 'RAWMAXSIZE':
-                    partition['resize_max_size'] = float(value)
+                    partition['resize_max_size'] = int(value)
             if key == 'RAWMINSIZE':
-                self.resize_min_size = float(value)
+                self.resize_min_size = int(value)
             elif key == 'RAWMAXSIZE':
-                self.resize_max_size = float(value)
+                self.resize_max_size = int(value)
             elif key == 'ORISIZE':
-                self.resize_orig_size = float(value)
+                self.resize_orig_size = int(value)
             elif key == 'PATH':
                 self.resize_path = value
 
