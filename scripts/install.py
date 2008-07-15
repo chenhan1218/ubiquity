@@ -1055,6 +1055,28 @@ exit 0"""
 
         self.do_install(to_install, langpacks=True)
 
+        cache = Cache()
+        incomplete = False
+        for pkg in to_install:
+            cachedpkg = self.get_cache_pkg(cache, pkg)
+            if cachedpkg is None or not cachedpkg.isInstalled:
+                incomplete = True
+                break
+        if incomplete:
+            language_support_dir = \
+                os.path.join(self.target, 'usr/share/language-support')
+            update_notifier_dir = \
+                os.path.join(self.target, 'var/lib/update-notifier/user.d')
+            for note in ('incomplete-language-support-gnome.note',
+                         'incomplete-language-support-qt.note'):
+                notepath = os.path.join(language_support_dir, note)
+                if os.path.exists(notepath):
+                    if not os.path.exists(update_notifier_dir):
+                        os.makedirs(update_notifier_dir)
+                    shutil.copy(notepath,
+                                os.path.join(update_notifier_dir, note))
+                    break
+
 
     def configure_timezone(self):
         """Set timezone on installed system."""
