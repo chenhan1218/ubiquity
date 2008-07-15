@@ -10,7 +10,7 @@ Vcs-Bzr: http://bazaar.launchpad.net/~ubuntu-core-dev/oem-config/trunk
 Package: oem-config
 Architecture: any
 Depends: ${shlibs:Depends}, ${python:Depends}, debconf (>= 1.4.52), oem-config-frontend-${mangled-version}, xserver-xorg, localechooser-data, iso-codes, apt, locales (>= 2.3.7-1), ${console-setup-depends}, passwd, adduser
-Recommends: hwdb-client
+Recommends: hwtest
 Conflicts: oem-config-keyboard, oem-config-locale, oem-config-timezone
 Replaces: oem-config-keyboard, oem-config-locale, oem-config-timezone
 XB-Python-Version: ${python:Versions}
@@ -24,6 +24,7 @@ Description: Perform end-user configuration after initial installation
 Package: oem-config-gtk
 Architecture: any
 Depends: ${shlibs:Depends}, ${python:Depends}, oem-config, python-gtk2, python-glade2, python-cairo, metacity
+Recommends: hwtest-gtk
 Suggests: gnome-control-center
 Replaces: oem-config (<< 1.0)
 Provides: oem-config-frontend-${mangled-version}
