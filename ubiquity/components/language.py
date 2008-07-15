@@ -20,7 +20,6 @@
 import os
 import re
 import locale
-import syslog
 
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity import i18n
@@ -29,8 +28,6 @@ from ubiquity import misc
 class Language(FilteredCommand):
     def prepare(self):
         self.language_question = None
-        self.codes = None
-        self.names = None
         self.db.fset('localechooser/languagelist', 'seen', 'false')
         self.db.set('localechooser/alreadyrun', 'false')
         questions = ['localechooser/languagelist']
