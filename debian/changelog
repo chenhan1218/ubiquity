@@ -1,3 +1,10 @@
+oem-config (1.43) UNRELEASED; urgency=low
+
+  * Adjust Brazilian and Japanese keyboard models when applying the keyboard
+    layout on the fly (LP: #217140).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 16 Jul 2008 01:26:38 +0100
+
 oem-config (1.42) intrepid; urgency=low
 
   * Remove old local copies of intltool-* scripts; build-depend on intltool
