@@ -186,7 +186,14 @@ class ConsoleSetup(FilteredCommand):
             # shift
             real_options = ['grp:alt_shift_toggle']
 
-        return (model, real_layout, real_variant, real_options)
+        real_model = model
+        if model == 'pc105':
+            if real_layout == 'br':
+                real_model = 'abnt2'
+            elif real_layout == 'jp':
+                real_model = 'jp106'
+
+        return (real_model, real_layout, real_variant, real_options)
 
     def apply_keyboard(self, layout, variant):
         model = self.db.get('console-setup/modelcode')
