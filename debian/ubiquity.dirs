@@ -3,3 +3,4 @@ usr/lib/ubiquity/base-installer
 usr/lib/ubiquity/bin
 usr/lib/ubiquity/clock-setup
 usr/share/applications/
+var/lib/localechooser

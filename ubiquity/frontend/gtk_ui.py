@@ -1240,7 +1240,7 @@ class Wizard(BaseFrontend):
             return 'C'
         else:
             value = unicode(model.get_value(iterator, 0))
-            return self.language_choice_map[value][0]
+            return self.language_choice_map[value][1]
 
 
     def get_oem_id (self):

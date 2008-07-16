@@ -1122,7 +1122,7 @@ class Wizard(BaseFrontend):
         items = self.userinterface.language_treeview.selectedItems()
         if len(items) == 1:
             value = unicode(items[0].text())
-            return self.language_choice_map[value][0]
+            return self.language_choice_map[value][1]
         else:
             return 'C'
 

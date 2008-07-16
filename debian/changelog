@@ -2,6 +2,7 @@ ubiquity (1.9.2) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * The partition resize widget expects floats, not ints.
+  * Properly support the new d-i localechooser.
 
   [ Colin Watson ]
   * If we fail to install complete language support, install the
