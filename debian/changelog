@@ -1,4 +1,4 @@
-ubiquity (1.9.2) UNRELEASED; urgency=low
+ubiquity (1.9.2) intrepid; urgency=low
 
   [ Evan Dandrea ]
   * The partition resize widget expects floats, not ints.
@@ -18,7 +18,7 @@ ubiquity (1.9.2) UNRELEASED; urgency=low
   * Adjust Brazilian and Japanese keyboard models when applying the keyboard
     layout on the fly (LP: #217140).
 
- -- Evan Dandrea <evand@ubuntu.com>  Mon, 14 Jul 2008 14:40:04 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 16 Jul 2008 10:55:22 +0100
 
 ubiquity (1.9.1) intrepid; urgency=low
 
