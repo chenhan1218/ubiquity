@@ -21,4 +21,5 @@ from ubiquity.filteredcommand import FilteredCommand
 
 class ClockSetup(FilteredCommand):
     def prepare(self):
+        self.preseed('netcfg/dhcp_ntp_servers', '', seen=False)
         return (['/usr/share/ubiquity/clock-setup'], [])
