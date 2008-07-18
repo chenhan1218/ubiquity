@@ -78,6 +78,7 @@ clean:
 	rm -fr build-stamp $(BUILDDIR) ubiquity/frontend/liveinstaller.py \
 		ubiquity/frontend/crashdialog.py
 	find -type f \( -name \*.pyc -o -name \*.pyo \) -print0 | xargs -0r rm -f
+	rm -f po/.intltool-merge-cache po/stamp-po
 
 	$(MAKE) -C d-i clean
 	[ ! -f Makefile ] || $(MAKE) distclean
