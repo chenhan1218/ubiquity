@@ -1773,7 +1773,7 @@ exit 0"""
                                    os.path.join('/etc/gdm', name));
                         break
 
-                kdmrc = os.path.join(self.target, 'etc/kde3/kdm/kdmrc')
+                kdmrc = os.path.join(self.target, 'etc/kde4/kdm/kdmrc')
                 if os.path.isfile(kdmrc):
                     misc.execute('sed', '-i.oem', '-r',
                                  '-e', 's/^#?AutoLoginEnable=.*$/AutoLoginEnable=true/',
@@ -1781,15 +1781,6 @@ exit 0"""
                                  '-e', 's/^#?AutoReLogin=.*$/AutoReLogin=true/',
                                  kdmrc)
 
-                if osextras.find_on_path_root(self.target, 'kpersonalizer'):
-                    kpersonalizerrc = os.path.join(self.target,
-                                                   'etc/kde3/kpersonalizerrc')
-                    if not os.path.isfile(kpersonalizerrc):
-                        kpersonalizerrc_file = open(kpersonalizerrc, 'w')
-                        print >>kpersonalizerrc_file, '[General]'
-                        print >>kpersonalizerrc_file, 'FirstLogin=false'
-                        kpersonalizerrc_file.close()
-                        open('%s.created-by-oem', 'w').close()
 		# Carry the locale setting over to the installed system.
 		# This mimics the behavior in 01oem-config-udeb.
                 di_locale = self.db.get('debian-installer/locale')

@@ -1,7 +1,12 @@
 ubiquity (1.9.4) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Preseed netcfg/dhcp_ntp_servers to the empty string so that clock-setup
     stops breaking.
+
+  [ Jonathan Riddell ]
+  * Update install.py for KDE 4's KDM
+  * Remove kpersoniser disabling from install.py, kpersonaliser is dead
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 18 Jul 2008 15:30:27 +0100
 
