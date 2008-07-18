@@ -29,7 +29,10 @@ class Language(FilteredCommand):
     def prepare(self):
         self.language_question = None
         self.db.fset('localechooser/languagelist', 'seen', 'false')
-        self.db.set('localechooser/alreadyrun', 'false')
+        try:
+            os.unlink('/var/lib/localechooser/preseeded')
+        except OSError:
+            pass
         questions = ['localechooser/languagelist']
         return (['/usr/lib/ubiquity/localechooser/localechooser'], questions,
                 {'PATH': '/usr/lib/ubiquity/localechooser:' + os.environ['PATH'],
