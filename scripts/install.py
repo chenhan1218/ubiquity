@@ -445,6 +445,86 @@ class Install:
                 pass
 
 
+    def copy_file(self, sourcepath, targetpath, md5_check):
+        sourcefh = None
+        targetfh = None
+        try:
+            while 1:
+                sourcefh = open(sourcepath, 'rb')
+                targetfh = open(targetpath, 'wb')
+                if md5_check:
+                    sourcehash = md5()
+                while 1:
+                    buf = sourcefh.read(16 * 1024)
+                    if not buf:
+                        break
+                    targetfh.write(buf)
+                    if md5_check:
+                        sourcehash.update(buf)
+
+                if not md5_check:
+                    break
+                targetfh.close()
+                targetfh = open(targetpath, 'rb')
+                if md5_check:
+                    targethash = md5()
+                while 1:
+                    buf = targetfh.read(16 * 1024)
+                    if not buf:
+                        break
+                    targethash.update(buf)
+                if targethash.digest() != sourcehash.digest():
+                    if targetfh:
+                        targetfh.close()
+                    if sourcefh:
+                        sourcefh.close()
+                    error_template = 'ubiquity/install/copying_error/md5'
+                    self.db.subst(error_template, 'FILE', targetpath)
+                    self.db.input('critical', error_template)
+                    self.db.go()
+                    response = self.db.get(error_template)
+                    if response == 'skip':
+                        break
+                    elif response == 'abort':
+                        syslog.syslog(syslog.LOG_ERR,
+                            'MD5 failure on %s' % targetpath)
+                        sys.exit(3)
+                    elif response == 'retry':
+                        pass
+                else:
+                    break
+        finally:
+            if targetfh:
+                targetfh.close()
+            if sourcefh:
+                sourcefh.close()
+
+    def find_cd_kernel(self):
+        """Find the boot kernel on the CD, if possible."""
+
+        release_bits = os.uname()[2].split('-')
+        if len(release_bits) >= 3:
+            subarch = release_bits[2]
+        else:
+            subarch = None
+
+        for prefix in ('vmlinux', 'vmlinuz'):
+            kernel = os.path.join('/cdrom/casper', prefix)
+            if os.path.exists(kernel):
+                return kernel
+
+            if subarch:
+                kernel = os.path.join('/cdrom/casper', subarch, prefix)
+                if os.path.exists(kernel):
+                    return kernel
+
+                kernel = os.path.join('/cdrom/casper',
+                                      '%s-%s' % (prefix, subarch))
+                if os.path.exists(kernel):
+                    return kernel
+
+        return None
+
     def copy_all(self):
         """Core copy process. This is the most important step of this
         stage. It clones live filesystem into a local partition in the
@@ -526,58 +606,7 @@ class Install:
                 os.mknod(targetpath, stat.S_IFSOCK | mode)
             elif stat.S_ISREG(st.st_mode):
                 if not os.path.exists(targetpath):
-                    sourcefh = None
-                    targetfh = None
-                    try:
-                        while 1:
-                            sourcefh = open(sourcepath, 'rb')
-                            targetfh = open(targetpath, 'wb')
-                            if md5_check:
-                                sourcehash = md5()
-                            while 1:
-                                buf = sourcefh.read(16 * 1024)
-                                if not buf:
-                                    break
-                                targetfh.write(buf)
-                                if md5_check:
-                                    sourcehash.update(buf)
-
-                            if not md5_check:
-                                break
-                            targetfh.close()
-                            targetfh = open(targetpath, 'rb')
-                            if md5_check:
-                                targethash = md5()
-                            while 1:
-                                buf = targetfh.read(16 * 1024)
-                                if not buf:
-                                    break
-                                targethash.update(buf)
-                            if targethash.digest() != sourcehash.digest():
-                                if targetfh:
-                                    targetfh.close()
-                                if sourcefh:
-                                    sourcefh.close()
-                                error_template = 'ubiquity/install/copying_error/md5'
-                                self.db.subst(error_template, 'FILE', targetpath)
-                                self.db.input('critical', error_template)
-                                self.db.go()
-                                response = self.db.get(error_template)
-                                if response == 'skip':
-                                    break
-                                elif response == 'abort':
-                                    syslog.syslog(syslog.LOG_ERR,
-                                        'MD5 failure on %s' % targetpath)
-                                    sys.exit(3)
-                                elif response == 'retry':
-                                    pass
-                            else:
-                                break
-                    finally:
-                        if targetfh:
-                            targetfh.close()
-                        if sourcefh:
-                            sourcefh.close()
+                    self.copy_file(sourcepath, targetpath, md5_check)
 
             copied_size += st.st_size
             os.lchown(targetpath, st.st_uid, st.st_gid)
@@ -621,6 +650,24 @@ class Install:
                 # I have no idea why I've been getting lots of bug reports
                 # about this failing, but I really don't care. Ignore it.
                 pass
+
+        # If no kernel was copied, try some possible locations for the
+        # kernel we used to boot. This saves a couple of megabytes of CD
+        # space.
+        bootdir = os.path.join(self.target, 'boot')
+        re_image = re.compile('vmlinu[xz]-')
+        for entry in os.listdir(bootdir):
+            match = re_image.match(entry)
+            if match is not None:
+                break
+        else:
+            kernel = self.find_cd_kernel()
+            if kernel:
+                prefix = os.path.basename(kernel).split('-', 1)[0]
+                release = os.uname()[2]
+                target_kernel = os.path.join(bootdir,
+                                             '%s-%s' % (prefix, release))
+                self.copy_file(kernel, target_kernel, md5_check)
 
         os.umask(old_umask)
 

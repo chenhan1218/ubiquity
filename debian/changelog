@@ -3,6 +3,8 @@ ubiquity (1.9.4) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Preseed netcfg/dhcp_ntp_servers to the empty string so that clock-setup
     stops breaking.
+  * Find and copy the kernel from the CD root if it is missing from the live
+    filesystem (LP: #80385).
 
   [ Jonathan Riddell ]
   * Update install.py for KDE 4's KDM
