@@ -37,24 +37,13 @@ if chroot /target [ -f "$GDMCONF" ]; then
 		"$GDMCONF"
 fi
 
-if [ -f /target/etc/kde3/kdm/kdmrc ]; then
+if [ -f /target/etc/kde4/kdm/kdmrc ]; then
 	# Configure KDM autologin
 	chroot /target sed -i.oem -r \
 		-e "s/^#?AutoLoginEnable=.*\$/AutoLoginEnable=true/" \
 		-e "s/^#?AutoLoginUser=.*\$/AutoLoginUser=oem/" \
 		-e "s/^#?AutoReLogin=.*\$/AutoReLogin=true/" \
-		/etc/kde3/kdm/kdmrc
-fi
-
-if chroot /target /usr/bin/which kpersonalizer >/dev/null; then
-	# Disable first-login wizard for KDE
-	if [ ! -f /target/etc/kde3/kpersonalizerrc ]; then
-		cat > /target/etc/kde3/kpersonalizerrc <<EOF
-[General]
-FirstLogin=false
-EOF
-		touch /target/etc/kde3/kpersonalizerrc.created-by-oem
-	fi
+		/etc/kde4/kdm/kdmrc
 fi
 
 exit 0

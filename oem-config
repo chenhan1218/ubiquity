@@ -59,21 +59,12 @@ def disable_autologin():
 
     # Reverse actions of finish-install.d/07oem-config-user.
     for name in ('/etc/gdm/gdm-cdd.conf', '/etc/gdm/gdm.conf',
-                 '/etc/kde3/kdm/kdmrc'):
+                 '/etc/kde4/kdm/kdmrc'):
         if os.path.exists('%s.oem' % name):
             try:
                 os.rename('%s.oem' % name, name)
             except OSError:
                 traceback.print_exc()
-    if os.path.exists('/etc/kde3/kpersonalizerrc.created-by-oem'):
-        try:
-            os.unlink('/etc/kde3/kpersonalizerrc')
-        except OSError:
-            traceback.print_exc()
-        try:
-            os.unlink('/etc/kde3/kpersonalizerrc.created-by-oem')
-        except OSError:
-            traceback.print_exc()
 
 def run_hooks():
     """Run hook scripts from /usr/lib/oem-config/post-install."""
