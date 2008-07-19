@@ -118,9 +118,11 @@ Customisation
 -------------
 
 Where d-i code is used, it is generally possible to preseed it to change
-default behaviour. See the installation guide for details. However, at
-present Ubiquity will not skip over preseeded steps. This may be fixed in
-the future.
+default behaviour. See the installation guide for details. By default,
+preseeding is confined to setting default values for questions, and Ubiquity
+will not skip over preseeded steps (this is to allow sensible interpretation
+of going backward and forward in the UI); if the --automatic option is used,
+preseeded steps will be skipped.
 
 The read-only live filesystem should generally be mounted on /rofs.
 Alternatively, an image may be present as /cdrom/casper/filesystem.cloop,
