@@ -3,6 +3,8 @@ oem-config (1.43) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Adjust Brazilian and Japanese keyboard models when applying the keyboard
     layout on the fly (LP: #217140).
+  * Remove po/.intltool-merge-cache and po/stamp-po on clean.
+  * Update the FSF's address in a few more places.
 
   [ Jonathan Riddell ]
   * Update KDM config file for KDE 4 and remove kpersonaliser references
