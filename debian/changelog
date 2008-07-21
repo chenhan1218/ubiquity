@@ -5,6 +5,7 @@ oem-config (1.43) UNRELEASED; urgency=low
     layout on the fly (LP: #217140).
   * Remove po/.intltool-merge-cache and po/stamp-po on clean.
   * Update the FSF's address in a few more places.
+  * Use kdesudo for the KDE frontend where available.
 
   [ Jonathan Riddell ]
   * Update KDM config file for KDE 4 and remove kpersonaliser references
