@@ -54,7 +54,7 @@ Description: GTK+ frontend for Ubiquity live installer
 
 Package: ubiquity-frontend-kde
 Architecture: all
-Depends: ${misc:Depends}, ${python:Depends}, ubiquity, python-qt4, kde-window-manager, kdesudo-kde4
+Depends: ${misc:Depends}, ${python:Depends}, ubiquity, python-qt4, kde-window-manager, kdesudo | kdesudo-kde4
 Provides: ubiquity-frontend-${mangled-version}
 XB-Python-Version: ${python:Versions}
 Description: KDE frontend for Ubiquity live installer
