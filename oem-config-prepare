@@ -20,7 +20,19 @@ else
 			exec gksudo --desktop /usr/share/applications/oem-config-prepare-gtk.desktop -- "$0" "$@"
 			;;
 		kde_ui)
-			exec kdesu --nonewdcop -- "$0" "$@"
+			kdesu=
+			if which kdesu >/dev/null 2>&1; then
+				kdesu=kdesu
+			elif which kdesudo >/dev/null 2>&1; then
+				kdesu=kdesudo
+			elif [ -x /usr/lib/kde4/bin/kdesudo ]; then
+				kdesu=/usr/lib/kde4/bin/kdesudo
+			fi
+			if [ "$kdesu" ]; then
+				exec $kdesu --nonewdcop -- "$0" "$@"
+			else
+				exec sudo "$0" "$@"
+			fi
 			;;
 		*)
 			exec sudo "$0" "$@"
