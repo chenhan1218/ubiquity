@@ -10,8 +10,11 @@ apport/oem-config.py usr/share/apport/package-hooks
 scripts/console-setup-apply usr/lib/oem-config/console
 
 # localechooser
-d-i/source/localechooser/localechooser usr/lib/oem-config/language
-d-i/source/localechooser/languagemap usr/lib/oem-config/language
+d-i/source/localechooser/debian/localechooser/usr/share/localechooser/languagelist usr/lib/oem-config/language
+d-i/source/localechooser/translation-check usr/lib/oem-config/language
+d-i/source/localechooser/debian/localechooser/usr/share/localechooser/languagelist.data.gz usr/lib/oem-config/language
+d-i/source/localechooser/regionmap usr/lib/oem-config/language
+d-i/source/localechooser/debian/short-tmp/shortlists usr/lib/oem-config/language
 scripts/localechooser-wrapper usr/lib/oem-config/language
 scripts/localechooser-apply usr/lib/oem-config/language
 

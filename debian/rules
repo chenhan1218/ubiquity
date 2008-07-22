@@ -84,6 +84,12 @@ endif
 			> debian/oem-config/usr/lib/oem-config/user/$$x; \
 		chmod +x debian/oem-config/usr/lib/oem-config/user/$$x; \
 	done
+	set -e; for x in languagemap localechooser; do \
+		sed 's,/usr/share/localechooser,/usr/lib/oem-config/language,g' \
+			d-i/source/localechooser/$$x \
+			> debian/oem-config/usr/lib/oem-config/language/$$x; \
+		chmod +x debian/oem-config/usr/lib/oem-config/language/$$x; \
+	done
 
 	cp debian/lintian-override $(tmp)/usr/share/lintian/overrides/oem-config
 	dh_installdebconf -a

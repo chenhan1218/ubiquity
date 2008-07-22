@@ -478,7 +478,7 @@ class Frontend:
             return 'C'
         else:
             value = unicode(model.get_value(iterator, 0))
-            return self.language_choice_map[value][0]
+            return self.language_choice_map[value][1]
 
     def on_language_treeview_row_activated(self, treeview, path, view_column):
         self.next.activate()

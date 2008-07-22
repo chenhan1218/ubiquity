@@ -347,7 +347,7 @@ p, li { white-space: pre-wrap; }
 
     def get_language(self):
         value = unicode(self.userinterface.language_list.currentItem().text())
-        return self.language_choice_map[value][0]
+        return self.language_choice_map[value][1]
 
     def on_language_treeview_selection_changed(self):
         lang = self.selected_language()

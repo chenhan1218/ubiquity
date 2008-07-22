@@ -10,6 +10,11 @@ oem-config (1.43) UNRELEASED; urgency=low
   [ Jonathan Riddell ]
   * Update KDM config file for KDE 4 and remove kpersonaliser references
 
+  [ Evan Dandrea ]
+  * Update the language component to reflect changes to localechooser.
+  * Use OVERRIDE_SHOW_ALL_LANGUAGES in the localechooser wrapper
+    (LP: #249795).
+
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 16 Jul 2008 01:26:38 +0100
 
 oem-config (1.42) intrepid; urgency=low

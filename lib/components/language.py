@@ -29,57 +29,37 @@ from oem_config import im_switch
 class Language(FilteredCommand):
     def prepare(self):
         self.language_question = None
-        self.db.fset('languagechooser/language-name', 'seen', 'false')
-        self.db.set('localechooser/alreadyrun', 'false')
-        questions = ['^languagechooser/language-name',
-                     '^countrychooser/(shortlist|country-name)$']
+        self.db.fset('localechooser/languagelist', 'seen', 'false')
+        try:
+            os.unlink('/var/lib/localechooser/preseeded')
+        except OSError:
+            pass
+        questions = ['localechooser/languagelist']
         return (['/usr/lib/oem-config/language/localechooser-wrapper'],
                 questions)
 
     def run(self, priority, question):
-        if question.startswith('languagechooser/language-name'):
+        if question == 'localechooser/languagelist':
             self.language_question = question
-
-            # Get index of untranslated value; we'll map this to the
-            # translated value later.
             current_language_index = self.value_index(question)
             current_language = "English"
 
-            language_choices = self.split_choices(
-                unicode(self.db.metaget(question, 'choices-en.utf-8'),
-                        'utf-8', 'replace'))
-            language_choices_c = self.choices_untranslated(question)
-
-            language_codes = {}
-            languagelist = open('/usr/share/localechooser/languagelist')
-            for line in languagelist:
-                if line.startswith('#'):
-                    continue
-                bits = line.split(';')
-                if len(bits) >= 3:
-                    if bits[2] in ('dz', 'km'):
-                        # Exclude these languages for now, as we don't ship
-                        # fonts for them and we don't have sufficient
-                        # translations anyway.
-                        continue
-                    elif bits[2] in ('pt', 'zh'):
-                        # Special handling for subdivided languages.
-                        code = '%s_%s' % (bits[2], bits[3])
-                    else:
-                        code = bits[2]
-                    language_codes[bits[0]] = code
-            languagelist.close()
-
+            import gzip
+            languagelist = gzip.open('/usr/lib/oem-config/language/languagelist.data.gz')
             language_display_map = {}
-            for i in range(len(language_choices)):
-                choice = re.sub(r'.*? *- (.*)', r'\1', language_choices[i])
-                choice_c = language_choices_c[i]
-                if choice_c not in language_codes:
+            i = 0
+            for line in languagelist:
+                if line == '' or line == '\n':
                     continue
-                language_display_map[choice] = (choice_c,
-                                                language_codes[choice_c])
+                code, name, trans = line.strip(u'\n').split(u':')[1:]
+                if code in ('dz', 'km'):
+                    i += 1
+                    continue
+                language_display_map[trans] = (name, code)
                 if i == current_language_index:
-                    current_language = choice
+                    current_language = trans
+                i += 1
+            languagelist.close()
 
             def compare_choice(x, y):
                 result = cmp(language_display_map[x][1],
@@ -92,25 +72,6 @@ class Language(FilteredCommand):
             self.frontend.set_language_choices(sorted_choices,
                                                language_display_map)
             self.frontend.set_language(current_language)
-
-        elif question.startswith('countrychooser/'):
-            if 'DEBCONF_USE_CDEBCONF' not in os.environ:
-                # Normally this default is handled by Default-$LL, but since
-                # we can't change debconf's language on the fly (unlike
-                # cdebconf), we have to fake it.
-                country = self.db.get('debian-installer/country')
-                if question.endswith('shortlist'):
-                    self.db.set(question, country)
-                elif question.endswith('country-name') and country:
-                    fp = open('/usr/share/iso-codes/iso_3166.tab')
-                    try:
-                        for line in fp:
-                            if line.startswith(country):
-                                self.db.set(question, line.split()[1])
-                                break
-                    finally:
-                        fp.close()
-            return True
 
         return FilteredCommand.run(self, priority, question)
 
