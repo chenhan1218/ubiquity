@@ -1461,7 +1461,7 @@ class Wizard(BaseFrontend):
             return
         known_filesystems = ('ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
                              'fat16', 'fat32', 'ntfs')
-        text = str(self.create_dialog.partition_create_use_combo.currentText())
+        text = unicode(self.create_dialog.partition_create_use_combo.currentText())
         if text not in self.create_use_method_names:
             return
         method = self.create_use_method_names[text]

@@ -4,6 +4,9 @@ ubiquity (1.9.5) UNRELEASED; urgency=low
   * Direct questions to the ubuntu-installer list rather than to me
     personally.
   * Depend on kdesudo | kdesudo-kde4 (the latter is transitional now).
+  * KDE frontend:
+    - Fix crash on selecting non-ASCII options in the "Use as:" menu while
+      creating a partition (LP: #247993).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 19 Jul 2008 11:47:02 +0100
 
