@@ -1448,7 +1448,7 @@ class Wizard(BaseFrontend):
             method_description = unicode(self.create_dialog.partition_create_use_combo.currentText())
             method = self.create_use_method_names[method_description]
 
-            mountpoint = str(self.create_dialog.partition_create_mount_combo.currentText())
+            mountpoint = unicode(self.create_dialog.partition_create_mount_combo.currentText())
 
             self.allow_change_step(False)
             self.dbfilter.create_partition(
@@ -1568,7 +1568,7 @@ class Wizard(BaseFrontend):
 
             format = self.edit_dialog.partition_edit_format_checkbutton.isChecked()
 
-            mountpoint = str(self.edit_dialog.partition_edit_mount_combo.currentText())
+            mountpoint = unicode(self.edit_dialog.partition_edit_mount_combo.currentText())
 
             if (current_size is not None and size is not None and
                 current_size == size):
