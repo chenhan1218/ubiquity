@@ -72,6 +72,9 @@ class Install(FilteredCommand):
             self.preseed('oem-config/enable', 'true')
             self.preseed('oem-config/id', self.frontend.get_oem_id())
 
+        # for clock-setup
+        self.preseed('netcfg/dhcp_ntp_servers', '', seen=False)
+
         questions = ['^.*/apt-install-failed$',
                      'migration-assistant/failed-unmount',
                      'grub-installer/install_to_xfs',

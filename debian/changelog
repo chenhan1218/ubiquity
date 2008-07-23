@@ -8,6 +8,9 @@ ubiquity (1.9.5) UNRELEASED; urgency=low
     - Fix crash on selecting non-ASCII options in the "Use as:" menu while
       creating a partition (LP: #247993).
     - Fix crash when entering a non-ASCII mount point (LP: #128554).
+  * Preseed netcfg/dhcp_ntp_servers from install component rather than
+    clock-setup, since the latter doesn't have debconf database access at
+    the right time (LP: #251089).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 19 Jul 2008 11:47:02 +0100
 
