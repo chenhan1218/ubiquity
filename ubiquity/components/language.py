@@ -49,6 +49,7 @@ class Language(FilteredCommand):
             language_display_map = {}
             i = 0
             for line in languagelist:
+                line = unicode(line, 'utf-8')
                 if line == '' or line == '\n':
                     continue
                 code, name, trans = line.strip(u'\n').split(u':')[1:]

@@ -1,5 +1,6 @@
 ubiquity (1.9.5) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Update README to document --automatic option.
   * Direct questions to the ubuntu-installer list rather than to me
     personally.
@@ -11,6 +12,10 @@ ubiquity (1.9.5) UNRELEASED; urgency=low
   * Preseed netcfg/dhcp_ntp_servers from install component rather than
     clock-setup, since the latter doesn't have debconf database access at
     the right time (LP: #251089).
+
+  [ Jonathan Riddell ]
+  * language.py: Change string to unicode, fixes crash when using KDE 
+    frontend, closes LP: #251097
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 19 Jul 2008 11:47:02 +0100
 
