@@ -268,11 +268,13 @@ class Wizard(BaseFrontend):
 
     # Disable the KDE media notifier to avoid problems during partitioning.
     def disable_volume_manager(self):
-        execute('dcop', 'kded', 'kded', 'unloadModule', 'medianotifier')
+        print "FIXME, medianotifier unload port to KDE 4"
+        #execute('dcop', 'kded', 'kded', 'unloadModule', 'medianotifier')
         atexit.register(self.enable_volume_manager)
 
     def enable_volume_manager(self):
-        execute('dcop', 'kded', 'kded', 'loadModule', 'medianotifier')
+        print "FIXME, medianotifier unload port to KDE 4"
+        #execute('dcop', 'kded', 'kded', 'loadModule', 'medianotifier')
 
     def openReleaseNotes(self):
         self.openURL(self.release_notes_url_template)
@@ -749,10 +751,11 @@ class Wizard(BaseFrontend):
         """Callback for main program to actually reboot the machine."""
 
         if 'DESKTOP_SESSION' in os.environ:
-            execute('dcop', 'ksmserver', 'ksmserver', 'logout',
-                    # ShutdownConfirmNo, ShutdownTypeReboot,
-                    # ShutdownModeForceNow
-                    '0', '1', '2')
+            print "FIXME, port logout to KDE 4"
+            #execute('dcop', 'ksmserver', 'ksmserver', 'logout',
+            #        # ShutdownConfirmNo, ShutdownTypeReboot,
+            #        # ShutdownModeForceNow
+            #        '0', '1', '2')
         else:
             execute('reboot')
 
