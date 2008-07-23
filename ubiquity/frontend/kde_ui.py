@@ -1813,6 +1813,9 @@ class Wizard(BaseFrontend):
     def get_hostname (self):
         return unicode(self.userinterface.hostname.text())
 
+    def set_hostname (self, value):
+        self.userinterface.hostname.setText(value)
+
     def set_summary_text (self, text):
         i = text.find("\n")
         while i != -1:
