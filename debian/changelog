@@ -1,3 +1,10 @@
+ubiquity (1.9.7) UNRELEASED; urgency=low
+
+  * Properly fix intltool dependency.  Remove old copies of intltool
+    scripts.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 23 Jul 2008 15:37:27 -0400
+
 ubiquity (1.9.6) intrepid; urgency=low
 
   * Add a dependency on intltool to fix a build failure.
