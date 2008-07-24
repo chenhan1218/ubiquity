@@ -7,6 +7,8 @@ oem-config (1.43) UNRELEASED; urgency=low
   * Update the FSF's address in a few more places.
   * Use kdesudo for the KDE frontend where available.
   * Upgrade to current autotools in Intrepid, including libtool 2.2.
+  * Automatic update of included source packages: console-setup 1.25ubuntu2,
+    localechooser 2.03ubuntu1, user-setup 1.20ubuntu3.
 
   [ Jonathan Riddell ]
   * Update KDM config file for KDE 4 and remove kpersonaliser references
