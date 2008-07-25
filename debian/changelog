@@ -7,6 +7,12 @@ ubiquity (1.9.7) UNRELEASED; urgency=low
   [ Michael Terry ]
   * Ensure that some widget is focused after changing page (LP: #241367).
 
+  [ Colin Watson ]
+  * Add a no-op compatibility shim for depmod. Some d-i code calls it after
+    calling anna-install in order to make sure that new kernel modules are
+    installed properly; this is unnecessary and slow in the live CD
+    environment (LP: #251117).
+
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 23 Jul 2008 15:37:27 -0400
 
 ubiquity (1.9.6) intrepid; urgency=low
