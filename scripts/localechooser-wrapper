@@ -14,8 +14,6 @@ if ! supported "$LOCALE"; then
 	db_set debian-installer/locale ''
 fi
 
-db_set localechooser/alreadyrun false
-
 PATH="/usr/lib/oem-config/compat:/usr/lib/oem-config/language:$PATH" \
 OVERRIDE_SHOW_ALL_LANGUAGES=1 \
 	localechooser

@@ -12,6 +12,9 @@ oem-config (1.45) UNRELEASED; urgency=low
   * Ensure that some widget is focused after changing page (LP: #241367).
   * Add an auto-login option, currently GTK-only (LP: #241372).
 
+  [ Evan Dandrea ]
+  * Do not try to set localechooser/alreadyrun.  It is no longer used.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 25 Jul 2008 08:55:02 +0100
 
 oem-config (1.44) intrepid; urgency=low
