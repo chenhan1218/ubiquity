@@ -930,6 +930,9 @@ class Wizard(BaseFrontend):
         elif gtk.main_level() > 0:
             gtk.main_quit()
 
+        if not self.live_installer.get_focus():
+            self.live_installer.child_focus(gtk.DIR_TAB_FORWARD)
+
     def on_keyboardlayoutview_row_activated(self, treeview, path, view_column):
         self.next.activate()
 
@@ -1051,6 +1054,9 @@ class Wizard(BaseFrontend):
             # debconffilter_done() to be called when the filter exits
         elif gtk.main_level() > 0:
             gtk.main_quit()
+
+        if not self.live_installer.get_focus():
+            self.live_installer.child_focus(gtk.DIR_TAB_FORWARD)
 
 
     def selected_language (self, selection):
