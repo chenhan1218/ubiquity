@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-10-01 11:37+0100\n"
+"Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
+"POT-Creation-Date: 2008-07-25 09:41+0100\n"
 "PO-Revision-Date: 2008-05-20 15:38+0000\n"
 "Last-Translator: Tao Wei <Unknown>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -139,6 +139,12 @@ msgstr "你正在以调试模式运行。请勿使用重要密码！"
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr "请再次输入相同密码，以防止输入错误。"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:22001
+msgid "Automatically sign in"
+msgstr ""
 
 #. Type: title
 #. Description

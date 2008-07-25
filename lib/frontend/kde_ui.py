@@ -421,6 +421,9 @@ p, li { white-space: pre-wrap; }
     def get_verified_password(self):
         return unicode(self.userinterface.pass_ledit_2.text())
 
+    def get_auto_login(self):
+        return False
+
     def watch_debconf_fd (self, from_debconf, process_input):
         self.debconf_fd_counter = 0
         self.socketNotifierRead = QSocketNotifier(from_debconf, QSocketNotifier.Read, self.app)

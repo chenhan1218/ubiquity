@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-10-01 11:37+0100\n"
+"Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
+"POT-Creation-Date: 2008-07-25 09:41+0100\n"
 "PO-Revision-Date: 2008-05-20 14:46+0000\n"
 "Last-Translator: Jeroen T. Vermeulen <Unknown>\n"
 "Language-Team: Hindi\n"
@@ -144,6 +144,12 @@ msgstr "आप दोषमुक्ति विधा चला रहे ह�
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr "एक ही पासर्वड दो बार एन्टर करे,ताकि लिखने में हुई त्रुटियों कि जाँच की जा सके।"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:22001
+msgid "Automatically sign in"
+msgstr ""
 
 #. Type: title
 #. Description

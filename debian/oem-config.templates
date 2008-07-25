@@ -84,3 +84,7 @@ _Description: You are running in debugging mode. Do not use a valuable password!
 Template: oem-config/text/password_extra_label
 Type: text
 _Description: Enter the same password twice, so that it can be checked for typing errors.
+
+Template: oem-config/text/auto_login
+Type: text
+_Description: Automatically sign in

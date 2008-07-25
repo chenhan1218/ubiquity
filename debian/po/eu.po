@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-10-01 11:37+0100\n"
+"Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
+"POT-Creation-Date: 2008-07-25 09:41+0100\n"
 "PO-Revision-Date: 2008-05-20 14:25+0000\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: Euskara <Librezale@librezale.org>\n"
@@ -143,6 +143,12 @@ msgstr "Arazte-moduan ari zara. Ez ezazu balio handiko pasahitzik erabili!"
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr "Pasahitz berdina sartu birritan, idaztean egindako hutsak saihesteko."
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:22001
+msgid "Automatically sign in"
+msgstr ""
 
 #. Type: title
 #. Description

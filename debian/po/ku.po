@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-10-01 11:37+0100\n"
+"Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
+"POT-Creation-Date: 2008-07-25 09:41+0100\n"
 "PO-Revision-Date: 2008-05-20 14:49+0000\n"
 "Last-Translator: Amed Çeko Jiyan <amedcj@gmail.com>\n"
 "Language-Team: Kurdish <gnu-ku-wergerandin@lists.sourceforge.net>\n"
@@ -143,6 +143,12 @@ msgid ""
 msgstr ""
 "Heman nasnavê ()password) du caran têkevê, bi vî awayê çewtbûn an jî "
 "rastbûna nasnavê dê diyar bibe."
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:22001
+msgid "Automatically sign in"
+msgstr ""
 
 #. Type: title
 #. Description

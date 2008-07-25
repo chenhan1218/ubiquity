@@ -116,9 +116,9 @@ if __name__ == '__main__':
         if 'DEBCONF_DEBUG' not in os.environ:
             os.environ['DEBCONF_DEBUG'] = 'developer|filter'
 
+    disable_autologin()
     wizard = Wizard(frontend_name=options.frontend)
     wizard.run()
-    disable_autologin()
     run_hooks()
     im_switch.kill_im()
     sys.exit(0)

@@ -25,7 +25,7 @@ class User(FilteredCommand):
     def prepare(self):
         questions = ['^passwd/user-fullname$', '^passwd/username$',
                      '^passwd/user-password$', '^passwd/user-password-again$',
-                     'ERROR']
+                     '^passwd/auto-login$', 'ERROR']
         return (['/usr/lib/oem-config/user/user-setup-wrapper', '/'],
                 questions)
 
@@ -39,6 +39,7 @@ class User(FilteredCommand):
         username = self.frontend.get_username()
         password = self.frontend.get_password()
         password_confirm = self.frontend.get_verified_password()
+        auto_login = self.frontend.get_auto_login()
 
         self.preseed('passwd/user-fullname', fullname)
         self.preseed('passwd/username', username)
@@ -46,6 +47,7 @@ class User(FilteredCommand):
         self.preseed('passwd/user-password', password, escape=True)
         self.preseed('passwd/user-password-again', password_confirm,
                      escape=True)
+        self.preseed_bool('passwd/auto-login', auto_login)
         self.preseed('passwd/user-uid', '')
 
         super(User, self).ok_handler()

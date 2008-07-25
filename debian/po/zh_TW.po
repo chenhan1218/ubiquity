@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-10-01 11:37+0100\n"
+"Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
+"POT-Creation-Date: 2008-07-25 09:41+0100\n"
 "PO-Revision-Date: 2008-05-20 15:01+0000\n"
 "Last-Translator: Tetralet <Unknown>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
@@ -140,6 +140,12 @@ msgstr "你正在除錯模式下. 別使用重要的密碼！"
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr "輸入相同的密碼兩次，以檢查是否有打錯字。"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:22001
+msgid "Automatically sign in"
+msgstr ""
 
 #. Type: title
 #. Description

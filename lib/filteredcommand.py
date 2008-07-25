@@ -240,6 +240,12 @@ class FilteredCommand(object):
         if seen:
             self.db.fset(name, 'seen', 'true')
 
+    def preseed_bool(self, name, value, seen=True):
+        if value:
+            self.preseed(name, 'true', seen)
+        else:
+            self.preseed(name, 'false', seen)
+
     def preseed_as_c(self, name, value, seen=True):
         self.preseed(name, self.translate_to_c(name, value), seen)
 

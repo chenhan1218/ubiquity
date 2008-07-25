@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-10-01 11:37+0100\n"
+"Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
+"POT-Creation-Date: 2008-07-25 09:41+0100\n"
 "PO-Revision-Date: 2008-05-20 14:19+0000\n"
 "Last-Translator: Hleb Rubanau <Unknown>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -145,6 +145,12 @@ msgstr "Вы працуеце ў рэжыме адладкі. Не выкары�
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr "Увядзі той самы пароль двойчы, каб пазьбегнуць памылак друку."
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:22001
+msgid "Automatically sign in"
+msgstr ""
 
 #. Type: title
 #. Description
