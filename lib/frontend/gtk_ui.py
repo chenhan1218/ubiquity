@@ -418,6 +418,9 @@ class Frontend:
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
 
+        if not self.oem_config.get_focus():
+            self.oem_config.child_focus(gtk.DIR_TAB_FORWARD)
+
     def on_next_clicked(self, widget):
         if not self.allowed_change_step or not self.allowed_go_forward:
             return
@@ -434,6 +437,9 @@ class Frontend:
             self.dbfilter.ok_handler()
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
+
+        if not self.oem_config.get_focus():
+            self.oem_config.child_focus(gtk.DIR_TAB_FORWARD)
 
     # Callbacks provided to components.
 
