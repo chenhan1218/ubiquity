@@ -19,8 +19,10 @@ EXTRAS="$(echo "$RET" | sed 's/,//g')"
 if [ -e /etc/environment ]; then
 	sed -i "s,^LANG=.*,LANG=\"$LOCALE\"," /etc/environment
 fi
-if [ -e /etc/default/locale ]; then
+if grep -qs "^LANG=" /etc/default/locale; then
 	sed -i "s,^LANG=.*,LANG=\"$LOCALE\"," /etc/default/locale
+else
+	echo "LANG=\"$LOCALE\"" >> /etc/default/locale
 fi
 # We set LANGUAGE only if the languagelist is a list of
 # languages with alternatives. Otherwise, setting it is useless
