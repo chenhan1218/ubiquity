@@ -84,6 +84,7 @@ endif
 			> debian/oem-config/usr/lib/oem-config/user/$$x; \
 		chmod +x debian/oem-config/usr/lib/oem-config/user/$$x; \
 	done
+	echo oem >> debian/oem-config/usr/lib/oem-config/user/reserved-usernames
 	set -e; for x in languagemap localechooser; do \
 		sed 's,/usr/share/localechooser,/usr/lib/oem-config/language,g' \
 			d-i/source/localechooser/$$x \
