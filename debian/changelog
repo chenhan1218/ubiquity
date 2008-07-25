@@ -3,6 +3,7 @@ ubiquity (1.9.7) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Properly fix intltool dependency.  Remove old copies of intltool
     scripts.
+  * Add an auto-login option to the "Who are you?" page.
 
   [ Michael Terry ]
   * Ensure that some widget is focused after changing page (LP: #241367).

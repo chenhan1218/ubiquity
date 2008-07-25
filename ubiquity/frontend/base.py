@@ -355,6 +355,10 @@ class BaseFrontend:
         """Get the user's password confirmation."""
         self._abstract('get_password')
 
+    def get_auto_login(self):
+        """Returns true if the user should be automatically logged in."""
+        self._abstract('get_auto_login')
+
     def username_error(self, msg):
         """The selected username was bad."""
         self._abstract('username_error')

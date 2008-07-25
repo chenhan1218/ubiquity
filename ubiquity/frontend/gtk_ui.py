@@ -2165,6 +2165,9 @@ class Wizard(BaseFrontend):
     def get_verified_password(self):
         return self.verified_password.get_text()
 
+    def get_auto_login(self):
+        return self.auto_login.get_active()
+
     def username_error(self, msg):
         self.username_error_reason.set_text(msg)
         self.username_error_box.show()

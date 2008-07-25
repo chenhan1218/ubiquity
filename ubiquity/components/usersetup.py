@@ -49,7 +49,7 @@ class UserSetup(FilteredCommand):
 
         questions = ['^passwd/user-fullname$', '^passwd/username$',
                      '^passwd/user-password$', '^passwd/user-password-again$',
-                     'ERROR']
+                     '^passwd/auto-login$', 'ERROR']
         return (['/usr/lib/ubiquity/user-setup/user-setup-ask', '/target'],
                 questions)
 
@@ -63,6 +63,7 @@ class UserSetup(FilteredCommand):
         username = self.frontend.get_username()
         password = self.frontend.get_password()
         password_confirm = self.frontend.get_verified_password()
+        auto_login = self.frontend.get_auto_login()
 
         self.preseed('passwd/user-fullname', fullname)
         self.preseed('passwd/username', username)
@@ -73,6 +74,7 @@ class UserSetup(FilteredCommand):
             self.preseed('passwd/user-uid', '29999')
         else:
             self.preseed('passwd/user-uid', '')
+        self.preseed_bool('passwd/auto-login', auto_login)
         
         hostname = self.frontend.get_hostname()
         if hostname is not None and hostname != '':
