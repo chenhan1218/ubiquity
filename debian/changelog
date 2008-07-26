@@ -13,6 +13,8 @@ ubiquity (1.9.7) UNRELEASED; urgency=low
     calling anna-install in order to make sure that new kernel modules are
     installed properly; this is unnecessary and slow in the live CD
     environment (LP: #251117).
+  * Brown-paper-bag bug: open /target/var/log/installer/oem-id for writing
+    (LP: #251751).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 23 Jul 2008 15:37:27 -0400
 

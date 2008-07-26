@@ -707,7 +707,7 @@ class Install:
             if self.db.get('oem-config/enable') == 'true':
                 oem_id = self.db.get('oem-config/id')
                 oem_id_file = open(
-                    os.path.join(self.target, 'var/log/installer/oem-id'))
+                    os.path.join(self.target, 'var/log/installer/oem-id'), 'w')
                 print >>oem_id_file, oem_id
                 oem_id_file.close()
         except (debconf.DebconfError, IOError):
