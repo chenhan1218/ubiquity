@@ -32,6 +32,8 @@ ubiquity (1.9.7) UNRELEASED; urgency=low
       language (LP: #225876).
     - Bind the Delete key on the partition list to "Delete partition"
       (LP: #218936).
+  * KDE frontend:
+    - Make "Details" string on summary page translatable (LP: #190491).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 23 Jul 2008 15:37:27 -0400
 

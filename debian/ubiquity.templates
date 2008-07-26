@@ -158,6 +158,10 @@ Template: ubiquity/text/ready_heading_label
 Type: text
 _Description: Ready to install
 
+Template: ubiquity/text/ready_details_label
+Type: text
+_Description: Details
+
 Template: ubiquity/text/ready_description_label
 Type: text
 _Description: Your new operating system will now be installed with the following settings:
