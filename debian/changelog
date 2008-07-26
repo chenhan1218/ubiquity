@@ -17,6 +17,8 @@ ubiquity (1.9.7) UNRELEASED; urgency=low
     (LP: #251751).
   * Update summary page to fetch the language name correctly from the new
     localechooser.
+  * Set SCIM_USER and SCIM_HOME to force scim to use configuration and
+    sockets from the live CD user rather than root (LP: #234208).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 23 Jul 2008 15:37:27 -0400
 

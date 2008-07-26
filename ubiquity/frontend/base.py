@@ -91,6 +91,11 @@ class BaseFrontend:
         except debconf.DebconfError:
             pass
 
+        if 'SUDO_USER' in os.environ:
+            os.environ['SCIM_USER'] = os.environ['SUDO_USER']
+            os.environ['SCIM_HOME'] = os.path.expanduser(
+                '~%s' % os.environ['SUDO_USER'])
+
     def _abstract(self, method):
         raise NotImplementedError("%s.%s does not implement %s" %
                                   self.__class__.__module__,
