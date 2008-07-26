@@ -35,6 +35,9 @@ ubiquity (1.9.7) UNRELEASED; urgency=low
   * KDE frontend:
     - Make "Details" string on summary page translatable (LP: #190491).
   * Depend on rdate for clock-setup.
+  * Automatic update of included source packages: apt-setup 1:0.37ubuntu3,
+    clock-setup 0.96ubuntu1, localechooser 2.03ubuntu2, user-setup
+    1.20ubuntu4.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 23 Jul 2008 15:37:27 -0400
 
