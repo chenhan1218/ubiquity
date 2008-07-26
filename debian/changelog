@@ -15,6 +15,8 @@ ubiquity (1.9.7) UNRELEASED; urgency=low
     environment (LP: #251117).
   * Brown-paper-bag bug: open /target/var/log/installer/oem-id for writing
     (LP: #251751).
+  * Update summary page to fetch the language name correctly from the new
+    localechooser.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 23 Jul 2008 15:37:27 -0400
 

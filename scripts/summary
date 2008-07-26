@@ -3,8 +3,14 @@
 
 . /usr/share/debconf/confmodule
 
-db_get languagechooser/language-name
-db_subst ubiquity/summary LANGUAGE "$RET"
+language_name=
+db_get localechooser/languagelist
+if [ "$RET" ]; then
+	language_name="$(zgrep "^[^:]*:$RET:" \
+		/usr/lib/ubiquity/localechooser/languagelist.data.gz | \
+		head -n1 | cut -d: -f4)"
+fi
+db_subst ubiquity/summary LANGUAGE "$language_name"
 if db_get console-setup/variant && [ "$RET" ]; then
 	db_subst ubiquity/summary KEYMAP "$RET"
 else
