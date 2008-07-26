@@ -1846,6 +1846,21 @@ class Wizard(BaseFrontend):
             self.partman_popup(widget, event)
             return True
 
+    def on_partition_list_treeview_key_press_event (self, widget, event):
+        if event.type != gtk.gdk.KEY_PRESS:
+            return False
+
+        if event.keyval == gtk.keysyms.Delete:
+            if not isinstance(self.dbfilter, partman.Partman):
+                return False
+            devpart, partition = self.partition_list_get_selection()
+            for action in self.dbfilter.get_actions(devpart, partition):
+                if action == 'delete':
+                    self.on_partition_list_delete_activate(widget)
+                    return True
+
+        return False
+
     def on_partition_list_treeview_popup_menu (self, widget):
         self.partman_popup(widget, None)
         return True
