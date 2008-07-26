@@ -19,6 +19,10 @@ ubiquity (1.9.7) UNRELEASED; urgency=low
     localechooser.
   * Set SCIM_USER and SCIM_HOME to force scim to use configuration and
     sockets from the live CD user rather than root (LP: #234208).
+  * Use a single private debconf-communicate instance for five queries in
+    base frontend initialisation rather than using the debconf_operation
+    wrapper. This is less convenient, but significantly speeds up startup
+    (in a kvm instance here, 19 seconds -> 4 seconds).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 23 Jul 2008 15:37:27 -0400
 

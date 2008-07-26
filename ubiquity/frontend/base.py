@@ -57,9 +57,15 @@ class BaseFrontend:
         # Drop privileges so we can run the frontend as a regular user, and
         # thus talk to a11y applications running as a regular user.
         drop_privileges()
+
+        # Use a single private debconf-communicate instance for several
+        # queries we need to make at startup. While this is less convenient
+        # than using debconf_operation, it's significantly faster.
+        db = self.debconf_communicator()
+
         self.oem_config = False
         try:
-            if self.debconf_operation('get', 'oem-config/enable') == 'true':
+            if db.get('oem-config/enable') == 'true':
                 self.oem_config = True
                 # It seems unlikely that anyone will need
                 # migration-assistant in the OEM installation process. If it
@@ -71,7 +77,7 @@ class BaseFrontend:
             pass
         
         try:
-            self.oem_id = self.debconf_operation('get', 'oem-config/id')
+            self.oem_id = db.get('oem-config/id')
         except debconf.DebconfError:
             self.oem_id = ''
 
@@ -82,12 +88,10 @@ class BaseFrontend:
         self.error_cmd = None
         self.success_cmd = None
         try:
-            self.automation_error_cmd = self.debconf_operation('get',
+            self.automation_error_cmd = db.get(
                 'ubiquity/automation_failure_command')
-            self.error_cmd = self.debconf_operation('get',
-                'ubiquity/failure_command')
-            self.success_cmd = self.debconf_operation('get',
-                'ubiquity/success_command')
+            self.error_cmd = db.get('ubiquity/failure_command')
+            self.success_cmd = db.get('ubiquity/success_command')
         except debconf.DebconfError:
             pass
 
@@ -95,6 +99,8 @@ class BaseFrontend:
             os.environ['SCIM_USER'] = os.environ['SUDO_USER']
             os.environ['SCIM_HOME'] = os.path.expanduser(
                 '~%s' % os.environ['SUDO_USER'])
+
+        db.shutdown()
 
     def _abstract(self, method):
         raise NotImplementedError("%s.%s does not implement %s" %
