@@ -1090,7 +1090,12 @@ class Wizard(BaseFrontend):
 
     def on_steps_switch_page (self, foo, bar, current):
         self.current_page = current
-        self.translate_widget(self.step_label, self.locale)
+        # If we're on the language page, then
+        # on_language_treeview_selection_changed will take care of
+        # translating this, and we may not know the correct language at this
+        # point.
+        if self.step_name(current) != 'stepLanguage':
+            self.translate_widget(self.step_label, self.locale)
         syslog.syslog('switched to page %s' % self.step_name(current))
 
 

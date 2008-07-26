@@ -25,6 +25,11 @@ ubiquity (1.9.7) UNRELEASED; urgency=low
     (in a kvm instance here, 19 seconds -> 4 seconds).
   * Remove hardcoded invisible_char properties in order to use GTK's
     defaults (LP: #225882).
+  * GTK frontend:
+    - Don't translate step_label when switching to the language page;
+      on_language_treeview_selection_changed will take care of it if
+      necessary, and the page-switch handler may not know the correct
+      language (LP: #225876).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 23 Jul 2008 15:37:27 -0400
 
