@@ -133,6 +133,7 @@ endif
 	# Get rid of duplicate mythbuntu scripts
 	mv debian/ubiquity-frontend-mythbuntu/usr/share/applications/ubiquity-mythbuntu.desktop debian/ubiquity-frontend-mythbuntu/usr/share/applications/ubiquity.desktop
 	mv debian/ubiquity-frontend-mythbuntu/usr/share/pixmaps/ubiquity-mythbuntu.png debian/ubiquity-frontend-mythbuntu/usr/share/pixmaps/ubiquity.png
+	cp debian/ubiquity-frontend-mythbuntu/lib/partman/recipes/mythbuntu.recipe debian/ubiquity-frontend-mythbuntu/lib/partman/recipes/30atomic
 	rm -rf debian/ubiquity/usr/share/ubiquity/mythbuntu
 	install bin/ubiquity-wrapper debian/ubiquity/usr/bin/ubiquity
 	sed 's/@VERSION@/$(VERSION)/g' bin/ubiquity \
