@@ -529,9 +529,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         lists = [{'video_driver': self.video_driver,
                   'tvout': self.tvouttype,
                   'tvstandard': self.tvoutstandard,
-                  'hdhomerun': self.hdhomerun,
-                  'xmltv': self.xmltv,
-                  'dvbutils': self.dvbutils}]
+                  'hdhomerun': self.hdhomerun}]
         self._preseed_list(lists,name,value)
 
     def set_password(self,name,value):
@@ -659,9 +657,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         return self._build_static_list([{'video_driver': self.video_driver,
                                          'tvout': self.tvouttype,
                                          'tvstandard': self.tvoutstandard,
-                                         'hdhomerun': self.hdhomerun,
-                                         'xmltv': self.xmltv,
-                                         'dvbutils': self.dvbutils}])
+                                         'hdhomerun': self.hdhomerun}])
 
     def get_mythtv_passwords(self):
         return self._build_static_list([{'mysql_admin_password':self.mysql_root_password,

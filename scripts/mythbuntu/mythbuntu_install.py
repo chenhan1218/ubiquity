@@ -191,8 +191,6 @@ class Install(install.Install):
         video_driver = self.db.get('mythbuntu/video_driver')
         vnc = self.db.get('mythbuntu/x11vnc')
         nfs = self.db.get('mythbuntu/nfs-kernel-server')
-        xmltv = self.db.get('mythbuntu/xmltv')
-        dvbutils = self.db.get('mythbuntu/xmltv')
         hdhomerun = self.db.get('mythbuntu/hdhomerun')
         to_install = []
         to_remove = set()
@@ -211,10 +209,6 @@ class Install(install.Install):
         if nfs == 'true':
             to_install.append('nfs-kernel-server')
             to_install.append('portmap')
-        if xmltv == 'true':
-            to_install.append('xmltv')
-        if dvbutils == 'true':
-            to_install.append('dvb-utils')
         if hdhomerun == 'true':
             to_install.append('hdhomerun-config')
 
