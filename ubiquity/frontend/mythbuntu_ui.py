@@ -410,10 +410,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         self.tvoutstandard.set_active(0)
         self.tvouttype.set_active(0)
 
-    def allow_go_backward(self, allowed):
-        self.back.set_sensitive(allowed and self.allowed_change_step)
-        self.allowed_go_backward = allowed
-
     def mythbuntu_password(self,widget):
         """Checks that certain passwords meet requirements"""
         #For the services page, the only password we have is the VNC

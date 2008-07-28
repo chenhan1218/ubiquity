@@ -151,6 +151,7 @@ class Wizard(BaseFrontend):
         self.current_page = None
         self.first_seen_page = None
         self.allowed_change_step = True
+        self.allowed_go_backward = True
         self.allowed_go_forward = True
         self.stay_on_page = False
         self.mainLoopRunning = False
@@ -412,7 +413,7 @@ class Wizard(BaseFrontend):
         """Initial UI setup."""
 
         self.userinterface.setWindowIcon(QIcon("/usr/share/icons/hicolor/64x64/apps/ubiquity.png"))
-        self.userinterface.back.hide()
+        self.allow_go_backward(False)
 
         """
         PIXMAPSDIR = os.path.join(PATH, 'pixmaps', self.distro)
@@ -563,9 +564,13 @@ class Wizard(BaseFrontend):
         else:
             cursor = QCursor(Qt.WaitCursor)
         self.userinterface.setCursor(cursor)
-        self.userinterface.back.setEnabled(allowed)
+        self.userinterface.back.setEnabled(allowed and self.allowed_go_backward)
         self.userinterface.next.setEnabled(allowed and self.allowed_go_forward)
         self.allowed_change_step = allowed
+
+    def allow_go_backward(self, allowed):
+        self.userinterface.back.setEnabled(allowed and self.allowed_change_step)
+        self.allowed_go_backward = allowed
 
     def allow_go_forward(self, allowed):
         self.userinterface.next.setEnabled(allowed and self.allowed_change_step)
@@ -653,9 +658,9 @@ class Wizard(BaseFrontend):
         if not self.first_seen_page:
             self.first_seen_page = n
         if self.first_seen_page == self.pages[self.pagesindex].__name__:
-            self.userinterface.back.hide()
+            self.allow_go_backward(False)
         else:
-            self.userinterface.back.show()
+            self.allow_go_backward(True)
     
     def set_current_page(self, current):
         widget = self.userinterface.widgetStack.widget(current)

@@ -145,6 +145,7 @@ class Wizard(BaseFrontend):
         self.first_seen_page = None
         self.backup = None
         self.allowed_change_step = True
+        self.allowed_go_backward = True
         self.allowed_go_forward = True
         self.stay_on_page = False
         self.progress_position = ubiquity.progressposition.ProgressPosition()
@@ -507,7 +508,7 @@ class Wizard(BaseFrontend):
             self.steps.page_num(self.stepPartAuto)
 
         # set initial bottom bar status
-        self.back.hide()
+        self.allow_go_backward(False)
 
     def poke_screensaver(self):
         """Attempt to make sure that the screensaver doesn't kick in."""
@@ -622,10 +623,11 @@ class Wizard(BaseFrontend):
             cursor = self.watch
         if self.live_installer.window:
             self.live_installer.window.set_cursor(cursor)
-        self.back.set_sensitive(allowed)
+        self.back.set_sensitive(allowed and self.allowed_go_backward)
         self.next.set_sensitive(allowed and self.allowed_go_forward)
         # Work around http://bugzilla.gnome.org/show_bug.cgi?id=56070
-        if self.back.get_property('visible') and allowed:
+        if (self.back.get_property('visible') and
+            allowed and self.allowed_go_backward):
             self.back.hide()
             self.back.show()
         if (self.next.get_property('visible') and
@@ -634,6 +636,15 @@ class Wizard(BaseFrontend):
             self.next.show()
             self.next.grab_default()
         self.allowed_change_step = allowed
+
+    def allow_go_backward(self, allowed):
+        self.back.set_sensitive(allowed and self.allowed_change_step)
+        # Work around http://bugzilla.gnome.org/show_bug.cgi?id=56070
+        if (self.back.get_property('visible') and
+            allowed and self.allowed_change_step):
+            self.back.hide()
+            self.back.show()
+        self.allowed_go_backward = allowed
 
     def allow_go_forward(self, allowed):
         self.next.set_sensitive(allowed and self.allowed_change_step)
@@ -739,9 +750,9 @@ class Wizard(BaseFrontend):
         if not self.first_seen_page:
             self.first_seen_page = n
         if self.first_seen_page == self.pages[self.pagesindex].__name__:
-            self.back.hide()
+            self.allow_go_backward(False)
         elif 'UBIQUITY_AUTOMATIC' not in os.environ:
-            self.back.show()
+            self.allow_go_backward(True)
 
     def set_current_page(self, current):
         if self.steps.get_current_page() == current:

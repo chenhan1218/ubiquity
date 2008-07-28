@@ -8,6 +8,8 @@ ubiquity (1.9.8) UNRELEASED; urgency=low
   * When copying files, remove regular files and symlinks if they exist
     already on the target; this can happen legitimately if installing over
     an existing system and /boot wasn't erased.
+  * Make the Back button insensitive on the first page rather than hiding it
+    (LP: #186953).
 
  -- Mario Limonciello <superm1@ubuntu.com>  Sun, 27 Jul 2008 14:02:29 -0500
 
