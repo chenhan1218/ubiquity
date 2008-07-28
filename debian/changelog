@@ -4,6 +4,11 @@ ubiquity (1.9.8) UNRELEASED; urgency=low
   * Remove xmltv and dvbutils options, as they will be installed across
     all boxen now.
 
+  [ Colin Watson ]
+  * When copying files, remove regular files and symlinks if they exist
+    already on the target; this can happen legitimately if installing over
+    an existing system and /boot wasn't erased.
+
  -- Mario Limonciello <superm1@ubuntu.com>  Sun, 27 Jul 2008 14:02:29 -0500
 
 ubiquity (1.9.7) intrepid; urgency=low
