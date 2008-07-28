@@ -13,6 +13,7 @@ ubiquity (1.9.8) UNRELEASED; urgency=low
   * Rename main Cancel button to Quit, and adjust the quit dialog text
     slightly so that we consistently use "quit" as the action verb and
     "cancel" clearly means to cancel the dialog (LP: #45690).
+  * Fix format string substitution error in _abstract method.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Sun, 27 Jul 2008 14:02:29 -0500
 

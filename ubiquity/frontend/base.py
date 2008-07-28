@@ -104,8 +104,8 @@ class BaseFrontend:
 
     def _abstract(self, method):
         raise NotImplementedError("%s.%s does not implement %s" %
-                                  self.__class__.__module__,
-                                  self.__class__.__name__, method)
+                                  (self.__class__.__module__,
+                                   self.__class__.__name__, method))
 
     def run(self):
         """Main entry point."""
