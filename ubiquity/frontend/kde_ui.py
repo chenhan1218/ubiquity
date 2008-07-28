@@ -94,7 +94,7 @@ class UbiquityUI(QWidget):
         self.wizard = wizardRef
 
     def closeEvent(self, event):
-        if self.wizard.on_cancel_clicked() == False:
+        if self.wizard.on_quit_clicked() == False:
             event.ignore()
 
 class linkLabel(QLabel):
@@ -147,7 +147,7 @@ class Wizard(BaseFrontend):
                                    'oem_id_label',
                                    'release_notes_label', 'release_notes_url',
                                    'step_label',
-                                   'cancel', 'back', 'next')
+                                   'quit', 'back', 'next')
         self.current_page = None
         self.first_seen_page = None
         self.allowed_change_step = True
@@ -233,11 +233,11 @@ class Wizard(BaseFrontend):
             backIcon = QIcon("/usr/share/icons/crystalsvg/16x16/actions/back.png")
         self.userinterface.back.setIcon(backIcon)
 
-        if os.path.exists("/usr/lib/kde4/share/icons/oxygen/16x16/actions/dialog-cancel.png"):
-            cancelIcon = QIcon("/usr/lib/kde4/share/icons/oxygen/16x16/actions/dialog-cancel.png")
+        if os.path.exists("/usr/lib/kde4/share/icons/oxygen/16x16/actions/dialog-close.png"):
+            quitIcon = QIcon("/usr/lib/kde4/share/icons/oxygen/16x16/actions/dialog-close.png")
         else:
-            cancelIcon = QIcon("/usr/share/icons/crystalsvg/22x22/actions/button_cancel.png")
-        self.userinterface.cancel.setIcon(cancelIcon)
+            quitIcon = QIcon("/usr/share/icons/crystalsvg/22x22/actions/button_cancel.png")
+        self.userinterface.quit.setIcon(quitIcon)
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -307,7 +307,7 @@ class Wizard(BaseFrontend):
         # Declare SignalHandler
         self.app.connect(self.userinterface.next, SIGNAL("clicked()"), self.on_next_clicked)
         self.app.connect(self.userinterface.back, SIGNAL("clicked()"), self.on_back_clicked)
-        self.app.connect(self.userinterface.cancel, SIGNAL("clicked()"), self.on_cancel_clicked)
+        self.app.connect(self.userinterface.quit, SIGNAL("clicked()"), self.on_quit_clicked)
         self.app.connect(self.userinterface.keyboardlayoutview, SIGNAL("itemSelectionChanged()"), self.on_keyboard_layout_selected)
         self.app.connect(self.userinterface.keyboardvariantview, SIGNAL("itemSelectionChanged()"), self.on_keyboard_variant_selected)
 
@@ -773,7 +773,7 @@ class Wizard(BaseFrontend):
             self.dbfilter.cancel_handler()
         self.app.exit()
 
-    def on_cancel_clicked(self):
+    def on_quit_clicked(self):
         warning_dialog_label = self.get_string("warning_dialog_label")
         abortTitle = self.get_string("warning_dialog")
         continueButtonText = self.get_string("continue")
@@ -971,7 +971,7 @@ class Wizard(BaseFrontend):
         if lang:
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
-            for widget in (self.userinterface, self.userinterface.welcome_heading_label, self.userinterface.welcome_text_label, self.userinterface.oem_id_label, self.userinterface.release_notes_label, self.userinterface.release_notes_frame, self.userinterface.next, self.userinterface.back, self.userinterface.cancel, self.userinterface.step_label):
+            for widget in (self.userinterface, self.userinterface.welcome_heading_label, self.userinterface.welcome_text_label, self.userinterface.oem_id_label, self.userinterface.release_notes_label, self.userinterface.release_notes_frame, self.userinterface.next, self.userinterface.back, self.userinterface.quit, self.userinterface.step_label):
                 self.translate_widget(widget, lang)
 
     def on_steps_switch_page(self, newPageID):

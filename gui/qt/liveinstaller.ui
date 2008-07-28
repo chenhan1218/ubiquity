@@ -1743,9 +1743,9 @@ This language will be the default language for the final system.</string>
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="cancel" >
+      <widget class="QPushButton" name="quit" >
        <property name="text" >
-        <string>Cancel</string>
+        <string>Quit</string>
        </property>
       </widget>
      </item>
@@ -1764,7 +1764,7 @@ This language will be the default language for the final system.</string>
   <tabstop>timezone_city_combo</tabstop>
   <tabstop>back</tabstop>
   <tabstop>next</tabstop>
-  <tabstop>cancel</tabstop>
+  <tabstop>quit</tabstop>
   <tabstop>entry1</tabstop>
  </tabstops>
  <resources/>

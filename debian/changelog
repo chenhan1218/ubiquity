@@ -10,6 +10,9 @@ ubiquity (1.9.8) UNRELEASED; urgency=low
     an existing system and /boot wasn't erased.
   * Make the Back button insensitive on the first page rather than hiding it
     (LP: #186953).
+  * Rename main Cancel button to Quit, and adjust the quit dialog text
+    slightly so that we consistently use "quit" as the action verb and
+    "cancel" clearly means to cancel the dialog (LP: #45690).
 
  -- Mario Limonciello <superm1@ubuntu.com>  Sun, 27 Jul 2008 14:02:29 -0500
 

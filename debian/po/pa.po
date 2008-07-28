@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-07-26 18:25+0100\n"
+"POT-Creation-Date: 2008-07-28 11:12+0100\n"
 "PO-Revision-Date: 2008-04-08 15:30+0000\n"
 "Last-Translator: A S Alam <Unknown>\n"
 "Language-Team: Punjabi <punjabi-l10n@lists.sf.net>\n"
@@ -307,14 +307,14 @@ msgstr "ਕਦਮ ${INDEX} ਤੋਂ ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-msgid "Abort the installation?"
+msgid "Quit the installation?"
 msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਨੂੰ ਛੱਡੋ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 #, fuzzy
-msgid "Do you really want to abort the installation now?"
+msgid "Do you really want to quit the installation now?"
 msgstr "ਕੀ ਤੁਸੀਂ ਵਿਭਾਗੀਕਰਨ ਸੂਚੀ ਤੇ ਵਾਪਸ ਜਾਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #. Type: text

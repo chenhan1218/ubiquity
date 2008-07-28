@@ -182,11 +182,11 @@ _Description: Step ${INDEX} of ${TOTAL}
 
 Template: ubiquity/text/warning_dialog
 Type: title
-_Description: Abort the installation?
+_Description: Quit the installation?
 
 Template: ubiquity/text/warning_dialog_label
 Type: text
-_Description: Do you really want to abort the installation now?
+_Description: Do you really want to quit the installation now?
 
 Template: ubiquity/text/progress_cancel_button
 Type: text

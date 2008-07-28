@@ -278,7 +278,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 self.installing = False
                 self.steps.next_page()
                 self.back.hide()
-                self.cancel.hide()
+                self.quit.hide()
                 self.next.set_label("Finish")
                 gtk.main()
                 self.live_installer.hide()

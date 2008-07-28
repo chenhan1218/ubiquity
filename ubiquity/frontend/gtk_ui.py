@@ -138,7 +138,7 @@ class Wizard(BaseFrontend):
                                    'oem_id_label',
                                    'release_notes_label', 'release_notes_url',
                                    'step_label',
-                                   'cancel', 'back', 'next',
+                                   'quit', 'back', 'next',
                                    'warning_dialog', 'warning_dialog_label',
                                    'cancelbutton', 'exitbutton')
         self.current_page = None
@@ -865,7 +865,7 @@ class Wizard(BaseFrontend):
 
 
     # Callbacks
-    def on_cancel_clicked(self, widget):
+    def on_quit_clicked(self, widget):
         self.warning_dialog.show()
         response = self.warning_dialog.run()
         self.warning_dialog.hide()
@@ -878,7 +878,7 @@ class Wizard(BaseFrontend):
 
 
     def on_live_installer_delete_event(self, widget, event):
-        return self.on_cancel_clicked(widget)
+        return self.on_quit_clicked(widget)
 
 
     def info_loop(self, widget):

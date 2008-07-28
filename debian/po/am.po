@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-07-26 18:25+0100\n"
+"POT-Creation-Date: 2008-07-28 11:12+0100\n"
 "PO-Revision-Date: 2006-10-14 05:28+0000\n"
 "Last-Translator: teferra <Unknown>\n"
 "Language-Team: Amharic\n"
@@ -294,13 +294,15 @@ msgstr "የመረጃ ማውጫ አሳይ"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:39001
-msgid "Abort the installation?"
+#, fuzzy
+#| msgid "Abort the installation?"
+msgid "Quit the installation?"
 msgstr "ተከላውን ይቁም?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
-msgid "Do you really want to abort the installation now?"
+msgid "Do you really want to quit the installation now?"
 msgstr ""
 
 #. Type: text

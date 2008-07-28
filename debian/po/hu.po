@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-07-26 18:25+0100\n"
+"POT-Creation-Date: 2008-07-28 11:12+0100\n"
 "PO-Revision-Date: 2008-04-14 22:38+0000\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian>\n"
@@ -314,13 +314,17 @@ msgstr "${INDEX}. lépés (Összesen: ${TOTAL})"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:39001
-msgid "Abort the installation?"
+#, fuzzy
+#| msgid "Abort the installation?"
+msgid "Quit the installation?"
 msgstr "Megszakítja a telepítést?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
-msgid "Do you really want to abort the installation now?"
+#, fuzzy
+#| msgid "Do you really want to abort the installation now?"
+msgid "Do you really want to quit the installation now?"
 msgstr "Valóban meg kívánja szakítani a telepítést?"
 
 #. Type: text

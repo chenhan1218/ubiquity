@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-07-26 18:25+0100\n"
+"POT-Creation-Date: 2008-07-28 11:12+0100\n"
 "PO-Revision-Date: 2007-10-13 14:50+0000\n"
 "Last-Translator: Nima Ahmadi Pour Anari <Unknown>\n"
 "Language-Team: <fa@li.org>\n"
@@ -296,13 +296,13 @@ msgstr "گام ${INDEX} از ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:39001
-msgid "Abort the installation?"
+msgid "Quit the installation?"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
-msgid "Do you really want to abort the installation now?"
+msgid "Do you really want to quit the installation now?"
 msgstr ""
 
 #. Type: text

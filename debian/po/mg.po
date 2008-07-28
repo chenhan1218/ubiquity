@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-07-26 18:25+0100\n"
+"POT-Creation-Date: 2008-07-28 11:12+0100\n"
 "PO-Revision-Date: 2007-07-11 19:58+0000\n"
 "Last-Translator: Jaonary <jaonary@free.fr>\n"
 "Language-Team: Malagasy <jaonary@free.fr>\n"
@@ -294,14 +294,14 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-msgid "Abort the installation?"
+msgid "Quit the installation?"
 msgstr "Ajanony ny fametrahana"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 #, fuzzy
-msgid "Do you really want to abort the installation now?"
+msgid "Do you really want to quit the installation now?"
 msgstr "Hiverina any amin'ny safidin'ny fizarana ve ianao?"
 
 #. Type: text

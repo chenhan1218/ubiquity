@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-07-26 18:25+0100\n"
+"POT-Creation-Date: 2008-07-28 11:12+0100\n"
 "PO-Revision-Date: 2008-04-08 16:09+0000\n"
 "Last-Translator: Jamil Ahmed <itsjamil@gmail.com>\n"
 "Language-Team: Bangla <core@BengaLinux.Org>\n"
@@ -318,13 +318,17 @@ msgstr "${TOTAL} টির ${INDEX} পর্যায় সম্পন্ন"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:39001
-msgid "Abort the installation?"
+#, fuzzy
+#| msgid "Abort the installation?"
+msgid "Quit the installation?"
 msgstr "ইনস্টলেশন বাতিল করো?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
-msgid "Do you really want to abort the installation now?"
+#, fuzzy
+#| msgid "Do you really want to abort the installation now?"
+msgid "Do you really want to quit the installation now?"
 msgstr "আপনি কি এখন সত্যি সত্যি ইনস্টলেশন বাতিল করতে ইচ্ছুক?"
 
 #. Type: text

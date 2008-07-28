@@ -89,15 +89,15 @@
                             <property name="border_width">4</property>
                             <property name="layout_style">GTK_BUTTONBOX_END</property>
                             <child>
-                              <widget class="GtkButton" id="cancel">
+                              <widget class="GtkButton" id="quit">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="can_default">True</property>
                                 <property name="border_width">4</property>
-                                <property name="label">gtk-cancel</property>
+                                <property name="label">gtk-quit</property>
                                 <property name="use_stock">True</property>
                                 <property name="response_id">0</property>
-                                <signal name="clicked" handler="on_cancel_clicked"/>
+                                <signal name="clicked" handler="on_quit_clicked"/>
                               </widget>
                             </child>
                             <child>
