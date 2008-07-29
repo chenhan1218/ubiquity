@@ -31,6 +31,7 @@ class Language(FilteredCommand):
         self.db.fset('localechooser/languagelist', 'seen', 'false')
         try:
             os.unlink('/var/lib/localechooser/preseeded')
+            os.unlink('/var/lib/localechooser/langlevel')
         except OSError:
             pass
         questions = ['localechooser/languagelist']

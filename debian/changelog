@@ -15,6 +15,10 @@ ubiquity (1.9.8) UNRELEASED; urgency=low
     "cancel" clearly means to cancel the dialog (LP: #45690).
   * Fix format string substitution error in _abstract method.
 
+  [ Evan Dandrea ]
+  * Also remove the langlevel file if it exists before we start
+    localechooser.
+
  -- Mario Limonciello <superm1@ubuntu.com>  Sun, 27 Jul 2008 14:02:29 -0500
 
 ubiquity (1.9.7) intrepid; urgency=low
