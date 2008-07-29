@@ -14,6 +14,8 @@ oem-config (1.45) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Do not try to set localechooser/alreadyrun.  It is no longer used.
+  * Also remove the langlevel file if it exists before we start
+    localechooser.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 25 Jul 2008 08:55:02 +0100
 
