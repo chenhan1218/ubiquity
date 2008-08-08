@@ -21,6 +21,8 @@ ubiquity (1.9.8) UNRELEASED; urgency=low
   * Fix format string substitution error in _abstract method.
   * Allow skipping the unmounting of busy partitions by preseeding
     ubiquity/partman-skip-unmount to true (LP: #252667).
+  * Automatic update of included source packages: debian-installer-utils
+    1.59ubuntu2, grub-installer 1.32ubuntu2, partman-target 55ubuntu2.
 
   [ Evan Dandrea ]
   * Also remove the langlevel file if it exists before we start
