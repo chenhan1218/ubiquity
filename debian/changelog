@@ -5,6 +5,9 @@ ubiquity (1.9.8) UNRELEASED; urgency=low
     all boxen now.
   * debian/control:
     - Drop depends for guidance on mythbuntu package.
+  * Install custom mythbuntu recipe - only applicable for Mythbuntu
+    frontend.
+  * Add support for additional mythbuntu plugin, apple trailers.
 
   [ Colin Watson ]
   * When copying files, remove regular files and symlinks if they exist

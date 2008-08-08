@@ -143,6 +143,10 @@ Template: ubiquity/text/mytharchive
 Type: text
 _Description: Myth Archive
 
+Template: ubiquity/text/mythbuntu-apple-trailers
+Type: text
+_Description: Myth Archive
+
 Template: ubiquity/text/mythbrowser
 Type: text
 _Description: Myth Browser
@@ -194,6 +198,10 @@ _Description: Myth Weather
 Template: ubiquity/text/mytharchive_label
 Type: text
 _Description: A plugin for MythTV that lets you create DVDs from content on your MythTV Network.
+
+Template: ubiquity/text/mythbuntu-apple-trailers_label
+Type: text
+_Description: A plugin for MythTV that lets you view movie trailers from apple.com.
 
 Template: ubiquity/text/mythbrowser_label
 Type: text
@@ -375,6 +383,10 @@ Type: string
 Description: for internal use; determines install type
 
 Template: mythbuntu/mytharchive
+Type: boolean
+Description: for internal use; determines if plugin is installed
+
+Template: mythbuntu/mythbuntu-apple-trailers
 Type: boolean
 Description: for internal use; determines if plugin is installed
 
