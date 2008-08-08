@@ -3,6 +3,8 @@ ubiquity (1.9.8) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Remove xmltv and dvbutils options, as they will be installed across
     all boxen now.
+  * debian/control:
+    - Drop depends for guidance on mythbuntu package.
 
   [ Colin Watson ]
   * When copying files, remove regular files and symlinks if they exist
