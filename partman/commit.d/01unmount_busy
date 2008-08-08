@@ -2,6 +2,11 @@
 
 . /lib/partman/lib/base.sh
 
+db_get ubiquity/partman-skip-unmount
+if [ "$RET" = true ]; then
+    exit 0
+fi
+
 if [ -f /etc/mtab ]; then
     MTAB=/etc/mtab
 else

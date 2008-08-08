@@ -19,6 +19,8 @@ ubiquity (1.9.8) UNRELEASED; urgency=low
     slightly so that we consistently use "quit" as the action verb and
     "cancel" clearly means to cancel the dialog (LP: #45690).
   * Fix format string substitution error in _abstract method.
+  * Allow skipping the unmounting of busy partitions by preseeding
+    ubiquity/partman-skip-unmount to true (LP: #252667).
 
   [ Evan Dandrea ]
   * Also remove the langlevel file if it exists before we start

@@ -668,6 +668,11 @@ Type: boolean
 Default: true
 Description: for internal use; determines whether a bootloader will be installed
 
+Template: ubiquity/partman-skip-unmount
+Type: boolean
+Default: false
+Description: for internal use; prevent ubiquity from unmounting partitions before committing partition table changes (may cause problems)
+
 Template: ubiquity/partman-failed-unmount
 Type: boolean
 Default: true
