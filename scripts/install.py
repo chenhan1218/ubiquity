@@ -556,9 +556,9 @@ class Install:
             for name in dirnames + filenames:
                 relpath = os.path.join(sourcepath, name)
                 fqpath = os.path.join(self.source, dirpath, name)
-
-                total_size += os.lstat(fqpath).st_size
-                files.append(relpath)
+                if "etc/fstab" not in relpath:
+                    total_size += os.lstat(fqpath).st_size
+                    files.append(relpath)
 
         self.db.progress('SET', 10)
         self.db.progress('INFO', 'ubiquity/install/copying')
