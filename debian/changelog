@@ -1,4 +1,4 @@
-ubiquity (1.9.9) UNRELEASED; urgency=low
+ubiquity (1.9.9) intrepid; urgency=low
 
   * Explicitly remove etc/fstab from the list of files to be copied over.
     It is created from partman prior to file copy, so the recent commit 
