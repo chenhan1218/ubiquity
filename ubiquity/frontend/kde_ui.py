@@ -206,37 +206,22 @@ class Wizard(BaseFrontend):
         self.partition_bar_vbox.setSpacing(0)
         self.partition_bar_vbox.setMargin(0)
 
-        if os.path.exists("/usr/lib/kde4/share/icons/oxygen/32x32/status/dialog-warning.png"):
-            warningIcon = QPixmap("/usr/lib/kde4/share/icons/oxygen/32x32/status/dialog-warning.png")
-        else:
-            warningIcon = QPixmap("/usr/share/icons/crystalsvg/32x32/actions/messagebox_warning.png")
+        warningIcon = QPixmap("/usr/share/icons/oxygen/32x32/status/dialog-warning.png")
         self.userinterface.fullname_error_image.setPixmap(warningIcon)
         self.userinterface.username_error_image.setPixmap(warningIcon)
         self.userinterface.password_error_image.setPixmap(warningIcon)
         self.userinterface.hostname_error_image.setPixmap(warningIcon)
 
-        if os.path.exists("/usr/lib/kde4/share/icons/oxygen/16x16/actions/go-next.png"):
-            self.forwardIcon = QIcon("/usr/lib/kde4/share/icons/oxygen/16x16/actions/go-next.png")
-        else:
-            self.forwardIcon = QIcon("/usr/share/icons/crystalsvg/16x16/actions/forward.png")
+        self.forwardIcon = QIcon("/usr/share/icons/oxygen/16x16/actions/go-next.png")
         self.userinterface.next.setIcon(self.forwardIcon)
 
         #Used for the last step
-        if os.path.exists("/usr/lib/kde4/share/icons/oxygen/16x16/actions/dialog-ok-apply.png"):
-            self.applyIcon = QIcon("/usr/lib/kde4/share/icons/oxygen/16x16/actions/dialog-ok-apply.png")
-        else:
-            self.applyIcon = QIcon("/usr/share/icons/crystalsvg/16x16/actions/ok.png")
+        self.applyIcon = QIcon("/usr/share/icons/oxygen/16x16/actions/dialog-ok-apply.png")
 
-        if os.path.exists("/usr/lib/kde4/share/icons/oxygen/16x16/actions/go-previous.png"):
-            backIcon = QIcon("/usr/lib/kde4/share/icons/oxygen/16x16/actions/go-previous.png")
-        else:
-            backIcon = QIcon("/usr/share/icons/crystalsvg/16x16/actions/back.png")
+        backIcon = QIcon("/usr/share/icons/oxygen/16x16/actions/go-previous.png")
         self.userinterface.back.setIcon(backIcon)
 
-        if os.path.exists("/usr/lib/kde4/share/icons/oxygen/16x16/actions/dialog-close.png"):
-            quitIcon = QIcon("/usr/lib/kde4/share/icons/oxygen/16x16/actions/dialog-close.png")
-        else:
-            quitIcon = QIcon("/usr/share/icons/crystalsvg/22x22/actions/button_cancel.png")
+        quitIcon = QIcon("/usr/share/icons/oxygen/16x16/actions/dialog-close.png")
         self.userinterface.quit.setIcon(quitIcon)
 
     def excepthook(self, exctype, excvalue, exctb):
