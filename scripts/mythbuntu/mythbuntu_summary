@@ -8,15 +8,15 @@ db_get mythbuntu/install_type
 db_subst mythbuntu/summary INSTALLTYPE "$RET"
 
 #Services
-db_get mythbuntu/vncservice
+db_get mythbuntu/x11vnc
 db_subst mythbuntu/summary EN_VNC "$RET"
-db_get mythbuntu/sshservice
+db_get mythbuntu/openssh-server
 db_subst mythbuntu/summary EN_OPENSSH "$RET"
-db_get mythbuntu/sambaservice
+db_get mythbuntu/samba
 db_subst mythbuntu/summary EN_SAMBA "$RET"
-db_get mythbuntu/nfsservice
+db_get mythbuntu/nfs-kernel-server
 db_subst mythbuntu/summary EN_NFS "$RET"
-db_get mythbuntu/mysqlservice
+db_get mythbuntu/mysql-server
 db_subst mythbuntu/summary EN_MYSQL "$RET"
 
 #Drivers
