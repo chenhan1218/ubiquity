@@ -68,6 +68,7 @@ endif
 	dh_install -a
 
 	# Bits of manual installation that can't be done by dh_install
+	sed -i 's/@VERSION@/$(VERSION)/g' debian/oem-config/usr/sbin/oem-config
 	sed -e 's,/usr/share/console-setup-mini/console-setup.config,/var/lib/dpkg/info/console-setup.config,g' \
 	    -e 's,^\([[:space:]]*\)update-initramfs,\1: update-initramfs,' \
 		d-i/source/console-setup/debian/console-setup.postinst \

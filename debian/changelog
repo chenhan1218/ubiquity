@@ -5,6 +5,7 @@ oem-config (1.45) UNRELEASED; urgency=low
     - Don't fail to set the locale if the mirror/country question doesn't
       exist.
   * Add oem to /usr/lib/oem-config/user/reserved-usernames (LP: #251056).
+  * Add sensible --version output and output our version to oem-config.log.
 
   [ Michael Terry ]
   * Set LANG in /etc/default/locale even if it isn't there already

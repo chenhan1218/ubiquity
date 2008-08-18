@@ -31,6 +31,8 @@ sys.path.insert(0, '/usr/lib/oem-config')
 
 from oem_config import im_switch
 
+VERSION = '@VERSION@'
+
 class Wizard:
     def __init__(self, frontend_name=None):
         if frontend_name is None:
@@ -87,7 +89,7 @@ def run_hooks():
 if __name__ == '__main__':
     usage = ("usage: %prog [options]\n\n"
              "Use oem-config-prepare to prepare the system for an end user.")
-    parser = optparse.OptionParser(usage=usage)
+    parser = optparse.OptionParser(usage=usage, version=VERSION)
     parser.add_option('-f', '--frontend', metavar='FRONTEND',
                       help="Use the given frontend (gtk_ui).")
     parser.add_option('-d', '--debug', dest='debug', action='store_true',
@@ -111,6 +113,8 @@ if __name__ == '__main__':
 
     if options.old_tzmap:
         os.environ['UBIQUITY_OLD_TZMAP'] = '1'
+
+    print >>sys.stderr, "oem-config %s" % VERSION
 
     if 'OEM_CONFIG_DEBUG' in os.environ:
         if 'DEBCONF_DEBUG' not in os.environ:
