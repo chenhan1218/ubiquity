@@ -690,7 +690,7 @@ class Wizard(BaseFrontend):
         if response == 1:
             return True
         elif response == gtk.RESPONSE_CLOSE:
-            self.quit()
+            self.quit_installer()
         else:
             step = self.step_name(self.steps.get_current_page())
             if step.startswith("stepPart"):
@@ -833,7 +833,7 @@ class Wizard(BaseFrontend):
         """reboot the system after installing process."""
 
         self.returncode = 10
-        self.quit()
+        self.quit_installer()
 
 
     def do_reboot(self):
@@ -853,7 +853,7 @@ class Wizard(BaseFrontend):
             execute("reboot")
 
 
-    def quit(self):
+    def quit_installer(self):
         """quit installer cleanly."""
 
         # exiting from application
@@ -871,7 +871,7 @@ class Wizard(BaseFrontend):
         self.warning_dialog.hide()
         if response == gtk.RESPONSE_CLOSE:
             self.current_page = None
-            self.quit()
+            self.quit_installer()
             return False
         else:
             return True # stop processing
