@@ -10,6 +10,8 @@ ubiquity (1.9.10) UNRELEASED; urgency=low
   [ Colin Watson ]
   * GTK frontend:
     - Fix widget/method name clash that broke the Quit button (LP: #257962).
+    - Hide auto-login option in OEM mode, since it will be offered later in
+      a less confusing context (LP: #257606).
 
  -- Mario Limonciello <superm1@ubuntu.com>  Thu, 14 Aug 2008 23:02:42 -0500
 

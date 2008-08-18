@@ -471,6 +471,7 @@ class Wizard(BaseFrontend):
             self.username.set_editable(False)
             self.username.set_sensitive(False)
             self.username_edited = True
+            self.auto_login.hide()
             # The UserSetup component takes care of preseeding passwd/user-uid.
             execute_root('apt-install', 'oem-config-gtk')
 
