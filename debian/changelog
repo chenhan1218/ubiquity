@@ -6,6 +6,7 @@ ubiquity (1.9.10) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Update debconf strings for summary template page on mythbuntu 
     frontend.
+  * Don't offer autologin in the mythbuntu frontend.
 
   [ Colin Watson ]
   * GTK frontend:

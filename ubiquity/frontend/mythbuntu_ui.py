@@ -163,6 +163,11 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
         self.disable_volume_manager()
 
+	#disable the mainline ubiquity autologin
+	#we have mythbuntu specific offerings that behave
+	#a little bit differently
+	self.auto_login.hide()
+
         # show interface
         got_intro = self.show_intro()
         self.allow_change_step(True)
