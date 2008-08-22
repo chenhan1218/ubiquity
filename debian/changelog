@@ -4,9 +4,10 @@ ubiquity (1.9.10) UNRELEASED; urgency=low
   * Ensure that the KDE frontend is using Oxygen icons
 
   [ Mario Limonciello ]
-  * Update debconf strings for summary template page on mythbuntu 
-    frontend.
-  * Don't offer autologin in the mythbuntu frontend.
+  * Mythbuntu Frontend:
+    - Update debconf strings for summary template page.
+    - Hide the mainline Ubiquity autologin option.
+    - Hide the installer UI while MythTV setup is running.
 
   [ Colin Watson ]
   * GTK frontend:
