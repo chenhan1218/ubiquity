@@ -8,6 +8,7 @@ ubiquity (1.9.10) UNRELEASED; urgency=low
     - Update debconf strings for summary template page.
     - Hide the mainline Ubiquity autologin option.
     - Hide the installer UI while MythTV setup is running.
+    - Remove mythtv-status from Frontend installs.
 
   [ Colin Watson ]
   * GTK frontend:
