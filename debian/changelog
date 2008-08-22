@@ -4,7 +4,7 @@ oem-config (1.45) UNRELEASED; urgency=low
   * Restore lost change from 1.38:
     - Don't fail to set the locale if the mirror/country question doesn't
       exist.
-  * Add oem to /usr/lib/oem-config/user/reserved-usernames (LP: #251056).
+  * Add oem to /usr/lib/oem-config/user/reserved-usernames (see LP #251056).
   * Add sensible --version output and output our version to oem-config.log.
   * Automatic update of included source packages: localechooser 2.03ubuntu2,
     user-setup 1.20ubuntu4.
