@@ -462,7 +462,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         """Spawn MythTV-Setup binary."""
         self.live_installer.hide()
         while gtk.events_pending():
-                gtk.main_iteration()
+            gtk.main_iteration()
         execute_root("/usr/share/ubiquity/mythbuntu-setup")
         self.live_installer.show()
 
