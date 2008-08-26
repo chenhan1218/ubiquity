@@ -2,6 +2,16 @@
 # Run oem-config on the first boot after shipping to the end user.
 set -e
 
+# TODO: This is an awful, awful hack. In Ubuntu intrepid, kernel-helper runs
+# from an /etc/event.d script (in parallel to rc2) and uses debconf; as a
+# result, it is often running while oem-config is trying to start and locks
+# the debconf database. I can't think of a way to declare that
+# /etc/event.d/last-good-boot needs to complete before our single init
+# script in rc2 starts, so we're left with this piece of pure evil.
+while pidof -x kernel-helper; do
+	sleep 1
+done
+
 DEBUG=
 if [ "$1" = '--debug' ]; then
 	DEBUG=1
