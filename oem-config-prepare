@@ -54,7 +54,7 @@ rm -f /etc/udev/rules.d/70-persistent-cd.rules \
 # Potentially sensitive.
 rm -f /home/oem/.ssh/known_hosts
 
-update-rc.d oem-config start 12 2 3 4 5 .
+update-rc.d oem-config start 29 2 3 4 5 .
 
 if [ -z "$quiet" ]; then
 	MESSAGE='oem-config will run the next time the system boots.'

@@ -1,6 +1,8 @@
 oem-config (1.46) UNRELEASED; urgency=low
 
   * Suppress user-setup's encrypted private directory question in OEM mode.
+  * Move oem-config init script link from 12 to 29 so that it starts after
+    hal.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 26 Aug 2008 10:20:24 +0100
 
