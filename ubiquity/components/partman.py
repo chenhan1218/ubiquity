@@ -482,7 +482,8 @@ class Partman(FilteredCommand):
                             if rebuild_all or arg not in self.partition_cache:
                                 self.partition_cache[arg] = {
                                     'dev': dev,
-                                    'id': part_id
+                                    'id': part_id,
+                                    'parent': dev.replace('=', '/')
                                 }
                         else:
                             if rebuild_all or arg not in self.disk_cache:

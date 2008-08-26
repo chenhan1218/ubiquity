@@ -52,7 +52,7 @@ import gtk.glade
 import debconf
 
 from ubiquity import filteredcommand, gconftool, i18n, osextras, validation, \
-                     zoommap
+                     zoommap, segmented_bar
 from ubiquity.misc import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman, partman_commit, \
@@ -166,6 +166,7 @@ class Wizard(BaseFrontend):
         self.installing = False
         self.installing_no_return = False
         self.returncode = 0
+        self.partition_bars = {}
 
         self.laptop = execute("laptop-detect")
 
@@ -1892,6 +1893,13 @@ class Wizard(BaseFrontend):
         else:
             devpart = model[iterator][0]
             partition = model[iterator][1]
+            if 'id' not in partition:
+                dev = partition['device']
+            else:
+                dev = partition['parent']
+            for p in self.partition_bars.itervalues():
+                p.hide()
+            self.partition_bars[dev].show()
         for action in self.dbfilter.get_actions(devpart, partition):
             if action == 'new_label':
                 self.partition_button_new_label.set_sensitive(True)
@@ -1977,15 +1985,15 @@ class Wizard(BaseFrontend):
         self.dbfilter.undo()
 
     def update_partman (self, disk_cache, partition_cache, cache_order):
+        if self.partition_bars:
+            for p in self.partition_bars.itervalues():
+                self.part_advanced_vbox.remove(p)
+                del p
+
         partition_tree_model = self.partition_list_treeview.get_model()
         if partition_tree_model is None:
             partition_tree_model = gtk.ListStore(gobject.TYPE_STRING,
                                                  gobject.TYPE_PYOBJECT)
-            for item in cache_order:
-                if item in disk_cache:
-                    partition_tree_model.append([item, disk_cache[item]])
-                else:
-                    partition_tree_model.append([item, partition_cache[item]])
 
             cell_name = gtk.CellRendererText()
             column_name = gtk.TreeViewColumn(
@@ -2042,12 +2050,44 @@ class Wizard(BaseFrontend):
         else:
             # TODO cjwatson 2006-08-31: inefficient, but will do for now
             partition_tree_model.clear()
-            for item in cache_order:
-                if item in disk_cache:
-                    partition_tree_model.append([item, disk_cache[item]])
-                else:
-                    partition_tree_model.append([item, partition_cache[item]])
 
+        partition_bar = None
+        dev = ''
+        total_size = {}
+        i = 0
+        colors = ['3465a4', '73d216', 'f57900']
+        for item in cache_order:
+            if item in disk_cache:
+                partition_tree_model.append([item, disk_cache[item]])
+                dev = disk_cache[item]['device']
+                self.partition_bars[dev] = segmented_bar.SegmentedBar()
+                partition_bar = self.partition_bars[dev]
+                self.part_advanced_vbox.pack_start(partition_bar)
+                self.part_advanced_vbox.reorder_child(partition_bar, 0)
+                total_size[dev] = 0.0
+            else:
+                partition_tree_model.append([item, partition_cache[item]])
+                size = int(partition_cache[item]['parted']['size'])
+                total_size[dev] = total_size[dev] + size
+                fs = partition_cache[item]['parted']['fs']
+                path = partition_cache[item]['parted']['path'].replace('/dev/','')
+                if fs == 'free':
+                    c = partition_bar.remainder_color
+                    # TODO evand 2008-07-27: i18n
+                    txt = 'Free space'
+                else:
+                    i = (i + 1) % len(colors)
+                    c = colors[i]
+                    txt = '%s (%s)' % (path, fs)
+                partition_bar.add_segment_rgb(txt, size, c)
+        for item in cache_order:
+            if item in disk_cache:
+                dev = disk_cache[item]['device']
+                for seg in self.partition_bars[dev].segments:
+                    seg.percent = seg.percent / total_size[dev]
+        sel = self.partition_list_treeview.get_selection()
+        if sel.count_selected_rows() == 0:
+            sel.select_path(0)
         # make sure we're on the advanced partitioning page
         self.set_current_page(self.steps.page_num(self.stepPartAdvanced))
 

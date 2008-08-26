@@ -1,3 +1,9 @@
+ubiquity (1.9.11) UNRELEASED; urgency=low
+
+  * Add a graphical partition bar to the advanced partitioning page.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 26 Aug 2008 10:21:43 -0400
+
 ubiquity (1.9.10) intrepid; urgency=low
 
   [ Harald Sitter ]
