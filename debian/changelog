@@ -1,10 +1,10 @@
-oem-config (1.47) UNRELEASED; urgency=low
+oem-config (1.47) intrepid; urgency=low
 
   * Add a vile hack to avoid clashing with kernel-helper over the debconf
     database lock. Filed LP #261543 to document that we need to do something
     better.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 26 Aug 2008 18:34:07 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 26 Aug 2008 18:35:39 +0100
 
 oem-config (1.46) intrepid; urgency=low
 
