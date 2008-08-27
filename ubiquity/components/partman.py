@@ -382,6 +382,29 @@ class Partman(FilteredCommand):
                     del choices[choices.index(self.resize_desc)]
                 except ValueError:
                     pass
+            os.seteuid(0)
+            # {'/dev/sda' : [ ('/dev/sda1', 24973243297), ('free', 23492732) ], '/dev/sdb' : .., }
+            parted = parted_server.PartedServer()
+            layout = {}
+            for disk in parted.disks():
+                parted.select_disk(disk)
+                ret = []
+                total = 0
+                for partition in parted.partitions():
+                    size = int(partition[2])
+                    total = total + size
+                for partition in parted.partitions():
+                    print 'partition: %s' % str(partition)
+                    size = int(partition[2])
+                    if partition[4] == 'free':
+                        dev = 'free'
+                    else:
+                        dev = partition[5]
+                    ret.append((dev, size / float(total)))
+                layout[disk] = ret
+
+            self.frontend.set_disk_layout(layout)
+            drop_privileges()
             self.frontend.set_autopartition_choices(
                 choices, self.extra_options,
                 self.resize_desc, self.manual_desc)

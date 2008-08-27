@@ -253,6 +253,10 @@ class SegmentedBar(gtk.Widget):
                 self.segments.remove(segment)
                 self.queue_draw()
                 break
+    
+    def remove_all(self):
+        self.segments = []
+        self.queue_draw()
 
     def add_segment_rgb(self, title, percent, rgb_color):
         self.add_segment(title, percent, CairoExtensions.rgb_to_color(rgb_color))
