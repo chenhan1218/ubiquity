@@ -525,6 +525,70 @@ class Install:
 
         return None
 
+    def generate_blacklist(self):
+        if (os.path.exists("/cdrom/casper/filesystem.manifest-desktop") and
+            os.path.exists("/cdrom/casper/filesystem.manifest")):
+            desktop_packages = set()
+            manifest = open("/cdrom/casper/filesystem.manifest-desktop")
+            for line in manifest:
+                if line.strip() != '' and not line.startswith('#'):
+                    desktop_packages.add(line.split()[0])
+            manifest.close()
+            live_packages = set()
+            manifest = open("/cdrom/casper/filesystem.manifest")
+            for line in manifest:
+                if line.strip() != '' and not line.startswith('#'):
+                    live_packages.add(line.split()[0])
+            manifest.close()
+            difference = live_packages - desktop_packages
+         else:
+            difference = set()
+        
+        # Keep packages we explicitly installed.
+        difference -= self.query_recorded_installed()
+        archdetect = subprocess.Popen(['archdetect'], stdout=subprocess.PIPE)
+        subarch = archdetect.communicate()[0].strip()
+
+        # Less than ideal.  Since we cannot know which bootloader we'll need
+        # at file copy time, we should figure out why grub still fails when
+        # apt-install-direct is present during configure_bootloader (code
+        # removed).
+        if subarch.startswith('amd64/') or subarch.startswith('i386/'):
+            difference -= set(['grub'])
+        elif subarch == 'powerpc/ps3':
+            pass
+        elif subarch.startswith('powerpc/'):
+            difference -= set(['yaboot', 'hfsutils'])
+ 
+        if len(difference) == 0:
+            return
+ 
+        use_restricted = True
+        try:
+            if self.db.get('apt-setup/restricted') == 'false':
+                use_restricted = False
+        except debconf.DebconfError:
+            pass
+        if not use_restricted:
+            cache = Cache()
+            for pkg in cache.keys():
+                if (cache[pkg].isInstalled and
+                    cache[pkg].section.startswith('restricted/')):
+                    difference.add(pkg)
+            del cache
+
+        for x in difference:
+            syslog.syslog(x)
+        difference = filter(lambda x: not os.path.exists('/var/lib/dpkg/info/%s.prerm' % x), difference)
+        cmd = ['dpkg', '-L']
+        cmd.extend(difference)
+        subp = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        res = subp.communicate()[0].splitlines()
+        u = {}
+        for x in res:
+            u[x] = 1
+        self.blacklist = u
+
     def copy_all(self):
         """Core copy process. This is the most important step of this
         stage. It clones live filesystem into a local partition in the
@@ -536,6 +600,7 @@ class Install:
         self.db.progress('START', 0, 100, 'ubiquity/install/title')
         self.db.progress('INFO', 'ubiquity/install/scanning')
 
+        self.generate_blacklist()
         # Obviously doing os.walk() twice is inefficient, but I'd rather not
         # suck the list into ubiquity's memory, and I'm guessing that the
         # kernel's dentry cache will avoid most of the slowness anyway.
@@ -606,6 +671,9 @@ class Install:
             elif stat.S_ISSOCK(st.st_mode):
                 os.mknod(targetpath, stat.S_IFSOCK | mode)
             elif stat.S_ISREG(st.st_mode):
+                if '/%s' % path in self.blacklist:
+                    syslog.syslog('Not copying %s' % path)
+                    continue
                 if os.path.exists(targetpath):
                     os.unlink(targetpath)
                 self.copy_file(sourcepath, targetpath, md5_check)

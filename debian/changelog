@@ -3,6 +3,8 @@ ubiquity (1.9.11) UNRELEASED; urgency=low
   * Add a graphical partition bar to the advanced partitioning page.
   * Add before and after graphical partition bars to the autopartitioning
     page.
+  * Do not copy files that we're going to later remove, per
+    dvd-performance-hacks.
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 26 Aug 2008 10:21:43 -0400
 
