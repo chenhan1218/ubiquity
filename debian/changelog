@@ -1,4 +1,4 @@
-ubiquity (1.9.11) UNRELEASED; urgency=low
+ubiquity (1.9.11) intrepid; urgency=low
 
   * Add a graphical partition bar to the advanced partitioning page.
   * Add before and after graphical partition bars to the autopartitioning
@@ -9,7 +9,7 @@ ubiquity (1.9.11) UNRELEASED; urgency=low
     1.25ubuntu3, partman-auto 78ubuntu2, partman-base 121ubuntu5,
     partman-basicfilesystems 60ubuntu2.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 26 Aug 2008 10:21:43 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 02 Sep 2008 15:19:15 -0400
 
 ubiquity (1.9.10) intrepid; urgency=low
 
