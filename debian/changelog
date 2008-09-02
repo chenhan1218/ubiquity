@@ -5,6 +5,9 @@ ubiquity (1.9.11) UNRELEASED; urgency=low
     page.
   * Do not copy files that we're going to later remove, per
     dvd-performance-hacks.
+  * Automatic update of included source packages: console-setup
+    1.25ubuntu3, partman-auto 78ubuntu2, partman-base 121ubuntu5,
+    partman-basicfilesystems 60ubuntu2.
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 26 Aug 2008 10:21:43 -0400
 
