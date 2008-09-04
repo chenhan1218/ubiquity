@@ -4,6 +4,8 @@ ubiquity (1.9.12) UNRELEASED; urgency=low
   * Mythbuntu frontend:
     - Correctly substitute language question on last page.
     - Check for proper widget when toggling mythweb. (LP: #264474)
+    - Drop functionality to "use live environment mysql information".
+      This is now done automatically if you've entered it previously.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Thu, 04 Sep 2008 01:15:08 -0500
 

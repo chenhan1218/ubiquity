@@ -970,45 +970,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         else:
             self.mythweb_expander.hide()
 
-    def uselivemysqlinfo_toggled(self,widget):
-        """Called when the checkbox to copy live mysql information is pressed"""
-        if (self.uselivemysqlinfo.get_active()):
-            #disable modifying
-            self.master_backend_table.set_sensitive(False)
-            #read in mysql.txt to set the new defaults
-            try:
-                in_f=open("/etc/mythtv/mysql.txt")
-                for line in in_f:
-                    if re.compile("^DBHostName").search(line):
-                        text=string.split(string.split(line,"=")[1],'\n')[0]
-                        self.old_mysql_server=self.mysql_server.get_text()
-                        self.mysql_server.set_text(text)
-                    elif re.compile("^DBUserName").search(line):
-                        text=string.split(string.split(line,"=")[1],'\n')[0]
-                        self.old_mysql_user=self.mysql_user.get_text()
-                        self.mysql_user.set_text(text)
-                    elif re.compile("^DBName").search(line):
-                        text=string.split(string.split(line,"=")[1],'\n')[0]
-                        self.old_mysql_database=self.mysql_database.get_text()
-                        self.mysql_database.set_text(text)
-                    elif re.compile("^DBPassword").search(line):
-                        text=string.split(string.split(line,"=")[1],'\n')[0]
-                        self.old_mysql_password=self.mysql_password.get_text()
-                        self.mysql_password.set_text(text)
-                in_f.close()
-            except IOError:
-                #in case for some reason we are missing mysql.txt
-                self.usemysqlinfo.set_active(False)
-        else:
-            self.allow_go_forward(False)
-            self.connection_results_label.hide()
-            self.connection_results.set_text("Please Test your connection to proceed")
-            self.master_backend_table.set_sensitive(True)
-            self.mysql_server.set_text(self.old_mysql_server)
-            self.mysql_user.set_text(self.old_mysql_user)
-            self.mysql_password.set_text(self.old_mysql_password)
-            self.mysql_database.set_text(self.old_mysql_database)
-
     def usemythwebpassword_toggled(self,widget):
         """Called when the checkbox to set a mythweb password is pressed"""
         if (self.usemythwebpassword.get_active()):
