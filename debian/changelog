@@ -7,6 +7,10 @@ ubiquity (1.9.12) UNRELEASED; urgency=low
     - Drop functionality to "use live environment mysql information".
       This is now done automatically if you've entered it previously.
 
+  [ Colin Watson ]
+  * Set OVERRIDE_LEAVE_CD_MOUNTED=1 to stop apt-setup (>= 1:0.37ubuntu4)
+    from trying to unmount /cdrom in its cdrom generator.
+
  -- Mario Limonciello <superm1@ubuntu.com>  Thu, 04 Sep 2008 01:15:08 -0500
 
 ubiquity (1.9.11) intrepid; urgency=low
