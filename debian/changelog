@@ -3,6 +3,7 @@ ubiquity (1.9.12) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Mythbuntu frontend:
     - Correctly substitute language question on last page.
+    - Check for proper widget when toggling mythweb. (LP: #264474)
 
  -- Mario Limonciello <superm1@ubuntu.com>  Thu, 04 Sep 2008 01:15:08 -0500
 

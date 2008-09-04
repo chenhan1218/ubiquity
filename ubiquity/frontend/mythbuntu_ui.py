@@ -965,7 +965,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def mythweb_toggled(self,widget):
         """Called when the checkbox to install Mythweb is toggled"""
-        if (self.mythweb.get_active()):
+        if (self.mythweb_checkbox.get_active()):
             self.mythweb_expander.show()
         else:
             self.mythweb_expander.hide()
