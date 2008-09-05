@@ -9,6 +9,7 @@ debian/ubiquity
 debian/ubiquity-frontend-cloner
 debian/ubiquity-frontend-gtk
 debian/ubiquity-frontend-kde
+debian/ubiquity-frontend-mythbuntu
 debian/ubiquity-guadalinex-artwork
 debian/ubiquity-guadalinex-doc
 debian/ubiquity-ubuntu-artwork
