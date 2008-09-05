@@ -26,6 +26,8 @@ import datetime
 import gettext
 import syslog
 
+from PyKDE4.kdecore import ki18n, KAboutData, KCmdLineArgs
+from PyKDE4.kdeui import KApplication, KMainWindow        
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4 import uic
@@ -53,13 +55,12 @@ class OEMConfUI(QWidget):
     def __init__(self, parent):
         QWidget.__init__(self, parent)
         uic.loadUi("%s/sysconf.ui" % UIDIR, self)
-        self.setWindowState(Qt.WindowFullScreen)
+        self.setAutoFillBackground(True)
 
     def setFrontend(self, fe):
         self.frontend = fe
 
     def resizeEvent(self, event):
-        QWidget.resizeEvent(self, event)
         if QFile.exists("/usr/share/wallpapers/Blue_Curl/contents/images/1920x1200.jpg"):
             imageFile = "/usr/share/wallpapers/Blue_Curl/contents/images/1920x1200.jpg"
         else:
@@ -95,17 +96,43 @@ class Frontend:
         self.allowed_go_forward = True
         self.mainLoopRunning = False
         self.apply_changes = False
-        self.app = QApplication([])
-        self.app.setStyle(QStyleFactory.create("Plastique"))
+
+        appName = "oem-config"
+        catalog = ""
+        programName = ki18n("OEM Config")
+        version = "1.0"
+        description = ki18n("Sets up the system")
+        license = KAboutData.License_GPL
+        copyright = ki18n("2006, 2007 Anirudh Ramesh. 2008 Canonical Ltd.")
+        text = ki18n("none")
+        homePage = "http://www.kubuntu.org"
+        bugEmail = ""
+
+        aboutData = KAboutData(appName, catalog, programName, version, description,
+                               license, copyright, text, homePage, bugEmail)
+
+        KCmdLineArgs.init(sys.argv, aboutData)
+
+        self.app = KApplication()
         # We want to hide the minimise button if running in the ubiquity-only mode (no desktop)
         # To achieve this we need to set window flags to Dialog but we also need a parent widget which is showing
         # else Qt tried to be clever and puts the minimise button back
         self.parentWidget = QWidget()
         self.parentWidget.show()
-        self.userinterface = OEMConfUI(self.parentWidget)
-        self.userinterface.setWindowFlags(Qt.Dialog)
+
+        # The parent for our actual user interface window, this is needed only because Oxygen widget 
+        # style refuses to draw our background on a top level widget
+        self.parent2 = QWidget(self.parentWidget)
+        self.parent2.setAutoFillBackground(True)
+        self.parent2.setWindowState(Qt.WindowFullScreen)
+        self.parent2.setWindowFlags(Qt.Dialog)
+        layout = QVBoxLayout(self.parent2)
+        layout.setContentsMargins(0, 0, 0, 0)
+
+        self.userinterface = OEMConfUI(self.parent2)
         self.userinterface.setFrontend(self)
-        self.userinterface.show()
+        layout.addWidget(self.userinterface)
+        self.parent2.show()
 
         self.translate_widgets()
 
