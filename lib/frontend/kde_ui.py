@@ -27,7 +27,7 @@ import gettext
 import syslog
 
 from PyKDE4.kdecore import ki18n, KAboutData, KCmdLineArgs
-from PyKDE4.kdeui import KApplication, KMainWindow        
+from PyKDE4.kdeui import KApplication, KMainWindow, KIcon
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4 import uic
@@ -133,6 +133,9 @@ class Frontend:
         self.userinterface.setFrontend(self)
         layout.addWidget(self.userinterface)
         self.parent2.show()
+
+        self.userinterface.next.setIcon(KIcon("go-next"))
+        self.userinterface.back.setIcon(KIcon("go-previous"))
 
         self.translate_widgets()
 
@@ -291,6 +294,15 @@ class Frontend:
 
         text = self.get_string(name, lang)
 
+        if str(name) == 'language_label':
+            text = self.get_string('language_heading_label', lang)
+
+        if str(name) == 'next':
+            text = self.get_string('oem-config/imported/go-forward', lang)
+
+        if str(name) == 'back':
+            text = self.get_string('oem-config/imported/go-back', lang)
+
         if str(name) == "SysConf":
             text = self.get_string("oem_config", lang)
 
@@ -309,15 +321,11 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 </style></head><body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">
 <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-style:italic;">""" +
-                               text + "</span></p></body></html>")
+                               text + "</span></p></body></html>")                
             else:
                 widget.setText(text)
 
         elif isinstance(widget, QPushButton):
-            if name == 'next':
-                text = text + " >"
-            elif name == 'back':
-                text = "< " + text
             widget.setText(text.replace('_', '&', 1))
 
         elif isinstance(widget, QWidget) and str(name) == "SysConf":
@@ -379,7 +387,7 @@ p, li { white-space: pre-wrap; }
             global WIDGET_STACK_MAX_STEPS
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
-            for widget in (self.userinterface, self.userinterface.language_label, self.userinterface.back, self.userinterface.next):
+            for widget in (self.userinterface, self.userinterface.language_label, self.userinterface.welcome_label, self.userinterface.back, self.userinterface.next):
                 self.translate_widget(widget, lang)
             for step in range(WIDGET_STACK_MAX_STEPS + 1):
                 self.translate_widget(self.step_labels[step], lang)
@@ -545,9 +553,10 @@ p, li { white-space: pre-wrap; }
         else:
             self.userinterface.back.show()
         if current_name == 'step_user':
-            self.userinterface.next.setText(QApplication.translate("SysConf", "&Finish!", None, QApplication.UnicodeUTF8))
+            #FIXME needs i18n(Finish)
+            self.userinterface.next.setText(self.get_string('oem-config/imported/go-forward'))
         else:
-            self.userinterface.next.setText(QApplication.translate("SysConf", "&Continue >", None, QApplication.UnicodeUTF8))
+            self.userinterface.next.setText(self.get_string('oem-config/imported/go-forward'))
         for icon in self.step_icons:
             pixmap = QIcon(icon.pixmap()).pixmap(self.step_icon_size, QIcon.Disabled)
             icon.setPixmap(pixmap)
