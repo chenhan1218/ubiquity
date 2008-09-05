@@ -554,9 +554,9 @@ p, li { white-space: pre-wrap; }
             self.userinterface.back.show()
         if current_name == 'step_user':
             #FIXME needs i18n(Finish)
-            self.userinterface.next.setText(self.get_string('oem-config/imported/go-forward'))
+            self.userinterface.next.setIcon(KIcon("dialog-ok"))
         else:
-            self.userinterface.next.setText(self.get_string('oem-config/imported/go-forward'))
+            self.userinterface.next.setIcon(KIcon("go-next"))
         for icon in self.step_icons:
             pixmap = QIcon(icon.pixmap()).pixmap(self.step_icon_size, QIcon.Disabled)
             icon.setPixmap(pixmap)
