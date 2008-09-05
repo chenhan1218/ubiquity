@@ -541,7 +541,7 @@ class Install:
                     live_packages.add(line.split()[0])
             manifest.close()
             difference = live_packages - desktop_packages
-         else:
+        else:
             difference = set()
         
         # Keep packages we explicitly installed.
