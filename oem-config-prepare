@@ -20,16 +20,16 @@ else
 			exec gksudo --desktop /usr/share/applications/oem-config-prepare-gtk.desktop -- "$0" "$@"
 			;;
 		kde_ui)
+                        echo kde_ui
 			kdesu=
-			if which kdesu >/dev/null 2>&1; then
-				kdesu=kdesu
-			elif which kdesudo >/dev/null 2>&1; then
-				kdesu=kdesudo
-			elif [ -x /usr/lib/kde4/bin/kdesudo ]; then
-				kdesu=/usr/lib/kde4/bin/kdesudo
+			#kdesudo seems to have issues with this, so default to the original kdesu
+			if [ -x /usr/lib/kde4/libexec/kdesu.distrib ]; then
+			        kdesu=/usr/lib/kde4/libexec/kdesu.distrib
+			elif [ -x /usr/lib/kde4/libexec/kdesu.distrib ]; then
+			        kdesu=/usr/lib/kde4/libexec/kdesu.distrib
 			fi
 			if [ "$kdesu" ]; then
-				exec $kdesu --nonewdcop -- "$0" "$@"
+				exec $kdesu -- "$0" "$@"
 			else
 				exec sudo "$0" "$@"
 			fi

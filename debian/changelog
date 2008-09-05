@@ -4,6 +4,7 @@ oem-config (1.48) intrepid; urgency=low
   * Update kde_ui for intrepid wallpaper
   * Change kde_ui into a KApplication, so it picks up the KDE widget style
   * Fix i18n in kde_ui
+  * Use kdesu not kdesudo by default, kdesudo seems unreliable
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 05 Sep 2008 12:59:23 +0100
 
