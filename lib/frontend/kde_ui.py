@@ -59,12 +59,9 @@ class OEMConfUI(QWidget):
         self.frontend = fe
 
     def resizeEvent(self, event):
-        if QFile.exists("/usr/lib/kde4/share/wallpapers/EOS/contents/images/1920x1200.jpg"):
-            imageFile = "/usr/lib/kde4/share/wallpapers/EOS/contents/images/1920x1200.jpg"
-        elif QFile.exists("/usr/share/wallpapers/kubuntu-wallpaper.png"):
-            imageFile = "/usr/share/wallpapers/kubuntu-wallpaper.png"
-        elif QFile.exists("/usr/share/wallpapers/kubuntu-wallpaper.jpg"):
-            imageFile = "/usr/share/wallpapers/kubuntu-wallpaper.jpg"
+        QWidget.resizeEvent(self, event)
+        if QFile.exists("/usr/share/wallpapers/Blue_Curl/contents/images/1920x1200.jpg"):
+            imageFile = "/usr/share/wallpapers/Blue_Curl/contents/images/1920x1200.jpg"
         else:
             return
         pixmapUnscaled = QPixmap()

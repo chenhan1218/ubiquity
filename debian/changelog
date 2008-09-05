@@ -1,6 +1,7 @@
 oem-config (1.48) intrepid; urgency=low
 
   * Update oem-config-dm for KDE 4
+  * Update kde_ui for intrepid wallpaper
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 05 Sep 2008 12:59:23 +0100
 
