@@ -85,9 +85,9 @@ class DM:
             if os.path.exists('/usr/lib/gnome-settings-daemon/gnome-settings-daemon'):
                 extras.append(subprocess.Popen(['/usr/lib/gnome-settings-daemon/gnome-settings-daemon'], stdin=null, stdout=logfile, stderr=logfile))
         elif self.frontend == 'kde_ui':
-            extras.append(subprocess.Popen(['/usr/bin/dcopserver', '--nosid'], stdin=null, stdout=logfile, stderr=logfile))
+            extras.append(subprocess.Popen(['/usr/bin/dbus-launch'], stdin=null, stdout=logfile, stderr=logfile))
+            extras.append(subprocess.Popen(['kwriteconfig', '--file', 'kwinrc', '--group', 'Compositing', '--key', 'Enabled', 'false'], stdin=null, stdout=logfile, stderr=logfile))
             wm = subprocess.Popen('/usr/bin/kwin', stdin=null, stdout=logfile, stderr=logfile)
-            extras.append(subprocess.Popen(['/usr/bin/kdesktop'], stdin=null, stdout=logfile, stderr=logfile))
 
         greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
 

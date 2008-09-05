@@ -1,3 +1,9 @@
+oem-config (1.48) intrepid; urgency=low
+
+  * Update oem-config-dm for KDE 4
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 05 Sep 2008 12:59:23 +0100
+
 oem-config (1.47) intrepid; urgency=low
 
   * Add a vile hack to avoid clashing with kernel-helper over the debconf
