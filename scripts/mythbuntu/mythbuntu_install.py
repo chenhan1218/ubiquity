@@ -194,16 +194,8 @@ class Install(install.Install):
         hdhomerun = self.db.get('mythbuntu/hdhomerun')
         to_install = []
         to_remove = set()
-        if video_driver == "nvidia_new":
-            to_install.append('nvidia-glx-new')
-        elif video_driver == "nvidia":
-            to_install.append('nvidia-glx')
-        elif video_driver == "nvidia_legacy":
-            to_install.append('nvidia-glx-legacy')
-        elif video_driver == "fglrx":
-            to_install.append('xorg-driver-fglrx')
-        elif video_driver == "pvr_350":
-            to_install.append('xserver-xorg-video-ivtv')
+        if video_driver != "Open Source Driver":
+            to_install.append(video_driver)
         if vnc == 'true':
             to_install.append('x11vnc')
         if nfs == 'true':

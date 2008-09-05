@@ -410,8 +410,11 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def populate_video(self):
         """Finds the currently active video driver"""
+        dictionary=get_graphics_dictionary()
+        for driver in dictionary:
+            self.video_driver.append_text(driver)
         self.video_driver.append_text("Open Source Driver")
-        self.video_driver.set_active(5)
+        self.video_driver.set_active(len(dictionary))
         self.tvoutstandard.set_active(0)
         self.tvouttype.set_active(0)
 
@@ -657,7 +660,13 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         return self._build_static_list([get_services_dictionary(self),{'x11vnc_password':self.vnc_password}])
 
     def get_drivers(self):
-        return self._build_static_list([{'video_driver': self.video_driver,
+        video_drivers=get_drivers_dictionary()
+        active_video_driver=self.video_driver.get_active_text()
+        for item in video_drivers:
+            if (active_video_driver == item):
+                active_video_driver=video_drivers[item]
+                break
+        return self._build_static_list([{'video_driver': active_video_driver,
                                          'tvout': self.tvouttype,
                                          'tvstandard': self.tvoutstandard,
                                          'hdhomerun': self.hdhomerun}])
@@ -752,18 +761,19 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def video_changed (self,widget):
         """Called whenever the modify video driver option is toggled or its kids"""
+        drivers=get_graphics_dictionary()
         if (widget is not None and widget.get_name() == 'modifyvideodriver'):
             if (widget.get_active()):
                 self.videodrivers_hbox.set_sensitive(True)
             else:
                 self.tvout_vbox.set_sensitive(False)
                 self.videodrivers_hbox.set_sensitive(False)
-                self.video_driver.set_active(5)
+                self.video_driver.set_active(len(drivers))
                 self.tvoutstandard.set_active(0)
                 self.tvouttype.set_active(0)
         elif (widget is not None and widget.get_name() == 'video_driver'):
             type = widget.get_active()
-            if (type == 0 or type == 1 or type == 2 or type == 3 or type == 4):
+            if (type < len(drivers)):
                 self.tvout_vbox.set_sensitive(True)
             else:
                 self.tvout_vbox.set_sensitive(False)

@@ -1,8 +1,8 @@
-#! /bin/sh -e
+#! /bin/bash -e
 #Passes on the information gathered in ubiquity
 #about additional drivers, firmware
 # Written by Mario Limonciello <superm1@ubuntu.com>
-# Copyright (C) 2007 Mario Limonciello
+# Copyright (C) 2007-2008 Mario Limonciello
 
 . /usr/share/debconf/confmodule
 
@@ -205,7 +205,7 @@ EOF
 #Enable Proprietary Drivers as necessary
 db_get mythbuntu/video_driver
 PROP="$RET"
-if [ "$PROP" = "nvidia_new" ] || [ "$PROP" = "nvidia" ] || [ "$PROP" = "fglrx" ] || [ "$PROP" = "nvidia_legacy" ] || [ "$PROP" = "pvr_350" ]; then
+if [ "$PROP" != "Open Source Driver" ]; then
     #Due to bug 119562, restricted manager won't do this
     #For us automatically.
     #$log $chroot $ROOT /usr/bin/restricted-manager -e $PROP
@@ -216,16 +216,16 @@ if [ "$PROP" = "nvidia_new" ] || [ "$PROP" = "nvidia" ] || [ "$PROP" = "fglrx" ]
     TVOUT="$RET"
     db_get mythbuntu/tvstandard
     TVSTANDARD="$RET"
-    if [ "$PROP" = "fglrx" ]; then
+    if [[ "$PROP" =~ "fglrx" ]]; then
         #$log $chroot $ROOT /usr/bin/aticonfig --initial
         ati_xorg "$TVOUT" "$TVSTANDARD"
-    elif [ "$PROP" = "nvidia_new" ] || [ "$PROP" = "nvidia" ] || [ "$PROP" = "nvidia_legacy" ]; then
+    elif [[ "$PROP" =~ "nvidia" ]]; then
         #$log $chroot $ROOT nvidia-xconfig
         nvidia_xorg "$TVOUT" "$TVSTANDARD"
         nvidia_xvmc
         mv $ROOT/etc/X11/xorg.conf $ROOT/etc/X11/xorg.conf.livecd
         mv /tmp/xorg.conf $1/etc/X11/xorg.conf
-    elif [ "$PROP" = "pvr_350" ]; then
+    elif [[ "$PROP" =~ "ivtv" ]]; then
         #find our framebuffer device
         FB=`cat /proc/fb | grep cx23415 | awk '{print $1}'`
         #find our pci address
