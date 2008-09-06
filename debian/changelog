@@ -1,3 +1,9 @@
+oem-config (1.49) UNRELEASED; urgency=low
+
+  * In oem-config-prepare fix option between kdesu and kdesudo
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Sat, 06 Sep 2008 11:24:01 +0100
+
 oem-config (1.48) intrepid; urgency=low
 
   * Update oem-config-dm for KDE 4

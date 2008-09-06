@@ -25,8 +25,8 @@ else
 			#kdesudo seems to have issues with this, so default to the original kdesu
 			if [ -x /usr/lib/kde4/libexec/kdesu.distrib ]; then
 			        kdesu=/usr/lib/kde4/libexec/kdesu.distrib
-			elif [ -x /usr/lib/kde4/libexec/kdesu.distrib ]; then
-			        kdesu=/usr/lib/kde4/libexec/kdesu.distrib
+			elif [ -x /usr/lib/kde4/libexec/kdesu ]; then
+			        kdesu=/usr/lib/kde4/libexec/kdesu
 			fi
 			if [ "$kdesu" ]; then
 				exec $kdesu -- "$0" "$@"
