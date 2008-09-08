@@ -11,8 +11,8 @@ ubiquity (1.9.12) UNRELEASED; urgency=low
   * scripts/install.py:
     - Correct minor indentation error. (LP: #267118)
   * debian/rules, configure.ac, Makefile.am, src/Makefile.am:
-    - Update check for python-codegen-2.0 to instead use pygobject-codegen-2.0.  The
-      former dissappeared as of pygtk 2.13.0-0ubuntu1 in favor of this.
+    - Update check for python-codegen-2.0 to instead use pygobject-codegen-2.0.
+      The former dissappeared as of pygtk 2.13.0-0ubuntu1 in favor of this.
 
   [ Colin Watson ]
   * Set OVERRIDE_LEAVE_CD_MOUNTED=1 to stop apt-setup (>= 1:0.37ubuntu4)
