@@ -190,7 +190,7 @@ PATH_SEPARATOR = @PATH_SEPARATOR@
 PKG_CONFIG = @PKG_CONFIG@
 POSUB = @POSUB@
 PYGTK_CFLAGS = @PYGTK_CFLAGS@
-PYGTK_CODEGEN = @PYGTK_CODEGEN@
+PYGOBJECT_CODEGEN = @PYGOBJECT_CODEGEN@
 PYGTK_DEFSDIR = @PYGTK_DEFSDIR@
 PYGTK_LIBS = @PYGTK_LIBS@
 PYTHON = @PYTHON@
@@ -701,7 +701,7 @@ uninstall-am: uninstall-defsDATA uninstall-pkgpyexecLTLIBRARIES
 
 %.c: %.defs %.override
 	(cd $(srcdir) \
-	 && $(PYGTK_CODEGEN) --prefix e_map \
+	 && $(PYGOBJECT_CODEGEN) --prefix e_map \
 	    --register $(PYGTK_DEFSDIR)/gdk-types.defs \
 	    --register $(PYGTK_DEFSDIR)/gtk-types.defs \
 	    --override $*.override \

@@ -31,7 +31,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-@PYGTK_CODEGEN_TRUE@am__append_1 = src
+@PYGOBJECT_CODEGEN_TRUE@am__append_1 = src
 subdir = .
 DIST_COMMON = $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(srcdir)/config.h.in \
@@ -176,7 +176,7 @@ PATH_SEPARATOR = @PATH_SEPARATOR@
 PKG_CONFIG = @PKG_CONFIG@
 POSUB = @POSUB@
 PYGTK_CFLAGS = @PYGTK_CFLAGS@
-PYGTK_CODEGEN = @PYGTK_CODEGEN@
+PYGOBJECT_CODEGEN = @PYGOBJECT_CODEGEN@
 PYGTK_DEFSDIR = @PYGTK_DEFSDIR@
 PYGTK_LIBS = @PYGTK_LIBS@
 PYTHON = @PYTHON@

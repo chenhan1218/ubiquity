@@ -925,9 +925,9 @@ PYTHON_INCLUDES
 PKG_CONFIG
 PYGTK_CFLAGS
 PYGTK_LIBS
-PYGTK_CODEGEN
-PYGTK_CODEGEN_TRUE
-PYGTK_CODEGEN_FALSE
+PYGOBJECT_CODEGEN
+PYGOBJECT_CODEGEN_TRUE
+PYGOBJECT_CODEGEN_FALSE
 PYGTK_DEFSDIR
 GLIB_GENMARSHAL
 GTK_CFLAGS
@@ -15210,16 +15210,16 @@ echo "${ECHO_T}yes" >&6; }
 fi
 
 
-  # Extract the first word of "pygtk-codegen-2.0", so it can be a program name with args.
-set dummy pygtk-codegen-2.0; ac_word=$2
+  # Extract the first word of "pygobject-codegen-2.0", so it can be a program name with args.
+set dummy pygobject-codegen-2.0; ac_word=$2
 { echo "$as_me:$LINENO: checking for $ac_word" >&5
 echo $ECHO_N "checking for $ac_word... $ECHO_C" >&6; }
-if test "${ac_cv_path_PYGTK_CODEGEN+set}" = set; then
+if test "${ac_cv_path_PYGOBJECT_CODEGEN+set}" = set; then
   echo $ECHO_N "(cached) $ECHO_C" >&6
 else
-  case $PYGTK_CODEGEN in
+  case $PYGOBJECT_CODEGEN in
   [\\/]* | ?:[\\/]*)
-  ac_cv_path_PYGTK_CODEGEN="$PYGTK_CODEGEN" # Let the user override the test with a path.
+  ac_cv_path_PYGOBJECT_CODEGEN="$PYGOBJECT_CODEGEN" # Let the user override the test with a path.
   ;;
   *)
   as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
@@ -15229,7 +15229,7 @@ do
   test -z "$as_dir" && as_dir=.
   for ac_exec_ext in '' $ac_executable_extensions; do
   if { test -f "$as_dir/$ac_word$ac_exec_ext" && $as_test_x "$as_dir/$ac_word$ac_exec_ext"; }; then
-    ac_cv_path_PYGTK_CODEGEN="$as_dir/$ac_word$ac_exec_ext"
+    ac_cv_path_PYGOBJECT_CODEGEN="$as_dir/$ac_word$ac_exec_ext"
     echo "$as_me:$LINENO: found $as_dir/$ac_word$ac_exec_ext" >&5
     break 2
   fi
@@ -15237,14 +15237,14 @@ done
 done
 IFS=$as_save_IFS
 
-  test -z "$ac_cv_path_PYGTK_CODEGEN" && ac_cv_path_PYGTK_CODEGEN="no"
+  test -z "$ac_cv_path_PYGOBJECT_CODEGEN" && ac_cv_path_PYGOBJECT_CODEGEN="no"
   ;;
 esac
 fi
-PYGTK_CODEGEN=$ac_cv_path_PYGTK_CODEGEN
-if test -n "$PYGTK_CODEGEN"; then
-  { echo "$as_me:$LINENO: result: $PYGTK_CODEGEN" >&5
-echo "${ECHO_T}$PYGTK_CODEGEN" >&6; }
+PYGOBJECT_CODEGEN=$ac_cv_path_PYGOBJECT_CODEGEN
+if test -n "$PYGOBJECT_CODEGEN"; then
+  { echo "$as_me:$LINENO: result: $PYGOBJECT_CODEGEN" >&5
+echo "${ECHO_T}$PYGOBJECT_CODEGEN" >&6; }
 else
   { echo "$as_me:$LINENO: result: no" >&5
 echo "${ECHO_T}no" >&6; }
@@ -15254,19 +15254,19 @@ fi
 else
 
 
-  PYGTK_CODEGEN=no
+  PYGOBJECT_CODEGEN=no
 
 fi
 
- if test "x$PYGTK_CODEGEN" != xno; then
-  PYGTK_CODEGEN_TRUE=
-  PYGTK_CODEGEN_FALSE='#'
+ if test "x$PYGOBJECT_CODEGEN" != xno; then
+  PYGOBJECT_CODEGEN_TRUE=
+  PYGOBJECT_CODEGEN_FALSE='#'
 else
-  PYGTK_CODEGEN_TRUE='#'
-  PYGTK_CODEGEN_FALSE=
+  PYGOBJECT_CODEGEN_TRUE='#'
+  PYGOBJECT_CODEGEN_FALSE=
 fi
 
-if test "x$PYGTK_CODEGEN" != xno; then
+if test "x$PYGOBJECT_CODEGEN" != xno; then
   { echo "$as_me:$LINENO: checking for pygtk defs" >&5
 echo $ECHO_N "checking for pygtk defs... $ECHO_C" >&6; }
   PYGTK_DEFSDIR=`$PKG_CONFIG --variable=defsdir pygtk-2.0`
@@ -15912,10 +15912,10 @@ echo "$as_me: error: conditional \"am__fastdepCC\" was never defined.
 Usually this means the macro was only invoked conditionally." >&2;}
    { (exit 1); exit 1; }; }
 fi
-if test -z "${PYGTK_CODEGEN_TRUE}" && test -z "${PYGTK_CODEGEN_FALSE}"; then
-  { { echo "$as_me:$LINENO: error: conditional \"PYGTK_CODEGEN\" was never defined.
+if test -z "${PYGOBJECT_CODEGEN_TRUE}" && test -z "${PYGOBJECT_CODEGEN_FALSE}"; then
+  { { echo "$as_me:$LINENO: error: conditional \"PYGOBJECT_CODEGEN\" was never defined.
 Usually this means the macro was only invoked conditionally." >&5
-echo "$as_me: error: conditional \"PYGTK_CODEGEN\" was never defined.
+echo "$as_me: error: conditional \"PYGOBJECT_CODEGEN\" was never defined.
 Usually this means the macro was only invoked conditionally." >&2;}
    { (exit 1); exit 1; }; }
 fi
@@ -16921,9 +16921,9 @@ PYTHON_INCLUDES!$PYTHON_INCLUDES$ac_delim
 PKG_CONFIG!$PKG_CONFIG$ac_delim
 PYGTK_CFLAGS!$PYGTK_CFLAGS$ac_delim
 PYGTK_LIBS!$PYGTK_LIBS$ac_delim
-PYGTK_CODEGEN!$PYGTK_CODEGEN$ac_delim
-PYGTK_CODEGEN_TRUE!$PYGTK_CODEGEN_TRUE$ac_delim
-PYGTK_CODEGEN_FALSE!$PYGTK_CODEGEN_FALSE$ac_delim
+PYGOBJECT_CODEGEN!$PYGOBJECT_CODEGEN$ac_delim
+PYGOBJECT_CODEGEN_TRUE!$PYGOBJECT_CODEGEN_TRUE$ac_delim
+PYGOBJECT_CODEGEN_FALSE!$PYGOBJECT_CODEGEN_FALSE$ac_delim
 PYGTK_DEFSDIR!$PYGTK_DEFSDIR$ac_delim
 GLIB_GENMARSHAL!$GLIB_GENMARSHAL$ac_delim
 GTK_CFLAGS!$GTK_CFLAGS$ac_delim
