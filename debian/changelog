@@ -18,6 +18,10 @@ ubiquity (1.9.12) UNRELEASED; urgency=low
   * Set OVERRIDE_LEAVE_CD_MOUNTED=1 to stop apt-setup (>= 1:0.37ubuntu4)
     from trying to unmount /cdrom in its cdrom generator.
 
+  [ Evan Dandrea ]
+  * Added preseed_command from the preseed package in support of changes to
+    partman-base.
+
  -- Mario Limonciello <superm1@ubuntu.com>  Thu, 04 Sep 2008 01:15:08 -0500
 
 ubiquity (1.9.11) intrepid; urgency=low

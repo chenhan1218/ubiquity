@@ -19,5 +19,6 @@ partman-partitioning
 partman-reiserfs
 partman-target
 partman-xfs
+preseed
 tzsetup
 user-setup

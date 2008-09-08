@@ -80,6 +80,9 @@ partman/commit.d/* lib/partman/commit.d
 ubiquity/components/partman.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/partman_commit.py usr/lib/ubiquity/ubiquity/components
 
+# preseed
+d-i/source/preseed/preseed_command bin
+
 # tzsetup
 d-i/source/tzsetup/tzmap usr/lib/ubiquity/tzsetup
 ubiquity/components/timezone.py usr/lib/ubiquity/ubiquity/components
