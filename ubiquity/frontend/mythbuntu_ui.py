@@ -636,7 +636,9 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         total_list= {}
         for list in lists:
             for item in list:
-                if type(list[item]) == gtk.CheckButton:
+                if type(list[item]) == str:
+                    total_list[item]=list[item]
+                elif type(list[item]) == gtk.CheckButton:
                     total_list[item]=list[item].get_active()
                 elif type(list[item]) == gtk.Entry:
                     total_list[item]=list[item].get_text()
@@ -660,7 +662,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         return self._build_static_list([get_services_dictionary(self),{'x11vnc_password':self.vnc_password}])
 
     def get_drivers(self):
-        video_drivers=get_drivers_dictionary()
+        video_drivers=get_graphics_dictionary()
         active_video_driver=self.video_driver.get_active_text()
         for item in video_drivers:
             if (active_video_driver == item):
