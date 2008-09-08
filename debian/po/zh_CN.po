@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-07-28 11:12+0100\n"
+"POT-Creation-Date: 2008-09-08 14:12-0400\n"
 "PO-Revision-Date: 2008-04-14 02:52+0000\n"
 "Last-Translator: ChenMing <Unknown>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -923,13 +923,13 @@ msgstr "正在下载语言包（剩余时间${TIME}）…"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:125001
+#: ../ubiquity.templates:126001
 msgid "Failed to unmount partitions"
 msgstr "卸载分区失败"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:125001
+#: ../ubiquity.templates:126001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -937,25 +937,25 @@ msgstr "安装程序需要更改分区表，但未能实现，因为以下挂载
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:125001
+#: ../ubiquity.templates:126001
 msgid "Please close any applications using these mount points."
 msgstr "请关闭所有正在使用这些挂载点的应用程序。"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:125001
+#: ../ubiquity.templates:126001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "你是否想让安装程序再次尝试卸载这些分区？"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:131001
+#: ../ubiquity.templates:132001
 msgid "Do you want to return to the partitioner?"
 msgstr "您希望返回到分区工具吗？"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:131001
+#: ../ubiquity.templates:132001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
@@ -963,7 +963,7 @@ msgstr "您建立的一些分区太小。请确保以下分区的最少字节数
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:131001
+#: ../ubiquity.templates:132001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1193,85 +1193,88 @@ msgstr ""
 
 #. Type: text
 #. Description
+#. Type: text
+#. Description
 #: ../ubiquity-frontend-mythbuntu.templates:27001
+#: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Myth Archive"
 msgstr "Myth Archive"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:28001
+#: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid "Myth Browser"
 msgstr "Myth 浏览器"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:29001
+#: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Myth Controls"
 msgstr "Myth 控制"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:30001
+#: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Movies"
 msgstr "Myth 电影"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:31001
+#: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Myth Flix"
 msgstr "Myth Flix"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:32001
+#: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Myth Gallery"
 msgstr "Myth 画廊"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:33001
+#: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Myth Game"
 msgstr "Myth Game"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:34001
+#: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Myth Music"
 msgstr "Myth 音乐"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:35001
+#: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth News"
 msgstr "Myth 新闻"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:36001
+#: ../ubiquity-frontend-mythbuntu.templates:37001
 msgid "Myth Phone"
 msgstr "Myth Phone"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:37001
+#: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Stream"
 msgstr "Myth Stream"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:38001
+#: ../ubiquity-frontend-mythbuntu.templates:39001
 msgid "Myth Video"
 msgstr "Myth 视频"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:39001
+#: ../ubiquity-frontend-mythbuntu.templates:40001
 msgid "Myth Weather"
 msgstr "Myth Weather"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:40001
+#: ../ubiquity-frontend-mythbuntu.templates:41001
 msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
@@ -1279,13 +1282,23 @@ msgstr "MythTV的一个插件让你可以利用MythTV网络的内容制作DVD光
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:41001
+#: ../ubiquity-frontend-mythbuntu.templates:42001
+#, fuzzy
+#| msgid ""
+#| "A plugin for MythTV that lets you create DVDs from content on your MythTV "
+#| "Network."
+msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
+msgstr "MythTV的一个插件让你可以利用MythTV网络的内容制作DVD光碟。"
+
+#. Type: text
+#. Description
+#: ../ubiquity-frontend-mythbuntu.templates:43001
 msgid "An integrated web browser plugin for your MythTV system."
 msgstr "MythTV系统内整合的一个网络浏览器插件。"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:42001
+#: ../ubiquity-frontend-mythbuntu.templates:44001
 msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
@@ -1293,37 +1306,37 @@ msgstr "MythTV的外部控制 。这将允许你改变按钮映射和按键绑�
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:43001
+#: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Find movies playing in nearby local cinemas"
 msgstr "寻找附近影院播放的电影"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:44001
+#: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "Allows you to monitor your Netflix dvd rental queue."
 msgstr "允许你监测你的Netflix dvd租借排队情况。"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:45001
+#: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Allows you to visually browse a directory tree containing image files."
 msgstr "让你从视觉上浏览含图片档案的目录树。"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:46001
+#: ../ubiquity-frontend-mythbuntu.templates:48001
 msgid "A frontend to start any emulator or binary that Linux runs."
 msgstr "一个前端用来启动在Linux下可运行的任意模拟器或执行程序。"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:47001
+#: ../ubiquity-frontend-mythbuntu.templates:49001
 msgid "Provides a digital audio jukebox integrated with MythTV."
 msgstr "提供一个整合于MythTV的数字音频播放器。"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:48001
+#: ../ubiquity-frontend-mythbuntu.templates:50001
 msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
@@ -1331,20 +1344,20 @@ msgstr "MythTV的rss聚合新闻阅读插件让你了解所喜欢的新闻专题
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:49001
+#: ../ubiquity-frontend-mythbuntu.templates:51001
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr "MythTV的电话和可视电话功能使用标准会话发起协议（SIP）。"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:50001
+#: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Provides a method to listen to streaming internet radio stations."
 msgstr "提供一种方法来听流媒体网络电台。"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:51001
+#: ../ubiquity-frontend-mythbuntu.templates:53001
 msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
@@ -1352,19 +1365,19 @@ msgstr "利用外部播放器可以从MythTV的界面内让你浏览和播放视
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:52001
+#: ../ubiquity-frontend-mythbuntu.templates:54001
 msgid "Displays current and forecast weather information within MythTV."
 msgstr "在MythTV 内显示当前和预测的天气信息。"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:53001
+#: ../ubiquity-frontend-mythbuntu.templates:55001
 msgid "Choose Extra Themes"
 msgstr "选择额外主题"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:54001
+#: ../ubiquity-frontend-mythbuntu.templates:56001
 msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
@@ -1374,20 +1387,20 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:55001
-#: ../ubiquity-frontend-mythbuntu.templates:56001
+#: ../ubiquity-frontend-mythbuntu.templates:57001
+#: ../ubiquity-frontend-mythbuntu.templates:58001
 msgid "Enable/Disable All"
 msgstr "全部启用/禁用"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:57001
+#: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Additional Drivers/Firmware"
 msgstr "更多的驱动/固件"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:58001
+#: ../ubiquity-frontend-mythbuntu.templates:60001
 msgid ""
 "An open source graphics driver is already enabled and configured for your "
 "installation.  If you would like to use a different graphics driver, you can "
@@ -1400,25 +1413,25 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:59001
+#: ../ubiquity-frontend-mythbuntu.templates:61001
 msgid "Modify Video Driver & Settings"
 msgstr "更改视频驱动和设置"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:60001
+#: ../ubiquity-frontend-mythbuntu.templates:62001
 msgid "If you would like to configure TV-out, choose an option here:"
 msgstr "如果你想配置电视输出，在这里选择一项："
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:61001
+#: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 msgstr "如果启用电视输出，你还需要选择一个电视标准："
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:62001
+#: ../ubiquity-frontend-mythbuntu.templates:64001
 msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
@@ -1427,49 +1440,49 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:63001
+#: ../ubiquity-frontend-mythbuntu.templates:65001
 msgid "Master Backend Info"
 msgstr "主终端信息"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:64001
+#: ../ubiquity-frontend-mythbuntu.templates:66001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr "请输入连接你的主终端必需的信息："
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:65001
+#: ../ubiquity-frontend-mythbuntu.templates:67001
 msgid "MySQL Password"
 msgstr "MySQL密码"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:66001
+#: ../ubiquity-frontend-mythbuntu.templates:68001
 msgid "MySQL User Name"
 msgstr "MySQL用户名称"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:67001
+#: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "MySQL Database"
 msgstr "MySQL数据库"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:68001
+#: ../ubiquity-frontend-mythbuntu.templates:70001
 msgid "MySQL Server"
 msgstr "MySQL服务器"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:69001
+#: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Configure Guide Data / Backend"
 msgstr "配置收视信息/终端"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:70001
+#: ../ubiquity-frontend-mythbuntu.templates:72001
 msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
@@ -1477,13 +1490,13 @@ msgstr "安装的最后步骤需要设置你的收视信息并进行首次终端
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:71001
+#: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "Click to open the Schedules Direct website"
 msgstr "点击打开迅捷预定网站"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:72001
+#: ../ubiquity-frontend-mythbuntu.templates:74001
 msgid ""
 "Users in North America will need to setup an account with Schedules Direct "
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
@@ -1494,13 +1507,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:73001
+#: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
 msgstr "启动MythTV设置"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:74001
+#: ../ubiquity-frontend-mythbuntu.templates:76001
 msgid ""
 "After setting up your guide data source, you will need to launch MythTV-"
 "Setup to run the backend configuration for the first time.  You will need to "
@@ -1512,24 +1525,24 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:75001
+#: ../ubiquity-frontend-mythbuntu.templates:77001
 msgid "Configuring mythtv..."
 msgstr "正在配置mythtv..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:76001
+#: ../ubiquity-frontend-mythbuntu.templates:78001
 msgid "Configuring additional drivers..."
 msgstr "正在配置附加驱动..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:77001
+#: ../ubiquity-frontend-mythbuntu.templates:79001
 msgid "Configuring additional services..."
 msgstr "正在配置附加服务..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:78001
+#: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
 msgstr "配置红外设备..."
