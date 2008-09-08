@@ -17,6 +17,8 @@ ubiquity (1.9.12) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Set OVERRIDE_LEAVE_CD_MOUNTED=1 to stop apt-setup (>= 1:0.37ubuntu4)
     from trying to unmount /cdrom in its cdrom generator.
+  * Build-depend on python-gobject-dev (>= 2.15.1) for
+    pygobject-codegen-2.0.
 
   [ Evan Dandrea ]
   * Added preseed_command from the preseed package in support of changes to

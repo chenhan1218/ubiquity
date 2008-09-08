@@ -40,6 +40,7 @@ my @basebd = (
     'po-debconf (>= 1.0)',
     'python-central (>= 0.5)',
     'python-all-dev (>= 2.3.5-11)',
+    'python-gobject-dev (>= 2.15.1)',
     'python-gtk2-dev',
     'xkb-data (>= 0.9)',
 );
