@@ -1,4 +1,4 @@
-oem-config (1.49) UNRELEASED; urgency=low
+oem-config (1.49) intrepid; urgency=low
 
   [ Jonathan Riddell ]
   * In oem-config-prepare fix option between kdesu and kdesudo
@@ -11,7 +11,7 @@ oem-config (1.49) UNRELEASED; urgency=low
   * Build-depend on python-gobject-dev (>= 2.15.1) for
     pygobject-codegen-2.0.
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Sat, 06 Sep 2008 11:24:01 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 08 Sep 2008 19:16:43 +0100
 
 oem-config (1.48) intrepid; urgency=low
 
