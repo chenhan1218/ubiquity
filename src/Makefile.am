@@ -21,7 +21,7 @@ EXTRA_DIST += e-map.override
 
 %.c: %.defs %.override
 	(cd $(srcdir) \
-	 && $(PYGTK_CODEGEN) --prefix e_map \
+	 && $(PYGOBJECT_CODEGEN) --prefix e_map \
 	    --register $(PYGTK_DEFSDIR)/gdk-types.defs \
 	    --register $(PYGTK_DEFSDIR)/gtk-types.defs \
 	    --override $*.override \

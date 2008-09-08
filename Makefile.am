@@ -1,7 +1,7 @@
 ## Process this file with automake to produce Makefile.in
 
 SUBDIRS = desktop pixmaps po
-if PYGTK_CODEGEN
+if PYGOBJECT_CODEGEN
   SUBDIRS += src
 endif
 
