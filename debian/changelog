@@ -23,6 +23,8 @@ ubiquity (1.9.12) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Added preseed_command from the preseed package in support of changes to
     partman-base.
+  * Automatic update of included source packages: apt-setup
+    1:0.37ubuntu4, grub-installer 1.32ubuntu3, user-setup 1.20ubuntu6.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Thu, 04 Sep 2008 01:15:08 -0500
 
