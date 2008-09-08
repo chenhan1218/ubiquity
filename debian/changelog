@@ -8,6 +8,8 @@ oem-config (1.49) UNRELEASED; urgency=low
     pygobject-codegen-2.0. The former disappeared as of pygtk
     2.13.0-0ubuntu1 in favor of this. (From the same change in ubiquity by
     Mario Limonciello.)
+  * Build-depend on python-gobject-dev (>= 2.15.1) for
+    pygobject-codegen-2.0.
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Sat, 06 Sep 2008 11:24:01 +0100
 
