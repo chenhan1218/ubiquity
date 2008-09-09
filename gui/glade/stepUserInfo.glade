@@ -492,7 +492,7 @@
                   <widget class="GtkCheckButton" id="auto_login">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="label" translatable="yes">Automatically sign in</property>
+                    <property name="label" translatable="yes">Log in automatically</property>
                     <property name="response_id">0</property>
                     <property name="draw_indicator">True</property>
                   </widget>

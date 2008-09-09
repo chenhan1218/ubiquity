@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-09-08 14:12-0400\n"
+"POT-Creation-Date: 2008-09-09 18:01+0100\n"
 "PO-Revision-Date: 2008-05-12 11:26+0000\n"
 "Last-Translator: Roy Chan <roy.chan@linux.org.hk>\n"
 "Language-Team: Chinese (Hong Kong) <zh_HK@li.org>\n"
@@ -209,7 +209,7 @@ msgstr "如果您設定讓別人能在網路上看到這台電腦，將會是這
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-msgid "Automatically sign in"
+msgid "Log in automatically"
 msgstr ""
 
 #. Type: text

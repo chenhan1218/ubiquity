@@ -127,7 +127,7 @@ _Description:
 
 Template: ubiquity/text/auto_login
 Type: text
-_Description: Automatically sign in
+_Description: Log in automatically
 
 Template: ubiquity/text/ma_heading_label
 Type: text

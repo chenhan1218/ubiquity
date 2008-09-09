@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-09-08 14:12-0400\n"
+"POT-Creation-Date: 2008-09-09 18:01+0100\n"
 "PO-Revision-Date: 2008-04-08 14:11+0000\n"
 "Last-Translator: Hleb Rubanau <Unknown>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -216,7 +216,7 @@ msgstr "Назва будзе ўжывацца, калі зробіш гэты �
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-msgid "Automatically sign in"
+msgid "Log in automatically"
 msgstr ""
 
 #. Type: text
