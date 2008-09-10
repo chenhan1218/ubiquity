@@ -1250,6 +1250,8 @@ exit 0"""
             words = line.split()
             if words[1] != 'partition':
                 continue
+            if words[0].startswith('/dev/ramzswap'):
+                continue
             size = int(words[2])
             if size > biggest_size:
                 biggest_size = size
