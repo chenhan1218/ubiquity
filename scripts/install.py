@@ -620,7 +620,7 @@ class Install:
 
             for name in dirnames + filenames:
                 relpath = os.path.join(sourcepath, name)
-                fqpath = os.path.join(self.source, dirpath, name)
+                fqpath = os.path.join(dirpath, name)
                 if "etc/fstab" not in relpath:
                     total_size += os.lstat(fqpath).st_size
                     files.append(relpath)

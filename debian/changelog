@@ -3,6 +3,10 @@ ubiquity (1.9.13) UNRELEASED; urgency=low
   * Change "Automatically sign in" to "Log in automatically", to match
     wording elsewhere (LP: #266995).
   * Never select /dev/ramzswap* as a hibernation target.
+  * Fix fully-qualified path generation while walking the source filesystem;
+    dirpath is already prefixed with self.source. (This made no difference
+    in practice because os.path.join throws away previous components upon
+    encountering an absolute path, but was inelegant.)
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 09 Sep 2008 18:05:58 +0100
 
