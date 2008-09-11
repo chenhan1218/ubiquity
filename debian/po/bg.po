@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-09-09 18:01+0100\n"
+"POT-Creation-Date: 2008-09-11 10:13+0100\n"
 "PO-Revision-Date: 2008-04-08 13:41+0000\n"
 "Last-Translator: Damyan Ivanov <dmn@debian.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
@@ -654,9 +654,21 @@ msgstr "Копиране на файлове (остава по-малко от 
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:89001
-msgid "Failed to copy files; out of disk space."
-msgstr ""
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: select
+#. Description
+#: ../ubiquity.templates:89001 ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001 ../ubiquity.templates:92001
+#: ../ubiquity.templates:93001
+#, fuzzy
+#| msgid "Installation complete"
+msgid "Installation Failed"
+msgstr "Завършване на инсталацията"
 
 #. Type: error
 #. Description
@@ -676,25 +688,24 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:89001
 msgid ""
-"This particular error is due to there being insufficient disk space for the "
-"install to complete on the target partition.  Please run the installer again "
-"and select a larger partition to install into."
+"This is due to there being insufficient disk space for the install to "
+"complete on the target partition.  Please run the installer again and select "
+"a larger partition to install into."
 msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:90001
-msgid "Failed to copy files; faulty CD/DVD?"
-msgstr "Копирането на файлове неуспешно; повреден CD/DVD?"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:90001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
+#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
+#| "clean the CD/DVD drive lens (cleaning kits are often available from "
+#| "electronics suppliers)."
 msgid ""
-"This particular error is often due to a faulty CD/DVD disk or drive. It may "
-"help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
-"the CD/DVD drive lens (cleaning kits are often available from electronics "
-"suppliers)."
+"This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
+"CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
+"lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
 "Тази конкретна грешка често е поради повредени CD/DVD диск или устройство. "
 "Може би ще помогне да почистите CD/DVD диска, да го запишете на по-ниска "
@@ -704,26 +715,19 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:91001
-msgid "Failed to copy files; faulty hard disk?"
-msgstr "Копирането на файлове неуспешно; повреден твърд диск?"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:91001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty hard disk. It may help to "
+#| "check whether the hard disk is old and in need of replacement, or to move "
+#| "the system to a cooler environment."
 msgid ""
-"This particular error is often due to a faulty hard disk. It may help to "
-"check whether the hard disk is old and in need of replacement, or to move "
-"the system to a cooler environment."
+"This is often due to a faulty hard disk. It may help to check whether the "
+"hard disk is old and in need of replacement, or to move the system to a "
+"cooler environment."
 msgstr ""
 "Тази конкретна грешка често е поради повреден твърд диск. Може да помогне да "
 "проверите дали твърдият диск не е стар и се нуждае от подмяна, или пък да "
 "преместите системата в по-студена среда."
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:92001
-msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr "Копирането на файлове неуспешно; повреден CD/DVD или твърд диск?"
 
 #. Type: error
 #. Description
@@ -734,12 +738,20 @@ msgstr "Копирането на файлове неуспешно; повре�
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:92001 ../ubiquity.templates:93001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
+#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
+#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
+#| "available from electronics suppliers), to check whether the hard disk is "
+#| "old and in need of replacement, or to move the system to a cooler "
+#| "environment."
 msgid ""
-"This particular error is often due to a faulty CD/DVD disk or drive, or a "
-"faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
-"lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-"available from electronics suppliers), to check whether the hard disk is old "
-"and in need of replacement, or to move the system to a cooler environment."
+"This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
+"It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
+"clean the CD/DVD drive lens (cleaning kits are often available from "
+"electronics suppliers), to check whether the hard disk is old and in need of "
+"replacement, or to move the system to a cooler environment."
 msgstr ""
 "Тази конкретна грешка често е поради повредени CD/DVD диск или устройство, "
 "или повреден твърд диск. Може би ще помогне да почистите CD/DVD диска, да го "
@@ -747,12 +759,6 @@ msgstr ""
 "(широко се предлагат почистващи комплекти в магазините за електроника), "
 "както и да проверите дали твърдият диск не е стар и се нуждае от подмяна, "
 "или пък да преместите системата в по-студена среда."
-
-#. Type: select
-#. Description
-#: ../ubiquity.templates:93001
-msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr ""
 
 #. Type: select
 #. Description
@@ -1541,3 +1547,12 @@ msgstr "Настройване на допълнителни услуги..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
 msgstr ""
+
+#~ msgid "Failed to copy files; faulty CD/DVD?"
+#~ msgstr "Копирането на файлове неуспешно; повреден CD/DVD?"
+
+#~ msgid "Failed to copy files; faulty hard disk?"
+#~ msgstr "Копирането на файлове неуспешно; повреден твърд диск?"
+
+#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
+#~ msgstr "Копирането на файлове неуспешно; повреден CD/DVD или твърд диск?"

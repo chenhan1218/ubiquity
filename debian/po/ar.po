@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-09-09 18:01+0100\n"
+"POT-Creation-Date: 2008-09-11 10:13+0100\n"
 "PO-Revision-Date: 2008-04-08 22:43+0000\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
@@ -639,9 +639,21 @@ msgstr "جاري نسخ الملفات (المتبقي أقل من دقيقة)..
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:89001
-msgid "Failed to copy files; out of disk space."
-msgstr ""
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: select
+#. Description
+#: ../ubiquity.templates:89001 ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001 ../ubiquity.templates:92001
+#: ../ubiquity.templates:93001
+#, fuzzy
+#| msgid "Installation complete"
+msgid "Installation Failed"
+msgstr "اكتمل التثبيت"
 
 #. Type: error
 #. Description
@@ -660,25 +672,24 @@ msgstr "المثبت واجه خطأ أثناء نسخ الملفات للقرص
 #. Description
 #: ../ubiquity.templates:89001
 msgid ""
-"This particular error is due to there being insufficient disk space for the "
-"install to complete on the target partition.  Please run the installer again "
-"and select a larger partition to install into."
+"This is due to there being insufficient disk space for the install to "
+"complete on the target partition.  Please run the installer again and select "
+"a larger partition to install into."
 msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:90001
-msgid "Failed to copy files; faulty CD/DVD?"
-msgstr "عملية نسخ الملفات فشلت، القرص CD/DVD معتل؟"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:90001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
+#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
+#| "clean the CD/DVD drive lens (cleaning kits are often available from "
+#| "electronics suppliers)."
 msgid ""
-"This particular error is often due to a faulty CD/DVD disk or drive. It may "
-"help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
-"the CD/DVD drive lens (cleaning kits are often available from electronics "
-"suppliers)."
+"This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
+"CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
+"lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
 "هذا الخطأ سببه غالبا قرص CD/DVD معتل. يمكنك مسح القرص، أو إعادة نسخ القرص "
 "باستخدام سرعات تسجيل أبطأ أو تنظيف العدسة الليزية للقارءة. (أدوات تنظيف "
@@ -687,25 +698,18 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:91001
-msgid "Failed to copy files; faulty hard disk?"
-msgstr "نسخ الملفات فشل، قرص صلب معتل؟"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:91001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty hard disk. It may help to "
+#| "check whether the hard disk is old and in need of replacement, or to move "
+#| "the system to a cooler environment."
 msgid ""
-"This particular error is often due to a faulty hard disk. It may help to "
-"check whether the hard disk is old and in need of replacement, or to move "
-"the system to a cooler environment."
+"This is often due to a faulty hard disk. It may help to check whether the "
+"hard disk is old and in need of replacement, or to move the system to a "
+"cooler environment."
 msgstr ""
 "هذا الخطأ سببه غالبا قرص صلب معتل. تفحص إذا كان القرص الصلب قديما و بحاجة "
 "إلى تغيير أو قم بنقل نظامك إلى بيئة أكثر برودة"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:92001
-msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr "نسخ الملفات فشل، قرص صلب أو قارءة CD/DVD معتلة؟"
 
 #. Type: error
 #. Description
@@ -716,24 +720,26 @@ msgstr "نسخ الملفات فشل، قرص صلب أو قارءة CD/DVD مع
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:92001 ../ubiquity.templates:93001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
+#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
+#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
+#| "available from electronics suppliers), to check whether the hard disk is "
+#| "old and in need of replacement, or to move the system to a cooler "
+#| "environment."
 msgid ""
-"This particular error is often due to a faulty CD/DVD disk or drive, or a "
-"faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
-"lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-"available from electronics suppliers), to check whether the hard disk is old "
-"and in need of replacement, or to move the system to a cooler environment."
+"This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
+"It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
+"clean the CD/DVD drive lens (cleaning kits are often available from "
+"electronics suppliers), to check whether the hard disk is old and in need of "
+"replacement, or to move the system to a cooler environment."
 msgstr ""
 "هذا الخطأ سببه غالبا قرص CD/DVD أو قرص صلب معتل. يمكنك مسح القرص الليزري، أو "
 "إعادة نسخ القرص باستخدام سرعات تسجيل أبطأ أو تنظيف العدسة الليزية للقارءة. "
 "(أدوات تنظيف العدسات الليزرية تتواجد عند موزعي الأجهزة الالكتروني).كذلك تفحص "
 "إذا كان القرص الصلب قديما و بحاجة إلى تغيير أو قم بنقل نظامك إلى بيئة أكثر "
 "برودة."
-
-#. Type: select
-#. Description
-#: ../ubiquity.templates:93001
-msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr ""
 
 #. Type: select
 #. Description
@@ -1544,3 +1550,12 @@ msgstr "يجري إعداد الخدمات الإضافية..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
 msgstr ""
+
+#~ msgid "Failed to copy files; faulty CD/DVD?"
+#~ msgstr "عملية نسخ الملفات فشلت، القرص CD/DVD معتل؟"
+
+#~ msgid "Failed to copy files; faulty hard disk?"
+#~ msgstr "نسخ الملفات فشل، قرص صلب معتل؟"
+
+#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
+#~ msgstr "نسخ الملفات فشل، قرص صلب أو قارءة CD/DVD معتلة؟"

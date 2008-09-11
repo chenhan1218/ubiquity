@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-09-09 18:01+0100\n"
+"POT-Creation-Date: 2008-09-11 10:13+0100\n"
 "PO-Revision-Date: 2008-04-08 15:59+0000\n"
 "Last-Translator: Bjørn Steensrud <Unknown>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
@@ -648,9 +648,21 @@ msgstr "Kopierer filer (mindre enn ett minutt igjen)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:89001
-msgid "Failed to copy files; out of disk space."
-msgstr ""
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: select
+#. Description
+#: ../ubiquity.templates:89001 ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001 ../ubiquity.templates:92001
+#: ../ubiquity.templates:93001
+#, fuzzy
+#| msgid "Installation complete"
+msgid "Installation Failed"
+msgstr "Installasjonen er ferdig"
 
 #. Type: error
 #. Description
@@ -670,25 +682,24 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:89001
 msgid ""
-"This particular error is due to there being insufficient disk space for the "
-"install to complete on the target partition.  Please run the installer again "
-"and select a larger partition to install into."
+"This is due to there being insufficient disk space for the install to "
+"complete on the target partition.  Please run the installer again and select "
+"a larger partition to install into."
 msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:90001
-msgid "Failed to copy files; faulty CD/DVD?"
-msgstr "Kunne ikke kopiere filer; defekt CD/DVD?"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:90001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
+#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
+#| "clean the CD/DVD drive lens (cleaning kits are often available from "
+#| "electronics suppliers)."
 msgid ""
-"This particular error is often due to a faulty CD/DVD disk or drive. It may "
-"help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
-"the CD/DVD drive lens (cleaning kits are often available from electronics "
-"suppliers)."
+"This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
+"CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
+"lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
 "Denne feilen oppstår ofte på grunn av en defekt CD/DVD-plate eller -drev. "
 "Det kan hjelpe å rense CD/DVDen, å brenne CD/DVD ved lavere fart, eller å "
@@ -697,26 +708,19 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:91001
-msgid "Failed to copy files; faulty hard disk?"
-msgstr "Kunne ikke kopiere filer; defekt harddisk?"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:91001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty hard disk. It may help to "
+#| "check whether the hard disk is old and in need of replacement, or to move "
+#| "the system to a cooler environment."
 msgid ""
-"This particular error is often due to a faulty hard disk. It may help to "
-"check whether the hard disk is old and in need of replacement, or to move "
-"the system to a cooler environment."
+"This is often due to a faulty hard disk. It may help to check whether the "
+"hard disk is old and in need of replacement, or to move the system to a "
+"cooler environment."
 msgstr ""
 "Denne feilen skyldes ofte at harddisken inneholder feil. Sjekk om harddisken "
 "er gammel og må erstattes eller prøv å flytte systemet til kjøligere "
 "omgivelser."
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:92001
-msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr "Kunne ikke kopiere filer; defekt CD/DVD eller harddisk?"
 
 #. Type: error
 #. Description
@@ -727,24 +731,26 @@ msgstr "Kunne ikke kopiere filer; defekt CD/DVD eller harddisk?"
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:92001 ../ubiquity.templates:93001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
+#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
+#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
+#| "available from electronics suppliers), to check whether the hard disk is "
+#| "old and in need of replacement, or to move the system to a cooler "
+#| "environment."
 msgid ""
-"This particular error is often due to a faulty CD/DVD disk or drive, or a "
-"faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
-"lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-"available from electronics suppliers), to check whether the hard disk is old "
-"and in need of replacement, or to move the system to a cooler environment."
+"This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
+"It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
+"clean the CD/DVD drive lens (cleaning kits are often available from "
+"electronics suppliers), to check whether the hard disk is old and in need of "
+"replacement, or to move the system to a cooler environment."
 msgstr ""
 "Denne feilen skyldes ofte at CD/DVD-spilleren eller harddisken inneholder "
 "feil. Prøv å rengjøre CD/DVD-en, brenn CD/DVD-en på en lavere hastighet, "
 "rengjør linsen i CD/DVD-spilleren (rengjøringsutstyr er ofte tilgjengelig "
 "hos elektronikkforhandlere) eller sjekk om harddisken er gammel og må "
 "erstattes eller prøv å flytte systemet til kjøligere omgivelser"
-
-#. Type: select
-#. Description
-#: ../ubiquity.templates:93001
-msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr ""
 
 #. Type: select
 #. Description
@@ -1600,3 +1606,12 @@ msgstr "Konfigurerer tilleggstjenester..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
 msgstr ""
+
+#~ msgid "Failed to copy files; faulty CD/DVD?"
+#~ msgstr "Kunne ikke kopiere filer; defekt CD/DVD?"
+
+#~ msgid "Failed to copy files; faulty hard disk?"
+#~ msgstr "Kunne ikke kopiere filer; defekt harddisk?"
+
+#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
+#~ msgstr "Kunne ikke kopiere filer; defekt CD/DVD eller harddisk?"

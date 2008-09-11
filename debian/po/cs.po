@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-09-09 18:01+0100\n"
+"POT-Creation-Date: 2008-09-11 10:13+0100\n"
 "PO-Revision-Date: 2008-04-11 22:23+0000\n"
 "Last-Translator: Kamil Páral <ripper42@gmail.com>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
@@ -652,9 +652,21 @@ msgstr "Kopírují se soubory (zbývá méně než minuta)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:89001
-msgid "Failed to copy files; out of disk space."
-msgstr "Nepodařilo se zkopírovat soubory; nedostatek místa na disku."
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: select
+#. Description
+#: ../ubiquity.templates:89001 ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001 ../ubiquity.templates:92001
+#: ../ubiquity.templates:93001
+#, fuzzy
+#| msgid "Installation complete"
+msgid "Installation Failed"
+msgstr "Instalace je kompletní"
 
 #. Type: error
 #. Description
@@ -672,10 +684,15 @@ msgstr "Při kopírování souborů na pevný disk oznámil instalátor chybu:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:89001
+#, fuzzy
+#| msgid ""
+#| "This particular error is due to there being insufficient disk space for "
+#| "the install to complete on the target partition.  Please run the "
+#| "installer again and select a larger partition to install into."
 msgid ""
-"This particular error is due to there being insufficient disk space for the "
-"install to complete on the target partition.  Please run the installer again "
-"and select a larger partition to install into."
+"This is due to there being insufficient disk space for the install to "
+"complete on the target partition.  Please run the installer again and select "
+"a larger partition to install into."
 msgstr ""
 "K této chybě došlo z důvodu nedostatku místa potřebného k dokončení "
 "instalace na cílovém oddílu disku. Spusťe prosím instalátor znovu a pro "
@@ -684,17 +701,16 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:90001
-msgid "Failed to copy files; faulty CD/DVD?"
-msgstr "Kopírování souborů selhalo; možná je CD/DVD vadné?"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:90001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
+#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
+#| "clean the CD/DVD drive lens (cleaning kits are often available from "
+#| "electronics suppliers)."
 msgid ""
-"This particular error is often due to a faulty CD/DVD disk or drive. It may "
-"help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
-"the CD/DVD drive lens (cleaning kits are often available from electronics "
-"suppliers)."
+"This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
+"CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
+"lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
 "Chyba, ke které došlo, je často způsobena vadným CD/DVD diskem nebo "
 "mechanikou. Zkuste CD/DVD vyčistit, vypálit je při nižší rychlosti, nebo "
@@ -704,26 +720,19 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:91001
-msgid "Failed to copy files; faulty hard disk?"
-msgstr "Nepodařilo se zkopírovat soubory; možná je vadný pevný disk?"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:91001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty hard disk. It may help to "
+#| "check whether the hard disk is old and in need of replacement, or to move "
+#| "the system to a cooler environment."
 msgid ""
-"This particular error is often due to a faulty hard disk. It may help to "
-"check whether the hard disk is old and in need of replacement, or to move "
-"the system to a cooler environment."
+"This is often due to a faulty hard disk. It may help to check whether the "
+"hard disk is old and in need of replacement, or to move the system to a "
+"cooler environment."
 msgstr ""
 "Chyba, ke které došlo, je často způsobena vadným pevným diskem. Zkuste "
 "zkontrolovat, zda pevný disk není starý a nepotřebuje výměnu, nebo zkuste "
 "přemístit počítač do chladnějšího prostředí."
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:92001
-msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr "Kopírování souborů selhalo; možná je vadné CD/DVD nebo pevný disk?"
 
 #. Type: error
 #. Description
@@ -734,12 +743,20 @@ msgstr "Kopírování souborů selhalo; možná je vadné CD/DVD nebo pevný dis
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:92001 ../ubiquity.templates:93001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
+#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
+#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
+#| "available from electronics suppliers), to check whether the hard disk is "
+#| "old and in need of replacement, or to move the system to a cooler "
+#| "environment."
 msgid ""
-"This particular error is often due to a faulty CD/DVD disk or drive, or a "
-"faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
-"lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-"available from electronics suppliers), to check whether the hard disk is old "
-"and in need of replacement, or to move the system to a cooler environment."
+"This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
+"It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
+"clean the CD/DVD drive lens (cleaning kits are often available from "
+"electronics suppliers), to check whether the hard disk is old and in need of "
+"replacement, or to move the system to a cooler environment."
 msgstr ""
 "Chyba, ke které došlo, je často způsobena vadným CD/DVD diskem, mechanikou "
 "či vadným pevným diskem. Zkuste CD/DVD vyčistit, vypálit je při nižší "
@@ -747,12 +764,6 @@ msgstr ""
 "bývají dostupné v obchodech s elektronikou). Také ověřte, zda pevný disk "
 "není starý a nepotřebuje výměnu, nebo zkuste přemístit počítač do "
 "chladnějšího prostředí."
-
-#. Type: select
-#. Description
-#: ../ubiquity.templates:93001
-msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Nepodařilo se zkopírovat soubory; vadné CD/DVD nebo pevný disk?"
 
 #. Type: select
 #. Description
@@ -1565,3 +1576,18 @@ msgstr "Nastavuji dodatečné služby..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
 msgstr ""
+
+#~ msgid "Failed to copy files; out of disk space."
+#~ msgstr "Nepodařilo se zkopírovat soubory; nedostatek místa na disku."
+
+#~ msgid "Failed to copy files; faulty CD/DVD?"
+#~ msgstr "Kopírování souborů selhalo; možná je CD/DVD vadné?"
+
+#~ msgid "Failed to copy files; faulty hard disk?"
+#~ msgstr "Nepodařilo se zkopírovat soubory; možná je vadný pevný disk?"
+
+#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
+#~ msgstr "Kopírování souborů selhalo; možná je vadné CD/DVD nebo pevný disk?"
+
+#~ msgid "Failed to copy file; faulty CD/DVD or hard disk?"
+#~ msgstr "Nepodařilo se zkopírovat soubory; vadné CD/DVD nebo pevný disk?"

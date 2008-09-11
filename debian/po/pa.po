@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-09-09 18:01+0100\n"
+"POT-Creation-Date: 2008-09-11 10:13+0100\n"
 "PO-Revision-Date: 2008-04-08 15:30+0000\n"
 "Last-Translator: A S Alam <Unknown>\n"
 "Language-Team: Punjabi <punjabi-l10n@lists.sf.net>\n"
@@ -639,9 +639,21 @@ msgstr "ਫਾੲੀਲਾਂ ਕਾਪੀ ਕੀਤੀਅਾਂ ਜਾ ਰਹ�
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:89001
-msgid "Failed to copy files; out of disk space."
-msgstr ""
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: select
+#. Description
+#: ../ubiquity.templates:89001 ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001 ../ubiquity.templates:92001
+#: ../ubiquity.templates:93001
+#, fuzzy
+#| msgid "Installation complete"
+msgid "Installation Failed"
+msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਸਮਾਪਤ ਹੋਈ"
 
 #. Type: error
 #. Description
@@ -660,25 +672,24 @@ msgstr "ੲਿੰਸਟਾਲਰ ਨੇਂ ਹਾਰਡ ਡਿਸਕ ਤੇ ਫ�
 #. Description
 #: ../ubiquity.templates:89001
 msgid ""
-"This particular error is due to there being insufficient disk space for the "
-"install to complete on the target partition.  Please run the installer again "
-"and select a larger partition to install into."
+"This is due to there being insufficient disk space for the install to "
+"complete on the target partition.  Please run the installer again and select "
+"a larger partition to install into."
 msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:90001
-msgid "Failed to copy files; faulty CD/DVD?"
-msgstr "ਫਾੲੀਲਾਂ ਕਾਪੀ ਕੀਤੀਅਾਂ ਜਾ ਰਹੀਅਾਂ ਹਨ (ੲਿਕ ਮਿਨਟ ਤੋਂ ਘਟ ਬਾਕੀ) ..."
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:90001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
+#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
+#| "clean the CD/DVD drive lens (cleaning kits are often available from "
+#| "electronics suppliers)."
 msgid ""
-"This particular error is often due to a faulty CD/DVD disk or drive. It may "
-"help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
-"the CD/DVD drive lens (cleaning kits are often available from electronics "
-"suppliers)."
+"This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
+"CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
+"lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
 "ੲਿਹ ਖਾਸ ਦੋਸ਼ ਜ਼ਿਅਾਦਾਤਰ ਖਰਾਬ ਸੀਡੀ/ਡੀਵੀਡੀ ਡਿਸਕ ਜਾਂ ਡਰਾੲੀਵ ਕਰਕੇ ਹੁੰਦਾ ਹੈ । ਮਦਦ ਮਿਲ ਸਕਦੀ "
 "ਹੈ ਜੇ ਸੀਡੀ/ਡੀਵੀਡੀ ਨੂੰ ਸਾਫ ਕੀਤਾ ਜਾਵੇ, ਜੇ ਸੀਡੀ/ਡੀਵੀਡੀ ਨੂੰ ਹੌਲੀ ਰਫਤਾਰ ੳੁਤੇ ਬਰਨ ਕੀਤਾ ਜਾਵੇ, "
@@ -688,26 +699,19 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:91001
-msgid "Failed to copy files; faulty hard disk?"
-msgstr "ਫਾੲੀਲਾਂ ਕਾਪੀ ਕਰਣ ਵਿਚ ਅਸਫਲ; ਖਰਾਬ ਹਾਰਡ ਡਿਸਕ?"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:91001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty hard disk. It may help to "
+#| "check whether the hard disk is old and in need of replacement, or to move "
+#| "the system to a cooler environment."
 msgid ""
-"This particular error is often due to a faulty hard disk. It may help to "
-"check whether the hard disk is old and in need of replacement, or to move "
-"the system to a cooler environment."
+"This is often due to a faulty hard disk. It may help to check whether the "
+"hard disk is old and in need of replacement, or to move the system to a "
+"cooler environment."
 msgstr ""
 "ੲਿਹ ਖਾਸ ਦੋਸ਼ ਜ਼ਿਅਾਦਾਤਰ ਖਰਾਬ ਹਾਰਡ ਡਿਸਕ ਕਰਕੇ ਹੁੰਦਾ ਹੈ । ਮਦਦ ਮਿਲ ਸਕਦੀ ਹੈ ਜੇ ਪੜਤਾਲ ਕੀਤੀ "
 "ਜਾਵੇ ਕਿ ਹਾਰਡ ਡਿਸਕ ਪੁਰਾਣੀ ਹੈ ਅਤੇ ਬਦਲਣ ਦੀ ਲੋੜ ਵਿਚ ਹੈ, ਜਾਂ ਜੇ ਸਿਸਟਮ ਨੂੰ ਠੰਡੇ ਵਾਤਾਵਰਣ ਵਿਚ "
 "ਵਿਸਥਾਪਿਤ ਕੀਤਾ ਜਾਵੇ।"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:92001
-msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr "ਫਾੲੀਲਾਂ ਕਾਪੀ ਕਰਣ ਵਿਚ ਅਸਫਲ; ਖਰਾਬ ਸੀਡੀ/ਡੀਵੀਡੀ ਜਾਂ ਹਾਰਡ ਡਿਸਕ?"
 
 #. Type: error
 #. Description
@@ -718,12 +722,20 @@ msgstr "ਫਾੲੀਲਾਂ ਕਾਪੀ ਕਰਣ ਵਿਚ ਅਸਫਲ; ਖ
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:92001 ../ubiquity.templates:93001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
+#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
+#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
+#| "available from electronics suppliers), to check whether the hard disk is "
+#| "old and in need of replacement, or to move the system to a cooler "
+#| "environment."
 msgid ""
-"This particular error is often due to a faulty CD/DVD disk or drive, or a "
-"faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
-"lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-"available from electronics suppliers), to check whether the hard disk is old "
-"and in need of replacement, or to move the system to a cooler environment."
+"This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
+"It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
+"clean the CD/DVD drive lens (cleaning kits are often available from "
+"electronics suppliers), to check whether the hard disk is old and in need of "
+"replacement, or to move the system to a cooler environment."
 msgstr ""
 "ੲਿਹ ਖਾਸ ਦੋਸ਼ ਜ਼ਿਅਾਦਾਤਰ ਖਰਾਬ ਸੀਡੀ/ਡੀਵੀਡੀ ਡਿਸਕ ਜਾਂ ਡਰਾੲੀਵ, ਜਾਂ ਖਰਾਬ ਹਾਰਡ ਡਿਸਕ ਕਰਕੇ "
 "ਹੁੰਦਾ ਹੈ । ਮਦਦ ਮਿਲ ਸਕਦੀ ਹੈ ਜੇ ਸੀਡੀ/ਡੀਵੀਡੀ ਨੂੰ ਸਾਫ ਕੀਤਾ ਜਾਵੇ, ਜੇ ਸੀਡੀ/ਡੀਵੀਡੀ ਨੂੰ ਹੌਲੀ "
@@ -731,12 +743,6 @@ msgstr ""
 "ਸੰਦ ਜ਼ਿਅਾਦਾਤਰ ਤਕਨੀਕੀ ਸਮਾਨ ਵਾਲੇ ਸਪਲਾੲਿਅਰਾਂ ਕੋਲ ਮੌਜੂਦ ਹੁੰਦੇ ਹਨ),  ਜੇ ਪੜਤਾਲ ਕੀਤੀ ਜਾਵੇ ਕਿ "
 "ਹਾਰਡ ਡਿਸਕ ਪੁਰਾਣੀ ਹੈ ਅਤੇ ਬਦਲਣ ਦੀ ਲੋੜ ਵਿਚ ਹੈ, ਜਾਂ ਜੇ ਸਿਸਟਮ ਨੂੰ ਠੰਡੇ ਵਾਤਾਵਰਣ ਵਿਚ ਵਿਸਥਾਪਿਤ "
 "ਕੀਤਾ ਜਾਵੇ।"
-
-#. Type: select
-#. Description
-#: ../ubiquity.templates:93001
-msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr ""
 
 #. Type: select
 #. Description
@@ -1527,3 +1533,12 @@ msgstr "ਨੈੱਟਵਰਕ ਸੰਰਚਿਤ ਕੀਤਾ ਜਾ ਰਿਹ�
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
 msgstr ""
+
+#~ msgid "Failed to copy files; faulty CD/DVD?"
+#~ msgstr "ਫਾੲੀਲਾਂ ਕਾਪੀ ਕੀਤੀਅਾਂ ਜਾ ਰਹੀਅਾਂ ਹਨ (ੲਿਕ ਮਿਨਟ ਤੋਂ ਘਟ ਬਾਕੀ) ..."
+
+#~ msgid "Failed to copy files; faulty hard disk?"
+#~ msgstr "ਫਾੲੀਲਾਂ ਕਾਪੀ ਕਰਣ ਵਿਚ ਅਸਫਲ; ਖਰਾਬ ਹਾਰਡ ਡਿਸਕ?"
+
+#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
+#~ msgstr "ਫਾੲੀਲਾਂ ਕਾਪੀ ਕਰਣ ਵਿਚ ਅਸਫਲ; ਖਰਾਬ ਸੀਡੀ/ਡੀਵੀਡੀ ਜਾਂ ਹਾਰਡ ਡਿਸਕ?"

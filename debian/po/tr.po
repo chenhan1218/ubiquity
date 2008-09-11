@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-09-09 18:01+0100\n"
+"POT-Creation-Date: 2008-09-11 10:13+0100\n"
 "PO-Revision-Date: 2008-04-10 01:09+0000\n"
 "Last-Translator: Sait Ahmet Binselam <Unknown>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
@@ -649,9 +649,21 @@ msgstr "Dosyalar kopyalanıyor (bir dakikadan daha az kaldı)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:89001
-msgid "Failed to copy files; out of disk space."
-msgstr "Dosyaları kopyalama başarısız oldu; disk dolu."
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: select
+#. Description
+#: ../ubiquity.templates:89001 ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001 ../ubiquity.templates:92001
+#: ../ubiquity.templates:93001
+#, fuzzy
+#| msgid "Installation complete"
+msgid "Installation Failed"
+msgstr "Kurulum tamamlandı"
 
 #. Type: error
 #. Description
@@ -669,10 +681,15 @@ msgstr "Kurulum, dosyaları sabit diske kopyalarken bir hatayla karşılaştı:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:89001
+#, fuzzy
+#| msgid ""
+#| "This particular error is due to there being insufficient disk space for "
+#| "the install to complete on the target partition.  Please run the "
+#| "installer again and select a larger partition to install into."
 msgid ""
-"This particular error is due to there being insufficient disk space for the "
-"install to complete on the target partition.  Please run the installer again "
-"and select a larger partition to install into."
+"This is due to there being insufficient disk space for the install to "
+"complete on the target partition.  Please run the installer again and select "
+"a larger partition to install into."
 msgstr ""
 "Bu belirli hata kurulumun tamamlanabilmesi için hedef disk bölümü üzerinde "
 "yeteri kadar boş alanın olmamasından kaynaklanmaktadır. Lütfen kurulum "
@@ -682,17 +699,16 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:90001
-msgid "Failed to copy files; faulty CD/DVD?"
-msgstr "Dosyaların kopyalanması başarısız oldu; bozuk CD/DVD?"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:90001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
+#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
+#| "clean the CD/DVD drive lens (cleaning kits are often available from "
+#| "electronics suppliers)."
 msgid ""
-"This particular error is often due to a faulty CD/DVD disk or drive. It may "
-"help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
-"the CD/DVD drive lens (cleaning kits are often available from electronics "
-"suppliers)."
+"This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
+"CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
+"lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
 "Bu hata, genellikle bozuk CD/DVD diski veya sürücüsünden kaynaklanır. CD/"
 "DVD'yi temizlemek, düşük hızda yazmak ya da CD/DVD sürücüsünün lensini "
@@ -702,26 +718,19 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:91001
-msgid "Failed to copy files; faulty hard disk?"
-msgstr "Kopyalama başarısız; bozuk sabit disk?"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:91001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty hard disk. It may help to "
+#| "check whether the hard disk is old and in need of replacement, or to move "
+#| "the system to a cooler environment."
 msgid ""
-"This particular error is often due to a faulty hard disk. It may help to "
-"check whether the hard disk is old and in need of replacement, or to move "
-"the system to a cooler environment."
+"This is often due to a faulty hard disk. It may help to check whether the "
+"hard disk is old and in need of replacement, or to move the system to a "
+"cooler environment."
 msgstr ""
 "Bu hata, genellikle bozuk sabit diskten kaynaklanır. Sabit diskin eski ve "
 "değiştirilmesi gereken bir disk olmadığını kontrol etmek ya da sistemi daha "
 "soğuk bir yere taşımak problemi çözebilir."
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:92001
-msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr "Kopyalama başarısız; bozuk CD/DVD veya sabit disk?"
 
 #. Type: error
 #. Description
@@ -732,12 +741,20 @@ msgstr "Kopyalama başarısız; bozuk CD/DVD veya sabit disk?"
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:92001 ../ubiquity.templates:93001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
+#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
+#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
+#| "available from electronics suppliers), to check whether the hard disk is "
+#| "old and in need of replacement, or to move the system to a cooler "
+#| "environment."
 msgid ""
-"This particular error is often due to a faulty CD/DVD disk or drive, or a "
-"faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
-"lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-"available from electronics suppliers), to check whether the hard disk is old "
-"and in need of replacement, or to move the system to a cooler environment."
+"This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
+"It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
+"clean the CD/DVD drive lens (cleaning kits are often available from "
+"electronics suppliers), to check whether the hard disk is old and in need of "
+"replacement, or to move the system to a cooler environment."
 msgstr ""
 "Bu hata, genellikle bozuk CD/DVD diski veya sürücüsünden ya da bozuk sabit "
 "diskten kaynaklanır. CD/DVD'yi temizlemek, yavaş hızda yazmak, CD/DVD "
@@ -745,12 +762,6 @@ msgstr ""
 "mağazalarından temin edilebilir), sabit diskin eski ve değiştirilmesi "
 "gereken bir disk olup olmadığını kontrol etmek ya da sistemi daha soğuk bir "
 "ortama taşımak sorunu giderebilir."
-
-#. Type: select
-#. Description
-#: ../ubiquity.templates:93001
-msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Dosya kopyalama başarısız oldu: hatalı CD.DVD veya sabit disk-"
 
 #. Type: select
 #. Description
@@ -1614,3 +1625,18 @@ msgstr "Ek servisler yapılandırılıyor..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
 msgstr "Kızılötesi cihazları yapılandırıyor..."
+
+#~ msgid "Failed to copy files; out of disk space."
+#~ msgstr "Dosyaları kopyalama başarısız oldu; disk dolu."
+
+#~ msgid "Failed to copy files; faulty CD/DVD?"
+#~ msgstr "Dosyaların kopyalanması başarısız oldu; bozuk CD/DVD?"
+
+#~ msgid "Failed to copy files; faulty hard disk?"
+#~ msgstr "Kopyalama başarısız; bozuk sabit disk?"
+
+#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
+#~ msgstr "Kopyalama başarısız; bozuk CD/DVD veya sabit disk?"
+
+#~ msgid "Failed to copy file; faulty CD/DVD or hard disk?"
+#~ msgstr "Dosya kopyalama başarısız oldu: hatalı CD.DVD veya sabit disk-"

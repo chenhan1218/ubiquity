@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-09-09 18:01+0100\n"
+"POT-Creation-Date: 2008-09-11 10:13+0100\n"
 "PO-Revision-Date: 2008-04-14 02:52+0000\n"
 "Last-Translator: ChenMing <Unknown>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -628,9 +628,21 @@ msgstr "正在复制文件（剩余不到一分钟时间）…"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:89001
-msgid "Failed to copy files; out of disk space."
-msgstr "复制文件失败，磁盘空间不足。"
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: select
+#. Description
+#: ../ubiquity.templates:89001 ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001 ../ubiquity.templates:92001
+#: ../ubiquity.templates:93001
+#, fuzzy
+#| msgid "Installation complete"
+msgid "Installation Failed"
+msgstr "安装完成"
 
 #. Type: error
 #. Description
@@ -648,10 +660,15 @@ msgstr "安装程序向硬盘复制文件时遇到错误："
 #. Type: error
 #. Description
 #: ../ubiquity.templates:89001
+#, fuzzy
+#| msgid ""
+#| "This particular error is due to there being insufficient disk space for "
+#| "the install to complete on the target partition.  Please run the "
+#| "installer again and select a larger partition to install into."
 msgid ""
-"This particular error is due to there being insufficient disk space for the "
-"install to complete on the target partition.  Please run the installer again "
-"and select a larger partition to install into."
+"This is due to there being insufficient disk space for the install to "
+"complete on the target partition.  Please run the installer again and select "
+"a larger partition to install into."
 msgstr ""
 "此错误是由于目标分区的磁盘空间不足而无法完成安装。请重新晕新安装程序，并选择"
 "较大的分区。"
@@ -659,17 +676,16 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:90001
-msgid "Failed to copy files; faulty CD/DVD?"
-msgstr "文件复制失败；CD／DVD有缺陷？"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:90001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
+#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
+#| "clean the CD/DVD drive lens (cleaning kits are often available from "
+#| "electronics suppliers)."
 msgid ""
-"This particular error is often due to a faulty CD/DVD disk or drive. It may "
-"help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
-"the CD/DVD drive lens (cleaning kits are often available from electronics "
-"suppliers)."
+"This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
+"CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
+"lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
 "此个别错误往往由有缺陷的CD／DVD光盘或CD／DVD驱动器导致。清洁CD／DVD、用低速刻"
 "录CD／DVD，或者清洁CD／DVD驱动器光头（清洁用品通常可以在电子器材公司买到），"
@@ -678,25 +694,18 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:91001
-msgid "Failed to copy files; faulty hard disk?"
-msgstr "文件复制失败；硬盘有缺陷？"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:91001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty hard disk. It may help to "
+#| "check whether the hard disk is old and in need of replacement, or to move "
+#| "the system to a cooler environment."
 msgid ""
-"This particular error is often due to a faulty hard disk. It may help to "
-"check whether the hard disk is old and in need of replacement, or to move "
-"the system to a cooler environment."
+"This is often due to a faulty hard disk. It may help to check whether the "
+"hard disk is old and in need of replacement, or to move the system to a "
+"cooler environment."
 msgstr ""
 "此个别错误往往由硬盘缺陷导致。检查硬盘是否太旧而需要更换，或者把系统转移到温"
 "度更低的环境，或许有助于解决该问题。"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:92001
-msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr "复制文件失败；CD／DVD或者硬盘有缺陷？"
 
 #. Type: error
 #. Description
@@ -707,23 +716,25 @@ msgstr "复制文件失败；CD／DVD或者硬盘有缺陷？"
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:92001 ../ubiquity.templates:93001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
+#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
+#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
+#| "available from electronics suppliers), to check whether the hard disk is "
+#| "old and in need of replacement, or to move the system to a cooler "
+#| "environment."
 msgid ""
-"This particular error is often due to a faulty CD/DVD disk or drive, or a "
-"faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
-"lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-"available from electronics suppliers), to check whether the hard disk is old "
-"and in need of replacement, or to move the system to a cooler environment."
+"This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
+"It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
+"clean the CD/DVD drive lens (cleaning kits are often available from "
+"electronics suppliers), to check whether the hard disk is old and in need of "
+"replacement, or to move the system to a cooler environment."
 msgstr ""
 "此个别错误往往由有缺陷的CD／DVD光盘或CD／DVD驱动器导致，或者由有缺陷的硬盘导"
 "致。清洁CD／DVD、用低速刻录CD／DVD，或者清洁CD／DVD驱动器光头（清洁用品通常可"
 "以在电子器材公司买到），检查硬盘是否太旧而需要更换，或者把系统转移到温度更低"
 "的环境，或许有助于解决该问题。"
-
-#. Type: select
-#. Description
-#: ../ubiquity.templates:93001
-msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "复制文件失败，光盘或硬盘坏了吗？"
 
 #. Type: select
 #. Description
@@ -1546,3 +1557,18 @@ msgstr "正在配置附加服务..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
 msgstr "配置红外设备..."
+
+#~ msgid "Failed to copy files; out of disk space."
+#~ msgstr "复制文件失败，磁盘空间不足。"
+
+#~ msgid "Failed to copy files; faulty CD/DVD?"
+#~ msgstr "文件复制失败；CD／DVD有缺陷？"
+
+#~ msgid "Failed to copy files; faulty hard disk?"
+#~ msgstr "文件复制失败；硬盘有缺陷？"
+
+#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
+#~ msgstr "复制文件失败；CD／DVD或者硬盘有缺陷？"
+
+#~ msgid "Failed to copy file; faulty CD/DVD or hard disk?"
+#~ msgstr "复制文件失败，光盘或硬盘坏了吗？"

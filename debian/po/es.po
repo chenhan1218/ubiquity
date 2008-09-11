@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-09-09 18:01+0100\n"
+"POT-Creation-Date: 2008-09-11 10:13+0100\n"
 "PO-Revision-Date: 2008-04-08 15:24+0000\n"
 "Last-Translator: Ricardo Pérez López <ricardo@iesdonana.org>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -656,9 +656,21 @@ msgstr "Copiando archivos (falta menos de un minuto)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:89001
-msgid "Failed to copy files; out of disk space."
-msgstr "Error al copiar archivos; no hay espacio suficiente en disco."
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: select
+#. Description
+#: ../ubiquity.templates:89001 ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001 ../ubiquity.templates:92001
+#: ../ubiquity.templates:93001
+#, fuzzy
+#| msgid "Installation complete"
+msgid "Installation Failed"
+msgstr "Instalación completada"
 
 #. Type: error
 #. Description
@@ -676,10 +688,15 @@ msgstr "El instalador encontró un error al copiar los archivos al disco duro:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:89001
+#, fuzzy
+#| msgid ""
+#| "This particular error is due to there being insufficient disk space for "
+#| "the install to complete on the target partition.  Please run the "
+#| "installer again and select a larger partition to install into."
 msgid ""
-"This particular error is due to there being insufficient disk space for the "
-"install to complete on the target partition.  Please run the installer again "
-"and select a larger partition to install into."
+"This is due to there being insufficient disk space for the install to "
+"complete on the target partition.  Please run the installer again and select "
+"a larger partition to install into."
 msgstr ""
 "Este error en particular se debe a que no hay espacio de disco suficiente "
 "para completar la instalación en la partición de destino. Por favor, ejecute "
@@ -689,17 +706,16 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:90001
-msgid "Failed to copy files; faulty CD/DVD?"
-msgstr "Error al copiar archivos; ¿CD/DVD defectuoso?"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:90001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
+#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
+#| "clean the CD/DVD drive lens (cleaning kits are often available from "
+#| "electronics suppliers)."
 msgid ""
-"This particular error is often due to a faulty CD/DVD disk or drive. It may "
-"help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
-"the CD/DVD drive lens (cleaning kits are often available from electronics "
-"suppliers)."
+"This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
+"CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
+"lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
 "Este error en particular a menudo se debe a un disco o unidad de CD/DVD "
 "defectuosos. A veces se resuelve limpiando el CD/DVD, grabándolo a menor "
@@ -709,26 +725,19 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:91001
-msgid "Failed to copy files; faulty hard disk?"
-msgstr "Error al copiar archivos; ¿disco duro defectuoso?"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:91001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty hard disk. It may help to "
+#| "check whether the hard disk is old and in need of replacement, or to move "
+#| "the system to a cooler environment."
 msgid ""
-"This particular error is often due to a faulty hard disk. It may help to "
-"check whether the hard disk is old and in need of replacement, or to move "
-"the system to a cooler environment."
+"This is often due to a faulty hard disk. It may help to check whether the "
+"hard disk is old and in need of replacement, or to move the system to a "
+"cooler environment."
 msgstr ""
 "Este error en particular a menudo se debe a un disco duro defectuoso. A "
 "veces puede ser de ayuda comprobar si el disco duro es antiguo y si necesita "
 "una sustitución, o mover el sistema a un ambiente más fresco."
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:92001
-msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr "Error al copiar archivos; ¿CD/DVD o disco duro defectuosos?"
 
 #. Type: error
 #. Description
@@ -739,12 +748,20 @@ msgstr "Error al copiar archivos; ¿CD/DVD o disco duro defectuosos?"
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:92001 ../ubiquity.templates:93001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
+#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
+#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
+#| "available from electronics suppliers), to check whether the hard disk is "
+#| "old and in need of replacement, or to move the system to a cooler "
+#| "environment."
 msgid ""
-"This particular error is often due to a faulty CD/DVD disk or drive, or a "
-"faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
-"lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-"available from electronics suppliers), to check whether the hard disk is old "
-"and in need of replacement, or to move the system to a cooler environment."
+"This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
+"It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
+"clean the CD/DVD drive lens (cleaning kits are often available from "
+"electronics suppliers), to check whether the hard disk is old and in need of "
+"replacement, or to move the system to a cooler environment."
 msgstr ""
 "Este error en particular a menudo se debe a un disco, unidad de CD/DVD o "
 "disco duro defectuosos. A veces se resuelve limpiando el CD/DVD, grabándolo "
@@ -752,14 +769,6 @@ msgstr ""
 "encontrar kits limpiadores en tiendas de electrónica). También puede ser de "
 "ayuda comprobar si el disco duro es antiguo y si necesita una sustitución, o "
 "mover el sistema a un ambiente más fresco."
-
-#. Type: select
-#. Description
-#: ../ubiquity.templates:93001
-msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr ""
-"Error al copiar un archivo; puede que el CD/DVD o el disco duro estén "
-"defectuosos."
 
 #. Type: select
 #. Description
@@ -1636,3 +1645,20 @@ msgstr "Configurando servicios adicionales..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
 msgstr "Configurando los dispositivos infrarrojos..."
+
+#~ msgid "Failed to copy files; out of disk space."
+#~ msgstr "Error al copiar archivos; no hay espacio suficiente en disco."
+
+#~ msgid "Failed to copy files; faulty CD/DVD?"
+#~ msgstr "Error al copiar archivos; ¿CD/DVD defectuoso?"
+
+#~ msgid "Failed to copy files; faulty hard disk?"
+#~ msgstr "Error al copiar archivos; ¿disco duro defectuoso?"
+
+#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
+#~ msgstr "Error al copiar archivos; ¿CD/DVD o disco duro defectuosos?"
+
+#~ msgid "Failed to copy file; faulty CD/DVD or hard disk?"
+#~ msgstr ""
+#~ "Error al copiar un archivo; puede que el CD/DVD o el disco duro estén "
+#~ "defectuosos."

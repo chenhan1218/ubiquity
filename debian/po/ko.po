@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-09-09 18:01+0100\n"
+"POT-Creation-Date: 2008-09-11 10:13+0100\n"
 "PO-Revision-Date: 2008-04-08 15:32+0000\n"
 "Last-Translator: Sunjae Park <darehanl@gmail.com>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
@@ -643,9 +643,21 @@ msgstr "파일을 복사중입니다. (일 분가량 남았습니다)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:89001
-msgid "Failed to copy files; out of disk space."
-msgstr ""
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: select
+#. Description
+#: ../ubiquity.templates:89001 ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001 ../ubiquity.templates:92001
+#: ../ubiquity.templates:93001
+#, fuzzy
+#| msgid "Installation complete"
+msgid "Installation Failed"
+msgstr "설치를 마쳤습니다"
 
 #. Type: error
 #. Description
@@ -664,25 +676,24 @@ msgstr "설치관리자가 하드디스크에 파일 복사중에 에러를 발�
 #. Description
 #: ../ubiquity.templates:89001
 msgid ""
-"This particular error is due to there being insufficient disk space for the "
-"install to complete on the target partition.  Please run the installer again "
-"and select a larger partition to install into."
+"This is due to there being insufficient disk space for the install to "
+"complete on the target partition.  Please run the installer again and select "
+"a larger partition to install into."
 msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:90001
-msgid "Failed to copy files; faulty CD/DVD?"
-msgstr "파일 복사에 실패했습니다. CD나 DVD에 문제가 있는지 확인하세요."
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:90001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
+#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
+#| "clean the CD/DVD drive lens (cleaning kits are often available from "
+#| "electronics suppliers)."
 msgid ""
-"This particular error is often due to a faulty CD/DVD disk or drive. It may "
-"help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
-"the CD/DVD drive lens (cleaning kits are often available from electronics "
-"suppliers)."
+"This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
+"CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
+"lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
 "하드디스크나 CD/DVD의 결함이 에러를 발생시킬 수 있습니다. CD/DVD를 청소하거"
 "나, 저속으로 굽거나, 드라이브 렌즈 청소를 통해 문제를 해결하실 수 있습니다. "
@@ -691,27 +702,19 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:91001
-msgid "Failed to copy files; faulty hard disk?"
-msgstr "파일 복사에 실패했습니다. 하드 디스크에 문제가 있는지 확인해주세요."
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:91001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty hard disk. It may help to "
+#| "check whether the hard disk is old and in need of replacement, or to move "
+#| "the system to a cooler environment."
 msgid ""
-"This particular error is often due to a faulty hard disk. It may help to "
-"check whether the hard disk is old and in need of replacement, or to move "
-"the system to a cooler environment."
+"This is often due to a faulty hard disk. It may help to check whether the "
+"hard disk is old and in need of replacement, or to move the system to a "
+"cooler environment."
 msgstr ""
 "이러한 오류는 하드디스크 결함으로 발생할 수 있습니다. 하드 디스크가 오래되어 "
 "교체할 필요가 있는 지, 또는 컴퓨터의 냉각 및 통풍에는 이상이 없는 지 확인해 "
 "보시는 것이 도움 될 수 있습니다."
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:92001
-msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
-"파일 복사에 실패했습니다. CD/DVD 또는 하드 디스크의 문제일 수 있습니다."
 
 #. Type: error
 #. Description
@@ -722,24 +725,26 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:92001 ../ubiquity.templates:93001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
+#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
+#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
+#| "available from electronics suppliers), to check whether the hard disk is "
+#| "old and in need of replacement, or to move the system to a cooler "
+#| "environment."
 msgid ""
-"This particular error is often due to a faulty CD/DVD disk or drive, or a "
-"faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
-"lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-"available from electronics suppliers), to check whether the hard disk is old "
-"and in need of replacement, or to move the system to a cooler environment."
+"This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
+"It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
+"clean the CD/DVD drive lens (cleaning kits are often available from "
+"electronics suppliers), to check whether the hard disk is old and in need of "
+"replacement, or to move the system to a cooler environment."
 msgstr ""
 "이러한 에러는 주로 하드디스크 결함이나 CD/DVD 디스크나 드라이브의 결함으로 발"
 "생합니다. CD/DVD를 청소하거나 낮은 속도로 CD/DVD를 굽거나 CD/DVD 드라이브 렌"
 "즈를 청소하거나(공급사로부터 제공받은 청소 KIT을 활용할 수 있습니다), 하드디"
 "스크가 오래되었다면 교체하거나 냉각 시스템이 있는곳으로 옮기는것을 검토해보는"
 "게 도움이 될 수 있습니다."
-
-#. Type: select
-#. Description
-#: ../ubiquity.templates:93001
-msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr ""
 
 #. Type: select
 #. Description
@@ -1580,3 +1585,13 @@ msgstr "추가적인 서비스를 설정하는 중입니다..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
 msgstr ""
+
+#~ msgid "Failed to copy files; faulty CD/DVD?"
+#~ msgstr "파일 복사에 실패했습니다. CD나 DVD에 문제가 있는지 확인하세요."
+
+#~ msgid "Failed to copy files; faulty hard disk?"
+#~ msgstr "파일 복사에 실패했습니다. 하드 디스크에 문제가 있는지 확인해주세요."
+
+#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
+#~ msgstr ""
+#~ "파일 복사에 실패했습니다. CD/DVD 또는 하드 디스크의 문제일 수 있습니다."

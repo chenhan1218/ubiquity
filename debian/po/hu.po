@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-09-09 18:01+0100\n"
+"POT-Creation-Date: 2008-09-11 10:13+0100\n"
 "PO-Revision-Date: 2008-04-14 22:38+0000\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian>\n"
@@ -651,9 +651,21 @@ msgstr "Fájlok másolása (kevesebb, mint egy perc van hátra)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:89001
-msgid "Failed to copy files; out of disk space."
-msgstr "A fájlok másolása meghiúsult, elfogyott a lemezterület."
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: select
+#. Description
+#: ../ubiquity.templates:89001 ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001 ../ubiquity.templates:92001
+#: ../ubiquity.templates:93001
+#, fuzzy
+#| msgid "Installation complete"
+msgid "Installation Failed"
+msgstr "A telepítés befejeződött"
 
 #. Type: error
 #. Description
@@ -671,10 +683,15 @@ msgstr "A telepítő hibát észlelt a fájlok merevlemezre másolása közben."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:89001
+#, fuzzy
+#| msgid ""
+#| "This particular error is due to there being insufficient disk space for "
+#| "the install to complete on the target partition.  Please run the "
+#| "installer again and select a larger partition to install into."
 msgid ""
-"This particular error is due to there being insufficient disk space for the "
-"install to complete on the target partition.  Please run the installer again "
-"and select a larger partition to install into."
+"This is due to there being insufficient disk space for the install to "
+"complete on the target partition.  Please run the installer again and select "
+"a larger partition to install into."
 msgstr ""
 "A hiba oka, hogy a célpartíción nincs elegendő lemezterület a telepítés "
 "befejeződéséhez. Futtassa újra a telepítőt és válasszon nagyobb partíciót a "
@@ -683,17 +700,16 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:90001
-msgid "Failed to copy files; faulty CD/DVD?"
-msgstr "A fájlok másolása meghiúsult, hibás a CD/DVD?"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:90001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
+#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
+#| "clean the CD/DVD drive lens (cleaning kits are often available from "
+#| "electronics suppliers)."
 msgid ""
-"This particular error is often due to a faulty CD/DVD disk or drive. It may "
-"help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
-"the CD/DVD drive lens (cleaning kits are often available from electronics "
-"suppliers)."
+"This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
+"CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
+"lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
 "Ezt a hibát gyakran egy hibás CD/DVD lemez vagy meghajtó okozza. A CD/DVD "
 "megtisztítása, a CD/DVD alacsonyabb sebességen írása vagy a CD/DVD meghajtó "
@@ -703,26 +719,19 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:91001
-msgid "Failed to copy files; faulty hard disk?"
-msgstr "A fájlok másolása meghiúsult, hibás a merevlemez?"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:91001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty hard disk. It may help to "
+#| "check whether the hard disk is old and in need of replacement, or to move "
+#| "the system to a cooler environment."
 msgid ""
-"This particular error is often due to a faulty hard disk. It may help to "
-"check whether the hard disk is old and in need of replacement, or to move "
-"the system to a cooler environment."
+"This is often due to a faulty hard disk. It may help to check whether the "
+"hard disk is old and in need of replacement, or to move the system to a "
+"cooler environment."
 msgstr ""
 "Ezt a hibát gyakran egy hibás merevlemez okozza. A probléma megoldásában "
 "segíthet a merevlemez ellenőrzése és esetleges cseréje, vagy a rendszer "
 "hűvösebb környezetbe helyezése."
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:92001
-msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr "A fájlok másolása meghiúsult, hibás a CD/DVD vagy merevlemez?"
 
 #. Type: error
 #. Description
@@ -733,12 +742,20 @@ msgstr "A fájlok másolása meghiúsult, hibás a CD/DVD vagy merevlemez?"
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:92001 ../ubiquity.templates:93001
+#, fuzzy
+#| msgid ""
+#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
+#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
+#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
+#| "available from electronics suppliers), to check whether the hard disk is "
+#| "old and in need of replacement, or to move the system to a cooler "
+#| "environment."
 msgid ""
-"This particular error is often due to a faulty CD/DVD disk or drive, or a "
-"faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
-"lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-"available from electronics suppliers), to check whether the hard disk is old "
-"and in need of replacement, or to move the system to a cooler environment."
+"This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
+"It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
+"clean the CD/DVD drive lens (cleaning kits are often available from "
+"electronics suppliers), to check whether the hard disk is old and in need of "
+"replacement, or to move the system to a cooler environment."
 msgstr ""
 "Ezt a hibát gyakran egy hibás CD/DVD lemez vagy meghajtó, vagy hibás "
 "merevlemez okozza. A CD/DVD megtisztítása, a CD/DVD alacsonyabb sebességen "
@@ -746,13 +763,6 @@ msgstr ""
 "számítástechnikai üzletben kaphatók tisztítócsomagok),  a merevlemez "
 "ellenőrzése és esetleges cseréje, vagy a rendszer hűvösebb környezetbe "
 "helyezése segíthet megoldani a problémát."
-
-#. Type: select
-#. Description
-#: ../ubiquity.templates:93001
-msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr ""
-"A fájl másolása meghiúsult. Lehet, hogy hibás a CD/DVD vagy a merevlemez?"
 
 #. Type: select
 #. Description
@@ -1621,3 +1631,19 @@ msgstr "A további kiszolgálók konfigurálása..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
 msgstr "Infravörös eszközök beállítása..."
+
+#~ msgid "Failed to copy files; out of disk space."
+#~ msgstr "A fájlok másolása meghiúsult, elfogyott a lemezterület."
+
+#~ msgid "Failed to copy files; faulty CD/DVD?"
+#~ msgstr "A fájlok másolása meghiúsult, hibás a CD/DVD?"
+
+#~ msgid "Failed to copy files; faulty hard disk?"
+#~ msgstr "A fájlok másolása meghiúsult, hibás a merevlemez?"
+
+#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
+#~ msgstr "A fájlok másolása meghiúsult, hibás a CD/DVD vagy merevlemez?"
+
+#~ msgid "Failed to copy file; faulty CD/DVD or hard disk?"
+#~ msgstr ""
+#~ "A fájl másolása meghiúsult. Lehet, hogy hibás a CD/DVD vagy a merevlemez?"

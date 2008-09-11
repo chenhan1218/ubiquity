@@ -8,6 +8,8 @@ ubiquity (1.9.13) UNRELEASED; urgency=low
     in practice because os.path.join throws away previous components upon
     encountering an absolute path, but was inelegant.)
   * Make the exclusion of /etc/fstab from bulk copying more precise.
+  * Fix window title of bulk copy failure alerts, and remove a bit of
+    unnecessary verbosity from the primary text (LP: #254652).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 09 Sep 2008 18:05:58 +0100
 
