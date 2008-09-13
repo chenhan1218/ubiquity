@@ -1,4 +1,4 @@
-ubiquity (1.9.13) UNRELEASED; urgency=low
+ubiquity (1.9.13) intrepid; urgency=low
 
   * Change "Automatically sign in" to "Log in automatically", to match
     wording elsewhere (LP: #266995).
@@ -14,7 +14,7 @@ ubiquity (1.9.13) UNRELEASED; urgency=low
   * Automatic update of included source packages: base-installer
     1.86ubuntu5, hw-detect 1.63ubuntu2, partman-partitioning 59ubuntu5.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 09 Sep 2008 18:05:58 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat, 13 Sep 2008 15:19:19 +0100
 
 ubiquity (1.9.12) intrepid; urgency=low
 
