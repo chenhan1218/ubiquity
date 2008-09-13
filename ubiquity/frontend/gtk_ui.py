@@ -375,6 +375,10 @@ class Wizard(BaseFrontend):
             # removed, so we end up with no input focus and thus pressing
             # Enter doesn't activate the default widget. Work around this.
             self.next.grab_focus()
+        else:
+            # Similarly, the Quit button seems to end up with focus by
+            # default, but we'd rather a navigable widget had it.
+            self.language_treeview.grab_focus()
 
         if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
             self.steps.remove_page(self.steps.page_num(self.stepMigrationAssistant))
