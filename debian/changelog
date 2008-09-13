@@ -11,6 +11,8 @@ ubiquity (1.9.13) UNRELEASED; urgency=low
   * Fix window title of bulk copy failure alerts, and remove a bit of
     unnecessary verbosity from the primary text (LP: #254652).
   * Initialise self.blacklist even if it's going to be empty.
+  * Automatic update of included source packages: base-installer
+    1.86ubuntu5, hw-detect 1.63ubuntu2, partman-partitioning 59ubuntu5.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 09 Sep 2008 18:05:58 +0100
 
