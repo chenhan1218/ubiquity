@@ -561,6 +561,7 @@ class Install:
             difference -= set(['yaboot', 'hfsutils'])
  
         if len(difference) == 0:
+            self.blacklist = {}
             return
  
         use_restricted = True
