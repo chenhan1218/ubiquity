@@ -177,14 +177,17 @@ class ConsoleSetup(FilteredCommand):
         else:
             real_variant = ',%s' % variant
 
-        if latin:
-            real_options = options
-        else:
-            # TODO cjwatson 2006-09-07: use existing options and remove any
-            # existing grp:*toggle; honour crazy preseeding; probably not
-            # quite right, especially for Apples which may need a level 3
-            # shift
-            real_options = ['grp:alt_shift_toggle']
+        real_options = [opt for opt in options if not opt.startswith('lv3:')]
+        if not latin:
+            toggle = re.compile(r'^grp:.*toggle$')
+            real_options = [opt for opt in real_options
+                                if not toggle.match(opt)]
+            # TODO cjwatson 2006-09-07: honour crazy preseeding; probably
+            # not quite right, especially for Apples which may need a level
+            # 3 shift
+            real_options.append('grp:alt_shift_toggle')
+        if layout != 'us':
+            real_options.append('lv3:ralt_switch')
 
         real_model = model
         if model == 'pc105':

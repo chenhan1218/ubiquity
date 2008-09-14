@@ -4,6 +4,9 @@ ubiquity (1.9.14) UNRELEASED; urgency=low
     - Give focus to the language treeview on startup (LP: #254635).
     - Pressing Enter in the keyboard test box activates the Forward button
       (LP: #225548).
+  * Improve handling of default keymap options used when setting the X
+    keymap on the fly. In particular, set the lv3:ralt_switch option for
+    non-US layouts so that AltGr can be tested (LP: #258153).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 13 Sep 2008 16:03:10 +0100
 
