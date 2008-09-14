@@ -7,6 +7,7 @@ ubiquity (1.9.14) UNRELEASED; urgency=low
   * Improve handling of default keymap options used when setting the X
     keymap on the fly. In particular, set the lv3:ralt_switch option for
     non-US layouts so that AltGr can be tested (LP: #258153).
+  * Clear out previous XKB options when setting a new X keymap.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 13 Sep 2008 16:03:10 +0100
 

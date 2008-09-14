@@ -229,6 +229,7 @@ class ConsoleSetup(FilteredCommand):
         args.extend(("-layout", layout))
         if variant != '':
             args.extend(("-variant", variant))
+        args.extend(("-option", ""))
         for option in options:
             args.extend(("-option", option))
         misc.execute("setxkbmap", *args)
