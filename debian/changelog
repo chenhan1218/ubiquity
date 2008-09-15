@@ -10,6 +10,7 @@ ubiquity (1.9.14) UNRELEASED; urgency=low
   * Clear out previous XKB options when setting a new X keymap.
   * Fix mysterious crash if a debconffilter doesn't get started for some
     reason (LP: #125538).
+  * Add /var/log/casper.log to apport-generated bugs.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 13 Sep 2008 16:03:10 +0100
 
