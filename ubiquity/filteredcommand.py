@@ -119,8 +119,11 @@ class FilteredCommand(object):
     def wait(self):
         ret = self.dbfilter.wait()
 
-        # TODO: error message if ret != 0 and ret != 10
-        self.debug("%s exited with code %d", self.command, ret)
+        if ret is None:
+            self.debug("%s not running?", self.command)
+        else:
+            # TODO: error message if ret != 0 and ret != 10
+            self.debug("%s exited with code %d", self.command, ret)
 
         self.cleanup()
 
