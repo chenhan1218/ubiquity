@@ -1,3 +1,10 @@
+oem-config (1.50) UNRELEASED; urgency=low
+
+  * Change "Automatically sign in" to "Log in automatically", to match
+    wording elsewhere (LP: #266995).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 16 Sep 2008 12:23:42 +0100
+
 oem-config (1.49) intrepid; urgency=low
 
   [ Jonathan Riddell ]

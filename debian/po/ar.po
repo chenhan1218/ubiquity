@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
-"POT-Creation-Date: 2008-07-25 09:41+0100\n"
+"POT-Creation-Date: 2008-09-16 12:23+0100\n"
 "PO-Revision-Date: 2008-05-20 14:19+0000\n"
 "Last-Translator: Ossama M. Khayat <okhayat@yahoo.com>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
@@ -145,7 +145,7 @@ msgstr "ادخل نفس كلمة السر مرتين للتأكد من عدم و
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
-msgid "Automatically sign in"
+msgid "Log in automatically"
 msgstr ""
 
 #. Type: title
