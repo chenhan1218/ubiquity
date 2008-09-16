@@ -1,5 +1,5 @@
 AC_PREREQ(2.52)
-AC_INIT(ubiquity, 1.9.14, https://launchpad.net/ubuntu/+source/ubiquity/+filebug)
+AC_INIT(ubiquity, 1.9.15, https://launchpad.net/ubuntu/+source/ubiquity/+filebug)
 AC_CONFIG_SRCDIR(src/cut-and-paste/e-map/e-map.c)
 AC_CONFIG_AUX_DIR([build])
 AC_CONFIG_MACRO_DIR([m4])
