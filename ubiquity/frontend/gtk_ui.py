@@ -1732,7 +1732,7 @@ class Wizard(BaseFrontend):
         max_size_mb = int(partition['parted']['size']) / 1000000
         self.partition_create_size_spinbutton.set_adjustment(
             gtk.Adjustment(value=max_size_mb, upper=max_size_mb,
-                           step_incr=1, page_incr=100, page_size=100))
+                           step_incr=1, page_incr=100))
         self.partition_create_size_spinbutton.set_value(max_size_mb)
 
         self.partition_create_place_beginning.set_active(True)
@@ -1837,7 +1837,7 @@ class Wizard(BaseFrontend):
             self.partition_edit_size_spinbutton.set_adjustment(
                 gtk.Adjustment(value=cur_size_mb, lower=min_size_mb,
                                upper=max_size_mb,
-                               step_incr=1, page_incr=100, page_size=100))
+                               step_incr=1, page_incr=100))
             self.partition_edit_size_spinbutton.set_value(cur_size_mb)
             current_size = str(self.partition_edit_size_spinbutton.get_value())
 
