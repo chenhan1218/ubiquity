@@ -2,6 +2,7 @@ oem-config (1.50) UNRELEASED; urgency=low
 
   * Change "Automatically sign in" to "Log in automatically", to match
     wording elsewhere (LP: #266995).
+  * Automatic update of included source packages: localechooser 2.03ubuntu3.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 16 Sep 2008 12:23:42 +0100
 
