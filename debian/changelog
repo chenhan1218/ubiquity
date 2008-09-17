@@ -11,6 +11,8 @@ ubiquity (1.9.16) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Add missing set_disk_layout stub function to the other frontends
     (LP: #271467).
+  * Automatic update of included source packages: partman-partitioning
+    59ubuntu6.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 17 Sep 2008 16:41:57 -0400
 
