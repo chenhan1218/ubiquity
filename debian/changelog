@@ -1,4 +1,4 @@
-ubiquity (1.9.16) UNRELEASED; urgency=low
+ubiquity (1.9.16) intrepid; urgency=low
 
   [ Colin Watson ]
   * GTK frontend:
@@ -14,7 +14,7 @@ ubiquity (1.9.16) UNRELEASED; urgency=low
   * Automatic update of included source packages: partman-partitioning
     59ubuntu6.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 17 Sep 2008 16:41:57 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 17 Sep 2008 16:47:46 -0400
 
 ubiquity (1.9.15) intrepid; urgency=low
 
