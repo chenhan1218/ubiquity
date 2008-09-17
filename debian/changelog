@@ -1,10 +1,10 @@
-ubiquity (1.9.15) UNRELEASED; urgency=low
+ubiquity (1.9.15) intrepid; urgency=low
 
   * GTK frontend:
     - Don't set page_size in GtkAdjustments; as of GTK+ 2.14 it causes the
       value to be clamped to upper - page_size (LP: #264599).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 17 Sep 2008 00:09:58 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 17 Sep 2008 03:06:59 +0100
 
 ubiquity (1.9.14) intrepid; urgency=low
 
