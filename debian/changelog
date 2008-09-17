@@ -3,6 +3,9 @@ ubiquity (1.9.16) UNRELEASED; urgency=low
   * GTK frontend:
     - Put the "before" and "after" partition bars in a table so that they
       line up.
+    - Mark the partition bar on the advanced partitioning page as
+      non-expanding so that it doesn't take up nearly half the available
+      space.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 17 Sep 2008 11:27:39 +0100
 

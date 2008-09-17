@@ -2168,7 +2168,8 @@ class Wizard(BaseFrontend):
                 dev = disk_cache[item]['device']
                 self.partition_bars[dev] = segmented_bar.SegmentedBar()
                 partition_bar = self.partition_bars[dev]
-                self.part_advanced_vbox.pack_start(partition_bar)
+                self.part_advanced_vbox.pack_start(partition_bar,
+                    expand=False, padding=6)
                 self.part_advanced_vbox.reorder_child(partition_bar, 0)
                 total_size[dev] = 0.0
             else:
