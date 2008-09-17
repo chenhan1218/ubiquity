@@ -1178,6 +1178,9 @@ class Wizard(BaseFrontend):
         else:
             return None
 
+    def set_disk_layout(self, layout):
+        pass
+
     def set_autopartition_choices (self, choices, extra_options,
                                    resize_choice, manual_choice):
         BaseFrontend.set_autopartition_choices(self, choices, extra_options,

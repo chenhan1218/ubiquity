@@ -271,6 +271,9 @@ class Wizard(BaseFrontend):
 
     # ubiquity.components.partman
 
+    def set_disk_layout(self, layout):
+        pass
+
     def set_autopartition_choices(self, choices, extra_options,
                                   resize_choice, manual_choice):
         """Set available autopartitioning choices."""

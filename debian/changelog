@@ -1,5 +1,6 @@
 ubiquity (1.9.16) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * GTK frontend:
     - Put the "before" and "after" partition bars in a table so that they
       line up.
@@ -7,7 +8,11 @@ ubiquity (1.9.16) UNRELEASED; urgency=low
       non-expanding so that it doesn't take up nearly half the available
       space.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 17 Sep 2008 11:27:39 +0100
+  [ Evan Dandrea ]
+  * Add missing set_disk_layout stub function to the other frontends
+    (LP: #271467).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 17 Sep 2008 16:41:57 -0400
 
 ubiquity (1.9.15) intrepid; urgency=low
 
