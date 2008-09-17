@@ -1,3 +1,11 @@
+ubiquity (1.9.16) UNRELEASED; urgency=low
+
+  * GTK frontend:
+    - Put the "before" and "after" partition bars in a table so that they
+      line up.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 17 Sep 2008 11:27:39 +0100
+
 ubiquity (1.9.15) intrepid; urgency=low
 
   * GTK frontend:

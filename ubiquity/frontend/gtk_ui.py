@@ -1448,23 +1448,23 @@ class Wizard(BaseFrontend):
         for child in self.autopartition_vbox.get_children():
             self.autopartition_vbox.remove(child)
 
-        hb = gtk.HBox()
-        # TODO: i18n
-        hb.pack_start(gtk.Label('After:'), expand=False)
-        self.action_bar = segmented_bar.SegmentedBar()
-        self.action_bar.h_padding = self.action_bar.bar_height / 2
-        hb.pack_start(self.action_bar)
-        self.autopartition_vbox.add(hb)
-        self.autopartition_vbox.reorder_child(hb, 0)
+        table = gtk.Table(2, 2)
 
-        hb = gtk.HBox()
         # TODO: i18n
-        hb.pack_start(gtk.Label('Before:'), expand=False)
+        table.attach(gtk.Label('Before:'), 0, 1, 0, 1,
+                     xoptions=gtk.FILL, yoptions=0)
         self.before_bar = segmented_bar.SegmentedBar()
         self.before_bar.h_padding = self.before_bar.bar_height / 2
-        hb.pack_start(self.before_bar)
-        self.autopartition_vbox.add(hb)
-        self.autopartition_vbox.reorder_child(hb, 0)
+        table.attach(self.before_bar, 1, 2, 0, 1, yoptions=0)
+
+        # TODO: i18n
+        table.attach(gtk.Label('After:'), 0, 1, 1, 2,
+                     xoptions=gtk.FILL, yoptions=0)
+        self.action_bar = segmented_bar.SegmentedBar()
+        self.action_bar.h_padding = self.action_bar.bar_height / 2
+        table.attach(self.action_bar, 1, 2, 1, 2, yoptions=0)
+
+        self.autopartition_vbox.add(table)
 
         firstbutton = None
         extra_buttons = []
