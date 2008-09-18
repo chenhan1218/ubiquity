@@ -1,9 +1,9 @@
-ubiquity (1.9.17) UNRELEASED; urgency=low
+ubiquity (1.9.17) intrepid; urgency=low
 
   * Call apt-setup with --log-output, since it breaks otherwise as of
     apt-setup 1:0.36 (LP: #271693).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 18 Sep 2008 13:50:04 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 18 Sep 2008 14:50:56 +0100
 
 ubiquity (1.9.16) intrepid; urgency=low
 
