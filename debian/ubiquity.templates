@@ -222,6 +222,18 @@ _Description:
  include the following detail in your bug report, and attach the files
  /var/log/syslog and /var/log/partman:
 
+Template: ubiquity/text/partition_layout_before
+Type: text
+# Displayed next to a graphical bar depicting the state of the disk before
+# automatic partitioning.
+_Description: Before:
+
+Template: ubiquity/text/partition_layout_after
+Type: text
+# Displayed next to a graphical bar depicting the state of the disk after
+# automatic partitioning.
+_Description: After:
+
 Template: ubiquity/text/partition_button_new_label
 Type: text
 # An action, displayed on a button or as a menu item.

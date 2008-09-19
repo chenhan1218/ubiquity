@@ -1450,16 +1450,14 @@ class Wizard(BaseFrontend):
 
         table = gtk.Table(2, 2)
 
-        # TODO: i18n
-        table.attach(gtk.Label('Before:'), 0, 1, 0, 1,
-                     xoptions=gtk.FILL, yoptions=0)
+        table.attach(gtk.Label(self.get_string('partition_layout_before')),
+                     0, 1, 0, 1, xoptions=gtk.FILL, yoptions=0)
         self.before_bar = segmented_bar.SegmentedBar()
         self.before_bar.h_padding = self.before_bar.bar_height / 2
         table.attach(self.before_bar, 1, 2, 0, 1, yoptions=0)
 
-        # TODO: i18n
-        table.attach(gtk.Label('After:'), 0, 1, 1, 2,
-                     xoptions=gtk.FILL, yoptions=0)
+        table.attach(gtk.Label(self.get_string('partition_layout_after')),
+                     0, 1, 1, 2, xoptions=gtk.FILL, yoptions=0)
         self.action_bar = segmented_bar.SegmentedBar()
         self.action_bar.h_padding = self.action_bar.bar_height / 2
         table.attach(self.action_bar, 1, 2, 1, 2, yoptions=0)

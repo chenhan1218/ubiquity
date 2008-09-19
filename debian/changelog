@@ -1,3 +1,10 @@
+ubiquity (1.9.19) UNRELEASED; urgency=low
+
+  * Make "Before:" and "After:" strings (displayed next to partition bars)
+    translatable.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 19 Sep 2008 14:17:08 +0100
+
 ubiquity (1.9.18) intrepid; urgency=low
 
   * Start dbus and (in the case of the GTK frontend) gconfd in only-ubiquity
