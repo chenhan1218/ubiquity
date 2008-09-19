@@ -1,4 +1,4 @@
-ubiquity (1.9.18) UNRELEASED; urgency=low
+ubiquity (1.9.18) intrepid; urgency=low
 
   * Start dbus and (in the case of the GTK frontend) gconfd in only-ubiquity
     mode (LP: #261073). I'm not entirely certain that accessibility will
@@ -6,7 +6,7 @@ ubiquity (1.9.18) UNRELEASED; urgency=low
   * Set OVERRIDE_SHOW_ALL_LANGUAGES while calling localechooser on the
     timezone page as well as on the language page itself (LP: #253749).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 18 Sep 2008 17:59:04 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 19 Sep 2008 02:48:36 +0100
 
 ubiquity (1.9.17) intrepid; urgency=low
 
