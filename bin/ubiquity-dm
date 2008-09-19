@@ -130,7 +130,8 @@ class DM:
             dbus_subp.wait()
 
         gconfd_running = False
-        if osextras.find_on_path('gconftool-2'):
+        if ((self.frontend == 'gtk_ui' or self.frontend == 'mythbuntu_ui') and
+            osextras.find_on_path('gconftool-2')):
             subprocess.call(['gconftool-2', '--spawn'],
                             stdin=null, stdout=logfile, stderr=logfile,
                             preexec_fn=self.drop_privileges)
