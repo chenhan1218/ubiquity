@@ -3,6 +3,7 @@ ubiquity (1.9.19) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Make "Before:" and "After:" strings (displayed next to partition bars)
     translatable.
+  * Improve logging of exception tracebacks in find_in_os_prober.
 
   [ Mario Limonciello ]
   * Mythbuntu Frontend:

@@ -20,12 +20,16 @@ def find_in_os_prober(device):
                 res = res.split(':')
                 find_in_os_prober.oslist[res[0]] = res[1]
         return find_in_os_prober.oslist[device]
-    except Exception, e:
-        syslog.syslog(syslog.LOG_ERR,
-            "Error in find_in_os_prober: %s" % str(e))
-        return ''
+    except (KeyboardInterrupt, SystemExit):
+        pass
+    except:
+        import traceback
+        syslog.syslog(syslog.LOG_ERR, "Error in find_in_os_prober:")
+        for line in traceback.format_exc().split('\n'):
+            syslog.syslog(syslog.LOG_ERR, line)
     finally:
         drop_privileges()
+    return ''
 find_in_os_prober.oslist = {}
 
 def execute(*args):
