@@ -19,7 +19,10 @@ def find_in_os_prober(device):
             for res in result:
                 res = res.split(':')
                 find_in_os_prober.oslist[res[0]] = res[1]
-        return find_in_os_prober.oslist[device]
+        if device in find_in_os_prober.oslist:
+            return find_in_os_prober.oslist[device]
+        else:
+            syslog.syslog("Device %s not found in os-prober output" % device)
     except (KeyboardInterrupt, SystemExit):
         pass
     except:
