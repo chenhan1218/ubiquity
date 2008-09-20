@@ -400,11 +400,13 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.transmitter_count = 0
             self.lirc=LircHandler()
             for item in self.lirc.get_possible_devices("remote"):
-                self.remote_list.append_text(item)
-                self.remote_count = self.remote_count + 1
+                if "Custom" not in item and "Blaster" not in item:
+                    self.remote_list.append_text(item)
+                    self.remote_count = self.remote_count + 1
             for item in self.lirc.get_possible_devices("transmitter"):
-                self.transmitter_list.append_text(item)
-                self.transmitter_count = self.transmitter_count + 1
+                if "Custom" not in item:
+                    self.transmitter_list.append_text(item)
+                    self.transmitter_count = self.transmitter_count + 1
             self.remote_list.set_active(0)
             self.transmitter_list.set_active(0)
 

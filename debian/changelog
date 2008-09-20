@@ -5,9 +5,10 @@ ubiquity (1.9.19) UNRELEASED; urgency=low
     translatable.
 
   [ Mario Limonciello ]
-  * scripts/mythbuntu/apply-drivers:
+  * Mythbuntu Frontend:
     - Run the "real" depmod once if we're adding a driver that got
       built on the live cd using DKMS. (LP: #268619)
+    - Don't allow "custom" remotes during install (LP: #231823)
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 19 Sep 2008 14:17:08 +0100
 
