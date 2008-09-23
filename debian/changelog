@@ -6,6 +6,8 @@ ubiquity (1.9.19) UNRELEASED; urgency=low
   * Improve logging of exception tracebacks in find_in_os_prober.
   * Just log an informative message when a device isn't found in os-prober's
     output, not a traceback.
+  * KDE frontend:
+    - Set layout direction when changing language (LP: #272376).
 
   [ Mario Limonciello ]
   * Mythbuntu Frontend:

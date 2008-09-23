@@ -461,6 +461,18 @@ class Wizard(BaseFrontend):
         self.userinterface.password_debug_warning_label.setVisible(
             'UBIQUITY_DEBUG' in os.environ)
 
+    def set_layout_direction(self, lang=None):
+        if not lang:
+            lang = self.locale
+        # TODO: At the moment we have to special-case languages. This will
+        # be easier to fix when we move to cdebconf and have the
+        # debconf/text-direction template easily available.
+        if lang.startswith('ar') or lang.startswith('he'):
+            direction = Qt.RightToLeft
+        else:
+            direction = Qt.LeftToRight
+        self.app.setLayoutDirection(direction)
+
     def translate_widgets(self, parentWidget=None):
         if self.locale is None:
             languages = []
@@ -481,6 +493,12 @@ class Wizard(BaseFrontend):
             url = self.release_notes_url_template.replace('${LANG}', self.locale.split('.')[0])
             text = self.get_string('release_notes_url')
             self.release_notes_url.setText('<a href="%s">%s</a>' % (url, text))
+
+        if self.locale.startswith('ar') or self.locale.startswith('he'):
+            direction = Qt.RightToLeft
+        else:
+            direction = Qt.LeftToRight
+        self.set_layout_direction()
 
     def translate_widget_children(self, parentWidget=None):
         if parentWidget == None:
@@ -958,6 +976,7 @@ class Wizard(BaseFrontend):
             lang = lang.split('.')[0].lower()
             for widget in (self.userinterface, self.userinterface.welcome_heading_label, self.userinterface.welcome_text_label, self.userinterface.oem_id_label, self.userinterface.release_notes_label, self.userinterface.release_notes_frame, self.userinterface.next, self.userinterface.back, self.userinterface.quit, self.userinterface.step_label):
                 self.translate_widget(widget, lang)
+            self.set_layout_direction(lang)
 
     def on_steps_switch_page(self, newPageID):
         self.current_page = newPageID
