@@ -1,4 +1,4 @@
-ubiquity (1.9.19) UNRELEASED; urgency=low
+ubiquity (1.9.19) intrepid; urgency=low
 
   [ Colin Watson ]
   * Make "Before:" and "After:" strings (displayed next to partition bars)
@@ -20,7 +20,7 @@ ubiquity (1.9.19) UNRELEASED; urgency=low
       built on the live cd using DKMS. (LP: #268619)
     - Don't allow "custom" remotes during install (LP: #231823)
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 19 Sep 2008 14:17:08 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 24 Sep 2008 12:31:35 +0100
 
 ubiquity (1.9.18) intrepid; urgency=low
 
