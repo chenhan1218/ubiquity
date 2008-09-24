@@ -10,6 +10,9 @@ ubiquity (1.9.19) UNRELEASED; urgency=low
     - Set layout direction when changing language (LP: #272376).
   * Remove stray closing parenthesis in ubiquity-dm (thanks, Agostino
     Russo).
+  * Automatic update of included source packages: partman-base 121ubuntu6,
+    partman-ext3 52ubuntu2, partman-reiserfs 41ubuntu2, yaboot-installer
+    1.1.12ubuntu2.
 
   [ Mario Limonciello ]
   * Mythbuntu Frontend:
