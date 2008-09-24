@@ -8,6 +8,8 @@ ubiquity (1.9.19) UNRELEASED; urgency=low
     output, not a traceback.
   * KDE frontend:
     - Set layout direction when changing language (LP: #272376).
+  * Remove stray closing parenthesis in ubiquity-dm (thanks, Agostino
+    Russo).
 
   [ Mario Limonciello ]
   * Mythbuntu Frontend:

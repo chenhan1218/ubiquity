@@ -176,7 +176,7 @@ class DM:
             fp.close()
 
         if self.frontend in ('gtk_ui', 'mythbuntu_ui'):
-            if gconfd_running and osextras.find_on_path('metacity')):
+            if gconfd_running and osextras.find_on_path('metacity'):
                 wm = subprocess.Popen(['metacity', '--sm-disable'],
                     stdin=null, stdout=logfile, stderr=logfile,
                     **maybe_drop_privileges)
