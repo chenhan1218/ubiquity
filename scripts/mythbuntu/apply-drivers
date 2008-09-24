@@ -212,7 +212,7 @@ if [ "$PROP" != "Open Source Driver" ]; then
 
     #Starting w/ intrepid, we need to build the modules
     #for nv/amd ourselves.  this means depmod must be
-    #ran once rather than overloaded with a fake one
+    #run once rather than overloaded with a fake one
     $log $chroot $ROOT /sbin/depmod -a
 
     #Work out a config that should be fairly generic
