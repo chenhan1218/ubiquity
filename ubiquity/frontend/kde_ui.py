@@ -494,10 +494,6 @@ class Wizard(BaseFrontend):
             text = self.get_string('release_notes_url')
             self.release_notes_url.setText('<a href="%s">%s</a>' % (url, text))
 
-        if self.locale.startswith('ar') or self.locale.startswith('he'):
-            direction = Qt.RightToLeft
-        else:
-            direction = Qt.LeftToRight
         self.set_layout_direction()
 
     def translate_widget_children(self, parentWidget=None):
