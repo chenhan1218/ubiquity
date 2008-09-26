@@ -1,7 +1,12 @@
 ubiquity (1.10.0) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Use a normal color for the partition bar when use entire disk is
     selected (LP: #273271).
+
+  [ Colin Watson ]
+  * Don't mark partman questions as seen when we expect them to be asked
+    again (LP: #182004).
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 26 Sep 2008 12:15:59 -0400
 

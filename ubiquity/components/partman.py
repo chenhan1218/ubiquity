@@ -157,7 +157,7 @@ class Partman(FilteredCommand):
                        want_script, want_arg=None):
         (script, arg, option) = self.must_find_one_script(
             question, menu_options, want_script, want_arg)
-        self.preseed(question, option)
+        self.preseed(question, option, seen=False)
 
     def split_devpart(self, devpart):
         dev, part_id = devpart.split('//', 1)
@@ -371,7 +371,7 @@ class Partman(FilteredCommand):
                 # it doesn't expand variables in the result of METAGET
                 # choices-c. All locales have the same variables anyway so
                 # it doesn't matter.
-                self.preseed(question, self.auto_state[1])
+                self.preseed(question, self.auto_state[1], seen=False)
                 self.succeeded = True
                 return True
             else:
@@ -417,7 +417,7 @@ class Partman(FilteredCommand):
                 return False
             else:
                 assert self.extra_choice is not None
-                self.preseed(question, self.extra_choice)
+                self.preseed(question, self.extra_choice, seen=False)
                 self.succeeded = True
                 return True
 
@@ -457,7 +457,8 @@ class Partman(FilteredCommand):
                         partition = self.partition_cache[state[1]]
                         self.debug('Partman: Building cache (%s)',
                                    partition['parted']['path'])
-                        self.preseed(question, partition['display'])
+                        self.preseed(question, partition['display'],
+                                     seen=False)
                         return True
                     else:
                         # Finished building the cache.
@@ -581,7 +582,8 @@ class Partman(FilteredCommand):
                         self.debug('Partman: Building cache (%s)',
                                    partition['parted']['path'])
                         self.__state.append([question, devpart, None])
-                        self.preseed(question, partition['display'])
+                        self.preseed(question, partition['display'],
+                                     seen=False)
                         return True
                     else:
                         self.debug('Partman: Finished building cache '
@@ -641,7 +643,7 @@ class Partman(FilteredCommand):
                 if devpart in self.disk_cache:
                     disk = self.disk_cache[devpart]
                     # No need to use self.__state to keep track of this.
-                    self.preseed(question, disk['display'])
+                    self.preseed(question, disk['display'], seen=False)
                 return True
 
             elif self.creating_partition:
@@ -649,7 +651,7 @@ class Partman(FilteredCommand):
                 if devpart in self.partition_cache:
                     partition = self.partition_cache[devpart]
                     self.__state.append([question, devpart, None])
-                    self.preseed(question, partition['display'])
+                    self.preseed(question, partition['display'], seen=False)
                 return True
 
             elif self.editing_partition:
@@ -657,7 +659,7 @@ class Partman(FilteredCommand):
                 if devpart in self.partition_cache:
                     partition = self.partition_cache[devpart]
                     self.__state.append([question, devpart, None])
-                    self.preseed(question, partition['display'])
+                    self.preseed(question, partition['display'], seen=False)
                 return True
 
             elif self.deleting_partition:
@@ -665,7 +667,7 @@ class Partman(FilteredCommand):
                 if devpart in self.partition_cache:
                     partition = self.partition_cache[devpart]
                     # No need to use self.__state to keep track of this.
-                    self.preseed(question, partition['display'])
+                    self.preseed(question, partition['display'], seen=False)
                 return True
 
             elif self.undoing:
@@ -683,9 +685,9 @@ class Partman(FilteredCommand):
                     self.extended_description(question),
                     ('ubiquity/text/go_back', 'ubiquity/text/continue'))
                 if response is None or response == 'ubiquity/text/continue':
-                    self.preseed(question, 'true')
+                    self.preseed(question, 'true', seen=False)
                 else:
-                    self.preseed(question, 'false')
+                    self.preseed(question, 'false', seen=False)
                 return True
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
@@ -715,7 +717,7 @@ class Partman(FilteredCommand):
                 if re.search(r'^[0-9.]+$', size):
                     # ensure megabytes just in case partman's semantics change
                     size += 'M'
-                self.preseed(question, size)
+                self.preseed(question, size, seen=False)
                 return True
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
@@ -723,9 +725,9 @@ class Partman(FilteredCommand):
         elif question == 'partman-partitioning/new_partition_type':
             if self.creating_partition:
                 if self.creating_partition['type'] == PARTITION_TYPE_PRIMARY:
-                    self.preseed(question, 'Primary')
+                    self.preseed(question, 'Primary', seen=False)
                 else:
-                    self.preseed(question, 'Logical')
+                    self.preseed(question, 'Logical', seen=False)
                 return True
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
@@ -734,9 +736,9 @@ class Partman(FilteredCommand):
             if self.creating_partition:
                 if (self.creating_partition['place'] ==
                     PARTITION_PLACE_BEGINNING):
-                    self.preseed(question, 'Beginning')
+                    self.preseed(question, 'Beginning', seen=False)
                 else:
-                    self.preseed(question, 'End')
+                    self.preseed(question, 'End', seen=False)
                 return True
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
@@ -751,7 +753,7 @@ class Partman(FilteredCommand):
                     if state[2] < len(partition['active_partition_build']):
                         # Move on to the next item.
                         visit = partition['active_partition_build']
-                        self.preseed(question, visit[state[2]][2])
+                        self.preseed(question, visit[state[2]][2], seen=False)
                         return True
                     else:
                         # Finished building the cache for this submenu; go
@@ -790,7 +792,7 @@ class Partman(FilteredCommand):
                 if visit:
                     partition['active_partition_build'] = visit
                     self.__state.append([question, state[1], 0])
-                    self.preseed(question, visit[0][2])
+                    self.preseed(question, visit[0][2], seen=False)
                     return True
                 else:
                     # Back up to the previous menu.
@@ -825,7 +827,7 @@ class Partman(FilteredCommand):
                     item = visit[state[2]]
                     scripts = self.find_script(menu_options, None, item)
                     if scripts:
-                        self.preseed(question, scripts[0][2])
+                        self.preseed(question, scripts[0][2], seen=False)
                         return True
                     state[2] += 1
 
@@ -852,7 +854,7 @@ class Partman(FilteredCommand):
                 if self.auto_state is not None:
                     # Proceed through confirmation question; we'll back up
                     # later.
-                    self.preseed(question, 'true')
+                    self.preseed(question, 'true', seen=False)
                     return True
                 else:
                     response = self.frontend.question_dialog(
@@ -861,16 +863,16 @@ class Partman(FilteredCommand):
                         ('ubiquity/text/go_back', 'ubiquity/text/continue'))
                     if (response is None or
                         response == 'ubiquity/text/continue'):
-                        self.preseed(question, 'true')
+                        self.preseed(question, 'true', seen=False)
                     else:
-                        self.preseed(question, 'false')
+                        self.preseed(question, 'false', seen=False)
                     return True
             elif self.building_cache:
                 state = self.__state[-1]
                 assert state[0] == 'partman/active_partition'
                 # Proceed through to asking for the size; don't worry, we'll
                 # back up from there.
-                self.preseed(question, 'true')
+                self.preseed(question, 'true', seen=False)
                 return True
             elif self.editing_partition:
                 response = self.frontend.question_dialog(
@@ -878,9 +880,9 @@ class Partman(FilteredCommand):
                     self.extended_description(question),
                     ('ubiquity/text/go_back', 'ubiquity/text/continue'))
                 if response is None or response == 'ubiquity/text/continue':
-                    self.preseed(question, 'true')
+                    self.preseed(question, 'true', seen=False)
                 else:
-                    self.preseed(question, 'false')
+                    self.preseed(question, 'false', seen=False)
                 return True
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
@@ -899,7 +901,8 @@ class Partman(FilteredCommand):
                     if self.bad_auto_size:
                         self.bad_auto_size = False
                         return False
-                    self.preseed(question, '%d%%' % self.extra_choice)
+                    self.preseed(question, '%d%%' % self.extra_choice,
+                                 seen=False)
                     self.succeeded = True
                     return True
             elif self.building_cache:
@@ -913,7 +916,7 @@ class Partman(FilteredCommand):
                 if re.search(r'^[0-9.]+$', size):
                     # ensure megabytes just in case partman's semantics change
                     size += 'M'
-                self.preseed(question, size)
+                self.preseed(question, size, seen=False)
                 return True
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
@@ -967,9 +970,9 @@ class Partman(FilteredCommand):
                 mountpoint = request['mountpoint']
 
                 if mountpoint == '' or mountpoint is None:
-                    self.preseed(question, 'Do not mount it')
+                    self.preseed(question, 'Do not mount it', seen=False)
                 else:
-                    self.preseed(question, 'Enter manually')
+                    self.preseed(question, 'Enter manually', seen=False)
                 return True
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
@@ -983,7 +986,7 @@ class Partman(FilteredCommand):
                 if 'bad_mountpoint' in request:
                     return False
 
-                self.preseed(question, request['mountpoint'])
+                self.preseed(question, request['mountpoint'], seen=False)
                 return True
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
@@ -993,7 +996,7 @@ class Partman(FilteredCommand):
                 self.db.set('ubiquity/partman-made-changes', 'true')
             else:
                 self.db.set('ubiquity/partman-made-changes', 'false')
-            self.preseed(question, 'true')
+            self.preseed(question, 'true', seen=False)
             self.succeeded = True
             self.done = True
             return True
@@ -1004,9 +1007,9 @@ class Partman(FilteredCommand):
                     self.description(question),
                     self.extended_description(question),
                     self.choices(question), use_templates=False)
-                self.preseed(question, response)
+                self.preseed(question, response, seen=False)
             else:
-                self.preseed(question, 'unhandled')
+                self.preseed(question, 'unhandled', seen=False)
             return True
 
         elif question == 'partman/exception_handler_note':
@@ -1032,9 +1035,9 @@ class Partman(FilteredCommand):
             else:
                 answer = not answer_reversed
             if answer:
-                self.preseed(question, 'true')
+                self.preseed(question, 'true', seen=False)
             else:
-                self.preseed(question, 'false')
+                self.preseed(question, 'false', seen=False)
             return True
 
         return FilteredCommand.run(self, priority, question)
