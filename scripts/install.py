@@ -553,7 +553,7 @@ class Install:
         # at file copy time, we should figure out why grub still fails when
         # apt-install-direct is present during configure_bootloader (code
         # removed).
-        if subarch.startswith('amd64/') or subarch.startswith('i386/'):
+        if subarch.startswith('amd64/') or subarch.startswith('i386/') or subarch.startswith('lpia/'):
             difference -= set(['grub'])
         elif subarch == 'powerpc/ps3':
             pass
@@ -1559,7 +1559,7 @@ exit 0"""
             subarch = archdetect.communicate()[0].strip()
 
             try:
-                if subarch.startswith('amd64/') or subarch.startswith('i386/'):
+                if subarch.startswith('amd64/') or subarch.startswith('i386/') or subarch.startswith('lpia/'):
                     from ubiquity.components import grubinstaller
                     dbfilter = grubinstaller.GrubInstaller(None)
                     ret = dbfilter.run_command(auto_process=True)
