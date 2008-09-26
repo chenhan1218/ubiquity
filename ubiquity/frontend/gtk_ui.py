@@ -1164,7 +1164,7 @@ class Wizard(BaseFrontend):
                 # once at the start of the installer.
                 # FIXME: Ugly.
                 self.action_bar.add_segment_rgb('Ubuntu 8.10', 1, \
-                    self.action_bar.remainder_color)
+                    self.auto_colors[0])
                 for b in extra_buttons:
                     if b.get_active():
                         t = unicode(b.get_label(), 'utf-8', 'replace')

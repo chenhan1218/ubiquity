@@ -1,3 +1,10 @@
+ubiquity (1.10.0) UNRELEASED; urgency=low
+
+  * Use a normal color for the partition bar when use entire disk is
+    selected (LP: #273271).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 26 Sep 2008 12:15:59 -0400
+
 ubiquity (1.9.19) intrepid; urgency=low
 
   [ Colin Watson ]
