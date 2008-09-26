@@ -7,6 +7,7 @@ ubiquity (1.10.0) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Don't mark partman questions as seen when we expect them to be asked
     again (LP: #182004).
+  * Set GtkAdjustment page_size to zero in Glade files too.
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 26 Sep 2008 12:15:59 -0400
 
