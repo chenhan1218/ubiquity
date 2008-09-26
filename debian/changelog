@@ -9,6 +9,9 @@ ubiquity (1.10.0) UNRELEASED; urgency=low
     again (LP: #182004).
   * Set GtkAdjustment page_size to zero in Glade files too.
 
+  [ Emmet Hikory ]
+  * install.py: use grub-installer as the boot loader for lpia (LP: #274785)
+
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 26 Sep 2008 12:15:59 -0400
 
 ubiquity (1.9.19) intrepid; urgency=low
