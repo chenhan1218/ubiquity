@@ -3,6 +3,9 @@ ubiquity (1.10.0) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Use a normal color for the partition bar when use entire disk is
     selected (LP: #273271).
+  * Automatic update of included source packages: debian-installer-utils
+    1.59ubuntu3, grub-installer 1.32ubuntu6, hw-detect 1.63ubuntu3,
+    user-setup 1.20ubuntu7.
 
   [ Colin Watson ]
   * Don't mark partman questions as seen when we expect them to be asked
