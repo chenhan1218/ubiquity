@@ -1,4 +1,4 @@
-ubiquity (1.10.0) UNRELEASED; urgency=low
+ubiquity (1.10.0) intrepid; urgency=low
 
   [ Evan Dandrea ]
   * Use a normal color for the partition bar when use entire disk is
@@ -15,7 +15,7 @@ ubiquity (1.10.0) UNRELEASED; urgency=low
   [ Emmet Hikory ]
   * install.py: use grub-installer as the boot loader for lpia (LP: #274785)
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 26 Sep 2008 12:15:59 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Sat, 27 Sep 2008 00:43:05 -0400
 
 ubiquity (1.9.19) intrepid; urgency=low
 
