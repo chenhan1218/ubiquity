@@ -1,3 +1,10 @@
+ubiquity (1.10.2) UNRELEASED; urgency=low
+
+  * Only show the "EFI boot partition" option while creating a partition if
+    the current hardware supports it usefully.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 29 Sep 2008 19:06:04 +0100
+
 ubiquity (1.10.1) intrepid; urgency=low
 
   * Revert part of intltool 0.40.4 change (described in bug 275795) that

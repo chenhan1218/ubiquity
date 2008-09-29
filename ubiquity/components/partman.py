@@ -220,6 +220,9 @@ class Partman(FilteredCommand):
             elif method == 'dont_use':
                 question = 'partman-basicmethods/text/dont_use'
                 yield (method, 'dontuse', self.description(question))
+            elif method == 'efi':
+                if os.path.exists('/var/lib/partman/efi'):
+                    yield (method, method, self.method_description(method))
             else:
                 yield (method, method, self.method_description(method))
 
