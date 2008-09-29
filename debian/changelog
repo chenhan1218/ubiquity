@@ -1,9 +1,9 @@
-ubiquity (1.10.1) UNRELEASED; urgency=low
+ubiquity (1.10.1) intrepid; urgency=low
 
   * Revert part of intltool 0.40.4 change (described in bug 275795) that
     caused top_builddir not to be set in po/Makefile.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 29 Sep 2008 12:40:03 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 29 Sep 2008 12:47:52 +0100
 
 ubiquity (1.10.0) intrepid; urgency=low
 
