@@ -18298,11 +18298,17 @@ _LT_EOF
 	'"s|^|	$ac_top_srcdir/|" \
       "$srcdir/po/POTFILES.in" | sed '$!s/$/ \\/' >"po/POTFILES"
 
+    if test ! -f "po/Makefile"; then
+      { { echo "$as_me:$LINENO: error: po/Makefile is not ready." >&5
+echo "$as_me: error: po/Makefile is not ready." >&2;}
+   { (exit 1); exit 1; }; }
+    fi
+    mv "po/Makefile" "po/Makefile.tmp"
     sed '/^POTFILES =/,/[^\\]$/ {
 		/^POTFILES =/!d
 		r po/POTFILES
 	  }
-	 ' "po/Makefile.in" >"po/Makefile"
+	 ' "po/Makefile.tmp" >"po/Makefile"
     rm -f "po/Makefile.tmp"
     mv "po/stamp-it.tmp" "po/stamp-it"
    ;;

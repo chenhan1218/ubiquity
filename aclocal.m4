@@ -374,11 +374,15 @@ AC_CONFIG_COMMANDS_PRE([
 	'"s|^|	$ac_top_srcdir/|" \
       "$srcdir/$1/POTFILES.in" | sed '$!s/$/ \\/' >"$1/POTFILES"
     ]
+    if test ! -f "$1/Makefile"; then
+      AC_MSG_ERROR([$1/Makefile is not ready.])
+    fi
+    mv "$1/Makefile" "$1/Makefile.tmp"
     [sed '/^POTFILES =/,/[^\\]$/ {
 		/^POTFILES =/!d
 		r $1/POTFILES
 	  }
-	 ' "$1/Makefile.in" >"$1/Makefile"]
+	 ' "$1/Makefile.tmp" >"$1/Makefile"]
     rm -f "$1/Makefile.tmp"
     mv "$1/stamp-it.tmp" "$1/stamp-it"
   ])
