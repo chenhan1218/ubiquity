@@ -1,3 +1,13 @@
+ubiquity (1.10.2) UNRELEASED; urgency=low
+
+  * Initialise auto-login checkbox from debconf database (LP: #276247).
+  * Add some more grub pieces on lpia.
+  * Add ntfsprogs dependency on lpia.
+  * Automatic update of included source packages: partman-partitioning
+    59ubuntu7.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 30 Sep 2008 18:44:49 +0100
+
 ubiquity (1.10.1) intrepid; urgency=low
 
   * Revert part of intltool 0.40.4 change (described in bug 275795) that

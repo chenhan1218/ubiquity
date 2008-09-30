@@ -19,7 +19,7 @@ partman-efi 17ubuntu2
 partman-ext3 52ubuntu2
 partman-jfs 26ubuntu1
 partman-newworld 19ubuntu1
-partman-partitioning 59ubuntu6
+partman-partitioning 59ubuntu7
 partman-reiserfs 41ubuntu2
 partman-target 55ubuntu3
 partman-xfs 41ubuntu1

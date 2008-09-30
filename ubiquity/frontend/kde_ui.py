@@ -1808,6 +1808,11 @@ class Wizard(BaseFrontend):
     def get_verified_password(self):
         return unicode(self.userinterface.verified_password.text())
 
+    def set_auto_login(self, value):
+        if value:
+            syslog.syslog(syslog.LOG_WARNING,
+                          "KDE frontend does not support auto-login yet")
+
     def get_auto_login(self):
         return False
 

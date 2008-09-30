@@ -2342,6 +2342,9 @@ class Wizard(BaseFrontend):
     def get_verified_password(self):
         return self.verified_password.get_text()
 
+    def set_auto_login(self, value):
+        self.auto_login.set_active(value)
+
     def get_auto_login(self):
         return self.auto_login.get_active()
 
