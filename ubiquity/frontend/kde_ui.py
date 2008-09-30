@@ -1401,13 +1401,13 @@ class Wizard(BaseFrontend):
         # question is going to be asked.
 
         if partition['parted']['type'] == 'pri/log':
-            # Is there already an extended partition?
+            # Is there already a primary or an extended partition?
             for child in self.partition_tree_model.children():
                 data = child.itemData
                 otherpart = data[1]
                 if (otherpart['dev'] == partition['dev'] and
                     'id' in otherpart and
-                    otherpart['parted']['type'] == 'logical'):
+                    otherpart['parted']['type'] in ('primary', 'logical')):
                     self.create_dialog.partition_create_type_logical.setChecked(True)
                     break
             else:
