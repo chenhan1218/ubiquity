@@ -46,6 +46,11 @@ class UserSetup(FilteredCommand):
                     self.frontend.set_username(username)
             except debconf.DebconfError:
                 pass
+        try:
+            auto_login = self.db.get('passwd/auto-login')
+            self.frontend.set_auto_login(auto_login == 'true')
+        except debconf.DebconfError:
+            pass
 
         questions = ['^passwd/user-fullname$', '^passwd/username$',
                      '^passwd/user-password$', '^passwd/user-password-again$',

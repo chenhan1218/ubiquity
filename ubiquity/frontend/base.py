@@ -369,6 +369,10 @@ class BaseFrontend:
         """Get the user's password confirmation."""
         self._abstract('get_password')
 
+    def set_auto_login(self, value):
+        """Set whether the user should be automatically logged in."""
+        self._abstract('set_auto_login')
+
     def get_auto_login(self):
         """Returns true if the user should be automatically logged in."""
         self._abstract('get_auto_login')
