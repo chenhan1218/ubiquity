@@ -1,4 +1,4 @@
-ubiquity (1.10.2) UNRELEASED; urgency=low
+ubiquity (1.10.3) UNRELEASED; urgency=low
 
   * Only show the "EFI boot partition" option while creating a partition if
     the current hardware supports it usefully.
@@ -6,13 +6,18 @@ ubiquity (1.10.2) UNRELEASED; urgency=low
     already exists, since there are stricter constraints on primary
     partitions and the only real reasons for them are Microsoft operating
     systems or boot partitions (LP: #218938).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 30 Sep 2008 19:00:58 +0100
+
+ubiquity (1.10.2) intrepid; urgency=low
+
   * Initialise auto-login checkbox from debconf database (LP: #276247).
   * Add some more grub pieces on lpia.
   * Add ntfsprogs dependency on lpia.
   * Automatic update of included source packages: partman-partitioning
     59ubuntu7.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 29 Sep 2008 19:06:04 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 30 Sep 2008 18:47:01 +0100
 
 ubiquity (1.10.1) intrepid; urgency=low
 
