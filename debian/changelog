@@ -9,6 +9,8 @@ ubiquity (1.10.2) UNRELEASED; urgency=low
   * Initialise auto-login checkbox from debconf database (LP: #276247).
   * Add some more grub pieces on lpia.
   * Add ntfsprogs dependency on lpia.
+  * Automatic update of included source packages: partman-partitioning
+    59ubuntu7.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 29 Sep 2008 19:06:04 +0100
 
