@@ -601,7 +601,10 @@ class Install:
         self.db.progress('START', 0, 100, 'ubiquity/install/title')
         self.db.progress('INFO', 'ubiquity/install/scanning')
 
-        self.generate_blacklist()
+        # This causes problems with language packs. We'll fix this for
+        # Ubuntu 8.10, but let's just back this part out for the beta.
+        #self.generate_blacklist()
+        self.blacklist = {}
         # Obviously doing os.walk() twice is inefficient, but I'd rather not
         # suck the list into ubiquity's memory, and I'm guessing that the
         # kernel's dentry cache will avoid most of the slowness anyway.
