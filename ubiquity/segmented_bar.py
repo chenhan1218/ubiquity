@@ -243,6 +243,7 @@ class SegmentedBar(gtk.Widget):
         self.remainder_color = 'eeeeee'
 
     def add_segment(self, title, percent, color, show_in_bar=True):
+        self.do_size_allocate(self.get_allocation())
         self.segments.append(self.Segment(title, percent, color, show_in_bar))
         self.queue_draw()
 
@@ -295,8 +296,6 @@ class SegmentedBar(gtk.Widget):
     #    self.window.destroy()
 
     def compute_layout_size(self):
-        if len(self.segments) == 0:
-            return
         layout = None
         self.layout_height = 0
         self.layout_width = 0
@@ -307,7 +306,7 @@ class SegmentedBar(gtk.Widget):
             aw, ah = layout.get_pixel_size()
             
             layout = self.create_adapt_layout(layout, True, False)
-            layout.set_text('%d%%' % (self.segments[i].percent * 100))
+            layout.set_text('%d%%' % round(self.segments[i].percent * 100))
             bw, bh = layout.get_pixel_size()
 
             w = max(aw, bw)
@@ -325,7 +324,6 @@ class SegmentedBar(gtk.Widget):
                     self.segments[i].layout_width + self.segment_box_size + \
                     self.segment_box_spacing + 0
             self.layout_height = max(self.layout_height, self.segments[i].layout_height)
-
 
     def do_size_allocate(self, allocation):
         if self.reflect:
@@ -549,6 +547,11 @@ class SegmentedBar(gtk.Widget):
 
             self.layout_width = 0
             self.layout_height = 0
+        def __eq__(self, obj):
+            if self.title == obj:
+                return True
+            else:
+                return False
 
 gobject.type_register(SegmentedBar)
 

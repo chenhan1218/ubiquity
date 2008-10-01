@@ -1130,12 +1130,16 @@ class Wizard(BaseFrontend):
         s2 = self.new_size_scale.new_os.get_allocation().width
         totalwidth = s1 + s2
         percentwidth = float(s1) / float(totalwidth)
-        # FIXME: ugly.  Move into segmented_bar.
-        p = self.action_bar.segments[-2].percent
-        newp = self.action_bar.segments[-1].percent + (p - percentwidth)
-        self.action_bar.segments[-2].percent = percentwidth
-        self.action_bar.segments[-1].percent = newp
-        self.action_bar.queue_draw()
+        try:
+            pos = self.action_bar.segments.index(self.resize_path)
+            orig = self.action_bar.segments[pos]
+            new = self.action_bar.segments[pos+1]
+            total = orig.percent + new.percent
+            orig.percent = percentwidth * total
+            new.percent = (1 - percentwidth) * total
+            self.action_bar.queue_draw()
+        except Exception, e:
+            syslog.syslog(str(e))
 
     def on_choice_toggled (self, widget, extra_buttons):
         if widget.get_active():
@@ -1419,7 +1423,6 @@ class Wizard(BaseFrontend):
 
     def set_disk_layout(self, layout):
         self.disk_layout = layout
-        return
 
     def create_bar(self, disk, resize_bar=False):
         if resize_bar:
@@ -1435,10 +1438,10 @@ class Wizard(BaseFrontend):
             else:
                 b.add_segment_rgb(dev, size, self.auto_colors[i])
                 i = (i + 1) % len(self.auto_colors)
-        if resize_bar:
-                # FIXME:
-                self.action_bar.add_segment_rgb('Ubuntu 8.10', 0, \
-                    self.auto_colors[i])
+                if dev == self.resize_path and resize_bar:
+                    self.action_bar.add_segment_rgb('Ubuntu 8.10', 0, \
+                        self.auto_colors[i])
+                    i = (i + 1) % len(self.auto_colors)
 
     def set_autopartition_choices (self, choices, extra_options,
                                    resize_choice, manual_choice):

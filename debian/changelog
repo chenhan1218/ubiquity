@@ -1,5 +1,6 @@
 ubiquity (1.10.4) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Only show the "EFI boot partition" option while creating a partition if
     the current hardware supports it usefully.
   * When creating a new partition, default to logical if a primary partition
@@ -7,7 +8,13 @@ ubiquity (1.10.4) UNRELEASED; urgency=low
     partitions and the only real reasons for them are Microsoft operating
     systems or boot partitions (LP: #218938).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 01 Oct 2008 18:00:00 +0100
+  [ Evan Dandrea ]
+  * Accurately place and calculate the total size of the new partitions
+    (LP: #271512).
+  * Calculate the allocation for the labels after adding a new segment in
+    segmented_bar (LP: #271554).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 01 Oct 2008 15:45:24 -0400
 
 ubiquity (1.10.3) intrepid; urgency=low
 
