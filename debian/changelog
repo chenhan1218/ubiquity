@@ -14,6 +14,10 @@ ubiquity (1.10.4) UNRELEASED; urgency=low
   * Calculate the allocation for the labels after adding a new segment in
     segmented_bar (LP: #271554).
 
+  [ Emmet Hikory ]
+  * Build partman-efi udebs for amd64 and lpia
+  * Build grub-installer udeb for lpia (LP: #277225)
+
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 01 Oct 2008 15:45:24 -0400
 
 ubiquity (1.10.3) intrepid; urgency=low
