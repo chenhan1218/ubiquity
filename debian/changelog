@@ -1,5 +1,6 @@
 ubiquity (1.10.2) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Only show the "EFI boot partition" option while creating a partition if
     the current hardware supports it usefully.
   * When creating a new partition, default to logical if a primary partition
@@ -10,7 +11,11 @@ ubiquity (1.10.2) UNRELEASED; urgency=low
   * Add some more grub pieces on lpia.
   * Add ntfsprogs dependency on lpia.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 29 Sep 2008 19:06:04 +0100
+  [ Emmet Hikory ]
+  * Build partman-efi udebs for amd64 and lpia
+  * Build grub-installer udeb for lpia (LP: #277225)
+
+ -- Emmet Hikory <persia@ubuntu.com>  Fri, 03 Oct 2008 04:34:25 +0900
 
 ubiquity (1.10.1) intrepid; urgency=low
 
