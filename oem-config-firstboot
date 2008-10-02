@@ -52,7 +52,7 @@ for try in $(seq 1 $TRY); do
 	/usr/sbin/oem-config-dm vt7 :0 /usr/sbin/oem-config || CODE=$?
 	if [ "$CODE" -eq 0 ]; then
 		# Don't run again.
-		update-rc.d -f oem-config remove >/dev/null 2>&1
+		update-rc.d -f oem-config remove >>/var/log/oem-config.log 2>&1
 		# Remove the temporary OEM configuration user, if possible.
 		if getent passwd oem >/dev/null; then
 			deluser --quiet --remove-home oem || true
@@ -80,7 +80,7 @@ EOF
 	bash
 
 	# Don't run again.
-	update-rc.d -f oem-config remove >/dev/null 2>&1
+	update-rc.d -f oem-config remove >>/var/log/oem-config.log 2>&1
 
 	reboot
 fi

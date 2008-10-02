@@ -1,3 +1,9 @@
+oem-config (1.51) UNRELEASED; urgency=low
+
+  * Log messages from update-rc.d rather than throwing them away.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 02 Oct 2008 10:07:07 +0100
+
 oem-config (1.50) intrepid; urgency=low
 
   * Change "Automatically sign in" to "Log in automatically", to match
