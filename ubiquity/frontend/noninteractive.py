@@ -344,6 +344,12 @@ class Wizard(BaseFrontend):
         """Get the user's password confirmation."""
         return self.dbfilter.db.get('passwd/user-password-again') #self.verifiedpassword
 
+    def set_auto_login(self, value):
+        self.auto_login = value
+
+    def get_auto_login(self):
+        return self.auto_login
+
     def username_error(self, msg):
         """The selected username was bad."""
         print '\nusername error: %s' % msg
