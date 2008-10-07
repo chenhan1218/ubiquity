@@ -283,6 +283,7 @@ class Install:
         self.kernel_version = platform.release()
         self.db = debconf.Debconf()
 
+        self.generate_blacklist()
         apt_pkg.InitConfig()
         apt_pkg.Config.Set("Dir", "/target")
         apt_pkg.Config.Set("Dir::State::status", "/target/var/lib/dpkg/status")
@@ -577,10 +578,22 @@ class Install:
                     cache[pkg].section.startswith('restricted/')):
                     difference.add(pkg)
             del cache
-
-        for x in difference:
-            syslog.syslog(x)
         difference = filter(lambda x: not os.path.exists('/var/lib/dpkg/info/%s.prerm' % x), difference)
+        cache = Cache()
+        for pkg in difference:
+            cachedpkg = self.get_cache_pkg(cache, pkg)
+            if cachedpkg is not None and cachedpkg.isInstalled:
+                apt_error = False
+                try:
+                    cachedpkg.markDelete(autoFix=False, purge=True)
+                    if cache._depcache.BrokenCount > 0:
+                        p = self.broken_packages(cache)
+                        if p - set(difference):
+                            difference.remove(pkg)
+                except SystemError:
+                    pass
+                finally:
+                    cachedpkg.markKeep()
         cmd = ['dpkg', '-L']
         cmd.extend(difference)
         subp = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -601,10 +614,6 @@ class Install:
         self.db.progress('START', 0, 100, 'ubiquity/install/title')
         self.db.progress('INFO', 'ubiquity/install/scanning')
 
-        # This causes problems with language packs. We'll fix this for
-        # Ubuntu 8.10, but let's just back this part out for the beta.
-        #self.generate_blacklist()
-        self.blacklist = {}
         # Obviously doing os.walk() twice is inefficient, but I'd rather not
         # suck the list into ubiquity's memory, and I'm guessing that the
         # kernel's dentry cache will avoid most of the slowness anyway.

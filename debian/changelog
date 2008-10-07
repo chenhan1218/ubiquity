@@ -16,6 +16,8 @@ ubiquity (1.10.4) UNRELEASED; urgency=low
     (LP: #271512).
   * Calculate the allocation for the labels after adding a new segment in
     segmented_bar (LP: #271554).
+  * Do not remove the files for packages that will break other packages when
+    removed (LP: #276657).
 
   [ Emmet Hikory ]
   * Build partman-efi udebs for amd64 and lpia
