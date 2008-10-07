@@ -1,6 +1,9 @@
 oem-config (1.51) UNRELEASED; urgency=low
 
   * Log messages from update-rc.d rather than throwing them away.
+  * Fix intltool handling; po/Makefile.in.in was still coming from gettext.
+    Pass no-xml to IT_PROG_INTLTOOL so that we don't need to build-depend on
+    libxml-parser-perl.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 02 Oct 2008 10:07:07 +0100
 

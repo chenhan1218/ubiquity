@@ -4,3 +4,4 @@ if ! type intltool-update >/dev/null 2>&1; then
 	exit 1
 fi
 AUTOMAKE=automake-1.10 ACLOCAL=aclocal-1.10 autoreconf -I m4 -i -f
+intltoolize --copy --force --automake
