@@ -13053,19 +13053,19 @@ echo "$as_me: error: Automake 1.5 or newer is required to use intltool" >&2;}
     ;;
 esac
 
-if test -n ""; then
-    { echo "$as_me:$LINENO: checking for intltool >= " >&5
-echo $ECHO_N "checking for intltool >= ... $ECHO_C" >&6; }
+if test -n "0.40.0"; then
+    { echo "$as_me:$LINENO: checking for intltool >= 0.40.0" >&5
+echo $ECHO_N "checking for intltool >= 0.40.0... $ECHO_C" >&6; }
 
-    INTLTOOL_REQUIRED_VERSION_AS_INT=`echo  | awk -F. '{ print $ 1 * 1000 + $ 2 * 100 + $ 3; }'`
+    INTLTOOL_REQUIRED_VERSION_AS_INT=`echo 0.40.0 | awk -F. '{ print $ 1 * 1000 + $ 2 * 100 + $ 3; }'`
     INTLTOOL_APPLIED_VERSION=`intltool-update --version | head -1 | cut -d" " -f3`
     INTLTOOL_APPLIED_VERSION_AS_INT=`echo $INTLTOOL_APPLIED_VERSION | awk -F. '{ print $ 1 * 1000 + $ 2 * 100 + $ 3; }'`
 
     { echo "$as_me:$LINENO: result: $INTLTOOL_APPLIED_VERSION found" >&5
 echo "${ECHO_T}$INTLTOOL_APPLIED_VERSION found" >&6; }
     test "$INTLTOOL_APPLIED_VERSION_AS_INT" -ge "$INTLTOOL_REQUIRED_VERSION_AS_INT" ||
-	{ { echo "$as_me:$LINENO: error: Your intltool is too old.  You need intltool  or later." >&5
-echo "$as_me: error: Your intltool is too old.  You need intltool  or later." >&2;}
+	{ { echo "$as_me:$LINENO: error: Your intltool is too old.  You need intltool 0.40.0 or later." >&5
+echo "$as_me: error: Your intltool is too old.  You need intltool 0.40.0 or later." >&2;}
    { (exit 1); exit 1; }; }
 fi
 
@@ -13461,7 +13461,7 @@ if test -z "`$INTLTOOL_PERL -v | fgrep '5.' 2> /dev/null`"; then
 echo "$as_me: error: perl 5.x required for intltool" >&2;}
    { (exit 1); exit 1; }; }
 fi
-if test "x" != "xno-xml"; then
+if test "xno-xml" != "xno-xml"; then
    { echo "$as_me:$LINENO: checking for XML::Parser" >&5
 echo $ECHO_N "checking for XML::Parser... $ECHO_C" >&6; }
    if `$INTLTOOL_PERL -e "require XML::Parser" 2>/dev/null`; then
@@ -18298,17 +18298,11 @@ _LT_EOF
 	'"s|^|	$ac_top_srcdir/|" \
       "$srcdir/po/POTFILES.in" | sed '$!s/$/ \\/' >"po/POTFILES"
 
-    if test ! -f "po/Makefile"; then
-      { { echo "$as_me:$LINENO: error: po/Makefile is not ready." >&5
-echo "$as_me: error: po/Makefile is not ready." >&2;}
-   { (exit 1); exit 1; }; }
-    fi
-    mv "po/Makefile" "po/Makefile.tmp"
     sed '/^POTFILES =/,/[^\\]$/ {
 		/^POTFILES =/!d
 		r po/POTFILES
 	  }
-	 ' "po/Makefile.tmp" >"po/Makefile"
+	 ' "po/Makefile.in" >"po/Makefile"
     rm -f "po/Makefile.tmp"
     mv "po/stamp-it.tmp" "po/stamp-it"
    ;;
