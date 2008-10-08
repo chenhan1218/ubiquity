@@ -14,6 +14,7 @@ ubiquity (1.10.4) UNRELEASED; urgency=low
     Petrov; see LP #279003).
   * Adjust live filesystem mounting for Debian (thanks, Vitaly Petrov; see
     LP #279003).
+  * Reconfigure splashy (thanks, Vitaly Petrov; see LP #279003).
 
   [ Evan Dandrea ]
   * Accurately place and calculate the total size of the new partitions

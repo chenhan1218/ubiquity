@@ -1377,6 +1377,7 @@ exit 0"""
         packages = ['linux-image-' + self.kernel_version,
                     'linux-restricted-modules-' + self.kernel_version,
                     'usplash',
+                    'splashy',
                     'popularity-contest',
                     'libpaper1',
                     'ssl-cert']
