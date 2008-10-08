@@ -1,4 +1,4 @@
-ubiquity (1.10.4) UNRELEASED; urgency=low
+ubiquity (1.10.4) intrepid; urgency=low
 
   [ Colin Watson ]
   * Only show the "EFI boot partition" option while creating a partition if
@@ -34,7 +34,7 @@ ubiquity (1.10.4) UNRELEASED; urgency=low
   * Build partman-efi udebs for amd64 and lpia
   * Build grub-installer udeb for lpia (LP: #277225)
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 01 Oct 2008 15:45:24 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 08 Oct 2008 14:01:39 -0400
 
 ubiquity (1.10.3) intrepid; urgency=low
 
