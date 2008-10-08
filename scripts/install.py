@@ -771,10 +771,11 @@ class Install:
                          '/var/log/installer/version', '/var/log/casper.log'):
             target_log_file = os.path.join(target_dir,
                                            os.path.basename(log_file))
-            if not misc.execute('cp', '-a', log_file, target_log_file):
-                syslog.syslog(syslog.LOG_ERR,
-                              'Failed to copy installation log file')
-            os.chmod(target_log_file, stat.S_IRUSR | stat.S_IWUSR)
+            if os.path.isfile(log_file):
+                if not misc.execute('cp', '-a', log_file, target_log_file):
+                    syslog.syslog(syslog.LOG_ERR,
+                                  'Failed to copy installation log file')
+                os.chmod(target_log_file, stat.S_IRUSR | stat.S_IWUSR)
         try:
             status = open(os.path.join(self.target, 'var/lib/dpkg/status'))
             status_gz = gzip.open(os.path.join(target_dir,
