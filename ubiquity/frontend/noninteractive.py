@@ -55,6 +55,7 @@ class Wizard(BaseFrontend):
         self.verifiedpassword = ''
         self.progress_val = 0
         self.progress_info = ''
+        self.auto_login = False
         self.mainloop = gobject.MainLoop()
 
         dbfilter = language.Language(self, self.debconf_communicator())
