@@ -15,7 +15,7 @@ partman-auto-loop 0ubuntu15
 partman-base 121ubuntu6
 partman-basicfilesystems 60ubuntu2
 partman-basicmethods 39ubuntu1
-partman-efi 17ubuntu2
+partman-efi 18ubuntu1
 partman-ext3 52ubuntu3
 partman-jfs 26ubuntu2
 partman-newworld 19ubuntu1
