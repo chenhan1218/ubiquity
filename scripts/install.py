@@ -845,7 +845,10 @@ class Install:
             mountpoint = '/var/lib/ubiquity/%s' % sysloop
         if not os.path.isdir(mountpoint):
             os.mkdir(mountpoint)
-        misc.execute('mount', dev, mountpoint)
+        if not misc.execute('mount', dev, mountpoint):
+            misc.execute('losetup', '-d', dev)
+            misc.execute('mount', '-o', 'loop', fsfile, mountpoint)
+            dev = 'unused'
 
         return (dev, mountpoint)
 
@@ -876,7 +879,8 @@ class Install:
             # Manual detection on non-unionfs systems
             fsfiles = ['/cdrom/casper/filesystem.cloop',
                        '/cdrom/casper/filesystem.squashfs',
-                       '/cdrom/META/META.squashfs']
+                       '/cdrom/META/META.squashfs',
+                       '/live/image/live/filesystem.squashfs']
 
             for fsfile in fsfiles:
                 if fsfile != '' and os.path.isfile(fsfile):
@@ -926,7 +930,8 @@ class Install:
             if not misc.execute('umount', mountpoint):
                 raise InstallStepError("Failed to unmount %s" % mountpoint)
         for dev in devs:
-            if dev != '' and not misc.execute('losetup', '-d', dev):
+            if (dev != '' and dev != 'unused' and
+                not misc.execute('losetup', '-d', dev)):
                 raise InstallStepError(
                     "Failed to detach loopback device %s" % dev)
 

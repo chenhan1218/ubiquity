@@ -12,6 +12,8 @@ ubiquity (1.10.4) UNRELEASED; urgency=low
     libxml-parser-perl.
   * Check whether log files exist before copying them (thanks, Vitaly
     Petrov; see LP #279003).
+  * Adjust live filesystem mounting for Debian (thanks, Vitaly Petrov; see
+    LP #279003).
 
   [ Evan Dandrea ]
   * Accurately place and calculate the total size of the new partitions
