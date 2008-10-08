@@ -20,6 +20,9 @@ ubiquity (1.10.4) UNRELEASED; urgency=low
     removed (LP: #276657).
   * Fix a crash in the noninteractive frontend due to missing auto_login
     functions.
+  * Automatic update of included source packages: partman-ext3
+    52ubuntu3, partman-jfs 26ubuntu2, partman-reiserfs 41ubuntu3,
+    partman-xfs 41ubuntu2, user-setup 1.20ubuntu8.
 
   [ Emmet Hikory ]
   * Build partman-efi udebs for amd64 and lpia
