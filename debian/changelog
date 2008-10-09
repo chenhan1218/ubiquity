@@ -1,3 +1,10 @@
+ubiquity (1.10.5) UNRELEASED; urgency=low
+
+  * Filter out the net subsystem when calling update-dev to prevent the
+    network connection from resetting (LP: #276383).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 08 Oct 2008 22:10:13 -0400
+
 ubiquity (1.10.4) intrepid; urgency=low
 
   [ Colin Watson ]

@@ -150,6 +150,11 @@ endif
 		install -m644 d-i/source/base-installer/kernel/$(DEB_HOST_ARCH).sh \
 			debian/ubiquity/usr/lib/ubiquity/base-installer/kernel.sh; \
 	fi
+	# We cannot put this in debian-installer-utils as it would break netcfg.
+	# Ideally this should not need to match on --, but my sed-fu is lacking.
+	sed 's,\(udevtrigger\|udevadm trigger\) --,\1 --subsystem-nomatch=net --,' \
+		d-i/source/debian-installer-utils/update-dev \
+		> debian/ubiquity/bin/update-dev
 	# tzsetup is called by clock-setup now, but we handle tzsetup earlier.
 	sed 's,^tzsetup,,' \
 		d-i/source/clock-setup/debian/clock-setup.postinst \
