@@ -41,7 +41,7 @@ endif
 endif
 endif
 
-ifneq (,$(findstring :$(DEB_HOST_ARCH_CPU);,:alpha:amd64:i386:ia64:lpia:))
+ifneq (,$(findstring :$(DEB_HOST_ARCH_CPU):,:alpha:amd64:i386:ia64:lpia:))
   partman-depends := ntfsprogs
 endif
 
