@@ -25,6 +25,10 @@ ifeq ($(DEB_HOST_ARCH_CPU),)
   ifeq ($(DEB_HOST_ARCH_CPU),x86_64)
     DEB_HOST_ARCH_CPU := amd64
   endif
+  # lpia is a little weird.
+  ifeq ($(DEB_HOST_ARCH_CPU),i686)
+    DEB_HOST_ARCH_CPU := lpia
+  endif
 endif
 
 PYTHON := $(shell pyversions -r)
