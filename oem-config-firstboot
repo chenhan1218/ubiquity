@@ -49,7 +49,7 @@ else
 fi
 for try in $(seq 1 $TRY); do
 	CODE=0
-	/usr/sbin/oem-config-dm vt7 :0 /usr/sbin/oem-config || CODE=$?
+	/usr/sbin/oem-config-dm vt7 :0 /usr/sbin/oem-config --only || CODE=$?
 	if [ "$CODE" -eq 0 ]; then
 		# Don't run again.
 		update-rc.d -f oem-config remove >>/var/log/oem-config.log 2>&1

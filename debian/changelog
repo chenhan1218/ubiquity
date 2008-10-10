@@ -6,6 +6,8 @@ oem-config (1.51) UNRELEASED; urgency=low
     libxml-parser-perl.
   * Add a comment to /etc/init.d/oem-config to explain the purpose of the
     oem-config-firstboot check.
+  * Disable window minimise buttons when running in standalone mode at first
+    boot (LP: #249045).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 02 Oct 2008 10:07:07 +0100
 

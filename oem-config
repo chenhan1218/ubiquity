@@ -98,6 +98,10 @@ if __name__ == '__main__':
                       help='drop into Python debugger on a crash')
     parser.add_option('--old-tzmap', dest='old_tzmap', action='store_true',
                       help='use the old timezone map.')
+    parser.add_option('--only', dest='only', action='store_true',
+                      help='tell the application that it is the only desktop ' \
+                      'program running so that it can customize its UI to ' \
+                      'better suit a minimal environment.')
     parser.set_defaults(frontend=None, debug_pdb=False)
     (options, args) = parser.parse_args()
 
@@ -113,6 +117,9 @@ if __name__ == '__main__':
 
     if options.old_tzmap:
         os.environ['UBIQUITY_OLD_TZMAP'] = '1'
+
+    if options.only:
+        os.environ['OEM_CONFIG_ONLY'] = '1'
 
     print >>sys.stderr, "oem-config %s" % VERSION
 

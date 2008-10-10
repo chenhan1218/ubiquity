@@ -238,6 +238,13 @@ class Frontend:
 
         self.oem_config.hide()
 
+    def set_window_hints(self, widget):
+        if 'OEM_CONFIG_ONLY' in os.environ:
+            # Disable minimise button.
+            widget.window.set_functions(
+                gtk.gdk.FUNC_RESIZE | gtk.gdk.FUNC_MOVE |
+                gtk.gdk.FUNC_MAXIMIZE)
+
     # Internationalisation.
 
     def translate_widgets(self):
