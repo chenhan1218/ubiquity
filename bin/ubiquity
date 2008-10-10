@@ -152,7 +152,7 @@ def main():
     parser.add_option('--only', dest='only', action='store_true',
                       help='tell the application that it is the only desktop ' \
                       'program running so that it can customize its UI to ' \
-		      'better suit a minimal environment.')
+                      'better suit a minimal environment.')
     (options, args) = parser.parse_args()
 
     if options.debug:
