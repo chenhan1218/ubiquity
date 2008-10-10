@@ -11,7 +11,10 @@ ubiquity (1.10.5) UNRELEASED; urgency=low
     standalone mode (LP: #249045).
   * Update imported translations from gtk+2.0 2.14.3-0ubuntu3.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 08 Oct 2008 22:10:13 -0400
+  [ Emmet Hikory ]
+  * Honor preseeded passwd/allow-password-empty (LP: #280014)
+
+ -- Emmet Hikory <persia@ubuntu.com>  Sat, 11 Oct 2008 04:45:27 +0900
 
 ubiquity (1.10.4) intrepid; urgency=low
 
