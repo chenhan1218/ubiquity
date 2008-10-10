@@ -2,15 +2,15 @@
 # This file is distributed under the same license as the gtk+ package.
 #
 # Matic Žgur <mr.zgur@gmail.com>, 2006.
-# Matej Urbančič <matej.urban@gmail.com>, 2007.
 # Martin Srebotnjak <miles@filmsi.net>, 2007.
+# Matej Urbančič <mateju@svn.gnome.org>, 2007 - 2008
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: GTK+\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-02-08 11:28+0000\n"
-"PO-Revision-Date: 2007-11-14 15:03+0100\n"
+"PO-Revision-Date: 2008-09-08 16:52+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "MIME-Version: 1.0\n"

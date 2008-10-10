@@ -1,18 +1,16 @@
-# gtk+ Finnish translation
-# Suomennos: http://gnome.fi/
-#
-# Copyright (C) 2003 Free Software Foundation, Inc.
+# gtk+ finnish translation
+# Copyright (C) 2003-2008 Free Software Foundation, Inc.
 # Mikko Rauhala <mjr@iki.fi>, 1999
 # Sami Pesonen <sampeson@iki.fi> 2004
 # Pauli Virtanen, 2000-2005
-# Ilkka Tuohela <hile@iki.fi>, 2005-2006
+# Ilkka Tuohela <hile@iki.fi>, 2005-2008
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gtk+ 2.2.0\n"
+"Project-Id-Version: gtk+\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-02-08 11:28+0000\n"
-"PO-Revision-Date: 2007-02-25 19:14+0300\n"
+"PO-Revision-Date: 2008-09-20 13:00+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +24,7 @@ msgstr ""
 #. sync.
 #: ../ubiquity.templates-imported:1001
 msgid "_Cancel"
-msgstr "_Peru"
+msgstr "Per_u"
 
 #. Type: text
 #. Description

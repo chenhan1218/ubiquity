@@ -1,29 +1,28 @@
-# translation of gtk+.gtk-2-10.ar.po to Arabic
-# translation of gtk+.gtk-2-10.ar.po to
-# Copyright (C) 2002,2003, 2004, 2006, 2007 Free Software Foundation, Inc.
+# translation of gtk+.HEAD.po to Arabic
+# Copyright (C) 2002,2003, 2004, 2006, 2007, 2008 Free Software Foundation, Inc.
 #
 # Sayed Jaffer Al-Mosawi <mosawi@arabeyes.org>, 2002.
 # Isam Bayazidi <bayazidi@arabeyes.org>, 2002.
-# Arafat Medini <lumina@silverpen.de>, 2003.
-# Arafat Medini <lumina@silverpen.de>, 2004.
+# Arafat Medini <lumina@silverpen.de>, 2003, 2004.
 # Ayman Hourieh <aymanh@gmail.com>, 2004.
 # Djihed Afifi <djihed@gmail.com>, 2006.
-# Khaled Hosny <khaledhosny@eglug.org>, 2006, 2007.
+# Khaled Hosny <khaledhosny@eglug.org>, 2006, 2007, 2008.
 # Seba Barto <nanoosaamar@yahoo.com>, 2006.
+# Anas Afif Emad <anas.e87@gmail.com>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: gtk+.gtk-2-10.ar\n"
+"Project-Id-Version: gtk+.HEAD\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-02-08 11:28+0000\n"
-"PO-Revision-Date: 2007-09-17 14:27+0100\n"
-"Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
+"PO-Revision-Date: 2008-09-18 03:13+0300\n"
+"Last-Translator: Anas Afif Emad <anas.e87@gmail.com>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n==2 ? 1 : n>=3 && n<=10 ? 2 : "
-"3\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #. Type: text
 #. Description
@@ -31,7 +30,7 @@ msgstr ""
 #. sync.
 #: ../ubiquity.templates-imported:1001
 msgid "_Cancel"
-msgstr "إل_غِ"
+msgstr "أل_غِ"
 
 #. Type: text
 #. Description
@@ -71,4 +70,4 @@ msgstr "_موافق"
 #. sync.
 #: ../ubiquity.templates-imported:6001
 msgid "_Quit"
-msgstr "إ_نهي"
+msgstr "أ_نهِ"

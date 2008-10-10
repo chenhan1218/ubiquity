@@ -1,15 +1,15 @@
 # gtk+'s Portuguese Translation
-# Copyright © 2001, 2002, 2003, 2004, 2005, 2006, 2007 gtk+
+# Copyright © 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008 gtk+
 # Distributed under the same licence as the gtk+ package
-# Duarte Loreto <happyguy_pt@hotmail.com>, 2001, 2002, 2002, 2003, 2004, 2005, 2006
+# Duarte Loreto <happyguy_pt@hotmail.com>, 2001, 2002, 2002, 2003, 2004, 2005, 2006, 2007, 2008
 # Nuno Ferreira <nmrf@rnl.ist.utl.pt>, 1999.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 2.20\n"
+"Project-Id-Version: 2.24\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-02-08 11:28+0000\n"
-"PO-Revision-Date: 2007-08-19 22:50+0000\n"
+"PO-Revision-Date: 2008-09-07 18:00+0000\n"
 "Last-Translator: Duarte Loreto <happyguy_pt@hotmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"

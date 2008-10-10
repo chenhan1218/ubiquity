@@ -9,6 +9,7 @@ ubiquity (1.10.5) UNRELEASED; urgency=low
   * Work around lpia having DEB_HOST_ARCH_CPU=i686 (!).
   * Disable window minimise buttons if the installer is running in
     standalone mode (LP: #249045).
+  * Update imported translations from gtk+2.0 2.14.3-0ubuntu3.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 08 Oct 2008 22:10:13 -0400
 

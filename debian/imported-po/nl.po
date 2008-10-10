@@ -2,24 +2,27 @@
 # Copyright © 2002 Free Software Foundation, Inc.
 # Dirk-Jan C. Binnema <djcb@djcbsoftware.nl>, 2002.
 # Ronald Hummelink <ronald@hummelink.xs4all.nl>, 2002.
-# Tino Meinen <a.t.meinen@chelo.nl>, 2002, 2003, 2004, 2005, 2006, 2007.
+# Tino Meinen <a.t.meinen@chelo.nl>, 2002, 2003, 2004, 2005, 2006, 2007, 2008.
 # --------------
-# Discussiepunten:
-# expander -> uitklapper (win32 heeft het over samenvouwen/openvouwen)
-# render -> render/weergeven/tonen?
-# spinbutton -> spinknop
-# tag -> markering/etiket/label
-# tooltip -> tooltip/werktip/tip
-# separator -> scheiding/scheidingslijn/scheidingsteken
-# selected -> geselecteerde/gekozen
-# standard display -> standaard display
+# expander - samenvouwer/openvouwen
+# image format - bestandsformaat
+# image file - afbeelding
+# image file format - afbeeldingstype
+# image type - afbeeldingstype
+# render - render/weergeven/tonen/opmaken
+# spinbutton - spinknop/teller
+# tag - markering/etiket/label/trefwoord
+# tooltip - tooltip/werktip/tip
+# separator - scheiding/scheidingslijn/scheidingsteken
+# selected - geselecteerde/gekozen
+# standard display - standaard display
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+ 2.0\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-02-08 11:28+0000\n"
-"PO-Revision-Date: 2007-09-21 19:13+0200\n"
+"PO-Revision-Date: 2008-09-07 19:36+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
