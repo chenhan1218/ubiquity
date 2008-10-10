@@ -538,6 +538,14 @@ class Wizard(BaseFrontend):
         return True
 
 
+    def set_window_hints(self, widget):
+        if 'UBIQUITY_ONLY' in os.environ:
+            # Disable minimise button.
+            widget.window.set_functions(
+                gtk.gdk.FUNC_RESIZE | gtk.gdk.FUNC_MOVE |
+                gtk.gdk.FUNC_MAXIMIZE)
+
+
     def set_locales(self):
         """internationalization config. Use only once."""
 

@@ -7,6 +7,8 @@ ubiquity (1.10.5) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Fix typo in architecture detection for ntfsprogs dependency.
   * Work around lpia having DEB_HOST_ARCH_CPU=i686 (!).
+  * Disable window minimise buttons if the installer is running in
+    standalone mode (LP: #249045).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 08 Oct 2008 22:10:13 -0400
 
