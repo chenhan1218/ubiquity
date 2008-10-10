@@ -95,6 +95,12 @@ class BaseFrontend:
         except debconf.DebconfError:
             pass
 
+        self.allow_password_empty = False
+        try:
+            self.allow_password_empty = db.get('passwd/allow-password-empty') == 'true'
+        except debconf.DebconfError:
+            pass
+
         if 'SUDO_USER' in os.environ:
             os.environ['SCIM_USER'] = os.environ['SUDO_USER']
             os.environ['SCIM_HOME'] = os.path.expanduser(

@@ -806,9 +806,13 @@ class Wizard(BaseFrontend):
             self.userinterface.hostname.blockSignals(False)
 
         complete = True
-        for name in ('username', 'password', 'verified_password', 'hostname'):
+        for name in ('username', 'hostname'):
             if getattr(self.userinterface, name).text() == '':
                 complete = False
+        if not self.allow_password_empty:
+            for name in ('password', 'verified_password'):
+                if getattr(self.userinterface, name).text() == '':
+                    complete = False
         self.allow_go_forward(complete)
 
     def on_username_insert_text(self):
