@@ -158,7 +158,7 @@ msgstr ""
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
 msgid "OEM mode (for manufacturers only)"
-msgstr ""
+msgstr "OEM režimas (kompiuterių gamintojams bei pardavėjams)"
 
 #. Type: text
 #. Description

@@ -10,6 +10,7 @@ oem-config (1.51) UNRELEASED; urgency=low
     boot (LP: #249045).
   * Run oem-config in debugging mode if 'debug-oem-config' is set on the
     kernel command line.
+  * Update translations from Launchpad.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 02 Oct 2008 10:07:07 +0100
 

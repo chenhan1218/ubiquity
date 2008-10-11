@@ -40,7 +40,7 @@ msgstr "Chọn ngôn ngữ/Choose language"
 #: ../oem-config.templates:5001
 msgid ""
 "Once you answer a few questions, the system will be ready for you to use."
-msgstr ""
+msgstr "Sau khi bạn trả lời xong vài câu hỏi, hệ thống sẽ sẵn sàng để sử dụng."
 
 #. Type: text
 #. Description
@@ -157,7 +157,7 @@ msgstr ""
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
 msgid "OEM mode (for manufacturers only)"
-msgstr ""
+msgstr "Chế độ OEM (chỉ dành cho nhà sản xuất)"
 
 #. Type: text
 #. Description
@@ -200,3 +200,6 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"Khi bạn đã cấu hình hệ thống xong, chạy 'oem-config-prepare'.  Lệnh này sẽ "
+"khiến hệ thống xóa bỏ người dùng 'oem' tạm thời và ở lần khởi động tiếp "
+"theo, nó sẽ hỏi nhiều câu hỏi về cấu hình cho người sử dụng đầu cuối."

@@ -147,7 +147,7 @@ msgstr "Skriv passordet to ganger, så det kan kontrolleres for tastefeil."
 #. Description
 #: ../oem-config.templates:22001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Logg inn automatisk"
 
 #. Type: title
 #. Description

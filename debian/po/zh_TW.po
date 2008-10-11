@@ -145,7 +145,7 @@ msgstr "輸入相同的密碼兩次，以檢查是否有打錯字。"
 #. Description
 #: ../oem-config.templates:22001
 msgid "Log in automatically"
-msgstr ""
+msgstr "自動登入"
 
 #. Type: title
 #. Description

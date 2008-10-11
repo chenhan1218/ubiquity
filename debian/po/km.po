@@ -40,7 +40,7 @@ msgstr "ជ្រើស​ភាសា"
 #: ../oem-config.templates:5001
 msgid ""
 "Once you answer a few questions, the system will be ready for you to use."
-msgstr ""
+msgstr "អ្នក​ឆ្លើយ​ចម្លើយ​មួយ​ក្នុង​សំនួរ​ពីរ​បី, ប្រព័ន្ធ​របស់​អ្នក​នឹង​រួចរាល់​សម្រាប់​អ្នក​ដើម្បី​ប្រើ ។"
 
 #. Type: text
 #. Description
@@ -159,7 +159,7 @@ msgstr ""
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
 msgid "OEM mode (for manufacturers only)"
-msgstr ""
+msgstr "របៀប OEM (សម្រាប់​តែ​ម្ចាស់​កម្មន្ដសាល)"
 
 #. Type: text
 #. Description
@@ -192,6 +192,9 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"ពេល​អ្នក​ចាប់​ផ្ដើម​ចូល​ក្នុង​ប្រព័ន្ធ​ថ្មី, អ្នក​នឹង​អាច​ចូល​ជា​អ្នក​ប្រើ 'oem' ជា​មួយ​ពាក្យ​សម្ងាត់​ដែល​អ្នក​បាន​"
+"ជ្រើស​ជាមុន; អ្នក​ប្រើ​នេះ​គឺ​មាន​សិទ្ធិ​គ្រប់​គ្រង​ខ្ពស់ ដោយ​ប្រើ 'sudo' ។ អ្នក​នឹង​អាច​បង្កើត​ការ​ជូនដំណឹង​"
+"បន្ថែម​ខ្លះ ដែល​អ្នក​ស្នើ​ទៅ​ប្រព័ន្ធ ។"
 
 #. Type: text
 #. Description
@@ -201,3 +204,6 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"ប្រព័ន្ធ​មួយ​គឺ​ត្រូវ​បាន​កំណត់​រចនាសម្ព័ន្ធ​ទៅ​តាម​ចំណង់​ចំណូល​ចិត្ត​របស់​អ្នក, រត់ 'oem-config-prepare' ។ នេះ​"
+"នឹង​បណ្ដាល​ឲ្យ​ប្រព័ន្ធ​លុប​អ្នក​ប្រើ 'oem' បណ្ដោះ​អាសន្ន និង​សួរ​អ្នក​ប្រើ​ចុង​ក្រោយ​នូវ​សំនួរ​ការ​កំណត់​រចនាសម្ព័ន្ធ​"
+"ផ្សេងៗ​នូវ​ពេល​វា​ចាប់​ផ្ដើម​លើក​ក្រោយ ។"
