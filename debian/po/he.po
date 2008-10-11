@@ -216,7 +216,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 #, fuzzy
-#| msgid "Migrate Documents and Settings"
 msgid "Migrate documents and settings"
 msgstr "יבא מסמכים והגדרות"
 
@@ -227,6 +226,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"בחר את החשבונות אותם תרצה לייבא. המסמכים וההגדרות של חשבונות אלו יהיו זמינים "
+"לאחר השלמת ההתקנה."
 
 #. Type: text
 #. Description
@@ -300,7 +301,6 @@ msgstr "צעד ${INDEX} מתוך ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "לבטל את ההתקנה?"
 
@@ -308,7 +308,6 @@ msgstr "לבטל את ההתקנה?"
 #. Description
 #: ../ubiquity.templates:40001
 #, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
 msgstr "האם ברצונכם לבטל את תהליך ההתקנה עכשיו?"
 
@@ -382,14 +381,14 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:50001
 msgid "New partition table"
-msgstr ""
+msgstr "טבלת מחיצות חדשה"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:51001
 msgid "New partition"
-msgstr ""
+msgstr "צור מחיצה"
 
 #. Type: text
 #. Description
@@ -405,14 +404,14 @@ msgstr "ערוך מחיצה"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:53001
 msgid "Delete partition"
-msgstr ""
+msgstr "מחק מחיצה"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:54001
 msgid "Device"
-msgstr ""
+msgstr "התקן"
 
 #. Type: text
 #. Description
@@ -420,28 +419,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:55001
 msgid "Type"
-msgstr ""
+msgstr "סוג"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:56001
 msgid "Mount point"
-msgstr ""
+msgstr "נקודת עיגון"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:57001
 msgid "Format?"
-msgstr ""
+msgstr "לפרמט?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:58001
 msgid "Size"
-msgstr ""
+msgstr "גודל"
 
 #. Type: text
 #. Description
@@ -449,21 +448,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:59001
 msgid "Used"
-msgstr ""
+msgstr "בשימוש"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:60001
 msgid "free space"
-msgstr ""
+msgstr "שטח פנוי"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:61001
 msgid "unknown"
-msgstr ""
+msgstr "לא ידוע"
 
 #. Type: text
 #. Description
@@ -543,13 +542,13 @@ msgstr "השתתף בסקר השימוש בחבילות"
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Network proxy"
-msgstr ""
+msgstr "Network proxy"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP proxy:"
 
 #. Type: text
 #. Description
@@ -660,7 +659,6 @@ msgstr "מעתיק קבצים (נשארה פחות מדקה)..."
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "ההתקנה הסתיימה"
 
@@ -690,11 +688,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:92001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -708,10 +701,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -730,13 +719,6 @@ msgstr ""
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:94001 ../ubiquity.templates:95001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -754,7 +736,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:95001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "הקובץ הבא אינו תואם לעותק המקור שלו בתקליטור/DVD:"
 
 #. Type: text
 #. Description
@@ -979,7 +961,7 @@ msgstr "האם ברצונך שתוכנית ההתקנה תנסה לכבות את
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "האם ברצונך לחזור ליוצר המחיצות?"
 
 #. Type: boolean
 #. Description
@@ -988,6 +970,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"כמה מהמחיצות שיצרת קטנות מדי. נא וודא שהמחיצות הבאות בעלות נפח זה לפחות "
+"(בבתים):"
 
 #. Type: boolean
 #. Description
@@ -996,6 +980,7 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"אם לא תחזור ליוצר המחיצות ותקטין את גודלן של מחיצות אלו, תהליך ההתקנה יכשל."
 
 #. Type: note
 #. Description
@@ -1249,7 +1234,7 @@ msgstr "Myth Controls"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Movies"
-msgstr ""
+msgstr "סרטי Myth"
 
 #. Type: text
 #. Description
@@ -1318,9 +1303,6 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 #, fuzzy
-#| msgid ""
-#| "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#| "Network."
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr ""
 "תוסף עבור MythTV המאפשר לך ליצור תקליטורי DVD מהתוכן המצוי ברשת ה-MythTV שלך."
@@ -1343,7 +1325,7 @@ msgstr "שליטה חיצונית עבור MythTV. זה מאפשר לך לשנו
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Find movies playing in nearby local cinemas"
-msgstr ""
+msgstr "מצא סרטים המוקרנים בבתי קולנוע הסמוכים אליך"
 
 #. Type: text
 #. Description
@@ -1422,6 +1404,8 @@ msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
+"ערכות נושא יכולות לשפר באופן משמעותי את הרושם החזותי של התקנת MythTV, ולהציג "
+"אותה כך שתתאים לטעמך."
 
 #. Type: text
 #. Description
@@ -1589,13 +1573,4 @@ msgstr "מגדיר שירותים נוספים..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
-msgstr ""
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "העתקת הקבצים נכשלה; דיסק CD/DVD פגום?"
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "נכשל בהעתקת הקבצים; דיסק קשיח פגום?"
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr "נכשל בהעתקת הקבצים; דיסק CD/DVD או כונן קשיח פגומים?"
+msgstr "מגדיר את התקני האינפרא-אדום..."

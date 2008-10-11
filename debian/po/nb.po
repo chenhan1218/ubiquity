@@ -217,13 +217,12 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Logg inn automatisk"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
 #, fuzzy
-#| msgid "Migrate Documents and Settings"
 msgid "Migrate documents and settings"
 msgstr "Flytt over dokumenter og instillinger"
 
@@ -234,6 +233,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Velg brukerkontoer du ønsker å importere. Dokumenter og instillinger for "
+"disse vil være tilgjengelige etter at installasjonen er fullført."
 
 #. Type: text
 #. Description
@@ -276,7 +277,7 @@ msgstr "Klar til å installere"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Details"
-msgstr ""
+msgstr "Detaljer"
 
 #. Type: text
 #. Description
@@ -310,7 +311,6 @@ msgstr "Steg ${INDEX} av ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "Avbryt installasjonen?"
 
@@ -318,7 +318,6 @@ msgstr "Avbryt installasjonen?"
 #. Description
 #: ../ubiquity.templates:40001
 #, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
 msgstr "Vil du virkelig avbryte installasjonen nå?"
 
@@ -378,7 +377,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:48001
 msgid "Before:"
-msgstr ""
+msgstr "Før"
 
 #. Type: text
 #. Description
@@ -386,21 +385,21 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:49001
 msgid "After:"
-msgstr ""
+msgstr "Etter"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:50001
 msgid "New partition table"
-msgstr ""
+msgstr "Nytt partisjonsområde"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:51001
 msgid "New partition"
-msgstr ""
+msgstr "Ny partisjon"
 
 #. Type: text
 #. Description
@@ -416,14 +415,14 @@ msgstr "Endre partisjon"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:53001
 msgid "Delete partition"
-msgstr ""
+msgstr "Slett partisjon"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:54001
 msgid "Device"
-msgstr ""
+msgstr "Enhet"
 
 #. Type: text
 #. Description
@@ -431,28 +430,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:55001
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:56001
 msgid "Mount point"
-msgstr ""
+msgstr "Monteringspunkt"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:57001
 msgid "Format?"
-msgstr ""
+msgstr "Formatér?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:58001
 msgid "Size"
-msgstr ""
+msgstr "Størrelse"
 
 #. Type: text
 #. Description
@@ -460,21 +459,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:59001
 msgid "Used"
-msgstr ""
+msgstr "Brukt"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:60001
 msgid "free space"
-msgstr ""
+msgstr "ledig diskplass"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:61001
 msgid "unknown"
-msgstr ""
+msgstr "ukjent"
 
 #. Type: text
 #. Description
@@ -554,19 +553,19 @@ msgstr "Delta i brukerundersøkelsen"
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Network proxy"
-msgstr ""
+msgstr "Nettverksproxy"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP-proxy:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Port:"
-msgstr ""
+msgstr "Port:"
 
 #. Type: text
 #. Description
@@ -676,7 +675,6 @@ msgstr "Kopierer filer (mindre enn ett minutt igjen)..."
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "Installasjonen er ferdig"
 
@@ -707,11 +705,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:92001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -725,10 +718,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -748,13 +737,6 @@ msgstr ""
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:94001 ../ubiquity.templates:95001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -772,7 +754,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:95001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "Følgende fil tilsvarer ikke opprinnelig fil på CD/DVD:"
 
 #. Type: text
 #. Description
@@ -1002,7 +984,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "Ønsker du å gå tilbake til partisjoneringsprogrammet?"
 
 #. Type: boolean
 #. Description
@@ -1011,6 +993,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"Noen av partisjonene du har laget har for liten størrelse. Vennligst "
+"korriger følgende partisjoner til minst følgende størrelse (i bytes):"
 
 #. Type: boolean
 #. Description
@@ -1019,6 +1003,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"Hvis du ikke går tilbake til partisjoneringsprogrammet og øker størrelsen på "
+"disse partisjonene, vil installasjonen muligens feile."
 
 #. Type: note
 #. Description
@@ -1276,7 +1262,7 @@ msgstr "Myth-kontroller"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Movies"
-msgstr ""
+msgstr "Myth Filmer"
 
 #. Type: text
 #. Description
@@ -1346,9 +1332,6 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 #, fuzzy
-#| msgid ""
-#| "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#| "Network."
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr ""
 "En utvidelse for MythTV som lar deg lage DVDer fra innhold på ditt MythTV "
@@ -1374,7 +1357,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Find movies playing in nearby local cinemas"
-msgstr ""
+msgstr "Finn filmer som går på lokale kinoer"
 
 #. Type: text
 #. Description
@@ -1451,6 +1434,8 @@ msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
+"Ulike temaer kan forbedre brukeropplevelsen av MythTV -oppsettet, og få "
+"utseendet til bedre å passe din smak."
 
 #. Type: text
 #. Description
@@ -1459,7 +1444,7 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:57001
 #: ../ubiquity-frontend-mythbuntu.templates:58001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "Aktiver/Deaktiver alle"
 
 #. Type: text
 #. Description
@@ -1621,13 +1606,4 @@ msgstr "Konfigurerer tilleggstjenester..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
-msgstr ""
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "Kunne ikke kopiere filer; defekt CD/DVD?"
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "Kunne ikke kopiere filer; defekt harddisk?"
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr "Kunne ikke kopiere filer; defekt CD/DVD eller harddisk?"
+msgstr "Konfigurerer infrarøde enheter..."

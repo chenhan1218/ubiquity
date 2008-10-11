@@ -71,6 +71,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"Nameščanje poteka v načinu za proizvajalce računalniških sistemov. Prosimo "
+"da vnesete edinstveno ime za skupek sistemov, To ime bo shranjeno na "
+"nameščenem sistemu in je lahko v pomoč pri poročilih o hroščih."
 
 #. Type: text
 #. Description
@@ -220,7 +223,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 #, fuzzy
-#| msgid "Migrate Documents and Settings"
 msgid "Migrate documents and settings"
 msgstr "Prenos dokumentov in nastavitev"
 
@@ -231,6 +233,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Izberite katerekoli račune, ki bi jih radi uvozili. Dokumenti in nastavitve "
+"teh računov bodo na voljo po zaključeni namestitvi."
 
 #. Type: text
 #. Description
@@ -307,7 +311,6 @@ msgstr "Korak ${INDEX} od ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "Prekinem namestitev?"
 
@@ -315,7 +318,6 @@ msgstr "Prekinem namestitev?"
 #. Description
 #: ../ubiquity.templates:40001
 #, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
 msgstr "Ste prepričani, da želite prekiniti namestitev?"
 
@@ -390,14 +392,14 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:50001
 msgid "New partition table"
-msgstr ""
+msgstr "Nova particijska tabela"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:51001
 msgid "New partition"
-msgstr ""
+msgstr "Nova particija"
 
 #. Type: text
 #. Description
@@ -413,14 +415,14 @@ msgstr "Uredi razdelek"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:53001
 msgid "Delete partition"
-msgstr ""
+msgstr "Izbriši particijo"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:54001
 msgid "Device"
-msgstr ""
+msgstr "Naprava"
 
 #. Type: text
 #. Description
@@ -428,28 +430,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:55001
 msgid "Type"
-msgstr ""
+msgstr "Tip"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:56001
 msgid "Mount point"
-msgstr ""
+msgstr "Točka priklopa"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:57001
 msgid "Format?"
-msgstr ""
+msgstr "Formatiranje?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:58001
 msgid "Size"
-msgstr ""
+msgstr "Velikost"
 
 #. Type: text
 #. Description
@@ -457,21 +459,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:59001
 msgid "Used"
-msgstr ""
+msgstr "Porabljeno"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:60001
 msgid "free space"
-msgstr ""
+msgstr "prosto"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:61001
 msgid "unknown"
-msgstr ""
+msgstr "neznano"
 
 #. Type: text
 #. Description
@@ -551,19 +553,19 @@ msgstr "Sodelujte v raziskavi o uporabi paketov"
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Network proxy"
-msgstr ""
+msgstr "Omrežni proxy"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP proxy"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Port:"
-msgstr ""
+msgstr "Vrata:"
 
 #. Type: text
 #. Description
@@ -673,7 +675,6 @@ msgstr "Kopiranje datotek (manj kot minuto do konca)..."
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "Namestitev je končana"
 
@@ -704,11 +705,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:92001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -722,10 +718,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -745,13 +737,6 @@ msgstr ""
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:94001 ../ubiquity.templates:95001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -769,7 +754,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:95001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "Sledeča datoteka se ne ujema s svojo izvorni kopijo na CD/DVD-ju:"
 
 #. Type: text
 #. Description
@@ -1000,7 +985,7 @@ msgstr "Ali želite, da poskusi namestilnik ponovno odklopiti te razdelke?"
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "Ali se želite vrniti na particioniranje diska?"
 
 #. Type: boolean
 #. Description
@@ -1009,6 +994,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"Nekatere particije, ki ste jih ustvarili so premajhne. Prosimo, da "
+"spremenite te particije vsaj tolikšne velikosti (v bajtih):"
 
 #. Type: boolean
 #. Description
@@ -1017,6 +1004,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"Namestitev utegne spodleteti, če ne greste nazaj na particioniranje diska in "
+"spremenite velikosti teh particij."
 
 #. Type: note
 #. Description
@@ -1235,6 +1224,8 @@ msgid ""
 "MythWeb provides a web interface which can be used to view listings, "
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
+"MythWeb vklučuje spletni vmesnik, ki se ga lahko uporablja za ogled "
+"seznamov, urejanje snemanja, brisanje posnetkov in iskanje programov."
 
 #. Type: text
 #. Description
@@ -1261,7 +1252,7 @@ msgstr "Myth nadzor"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Movies"
-msgstr ""
+msgstr "Myth filmi"
 
 #. Type: text
 #. Description
@@ -1331,9 +1322,6 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 #, fuzzy
-#| msgid ""
-#| "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#| "Network."
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr ""
 "Razširitev za MythTV, ki vam omogoča, da ustvarite DVD-je z vsebino iz "
@@ -1358,7 +1346,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Find movies playing in nearby local cinemas"
-msgstr ""
+msgstr "Najdi filme, ki se predvajajo v bližnjih kinodvoranah"
 
 #. Type: text
 #. Description
@@ -1371,6 +1359,8 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Allows you to visually browse a directory tree containing image files."
 msgstr ""
+"Omogoča vam vizualno brskanje po drevesu direktorija, ki vsebuje slikovne "
+"datoteke."
 
 #. Type: text
 #. Description
@@ -1391,6 +1381,8 @@ msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
 msgstr ""
+"Vtičnik bralnika RSS virov za MythTV, ki vam vaše najbolj priljubljene "
+"novice redno osvežuje."
 
 #. Type: text
 #. Description
@@ -1444,13 +1436,13 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:57001
 #: ../ubiquity-frontend-mythbuntu.templates:58001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "Omogoči/onemogoči vse"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Additional Drivers/Firmware"
-msgstr ""
+msgstr "Dodatni gonilniki/firmware"
 
 #. Type: text
 #. Description
@@ -1491,6 +1483,8 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
+"Pozor: Ne nastavljajte TV standarda na na višjega kot ga podpira vaša "
+"televizija. Lahko se pojavi TRAJNA okvara."
 
 #. Type: text
 #. Description
@@ -1598,13 +1592,4 @@ msgstr "Nastavljanje strojne opreme ..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
-msgstr ""
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "Kopiranje datotek ni uspelo; pokvarjen CD/DVD?"
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "Napaka pri kopiranju datotek; morda je poškodovan trdi disk?"
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr "Kopiranje datotek ni uspelo; poškodovan CD/DVD ali trdi disk?"
+msgstr "Nastavljam infrardeče naprave..."

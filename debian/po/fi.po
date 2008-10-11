@@ -218,13 +218,12 @@ msgstr "Nimeä käytetään jos asetat tietokoneesi muiden näkyville verkossa."
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Kirjaudu sisään automaattisesti"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
 #, fuzzy
-#| msgid "Migrate Documents and Settings"
 msgid "Migrate documents and settings"
 msgstr "Siirrä asiakirjat ja asetukset"
 
@@ -279,7 +278,7 @@ msgstr "Valmiina asennukseen"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Details"
-msgstr ""
+msgstr "Yksityiskohdat"
 
 #. Type: text
 #. Description
@@ -312,7 +311,6 @@ msgstr "Vaihe ${INDEX} / ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "Keskeytä asennus?"
 
@@ -320,7 +318,6 @@ msgstr "Keskeytä asennus?"
 #. Description
 #: ../ubiquity.templates:40001
 #, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
 msgstr "Haluatko varmasti keskeyttää asennuksen nyt?"
 
@@ -380,7 +377,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:48001
 msgid "Before:"
-msgstr ""
+msgstr "Ennen:"
 
 #. Type: text
 #. Description
@@ -388,21 +385,21 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:49001
 msgid "After:"
-msgstr ""
+msgstr "Jälkeen:"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:50001
 msgid "New partition table"
-msgstr ""
+msgstr "Uusi osiotaulu"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:51001
 msgid "New partition"
-msgstr ""
+msgstr "Uusi osio"
 
 #. Type: text
 #. Description
@@ -418,14 +415,14 @@ msgstr "Muokkaa osiota"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:53001
 msgid "Delete partition"
-msgstr ""
+msgstr "Poista osio"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:54001
 msgid "Device"
-msgstr ""
+msgstr "Laite"
 
 #. Type: text
 #. Description
@@ -433,28 +430,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:55001
 msgid "Type"
-msgstr ""
+msgstr "Tyyppi"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:56001
 msgid "Mount point"
-msgstr ""
+msgstr "Liitoskohta"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:57001
 msgid "Format?"
-msgstr ""
+msgstr "Alusta?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:58001
 msgid "Size"
-msgstr ""
+msgstr "Koko"
 
 #. Type: text
 #. Description
@@ -462,21 +459,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:59001
 msgid "Used"
-msgstr ""
+msgstr "Käytössä"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:60001
 msgid "free space"
-msgstr ""
+msgstr "vapaata tilaa"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:61001
 msgid "unknown"
-msgstr ""
+msgstr "tuntematon"
 
 #. Type: text
 #. Description
@@ -676,7 +673,6 @@ msgstr "Kopioidaan tiedostoja (alle minuutti jäljellä)..."
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "Asennus on valmis"
 
@@ -697,10 +693,6 @@ msgstr "Tiedostoja kovalevylle kopioitaessa tapahtui virhe:"
 #. Description
 #: ../ubiquity.templates:91001
 #, fuzzy
-#| msgid ""
-#| "This particular error is due to there being insufficient disk space for "
-#| "the install to complete on the target partition.  Please run the "
-#| "installer again and select a larger partition to install into."
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
@@ -714,11 +706,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:92001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -733,10 +720,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -756,13 +739,6 @@ msgstr ""
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:94001 ../ubiquity.templates:95001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -1358,9 +1334,6 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 #, fuzzy
-#| msgid ""
-#| "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#| "Network."
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr ""
 "MythTV-liitännäinen jolla voidaan luoda MythTV-verkossa olevasta sisällöstä "
@@ -1643,19 +1616,3 @@ msgstr "Tehdään palveluiden asetuksia..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
 msgstr "Määritetään infrapunalaitteita..."
-
-#~ msgid "Failed to copy files; out of disk space."
-#~ msgstr "Tiedostojen kopiointi epäonnistui. Levytila loppui."
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "Tiedostojen kopiointi epäonnistui - viallinen CD/DVD?"
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "Tiedostojen kopiointi epäonnistui - viallinen kovalevy?"
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr "Tiedostojen kopiointi epäonnistui - viallinen CD/DVD tai kovalevy?"
-
-#~ msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-#~ msgstr ""
-#~ "Tiedoston kopioiminen epäonnistui. Rikkinäinen CD/DVD tai kiintolevy?"

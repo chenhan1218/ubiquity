@@ -213,7 +213,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 #, fuzzy
-#| msgid "Migrate Documents and Settings"
 msgid "Migrate documents and settings"
 msgstr "迁移文档及设置"
 
@@ -297,7 +296,6 @@ msgstr "第 ${INDEX} 步（共 ${TOTAL} 步）"
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "中止安装？"
 
@@ -305,7 +303,6 @@ msgstr "中止安装？"
 #. Description
 #: ../ubiquity.templates:40001
 #, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
 msgstr "你确定现在要中止安装吗？"
 
@@ -378,14 +375,14 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:50001
 msgid "New partition table"
-msgstr ""
+msgstr "新的分区表"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:51001
 msgid "New partition"
-msgstr ""
+msgstr "新的分区"
 
 #. Type: text
 #. Description
@@ -401,14 +398,14 @@ msgstr "编辑分区"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:53001
 msgid "Delete partition"
-msgstr ""
+msgstr "删除分区"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:54001
 msgid "Device"
-msgstr ""
+msgstr "设备"
 
 #. Type: text
 #. Description
@@ -416,28 +413,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:55001
 msgid "Type"
-msgstr ""
+msgstr "类型"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:56001
 msgid "Mount point"
-msgstr ""
+msgstr "挂载点"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:57001
 msgid "Format?"
-msgstr ""
+msgstr "格式化？"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:58001
 msgid "Size"
-msgstr ""
+msgstr "大小"
 
 #. Type: text
 #. Description
@@ -445,21 +442,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:59001
 msgid "Used"
-msgstr ""
+msgstr "已用"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:60001
 msgid "free space"
-msgstr ""
+msgstr "空闲的空间"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:61001
 msgid "unknown"
-msgstr ""
+msgstr "未知"
 
 #. Type: text
 #. Description
@@ -656,7 +653,6 @@ msgstr "正在复制文件（剩余不到一分钟时间）…"
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "安装完成"
 
@@ -677,10 +673,6 @@ msgstr "安装程序向硬盘复制文件时遇到错误："
 #. Description
 #: ../ubiquity.templates:91001
 #, fuzzy
-#| msgid ""
-#| "This particular error is due to there being insufficient disk space for "
-#| "the install to complete on the target partition.  Please run the "
-#| "installer again and select a larger partition to install into."
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
@@ -693,11 +685,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:92001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -711,10 +698,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -733,13 +716,6 @@ msgstr ""
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:94001 ../ubiquity.templates:95001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -1311,9 +1287,6 @@ msgstr "MythTV的一个插件让你可以利用MythTV网络的内容制作DVD光
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 #, fuzzy
-#| msgid ""
-#| "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#| "Network."
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr "MythTV的一个插件让你可以利用MythTV网络的内容制作DVD光碟。"
 
@@ -1409,6 +1382,7 @@ msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
+"主题可以极大的改善MythTV设置的美学魅力，并更好地符合你的品味地进行显示。"
 
 #. Type: text
 #. Description
@@ -1573,18 +1547,3 @@ msgstr "正在配置附加服务..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
 msgstr "配置红外设备..."
-
-#~ msgid "Failed to copy files; out of disk space."
-#~ msgstr "复制文件失败，磁盘空间不足。"
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "文件复制失败；CD／DVD有缺陷？"
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "文件复制失败；硬盘有缺陷？"
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr "复制文件失败；CD／DVD或者硬盘有缺陷？"
-
-#~ msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-#~ msgstr "复制文件失败，光盘或硬盘坏了吗？"

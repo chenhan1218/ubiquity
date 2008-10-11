@@ -219,7 +219,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 #, fuzzy
-#| msgid "Migrate Documents and Settings"
 msgid "Migrate documents and settings"
 msgstr "दस्तावेज एवं अनुकुलुनो को दूसरी चालक तंत्र से आयात करे।"
 
@@ -305,7 +304,6 @@ msgstr "कुल ${TOTAL} में का ${INDEX} कदम"
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "संस्थापना छोड़ दें"
 
@@ -313,7 +311,6 @@ msgstr "संस्थापना छोड़ दें"
 #. Description
 #: ../ubiquity.templates:40001
 #, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
 msgstr "क्या आप वास्तव में संस्थापना छोड़ना चाहेंगे?"
 
@@ -667,7 +664,6 @@ msgstr "फाईल नकल किये जा रहे हैं (एक �
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "संस्थापना सम्पन्न।"
 
@@ -697,11 +693,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:92001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -716,10 +707,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -740,13 +727,6 @@ msgstr ""
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:94001 ../ubiquity.templates:95001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -1550,14 +1530,3 @@ msgstr "हार्डवेयर कॉन्फ़िगर किया ज
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "फाईल नकल नहीं हो पाये; क्या सी-डी/डी-वी-डी खराब है?"
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "फाईल का नकल नहीं हो पाया; क्या हार्ड डिस्क खराब है?"
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr ""
-#~ "फाईल का नकल नहीं हो पाया; क्या हार्ड डिस्क या सीडी/डीवीडी डिस्क या ड्राईव खराब "
-#~ "है?"

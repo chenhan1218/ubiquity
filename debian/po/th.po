@@ -215,7 +215,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 #, fuzzy
-#| msgid "Migrate Documents and Settings"
 msgid "Migrate documents and settings"
 msgstr "โอนเอกสารและการตั้งค่า"
 
@@ -226,6 +225,7 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"โปรดเลือกชื่อผู้ใช้ที่ต้องการจะทำการนำเข้าข้อมูล เอกสารและค่าต่างๆจะมีให้ใช้เมื่อติดตั้งสำเร็จแล้ว"
 
 #. Type: text
 #. Description
@@ -299,7 +299,6 @@ msgstr "ขั้นที่ ${INDEX} จาก ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "ยกเลิกการติดตั้ง?"
 
@@ -307,7 +306,6 @@ msgstr "ยกเลิกการติดตั้ง?"
 #. Description
 #: ../ubiquity.templates:40001
 #, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
 msgstr "คุณต้องการที่จะยกเลิกการติดตั้งในตอนนี้?"
 
@@ -381,14 +379,14 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:50001
 msgid "New partition table"
-msgstr ""
+msgstr "ตารางพาร์ทิชั่นใหม่"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:51001
 msgid "New partition"
-msgstr ""
+msgstr "พาร์ทิชั่นใหม่"
 
 #. Type: text
 #. Description
@@ -404,14 +402,14 @@ msgstr "แก้ไขพาร์ติชั่น"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:53001
 msgid "Delete partition"
-msgstr ""
+msgstr "ลบพาร์ทิชั่น"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:54001
 msgid "Device"
-msgstr ""
+msgstr "อุปกรณ์"
 
 #. Type: text
 #. Description
@@ -419,28 +417,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:55001
 msgid "Type"
-msgstr ""
+msgstr "ชนิด"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:56001
 msgid "Mount point"
-msgstr ""
+msgstr "ตำแหน่ง mount"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:57001
 msgid "Format?"
-msgstr ""
+msgstr "ฟอร์แมต?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:58001
 msgid "Size"
-msgstr ""
+msgstr "ขนาด"
 
 #. Type: text
 #. Description
@@ -448,21 +446,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:59001
 msgid "Used"
-msgstr ""
+msgstr "ใช้แล้ว"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:60001
 msgid "free space"
-msgstr ""
+msgstr "พื้นที่ว่าง"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:61001
 msgid "unknown"
-msgstr ""
+msgstr "ไม่ทราบ"
 
 #. Type: text
 #. Description
@@ -542,19 +540,19 @@ msgstr "เข้าร่วมในการสำรวจการใ้ช
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Network proxy"
-msgstr ""
+msgstr "เน็ตเวิร์คพร็อกซี่"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP พร็อกซี่:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Port:"
-msgstr ""
+msgstr "พอร์ต:"
 
 #. Type: text
 #. Description
@@ -664,7 +662,6 @@ msgstr "กำลังคัดลอกไฟล์(เหลืออีก�
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "การติดตั้งเรียบร้อย"
 
@@ -694,11 +691,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:92001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -712,10 +704,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -734,13 +722,6 @@ msgstr ""
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:94001 ../ubiquity.templates:95001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -756,7 +737,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:95001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "ไฟล์ต่อไปนี้ไม่ตรงกับไฟล์ต้นฉบับบน CD/DVD:"
 
 #. Type: text
 #. Description
@@ -981,7 +962,7 @@ msgstr "คุณต้องการให้ตัวติดตั้งล
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "คุณต้องการกลับไปยังตัวจัดพาร์ติชั่นหรือไม่?"
 
 #. Type: boolean
 #. Description
@@ -990,6 +971,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"ตารางพื้นที่ที่ถูกสร้างขึ้นมามีขนาดเล็กเกินไป โปรดแก้ไขตารางพื้นที่ดังกล่าวให้มีขนาดอย่างน้อย "
+"(หน่วยเป็นไบต์)"
 
 #. Type: boolean
 #. Description
@@ -997,7 +980,7 @@ msgstr ""
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
-msgstr ""
+msgstr "หากคุณไม่กลับไปที่ตัวจัดการพาร์ติชั่นและเพิ่มขนาดพาร์ติชั่น การติดตั้งอาจจะล้มเหลวได้"
 
 #. Type: note
 #. Description
@@ -1245,7 +1228,7 @@ msgstr "Myth Controls"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Movies"
-msgstr ""
+msgstr "Myth Movies"
 
 #. Type: text
 #. Description
@@ -1313,9 +1296,6 @@ msgstr "ปลั๊คอินสำหรับ MythTV ที่ให้ค�
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 #, fuzzy
-#| msgid ""
-#| "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#| "Network."
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr "ปลั๊คอินสำหรับ MythTV ที่ให้คุณสร้าง DVD จากเนื้อหาในเครือข่าย MythTV ของคุณ"
 
@@ -1339,7 +1319,7 @@ msgstr "ส่วนควบคุมภายนอกสำหรับ MythT
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Find movies playing in nearby local cinemas"
-msgstr ""
+msgstr "ค้นหาภาพยนตร์ที่ฉายอยู่ในโรงภาพยนตร์ใกล้บ้านคุณ"
 
 #. Type: text
 #. Description
@@ -1357,13 +1337,13 @@ msgstr "ให้คุณดูโครงสร้างไดเรคทอ
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:48001
 msgid "A frontend to start any emulator or binary that Linux runs."
-msgstr ""
+msgstr "ส่วนหน้าที่จะเริ่มโปรแกรมที่ลีนุกซ์ใช้"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:49001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr ""
+msgstr "กล่องเพลงดิจิทัลที่รวมอยู่ใน MythTV"
 
 #. Type: text
 #. Description
@@ -1371,20 +1351,20 @@ msgstr ""
 msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
-msgstr ""
+msgstr "ตัวรับข่าวสาร RSS สำหรับ MythTV ซึ่งทำให้คุณเกาะติดหัวข้อข่าวสารสุดโปรดได้อย่างใกล้ชิด"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:51001
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
-msgstr ""
+msgstr "โทรศัพท์และโทรศัพท์แบบเห็นหน้าบน MythTV ด้วยโปรโตรคอล SIP"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Provides a method to listen to streaming internet radio stations."
-msgstr ""
+msgstr "ฟังเพลงบนสถานีวิทยุออนไลน์"
 
 #. Type: text
 #. Description
@@ -1392,19 +1372,19 @@ msgstr ""
 msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
-msgstr ""
+msgstr "อนุญาตให้คุณค้นหาและเล่นวิดีโิอผ่านโปรแกรมเล่นภายนอกใน MythTV"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:54001
 msgid "Displays current and forecast weather information within MythTV."
-msgstr ""
+msgstr "แสดงสภาพอากาศในปัจจุบันและการพยากรณ์อากาศใน MythTV"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:55001
 msgid "Choose Extra Themes"
-msgstr ""
+msgstr "เลือก Theme เพิ่มเติม"
 
 #. Type: text
 #. Description
@@ -1412,7 +1392,7 @@ msgstr ""
 msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
-msgstr ""
+msgstr "ธีมสามารถเพิ่มความสวยงามของ MythTV และทำให้มันเหมาะกับรสนิยมของคุณ"
 
 #. Type: text
 #. Description
@@ -1421,13 +1401,13 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:57001
 #: ../ubiquity-frontend-mythbuntu.templates:58001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "เปิด/ปิดทั้งหมด"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Additional Drivers/Firmware"
-msgstr ""
+msgstr "ไดร์ฟเวอร์/เฟิร์มแวร์ เพิ่มเติม"
 
 #. Type: text
 #. Description
@@ -1438,24 +1418,27 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"ไดรเวอร์กราฟิคที่เปิดต้นรหัส (Open source) ถูกเปิดใช้งานและปรับแต่งแล้ว "
+"หากคุณต้องการใช้ไดรเวอร์กราฟฟิคอื่น คุณสามารถปรับได้ที่นี่ โปรดจำไว้ว่า "
+"ไดรเวอร์กราฟฟิคแบบปิดอาจจะจำเป็นถ้าต้องการแสดงภาพทาง TV หรือเอฟเฟกท์ OpenGL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:61001
 msgid "Modify Video Driver & Settings"
-msgstr ""
+msgstr "แก้ไขไดร์ฟเวอร์วิดีโอ และ ตั้งค่า"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:62001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr ""
+msgstr "ถ้าคุณต้องการปรับ TV-out เลือกได้ที่นี่"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-msgstr ""
+msgstr "ถ้ามีการใช้งาน TV-out คุณจะต้องเลือกรูปแบบของ TV ด้วย"
 
 #. Type: text
 #. Description
@@ -1464,48 +1447,49 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
+"คำเตือน: อย่าตั้งค่าบางอย่างที่สูงกว่า TV ของคุณจะรองรับได้ อาจเกิดความเสียหายอย่างถาวร"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
 msgid "Master Backend Info"
-msgstr ""
+msgstr "ข้อมูลของตัวหลักส่วนหลัง"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:66001
 msgid "Please enter the information necessary to contact your master backend:"
-msgstr ""
+msgstr "โปรดใส่ข้อมูลที่จำเป็นในการติดต่อ Backend ตัวหลักของคุณ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:67001
 msgid "MySQL Password"
-msgstr ""
+msgstr "รหัสผ่าน MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:68001
 msgid "MySQL User Name"
-msgstr ""
+msgstr "ชื่อผู้ใช้ MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "MySQL Database"
-msgstr ""
+msgstr "ฐานข้อมูล MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:70001
 msgid "MySQL Server"
-msgstr ""
+msgstr "เซิร์ฟเวอร์ MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "ปรับแต่ง ข้อมูลของรายการ / ส่วนหลัง"
 
 #. Type: text
 #. Description
@@ -1514,12 +1498,13 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
+"ขั้นตอนสุดท้ายของการติดตั้งต้องการ เลือกค่าต่างๆสำหรับข้อมูลและการทำงานของเครื่องในครั้งแรก"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "คลิกเพื่อเปิดเว็บไซต์ Schedules Direct"
 
 #. Type: text
 #. Description
@@ -1529,12 +1514,14 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
+"ผู้ใช้ในอเมริกาเหนือจะต้องตั้งค่าบัญชีกับ Schedules Direct (SD) ซึ่งจะให้ข้อมูลโดยเสียค่าใช้จ่าย "
+"ถ้าไม่ใช้ SD แล้วผู้ใช้ในอเมริกาเหนืออาจจะพลาดคุณสมบัติการตั้งเวลาหลายๆตัวใน MythTV"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "เรียกตัวติดตั้ง MythTV"
 
 #. Type: text
 #. Description
@@ -1545,6 +1532,9 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"หลังจากที่คุณป้อนข้อมูลสำหรับแหล่งเก็บข้อมูลของรายการ คุณต้องเริ่ม MythTV-Setup "
+"เพื่อที่จะทำการปรับแต่งส่วนหลังเป็นครั้งแรก คุณต้องปรับแต่งสี่ขั้นตอนแรก "
+"และอย่าลืมป้อนข้อมูลของรายการในขั้นตอนที่สาม"
 
 #. Type: text
 #. Description
@@ -1568,13 +1558,4 @@ msgstr "กำลังปรับแต่งservicesที่เพิ่ม�
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
-msgstr ""
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "ไม่สามารถคัดลอกไฟล์ได้ แผ่นซีดี/ดีวีดีเสียหรือเปล่า?"
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "ไม่สามารถคัดลอกไฟล์ได้ อาจจะเกิดจากฮาร์ดดิสก์อาจมีปัญหา"
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr "ไม่สามารถคัดลอกไฟล์ได้ อาจจะเกิดจากแผ่น ซีดี/ดีวีดี หรือ ฮาร์ดดิสก์อาจมีปัญหา"
+msgstr "ตั้งค่าอุปกรณ์อินฟราเรด..."

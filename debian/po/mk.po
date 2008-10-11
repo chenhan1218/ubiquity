@@ -232,7 +232,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 #, fuzzy
-#| msgid "Migrate Documents and Settings"
 msgid "Migrate documents and settings"
 msgstr "Мигрирајте документи и поставувања"
 
@@ -243,6 +242,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Одбери ја сметката што сакаш да ја внесеш. Документите и поставувањата за "
+"овие сметки ќе ви бидат на располагање по инсталацијата."
 
 #. Type: text
 #. Description
@@ -319,7 +320,6 @@ msgstr "${INDEX} од ${TOTAL} чекори"
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "Прекини"
 
@@ -327,7 +327,6 @@ msgstr "Прекини"
 #. Description
 #: ../ubiquity.templates:40001
 #, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
 msgstr "Дали сакате да ја прекинете инсталацијата?"
 
@@ -374,6 +373,12 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"Жал ни е, инсталерот падна. Ве молиме поднесете нова пријава за бубачка на "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (не ги приложувајте "
+"вашите детали на веќе постоечка бубачка) и развивач ќе му се посвети на "
+"проблемот што е можно побргу. За да им помогнете на развивачите да разберат "
+"што се случило, вклучете ги следниве детали во пријавата за бубачки, и "
+"приложете ги фајловите /var/log/syslog and /var/log/partman:"
 
 #. Type: text
 #. Description
@@ -403,7 +408,7 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:51001
 msgid "New partition"
-msgstr ""
+msgstr "Нова партиција"
 
 #. Type: text
 #. Description
@@ -419,14 +424,14 @@ msgstr "Уреди партиција"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:53001
 msgid "Delete partition"
-msgstr ""
+msgstr "Избриши ја партицијата"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:54001
 msgid "Device"
-msgstr ""
+msgstr "Уред"
 
 #. Type: text
 #. Description
@@ -434,28 +439,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:55001
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:56001
 msgid "Mount point"
-msgstr ""
+msgstr "Точка за монтирање"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:57001
 msgid "Format?"
-msgstr ""
+msgstr "Да форматирам?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:58001
 msgid "Size"
-msgstr ""
+msgstr "Големина"
 
 #. Type: text
 #. Description
@@ -463,21 +468,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:59001
 msgid "Used"
-msgstr ""
+msgstr "Зафатен"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:60001
 msgid "free space"
-msgstr ""
+msgstr "Слободен простор"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:61001
 msgid "unknown"
-msgstr ""
+msgstr "Непознато"
 
 #. Type: text
 #. Description
@@ -678,7 +683,6 @@ msgstr "Ги копирам датотеките (преостанува пом�
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "Инсталацијата успешно заврши"
 
@@ -708,11 +712,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:92001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -726,10 +725,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -749,13 +744,6 @@ msgstr ""
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:94001 ../ubiquity.templates:95001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -1294,31 +1282,31 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth News"
-msgstr ""
+msgstr "Myth Вести"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
 msgid "Myth Phone"
-msgstr ""
+msgstr "Myth Телефон"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Stream"
-msgstr ""
+msgstr "Myth тек"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:39001
 msgid "Myth Video"
-msgstr ""
+msgstr "Myth Видео"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:40001
 msgid "Myth Weather"
-msgstr ""
+msgstr "Myth Временска прогноза"
 
 #. Type: text
 #. Description
@@ -1327,6 +1315,8 @@ msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
 msgstr ""
+"Додаток за MythTV што ви овозможува да креирате DVD-а од содржини на вашата "
+"MythTV Мрежа"
 
 #. Type: text
 #. Description
@@ -1338,7 +1328,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:43001
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr ""
+msgstr "Интегриран додаток за прелистувачот на вашиот MythTV Систем"
 
 #. Type: text
 #. Description
@@ -1347,12 +1337,14 @@ msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
 msgstr ""
+"Надворешни контроли за MythTV. Ова ќе ви овозможи да ги промените мапирањата "
+"и врзувањата на копчињата."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Find movies playing in nearby local cinemas"
-msgstr ""
+msgstr "Пронајди филмови што играат во блиските кина"
 
 #. Type: text
 #. Description
@@ -1364,7 +1356,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Allows you to visually browse a directory tree containing image files."
-msgstr ""
+msgstr "Ви овозможува визуелно да разгледате дрво од папки кое содржи слики."
 
 #. Type: text
 #. Description
@@ -1376,7 +1368,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:49001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr ""
+msgstr "Содржи дигитален аудио џукбокс интегриран во MythTV."
 
 #. Type: text
 #. Description
@@ -1392,12 +1384,14 @@ msgstr ""
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr ""
+"Можност за телефон и видео-телефон на MythTV користејќи го стандардниот SIP "
+"протокол."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Provides a method to listen to streaming internet radio stations."
-msgstr ""
+msgstr "Овозможува начин на преслушување на тековни интернет радио станици"
 
 #. Type: text
 #. Description
@@ -1406,18 +1400,20 @@ msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
 msgstr ""
+"Ви овозможува да разгледувате и пуштате видео текови, користејќи надворешен "
+"плеер, од интерфејсот на MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:54001
 msgid "Displays current and forecast weather information within MythTV."
-msgstr ""
+msgstr "Ги прикажува моменталните и прогнозите за временските услови во MythTV"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:55001
 msgid "Choose Extra Themes"
-msgstr ""
+msgstr "Изберете додатни теми"
 
 #. Type: text
 #. Description
@@ -1434,7 +1430,7 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:57001
 #: ../ubiquity-frontend-mythbuntu.templates:58001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "Овозможи/оневозможи сé"
 
 #. Type: text
 #. Description
@@ -1582,18 +1578,3 @@ msgstr "Конфигурирам додатни сервиси..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Failed to copy files; out of disk space."
-#~ msgstr "Не успеав да ги ископирам датотеките; нема повеќе простор на дискот"
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "Не можам да ги копирам датотеките; расипано CD/DVD?"
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "Не можам да ги копирам датотеките; расипан тврд диск?"
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr "Не можам да ги копирам датотеките; расипано CD/DVD или тврд диск?"
-
-#~ msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-#~ msgstr "Не успеав да ја ископирам датотеката; расипан CD/DVD или тврд диск?"

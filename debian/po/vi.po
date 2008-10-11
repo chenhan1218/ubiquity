@@ -226,7 +226,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 #, fuzzy
-#| msgid "Migrate Documents and Settings"
 msgid "Migrate documents and settings"
 msgstr "Di chuyển tài liệu và thiết lập"
 
@@ -313,7 +312,6 @@ msgstr "Bước thứ ${INDEX} của tổng số ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "Hủy bỏ việc cài đặt?"
 
@@ -321,7 +319,6 @@ msgstr "Hủy bỏ việc cài đặt?"
 #. Description
 #: ../ubiquity.templates:40001
 #, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
 msgstr "Bạn có chắc chắn muốn huỷ việc cài đặt?"
 
@@ -396,14 +393,14 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:50001
 msgid "New partition table"
-msgstr ""
+msgstr "Bảng phân vùng mới"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:51001
 msgid "New partition"
-msgstr ""
+msgstr "Phân vùng mới"
 
 #. Type: text
 #. Description
@@ -419,14 +416,14 @@ msgstr "Sửa phân vùng"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:53001
 msgid "Delete partition"
-msgstr ""
+msgstr "Xoá phân vùng"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:54001
 msgid "Device"
-msgstr ""
+msgstr "Thiết bị"
 
 #. Type: text
 #. Description
@@ -434,28 +431,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:55001
 msgid "Type"
-msgstr ""
+msgstr "Kiểu"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:56001
 msgid "Mount point"
-msgstr ""
+msgstr "Điểm gắn"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:57001
 msgid "Format?"
-msgstr ""
+msgstr "Định dạng"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:58001
 msgid "Size"
-msgstr ""
+msgstr "Kích cỡ"
 
 #. Type: text
 #. Description
@@ -463,21 +460,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:59001
 msgid "Used"
-msgstr ""
+msgstr "Sử dụng"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:60001
 msgid "free space"
-msgstr ""
+msgstr "dung lượng trống"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:61001
 msgid "unknown"
-msgstr ""
+msgstr "không rõ"
 
 #. Type: text
 #. Description
@@ -557,19 +554,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Network proxy"
-msgstr ""
+msgstr "Proxy mạng"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP proxy:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Port:"
-msgstr ""
+msgstr "Cổng:"
 
 #. Type: text
 #. Description
@@ -679,7 +676,6 @@ msgstr "Đang sao chép các tệp (chỉ còn chưa đến một phút)..."
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "Việc cài đặt đã hoàn tất"
 
@@ -709,11 +705,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:92001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -728,10 +719,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -750,13 +737,6 @@ msgstr ""
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:94001 ../ubiquity.templates:95001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -773,7 +753,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:95001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "Các tệp dưới đây không giống với tệp gốc trên đĩa CD/DVD:"
 
 #. Type: text
 #. Description
@@ -1000,7 +980,7 @@ msgstr "Bạn có muốn chương trình cài đặt cố gỡ bỏ các phân v
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "Bạn có muốn quay lại trình phân vùng đĩa?"
 
 #. Type: boolean
 #. Description
@@ -1009,6 +989,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"Một vài phân vùng bạn đã tạo quá nhỏ. Vui lòng thay đổi các phân vùng dưới "
+"đây sao cho độ lớn ít nhất là (tính theo byte):"
 
 #. Type: boolean
 #. Description
@@ -1017,6 +999,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"Nếu bạn không quay lại trình phân vùng đĩa và tăng kích thước những phân "
+"vùng này, cài đặt có thể thất bại."
 
 #. Type: note
 #. Description
@@ -1102,6 +1086,9 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"Cài đặt nâng cao sử dụng để tuỳ chỉnh cần thiết để cài đặt Mythbuntu. LƯU Ý: "
+"Bạn phải sử dụng cài đặt nâng cao để thêm một máy Mythbuntu vào mạng MythTV "
+"đã có."
 
 #. Type: text
 #. Description
@@ -1117,13 +1104,13 @@ msgstr "Việc cài đặt đã hoàn tất"
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "Chọn kiểu máy để cài đặt?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "CHÍNH: Máy chạy nền (Backend) với Giao diện (Frontend)"
 
 #. Type: text
 #. Description
@@ -1133,12 +1120,15 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"Một hệ thống kết hợp Backend/frontend là cài đặt thường được sử dụng nhất "
+"với những người muốn sử dụng MythTV cho ứng dụng HTPC . Kiểu cài đặt này tạo "
+"ra để sử dụng làm thành phần cho rạp hát gia đình."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "PHỤ: Máy chạy nền (Backend) với Giao diện (Frontend)"
 
 #. Type: text
 #. Description
@@ -1147,12 +1137,15 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"Kiểu cài đặt này tương tự với kiểu \"CHÍNH: Máy chạy nền (Backend) với Giao "
+"diện (Frontend)\", khác biệt là nó được cấu hình để kết nối với một máy chạy "
+"nền đã có trong mạng."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid "Primary Backend"
-msgstr ""
+msgstr "CHÍNH: Chạy nền"
 
 #. Type: text
 #. Description
@@ -1162,12 +1155,15 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"Máy chạy nền (backend) là máy duy nhất thường được thiết kế để làm việc như "
+"một thiết bị phụ trợ; yêu cầu ít bảo dưỡng. Sử dụng kiểu này để tạo máy chạy "
+"nền đầu tiên trong mạng."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "PHỤ: Máy chạy nền"
 
 #. Type: text
 #. Description
@@ -1176,12 +1172,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"Cài đặt một hệ thống tương tự với \"CHÍNH: Máy chạy nền\", khác biệt là nó "
+"được cấu hình để kết nối với một máy chạy nền đã có trong mạng."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Frontend"
-msgstr ""
+msgstr "Chỉ Giao diện"
 
 #. Type: text
 #. Description
@@ -1191,12 +1189,15 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"Máy giao diện là máy chỉ thực hiện chức năng chính là nhận nội dung đa "
+"phương tiện từ máy chạy nền và truyền tải nó. Cấu hình này yêu cầu một máy "
+"chạy nền có sẵn trong mạng."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr ""
+msgstr "Chọn các phụ kiện cho Máy chạy nền/Giao diện"
 
 #. Type: text
 #. Description
@@ -1204,25 +1205,25 @@ msgstr ""
 msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
-msgstr ""
+msgstr "Các phụ kiện được sử dụng để mở rộng chức năng của MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "Backend Plugins"
-msgstr ""
+msgstr "Phụ kiện cho máy chạy nền"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Frontend Plugins"
-msgstr ""
+msgstr "Phụ kiện cho giao diện"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "Myth Web"
-msgstr ""
+msgstr "Myth Web"
 
 #. Type: text
 #. Description
@@ -1231,6 +1232,8 @@ msgid ""
 "MythWeb provides a web interface which can be used to view listings, "
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
+"MythWeb cung cấp một giao diện web, sử dụng để xem danh sách, hẹn giờ ghi, "
+"xoá bản ghi, và tìm kiếm chương trình."
 
 #. Type: text
 #. Description
@@ -1239,79 +1242,79 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:27001
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Myth Archive"
-msgstr ""
+msgstr "Myth Lưu trữ"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid "Myth Browser"
-msgstr ""
+msgstr "Myth Trình duyệt"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Myth Controls"
-msgstr ""
+msgstr "Myth Điều khiển"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Movies"
-msgstr ""
+msgstr "Myth Phim"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Myth Flix"
-msgstr ""
+msgstr "Myth Flix"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Myth Gallery"
-msgstr ""
+msgstr "Myth Thư viện ảnh"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Myth Game"
-msgstr ""
+msgstr "Myth Trò chơi"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Myth Music"
-msgstr ""
+msgstr "Myth Âm nhạc"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth News"
-msgstr ""
+msgstr "Myth Tin tức"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
 msgid "Myth Phone"
-msgstr ""
+msgstr "Myth Điện thoại"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Stream"
-msgstr ""
+msgstr "Myth Phát sóng"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:39001
 msgid "Myth Video"
-msgstr ""
+msgstr "Myth Video"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:40001
 msgid "Myth Weather"
-msgstr ""
+msgstr "Myth Thời tiết"
 
 #. Type: text
 #. Description
@@ -1319,7 +1322,7 @@ msgstr ""
 msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
-msgstr ""
+msgstr "Một phụ kiện cho MythTV cho phép bạn tạo DVD từ Mạng MythTV."
 
 #. Type: text
 #. Description
@@ -1332,6 +1335,8 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:43001
 msgid "An integrated web browser plugin for your MythTV system."
 msgstr ""
+"Một phụ kiện hoạt động như trình duyệt web tích hợp trên hệ thống MythTV của "
+"bạn."
 
 #. Type: text
 #. Description
@@ -1340,6 +1345,8 @@ msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
 msgstr ""
+"Điều khiển ngoài cho MythTV. Cái này cho phép bạn thay đổi các chức năng của "
+"điều khiển ngoài."
 
 #. Type: text
 #. Description
@@ -1351,19 +1358,20 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr ""
+msgstr "Cho phép theo dõi vé thuê DVD Netflix của bạn."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Allows you to visually browse a directory tree containing image files."
-msgstr ""
+msgstr "Cho phép bạn một duyệt cây thư mục chứa ảnh."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:48001
 msgid "A frontend to start any emulator or binary that Linux runs."
 msgstr ""
+"Một frontend để khởi động thiết bị mô phỏng hoặc nhị phân để chạy Linux."
 
 #. Type: text
 #. Description
@@ -1580,12 +1588,3 @@ msgstr "Đang cấu hình phần cứng..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "Lỗi khi chép tập tin; CD/DVD bị hư chăng?"
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "Lỗi không chép được tập tin; do đĩa cứng bị hư?"
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr "Lỗi chép tập tin; do đĩa CD/DVD hoặc ổ cứng hư?"

@@ -220,7 +220,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 #, fuzzy
-#| msgid "Migrate Documents and Settings"
 msgid "Migrate documents and settings"
 msgstr "문서와 설정을 이전합니다."
 
@@ -231,6 +230,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"가져올 계정을 선택하십시오. 이 계정들의 문서와 설정들은 설치가 완료된 뒤에 확"
+"인할 수 있습니다."
 
 #. Type: text
 #. Description
@@ -306,7 +307,6 @@ msgstr "${TOTAL} 중 ${INDEX}번째 단계"
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "설치를 중지하시겠습니까?"
 
@@ -314,7 +314,6 @@ msgstr "설치를 중지하시겠습니까?"
 #. Description
 #: ../ubiquity.templates:40001
 #, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
 msgstr "정말로 지금 설치를 중지하시겠습니까?"
 
@@ -388,14 +387,14 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:50001
 msgid "New partition table"
-msgstr ""
+msgstr "새 파티션 테이블"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:51001
 msgid "New partition"
-msgstr ""
+msgstr "새 파티션"
 
 #. Type: text
 #. Description
@@ -411,14 +410,14 @@ msgstr "파티션 편집"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:53001
 msgid "Delete partition"
-msgstr ""
+msgstr "파티션 삭제"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:54001
 msgid "Device"
-msgstr ""
+msgstr "장치"
 
 #. Type: text
 #. Description
@@ -426,28 +425,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:55001
 msgid "Type"
-msgstr ""
+msgstr "타입"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:56001
 msgid "Mount point"
-msgstr ""
+msgstr "마운트 위치"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:57001
 msgid "Format?"
-msgstr ""
+msgstr "포맷?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:58001
 msgid "Size"
-msgstr ""
+msgstr "용량"
 
 #. Type: text
 #. Description
@@ -455,21 +454,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:59001
 msgid "Used"
-msgstr ""
+msgstr "사용됨"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:60001
 msgid "free space"
-msgstr ""
+msgstr "남은 공간"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:61001
 msgid "unknown"
-msgstr ""
+msgstr "알 수 없음"
 
 #. Type: text
 #. Description
@@ -549,19 +548,19 @@ msgstr "패키지 사용에 관한 설문 참여"
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Network proxy"
-msgstr ""
+msgstr "네트워크 프록시"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP 프록시:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Port:"
-msgstr ""
+msgstr "포트:"
 
 #. Type: text
 #. Description
@@ -671,7 +670,6 @@ msgstr "파일을 복사중입니다. (일 분가량 남았습니다)..."
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "설치를 마쳤습니다"
 
@@ -701,11 +699,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:92001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -719,10 +712,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -742,13 +731,6 @@ msgstr ""
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:94001 ../ubiquity.templates:95001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -766,7 +748,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:95001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "다음 파일은 CD/DVD의 원본과 일치하지 않습니다:"
 
 #. Type: text
 #. Description
@@ -990,7 +972,7 @@ msgstr "설치 프로그램이 이 파티션들의 언마운트를 시도할까�
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "파티션 프로그램으로 돌아가시겠습니까?"
 
 #. Type: boolean
 #. Description
@@ -999,6 +981,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"만든 파티션 중 일부는 크기가 너무 작습니다. 다음 파티션의 크기를 최소한 다음"
+"의 크기(바이트)만큼 지정해 주십시오:"
 
 #. Type: boolean
 #. Description
@@ -1007,6 +991,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"파티션 프로그램으로 돌아가지 않고 파티션의 크기를 늘리지 않는다면 설치는 실패"
+"할 것입니다."
 
 #. Type: note
 #. Description
@@ -1329,9 +1315,6 @@ msgstr "MythTV 네트워크 상의 컨텐츠를 이용하여 DVD를 제작할 �
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 #, fuzzy
-#| msgid ""
-#| "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#| "Network."
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr "MythTV 네트워크 상의 컨텐츠를 이용하여 DVD를 제작할 수 있는 플러그인."
 
@@ -1354,7 +1337,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Find movies playing in nearby local cinemas"
-msgstr ""
+msgstr "가까운 동네 영화관에서 상영하고 있는 영화 찾기"
 
 #. Type: text
 #. Description
@@ -1439,7 +1422,7 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:57001
 #: ../ubiquity-frontend-mythbuntu.templates:58001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "모두 활성화/비활성화"
 
 #. Type: text
 #. Description
@@ -1600,14 +1583,4 @@ msgstr "추가적인 서비스를 설정하는 중입니다..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
-msgstr ""
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "파일 복사에 실패했습니다. CD나 DVD에 문제가 있는지 확인하세요."
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "파일 복사에 실패했습니다. 하드 디스크에 문제가 있는지 확인해주세요."
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr ""
-#~ "파일 복사에 실패했습니다. CD/DVD 또는 하드 디스크의 문제일 수 있습니다."
+msgstr "적외선 장비를 설정하고 있습니다..."

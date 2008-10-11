@@ -227,7 +227,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 #, fuzzy
-#| msgid "Migrate Documents and Settings"
 msgid "Migrate documents and settings"
 msgstr "Migrează Documentele şi Setările"
 
@@ -238,6 +237,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Selectați conturile pe care doriți să le importați. Documentele și setările "
+"pentru aceste conturi vor fi disponibile după ce instalarea se finalizează."
 
 #. Type: text
 #. Description
@@ -313,7 +314,6 @@ msgstr "Pasul ${INDEX} din ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "Abandonează instalarea?"
 
@@ -321,7 +321,6 @@ msgstr "Abandonează instalarea?"
 #. Description
 #: ../ubiquity.templates:40001
 #, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
 msgstr "Vreţi să abandonaţi instalarea acum?"
 
@@ -396,14 +395,14 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:50001
 msgid "New partition table"
-msgstr ""
+msgstr "Tabel nou de partiționare"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:51001
 msgid "New partition"
-msgstr ""
+msgstr "Partiție nouă"
 
 #. Type: text
 #. Description
@@ -419,14 +418,14 @@ msgstr "Modifică partiţia"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:53001
 msgid "Delete partition"
-msgstr ""
+msgstr "Șterge partiție"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:54001
 msgid "Device"
-msgstr ""
+msgstr "Dispozitiv"
 
 #. Type: text
 #. Description
@@ -434,28 +433,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:55001
 msgid "Type"
-msgstr ""
+msgstr "Tip"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:56001
 msgid "Mount point"
-msgstr ""
+msgstr "Punct de montare"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:57001
 msgid "Format?"
-msgstr ""
+msgstr "Se formatează?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:58001
 msgid "Size"
-msgstr ""
+msgstr "Dimensiune"
 
 #. Type: text
 #. Description
@@ -463,21 +462,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:59001
 msgid "Used"
-msgstr ""
+msgstr "Utilizat"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:60001
 msgid "free space"
-msgstr ""
+msgstr "stațiu liber"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:61001
 msgid "unknown"
-msgstr ""
+msgstr "necunoscut"
 
 #. Type: text
 #. Description
@@ -679,7 +678,6 @@ msgstr "Copiere fişiere (a rămas mai puţin de un minut)..."
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "Instalare completă"
 
@@ -711,11 +709,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:92001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -730,10 +723,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -753,13 +742,6 @@ msgstr ""
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:94001 ../ubiquity.templates:95001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -778,7 +760,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:95001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "Următorul fișier nu s-a potrivit cu sursa copierii de pe CD/DVD"
 
 #. Type: text
 #. Description
@@ -1018,6 +1000,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"O parte din partițiile pe care le-ați creat sunt prea mici. Faceți "
+"următoarele partiții de cel puțin această dimensiune (în octeți):"
 
 #. Type: boolean
 #. Description
@@ -1026,6 +1010,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"Dacă nu vă întoarceți la utilitarul de partiționare și nu măriți dimensiunea "
+"acestor partiții, instalarea poate eșua."
 
 #. Type: note
 #. Description
@@ -1289,7 +1275,7 @@ msgstr "Controale Myth"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Movies"
-msgstr ""
+msgstr "Filme Myth"
 
 #. Type: text
 #. Description
@@ -1359,9 +1345,6 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 #, fuzzy
-#| msgid ""
-#| "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#| "Network."
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr ""
 "Un modul pentru MythTV ce îţi oferă posibilitatea de a crea DVD-uri din "
@@ -1387,7 +1370,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Find movies playing in nearby local cinemas"
-msgstr ""
+msgstr "Găsiți filmele actuale de la cinematografe apropiate"
 
 #. Type: text
 #. Description
@@ -1467,6 +1450,8 @@ msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
+"Temele pot îmbunătăți cu mult estetica unei instalării MythTV și o pot "
+"adapta mult mai bine gusturilor dumneavoastră."
 
 #. Type: text
 #. Description
@@ -1475,7 +1460,7 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:57001
 #: ../ubiquity-frontend-mythbuntu.templates:58001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "Pornețte/Oprește tot"
 
 #. Type: text
 #. Description
@@ -1640,18 +1625,4 @@ msgstr "Configurare servicii adiţionale..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
-msgstr ""
-
-#~ msgid "Failed to copy files; out of disk space."
-#~ msgstr ""
-#~ "Fișierele nu au putut fi copiate; nu mai există spațiu liber pe disc."
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "Fişierele nu au putut fi copiate; este CD/DVD-ul defect?"
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "Fişierele nu au putut fi copiate; este hard discul defect?"
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr ""
-#~ "Fişierele nu au putut fi copiate; este hard discul sau CD/DVD-ul defect?"
+msgstr "Se configurează dispozitivele infraroșu..."

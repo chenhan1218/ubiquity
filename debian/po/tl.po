@@ -221,7 +221,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 #, fuzzy
-#| msgid "Migrate Documents and Settings"
 msgid "Migrate documents and settings"
 msgstr "Maglipat ng mga Dokumento at Settings"
 
@@ -306,7 +305,6 @@ msgstr "Hakbang bilang ${INDEX} ng ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "Ihinto ang pagluklok?"
 
@@ -665,7 +663,6 @@ msgstr ""
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "Kumpleto ang pagluklok"
 

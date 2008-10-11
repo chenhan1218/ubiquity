@@ -209,7 +209,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 #, fuzzy
-#| msgid "Migrate Documents and Settings"
 msgid "Migrate documents and settings"
 msgstr "कागजातहरू तथा सेटिङ्हरू सार्नुहोस्"
 

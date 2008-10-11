@@ -230,7 +230,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 #, fuzzy
-#| msgid "Importing documents and settings..."
 msgid "Migrate documents and settings"
 msgstr "ডকুমেন্টস ও বৈশিষ্ট্যসমূহ আমদানি করা হচ্ছে..."
 
@@ -319,7 +318,6 @@ msgstr "${TOTAL} টির ${INDEX} পর্যায় সম্পন্ন"
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "ইনস্টলেশন বাতিল করো?"
 
@@ -327,7 +325,6 @@ msgstr "ইনস্টলেশন বাতিল করো?"
 #. Description
 #: ../ubiquity.templates:40001
 #, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
 msgstr "আপনি কি এখন সত্যি সত্যি ইনস্টলেশন বাতিল করতে ইচ্ছুক?"
 
@@ -681,7 +678,6 @@ msgstr "ফাইল কপি করা হচ্ছে (একটি মিন
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "ইনস্টলেশন সম্পূর্ণ হয়েছে"
 
@@ -1530,12 +1526,3 @@ msgstr "হার্ডওয়্যার কনফিগার করা হচ
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "ফাইল কপি করতে ব্যর্থ; সিডি/ডিভিডি তে সমস্যা?"
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "ফাইল কপি করতে ব্যর্থ; হার্ড ডিস্কে সমস্যা?"
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr "ফাইল কপি করতে ব্যর্থ; সিডি/ডিভিডি অথবা হার্ড ডিস্কে সমস্যা?"

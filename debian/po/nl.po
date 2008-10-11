@@ -227,7 +227,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 #, fuzzy
-#| msgid "Migrate Documents and Settings"
 msgid "Migrate documents and settings"
 msgstr "Documenten en Instellingen overnemen"
 
@@ -238,6 +237,9 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Selecteer de accounts die u wilt importeren. De documenten en instellingen "
+"voor deze accounts zullen beschikbaar zijn zodra het installatieproces is "
+"voltooid."
 
 #. Type: text
 #. Description
@@ -315,7 +317,6 @@ msgstr "Stap ${INDEX} van ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "Wilt u de installatie afbreken?"
 
@@ -323,7 +324,6 @@ msgstr "Wilt u de installatie afbreken?"
 #. Description
 #: ../ubiquity.templates:40001
 #, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
 msgstr "Weet u zeker dat u de installatie nu wilt afbreken?"
 
@@ -398,14 +398,14 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:50001
 msgid "New partition table"
-msgstr ""
+msgstr "Nieuwe partitietabel"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:51001
 msgid "New partition"
-msgstr ""
+msgstr "Nieuwe partitie"
 
 #. Type: text
 #. Description
@@ -421,14 +421,14 @@ msgstr "Partitie bewerken"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:53001
 msgid "Delete partition"
-msgstr ""
+msgstr "Partitie verwijderen"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:54001
 msgid "Device"
-msgstr ""
+msgstr "Apparaat"
 
 #. Type: text
 #. Description
@@ -436,28 +436,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:55001
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:56001
 msgid "Mount point"
-msgstr ""
+msgstr "Koppelpunt"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:57001
 msgid "Format?"
-msgstr ""
+msgstr "Formatteren?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:58001
 msgid "Size"
-msgstr ""
+msgstr "Grootte"
 
 #. Type: text
 #. Description
@@ -465,21 +465,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:59001
 msgid "Used"
-msgstr ""
+msgstr "Gebruikt"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:60001
 msgid "free space"
-msgstr ""
+msgstr "vrije ruimte"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:61001
 msgid "unknown"
-msgstr ""
+msgstr "onbekend"
 
 #. Type: text
 #. Description
@@ -559,19 +559,19 @@ msgstr "Neem deel aan het pakketgebruik-onderzoek"
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Network proxy"
-msgstr ""
+msgstr "Netwerk-proxy"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP-proxy:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Port:"
-msgstr ""
+msgstr "Poort:"
 
 #. Type: text
 #. Description
@@ -683,7 +683,6 @@ msgstr "Bestanden worden gekopieerd (minder dan een minuut te gaan)..."
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "Installatie is voltooid"
 
@@ -714,11 +713,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:92001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -733,10 +727,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -757,13 +747,6 @@ msgstr ""
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:94001 ../ubiquity.templates:95001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -784,6 +767,8 @@ msgstr ""
 #: ../ubiquity.templates:95001
 msgid "The following file did not match its source copy on the CD/DVD:"
 msgstr ""
+"Het volgende bestand komt niet overeen met het oorspronkelijke exemplaar op "
+"de CD/DVD:"
 
 #. Type: text
 #. Description
@@ -1015,7 +1000,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "Wilt u terugkeren naar het partitioneringsprogramma?"
 
 #. Type: boolean
 #. Description
@@ -1024,6 +1009,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"Een of meer van de partities die u heeft aangemaakt zijn te klein. Maak de "
+"volgende partities minstens deze grootte (in bytes):"
 
 #. Type: boolean
 #. Description
@@ -1032,6 +1019,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"Als u niet teruggaat naar het partitioneringsprogramma en deze partities "
+"vergroot, kan de installatie mislukken."
 
 #. Type: note
 #. Description
@@ -1294,7 +1283,7 @@ msgstr "Myth Bediening"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Movies"
-msgstr ""
+msgstr "Myth Movies"
 
 #. Type: text
 #. Description
@@ -1364,9 +1353,6 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 #, fuzzy
-#| msgid ""
-#| "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#| "Network."
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr ""
 "Een plugin vor MythTV waarmee u DVD's kunt maken van de inhoud van uw MythTV-"
@@ -1392,7 +1378,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Find movies playing in nearby local cinemas"
-msgstr ""
+msgstr "Zoek films die in bioscopen bij u in de buurt draaien"
 
 #. Type: text
 #. Description
@@ -1476,6 +1462,8 @@ msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
+"Thema's kunnen de uiterlijke aantrekkingskracht van MythTV sterk verbeteren, "
+"en het weergeven op een manier die met uw smaak overeen komt."
 
 #. Type: text
 #. Description
@@ -1484,7 +1472,7 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:57001
 #: ../ubiquity-frontend-mythbuntu.templates:58001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "Alles in-/uitschakelen"
 
 #. Type: text
 #. Description
@@ -1648,13 +1636,4 @@ msgstr "Extra diensten worden geconfigureerd..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
-msgstr ""
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "Bestanden kopiëren mislukt; CD/DVD met fouten?"
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "Bestanden kopiëren mislukt; fouten op de harde schijf?"
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr "Bestanden kopiëren mislukt; fouten op de CD/DVD of de harde schijf?"
+msgstr "Configureren van infraroodapparaten..."

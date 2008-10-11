@@ -297,7 +297,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "સ્થાપન અટકાવી દઇએ?"
 
@@ -305,7 +304,6 @@ msgstr "સ્થાપન અટકાવી દઇએ?"
 #. Description
 #: ../ubiquity.templates:40001
 #, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
 msgstr "શું તમે ખરેખર સ્થાપન અટકાવી દેવા માંગો છો?"
 
@@ -645,7 +643,6 @@ msgstr ""
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "સ્થાપન સફળ થયું"
 
@@ -1490,15 +1487,3 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#, fuzzy
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "સીડી-રોમમાંથી ફાઇલ નકલ કરવામાં નિષ્ફળ. ફરી પ્રયત્ન કરશો?"
-
-#, fuzzy
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "સીડી-રોમમાંથી ફાઇલ નકલ કરવામાં નિષ્ફળ. ફરી પ્રયત્ન કરશો?"
-
-#, fuzzy
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr "સીડી-રોમમાંથી ફાઇલ નકલ કરવામાં નિષ્ફળ. ફરી પ્રયત્ન કરશો?"

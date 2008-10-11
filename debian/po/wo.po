@@ -201,7 +201,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "Tanal mot de pass ndax sa cont woor"
 
 #. Type: text
 #. Description
@@ -214,13 +214,13 @@ msgstr ""
 #: ../ubiquity.templates:24001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr ""
+msgstr "Bindal niari yoon sa mot de passe bi ndax niou meuneu kham ndax juumo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "Louy tourou ordinateur bi?"
 
 #. Type: text
 #. Description
@@ -228,7 +228,7 @@ msgstr ""
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr ""
+msgstr "Tour bou ñeneen ñi di guiss si réso bi"
 
 #. Type: text
 #. Description
@@ -257,6 +257,7 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"Bo beugoul tokhalal ay compte, boul tann dara te dem si page bi ci topp."
 
 #. Type: text
 #. Description
@@ -299,7 +300,7 @@ msgstr ""
 #: ../ubiquity.templates:35001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
+msgstr "Sa sistem bu bess bi di na instalé wu ak  sey beugeu beugeu yi :"
 
 #. Type: text
 #. Description
@@ -357,7 +358,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Restart now"
-msgstr ""
+msgstr "Taalat legui"
 
 #. Type: text
 #. Description
@@ -672,7 +673,6 @@ msgstr ""
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "Istalaasioŋ bi matna"
 

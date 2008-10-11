@@ -227,7 +227,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 #, fuzzy
-#| msgid "Migrate Documents and Settings"
 msgid "Migrate documents and settings"
 msgstr "Documents and Settingsのインポート"
 
@@ -315,7 +314,6 @@ msgstr "ステップ ${INDEX} / ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "インストールを中断しますか？"
 
@@ -323,7 +321,6 @@ msgstr "インストールを中断しますか？"
 #. Description
 #: ../ubiquity.templates:40001
 #, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
 msgstr "本当にここでインストールを中断しますか？"
 
@@ -397,14 +394,14 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:50001
 msgid "New partition table"
-msgstr ""
+msgstr "新規のパーティションテーブル"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:51001
 msgid "New partition"
-msgstr ""
+msgstr "新規のパーティション"
 
 #. Type: text
 #. Description
@@ -420,14 +417,14 @@ msgstr "パーティションを編集"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:53001
 msgid "Delete partition"
-msgstr ""
+msgstr "パーティションの削除"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:54001
 msgid "Device"
-msgstr ""
+msgstr "デバイス"
 
 #. Type: text
 #. Description
@@ -435,28 +432,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:55001
 msgid "Type"
-msgstr ""
+msgstr "タイプ"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:56001
 msgid "Mount point"
-msgstr ""
+msgstr "マウントポイント"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:57001
 msgid "Format?"
-msgstr ""
+msgstr "フォーマット?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:58001
 msgid "Size"
-msgstr ""
+msgstr "サイズ"
 
 #. Type: text
 #. Description
@@ -464,21 +461,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:59001
 msgid "Used"
-msgstr ""
+msgstr "使用済み"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:60001
 msgid "free space"
-msgstr ""
+msgstr "空き領域"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:61001
 msgid "unknown"
-msgstr ""
+msgstr "不明"
 
 #. Type: text
 #. Description
@@ -681,7 +678,6 @@ msgstr "ファイルをコピーしています (残り1分弱です)..."
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "インストール完了"
 
@@ -702,10 +698,6 @@ msgstr "ハードディスクにファイルをコピー中にエラーが発生
 #. Description
 #: ../ubiquity.templates:91001
 #, fuzzy
-#| msgid ""
-#| "This particular error is due to there being insufficient disk space for "
-#| "the install to complete on the target partition.  Please run the "
-#| "installer again and select a larger partition to install into."
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
@@ -719,11 +711,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:92001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -738,10 +725,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -761,13 +744,6 @@ msgstr ""
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:94001 ../ubiquity.templates:95001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -785,7 +761,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:95001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "次のファイルはCDまたはDVDのソースコピーと一致しませんでした:"
 
 #. Type: text
 #. Description
@@ -1016,7 +992,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "パーティション作成ソフトに戻りますか？"
 
 #. Type: boolean
 #. Description
@@ -1025,6 +1001,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"作成したパーティッションうちのいくつかのパーティションが小さすぎます．次の"
+"パーティッションを少なくともこのサイズにしてください (バイトで):"
 
 #. Type: boolean
 #. Description
@@ -1033,6 +1011,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"もしパーティション作成ソフトに戻らず、これらパーティションのサイズが増えてい"
+"るならば、インストールに失敗しているかもしれません。"
 
 #. Type: note
 #. Description
@@ -1291,7 +1271,7 @@ msgstr "Myth コントロール"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Movies"
-msgstr ""
+msgstr "Myth 映画"
 
 #. Type: text
 #. Description
@@ -1359,9 +1339,6 @@ msgstr "MythTVネットワーク上のコンテンツからDVDを作成するた
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 #, fuzzy
-#| msgid ""
-#| "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#| "Network."
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr "MythTVネットワーク上のコンテンツからDVDを作成するためのプラグイン"
 
@@ -1383,7 +1360,7 @@ msgstr "MythTV の外部コントロール。ボタン配置とキーバイン�
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Find movies playing in nearby local cinemas"
-msgstr ""
+msgstr "近所の映画館で上映されている映画を探す"
 
 #. Type: text
 #. Description
@@ -1468,7 +1445,7 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:57001
 #: ../ubiquity-frontend-mythbuntu.templates:58001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "全てを有効または無効にする"
 
 #. Type: text
 #. Description
@@ -1630,24 +1607,4 @@ msgstr "追加サービスの設定をしています・・・"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
-msgstr ""
-
-#~ msgid "Failed to copy files; out of disk space."
-#~ msgstr ""
-#~ "ファイルのコピーに失敗しました。ディスクの空き容量が不足しています。"
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "ファイルのコピーに失敗しました。（不良なCD/DVD？）"
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "ファイルのコピーに失敗しました; ハードディスクが壊れている ?"
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr ""
-#~ "ファイルのコピーに失敗しました; CD/DVD ドライブもしくはハードディスクが壊"
-#~ "れている ?"
-
-#~ msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-#~ msgstr ""
-#~ "ファイルのコピーに失敗しました。CD/DVDに欠陥があるか、ハードディスクが故障"
-#~ "しているかもしれません。"
+msgstr "赤外線デバイスを設定しています..."

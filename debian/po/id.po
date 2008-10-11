@@ -231,7 +231,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 #, fuzzy
-#| msgid "Migrate Documents and Settings"
 msgid "Migrate documents and settings"
 msgstr "Migrasi Dokumen dan Setting"
 
@@ -242,6 +241,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Pilih sebarang akun yang ingin diimpor. Dokumen-dokumen dan pengaturan-"
+"pengaturan bagi akun-akun ini akan tersedia setelah pemasangan selesai."
 
 #. Type: text
 #. Description
@@ -318,7 +319,6 @@ msgstr "Langkah ${INDEX} dari ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "Batalkan instalasi?"
 
@@ -326,7 +326,6 @@ msgstr "Batalkan instalasi?"
 #. Description
 #: ../ubiquity.templates:40001
 #, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
 msgstr "Apakah anda benar-benar ingin membatalkan instalasi sekarang?"
 
@@ -401,14 +400,14 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:50001
 msgid "New partition table"
-msgstr ""
+msgstr "Daftar Partisi Baru"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:51001
 msgid "New partition"
-msgstr ""
+msgstr "Partisi Baru"
 
 #. Type: text
 #. Description
@@ -424,14 +423,14 @@ msgstr "Sunting partisi"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:53001
 msgid "Delete partition"
-msgstr ""
+msgstr "Hapus Partisi"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:54001
 msgid "Device"
-msgstr ""
+msgstr "Perangkat"
 
 #. Type: text
 #. Description
@@ -439,28 +438,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:55001
 msgid "Type"
-msgstr ""
+msgstr "Jenis"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:56001
 msgid "Mount point"
-msgstr ""
+msgstr "Titik kait"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:57001
 msgid "Format?"
-msgstr ""
+msgstr "Format?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:58001
 msgid "Size"
-msgstr ""
+msgstr "Ukuran"
 
 #. Type: text
 #. Description
@@ -468,21 +467,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:59001
 msgid "Used"
-msgstr ""
+msgstr "Terpakai"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:60001
 msgid "free space"
-msgstr ""
+msgstr "ruang bebas"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:61001
 msgid "unknown"
-msgstr ""
+msgstr "Tidak Diketahui"
 
 #. Type: text
 #. Description
@@ -562,19 +561,19 @@ msgstr "Berpartisipasi dalam survey penggunaan paket"
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Network proxy"
-msgstr ""
+msgstr "Proxy jaringan"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "Proxy HTTP:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Port:"
-msgstr ""
+msgstr "Port:"
 
 #. Type: text
 #. Description
@@ -686,7 +685,6 @@ msgstr "Menyalin berkas (kurang dari satu menit lagi)..."
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "Instalasi selesai."
 
@@ -716,11 +714,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:92001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -735,10 +728,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -758,13 +747,6 @@ msgstr ""
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:94001 ../ubiquity.templates:95001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -782,7 +764,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:95001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "Berkas berikut tidak cocok dengan sumbernya di CD/DVD."
 
 #. Type: text
 #. Description
@@ -1013,7 +995,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "Apakah anda ingin kembali ke pemartisi?"
 
 #. Type: boolean
 #. Description
@@ -1022,6 +1004,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"Beberapa partisi yang anda buat terlalu kecil. Pastikan bahwa anda membuat "
+"partisi sekurang-kurangnya sebesar (dalam byte):"
 
 #. Type: boolean
 #. Description
@@ -1030,6 +1014,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"Jika anda tidak ingin kembali dalam pemartisi dan menambah ukuran partisi "
+"ini, instalasi mungkin gagal."
 
 #. Type: note
 #. Description
@@ -1289,7 +1275,7 @@ msgstr "Pengendali Myth"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Movies"
-msgstr ""
+msgstr "Film Myth"
 
 #. Type: text
 #. Description
@@ -1359,9 +1345,6 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 #, fuzzy
-#| msgid ""
-#| "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#| "Network."
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr ""
 "Sebuah plugin bagi MythTV yang memungkinkan anda membuat DVD dari isi pada "
@@ -1387,7 +1370,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Find movies playing in nearby local cinemas"
-msgstr ""
+msgstr "Cari film yang diputar di bioskop lokal terdekat"
 
 #. Type: text
 #. Description
@@ -1474,6 +1457,8 @@ msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
+"Tema bisa sangat meningkatkan estetis dari pengaturan MythTV, dan "
+"menampilkannya sesuai dengan selera anda yang jauh lebih lebih baik."
 
 #. Type: text
 #. Description
@@ -1482,7 +1467,7 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:57001
 #: ../ubiquity-frontend-mythbuntu.templates:58001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "Aktifkan/Non-Aktifkan semua"
 
 #. Type: text
 #. Description
@@ -1648,13 +1633,4 @@ msgstr "Sedang mengkonfigurasi layanan tambahan..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
-msgstr ""
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "Gagal menyalin berkas; CD/DVD cacat?"
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "Gagal menyalin berkas; hard disk cacat?"
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr "Gagal menyalin berkas; hard disk cacat atau CD/DVD cacat?"
+msgstr "Mengatur peralatan infra merah"

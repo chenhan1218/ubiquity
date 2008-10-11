@@ -226,7 +226,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 #, fuzzy
-#| msgid "Migrate Documents and Settings"
 msgid "Migrate documents and settings"
 msgstr "Migraad"
 
@@ -237,6 +236,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Elektu iun konton kiun vi ŝatus importi. La dokumentoj kaj agordoj por ĉi "
+"tiuj kontoj estos disponeblaj post fino de la instalado."
 
 #. Type: text
 #. Description
@@ -312,7 +313,6 @@ msgstr "Paŝo ${INDEX} el ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "Ĉu abortigu la instaladon?"
 
@@ -320,7 +320,6 @@ msgstr "Ĉu abortigu la instaladon?"
 #. Description
 #: ../ubiquity.templates:40001
 #, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
 msgstr "Ĉu vi vere volas abortigi la instaladon nun?"
 
@@ -401,7 +400,7 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:51001
 msgid "New partition"
-msgstr ""
+msgstr "Nova subdisko"
 
 #. Type: text
 #. Description
@@ -417,14 +416,14 @@ msgstr "Redaktu la diskpartigon"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:53001
 msgid "Delete partition"
-msgstr ""
+msgstr "Viŝi subdiskon"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:54001
 msgid "Device"
-msgstr ""
+msgstr "Aparato"
 
 #. Type: text
 #. Description
@@ -432,7 +431,7 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:55001
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #. Type: text
 #. Description
@@ -453,7 +452,7 @@ msgstr ""
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:58001
 msgid "Size"
-msgstr ""
+msgstr "Grandeco"
 
 #. Type: text
 #. Description
@@ -468,14 +467,14 @@ msgstr ""
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:60001
 msgid "free space"
-msgstr ""
+msgstr "disponebla spaco"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:61001
 msgid "unknown"
-msgstr ""
+msgstr "nekonata"
 
 #. Type: text
 #. Description
@@ -555,19 +554,19 @@ msgstr "Partoprenu pritaksadon de uzo de pakoj"
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Network proxy"
-msgstr ""
+msgstr "Reta prokurilo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP-prokurilo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Port:"
-msgstr ""
+msgstr "Pordo:"
 
 #. Type: text
 #. Description
@@ -677,7 +676,6 @@ msgstr "Kopiante dosierojn (malpli ol unu minuto restas)..."
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "Kompleta instalado"
 
@@ -708,11 +706,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:92001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -727,10 +720,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -750,13 +739,6 @@ msgstr ""
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:94001 ../ubiquity.templates:95001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -775,7 +757,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:95001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "La jena dosiero ne egalis al sia fonta versio sur la KD/DVC:"
 
 #. Type: text
 #. Description
@@ -1000,7 +982,7 @@ msgstr "Ĉu vi ŝatus ke la instalilo reklopodu demeti ĉi tiujn subdiskojn?"
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "Ĉu vi volas reiri al la subdiskigilo?"
 
 #. Type: boolean
 #. Description
@@ -1009,6 +991,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"Iuj el la subdiskoj kreitaj de vi estas tro malgrandaj. Bonvolu fari la "
+"jenajn subdiskojn minimume tiom larĝaj (en bajtoj):"
 
 #. Type: boolean
 #. Description
@@ -1017,6 +1001,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"Se vi ne reiras al la subdiskigilo kaj pligrandigas la subdiskojn, la "
+"instalado povas fiaski."
 
 #. Type: note
 #. Description
@@ -1274,7 +1260,7 @@ msgstr "Myth-Regiloj"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Movies"
-msgstr ""
+msgstr "Myth-filmoj"
 
 #. Type: text
 #. Description
@@ -1344,9 +1330,6 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 #, fuzzy
-#| msgid ""
-#| "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#| "Network."
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr ""
 "Kromaĵo por MythTV kiu lasas al vi krei DVD-ojn de enhavo sur via MythTV-"
@@ -1372,7 +1355,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Find movies playing in nearby local cinemas"
-msgstr ""
+msgstr "Serĉi filmojn en apudaj lokaj kinejoj"
 
 #. Type: text
 #. Description
@@ -1453,6 +1436,8 @@ msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
+"Etosoj povas ege plibonigi la estetikan allogon de agordaro de Myth-TV, kaj "
+"vidigi ĝin pli laŭ viaj gustoj."
 
 #. Type: text
 #. Description
@@ -1461,7 +1446,7 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:57001
 #: ../ubiquity-frontend-mythbuntu.templates:58001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "Ŝalti/malŝalti ĉiujn"
 
 #. Type: text
 #. Description
@@ -1624,13 +1609,4 @@ msgstr "Agordas kromajn servojn..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
-msgstr ""
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "Malsukcesis kopii dosierojn; difektita KD/DVD?"
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "Malsukcesis kopii dosierojn; ĉu difektita fiksa disko?"
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr "Malsukcesis kopii dosierojn; ĉu difektita KD/DVD aŭ fiksa disko?"
+msgstr "Konfigurado de infraruĝaj aparatoj..."

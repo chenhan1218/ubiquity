@@ -220,7 +220,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 #, fuzzy
-#| msgid "Importing documents and settings..."
 msgid "Migrate documents and settings"
 msgstr "ਦਸਤਾਵੇਜ਼ ਅਤੇ ਸੈਟਿੰਗਾਂ ਅਾਯਾਤ ਕੀਤੀਅਾਂ ਜਾ ਰਹੀਅਾਂ ਹਨ..."
 
@@ -667,7 +666,6 @@ msgstr "ਫਾੲੀਲਾਂ ਕਾਪੀ ਕੀਤੀਅਾਂ ਜਾ ਰਹ�
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਸਮਾਪਤ ਹੋਈ"
 
@@ -697,11 +695,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:92001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -716,10 +709,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -739,13 +728,6 @@ msgstr ""
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:94001 ../ubiquity.templates:95001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -1549,12 +1531,3 @@ msgstr "ਨੈੱਟਵਰਕ ਸੰਰਚਿਤ ਕੀਤਾ ਜਾ ਰਿਹ�
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "ਫਾੲੀਲਾਂ ਕਾਪੀ ਕੀਤੀਅਾਂ ਜਾ ਰਹੀਅਾਂ ਹਨ (ੲਿਕ ਮਿਨਟ ਤੋਂ ਘਟ ਬਾਕੀ) ..."
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "ਫਾੲੀਲਾਂ ਕਾਪੀ ਕਰਣ ਵਿਚ ਅਸਫਲ; ਖਰਾਬ ਹਾਰਡ ਡਿਸਕ?"
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr "ਫਾੲੀਲਾਂ ਕਾਪੀ ਕਰਣ ਵਿਚ ਅਸਫਲ; ਖਰਾਬ ਸੀਡੀ/ਡੀਵੀਡੀ ਜਾਂ ਹਾਰਡ ਡਿਸਕ?"

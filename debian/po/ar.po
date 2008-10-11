@@ -218,7 +218,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 #, fuzzy
-#| msgid "Migrate Documents and Settings"
 msgid "Migrate documents and settings"
 msgstr "ترحيل المستندات والإعدادات"
 
@@ -229,6 +228,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"اختر الحسابات التي تريد استيرادها.  ستتاح مستندات وإعدادات هذه الحساباتبعد "
+"اكتمال التثبيت"
 
 #. Type: text
 #. Description
@@ -304,7 +305,6 @@ msgstr "الخطوة ${INDEX} من ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "هل تريد إلغاء التثبيت؟"
 
@@ -312,7 +312,6 @@ msgstr "هل تريد إلغاء التثبيت؟"
 #. Description
 #: ../ubiquity.templates:40001
 #, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
 msgstr "هل تريد حقآ أن تلغي التثبيت؟"
 
@@ -386,14 +385,14 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:50001
 msgid "New partition table"
-msgstr ""
+msgstr "جول تجزئة جديد"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:51001
 msgid "New partition"
-msgstr ""
+msgstr "جزء جديد"
 
 #. Type: text
 #. Description
@@ -409,14 +408,14 @@ msgstr "تحرير القسم"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:53001
 msgid "Delete partition"
-msgstr ""
+msgstr "احذف الجزء"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:54001
 msgid "Device"
-msgstr ""
+msgstr "الجهاز"
 
 #. Type: text
 #. Description
@@ -424,28 +423,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:55001
 msgid "Type"
-msgstr ""
+msgstr "النوع"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:56001
 msgid "Mount point"
-msgstr ""
+msgstr "نقطو الوصل"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:57001
 msgid "Format?"
-msgstr ""
+msgstr "سيهيء؟"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:58001
 msgid "Size"
-msgstr ""
+msgstr "الحجم"
 
 #. Type: text
 #. Description
@@ -453,21 +452,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:59001
 msgid "Used"
-msgstr ""
+msgstr "مستخدم"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:60001
 msgid "free space"
-msgstr ""
+msgstr "مساجة خالية"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:61001
 msgid "unknown"
-msgstr ""
+msgstr "مجهول"
 
 #. Type: text
 #. Description
@@ -547,19 +546,19 @@ msgstr "شارك في استبانة استخدام الحزمة"
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Network proxy"
-msgstr ""
+msgstr "وسيط الشبكة"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "وسيط HTTP"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Port:"
-msgstr ""
+msgstr "المنفذ"
 
 #. Type: text
 #. Description
@@ -667,7 +666,6 @@ msgstr "جاري نسخ الملفات (المتبقي أقل من دقيقة)..
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "اكتمل التثبيت"
 
@@ -697,11 +695,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:92001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -715,10 +708,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -737,13 +726,6 @@ msgstr ""
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:94001 ../ubiquity.templates:95001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -761,7 +743,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:95001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "الملف التالي لم يطابق مصدر نسخه في الـ CD/DVD:"
 
 #. Type: text
 #. Description
@@ -985,7 +967,7 @@ msgstr "هل تريد من برنامج التثبيت أن يحاول فصل ن
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "أتريد العودة إلى المجزئ؟"
 
 #. Type: boolean
 #. Description
@@ -994,6 +976,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"بعض الأجزاء التي أنشتها صغيرة جدا.  من فضلك اجعل هذا الجزء بهذاالحجم على "
+"الأقل (بالبايت):"
 
 #. Type: boolean
 #. Description
@@ -1001,7 +985,7 @@ msgstr ""
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
-msgstr ""
+msgstr "إذا لم تعد إلى المجزّئ وتزيد مساحة هذه الأجزاءفقد يفشل التثبيت."
 
 #. Type: note
 #. Description
@@ -1117,6 +1101,9 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"المحرك المزدوج ذو الواجهتين الأمامية والخلفية هو الإعداد الشائع للناس "
+"الراغبين بـ mythTV من أجل تطبيقات HTPC. هذا النوع من التثبيت سيُستخدم كمكوّن "
+"في مسرحك المنزلي."
 
 #. Type: text
 #. Description
@@ -1131,6 +1118,8 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"هذا سينصب نظاماً شبيهاً بـواجهة خلفية أساسية مع واجهة أمامية، لكنه سيُعَدّ "
+"للاتصال بواجهة خلفية موجودة على الشبكة."
 
 #. Type: text
 #. Description
@@ -1196,6 +1185,8 @@ msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
 msgstr ""
+"يمكن استخدام الملحقات لتوسيع وظائفية MythTV ليصبح أكثر من وسيلة للتحكم "
+"الزمني بالعرض المتلفز"
 
 #. Type: text
 #. Description
@@ -1222,6 +1213,8 @@ msgid ""
 "MythWeb provides a web interface which can be used to view listings, "
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
+"MythWeb يوفر واجهة ويب يمكن استعمالها لعرض القوائم، جدولة التسجيلات، حذف "
+"التسجيلات، و البحث عن البرامج."
 
 #. Type: text
 #. Description
@@ -1248,7 +1241,7 @@ msgstr "تحكّمات مَيِث"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Movies"
-msgstr ""
+msgstr "أفلام  Myth"
 
 #. Type: text
 #. Description
@@ -1290,7 +1283,7 @@ msgstr "هاتف مَيِث"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Stream"
-msgstr ""
+msgstr "دفق Myth"
 
 #. Type: text
 #. Description
@@ -1311,6 +1304,8 @@ msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
 msgstr ""
+"ملحق لـ MythTV تجعلك تنشئ أقراص DVD من المحتوى الموجود على شبكة MythTV "
+"الخاصة بك."
 
 #. Type: text
 #. Description
@@ -1322,7 +1317,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:43001
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr ""
+msgstr "ملحق لمتصفح وب متكامل من أجل نظام MythTV الخاص بك."
 
 #. Type: text
 #. Description
@@ -1331,36 +1326,38 @@ msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
 msgstr ""
+"متحكمات خارجية لبرنامج MythTV. هذا سوف يسمح لك بتعديل تعيينات الأزرار "
+"وارتباطات المفاتيح."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Find movies playing in nearby local cinemas"
-msgstr ""
+msgstr "إيجاد الأفلام المعروضة في صالات الأفلام المحلية المجاورة"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr ""
+msgstr "يسمح لك بمراقبة طابور تأجير أقراص DVD من Netflix."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Allows you to visually browse a directory tree containing image files."
-msgstr ""
+msgstr "يسمح لك بتصفح بصريّ لشجرة مجلدات تحوي ملفات صور."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:48001
 msgid "A frontend to start any emulator or binary that Linux runs."
-msgstr ""
+msgstr "واجهة لبدء أي محاكي أو ثنائي يشغله لينكس."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:49001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr ""
+msgstr "يزودك بمشغل صوتي رقمي jukebox مدمج مع MythTV."
 
 #. Type: text
 #. Description
@@ -1369,6 +1366,8 @@ msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
 msgstr ""
+"ملحق قارئ أخبار تلقيمات RSS في MythTV يبقيك مطلعاً على أحدث مواضيع الأخبار "
+"المفضلة لديك."
 
 #. Type: text
 #. Description
@@ -1376,12 +1375,14 @@ msgstr ""
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr ""
+"إمكانية استعمال الهاتف و الهاتف المرئي في MythTV  باستخدام بروتوكول SIP "
+"القياسي."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Provides a method to listen to streaming internet radio stations."
-msgstr ""
+msgstr "يوفر طريقةً للاستماع إلى تدفقات المحطات الإذاعية عبر الإنترنت."
 
 #. Type: text
 #. Description
@@ -1390,12 +1391,13 @@ msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
 msgstr ""
+"يسمح لك باستعراض وتشغيل دفق الفيديو باستخدام مشغل خارجي من خلال واجهة MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:54001
 msgid "Displays current and forecast weather information within MythTV."
-msgstr ""
+msgstr "يظهر حالتي الطقس الحالية والمتوقعة ضمن MythTV."
 
 #. Type: text
 #. Description
@@ -1410,6 +1412,8 @@ msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
+"السمات تزيد بشكل كبير الناحية الجمالية في برنامج إعداد MythTV، فتظهرها بشكل "
+"يتوافق مع ذوقك أكثر."
 
 #. Type: text
 #. Description
@@ -1418,13 +1422,13 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:57001
 #: ../ubiquity-frontend-mythbuntu.templates:58001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "فعّل/عطّل الكل"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Additional Drivers/Firmware"
-msgstr ""
+msgstr "تعريفات/برمجيات مضمنة إضافية"
 
 #. Type: text
 #. Description
@@ -1435,24 +1439,27 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"برنامج تعريف جهاز عرض الرسوميات الحرّ المصدر مُفعّل ومُعدّ مُسبقاً. إذا احتجت "
+"استخدام برنامج تعريف آخر  فيمكنك فعل ذلك هنا، مع ملاحظة أن التعريفات "
+"الرسومية المملوكة قد تكون ضرورية لخرج التلفاز أو لإظهار تأثيرات OpenGL."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:61001
 msgid "Modify Video Driver & Settings"
-msgstr ""
+msgstr "عدّل تعريف الفيديو والإعدادات"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:62001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr ""
+msgstr "إذا رغبت في إعداد TV-out، يمكنك الاختيار من هنا:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-msgstr ""
+msgstr "في حالة تفعيل مخرجات التلفاز، فستحتاج أيضاً إلى اختيار معيار التلفزة:"
 
 #. Type: text
 #. Description
@@ -1461,18 +1468,20 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
+"تحذير: لا تضبط المواصفات القياسية على أعلى مما يدعمه جهاز التلفاز الخاص بك. "
+"قد يؤدي ذلك إلى تلف دائم."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
 msgid "Master Backend Info"
-msgstr ""
+msgstr "معلومات الواجهة الخلفية السيدة"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:66001
 msgid "Please enter the information necessary to contact your master backend:"
-msgstr ""
+msgstr "أدخل رجاءً المعلومات المطلوبة للاتصال بالمنصة الخلفية الرئيسية:"
 
 #. Type: text
 #. Description
@@ -1484,25 +1493,25 @@ msgstr "كلمة سر MySQL"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:68001
 msgid "MySQL User Name"
-msgstr ""
+msgstr "اسم مستخدم MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "MySQL Database"
-msgstr ""
+msgstr "قاعدة بيانات MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:70001
 msgid "MySQL Server"
-msgstr ""
+msgstr "خادوم MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "إعداد بيانات المرشد / واجهة خلفية"
 
 #. Type: text
 #. Description
@@ -1511,12 +1520,14 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
+"تتطلب الخطوات الأخيرة تنصيب بيانات المرشد الخاص بك وإعداد الواجهة الخلفية "
+"للمرة الأولى."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "انقر لفتح موقع وب Schedules Direct."
 
 #. Type: text
 #. Description
@@ -1526,6 +1537,9 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
+"مستخدمو شمال أمريكا سيحتاجون إلى فتح حساب لدى موقع Schedules Direct. هذا "
+"الموقع يقدم جداول البرامج التلفزيونية بتكلفة رمزية ، بدون هذا الموقع قد يخسر "
+"مستخدمو شمال أمريكا العديد من ميزات جداول البرامج التلفزيونية على الـ MythTV."
 
 #. Type: text
 #. Description
@@ -1542,6 +1556,9 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"بعد تجهيز موقع دليلك ستحتاج إلى تشغيل مثبت MythTV لتشغيل المنصة الخلفية "
+"للمرة الأولى. ستحتاج لإعداد أول أربع أقسام مع التأكد بإضافة بيانات دليلك فى "
+"القسم الثالث."
 
 #. Type: text
 #. Description
@@ -1565,13 +1582,4 @@ msgstr "يجري إعداد الخدمات الإضافية..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
-msgstr ""
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "عملية نسخ الملفات فشلت، القرص CD/DVD معتل؟"
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "نسخ الملفات فشل، قرص صلب معتل؟"
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr "نسخ الملفات فشل، قرص صلب أو قارءة CD/DVD معتلة؟"
+msgstr "ضبط إعدادات أجهزة الأشعة ما تحت الحمراء"

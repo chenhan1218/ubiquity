@@ -295,7 +295,6 @@ msgstr "የመረጃ ማውጫ አሳይ"
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "ተከላውን ይቁም?"
 
@@ -643,7 +642,6 @@ msgstr ""
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "ተከላው ተፈጽሟል"
 

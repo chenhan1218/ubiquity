@@ -223,13 +223,12 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Entra de manera automàtica"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
 #, fuzzy
-#| msgid "Migrate Documents and Settings"
 msgid "Migrate documents and settings"
 msgstr "Migra els documents i les configuracions"
 
@@ -240,6 +239,9 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Seleccioneu qualsevol compte que vulgueu importar. Els documents i la "
+"configuració d'aquests estaran disponibles un cop finalitzada la "
+"instal·lació."
 
 #. Type: text
 #. Description
@@ -282,7 +284,7 @@ msgstr "Preparat per a instal·lar"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Details"
-msgstr ""
+msgstr "Detalls"
 
 #. Type: text
 #. Description
@@ -315,7 +317,6 @@ msgstr "Pas ${INDEX} de ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:39001
 #, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "Voleu avortar la instal·lació?"
 
@@ -323,7 +324,6 @@ msgstr "Voleu avortar la instal·lació?"
 #. Description
 #: ../ubiquity.templates:40001
 #, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
 msgstr "Esteu segur de voler avortar la instal·lació ara?"
 
@@ -383,7 +383,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:48001
 msgid "Before:"
-msgstr ""
+msgstr "Abans:"
 
 #. Type: text
 #. Description
@@ -391,21 +391,21 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:49001
 msgid "After:"
-msgstr ""
+msgstr "Després:"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:50001
 msgid "New partition table"
-msgstr ""
+msgstr "Taula de particions nova"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:51001
 msgid "New partition"
-msgstr ""
+msgstr "Partició nova"
 
 #. Type: text
 #. Description
@@ -421,14 +421,14 @@ msgstr "Edita la partició"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:53001
 msgid "Delete partition"
-msgstr ""
+msgstr "Suprimeix la partició"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:54001
 msgid "Device"
-msgstr ""
+msgstr "Dispositiu"
 
 #. Type: text
 #. Description
@@ -436,28 +436,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:55001
 msgid "Type"
-msgstr ""
+msgstr "Tipus"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:56001
 msgid "Mount point"
-msgstr ""
+msgstr "Punt de muntatge"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:57001
 msgid "Format?"
-msgstr ""
+msgstr "A formatar?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:58001
 msgid "Size"
-msgstr ""
+msgstr "Mida"
 
 #. Type: text
 #. Description
@@ -465,21 +465,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:59001
 msgid "Used"
-msgstr ""
+msgstr "En ús"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:60001
 msgid "free space"
-msgstr ""
+msgstr "espai lliure"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:61001
 msgid "unknown"
-msgstr ""
+msgstr "desconegut"
 
 #. Type: text
 #. Description
@@ -683,7 +683,6 @@ msgstr "S'estan copiant els fitxers (queda menys d'un minut)..."
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
 #: ../ubiquity.templates:95001
 #, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
 msgstr "Instal·lació completa"
 
@@ -709,16 +708,15 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"Això és degut al fet que no hi ha prou espai de disc a la partició de "
+"destinació, amb la qual cosa la instal·lació no es pot completar. Hauríeu "
+"d'executar l'instal·lador de nou i seleccionar una partició més grossa on "
+"dur a terme la instal·lació."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:92001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -733,10 +731,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -756,13 +750,6 @@ msgstr ""
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:94001 ../ubiquity.templates:95001
 #, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -782,7 +769,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:95001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "El fitxer següent no coincideix amb el seu original en el CD/DVD:"
 
 #. Type: text
 #. Description
@@ -1020,6 +1007,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"Algunes de les particions que heu creat són massa petites. Hauríeu "
+"d'engrandir les particions següents com a mínim a aquesta mida (en bytes):"
 
 #. Type: boolean
 #. Description
@@ -1028,6 +1017,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"Si no torneu al partidor i incrementeu la mida d'aquestes particions, pot "
+"ser que falli la instal·lació."
 
 #. Type: note
 #. Description
@@ -1286,7 +1277,7 @@ msgstr "Controls del Myth"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Movies"
-msgstr ""
+msgstr "Pel.lícules del Myth"
 
 #. Type: text
 #. Description
@@ -1356,9 +1347,6 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 #, fuzzy
-#| msgid ""
-#| "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#| "Network."
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr ""
 "Un connector per al MythTV que us permet crear DVD a partir dels continguts "
@@ -1384,7 +1372,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Find movies playing in nearby local cinemas"
-msgstr ""
+msgstr "Cerca pel·lícules de la cartellera dels cinemes locals propers"
 
 #. Type: text
 #. Description
@@ -1467,6 +1455,8 @@ msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
+"Els temes permeten millorar de manera considerable l'aparença estètica del "
+"MythTV i adequar-la al vostres gustos."
 
 #. Type: text
 #. Description
@@ -1475,7 +1465,7 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:57001
 #: ../ubiquity-frontend-mythbuntu.templates:58001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "Habilita-ho/inhabilita-ho tot"
 
 #. Type: text
 #. Description
@@ -1642,25 +1632,4 @@ msgstr "S'estan configurant els serveis addicionals..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
-msgstr ""
-
-#~ msgid "Failed to copy files; out of disk space."
-#~ msgstr "Ha fallat la còpia de fitxers; no hi ha prou espai al disc."
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "No s'han pogut copiar els fitxers; el CD/DVD és defectuós?"
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr ""
-#~ "La copia de fitxers ha fallat; és probable que el disc dur tingui un "
-#~ "error."
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr ""
-#~ "La copia dels fitxers ha fallat; és probable que hi hagi un error al CD/"
-#~ "DVD o al disc dur."
-
-#~ msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-#~ msgstr ""
-#~ "Ha fallat la còpia de fitxers; pot ser que el CD/DVD o el disc dir "
-#~ "estiguin malmesos."
+msgstr "S'estan configurant els dispositius d'infrarojos"
