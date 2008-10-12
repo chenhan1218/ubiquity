@@ -1,4 +1,4 @@
-oem-config (1.51) UNRELEASED; urgency=low
+oem-config (1.51) intrepid; urgency=low
 
   * Log messages from update-rc.d rather than throwing them away.
   * Fix intltool handling; po/Makefile.in.in was still coming from gettext.
@@ -13,7 +13,7 @@ oem-config (1.51) UNRELEASED; urgency=low
   * Update translations from Launchpad.
   * Automatic update of included source packages: user-setup 1.20ubuntu9.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 02 Oct 2008 10:07:07 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 12 Oct 2008 21:25:16 +0100
 
 oem-config (1.50) intrepid; urgency=low
 
