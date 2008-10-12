@@ -11,6 +11,7 @@ oem-config (1.51) UNRELEASED; urgency=low
   * Run oem-config in debugging mode if 'debug-oem-config' is set on the
     kernel command line.
   * Update translations from Launchpad.
+  * Automatic update of included source packages: user-setup 1.20ubuntu9.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 02 Oct 2008 10:07:07 +0100
 
