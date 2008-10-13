@@ -306,7 +306,7 @@ class SegmentedBar(gtk.Widget):
             aw, ah = layout.get_pixel_size()
             
             layout = self.create_adapt_layout(layout, True, False)
-            layout.set_text('%d%%' % round(self.segments[i].percent * 100))
+            layout.set_text('%d%%' % int(round(self.segments[i].percent * 100)))
             bw, bh = layout.get_pixel_size()
 
             w = max(aw, bw)
@@ -431,7 +431,7 @@ class SegmentedBar(gtk.Widget):
             cr.fill()
 
             layout = self.create_adapt_layout(layout, True, False)
-            layout.set_text('%d%%' % (segment.percent * 100))
+            layout.set_text('%d%%' % int(segment.percent * 100))
 
             cr.move_to(x, lh)
             text_color.a = 0.75

@@ -1,3 +1,9 @@
+ubiquity (1.10.6) UNRELEASED; urgency=low
+
+  * Fix a crash in segmented_bar by providing the expected integer type.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 13 Oct 2008 02:27:09 -0400
+
 ubiquity (1.10.5) intrepid; urgency=low
 
   [ Evan Dandrea ]
