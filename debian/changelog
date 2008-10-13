@@ -6,6 +6,9 @@ ubiquity (1.10.5) UNRELEASED; urgency=low
   * If ubiquity is installing from a disk, such as a USB drive, then default
     to writing grub to the disk that /boot or / is to be written to, as (hd0)
     will most likely be the installation medium (LP: #282037).
+  * Automatic update of included source packages: apt-setup
+    1:0.37ubuntu5, partman-auto 78ubuntu3, partman-base 121ubuntu7,
+    partman-target 55ubuntu4, user-setup 1.20ubuntu9.
 
   [ Colin Watson ]
   * Fix typo in architecture detection for ntfsprogs dependency.
