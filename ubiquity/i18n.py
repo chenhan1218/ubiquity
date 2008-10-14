@@ -158,7 +158,7 @@ string_questions = {
     'grub_device_dialog': 'grub-installer/bootdev',
     'grub_device_label': 'grub-installer/bootdev',
     # TODO: it would be nice to have a neater way to handle stock buttons
-    'cancel': 'ubiquity/imported/cancel',
+    'quit': 'ubiquity/imported/quit',
     'back': 'ubiquity/imported/go-back',
     'next': 'ubiquity/imported/go-forward',
     'cancelbutton': 'ubiquity/imported/cancel',
