@@ -193,6 +193,11 @@ class ZoomMapWidget(gtk.Widget):
         if not self.cursor_x or not self.cursor_y:
             return True
         x, y, w, h = self.allocation
+        self.cursor_x, self.cursor_y = self.get_pointer()
+        if self.cursor_x < 0 or self.cursor_x > w:
+            return True
+        elif self.cursor_y < 0 or self.cursor_y > h:
+            return True
         map_w = self.big_pixbuf.get_width()
         map_h = self.big_pixbuf.get_height()
         scrolling = False

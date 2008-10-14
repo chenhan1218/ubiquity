@@ -2,8 +2,10 @@ ubiquity (1.10.6) UNRELEASED; urgency=low
 
   * Fix a crash in segmented_bar by providing the expected integer type
     (LP: #280900).
+  * Stop scrolling the timezone map once the mouse is outside its
+    boundaries (LP: #251231).
 
- -- Evan Dandrea <evand@ubuntu.com>  Mon, 13 Oct 2008 02:27:09 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 14 Oct 2008 13:32:43 -0400
 
 ubiquity (1.10.5) intrepid; urgency=low
 
