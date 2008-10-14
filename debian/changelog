@@ -4,8 +4,10 @@ ubiquity (1.10.6) UNRELEASED; urgency=low
     (LP: #280900).
   * Stop scrolling the timezone map once the mouse is outside its
     boundaries (LP: #251231).
+  * Iterate through a list of nearby timezones on click, rather than
+    selecting the absolute closest timezone to the pointer.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 14 Oct 2008 13:32:43 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 14 Oct 2008 15:17:14 -0400
 
 ubiquity (1.10.5) intrepid; urgency=low
 

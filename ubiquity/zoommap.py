@@ -31,6 +31,8 @@ import ubiquity.tz
 MOTION_AREA = 0.12
 # The distance, in pixels, to step when moving.
 MOTION_STEP = 20
+# The area, in pixels, to search for nearby hotspots.
+SELECTION_AREA = 20
 
 if gtk.pygtk_version < (2, 8):
     print "PyGtk 2.8 or later required"
@@ -70,6 +72,8 @@ class ZoomMapWidget(gtk.Widget):
         self.cursor_x = self.cursor_y = None
         self.zoom_window_alllocation = (0,0,0,0)
         self.map_window_alllocation = (0,0,0,0)
+        self.nearest_hotspots = []
+        self.hotspot_iterator = 0
         self.update_timeout = None
         self.location_selected = None
         self.tzdb = ubiquity.tz.Database()
@@ -293,11 +297,14 @@ class ZoomMapWidget(gtk.Widget):
             raise ZoomMapException("Cannot load the pixmap file %s" % pixmap_filename)
 
     def button_release(self,widget,event):
-        self.hit_test(event.x, event.y)
+        if self.nearest_hotspots:
+            self.select_hotspot(self.nearest_hotspots[self.hotspot_iterator])
+            self.hotspot_iterator = (self.hotspot_iterator + 1) % len(self.nearest_hotspots)
 
     def motion_notify(self,widget,event):
         self.cursor_x = event.x
         self.cursor_y = event.y
+        self.hotspot_iterator = 0
         self.redraw_zoom_window()
 
     def redraw_all(self):
@@ -448,6 +455,7 @@ class ZoomMapWidget(gtk.Widget):
         offset_x, offset_y, xx, yy = self.zoom_window_alllocation
         best_hotspot = None
         best_distance = None
+        self.nearest_hotspots = []
         for hotspot in self.hotspots:
             x1 = map_w * hotspot.x
             y1 = map_h * hotspot.y
@@ -459,6 +467,10 @@ class ZoomMapWidget(gtk.Widget):
                 if best_distance is None or distance < best_distance:
                     best_hotspot = hotspot
                     best_distance = distance
+                elif distance < SELECTION_AREA:
+                    self.nearest_hotspots.append(hotspot)
+        if best_hotspot:
+            self.nearest_hotspots.insert(0, best_hotspot)
         return best_hotspot
 
     def draw_hotspots(self):
@@ -498,13 +510,13 @@ class ZoomMapWidget(gtk.Widget):
             if (not self.location_selected or
                 best_hotspot != self.location_selected):
                 self.select_hotspot(best_hotspot)
-                self.set_city_text(best_hotspot.tz.zone)
-                self.set_zone_text(best_hotspot.tz)
 
     def select_hotspot(self, hotspot):
         if not isinstance(hotspot, HotSpot):
             raise ZoomMapException("Invalid hotspot %s" % hotspot)
         self.location_selected = hotspot
+        self.set_city_text(hotspot.tz.zone)
+        self.set_zone_text(hotspot.tz)
         self.redraw_all()
         self.emit("hotspot_selected", hotspot)
 
@@ -528,8 +540,7 @@ class ZoomMapWidget(gtk.Widget):
         else:
             return
 
-        # FIXME evand 2008-02-18:
-        #self.select_hotspot(hotspot)
+        # We cannot call select_hotspot as we're not rendered yet.
         self.location_selected = hotspot
         self.set_city_text(hotspot.tz.zone)
         self.set_zone_text(hotspot.tz)
