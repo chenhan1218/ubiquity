@@ -217,7 +217,7 @@ msgstr "Ime se uporabi, če bo računalnik viden za ostale v omrežju."
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Samodejna prijava"
 
 #. Type: text
 #. Description
@@ -278,7 +278,7 @@ msgstr "Pripravljeno za namestitev"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Details"
-msgstr ""
+msgstr "Podrobnosti"
 
 #. Type: text
 #. Description
@@ -377,7 +377,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:48001
 msgid "Before:"
-msgstr ""
+msgstr "Pred:"
 
 #. Type: text
 #. Description
@@ -385,7 +385,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:49001
 msgid "After:"
-msgstr ""
+msgstr "Po:"
 
 #. Type: text
 #. Description

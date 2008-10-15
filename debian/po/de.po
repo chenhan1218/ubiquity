@@ -226,7 +226,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Automatisch anmelden"
 
 #. Type: text
 #. Description
@@ -287,7 +287,7 @@ msgstr "Bereit zur Installation"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 #. Type: text
 #. Description
@@ -387,7 +387,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:48001
 msgid "Before:"
-msgstr ""
+msgstr "Vorher:"
 
 #. Type: text
 #. Description
@@ -395,7 +395,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:49001
 msgid "After:"
-msgstr ""
+msgstr "Nachher:"
 
 #. Type: text
 #. Description

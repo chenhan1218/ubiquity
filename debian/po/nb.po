@@ -700,6 +700,9 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"Dette er forårsaket av at det er ikke er nok diskplass til å fullføre "
+"installasjonen. Kjør derfor installasjonen på nytt og velg en harddisk med "
+"tilstrekkelig plass til å fullføre installasjonen."
 
 #. Type: error
 #. Description

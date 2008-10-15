@@ -220,7 +220,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Logga in automatiskt"
 
 #. Type: text
 #. Description
@@ -281,7 +281,7 @@ msgstr "Redo att installera"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Details"
-msgstr ""
+msgstr "Detaljer"
 
 #. Type: text
 #. Description
@@ -381,7 +381,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:48001
 msgid "Before:"
-msgstr ""
+msgstr "Före:"
 
 #. Type: text
 #. Description
@@ -389,7 +389,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:49001
 msgid "After:"
-msgstr ""
+msgstr "Efter:"
 
 #. Type: text
 #. Description

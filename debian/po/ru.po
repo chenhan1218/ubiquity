@@ -217,7 +217,7 @@ msgstr "Это имя будет использовано, если вы сде�
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Войти автоматически"
 
 #. Type: text
 #. Description
@@ -277,7 +277,7 @@ msgstr "Готов к установке"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Details"
-msgstr ""
+msgstr "Подробности"
 
 #. Type: text
 #. Description
@@ -377,7 +377,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:48001
 msgid "Before:"
-msgstr ""
+msgstr "Перед:"
 
 #. Type: text
 #. Description
@@ -385,7 +385,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:49001
 msgid "After:"
-msgstr ""
+msgstr "После:"
 
 #. Type: text
 #. Description

@@ -220,7 +220,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Automaatselt sisselogimine"
 
 #. Type: text
 #. Description
@@ -379,7 +379,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:48001
 msgid "Before:"
-msgstr ""
+msgstr "Enne:"
 
 #. Type: text
 #. Description
@@ -387,7 +387,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:49001
 msgid "After:"
-msgstr ""
+msgstr "Pärast:"
 
 #. Type: text
 #. Description

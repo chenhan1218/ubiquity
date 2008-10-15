@@ -220,7 +220,7 @@ msgstr "Nazwa zostanie użyta, jeśli komputer będzie widoczny w sieci."
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Zaloguj automatycznie"
 
 #. Type: text
 #. Description
@@ -280,7 +280,7 @@ msgstr "Gotowe do instalacji"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Details"
-msgstr ""
+msgstr "Szczegóły"
 
 #. Type: text
 #. Description
@@ -381,7 +381,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:48001
 msgid "Before:"
-msgstr ""
+msgstr "Przed:"
 
 #. Type: text
 #. Description
@@ -389,7 +389,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:49001
 msgid "After:"
-msgstr ""
+msgstr "Po:"
 
 #. Type: text
 #. Description

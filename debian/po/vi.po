@@ -220,7 +220,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Đăng nhập tự động"
 
 #. Type: text
 #. Description
@@ -236,6 +236,9 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Chọn tài khoản bạn muốn chuyển dữ liệu vào. Toàn bộ tài liệu cùng thiết đặt "
+"của tài khoản bạn chọn sẽ có trong hệ thống sau khi quá trình cài đặt thành "
+"công"
 
 #. Type: text
 #. Description
@@ -279,7 +282,7 @@ msgstr "Đã sẵn sàng cài đặt"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Details"
-msgstr ""
+msgstr "Chi tiết"
 
 #. Type: text
 #. Description
@@ -378,7 +381,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:48001
 msgid "Before:"
-msgstr ""
+msgstr "Trước:"
 
 #. Type: text
 #. Description
@@ -386,7 +389,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:49001
 msgid "After:"
-msgstr ""
+msgstr "Sau:"
 
 #. Type: text
 #. Description
@@ -548,7 +551,7 @@ msgstr "Xung đột phổ biến"
 #. Description
 #: ../ubiquity.templates:75001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Tham gia cuộc khảo sát về gói đang sử dụng"
 
 #. Type: text
 #. Description
@@ -700,6 +703,8 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"Do dung lượng phân vùng đã chọn không phù hợp, vui lòng chạy cài đặt lại và "
+"chọn phân vòng lớn hơn để cài đặt."
 
 #. Type: error
 #. Description
@@ -917,6 +922,12 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"Lỗi có thể do sử dụng một ảnh đĩa của bộ cài đặt cũ, hoặc cũng có thể do lỗi "
+"trong gói cài đặt nào đó liệt kê ở trên. Chi tiết có thể xem ở /var/log/"
+"syslog. Bộ cài đặt sẽ tiếp tục mặc dù có thể không thành công, và sẽ không "
+"thể cài hay gỡ các gói cài đặt khác (có thể cả chính nó) khỏi máy sau khi "
+"cài đặt. Đầu tiên bạn nên kiếm một ảnh đĩa cài đặt mới hơn, hoặc tạm dừng "
+"cài đặt và thông báo lỗi cho nhà phân phối."
 
 #. Type: error
 #. Description
@@ -1329,6 +1340,8 @@ msgstr "Một phụ kiện cho MythTV cho phép bạn tạo DVD từ Mạng Myth
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr ""
+"Cài đặt thêm plugin MythTV để bạn xem các bản giới thiệu phim (trailers) từ "
+"apple.com"
 
 #. Type: text
 #. Description
@@ -1352,7 +1365,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Find movies playing in nearby local cinemas"
-msgstr ""
+msgstr "Tìm các phim đang chiếu tại các rạp chiếu phim gần nhà"
 
 #. Type: text
 #. Description
@@ -1377,7 +1390,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:49001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr ""
+msgstr "Cung cấp một kênh âm thanh số jukebox kết hợp với MythTV"
 
 #. Type: text
 #. Description
@@ -1386,6 +1399,8 @@ msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
 msgstr ""
+"Một plugin RSS đọc tin tức cho MythTV giúp bạn cập nhật các tiêu đề tin tức "
+"yêu thích của mình."
 
 #. Type: text
 #. Description
@@ -1393,6 +1408,7 @@ msgstr ""
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr ""
+"Khả năng gọi điện thoại và điện thoại video trên MythTV dùng cổng SIP chuẩn"
 
 #. Type: text
 #. Description
@@ -1414,13 +1430,13 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:54001
 msgid "Displays current and forecast weather information within MythTV."
-msgstr ""
+msgstr "Hiển thị thông tin tỉ giá và dự báo thời tiết trong MythTV"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:55001
 msgid "Choose Extra Themes"
-msgstr ""
+msgstr "Chọn Theme"
 
 #. Type: text
 #. Description
@@ -1429,6 +1445,8 @@ msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
+"Các Theme có thể giúp cải thiện nhiều về tính thẩm mỹ của trình cài đặt "
+"MythTV, và hiển thị hợp với thị hiếu của bạn hơn."
 
 #. Type: text
 #. Description
@@ -1437,13 +1455,13 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:57001
 #: ../ubiquity-frontend-mythbuntu.templates:58001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "Cho phép/Cấm tất cả"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Additional Drivers/Firmware"
-msgstr ""
+msgstr "Các trình điều khiển (Drivers)/Kiên liệu (Firmware)"
 
 #. Type: text
 #. Description
@@ -1454,6 +1472,10 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"Một trình điều khiển đồ họa mã nguồn mở đã hoạt động và thiếp lập cho cài "
+"đặt của bạn. Nếu bạn muốn dùng trình điều khiển đồ họa khác, bạn có thể chọn "
+"ở đây. Lưu ý các trình điều khiển có đăng ký có thể cần để xuất ra TV hoặc "
+"để thực hiện các hiệu ứng OpenGL."
 
 #. Type: text
 #. Description
@@ -1480,6 +1502,8 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
+"Cảnh báo: Không chỉnh chuẩn TV thành chuẩn khác với các tiêu chuẩn mà TV của "
+"bạn hỗ trợ. Hư hỏng VĨNH VIỄN có thể xảy ra."
 
 #. Type: text
 #. Description

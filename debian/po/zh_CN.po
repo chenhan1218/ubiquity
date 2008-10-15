@@ -207,7 +207,7 @@ msgstr "如果你让网络上的其他人看到这台计算机，那么这个名
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Log in automatically"
-msgstr ""
+msgstr "自动登录"
 
 #. Type: text
 #. Description
@@ -263,7 +263,7 @@ msgstr "准备安装"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Details"
-msgstr ""
+msgstr "详情"
 
 #. Type: text
 #. Description
@@ -360,7 +360,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:48001
 msgid "Before:"
-msgstr ""
+msgstr "之前："
 
 #. Type: text
 #. Description
@@ -368,7 +368,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:49001
 msgid "After:"
-msgstr ""
+msgstr "之后："
 
 #. Type: text
 #. Description
