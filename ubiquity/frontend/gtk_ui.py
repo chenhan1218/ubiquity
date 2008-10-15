@@ -169,6 +169,7 @@ class Wizard(BaseFrontend):
         self.returncode = 0
         self.partition_bars = {}
         self.auto_colors = ['3465a4', '73d216', 'f57900']
+        self.segmented_bar_vbox = None
 
         self.laptop = execute("laptop-detect")
 
@@ -1477,7 +1478,12 @@ class Wizard(BaseFrontend):
         self.action_bar.h_padding = self.action_bar.bar_height / 2
         table.attach(self.action_bar, 1, 2, 1, 2, yoptions=0)
 
-        self.autopartition_vbox.add(table)
+        sw = gtk.ScrolledWindow()
+        sw.add_with_viewport(table)
+        sw.child.set_shadow_type(gtk.SHADOW_NONE)
+        sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_NEVER)
+
+        self.autopartition_vbox.add(sw)
 
         firstbutton = None
         extra_buttons = []
@@ -2107,7 +2113,7 @@ class Wizard(BaseFrontend):
     def update_partman (self, disk_cache, partition_cache, cache_order):
         if self.partition_bars:
             for p in self.partition_bars.itervalues():
-                self.part_advanced_vbox.remove(p)
+                self.segmented_bar_vbox.remove(p)
                 del p
 
         partition_tree_model = self.partition_list_treeview.get_model()
@@ -2175,15 +2181,23 @@ class Wizard(BaseFrontend):
         dev = ''
         total_size = {}
         i = 0
+        if not self.segmented_bar_vbox:
+            sw = gtk.ScrolledWindow()
+            self.segmented_bar_vbox = gtk.VBox()
+            sw.add_with_viewport(self.segmented_bar_vbox)
+            sw.child.set_shadow_type(gtk.SHADOW_NONE)
+            sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_NEVER)
+            sw.show_all()
+            self.part_advanced_vbox.pack_start(sw, expand=False, padding=6)
+            self.part_advanced_vbox.reorder_child(sw, 0)
+
         for item in cache_order:
             if item in disk_cache:
                 partition_tree_model.append([item, disk_cache[item]])
                 dev = disk_cache[item]['device']
                 self.partition_bars[dev] = segmented_bar.SegmentedBar()
                 partition_bar = self.partition_bars[dev]
-                self.part_advanced_vbox.pack_start(partition_bar,
-                    expand=False, padding=6)
-                self.part_advanced_vbox.reorder_child(partition_bar, 0)
+                self.segmented_bar_vbox.add(partition_bar)
                 total_size[dev] = 0.0
             else:
                 partition_tree_model.append([item, partition_cache[item]])

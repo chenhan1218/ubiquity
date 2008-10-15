@@ -1,3 +1,10 @@
+ubiquity (1.10.7) UNRELEASED; urgency=low
+
+  * Pack the table containing the partition bars in a scrolled window
+    (LP: #272318).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 15 Oct 2008 14:59:33 -0400
+
 ubiquity (1.10.6) intrepid; urgency=low
 
   [ Evan Dandrea ]
