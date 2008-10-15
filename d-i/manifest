@@ -4,7 +4,7 @@ choose-mirror 2.24ubuntu2
 clock-setup 0.96ubuntu2
 console-setup 1.25ubuntu3
 debian-installer-utils 1.59ubuntu3
-grub-installer 1.32ubuntu8
+grub-installer 1.32ubuntu9
 hw-detect 1.63ubuntu4
 kboot-installer 0.0.1ubuntu6
 localechooser 2.03ubuntu3

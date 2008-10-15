@@ -11,7 +11,7 @@ ubiquity (1.10.6) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Fix translation of Quit button (LP: #277451).
   * Automatic update of included source packages: grub-installer
-    1.32ubuntu8, hw-detect 1.63ubuntu4, partman-base 121ubuntu8.
+    1.32ubuntu9, hw-detect 1.63ubuntu4, partman-base 121ubuntu8.
   * Update translations from Launchpad.
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 14 Oct 2008 15:17:14 -0400
