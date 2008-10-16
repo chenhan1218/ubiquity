@@ -29,6 +29,7 @@ from oem_config import im_switch
 class Language(FilteredCommand):
     def prepare(self):
         self.language_question = None
+        self.initial_language = None
         self.db.fset('localechooser/languagelist', 'seen', 'false')
         try:
             os.unlink('/var/lib/localechooser/preseeded')
@@ -42,6 +43,8 @@ class Language(FilteredCommand):
     def run(self, priority, question):
         if question == 'localechooser/languagelist':
             self.language_question = question
+            if self.initial_language is None:
+                self.initial_language = self.db.get(question)
             current_language_index = self.value_index(question)
             current_language = "English"
 
@@ -79,7 +82,11 @@ class Language(FilteredCommand):
 
     def ok_handler(self):
         if self.language_question is not None:
-            self.preseed(self.language_question, self.frontend.get_language())
+            new_language = self.frontend.get_language()
+            self.preseed(self.language_question, new_language)
+            if (self.initial_language is None or
+                self.initial_language != new_language):
+                self.db.reset('debian-installer/country')
         FilteredCommand.ok_handler(self)
 
     def cleanup(self):
