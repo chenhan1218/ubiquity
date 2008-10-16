@@ -27,10 +27,12 @@ from math import pi
 from gtk import gdk
 import oem_config.tz
 
-# The width, in pixels, of the hover-to-move areas.
-MOTION_AREA = 50
+# The width, in percent of the allocation, of the hover-to-move areas.
+MOTION_AREA = 0.12
 # The distance, in pixels, to step when moving.
 MOTION_STEP = 20
+# The area, in pixels, to search for nearby hotspots.
+SELECTION_AREA = 20
 
 if gtk.pygtk_version < (2, 8):
     print "PyGtk 2.8 or later required"
@@ -70,6 +72,8 @@ class ZoomMapWidget(gtk.Widget):
         self.cursor_x = self.cursor_y = None
         self.zoom_window_alllocation = (0,0,0,0)
         self.map_window_alllocation = (0,0,0,0)
+        self.nearest_hotspots = []
+        self.hotspot_iterator = 0
         self.update_timeout = None
         self.location_selected = None
         self.tzdb = oem_config.tz.Database()
@@ -111,6 +115,7 @@ class ZoomMapWidget(gtk.Widget):
         timezone_city_combo.connect("changed", self.city_changed)
         self.connect("button_release_event", self.button_release)
         self.motion_notify_id = None
+        self.leave_notify_id = None
         self.connect("enter_notify_event", self.enter_event)
         self.connect("leave_notify_event", self.leave_event)
         self.connect("map-event", self.mapped)
@@ -192,23 +197,28 @@ class ZoomMapWidget(gtk.Widget):
         if not self.cursor_x or not self.cursor_y:
             return True
         x, y, w, h = self.allocation
+        self.cursor_x, self.cursor_y = self.get_pointer()
+        if self.cursor_x < 0 or self.cursor_x > w:
+            return True
+        elif self.cursor_y < 0 or self.cursor_y > h:
+            return True
         map_w = self.big_pixbuf.get_width()
         map_h = self.big_pixbuf.get_height()
         scrolling = False
         # right
-        if w - self.cursor_x < MOTION_AREA and self.start_x > (-map_w + w):
+        if w - self.cursor_x < int(MOTION_AREA * w) and self.start_x > (-map_w + w):
             self.start_x = self.start_x - MOTION_STEP
             scrolling = True
         # left
-        elif self.cursor_x < MOTION_AREA and self.start_x < 0:
+        elif self.cursor_x < int(MOTION_AREA * w) and self.start_x < 0:
             self.start_x = self.start_x + MOTION_STEP
             scrolling = True
         # top
-        if self.cursor_y < MOTION_AREA and self.start_y < 0:
+        if self.cursor_y < int(MOTION_AREA * h) and self.start_y < 0:
             self.start_y = self.start_y + MOTION_STEP
             scrolling = True
         # bottom
-        elif h - self.cursor_y < MOTION_AREA and self.start_y > (-map_h + h):
+        elif h - self.cursor_y < int(MOTION_AREA * h) and self.start_y > (-map_h + h):
             self.start_y = self.start_y - MOTION_STEP
             scrolling = True
         if scrolling:
@@ -237,17 +247,17 @@ class ZoomMapWidget(gtk.Widget):
         else:
             return False
 
-        if self.cursor_x < MOTION_AREA:
+        if self.cursor_x < int(MOTION_AREA * w):
             self.start_x = 0
-        elif w - self.cursor_x < MOTION_AREA:
+        elif w - self.cursor_x < int(MOTION_AREA * w):
             self.start_x = (-map_w + w)
         else:
             map_x = 1.0 * self.cursor_x / w * map_w
             map_x_offset = min(map_w - w / 2.0, max(map_x - w/2.0, 0.0)) - x
             self.start_x = -map_x_offset
-        if self.cursor_y < MOTION_AREA:
+        if self.cursor_y < int(MOTION_AREA * h):
             self.start_y = 0
-        elif h - self.cursor_y < MOTION_AREA:
+        elif h - self.cursor_y < int(MOTION_AREA * h):
             self.start_y = (-map_h + h)
         else:
             map_y = 1.0 * self.cursor_y / h * map_h
@@ -262,16 +272,23 @@ class ZoomMapWidget(gtk.Widget):
         return False
 
     def enter_event(self, widget, event):
-        gobject.timeout_add(500, self.enter_timeout)
+        if self.leave_notify_id and self.cursor_x:
+            gobject.source_remove(self.leave_notify_id)
+            return True
+        gobject.timeout_add(1000, self.enter_timeout)
         return True
 
-    def leave_event(self, widget, event):
+    def leave_timeout(self):
         self.cursor_x = None
         self.cursor_y = None
         if self.motion_notify_id is not None:
             self.disconnect(self.motion_notify_id)
             self.motion_notify_id = None
         self.redraw_all()
+
+    def leave_event(self, widget, event):
+        self.leave_notify_id = gobject.timeout_add(2000, self.leave_timeout)
+        return True
 
     def load_pixmap(self, pixmap_filename):
         try:
@@ -280,11 +297,14 @@ class ZoomMapWidget(gtk.Widget):
             raise ZoomMapException("Cannot load the pixmap file %s" % pixmap_filename)
 
     def button_release(self,widget,event):
-        self.hit_test(event.x, event.y)
+        if self.nearest_hotspots:
+            self.select_hotspot(self.nearest_hotspots[self.hotspot_iterator])
+            self.hotspot_iterator = (self.hotspot_iterator + 1) % len(self.nearest_hotspots)
 
     def motion_notify(self,widget,event):
         self.cursor_x = event.x
         self.cursor_y = event.y
+        self.hotspot_iterator = 0
         self.redraw_zoom_window()
 
     def redraw_all(self):
@@ -435,6 +455,7 @@ class ZoomMapWidget(gtk.Widget):
         offset_x, offset_y, xx, yy = self.zoom_window_alllocation
         best_hotspot = None
         best_distance = None
+        self.nearest_hotspots = []
         for hotspot in self.hotspots:
             x1 = map_w * hotspot.x
             y1 = map_h * hotspot.y
@@ -446,6 +467,10 @@ class ZoomMapWidget(gtk.Widget):
                 if best_distance is None or distance < best_distance:
                     best_hotspot = hotspot
                     best_distance = distance
+                elif distance < SELECTION_AREA:
+                    self.nearest_hotspots.append(hotspot)
+        if best_hotspot:
+            self.nearest_hotspots.insert(0, best_hotspot)
         return best_hotspot
 
     def draw_hotspots(self):
@@ -485,13 +510,13 @@ class ZoomMapWidget(gtk.Widget):
             if (not self.location_selected or
                 best_hotspot != self.location_selected):
                 self.select_hotspot(best_hotspot)
-                self.set_city_text(best_hotspot.tz.zone)
-                self.set_zone_text(best_hotspot.tz)
 
     def select_hotspot(self, hotspot):
         if not isinstance(hotspot, HotSpot):
             raise ZoomMapException("Invalid hotspot %s" % hotspot)
         self.location_selected = hotspot
+        self.set_city_text(hotspot.tz.zone)
+        self.set_zone_text(hotspot.tz)
         self.redraw_all()
         self.emit("hotspot_selected", hotspot)
 
@@ -515,8 +540,7 @@ class ZoomMapWidget(gtk.Widget):
         else:
             return
 
-        # FIXME evand 2008-02-18:
-        #self.select_hotspot(hotspot)
+        # We cannot call select_hotspot as we're not rendered yet.
         self.location_selected = hotspot
         self.set_city_text(hotspot.tz.zone)
         self.set_zone_text(hotspot.tz)
