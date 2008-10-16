@@ -7,6 +7,7 @@ oem-config (1.52) UNRELEASED; urgency=low
     this has a nasty habit of overriding the usual defaults for countries
     with multiple timezone choices (LP: #283861).
   * Update translations from Launchpad.
+  * Automatic update of included source packages: user-setup 1.20ubuntu10.
 
   [ Evan Dandrea ]
   * Pull timezone map changes from ubiquity:
