@@ -431,6 +431,8 @@ class Install:
             self.db.progress('INFO', 'ubiquity/install/removing')
             self.remove_extras()
 
+            self.remove_broken_cdrom()
+
             self.db.progress('SET', 99)
             self.db.progress('INFO', 'ubiquity/install/log_files')
             self.copy_logs()
@@ -1987,7 +1989,35 @@ exit 0"""
         # them automatically here.
         self.do_remove(difference)
 
-
+    def remove_broken_cdrom(self):
+        fstab = os.path.join(self.target, 'etc/fstab')
+        ret = []
+        try:
+            fp = open(fstab)
+            for line in fp:
+                l = line.split()
+                if len(l) > 2:
+                    if l[1].startswith('/cdrom') or l[1].startswith('/media/cdrom'):
+                        try:
+                            fstype = subprocess.Popen(
+                                ['vol_id', '--type', l[0]],
+                                stdout=subprocess.PIPE).communicate()[0].rstrip('\n')
+                            if fstype != 'iso9660' and fstype != 'udf':
+                                continue
+                        except OSError:
+                            pass
+                ret.append(line)
+            fp.close()
+            fp = open(fstab, 'w')
+            fp.writelines(ret)
+        except Exception, e:
+            syslog.syslog(syslog.LOG_ERR, 'Exception during installation:')
+            syslog.syslog(syslog.LOG_ERR,
+                'Unable to process /etc/fstab: ' + str(e))
+        finally:
+            if fp:
+                fp.close()
+            
     def cleanup(self):
         """Miscellaneous cleanup tasks."""
 
