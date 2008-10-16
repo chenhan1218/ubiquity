@@ -2,6 +2,9 @@ oem-config (1.52) UNRELEASED; urgency=low
 
   * Reset debian-installer/country if the language is changed, as otherwise
     we can end up defaulting to an inappropriate country for the language.
+  * Stop defaulting to the timezone from /etc/timezone or /etc/localtime, as
+    this has a nasty habit of overriding the usual defaults for countries
+    with multiple timezone choices (LP: #283861).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 16 Oct 2008 16:30:27 +0100
 

@@ -35,17 +35,6 @@ class Timezone(FilteredCommand):
     def run(self, priority, question):
         if question == 'time/zone':
             zone = self.db.get(question)
-            if not zone:
-                if os.path.isfile('/etc/timezone'):
-                    zone = open('/etc/timezone').readline().strip()
-                elif os.path.islink('/etc/localtime'):
-                    zone = os.readlink('/etc/localtime')
-                    if zone.startswith('/usr/share/zoneinfo/'):
-                        zone = zone[len('/usr/share/zoneinfo/'):]
-                    else:
-                        zone = None
-                else:
-                    zone = None
             # Some countries don't have a default zone, so just pick the
             # first choice in the list.
             if not zone:
