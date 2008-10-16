@@ -14,7 +14,7 @@ oem-config (1.52) UNRELEASED; urgency=low
     - Iterate through a list of nearby timezones on click, rather than
       selecting the absolute closest timezone to the pointer.
     - Stop scrolling the timezone map once the mouse is outside its
-      boundaries (LP: 251231).
+      boundaries (LP: #251231).
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 16 Oct 2008 11:47:52 -0400
 
