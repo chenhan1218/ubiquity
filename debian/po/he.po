@@ -145,7 +145,7 @@ msgstr "הקלד את אותה הסיסמה פעמיים על מנת לוודא 
 #. Description
 #: ../oem-config.templates:22001
 msgid "Log in automatically"
-msgstr ""
+msgstr "התחבר אוטומטית"
 
 #. Type: title
 #. Description

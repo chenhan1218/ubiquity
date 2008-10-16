@@ -149,7 +149,7 @@ msgstr "Isto geslo vnesite dvakrat, da se prepreči možne tipkarske napake."
 #. Description
 #: ../oem-config.templates:22001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Samodejna prijava"
 
 #. Type: title
 #. Description

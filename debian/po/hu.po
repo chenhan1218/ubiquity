@@ -150,7 +150,7 @@ msgstr ""
 #. Description
 #: ../oem-config.templates:22001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Automatikus bejelentkezés"
 
 #. Type: title
 #. Description

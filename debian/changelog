@@ -6,6 +6,7 @@ oem-config (1.52) UNRELEASED; urgency=low
   * Stop defaulting to the timezone from /etc/timezone or /etc/localtime, as
     this has a nasty habit of overriding the usual defaults for countries
     with multiple timezone choices (LP: #283861).
+  * Update translations from Launchpad.
 
   [ Evan Dandrea ]
   * Pull timezone map changes from ubiquity:

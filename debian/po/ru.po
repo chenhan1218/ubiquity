@@ -147,7 +147,7 @@ msgstr "Введите пароль дважды, чтобы избежать о
 #. Description
 #: ../oem-config.templates:22001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Войти автоматически"
 
 #. Type: title
 #. Description

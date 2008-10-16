@@ -152,7 +152,7 @@ msgstr "បញ្ចូល​ពាក្យ​សម្ងាត់​ដូច
 #. Description
 #: ../oem-config.templates:22001
 msgid "Log in automatically"
-msgstr ""
+msgstr "ចូល​ក្នុង​ប្រព័ន្ធ​ដោយ​ស្វ័យ​ប្រវត្ត"
 
 #. Type: title
 #. Description

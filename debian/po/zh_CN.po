@@ -144,7 +144,7 @@ msgstr "请再次输入相同密码，以防止输入错误。"
 #. Description
 #: ../oem-config.templates:22001
 msgid "Log in automatically"
-msgstr ""
+msgstr "自动登录"
 
 #. Type: title
 #. Description

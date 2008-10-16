@@ -150,7 +150,7 @@ msgstr "Hãy nhập lại mật khẩu để kiểm tra lỗi khi nhập."
 #. Description
 #: ../oem-config.templates:22001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Đăng nhập tự động"
 
 #. Type: title
 #. Description
