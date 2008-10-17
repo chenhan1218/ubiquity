@@ -283,7 +283,9 @@ class Install:
         self.kernel_version = platform.release()
         self.db = debconf.Debconf()
 
+        self.select_language_packs()
         self.generate_blacklist()
+
         apt_pkg.InitConfig()
         apt_pkg.Config.Set("Dir", "/target")
         apt_pkg.Config.Set("Dir::State::status", "/target/var/lib/dpkg/status")
@@ -580,22 +582,19 @@ class Install:
                     cache[pkg].section.startswith('restricted/')):
                     difference.add(pkg)
             del cache
-        difference = filter(lambda x: not os.path.exists('/var/lib/dpkg/info/%s.prerm' % x), difference)
         cache = Cache()
+        must_keep = set()
         for pkg in difference:
-            cachedpkg = self.get_cache_pkg(cache, pkg)
-            if cachedpkg is not None and cachedpkg.isInstalled:
-                apt_error = False
-                try:
-                    cachedpkg.markDelete(autoFix=False, purge=True)
-                    if cache._depcache.BrokenCount > 0:
-                        p = self.broken_packages(cache)
-                        if p - set(difference):
-                            difference.remove(pkg)
-                except SystemError:
-                    pass
-                finally:
-                    cachedpkg.markKeep()
+            would_remove = self.get_remove_list(cache, [pkg], recursive=True)
+            if would_remove - difference:
+                must_keep.add(pkg)
+            for removedpkg in would_remove:
+                cachedpkg = self.get_cache_pkg(cache, removedpkg)
+                cachedpkg.markKeep()
+        difference -= must_keep
+        difference = set(filter(
+            lambda x: not os.path.exists('/var/lib/dpkg/info/%s.prerm' % x),
+            difference))
         cmd = ['dpkg', '-L']
         cmd.extend(difference)
         subp = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -1156,7 +1155,7 @@ exit 0"""
                 assert cache._depcache.BrokenCount == 0
 
 
-    def install_language_packs(self):
+    def select_language_packs(self):
         langpacks = []
         try:
             langpack_db = self.db.get('pkgsel/language-packs')
@@ -1195,11 +1194,15 @@ exit 0"""
             # More extensive language support packages.
             to_install.append('language-support-%s' % lp)
 
-        self.do_install(to_install, langpacks=True)
+        self.record_installed(to_install)
+        self.langpacks = to_install
+
+    def install_language_packs(self):
+        self.do_install(self.langpacks)
 
         cache = Cache()
         incomplete = False
-        for pkg in to_install:
+        for pkg in self.langpacks:
             cachedpkg = self.get_cache_pkg(cache, pkg)
             if cachedpkg is None or not cachedpkg.isInstalled:
                 incomplete = True
@@ -1621,17 +1624,12 @@ exit 0"""
                 continue
         return brokenpkgs
 
-    def do_install(self, to_install, langpacks=False):
-        if langpacks:
+    def do_install(self, to_install):
+        if self.langpacks:
             self.db.progress('START', 0, 10, 'ubiquity/langpacks/title')
         else:
             self.db.progress('START', 0, 10, 'ubiquity/install/title')
         self.db.progress('INFO', 'ubiquity/install/find_installables')
-
-        if langpacks:
-            # ... otherwise we're installing packages that have already been
-            # recorded
-            self.record_installed(to_install)
 
         self.db.progress('REGION', 0, 1)
         fetchprogress = DebconfFetchProgress(
@@ -1652,7 +1650,7 @@ exit 0"""
 
         self.db.progress('SET', 1)
         self.db.progress('REGION', 1, 10)
-        if langpacks:
+        if self.langpacks:
             fetchprogress = DebconfFetchProgress(
                 self.db, 'ubiquity/langpacks/title', None,
                 'ubiquity/langpacks/packages')
@@ -1708,23 +1706,9 @@ exit 0"""
         self.db.progress('STOP')
 
 
-    def do_remove(self, to_remove, recursive=False):
-        self.db.progress('START', 0, 5, 'ubiquity/install/title')
-        self.db.progress('INFO', 'ubiquity/install/find_removables')
-
-        fetchprogress = DebconfFetchProgress(
-            self.db, 'ubiquity/install/title',
-            'ubiquity/install/apt_indices_starting',
-            'ubiquity/install/apt_indices')
-        cache = Cache()
-
-        if cache._depcache.BrokenCount > 0:
-            syslog.syslog(
-                'not processing removals, since there are broken packages: '
-                '%s' % ', '.join(self.broken_packages(cache)))
-            self.db.progress('STOP')
-            return
-
+    def get_remove_list(self, cache, to_remove, recursive=False):
+        to_remove = set(to_remove)
+        all_removed = set()
         while True:
             removed = set()
             for pkg in to_remove:
@@ -1776,6 +1760,28 @@ exit 0"""
             if not removed:
                 break
             to_remove -= removed
+            all_removed |= removed
+        return all_removed
+
+
+    def do_remove(self, to_remove, recursive=False):
+        self.db.progress('START', 0, 5, 'ubiquity/install/title')
+        self.db.progress('INFO', 'ubiquity/install/find_removables')
+
+        fetchprogress = DebconfFetchProgress(
+            self.db, 'ubiquity/install/title',
+            'ubiquity/install/apt_indices_starting',
+            'ubiquity/install/apt_indices')
+        cache = Cache()
+
+        if cache._depcache.BrokenCount > 0:
+            syslog.syslog(
+                'not processing removals, since there are broken packages: '
+                '%s' % ', '.join(self.broken_packages(cache)))
+            self.db.progress('STOP')
+            return
+
+        self.get_remove_list(cache, to_remove, recursive)
 
         self.db.progress('SET', 1)
         self.db.progress('REGION', 1, 5)

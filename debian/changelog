@@ -9,6 +9,22 @@ ubiquity (1.10.7) UNRELEASED; urgency=low
   * Add above broken CD-ROM entries to mythbuntu frontend too.
   * Properly pre-setup database on mythbuntu frontend. (LP: #276904)
 
+  [ Colin Watson ]
+  * Fix excessive file-copy blacklisting, which had several problems
+    (LP: #285238):
+    - wasn't deciding which language packs to use before generating the
+      blacklist;
+    - was filtering out packages with prerms before doing ok-to-remove
+      calculations;
+    - needed to try recursively removing broken packages in order to get a
+      fully-expanded list of reverse-dependencies out of apt;
+    - was removing packages from the difference list too early so they
+      stopped being considered as packages that were allowed to be removed.
+    In an attempt to make this rather large change a little more reviewable,
+    note that the code used to analyse removals while generating the
+    blacklist is now the same as that used to remove unused packages later
+    in the installation process.
+
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 16 Oct 2008 04:56:13 -0400
 
 ubiquity (1.10.6) intrepid; urgency=low
