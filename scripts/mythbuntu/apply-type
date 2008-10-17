@@ -162,16 +162,15 @@ DoSQL "$HOSTNAME" "$ADMINUSER" "$ADMINPASS" "" "CREATE DATABASE $DB"
 DoSQL "$HOSTNAME" "$ADMINUSER" "$ADMINPASS" "$DB" "GRANT ALL PRIVILEGES ON $DB.* TO $USER@localhost IDENTIFIED BY '$PASSWORD'"
 DoSQL "$HOSTNAME" "$ADMINUSER" "$ADMINPASS" "$DB" "GRANT ALL PRIVILEGES ON $DB.* TO $USER@'%' IDENTIFIED BY '$PASSWORD'"
 
+#Fix our hostname to prefill database
+sed -e "s/OLDHOSTNAME/$LOCALHOSTNAME/g; s/G.A.N.T/Mythbuntu-8.04/g;" $MYSQL > /tmp/database.sql
+
 #Setup database
 if [ "$ADMINPASS" != "" ]; then
-    mysql -h $HOSTNAME -u $ADMINUSER -p$ADMINPASS $DB < $MYSQL
+    mysql -h $HOSTNAME -u $ADMINUSER -p$ADMINPASS $DB < /tmp/database.sql
 else
-    mysql -h $HOSTNAME -u $ADMINUSER $DB < $MYSQL
+    mysql -h $HOSTNAME -u $ADMINUSER $DB < /tmp/database.sql
 fi
-
-#Setup theme
-DoSQL "$HOSTNAME" "$ADMINUSER" "$ADMINPASS" "$DB" "INSERT INTO $DB.settings (data,hostname,value) VALUES ('Mythbuntu-8.04', '$HOSTNAME', 'Theme')"
-DoSQL "$HOSTNAME" "$ADMINUSER" "$ADMINPASS" "$DB" "INSERT INTO $DB.settings (data,hostname,value) VALUES ('Mythbuntu-8.04', '$LOCALHOSTNAME', 'Theme')"
 
 #Stop SQL
 /etc/init.d/mysql stop

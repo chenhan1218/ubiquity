@@ -7,6 +7,7 @@ ubiquity (1.10.7) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Add above broken CD-ROM entries to mythbuntu frontend too.
+  * Properly pre-setup database on mythbuntu frontend. (LP: #276904)
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 16 Oct 2008 04:56:13 -0400
 
