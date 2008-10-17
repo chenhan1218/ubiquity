@@ -156,6 +156,8 @@ class Install(install.Install):
             self.db.progress('INFO', 'ubiquity/install/removing')
             self.remove_extras()
 
+            self.remove_broken_cdrom()
+
             self.db.progress('SET', 99)
             self.db.progress('INFO', 'ubiquity/install/log_files')
             self.copy_logs()

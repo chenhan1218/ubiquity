@@ -1,8 +1,12 @@
 ubiquity (1.10.7) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Pack the table containing the partition bars in a scrolled window
     (LP: #272318).
   * Remove broken CD-ROM entries from fstab after install (LP: #150872).
+
+  [ Mario Limonciello ]
+  * Add above broken CD-ROM entries to mythbuntu frontend too.
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 16 Oct 2008 04:56:13 -0400
 
