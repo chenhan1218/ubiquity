@@ -124,7 +124,7 @@ class Wizard(BaseFrontend):
 
         #self.app = KApplication()
 
-        self.app = QApplication(['ubiquity', '-style=plastique'])
+        self.app = QApplication(['ubiquity', '-style=oxygen'])
 
         # We want to hide the minimise button if running in the ubiquity-only mode (no desktop)
         # To achieve this we need to set window flags to Dialog but we also need a parent widget which is showing
