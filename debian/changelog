@@ -11,6 +11,9 @@ ubiquity (1.10.7) UNRELEASED; urgency=low
   * Pack the table containing the partition bars in a scrolled window
     (LP: #272318).
   * Remove broken CD-ROM entries from fstab after install (LP: #150872).
+  * Automatic update of included source packages: apt-setup
+    1:0.37ubuntu6, base-installer 1.86ubuntu7, kboot-installer
+    0.0.1ubuntu7, user-setup 1.20ubuntu10.
 
   [ Mario Limonciello ]
   * Add above broken CD-ROM entries to mythbuntu frontend too.
