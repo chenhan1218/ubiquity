@@ -2,11 +2,11 @@ ubiquity (1.10.7) UNRELEASED; urgency=low
 
   [ Jonathan Riddell ]
   * Use Oxygen style in KDE UI
-	
+
   [ Andreas Wenning ]
   * Edit ubiquity/frontend/kde_ui.py to correctly open the url for
     release notes.
-	
+
   [ Evan Dandrea ]
   * Pack the table containing the partition bars in a scrolled window
     (LP: #272318).
