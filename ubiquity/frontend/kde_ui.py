@@ -267,8 +267,8 @@ class Wizard(BaseFrontend):
 
     def openURL(self, url):
         #need to run this else kdesu can't run Konqueror
-        execute('su', 'ubuntu', 'xhost', '+localhost')
-        execute('su', 'ubuntu', 'xdg-open', url)
+        execute('su', '-c', 'xhost +localhost', 'ubuntu')
+        execute('su', '-c', 'kfmclient openURL '+url, 'ubuntu')
 
     def run(self):
         """run the interface."""
