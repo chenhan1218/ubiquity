@@ -18,6 +18,10 @@ ubiquity (1.10.7) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Add above broken CD-ROM entries to mythbuntu frontend too.
   * Properly pre-setup database on mythbuntu frontend. (LP: #276904)
+  * Simplify the xorg.conf that is written out in apply-drivers. (LP: #181564)
+    The ideal situation is to enable these via Jockey, but Jockey doesn't
+    have a good interface for turning on during installation and turning
+    on and off tv-out.
 
   [ Colin Watson ]
   * Fix excessive file-copy blacklisting, which had several problems
