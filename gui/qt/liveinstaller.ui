@@ -236,7 +236,7 @@ This language will be the default language for the final system.</string>
           <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeType" >
-          <enum>QSizePolicy::Expanding</enum>
+          <enum>QSizePolicy::Preferred</enum>
          </property>
          <property name="sizeHint" >
           <size>
