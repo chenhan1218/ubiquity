@@ -1,4 +1,4 @@
-ubiquity (1.10.7) UNRELEASED; urgency=low
+ubiquity (1.10.7) intrepid; urgency=low
 
   [ Jonathan Riddell ]
   * Use Oxygen style in KDE UI
@@ -39,7 +39,7 @@ ubiquity (1.10.7) UNRELEASED; urgency=low
     blacklist is now the same as that used to remove unused packages later
     in the installation process.
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 16 Oct 2008 04:56:13 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 20 Oct 2008 04:19:30 -0400
 
 ubiquity (1.10.6) intrepid; urgency=low
 
