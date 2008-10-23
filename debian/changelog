@@ -1,4 +1,4 @@
-oem-config (1.53) UNRELEASED; urgency=low
+oem-config (1.53) intrepid; urgency=low
 
   * KDE frontend:
     - Hardcode command line (including setting the Oxygen style) rather than
@@ -6,7 +6,7 @@ oem-config (1.53) UNRELEASED; urgency=low
       doesn't understand (LP: #218144).
   * Update translations from Launchpad.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 23 Oct 2008 11:03:22 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 23 Oct 2008 13:53:28 +0100
 
 oem-config (1.52) intrepid; urgency=low
 
