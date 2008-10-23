@@ -111,7 +111,7 @@ class Frontend:
         aboutData = KAboutData(appName, catalog, programName, version, description,
                                license, copyright, text, homePage, bugEmail)
 
-        KCmdLineArgs.init(sys.argv, aboutData)
+        KCmdLineArgs.init(['oem-config', '-style=oxygen'], aboutData)
 
         self.app = KApplication()
         # We want to hide the minimise button if running in the ubiquity-only mode (no desktop)
