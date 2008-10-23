@@ -1,9 +1,15 @@
 ubiquity (1.10.8) UNRELEASED; urgency=low
 
+  [ Jonathan Riddell ]
   * KDE Frontend, in liveinstaller.ui change size policy to
     stop release notes widget being half hidden
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 21 Oct 2008 22:32:27 +0100
+  [ Evan Dandrea ]
+  * Optimize the blacklist generation.  Thanks Colin Watson.
+  * Add ubiquity/install/generate-blacklist preseed key for file
+    blacklist generation.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 23 Oct 2008 11:03:45 -0400
 
 ubiquity (1.10.7) intrepid; urgency=low
 

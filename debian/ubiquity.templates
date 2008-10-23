@@ -642,6 +642,15 @@ Type: boolean
 Default: true
 Description: for internal use; set true to check for matching md5 hashes.
 
+Template: ubiquity/install/generate-blacklist
+Type: boolean
+Default: true
+Description: set true to generate a list of files to skip copying.
+
+Template: ubiquity/install/blacklist
+Type: text
+_Description: Calculating files to skip copying...
+
 Template: ubiquity/langpacks/title
 Type: title
 _Description: Installing language packs

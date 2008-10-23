@@ -284,7 +284,11 @@ class Install:
         self.db = debconf.Debconf()
 
         self.select_language_packs()
-        self.generate_blacklist()
+        self.blacklist = {}
+        if self.db.get('ubiquity/install/generate-blacklist') == 'true':
+            self.db.progress('START', 0, 100, 'ubiquity/install/title')
+            self.db.progress('INFO', 'ubiquity/install/blacklist')
+            self.generate_blacklist()
 
         apt_pkg.InitConfig()
         apt_pkg.Config.Set("Dir", "/target")
@@ -583,15 +587,17 @@ class Install:
                     difference.add(pkg)
             del cache
         cache = Cache()
-        must_keep = set()
+        confirmed_remove = set()
         for pkg in difference:
+            if pkg in confirmed_remove:
+                continue
             would_remove = self.get_remove_list(cache, [pkg], recursive=True)
             if would_remove - difference:
-                must_keep.add(pkg)
+                confirmed_remove |= would_remove
             for removedpkg in would_remove:
                 cachedpkg = self.get_cache_pkg(cache, removedpkg)
                 cachedpkg.markKeep()
-        difference -= must_keep
+        difference = confirmed_remove
         difference = set(filter(
             lambda x: not os.path.exists('/var/lib/dpkg/info/%s.prerm' % x),
             difference))
