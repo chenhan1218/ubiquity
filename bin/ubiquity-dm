@@ -210,11 +210,9 @@ class DM:
                             stdin=null, stdout=logfile, stderr=logfile))
                 fp.close()
         elif self.frontend == 'kde_ui':
+            extras.append(subprocess.Popen(['kwriteconfig', '--file', 'kwinrc', '--group', 'Compositing', '--key', 'Enabled', 'false'], stdin=null, stdout=logfile, stderr=logfile, preexec_fn=self.drop_privileges))
             wm = subprocess.Popen('kwin', stdin=null, stdout=logfile,
                 stderr=logfile, preexec_fn=self.drop_privileges)
-            extras.append(subprocess.Popen(['dcopserver', '--nosid'],
-                stdin=null, stdout=logfile, stderr=logfile,
-                preexec_fn=self.drop_privileges))
 
         greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
         ret = greeter.wait()
