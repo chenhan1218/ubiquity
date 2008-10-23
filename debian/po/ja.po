@@ -150,7 +150,7 @@ msgstr "打ち間違っているといけないので、同じパスワードを
 #. Description
 #: ../oem-config.templates:22001
 msgid "Log in automatically"
-msgstr ""
+msgstr "自動的にログインする"
 
 #. Type: title
 #. Description

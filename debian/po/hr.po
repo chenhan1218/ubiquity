@@ -40,6 +40,8 @@ msgstr "Izaberi jezik/Choose language"
 msgid ""
 "Once you answer a few questions, the system will be ready for you to use."
 msgstr ""
+"Nakon što odgovorite na nekoliko pitanja, sustem će biti spreman za vašu "
+"uporabu."
 
 #. Type: text
 #. Description
@@ -148,7 +150,7 @@ msgstr "Upišite istu lozinku dva puta, kako bi se mogla provjeriti."
 #. Description
 #: ../oem-config.templates:22001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Automatska prijava"
 
 #. Type: title
 #. Description
