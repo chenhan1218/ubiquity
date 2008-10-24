@@ -592,11 +592,14 @@ class Install:
             if pkg in confirmed_remove:
                 continue
             would_remove = self.get_remove_list(cache, [pkg], recursive=True)
-            if would_remove - difference:
+            if would_remove < difference:
                 confirmed_remove |= would_remove
-            for removedpkg in would_remove:
-                cachedpkg = self.get_cache_pkg(cache, removedpkg)
-                cachedpkg.markKeep()
+                # Leave these marked for removal in the apt cache to speed
+                # up further calculations.
+            else:
+                for removedpkg in would_remove:
+                    cachedpkg = self.get_cache_pkg(cache, removedpkg)
+                    cachedpkg.markKeep()
         difference = confirmed_remove
         difference = set(filter(
             lambda x: not os.path.exists('/var/lib/dpkg/info/%s.prerm' % x),
