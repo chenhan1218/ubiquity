@@ -5,7 +5,7 @@ ubiquity (1.10.9) UNRELEASED; urgency=low
     stop release notes widget being half hidden
   * ubiquity-dm: turn off compositing for kwin (also don't run dcopserver)
     Closes LP: #285626
-	
+
   [ Evan Dandrea ]
   * Optimize the blacklist generation.  Thanks Colin Watson.
   * Add ubiquity/install/generate-blacklist preseed key for file
