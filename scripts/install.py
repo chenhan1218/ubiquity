@@ -588,7 +588,7 @@ class Install:
             del cache
         cache = Cache()
         confirmed_remove = set()
-        for pkg in difference:
+        for pkg in sorted(difference):
             if pkg in confirmed_remove:
                 continue
             would_remove = self.get_remove_list(cache, [pkg], recursive=True)
