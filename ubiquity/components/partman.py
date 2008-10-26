@@ -904,8 +904,7 @@ class Partman(FilteredCommand):
                     if self.bad_auto_size:
                         self.bad_auto_size = False
                         return False
-                    self.preseed(question, '%d%%' % self.extra_choice,
-                                 seen=False)
+                    self.preseed(question, self.extra_choice, seen=False)
                     self.succeeded = True
                     return True
             elif self.building_cache:

@@ -11,6 +11,11 @@ ubiquity (1.10.8) UNRELEASED; urgency=low
   * Add ubiquity/install/generate-blacklist preseed key for file
     blacklist generation.
 
+  [ Colin Watson ]
+  * Clip the resize widget's value to the allowed minimum and maximum size,
+    and pass it to the backend as an exact size rather than as a percentage
+    to avoid rounding errors (LP: #287547).
+
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 23 Oct 2008 11:03:45 -0400
 
 ubiquity (1.10.7) intrepid; urgency=low

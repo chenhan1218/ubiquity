@@ -1332,7 +1332,7 @@ class Wizard(BaseFrontend):
         if choice == self.resize_choice:
             # resize choice should have been hidden otherwise
             assert self.new_size_scale is not None
-            return choice, self.new_size_scale.get_value()
+            return choice, '%d B' % self.new_size_scale.get_size()
         elif (choice != self.manual_choice and
               choice in self.autopartition_extra_buttongroup):
             disk_id = self.autopartition_extra_buttongroup[choice].checkedId()
@@ -2648,12 +2648,21 @@ class ResizeWidget(QWidget):
             self.old_os_title = dev
         elif not self.old_os_title:
             self.old_os_title = ''
-     
-    def get_value(self):
-        '''Returns the percent the old partition is of the maximum size it can be.'''
+
+    def get_size(self):
+        '''Returns the size of the old partition, clipped to the minimum and
+           maximum sizes.'''
         s1 = self.old_os.width()
         s2 = self.new_os.width()
         totalwidth = s1 + s2
-        percentwidth = float(s1) / float(totalwidth)
-        percentpart = percentwidth * self.part_size
-        return int((percentpart / self.max_size) * 100)
+        size = int(float(s1) * self.part_size / float(totalwidth))
+        if size < self.min_size:
+            return self.min_size
+        elif size > self.max_size:
+            return self.max_size
+        else:
+            return size
+
+    def get_value(self):
+        '''Returns the percent the old partition is of the maximum size it can be.'''
+        return int((float(self.get_size()) / self.max_size) * 100)
