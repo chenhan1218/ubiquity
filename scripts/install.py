@@ -592,7 +592,7 @@ class Install:
             if pkg in confirmed_remove:
                 continue
             would_remove = self.get_remove_list(cache, [pkg], recursive=True)
-            if would_remove < difference:
+            if would_remove <= difference:
                 confirmed_remove |= would_remove
                 # Leave these marked for removal in the apt cache to speed
                 # up further calculations.
