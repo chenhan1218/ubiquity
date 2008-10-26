@@ -15,6 +15,8 @@ ubiquity (1.10.8) UNRELEASED; urgency=low
   * Clip the resize widget's value to the allowed minimum and maximum size,
     and pass it to the backend as an exact size rather than as a percentage
     to avoid rounding errors (LP: #287547).
+  * Automatic update of included source packages: grub-installer
+    1.32ubuntu10, kboot-installer 0.0.1ubuntu8, partman-target 55ubuntu5.
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 23 Oct 2008 11:03:45 -0400
 
