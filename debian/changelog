@@ -1,4 +1,4 @@
-ubiquity (1.10.8) UNRELEASED; urgency=low
+ubiquity (1.10.8) intrepid; urgency=low
 
   [ Jonathan Riddell ]
   * KDE Frontend, in liveinstaller.ui change size policy to
@@ -18,7 +18,7 @@ ubiquity (1.10.8) UNRELEASED; urgency=low
   * Automatic update of included source packages: grub-installer
     1.32ubuntu10, kboot-installer 0.0.1ubuntu8, partman-target 55ubuntu5.
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 23 Oct 2008 11:03:45 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 26 Oct 2008 04:19:31 +0000
 
 ubiquity (1.10.7) intrepid; urgency=low
 
