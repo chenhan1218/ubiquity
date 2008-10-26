@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-09-19 13:55+0100\n"
+"POT-Creation-Date: 2008-10-26 02:42+0000\n"
 "PO-Revision-Date: 2008-04-08 15:34+0000\n"
 "Last-Translator: Matej Kovačič <Unknown>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -939,27 +939,33 @@ msgstr "Napaka med odstranjevanjem programskih paketov"
 msgid "An error occurred while removing packages:"
 msgstr "Med odstranjevanjem programskih paketov je prišlo do napake:"
 
+#. Type: text
+#. Description
+#: ../ubiquity.templates:122001
+msgid "Calculating files to skip copying..."
+msgstr ""
+
 #. Type: title
 #. Description
-#: ../ubiquity.templates:121001
+#: ../ubiquity.templates:123001
 msgid "Installing language packs"
 msgstr "Nameščanje jezikovnih paketov"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:122001
+#: ../ubiquity.templates:124001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Prenašanje jezikovnih paketov (preostaja ${TIME}) ..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:130001
 msgid "Failed to unmount partitions"
 msgstr "Ni bilo mogoče odklopiti razdelkov"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:130001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -970,26 +976,26 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:130001
 msgid "Please close any applications using these mount points."
 msgstr ""
 "Zaprite prosim vse programe, ki bi lahko uporabljali te priklopne točke."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:130001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "Ali želite, da poskusi namestilnik ponovno odklopiti te razdelke?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:136001
 msgid "Do you want to return to the partitioner?"
 msgstr "Ali se želite vrniti na particioniranje diska?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:136001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
@@ -999,7 +1005,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:136001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."

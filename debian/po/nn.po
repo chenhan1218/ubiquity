@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-09-19 13:55+0100\n"
+"POT-Creation-Date: 2008-10-26 02:42+0000\n"
 "PO-Revision-Date: 2008-04-18 19:42+0000\n"
 "Last-Translator: Eirik U. Birkeland <eirbir@gmail.com>\n"
 "Language-Team: Norwegian nynorsk <i18n-nn@lister.ping.uio.no>\n"
@@ -939,27 +939,33 @@ msgstr "Feil ved fjerning av pakkar"
 msgid "An error occurred while removing packages:"
 msgstr "Det oppstod ein feil under fjerning av pakker:"
 
+#. Type: text
+#. Description
+#: ../ubiquity.templates:122001
+msgid "Calculating files to skip copying..."
+msgstr ""
+
 #. Type: title
 #. Description
-#: ../ubiquity.templates:121001
+#: ../ubiquity.templates:123001
 msgid "Installing language packs"
 msgstr "Installerer språkpakkane"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:122001
+#: ../ubiquity.templates:124001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Lastar ned språkpakkar (${TIME} gjenstår)..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:130001
 msgid "Failed to unmount partitions"
 msgstr "Klarte ikkje avmontere partisjonane"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:130001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -969,13 +975,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:130001
 msgid "Please close any applications using these mount points."
 msgstr "Venligst lukk programma som brukar desse monteringspunkta."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:130001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Vil du at installasjonsprogrammet skal prøva å avmontera desse partisjonane "
@@ -983,13 +989,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:136001
 msgid "Do you want to return to the partitioner?"
 msgstr "Vil du gå attende til partisjoneringa?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:136001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
@@ -999,7 +1005,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:136001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."

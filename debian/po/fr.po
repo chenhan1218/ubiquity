@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-09-19 13:55+0100\n"
+"POT-Creation-Date: 2008-10-26 02:42+0000\n"
 "PO-Revision-Date: 2008-04-10 06:01+0000\n"
 "Last-Translator: Bruno Patri <bruno.patri@gmail.com>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
@@ -953,27 +953,33 @@ msgstr "Erreur lors de la désinstallation des paquets"
 msgid "An error occurred while removing packages:"
 msgstr "Une erreur est survenue lors de la suppression de paquets:"
 
+#. Type: text
+#. Description
+#: ../ubiquity.templates:122001
+msgid "Calculating files to skip copying..."
+msgstr ""
+
 #. Type: title
 #. Description
-#: ../ubiquity.templates:121001
+#: ../ubiquity.templates:123001
 msgid "Installing language packs"
 msgstr "Installation des paquets linguistiques"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:122001
+#: ../ubiquity.templates:124001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Téléchargement des paquets linguistiques (${TIME} restant)..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:130001
 msgid "Failed to unmount partitions"
 msgstr "Échec du démontage des partitions"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:130001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -984,13 +990,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:130001
 msgid "Please close any applications using these mount points."
 msgstr "Veuillez fermer les applications utilisant ces points de montage."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:130001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Voulez-vous que le programme d'installation essaye à nouveau de démonter ces "
@@ -998,13 +1004,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:136001
 msgid "Do you want to return to the partitioner?"
 msgstr "Voulez-vous revenir à l'outil de partitionnement ?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:136001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
@@ -1014,7 +1020,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:136001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."

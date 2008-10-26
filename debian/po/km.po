@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-09-19 13:55+0100\n"
+"POT-Creation-Date: 2008-10-26 02:42+0000\n"
 "PO-Revision-Date: 2008-04-08 13:18+0000\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -926,28 +926,34 @@ msgstr "កំហុស​ខណៈពេល​យក​កញ្ចប់​ច
 msgid "An error occurred while removing packages:"
 msgstr "កំហុស​ខណៈពេល​យក​កញ្ចប់​ចេញ ៖"
 
+#. Type: text
+#. Description
+#: ../ubiquity.templates:122001
+msgid "Calculating files to skip copying..."
+msgstr ""
+
 #. Type: title
 #. Description
-#: ../ubiquity.templates:121001
+#: ../ubiquity.templates:123001
 #, fuzzy
 msgid "Installing language packs"
 msgstr "កំពុង​ដំឡើង​កញ្ចប់​ស្នូល"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:122001
+#: ../ubiquity.templates:124001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "កំពុង​ទាញ​យក​កញ្ចប់​ភាសា (នៅសល់ ${TIME})..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:130001
 msgid "Failed to unmount partitions"
 msgstr "បាន​បរាជ័យ​ក្នុងការអាន់ម៉ោនភាគថាស"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:130001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -957,25 +963,25 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:130001
 msgid "Please close any applications using these mount points."
 msgstr "សូម​បិទ​កម្មវិធី​ផ្សេង​ដែល​ប្រើ​ចំនុច​ម៉ោន ។"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:130001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "តើ​អ្នក​ពិត​ជា​ចង់​ឲ្យ​កម្មវិធី​ដំឡើង​ ព្យាយាម​មិន​ម៉ោន​ភាគ​ថាស់​ម្ដង​ទៀត​ទេ ?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:136001
 msgid "Do you want to return to the partitioner?"
 msgstr "តើ​អ្នក​ចង់​ត្រឡប់​ទៅ​ ការ​ចែកភាគថាស​វិញ​ឬ ?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:136001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
@@ -983,7 +989,7 @@ msgstr "ភាគ​ថាស​ខ្លះ​អ្នក​បាន​បង
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:136001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
