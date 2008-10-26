@@ -1,4 +1,4 @@
-ubiquity (1.10.9) UNRELEASED; urgency=low
+ubiquity (1.10.8) UNRELEASED; urgency=low
 
   [ Jonathan Riddell ]
   * KDE Frontend, in liveinstaller.ui change size policy to
