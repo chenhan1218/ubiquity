@@ -388,6 +388,8 @@ class ZoomMapWidget(gtk.Widget):
     def blink(self):
         if not self.location_selected:
             return
+        if not self.window.is_viewable():
+            return
         cr = self.window.cairo_create()
         if self.cursor_x and self.cursor_y:
             map_w = self.big_pixbuf.get_width()
