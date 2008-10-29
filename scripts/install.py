@@ -757,6 +757,10 @@ class Install:
             if os.path.exists(target_kernel):
                 os.unlink(target_kernel)
             self.copy_file(kernel, target_kernel, md5_check)
+            os.lchown(target_kernel, 0, 0)
+            os.chmod(target_kernel, 0644)
+            st = os.lstat(kernel)
+            os.utime(target_kernel, (st.st_atime, st.st_mtime))
 
         os.umask(old_umask)
 
