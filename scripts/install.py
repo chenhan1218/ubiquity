@@ -746,23 +746,17 @@ class Install:
                 # about this failing, but I really don't care. Ignore it.
                 pass
 
-        # If no kernel was copied, try some possible locations for the
-        # kernel we used to boot. This saves a couple of megabytes of CD
-        # space.
+        # Try some possible locations for the kernel we used to boot. This
+        # lets us save a couple of megabytes of CD space.
         bootdir = os.path.join(self.target, 'boot')
-        re_image = re.compile('vmlinu[xz]-')
-        for entry in os.listdir(bootdir):
-            match = re_image.match(entry)
-            if match is not None:
-                break
-        else:
-            kernel = self.find_cd_kernel()
-            if kernel:
-                prefix = os.path.basename(kernel).split('-', 1)[0]
-                release = os.uname()[2]
-                target_kernel = os.path.join(bootdir,
-                                             '%s-%s' % (prefix, release))
-                self.copy_file(kernel, target_kernel, md5_check)
+        kernel = self.find_cd_kernel()
+        if kernel:
+            prefix = os.path.basename(kernel).split('-', 1)[0]
+            release = os.uname()[2]
+            target_kernel = os.path.join(bootdir, '%s-%s' % (prefix, release))
+            if os.path.exists(target_kernel):
+                os.unlink(target_kernel)
+            self.copy_file(kernel, target_kernel, md5_check)
 
         os.umask(old_umask)
 
