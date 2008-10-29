@@ -255,6 +255,7 @@ class DebconfFilter:
                 if 'UBIQUITY_AUTOMATIC' in os.environ:
                     if self.db.fget(question, 'seen') == 'true':
                         self.reply(30, 'question skipped', log=True)
+                        self.next_go_backup = False
                         return True
                 self.debug('filter', 'widget found for', question)
                 if not input_widgets[0].run(priority, question):

@@ -2,6 +2,8 @@ ubiquity (1.10.11) UNRELEASED; urgency=low
 
   * Check to make sure a gdk window is mapped before calling
     cairo_create (LP: #208800).
+  * Reset next_go_backup after encountering a question marked as seen
+    (LP: #290760).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 29 Oct 2008 19:00:04 +0000
 
