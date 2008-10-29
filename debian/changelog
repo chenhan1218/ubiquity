@@ -1,6 +1,11 @@
 ubiquity (1.10.10) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Also set the EGID back to 0 when regaining privileges (LP: #288479).
+
+  [ Colin Watson ]
+  * Fix permissions on kernel images copied from /cdrom/casper/
+    (LP: #290798).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 29 Oct 2008 18:18:17 +0000
 
