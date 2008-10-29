@@ -1,3 +1,11 @@
+ubiquity (1.10.9) UNRELEASED; urgency=low
+
+  * Always copy the kernel from /cdrom/casper/ if it's there regardless of
+    whether any kernels are already present in /target/boot/, since those
+    could just be due to a preserve-home install (LP: #287747).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 29 Oct 2008 15:22:03 +0000
+
 ubiquity (1.10.8) intrepid; urgency=low
 
   [ Jonathan Riddell ]
