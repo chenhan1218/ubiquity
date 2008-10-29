@@ -26,7 +26,7 @@ import debconf
 
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity import parted_server
-from ubiquity.misc import drop_privileges
+from ubiquity.misc import *
 
 PARTITION_TYPE_PRIMARY = 0
 PARTITION_TYPE_LOGICAL = 1
@@ -46,7 +46,7 @@ class Partman(FilteredCommand):
 
     def prepare(self):
         # If an old parted_server is still running, clean it up.
-        os.seteuid(0)
+        regain_privileges()
         if os.path.exists('/var/run/parted_server.pid'):
             try:
                 pidline = open('/var/run/parted_server.pid').readline().strip()
@@ -385,7 +385,7 @@ class Partman(FilteredCommand):
                     del choices[choices.index(self.resize_desc)]
                 except ValueError:
                     pass
-            os.seteuid(0)
+            regain_privileges()
             # {'/dev/sda' : [ ('/dev/sda1', 24973243297), ('free', 23492732) ], '/dev/sdb' : .., }
             parted = parted_server.PartedServer()
             layout = {}
@@ -476,7 +476,7 @@ class Partman(FilteredCommand):
                             self.cache_order)
                 else:
                     self.debug('Partman: Building cache')
-                    os.seteuid(0)
+                    regain_privileges()
                     parted = parted_server.PartedServer()
                     matches = self.find_script(menu_options, 'partition_tree')
 
@@ -769,7 +769,7 @@ class Partman(FilteredCommand):
                         return False
 
                 assert state[0] == 'partman/choose_partition'
-                os.seteuid(0)
+                regain_privileges()
                 parted = parted_server.PartedServer()
 
                 parted.select_disk(partition['dev'])

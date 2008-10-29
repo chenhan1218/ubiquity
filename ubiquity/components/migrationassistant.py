@@ -22,7 +22,7 @@ import os
 import debconf
 
 from ubiquity.filteredcommand import FilteredCommand
-from ubiquity.misc import drop_privileges
+from ubiquity.misc import *
 
 class MigrationAssistant(FilteredCommand):
     def prepare(self):
@@ -117,7 +117,7 @@ class MigrationAssistant(FilteredCommand):
     def filter_parts(self):
         question = 'migration-assistant/partitions'
         from ubiquity.parted_server import PartedServer
-        os.seteuid(0)
+        regain_privileges()
         parted = PartedServer()
 
         parts = []

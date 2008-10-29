@@ -21,6 +21,7 @@ import re
 import subprocess
 import codecs
 import os
+from ubiquity import misc
 
 _supported_locales = None
 
@@ -82,7 +83,7 @@ def get_translations(languages=None, core_names=[]):
         devnull = open('/dev/null', 'w')
         # necessary?
         def subprocess_setup():
-            os.seteuid(0)
+            misc.regain_privileges()
         db = subprocess.Popen(
             ['debconf-copydb', 'templatedb', 'pipe',
              '--config=Name:pipe', '--config=Driver:Pipe',

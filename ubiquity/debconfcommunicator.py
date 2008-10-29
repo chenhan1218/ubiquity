@@ -22,11 +22,12 @@ import fcntl
 import os
 
 import debconf
+from ubiquity import misc
 
 class DebconfCommunicator(debconf.Debconf, object):
     def __init__(self, owner, title=None, cloexec=False):
         def subprocess_setup():
-            os.seteuid(0)
+            misc.regain_privileges()
         self.dccomm = Popen(['debconf-communicate', '-fnoninteractive', owner],
             stdin=PIPE, stdout=PIPE, close_fds=True, preexec_fn=subprocess_setup)
         super(DebconfCommunicator, self).__init__(title=title,
