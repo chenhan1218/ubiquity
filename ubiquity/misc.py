@@ -10,7 +10,7 @@ import syslog
 def find_in_os_prober(device):
     '''Look for the device name in the output of os-prober.
        Returns the friendly name of the device, or the empty string on error.'''
-    os.seteuid(0)
+    regain_privileges()
     try:
         if not find_in_os_prober.oslist:
             subp = subprocess.Popen(['os-prober'], stdout=subprocess.PIPE,
@@ -56,7 +56,7 @@ def execute(*args):
         return True
 
 def execute_root(*args):
-    os.seteuid(0)
+    regain_privileges()
     execute(*args)
     drop_privileges()
 
@@ -96,6 +96,10 @@ def drop_privileges():
     if 'SUDO_UID' in os.environ:
         uid = int(os.environ['SUDO_UID'])
         os.seteuid(uid)
+
+def regain_privileges():
+    os.seteuid(0)
+    os.setegid(0)
 
 def debconf_escape(text):
     escaped = text.replace('\\', '\\\\').replace('\n', '\\n')

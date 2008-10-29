@@ -33,7 +33,7 @@ class ConsoleSetup(FilteredCommand):
         # will think it's already configured and behave differently. Try to
         # save the old file for interest's sake, but it's not a big deal if
         # we can't.
-        os.seteuid(0)
+        misc.regain_privileges()
         try:
             os.unlink('/etc/default/console-setup.pre-ubiquity')
         except OSError:
@@ -250,7 +250,7 @@ class ConsoleSetup(FilteredCommand):
         if layout == '':
             return
 
-        os.seteuid(0)
+        misc.regain_privileges()
         oldconfigfile = '/etc/X11/xorg.conf'
         newconfigfile = '/etc/X11/xorg.conf.new'
         try:

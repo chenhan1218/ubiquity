@@ -1,9 +1,20 @@
-ubiquity (1.10.10) UNRELEASED; urgency=low
+ubiquity (1.10.11) UNRELEASED; urgency=low
 
   * Check to make sure a gdk window is mapped before calling
     cairo_create (LP: #208800).
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 29 Oct 2008 15:34:57 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 29 Oct 2008 19:00:04 +0000
+
+ubiquity (1.10.10) intrepid; urgency=low
+
+  [ Evan Dandrea ]
+  * Also set the EGID back to 0 when regaining privileges (LP: #288479).
+
+  [ Colin Watson ]
+  * Fix permissions on kernel images copied from /cdrom/casper/
+    (LP: #290798).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 29 Oct 2008 18:51:06 +0000
 
 ubiquity (1.10.9) intrepid; urgency=high
 

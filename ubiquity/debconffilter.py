@@ -183,7 +183,7 @@ class DebconfFilter:
             # action or else they won't notice if the debconffilter dies.
             signal.signal(signal.SIGPIPE, signal.SIG_DFL)
             # Regain root.
-            os.seteuid(0)
+            misc.regain_privileges()
 
         self.subp = subprocess.Popen(
             command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,

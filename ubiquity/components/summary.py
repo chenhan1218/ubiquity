@@ -52,7 +52,7 @@ def find_grub_target():
     try:
         boot = ''
         root = ''
-        os.seteuid(0)
+        regain_privileges()
         p = PartedServer()
         for disk in p.disks():
             p.select_disk(disk)
@@ -79,7 +79,7 @@ def find_grub_target():
 def grub_options():
     """ Generates a list of suitable targets for grub-installer
         @return empty list or a list of ['/dev/sda1','Ubuntu Hardy 8.04'] """
-    os.seteuid(0)
+    regain_privileges()
     l = []
     oslist = {}
     subp = subprocess.Popen(['os-prober'], stdout=subprocess.PIPE,
