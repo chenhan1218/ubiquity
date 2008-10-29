@@ -48,5 +48,6 @@ if grep -q "^${newlocale%%[.@]*}[.@ ]" /usr/share/i18n/SUPPORTED; then
 	db_fset localechooser/languagelist seen false
 	rm -f /var/lib/localechooser/preseeded
 	PATH="/usr/lib/oem-config/compat:/usr/lib/oem-config/language:$PATH" \
+	OVERRIDE_SHOW_ALL_LANGUAGES=1 \
 		localechooser
 fi
