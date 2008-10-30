@@ -4,8 +4,11 @@ ubiquity (1.10.11) UNRELEASED; urgency=low
     cairo_create (LP: #208800).
   * Reset next_go_backup after encountering a question marked as seen
     (LP: #290760).
+  * Save an apt.cache.Cache() so we retain the package information on
+    restricted packages even after removing restricted from the
+    sources.list (LP: #290925).
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 29 Oct 2008 19:00:04 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 30 Oct 2008 17:34:09 +0000
 
 ubiquity (1.10.10) intrepid; urgency=low
 

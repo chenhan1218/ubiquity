@@ -284,6 +284,14 @@ class Install:
         self.db = debconf.Debconf()
 
         self.select_language_packs()
+        use_restricted = True
+        try:
+            if self.db.get('apt-setup/restricted') == 'false':
+                use_restricted = False
+        except debconf.DebconfError:
+            pass
+        if not use_restricted:
+            self.restricted_cache = Cache()
         self.blacklist = {}
         if self.db.get('ubiquity/install/generate-blacklist') == 'true':
             self.db.progress('START', 0, 100, 'ubiquity/install/title')
@@ -1989,7 +1997,7 @@ exit 0"""
         except debconf.DebconfError:
             pass
         if not use_restricted:
-            cache = Cache()
+            cache = self.restricted_cache
             for pkg in cache.keys():
                 if (cache[pkg].isInstalled and
                     cache[pkg].section.startswith('restricted/')):
