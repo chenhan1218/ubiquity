@@ -1,4 +1,4 @@
-ubiquity (1.10.11) UNRELEASED; urgency=low
+ubiquity (1.11.0) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Check to make sure a gdk window is mapped before calling
@@ -11,6 +11,9 @@ ubiquity (1.10.11) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Add an intro message noting that we're alpha again.
+  * Autoconf likes to have a version in AC_INIT, but start omitting our
+    sub-minor version from it so that we don't have to regenerate configure
+    with every single upload.
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 30 Oct 2008 17:34:09 +0000
 
