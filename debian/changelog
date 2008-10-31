@@ -1,7 +1,10 @@
-oem-config (1.54) UNRELEASED; urgency=low
+oem-config (1.54.0) UNRELEASED; urgency=low
 
   * Use OVERRIDE_SHOW_ALL_LANGUAGES in the tzsetup wrapper as well as
     localechooser (LP: #290580).
+  * Switch to a new versioning scheme and omit the sub-minor version from
+    AC_INIT so that we don't have to regenerate configure with every single
+    upload.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 29 Oct 2008 09:56:47 +0000
 
