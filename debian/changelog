@@ -1,5 +1,6 @@
 ubiquity (1.10.11) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Check to make sure a gdk window is mapped before calling
     cairo_create (LP: #208800).
   * Reset next_go_backup after encountering a question marked as seen
@@ -7,6 +8,9 @@ ubiquity (1.10.11) UNRELEASED; urgency=low
   * Save an apt.cache.Cache() so we retain the package information on
     restricted packages even after removing restricted from the
     sources.list (LP: #290925).
+
+  [ Colin Watson ]
+  * Add an intro message noting that we're alpha again.
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 30 Oct 2008 17:34:09 +0000
 
