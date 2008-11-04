@@ -37,6 +37,7 @@ import math
 import cairo
 import pango
 import pangocairo
+from ubiquity.misc import find_in_os_prober
 
 class Color:
     def __init__(self, r, g, b, a=1.0):
@@ -302,7 +303,8 @@ class SegmentedBar(gtk.Widget):
 
         for i in range(len(self.segments)):
             layout = self.create_adapt_layout(layout, False, True)
-            layout.set_text(self.segments[i].title)
+            title = self.segments[i].title
+            layout.set_text(title)
             aw, ah = layout.get_pixel_size()
             
             layout = self.create_adapt_layout(layout, True, False)
@@ -520,7 +522,6 @@ class SegmentedBar(gtk.Widget):
             context = self.create_pango_context()
             layout = pango.Layout(context)
             fd = layout.get_context().get_font_description()
-            #layout.set_font_description(fd)
             self.pango_size_normal = fd.get_size()
         else:
             fd = layout.get_context().get_font_description()
@@ -539,16 +540,22 @@ class SegmentedBar(gtk.Widget):
         return layout
 
     class Segment:
-        def __init__(self, title, percent, color, show_in_bar=True):
-            self.title = title
+        def __init__(self, device, percent, color, show_in_bar=True):
+            self.device = device
+            self.title = find_in_os_prober(device)
+            if self.title:
+                self.title = '%s (%s)' % (self.title, device)
+            else:
+                self.title = device
             self.percent = percent
             self.color = color
             self.show_in_bar = show_in_bar
 
             self.layout_width = 0
             self.layout_height = 0
+
         def __eq__(self, obj):
-            if self.title == obj:
+            if self.device == obj:
                 return True
             else:
                 return False

@@ -7,6 +7,20 @@ import re
 import subprocess
 import syslog
 
+def is_swap(device):
+    swap = False
+    try:
+        fp = open('/proc/swaps')
+        for line in fp:
+            if line.startswith(device + ' '):
+                swap = True
+    except:
+        swap = False
+    finally:
+        if fp:
+            fp.close()
+    return swap
+
 def find_in_os_prober(device):
     '''Look for the device name in the output of os-prober.
        Returns the friendly name of the device, or the empty string on error.'''
@@ -21,6 +35,8 @@ def find_in_os_prober(device):
                 find_in_os_prober.oslist[res[0]] = res[1]
         if device in find_in_os_prober.oslist:
             return find_in_os_prober.oslist[device]
+        elif is_swap(device):
+            return 'swap'
         else:
             syslog.syslog("Device %s not found in os-prober output" % device)
     except (KeyboardInterrupt, SystemExit):

@@ -8,6 +8,7 @@ ubiquity (1.11.0) UNRELEASED; urgency=low
   * Save an apt.cache.Cache() so we retain the package information on
     restricted packages even after removing restricted from the
     sources.list (LP: #290925).
+  * Provide operating system titles in segmented_bar.
 
   [ Colin Watson ]
   * Add an intro message noting that we're alpha again.
