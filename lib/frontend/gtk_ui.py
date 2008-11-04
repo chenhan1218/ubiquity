@@ -37,6 +37,7 @@ from oem_config.components import console_setup, language, timezone, user, \
                                   console_setup_apply
 import oem_config.emap
 import oem_config.tz
+from oem_config.frontend.base import BaseFrontend
 
 PATH = '/usr/share/oem-config'
 GLADEDIR = '/usr/share/oem-config/glade'
@@ -57,7 +58,7 @@ SUBPAGES = [
     "step_user",
 ]
 
-class Frontend:
+class Frontend(BaseFrontend):
     def __init__(self):
         def add_subpage(self, steps, name):
             """Inserts a subpage into the notebook.  This assumes the file
@@ -83,6 +84,8 @@ class Frontend:
                 if isinstance(widget, gtk.Label):
                     widget.set_property('can-focus', False)
 
+        BaseFrontend.__init__(self)
+
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
 
@@ -91,8 +94,6 @@ class Frontend:
                                    'language_text_label', 'step_label',
                                    'back', 'next')
         self.current_page = None
-        self.locale = None
-        self.current_layout = None
         self.username_edited = False
         self.allowed_change_step = True
         self.allowed_go_forward = True
@@ -132,27 +133,6 @@ class Frontend:
 
         if 'OEM_CONFIG_DEBUG' in os.environ:
             self.password_debug_warning_label.show()
-
-    def post_mortem(self, exctype, excvalue, exctb):
-        """Drop into the debugger if possible."""
-
-        # Did the user request this?
-        if 'OEM_CONFIG_DEBUG_PDB' not in os.environ:
-            return
-        # We must not be in interactive mode; if we are, there's no point.
-        if hasattr(sys, 'ps1'):
-            return
-        # stdin and stdout must point to a terminal. (stderr is redirected
-        # in debug mode!)
-        if not sys.stdin.isatty() or not sys.stdout.isatty():
-            return
-        # SyntaxErrors can't meaningfully be debugged.
-        if issubclass(exctype, SyntaxError):
-            return
-
-        import pdb
-        pdb.post_mortem(exctb)
-        sys.exit(1)
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -314,12 +294,6 @@ class Frontend:
         elif isinstance(widget, gtk.Window):
             widget.set_title(text)
 
-    def get_string(self, name, lang=None):
-        """Get the string name in the given lang or a default."""
-        if lang is None:
-            lang = self.locale
-        return i18n.get_string(name, lang)
-
     # I/O helpers.
 
     def watch_debconf_fd (self, from_debconf, process_input):
@@ -407,8 +381,7 @@ class Frontend:
         self.allowed_go_forward = allowed
 
     def debconffilter_done(self, dbfilter):
-        if dbfilter == self.dbfilter:
-            self.dbfilter = None
+        if BaseFrontend.debconffilter_done(self, dbfilter):
             gtk.main_quit()
 
     def on_back_clicked(self, widget):
@@ -459,7 +432,7 @@ class Frontend:
             return ''
 
     def set_language_choices(self, choices, choice_map):
-        self.language_choice_map = dict(choice_map)
+        BaseFrontend.set_language_choices(self, choices, choice_map)
         if len(self.language_treeview.get_columns()) < 1:
             column = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=0)
             column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -528,7 +501,7 @@ class Frontend:
             self.set_keyboard(self.current_layout)
 
     def set_keyboard (self, layout):
-        self.current_layout = layout
+        BaseFrontend.set_keyboard(self, layout)
         model = self.keyboardlayoutview.get_model()
         if model is None:
             return

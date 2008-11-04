@@ -38,6 +38,7 @@ from oem_config.components import console_setup, language, timezone, user, \
                                   language_apply, timezone_apply, \
                                   console_setup_apply
 import oem_config.tz
+from oem_config.frontend.base import BaseFrontend
 
 UIDIR = '/usr/share/oem-config/qt'
 
@@ -72,13 +73,14 @@ class OEMConfUI(QWidget):
         palette.setBrush(self.backgroundRole(),QBrush(pixmap))
         self.setPalette(palette)
 
-class Frontend:
+class Frontend(BaseFrontend):
     def __init__(self):
+        BaseFrontend.__init__(self)
+
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
 
         self.debconf_callbacks = {}
-        self.locale = None
         self.language_questions = ('oem_config', 'language_label',
                                    'language_heading_label',
                                    'timezone_heading_label',
@@ -86,7 +88,6 @@ class Frontend:
                                    'user_heading_label',
                                    'back', 'next')
         self.current_step = None
-        self.dbfilter = None
         # Set default language.
         dbfilter = language.Language(self, DebconfCommunicator('oem-config',
                                                                cloexec=True))
@@ -140,32 +141,10 @@ class Frontend:
         self.translate_widgets()
 
         self.customize_installer()
-        self.current_layout = None
         self.map_vbox = QVBoxLayout(self.userinterface.map_frame)
         self.map_vbox.setMargin(0)
         self.tzmap = TimezoneMap(self)
         self.tzmap.tzmap.show()
-
-    def post_mortem(self, exctype, excvalue, exctb):
-        """Drop into the debugger if possible."""
-
-        # Did the user request this?
-        if 'OEM_CONFIG_DEBUG_PDB' not in os.environ:
-            return
-        # We must not be in interactive mode; if we are, there's no point.
-        if hasattr(sys, 'ps1'):
-            return
-        # stdin and stdout must point to a terminal. (stderr is redirected
-        # in debug mode!)
-        if not sys.stdin.isatty() or not sys.stdout.isatty():
-            return
-        # SyntaxErrors can't meaningfully be debugged.
-        if issubclass(exctype, SyntaxError):
-            return
-
-        import pdb
-        pdb.post_mortem(exctb)
-        sys.exit(1)
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -334,12 +313,6 @@ p, li { white-space: pre-wrap; }
         else:
             print "WARNING: unknown widget: " + name
 
-    def get_string(self, name, lang=None):
-        """Get the string name in the given lang or a default."""
-        if lang is None:
-            lang = self.locale
-        return i18n.get_string(name, lang)
-
 
     def on_keyboard_layout_selected(self):
         if isinstance(self.dbfilter, console_setup.ConsoleSetup):
@@ -364,8 +337,8 @@ p, li { white-space: pre-wrap; }
             return ''
 
     def set_language_choices(self, choices, choice_map):
+        BaseFrontend.set_language_choices(self, choices, choice_map)
         self.userinterface.language_list.clear()
-        self.language_choice_map = dict(choice_map)
         self.lang_store = QStringList()
         for choice in choices:
             self.lang_store.append(QString(choice))
@@ -406,8 +379,12 @@ p, li { white-space: pre-wrap; }
             self.key_store_1.append(QString(choice))
         self.userinterface.keyboard_list_1.addItems(self.key_store_1)
 
-    def set_keyboard(self, keyboard):
-        index = self.key_store_1.indexOf(QRegExp("^"+keyboard+"$"))
+        if self.current_layout is not None:
+            self.set_keyboard(self.current_layout)
+
+    def set_keyboard(self, layout):
+        BaseFrontend.set_keyboard(self, layout)
+        index = self.key_store_1.indexOf(QRegExp("^"+layout+"$"))
         if index != -1:
             self.userinterface.keyboard_list_1.setCurrentRow(index)
 
@@ -494,23 +471,7 @@ p, li { white-space: pre-wrap; }
         # TODO cjwatson 2006-02-10: handle dbfilter.status
         self.app.disconnect(self.socketNotifierWrite, SIGNAL("activated(int)"), self.watch_debconf_fd_helper_write)
         self.app.disconnect(self.socketNotifierException, SIGNAL("activated(int)"), self.watch_debconf_fd_helper_exception)
-        if dbfilter is None:
-            name = 'None'
-        else:
-            name = dbfilter.__class__.__name__
-        if self.dbfilter is None:
-            currentname = 'None'
-        else:
-            currentname = self.dbfilter.__class__.__name__
-        syslog.syslog(syslog.LOG_DEBUG,
-                      "debconffilter_done: %s (current: %s)" %
-                      (name, currentname))
-        if dbfilter == self.dbfilter:
-            self.dbfilter = None
-            #if isinstance(dbfilter, summary.Summary):
-                ## The Summary component is just there to gather information,
-                # and won't call run_main_loop() for itself.
-                #self.allow_change_step(True)
+        if BaseFrontend.debconffilter_done(self, dbfilter):
             self.app.exit()
 
     def error_dialog (self, title, msg):
