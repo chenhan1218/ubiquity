@@ -15,6 +15,10 @@ ubiquity (1.11.0) UNRELEASED; urgency=low
     sub-minor version from it so that we don't have to regenerate configure
     with every single upload.
 
+  [ Mario Limonciello ]
+  * Install Mythbuntu's ubiquity desktop file as the right file
+    name to get snagged by casper.
+
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 30 Oct 2008 17:34:09 +0000
 
 ubiquity (1.10.10) intrepid; urgency=low
