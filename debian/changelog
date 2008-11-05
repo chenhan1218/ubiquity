@@ -9,6 +9,10 @@ ubiquity (1.11.0) UNRELEASED; urgency=low
     restricted packages even after removing restricted from the
     sources.list (LP: #290925).
   * Provide operating system titles in segmented_bar.
+  * Notify the user of what operating systems will be deleted if they choose
+    to use the entire disk.
+  * Move finding the release name into its own function now that multiple
+    locations need to know it.
 
   [ Colin Watson ]
   * Add an intro message noting that we're alpha again.

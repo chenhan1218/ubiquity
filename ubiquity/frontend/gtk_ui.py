@@ -170,6 +170,7 @@ class Wizard(BaseFrontend):
         self.partition_bars = {}
         self.auto_colors = ['3465a4', '73d216', 'f57900']
         self.segmented_bar_vbox = None
+        self.format_warnings = {}
 
         self.laptop = execute("laptop-detect")
 
@@ -1133,10 +1134,13 @@ class Wizard(BaseFrontend):
     def on_extra_button_toggled (self, widget):
         if widget.get_active():
             choice = unicode(widget.get_label(), 'utf-8', 'replace')
+            for align in self.format_warnings.itervalues():
+                align.hide()
             for k in self.disk_layout.iterkeys():
                 if '(%s)' % k.strip('=dev=') in choice:
                     self.before_bar.remove_all()
                     self.create_bar(k)
+                    self.format_warnings[k].show()
 
     def scale_changed(self, widget, allocation):
         s1 = self.new_size_scale.old_os.get_allocation().width
@@ -1177,18 +1181,18 @@ class Wizard(BaseFrontend):
                     self.scale_changed)
             else:
                 # Use entire disk.
-                # FIXME: Get the release name from a variable as generated
-                # once at the start of the installer.
-                # FIXME: Ugly.
-                self.action_bar.add_segment_rgb('Ubuntu 8.10', 1, \
+                self.action_bar.add_segment_rgb(get_release_name(), 1, \
                     self.auto_colors[0])
                 for b in extra_buttons:
                     if b.get_active():
                         t = unicode(b.get_label(), 'utf-8', 'replace')
+                        for align in self.format_warnings.itervalues():
+                            align.hide()
                         for k in self.disk_layout.iterkeys():
                             if '(%s)' % k.strip('=dev=') in t:
                                 self.before_bar.remove_all()
                                 self.create_bar(k)
+                                self.format_warnings[k].show()
                                 break
 
     def on_autopartition_toggled (self, widget):
@@ -1452,7 +1456,7 @@ class Wizard(BaseFrontend):
                 b.add_segment_rgb(dev, size, self.auto_colors[i])
                 i = (i + 1) % len(self.auto_colors)
                 if dev == self.resize_path and resize_bar:
-                    self.action_bar.add_segment_rgb('Ubuntu 8.10', 0, \
+                    self.action_bar.add_segment_rgb(get_release_name(), 0, \
                         self.auto_colors[i])
                     i = (i + 1) % len(self.auto_colors)
 
@@ -1496,6 +1500,7 @@ class Wizard(BaseFrontend):
             if choice in extra_options:
                 alignment = gtk.Alignment(xscale=1, yscale=1)
                 alignment.set_padding(0, 0, 12, 0)
+
                 if choice == resize_choice:
                     hbox = gtk.HBox(spacing=6)
                     alignment.add(hbox)
@@ -1524,12 +1529,46 @@ class Wizard(BaseFrontend):
                         if extra_firstbutton is None:
                             extra_firstbutton = extra_button
                         vbox.add(extra_button)
+                        l = []
+                        for k in self.disk_layout.iterkeys():
+                            if '(%s)' % k.strip('=dev=') in extra:
+                                for part, size in self.disk_layout[k]:
+                                    if part == 'free':
+                                        continue
+                                    ret = find_in_os_prober(part)
+                                    if ret and ret != 'swap':
+                                        l.append(ret)
+                                a = gtk.Alignment(xscale=1, yscale=1)
+                                a.set_padding(0, 0, 12, 0)
+                                self.format_warnings[k] = a
+                                break
+                        if l:
+                            # TODO evand 2008-11-05: i18n
+                            if len(l) == 1:
+                                txt = l[0]
+                            if len(l) == 2:
+                                txt = '%s and %s' % (l[0], l[1])
+                            elif len(l) > 2:
+                                l[-1] = 'and ' + l[-1]
+                                txt = ', '.join(l)
+                            txt = 'This will delete %s and replace' % txt
+                            if len(l) > 1:
+                                txt = txt + ' them with %s.' % get_release_name()
+                            else:
+                                txt = txt + ' it with %s.' % get_release_name()
+                            label = gtk.Label(txt)
+                            hbox = gtk.HBox(spacing=6)
+                            img = gtk.Image()
+                            img.set_from_icon_name('gtk-dialog-warning', gtk.ICON_SIZE_BUTTON)
+                            hbox.pack_start(img, expand=False, fill=False)
+                            hbox.pack_start(label, expand=False, fill=False)
+                            a.add(hbox)
+                            vbox.add(a)
                         extra_buttons.append(extra_button)
                         extra_button.connect('toggled', self.on_extra_button_toggled)
                 self.autopartition_vbox.pack_start(alignment,
                                                    expand=False, fill=False)
                 self.autopartition_extras[choice] = alignment
-
                 self.on_autopartition_toggled(button)
                 button.connect('toggled', self.on_autopartition_toggled)
             self.on_choice_toggled(button, extra_buttons)
@@ -1538,6 +1577,8 @@ class Wizard(BaseFrontend):
             firstbutton.set_active(True)
 
         self.autopartition_vbox.show_all()
+        for align in self.format_warnings.itervalues():
+            align.hide()
 
         # make sure we're on the autopartitioning page
         self.set_current_page(self.steps.page_num(self.stepPartAuto))
@@ -2838,7 +2879,7 @@ class ResizeWidget(gtk.HPaned):
         
         self.part_size = 0
         self.old_os_title = ''
-        self._set_new_os_title()
+        self.new_os_title = get_release_name()
         self.max_size = 0
         self.min_size = 0
 
@@ -2886,23 +2927,6 @@ class ResizeWidget(gtk.HPaned):
         tmp = ((float(self.part_size) - self.max_size) / self.part_size)
         pixels = int(tmp * total)
         self.new_os.set_size_request(pixels, -1)
-
-    def _set_new_os_title(self):
-        self.new_os_title = ''
-        fp = None
-        try:
-            fp = open('/cdrom/.disk/info')
-            line = fp.readline()
-            if line:
-                self.new_os_title = ' '.join(line.split()[:2])
-        except:
-            syslog.syslog(syslog.LOG_ERR,
-                "Unable to determine the distribution name from /cdrom/.disk/info")
-        finally:
-            if fp is not None:
-                fp.close()
-        if not self.new_os_title:
-            self.new_os_title = 'Ubuntu'
 
     def set_device(self, dev):
         '''Sets the title of the old partition to the name found in os_prober.
