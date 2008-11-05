@@ -228,23 +228,6 @@ add_groups()
     $log $chroot $ROOT adduser "$NORMALUSER" mythtv >/dev/null 2>&1 || true
 }
 
-fix_init_scripts()
-{
-    cat <<FIXINIT > $ROOT/tmp/fix_init_scripts
-#!/bin/sh
-# Setup mysql services to start on boot - stop on halt/reboot
-update-rc.d ntp defaults
-update-rc.d mysql defaults
-update-rc.d samba defaults
-update-rc.d apache2 defaults
-update-rc.d mythtv-backend defaults
-update-rc.d ssh defaults
-FIXINIT
-    chmod +x $ROOT/tmp/fix_init_scripts
-    $log $chroot $ROOT /tmp/fix_init_scripts
-    rm $ROOT/tmp/fix_init_scripts
-}
-
 setup_theme()
 {
     #Sets up the theme to be the Mythbuntu theme
@@ -319,7 +302,6 @@ THEME
 #Commonly used across any setup
 mythtv_common
 add_groups
-fix_init_scripts
 #Only used on backend
 db_get mythbuntu/install_type
 TYPE="$RET"

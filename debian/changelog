@@ -19,6 +19,8 @@ ubiquity (1.11.0) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Install Mythbuntu's ubiquity desktop file as the right file
     name to get snagged by casper.
+  * Drop old update-rc.d hacks in apply-type since they are available
+    now in casper.
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 30 Oct 2008 17:34:09 +0000
 
