@@ -110,7 +110,6 @@ endif
 	dh_installdocs -a
 	dh_installchangelogs -a
 	dh_installinit -a -n
-	dh_link -a
 	dh_strip -a
 	dh_compress -a
 	dh_fixperms -a
@@ -130,7 +129,6 @@ binary-indep:
 	dh_installdebconf -i
 	dh_installdocs -i
 	dh_installchangelogs -i
-	dh_link -i
 	dh_compress -i
 	dh_fixperms -i
 	dh_pycentral -i
