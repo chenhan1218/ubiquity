@@ -7,6 +7,7 @@ oem-config (1.54.0) UNRELEASED; urgency=low
     upload.
   * Create a BaseFrontend class and move various things to it; it now counts
     as a relatively clear specification of what a frontend has to implement.
+  * Add a debconf_ui frontend which can be used in text mode on a server.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 29 Oct 2008 09:56:47 +0000
 

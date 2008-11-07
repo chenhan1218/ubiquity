@@ -34,15 +34,21 @@ from oem_config import im_switch
 VERSION = '@VERSION@'
 
 class Wizard:
-    def __init__(self, frontend_name=None):
+    def __init__(self, frontend_name=None, query=False):
         if frontend_name is None:
-            frontend_names = ['gtk_ui', 'kde_ui']
+            frontend_names = ['gtk_ui', 'kde_ui', 'debconf_ui']
         else:
             frontend_names = [frontend_name]
-        mod = __import__('oem_config.frontend', globals(), locals(),
-                         frontend_names)
         chosen = None
+        if query:
+            import warnings
+            warnings.filterwarnings('ignore')
         for f in frontend_names:
+            try:
+                mod = __import__('oem_config.frontend', globals(), locals(),
+                                 [f])
+            except ImportError:
+                continue
             if hasattr(mod, f):
                 chosen = f
                 ui = getattr(mod, f)
@@ -50,7 +56,8 @@ class Wizard:
         else:
             raise AttributeError, ('No frontend available; tried %s' %
                                    ', '.join(frontend_names))
-        self.frontend = ui.Frontend()
+        if not query:
+            self.frontend = ui.Frontend()
         os.environ['OEM_CONFIG_FRONTEND'] = chosen
 
     def run(self):
@@ -102,7 +109,10 @@ if __name__ == '__main__':
                       help='tell the application that it is the only desktop ' \
                       'program running so that it can customize its UI to ' \
                       'better suit a minimal environment.')
-    parser.set_defaults(frontend=None, debug_pdb=False)
+    parser.add_option('-q', '--query', dest='query', action='store_true',
+                      help='find out which frontend will be used by default')
+    parser.set_defaults(frontend=None, debug_pdb=False, old_tzmap=False,
+                        only=False, query=False)
     (options, args) = parser.parse_args()
 
     if args:
@@ -121,15 +131,20 @@ if __name__ == '__main__':
     if options.only:
         os.environ['OEM_CONFIG_ONLY'] = '1'
 
-    print >>sys.stderr, "oem-config %s" % VERSION
+    if not options.query:
+        print >>sys.stderr, "oem-config %s" % VERSION
 
     if 'OEM_CONFIG_DEBUG' in os.environ:
         if 'DEBCONF_DEBUG' not in os.environ:
             os.environ['DEBCONF_DEBUG'] = 'developer|filter'
 
-    disable_autologin()
-    wizard = Wizard(frontend_name=options.frontend)
-    wizard.run()
-    run_hooks()
-    im_switch.kill_im()
+    if not options.query:
+        disable_autologin()
+    wizard = Wizard(frontend_name=options.frontend, query=options.query)
+    if options.query:
+        print os.environ['OEM_CONFIG_FRONTEND']
+    else:
+        wizard.run()
+        run_hooks()
+        im_switch.kill_im()
     sys.exit(0)
