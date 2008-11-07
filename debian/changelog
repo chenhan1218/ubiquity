@@ -19,6 +19,8 @@ ubiquity (1.11.0) UNRELEASED; urgency=low
   * Autoconf likes to have a version in AC_INIT, but start omitting our
     sub-minor version from it so that we don't have to regenerate configure
     with every single upload.
+  * Remove obsolete Encoding: lines from .desktop files, since
+    desktop-file-validate complains about them.
 
   [ Mario Limonciello ]
   * Install Mythbuntu's ubiquity desktop file as the right file
