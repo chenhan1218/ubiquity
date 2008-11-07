@@ -4,7 +4,7 @@ set -e
 # Try to detect which frontend will be used by looking for a frontend
 # module.
 frontend=
-for f in gtk_ui kde_ui; do
+for f in gtk_ui kde_ui debconf_ui; do
 	if [ -f "/usr/lib/oem-config/oem_config/frontend/$f.py" ]; then
 		frontend="$f"
 		break
