@@ -12,7 +12,7 @@ debian/oem-config-check
 debian/oem-config-gtk
 debian/oem-config-kde
 debian/oem-config-udeb
-debian/*.debhelper
+debian/*.debhelper*
 debian/*.substvars
 desktop/Makefile
 desktop/*.desktop
