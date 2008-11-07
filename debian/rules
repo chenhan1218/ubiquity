@@ -1,11 +1,12 @@
 #! /usr/bin/make -f
 
-VERSION := $(shell dpkg-parsechangelog | awk '/^Version:/ { print $$2 }' | cut -d. -f1,2)
+VERSION := $(shell dpkg-parsechangelog | awk '/^Version:/ { print $$2 }')
+EXPECTED_AC_VERSION := $(shell echo "$(VERSION)" | cut -d. -f1,2)
 AC_VERSION := $(shell grep -w '^AC_INIT' configure.ac | cut -d' ' -f2 | \
 			sed 's/[][,]//g')
 MANGLED_VERSION := $(subst ~,-,$(VERSION))
 
-ifneq ($(VERSION),$(AC_VERSION))
+ifneq ($(EXPECTED_AC_VERSION),$(AC_VERSION))
 $(warning Version $(VERSION) in debian/changelog does not match $(AC_VERSION) in configure.ac!)
 endif
 
