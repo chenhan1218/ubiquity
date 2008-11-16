@@ -27,6 +27,8 @@ ubiquity (1.11.0) UNRELEASED; urgency=low
     name to get snagged by casper.
   * Drop old update-rc.d hacks in apply-type since they are available
     now in casper.
+  * Correct a small typo on a mythbuntu specific glade file
+    (LP: #276900)
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 30 Oct 2008 17:34:09 +0000
 
