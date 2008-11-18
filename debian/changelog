@@ -1,3 +1,11 @@
+oem-config (1.54.1) UNRELEASED; urgency=low
+
+  * Use an iconview as the language selection widget.  Only show scrollbars
+    for the language selection widget if the window is going to be larger
+    than the desktop.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 18 Nov 2008 17:22:06 +0000
+
 oem-config (1.54.0) jaunty; urgency=low
 
   * Use OVERRIDE_SHOW_ALL_LANGUAGES in the tzsetup wrapper as well as

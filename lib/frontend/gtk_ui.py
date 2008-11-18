@@ -91,8 +91,7 @@ class Frontend(BaseFrontend):
 
         self.all_widgets = set()
         self.language_questions = ('oem_config', 'language_heading_label',
-                                   'language_text_label', 'step_label',
-                                   'back', 'next')
+                                   'step_label', 'back', 'next')
         self.current_page = None
         self.username_edited = False
         self.allowed_change_step = True
@@ -116,6 +115,25 @@ class Frontend(BaseFrontend):
         steps = self.glade.get_widget("steps")
         for page in SUBPAGES:
             add_subpage(self, steps, page)
+
+        # Hack to only show the scrollbars on the language selector when the
+        # language selector would otherwise be larger than the desktop.  The
+        # code does not have to care about the size of the GNOME panels as
+        # oem-config is run in a minimal session without them.
+        def iv_size_req(iv, req):
+            sw = self.language_scrolledwindow
+            hs = sw.get_hscrollbar().size_request()[1] + 5
+            vs = sw.get_vscrollbar().size_request()[0] + 5
+            sw.set_size_request(req.width + vs, req.height + hs)
+        self.language_iconview.connect('size-request', iv_size_req)
+
+        def win_size_req(win, req):
+            s = gtk.gdk.get_default_root_window().get_screen()
+            if req.width > s.get_width():
+                win.set_size_request(s.get_width(), -1)
+            if req.height > s.get_height():
+                win.set_size_request(-1, s.get_height())
+        self.oem_config.connect('size-request', win_size_req)
 
         self.translate_widgets()
 
@@ -423,54 +441,54 @@ class Frontend(BaseFrontend):
 
     # Callbacks provided to components.
 
-    def selected_language(self, selection):
-        (model, iterator) = selection.get_selected()
+    def selected_language (self):
+        model = self.language_iconview.get_model()
+        items = self.language_iconview.get_selected_items()
+        if not items:
+            return ''
+        iterator = model.get_iter(items[0])
         if iterator is not None:
             value = unicode(model.get_value(iterator, 0))
             return self.language_choice_map[value][1]
-        else:
-            return ''
 
     def set_language_choices(self, choices, choice_map):
         BaseFrontend.set_language_choices(self, choices, choice_map)
-        if len(self.language_treeview.get_columns()) < 1:
-            column = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=0)
-            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
-            self.language_treeview.append_column(column)
-            selection = self.language_treeview.get_selection()
-            selection.connect('changed',
-                              self.on_language_treeview_selection_changed)
+        self.language_iconview.connect('selection-changed',
+                          self.on_language_iconview_selection_changed)
         list_store = gtk.ListStore(gobject.TYPE_STRING)
-        self.language_treeview.set_model(list_store)
+        self.language_iconview.set_model(list_store)
+        self.language_iconview.set_text_column(0)
         for choice in choices:
             list_store.append([choice])
 
     def set_language(self, language):
-        model = self.language_treeview.get_model()
+        model = self.language_iconview.get_model()
         iterator = model.iter_children(None)
         while iterator is not None:
             if unicode(model.get_value(iterator, 0)) == language:
                 path = model.get_path(iterator)
-                self.language_treeview.get_selection().select_path(path)
-                self.language_treeview.scroll_to_cell(
-                    path, use_align=True, row_align=0.5)
+                self.language_iconview.select_path(path)
+                self.language_iconview.scroll_to_path(path, True, 0.5, 0.5)
                 break
             iterator = model.iter_next(iterator)
 
     def get_language(self):
-        selection = self.language_treeview.get_selection()
-        (model, iterator) = selection.get_selected()
+        model = self.language_iconview.get_model()
+        items = self.language_iconview.get_selected_items()
+        if not items:
+            return 'C'
+        iterator = model.get_iter(items[0])
         if iterator is None:
             return 'C'
         else:
             value = unicode(model.get_value(iterator, 0))
             return self.language_choice_map[value][1]
 
-    def on_language_treeview_row_activated(self, treeview, path, view_column):
+    def on_language_iconview_item_activated (self, iconview, path):
         self.next.activate()
 
-    def on_language_treeview_selection_changed(self, selection):
-        lang = self.selected_language(selection)
+    def on_language_iconview_selection_changed (self, iconview):
+        lang = self.selected_language()
         if lang:
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
