@@ -1,4 +1,4 @@
-oem-config (1.54.0) UNRELEASED; urgency=low
+oem-config (1.54.0) jaunty; urgency=low
 
   * Use OVERRIDE_SHOW_ALL_LANGUAGES in the tzsetup wrapper as well as
     localechooser (LP: #290580).
@@ -12,7 +12,7 @@ oem-config (1.54.0) UNRELEASED; urgency=low
   * Automatic update of included source packages: console-setup 1.28ubuntu1,
     localechooser 2.08ubuntu1, tzsetup 1:0.24.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 29 Oct 2008 09:56:47 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 18 Nov 2008 17:11:02 +0000
 
 oem-config (1.53) intrepid; urgency=low
 
