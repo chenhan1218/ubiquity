@@ -9,6 +9,8 @@ oem-config (1.54.0) UNRELEASED; urgency=low
     as a relatively clear specification of what a frontend has to implement.
   * Install apport hook as source_oem-config.py so that it covers all our
     binary packages without the need for symlinks.
+  * Automatic update of included source packages: console-setup 1.28ubuntu1,
+    localechooser 2.08ubuntu1, tzsetup 1:0.24.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 29 Oct 2008 09:56:47 +0000
 
