@@ -1,9 +1,13 @@
 oem-config (1.54.1) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * GTK frontend:
     - Use an iconview as the language selection widget.  Only show
       scrollbars for the language selection widget if the window is going to
       be larger than the desktop.
+
+  [ Colin Watson ]
+  * Fix debian/oem-config.install for new location of tzmap in build tree.
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 18 Nov 2008 17:22:06 +0000
 
