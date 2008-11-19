@@ -13,6 +13,8 @@ ubiquity (1.11.0) UNRELEASED; urgency=low
     to use the entire disk.
   * Move finding the release name into its own function now that multiple
     locations need to know it.
+  * Correct debian/ubiquity.install-any to refer to the new location of tzmap
+    in tzsetup.
 
   [ Colin Watson ]
   * Add an intro message noting that we're alpha again.
