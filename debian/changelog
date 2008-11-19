@@ -1,4 +1,4 @@
-oem-config (1.54.1) UNRELEASED; urgency=low
+oem-config (1.54.1) jaunty; urgency=low
 
   [ Evan Dandrea ]
   * GTK frontend:
@@ -9,7 +9,7 @@ oem-config (1.54.1) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Fix debian/oem-config.install for new location of tzmap in build tree.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 18 Nov 2008 17:22:06 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 19 Nov 2008 10:03:45 +0000
 
 oem-config (1.54.0) jaunty; urgency=low
 
