@@ -52,6 +52,8 @@ class ConsoleSetup(FilteredCommand):
         # *code variants.
         self.db.fset('console-setup/layout', 'seen', 'false')
         self.db.fset('console-setup/variant', 'seen', 'false')
+        self.db.fset('console-setup/model', 'seen', 'false')
+        self.db.fset('console-setup/codeset', 'seen', 'false')
 
         # Technically we should provide a version as the second argument,
         # but that isn't currently needed and it would require querying
