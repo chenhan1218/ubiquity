@@ -370,11 +370,7 @@ class Partman(FilteredCommand):
                 else:
                     self.auto_state[0] += 1
             if self.auto_state[0] < len(choices):
-                # Don't preseed_as_c, because Perl debconf is buggy in that
-                # it doesn't expand variables in the result of METAGET
-                # choices-c. All locales have the same variables anyway so
-                # it doesn't matter.
-                self.preseed(question, self.auto_state[1], seen=False)
+                self.preseed_as_c(question, self.auto_state[1], seen=False)
                 self.succeeded = True
                 return True
             else:
@@ -420,7 +416,7 @@ class Partman(FilteredCommand):
                 return False
             else:
                 assert self.extra_choice is not None
-                self.preseed(question, self.extra_choice, seen=False)
+                self.preseed_as_c(question, self.extra_choice, seen=False)
                 self.succeeded = True
                 return True
 
@@ -1048,15 +1044,12 @@ class Partman(FilteredCommand):
         if self.current_question.endswith('automatically_partition'):
             (autopartition_choice, self.extra_choice) = \
                 self.frontend.get_autopartition_choice()
-            # Don't preseed_as_c, because Perl debconf is buggy in that it
-            # doesn't expand variables in the result of METAGET choices-c. All
-            # locales have the same variables anyway so it doesn't matter.
             if self.autopartition_question is not None:
-                self.preseed(self.autopartition_question, autopartition_choice)
+                self.preseed_as_c(self.autopartition_question, autopartition_choice)
             else:
-                self.preseed('partman-auto/init_automatically_partition',
+                self.preseed_as_c('partman-auto/init_automatically_partition',
                              autopartition_choice)
-                self.preseed('partman-auto/automatically_partition',
+                self.preseed_as_c('partman-auto/automatically_partition',
                              autopartition_choice)
             # Don't exit partman yet.
         else:

@@ -15,6 +15,8 @@ ubiquity (1.11.0) UNRELEASED; urgency=low
     locations need to know it.
   * Correct debian/ubiquity.install-any to refer to the new location of tzmap
     in tzsetup.
+  * Use preseed_as_c in the partman component for automatically_partition and
+    select_disk as those questions now require it.
 
   [ Colin Watson ]
   * Add an intro message noting that we're alpha again.
