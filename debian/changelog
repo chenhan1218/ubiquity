@@ -17,6 +17,7 @@ ubiquity (1.11.0) UNRELEASED; urgency=low
     in tzsetup.
   * Use preseed_as_c in the partman component for automatically_partition and
     select_disk as those questions now require it.
+  * Install check-missing-firmware as part of hw-detect.
 
   [ Colin Watson ]
   * Add an intro message noting that we're alpha again.
