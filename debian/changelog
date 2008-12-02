@@ -18,6 +18,17 @@ ubiquity (1.11.0) UNRELEASED; urgency=low
   * Use preseed_as_c in the partman component for automatically_partition and
     select_disk as those questions now require it.
   * Install check-missing-firmware as part of hw-detect.
+  * Automatic update of included source packages: base-installer
+    1.86ubuntu8, choose-mirror 2.27ubuntu1, clock-setup 0.97ubuntu1,
+    console-setup 1.28ubuntu3, debian-installer-utils 1.65ubuntu1, grub-
+    installer 1.35ubuntu4, hw-detect 1.70ubuntu3, localechooser
+    2.08ubuntu1, partconf 1.30, partman-auto 83ubuntu1, partman-base
+    128ubuntu2, partman-basicfilesystems 62ubuntu1, partman-basicmethods
+    42, partman-ext3 55ubuntu1, partman-jfs 29ubuntu1, partman-newworld
+    20ubuntu1, partman-partitioning 64ubuntu1, partman-reiserfs
+    44ubuntu1, partman-target 58ubuntu1, partman-xfs 43ubuntu1, preseed
+    1.41ubuntu1, silo-installer 1.15ubuntu1, tzsetup 1:0.24, user-setup
+    1.23ubuntu1, yaboot-installer 1.1.14ubuntu1.
 
   [ Colin Watson ]
   * Add an intro message noting that we're alpha again.
