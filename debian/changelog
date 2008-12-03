@@ -1,4 +1,4 @@
-ubiquity (1.11.0) UNRELEASED; urgency=low
+ubiquity (1.11.0) jaunty; urgency=low
 
   [ Evan Dandrea ]
   * Check to make sure a gdk window is mapped before calling
@@ -48,7 +48,7 @@ ubiquity (1.11.0) UNRELEASED; urgency=low
   * Correct a small typo on a mythbuntu specific glade file
     (LP: #276900)
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 30 Oct 2008 17:34:09 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 02 Dec 2008 15:36:52 -0500
 
 ubiquity (1.10.10) intrepid; urgency=low
 
