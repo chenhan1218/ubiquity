@@ -1,4 +1,4 @@
-ubiquity (1.11.1) UNRELEASED; urgency=low
+ubiquity (1.11.1) jaunty; urgency=low
 
   * Hand partman the data it expects when in manual partitioning.
   * Automatic update of included source packages: base-installer
@@ -7,7 +7,7 @@ ubiquity (1.11.1) UNRELEASED; urgency=low
   * Automatic update of included source packages: user-setup
     1.23ubuntu3.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 17 Dec 2008 11:53:37 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 17 Dec 2008 13:44:13 -0500
 
 ubiquity (1.11.0) jaunty; urgency=low
 
