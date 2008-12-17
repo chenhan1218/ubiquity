@@ -157,7 +157,7 @@ class Partman(FilteredCommand):
                        want_script, want_arg=None):
         (script, arg, option) = self.must_find_one_script(
             question, menu_options, want_script, want_arg)
-        self.preseed(question, option, seen=False)
+        self.preseed(question, '%s__________%s' % (script, arg), seen=False)
 
     def split_devpart(self, devpart):
         dev, part_id = devpart.split('//', 1)
@@ -530,9 +530,9 @@ class Partman(FilteredCommand):
                             continue
                         parted.select_disk(dev)
                         if part_id:
-                            self.partition_cache[arg]['display'] = option
+                            self.partition_cache[arg]['display'] = '%s__________%s' % (script, arg)
                         else:
-                            self.disk_cache[arg]['display'] = option
+                            self.disk_cache[arg]['display'] = '%s__________%s' % (script, arg)
 
                     # Get basic information from parted_server for each
                     # partition being updated.

@@ -1,3 +1,9 @@
+ubiquity (1.11.1) UNRELEASED; urgency=low
+
+  * Hand partman the data it expects when in manual partitioning.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 17 Dec 2008 11:53:37 -0500
+
 ubiquity (1.11.0) jaunty; urgency=low
 
   [ Evan Dandrea ]
