@@ -1,6 +1,9 @@
 ubiquity (1.11.1) UNRELEASED; urgency=low
 
   * Hand partman the data it expects when in manual partitioning.
+  * Automatic update of included source packages: base-installer
+    1.86ubuntu9, console-setup 1.28ubuntu4, partman-base 128ubuntu3,
+    user-setup 1.23ubuntu2.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 17 Dec 2008 11:53:37 -0500
 

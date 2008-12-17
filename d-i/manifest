@@ -1,8 +1,8 @@
 apt-setup 1:0.37ubuntu6
-base-installer 1.86ubuntu8
+base-installer 1.86ubuntu9
 choose-mirror 2.27ubuntu1
 clock-setup 0.97ubuntu1
-console-setup 1.28ubuntu3
+console-setup 1.28ubuntu4
 debian-installer-utils 1.65ubuntu1
 grub-installer 1.35ubuntu4
 hw-detect 1.70ubuntu3
@@ -12,7 +12,7 @@ migration-assistant 0.6.2
 partconf 1.30
 partman-auto 83ubuntu1
 partman-auto-loop 0ubuntu15
-partman-base 128ubuntu2
+partman-base 128ubuntu3
 partman-basicfilesystems 62ubuntu1
 partman-basicmethods 42
 partman-efi 18ubuntu1
@@ -26,5 +26,5 @@ partman-xfs 43ubuntu1
 preseed 1.41ubuntu1
 silo-installer 1.15ubuntu1
 tzsetup 1:0.24
-user-setup 1.23ubuntu1
+user-setup 1.23ubuntu2
 yaboot-installer 1.1.14ubuntu1
