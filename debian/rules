@@ -84,6 +84,9 @@ endif
 		d-i/source/tzsetup/post-base-installer.d/*tzsetup \
 		> debian/oem-config/usr/lib/oem-config/timezone/post-base-installer
 	chmod +x debian/oem-config/usr/lib/oem-config/timezone/post-base-installer
+	sed -i -e 's,db_input medium tzsetup/selected,db_input high tzsetup/selected,' \
+	       -e 's,/usr/share/tzsetup/tzmap,/usr/lib/oem-config/timezone/tzmap,g' \
+		debian/oem-config/usr/lib/oem-config/timezone/tzsetup
 	for x in user-setup user-setup-ask user-setup-apply; do \
 		sed -e 's,/usr/lib/user-setup,/usr/lib/oem-config/user,g' \
 		    -e 's,/bin/sh,/bin/bash,g' \

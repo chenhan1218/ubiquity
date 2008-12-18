@@ -20,6 +20,8 @@
 import os
 import locale
 
+import debconf
+
 from oem_config.filteredcommand import FilteredCommand
 from oem_config import i18n
 from oem_config import im_switch
@@ -29,7 +31,14 @@ class Timezone(FilteredCommand):
     def prepare(self):
         self.tzdb = oem_config.tz.Database()
         self.db.fset('time/zone', 'seen', 'false')
-        questions = ['^time/zone$']
+        cc = self.db.get('debian-installer/country')
+        try:
+            self.db.get('tzsetup/country/%s' % cc)
+            # ... and if that succeeded:
+            self.db.reset('time/zone')
+        except debconf.DebconfError:
+            pass
+        questions = ['^time/zone$', '^tzsetup/selected$']
         return (['/usr/lib/oem-config/timezone/tzsetup'], questions)
 
     def run(self, priority, question):
@@ -47,6 +56,9 @@ class Timezone(FilteredCommand):
             elif zone == 'US/Eastern':
                 zone = 'America/New_York'
             self.frontend.set_timezone(zone)
+        elif question == 'tzsetup/selected':
+            self.preseed(question, 'false')
+            return True
 
         return FilteredCommand.run(self, priority, question)
 
