@@ -1,4 +1,24 @@
-oem-config (1.54.0) UNRELEASED; urgency=low
+oem-config (1.54.2) UNRELEASED; urgency=low
+
+  * Add a debconf_ui frontend which can be used in text mode on a server.
+  * Adjust for changes in tzsetup 1:0.24ubuntu1.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 18 Dec 2008 18:38:28 +0000
+
+oem-config (1.54.1) jaunty; urgency=low
+
+  [ Evan Dandrea ]
+  * GTK frontend:
+    - Use an iconview as the language selection widget.  Only show
+      scrollbars for the language selection widget if the window is going to
+      be larger than the desktop.
+
+  [ Colin Watson ]
+  * Fix debian/oem-config.install for new location of tzmap in build tree.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 19 Nov 2008 10:03:45 +0000
+
+oem-config (1.54.0) jaunty; urgency=low
 
   * Use OVERRIDE_SHOW_ALL_LANGUAGES in the tzsetup wrapper as well as
     localechooser (LP: #290580).
@@ -9,10 +29,10 @@ oem-config (1.54.0) UNRELEASED; urgency=low
     as a relatively clear specification of what a frontend has to implement.
   * Install apport hook as source_oem-config.py so that it covers all our
     binary packages without the need for symlinks.
-  * Add a debconf_ui frontend which can be used in text mode on a server.
-  * Adjust for changes in tzsetup 1:0.24ubuntu1.
+  * Automatic update of included source packages: console-setup 1.28ubuntu1,
+    localechooser 2.08ubuntu1, tzsetup 1:0.24.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 29 Oct 2008 09:56:47 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 18 Nov 2008 17:11:02 +0000
 
 oem-config (1.53) intrepid; urgency=low
 

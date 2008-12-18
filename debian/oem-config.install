@@ -20,7 +20,7 @@ scripts/localechooser-wrapper usr/lib/oem-config/language
 scripts/localechooser-apply usr/lib/oem-config/language
 
 # tzsetup
-d-i/source/tzsetup/tzmap usr/lib/oem-config/timezone
+d-i/source/tzsetup/debian/tzmap usr/lib/oem-config/timezone
 d-i/source/tzsetup/tzsetup usr/lib/oem-config/timezone
 scripts/tzsetup-wrapper usr/lib/oem-config/timezone
 
