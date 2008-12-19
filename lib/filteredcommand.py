@@ -169,7 +169,7 @@ class FilteredCommand(object):
             # action.
             signal.signal(signal.SIGPIPE, signal.SIG_DFL)
 
-        ret = subprocess.call(command, preexec_fn=subprocess_setup)
+        ret = subprocess.call(self.command, preexec_fn=subprocess_setup)
         if ret != 0:
             # TODO: error message if ret != 10
             self.debug("%s exited with code %d", self.command, ret)
