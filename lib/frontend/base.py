@@ -107,8 +107,7 @@ class BaseFrontend:
 
     def post_mortem(self, exctype, excvalue, exctb):
         """Drop into the debugger if possible."""
-        self.run_error_cmd()
-        
+
         # Did the user request this?
         if 'OEM_CONFIG_DEBUG_PDB' not in os.environ:
             return
