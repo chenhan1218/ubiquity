@@ -9,6 +9,7 @@
 debian/files
 debian/oem-config
 debian/oem-config-check
+debian/oem-config-debconf
 debian/oem-config-gtk
 debian/oem-config-kde
 debian/oem-config-udeb
