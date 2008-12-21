@@ -2,6 +2,7 @@ oem-config (1.54.2) UNRELEASED; urgency=low
 
   * Add a debconf_ui frontend which can be used in text mode on a server.
   * Adjust for changes in tzsetup 1:0.24ubuntu1.
+  * Add experimental --cdebconf option.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 18 Dec 2008 18:38:28 +0000
 

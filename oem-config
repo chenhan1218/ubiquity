@@ -103,6 +103,8 @@ if __name__ == '__main__':
                       help='debug mode (warning: passwords will be logged!)')
     parser.add_option('--pdb', dest='debug_pdb', action='store_true',
                       help='drop into Python debugger on a crash')
+    parser.add_option('--cdebconf', dest='cdebconf', action='store_true',
+                      help='use cdebconf instead of debconf (experimental)')
     parser.add_option('--old-tzmap', dest='old_tzmap', action='store_true',
                       help='use the old timezone map.')
     parser.add_option('--only', dest='only', action='store_true',
@@ -111,8 +113,8 @@ if __name__ == '__main__':
                       'better suit a minimal environment.')
     parser.add_option('-q', '--query', dest='query', action='store_true',
                       help='find out which frontend will be used by default')
-    parser.set_defaults(frontend=None, debug_pdb=False, old_tzmap=False,
-                        only=False, query=False)
+    parser.set_defaults(frontend=None, debug_pdb=False, cdebconf=False,
+                        old_tzmap=False, only=False, query=False)
     (options, args) = parser.parse_args()
 
     if args:
@@ -124,6 +126,12 @@ if __name__ == '__main__':
 
     if options.debug_pdb:
         os.environ['OEM_CONFIG_DEBUG_PDB'] = '1'
+
+    if options.cdebconf:
+        # Note that this needs to be set before DebconfCommunicate is
+        # imported by anything.
+        os.environ['DEBCONF_USE_CDEBCONF'] = '1'
+        prepend_path('/usr/lib/cdebconf')
 
     if options.old_tzmap:
         os.environ['UBIQUITY_OLD_TZMAP'] = '1'
