@@ -22,10 +22,9 @@ import os
 import re
 import signal
 import subprocess
-import tempfile
 
 import debconf
-from debconf import DebconfCommunicator
+from debconf import Debconf, DebconfCommunicator
 
 from debconffilter import DebconfFilter
 
@@ -119,10 +118,11 @@ class FilteredCommand(object):
         return self.status
 
     def run_unfiltered(self):
+        """This may only be called under the control of a debconf frontend."""
+
         self.status = None
-        self.db = DebconfCommunicator(PACKAGE, cloexec=True)
+
         prep = self.prepare()
-        self.db.shutdown()
         self.command = prep[0]
         if len(prep) > 2:
             env = prep[2]
@@ -132,34 +132,7 @@ class FilteredCommand(object):
         self.debug("Starting up '%s' unfiltered for %s.%s", self.command,
                    self.__class__.__module__, self.__class__.__name__)
 
-        if 'DEBCONF_USE_CDEBCONF' not in os.environ:
-            # This is rather unsatisfactory. Perhaps it would be better to
-            # have a custom debconf program, a bit like dpkg-reconfigure.
-            debconfrc_fd, debconfrc = tempfile.mkstemp()
-            os.chmod(debconfrc, 0644)
-            debconfrc_file = os.fdopen(debconfrc_fd, 'w')
-            orig_debconfrc = open('/etc/debconf.conf')
-            state = 0
-            for line in orig_debconfrc:
-                if (state == 0 and
-                    line.rstrip('\n') and not line.startswith('#')):
-                    state = 1
-                elif state == 1 and not line.rstrip('\n'):
-                    print >>debconfrc_file, 'Reshow: true'
-                    state = 2
-                print >>debconfrc_file, line,
-            orig_debconfrc.close()
-            debconfrc_file.close()
-
         def subprocess_setup():
-            if 'DEBCONF_USE_CDEBCONF' in os.environ:
-                # cdebconf expects to be able to redirect standard output to fd
-                # 5. Make this stderr to match debconf.
-                os.dup2(2, 5)
-                os.environ['DEBCONF_SHOWOLD'] = 'true'
-            else:
-                os.environ['PERL_DL_NONLAZY'] = '1'
-                os.environ['DEBCONF_SYSTEMRC'] = debconfrc
             os.environ['HOME'] = '/root'
             os.environ['LC_COLLATE'] = 'C'
             for key, value in env.iteritems():
@@ -174,13 +147,7 @@ class FilteredCommand(object):
             # TODO: error message if ret != 10
             self.debug("%s exited with code %d", self.command, ret)
 
-        # TODO: start up only if necessary
-        self.db = DebconfCommunicator(PACKAGE, cloexec=True)
         self.cleanup()
-        self.db.shutdown()
-
-        if 'DEBCONF_USE_CDEBCONF' not in os.environ:
-            os.unlink(debconfrc)
 
         return ret
 

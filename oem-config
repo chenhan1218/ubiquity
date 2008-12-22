@@ -26,6 +26,7 @@ import sys
 import os
 import optparse
 import subprocess
+import tempfile
 
 sys.path.insert(0, '/usr/lib/oem-config')
 
@@ -51,16 +52,15 @@ class Wizard:
                 continue
             if hasattr(mod, f):
                 chosen = f
-                ui = getattr(mod, f)
+                self.ui = getattr(mod, f)
                 break
         else:
             raise AttributeError, ('No frontend available; tried %s' %
                                    ', '.join(frontend_names))
-        if not query:
-            self.frontend = ui.Frontend()
         os.environ['OEM_CONFIG_FRONTEND'] = chosen
 
     def run(self):
+        self.frontend = self.ui.Frontend()
         self.frontend.run()
 
 def disable_autologin():
@@ -92,6 +92,47 @@ def run_hooks():
             if os.access(hook, os.X_OK):
                 # Errors are ignored at present, although this may change.
                 subprocess.call([hook], env=child_env)
+
+def start_debconf():
+    """debconf_ui needs to run within a debconf frontend."""
+
+    if 'DEBIAN_HAS_FRONTEND' in os.environ:
+        # debconf already started, so just clean up the configuration file
+        # if any (debconf has already read it by now).
+        if 'DEBCONF_SYSTEMRC' in os.environ:
+            try:
+                os.unlink(os.environ['DEBCONF_SYSTEMRC'])
+            except OSError:
+                pass
+        return
+
+    print >>sys.stderr, "debconf_ui selected; starting debconf frontend"
+
+    if 'DEBCONF_USE_CDEBCONF' not in os.environ:
+        # This is rather unsatisfactory. Perhaps it would be better to
+        # have a custom debconf program, a bit like dpkg-reconfigure.
+        debconfrc_fd, debconfrc = tempfile.mkstemp()
+        os.chmod(debconfrc, 0644)
+        debconfrc_file = os.fdopen(debconfrc_fd, 'w')
+        orig_debconfrc = open('/etc/debconf.conf')
+        state = 0
+        for line in orig_debconfrc:
+            if (state == 0 and
+                line.rstrip('\n') and not line.startswith('#')):
+                state = 1
+            elif state == 1 and not line.rstrip('\n'):
+                print >>debconfrc_file, 'Reshow: true'
+                state = 2
+            print >>debconfrc_file, line,
+        orig_debconfrc.close()
+        debconfrc_file.close()
+        os.environ['DEBCONF_SYSTEMRC'] = debconfrc
+    else:
+        os.environ['DEBCONF_SHOWOLD'] = 'true'
+
+    import debconf
+    # TODO: need to set owner somehow
+    debconf.runFrontEnd() # re-execs this program
 
 if __name__ == '__main__':
     usage = ("usage: %prog [options]\n\n"
@@ -152,6 +193,8 @@ if __name__ == '__main__':
     if options.query:
         print os.environ['OEM_CONFIG_FRONTEND']
     else:
+        if os.environ['OEM_CONFIG_FRONTEND'] == 'debconf_ui':
+            start_debconf()
         wizard.run()
         run_hooks()
         im_switch.kill_im()
