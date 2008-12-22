@@ -20,9 +20,11 @@
 import sys
 import os
 import re
+import signal
+import subprocess
 
 import debconf
-from debconf import DebconfCommunicator
+from debconf import Debconf, DebconfCommunicator
 
 from debconffilter import DebconfFilter
 
@@ -114,6 +116,40 @@ class FilteredCommand(object):
                 pass
             self.status = self.wait()
         return self.status
+
+    def run_unfiltered(self):
+        """This may only be called under the control of a debconf frontend."""
+
+        self.status = None
+
+        prep = self.prepare()
+        self.command = prep[0]
+        if len(prep) > 2:
+            env = prep[2]
+        else:
+            env = {}
+
+        self.debug("Starting up '%s' unfiltered for %s.%s", self.command,
+                   self.__class__.__module__, self.__class__.__name__)
+
+        def subprocess_setup():
+            os.environ['HOME'] = '/root'
+            os.environ['LC_COLLATE'] = 'C'
+            for key, value in env.iteritems():
+                os.environ[key] = value
+            # Python installs a SIGPIPE handler by default. This is bad for
+            # non-Python subprocesses, which need SIGPIPE set to the default
+            # action.
+            signal.signal(signal.SIGPIPE, signal.SIG_DFL)
+
+        ret = subprocess.call(self.command, preexec_fn=subprocess_setup)
+        if ret != 0:
+            # TODO: error message if ret != 10
+            self.debug("%s exited with code %d", self.command, ret)
+
+        self.cleanup()
+
+        return ret
 
     def process_input(self, source, condition):
         if source != self.dbfilter.subout_fd:

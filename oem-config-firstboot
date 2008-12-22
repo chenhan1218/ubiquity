@@ -28,8 +28,9 @@ echo RESET passwd/user-uid | debconf-communicate >/dev/null
 # just work around it for now so that we get sensible translated
 # descriptions.
 for q in passwd/user-fullname passwd/username; do
-	echo REGISTER "$q" "$q" | debconf-communicate oem-config >/dev/null
-done
+	echo REGISTER "$q" "$q"
+	echo RESET "$q"
+done | debconf-communicate oem-config >/dev/null
 # Remove the oem-config-prepare menu item.
 rm -f /usr/share/applications/oem-config-prepare-gtk.desktop \
       /usr/share/applications/kde/oem-config-prepare-kde.desktop
@@ -42,6 +43,9 @@ if type fontconfig-voodoo >/dev/null 2>&1; then
 	fi
 fi
 
+# TODO: will this work for X-based frontends when X isn't up yet?
+FRONTEND="$(/usr/sbin/oem-config -q)"
+
 if [ "$DEBUG" ]; then
 	TRY=1
 else
@@ -49,8 +53,13 @@ else
 fi
 for try in $(seq 1 $TRY); do
 	CODE=0
-	/usr/sbin/oem-config-dm vt7 :0 \
-		/usr/sbin/oem-config $DEBUG --only || CODE=$?
+	if [ "$FRONTEND" = debconf_ui ]; then
+		/usr/sbin/oem-config $DEBUG --only 2>>/var/log/oem-config.log \
+			|| CODE=$?
+	else
+		/usr/sbin/oem-config-dm vt7 :0 \
+			/usr/sbin/oem-config $DEBUG --only || CODE=$?
+	fi
 	if [ "$CODE" -eq 0 ]; then
 		# Don't run again.
 		update-rc.d -f oem-config remove >>/var/log/oem-config.log 2>&1

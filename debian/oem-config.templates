@@ -88,3 +88,7 @@ _Description: Enter the same password twice, so that it can be checked for typin
 Template: oem-config/text/auto_login
 Type: text
 _Description: Log in automatically
+
+Template: oem-config/text/applying
+Type: text
+_Description: Applying configuration

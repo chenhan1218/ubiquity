@@ -107,6 +107,9 @@ _im_subps = []
 def start_im():
     global _im_subps
 
+    if 'DISPLAY' not in os.environ or os.environ['DISPLAY'] == '':
+        return
+
     kill_im()
 
     cfg = read_config()
