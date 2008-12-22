@@ -81,12 +81,16 @@ class Frontend(BaseFrontend):
         while self.current_page >= 0 and self.current_page < len(PAGES):
             current_name = PAGES[self.current_page]
             if current_name == 'step_language':
+                self.db.settitle('oem-config/text/language_heading_label')
                 step = language.Language(self, self.db)
             elif current_name == 'step_timezone':
+                self.db.settitle('oem-config/text/timezone_heading_label')
                 step = timezone.Timezone(self, self.db)
             elif current_name == 'step_keyboard':
+                self.db.settitle('oem-config/text/keyboard_heading_label')
                 step = console_setup.ConsoleSetup(self, self.db)
             elif current_name == 'step_user':
+                self.db.settitle('oem-config/text/user_heading_label')
                 step = user.User(self, self.db)
             else:
                 raise ValueError, "step %s not recognised" % current_name
