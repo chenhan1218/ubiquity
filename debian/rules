@@ -101,6 +101,8 @@ endif
 			> debian/oem-config/usr/lib/oem-config/language/$$x; \
 		chmod +x debian/oem-config/usr/lib/oem-config/language/$$x; \
 	done
+	sed -i 's/\\\$${!TAB}/ /g' \
+		debian/oem-config/usr/lib/oem-config/language/localechooser
 
 	cp debian/lintian-override $(tmp)/usr/share/lintian/overrides/oem-config
 	dh_installdebconf -a
