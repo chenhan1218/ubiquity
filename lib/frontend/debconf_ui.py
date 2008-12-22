@@ -104,11 +104,18 @@ class Frontend(BaseFrontend):
 
         # TODO: handle errors
         if self.current_page >= len(PAGES):
+            self.db.progress('START', 0, 3, 'oem-config/text/applying')
+
             step = language_apply.LanguageApply(self, self.db)
             step.run_unfiltered()
+            self.db.progress('STEP', 1)
 
             step = timezone_apply.TimezoneApply(self, self.db)
             step.run_unfiltered()
+            self.db.progress('STEP', 1)
 
             step = console_setup_apply.ConsoleSetupApply(self, self.db)
             step.run_unfiltered()
+            self.db.progress('STEP', 1)
+
+            self.db.progress('STOP')
