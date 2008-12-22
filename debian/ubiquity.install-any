@@ -85,6 +85,7 @@ d-i/source/preseed/preseed_command bin
 
 # tzsetup
 d-i/source/tzsetup/debian/tzmap usr/lib/ubiquity/tzsetup
+d-i/source/tzsetup/tzsetup usr/lib/ubiquity/tzsetup
 ubiquity/components/timezone.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/timezone_apply.py usr/lib/ubiquity/ubiquity/components
 

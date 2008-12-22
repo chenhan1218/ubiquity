@@ -20,6 +20,8 @@
 import os
 import locale
 
+import debconf
+
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity import i18n
 import ubiquity.tz
@@ -29,8 +31,15 @@ class Timezone(FilteredCommand):
         self.tzdb = ubiquity.tz.Database()
         if not 'UBIQUITY_AUTOMATIC' in os.environ:
             self.db.fset('time/zone', 'seen', 'false')
-        questions = ['^time/zone$']
-        return (['/usr/share/ubiquity/tzsetup'], questions)
+            cc = self.db.get('debian-installer/country')
+            try:
+                self.db.get('tzsetup/country/%s' % cc)
+                # ... and if that succeeded:
+                self.db.reset('time/zone')
+            except debconf.DebconfError:
+                pass
+        questions = ['^time/zone$', '^tzsetup/selected$']
+        return (['/usr/share/ubiquity/tzsetup-wrapper'], questions)
 
     def run(self, priority, question):
         if question == 'time/zone':
@@ -47,6 +56,9 @@ class Timezone(FilteredCommand):
             elif zone == 'US/Eastern':
                 zone = 'America/New_York'
             self.frontend.set_timezone(zone)
+        elif question == 'tzsetup/selected':
+            self.preseed(question, 'false')
+            return True
 
         return FilteredCommand.run(self, priority, question)
 

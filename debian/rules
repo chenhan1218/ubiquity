@@ -193,6 +193,9 @@ endif
 		debian/ubiquity/usr/lib/ubiquity/localechooser/
 	install d-i/source/tzsetup/post-base-installer.d/*tzsetup \
 		debian/ubiquity/usr/lib/ubiquity/tzsetup/post-base-installer
+	sed -i -e 's,db_input medium tzsetup/selected,db_input high tzsetup/selected,' \
+	       -e 's,/usr/share/tzsetup/tzmap,/usr/lib/ubiquity/tzsetup/tzmap,g' \
+		debian/ubiquity/usr/lib/ubiquity/tzsetup/tzsetup
 	set -e; for x in user-setup user-setup-ask user-setup-apply; do \
 		sed -e 's,/usr/lib/user-setup,/usr/lib/ubiquity/user-setup,g' \
 		    -e 's,/bin/sh,/bin/bash,g' \
