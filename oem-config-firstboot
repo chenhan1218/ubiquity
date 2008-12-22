@@ -54,7 +54,8 @@ fi
 for try in $(seq 1 $TRY); do
 	CODE=0
 	if [ "$FRONTEND" = debconf_ui ]; then
-		/usr/sbin/oem-config $DEBUG --only || CODE=$?
+		/usr/sbin/oem-config $DEBUG --only 2>>/var/log/oem-config.log \
+			|| CODE=$?
 	else
 		/usr/sbin/oem-config-dm vt7 :0 \
 			/usr/sbin/oem-config $DEBUG --only || CODE=$?
