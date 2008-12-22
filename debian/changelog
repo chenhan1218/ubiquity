@@ -1,4 +1,4 @@
-oem-config (1.54.2) UNRELEASED; urgency=low
+oem-config (1.54.2) jaunty; urgency=low
 
   * Add a debconf_ui frontend which can be used in text mode on a server.
     This is still experimental; in particular, setting the language does not
@@ -11,7 +11,7 @@ oem-config (1.54.2) UNRELEASED; urgency=low
   * Automatic update of included source packages: console-setup 1.28ubuntu4,
     tzsetup 1:0.24ubuntu1, user-setup 1.23ubuntu3.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 18 Dec 2008 18:38:28 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 22 Dec 2008 15:42:48 +0000
 
 oem-config (1.54.1) jaunty; urgency=low
 
