@@ -127,6 +127,8 @@ def start_debconf():
         orig_debconfrc.close()
         debconfrc_file.close()
         os.environ['DEBCONF_SYSTEMRC'] = debconfrc
+
+        os.environ['DEBCONF_PACKAGE'] = 'oem-config'
     else:
         os.environ['DEBCONF_SHOWOLD'] = 'true'
 
