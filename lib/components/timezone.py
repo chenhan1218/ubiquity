@@ -39,7 +39,7 @@ class Timezone(FilteredCommand):
         except debconf.DebconfError:
             pass
         questions = ['^time/zone$', '^tzsetup/selected$']
-        return (['/usr/lib/oem-config/timezone/tzsetup'], questions)
+        return (['/usr/lib/oem-config/timezone/tzsetup-wrapper'], questions)
 
     def run(self, priority, question):
         if question == 'time/zone':
