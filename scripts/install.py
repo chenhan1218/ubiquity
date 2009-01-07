@@ -1985,7 +1985,14 @@ exit 0"""
             difference = set()
 
         # Keep packages we explicitly installed.
-        difference -= self.query_recorded_installed()
+        recorded = self.query_recorded_installed()
+        difference -= recorded
+
+        if subarch.startswith('amd64/') or subarch.startswith('i386/') or subarch.startswith('lpia/'):
+            if 'grub' not in recorded:
+                difference.add('grub')
+            if 'lilo' not in recorded:
+                difference.add('lilo')
 
         if len(difference) == 0:
             return
