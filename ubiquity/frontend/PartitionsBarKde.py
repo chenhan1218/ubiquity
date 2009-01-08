@@ -36,6 +36,7 @@ class PartitionFrame(QFrame):
 class Partition:
 
     filesystemColours = {'ext3': Qt.darkCyan,
+                         'ext4': Qt.darkCyan,
                          'free': Qt.yellow,
                          'linux-swap': Qt.cyan,
                          'fat32': Qt.green,

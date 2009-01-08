@@ -3,6 +3,7 @@ ubiquity (1.11.2) UNRELEASED; urgency=low
   * Adjust for changes in tzsetup 1:0.24ubuntu1.
   * Correct Bazaar link in debian/copyright (pointed out by shirish).
   * Make sure that only one of grub and lilo is installed (LP: #314004).
+  * Add ext4 support (LP: #293465).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 22 Dec 2008 13:54:25 +0000
 
