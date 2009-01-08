@@ -1,6 +1,11 @@
 ubiquity (1.11.3) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Correct Bazaar link in debian/copyright, really this time.
+
+  [ Evan Dandrea ]
+  * Fix the edit partition dialog by properly preseeding
+    partman/active_partition.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 08 Jan 2009 20:06:17 +0000
 

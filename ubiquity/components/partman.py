@@ -752,7 +752,7 @@ class Partman(FilteredCommand):
                     if state[2] < len(partition['active_partition_build']):
                         # Move on to the next item.
                         visit = partition['active_partition_build']
-                        self.preseed(question, visit[state[2]][2], seen=False)
+                        self.preseed_as_c(question, visit[state[2]][2], seen=False)
                         return True
                     else:
                         # Finished building the cache for this submenu; go
@@ -791,7 +791,7 @@ class Partman(FilteredCommand):
                 if visit:
                     partition['active_partition_build'] = visit
                     self.__state.append([question, state[1], 0])
-                    self.preseed(question, visit[0][2], seen=False)
+                    self.preseed_as_c(question, visit[0][2], seen=False)
                     return True
                 else:
                     # Back up to the previous menu.
@@ -826,7 +826,7 @@ class Partman(FilteredCommand):
                     item = visit[state[2]]
                     scripts = self.find_script(menu_options, None, item)
                     if scripts:
-                        self.preseed(question, scripts[0][2], seen=False)
+                        self.preseed_as_c(question, scripts[0][2], seen=False)
                         return True
                     state[2] += 1
 
