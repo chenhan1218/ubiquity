@@ -7,6 +7,10 @@ ubiquity (1.11.3) UNRELEASED; urgency=low
   * Fix the edit partition dialog by properly preseeding
     partman/active_partition.
 
+  [ Mario Limonciello ]
+  * Reset random mysql password on every ubiquity mythbuntu invocation.
+  * Don't set anything in the mythbuntu_summary step.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 08 Jan 2009 20:06:17 +0000
 
 ubiquity (1.11.2) jaunty; urgency=low
