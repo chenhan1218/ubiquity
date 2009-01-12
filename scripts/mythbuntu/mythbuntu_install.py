@@ -20,7 +20,6 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 import os
-import install
 import sys
 import syslog
 import errno
@@ -29,6 +28,7 @@ import debconf
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
+from install import Install as ParentInstall
 from install import InstallStepError
 from ubiquity.components import language_apply, apt_setup, timezone_apply, \
                                 clock_setup, console_setup_apply, \
@@ -37,11 +37,11 @@ from ubiquity.components import language_apply, apt_setup, timezone_apply, \
 
 from mythbuntu_common.lirc import LircHandler
 
-class Install(install.Install):
+class Install(ParentInstall):
     def __init__(self):
         """Initializes the Mythbuntu installer extra objects"""
         self.lirc=LircHandler()
-        install.Install.__init__(self)
+        ParentInstall.__init__(self)
 
     def run(self):
         """Run the install stage: copy everything to the target system, then
@@ -183,7 +183,6 @@ class Install(install.Install):
         ret = control.run()
         if ret != 0:
             raise InstallStepError("MythbuntuApply Package List Generation failed with code %d" % ret)
-        #process mythtv debconf info to be xfered
         ret = control.run_command(auto_process=True)
         if ret != 0:
             raise InstallStepError("MythbuntuApply Debconf Xfer failed with code %d" % ret)
@@ -348,7 +347,7 @@ if __name__ == '__main__':
     if os.path.exists('/var/lib/ubiquity/install.trace'):
         os.unlink('/var/lib/ubiquity/install.trace')
 
-    install = Install()
-    sys.excepthook = install.excepthook
-    install.run()
+    mythbuntu_install = Install()
+    sys.excepthook = mythbuntu_install.excepthook
+    mythbuntu_install.run()
     sys.exit(0)
