@@ -36,16 +36,20 @@ from ubiquity.components import language_apply, apt_setup, timezone_apply, \
                                 mythbuntu_apply
 
 from mythbuntu_common.lirc import LircHandler
+from mythbuntu_common.mysql import MySQLHandler
 
 class Install(ParentInstall):
     def __init__(self):
         """Initializes the Mythbuntu installer extra objects"""
         self.lirc=LircHandler()
+        self.mysql=MySQLHandler()
         ParentInstall.__init__(self)
 
     def run(self):
         """Run the install stage: copy everything to the target system, then
         configure it as necessary."""
+
+        self.type = self.db.get('mythbuntu/install_type')
 
         self.db.progress('START', 0, 100, 'ubiquity/install/title')
         self.db.progress('INFO', 'ubiquity/install/mounting_source')
@@ -105,7 +109,8 @@ class Install(ParentInstall):
             self.db.progress('SET', 80)
             self.db.progress('REGION', 80, 85)
             self.db.progress('INFO', 'ubiquity/install/mythbuntu')
-            self.configure_mythbuntu()
+            self.configure_mysql()
+            self.configure_mythweb()
 
             self.db.progress('SET', 85)
             self.db.progress('REGION', 85, 86)
@@ -171,8 +176,105 @@ class Install(ParentInstall):
             except:
                 pass
 
-    def configure_mythbuntu(self):
+    def configure_user(self):
+        """Configures by the regular user configuration stuff
+        followed by mythbuntu specific user addons"""
+        #Regular ubuntu user configuration
+        ParentInstall.configure_user(self)
+
+        #We'll be needing the username, uid, gid
+        user = self.db.get('passwd/username')
+        uid = gid = ''
+        try:
+            uid = self.db.get('passwd/user-uid')
+        except debconf.DebconfError:
+            pass
+        try:
+            gid = self.db.get('passwd/user-gid')
+        except debconf.DebconfError:
+            pass
+        if uid == '':
+            uid = 1000
+        else:
+            uid = int(uid)
+        if gid == '':
+            gid = 1000
+        else:
+            gid = int(gid)
+
+        #Create a .mythtv directory
+        home_mythtv_dir = self.target + '/home/' + user + '/.mythtv'
+        if not os.path.isdir(home_mythtv_dir):
+            #in case someone made a symlink or file for the directory
+            if os.path.islink(home_mythtv_dir) or os.path.exists(home_mythtv_dir):
+                os.remove(home_mythtv_dir)
+            os.mkdir(home_mythtv_dir)
+            os.chown(home_mythtv_dir,uid,gid)
+
+        #Remove mysql.txt from home directory if it's there, then make one
+        sql_txt= home_mythtv_dir + '/mysql.txt'
+        if os.path.islink(sql_txt) or os.path.exists(sql_txt):
+            os.remove(sql_txt)
+        try:
+            os.symlink('/etc/mythtv/mysql.txt',sql_txt)
+        except OSError:
+            #on a live disk there is a chance this was a broken link
+            #depending on what the user did in the livefs
+            pass
+
+        #mythtv.desktop autostart
+        autostart_dir = self.target + '/home/' + user + '/.config/autostart/'
+        autostart_link = autostart_dir + 'mythtv.desktop'
+        if not os.path.isdir(autostart_dir):
+            os.makedirs(autostart_dir)
+        elif os.path.islink(autostart_link) or os.path.exists(autostart_link):
+            os.remove(autostart_link)
+        try:
+            os.symlink('/usr/share/applications/mythtv.desktop',autostart_link)
+        except OSError:
+            #on a live disk, this will appear a broken link, but it works
+            pass
+        
+        #mythtv group membership
+        self.chrex('adduser', user, 'mythtv')
+
+        #automatic login (only for frontends)
+        if 'Frontend' in self.type:
+            self.chrex('sed', '-i.' + user,
+               '-e', 's/^AutomaticLoginEnable=.*$/AutomaticLoginEnable=true/',
+               '-e', 's/^AutomaticLogin=.*$/AutomaticLogin=' + user +'/',
+               '-e', 's/^TimedLoginEnable=.*$/TimedLoginEnable=true/',
+               '-e', 's/^TimedLogin=.*$/TimedLogin=' + user + '/',
+               '-e', 's/^TimedLoginDelay=.*$/TimedLoginDelay=10/',
+               os.path.join('/etc/gdm', 'gdm-cdd.conf'))
+
+    def configure_mysql(self):
+        """Configures the SQL server and mythtv access to it"""
+        #Check if we have a new mysql pass. If not, we'll generate one
+        config = {}
+        config["user"] = self.db.get('mythtv/mysql_mythtv_user')
+        config["password"] = self.db.get('mythtv/mysql_mythtv_password')
+        config["database"] = self.db.get('mythtv/mysql_mythtv_dbname')
+        config["server"] = self.db.get('mythtv/mysql_host')
+        self.mysql.update_config(config)
+
+        #Clear out "old" mysql.txt
+        sql_txt  = self.target + '/etc/mythtv/' + 'mysql.txt'
+        os.remove(sql_txt)
+        
+        #Write new mysql.txt
+        self.mysql.write_mysql_txt(sql_txt)
+
+        #only reconfigure database if appropriate
+        if 'Master' in self.type:
+            self.chrex('mount', '-t', 'proc', 'proc', '/proc')
+            self.reconfigure('mythtv-database')
+            self.chrex('invoke-rc.d','mysql','stop')
+            self.chrex('umount', '/proc')
+
+    def configure_mythweb(self):
         """Sets up mythbuntu items such as the initial database and username/password for mythtv user"""
+        #Run bash scripts that go with the step
         control = mythbuntu_apply.MythbuntuApply(None,self.db)
         #process package removal lists
         ret = control.run()
