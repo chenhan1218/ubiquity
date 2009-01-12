@@ -369,7 +369,7 @@ class Install(ParentInstall):
         except debconf.DebconfError:
             pass
 
-        self.lirc.write_hardware_conf('/target/etc/lirc/hardware.conf')
+        self.lirc.write_hardware_conf(self.target + '/etc/lirc/hardware.conf')
 
         try:
             self.reconfigure('lirc')
@@ -385,7 +385,7 @@ class Install(ParentInstall):
         #configure lircrc
         home = '/target/home/' + self.db.get('passwd/username')
         os.putenv('HOME',home)
-        self.lirc.create_lircrc("/target/etc/lirc/lircd.conf",False)
+        self.lirc.create_lircrc(self.target + "/etc/lirc/lircd.conf",False)
         os.system('chown 1000:1000 -R ' + home)
 
     def configure_services(self):
