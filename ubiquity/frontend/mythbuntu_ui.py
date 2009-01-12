@@ -122,6 +122,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
         self.populate_lirc()
         self.populate_video()
+        self.populate_passwords()
         self.backup=False
 
     def run(self):
@@ -419,6 +420,12 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         self.video_driver.set_active(len(dictionary))
         self.tvoutstandard.set_active(0)
         self.tvouttype.set_active(0)
+    
+    def populate_passwords(self):
+        """Puts a new random mysql password into the UI for each run
+           This ensures that passwords don't ever get cached"""
+        new_pass_caller = subprocess.Popen(['pwgen','-s','8'],stdout=subprocess.PIPE)
+        self.mysql_password.set_text(string.split(new_pass_caller.communicate()[0])[0])
 
     def mythbuntu_password(self,widget):
         """Checks that certain passwords meet requirements"""
