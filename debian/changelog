@@ -3,7 +3,7 @@ ubiquity (1.11.3) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Correct Bazaar link in debian/copyright, really this time.
   * Update copyright years.
-  * Fetch subarchitecture in remove_extras (LP: #316800).
+  * Fetch subarchitecture in remove_extras (LP: #316446).
 
   [ Evan Dandrea ]
   * Fix the edit partition dialog by properly preseeding
