@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2005 Javier Carranza and others for Guadalinex
-# Copyright (C) 2005, 2006 Canonical Ltd.
+# Copyright (C) 2005, 2006, 2007, 2008, 2009 Canonical Ltd.
 # Copyright (C) 2007 Mario Limonciello
 #
 # This program is free software; you can redistribute it and/or modify

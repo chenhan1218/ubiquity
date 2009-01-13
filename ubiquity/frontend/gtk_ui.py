@@ -3,7 +3,7 @@
 # «gtk_ui» - GTK user interface
 #
 # Copyright (C) 2005 Junta de Andalucía
-# Copyright (C) 2005, 2006, 2007 Canonical Ltd.
+# Copyright (C) 2005, 2006, 2007, 2008, 2009 Canonical Ltd.
 #
 # Authors:
 #

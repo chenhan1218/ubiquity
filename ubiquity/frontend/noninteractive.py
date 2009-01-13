@@ -2,7 +2,7 @@
 #
 # «noninteractive» - Non-interactive user interface
 #
-# Copyright (C) 2007 Canonical Ltd.
+# Copyright (C) 2007, 2008 Canonical Ltd.
 #
 # Authors:
 #

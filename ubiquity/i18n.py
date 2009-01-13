@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-# Copyright (C) 2006, 2007 Canonical Ltd.
+# Copyright (C) 2006, 2007, 2008 Canonical Ltd.
 # Written by Colin Watson <cjwatson@ubuntu.com>.
 #
 # This program is free software; you can redistribute it and/or modify

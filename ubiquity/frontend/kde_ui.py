@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2006, 2007 Canonical Ltd.
+# Copyright (C) 2006, 2007, 2008, 2009 Canonical Ltd.
 #
 # Author(s):
 #   Jonathan Riddell <jriddell@ubuntu.com>

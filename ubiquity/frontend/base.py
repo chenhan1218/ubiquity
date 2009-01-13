@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 
 # Copyright (C) 2005 Junta de Andalucía
-# Copyright (C) 2005, 2006, 2007 Canonical Ltd.
+# Copyright (C) 2005, 2006, 2007, 2008 Canonical Ltd.
 #
 # This file is part of Ubiquity.
 #
