@@ -480,7 +480,7 @@ class Wizard(BaseFrontend):
             self.username.set_editable(False)
             self.username.set_sensitive(False)
             self.username_edited = True
-            self.auto_login.hide()
+            self.login_vbox.hide()
             # The UserSetup component takes care of preseeding passwd/user-uid.
             execute_root('apt-install', 'oem-config-gtk')
 
@@ -2413,10 +2413,16 @@ class Wizard(BaseFrontend):
         return self.verified_password.get_text()
 
     def set_auto_login(self, value):
-        self.auto_login.set_active(value)
+        self.login_auto.set_active(value)
 
     def get_auto_login(self):
-        return self.auto_login.get_active()
+        return self.login_auto.get_active()
+
+    def set_encrypt_home(self, value):
+        self.login_encrypt.set_active(value)
+
+    def get_encrypt_home(self):
+        return self.login_encrypt.get_active()
 
     def username_error(self, msg):
         self.username_error_reason.set_text(msg)

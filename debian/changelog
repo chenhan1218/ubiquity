@@ -8,6 +8,7 @@ ubiquity (1.11.3) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Fix the edit partition dialog by properly preseeding
     partman/active_partition.
+  * Add support for encrypting the home directory to the gtk frontend.
 
   [ Mario Limonciello ]
   * Reset random mysql password on every ubiquity mythbuntu invocation.

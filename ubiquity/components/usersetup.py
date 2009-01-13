@@ -51,10 +51,16 @@ class UserSetup(FilteredCommand):
             self.frontend.set_auto_login(auto_login == 'true')
         except debconf.DebconfError:
             pass
+        try:
+            encrypt_home = self.db.get('user-setup/encrypt-home')
+            self.frontend.set_encrypt_home(encrypt_home == 'true')
+        except debconf.DebconfError:
+            pass
 
         questions = ['^passwd/user-fullname$', '^passwd/username$',
                      '^passwd/user-password$', '^passwd/user-password-again$',
-                     '^passwd/auto-login$', 'ERROR']
+                     '^passwd/auto-login$', '^user-setup/encrypt-home$',
+                     'ERROR']
         return (['/usr/lib/ubiquity/user-setup/user-setup-ask', '/target'],
                 questions)
 
@@ -69,6 +75,7 @@ class UserSetup(FilteredCommand):
         password = self.frontend.get_password()
         password_confirm = self.frontend.get_verified_password()
         auto_login = self.frontend.get_auto_login()
+        encrypt_home = self.frontend.get_encrypt_home()
 
         self.preseed('passwd/user-fullname', fullname)
         self.preseed('passwd/username', username)
@@ -80,6 +87,7 @@ class UserSetup(FilteredCommand):
         else:
             self.preseed('passwd/user-uid', '')
         self.preseed_bool('passwd/auto-login', auto_login)
+        self.preseed_bool('user-setup/encrypt-home', encrypt_home)
         
         hostname = self.frontend.get_hostname()
         if hostname is not None and hostname != '':
