@@ -1988,6 +1988,9 @@ exit 0"""
         recorded = self.query_recorded_installed()
         difference -= recorded
 
+        archdetect = subprocess.Popen(['archdetect'], stdout=subprocess.PIPE)
+        subarch = archdetect.communicate()[0].strip()
+
         if subarch.startswith('amd64/') or subarch.startswith('i386/') or subarch.startswith('lpia/'):
             if 'grub' not in recorded:
                 difference.add('grub')
