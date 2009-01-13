@@ -9,6 +9,16 @@ ubiquity (1.11.3) UNRELEASED; urgency=low
   * Fix the edit partition dialog by properly preseeding
     partman/active_partition.
 
+  [ Mario Limonciello ]
+  * Reset random mysql password on every ubiquity mythbuntu invocation.
+  * Don't set anything in the mythbuntu_summary step.
+  * Transition apply-type code into python to be called directly from
+    mythbuntu_install.py instead.
+    - Along with this, handling for leaving files when not reformatting
+      /home should be fixed. (LP: #305236)
+    - Mythweb acl to SQL should be fixed now, but not necessarily
+      authentication.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 08 Jan 2009 20:06:17 +0000
 
 ubiquity (1.11.2) jaunty; urgency=low

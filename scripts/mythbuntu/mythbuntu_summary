@@ -27,27 +27,6 @@ db_subst mythbuntu/summary TVOUT "$RET"
 db_get mythbuntu/tvstandard
 db_subst mythbuntu/summary TVSTANDARD "$RET"
 
-#MythTV MySQL Passwords
-db_get mythtv/mysql_mythtv_user
-if [ -z "$RET" ]; then
-    db_set mythtv/mysql_mythtv_user "mythtv"
-fi
-db_get mythtv/mysql_mythtv_password
-if [ -z "$RET" ]; then
-    #set +e
-    NEW="$(pwgen -s 8)"
-    #set -e
-    db_set mythtv/mysql_mythtv_password "$NEW"
-fi
-db_get mythtv/mysql_host
-if [ -z "$RET" ]; then
-    db_set mythtv/mysql_host "localhost"
-fi
-db_get mythtv/mysql_mythtv_dbname
-if [ -z "$RET" ]; then
-    db_set mythtv/mysql_mythtv_dbname "mythconverg"
-fi
-
 #Normal Ubuntu Questions
 language_name=
 db_get localechooser/languagelist
