@@ -274,6 +274,14 @@ class Install(ParentInstall):
 
     def configure_mythweb(self):
         """Sets up mythbuntu items such as the initial database and username/password for mythtv user"""
+
+        #FIXME:
+        # 1) only run a reconfigure on mythweb if we are keeping it
+        # 2) make sure digest is set up
+        # 3) move package inversion out
+
+	self.reconfigure('mythweb')
+
         #Run bash scripts that go with the step
         control = mythbuntu_apply.MythbuntuApply(None,self.db)
         #process package removal lists
