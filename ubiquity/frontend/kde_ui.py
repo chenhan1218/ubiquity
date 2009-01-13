@@ -1819,6 +1819,14 @@ class Wizard(BaseFrontend):
 
     def get_auto_login(self):
         return False
+    
+    def set_encrypt_home(self, value):
+        if value:
+            syslog.syslog(syslog.LOG_WARNING,
+                          "KDE frontend does not support home encryption yet")
+
+    def get_encrypt_home(self):
+        return False
 
     def username_error(self, msg):
         self.userinterface.username_error_reason.setText(msg)

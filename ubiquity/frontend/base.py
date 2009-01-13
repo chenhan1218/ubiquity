@@ -383,6 +383,14 @@ class BaseFrontend:
         """Returns true if the user should be automatically logged in."""
         self._abstract('get_auto_login')
 
+    def set_encrypt_home(self, value):
+        """Set whether the home directory should be encrypted."""
+        self._abstract('set_encrypt_home')
+
+    def get_encrypt_home(self):
+        """Returns true if the home directory should be encrypted."""
+        self._abstract('get_encrypt_home')
+
     def username_error(self, msg):
         """The selected username was bad."""
         self._abstract('username_error')
