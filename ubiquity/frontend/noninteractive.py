@@ -56,6 +56,7 @@ class Wizard(BaseFrontend):
         self.progress_val = 0
         self.progress_info = ''
         self.auto_login = False
+        self.encrypt_home = False
         self.mainloop = gobject.MainLoop()
 
         dbfilter = language.Language(self, self.debconf_communicator())
@@ -350,6 +351,12 @@ class Wizard(BaseFrontend):
 
     def get_auto_login(self):
         return self.auto_login
+    
+    def set_encrypt_home(self, value):
+        self.encrypt_home = value
+
+    def get_encrypt_home(self):
+        return self.encrypt_home
 
     def username_error(self, msg):
         """The selected username was bad."""
