@@ -9,6 +9,8 @@ ubiquity (1.11.3) UNRELEASED; urgency=low
   * Fix the edit partition dialog by properly preseeding
     partman/active_partition.
   * Add support for encrypting the home directory to the gtk frontend.
+  * Automatic update of included source packages: apt-setup
+    1:0.37ubuntu8, partconf 1.30ubuntu1.
 
   [ Mario Limonciello ]
   * Reset random mysql password on every ubiquity mythbuntu invocation.
