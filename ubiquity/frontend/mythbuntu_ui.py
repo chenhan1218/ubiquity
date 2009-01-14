@@ -170,7 +170,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         #disable the mainline ubiquity autologin
         #we have mythbuntu specific offerings that behave
         #a little bit differently
-        self.auto_login.hide()
+        self.login_vbox.hide()
 
         # show interface
         got_intro = self.show_intro()
