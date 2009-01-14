@@ -1,4 +1,4 @@
-ubiquity (1.11.3) UNRELEASED; urgency=low
+ubiquity (1.11.3) jaunty; urgency=low
 
   [ Colin Watson ]
   * Correct Bazaar link in debian/copyright, really this time.
@@ -22,7 +22,7 @@ ubiquity (1.11.3) UNRELEASED; urgency=low
     - Mythweb acl to SQL should be fixed now, but not necessarily
       authentication.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 08 Jan 2009 20:06:17 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 13 Jan 2009 21:28:32 -0500
 
 ubiquity (1.11.2) jaunty; urgency=low
 
