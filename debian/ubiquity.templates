@@ -125,9 +125,17 @@ _Description:
  This name will be used if you make the computer visible to others on a
  network.
 
-Template: ubiquity/text/auto_login
+Template: ubiquity/text/login_auto
 Type: text
 _Description: Log in automatically
+
+Template: ubiquity/text/login_pass
+Type: text
+_Description: Require a password to log in
+
+Template: ubiquity/text/login_encrypt
+Type: text
+_Description: Require a password to log in and to decrypt your home folder
 
 Template: ubiquity/text/ma_heading_label
 Type: text

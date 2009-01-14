@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-10-26 02:42+0000\n"
+"POT-Creation-Date: 2009-01-13 21:18-0500\n"
 "PO-Revision-Date: 2008-04-08 13:18+0000\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -221,12 +221,24 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-msgid "Migrate documents and settings"
+msgid "Require a password to log in"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
+msgid "Require a password to log in and to decrypt your home folder"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:30001
+msgid "Migrate documents and settings"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:31001
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
@@ -235,7 +247,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:29001
+#: ../ubiquity.templates:31001
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
@@ -243,21 +255,21 @@ msgstr "ប្រសិន​បើ​អ្នក​មិនចង់​នា
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:30001
+#: ../ubiquity.templates:32001
 #, fuzzy
 msgid "Prepare disk space"
 msgstr "បង្កើត​ទំហំ​ស្វប"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:31001
+#: ../ubiquity.templates:33001
 #, fuzzy
 msgid "How do you want to partition the disk?"
 msgstr "តើ​អ្នក​ចង់​បន្ត​ចែក​ភាគ​ថាស​ឬ​ទេ ?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:32001
+#: ../ubiquity.templates:34001
 #, fuzzy
 msgid "Prepare partitions"
 msgstr "បំបែក​ភាគ​ថាស /home"
@@ -266,7 +278,7 @@ msgstr "បំបែក​ភាគ​ថាស /home"
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:33001 ../ubiquity.templates:83001
+#: ../ubiquity.templates:35001 ../ubiquity.templates:85001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 #, fuzzy
 msgid "Ready to install"
@@ -274,20 +286,20 @@ msgstr "ខឺណែល​ដែល​ត្រូវ​ដំឡើង ៖"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:34001
+#: ../ubiquity.templates:36001
 msgid "Details"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:35001
+#: ../ubiquity.templates:37001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr "ប្រព័ន្ធ​ប្រតិបត្ដិ​ការ​ថ្មី​របស់​អ្នក​នឹង​ត្រូវ​បាន​ដំឡើង​ឥឡូវ​ជា​មួយ​នឹង​ការ​កំណត់ ៖"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:36001
+#: ../ubiquity.templates:38001
 msgid "Advanced..."
 msgstr "កម្រិត​ខ្ពស់..."
 
@@ -295,52 +307,52 @@ msgstr "កម្រិត​ខ្ពស់..."
 #. Description
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
-#: ../ubiquity.templates:37001
+#: ../ubiquity.templates:39001
 msgid "Install[ action ]"
 msgstr "ដំឡើង[ សកម្មភាព ]"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:38001
+#: ../ubiquity.templates:40001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr "ជំហាន​ទី ${INDEX} នៃ ${TOTAL}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:39001
+#: ../ubiquity.templates:41001
 #, fuzzy
 msgid "Quit the installation?"
 msgstr "បោះបង់​ការ​ដំឡើង"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:40001
+#: ../ubiquity.templates:42001
 #, fuzzy
 msgid "Do you really want to quit the installation now?"
 msgstr "តើ​អ្នកចង់​ត្រឡប់​ទៅ​ម៉ឺនុយ​ចែក​ភាគថាស​វិញ​ឬ​ទេ ?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:41001
+#: ../ubiquity.templates:43001
 msgid "Skip"
 msgstr "រំលង"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:42001
+#: ../ubiquity.templates:44001
 #, fuzzy
 msgid "Installation complete"
 msgstr "ជំហាន​​ដំឡើង​បាន​បរាជ័យ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:43001
+#: ../ubiquity.templates:45001
 msgid "Continue using the live CD"
 msgstr "បន្ត​ប្រើ live CD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:46001
 msgid "Restart now"
 msgstr "ចាប់​ផ្តើម​ឡើង​វិញឥឡូវ"
 
@@ -348,13 +360,13 @@ msgstr "ចាប់​ផ្តើម​ឡើង​វិញឥឡូវ"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:45001 ../ubiquity.templates:46001
+#: ../ubiquity.templates:47001 ../ubiquity.templates:48001
 msgid "Installer crashed"
 msgstr "អ្នក​ដំឡើង​មាន​បញ្ហា"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:49001
 msgid ""
 "We're sorry; the installer crashed. Please file a new bug report at https://"
 "launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
@@ -372,7 +384,7 @@ msgstr ""
 #. Description
 #. Displayed next to a graphical bar depicting the state of the disk before
 #. automatic partitioning.
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:50001
 msgid "Before:"
 msgstr ""
 
@@ -380,21 +392,21 @@ msgstr ""
 #. Description
 #. Displayed next to a graphical bar depicting the state of the disk after
 #. automatic partitioning.
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:51001
 msgid "After:"
 msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:52001
 msgid "New partition table"
 msgstr "តារាង​ចែក​ភាគ​ថាស​ថ្មី"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:53001
 msgid "New partition"
 msgstr "ចែក​ភាគ​ថាស​ថ្មី"
 
@@ -403,21 +415,21 @@ msgstr "ចែក​ភាគ​ថាស​ថ្មី"
 #. An action, displayed on a button or as a menu item.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001 ../ubiquity.templates:68001
+#: ../ubiquity.templates:54001 ../ubiquity.templates:70001
 msgid "Edit partition"
 msgstr "កែសម្រួល​ភាគ​ថាស"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:55001
 msgid "Delete partition"
 msgstr "លុប​ភាគថាស"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:56001
 msgid "Device"
 msgstr "ឧបករណ៍"
 
@@ -425,28 +437,28 @@ msgstr "ឧបករណ៍"
 #. Description
 #. A column heading in the partitioner. Indicates how the partition is to be
 #. used (ext2, swap, etc.).
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:57001
 msgid "Type"
 msgstr "ប្រភេទ"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:58001
 msgid "Mount point"
 msgstr "ចំណុចម៉ោន"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:59001
 msgid "Format?"
 msgstr "ធ្វើ​ទ្រង់​ទ្រាយ​?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:60001
 msgid "Size"
 msgstr "ទំហំ"
 
@@ -454,27 +466,27 @@ msgstr "ទំហំ"
 #. Description
 #. A column heading in the partitioner. Indicates how much of the space on
 #. this partition is used by data.
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:61001
 msgid "Used"
 msgstr "បាន​ប្រើ"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:62001
 msgid "free space"
 msgstr "ទំហំ​ទំនេរ"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:63001
 msgid "unknown"
 msgstr "មិន​ស្គាល់"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:64001
 msgid "Create partition"
 msgstr "បង្កើត​ភាគ​ថាស"
 
@@ -482,91 +494,91 @@ msgstr "បង្កើត​ភាគ​ថាស"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001 ../ubiquity.templates:70001
+#: ../ubiquity.templates:65001 ../ubiquity.templates:72001
 msgid "New partition size in megabytes (1000000 bytes):"
 msgstr "ភាគ​ថាស​ថ្មី​ក្នុង​ទំហំ​មេកាបៃ (១០០០០០០ បៃ) ៖"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:66001
 msgid "Beginning"
 msgstr "ដើម"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:67001
 msgid "End"
 msgstr "ចុង"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:68001
 msgid "Primary"
 msgstr "ចម្បង"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:69001
 msgid "Logical"
 msgstr "ឡូជីខល"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:71001
 msgid "Edit a partition"
 msgstr "កែសម្រួល​ភាគថាស"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:73001
 msgid "Advanced Options"
 msgstr "ជម្រើស​កម្រិត​ខ្ពស់"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:74001
 msgid "Boot loader"
 msgstr "កម្មវិធី​ចាប់​ផ្ដើម​ប្រព័ន្ធ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:75001
 msgid "Install boot loader"
 msgstr "ដំឡើង​កម្មវិធី​ចាប់​ផ្ដើម​ប្រព័ន្ធ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:76001
 msgid "Popularity contest"
 msgstr "ការ​ប្រកួត​ប្រជែង​ដោយ​មាន​ប្រជាប្រិយ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:77001
 msgid "Participate in the package usage survey"
 msgstr "ស្ទង់​ចំណែក​ដែល​មាន​ក្នុង​កញ្ចប់"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:78001
 msgid "Network proxy"
 msgstr "ប្រូកស៊ី​បណ្តាញ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:79001
 msgid "HTTP proxy:"
 msgstr "ប្រូក​ស៊ី HTTP ៖"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:80001
 msgid "Port:"
 msgstr "ច្រក ៖"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:81001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
@@ -578,20 +590,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:82001
 msgid "Go Back"
 msgstr "ថយក្រោយ"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:83001
 msgid "Continue"
 msgstr "បន្ត"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:84001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
@@ -599,7 +611,7 @@ msgstr "ការ​ដំឡើង​ជោគ​ជ័យ ។ អ្នក​�
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:85001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -619,40 +631,40 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:86001
 msgid "Checking the installation..."
 msgstr "កំពុង​ពិនិត្យ​ការ​ដំឡើង..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:87001
 #, fuzzy
 msgid "Installing system"
 msgstr "កំពុង​ដំឡើង​ប្រព័ន្ធ​គោល"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:88001
 msgid "Finding the distribution to copy..."
 msgstr "កំពុង​ស្វែង​រក​​របាយ​ដើម្បី​ចម្លង..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:90001
 #, fuzzy
 msgid "Scanning files..."
 msgstr "កំពុង​វិភាគ​ថាស..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:91001
 #, fuzzy
 msgid "Copying files..."
 msgstr "កំពុង​ចម្លងភាគថាស..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:92001
 msgid "Copying files (less than a minute remaining)..."
 msgstr "កំពុង​ចម្លង​ឯកសារ (នៅ​សល់​តិច​ជា​ង​មួយ​នាទី)"
 
@@ -666,9 +678,9 @@ msgstr "កំពុង​ចម្លង​ឯកសារ (នៅ​សល់�
 #. Description
 #. Type: select
 #. Description
-#: ../ubiquity.templates:91001 ../ubiquity.templates:92001
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:95001 ../ubiquity.templates:96001
+#: ../ubiquity.templates:97001
 #, fuzzy
 msgid "Installation Failed"
 msgstr "ជំហាន​​ដំឡើង​បាន​បរាជ័យ"
@@ -681,14 +693,14 @@ msgstr "ជំហាន​​ដំឡើង​បាន​បរាជ័យ"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:91001 ../ubiquity.templates:92001
 #: ../ubiquity.templates:93001 ../ubiquity.templates:94001
+#: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr "អ្នក​ដំឡើង​បាន​ជួប​ប្រទះ​កំហុស​ក្នុង​ការ​ចម្លង​ឯកសារ​នៅ​លើ​ថាស​ ៖"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
@@ -697,7 +709,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:94001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -706,7 +718,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:95001
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -721,7 +733,7 @@ msgstr ""
 #. Description
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
-#: ../ubiquity.templates:94001 ../ubiquity.templates:95001
+#: ../ubiquity.templates:96001 ../ubiquity.templates:97001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -732,159 +744,159 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:97001
 msgid "The following file did not match its source copy on the CD/DVD:"
 msgstr "ឯកសារ​ដូច​ខាង​ក្រោម​មិនផ្គូផ្គង​នឹង​ច្បាប់ចម្លង​ប្រភព​របស់​វា​នៅ​លើ​ស៊ីឌី/ឌីវីឌី ៖"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:98001
 #, fuzzy
 msgid "Copying installation logs..."
 msgstr "កំពុង​ចម្លងភាគថាស..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:97001
+#: ../ubiquity.templates:99001
 msgid "Configuring target system..."
 msgstr "កំណត់​រចនាសម្ព័ន្ធ​ប្រព័ន្ធ​ដែល​កំណត់​ទុក្ខ​ជា​មុន"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:98001
+#: ../ubiquity.templates:100001
 #, fuzzy
 msgid "Configuring system locales..."
 msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​ប្រភព APT..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:99001
+#: ../ubiquity.templates:101001
 #, fuzzy
 msgid "Configuring apt..."
 msgstr "កំណត់​រចនាសម្ព័ន្ធ​ apt"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:102001
 #, fuzzy
 msgid "Configuring time zone..."
 msgstr "កំណត់​រចនាសម្ព័ន្ធ​តំបន់​ពេលវេលា"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:103001
 #, fuzzy
 msgid "Configuring keyboard..."
 msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​ក្ដារចុច..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:104001
 #, fuzzy
 msgid "Creating user..."
 msgstr "កំពុង​សម្អាត..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:103001
+#: ../ubiquity.templates:105001
 msgid "Importing documents and settings..."
 msgstr "កំពុង​នាំ​ចូល​ឯកសារ​និង​ការ​កំណត់..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:104001
+#: ../ubiquity.templates:106001
 #, fuzzy
 msgid "Configuring hardware..."
 msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​ក្ដារចុច..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:105001
+#: ../ubiquity.templates:107001
 #, fuzzy
 msgid "Configuring network..."
 msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​ក្ដារចុច..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:106001
+#: ../ubiquity.templates:108001
 #, fuzzy
 msgid "Setting computer name..."
 msgstr "កំពុង​រៀប​ចំ​..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:107001
+#: ../ubiquity.templates:109001
 #, fuzzy
 msgid "Configuring boot loader..."
 msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​ក្ដារចុច..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:110001
 msgid "Installing additional packages..."
 msgstr "កំពុង​ដំឡើង​កញ្ចប់​បន្ថែម..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:109001
+#: ../ubiquity.templates:111001
 msgid "Checking for packages to install..."
 msgstr "កំពុង​ពិនិត្យ​កញ្ចប់​ត្រូវ​ដំឡើង..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:112001
 #, fuzzy
 msgid "Removing extra packages..."
 msgstr "កំពុង​ដំឡើង​កញ្ចប់​បន្ថែម..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:111001
+#: ../ubiquity.templates:113001
 msgid "Checking for packages to remove..."
 msgstr "កំពុង​ពិនិត្យ​កញ្ចប់​ដែល​ត្រូវ​យក​ចេញ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:112001
+#: ../ubiquity.templates:114001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "កំពុង​ទាញយក​កញ្ចប់ (នៅសល់ ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:113001
+#: ../ubiquity.templates:115001
 #, fuzzy
 msgid "Downloading package lists..."
 msgstr "កំពុង​ស្វែងរក​ទំហំ​កញ្ចប់"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:114001
+#: ../ubiquity.templates:116001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "កំពុង​ទាញយក​បញ្ជី​កញ្ចប់ (នៅសល់ ${TIME})..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:116001
+#: ../ubiquity.templates:118001
 #, fuzzy
 msgid "Error installing ${PACKAGE}"
 msgstr "មិន​អាច​ដំឡើង ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:117001
+#: ../ubiquity.templates:119001
 #, fuzzy
 msgid "Error removing ${PACKAGE}"
 msgstr "កំពុង​ទៅ​យក​ ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:118001
+#: ../ubiquity.templates:120001
 msgid "Error while installing packages"
 msgstr "កំហុស​ខណៈពេល​ដំឡើង​កញ្ចប់"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:118001
+#: ../ubiquity.templates:120001
 msgid "An error occurred while installing packages:"
 msgstr "មាន​កំហុស​មិន​អាច​តម្រូវ​ខណៈពេល​ដំឡើង​កញ្ចប់ ៖"
 
@@ -892,7 +904,7 @@ msgstr "មាន​កំហុស​មិន​អាច​តម្រូវ
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:118001 ../ubiquity.templates:119001
+#: ../ubiquity.templates:120001 ../ubiquity.templates:121001
 msgid "The following packages are in a broken state:"
 msgstr "កញ្ចប់​ដែល​ត្រូវ​ខូច ៖"
 
@@ -900,7 +912,7 @@ msgstr "កញ្ចប់​ដែល​ត្រូវ​ខូច ៖"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:118001 ../ubiquity.templates:119001
+#: ../ubiquity.templates:120001 ../ubiquity.templates:121001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -916,44 +928,44 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:119001
+#: ../ubiquity.templates:121001
 msgid "Error while removing packages"
 msgstr "កំហុស​ខណៈពេល​យក​កញ្ចប់​ចេញ"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:119001
+#: ../ubiquity.templates:121001
 msgid "An error occurred while removing packages:"
 msgstr "កំហុស​ខណៈពេល​យក​កញ្ចប់​ចេញ ៖"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:122001
+#: ../ubiquity.templates:124001
 msgid "Calculating files to skip copying..."
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:123001
+#: ../ubiquity.templates:125001
 #, fuzzy
 msgid "Installing language packs"
 msgstr "កំពុង​ដំឡើង​កញ្ចប់​ស្នូល"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:124001
+#: ../ubiquity.templates:126001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "កំពុង​ទាញ​យក​កញ្ចប់​ភាសា (នៅសល់ ${TIME})..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:130001
+#: ../ubiquity.templates:132001
 msgid "Failed to unmount partitions"
 msgstr "បាន​បរាជ័យ​ក្នុងការអាន់ម៉ោនភាគថាស"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:130001
+#: ../ubiquity.templates:132001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -963,25 +975,25 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:130001
+#: ../ubiquity.templates:132001
 msgid "Please close any applications using these mount points."
 msgstr "សូម​បិទ​កម្មវិធី​ផ្សេង​ដែល​ប្រើ​ចំនុច​ម៉ោន ។"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:130001
+#: ../ubiquity.templates:132001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "តើ​អ្នក​ពិត​ជា​ចង់​ឲ្យ​កម្មវិធី​ដំឡើង​ ព្យាយាម​មិន​ម៉ោន​ភាគ​ថាស់​ម្ដង​ទៀត​ទេ ?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:136001
+#: ../ubiquity.templates:138001
 msgid "Do you want to return to the partitioner?"
 msgstr "តើ​អ្នក​ចង់​ត្រឡប់​ទៅ​ ការ​ចែកភាគថាស​វិញ​ឬ ?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:136001
+#: ../ubiquity.templates:138001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
@@ -989,7 +1001,7 @@ msgstr "ភាគ​ថាស​ខ្លះ​អ្នក​បាន​បង
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:136001
+#: ../ubiquity.templates:138001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
