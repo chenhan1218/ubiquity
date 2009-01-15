@@ -18,15 +18,29 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-import ubiquity.components.install
 import ubiquity.components.summary
+class Summary(ubiquity.components.summary.Summary):
+    """This class is used for populating the Mythbuntu summary page
+       using a custom script"""
+    def prepare(self):
+        return ('/usr/share/ubiquity/mythbuntu_summary', ['^mythbuntu/summary.*'])
 
+import ubiquity.components.install
 class Install(ubiquity.components.install.Install):
+    """This class calls out to the main ubiquity processing script. Control
+       is handled off from the part of the UI asking questions by this class"""
     def prepare(self):
         prep = list(ubiquity.components.install.Install.prepare(self))
         prep[0] = ['/usr/share/ubiquity/mythbuntu_install.py']
         return prep
 
-class Summary(ubiquity.components.summary.Summary):
+import ubiquity.filteredcommand
+class AdditionalDrivers(ubiquity.filteredcommand.FilteredCommand):
+    """Adds any additional drivers that were selected during the question phase"""
     def prepare(self):
-        return ('/usr/share/ubiquity/mythbuntu_summary', ['^mythbuntu/summary.*'])
+        return (['/usr/share/ubiquity/apply-drivers', '/target'],[])
+
+class AdditionalServices(ubiquity.filteredcommand.FilteredCommand):
+    """Adds any additional services that were selected during the question phase"""
+    def prepare(self):
+        return (['/usr/share/ubiquity/apply-services', '/target'],[])

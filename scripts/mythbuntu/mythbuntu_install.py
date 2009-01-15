@@ -19,21 +19,17 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-import os
 import sys
-import syslog
+import os
 import errno
+import syslog
 import debconf
-
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
 from install import Install as ParentInstall
 from install import InstallStepError
-from ubiquity.components import language_apply, apt_setup, timezone_apply, \
-                                clock_setup, console_setup_apply, \
-                                usersetup_apply, hw_detect, check_kernels, \
-                                mythbuntu_apply
+from ubiquity.components import mythbuntu_install
 
 from mythbuntu_common.lirc import LircHandler
 from mythbuntu_common.mysql import MySQLHandler
@@ -270,18 +266,7 @@ class Install(ParentInstall):
         # 1) only run a reconfigure on mythweb if we are keeping it
         # 2) make sure digest is set up
         # 3) move package inversion out
-
-	self.reconfigure('mythweb')
-
-        #Run bash scripts that go with the step
-        control = mythbuntu_apply.MythbuntuApply(None,self.db)
-        #process package removal lists
-        ret = control.run()
-        if ret != 0:
-            raise InstallStepError("MythbuntuApply Package List Generation failed with code %d" % ret)
-        ret = control.run_command(auto_process=True)
-        if ret != 0:
-            raise InstallStepError("MythbuntuApply Debconf Xfer failed with code %d" % ret)
+        self.reconfigure('mythweb')
 
     def add_drivers_services(self):
         """Installs Additional Drivers, Services & Firmware"""
@@ -309,7 +294,7 @@ class Install(ParentInstall):
 
     def configure_drivers(self):
         """Activates any necessary driver configuration"""
-        control = mythbuntu_apply.AdditionalDrivers(None,self.db)
+        control = mythbuntu_install.AdditionalDrivers(None,self.db)
         ret = control.run_command(auto_process=True)
         if ret != 0:
             raise InstallStepError("Additional Driver Configuration failed with code %d" % ret)
@@ -389,12 +374,7 @@ class Install(ParentInstall):
 
     def configure_services(self):
         """Activates any necessary service configuration"""
-        vnc = self.db.get('mythbuntu/x11vnc')
-        #vnc4server is broke in hardy.  Use x11vnc instead
-        #if vnc == 'true':
-        #    handler = mythbuntu_apply.VNCHandler('/target')
-        #    handler.run()
-        control = mythbuntu_apply.AdditionalServices(None,self.db)
+        control = mythbuntu_install.AdditionalServices(None,self.db)
         ret = control.run_command(auto_process=True)
         if ret != 0:
             raise InstallStepError("Additional Service Configuration failed with code %d" % ret)
@@ -407,6 +387,7 @@ class Install(ParentInstall):
         # Check for packages specific to the live CD.
         # Also check for packages that need to be removed based upon the choices made during installation
         # This file (/tmp/filesystem.manifest-mythbuntu) will be created during the summary step
+        self.create_removal_list()
         if (os.path.exists("/tmp/filesystem.manifest-mythbuntu") and
             os.path.exists("/cdrom/casper/filesystem.manifest")):
             desktop_packages = set()
@@ -436,6 +417,93 @@ class Install(ParentInstall):
         # whatever) after installation than it will be to try to deal with
         # them automatically here.
         self.do_remove(difference)
+
+    #FIXME
+    # I'm ugly
+    # I'm unscalable
+    # I barely get the job done
+    def create_removal_list(self):
+        out_f = open("/tmp/filesystem.manifest-mythbuntu", 'w')
+        in_f = open("/cdrom/casper/filesystem.manifest-desktop")
+        patternline = "^mythbuntu-live|^expect|^tcl8.4"
+        if self.type == "Slave Backend/Frontend":
+            patternline += "|^mythtv-backend-master|^mythtv-database|^mysql-server-5.0|^mysql-server|^mythtv\ "
+        elif self.type == "Master Backend":
+            patternline += "|^mythtv-frontend|^mythtv\ "
+        elif self.type == "Slave Backend":
+            patternline += "|^mythtv-backend-master|^mythtv-database|^mysql-server-5.0|^mythtv-frontend|^mythtv\ "
+        elif self.type == "Frontend":
+            patternline += "|^mythtv-backend-master|^mythtv-database|^mythtv-backend|^mysql-server-5.0|^mysql-server|^mythtv\ |^mythtv-status"
+        mytharchive = self.db.get('mythbuntu/mytharchive')
+        if mytharchive == "false":
+            patternline += "|^mytharchive|^ffmpeg|^genisoimage|^dvdauthor|^mjpegtools|^dvd+rw-tools|^python-imaging|^python-mysqldb"
+        mythbrowser = self.db.get('mythbuntu/mythbrowser')
+        if mythbrowser == "false":
+            patternline += "|^kdelibs4c2a|^mythbrowser"
+        mythcontrols = self.db.get('mythbuntu/mythcontrols')
+        if mythcontrols == "false":
+            patternline += "|^mythcontrols"
+        mythflix = self.db.get('mythbuntu/mythflix')
+        if mythflix == "false":
+            patternline += "|^mythflix"
+        mythgallery = self.db.get('mythbuntu/mythgallery')
+        if mythgallery == "false":
+            patternline += "|^mythgallery"
+        mythgame = self.db.get('mythbuntu/mythgame')
+        if mythgame == "false":
+            patternline += "|^mythgame"
+        mythmovies = self.db.get('mythbuntu/mythmovies')
+        if mythmovies == "false":
+            patternline += "|^mythmovies"
+        mythmusic = self.db.get('mythbuntu/mythmusic')
+        if mythmusic == "false":
+            patternline += "|^mythmusic|^fftw2|^libcdaudio1|^libfaad2-0|^libflac8"
+        mythnews = self.db.get('mythbuntu/mythnews')
+        if mythnews == "false":
+            patternline += "|^mythnews"
+        mythphone = self.db.get('mythbuntu/mythphone')
+        if mythphone == "false":
+            patternline += "|^mythphone"
+        mythstream = self.db.get('mythbuntu/mythstream')
+        if mythstream == "false":
+            patternline += "|^mythstream"
+        mythvideo = self.db.get('mythbuntu/mythvideo')
+        if mythvideo == "false":
+            patternline += "|^mythvideo|^libwww-perl|^libxml-simple-perl"
+        mythweather = self.db.get('mythbuntu/mythweather')
+        if mythweather == "false":
+            patternline += "|^mythweather"
+        mythweb = self.db.get('mythbuntu/mythweb')
+        if mythweb == "false":
+            patternline += "|^apache2|^libapache2|^php|^mythweb"
+        official = self.db.get('mythbuntu/officialthemes')
+        if official != "":
+            for theme in string.split(official," "):
+                if theme != "":
+                    patternline += "|^" + theme
+        community = self.db.get('mythbuntu/communitythemes')
+        if community != "":
+            for theme in string.split(community," "):
+                if theme != "":
+                    patternline += "|^" + theme
+        samba = self.db.get('mythbuntu/samba')
+        if samba == "false":
+            patternline += "|^samba|^samba-common|^smbfs"
+        vnc = self.db.get('mythbuntu/x11vnc')
+        if vnc == "false":
+            patternline += "|^vnc4-common|^x11vnc"
+        ssh = self.db.get('mythbuntu/openssh-server')
+        if ssh == "false":
+            patternline += "|^openssh-server"
+        hdhomerun = self.db.get('mythbuntu/hdhomerun')
+        if hdhomerun == "false":
+            patternline += "|^hdhomerun-config"
+        pattern = re.compile(patternline)
+        for line in in_f:
+            if pattern.search(line) is None:
+                out_f.write(line)
+        in_f.close()
+        out_f.close()
 
 if __name__ == '__main__':
     if not os.path.exists('/var/lib/ubiquity'):
