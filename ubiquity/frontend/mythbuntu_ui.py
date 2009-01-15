@@ -48,26 +48,21 @@ import syslog
 import signal
 
 import gtk
-import MySQLdb
 
-#Lirc support
+#Mythbuntu common functionality
 from mythbuntu_common.lirc import LircHandler
-
-#MySQL support
 from mythbuntu_common.mysql import MySQLHandler
-
-#Dictionary support
 from mythbuntu_common.dictionaries import *
 
+#Ubiquity imports
 from ubiquity.misc import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman, partman_commit, \
-                                mythbuntu, mythbuntu_install, mythbuntu_summary
+                                mythbuntu, mythbuntu_install
 import ubiquity.frontend.gtk_ui
 import ubiquity.components.mythbuntu_install
-import ubiquity.components.mythbuntu_summary
 ubiquity.frontend.gtk_ui.install = ubiquity.components.mythbuntu_install
-ubiquity.frontend.gtk_ui.summary = ubiquity.components.mythbuntu_summary
+ubiquity.frontend.gtk_ui.summary = ubiquity.components.mythbuntu_install
 
 
 BREADCRUMB_STEPS = {
@@ -212,7 +207,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             mythbuntu.MythbuntuInstallType, mythbuntu.MythbuntuPlugins,
             mythbuntu.MythbuntuThemes, mythbuntu.MythbuntuServices,
             mythbuntu.MythbuntuPasswords, mythbuntu.MythbuntuRemote,
-            mythbuntu.MythbuntuDrivers, mythbuntu_summary.Summary]
+            mythbuntu.MythbuntuDrivers, mythbuntu_install.Summary]
         self.pagesindex = 0
         pageslen = len(self.pages)
 

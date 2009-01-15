@@ -4,6 +4,8 @@ ubiquity (1.11.4) UNRELEASED; urgency=low
   * Don't reinvent the square with mythbuntu autologin.  It's provided 
     by user-setup, so use it there.
   * Only start mythtv upon login if we are a frontend install.
+  * Eliminate mythbuntu_summary.py, and instead merge it into
+    mythbuntu_install.py
 
  -- Mario Limonciello <superm1@ubuntu.com>  Wed, 14 Jan 2009 21:52:30 -0600
 
