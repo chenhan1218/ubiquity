@@ -3,6 +3,7 @@ ubiquity (1.11.4) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Don't reinvent the square with mythbuntu autologin.  It's provided 
     by user-setup, so use it there.
+  * Only start mythtv upon login if we are a frontend install.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Wed, 14 Jan 2009 21:52:30 -0600
 

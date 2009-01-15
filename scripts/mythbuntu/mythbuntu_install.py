@@ -223,18 +223,19 @@ class Install(ParentInstall):
             pass
 
         #mythtv.desktop autostart
-        autostart_dir = self.target + '/home/' + user + '/.config/autostart/'
-        autostart_link = autostart_dir + 'mythtv.desktop'
-        if not os.path.isdir(autostart_dir):
-            os.makedirs(autostart_dir)
-        elif os.path.islink(autostart_link) or os.path.exists(autostart_link):
-            os.remove(autostart_link)
-        try:
-            os.symlink('/usr/share/applications/mythtv.desktop',autostart_link)
-        except OSError:
-            #on a live disk, this will appear a broken link, but it works
-            pass
-        
+        if 'Frontend' in self.type:
+            autostart_dir = self.target + '/home/' + user + '/.config/autostart/'
+            autostart_link = autostart_dir + 'mythtv.desktop'
+            if not os.path.isdir(autostart_dir):
+                os.makedirs(autostart_dir)
+            elif os.path.islink(autostart_link) or os.path.exists(autostart_link):
+                os.remove(autostart_link)
+            try:
+                os.symlink('/usr/share/applications/mythtv.desktop',autostart_link)
+            except OSError:
+                #on a live disk, this will appear a broken link, but it works
+                pass
+            
         #mythtv group membership
         self.chrex('adduser', user, 'mythtv')
 
