@@ -24,6 +24,8 @@ import os
 import errno
 import syslog
 import debconf
+import re
+import string
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
@@ -75,6 +77,12 @@ class Install(ParentInstall):
                     # Exit code 3 signals to the frontend that we have
                     # handled this error.
                     sys.exit(3)
+                elif e.errno == errno.ENOSPC:
+                    error_template = 'ubiquity/install/copying_error/no_space'
+                    self.db.subst(error_template, 'ERROR', str(e))
+                    self.db.input('critical', error_template)
+                    self.db.go()
+                    sys.exit(3)
                 else:
                     raise
 
@@ -123,17 +131,17 @@ class Install(ParentInstall):
             self.remove_unusable_kernels()
 
             self.db.progress('SET', 89)
-            self.db.progress('REGION', 89, 92)
+            self.db.progress('REGION', 89, 93)
             self.db.progress('INFO', 'ubiquity/install/hardware')
             self.configure_hardware()
 
-            self.db.progress('SET', 92)
-            self.db.progress('REGION', 92, 93)
+            self.db.progress('SET', 93)
+            self.db.progress('REGION', 93, 94)
             self.db.progress('INFO', 'ubiquity/install/bootloader')
             self.configure_bootloader()
 
-            self.db.progress('SET', 93)
-            self.db.progress('REGION', 93, 95)
+            self.db.progress('SET', 94)
+            self.db.progress('REGION', 94, 95)
             self.db.progress('INFO', 'ubiquity/install/installing')
             self.add_drivers_services()
             self.install_extras()
@@ -511,7 +519,7 @@ if __name__ == '__main__':
     if os.path.exists('/var/lib/ubiquity/install.trace'):
         os.unlink('/var/lib/ubiquity/install.trace')
 
-    mythbuntu_install = Install()
-    sys.excepthook = mythbuntu_install.excepthook
-    mythbuntu_install.run()
+    install = Install()
+    sys.excepthook = install.excepthook
+    install.run()
     sys.exit(0)
