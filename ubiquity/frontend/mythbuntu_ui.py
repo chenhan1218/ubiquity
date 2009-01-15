@@ -167,14 +167,15 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
         self.disable_volume_manager()
 
-        #disable the mainline ubiquity autologin
-        #we have mythbuntu specific offerings that behave
-        #a little bit differently
-        self.login_vbox.hide()
-
         # show interface
         got_intro = self.show_intro()
         self.allow_change_step(True)
+
+        #Disable the option for using encrypted FS
+        self.login_encrypt.set_sensitive(False)
+        
+        #Default to auto login, but don't make it mandatory
+        self.set_auto_login(True)
 
         # Declare SignalHandler
         self.glade.signal_autoconnect(self)

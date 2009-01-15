@@ -238,16 +238,6 @@ class Install(ParentInstall):
         #mythtv group membership
         self.chrex('adduser', user, 'mythtv')
 
-        #automatic login (only for frontends)
-        if 'Frontend' in self.type:
-            self.chrex('sed', '-i.' + user,
-               '-e', 's/^AutomaticLoginEnable=.*$/AutomaticLoginEnable=true/',
-               '-e', 's/^AutomaticLogin=.*$/AutomaticLogin=' + user +'/',
-               '-e', 's/^TimedLoginEnable=.*$/TimedLoginEnable=true/',
-               '-e', 's/^TimedLogin=.*$/TimedLogin=' + user + '/',
-               '-e', 's/^TimedLoginDelay=.*$/TimedLoginDelay=10/',
-               os.path.join('/etc/gdm', 'gdm-cdd.conf'))
-
     def configure_mysql(self):
         """Configures the SQL server and mythtv access to it"""
         #Check if we have a new mysql pass. If not, we'll generate one
