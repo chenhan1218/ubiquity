@@ -1,3 +1,9 @@
+oem-config (1.54.3) UNRELEASED; urgency=low
+
+  * Suppress user-setup's encrypted home directory question in OEM mode.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 16 Jan 2009 15:50:45 +0000
+
 oem-config (1.54.2) jaunty; urgency=low
 
   * Add a debconf_ui frontend which can be used in text mode on a server.

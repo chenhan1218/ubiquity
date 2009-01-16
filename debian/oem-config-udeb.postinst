@@ -16,5 +16,6 @@ set_question passwd/user-fullname 'OEM Configuration (temporary user)'
 set_question passwd/username oem
 set_question passwd/user-uid 29999
 set_question user-setup/encrypted-private false
+set_question user-setup/encrypt-home false
 
 exit 0
