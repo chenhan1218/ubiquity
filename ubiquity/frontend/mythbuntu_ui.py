@@ -38,9 +38,9 @@
 # with Ubiquity; if not, write to the Free Software Foundation, Inc., 51
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import sys
 import os
 import re
-import sys
 import string
 import subprocess
 import syslog
@@ -58,10 +58,10 @@ from ubiquity.misc import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman, partman_commit, \
                                 mythbuntu, mythbuntu_install
-import ubiquity.frontend.gtk_ui
+import ubiquity.frontend.gtk_ui as ParentFrontend
 import ubiquity.components.mythbuntu_install
-ubiquity.frontend.gtk_ui.install = ubiquity.components.mythbuntu_install
-ubiquity.frontend.gtk_ui.summary = ubiquity.components.mythbuntu_install
+ParentFrontend.install = ubiquity.components.mythbuntu_install
+ParentFrontend.summary = ubiquity.components.mythbuntu_install
 
 MYTHPAGES = [
     "mythbuntu_stepInstallType",
@@ -75,32 +75,32 @@ MYTHPAGES = [
     "mythbuntu_stepBackendSetup"
 ]
 
-class Wizard(ubiquity.frontend.gtk_ui.Wizard):
+class Wizard(ParentFrontend.Wizard):
 
 #Overriden Methods
     def __init__(self, distro):
         #Remove migration assistant
         del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
-        place=ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS.pop("stepMigrationAssistant")
+        place=ParentFrontend.BREADCRUMB_STEPS.pop("stepMigrationAssistant")
 
         #Max steps
-        ubiquity.frontend.gtk_ui.BREADCRUMB_MAX_STEP = place + len(MYTHPAGES)
+        ParentFrontend.BREADCRUMB_MAX_STEP = place + len(MYTHPAGES)
 
         #update location of summary page
-        ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS["stepReady"]=place+len(MYTHPAGES)-1
+        ParentFrontend.BREADCRUMB_STEPS["stepReady"]=place+len(MYTHPAGES)-1
         
         #Add in final page
         final_page=MYTHPAGES.pop()
-        ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS[final_page]=place+len(MYTHPAGES)
-        ubiquity.frontend.gtk_ui.SUBPAGES.append(final_page)
+        ParentFrontend.BREADCRUMB_STEPS[final_page]=place+len(MYTHPAGES)
+        ParentFrontend.SUBPAGES.append(final_page)
         
         #Add in individual mythpages pages
         for string in MYTHPAGES:
-            ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS[string]=place
-            ubiquity.frontend.gtk_ui.SUBPAGES.insert(len(ubiquity.frontend.gtk_ui.SUBPAGES)-2,string)
+            ParentFrontend.BREADCRUMB_STEPS[string]=place
+            ParentFrontend.SUBPAGES.insert(len(ParentFrontend.SUBPAGES)-2,string)
             place+=1
-        
-        ubiquity.frontend.gtk_ui.Wizard.__init__(self,distro)
+
+        ParentFrontend.Wizard.__init__(self,distro)
 
     def run(self):
         """run the interface."""
@@ -174,10 +174,10 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
         # Start the interface
         if got_intro:
-            for step in ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS:
-                ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS[step] += 1
-            ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS["stepWelcome"] = 1
-            ubiquity.frontend.gtk_ui.BREADCRUMB_MAX_STEP += 1
+            for step in ParentFrontend.BREADCRUMB_STEPS:
+                ParentFrontend.BREADCRUMB_STEPS[step] += 1
+            ParentFrontend.BREADCRUMB_STEPS["stepWelcome"] = 1
+            ParentFrontend.BREADCRUMB_MAX_STEP += 1
             first_step = self.stepWelcome
         else:
             first_step = self.stepLanguage
@@ -257,7 +257,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         self.set_auto_login(True)
         self.login_encrypt.set_sensitive(False)
 
-        ubiquity.frontend.gtk_ui.customize_installer(self)
+        ParentFrontend.Wizard.customize_installer(self)
 
     def run_success_cmd(self):
         """Runs mythbuntu post post install GUI step"""
@@ -270,38 +270,34 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.next.set_label("Finish")
             gtk.main()
             self.live_installer.hide()
-        ubiquity.frontend.run_success_cmd(self)
+        ParentFrontend.Wizard.run_success_cmd(self)
 
     def set_page(self, n):
+        if n == 'MythbuntuAdvancedType':
+            cur = self.mythbuntu_stepInstallType
+        elif n == 'MythbuntuRemote':
+            cur = self.tab_remote_control
+        elif n == 'MythbuntuDrivers':
+            cur = self.mythbuntu_stepDrivers
+        elif n == 'MythbuntuInstallType':
+            cur = self.mythbuntu_stepCustomInstallType
+        elif n == 'MythbuntuPlugins':
+            cur = self.mythbuntu_stepPlugins
+        elif n == 'MythbuntuThemes':
+            cur = self.tab_themes
+        elif n == 'MythbuntuPasswords':
+            cur = self.mythbuntu_stepPasswords
+            if "Master" not in self.get_installtype():
+                self.allow_go_forward(False)
+        elif n == 'MythbuntuServices':
+            cur = self.mythbuntu_stepServices
+        else:
+            ParentFrontend.Wizard.set_page(self,n)
+            return
         self.run_automation_error_cmd()
-        gtk_ui_pages  = ['Language', 'ConsoleSetup', 'Timezone', 'Partman', 'UserSetup', 'Summary', 'MigrationAssistant']
-        found = False
-        for item in gtk_ui_pages:
-            if n == item:
-                found = True
-                ubiquity.frontend.gtk_ui.Wizard.set_page(self,n)
-                break
-        if not found:
-            self.live_installer.show()
-            if n == 'MythbuntuAdvancedType':
-                self.set_current_page(self.steps.page_num(self.mythbuntu_stepInstallType))
-            elif n == 'MythbuntuRemote':
-                self.set_current_page(self.steps.page_num(self.tab_remote_control))
-            elif n == 'MythbuntuDrivers':
-                self.set_current_page(self.steps.page_num(self.mythbuntu_stepDrivers))
-            if n == 'MythbuntuInstallType':
-                self.set_current_page(self.steps.page_num(self.mythbuntu_stepCustomInstallType))
-            elif n == 'MythbuntuPlugins':
-                self.set_current_page(self.steps.page_num(self.mythbuntu_stepPlugins))
-            elif n == 'MythbuntuThemes':
-                self.set_current_page(self.steps.page_num(self.tab_themes))
-            elif n == 'MythbuntuPasswords':
-                self.set_current_page(self.steps.page_num(self.mythbuntu_stepPasswords))
-                installtype=self.get_installtype()
-                if installtype != "Master Backend/Frontend" and installtype != "Master Backend":
-                    self.allow_go_forward(False)
-            elif n == 'MythbuntuServices':
-                self.set_current_page(self.steps.page_num(self.mythbuntu_stepServices))
+        self.backup = False
+        self.live_installer.show()
+        self.set_current_page(self.steps.page_num(cur))
 
 ####################
 #Helper Functions  #
