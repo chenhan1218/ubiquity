@@ -37,7 +37,6 @@
 # You should have received a copy of the GNU General Public License along
 # with Ubiquity; if not, write to the Free Software Foundation, Inc., 51
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-##################################################################################
 
 import os
 import re
@@ -166,6 +165,12 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             
         self.pagesindex = 0
         pageslen = len(self.pages)
+        
+        if 'UBIQUITY_AUTOMATIC' in os.environ:
+            got_intro = False
+            self.debconf_progress_start(0, pageslen,
+                self.get_string('ubiquity/install/checking'))
+            self.refresh()
 
         # Start the interface
         if got_intro:
@@ -253,20 +258,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         self.login_encrypt.set_sensitive(False)
 
         ubiquity.frontend.gtk_ui.customize_installer(self)
-
-    def process_step(self):
-        """Process and validate the results of this step."""
-        # setting actual step
-        step = self.step_name(self.steps.get_current_page())
-
-        #Figure out if this is a mythbuntu specific step
-        if step == "mythbuntu_stepBackendSetup":
-            syslog.syslog('Step_before = %s' % step)
-            self.live_installer.hide()
-            self.current_page = None
-            self.finished_dialog.run()
-        else:
-            ubiquity.frontend.gtk_ui.Wizard.process_step(self)
 
     def run_success_cmd(self):
         """Runs mythbuntu post post install GUI step"""
