@@ -268,59 +268,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         else:
             ubiquity.frontend.gtk_ui.Wizard.process_step(self)
 
-    def progress_loop(self):
-        """prepare, copy and config the system in the core install process."""
-
-        syslog.syslog('progress_loop()')
-
-        self.current_page = None
-
-        self.debconf_progress_start(
-            0, 100, self.get_string('ubiquity/install/title'))
-        self.debconf_progress_region(0, 15)
-
-        dbfilter = partman_commit.PartmanCommit(self)
-        if dbfilter.run_command(auto_process=True) != 0:
-            while self.progress_position.depth() != 0:
-                self.debconf_progress_stop()
-            self.debconf_progress_window.hide()
-            self.return_to_partitioning()
-            return
-
-        # No return to partitioning from now on
-        self.installing_no_return = True
-
-        self.debconf_progress_region(15, 100)
-
-        dbfilter = mythbuntu_install.Install(self)
-        ret = dbfilter.run_command(auto_process=True)
-        if ret != 0:
-            self.installing = False
-            if ret == 3:
-                # error already handled by Install
-                sys.exit(ret)
-            elif (os.WIFSIGNALED(ret) and
-                  os.WTERMSIG(ret) in (signal.SIGINT, signal.SIGKILL,
-                                       signal.SIGTERM)):
-                sys.exit(ret)
-            elif os.path.exists('/var/lib/ubiquity/install.trace'):
-                tbfile = open('/var/lib/ubiquity/install.trace')
-                realtb = tbfile.read()
-                tbfile.close()
-                raise RuntimeError, ("Install failed with exit code %s\n%s" %
-                                     (ret, realtb))
-            else:
-                raise RuntimeError, ("Install failed with exit code %s; see "
-                                     "/var/log/syslog" % ret)
-
-        while self.progress_position.depth() != 0:
-            self.debconf_progress_stop()
-
-        # just to make sure
-        self.debconf_progress_window.hide()
-
-        self.installing = False
-
     def run_success_cmd(self):
         """Runs mythbuntu post post install GUI step"""
         if not 'UBIQUITY_AUTOMATIC' in os.environ and self.get_installtype() != "Frontend":
