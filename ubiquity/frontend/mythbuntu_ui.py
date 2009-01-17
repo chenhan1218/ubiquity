@@ -99,14 +99,9 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         for string in MYTHPAGES:
             ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS[string]=place
             ubiquity.frontend.gtk_ui.SUBPAGES.insert(len(ubiquity.frontend.gtk_ui.SUBPAGES)-2,string)
-            place=place+1
+            place+=1
         
         ubiquity.frontend.gtk_ui.Wizard.__init__(self,distro)
-
-        self.populate_lirc()
-        self.populate_video()
-        self.populate_mysql()
-        self.backup=False
 
     def run(self):
         """run the interface."""
@@ -151,12 +146,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         got_intro = self.show_intro()
         self.allow_change_step(True)
 
-        #Disable the option for using encrypted FS
-        self.login_encrypt.set_sensitive(False)
-        
-        #Default to auto login, but don't make it mandatory
-        self.set_auto_login(True)
-
         # Declare SignalHandler
         self.glade.signal_autoconnect(self)
 
@@ -166,6 +155,17 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             'changed', self.on_username_changed)
         self.hostname_changed_id = self.hostname.connect(
             'changed', self.on_hostname_changed)
+
+        self.pages = [language.Language, timezone.Timezone,
+            console_setup.ConsoleSetup, partman.Partman,
+            usersetup.UserSetup, mythbuntu.MythbuntuAdvancedType,
+            mythbuntu.MythbuntuInstallType, mythbuntu.MythbuntuPlugins,
+            mythbuntu.MythbuntuThemes, mythbuntu.MythbuntuServices,
+            mythbuntu.MythbuntuPasswords, mythbuntu.MythbuntuRemote,
+            mythbuntu.MythbuntuDrivers, mythbuntu_install.Summary]
+            
+        self.pagesindex = 0
+        pageslen = len(self.pages)
 
         # Start the interface
         if got_intro:
@@ -182,25 +182,17 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             # removed, so we end up with no input focus and thus pressing
             # Enter doesn't activate the default widget. Work around this.
             self.next.grab_focus()
-
-        self.pages = [language.Language, timezone.Timezone,
-            console_setup.ConsoleSetup, partman.Partman,
-            usersetup.UserSetup, mythbuntu.MythbuntuAdvancedType,
-            mythbuntu.MythbuntuInstallType, mythbuntu.MythbuntuPlugins,
-            mythbuntu.MythbuntuThemes, mythbuntu.MythbuntuServices,
-            mythbuntu.MythbuntuPasswords, mythbuntu.MythbuntuRemote,
-            mythbuntu.MythbuntuDrivers, mythbuntu_install.Summary]
-        self.pagesindex = 0
-        pageslen = len(self.pages)
+        else:
+            # Similarly, the Quit button seems to end up with focus by
+            # default, but we'd rather a navigable widget had it.
+            self.language_treeview.grab_focus()
 
         if got_intro:
             gtk.main()
-
+        
         while(self.pagesindex < pageslen):
-            if not self.installing:
-                # Make sure any started progress bars are stopped.
-                while self.progress_position.depth() != 0:
-                    self.debconf_progress_stop()
+            if self.current_page == None:
+                break
 
             old_backup = self.backup
             self.backup = False
@@ -232,13 +224,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                         if not step == 'stepPartAdvanced':
                             self.pagesindex = self.pagesindex - 1
 
-            self.back.show()
-
-            # TODO: Move this to after we're done processing GTK events, or is
-            # that not worth the CPU time?
-            if self.current_page == None:
-                break
-
             while gtk.events_pending():
                 gtk.main_iteration()
 
@@ -251,30 +236,26 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 self.current_page = None
                 self.installing = True
                 self.progress_loop()
-
-        #After (and if) install is done, decide what to do
-        if self.pagesindex == pageslen:
-            self.run_success_cmd()
-            if 'UBIQUITY_AUTOMATIC' in os.environ or self.get_installtype() == "Frontend":
-                if not self.get_reboot_seen():
-                    self.finished_dialog.run()
-                elif self.get_reboot():
-                    self.reboot()
-            else:
-                self.live_installer.show()
-                self.installing = False
-                self.steps.next_page()
-                self.back.hide()
-                self.quit.hide()
-                self.next.set_label("Finish")
-                gtk.main()
-                self.live_installer.hide()
-                self.finished_dialog.run()
         return self.returncode
+
+
+    def customize_installer(self):
+        """Initial UI setup."""
+        #Prepopulate some dynamic pages
+        self.populate_lirc()
+        self.populate_video()
+        self.populate_mysql()
+        self.backup=False
+
+        #Default to auto login, but don't make it mandatory
+        #This requires disabling encrypted FS
+        self.set_auto_login(True)
+        self.login_encrypt.set_sensitive(False)
+
+        ubiquity.frontend.gtk_ui.customize_installer(self)
 
     def process_step(self):
         """Process and validate the results of this step."""
-
         # setting actual step
         step = self.step_name(self.steps.get_current_page())
 
@@ -339,6 +320,19 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         self.debconf_progress_window.hide()
 
         self.installing = False
+
+    def run_success_cmd(self):
+        """Runs mythbuntu post post install GUI step"""
+        if not 'UBIQUITY_AUTOMATIC' in os.environ and self.get_installtype() != "Frontend":
+            self.live_installer.show()
+            self.installing = False
+            self.steps.next_page()
+            self.back.hide()
+            self.quit.hide()
+            self.next.set_label("Finish")
+            gtk.main()
+            self.live_installer.hide()
+        ubiquity.frontend.run_success_cmd(self)
 
     def set_page(self, n):
         self.run_automation_error_cmd()
@@ -455,8 +449,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
     def do_mythtv_setup(self,widget):
         """Spawn MythTV-Setup binary."""
         self.live_installer.hide()
-        while gtk.events_pending():
-            gtk.main_iteration()
+        self.refresh()
         execute_root("/usr/share/ubiquity/mythbuntu-setup")
         self.live_installer.show()
 
