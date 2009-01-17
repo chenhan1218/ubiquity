@@ -4,7 +4,7 @@
 #
 # Copyright (C) 2005 Junta de Andalucía
 # Copyright (C) 2005, 2006, 2007, 2008 Canonical Ltd.
-# Copyright (C) 2007-2008, Mario Limonciello, for Mythbuntu
+# Copyright (C) 2007-2009, Mario Limonciello, for Mythbuntu
 # Copyright (C) 2007, Jared Greenwald, for Mythbuntu
 #
 # Authors:
@@ -64,37 +64,7 @@ import ubiquity.components.mythbuntu_install
 ubiquity.frontend.gtk_ui.install = ubiquity.components.mythbuntu_install
 ubiquity.frontend.gtk_ui.summary = ubiquity.components.mythbuntu_install
 
-
-BREADCRUMB_STEPS = {
-    "stepLanguage": 1,
-    "stepLocation": 2,
-    "stepKeyboardConf": 3,
-    "stepPartAuto": 4,
-    "stepPartAdvanced": 4,
-    "stepUserInfo": 5,
-    "mythbuntu_stepInstallType": 6,
-    "mythbuntu_stepCustomInstallType": 7,
-    "mythbuntu_stepPlugins": 8,
-    "tab_themes": 9,
-    "mythbuntu_stepServices": 10,
-    "mythbuntu_stepPasswords": 11,
-    "tab_remote_control": 12,
-    "mythbuntu_stepDrivers": 13,
-    "stepReady": 14,
-    "mythbuntu_stepBackendSetup": 15
-}
-BREADCRUMB_MAX_STEP = 15
-
-# Define what pages of the UI we want to load.  Note that most of these pages
-# are required for the install to complete successfully.
-SUBPAGES = [
-    "stepWelcome",
-    "stepLanguage",
-    "stepLocation",
-    "stepKeyboardConf",
-    "stepPartAuto",
-    "stepPartAdvanced",
-    "stepUserInfo",
+MYTHPAGES = [
     "mythbuntu_stepInstallType",
     "mythbuntu_stepCustomInstallType",
     "mythbuntu_stepPlugins",
@@ -103,19 +73,34 @@ SUBPAGES = [
     "mythbuntu_stepPasswords",
     "tab_remote_control",
     "mythbuntu_stepDrivers",
-    "stepReady",
     "mythbuntu_stepBackendSetup"
 ]
-
-ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS = BREADCRUMB_STEPS
-ubiquity.frontend.gtk_ui.BREADCRUMB_MAX_STEP = BREADCRUMB_MAX_STEP
-ubiquity.frontend.gtk_ui.SUBPAGES = SUBPAGES
 
 class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
 #Overriden Methods
     def __init__(self, distro):
+        #Remove migration assistant
         del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
+        place=ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS.pop("stepMigrationAssistant")
+
+        #Max steps
+        ubiquity.frontend.gtk_ui.BREADCRUMB_MAX_STEP = place + len(MYTHPAGES)
+
+        #update location of summary page
+        ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS["stepReady"]=place+len(MYTHPAGES)-1
+        
+        #Add in final page
+        final_page=MYTHPAGES.pop()
+        ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS[final_page]=place+len(MYTHPAGES)
+        ubiquity.frontend.gtk_ui.SUBPAGES.append(final_page)
+        
+        #Add in individual mythpages pages
+        for string in MYTHPAGES:
+            ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS[string]=place
+            ubiquity.frontend.gtk_ui.SUBPAGES.insert(len(ubiquity.frontend.gtk_ui.SUBPAGES)-2,string)
+            place=place+1
+        
         ubiquity.frontend.gtk_ui.Wizard.__init__(self,distro)
 
         self.populate_lirc()
@@ -184,13 +169,10 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
         # Start the interface
         if got_intro:
-            global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
-            for step in BREADCRUMB_STEPS:
-                BREADCRUMB_STEPS[step] += 1
-            BREADCRUMB_STEPS["stepWelcome"] = 1
-            BREADCRUMB_MAX_STEP += 1
-            ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS = BREADCRUMB_STEPS
-            ubiquity.frontend.gtk_ui.BREADCRUMB_MAX_STEP = BREADCRUMB_MAX_STEP
+            for step in ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS:
+                ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS[step] += 1
+            ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS["stepWelcome"] = 1
+            ubiquity.frontend.gtk_ui.BREADCRUMB_MAX_STEP += 1
             first_step = self.stepWelcome
         else:
             first_step = self.stepLanguage
