@@ -195,6 +195,16 @@ class Wizard(BaseFrontend):
         for page in SUBPAGES:
             add_subpage(self, steps, page)
 
+        if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
+            self.pages = [language.Language, timezone.Timezone,
+                console_setup.ConsoleSetup, partman.Partman,
+                usersetup.UserSetup, migrationassistant.MigrationAssistant,
+                summary.Summary]
+        else:
+            self.pages = [language.Language, timezone.Timezone,
+                console_setup.ConsoleSetup, partman.Partman,
+                usersetup.UserSetup, summary.Summary]
+
         self.translate_widgets()
 
         self.customize_installer()
@@ -342,19 +352,9 @@ class Wizard(BaseFrontend):
         self.hostname_changed_id = self.hostname.connect(
             'changed', self.on_hostname_changed)
 
-        if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
-            self.pages = [language.Language, timezone.Timezone,
-                console_setup.ConsoleSetup, partman.Partman,
-                usersetup.UserSetup, migrationassistant.MigrationAssistant,
-                summary.Summary]
-        else:
-            self.pages = [language.Language, timezone.Timezone,
-                console_setup.ConsoleSetup, partman.Partman,
-                usersetup.UserSetup, summary.Summary]
-            
         self.pagesindex = 0
         pageslen = len(self.pages)
-        
+
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             got_intro = False
             self.debconf_progress_start(0, pageslen,
@@ -392,7 +392,7 @@ class Wizard(BaseFrontend):
 
         if got_intro:
             gtk.main()
-        
+
         while(self.pagesindex < pageslen):
             if self.current_page == None:
                 break
@@ -464,7 +464,7 @@ class Wizard(BaseFrontend):
 
         if 'UBIQUITY_ONLY' in os.environ:
             self.live_installer.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DIALOG)
-        
+
         if self.oem_config:
             self.live_installer.set_title(self.get_string('oem_config_title'))
             self.oem_id_vbox.show()
@@ -573,7 +573,7 @@ class Wizard(BaseFrontend):
 
         for widget in self.all_widgets:
             self.translate_widget(widget, self.locale)
-        
+
         self.partition_button_undo.set_label(
             self.get_string('partman/text/undo_everything'))
 
@@ -763,7 +763,7 @@ class Wizard(BaseFrontend):
         else:
             print >>sys.stderr, 'No page found for %s' % n
             return
-        
+
         self.set_current_page(self.steps.page_num(cur))
         if not self.first_seen_page:
             self.first_seen_page = n
@@ -997,7 +997,7 @@ class Wizard(BaseFrontend):
 
         if step.startswith("stepPart"):
             self.previous_partitioning_page = step_num
-        
+
         elif step == "stepLanguage":
             self.translate_widgets()
             # FIXME: needed anymore now that we're doing dbfilter first?
@@ -2372,7 +2372,7 @@ class Wizard(BaseFrontend):
                     for item in choice['items']:
                         treestore.append(piter, [False, item])
                     choice['items'] = []
-            
+
             self.matreeview.set_model(treestore)
 
             renderer = gtk.CellRendererToggle()
@@ -2390,7 +2390,7 @@ class Wizard(BaseFrontend):
             self.matreeview.set_search_column(1)
 
         self.matreeview.show_all()
-        
+
         # Save the list so we can preserve state.
         self.ma_choices = choices
 
@@ -2471,7 +2471,7 @@ class Wizard(BaseFrontend):
         display = False
         summary_device = self.get_summary_device()
         grub_en = self.get_grub()
-        
+
         if summary_device is not None:
             display = True
             self.bootloader_vbox.show()
@@ -2537,7 +2537,7 @@ class Wizard(BaseFrontend):
             self.translate_widget(self.next, self.locale)
             self.backup = True
             self.installing = False
-    
+
     def error_dialog (self, title, msg, fatal=True):
         # TODO: cancel button as well if capb backup
         self.run_automation_error_cmd()
@@ -2869,7 +2869,7 @@ class ResizeWidget(gtk.HPaned):
         self.new_os.set_justify(gtk.JUSTIFY_CENTER)
         self.old_os.set_ellipsize(pango.ELLIPSIZE_END)
         self.new_os.set_ellipsize(pango.ELLIPSIZE_END)
-        
+
         color = gtk.gdk.color_parse('orange')
         frame = gtk.Frame()
         eb = gtk.EventBox()
@@ -2882,7 +2882,7 @@ class ResizeWidget(gtk.HPaned):
         eb.add(self.new_os)
         frame.add(eb)
         self.pack2(frame, shrink=False)
-        
+
         self.part_size = 0
         self.old_os_title = ''
         self.new_os_title = get_release_name()
@@ -2912,7 +2912,7 @@ class ResizeWidget(gtk.HPaned):
             format_size(percent * self.part_size))
         self.new_os.set_text(txt)
         self.new_os.set_tooltip_text(txt)
-        
+
     def set_min(self, size):
         self.min_size = size
 
@@ -2957,7 +2957,7 @@ class ResizeWidget(gtk.HPaned):
             return self.max_size
         else:
             return size
-            
+
     def get_value(self):
         '''Returns the percent the old partition is of the maximum size it can be.'''
         return int((float(self.get_size()) / self.max_size) * 100)
