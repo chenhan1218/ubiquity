@@ -58,23 +58,23 @@ class Install(ParentInstall):
 
         #We'll be needing the username, uid, gid
         user = self.db.get('passwd/username')
-        uid = gid = ''
+        self.uid = self.gid = ''
         try:
-            uid = self.db.get('passwd/user-uid')
+            self.uid = self.db.get('passwd/user-uid')
         except debconf.DebconfError:
             pass
         try:
-            gid = self.db.get('passwd/user-gid')
+            self.gid = self.db.get('passwd/user-gid')
         except debconf.DebconfError:
             pass
-        if uid == '':
-            uid = 1000
+        if self.uid == '':
+            self.uid = 1000
         else:
-            uid = int(uid)
-        if gid == '':
-            gid = 1000
+            self.uid = int(self.uid)
+        if self.gid == '':
+            self.gid = 1000
         else:
-            gid = int(gid)
+            self.gid = int(self.gid)
 
         #Create a .mythtv directory
         home_mythtv_dir = self.target + '/home/' + user + '/.mythtv'
@@ -83,7 +83,7 @@ class Install(ParentInstall):
             if os.path.islink(home_mythtv_dir) or os.path.exists(home_mythtv_dir):
                 os.remove(home_mythtv_dir)
             os.mkdir(home_mythtv_dir)
-            os.chown(home_mythtv_dir,uid,gid)
+            os.chown(home_mythtv_dir,self.uid,self.gid)
 
         #Remove mysql.txt from home directory if it's there, then make one
         sql_txt= home_mythtv_dir + '/mysql.txt'
@@ -98,10 +98,15 @@ class Install(ParentInstall):
 
         #mythtv.desktop autostart
         if 'Frontend' in self.type:
-            autostart_dir = self.target + '/home/' + user + '/.config/autostart/'
-            autostart_link = autostart_dir + 'mythtv.desktop'
+            config_dir = self.target + '/home/' + user + '/.config'
+            autostart_dir =  config_dir + '/autostart'
+            autostart_link = autostart_dir + '/mythtv.desktop'
+            if not os.path.isdir(config_dir):
+                os.makedirs(config_dir)
+                os.chown(config_dir,self.uid,self.gid)
             if not os.path.isdir(autostart_dir):
                 os.makedirs(autostart_dir)
+                os.chown(autostart_dir,self.uid,self.gid)
             elif os.path.islink(autostart_link) or os.path.exists(autostart_link):
                 os.remove(autostart_link)
             try:
@@ -263,7 +268,7 @@ class Install(ParentInstall):
         home = '/target/home/' + self.db.get('passwd/username')
         os.putenv('HOME',home)
         self.lirc.create_lircrc(self.target + "/etc/lirc/lircd.conf",False)
-        os.system('chown 1000:1000 -R ' + home)
+        os.system('chown ' + str(self.uid) + ':' + str(self.gid) + ' -R ' + home + '/.lirc*')
 
     def remove_extras(self):
         """Try to remove packages that are installed on the live CD but not on
