@@ -53,11 +53,11 @@ from mythbuntu_common.lirc import LircHandler
 from mythbuntu_common.mysql import MySQLHandler
 from mythbuntu_common.dictionaries import *
 
+#Mythbuntu ubiquity imports
+from ubiquity.components import mythbuntu, mythbuntu_install
+
 #Ubiquity imports
 from ubiquity.misc import *
-from ubiquity.components import console_setup, language, timezone, usersetup, \
-                                partman, partman_commit, \
-                                mythbuntu, mythbuntu_install
 import ubiquity.frontend.gtk_ui as ParentFrontend
 import ubiquity.components.mythbuntu_install
 ParentFrontend.install = ubiquity.components.mythbuntu_install
@@ -81,19 +81,19 @@ class Wizard(ParentFrontend.Wizard):
     def __init__(self, distro):
         #Remove migration assistant
         del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
-        place=ParentFrontend.BREADCRUMB_STEPS.pop("stepMigrationAssistant")
+        place=ParentFrontend.BREADCRUMB_STEPS["stepReady"]
 
         #Max steps
         ParentFrontend.BREADCRUMB_MAX_STEP = place + len(MYTHPAGES)
 
         #update location of summary page
         ParentFrontend.BREADCRUMB_STEPS["stepReady"]=place+len(MYTHPAGES)-1
-        
+
         #Add in final page
         final_page=MYTHPAGES.pop()
-        ParentFrontend.BREADCRUMB_STEPS[final_page]=place+len(MYTHPAGES)
+        ParentFrontend.BREADCRUMB_STEPS[final_page]=place+len(MYTHPAGES)+1
         ParentFrontend.SUBPAGES.append(final_page)
-        
+
         #Add in individual mythpages pages
         for string in MYTHPAGES:
             ParentFrontend.BREADCRUMB_STEPS[string]=place
@@ -155,17 +155,9 @@ class Wizard(ParentFrontend.Wizard):
         self.hostname_changed_id = self.hostname.connect(
             'changed', self.on_hostname_changed)
 
-        self.pages = [language.Language, timezone.Timezone,
-            console_setup.ConsoleSetup, partman.Partman,
-            usersetup.UserSetup, mythbuntu.MythbuntuAdvancedType,
-            mythbuntu.MythbuntuInstallType, mythbuntu.MythbuntuPlugins,
-            mythbuntu.MythbuntuThemes, mythbuntu.MythbuntuServices,
-            mythbuntu.MythbuntuPasswords, mythbuntu.MythbuntuRemote,
-            mythbuntu.MythbuntuDrivers, mythbuntu_install.Summary]
-            
         self.pagesindex = 0
         pageslen = len(self.pages)
-        
+
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             got_intro = False
             self.debconf_progress_start(0, pageslen,
@@ -192,9 +184,17 @@ class Wizard(ParentFrontend.Wizard):
             # default, but we'd rather a navigable widget had it.
             self.language_treeview.grab_focus()
 
+        if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
+            self.steps.remove_page(self.steps.page_num(self.stepMigrationAssistant))
+            for step in ParentFrontend.BREADCRUMB_STEPS:
+                if (ParentFrontend.BREADCRUMB_STEPS[step] >
+                    ParentFrontend.BREADCRUMB_STEPS["stepMigrationAssistant"]):
+                    ParentFrontend.BREADCRUMB_STEPS[step] -= 1
+            ParentFrontend.BREADCRUMB_MAX_STEP -= 1
+
         if got_intro:
             gtk.main()
-        
+
         while(self.pagesindex < pageslen):
             if self.current_page == None:
                 break
@@ -256,6 +256,17 @@ class Wizard(ParentFrontend.Wizard):
         #This requires disabling encrypted FS
         self.set_auto_login(True)
         self.login_encrypt.set_sensitive(False)
+
+        #Remove their summary page.  ours is better
+        self.pages.pop()
+
+        #Insert all of our pages
+        for page in [mythbuntu.MythbuntuAdvancedType,
+            mythbuntu.MythbuntuInstallType, mythbuntu.MythbuntuPlugins,
+            mythbuntu.MythbuntuThemes, mythbuntu.MythbuntuServices,
+            mythbuntu.MythbuntuPasswords, mythbuntu.MythbuntuRemote,
+            mythbuntu.MythbuntuDrivers, mythbuntu_install.Summary]:
+            self.pages.append(page)
 
         ParentFrontend.Wizard.customize_installer(self)
 
@@ -329,7 +340,7 @@ class Wizard(ParentFrontend.Wizard):
         self.video_driver.set_active(len(dictionary))
         self.tvoutstandard.set_active(0)
         self.tvouttype.set_active(0)
-    
+
     def populate_mysql(self):
         """Puts a new random mysql password into the UI for each run
            This ensures that passwords don't ever get cached"""
@@ -395,7 +406,7 @@ class Wizard(ParentFrontend.Wizard):
         config["server"]=self.mysql_server.get_text()
         config["database"]=self.mysql_database.get_text()
         self.mysql.update_config(config)
-        result=self.mysql.do_connection_test() 
+        result=self.mysql.do_connection_test()
         if result == "Successful":
             self.allow_go_forward(True)
         else:
