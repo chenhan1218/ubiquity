@@ -35,7 +35,6 @@ from install import InstallStepError
 from ubiquity.components import mythbuntu_install
 
 from mythbuntu_common.lirc import LircHandler
-from mythbuntu_common.mysql import MySQLHandler
 
 class Install(ParentInstall):
 
@@ -46,7 +45,6 @@ class Install(ParentInstall):
         ParentInstall.__init__(self)
 
         self.lirc=LircHandler()
-        self.mysql=MySQLHandler()
         self.type = self.db.get('mythbuntu/install_type')
 
         #This forces install_langpacks to do Nothing
@@ -120,21 +118,16 @@ class Install(ParentInstall):
            use module assistant, but we can instead run MySQL and mythweb config
            here"""
         self.db.progress('INFO', 'ubiquity/install/mythbuntu')
-        
-        #Check if we have a new mysql pass. If not, we'll generate one
-        config = {}
-        config["user"] = self.db.get('mythtv/mysql_mythtv_user')
-        config["password"] = self.db.get('mythtv/mysql_mythtv_password')
-        config["database"] = self.db.get('mythtv/mysql_mythtv_dbname')
-        config["server"] = self.db.get('mythtv/mysql_host')
-        self.mysql.update_config(config)
 
-        #Clear out "old" mysql.txt
-        sql_txt  = self.target + '/etc/mythtv/' + 'mysql.txt'
-        os.remove(sql_txt)
-        
-        #Write new mysql.txt
-        self.mysql.write_mysql_txt(sql_txt)
+        #Copy a few debconf questions that were answered in the installer
+        for question in ('mythweb/enable','mythweb/username','mythweb/password',\
+                         'mythtv/mysql_mythtv_user','mythtv/mysql_mythtv_password',\
+                         'mythtv/mysql_mythtv_dbname','mythtv/mysql_host'):
+            self.set_debconf(question,self.db.get(question))
+
+        #Setup mysql.txt nicely
+        os.remove(self.target + '/etc/mythtv/mysql.txt')
+        self.reconfigure('mythtv-common')
 
         #only reconfigure database if appropriate
         if 'Master' in self.type:
@@ -142,11 +135,8 @@ class Install(ParentInstall):
             self.reconfigure('mythtv-database')
             self.chrex('invoke-rc.d','mysql','stop')
             self.chrex('umount', '/proc')
-        
-        #FIXME:
-        # 1) only run a reconfigure on mythweb if we are keeping it
-        # 2) make sure digest is set up
-        # 3) move package inversion out
+
+        #Set up authentication on mythweb if necessary
         self.reconfigure('mythweb')
 
     def install_extras(self):
