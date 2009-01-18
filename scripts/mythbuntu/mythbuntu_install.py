@@ -109,7 +109,7 @@ class Install(ParentInstall):
             except OSError:
                 #on a live disk, this will appear a broken link, but it works
                 pass
-            
+
         #mythtv group membership
         self.chrex('adduser', user, 'mythtv')
 
@@ -163,31 +163,31 @@ class Install(ParentInstall):
             self.do_remove(to_remove)
         #Mark new items
         self.record_installed(to_install)
-        
+
         ParentInstall.install_extras(self)
-        
+
     def configure_hardware(self):
         """Overrides parent function to add in hooks for configuring
            drivers and services"""
-        
+
         #Drivers
         self.db.progress('INFO', 'ubiquity/install/drivers')
         control = mythbuntu_install.AdditionalDrivers(None,self.db)
         ret = control.run_command(auto_process=True)
         if ret != 0:
             raise InstallStepError("Additional Driver Configuration failed with code %d" % ret)
-        
+
         #Services
         self.db.progress('INFO', 'ubiquity/install/services')
         control = mythbuntu_install.AdditionalServices(None,self.db)
         ret = control.run_command(auto_process=True)
         if ret != 0:
             raise InstallStepError("Additional Service Configuration failed with code %d" % ret)
-        
+
         #Remotes & Transmitters
         self.db.progress('INFO', 'ubiquity/install/ir')
         self.configure_ir()
-        
+
         #Regular parent hardware configure f/n
         self.db.progress('INFO', 'ubiquity/install/hardware')
         ParentInstall.configure_hardware(self)
