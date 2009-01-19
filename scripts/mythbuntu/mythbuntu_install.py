@@ -127,7 +127,8 @@ class Install(ParentInstall):
         #Copy a few debconf questions that were answered in the installer
         for question in ('mythweb/enable','mythweb/username','mythweb/password',\
                          'mythtv/mysql_mythtv_user','mythtv/mysql_mythtv_password',\
-                         'mythtv/mysql_mythtv_dbname','mythtv/mysql_host'):
+                         'mythtv/mysql_mythtv_dbname','mythtv/mysql_host',\
+                         'mythtv/mysql_admin_password'):
             self.set_debconf(question,self.db.get(question))
 
         #Setup mysql.txt nicely
