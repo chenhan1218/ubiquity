@@ -129,7 +129,11 @@ class Install(ParentInstall):
                          'mythtv/mysql_mythtv_user','mythtv/mysql_mythtv_password',\
                          'mythtv/mysql_mythtv_dbname','mythtv/mysql_host',\
                          'mythtv/mysql_admin_password'):
-            self.set_debconf(question,self.db.get(question))
+            answer=self.db.get(question)
+            self.set_debconf(question,answer)
+            if question == 'mythtv/mysql_admin_password':
+                self.set_debconf('mysql-server/root_password',answer)
+                self.set_debconf('mysql-server/root_password_again',answer)
 
         #Setup mysql.txt nicely
         os.remove(self.target + '/etc/mythtv/mysql.txt')
@@ -137,8 +141,14 @@ class Install(ParentInstall):
 
         #only reconfigure database if appropriate
         if 'Master' in self.type:
+            #Prepare
             self.chrex('mount', '-t', 'proc', 'proc', '/proc')
+
+            #Setup database
+            self.reconfigure('mysql-server-5.0')
             self.reconfigure('mythtv-database')
+
+            #Cleanup
             self.chrex('invoke-rc.d','mysql','stop')
             self.chrex('umount', '/proc')
 
