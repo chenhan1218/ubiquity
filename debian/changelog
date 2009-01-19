@@ -1,4 +1,4 @@
-ubiquity (1.11.4) UNRELEASED; urgency=low
+ubiquity (1.11.4) jaunty; urgency=low
 
   [ Mario Limonciello ]
   * Mythbuntu specific changes:
@@ -17,7 +17,7 @@ ubiquity (1.11.4) UNRELEASED; urgency=low
   * Automatic update of included source packages: apt-setup
     1:0.37ubuntu9.
 
- -- Mario Limonciello <superm1@ubuntu.com>  Wed, 14 Jan 2009 21:52:30 -0600
+ -- Mario Limonciello <superm1@ubuntu.com>  Mon, 19 Jan 2009 08:28:50 -0600
 
 ubiquity (1.11.3) jaunty; urgency=low
 
