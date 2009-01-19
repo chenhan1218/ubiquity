@@ -60,9 +60,8 @@ from ubiquity.components import mythbuntu, mythbuntu_install
 #Ubiquity imports
 from ubiquity.misc import *
 import ubiquity.frontend.gtk_ui as ParentFrontend
-import ubiquity.components.mythbuntu_install
-ParentFrontend.install = ubiquity.components.mythbuntu_install
-ParentFrontend.summary = ubiquity.components.mythbuntu_install
+ParentFrontend.install = mythbuntu_install
+ParentFrontend.summary = mythbuntu_install
 
 MYTHPAGES = [
     "mythbuntu_stepInstallType",
