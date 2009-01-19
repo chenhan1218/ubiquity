@@ -20,6 +20,7 @@
 
 from ubiquity.misc import create_bool
 from ubiquity.filteredcommand import FilteredCommand
+from threading import Timer
 
 class MythbuntuAdvancedType(FilteredCommand):
 #enable advanced preseeding
@@ -223,3 +224,14 @@ class MythbuntuDrivers(FilteredCommand):
             else:
                 self.preseed('mythbuntu/' + this_driver, drivers[this_driver])
         FilteredCommand.ok_handler(self)
+
+class MythbuntuPageSkipper():
+    def __init__(self,frontend):
+        self.frontend=frontend
+        self.timer=Timer(0.05,self.close_fn)
+
+    def start(self,auto_process):
+        self.timer.start()
+
+    def close_fn(self):
+        self.frontend.quit_main_loop()
