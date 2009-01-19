@@ -1,14 +1,19 @@
 ubiquity (1.11.4) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
-  * Don't reinvent the square with mythbuntu autologin.  It's provided 
-    by user-setup, so use it there.
-  * Eliminate mythbuntu_summary.py, and instead merge it into
-    mythbuntu_install.py
-  * Change function overrides in mythbuntu_install.py so run() can
-    be used from install.py without code duplication in mythbuntu_install.py.
-  * Change function overrides in mythbuntu_ui.py.  The only function remaining
-    with code duplication is the run() function.
+  * Mythbuntu specific changes:
+    - Don't reinvent the square with autologin.  It's provided 
+      by user-setup, so use it there.
+    - Eliminate mythbuntu_summary.py, and instead merge it into
+      mythbuntu_install.py
+    - Change definition overrides in mythbuntu_install.py so run() can
+      be used from install.py without code duplication in mythbuntu_install.py.
+      (LP: #178987), (LP: #201397), (LP: #293268)
+    - Change function overrides in mythbuntu_ui.py.  There should be no
+      full definition code duplication anymore.
+  * GTK specific changes:
+    - Move declaration of self.pages into __init__ instead so that it can
+      more easily overridden outside of run().
 
  -- Mario Limonciello <superm1@ubuntu.com>  Wed, 14 Jan 2009 21:52:30 -0600
 

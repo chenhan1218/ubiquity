@@ -35,7 +35,6 @@ from install import InstallStepError
 from ubiquity.components import mythbuntu_install
 
 from mythbuntu_common.lirc import LircHandler
-from mythbuntu_common.mysql import MySQLHandler
 
 class Install(ParentInstall):
 
@@ -46,7 +45,6 @@ class Install(ParentInstall):
         ParentInstall.__init__(self)
 
         self.lirc=LircHandler()
-        self.mysql=MySQLHandler()
         self.type = self.db.get('mythbuntu/install_type')
 
         #This forces install_langpacks to do Nothing
@@ -60,23 +58,23 @@ class Install(ParentInstall):
 
         #We'll be needing the username, uid, gid
         user = self.db.get('passwd/username')
-        uid = gid = ''
+        self.uid = self.gid = ''
         try:
-            uid = self.db.get('passwd/user-uid')
+            self.uid = self.db.get('passwd/user-uid')
         except debconf.DebconfError:
             pass
         try:
-            gid = self.db.get('passwd/user-gid')
+            self.gid = self.db.get('passwd/user-gid')
         except debconf.DebconfError:
             pass
-        if uid == '':
-            uid = 1000
+        if self.uid == '':
+            self.uid = 1000
         else:
-            uid = int(uid)
-        if gid == '':
-            gid = 1000
+            self.uid = int(self.uid)
+        if self.gid == '':
+            self.gid = 1000
         else:
-            gid = int(gid)
+            self.gid = int(self.gid)
 
         #Create a .mythtv directory
         home_mythtv_dir = self.target + '/home/' + user + '/.mythtv'
@@ -85,7 +83,7 @@ class Install(ParentInstall):
             if os.path.islink(home_mythtv_dir) or os.path.exists(home_mythtv_dir):
                 os.remove(home_mythtv_dir)
             os.mkdir(home_mythtv_dir)
-            os.chown(home_mythtv_dir,uid,gid)
+            os.chown(home_mythtv_dir,self.uid,self.gid)
 
         #Remove mysql.txt from home directory if it's there, then make one
         sql_txt= home_mythtv_dir + '/mysql.txt'
@@ -100,10 +98,15 @@ class Install(ParentInstall):
 
         #mythtv.desktop autostart
         if 'Frontend' in self.type:
-            autostart_dir = self.target + '/home/' + user + '/.config/autostart/'
-            autostart_link = autostart_dir + 'mythtv.desktop'
+            config_dir = self.target + '/home/' + user + '/.config'
+            autostart_dir =  config_dir + '/autostart'
+            autostart_link = autostart_dir + '/mythtv.desktop'
+            if not os.path.isdir(config_dir):
+                os.makedirs(config_dir)
+                os.chown(config_dir,self.uid,self.gid)
             if not os.path.isdir(autostart_dir):
                 os.makedirs(autostart_dir)
+                os.chown(autostart_dir,self.uid,self.gid)
             elif os.path.islink(autostart_link) or os.path.exists(autostart_link):
                 os.remove(autostart_link)
             try:
@@ -111,7 +114,7 @@ class Install(ParentInstall):
             except OSError:
                 #on a live disk, this will appear a broken link, but it works
                 pass
-            
+
         #mythtv group membership
         self.chrex('adduser', user, 'mythtv')
 
@@ -120,33 +123,36 @@ class Install(ParentInstall):
            use module assistant, but we can instead run MySQL and mythweb config
            here"""
         self.db.progress('INFO', 'ubiquity/install/mythbuntu')
-        
-        #Check if we have a new mysql pass. If not, we'll generate one
-        config = {}
-        config["user"] = self.db.get('mythtv/mysql_mythtv_user')
-        config["password"] = self.db.get('mythtv/mysql_mythtv_password')
-        config["database"] = self.db.get('mythtv/mysql_mythtv_dbname')
-        config["server"] = self.db.get('mythtv/mysql_host')
-        self.mysql.update_config(config)
 
-        #Clear out "old" mysql.txt
-        sql_txt  = self.target + '/etc/mythtv/' + 'mysql.txt'
-        os.remove(sql_txt)
-        
-        #Write new mysql.txt
-        self.mysql.write_mysql_txt(sql_txt)
+        #Copy a few debconf questions that were answered in the installer
+        for question in ('mythweb/enable','mythweb/username','mythweb/password',\
+                         'mythtv/mysql_mythtv_user','mythtv/mysql_mythtv_password',\
+                         'mythtv/mysql_mythtv_dbname','mythtv/mysql_host',\
+                         'mythtv/mysql_admin_password'):
+            answer=self.db.get(question)
+            self.set_debconf(question,answer)
+            if question == 'mythtv/mysql_admin_password':
+                self.set_debconf('mysql-server/root_password',answer)
+                self.set_debconf('mysql-server/root_password_again',answer)
+
+        #Setup mysql.txt nicely
+        os.remove(self.target + '/etc/mythtv/mysql.txt')
+        self.reconfigure('mythtv-common')
 
         #only reconfigure database if appropriate
         if 'Master' in self.type:
+            #Prepare
             self.chrex('mount', '-t', 'proc', 'proc', '/proc')
+
+            #Setup database
+            self.reconfigure('mysql-server-5.0')
             self.reconfigure('mythtv-database')
+
+            #Cleanup
             self.chrex('invoke-rc.d','mysql','stop')
             self.chrex('umount', '/proc')
-        
-        #FIXME:
-        # 1) only run a reconfigure on mythweb if we are keeping it
-        # 2) make sure digest is set up
-        # 3) move package inversion out
+
+        #Set up authentication on mythweb if necessary
         self.reconfigure('mythweb')
 
     def install_extras(self):
@@ -173,31 +179,31 @@ class Install(ParentInstall):
             self.do_remove(to_remove)
         #Mark new items
         self.record_installed(to_install)
-        
+
         ParentInstall.install_extras(self)
-        
+
     def configure_hardware(self):
         """Overrides parent function to add in hooks for configuring
            drivers and services"""
-        
+
         #Drivers
         self.db.progress('INFO', 'ubiquity/install/drivers')
         control = mythbuntu_install.AdditionalDrivers(None,self.db)
         ret = control.run_command(auto_process=True)
         if ret != 0:
             raise InstallStepError("Additional Driver Configuration failed with code %d" % ret)
-        
+
         #Services
         self.db.progress('INFO', 'ubiquity/install/services')
         control = mythbuntu_install.AdditionalServices(None,self.db)
         ret = control.run_command(auto_process=True)
         if ret != 0:
             raise InstallStepError("Additional Service Configuration failed with code %d" % ret)
-        
+
         #Remotes & Transmitters
         self.db.progress('INFO', 'ubiquity/install/ir')
         self.configure_ir()
-        
+
         #Regular parent hardware configure f/n
         self.db.progress('INFO', 'ubiquity/install/hardware')
         ParentInstall.configure_hardware(self)
@@ -273,7 +279,7 @@ class Install(ParentInstall):
         home = '/target/home/' + self.db.get('passwd/username')
         os.putenv('HOME',home)
         self.lirc.create_lircrc(self.target + "/etc/lirc/lircd.conf",False)
-        os.system('chown 1000:1000 -R ' + home)
+        os.system('chown ' + str(self.uid) + ':' + str(self.gid) + ' -R ' + home + '/.lirc*')
 
     def remove_extras(self):
         """Try to remove packages that are installed on the live CD but not on

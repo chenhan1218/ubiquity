@@ -45,6 +45,7 @@ import string
 import subprocess
 import syslog
 import signal
+import inspect
 
 import gtk
 
@@ -53,15 +54,14 @@ from mythbuntu_common.lirc import LircHandler
 from mythbuntu_common.mysql import MySQLHandler
 from mythbuntu_common.dictionaries import *
 
+#Mythbuntu ubiquity imports
+from ubiquity.components import mythbuntu, mythbuntu_install
+
 #Ubiquity imports
 from ubiquity.misc import *
-from ubiquity.components import console_setup, language, timezone, usersetup, \
-                                partman, partman_commit, \
-                                mythbuntu, mythbuntu_install
 import ubiquity.frontend.gtk_ui as ParentFrontend
-import ubiquity.components.mythbuntu_install
-ParentFrontend.install = ubiquity.components.mythbuntu_install
-ParentFrontend.summary = ubiquity.components.mythbuntu_install
+ParentFrontend.install = mythbuntu_install
+ParentFrontend.summary = mythbuntu_install
 
 MYTHPAGES = [
     "mythbuntu_stepInstallType",
@@ -81,19 +81,19 @@ class Wizard(ParentFrontend.Wizard):
     def __init__(self, distro):
         #Remove migration assistant
         del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
-        place=ParentFrontend.BREADCRUMB_STEPS.pop("stepMigrationAssistant")
+        place=ParentFrontend.BREADCRUMB_STEPS["stepReady"]
 
         #Max steps
         ParentFrontend.BREADCRUMB_MAX_STEP = place + len(MYTHPAGES)
 
         #update location of summary page
         ParentFrontend.BREADCRUMB_STEPS["stepReady"]=place+len(MYTHPAGES)-1
-        
+
         #Add in final page
         final_page=MYTHPAGES.pop()
-        ParentFrontend.BREADCRUMB_STEPS[final_page]=place+len(MYTHPAGES)
+        ParentFrontend.BREADCRUMB_STEPS[final_page]=place+len(MYTHPAGES)+1
         ParentFrontend.SUBPAGES.append(final_page)
-        
+
         #Add in individual mythpages pages
         for string in MYTHPAGES:
             ParentFrontend.BREADCRUMB_STEPS[string]=place
@@ -102,147 +102,37 @@ class Wizard(ParentFrontend.Wizard):
 
         ParentFrontend.Wizard.__init__(self,distro)
 
-    def run(self):
-        """run the interface."""
-        def skip_pages(old_backup,old_name,new_name):
-            """Skips a mythbuntu page if we should"""
-            advanced=self.get_advanced()
-            #advanced install conditionally skips a few pages
-            if advanced:
+    def allow_change_step(self,allow):
+        """Normally used to determine if we can progress pages.  We have to override
+           this function to determine whether this is a skippable page."""
+
+        #This skipping condition only happens when called with False
+        if not allow:
+            #do stuff only if we are getting called from a function
+            #called run.  No not too ambiguous, right?
+            if inspect.stack()[1][3] == 'run':
+                new_name = self.dbfilter.__class__.__name__
+                advanced=self.get_advanced()
                 type = self.get_installtype()
-                if (type == "Master Backend" or type == "Slave Backend") and \
-                   (new_name == 'MythbuntuThemes' or new_name == 'MythbuntuRemote'):
-                    if not old_backup:
+                if (not advanced and \
+                                     (new_name == 'MythbuntuInstallType' or \
+                                      new_name == 'MythbuntuPlugins' or \
+                                      new_name == 'MythbuntuThemes' or \
+                                      new_name == 'MythbuntuServices' or \
+                                      new_name == 'MythbuntuPasswords')) or \
+                   ('Frontend' not in type and \
+                                     (new_name == 'MythbuntuThemes' or \
+                                      new_name == 'MythbuntuRemote')):
+                    self.dbfilter.start(auto_process=True)
+                    if not self.backup:
                         self.dbfilter.ok_handler()
                     else:
                         self.dbfilter.cancel_handler()
-                        self.backup=True
-            #standard install should fly right through forward
-            else:
-                if new_name == 'MythbuntuInstallType' or \
-                   new_name == 'MythbuntuPlugins' or \
-                   new_name == 'MythbuntuThemes' or \
-                   new_name == 'MythbuntuServices' or \
-                   new_name == 'MythbuntuPasswords':
-                    if not old_backup:
-                        self.dbfilter.ok_handler()
-                    else:
-                        self.dbfilter.cancel_handler()
-                        self.backup=True
+                    self.dbfilter = mythbuntu.MythbuntuPageSkipper(self)
+                    self.dbfilter_status=None
 
-        if os.getuid() != 0:
-            title = ('This installer must be run with administrative '
-                     'privileges, and cannot continue without them.')
-            dialog = gtk.MessageDialog(self.live_installer, gtk.DIALOG_MODAL,
-                                       gtk.MESSAGE_ERROR, gtk.BUTTONS_CLOSE,
-                                       title)
-            dialog.run()
-            sys.exit(1)
-
-        self.disable_volume_manager()
-
-        # show interface
-        got_intro = self.show_intro()
-        self.allow_change_step(True)
-
-        # Declare SignalHandler
-        self.glade.signal_autoconnect(self)
-
-        # Some signals need to be connected by hand so that we have the
-        # handler ids.
-        self.username_changed_id = self.username.connect(
-            'changed', self.on_username_changed)
-        self.hostname_changed_id = self.hostname.connect(
-            'changed', self.on_hostname_changed)
-
-        self.pages = [language.Language, timezone.Timezone,
-            console_setup.ConsoleSetup, partman.Partman,
-            usersetup.UserSetup, mythbuntu.MythbuntuAdvancedType,
-            mythbuntu.MythbuntuInstallType, mythbuntu.MythbuntuPlugins,
-            mythbuntu.MythbuntuThemes, mythbuntu.MythbuntuServices,
-            mythbuntu.MythbuntuPasswords, mythbuntu.MythbuntuRemote,
-            mythbuntu.MythbuntuDrivers, mythbuntu_install.Summary]
-            
-        self.pagesindex = 0
-        pageslen = len(self.pages)
-        
-        if 'UBIQUITY_AUTOMATIC' in os.environ:
-            got_intro = False
-            self.debconf_progress_start(0, pageslen,
-                self.get_string('ubiquity/install/checking'))
-            self.refresh()
-
-        # Start the interface
-        if got_intro:
-            for step in ParentFrontend.BREADCRUMB_STEPS:
-                ParentFrontend.BREADCRUMB_STEPS[step] += 1
-            ParentFrontend.BREADCRUMB_STEPS["stepWelcome"] = 1
-            ParentFrontend.BREADCRUMB_MAX_STEP += 1
-            first_step = self.stepWelcome
-        else:
-            first_step = self.stepLanguage
-        self.set_current_page(self.steps.page_num(first_step))
-        if got_intro:
-            # intro_label was the only focusable widget, but got can-focus
-            # removed, so we end up with no input focus and thus pressing
-            # Enter doesn't activate the default widget. Work around this.
-            self.next.grab_focus()
-        else:
-            # Similarly, the Quit button seems to end up with focus by
-            # default, but we'd rather a navigable widget had it.
-            self.language_treeview.grab_focus()
-
-        if got_intro:
-            gtk.main()
-        
-        while(self.pagesindex < pageslen):
-            if self.current_page == None:
-                break
-
-            old_backup = self.backup
-            self.backup = False
-            old_dbfilter = self.dbfilter
-            self.dbfilter = self.pages[self.pagesindex](self)
-
-            # Non-debconf steps are no longer possible as the interface is now
-            # driven by whether there is a question to ask.
-            if self.dbfilter is not None and self.dbfilter != old_dbfilter:
-                self.allow_change_step(False)
-                self.dbfilter.start(auto_process=True)
-                skip_pages(old_backup,old_dbfilter.__class__.__name__,self.dbfilter.__class__.__name__)
-            gtk.main()
-
-            if self.backup or self.dbfilter_handle_status():
-                if self.installing:
-                    self.progress_loop()
-                elif self.current_page is not None and not self.backup:
-                    self.process_step()
-                    if not self.stay_on_page:
-                        self.pagesindex = self.pagesindex + 1
-                    if 'UBIQUITY_AUTOMATIC' in os.environ:
-                        # if no debconf_progress, create another one, set start to pageindex
-                        self.debconf_progress_step(1)
-                        self.refresh()
-                if self.backup:
-                    if self.pagesindex > 0:
-                        step = self.step_name(self.steps.get_current_page())
-                        if not step == 'stepPartAdvanced':
-                            self.pagesindex = self.pagesindex - 1
-
-            while gtk.events_pending():
-                gtk.main_iteration()
-
-            # needed to be here for --automatic as there might not be any
-            # current page in the event all of the questions have been
-            # preseeded.
-            if self.pagesindex == pageslen:
-                # Ready to install
-                self.live_installer.hide()
-                self.current_page = None
-                self.installing = True
-                self.progress_loop()
-        return self.returncode
-
+        #Finally do something releated to step changing
+        ParentFrontend.Wizard.allow_change_step(self,allow)
 
     def customize_installer(self):
         """Initial UI setup."""
@@ -256,6 +146,17 @@ class Wizard(ParentFrontend.Wizard):
         #This requires disabling encrypted FS
         self.set_auto_login(True)
         self.login_encrypt.set_sensitive(False)
+
+        #Remove their summary page.  ours is better
+        self.pages.pop()
+
+        #Insert all of our pages
+        for page in [mythbuntu.MythbuntuAdvancedType,
+            mythbuntu.MythbuntuInstallType, mythbuntu.MythbuntuPlugins,
+            mythbuntu.MythbuntuThemes, mythbuntu.MythbuntuServices,
+            mythbuntu.MythbuntuPasswords, mythbuntu.MythbuntuRemote,
+            mythbuntu.MythbuntuDrivers, mythbuntu_install.Summary]:
+            self.pages.append(page)
 
         ParentFrontend.Wizard.customize_installer(self)
 
@@ -329,7 +230,7 @@ class Wizard(ParentFrontend.Wizard):
         self.video_driver.set_active(len(dictionary))
         self.tvoutstandard.set_active(0)
         self.tvouttype.set_active(0)
-    
+
     def populate_mysql(self):
         """Puts a new random mysql password into the UI for each run
            This ensures that passwords don't ever get cached"""
@@ -395,7 +296,7 @@ class Wizard(ParentFrontend.Wizard):
         config["server"]=self.mysql_server.get_text()
         config["database"]=self.mysql_database.get_text()
         self.mysql.update_config(config)
-        result=self.mysql.do_connection_test() 
+        result=self.mysql.do_connection_test()
         if result == "Successful":
             self.allow_go_forward(True)
         else:
