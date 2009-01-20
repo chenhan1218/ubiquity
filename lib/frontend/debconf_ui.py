@@ -35,13 +35,6 @@ from oem_config.components import console_setup, language, timezone, user, \
                                   console_setup_apply
 from oem_config.frontend.base import BaseFrontend
 
-PAGES = [
-    'step_language',
-    'step_timezone',
-    'step_keyboard',
-    'step_user',
-]
-
 class Frontend(BaseFrontend):
     def __init__(self):
         BaseFrontend.__init__(self)
@@ -78,8 +71,8 @@ class Frontend(BaseFrontend):
 
         self.current_page = 0
 
-        while self.current_page >= 0 and self.current_page < len(PAGES):
-            current_name = PAGES[self.current_page]
+        while self.current_page >= 0 and self.current_page < len(self.pages):
+            current_name = self.pages[self.current_page]
             if current_name == 'step_language':
                 self.db.settitle('oem-config/text/language_heading_label')
                 step = language.Language(self, self.db)
@@ -103,7 +96,7 @@ class Frontend(BaseFrontend):
                 self.current_page += 1
 
         # TODO: handle errors
-        if self.current_page >= len(PAGES):
+        if self.current_page >= len(self.pages):
             self.db.progress('START', 0, 3, 'oem-config/text/applying')
 
             step = language_apply.LanguageApply(self, self.db)

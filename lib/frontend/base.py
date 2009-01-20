@@ -41,6 +41,15 @@ class BaseFrontend:
         self.dbfilter_status = None
         self.current_layout = None
 
+        # Pages to load. Interpretation is up to the frontend, but it is
+        # strongly recommended to keep the page identifiers the same.
+        self.pages = [
+            "step_language",
+            "step_timezone",
+            "step_keyboard",
+            "step_user",
+        ]
+
     def _abstract(self, method):
         raise NotImplementedError("%s.%s does not implement %s" %
                                   (self.__class__.__module__,

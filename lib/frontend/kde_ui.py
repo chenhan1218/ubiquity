@@ -42,15 +42,6 @@ from oem_config.frontend.base import BaseFrontend
 
 UIDIR = '/usr/share/oem-config/qt'
 
-WIDGET_STACK_STEPS = {
-    "step_language": 0,
-    "step_timezone": 1,
-    "step_keyboard": 2,
-    "step_user": 3
-}
-
-WIDGET_STACK_MAX_STEPS = 3
-
 class OEMConfUI(QWidget):
 
     def __init__(self, parent):
@@ -158,8 +149,6 @@ class Frontend(BaseFrontend):
         self.previous_excepthook(exctype, excvalue, exctb)
 
     def run(self):
-        global WIDGET_STACK_STEPS, WIDGET_STACK_MAX_STEPS
-
         if os.getuid() != 0:
             title = ('This installer must be run with administrative '
                      'privileges, and cannot continue without them.')
@@ -209,7 +198,7 @@ class Frontend(BaseFrontend):
             else:
                 if self.current_step == 'step_language':
                     self.translate_widgets()
-                self.userinterface.stackedWidget.setCurrentIndex(WIDGET_STACK_STEPS[curr]+1)
+                self.userinterface.stackedWidget.setCurrentIndex(self.pages.index(curr) + 1)
                 self.set_current_page()
             self.app.processEvents()
         if self.apply_changes:
@@ -224,7 +213,6 @@ class Frontend(BaseFrontend):
 
 
     def customize_installer(self):
-        global WIDGET_STACK_MAX_STEPS
         self.step_icon_size = QSize(32,32)
         self.step_icons = [self.userinterface.step_icon_lang, self.userinterface.step_icon_loc, \
                            self.userinterface.step_icon_key, self.userinterface.step_icon_user]
@@ -238,7 +226,7 @@ class Frontend(BaseFrontend):
             self.step_icons_path = ["locale.png", "clock.png", "keyboard_layout.png", "userconfig.png"]
         self.step_labels_text = [self.userinterface.language_heading_label.text(),self.userinterface.timezone_heading_label.text(), \
                                 self.userinterface.keyboard_heading_label.text(), self.userinterface.user_heading_label.text()]
-        for icon in range(WIDGET_STACK_MAX_STEPS+1):
+        for icon in range(len(self.pages)):
             self.step_icons[icon].setPixmap(QPixmap(str(self.step_icons_path_prefix+self.step_icons_path[icon])))
 
     # Internationalisation.
@@ -357,12 +345,11 @@ p, li { white-space: pre-wrap; }
     def on_language_treeview_selection_changed(self):
         lang = self.selected_language()
         if lang:
-            global WIDGET_STACK_MAX_STEPS
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
             for widget in (self.userinterface, self.userinterface.language_label, self.userinterface.welcome_label, self.userinterface.back, self.userinterface.next):
                 self.translate_widget(widget, lang)
-            for step in range(WIDGET_STACK_MAX_STEPS + 1):
+            for step in range(len(self.pages)):
                 self.translate_widget(self.step_labels[step], lang)
                 self.step_labels_text[step] = self.step_labels[step].text()
 
@@ -494,7 +481,7 @@ p, li { white-space: pre-wrap; }
         curr = str(self.get_current_step())
         self.backup = True
         if self.dbfilter is not None:
-            self.userinterface.stackedWidget.setCurrentIndex(WIDGET_STACK_STEPS[curr]-1)
+            self.userinterface.stackedWidget.setCurrentIndex(self.pages.index(curr) - 1)
             self.allow_change_step(False)
             self.dbfilter.cancel_handler()
             self.set_current_page()
@@ -507,8 +494,8 @@ p, li { white-space: pre-wrap; }
             self.dbfilter.ok_handler()
 
     def set_current_page(self):
-        global WIDGET_STACK_STEPS, WIDGET_STACK_MAX_STEP
         current_name = self.get_current_step()
+        current_page = self.pages.index(str(current_name))
         if current_name == 'step_language':
             self.userinterface.back.hide()
         else:
@@ -521,15 +508,15 @@ p, li { white-space: pre-wrap; }
         for icon in self.step_icons:
             pixmap = QIcon(icon.pixmap()).pixmap(self.step_icon_size, QIcon.Disabled)
             icon.setPixmap(pixmap)
-        for step in range(WIDGET_STACK_MAX_STEPS+1):
+        for step in range(len(self.pages)):
             self.step_labels_text[step].replace("p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">  <span style=\" font-size:13pt; font-weight:800; font-style:italic;\">","<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">  <span style=\" font-size:13pt; color:gray;\">")
             self.step_labels[step].setText(self.step_labels_text[step])
-        current_icon = self.step_icons[WIDGET_STACK_STEPS[str(current_name)]]
-        current_pixmap = QPixmap(str(self.step_icons_path_prefix+self.step_icons_path[WIDGET_STACK_STEPS[str(current_name)]]))
+        current_icon = self.step_icons[current_page]
+        current_pixmap = QPixmap(str(self.step_icons_path_prefix+self.step_icons_path[current_page]))
         current_icon.setPixmap(current_pixmap)
-        current_label_text = self.step_labels_text[WIDGET_STACK_STEPS[str(current_name)]]
+        current_label_text = self.step_labels_text[current_page]
         current_label_text.replace("<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">  <span style=\" font-size:13pt; color:gray;\">","<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">  <span style=\" font-size:13pt; font-weight:800; font-style:italic;\">")
-        self.step_labels[WIDGET_STACK_STEPS[str(current_name)]].setText(current_label_text)
+        self.step_labels[current_page].setText(current_label_text)
 
     def allow_change_step(self, allowed):
         if allowed:

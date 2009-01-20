@@ -1,6 +1,10 @@
 oem-config (1.54.3) UNRELEASED; urgency=low
 
   * Suppress user-setup's encrypted home directory question in OEM mode.
+  * Simplify page/step handling; the list of pages is now in BaseFrontend,
+    and step indices are calculated directly from that. (This won't quite
+    work for Ubiquity as-is, because it can't yet handle multi-page steps
+    such as Ubiquity's partitioner.)
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 16 Jan 2009 15:50:45 +0000
 

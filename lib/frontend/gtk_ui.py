@@ -42,22 +42,6 @@ from oem_config.frontend.base import BaseFrontend
 PATH = '/usr/share/oem-config'
 GLADEDIR = '/usr/share/oem-config/glade'
 
-BREADCRUMB_STEPS = {
-    "step_language": 1,
-    "step_timezone": 2,
-    "step_keyboard": 3,
-    "step_user": 4,
-}
-BREADCRUMB_MAX_STEP = 4
-
-# Define what pages of the UI we want to load.
-SUBPAGES = [
-    "step_language",
-    "step_timezone",
-    "step_keyboard",
-    "step_user",
-]
-
 class Frontend(BaseFrontend):
     def __init__(self):
         def add_subpage(self, steps, name):
@@ -113,7 +97,7 @@ class Frontend(BaseFrontend):
         add_widgets(self, self.glade)
 
         steps = self.glade.get_widget("steps")
-        for page in SUBPAGES:
+        for page in self.pages:
             add_subpage(self, steps, page)
 
         # Hack to only show the scrollbars on the language selector when the
@@ -270,14 +254,15 @@ class Frontend(BaseFrontend):
 
         if isinstance(widget, gtk.Label):
             if name == 'step_label':
-                global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
                 curstep = '?'
                 if self.current_page is not None:
-                    current_name = self.step_name(self.current_page)
-                    if current_name in BREADCRUMB_STEPS:
-                        curstep = str(BREADCRUMB_STEPS[current_name])
+                    # TODO cjwatson 2009-01-20: This is a compromise. It
+                    # doesn't work with multi-page steps (e.g. partitioning
+                    # in ubiquity), but it simplifies page configuration
+                    # quite a bit.
+                    curstep = str(self.current_page + 1)
                 text = text.replace('${INDEX}', curstep)
-                text = text.replace('${TOTAL}', str(BREADCRUMB_MAX_STEP))
+                text = text.replace('${TOTAL}', str(self.steps.get_n_pages()))
             widget.set_text(text)
 
             # Ideally, these attributes would be in the glade file somehow ...
@@ -358,7 +343,6 @@ class Frontend(BaseFrontend):
         return self.steps.get_nth_page(step_index).get_name()
 
     def set_current_page(self, current):
-        global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
         self.current_page = current
         self.translate_widget(self.step_label, self.locale)
         if current == 0:
