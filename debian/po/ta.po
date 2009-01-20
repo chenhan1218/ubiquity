@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
-"POT-Creation-Date: 2008-09-16 12:23+0100\n"
+"POT-Creation-Date: 2009-01-20 14:50+0000\n"
 "PO-Revision-Date: 2008-05-20 14:57+0000\n"
 "Last-Translator: drtvasudevan <Unknown>\n"
 "Language-Team: TAMIL <ubuntu-l10n-tam@lists.ubuntu.com>\n"
@@ -151,6 +151,13 @@ msgstr "உள்ளீட்டுப் பிழைகளை தவிர்�
 msgid "Log in automatically"
 msgstr ""
 
+#. Type: text
+#. Description
+#: ../oem-config.templates:23001
+#, fuzzy
+msgid "Applying configuration"
+msgstr "ஆப்ட் வடிவமைப்பு பிரச்சினை"
+
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
@@ -160,8 +167,15 @@ msgstr ""
 
 #. Type: text
 #. Description
+#. Translators: OEM stands for "Original Equipment Manufacturer", used in
+#. this case to describe an organisation that pre-installs the operating
+#. system on hardware and then sells the result to end users. These strings
+#. will typically only be displayed to OEMs themselves, so you don't have to
+#. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-msgid "Prepare for end-user configuration"
+#, fuzzy
+#| msgid "Prepare for end-user configuration"
+msgid "Prepare for OEM configuration"
 msgstr "பயனர் வடிவமைப்புக்கு தயார் செய்க."
 
 #. Type: text
@@ -169,14 +183,14 @@ msgstr "பயனர் வடிவமைப்புக்கு தயார�
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
 #, fuzzy
-msgid "Preparing for end-user configuration..."
+msgid "Preparing for OEM configuration..."
 msgstr "யாபூட் வடிவமைப்பை உருவாக்குகிறது"
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
 #, fuzzy
-msgid "Ready for end-user configuration"
+msgid "Ready for OEM configuration"
 msgstr "வலையமைப்பை சுயவடிவமைக்க மீண்டும் முயற்சி செய்க"
 
 #. Type: text

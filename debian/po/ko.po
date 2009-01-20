@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
-"POT-Creation-Date: 2008-09-16 12:23+0100\n"
+"POT-Creation-Date: 2009-01-20 14:50+0000\n"
 "PO-Revision-Date: 2008-05-20 14:48+0000\n"
 "Last-Translator: Sunjae Park <darehanl@gmail.com>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
@@ -147,6 +147,14 @@ msgstr "암호를 다시 입력하세요. 오타를 확인할 수 있습니다."
 msgid "Log in automatically"
 msgstr ""
 
+#. Type: text
+#. Description
+#: ../oem-config.templates:23001
+#, fuzzy
+#| msgid "System Configuration"
+msgid "Applying configuration"
+msgstr "시스템 설정"
+
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
@@ -156,21 +164,32 @@ msgstr "OEM 모드(제조사 전용)"
 
 #. Type: text
 #. Description
+#. Translators: OEM stands for "Original Equipment Manufacturer", used in
+#. this case to describe an organisation that pre-installs the operating
+#. system on hardware and then sells the result to end users. These strings
+#. will typically only be displayed to OEMs themselves, so you don't have to
+#. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-msgid "Prepare for end-user configuration"
+#, fuzzy
+#| msgid "Prepare for end-user configuration"
+msgid "Prepare for OEM configuration"
 msgstr "사용자 설정 준비"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-msgid "Preparing for end-user configuration..."
+#, fuzzy
+#| msgid "Preparing for end-user configuration..."
+msgid "Preparing for OEM configuration..."
 msgstr "사용자 설정을 준비하는 중입니다"
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-msgid "Ready for end-user configuration"
+#, fuzzy
+#| msgid "Ready for end-user configuration"
+msgid "Ready for OEM configuration"
 msgstr "사용자 설정 준비됨"
 
 #. Type: text

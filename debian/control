@@ -14,7 +14,7 @@ Recommends: hwtest
 Conflicts: oem-config-keyboard, oem-config-locale, oem-config-timezone
 Replaces: oem-config-keyboard, oem-config-locale, oem-config-timezone
 XB-Python-Version: ${python:Versions}
-Description: Perform end-user configuration after initial installation
+Description: Perform end-user configuration after initial OEM installation
  The oem-config script re-asks a number of questions that are normally asked
  during installation, and reconfigures the system accordingly. This allows a
  vendor to install a skeleton system, clone it onto a large number of
@@ -29,7 +29,7 @@ Suggests: gnome-control-center
 Replaces: oem-config (<< 1.0)
 Provides: oem-config-frontend-${mangled-version}
 XB-Python-Version: ${python:Versions}
-Description: GTK+ frontend for end-user post-install configuration
+Description: GTK+ frontend for end-user post-OEM-install configuration
  The oem-config script re-asks a number of questions that are normally asked
  during installation, and reconfigures the system accordingly. This allows a
  vendor to install a skeleton system, clone it onto a large number of
@@ -44,7 +44,7 @@ Depends: ${python:Depends}, oem-config, python-kde4, kde-window-manager, kdesudo
 Replaces: oem-config (<< 1.0)
 Provides: oem-config-frontend-${mangled-version}
 XB-Python-Version: ${python:Versions}
-Description: KDE frontend for end-user post-install configuration
+Description: KDE frontend for end-user post-OEM-install configuration
  The oem-config script re-asks a number of questions that are normally asked
  during installation, and reconfigures the system accordingly. This allows a
  vendor to install a skeleton system, clone it onto a large number of
@@ -58,7 +58,7 @@ Architecture: all
 Depends: ${python:Depends}, oem-config, debconf (>= 1.5.24ubuntu2) | cdebconf
 Provides: oem-config-frontend-${mangled-version}
 XB-Python-Version: ${python:Versions}
-Description: debconf frontend for end-user post-install configuration
+Description: debconf frontend for end-user post-OEM-install configuration
  The oem-config script re-asks a number of questions that are normally asked
  during installation, and reconfigures the system accordingly. This allows a
  vendor to install a skeleton system, clone it onto a large number of
@@ -82,4 +82,4 @@ Section: debian-installer
 Architecture: all
 Depends: oem-config-check, cdebconf-udeb
 XB-Installer-Menu-Item: 2800
-Description: Prepare for end-user configuration after initial installation
+Description: Prepare for end-user configuration after initial OEM installation
