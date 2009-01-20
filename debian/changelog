@@ -1,8 +1,15 @@
 ubiquity (1.11.5) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Full screen the window when in ONLY_UBIQUITY mode.  The extra screen
     real estate makes the timezone map, among other widgets, easier to
     use.
+
+  [ Mario Limonciello ]
+  * Adjust logic for detecting incomplete language support.  Just 
+    because a package doesn't "exist" doesn't mean that language support
+    isn't all there.  Some packages don't yet provide language-support-XY
+    packages. (LP: #290398)
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 20 Jan 2009 12:27:25 +0000
 

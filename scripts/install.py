@@ -1219,7 +1219,7 @@ exit 0"""
         incomplete = False
         for pkg in self.langpacks:
             cachedpkg = self.get_cache_pkg(cache, pkg)
-            if cachedpkg is None or not cachedpkg.isInstalled:
+            if cachedpkg is not None and not cachedpkg.isInstalled:
                 incomplete = True
                 break
         if incomplete:
