@@ -463,7 +463,7 @@ class Wizard(BaseFrontend):
         self.photo.set_from_file(photo)
 
         if 'UBIQUITY_ONLY' in os.environ:
-            self.live_installer.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DIALOG)
+            self.live_installer.fullscreen()
 
         if self.oem_config:
             self.live_installer.set_title(self.get_string('oem_config_title'))
@@ -538,15 +538,6 @@ class Wizard(BaseFrontend):
                                    gobject.SPAWN_STDOUT_TO_DEV_NULL |
                                    gobject.SPAWN_STDERR_TO_DEV_NULL))
         return True
-
-
-    def set_window_hints(self, widget):
-        if 'UBIQUITY_ONLY' in os.environ:
-            # Disable minimise button.
-            widget.window.set_functions(
-                gtk.gdk.FUNC_RESIZE | gtk.gdk.FUNC_MOVE |
-                gtk.gdk.FUNC_MAXIMIZE)
-
 
     def set_locales(self):
         """internationalization config. Use only once."""

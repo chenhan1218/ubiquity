@@ -126,13 +126,11 @@ class Wizard(BaseFrontend):
 
         self.app = QApplication(['ubiquity', '-style=oxygen'])
 
-        # We want to hide the minimise button if running in the ubiquity-only mode (no desktop)
-        # To achieve this we need to set window flags to Dialog but we also need a parent widget which is showing
-        # else Qt tried to be clever and puts the minimise button back
         self.parentWidget = QWidget()
-        if 'UBIQUITY_ONLY' in os.environ:
-            self.parentWidget.show()
         self.userinterface = UbiquityUI(self.parentWidget)
+        if 'UBIQUITY_ONLY' in os.environ:
+            self.userinterface.setWindowState(
+                self.userinterface.windowState() ^ Qt.WindowFullScreen)
         self.userinterface.setWizard(self)
         self.userinterface.setWindowFlags(Qt.Dialog)
         #self.app.setMainWidget(self.userinterface)
