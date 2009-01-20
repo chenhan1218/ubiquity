@@ -82,4 +82,4 @@ Section: debian-installer
 Architecture: all
 Depends: oem-config-check, cdebconf-udeb
 XB-Installer-Menu-Item: 2800
-Description: Prepare for end-user configuration after initial OEM installation
+Description: Prepare for OEM configuration
