@@ -4,6 +4,8 @@ ubiquity (1.11.5) UNRELEASED; urgency=low
   * Full screen the window when in ONLY_UBIQUITY mode.  The extra screen
     real estate makes the timezone map, among other widgets, easier to
     use.
+  * Modified the keyboard setup page to produce a more visually obvious
+    suggestion.
 
   [ Mario Limonciello ]
   * Adjust logic for detecting incomplete language support.  Just 
@@ -11,7 +13,7 @@ ubiquity (1.11.5) UNRELEASED; urgency=low
     isn't all there.  Some packages don't yet provide language-support-XY
     packages. (LP: #290398)
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 20 Jan 2009 12:27:25 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 22 Jan 2009 13:31:49 +0000
 
 ubiquity (1.11.4) jaunty; urgency=low
 

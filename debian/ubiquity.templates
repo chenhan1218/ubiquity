@@ -84,6 +84,14 @@ Template: ubiquity/text/keyboard_test_label
 Type: text
 _Description: You can type into this box to test your new keyboard layout.
 
+Template: ubiquity/text/suggested_keymap
+Type: text
+_Description: Suggested option:
+
+Template: ubiquity/text/manual_keymap
+Type: text
+_Description: Choose your own:
+
 Template: ubiquity/text/userinfo_heading_label
 Type: text
 _Description: Who are you?
