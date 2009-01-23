@@ -25,6 +25,7 @@ import subprocess
 from oem_config.filteredcommand import FilteredCommand
 from oem_config import i18n
 from oem_config import im_switch
+from oem_config import osextras
 
 class Language(FilteredCommand):
     def prepare(self):
@@ -107,6 +108,7 @@ class Language(FilteredCommand):
             except locale.Error, e:
                 self.debug('locale.setlocale failed: %s (LANG=%s)',
                            e, di_locale)
-            subprocess.call(['fontconfig-voodoo',
-                             '--auto', '--force', '--quiet'])
+            if osextras.find_on_path('fontconfig-voodoo'):
+                subprocess.call(['fontconfig-voodoo',
+                                 '--auto', '--force', '--quiet'])
             im_switch.start_im()

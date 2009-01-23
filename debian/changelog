@@ -10,6 +10,7 @@ oem-config (1.54.3) UNRELEASED; urgency=low
     OEMs, not end users (LP: #48144). Clarify the term "OEM" in a comment
     for translators.
   * Add LSB init script header.
+  * Only run fontconfig-voodoo if it's present.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 16 Jan 2009 15:50:45 +0000
 
