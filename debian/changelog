@@ -9,6 +9,7 @@ oem-config (1.54.3) UNRELEASED; urgency=low
     page to make it clearer that the first stage of oem-config is for use by
     OEMs, not end users (LP: #48144). Clarify the term "OEM" in a comment
     for translators.
+  * Add LSB init script header.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 16 Jan 2009 15:50:45 +0000
 

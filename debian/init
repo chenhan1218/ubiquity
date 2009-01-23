@@ -1,6 +1,18 @@
 #! /bin/sh
-# Run on the first boot after shipping to the end user to reconfigure the
-# system for them; removes itself thereafter.
+### BEGIN INIT INFO
+# Provides:          oem-config
+# Required-Start:    $remote_fs hal
+# Required-Stop:     $remote_fs hal
+# X-Start-Before:    gdm kdm xdm
+# X-Stop-After:      gdm kdm xdm
+# Default-Start:
+# Default-Stop:
+# Short-Description: End-user configuration after initial OEM installation
+# Description:       Run on the first boot after shipping to the end user to
+#                    reconfigure the system for them; removes itself
+#                    thereafter.
+### END INIT INFO
+
 set -e
 
 PATH="/usr/local/sbin:/usr/sbin:/sbin${PATH:+:$PATH}"
