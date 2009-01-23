@@ -11,6 +11,9 @@ oem-config (1.54.3) UNRELEASED; urgency=low
     for translators.
   * Add LSB init script header.
   * Only run fontconfig-voodoo if it's present.
+  * If the user backs up all the way out of oem-config (perhaps
+    deliberately, or perhaps by accident), ask whether they want to try
+    again, drop to a recovery shell, or reboot.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 16 Jan 2009 15:50:45 +0000
 

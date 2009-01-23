@@ -211,6 +211,10 @@ class Frontend(BaseFrontend):
             dbfilter = console_setup_apply.ConsoleSetupApply(self)
             dbfilter.run_command(auto_process=True)
 
+            return 0
+        else:
+            return 10
+
 
     def customize_installer(self):
         self.step_icon_size = QSize(32,32)

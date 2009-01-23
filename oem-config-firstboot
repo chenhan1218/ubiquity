@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 # Run oem-config on the first boot after shipping to the end user.
 set -e
 
@@ -68,6 +68,29 @@ for try in $(seq 1 $TRY); do
 			deluser --quiet --remove-home oem || true
 		fi
 		exit 0
+	elif [ "$CODE" -eq 10 ]; then
+		cat <<EOF
+Your system is not yet configured. Press 'a' to try again, 's' for a
+recovery shell, or 'r' to reboot.
+EOF
+		while :; do
+			read -p '[asr] ' -n 1 REPLY
+			echo
+			case $REPLY in
+				A|a)	continue 2 ;;
+				S|s)
+					cat <<EOF
+After you type 'exit', your system will reboot.
+EOF
+					bash
+					reboot
+					sleep 3600
+					exit 1
+					;;
+				R|r)	reboot; sleep 3600; exit 1 ;;
+			esac
+		done
+		exit 1
 	fi
 done
 

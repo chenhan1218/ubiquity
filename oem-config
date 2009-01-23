@@ -61,7 +61,7 @@ class Wizard:
 
     def run(self):
         self.frontend = self.ui.Frontend()
-        self.frontend.run()
+        return self.frontend.run()
 
 def disable_autologin():
     import traceback
@@ -194,10 +194,11 @@ if __name__ == '__main__':
     wizard = Wizard(frontend_name=options.frontend, query=options.query)
     if options.query:
         print os.environ['OEM_CONFIG_FRONTEND']
+        sys.exit(0)
     else:
         if os.environ['OEM_CONFIG_FRONTEND'] == 'debconf_ui':
             start_debconf()
-        wizard.run()
+        ret = wizard.run()
         run_hooks()
         im_switch.kill_im()
-    sys.exit(0)
+        sys.exit(ret)

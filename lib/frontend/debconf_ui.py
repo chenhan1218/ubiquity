@@ -112,3 +112,7 @@ class Frontend(BaseFrontend):
             self.db.progress('STEP', 1)
 
             self.db.progress('STOP')
+
+            return 0
+        else:
+            return 10

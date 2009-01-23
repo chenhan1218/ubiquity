@@ -220,6 +220,11 @@ class Frontend(BaseFrontend):
 
         self.oem_config.hide()
 
+        if self.apply_changes:
+            return 0
+        else:
+            return 10
+
     def set_window_hints(self, widget):
         if 'OEM_CONFIG_ONLY' in os.environ:
             # Disable minimise button.
