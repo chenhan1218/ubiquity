@@ -77,7 +77,6 @@ class Install(FilteredCommand):
 
         questions = ['^.*/apt-install-failed$',
                      'migration-assistant/failed-unmount',
-                     'grub-installer/install_to_xfs',
                      'ubiquity/install/copying_error/md5',
                      'CAPB',
                      'ERROR',
@@ -107,8 +106,7 @@ class Install(FilteredCommand):
         if question.endswith('/apt-install-failed'):
             return self.error(priority, question)
 
-        elif question in ('migration-assistant/failed-unmount',
-                          'grub-installer/install_to_xfs'):
+        elif question == 'migration-assistant/failed-unmount':
             response = self.frontend.question_dialog(
                 self.description(question),
                 self.extended_description(question),

@@ -13,6 +13,10 @@ ubiquity (1.11.5) UNRELEASED; urgency=low
     isn't all there.  Some packages don't yet provide language-support-XY
     packages. (LP: #290398)
 
+  [ Colin Watson ]
+  * Remove old XFS-on-/boot validation, no longer needed now that
+    grub-install has been fixed (LP: #8058).
+
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 22 Jan 2009 13:31:49 +0000
 
 ubiquity (1.11.4) jaunty; urgency=low
