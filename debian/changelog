@@ -1,4 +1,4 @@
-oem-config (1.54.3) UNRELEASED; urgency=low
+oem-config (1.54.3) jaunty; urgency=low
 
   * Suppress user-setup's encrypted home directory question in OEM mode.
   * Simplify page/step handling; the list of pages is now in BaseFrontend,
@@ -16,7 +16,7 @@ oem-config (1.54.3) UNRELEASED; urgency=low
     again, drop to a recovery shell, or reboot.
   * Automatic update of included source packages: user-setup 1.23ubuntu7.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 16 Jan 2009 15:50:45 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 26 Jan 2009 19:23:36 +0000
 
 oem-config (1.54.2) jaunty; urgency=low
 
