@@ -16,6 +16,9 @@ ubiquity (1.11.5) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Remove old XFS-on-/boot validation, no longer needed now that
     grub-install has been fixed (LP: #8058).
+  * Default hostname to 'oem-laptop' or 'oem-desktop' as appropriate in OEM
+    mode, to allow OEM installations to be fully preseeded (thanks, Twisted
+    Lincoln, Inc.; LP: #321341).
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 22 Jan 2009 13:31:49 +0000
 

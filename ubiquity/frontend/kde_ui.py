@@ -433,6 +433,11 @@ class Wizard(BaseFrontend):
             self.userinterface.username.setReadOnly(True)
             self.userinterface.username.setEnabled(False)
             self.username_edited = True
+            if self.laptop:
+                self.userinterface.hostname.setText('oem-laptop')
+            else:
+                self.userinterface.hostname.setText('oem-desktop')
+            self.hostname_edited = True
             # The UserSetup component takes care of preseeding passwd/user-uid.
             execute_root('apt-install', 'oem-config-kde')
         else:
