@@ -1421,9 +1421,7 @@ class Wizard(BaseFrontend):
         # change every time the user selects a new keyboard in the manual
         # choice selection boxes.
         if self.suggested_keymap.get_active():
-            t = self.default_keyboard_layout + ' - ' + \
-                self.default_keyboard_variant
-            self.suggested_keymap_label.set_property('label', t)
+            self.suggested_keymap_label.set_property('label', variant)
             self.suggested_keymap.toggled()
         model = self.keyboardvariantview.get_model()
         if model is None:
