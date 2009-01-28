@@ -1,4 +1,4 @@
-ubiquity (1.11.5) UNRELEASED; urgency=low
+ubiquity (1.11.5) jaunty; urgency=low
 
   [ Evan Dandrea ]
   * Full screen the window when in ONLY_UBIQUITY mode.  The extra screen
@@ -22,7 +22,7 @@ ubiquity (1.11.5) UNRELEASED; urgency=low
     mode, to allow OEM installations to be fully preseeded (thanks, Twisted
     Lincoln, Inc.; LP: #321341).
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 22 Jan 2009 13:31:49 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 28 Jan 2009 17:00:46 +0000
 
 ubiquity (1.11.4) jaunty; urgency=low
 
