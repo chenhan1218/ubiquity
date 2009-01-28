@@ -6,6 +6,8 @@ ubiquity (1.11.5) UNRELEASED; urgency=low
     use.
   * Modified the keyboard setup page to produce a more visually obvious
     suggestion.
+  * Automatic update of included source packages: grub-installer
+    1.36ubuntu1, localechooser 2.09ubuntu1, user-setup 1.23ubuntu8.
 
   [ Mario Limonciello ]
   * Adjust logic for detecting incomplete language support.  Just 
