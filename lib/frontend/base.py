@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-# Copyright (C) 2005, 2006, 2007, 2008 Canonical Ltd.
+# Copyright (C) 2005, 2006, 2007, 2008, 2009 Canonical Ltd.
 # Copyright (C) 2007 Mario Limonciello <superm1@ubuntu.com>
 # Written by Colin Watson <cjwatson@ubuntu.com>.
 #
@@ -22,6 +22,9 @@ import sys
 import os
 import syslog
 
+import debconf
+from debconf import DebconfCommunicator
+
 from oem_config import i18n
 
 class BaseFrontend:
@@ -40,6 +43,13 @@ class BaseFrontend:
         self.dbfilter = None
         self.dbfilter_status = None
         self.current_layout = None
+
+        if 'DEBIAN_HAS_FRONTEND' in os.environ:
+            # We may only instantiate Debconf once, as it fiddles with
+            # sys.stdout. See LP #24727.
+            self.db = Debconf()
+        else:
+            self.db = None
 
         # Pages to load. Interpretation is up to the frontend, but it is
         # strongly recommended to keep the page identifiers the same.
@@ -134,6 +144,25 @@ class BaseFrontend:
         import pdb
         pdb.post_mortem(exctb)
         sys.exit(1)
+
+    # Debconf interaction. We cannot talk to debconf normally here, as
+    # running a normal frontend would interfere with pretending to be a
+    # frontend for components, but we can start up a debconf-communicate
+    # instance on demand for single queries.
+
+    def debconf_communicator(self):
+        return DebconfCommunicator('oem-config', cloexec=True)
+
+    def debconf_operation(self, command, *params):
+        if self.db is None:
+            db = self.debconf_communicator()
+        else:
+            db = self.db
+        try:
+            return getattr(db, command)(*params)
+        finally:
+            if self.db is None:
+                db.shutdown()
 
     # Interfaces with various components. If a given component is not used
     # then its abstract methods may safely be left unimplemented.

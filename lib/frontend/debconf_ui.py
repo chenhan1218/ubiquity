@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-# Copyright (C) 2008 Canonical Ltd.
+# Copyright (C) 2008, 2009 Canonical Ltd.
 # Written by Colin Watson <cjwatson@ubuntu.com>.
 #
 # This program is free software; you can redistribute it and/or modify
@@ -39,13 +39,10 @@ class Frontend(BaseFrontend):
     def __init__(self):
         BaseFrontend.__init__(self)
 
+        self.db.info('oem-config/text/oem_config')
+
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
-
-        # We may only instantiate Debconf once, as it fiddles with
-        # sys.stdout. See LP #24727.
-        self.db = Debconf()
-        self.db.info('oem-config/text/oem_config')
 
         # Set default language.
         dbfilter = language.Language(self, self.db)

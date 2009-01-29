@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-# Copyright (C) 2005, 2006, 2007 Canonical Ltd.
+# Copyright (C) 2005, 2006, 2007, 2008, 2009 Canonical Ltd.
 # Copyright (C) 2007 Mario Limonciello <superm1@ubuntu.com>
 # Written by Colin Watson <cjwatson@ubuntu.com>.
 #
@@ -28,8 +28,6 @@ import pango
 import gobject
 import gtk
 import gtk.glade
-
-from debconf import DebconfCommunicator
 
 from oem_config import filteredcommand, i18n, zoommap
 from oem_config.components import console_setup, language, timezone, user, \
@@ -84,8 +82,7 @@ class Frontend(BaseFrontend):
         self.apply_changes = False
 
         # Set default language.
-        dbfilter = language.Language(self, DebconfCommunicator('oem-config',
-                                                               cloexec=True))
+        dbfilter = language.Language(self, self.debconf_communicator())
         dbfilter.cleanup()
         dbfilter.db.shutdown()
 

@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 
 # Copyright (C) 2006, 2007 Anirudh Ramesh
+# Copyright (C) 2006, 2007, 2008, 2009 Canonical Ltd.
 # Written by Anirudh Ramesh <abattoir@abattoir.in>.
 #
 # This program is free software; you can redistribute it and/or modify
@@ -31,7 +32,6 @@ from PyKDE4.kdeui import KApplication, KMainWindow, KIcon
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4 import uic
-from debconf import DebconfCommunicator
 
 from oem_config import filteredcommand, i18n
 from oem_config.components import console_setup, language, timezone, user, \
@@ -80,8 +80,7 @@ class Frontend(BaseFrontend):
                                    'back', 'next')
         self.current_step = None
         # Set default language.
-        dbfilter = language.Language(self, DebconfCommunicator('oem-config',
-                                                               cloexec=True))
+        dbfilter = language.Language(self, self.debconf_communicator())
         dbfilter.cleanup()
         dbfilter.db.shutdown()
         self.allowed_change_step = True
