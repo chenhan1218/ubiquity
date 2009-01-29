@@ -27,6 +27,16 @@ from debconf import DebconfCommunicator
 
 from oem_config import i18n
 
+# Pages that may be loaded. Interpretation is up to the frontend, but it is
+# strongly recommended to keep the page identifiers the same. Order is
+# important, and 'step_' will be prepended to all identifiers.
+VALID_PAGES = [
+    'language',
+    'timezone',
+    'keyboard',
+    'user',
+]
+
 class BaseFrontend:
     """Abstract oem-config frontend.
 
@@ -51,14 +61,19 @@ class BaseFrontend:
         else:
             self.db = None
 
-        # Pages to load. Interpretation is up to the frontend, but it is
-        # strongly recommended to keep the page identifiers the same.
-        self.pages = [
-            "step_language",
-            "step_timezone",
-            "step_keyboard",
-            "step_user",
-        ]
+        page_list = self.debconf_operation('get', 'oem-config/steps')
+        pages = page_list.replace(',', ' ').split()
+        self.pages = []
+        for valid_page in VALID_PAGES:
+            if valid_page in pages:
+                self.pages.append("step_%s" % valid_page)
+        for page in pages:
+            if page not in VALID_PAGES:
+                syslog.syslog(syslog.LOG_WARNING,
+                              "Unknown step name in oem-config/steps: %s" %
+                              page)
+        if not self.pages:
+            raise ValueError, "No valid steps in oem-config/steps"
 
     def _abstract(self, method):
         raise NotImplementedError("%s.%s does not implement %s" %

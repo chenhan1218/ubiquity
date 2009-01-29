@@ -92,3 +92,12 @@ _Description: Log in automatically
 Template: oem-config/text/applying
 Type: text
 _Description: Applying configuration
+
+Template: oem-config/steps
+Type: multiselect
+Choices: language, timezone, keyboard, user
+Default: language, timezone, keyboard, user
+Description: for internal use; can be preseeded
+ List of steps to display. Steps are always displayed in the order given by
+ this list of choices, regardless of the order given in the answer to this
+ question.

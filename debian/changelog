@@ -2,6 +2,7 @@ oem-config (1.54.4) UNRELEASED; urgency=low
 
   * Move most debconf-communicator handling into BaseFrontend, to make it
     easier to fetch configuration from debconf there.
+  * Fetch the list of steps to be displayed from debconf (oem-config/steps).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 29 Jan 2009 18:05:13 +0000
 
