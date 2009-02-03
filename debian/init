@@ -67,6 +67,11 @@ case "$1" in
 		else
 			# Run in the foreground.
 			cmd="ubiquity-dm vt7 :0 /usr/bin/ubiquity $debug $automatic --only"
+			if ${cmd}; then
+				cmd="/bin/true"
+			else
+				cmd="ubiquity noninteractive"
+			fi
 		fi
 		if ${cmd}; then
 			$log_end_msg 0

@@ -1,3 +1,14 @@
+ubiquity (1.11.7) UNRELEASED; urgency=low
+
+  [ Mario Limonciello ]
+  * bin/ubiquity-dm, debian/init: Fallback to noninteractive if automatic fails
+    - If the X server fails to startup (due to issues with vesa, or automatic
+      probing), don't fail the entire bootup.
+    - Fall back to noninteractive in these cases rather than attempting to start
+      gdm/kdm/etc.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 03 Feb 2009 16:31:27 -0600
+
 ubiquity (1.11.6) jaunty; urgency=low
 
   [ Luke Yelavich ]

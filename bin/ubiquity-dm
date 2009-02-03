@@ -259,7 +259,10 @@ if len(sys.argv) < 3:
     sys.exit(1)
 
 vt, display = sys.argv[1:3]
-dm = DM(vt, display)
+try:
+    dm = DM(vt, display)
+except XStartupError:
+    sys.exit(1)
 proc = None
 if dm.frontend == 'gtk_ui' or dm.frontend == 'mythbuntu_ui':
     proc = ['/etc/init.d/gdm', 'start']
