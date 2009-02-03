@@ -22,7 +22,7 @@ from oem_config.filteredcommand import FilteredCommand
 # TODO: skip this if there's already a user configured, or re-ask and create
 # a new one, or what?
 class User(FilteredCommand):
-    def prepare(self):
+    def prepare(self, unfiltered=False):
         questions = ['^passwd/user-fullname$', '^passwd/username$',
                      '^passwd/user-password$', '^passwd/user-password-again$',
                      '^passwd/auto-login$', 'ERROR']

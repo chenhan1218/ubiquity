@@ -122,7 +122,7 @@ class FilteredCommand(object):
 
         self.status = None
 
-        prep = self.prepare()
+        prep = self.prepare(unfiltered=True)
         self.command = prep[0]
         if len(prep) > 2:
             env = prep[2]

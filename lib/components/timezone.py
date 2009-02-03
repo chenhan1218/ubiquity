@@ -28,7 +28,7 @@ from oem_config import im_switch
 import oem_config.tz
 
 class Timezone(FilteredCommand):
-    def prepare(self):
+    def prepare(self, unfiltered=False):
         self.tzdb = oem_config.tz.Database()
         self.db.fset('time/zone', 'seen', 'false')
         cc = self.db.get('debian-installer/country')

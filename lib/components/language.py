@@ -28,7 +28,7 @@ from oem_config import im_switch
 from oem_config import osextras
 
 class Language(FilteredCommand):
-    def prepare(self):
+    def prepare(self, unfiltered=False):
         self.language_question = None
         self.initial_language = None
         self.db.fset('localechooser/languagelist', 'seen', 'false')

@@ -20,5 +20,5 @@
 from oem_config.filteredcommand import FilteredCommand
 
 class LanguageApply(FilteredCommand):
-    def prepare(self):
+    def prepare(self, unfiltered=False):
         return (['/usr/lib/oem-config/language/localechooser-apply'], [])
