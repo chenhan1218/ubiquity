@@ -1,3 +1,12 @@
+ubiquity (1.11.6) UNRELEASED; urgency=low
+
+  * bin/ubiquity-dm: Fix accessibility breakage:
+    - Check for the gconf accessibility flag in the user homedir, not /root
+    - Instruct Orca to check for the gconf accessibility flag as the
+      user and not root.
+
+ -- Luke Yelavich <themuso@ubuntu.com>  Tue, 03 Feb 2009 11:19:59 +0100
+
 ubiquity (1.11.5) jaunty; urgency=low
 
   [ Evan Dandrea ]

@@ -141,7 +141,8 @@ class DM:
         if self.frontend == 'gtk_ui' or self.frontend == 'mythbuntu_ui':
             # Accessibility infrastructure
             gconf_dir = ('xml:readwrite:%s' %
-                '/root/.gconf')
+                os.path.expanduser('~%s/.gconf' %
+                self.username))
             accessibility = 'false'
             if osextras.find_on_path('gconftool-2'):
                 subp = subprocess.Popen(
@@ -206,7 +207,7 @@ class DM:
                 else:
                     if osextras.find_on_path('orca'):
                         time.sleep(15)
-                        extras.append(subprocess.Popen(['orca', '-n'],
+                        extras.append(subprocess.Popen(['orca', '-sudo', self.username, '-n'],
                             stdin=null, stdout=logfile, stderr=logfile))
                 fp.close()
         elif self.frontend == 'kde_ui':
