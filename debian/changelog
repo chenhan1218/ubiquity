@@ -1,9 +1,15 @@
 ubiquity (1.11.6) UNRELEASED; urgency=low
 
+  [ Luke Yelavich ]
   * bin/ubiquity-dm: Fix accessibility breakage:
     - Check for the gconf accessibility flag in the user homedir, not /root
     - Instruct Orca to check for the gconf accessibility flag as the
       user and not root.
+
+  [ Evan Dandrea ]
+  * Automatic update of included source packages: base-installer
+    1.98ubuntu1, choose-mirror 2.27ubuntu3, console-setup 1.28ubuntu5,
+    partman-base 128ubuntu5, user-setup 1.23ubuntu9.
 
  -- Luke Yelavich <themuso@ubuntu.com>  Tue, 03 Feb 2009 11:19:59 +0100
 
