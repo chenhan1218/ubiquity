@@ -6,6 +6,7 @@ oem-config (1.54.4) UNRELEASED; urgency=low
   * Tell components' prepare method whether they're being run unfiltered, to
     make it possible to write a component that only works in unfiltered
     mode.
+  * Fix Debconf import in BaseFrontend.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 29 Jan 2009 18:05:13 +0000
 

@@ -57,7 +57,7 @@ class BaseFrontend:
         if 'DEBIAN_HAS_FRONTEND' in os.environ:
             # We may only instantiate Debconf once, as it fiddles with
             # sys.stdout. See LP #24727.
-            self.db = Debconf()
+            self.db = debconf.Debconf()
         else:
             self.db = None
 
