@@ -1,4 +1,4 @@
-console-setup 1.28ubuntu4
-localechooser 2.08ubuntu1
+console-setup 1.28ubuntu5
+localechooser 2.09ubuntu1
 tzsetup 1:0.24ubuntu1
-user-setup 1.23ubuntu7
+user-setup 1.23ubuntu9
