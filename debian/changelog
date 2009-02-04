@@ -7,6 +7,9 @@ oem-config (1.54.4) UNRELEASED; urgency=low
     make it possible to write a component that only works in unfiltered
     mode.
   * Fix Debconf import in BaseFrontend.
+  * Move xserver-xorg dependency to oem-config-gtk and oem-config-kde, since
+    it's only needed by oem-config-dm which isn't used by
+    oem-config-debconf.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 29 Jan 2009 18:05:13 +0000
 
