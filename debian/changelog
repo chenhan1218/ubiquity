@@ -1,3 +1,11 @@
+oem-config (1.54.4) UNRELEASED; urgency=low
+
+  * Move xserver-xorg dependency to oem-config-gtk and oem-config-kde, since
+    it's only needed by oem-config-dm which isn't used by
+    oem-config-debconf.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 04 Feb 2009 15:51:16 +0100
+
 oem-config (1.54.3) jaunty; urgency=low
 
   * Suppress user-setup's encrypted home directory question in OEM mode.
