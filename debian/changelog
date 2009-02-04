@@ -1,4 +1,4 @@
-oem-config (1.54.4) UNRELEASED; urgency=low
+oem-config (1.54.5) UNRELEASED; urgency=low
 
   * Move most debconf-communicator handling into BaseFrontend, to make it
     easier to fetch configuration from debconf there.
@@ -7,11 +7,18 @@ oem-config (1.54.4) UNRELEASED; urgency=low
     make it possible to write a component that only works in unfiltered
     mode.
   * Fix Debconf import in BaseFrontend.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 04 Feb 2009 17:26:57 +0100
+
+oem-config (1.54.4) jaunty; urgency=low
+
   * Move xserver-xorg dependency to oem-config-gtk and oem-config-kde, since
     it's only needed by oem-config-dm which isn't used by
     oem-config-debconf.
+  * Automatic update of included source packages: console-setup 1.28ubuntu5,
+    localechooser 2.09ubuntu1, user-setup 1.23ubuntu9.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 29 Jan 2009 18:05:13 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 04 Feb 2009 15:57:36 +0100
 
 oem-config (1.54.3) jaunty; urgency=low
 
