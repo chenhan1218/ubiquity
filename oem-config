@@ -299,7 +299,7 @@ if __name__ == '__main__':
             os.close(log)
             sys.stderr = os.fdopen(2, 'a', 1)
             print >>sys.stderr, "oem-config %s" % VERSION
-        except IOError, err:
+        except (IOError, OSError), err:
             if err.errno != errno.EACCES:
                 raise
 
