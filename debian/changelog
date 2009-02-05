@@ -7,6 +7,10 @@ ubiquity (1.11.7) UNRELEASED; urgency=low
     - Fall back to noninteractive in these cases rather than attempting to start
       gdm/kdm/etc.
 
+  [ Colin Watson ]
+  * Adjust the way we open the debug log so that sys.stderr doesn't end up
+    being fd 4.
+
  -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 03 Feb 2009 16:31:27 -0600
 
 ubiquity (1.11.6) jaunty; urgency=low

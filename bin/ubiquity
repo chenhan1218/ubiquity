@@ -200,10 +200,13 @@ def main():
     # we are being run without root privileges.
     if not (args and args[0] == 'noninteractive'):
         try:
-            sys.stderr = open('/var/log/installer/debug', 'a', 1)
-            os.dup2(sys.stderr.fileno(), 2)
+            log = os.open('/var/log/installer/debug',
+                          os.O_WRONLY | os.O_APPEND)
+            os.dup2(log, 2)
+            os.close(log)
+            sys.stderr = os.fdopen(2, 'a', 1)
             print >>sys.stderr, "Ubiquity %s" % VERSION
-        except IOError, err:
+        except (IOError, OSError), err:
             if err.errno != errno.EACCES:
                 raise
 
