@@ -169,11 +169,6 @@ def open_terminal():
                               '-f', '/usr/share/oem-config/unifont.bgf', '--']
                 bterm_args.extend(sys.argv)
                 os.execvp('bterm', bterm_args)
-    else:
-        # bterm redirects stderr to the tty; undo this.
-        log = os.open('/var/log/oem-config.log', os.O_WRONLY | os.O_APPEND)
-        os.dup2(log, 2)
-        os.close(log)
 
     # Start a new session and start a controlling terminal. Approach loosely
     # borrowed from util-linux.
@@ -193,9 +188,12 @@ def open_terminal():
         tty = os.open(ttyn, os.O_RDWR | os.O_NONBLOCK)
         flags = fcntl.fcntl(tty, fcntl.F_GETFL)
         fcntl.fcntl(tty, fcntl.F_SETFL, flags)
+        # Leave stderr alone in the following; it's already redirected to
+        # our log file.
         for i in range(tty):
-            os.close(i)
-        for i in range(3):
+            if i != 2:
+                os.close(i)
+        for i in range(2):
             if tty != i:
                 os.dup2(tty, i)
         if tty >= 3:
@@ -293,7 +291,17 @@ if __name__ == '__main__':
         os.environ['OEM_CONFIG_ONLY'] = '1'
 
     if not options.query:
-        print >>sys.stderr, "oem-config %s" % VERSION
+        # The frontend should take care of displaying a helpful message if
+        # we are being run without root privileges.
+        try:
+            log = os.open('/var/log/oem-config.log', os.O_WRONLY | os.O_APPEND)
+            os.dup2(log, 2)
+            os.close(log)
+            sys.stderr = os.fdopen(2, 'a', 1)
+            print >>sys.stderr, "oem-config %s" % VERSION
+        except IOError, err:
+            if err.errno != errno.EACCES:
+                raise
 
     if 'OEM_CONFIG_DEBUG' in os.environ:
         if 'DEBCONF_DEBUG' not in os.environ:
