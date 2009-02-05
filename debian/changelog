@@ -11,6 +11,9 @@ oem-config (1.54.5) UNRELEASED; urgency=low
     debconf frontend.
   * Point stderr back to the log file after starting bterm, since it
     redirects it to the tty.
+  * Run the debconf frontend in a UTF-8 locale (en_US.UTF-8, since d-i
+    guarantees that that always exists) so that newt uses proper window
+    borders and can display non-ASCII characters.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 04 Feb 2009 17:26:57 +0100
 

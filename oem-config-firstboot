@@ -54,6 +54,7 @@ fi
 for try in $(seq 1 $TRY); do
 	CODE=0
 	if [ "$FRONTEND" = debconf_ui ]; then
+		LANG=en_US.UTF-8 \
 		/usr/sbin/oem-config $DEBUG --only 2>>/var/log/oem-config.log \
 			|| CODE=$?
 	else
