@@ -169,6 +169,11 @@ def open_terminal():
                               '-f', '/usr/share/oem-config/unifont.bgf', '--']
                 bterm_args.extend(sys.argv)
                 os.execvp('bterm', bterm_args)
+    else:
+        # bterm redirects stderr to the tty; undo this.
+        log = os.open('/var/log/oem-config', os.O_WRONLY | O_APPEND)
+        os.dup2(log, 2)
+        os.close(log)
 
     # Start a new session and start a controlling terminal. Approach loosely
     # borrowed from util-linux.
