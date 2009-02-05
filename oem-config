@@ -93,6 +93,111 @@ def run_hooks():
                 # Errors are ignored at present, although this may change.
                 subprocess.call([hook], env=child_env)
 
+def open_terminal():
+    """Set up the terminal to run oem-config's debconf frontend."""
+
+    # Set up a framebuffer and start bterm if debian-installer/framebuffer
+    # says to do so. See
+    # rootskel/src/lib/debian-installer-startup.d/S40framebuffer-module-linux-x86.
+    # TODO: more careful architecture handling
+
+    import debconf
+
+    if 'OEM_CONFIG_BTERM' not in os.environ:
+        os.environ['OEM_CONFIG_BTERM'] = '1'
+
+        framebuffer = False
+        dccomm = subprocess.Popen(['debconf-communicate',
+                                   '-fnoninteractive', 'oem-config'],
+                                  stdin=subprocess.PIPE,
+                                  stdout=subprocess.PIPE, close_fds=True)
+        try:
+            dc = debconf.Debconf(read=dccomm.stdout, write=dccomm.stdin)
+            try:
+                if dc.get('debian-installer/framebuffer') == 'true':
+                    framebuffer = True
+            except debconf.DebconfError:
+                pass
+        finally:
+            dccomm.stdin.close()
+            dccomm.wait()
+
+        if framebuffer:
+            def fb_has(substring):
+                try:
+                    fb = open('/proc/fb')
+                except IOError:
+                    return False
+                try:
+                    for line in fb:
+                        if substring in line:
+                            return True
+                finally:
+                    fb.close()
+                return False
+
+            got_fb = False
+            if fb_has('VESA'):
+                got_fb = True
+
+            devnull = open('/dev/null', 'w')
+
+            if not got_fb:
+                subprocess.call(['modprobe', '-q', 'vesafb'],
+                                stdout=devnull, stderr=devnull)
+                if fb_has(''):
+                    got_fb = True
+
+            if not got_fb:
+                subprocess.call(['modprobe', '-q', 'vga16fb'],
+                                stdout=devnull, stderr=devnull)
+                if fb_has(''):
+                    got_fb = True
+
+            if got_fb:
+                if not os.path.isdir('/sys/class/graphics/fbcon'):
+                    subprocess.call(['modprobe', '-q', 'fbcon'],
+                                    stdout=devnull, stderr=devnull)
+
+                # TODO: import debian-installer-utils and use update-dev?
+                subprocess.call(['udevadm', 'settle'])
+
+            devnull.close()
+
+            if os.path.exists('/dev/fb0'):
+                bterm_args = ['bterm',
+                              '-f', '/usr/share/oem-config/unifont.bgf', '--']
+                bterm_args.extend(sys.argv)
+                os.execvp('bterm', bterm_args)
+
+    # Start a new session and start a controlling terminal. Approach loosely
+    # borrowed from util-linux.
+
+    if 'OEM_CONFIG_CTTY' not in os.environ:
+        os.environ['OEM_CONFIG_CTTY'] = '1'
+
+        import fcntl
+        import termios
+
+        try:
+            os.setsid()
+        except OSError:
+            pass
+
+        ttyn = os.ttyname(0)
+        tty = os.open(ttyn, os.O_RDWR | os.O_NONBLOCK)
+        flags = fcntl.fcntl(tty, fcntl.F_GETFL)
+        fcntl.fcntl(tty, fcntl.F_SETFL, flags)
+        for i in range(tty):
+            os.close(i)
+        for i in range(3):
+            if tty != i:
+                os.dup2(tty, i)
+        if tty >= 3:
+            os.close(tty)
+
+        fcntl.ioctl(0, termios.TIOCSCTTY, 1)
+
 def start_debconf():
     """debconf_ui needs to run within a debconf frontend."""
 
@@ -197,6 +302,7 @@ if __name__ == '__main__':
         sys.exit(0)
     else:
         if os.environ['OEM_CONFIG_FRONTEND'] == 'debconf_ui':
+            open_terminal()
             start_debconf()
         ret = wizard.run()
         run_hooks()
