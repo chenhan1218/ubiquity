@@ -13,6 +13,8 @@ oem-config (1.54.5) UNRELEASED; urgency=low
     guarantees that that always exists) so that newt uses proper window
     borders and can display non-ASCII characters.
   * Redirect stderr to the log file as early as possible in oem-config.
+  * In unfiltered mode, don't reask locale questions in the timezone
+    component.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 04 Feb 2009 17:26:57 +0100
 

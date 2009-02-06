@@ -29,6 +29,13 @@ import oem_config.tz
 
 class Timezone(FilteredCommand):
     def prepare(self, unfiltered=False):
+        if unfiltered:
+            # In unfiltered mode, localechooser is responsible for selecting
+            # the country, so there's no need to repeat the job here. As a
+            # result, plain tzsetup rather than the wrapper that calls both
+            # tzsetup and localechooser will be sufficient.
+            return (['/usr/lib/oem-config/timezone/tzsetup'])
+
         self.tzdb = oem_config.tz.Database()
         self.db.fset('time/zone', 'seen', 'false')
         cc = self.db.get('debian-installer/country')
