@@ -17,6 +17,8 @@ oem-config (1.54.5) UNRELEASED; urgency=low
     component.
   * Drop priority of user-setup/encrypt-home question so that it isn't asked
     in unfiltered mode.
+  * Add a "network" component (only usable in the debconf frontend at the
+    moment) that runs netcfg.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 04 Feb 2009 17:26:57 +0100
 

@@ -1,0 +1,8 @@
+#! /bin/sh
+set -e
+
+. /usr/share/debconf/confmodule
+
+/usr/lib/oem-config/network/netcfg
+
+NETCFG=1 /usr/lib/network-manager/ifblacklist_migrate.sh
