@@ -94,6 +94,8 @@ endif
 			> debian/oem-config/usr/lib/oem-config/user/$$x; \
 		chmod +x debian/oem-config/usr/lib/oem-config/user/$$x; \
 	done
+	sed -i -e 's,db_input high user-setup/encrypt-home,db_input medium user-setup/encrypt-home,' \
+		debian/oem-config/usr/lib/oem-config/user/user-setup-ask
 	echo oem >> debian/oem-config/usr/lib/oem-config/user/reserved-usernames
 	set -e; for x in languagemap localechooser; do \
 		sed 's,/usr/share/localechooser,/usr/lib/oem-config/language,g' \
