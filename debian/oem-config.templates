@@ -95,7 +95,7 @@ _Description: Applying configuration
 
 Template: oem-config/steps
 Type: multiselect
-Choices: language, timezone, keyboard, user
+Choices: language, timezone, keyboard, user, network
 Default: language, timezone, keyboard, user
 Description: for internal use; can be preseeded
  List of steps to display. Steps are always displayed in the order given by
