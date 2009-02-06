@@ -35,6 +35,7 @@ VALID_PAGES = [
     'timezone',
     'keyboard',
     'user',
+    'network',
 ]
 
 class BaseFrontend:
