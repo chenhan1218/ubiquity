@@ -10,6 +10,9 @@ ubiquity (1.11.7) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Adjust the way we open the debug log so that sys.stderr doesn't end up
     being fd 4.
+  * Stop taking account of progress bar cancellation in the implementation
+    of the PROGRESS START and PROGRESS STOP commands; neither cdebconf nor
+    debconf does so and thus confmodules don't expect it (LP: #313259).
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 03 Feb 2009 16:31:27 -0600
 

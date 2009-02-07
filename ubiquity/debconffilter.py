@@ -313,9 +313,8 @@ class DebconfFilter:
                 for widget in self.find_widgets(
                         [progress_title, 'PROGRESS'], 'progress_start'):
                     self.debug('filter', 'widget found for', progress_title)
-                    if not widget.progress_start(progress_min, progress_max,
-                                                 progress_title):
-                        cancelled = True
+                    widget.progress_start(progress_min, progress_max,
+                                          progress_title)
                 self.progress_bars.insert(0, progress_title)
             elif len(self.progress_bars) != 0:
                 if subcommand == 'SET' and len(params) == 2:
@@ -354,8 +353,7 @@ class DebconfFilter:
                              'progress_stop'):
                         self.debug('filter', 'widget found for',
                                    self.progress_bars[0])
-                        if not widget.progress_stop(self.progress_bars[0]):
-                            cancelled = True
+                        widget.progress_stop(self.progress_bars[0])
                     self.progress_bars.pop()
                 elif subcommand == 'REGION' and len(params) == 3:
                     progress_region_start = int(params[1])

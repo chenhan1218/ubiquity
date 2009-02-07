@@ -1024,9 +1024,6 @@ class Wizard(BaseFrontend):
         self.debconf_callbacks[source](source, debconf_condition)
 
     def debconf_progress_start (self, progress_min, progress_max, progress_title):
-        if self.progress_cancelled:
-            return False
-
         if progress_title is None:
             progress_title = ""
         total_steps = progress_max - progress_min
@@ -1048,7 +1045,6 @@ class Wizard(BaseFrontend):
         self.debconf_progress_set(0)
         self.progressDialogue.setLabel(QLabel(''))
         self.progressDialogue.show()
-        return True
 
     def debconf_progress_set (self, progress_val):
         self.progress_cancelled = self.progressDialogue.wasCanceled()
@@ -1078,16 +1074,12 @@ class Wizard(BaseFrontend):
         return True
 
     def debconf_progress_stop (self):
-        self.progress_cancelled = self.progressDialogue.wasCanceled()
-        if self.progress_cancelled:
-            self.progress_cancelled = False
-            return False
+        self.progress_cancelled = False
         self.progress_position.stop()
         if self.progress_position.depth() == 0:
             self.progressDialogue.hide()
         else:
             self.progressDialogue.setWindowTitle(self.progress_position.title())
-        return True
 
     def debconf_progress_region (self, region_start, region_end):
         self.progress_position.set_region(region_start, region_end)

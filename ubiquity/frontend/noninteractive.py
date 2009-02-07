@@ -187,7 +187,7 @@ class Wizard(BaseFrontend):
     def debconf_progress_start(self, progress_min, progress_max,
                                progress_title):
         """Start a progress bar. May be nested."""
-        return True
+        return
 
     def debconf_progress_set(self, progress_val):
         """Set the current progress bar's position to progress_val."""
@@ -207,7 +207,7 @@ class Wizard(BaseFrontend):
 
     def debconf_progress_stop(self):
         """Stop the current progress bar."""
-        return True
+        return
 
     def debconf_progress_region(self, region_start, region_end):
         """Confine nested progress bars to a region of the current bar."""

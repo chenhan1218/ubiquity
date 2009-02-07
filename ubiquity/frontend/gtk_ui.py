@@ -1224,8 +1224,6 @@ class Wizard(BaseFrontend):
 
 
     def debconf_progress_start (self, progress_min, progress_max, progress_title):
-        if self.progress_cancelled:
-            return False
         if self.current_page is not None:
             self.debconf_progress_window.set_transient_for(self.live_installer)
         else:
@@ -1244,7 +1242,6 @@ class Wizard(BaseFrontend):
         self.debconf_progress_set(0)
         self.progress_info.set_text('')
         self.debconf_progress_window.show()
-        return True
 
     def debconf_progress_set (self, progress_val):
         if self.progress_cancelled:
@@ -1272,9 +1269,7 @@ class Wizard(BaseFrontend):
         return True
 
     def debconf_progress_stop (self):
-        if self.progress_cancelled:
-            self.progress_cancelled = False
-            return False
+        self.progress_cancelled = False
         self.progress_position.stop()
         if self.progress_position.depth() == 0:
             self.debconf_progress_window.hide()
@@ -1283,7 +1278,6 @@ class Wizard(BaseFrontend):
                 '<big><b>' +
                 xml.sax.saxutils.escape(self.progress_position.title()) +
                 '</b></big>')
-        return True
 
     def debconf_progress_region (self, region_start, region_end):
         self.progress_position.set_region(region_start, region_end)
