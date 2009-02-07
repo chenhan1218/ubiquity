@@ -1077,7 +1077,7 @@ class Wizard(BaseFrontend):
         self.progress_cancelled = False
         self.progress_position.stop()
         if self.progress_position.depth() == 0:
-            self.progressDialogue.hide()
+            self.progressDialogue.reset() # also hides dialog
         else:
             self.progressDialogue.setWindowTitle(self.progress_position.title())
 
