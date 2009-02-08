@@ -28,6 +28,8 @@ class PartmanCommit(FilteredCommand):
 
     def prepare(self):
         questions = ['^partman/confirm.*',
+                     '^partman/exception_handler$',
+                     '^partman/exception_handler_note$',
                      'type:boolean',
                      'ERROR',
                      'PROGRESS']
@@ -53,6 +55,25 @@ class PartmanCommit(FilteredCommand):
                 self.db.set('ubiquity/partman-made-changes', 'false')
             self.preseed(question, 'true')
             return True
+
+        elif question == 'partman/exception_handler':
+            if priority == 'critical' or priority == 'high':
+                response = self.frontend.question_dialog(
+                    self.description(question),
+                    self.extended_description(question),
+                    self.choices(question), use_templates=False)
+                self.preseed(question, response, seen=False)
+            else:
+                self.preseed(question, 'unhandled', seen=False)
+            return True
+
+        elif question == 'partman/exception_handler_note':
+            if priority == 'critical' or priority == 'high':
+                self.frontend.error_dialog(self.description(question),
+                                           self.extended_description(question))
+                return FilteredCommand.error(self, priority, question)
+            else:
+                return True
 
         elif self.question_type(question) == 'boolean':
             response = self.frontend.question_dialog(

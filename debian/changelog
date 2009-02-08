@@ -13,6 +13,8 @@ ubiquity (1.11.7) UNRELEASED; urgency=low
   * Stop taking account of progress bar cancellation in the implementation
     of the PROGRESS START and PROGRESS STOP commands; neither cdebconf nor
     debconf does so and thus confmodules don't expect it (LP: #313259).
+  * Catch partman/exception_handler and partman/exception_handler_note from
+    partman-commit as well as partman (LP: #324976).
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 03 Feb 2009 16:31:27 -0600
 
