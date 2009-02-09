@@ -159,7 +159,6 @@ msgstr "আপনি এই বক্সে টাইপ করে আপনা�
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "আপনার অঞ্চল নির্বাচন করুন"
 

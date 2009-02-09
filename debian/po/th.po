@@ -150,7 +150,6 @@ msgstr "คุณสามารถพิมพ์ลงในช่องนี
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "กรุณาเลือกภูมิภาค:"
 

@@ -158,7 +158,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Regjioni i zgjedhur:"
 
@@ -239,7 +238,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Hyr automatikisht"
 
 #. Type: text
 #. Description
@@ -267,6 +266,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Zgjidh çdo llogari që dëshiron të importosh. Dokumentat dhe preferencat për "
+"llogaritë e zgjedhura do të bëhen të mundura pasi instalimi të mbarojë."
 
 #. Type: text
 #. Description
@@ -312,20 +313,20 @@ msgstr "Kerneli për instalim:"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Details"
-msgstr ""
+msgstr "Detajet"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
+msgstr "Sistemi operativ do të instalohet me preferencat që vijojnë:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Advanced..."
-msgstr ""
+msgstr "I Avancuar"
 
 #. Type: text
 #. Description
@@ -333,13 +334,13 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:41001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "Instalo[ veprim ]"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Hap ${INDEX} i ${TOTAL}"
 
 #. Type: title
 #. Description
@@ -359,7 +360,7 @@ msgstr "Dëshiron të kthehesh tek menuja e ndarjes?"
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Skip"
-msgstr ""
+msgstr "Kapërce"
 
 #. Type: title
 #. Description
@@ -385,7 +386,7 @@ msgstr "Ristarto tani"
 #. Description
 #: ../ubiquity.templates:49001 ../ubiquity.templates:50001
 msgid "Installer crashed"
-msgstr ""
+msgstr "Instaluesi u dëmtua"
 
 #. Type: text
 #. Description
@@ -398,6 +399,12 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"Na vjen keq, instaluesi u dëmtua. Ju lutemi, dërgoni një raport për defektin "
+"në https://launchpad.net/ubuntu/+source/ubiquity/+filebug (mos i shtoni "
+"detajet tuaja ndonjë defekti ekzistues), një programues do merret me "
+"problemin sa më shpejt të jetë e mundur. Për të ndihmuar programuesit që të "
+"kuptojnë çfarë nuk shkoi mirë, përfshini detajin e mëposhtëm në raportin "
+"tuaj dhe bashkangjisni skedarët /var/log/syslog dhe /var/log/partman:"
 
 #. Type: text
 #. Description
@@ -405,7 +412,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:52001
 msgid "Before:"
-msgstr ""
+msgstr "Më Parë"
 
 #. Type: text
 #. Description
@@ -413,21 +420,21 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:53001
 msgid "After:"
-msgstr ""
+msgstr "Më Pas"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:54001
 msgid "New partition table"
-msgstr ""
+msgstr "Tabelë e re ndarjeje"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:55001
 msgid "New partition"
-msgstr ""
+msgstr "Ndarje e re"
 
 #. Type: text
 #. Description
@@ -443,14 +450,14 @@ msgstr "Edito particionin"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:57001
 msgid "Delete partition"
-msgstr ""
+msgstr "Fshije ndarjen"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:58001
 msgid "Device"
-msgstr ""
+msgstr "Pajisja"
 
 #. Type: text
 #. Description
@@ -458,28 +465,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:59001
 msgid "Type"
-msgstr ""
+msgstr "Tipi"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:60001
 msgid "Mount point"
-msgstr ""
+msgstr "Pika e montimit"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:61001
 msgid "Format?"
-msgstr ""
+msgstr "Ta formatoj?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:62001
 msgid "Size"
-msgstr ""
+msgstr "Përmasa"
 
 #. Type: text
 #. Description
@@ -487,27 +494,27 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:63001
 msgid "Used"
-msgstr ""
+msgstr "Në përdorim"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:64001
 msgid "free space"
-msgstr ""
+msgstr "Hapësira e lirë"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:65001
 msgid "unknown"
-msgstr ""
+msgstr "nuk njihet"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Create partition"
-msgstr ""
+msgstr "Krijo ndarjen"
 
 #. Type: text
 #. Description
@@ -581,19 +588,19 @@ msgstr "Merr pjesë në vëzhgimin mbi përdorimin e pakove"
 #. Description
 #: ../ubiquity.templates:80001
 msgid "Network proxy"
-msgstr ""
+msgstr "Proksi rrjeti"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:81001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "Proksi HTTP"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:82001
 msgid "Port:"
-msgstr ""
+msgstr "Porti:"
 
 #. Type: text
 #. Description
@@ -645,12 +652,19 @@ msgid ""
 " Migration Assistant:\n"
 " ${MIGRATE}"
 msgstr ""
+" Gjuha: ${LANGUAGE}\n"
+" Dalja e tastierës: ${KEYMAP}\n"
+" Emri: ${FULLNAME}\n"
+" Emri në hyrje: ${USERNAME}\n"
+" Vendndodhja: ${LOCATION}\n"
+" Asistent Migrimi\n"
+" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:88001
 msgid "Checking the installation..."
-msgstr ""
+msgstr "Duke kontrolluar instalimin"
 
 #. Type: title
 #. Description
@@ -663,7 +677,7 @@ msgstr "Instalimi përfundoi"
 #. Description
 #: ../ubiquity.templates:90001
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "Duke gjetur distribucionin për të kopjuar..."
 
 #. Type: text
 #. Description
@@ -683,7 +697,7 @@ msgstr "Duke kopjuar ndarjen..."
 #. Description
 #: ../ubiquity.templates:94001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "Duke kopjuar skedarët (ngelet më pak se një minutë)..."
 
 #. Type: error
 #. Description
@@ -713,7 +727,7 @@ msgstr "Instalimi përfundoi"
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
+msgstr "Instaluesi hasi në një gabim duke kopjuar skedarët në Hard Disk:"
 
 #. Type: error
 #. Description
@@ -723,6 +737,9 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"Kjo ka ndodhur sepse nuk ka hapësirë të mjaftueshme në disk që të "
+"kompletohet instalimi në particionin e dhënë. Ju lutemi nisni instalimin "
+"përsëri për të zgjedhur një particion më të madh për instalimin."
 
 #. Type: error
 #. Description
@@ -781,7 +798,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:99001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "Skedari që vijon nuk përputhet me kopjen në CD/DVD:"
 
 #. Type: text
 #. Description
@@ -903,7 +920,7 @@ msgstr "Duke shkarkuar listen e pakove..."
 #. Description
 #: ../ubiquity.templates:118001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "Duke shkarkuar listat e paketave (${TIME} ngelen)..."
 
 #. Type: error
 #. Description
@@ -923,13 +940,13 @@ msgstr "Duke tërhequr ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:122001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "Gabim në instalimin e paketave"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:122001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "Ndodhi një gabim në instalimin e paketave:"
 
 #. Type: error
 #. Description
@@ -937,7 +954,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:122001 ../ubiquity.templates:123001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "Paketat e mëposhtme janë të dëmtuara:"
 
 #. Type: error
 #. Description
@@ -953,18 +970,25 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"Kjo mund të ketë ndodhur për shkak të përdorimit të një instaluesi të "
+"vjetër, ose për shkak të ndonjë defekti në paketat e mësipërme. Më tepër "
+"detaje mund të gjenden në /var/log/syslog. Instaluesi do të provojë të "
+"vazhdojë gjithsesi, por mund të dështojë më vonë dhe mund të mos jetë në "
+"gjendje të instalojë apo të heqë paketa të mëvonshme (duke përfshirë edhe "
+"vetveten) nga sistemi i instaluar. Duhet të shikoni më parë për versione të "
+"reja të instaluesit tuaj, ose raportoni këtë problem tek distributori juaj."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "Gabim në heqjen e paketave"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:123001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "Një gabim ndodhi në heqjen e paketave:"
 
 #. Type: text
 #. Description
@@ -983,7 +1007,7 @@ msgstr "Duke instaluar paketat thelbësore"
 #. Description
 #: ../ubiquity.templates:128001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
+msgstr "Duke shkarkuar paketat e gjuhës (${TIME} ngelen)..."
 
 #. Type: boolean
 #. Description
@@ -998,24 +1022,26 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"Instaluesi duhet t'i bëjë ndryshime në tabelat e particionit, por nuk mund "
+"ta bëjë këtë sepse particionet në pikat që vijojnë nuk mund të shkëputen:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Please close any applications using these mount points."
-msgstr ""
+msgstr "Ju lutemi mbyllni çdo aplikim që po i përdor këto pika hyrjeje."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr ""
+msgstr "Doni që instaluesi të përpiqet t'i përdorë këto particione përsëri?"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:140001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "Doni të ktheheni tek particionuesi?"
 
 #. Type: boolean
 #. Description
@@ -1024,6 +1050,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"Disa nga particionet që ju keni krijuar janë shumë të vogla. Ju lutemi "
+"bëjini particionet që vijojnë të paktën me këtë madhësi (në bajt):"
 
 #. Type: boolean
 #. Description
@@ -1032,6 +1060,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"Nëse nuk ktheheni tek particionuesi dhe të risni përmasat e këtyre "
+"particioneve, instalimi mund të dështojë."
 
 #. Type: note
 #. Description
@@ -1054,24 +1084,40 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" Tipi i Instalimit: ${INSTALLTYPE}\n"
+" Drajverat:\n"
+"     Shto Drajver Video: ${VIDEO_DRIVER}\n"
+"         Dalja TV: ${TVOUT}, ${TVSTANDARD}\n"
+" Shërbime Shtesë:\n"
+"     VNC: ${EN_VNC}\n"
+"     SSH: ${EN_OPENSSH}\n"
+"     Samba: ${EN_SAMBA}\n"
+"     NFS: ${EN_NFS}\n"
+"     Shërbimi MythTV: ${EN_MYSQL}\n"
+" Pyetje normale të instalimit të Ubuntu:\n"
+"     Gjuha: ${LANGUAGE}\n"
+"     Gjuha e tastierës: ${KEYMAP}\n"
+"     Emri Juaj: ${FULLNAME}\n"
+"     Emri i përdoruesit: ${USERNAME}\n"
+"     Vendndodhja: ${LOCATION}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "What Type of Installation?"
-msgstr ""
+msgstr "Çfarë lloj instalimi?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr ""
+msgstr "Dy lloje instalimi disponohen për Mythbuntu:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Standard Installation"
-msgstr ""
+msgstr "Instalim Standart"
 
 #. Type: text
 #. Description
@@ -1081,12 +1127,15 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"Një instalim standart do instalojë dhe konfigurojë çdo opsion me ndërhyrje "
+"minimale nga ana e përdoruesit. Kjo do instalojë të parat, të fundit, të "
+"gjithë plugin dhe të gjitha temat."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
 msgid "Advanced Installation"
-msgstr ""
+msgstr "Instalim i avancuar"
 
 #. Type: text
 #. Description
@@ -1096,6 +1145,10 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"Një instalim i avancuar mund të përdoret për të përshtatur çfarë ju "
+"nevojitet nga ky instalim i Mythbuntu. SHËNIM: Një instalim i avancuar është "
+"i nevojshëm për t'i shtuar një makinë Mythbuntu një rrjeti ekzistues të "
+"bazuar në MythTV."
 
 #. Type: text
 #. Description
@@ -1111,13 +1164,13 @@ msgstr "Instalimi përfundoi"
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "Çfarë lloj sistemi do të jetë ky?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "Shtresa parësore / Dytësore"
 
 #. Type: text
 #. Description
@@ -1127,12 +1180,15 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"Një makinë parësore/dytësore është lloji më i zakonshëm i instalimit për "
+"njerëzit që duan MythTV në aplikimet HTPC. Ky lloj instalimi nënkupton "
+"përdorimin si një përbërës në teatrin tuaj shtëpiak."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "Pjesë e përparme/e pasme dytësore"
 
 #. Type: text
 #. Description
@@ -1141,12 +1197,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"This will set up a system similar to a Primary Backend w/ Frontend, however "
+"will be configured to connect to an existing backend on the network."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid "Primary Backend"
-msgstr ""
+msgstr "Pjesa e pasme primare"
 
 #. Type: text
 #. Description
@@ -1156,12 +1214,15 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"A backend only machine is typically designed to function like an appliance; "
+"requiring very little maintenance. This is intended to be installed as the "
+"first backend on a network."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "Pjesa e pasme dytësore"
 
 #. Type: text
 #. Description
@@ -1216,7 +1277,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "Myth Web"
-msgstr ""
+msgstr "Myth Web"
 
 #. Type: text
 #. Description

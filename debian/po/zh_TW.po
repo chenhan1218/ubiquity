@@ -151,7 +151,6 @@ msgstr "您可以在此處測試您新選擇的鍵盤排列方式。"
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "選擇的區域"
 

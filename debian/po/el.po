@@ -158,7 +158,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Επιλεγμένη περιοχή:"
 
@@ -239,7 +238,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Αυτόματη είσοδος χρήστη"
 
 #. Type: text
 #. Description
@@ -312,7 +311,7 @@ msgstr "Έτοιμο για εγκατάσταση"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Details"
-msgstr ""
+msgstr "Λεπτομέρειες"
 
 #. Type: text
 #. Description
@@ -414,7 +413,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:52001
 msgid "Before:"
-msgstr ""
+msgstr "Πριν:"
 
 #. Type: text
 #. Description
@@ -422,7 +421,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:53001
 msgid "After:"
-msgstr ""
+msgstr "Μετά:"
 
 #. Type: text
 #. Description
@@ -740,6 +739,9 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"Αυτό οφείλεται στην έλλειψη ελεύθερου χώρου στο δίσκο για την ολοκλήρωση της "
+"εγκατάστασης στην κατάτμηση που υποδείχθηκε. Παρακαλούμε να επανεκκινήσετε "
+"το πρόγραμμα εγκατάστασης και να διαλέξετε μια μεγαλύτερη κατάτμηση."
 
 #. Type: error
 #. Description
@@ -1589,6 +1591,11 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"Αφού ορίσετε την πηγή σας για το πρόγραμμα της τηλεόρασης, θα πρέπει να "
+"ανοίξετε το MythTV-Setup για να τρέξετε για πρώτη φορά τη ρύθμιση της "
+"υποστήριξης. Θα πρέπει να επιλέξετε τις ρυθμίσεις για τα πρώτα τέσσερα "
+"τμήματα και να βεβαιωθείτε ότι επιλέξατε το κατάλληλο πρόγραμμα τηλεόρασης "
+"στο τρίτο τμήμα."
 
 #. Type: text
 #. Description
@@ -1612,4 +1619,4 @@ msgstr "Ρύθμιση επιπρόσθετων υπηρεσιών..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
-msgstr ""
+msgstr "Ρυθμίζει συσκευές υπερύθρων"

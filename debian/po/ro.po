@@ -157,7 +157,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Regiunea aleasă:"
 

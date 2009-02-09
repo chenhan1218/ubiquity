@@ -155,7 +155,6 @@ msgstr "У цьому полі ви можете перевірити вашу �
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Обраний регіон:"
 

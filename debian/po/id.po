@@ -158,7 +158,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Daerah yang dipilih:"
 
@@ -239,7 +238,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Masuk secara otomatis"
 
 #. Type: text
 #. Description
@@ -311,7 +310,7 @@ msgstr "Siap untuk install"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Details"
-msgstr ""
+msgstr "Rincian"
 
 #. Type: text
 #. Description
@@ -411,7 +410,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:52001
 msgid "Before:"
-msgstr ""
+msgstr "Sebelum:"
 
 #. Type: text
 #. Description
@@ -419,7 +418,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:53001
 msgid "After:"
-msgstr ""
+msgstr "Setelah:"
 
 #. Type: text
 #. Description
@@ -735,6 +734,9 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"Hal ini disebabkan kurangnya ruang media penyimpanan pada partisi yang "
+"dipilih untuk dapat instal dengan komplit. Silahkan jalankan instaler lagi "
+"dan pilih partisi yang lebih besar."
 
 #. Type: error
 #. Description

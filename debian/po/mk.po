@@ -161,7 +161,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Избран регион:"
 
@@ -240,7 +239,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Најави автоматски"
 
 #. Type: text
 #. Description
@@ -312,7 +311,7 @@ msgstr "Спремно за инсталација"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Details"
-msgstr ""
+msgstr "Детали"
 
 #. Type: text
 #. Description
@@ -412,7 +411,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:52001
 msgid "Before:"
-msgstr ""
+msgstr "Пред:"
 
 #. Type: text
 #. Description
@@ -420,7 +419,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:53001
 msgid "After:"
-msgstr ""
+msgstr "Потоа"
 
 #. Type: text
 #. Description

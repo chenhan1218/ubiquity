@@ -71,6 +71,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"Instalirate u modu proizvođača sustava. Unesite jedinstveno ime za ovaj skup "
+"sustava. To ime će biti sačuvano u instaliranom sustavu te se može koristiti "
+"za pomoć pri prijavama pogreški."
 
 #. Type: text
 #. Description
@@ -152,7 +155,6 @@ msgstr "Možete pisati u ovo polje kako biste testirali raspored tipkovnice"
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Odabrana zemlja:"
 
@@ -229,7 +231,7 @@ msgstr "Pod ovim će imenom drugi u mreži vidjeti vaše računalo."
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Automatska prijava"
 
 #. Type: text
 #. Description
@@ -257,6 +259,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Odaberite korisničke račune koje želite prebaciti. Dokumenti i postavke ovih "
+"računa biti će dostupni po završetku instalacije."
 
 #. Type: text
 #. Description
@@ -299,7 +303,7 @@ msgstr "Spreman za instalaciju"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Details"
-msgstr ""
+msgstr "Detalji"
 
 #. Type: text
 #. Description
@@ -385,6 +389,12 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"Žao nam je; instalacijski program se srušio. Molimo vas, ispunite prijavu "
+"greške na https://launchpad.net/ubuntu/+source/ubiquity/+filebug (nemojte "
+"dodavati vaše detalje u bilo koju postojeću grešku) i vaš će problem biti "
+"razmotren što prije. Kako bi razvojni tim mogao razumjeti što se dogodilo, "
+"svakako dodajte sljedeće detalje u vašu prijavu greške te dodajte datoteke /"
+"var/log/syslog i /var/log/partman:"
 
 #. Type: text
 #. Description
@@ -392,7 +402,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:52001
 msgid "Before:"
-msgstr ""
+msgstr "Prije:"
 
 #. Type: text
 #. Description
@@ -400,21 +410,21 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:53001
 msgid "After:"
-msgstr ""
+msgstr "Nakon:"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:54001
 msgid "New partition table"
-msgstr ""
+msgstr "Nova particijska tablica"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:55001
 msgid "New partition"
-msgstr ""
+msgstr "Nova particija"
 
 #. Type: text
 #. Description
@@ -430,14 +440,14 @@ msgstr "Uređivanje particije"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:57001
 msgid "Delete partition"
-msgstr ""
+msgstr "Obriši particiju"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:58001
 msgid "Device"
-msgstr ""
+msgstr "Uređaj"
 
 #. Type: text
 #. Description
@@ -445,28 +455,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:59001
 msgid "Type"
-msgstr ""
+msgstr "Vrsta"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:60001
 msgid "Mount point"
-msgstr ""
+msgstr "Točka montiranja"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:61001
 msgid "Format?"
-msgstr ""
+msgstr "Formatirati?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:62001
 msgid "Size"
-msgstr ""
+msgstr "Veličina"
 
 #. Type: text
 #. Description
@@ -474,21 +484,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:63001
 msgid "Used"
-msgstr ""
+msgstr "Upotrebljeno"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:64001
 msgid "free space"
-msgstr ""
+msgstr "slobodni prostor"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:65001
 msgid "unknown"
-msgstr ""
+msgstr "nepoznato"
 
 #. Type: text
 #. Description
@@ -538,7 +548,7 @@ msgstr "Uredite particiju"
 #. Description
 #: ../ubiquity.templates:75001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Napredne opcije"
 
 #. Type: text
 #. Description
@@ -550,37 +560,37 @@ msgstr "Boot učitavač"
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Install boot loader"
-msgstr ""
+msgstr "Instalacija programa za pokretanje sustava"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Popularity contest"
-msgstr ""
+msgstr "Natjecanje u popularnosti"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Sudjelujte u anketi korištenja paketa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
 msgid "Network proxy"
-msgstr ""
+msgstr "Mrežni proxy"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:81001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP proxy:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:82001
 msgid "Port:"
-msgstr ""
+msgstr "Port:"
 
 #. Type: text
 #. Description
@@ -714,6 +724,9 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"Razlog tomu je nepostojanje dovoljno slobodnog prostora za dovršetak "
+"instalacije na odabranoj particije. Molim, pokrenite instalaciju ponovo i "
+"odaberite veću particiju."
 
 #. Type: error
 #. Description
@@ -769,7 +782,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:99001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "Slijedeća datoteka ne odgovara izvornoj kopiji na CD/DVD-u:"
 
 #. Type: text
 #. Description
@@ -847,13 +860,13 @@ msgstr "Podešavanje boot upravitelja..."
 #. Description
 #: ../ubiquity.templates:112001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "Instalacija dodatnih paketa..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:113001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "Provjera paketa za instalaciju..."
 
 #. Type: text
 #. Description
@@ -901,13 +914,13 @@ msgstr "Greška prilikom uklanjanja paketa ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:122001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "Greška pri instalaciji paketa"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:122001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "Pojavile su se greške prilikom instalacije slijedećih paketa:"
 
 #. Type: error
 #. Description
@@ -931,6 +944,13 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"Ovo se često događa zbog korištenja stare slike instalacijskog programa ili "
+"zbog greške u jednom od gore navedenih paketa. Više detalja možete pronaći "
+"u /var/log/syslog. Instalacijski program će pokušati nastaviti, ali će možda "
+"kasnije doživjeti neuspjeh i neće biti u mogućnosti instalirati ili maknuti "
+"druge pakete (možda ukljujući i sam sebe) s instaliranog sistema. Prvo biste "
+"trebali provjeriti postoje li novije verzije vaše instalacijske slike ili, "
+"ukoliko ne postoje, prijaviti problem vašem distributeru."
 
 #. Type: error
 #. Description
@@ -996,7 +1016,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:140001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "Želite li se vratiti na particioniranje?"
 
 #. Type: boolean
 #. Description
@@ -1005,6 +1025,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"Neke particije su premale. Molim, povećajte slijedeće particije barem na ove "
+"veličine (u bajtovima):"
 
 #. Type: boolean
 #. Description
@@ -1013,6 +1035,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"Ako se ne vratite na particioniranje i povećate ove particije, instalacija "
+"neće uspjeti."
 
 #. Type: note
 #. Description
@@ -1035,6 +1059,22 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" Instalacijski Tip: ${INSTALLTYPE}\n"
+" Upravljači:\n"
+"     Dodaj. Video Upravljač: ${VIDEO_DRIVER}\n"
+"         TV-Izlaz: ${TVOUT}, ${TVSTANDARD}\n"
+" Dodatne Usluge:\n"
+"     VNC: ${EN_VNC}\n"
+"     SSH: ${EN_OPENSSH}\n"
+"     Samba: ${EN_SAMBA}\n"
+"     NFS: ${EN_NFS}\n"
+"     MythTV Usluga: ${EN_MYSQL}\n"
+" Normalna Ubuntu Instalacijska Pitanja:\n"
+"     Jezik: ${lANGUAGE}\n"
+"     Plan tipkovnice: ${KEYMAP}\n"
+"     Regularno Ime: ${FULLNAME}\n"
+"     Regularno Prijavno ime: ${USERNAME}\n"
+"     Lokacija: ${LOCATION}"
 
 #. Type: text
 #. Description
@@ -1080,6 +1120,10 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"Naprednija instalacija se može koristiti kako bi se ono što je potrebno "
+"prilagodilo za ovu Mythbuntu instalaciju. UOČITE: Napredna instalacija "
+"potrebna je kako biste dodali Mythbuntu stanicu postojećoj mreži zasnovanoj "
+"na MythTV-u."
 
 #. Type: text
 #. Description
@@ -1100,7 +1144,7 @@ msgstr "Koji tip sustava će ovo biti?"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "Glavna pozadinska aplikacija sa sučeljem"
 
 #. Type: text
 #. Description
@@ -1110,12 +1154,15 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"Računalo s pozadinskom aplikacijom i sučeljem najčešća je kombinacija za "
+"korisnike koji žele MythTV za HTPC programe. Ovaj tip instalacije se koristi "
+"kao komponenta kućnog kina."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "Pričuvna pozadinska aplikacija sa sučeljem"
 
 #. Type: text
 #. Description
@@ -1124,12 +1171,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"Ovo će postaviti sustav sličan onom s glavnom pozadinskom aplikacijom i "
+"sučeljem, ali će sučelje koristiti postojeću pozadinsku aplikaciju na mreži."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid "Primary Backend"
-msgstr ""
+msgstr "Glavna pozadinska aplikacija"
 
 #. Type: text
 #. Description
@@ -1139,12 +1188,15 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"Računalo samo s pozadinskom aplikacijom se koristi kao uređaj, gotovo bez "
+"održavanja. Ovo je namijenjeno za instalaciju prve pozadinske aplikacije na "
+"mreži."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "Pričuvna pozadinska aplikacija"
 
 #. Type: text
 #. Description
@@ -1153,12 +1205,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"Ovo će instalirati sustav sličan Glavnoj pozadinskoj aplikaciji, ali će biti "
+"postavljen tako da se poveže na postojeću pozadinsku aplikaciju na mreži."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Frontend"
-msgstr ""
+msgstr "Sučelje"
 
 #. Type: text
 #. Description
@@ -1168,12 +1222,15 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"Glavna funkcija računala, koje ima samo sučelje, je primanje sadržaja od "
+"računala s pozadinskom aplikacijom i distribucija istog. Ova konfiguracija "
+"zahtijeva postojanje računala s pozadinskom aplikacijom."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr ""
+msgstr "Odaberite dodatke za sučelje / pozadinsku aplikaciju"
 
 #. Type: text
 #. Description
@@ -1182,24 +1239,26 @@ msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
 msgstr ""
+"Dodaci se mogu koristiti da prošire mogućnosti MythTV-a izvan rješenja "
+"pomicanja vremena toka TV programa."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "Backend Plugins"
-msgstr ""
+msgstr "Dodaci za pozadinsku aplikaciju"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Frontend Plugins"
-msgstr ""
+msgstr "Dodaci za sučelje"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "Myth Web"
-msgstr ""
+msgstr "Myth Mreža"
 
 #. Type: text
 #. Description
@@ -1208,6 +1267,8 @@ msgid ""
 "MythWeb provides a web interface which can be used to view listings, "
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
+"MythMreža pruža mrežno sučelje koje se može koristiti za pregled lista, "
+"zakazivanje snimanja, brisanje snimaka i potragu za programima."
 
 #. Type: text
 #. Description
@@ -1216,79 +1277,79 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:27001
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Myth Archive"
-msgstr ""
+msgstr "Myth Arhiva"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid "Myth Browser"
-msgstr ""
+msgstr "Myth Preglednik"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Myth Controls"
-msgstr ""
+msgstr "Myth Kontrole"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Movies"
-msgstr ""
+msgstr "Myth Filmovi"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Myth Flix"
-msgstr ""
+msgstr "Myth Flix"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Myth Gallery"
-msgstr ""
+msgstr "Myth Galerija"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Myth Game"
-msgstr ""
+msgstr "Myth Igra"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Myth Music"
-msgstr ""
+msgstr "Myth Glazba"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth News"
-msgstr ""
+msgstr "Myth Novosti"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
 msgid "Myth Phone"
-msgstr ""
+msgstr "Myth Telefon"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Stream"
-msgstr ""
+msgstr "Myth Stream"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:39001
 msgid "Myth Video"
-msgstr ""
+msgstr "Myth Video"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:40001
 msgid "Myth Weather"
-msgstr ""
+msgstr "Myth Vrijeme"
 
 #. Type: text
 #. Description
@@ -1297,18 +1358,20 @@ msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
 msgstr ""
+"Dodatak za MythTV koji vam dopušta izdradu DVD-a od sadržaja na vašoj MythTV "
+"mreži."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
-msgstr ""
+msgstr "Dodatak za MythTV koji vam omogućava pregled filmova sa apple.com."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:43001
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr ""
+msgstr "Dodatak integriranog mrežnog preglednika za vaš MythTV sustav."
 
 #. Type: text
 #. Description
@@ -1317,36 +1380,39 @@ msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
 msgstr ""
+"Vanjske kontrole za MythTV. Ovo će vam dopustiti da prilagodite "
+"tipakovničkih kratica."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Find movies playing in nearby local cinemas"
-msgstr ""
+msgstr "Pronađi filmove u obližnjim kinima."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr ""
+msgstr "Omogućuje vam da nadzirete koji ste na redu za dvd posudbe na Netflixu"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Allows you to visually browse a directory tree containing image files."
 msgstr ""
+"Dopušta vam da vizualno pregledate stablo mapa koje sadrži slikovne datoteke."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:48001
 msgid "A frontend to start any emulator or binary that Linux runs."
-msgstr ""
+msgstr "Sučelje za pokretanje bilo kakvog programa kojeg Linux podržava."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:49001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr ""
+msgstr "Omogućuje digitalni glazbeni jukebox uključen u MythTV."
 
 #. Type: text
 #. Description
@@ -1355,6 +1421,8 @@ msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
 msgstr ""
+"Dodatak MythTV-u za čitanje RSS vijesti koji vam omogućuje da budete u toku "
+"sa svojim omiljenim temama."
 
 #. Type: text
 #. Description
@@ -1362,12 +1430,14 @@ msgstr ""
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr ""
+"Telefonske i videotelefonske mogućnosti na MythTV preko standardnog SIP "
+"protokola."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Provides a method to listen to streaming internet radio stations."
-msgstr ""
+msgstr "Pruža način za slušanje internetskih radio postaja"
 
 #. Type: text
 #. Description
@@ -1376,18 +1446,20 @@ msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
 msgstr ""
+"Omogućuje vam traženje i pregledavanje video sadržaja koristeći vanjski "
+"prikazivač kroz sučelje MythTV-a."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:54001
 msgid "Displays current and forecast weather information within MythTV."
-msgstr ""
+msgstr "Prikazuje trenutno vrijeme i vremenske prognoze unutar MythTV-a."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:55001
 msgid "Choose Extra Themes"
-msgstr ""
+msgstr "Izaberite Dodatne Teme"
 
 #. Type: text
 #. Description
@@ -1396,6 +1468,8 @@ msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
+"Teme mogu značajno poboljšati izgled MythTV-a, te prilagoditi izgled vašem "
+"ukusu."
 
 #. Type: text
 #. Description
@@ -1404,13 +1478,13 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:57001
 #: ../ubiquity-frontend-mythbuntu.templates:58001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "Omogući/Onemogući sve"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Additional Drivers/Firmware"
-msgstr ""
+msgstr "Dodatni pokretački programi"
 
 #. Type: text
 #. Description
@@ -1421,24 +1495,28 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"Pokretački program (otvorenog koda) za prikaz je već omogućen i podešen za "
+"vašu instalaciju. Ukoliko želite koristiti drugi pokretački program za "
+"prikaz, možete to učiniti ovdje.  Napomena: možda će biti potreban "
+"pokretački program (neslobodnog koda) za TV izlaz ili OpenGL efekte."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:61001
 msgid "Modify Video Driver & Settings"
-msgstr ""
+msgstr "Podesite video upravljač i postavke"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:62001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr ""
+msgstr "Ako biste željeli podesiti TV-izlaz, odaberite opciju:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-msgstr ""
+msgstr "Ako uključujete TV Izlaz, morat ćete odabrati i TV Standard:"
 
 #. Type: text
 #. Description
@@ -1447,18 +1525,21 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
+"Upozorenje: Nemojte postavljati TV standard na vrijednost iznad one koju "
+"dopušta vaš televizor. Postoji mogućnost TRAJNE štete."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
 msgid "Master Backend Info"
-msgstr ""
+msgstr "Informacije o pozadinskoj aplikaciji"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:66001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
+"Molim, unesite informacije potrebne za kontaktiranje pozadinske aplikacije."
 
 #. Type: text
 #. Description
@@ -1470,25 +1551,25 @@ msgstr "MySQL lozinka"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:68001
 msgid "MySQL User Name"
-msgstr ""
+msgstr "MySQL korisničko ime"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "MySQL Database"
-msgstr ""
+msgstr "MySQL baza podataka"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:70001
 msgid "MySQL Server"
-msgstr ""
+msgstr "MySQL poslužitelj"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "Postavljanje podataka vodiča / pozadinske aplikacije"
 
 #. Type: text
 #. Description
@@ -1497,12 +1578,14 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
+"Posljednji koraci instalacije, potrebni za postavljanje vaših podataka za "
+"vodič, te postavljanje pozadinske aplikcije po prvi put."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "Kliknite za otvaranje Schedules Direct web stranice"
 
 #. Type: text
 #. Description
@@ -1512,12 +1595,16 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
+"Korisnici u Sjevernoj Americi će morati postaviti korisnički račun na "
+"Shedules Direct (SD). SD pruža podatke vodiča za nominalnu cijenu. Bez SD-a, "
+"korisnici iz Sjeverne Amerike će izgubiti mnoge mogućnosti koje prouža "
+"MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "Pokreni postavljanje MythTV-a"
 
 #. Type: text
 #. Description
@@ -1528,6 +1615,9 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"Nakon postavljanja izvora za vodič, morati ćete pokrenuti postavljanje "
+"MythTV-a radi postavljanja pozadinske aplikacije. Morati ćete postaviti prva "
+"4 odjeljka, a svakako se pobrinite da postavite postavke vodiča."
 
 #. Type: text
 #. Description
@@ -1551,4 +1641,4 @@ msgstr "Postavljanje dodatnih usluga..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
-msgstr ""
+msgstr "Postavljanje infracrvnih uređaja..."

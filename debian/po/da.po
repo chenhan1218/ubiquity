@@ -155,7 +155,6 @@ msgstr "Du kan skrive i denne boks for at teste dit nye tastaturlayout."
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Valgt region:"
 
@@ -427,7 +426,7 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:55001
 msgid "New partition"
-msgstr ""
+msgstr "Ny partition"
 
 #. Type: text
 #. Description
@@ -443,14 +442,14 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:57001
 msgid "Delete partition"
-msgstr ""
+msgstr "Slet partition"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:58001
 msgid "Device"
-msgstr ""
+msgstr "Udstyr"
 
 #. Type: text
 #. Description
@@ -494,14 +493,14 @@ msgstr ""
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:64001
 msgid "free space"
-msgstr ""
+msgstr "ledig plads"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:65001
 msgid "unknown"
-msgstr ""
+msgstr "ukendt"
 
 #. Type: text
 #. Description
@@ -515,7 +514,7 @@ msgstr "Opret partition"
 #. Description
 #: ../ubiquity.templates:67001 ../ubiquity.templates:74001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "Ny partionsstørrelse i megabytes (1.000.000 bytes)"
 
 #. Type: text
 #. Description
@@ -545,13 +544,13 @@ msgstr "Logisk"
 #. Description
 #: ../ubiquity.templates:73001
 msgid "Edit a partition"
-msgstr ""
+msgstr "Redigér en partition"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:75001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Avancerede indstillinger"
 
 #. Type: text
 #. Description
@@ -593,7 +592,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:82001
 msgid "Port:"
-msgstr ""
+msgstr "Port:"
 
 #. Type: text
 #. Description

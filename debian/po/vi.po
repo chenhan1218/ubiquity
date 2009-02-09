@@ -155,7 +155,6 @@ msgstr "Bạn có thể gõ vào ô này để kiểm tra kiểu bàn phím mớ
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Khu vực được chọn:"
 
@@ -1548,6 +1547,8 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:66001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
+"Vui lòng nhập thông tin cần thiết để liên lạc với người điều khiển tiến "
+"trình cuối của bạn:"
 
 #. Type: text
 #. Description
@@ -1577,7 +1578,7 @@ msgstr "Máy chủ MySQL"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "Cấu hình dữ liêu hướng dẫn/ backend"
 
 #. Type: text
 #. Description
@@ -1586,12 +1587,14 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
+"Bước cài đặt cuối cùng yêu cầu thiết lập dữ liệu hướng dẫn và cấu hình "
+"backend cho lần đầu tiên."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "Click để mở Schedules Direct website"
 
 #. Type: text
 #. Description
@@ -1601,6 +1604,9 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
+"Người dùng ở Bắc Mỹ sẽ cần phải tạo một tài khoản với Schedules Direct (SD). "
+"SD cung cấp dữ liệu hướng dẫn việc định giá. Người dùng ở Bắc Mỹ sẽ có thể "
+"không sử dụng hết các tính năng của MythTV nếu không có SD."
 
 #. Type: text
 #. Description
@@ -1643,4 +1649,4 @@ msgstr "Đang cấu hình phần cứng..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
-msgstr ""
+msgstr "Cấu hình các thiết bị hồng ngoại..."

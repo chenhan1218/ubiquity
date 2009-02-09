@@ -156,7 +156,6 @@ msgstr "Za preizkus svoje nove postavitve, lahko tipkate v to polje."
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Izbrana regija:"
 

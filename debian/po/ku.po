@@ -155,7 +155,6 @@ msgstr "Ji bo ceribandina klavyeyê tu dikarî di vê qutîkê de binivîsî."
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Herêma destnîşankirî:"
 

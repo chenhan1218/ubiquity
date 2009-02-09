@@ -155,7 +155,6 @@ msgstr "Pode escribir neste cadro para probar a nova distribución das teclas."
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Rexión escollida:"
 
@@ -235,7 +234,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Iniciar sesión automaticamente"
 
 #. Type: text
 #. Description
@@ -307,7 +306,7 @@ msgstr "Listo para instalar"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Details"
-msgstr ""
+msgstr "Detalles"
 
 #. Type: text
 #. Description
@@ -406,7 +405,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:52001
 msgid "Before:"
-msgstr ""
+msgstr "Antes:"
 
 #. Type: text
 #. Description
@@ -414,7 +413,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:53001
 msgid "After:"
-msgstr ""
+msgstr "Despois:"
 
 #. Type: text
 #. Description

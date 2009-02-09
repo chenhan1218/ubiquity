@@ -156,7 +156,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Избран регион:"
 
@@ -235,7 +234,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Автоматично влизане в системата"
 
 #. Type: text
 #. Description
@@ -263,6 +262,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Изберете всички акаути, от които искате да импортирате. Документите и "
+"настойките на тези акаунти ще бъдат достъпни след като инсталацията завърши."
 
 #. Type: text
 #. Description
@@ -305,7 +306,7 @@ msgstr "Готов за инсталация"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Details"
-msgstr ""
+msgstr "Подробности"
 
 #. Type: text
 #. Description
@@ -405,7 +406,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:52001
 msgid "Before:"
-msgstr ""
+msgstr "Преди:"
 
 #. Type: text
 #. Description
@@ -413,21 +414,21 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:53001
 msgid "After:"
-msgstr ""
+msgstr "След:"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:54001
 msgid "New partition table"
-msgstr ""
+msgstr "Нова таблица на дяла"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:55001
 msgid "New partition"
-msgstr ""
+msgstr "Нов дял"
 
 #. Type: text
 #. Description
@@ -443,14 +444,14 @@ msgstr "Редакция на дял"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:57001
 msgid "Delete partition"
-msgstr ""
+msgstr "Изтриване на дял"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:58001
 msgid "Device"
-msgstr ""
+msgstr "Устройство"
 
 #. Type: text
 #. Description
@@ -458,28 +459,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:59001
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:60001
 msgid "Mount point"
-msgstr ""
+msgstr "Точка на монтиране"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:61001
 msgid "Format?"
-msgstr ""
+msgstr "Форматиране?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:62001
 msgid "Size"
-msgstr ""
+msgstr "Големина"
 
 #. Type: text
 #. Description
@@ -487,21 +488,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:63001
 msgid "Used"
-msgstr ""
+msgstr "Използвано"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:64001
 msgid "free space"
-msgstr ""
+msgstr "свободно място"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:65001
 msgid "unknown"
-msgstr ""
+msgstr "неизвестно"
 
 #. Type: text
 #. Description
@@ -581,19 +582,19 @@ msgstr "Участвайте в проучването за употреба н�
 #. Description
 #: ../ubiquity.templates:80001
 msgid "Network proxy"
-msgstr ""
+msgstr "Мрежов сървър-посредник"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:81001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP посредник:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:82001
 msgid "Port:"
-msgstr ""
+msgstr "Порт:"
 
 #. Type: text
 #. Description
@@ -730,6 +731,8 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"Това се случи, защото на пососчения дял няма достатъчно свободно място. "
+"Моля, стартирайте инсталатора отново и изберете по-голям дял за инсталиране."
 
 #. Type: error
 #. Description
@@ -786,7 +789,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:99001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "Следният файл не съвпада с изходното копие от CD/DVD:"
 
 #. Type: text
 #. Description
@@ -948,6 +951,14 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"Това може да се дължи на стар инсталационен пакет или диск, или може да е "
+"грешка в някои от пакетите в горния списък. Допълнителни сведения могат да "
+"бъдат открити в /var/log/syslog. Инсталаторът ще се опита да продължи, но е "
+"възможно да се провали по-късно, при което няма да можете да инсталирате или "
+"премахвате други пакети (възможно е да важи и за самия инсталатор) от "
+"системата. Най-добре би било да проверите за нова версия на инсталационния "
+"пакет или диск, а ако това не проработи, отнесете въпроса към вашия "
+"разпространител."
 
 #. Type: error
 #. Description
@@ -1015,7 +1026,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:140001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "Искате ли да се върнете в програмата за редактиране на дялове?"
 
 #. Type: boolean
 #. Description
@@ -1024,6 +1035,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"Някои от дяловете, които сте създали са прекалено малки. Моля, направете "
+"следните дялове поне толкова големи (в байтове):"
 
 #. Type: boolean
 #. Description
@@ -1032,6 +1045,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"Ако не се върнете в програмата за редактиране на дялове и не увеличите "
+"големината на тези дялове, инсталацията може да се провали."
 
 #. Type: note
 #. Description
@@ -1054,6 +1069,22 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" Вид на инсталацията: ${INSTALLTYPE}\n"
+"Драйвери:\n"
+"Добавяне на видео-драйвер: ${VIDEO_DRIVER}\n"
+"ТВ-изход: ${TVOUT}, ${TVSTANDARD}\n"
+"Допълнителни услуги:\n"
+"VNC: ${EN_VNC}\n"
+"SSH: ${EN_OPENSSH}\n"
+"\"Самба\" (\"Samba\"): ${EN_SAMBA}\n"
+"NFS: ${EN_NFS}\n"
+"Услуга \"MythTV\": ${EN_MYSQL}\n"
+"Инсталационни въпроси за Ubuntu:\n"
+"Език: ${LANGUAGE}\n"
+"Настройки на клавиатурата: ${KEYMAP}\n"
+"Име: ${FULLNAME}\n"
+"Име за влизане в системата: ${USERNAME}\n"
+"Разположение: ${LOCATION}"
 
 #. Type: text
 #. Description
@@ -1152,7 +1183,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid "Primary Backend"
-msgstr ""
+msgstr "Първа програма"
 
 #. Type: text
 #. Description
@@ -1167,7 +1198,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "Втора програма"
 
 #. Type: text
 #. Description
@@ -1181,7 +1212,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Frontend"
-msgstr ""
+msgstr "Програма за настройка"
 
 #. Type: text
 #. Description
@@ -1205,6 +1236,8 @@ msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
 msgstr ""
+"Могат да се използват приставки за разширяване функциите на MythTV повече от "
+"променливо телевизионно решение."
 
 #. Type: text
 #. Description
@@ -1231,6 +1264,9 @@ msgid ""
 "MythWeb provides a web interface which can be used to view listings, "
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
+"MythWeb предоставя уеб интерфейс, който може да бъде използван за "
+"преглеждане на списъци, да се задават разписания за записи, да се изтриват "
+"записи и да се търсят телевизионни програми."
 
 #. Type: text
 #. Description
@@ -1257,55 +1293,55 @@ msgstr "Myth контроли"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Movies"
-msgstr ""
+msgstr "Myth Филми"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Myth Flix"
-msgstr ""
+msgstr "Myth Flix"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Myth Gallery"
-msgstr ""
+msgstr "Myth Галерия"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Myth Game"
-msgstr ""
+msgstr "Myth Игра"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Myth Music"
-msgstr ""
+msgstr "Myth Музика"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth News"
-msgstr ""
+msgstr "Myth Новини"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
 msgid "Myth Phone"
-msgstr ""
+msgstr "Myth Телефон"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Stream"
-msgstr ""
+msgstr "Myth Поток"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:39001
 msgid "Myth Video"
-msgstr ""
+msgstr "Myth Видео"
 
 #. Type: text
 #. Description
@@ -1320,18 +1356,22 @@ msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
 msgstr ""
+"Приставка за  MythTV, която ви позволява да създавате DVD дискове от "
+"съдържанието на вашата MythTV мрежа."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr ""
+"Приставка за MythTV, която ви позволява да гледате трейлъри на филми от "
+"apple.com"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:43001
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr ""
+msgstr "Интегрирана уеб браузър приставка за вашата MythTV система."
 
 #. Type: text
 #. Description
@@ -1340,24 +1380,27 @@ msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
 msgstr ""
+"Външни контроли за MythTV. Това ще ви позволи да модифицирате присвояванията "
+"и привързванията на бутоните."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Find movies playing in nearby local cinemas"
-msgstr ""
+msgstr "Намиране на филми, които се прожектират в киносалоните наблизо"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr ""
+msgstr "Позволява ви да следите вашата Netflix DVD опашка за наемане"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Allows you to visually browse a directory tree containing image files."
 msgstr ""
+"Позволява ви да прегледате дървовидната структура съдържаща образ файлове."
 
 #. Type: text
 #. Description
@@ -1369,7 +1412,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:49001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr ""
+msgstr "Осигурява дигитален звуков плеър интегриран с MythTV."
 
 #. Type: text
 #. Description
@@ -1378,6 +1421,8 @@ msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
 msgstr ""
+"Добавка за MythTV- RSS четец на новини, който ви държи в крак с вашите "
+"любими новинарски теми."
 
 #. Type: text
 #. Description
@@ -1385,12 +1430,14 @@ msgstr ""
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr ""
+"Възможност за телефония и видеотелефония за MythTV чрез стандартен SIP "
+"протокол."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Provides a method to listen to streaming internet radio stations."
-msgstr ""
+msgstr "Предоставя метод за слушане на поточни интернет радио станции."
 
 #. Type: text
 #. Description
@@ -1399,18 +1446,20 @@ msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
 msgstr ""
+"Позволява ви да прегледате и възпроизвеждате видео потоци, с помощта на "
+"външен плеър от интерфейса на MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:54001
 msgid "Displays current and forecast weather information within MythTV."
-msgstr ""
+msgstr "Показва текущото време и прогноза за времето в MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:55001
 msgid "Choose Extra Themes"
-msgstr ""
+msgstr "Избиране на допълнителни теми"
 
 #. Type: text
 #. Description
@@ -1427,13 +1476,13 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:57001
 #: ../ubiquity-frontend-mythbuntu.templates:58001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "Разреши/Забрани всички"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Additional Drivers/Firmware"
-msgstr ""
+msgstr "Допълнителни драйвери/фърмуеър"
 
 #. Type: text
 #. Description
@@ -1444,24 +1493,28 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"Графичен драйвер с отворен код е вече активиран и конфигуриран за вашата "
+"инсталация. Ако искате да използвате друг графичен драйвер, можете да го "
+"направите тук. Имайте впредвид, че собствени драйвери може да са нужни за "
+"изход към TV или OpenGL ефекти."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:61001
 msgid "Modify Video Driver & Settings"
-msgstr ""
+msgstr "Промяна на видео драйвер и настройки"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:62001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr ""
+msgstr "Ако искате да конфигурирате ТВ изход, изберете опция тук:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-msgstr ""
+msgstr "Ако активирате ТВ изход, ще трябва да изберете и ТВ стандарт:"
 
 #. Type: text
 #. Description
@@ -1470,12 +1523,14 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
+"Внимание: Не задавайте ТВ стандарт на настройка по-висока от тази, която "
+"вашия телевизор поддържа. Може да се случи НЕИЗМЕНЯЕМА."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
 msgid "Master Backend Info"
-msgstr ""
+msgstr "Информация за главна програма"
 
 #. Type: text
 #. Description
@@ -1493,19 +1548,19 @@ msgstr "MySQL Парола"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:68001
 msgid "MySQL User Name"
-msgstr ""
+msgstr "MySQL Потребител"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "MySQL Database"
-msgstr ""
+msgstr "MySQL База данни"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:70001
 msgid "MySQL Server"
-msgstr ""
+msgstr "MySQL Сървър"
 
 #. Type: text
 #. Description
@@ -1525,7 +1580,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "Щракнете, за да отворитесайта за директни разписания."
 
 #. Type: text
 #. Description
@@ -1540,7 +1595,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "Стартиране на MythTV настройки"
 
 #. Type: text
 #. Description
@@ -1574,4 +1629,4 @@ msgstr "Настройване на допълнителни услуги..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring infrared devices..."
-msgstr ""
+msgstr "Конфигуриране на инфрачервени устройства..."

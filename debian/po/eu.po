@@ -156,7 +156,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Hautatutako eskualdea:"
 
@@ -233,7 +232,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Sartu automatikoki"
 
 #. Type: text
 #. Description
@@ -305,7 +304,7 @@ msgstr "Instalatzeko prest"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Details"
-msgstr ""
+msgstr "Xehetasunak"
 
 #. Type: text
 #. Description
@@ -405,7 +404,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:52001
 msgid "Before:"
-msgstr ""
+msgstr "Aurretik:"
 
 #. Type: text
 #. Description
@@ -413,7 +412,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:53001
 msgid "After:"
-msgstr ""
+msgstr "Ondoren:"
 
 #. Type: text
 #. Description

@@ -148,7 +148,6 @@ msgstr "您可以在该框内测试您新的键盘布局。"
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "所选区域："
 

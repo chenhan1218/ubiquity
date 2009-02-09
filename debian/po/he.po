@@ -150,7 +150,6 @@ msgstr "תוכל להקליד בתיבה זו על מנת לבחון את פרי
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "בחר איזור:"
 
@@ -224,7 +223,7 @@ msgstr "בשם זה יעשה שימוש אם תבחר לחבר את המחשב �
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Log in automatically"
-msgstr ""
+msgstr "התחבר אוטומטית"
 
 #. Type: text
 #. Description
@@ -294,7 +293,7 @@ msgstr "מוכן להתקנה"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Details"
-msgstr ""
+msgstr "פרטים"
 
 #. Type: text
 #. Description
@@ -392,7 +391,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:52001
 msgid "Before:"
-msgstr ""
+msgstr "לפני:"
 
 #. Type: text
 #. Description
@@ -400,7 +399,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:53001
 msgid "After:"
-msgstr ""
+msgstr "אחרי:"
 
 #. Type: text
 #. Description
@@ -709,6 +708,8 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"תקלה זו נגרמה מכיוון שאין מספיק מקום לסיים את ההתקנה במחיצה שצויינה על הדיסק "
+"הקשיח. אנא הרץ את ההתקנה מחדש ובחר מחיצה גדולה יותר להתקנה."
 
 #. Type: error
 #. Description

@@ -154,7 +154,6 @@ msgstr "새 키보드 레이아웃을 시험해 보기 위하여 아래 상자�
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "선택한 영역:"
 
@@ -228,7 +227,7 @@ msgstr "이 이름은 컴퓨터가 네트워크에서 다른 컴퓨터에 보여
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Log in automatically"
-msgstr ""
+msgstr "자동으로 로그인합니다"
 
 #. Type: text
 #. Description
@@ -300,7 +299,7 @@ msgstr "설치 준비"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Details"
-msgstr ""
+msgstr "세부 사항"
 
 #. Type: text
 #. Description
@@ -398,7 +397,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:52001
 msgid "Before:"
-msgstr ""
+msgstr "이전:"
 
 #. Type: text
 #. Description
@@ -406,7 +405,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:53001
 msgid "After:"
-msgstr ""
+msgstr "이후:"
 
 #. Type: text
 #. Description
@@ -720,6 +719,8 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"이것은 대상 파티션에 설치를 마치기 위한 디스크 공간이 부족하기 때문입니다. 설"
+"치 프로그램을 다시 실행시켜 더 큰 파티션에 설치하세요."
 
 #. Type: error
 #. Description
@@ -1279,7 +1280,7 @@ msgstr "Myth Controls"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Movies"
-msgstr ""
+msgstr "Myth 영화"
 
 #. Type: text
 #. Description
@@ -1446,6 +1447,8 @@ msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
+"테마는 MythTV 세트업을 멋지게 꾸밀수 있습니다, 그리고 원하시는 모양으로 바꿀 "
+"수도 있습니다."
 
 #. Type: text
 #. Description

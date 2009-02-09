@@ -155,7 +155,6 @@ msgstr "Yeni klavye düzeninizi denemek için bu kutuya yazabilirsiniz."
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Seçilen bölge:"
 
@@ -232,7 +231,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Otomatik giriş yap"
 
 #. Type: text
 #. Description
@@ -305,7 +304,7 @@ msgstr "Kuruluma hazır"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Details"
-msgstr ""
+msgstr "Ayrıntılar"
 
 #. Type: text
 #. Description
@@ -404,7 +403,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:52001
 msgid "Before:"
-msgstr ""
+msgstr "Önce:"
 
 #. Type: text
 #. Description
@@ -412,7 +411,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:53001
 msgid "After:"
-msgstr ""
+msgstr "Sonra:"
 
 #. Type: text
 #. Description

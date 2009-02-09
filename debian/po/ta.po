@@ -146,7 +146,6 @@ msgstr "நீங்கள் புதிய விசைப்பலகை அ
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "தேர்ந்தெடுக்கப்பட்ட பிரதேசம்:"
 

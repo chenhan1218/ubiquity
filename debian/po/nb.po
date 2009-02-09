@@ -155,7 +155,6 @@ msgstr "Her kan du skriva for å testa tastaturoppsettet."
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Valgt region:"
 

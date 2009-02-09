@@ -156,7 +156,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "選択された地域:"
 
@@ -235,7 +234,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Log in automatically"
-msgstr ""
+msgstr "自動的にログインする"
 
 #. Type: text
 #. Description
@@ -307,7 +306,7 @@ msgstr "インストール準備完了"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Details"
-msgstr ""
+msgstr "詳細"
 
 #. Type: text
 #. Description
@@ -405,7 +404,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:52001
 msgid "Before:"
-msgstr ""
+msgstr "前 :"
 
 #. Type: text
 #. Description
@@ -413,7 +412,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:53001
 msgid "After:"
-msgstr ""
+msgstr "後 :"
 
 #. Type: text
 #. Description
@@ -1469,6 +1468,8 @@ msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
+"テーマを使用すると、MythTV設定の見た目を大いに改善し、よりあなたの好みに合う"
+"ように表示されます。"
 
 #. Type: text
 #. Description

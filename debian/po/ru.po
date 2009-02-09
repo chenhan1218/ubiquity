@@ -156,7 +156,6 @@ msgstr "Вы можете писать в этом поле чтобы пров�
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Выбранный регион"
 

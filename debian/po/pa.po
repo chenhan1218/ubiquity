@@ -153,7 +153,6 @@ msgstr "ਤੁਸੀਂ ੲਿਸ ਖਾਨੇ ਵਿਚ ਟਾੲੀਪ ਕਰ�
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "ਚੁਣਿਅਾ ੲਿਲਾਕਾ:"
 

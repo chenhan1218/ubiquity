@@ -156,7 +156,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Região selecionada:"
 
@@ -235,7 +234,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Iniciar sessão automaticamente"
 
 #. Type: text
 #. Description
@@ -308,7 +307,7 @@ msgstr "Pronto para instalar"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Details"
-msgstr ""
+msgstr "Detalhes"
 
 #. Type: text
 #. Description
@@ -409,7 +408,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:52001
 msgid "Before:"
-msgstr ""
+msgstr "Antes:"
 
 #. Type: text
 #. Description
@@ -417,7 +416,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:53001
 msgid "After:"
-msgstr ""
+msgstr "Depois:"
 
 #. Type: text
 #. Description

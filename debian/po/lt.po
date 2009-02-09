@@ -155,7 +155,6 @@ msgstr "Rašydami į šį langelį galite išbandyti jūsų klaviaturos išdėst
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Pasirinktas regionas:"
 
@@ -236,7 +235,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Neprašyti slaptažodžio įjungiant sistemą"
 
 #. Type: text
 #. Description
@@ -1297,7 +1296,7 @@ msgstr "Myth valdikliai"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Movies"
-msgstr ""
+msgstr "Myth filmai"
 
 #. Type: text
 #. Description
@@ -1392,31 +1391,32 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Find movies playing in nearby local cinemas"
-msgstr ""
+msgstr "Rasti artimuose kino teatruose rodomus filmus"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr ""
+msgstr "Leidžia jum s stebėti savo Netflix DVD nuomos eilę."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Allows you to visually browse a directory tree containing image files."
-msgstr ""
+msgstr "Leidžia vizualiai naršyti katalogų medį su atvaizdų failais."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:48001
 msgid "A frontend to start any emulator or binary that Linux runs."
 msgstr ""
+"Sąsaja paleisti bet kokį emuliatorių ar programą, veikiančią Linux sistemoje."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:49001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr ""
+msgstr "Suteikia skaitmeninį audio grotuvą integruotą į MythTV"
 
 #. Type: text
 #. Description
@@ -1425,6 +1425,8 @@ msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
 msgstr ""
+"RSS naujienų srauto skaitytuvo įskiepis MythTV, kuris leidžia sekti jums "
+"svarbiausias naujienų temas."
 
 #. Type: text
 #. Description
@@ -1470,6 +1472,8 @@ msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
+"Temos gali smarkiai pagerinti estetinį MythTV vaizdą, kad jis geriau "
+"atitiktų jūsų skonį."
 
 #. Type: text
 #. Description
@@ -1496,6 +1500,10 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"Atviro kodo vaizdo tvarkyklės jau yra įjungtos ir suderintos. Jei norite "
+"pasirinkti kitas vaizdo įrangos tvarkykles, tai galite padaryti čia. "
+"Atsiminkite, kad nuosavybinės tvarkykės gali būti reikalingos norinti "
+"įjungti TV išvestį arba OpenGL efektus."
 
 #. Type: text
 #. Description
@@ -1523,6 +1531,8 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
+"Įspėjimas: Nenustatykite TV standarto į geresnį, nei tinkamas jūsų "
+"televizoriui. Gali būti padaryta NEATITAISOMA žala."
 
 #. Type: text
 #. Description
@@ -1552,7 +1562,7 @@ msgstr "MySQL vartotojo vardas"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "MySQL Database"
-msgstr ""
+msgstr "MySQL duomenų bazė"
 
 #. Type: text
 #. Description
@@ -1578,7 +1588,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "Paspausdami atidarysite Schedules Direct tinklalapį"
 
 #. Type: text
 #. Description
@@ -1588,6 +1598,9 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
+"Šiaurės Amerikos naudotojai turės sukurti Schedules Direct (SD) paskyrą. SD "
+"teikia duomenis už nominalų mokestį. Be SD, Šiaurės Amerikos vartotojai "
+"negalės naudotis didele MythTV planavimo funkcijų dalimi."
 
 #. Type: text
 #. Description

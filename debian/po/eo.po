@@ -155,7 +155,6 @@ msgstr "Vi povas tajpi en ĉi tiun skatolon por testi vian novan klavararanĝon.
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Elektita regiono:"
 
@@ -234,7 +233,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Aũtomate ensalutu"
 
 #. Type: text
 #. Description
@@ -306,7 +305,7 @@ msgstr "Pretas por instalado"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Details"
-msgstr ""
+msgstr "Detaloj"
 
 #. Type: text
 #. Description
@@ -404,7 +403,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:52001
 msgid "Before:"
-msgstr ""
+msgstr "Antaũe:"
 
 #. Type: text
 #. Description
@@ -412,14 +411,14 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:53001
 msgid "After:"
-msgstr ""
+msgstr "Poste:"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:54001
 msgid "New partition table"
-msgstr ""
+msgstr "Nova subdiska tabelo"
 
 #. Type: text
 #. Description
@@ -464,14 +463,14 @@ msgstr "Tipo"
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:60001
 msgid "Mount point"
-msgstr ""
+msgstr "Surmetingo"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:61001
 msgid "Format?"
-msgstr ""
+msgstr "Ĉu formatigi?"
 
 #. Type: text
 #. Description
@@ -486,7 +485,7 @@ msgstr "Grandeco"
 #. this partition is used by data.
 #: ../ubiquity.templates:63001
 msgid "Used"
-msgstr ""
+msgstr "Uzata"
 
 #. Type: text
 #. Description
@@ -727,6 +726,9 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"Ĉi tio estas kaŭzata pro nesufiĉa diskspaco por fini la instaladon sur la "
+"cela subdisko. Bonvolu reruligi la instalilon kaj elektu pli larĝan "
+"subdiskon por instali en ĝi."
 
 #. Type: error
 #. Description

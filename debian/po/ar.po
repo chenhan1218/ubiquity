@@ -151,7 +151,6 @@ msgstr "يمكنك الطباعة في صندوق النص لفحص تخطيط �
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "المنطقة المحددة:"
 
@@ -226,7 +225,7 @@ msgstr "هذا الاسم سيستخدم إذا جعلت هذا الحاسوب �
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Log in automatically"
-msgstr ""
+msgstr "ولوج آلي"
 
 #. Type: text
 #. Description
@@ -298,7 +297,7 @@ msgstr "مستعد للتثبيت"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Details"
-msgstr ""
+msgstr "التفاصيل"
 
 #. Type: text
 #. Description
@@ -396,7 +395,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:52001
 msgid "Before:"
-msgstr ""
+msgstr "قبل:"
 
 #. Type: text
 #. Description
@@ -404,7 +403,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:53001
 msgid "After:"
-msgstr ""
+msgstr "بعد:"
 
 #. Type: text
 #. Description
@@ -716,6 +715,8 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"هذا الخطأ هو نتيجة لعدم توفر مساحة كافية للتثبيت في القسم الذي تم إختياره. "
+"الرجاء إعادة تشغيل برنامج التثبيت و إختيار قسم أكبر للتثبيت فيه."
 
 #. Type: error
 #. Description

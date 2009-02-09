@@ -157,7 +157,6 @@ msgstr "Można pisać w tym oknie, aby przetestować nowy układ klawiatury."
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Proszę wybrać region:"
 
@@ -1298,7 +1297,7 @@ msgstr "Kontrolki Myth"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Movies"
-msgstr ""
+msgstr "Filmy z MythTV"
 
 #. Type: text
 #. Description
@@ -1476,6 +1475,8 @@ msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
+"Motywy mogą w znacznym stopniu uatrakcyjnić wygląd ustawień MythTV, i mogą "
+"lepiej odpowiadać gustom użytkownika."
 
 #. Type: text
 #. Description

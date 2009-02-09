@@ -151,7 +151,6 @@ msgstr "आप अपने नये कीबोर्ड की बनाव�
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "चुना गया क्षेत्र:"
 

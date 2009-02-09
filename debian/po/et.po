@@ -155,7 +155,6 @@ msgstr "Siia kasti saad trükkida, et proovida oma uut klaviatuuriasetust."
 #. Description
 #: ../ubiquity.templates:18001
 #, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
 msgstr "Valitud regioon:"
 
@@ -306,7 +305,7 @@ msgstr "Paigaldamiseks valmis"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Details"
-msgstr ""
+msgstr "Üksikasjad"
 
 #. Type: text
 #. Description
@@ -727,6 +726,9 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"See on selle tõttu, et sihtpartitsioonil pole piisavalt ruumi paigalduse "
+"lõpetamiseks. Palun käivitage paigaldaja uuesti ja valige suurem "
+"partitsioon, kuhu paigaldada."
 
 #. Type: error
 #. Description

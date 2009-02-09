@@ -229,7 +229,7 @@ msgstr "ឈ្មោះ​នេះ​នឹង​ត្រូវ​បាន​
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Log in automatically"
-msgstr ""
+msgstr "ចូល​ក្នុង​ប្រព័ន្ធ​ដោយ​ស្វ័យ​ប្រវត្ត"
 
 #. Type: text
 #. Description
@@ -247,7 +247,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Migrate documents and settings"
-msgstr ""
+msgstr "ផ្ទេរ​ឯកសារ និង​ការកំណត់"
 
 #. Type: text
 #. Description
@@ -301,7 +301,7 @@ msgstr "ខឺណែល​ដែល​ត្រូវ​ដំឡើង ៖"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Details"
-msgstr ""
+msgstr "សេចក្ដីលម្អិត"
 
 #. Type: text
 #. Description
@@ -399,7 +399,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:52001
 msgid "Before:"
-msgstr ""
+msgstr "ពីមុខ​៖"
 
 #. Type: text
 #. Description
@@ -407,7 +407,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:53001
 msgid "After:"
-msgstr ""
+msgstr "បន្ទាប់​ពី ៖"
 
 #. Type: text
 #. Description
@@ -719,6 +719,8 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"អាស្រ័យ​ដោយ​ទំហំ​ថាស​​ដែល​នៅ​ទំនេរ មិនគ្រប់​គ្រាន់​សម្រាប់​ប្រត្តិ​បត្ត​ការ តម្លើង​កម្ម​វិធី សូម​ចាប់​ដំណើរការ កម្មវិធី​"
+"តម្លើង​នេះ​ម្តង​ទៀ​ត ដោយ​ជ្រើស​រើ​សផ្នែក​នៃ​ថាស ដែល​មានទំហំ​ធំជាង"
 
 #. Type: error
 #. Description
@@ -728,6 +730,9 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
+"កំហុសនេះ​ភាគច្រើនកើតមានដោយ​សារ​ដ្រាយ​ថាស CD/DVD ។ វា​អាចជួយ​បាន​បើសិន​ជាអ្នក សាកល្បង​សម្អាត CD/"
+"DVD ឬ ដុត CD/DVD ដោយ​យក​ល្បឿន​ទាប​បំផុត ឬ​ម្យ៉ាង​ទៀត​ព្យាយាម​លាង ភ្នែក​ដ្រាយ​ថាស ( ឧប្បករ​សម្អាត​ជា​"
+"ទួទៅ​អាច​រក​បាន​នៅ​ហាង​ផ្គត់​ផ្គង់ គ្រឿង​អេឡិច​ត្រូ​និច )"
 
 #. Type: error
 #. Description
@@ -737,6 +742,8 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
+"កំហុស​នេះ​ច្រើន​កើត​មាន​ដោយ​សារ​ថាស​រឹង​។ វា​ប្រហែល​ជា​ជួយ​អ្នក​ដើម្បី​ពិនិត្យ​ទោះ​ជា​ថាស​រឹង​ចាស និង​ត្រូវ​ការ​ផ្លាស​"
+"ចេញ​ថ្មី, ឬ ប្ដូរ​ប្រព័ន្ធ​ទៅ​បរិស្ថាន​ដែល​ត្រជាក់​។"
 
 #. Type: error
 #. Description
