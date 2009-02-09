@@ -62,7 +62,7 @@ _Description: Selected city:
 
 Template: ubiquity/text/timezone_zone_label
 Type: text
-_Description: Time zone:
+_Description: Selected region:
 
 Template: ubiquity/text/timezone_country_label
 Type: text
