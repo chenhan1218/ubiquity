@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-11 10:30+0000\n"
+"PO-Revision-Date: 2008-10-11 08:44+0000\n"
 "Last-Translator: David Planella <Unknown>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:56+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -43,10 +43,10 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Esteu preparats per a instal·lar? Una vegada hageu contestat a unes poquesp "
-"reguntes, es poden instal·lar els continguts del CD autònom en aquest "
-"ordinador per a que pogueu iniciar el sistema a la velocitat normal i sense "
-"el CD."
+"Esteu a punt per a iniciar la instal·lació? Un cop hàgiu contestat a unes "
+"poques preguntes, es podran instal·lar els continguts del CD autònom en "
+"aquest ordinador, de manera que pugueu iniciar el sistema a la velocitat "
+"normal i sense el CD."
 
 #. Type: text
 #. Description
@@ -157,9 +157,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "Regió seleccionada:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -171,13 +170,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Who are you?"
-msgstr "Qui ets?"
+msgstr "Qui sou?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "What is your name?"
-msgstr "Quin és el teu nom?"
+msgstr "Com us dieu?"
 
 #. Type: text
 #. Description
@@ -253,7 +252,6 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
 msgid "Migrate documents and settings"
 msgstr "Migra els documents i les configuracions"
 
@@ -341,16 +339,14 @@ msgstr "Pas ${INDEX} de ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "Voleu avortar la instal·lació?"
+msgstr "Voleu sortir de la instal·lació?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "Esteu segur de voler avortar la instal·lació ara?"
+msgstr "Realment voleu sortir de la instal·lació?"
 
 #. Type: text
 #. Description
@@ -628,15 +624,12 @@ msgstr "Continua"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
 "S'ha completat la instal·lació. Heu de tornar a iniciar l'ordinador per a "
-"utilitzar la instal·lació nova. Podeu continuar utilitzant aquest CD "
-"autònom, tot i que qualsevol canvi que feu els documents que deseu no es "
-"preservaran."
+"utilitzar la instal·lació nova."
 
 #. Type: note
 #. Description
@@ -707,9 +700,8 @@ msgstr "S'estan copiant els fitxers (queda menys d'un minut)..."
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "Instal·lació completa"
+msgstr "Ha fallat la instal·lació"
 
 #. Type: error
 #. Description
@@ -741,21 +733,19 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Aquest error acostuma a ser causat per un disc o lector CD/DVD defectuós. A "
-"vegades es pot solucionar netejant el CD/DVD, enregistrant el CD/DVD a una "
-"velocitat més baixa, o bé netejant la lent del lector de CD/DVD (les "
-"botigues d'informàtica especialitzades solen vendre jocs de neteja)."
+"Això acostuma a ser causat per un disc o lector CD/DVD defectuós. A vegades "
+"es pot solucionar netejant el CD/DVD, enregistrant el CD/DVD a una velocitat "
+"més baixa, o bé netejant la lent del lector de CD/DVD (les botigues "
+"d'informàtica especialitzades solen vendre jocs de neteja)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:97001
-#, fuzzy
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -774,7 +764,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:98001 ../ubiquity.templates:99001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -782,13 +771,13 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Aquest error acostuma a ser causat per un disc o lector CD/DVD defectuós, o "
-"bé per un disc dur defectuós. A vegades es pot solucionar netejant el CD/"
-"DVD, enregistrant el CD/DVD a una velocitat més baixa, o bé netejant la lent "
-"del lector de CD/DVD (les botigues d'informàtica especialitzades solen "
-"vendre jocs de neteja). Alternativament, comproveu si el disc dur és massa "
-"vell i necessita ser reemplaçat, o bé traslladeu el sistema a una ubicació "
-"on hi hagi una temperatura més baixa."
+"Això acostuma a ser causat per un disc o lector CD/DVD defectuós, o bé per "
+"un disc dur defectuós. A vegades es pot solucionar netejant el CD/DVD, "
+"enregistrant el CD/DVD a una velocitat més baixa, o bé netejant la lent del "
+"lector de CD/DVD (les botigues d'informàtica especialitzades solen vendre "
+"jocs de neteja). Alternativament, comproveu si el disc dur és massa vell i "
+"necessita ser reemplaçat, o bé traslladeu el sistema a una ubicació on hi "
+"hagi una temperatura més baixa."
 
 #. Type: select
 #. Description
@@ -1314,7 +1303,7 @@ msgstr "Pel.lícules del Myth"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Myth Flix"
-msgstr "Pel·lícules del Myth"
+msgstr "Myth Flix"
 
 #. Type: text
 #. Description
@@ -1377,11 +1366,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
-#, fuzzy
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr ""
-"Un connector per al MythTV que us permet crear DVD a partir dels continguts "
-"de la xarxa MythTV."
+"Un connector per al MythTV que us permetrà veure avanços de pel·lícules "
+"d'apple.com."
 
 #. Type: text
 #. Description

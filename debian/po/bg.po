@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-08 13:41+0000\n"
-"Last-Translator: Damyan Ivanov <dmn@debian.org>\n"
-"Language-Team: Bulgarian <dict@fsa-bg.org>\n"
+"PO-Revision-Date: 2009-02-06 23:03+0000\n"
+"Last-Translator: Krasimir Chonov <mk2616@abv.bg>\n"
+"Language-Team: American English <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:58+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:58+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -155,9 +155,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "Избран регион:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -251,9 +250,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
 msgid "Migrate documents and settings"
-msgstr "Мигриране на документи и настройки"
+msgstr "Мигриране на документи и настойки"
 
 #. Type: text
 #. Description
@@ -339,16 +337,14 @@ msgstr "Стъпка ${INDEX} от ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "Прекъсване на инсталацията?"
+msgstr "Излизане от инсталацията?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "Настина ли желаете да прекъснете инсталацията?"
+msgstr "Наистина ли искате да излезете от инсталацията сега?"
 
 #. Type: text
 #. Description
@@ -626,15 +622,12 @@ msgstr "Продължаване"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Инсталацията е завършена. Нужно е да рестартирате компютъра за да използвате "
-"новата инсталация. Можете да продължите да ползвате Живото CD, въпреки че "
-"промените, които правите, или документите, които записвате, няма да бъдат "
-"запазени."
+"Инсталацията завърши. Трябва да рестартирате компютъра, за да използвате "
+"новата инсталация."
 
 #. Type: note
 #. Description
@@ -705,9 +698,8 @@ msgstr "Копиране на файлове (остава по-малко от 
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "Завършване на инсталацията"
+msgstr "Инсталацията е неуспешна"
 
 #. Type: error
 #. Description
@@ -737,29 +729,27 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Тази конкретна грешка често е поради повредени CD/DVD диск или устройство. "
-"Може би ще помогне да почистите CD/DVD диска, да го запишете на по-ниска "
-"скорост или да почистите лещата на CD/DVD устройството (широко се предлагат "
-"почистващи комплекти в магазините за електроника)."
+"Това се случва често поради повреден CD/DVD диск или устройство. Може да "
+"помогне почистване на CD/DVD, записване на CD/DVD на по-ниска скорост или да "
+"почистване лещите на CD/DVD устройството (налични си комплекти за почистване "
+"в магазините за електроника)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:97001
-#, fuzzy
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Тази конкретна грешка често е поради повреден твърд диск. Може да помогне да "
-"проверите дали твърдият диск не е стар и се нуждае от подмяна, или пък да "
-"преместите системата в по-студена среда."
+"Това се случва често поради повреден твърд диск. Може да помогне проверка "
+"дали твърдият диск е стар и трябва да го замените или да преместите "
+"компютъра в по-студено помещение."
 
 #. Type: error
 #. Description
@@ -770,7 +760,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:98001 ../ubiquity.templates:99001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -778,12 +767,12 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Тази конкретна грешка често е поради повредени CD/DVD диск или устройство, "
-"или повреден твърд диск. Може би ще помогне да почистите CD/DVD диска, да го "
-"запишете на по-ниска скорост или да почистите лещата на CD/DVD устройството "
-"(широко се предлагат почистващи комплекти в магазините за електроника), "
-"както и да проверите дали твърдият диск не е стар и се нуждае от подмяна, "
-"или пък да преместите системата в по-студена среда."
+"Това се случва често поради повреден CD/DVD диск или повреден твърд диск. "
+"Може да помогне почистване на CD/DVD, записване на CD/DVD на по-ниска "
+"скорост или да почистване лещите на CD/DVD устройството (налични си "
+"комплекти за почистване в магазините за електроника), дали твърдият диск е "
+"стар и трябва да го замените или да преместите компютъра в по-студено "
+"помещение."
 
 #. Type: select
 #. Description

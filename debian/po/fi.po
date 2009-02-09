@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-08 15:47+0000\n"
-"Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
+"PO-Revision-Date: 2009-01-10 00:59+0000\n"
+"Last-Translator: Esko Arajärvi <Unknown>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 22:00+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -155,9 +155,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "Valittu alue:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -248,9 +247,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
 msgid "Migrate documents and settings"
-msgstr "Siirrä asiakirjat ja asetukset"
+msgstr "Asiakirjojen ja asetusten siirtäminen"
 
 #. Type: text
 #. Description
@@ -335,16 +333,14 @@ msgstr "Vaihe ${INDEX} / ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "Keskeytä asennus?"
+msgstr "Poistu asennuksesta?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "Haluatko varmasti keskeyttää asennuksen nyt?"
+msgstr "Haluatko varmasti poistua asennuksesta nyt?"
 
 #. Type: text
 #. Description
@@ -697,9 +693,8 @@ msgstr "Kopioidaan tiedostoja (alle minuutti jäljellä)..."
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "Asennus on valmis"
+msgstr "Asennus epäonnistui"
 
 #. Type: error
 #. Description
@@ -717,42 +712,39 @@ msgstr "Tiedostoja kovalevylle kopioitaessa tapahtui virhe:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:95001
-#, fuzzy
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"Tämä virhe johtuu riittämättömästä levytilasta, mistä johtuen asennus ei voi "
-"valmistua halutulle osiolle. Käynnistä asennusohjelma uudelleen, ja valitse "
-"suurempi osio jolle asennetaan."
+"Tämä johtuu siitä, että kohdeosiolla ei ole riittävästi levytilaa asennuksen "
+"valmistumiseksi. Suorita asennusohjelma uudelleen ja valitse suurempi osio, "
+"jolle asentaa."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Tämä virhe johtuu usein viallisesta CD/DVD-levystä tai asemasta. Voi olla "
-"hyödyllistä puhdistaa CD/DVD, kirjoittaa CD/DVD levykuvasta alhaisemmalla "
-"nopeudella, tai puhdistaa CD/DVD-aseman linssit (puhdistussarjoja saa usein "
-"elektronisten tarvikkeiden liikkeistä)."
+"Tämä on usein virheellisen CD/DVD-levyn tai -aseman vika. CD/DVD-levyn "
+"puhdistus, CD/DVD-levyn polttaminen pienemmällä nopeudella tai CD/DVD-aseman "
+"linssin puhdistus (puhdistussarjoja myydään usein elektroniikkaliikkeissä) "
+"voi auttaa."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:97001
-#, fuzzy
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Tämä virhe johtuu usein viallisesta kovalevystä. Voi olla hyödyllistä "
-"tarkistaa, onko kovalevy vanha ja vaihdon tarpeessa, tai siirtää järjestelmä "
-"viileämpään ympäristöön."
+"Tämä on usein virheellisen kovalevyn vika. Kovalevy saattaa olla vanha ja "
+"tarvitset uuden kovalevyn. Voit myös kokeilla siirtää järjestelmääsi "
+"kylmempään tilaan."
 
 #. Type: error
 #. Description
@@ -763,7 +755,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:98001 ../ubiquity.templates:99001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -771,12 +762,11 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Tämä virhe johtuu usein viallisesta CD/DVD-levystä tai asemasta, tai "
-"viallisesta kovalevystä. Voi olla hyödyllistä puhdistaa CD/DVD, kirjoittaa "
-"CD/DVD levykuvasta alhaisemmalla nopeudella, puhdistaa CD/DVD-aseman linssit "
-"(puhdistussarjoja saa usein elektronisten tarvikkeiden liikkeistä), "
-"tarkistaa onko kovalevy vanha ja vaihdon tarpeessa, tai siirtää järjestelmä "
-"viileämpään ympäristöön."
+"Tämä on usein virheellisen kovalevyn, CD/DVD-levyn tai -asema vika. Kovalevy "
+"saattaa olla vanha ja tarvitset uuden kovalevyn. Voit myös kokeilla siirtää "
+"järjestelmääsi kylmempään tilaan. Myös CD/DVD-levyn puhdistus, CD/DVD-levyn "
+"polttaminen pienemmällä nopeudella tai CD/DVD-aseman linssin puhdistus "
+"(puhdistussarjoja myydään usein elektroniikkaliikkeissä) voi auttaa."
 
 #. Type: select
 #. Description
@@ -1364,11 +1354,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
-#, fuzzy
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr ""
-"MythTV-liitännäinen jolla voidaan luoda MythTV-verkossa olevasta sisällöstä "
-"DVD-levyjä."
+"MythTV-liitännäinen, jolla voidaan katsoa elokuvatrailereita osoitteesta "
+"apple.com."
 
 #. Type: text
 #. Description

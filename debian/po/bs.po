@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-08 16:11+0000\n"
+"PO-Revision-Date: 2009-01-09 17:14+0000\n"
 "Last-Translator: Safir Šećerović <Unknown>\n"
 "Language-Team: Bosnian <lokal@linux.org.ba>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:58+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:59+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -106,9 +106,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid "Selected city:"
-msgstr "Odaberite vaš floppy uređaj:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -131,9 +130,8 @@ msgstr "Trenutno vrijeme:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
-#, fuzzy
 msgid "Keyboard layout"
-msgstr "Izaberite raspored tipki"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -150,9 +148,8 @@ msgstr "Možete pisati u ovo polje kako biste testirali raspored tastature"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "Odabrana zemlja;"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -242,9 +239,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
 msgid "Migrate documents and settings"
-msgstr "Prebacite dokumente i postavke"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -271,16 +267,14 @@ msgstr "Pripremi prostor na disku"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid "How do you want to partition the disk?"
-msgstr "Da li želite nastaviti particionisanje?"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
-#, fuzzy
 msgid "Prepare partitions"
-msgstr "Kreiraj novu particiju"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -288,9 +282,8 @@ msgstr "Kreiraj novu particiju"
 #. Description
 #: ../ubiquity.templates:37001 ../ubiquity.templates:87001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
 msgid "Ready to install"
-msgstr "Kernel za instaliranje:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -328,16 +321,14 @@ msgstr "Korak ${INDEX} od ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "Prekini instalaciju"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "Da li se želite vratiti na meni za particionisanje?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -608,14 +599,10 @@ msgstr "Nastavi"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Instalacija je završena. Morate ponovo pokrenuti računar kako bi ste "
-"pokrenuli novi sistem. Možete nastaviti koristiti ovaj Live CD, ali promjene "
-"koje napravite na dokumentima, neće biti sačuvane."
 
 #. Type: note
 #. Description
@@ -639,9 +626,8 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
 msgid "Installing system"
-msgstr "Instaliram sistem"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -652,9 +638,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
-#, fuzzy
 msgid "Scanning files..."
-msgstr "Pretražujem diskove..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -681,9 +666,8 @@ msgstr "Kopiranje datoteka (preostalo je manje od jedne minute)..."
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "Instalacija završena"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -711,29 +695,20 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Ova specifična greška je česta uslijed oštećenog CD/DVD diska ili pogona. "
-"Može pomoći čišćenje CD/DVD-a, prženje CD/DVD-a na nižoj brzini, ili "
-"čišćenje CD/DVD pogonskih leća (pribor za čišćenje je često dostupan kod "
-"dobavljača elektronske opreme)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:97001
-#, fuzzy
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Ovo je specifična je česta greška uslijed oštećenog tvrdog diska.Može pomoći "
-"da se provjeri ako je tvrdi disk star i treba zamjenu, ili da se premjesti "
-"sistem u hladniji okolinu."
 
 #. Type: error
 #. Description
@@ -744,7 +719,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:98001 ../ubiquity.templates:99001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -752,12 +726,6 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Ova specifična greška je česta uslijed oštećenog CD/DVD diska ili pogona ili "
-"oštećenog tvrdog diska. Može pomoći čišćenje CD/DVD-a, prženje CD/DVD-a na "
-"nižoj brzini, ili čišćenje CD/DVD pogonskih leća (pribor za čišćenje je "
-"često dostupan kod dobavljača elektronske opreme),i da se provjeri ako je "
-"tvrdi disk star i treba zamjenu, ili da se premjesti sistem u hladniji "
-"okolinu"
 
 #. Type: select
 #. Description
@@ -768,9 +736,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:100001
-#, fuzzy
 msgid "Copying installation logs..."
-msgstr "Kopiram zapise instalacije..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -781,9 +748,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:102001
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "Podešavam lokalizirano sučelje..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -794,9 +760,8 @@ msgstr "Podešavam apt..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:104001
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "Podešavam mrežu..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -807,9 +772,8 @@ msgstr "Podešavam tastaturu..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:106001
-#, fuzzy
 msgid "Creating user..."
-msgstr "Kreiram datoteke uređaja..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -820,9 +784,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:108001
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "Podešavam mrežu..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -833,16 +796,14 @@ msgstr "Podešavam mrežu..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
 msgid "Setting computer name..."
-msgstr "Podešavam frame buffer..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "Podešavam mrežu..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -859,9 +820,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:114001
-#, fuzzy
 msgid "Removing extra packages..."
-msgstr "Instaliram dodatne pakete..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -890,16 +850,14 @@ msgstr "Preuzimam liste paketa (preostalo vrijeme: ${TIME})..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:120001
-#, fuzzy
 msgid "Error installing ${PACKAGE}"
-msgstr "Nemogu instalirati GRUB na ${BOOTDEV}"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:121001
-#, fuzzy
 msgid "Error removing ${PACKAGE}"
-msgstr "Dobavljam ${PACKAGE}"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -957,9 +915,8 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:127001
-#, fuzzy
 msgid "Installing language packs"
-msgstr "Instaliram najosnovnije pakete..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1082,9 +1039,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "Instalacija završena"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1531,23 +1487,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "Podešavam apt..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "Podešavam mrežu..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:79001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "Podešavam mrežu..."
+msgstr ""
 
 #. Type: text
 #. Description

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-08 15:00+0000\n"
-"Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
+"PO-Revision-Date: 2009-01-21 13:22+0000\n"
+"Last-Translator: bautroibaola <bautroibaola@gmail.com>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:57+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:57+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -27,7 +27,7 @@ msgstr "Cài đặt"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "Cài đặt (OEM mode, chỉ dành cho nhan viên kĩ thuật)"
+msgstr "Cài đặt (chế độ OEM, chỉ dành cho nhà sản xuất)"
 
 #. Type: text
 #. Description
@@ -61,7 +61,7 @@ msgid ""
 "will be the default language for the final system."
 msgstr ""
 "Bạn hãy chọn ngôn ngữ cho quá trình cài đặt. Ngôn ngữ đó sẽ là ngôn ngữ mặc "
-"định của hệ thống sau cài đặt."
+"định của hệ thống sau khi quá trình cài đặt kế thúc."
 
 #. Type: text
 #. Description
@@ -71,9 +71,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"Bạn đang cài đặt ở chế độ nhà sản xuất hệ thống. Vui lòng nhập tên (unique "
-"name) của hệ thống. Tên này sẽ được lưu trên hệ thống và có thể được dùng để "
-"trong việc báo cáo lỗi sau này."
+"Bạn đang cài đặt ở chế độ nhà sản xuất máy tính. Vui lòng nhập tên riêng của "
+"hệ thống. Tên này sẽ được lưu trên hệ thống và có thể được dùng trong việc "
+"báo cáo lỗi sau này."
 
 #. Type: text
 #. Description
@@ -82,14 +82,14 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
-"Nếu bạn có kết nối Internet, hãy đọc các chú ý về bản phát hành để biết "
-"thông tin về những vấn đề có thể ảnh hưởng tới bạn."
+"Nếu bạn có kết nối Internet, hãy đọc các chú ý về thông tin phát hành để "
+"biết thông tin về những vấn đề có thể ảnh hưởng đến bạn."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Release Notes"
-msgstr "Chú ý về bản phát hành"
+msgstr "Thông tin Phát hành"
 
 #. Type: text
 #. Description
@@ -105,7 +105,7 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
-"Chọn một thành phố trong nước của bạn và múi giờ. Nếu giờ hiện tại không "
+"Chọn một thành phố và múi giờ tại nơi bạn đang ở. Nếu giờ hiện tại không "
 "đúng sau khi bạn đã chỉnh múi giờ, bạn có thể chỉnh lại nó sau khi khởi động "
 "vào hệ thống đã được cài đặt."
 
@@ -113,7 +113,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Selected city:"
-msgstr "Thành phố được chọn:"
+msgstr "Thành phố đã chọn"
 
 #. Type: text
 #. Description
@@ -131,13 +131,13 @@ msgstr "Khu vực được chọn:"
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Current time:"
-msgstr "Thời gian hiện hành:"
+msgstr "Thời gian hiện tại:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "Keyboard layout"
-msgstr "Chọn kiểu bàn phím"
+msgstr "Bố trí bàn phím"
 
 #. Type: text
 #. Description
@@ -154,9 +154,8 @@ msgstr "Bạn có thể gõ vào ô này để kiểm tra kiểu bàn phím mớ
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "Khu vực được chọn:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -201,21 +200,20 @@ msgstr "Hãy chọn mật khẩu để đảm bảo an toàn cho tài khoản c�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "Bạn đang chạy ở chế độ gỡ rối. Không nên dùng mật khẩu quan trọng!"
+msgstr ""
+"Bạn đang chạy ở chế độ truy tìm lỗi. Không nên dùng mật khẩu quan trọng!"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr "Hãy nhập lại mật khẩu để kiểm tra lỗi khi nhập."
+msgstr "Hãy nhập lại mật khẩu để chắc chắn bạn không đánh sai."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
 msgid "What is the name of this computer?"
 msgstr "Tên máy tính này là gì?"
 
@@ -250,9 +248,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
 msgid "Migrate documents and settings"
-msgstr "Di chuyển tài liệu và thiết lập"
+msgstr "Chuyển các tài liệu và thiết lập"
 
 #. Type: text
 #. Description
@@ -279,7 +276,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Prepare disk space"
-msgstr "Tạo phần trống trên ổ đĩa"
+msgstr "Chuẩn bị vùng đĩa trống để cài đặt"
 
 #. Type: text
 #. Description
@@ -290,7 +287,6 @@ msgstr "Bạn muốn phân vùng ổ đĩa cứng như thế nào?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
-#, fuzzy
 msgid "Prepare partitions"
 msgstr "Tạo các phân vùng mới"
 
@@ -320,7 +316,7 @@ msgstr "Hệ điều hành mới của bạn sẽ được cài đặt với nh�
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Advanced..."
-msgstr "Chi tiết"
+msgstr "Nâng cao..."
 
 #. Type: text
 #. Description
@@ -339,16 +335,14 @@ msgstr "Bước thứ ${INDEX} của tổng số ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "Hủy bỏ việc cài đặt?"
+msgstr "Thoát cài đặt?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "Bạn có chắc chắn muốn huỷ việc cài đặt?"
+msgstr "Bạn thực sự muốn thoát cài đặt ngay bây giờ?"
 
 #. Type: text
 #. Description
@@ -360,7 +354,7 @@ msgstr "Bỏ qua"
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Installation complete"
-msgstr "Việc cài đặt đã hoàn tất"
+msgstr "Quá trình cài đặt đã hoàn tất"
 
 #. Type: text
 #. Description
@@ -380,7 +374,7 @@ msgstr "Khởi động lại ngay"
 #. Description
 #: ../ubiquity.templates:49001 ../ubiquity.templates:50001
 msgid "Installer crashed"
-msgstr "Trình cài đặt đã bị dừng"
+msgstr "Trình cài đặt đã bị hỏng"
 
 #. Type: text
 #. Description
@@ -428,7 +422,7 @@ msgstr "Bảng phân vùng mới"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:55001
 msgid "New partition"
-msgstr "Phân vùng mới"
+msgstr "Tạo phân vùng mới"
 
 #. Type: text
 #. Description
@@ -473,14 +467,14 @@ msgstr "Điểm gắn"
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:61001
 msgid "Format?"
-msgstr "Định dạng"
+msgstr "Định dạng?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:62001
 msgid "Size"
-msgstr "Kích cỡ"
+msgstr "Kích thước"
 
 #. Type: text
 #. Description
@@ -540,7 +534,7 @@ msgstr "Chính"
 #. Description
 #: ../ubiquity.templates:71001
 msgid "Logical"
-msgstr "Hợp lý"
+msgstr "Luận lý"
 
 #. Type: text
 #. Description
@@ -564,13 +558,13 @@ msgstr "Bộ nạp khởi động"
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Install boot loader"
-msgstr "Cài đặt boot loader"
+msgstr "Cài đặt bộ nạp khởi động"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Popularity contest"
-msgstr "Xung đột phổ biến"
+msgstr "Tham gia khảo sát các gói đang sử dụng"
 
 #. Type: text
 #. Description
@@ -613,7 +607,7 @@ msgstr ""
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:84001
 msgid "Go Back"
-msgstr "Lùi"
+msgstr "Lùi lại"
 
 #. Type: text
 #. Description
@@ -625,14 +619,12 @@ msgstr "Tiếp tục"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Quá trình cài đặt đã hoàn tất. Bạn cần khởi động lại máy để có thể dùng bản "
-"cài đặt mới. Bạn có thể tiếp tục sử dụng live CD này, mặc dù các thay đổi mà "
-"bạn đã thực hiện hay các tài liệu bạn đã lưu sẽ không được lưu giữ."
+"Quá trình cài đặt đã hoàn tất. Bạn phải khởi động lại máy tính để có thể sử "
+"dụng."
 
 #. Type: note
 #. Description
@@ -703,9 +695,8 @@ msgstr "Đang sao chép các tệp (chỉ còn chưa đến một phút)..."
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "Việc cài đặt đã hoàn tất"
+msgstr "Tiến trình cài đặt đã bị lỗi."
 
 #. Type: error
 #. Description
@@ -734,28 +725,25 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Lỗi này thường là do đĩa hoặc ổ đĩa CD/DVD bị hư. Có thể khắc phục bằng cách "
-"lau sạch mặt đĩa, ghi đĩa khác ở tốc độ thấp, hay làm sạch ổ đĩa CD/DVD bằng "
-"thiết bị lau ổ đĩa (có thể tìm thấy các bộ tiện ích tại các cửa hàng điện "
-"tử)."
+"Việc này xảy ra thường do lỗi CD/DVD hoặc ổ đĩa. Hãy thử lau CD/DVD, ghi CD/"
+"DVD với tốc độ chậm hơn, hoặc lau chùi mắt đọc CD/DVD (các dụng cụ lau chùi "
+"thường có bán tại các cửa hàng điện tử)"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:97001
-#, fuzzy
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Lỗi này thường do ổ cứng bị hư. Bạn nên kiểm tra ổ cứng có quá cũ và cần "
-"được thay thế không, hoặc là chuyển hệ thống tới chỗ mát hơn."
+"Việc này xảy ra thường do lỗi ổ cứng. Hãy thử kiểm tra tuổi thọ ổ đĩa, nếu "
+"cần hãy thay thế hoặc dời hệ thống sang chỗ giải nhiệt tốt hơn."
 
 #. Type: error
 #. Description
@@ -766,7 +754,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:98001 ../ubiquity.templates:99001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -774,10 +761,10 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Lỗi này thường do đĩa hay ổ đĩa CD/DVD hoặc ổ cứng bị hỏng. Bạn có thể lau "
-"sạch đĩa CD/DVD, ghi lại đĩa CD/DVD ở tốc độ thấp hơn, làm sạch ổ CD/DVD "
-"bằng thiết bị lau ổ đĩa (có thể tìm thấy ở các cửa hàng điện tử), kiẻm tra ổ "
-"cứng có quá cũ và cần được thay thế không, hoặc làm mát hệ thống."
+"Việc này xảy ra thường do lỗi CD/DVD hoặc ổ đĩa. Hãy thử lau CD/DVD, ghi CD/"
+"DVD với tốc độ chậm hơn, hoặc lau chùi mắt đọc CD/DVD (các dụng cụ lau chùi "
+"thường có bán tại các cửa hàng điện tử), thử kiểm tra tuổi thọ ổ đĩa, nếu "
+"cần hãy thay thế hoặc dời hệ thống sang chỗ giải nhiệt tốt hơn."
 
 #. Type: select
 #. Description
@@ -788,9 +775,8 @@ msgstr "Các tệp dưới đây không giống với tệp gốc trên đĩa CD
 #. Type: text
 #. Description
 #: ../ubiquity.templates:100001
-#, fuzzy
 msgid "Copying installation logs..."
-msgstr "Sao chép phân vùng..."
+msgstr "Đang sao chép các ghi chép cài đặt..."
 
 #. Type: text
 #. Description
@@ -801,9 +787,8 @@ msgstr "Đang cấu hình hệ thống chỉ định..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:102001
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "Đang cấu hình các thông số bản địa của hệ thống..."
+msgstr "Đang cấu hình các thông số trong hệ thống..."
 
 #. Type: text
 #. Description
@@ -857,13 +842,13 @@ msgstr "Đang đặt tên cho máy tính..."
 #. Description
 #: ../ubiquity.templates:111001
 msgid "Configuring boot loader..."
-msgstr "Đang cấu hình trình khởi động..."
+msgstr "Đang cấu hình bộ nạp khởi động..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
 msgid "Installing additional packages..."
-msgstr "Đang cài đặt các gói phụ thêm..."
+msgstr "Đang cài đặt các gói phụ trợ..."
 
 #. Type: text
 #. Description
@@ -893,7 +878,7 @@ msgstr "Đang tải các gói về (thời gian còn lại: ${TIME})..."
 #. Description
 #: ../ubiquity.templates:117001
 msgid "Downloading package lists..."
-msgstr "Đang tải về danh sách các gỏi ..."
+msgstr "Đang tải về danh sách các gói ..."
 
 #. Type: text
 #. Description
@@ -911,7 +896,7 @@ msgstr "Không thể cài đặt ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:121001
 msgid "Error removing ${PACKAGE}"
-msgstr "Không thể loại bỏ gói ${PACKAGE}..."
+msgstr "Không thể gỡ bỏ gói ${PACKAGE}..."
 
 #. Type: error
 #. Description
@@ -923,7 +908,7 @@ msgstr "Lỗi khi cài đặt các gói"
 #. Description
 #: ../ubiquity.templates:122001
 msgid "An error occurred while installing packages:"
-msgstr "Một lỗi đã xuất hiện trong khi đang cài đặt gói"
+msgstr "Có lỗi xẩy ra khi đang cài đặt gói:"
 
 #. Type: error
 #. Description
@@ -931,7 +916,7 @@ msgstr "Một lỗi đã xuất hiện trong khi đang cài đặt gói"
 #. Description
 #: ../ubiquity.templates:122001 ../ubiquity.templates:123001
 msgid "The following packages are in a broken state:"
-msgstr "Những gói tiếp theo đang trong trạng thái bị hỏng"
+msgstr "Những gói dưới đây ở trong trạng thái bị hỏng:"
 
 #. Type: error
 #. Description
@@ -964,7 +949,7 @@ msgstr "Lỗi trong khi gỡ bỏ các gói"
 #. Description
 #: ../ubiquity.templates:123001
 msgid "An error occurred while removing packages:"
-msgstr "Một lỗi xuất hiện trong khi đang gỡ bỏ các gói"
+msgstr "Có lỗi xẩy ra trong khi đang gỡ bỏ các gói:"
 
 #. Type: text
 #. Description
@@ -988,13 +973,7 @@ msgstr "Đang tải về các gói ngôn ngữ (thời gian còn lại: ${TIME})
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Failed to unmount partitions"
-msgstr ""
-"#-#-#-#-#  vi.po (debian-installer Level 1)  #-#-#-#-#\n"
-"Lỗi tháo lắp phân vùng\n"
-"#-#-#-#-#  vi.po (debian-installer)  #-#-#-#-#\n"
-"Không tháo lắp phân vùng nào được.\n"
-"#-#-#-#-#  vi.po (debian-installer Level 1)  #-#-#-#-#\n"
-"Lỗi tháo lắp phân vùng"
+msgstr "Lỗi tháo lắp phân vùng"
 
 #. Type: boolean
 #. Description
@@ -1010,7 +989,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Please close any applications using these mount points."
-msgstr "Hãy đóng các ứng dụng đang truy cập đến thiết bị này."
+msgstr "Vui lòng đóng các ứng dụng đang sử dụng các điểm gắn kết này."
 
 #. Type: boolean
 #. Description
@@ -1075,7 +1054,7 @@ msgstr ""
 "     Samba:              ${EN_SAMBA}\n"
 "     NFS:                ${EN_NFS}\n"
 "     MythTV Service:     ${EN_MYSQL}\n"
-" Normal Ubuntu Install Questions:\n"
+" Các thông tin căn bản:\n"
 "     Ngôn ngữ:           ${LANGUAGE}\n"
 "     Trình tự sắp xếp của bàn phím:    ${KEYMAP}\n"
 "     Tên thật:       ${FULLNAME}\n"
@@ -1086,33 +1065,31 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "What Type of Installation?"
-msgstr "Kiểu cài đặt là gì"
+msgstr "Chọn kiểu cài đặt"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr "Hai loại trình cài đặt phù hợp cho Mythbuntu:"
+msgstr "Có hai kiểu cài đặt cho Mythbuntu:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
-#, fuzzy
 msgid "Standard Installation"
-msgstr "Cài đặt theo chuẩn"
+msgstr "Cài đặt chuẩn"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:5001
-#, fuzzy
 msgid ""
 "A standard installation will install and configure every option with minimal "
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
-"Một trình cài đặt cơ bản sẽ cài đặt và cấu hình mọi thiết đặt mà không đòi "
-"hỏi người dùng can thiệp nhiều. Trình cài đặt này sẽ cài đặt backend, "
-"frontend, tất cả plugin, và tất cả giao diện."
+"Kiểu cài đặt chuẩn sẽ cài đặt và cấu hình tất cả các tùy chọn tự động và hạn "
+"chế hỏi người dùng. Kiểu này sẽ cài đặt 2 chiều tiến trình, tất cả phụ kiện "
+"và tất cả các kiểu giao diện."
 
 #. Type: text
 #. Description
@@ -1135,9 +1112,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "Việc cài đặt đã hoàn tất"
+msgstr "Kiểu cài đặt chuyên sâu"
 
 #. Type: text
 #. Description
@@ -1627,23 +1603,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "Đang cấu hình apt..."
+msgstr "Đang cấu hình mythtv..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "Đang cấu hình phần cứng..."
+msgstr "Đang cấu hình các driver thêm..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:79001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "Đang cấu hình phần cứng..."
+msgstr "Đang cấu hình các dịch vụ tăng thêm..."
 
 #. Type: text
 #. Description

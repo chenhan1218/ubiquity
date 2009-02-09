@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-08 15:51+0000\n"
-"Last-Translator: Carlos Perelló Marín <carlos.perello@canonical.com>\n"
-"Language-Team: Hindi\n"
+"PO-Revision-Date: 2009-02-03 15:18+0000\n"
+"Last-Translator: Kumar Appaiah <Unknown>\n"
+"Language-Team: Tamil\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:56+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:58+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -27,7 +27,7 @@ msgstr "संस्थापित करें"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "संस्थापन्ना (मौलिक उपकरण निर्माता विधा ,केवल निर्माताओ के लिए।)"
+msgstr "संस्थापन्ना (मौलिक उपकरण निर्माता विधा, केवल निर्माताओं के लिए।)"
 
 #. Type: text
 #. Description
@@ -79,8 +79,8 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
-"अगर आपके पास इंटरनेट की सुविधा है तो आप विमोचन वचन पत्र पढ़ के, आने वाली समस्याओ के बारे "
-"मे जान सकते है।"
+"अगर आपके पास इंटरनेट की सुविधा है तो आप िवमोचन वचन पत्र पढ़ कर समस्याओं के बारे में और "
+"जानकारी पा सकते हैं"
 
 #. Type: text
 #. Description
@@ -150,9 +150,8 @@ msgstr "आप अपने नये कीबोर्ड की बनाव�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "चुना गया क्षेत्र:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -243,9 +242,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
 msgid "Migrate documents and settings"
-msgstr "दस्तावेज एवं अनुकुलुनो को दूसरी चालक तंत्र से आयात करे।"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -328,16 +326,14 @@ msgstr "कुल ${TOTAL} में का ${INDEX} कदम"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "संस्थापना छोड़ दें"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "क्या आप वास्तव में संस्थापना छोड़ना चाहेंगे?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -595,9 +591,8 @@ msgstr ""
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:84001
-#, fuzzy
 msgid "Go Back"
-msgstr "वापस जाएँ"
+msgstr "पीछे जाएँ"
 
 #. Type: text
 #. Description
@@ -609,19 +604,14 @@ msgstr "आगे बढ़ें"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"संस्थापना पूरा हो चुका है। नई संस्थापना का इस्तेमाल करने के लिए आपको कम्प्यूटर फिर से चालू "
-"करना होगा। इस जीवंत सीडी का इस्तेमाल आप जारी रख सकते हैं, मगर जो परिवर्तन आप करेंगे या "
-"दस्तावेज़ सहेजेंगे, वे सुरक्षित सहेजे नहीं जाऐंगे।"
 
 #. Type: note
 #. Description
 #: ../ubiquity.templates:87001
-#, fuzzy
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -631,25 +621,18 @@ msgid ""
 " Migration Assistant:\n"
 " ${MIGRATE}"
 msgstr ""
-" भाषा: ${LANGUAGE}\n"
-" कीबोर्ड विन्यास: ${KEYMAP}\n"
-" नाम: ${FULLNAME}\n"
-" उपयोक्ता नाम: ${USERNAME}\n"
-" स्थान: ${LOCATION}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:88001
-#, fuzzy
 msgid "Checking the installation..."
-msgstr "संस्थापना के लॉग का नकल कीया जा रही है..."
+msgstr ""
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
 msgid "Installing system"
-msgstr "संस्थापना सम्पन्न"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -688,9 +671,8 @@ msgstr "फाईल नकल किये जा रहे हैं (एक �
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "संस्थापना सम्पन्न।"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -717,30 +699,20 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"इस त्रुटि का कारण अक्सर खराब सीडी/डीवीडी डिस्क या ड्राईव है। त्रुटि को सुलझाने के लिये "
-"आप डिस्क को साफ कर के दोबारा कोशिश कीजिये, सीडी को कम तेज़ रफतार में काट के दोबारा "
-"कोशिश कीजिये या सीडी ड्राईव के लेन्स को ही साफ करने की कोशिश कीजिये (लेन्स साफ करने के "
-"लिये उपकरण इलेक्ट्रॉनिक्स के दुकान में मिलते हैं)।"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:97001
-#, fuzzy
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"इस त्रुटि का कारण अक्सर खराब हार्ड डिस्क का होना है। जाँच कीजिये कि क्या हार्ड डिस्क "
-"पुराना हो गया है और उसे बदलने की ज़रूरत है? हार्ड डिस्क में खराबी हद से ज़्यादा गर्मी से भी "
-"हो सकती है। आप पूरे कम्प्यूटर को एक कम गर्म जगह ले जाकर फिर से संस्थापन की कोशिश कर सकते "
-"हैं।"
 
 #. Type: error
 #. Description
@@ -751,7 +723,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:98001 ../ubiquity.templates:99001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -759,13 +730,6 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"इस त्रुटि का कारण अक्सर खराब हार्ड डिस्क, सीडी/डी-वी-डी डिस्क या ड्राईव है। त्रुटि को "
-"सुलझाने के लिये आप डिस्क को साफ कर के दोबारा कोशिश कीजिये, सीडी को कम तेज़ रफतार में "
-"काट के दोबारा कोशिश कीजिये या सीडी ड्राईव के लेन्स को ही साफ करने की कोशिश कीजिये "
-"(लेन्स साफ करने के लिये उपकरण इलेक्ट्रॉनिक्स के दुकान में मिलते हैं)। जाँच कीजिये कि क्या हार्ड "
-"डिस्क पुराना हो गया है और उसे बदलने की ज़रूरत है? हार्ड डिस्क में खराबी हद से ज़्यादा गर्मी "
-"से भी हो सकती है। आप पूरे कम्प्यूटर को एक कम गर्म जगह ले जाकर फिर से संस्थापन की कोशिश "
-"कर सकते हैं।"
 
 #. Type: select
 #. Description
@@ -1045,9 +1009,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "संस्थापना छोड़ दें"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1073,9 +1036,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "संस्थापना छोड़ दें"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1089,9 +1051,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "संस्थापना सम्पन्न।"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1538,23 +1499,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "एप्ट कॉन्फ़िगर किया जा रहा है..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "हार्डवेयर कॉन्फ़िगर किया जा रहा है..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:79001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "हार्डवेयर कॉन्फ़िगर किया जा रहा है..."
+msgstr ""
 
 #. Type: text
 #. Description

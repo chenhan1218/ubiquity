@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-08 15:32+0000\n"
-"Last-Translator: Sunjae Park <darehanl@gmail.com>\n"
+"PO-Revision-Date: 2009-02-08 14:41+0000\n"
+"Last-Translator: Mr.Dust <like.a.dust@gmail.com>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:59+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:57+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -136,26 +136,25 @@ msgstr "현재 시간:"
 #. Description
 #: ../ubiquity.templates:15001
 msgid "Keyboard layout"
-msgstr "키보드 레이아웃을 선택하십시오"
+msgstr "키보드 배치"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Which layout is most similar to your keyboard?"
-msgstr "여러분의 키보드는 어떤 레이아웃입니까?"
+msgstr "여러분의 키보드와 가장 비슷한 배치는 어떤 것입니까?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "새 키보드 레이아웃을 시험해 보기 위하여 아래 상자에 입력해 보십시오."
+msgstr "새 키보드 배치를 시험하려면 아래의 박스에 입력해 보십시오."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "선택한 영역:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -244,9 +243,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
 msgid "Migrate documents and settings"
-msgstr "문서와 설정을 이전합니다."
+msgstr "문서와 설정을 가져옵니다"
 
 #. Type: text
 #. Description
@@ -331,16 +329,14 @@ msgstr "${TOTAL} 중 ${INDEX}번째 단계"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "설치를 중지하시겠습니까?"
+msgstr "설치를 끝내시겠습니까?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "정말로 지금 설치를 중지하시겠습니까?"
+msgstr "설치를 정말 끝내시겠습니까?"
 
 #. Type: text
 #. Description
@@ -616,14 +612,12 @@ msgstr "계속"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
 "설치가 완료되었습니다. 새로 설치된 프로그램을 사용하기 위해 컴퓨터를 다시 시"
-"작하십시오. 변경된 문서가 보존되지는 않지만, 현재 CD를 계속 사용할 수 있습니"
-"다."
+"작하십시오."
 
 #. Type: note
 #. Description
@@ -638,11 +632,11 @@ msgid ""
 " ${MIGRATE}"
 msgstr ""
 " 언어: ${LANGUAGE}\n"
-" 키보드 레이아웃: ${KEYMAP}\n"
+" 키보드 배치: ${KEYMAP}\n"
 " 이름: ${FULLNAME}\n"
 " 로그인 이름: ${USERNAME}\n"
 " 위치: ${LOCATION}\n"
-" Migration Assistant:\n"
+" 이전 도우미:\n"
 " ${MIGRATE}"
 
 #. Type: text
@@ -694,9 +688,8 @@ msgstr "파일을 복사중입니다. (일 분가량 남았습니다)..."
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "설치를 마쳤습니다"
+msgstr "설치 실패"
 
 #. Type: error
 #. Description
@@ -725,28 +718,25 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"하드디스크나 CD/DVD의 결함이 에러를 발생시킬 수 있습니다. CD/DVD를 청소하거"
-"나, 저속으로 굽거나, 드라이브 렌즈 청소를 통해 문제를 해결하실 수 있습니다. "
-"(공급자가 제공하는 청소키트를 사용하실 수 있습니다.)"
+"이것은 CD/DVD의 문제로 생겨날 수 있습니다. CD/DVD를 청소하거나 CD/DVD를 느린 "
+"속도로 굽는 것이 도움이 될 수 있습니다."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:97001
-#, fuzzy
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"이러한 오류는 하드디스크 결함으로 발생할 수 있습니다. 하드 디스크가 오래되어 "
-"교체할 필요가 있는 지, 또는 컴퓨터의 냉각 및 통풍에는 이상이 없는 지 확인해 "
-"보시는 것이 도움 될 수 있습니다."
+"이것은 가끔 하드 디스크의 문제로 발생합니다. 하드 디스크가 오래되었고 교체가 "
+"필요한지 점검하시거나, 시스템을 더 시원한 곳으로 옮기는 것이 도움이 될 수도 "
+"있습니다."
 
 #. Type: error
 #. Description
@@ -757,7 +747,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:98001 ../ubiquity.templates:99001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -765,11 +754,10 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"이러한 에러는 주로 하드디스크 결함이나 CD/DVD 디스크나 드라이브의 결함으로 발"
-"생합니다. CD/DVD를 청소하거나 낮은 속도로 CD/DVD를 굽거나 CD/DVD 드라이브 렌"
-"즈를 청소하거나(공급사로부터 제공받은 청소 KIT을 활용할 수 있습니다), 하드디"
-"스크가 오래되었다면 교체하거나 냉각 시스템이 있는곳으로 옮기는것을 검토해보는"
-"게 도움이 될 수 있습니다."
+"이것은 가끔 CD/DVD나 하드 디스크의 문제로 발생합니다. CD/DVD를 청소하거나, "
+"CD/DVD를 낮은 속도로 굽는 것이 도움이 될 수 있으며, 하드 디스크가 오래되었고 "
+"교체가 필요한지 점검하시거나, 시스템을 더 시원한 곳으로 옮기는 것이 도움이 "
+"될 수도 있습니다."
 
 #. Type: select
 #. Description
@@ -1347,9 +1335,9 @@ msgstr "MythTV 네트워크 상의 컨텐츠를 이용하여 DVD를 제작할 �
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
-#, fuzzy
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
-msgstr "MythTV 네트워크 상의 컨텐츠를 이용하여 DVD를 제작할 수 있는 플러그인."
+msgstr ""
+"Myth TV를 이용해 apple.com 에서 영화 예고편을 볼 수 있는 플러그인입니다."
 
 #. Type: text
 #. Description

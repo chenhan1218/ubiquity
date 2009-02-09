@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-19 09:24+0000\n"
-"Last-Translator: Roy Chan <roy.chan@linux.org.hk>\n"
+"PO-Revision-Date: 2009-01-10 06:36+0000\n"
+"Last-Translator: Tetralet <Unknown>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:56+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -127,7 +127,7 @@ msgstr "選擇的區域"
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Current time:"
-msgstr "目前時間："
+msgstr "當前時間："
 
 #. Type: text
 #. Description
@@ -150,9 +150,8 @@ msgstr "您可以在此處測試您新選擇的鍵盤排列方式。"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "選擇的區域"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -176,7 +175,7 @@ msgstr "您的名字是？"
 #. Description
 #: ../ubiquity.templates:22001
 msgid "What name do you want to use to log in?"
-msgstr "您要使用什麼名字登入？"
+msgstr "您要使用什麼名稱登入？"
 
 #. Type: text
 #. Description
@@ -209,7 +208,7 @@ msgstr "輸入相同的密碼兩次，以檢查是否有打錯字。"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "What is the name of this computer?"
-msgstr "您要將這台電腦取什麼名字？"
+msgstr "您要為這台電腦取什麼名字？"
 
 #. Type: text
 #. Description
@@ -217,7 +216,7 @@ msgstr "您要將這台電腦取什麼名字？"
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr "如果您設定讓別人能在網路上看到這台電腦, 將會是這個名字."
+msgstr "如果您設定讓別人能在網路上看到這台電腦，將會是這個名字。"
 
 #. Type: text
 #. Description
@@ -240,9 +239,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
 msgid "Migrate documents and settings"
-msgstr "匯入/搬移文件與設定"
+msgstr "轉移檔案及設定"
 
 #. Type: text
 #. Description
@@ -276,7 +274,7 @@ msgstr "您想要如何分割磁碟？"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Prepare partitions"
-msgstr "準備分割區"
+msgstr "預備分割區"
 
 #. Type: text
 #. Description
@@ -318,21 +316,19 @@ msgstr "安裝[ action ]"
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr "步驟  ${TOTAL} 之 ${INDEX}"
+msgstr "步驟 ${INDEX}  (共 ${TOTAL} 個)"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "要中止安裝作業嗎？"
+msgstr "離開安裝程式？"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "您真的要中止安裝作業嗎？"
+msgstr "您確定要現在離開安裝程式？"
 
 #. Type: text
 #. Description
@@ -344,7 +340,7 @@ msgstr "略過"
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Installation complete"
-msgstr "安裝作業完成"
+msgstr "安裝完成"
 
 #. Type: text
 #. Description
@@ -364,7 +360,7 @@ msgstr "立刻重新啟動"
 #. Description
 #: ../ubiquity.templates:49001 ../ubiquity.templates:50001
 msgid "Installer crashed"
-msgstr "安裝程式發生錯誤"
+msgstr "安裝程式當掉"
 
 #. Type: text
 #. Description
@@ -548,7 +544,7 @@ msgstr "開機載入器"
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Install boot loader"
-msgstr "安裝開機管理程式"
+msgstr "安裝開機程式"
 
 #. Type: text
 #. Description
@@ -608,7 +604,6 @@ msgstr "繼續"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
@@ -630,7 +625,7 @@ msgid ""
 msgstr ""
 " 使用語言：${LANGUAGE}\n"
 " 鍵盤模式：${KEYMAP}\n"
-" 使用者名稱：${FULLNAME}\n"
+" 真實姓名：${FULLNAME}\n"
 " 登入帳號：${USERNAME}\n"
 " 所在地區：${LOCATION}\n"
 " 資料轉移：\n"
@@ -685,9 +680,8 @@ msgstr "正在複製檔案 (剩餘時間少於一分鐘)..."
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "安裝作業完成"
+msgstr "安裝失敗"
 
 #. Type: error
 #. Description
@@ -716,27 +710,25 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"此錯誤經常是由破損的 CD/DVD 光碟片或光碟機所導致。試著清潔光碟片和光碟機的雷"
-"射讀取頭（光碟機清潔用品可以從電腦零售商購得），或者使用較低倍速重新燒錄安裝"
-"光碟。"
+"這是多數因為 CD/DVD 光碟或光碟機有問題。清理 CD/DVD、以低速度燒錄 CD/DVD，或"
+"是清理 CD/DVD 光碟機的雷射針頭（通常電子產品供應商皆提供清潔套件）可能解決到"
+"此問題。"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:97001
-#, fuzzy
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"此錯誤經常是由破損的硬碟所導致。請先檢查硬碟是否過於老舊和需要替換，並且試著"
-"把系統移到較通風的地方。"
+"這是多數因為硬碟有問題。檢查硬碟是否太舊而需要更換，或是移動系統到更涼快的環"
+"境可能解決到此問題。"
 
 #. Type: error
 #. Description
@@ -747,7 +739,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:98001 ../ubiquity.templates:99001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -755,9 +746,9 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"此錯誤經常是由破損的 CD/DVD 光碟機或硬碟所導致。試著清潔光碟片和光碟機的雷射"
-"讀取頭（光碟機清潔用品可以從電腦零售商購得），使用較低倍速重新燒錄安裝光碟，"
-"檢查硬碟是否過於老舊需要替換，或者試著把系統移到較通風的地方。"
+"這是多數因為 CD/DVD 光碟、光碟機，或是硬碟有問題。清理 CD/DVD、以低速度燒錄 "
+"CD/DVD、是清理 CD/DVD 光碟機的雷射針頭（通常電子產品供應商皆提供清潔套件）、"
+"檢查硬碟是否太舊而需要更換，或是移動系統到更涼快的環境可能解決到此問題。"
 
 #. Type: select
 #. Description
@@ -787,7 +778,7 @@ msgstr "正在設定系統語系..."
 #. Description
 #: ../ubiquity.templates:103001
 msgid "Configuring apt..."
-msgstr "正在設定 apt..."
+msgstr "正在設定 apt ..."
 
 #. Type: text
 #. Description
@@ -835,7 +826,7 @@ msgstr "正在設定電腦名稱..."
 #. Description
 #: ../ubiquity.templates:111001
 msgid "Configuring boot loader..."
-msgstr "正在設定開機管理程式..."
+msgstr "正在設定開機載入器..."
 
 #. Type: text
 #. Description
@@ -958,7 +949,7 @@ msgstr "正在安裝語言套件"
 #. Description
 #: ../ubiquity.templates:128001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "下載語言套件中（剩餘 ${TIME}）..."
+msgstr "正在下載語言套件 (剩餘 ${TIME})..."
 
 #. Type: boolean
 #. Description
@@ -1058,7 +1049,7 @@ msgstr "您要選擇何種安裝模式？"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr "Mythbuntu提供兩種安裝模式"
+msgstr "Mythbuntu 提供兩種安裝模式："
 
 #. Type: text
 #. Description
@@ -1324,9 +1315,8 @@ msgstr "一個讓您從您的 MythTV 網路的內容建立 DVD 的附加元件�
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
-#, fuzzy
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
-msgstr "一個讓您從您的 MythTV 網路的內容建立 DVD 的附加元件。"
+msgstr "MythTV 的插件讓您從 apple.com 觀賞電影預告。"
 
 #. Type: text
 #. Description

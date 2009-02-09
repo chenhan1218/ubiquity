@@ -2,21 +2,18 @@
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
-# Peter Mann <peter.mann@tuke.sk>
-# Ivan Masár <helix84@centrum.sk>, 2007, 2008.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-18 08:16+0000\n"
-"Last-Translator: helix84 <Unknown>\n"
+"PO-Revision-Date: 2008-11-14 13:28+0000\n"
+"Last-Translator: Pavol Klačanský <pavol@klacansky.com>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:56+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:58+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -24,13 +21,13 @@ msgstr ""
 #. This is used as a window title.
 #: ../ubiquity.templates:2001
 msgid "Install"
-msgstr "Inštlovať"
+msgstr "Inštalovať"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "Inštaluj (OEM mód, iba pre výrobcov)"
+msgstr "Inštalovať (v režime OEM, iba pre výrobcov)"
 
 #. Type: text
 #. Description
@@ -85,8 +82,8 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
-"Ak máte prístup na internet, prečítajte si poznámky k vydaniu pre informácie "
-"o problémoch, s ktorými sa môžete stretnúť."
+"Ak máte prístup na internet, prečítajte si informácie o problémoch, s "
+"ktorými sa môžete stretnúť v dokumente Poznámky k vydaniu."
 
 #. Type: text
 #. Description
@@ -158,9 +155,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "Zvolený región:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -252,7 +248,6 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
 msgid "Migrate documents and settings"
 msgstr "Migrovať dokumenty a nastavenia"
 
@@ -272,7 +267,9 @@ msgstr ""
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
-msgstr "Ak si neželáte importovať žiadne účty, vyberte"
+msgstr ""
+"Ak si neželáte importovať žiadne účty, nevyberte nič a prejdite na ďalšiu "
+"stránku."
 
 #. Type: text
 #. Description
@@ -338,16 +335,14 @@ msgstr "Krok ${INDEX} z ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "Prerušiť inštaláciu?"
+msgstr "Ukončiť inštaláciu?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "Naozaj chcete prerušiť inštaláciu?"
+msgstr "Chcete skutočne ukončiť inštaláciu?"
 
 #. Type: text
 #. Description
@@ -420,14 +415,14 @@ msgstr "Po:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:54001
 msgid "New partition table"
-msgstr "Nové tabuľky oddielu"
+msgstr "Nová tabuľka oblastí"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:55001
 msgid "New partition"
-msgstr "Nový oddiel"
+msgstr "Nová oblasť"
 
 #. Type: text
 #. Description
@@ -443,7 +438,7 @@ msgstr "Upraviť oblasť"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:57001
 msgid "Delete partition"
-msgstr "Odstrániť oddiel"
+msgstr "Odstrániť oblasť"
 
 #. Type: text
 #. Description
@@ -515,7 +510,7 @@ msgstr "Vytvoriť oblasť"
 #. Description
 #: ../ubiquity.templates:67001 ../ubiquity.templates:74001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr "Veľkosť nového oddielu v megabajtoch (1000000 bajtov):"
+msgstr "Veľkosť novej oblasti v megabajtoch (1000000 bajtov):"
 
 #. Type: text
 #. Description
@@ -648,7 +643,7 @@ msgstr ""
 " Meno: ${FULLNAME}\n"
 " Prihlasovacie meno: ${USERNAME}\n"
 " Umiestnenie: ${LOCATION}\n"
-" Migračný pomocník:\n"
+" Pomocník pri migrácii:\n"
 " ${MIGRATE}"
 
 #. Type: text
@@ -700,9 +695,8 @@ msgstr "Prebieha kopírovanie (zostáva menej ako minúta)..."
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "Inštalácia je kompletná"
+msgstr "Inštalácia zlyhala"
 
 #. Type: error
 #. Description
@@ -720,34 +714,31 @@ msgstr "Inštalátor narazil na chybu pri kopírovaní súborov na pevný disk:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:95001
-#, fuzzy
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"Táto konkrétna chyba vznikla z dôvodu nedostatku miesta na inštaláciu na "
-"cieľovej oblasti disku. Prosím, spustite inštalátor znova a vyberte pre "
-"inštaláciu väčšiu oblasť."
+"Nebolo možné dokončiť inštaláciu kvôli nedostatku voľného miesta na zvolenej "
+"oblasti. Spustite inštaláciu znovu a zvoľte na inštaláciu väčšiu oblasť."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
 "Príčinou tejto chyby býva často vadný CD/DVD disk alebo mechanika. Očistením "
-"CD/DVD disku, vypálením obsahu CD-DVD na nižšej rýchlosti, prípadne "
+"CD/DVD disku, vypálením obsahu CD/DVD na nižšej rýchlosti, prípadne "
 "vyčistením optiky CD/DVD mechaniky sa môžete takejto chybe s veľkou "
-"pravdepodobnosťou vyvarovať."
+"pravdepodobnosťou vyvarovať (čistiace sady často nájdete v predajniach "
+"elektroniky)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:97001
-#, fuzzy
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -766,7 +757,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:98001 ../ubiquity.templates:99001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -776,10 +766,10 @@ msgid ""
 msgstr ""
 "Príčinou tejto chyby býva často vadný CD/DVD disk alebo mechanika, "
 "eventuálne pevný disk. Očistením CD/DVD disku, vypálením obsahu CD-DVD na "
-"nižšej rýchlosti, prípadne vyčistením optiky CD/DVD mechaniky, eventuálne "
-"zvážením výmeny starého pevného disku za nový, prípadne presunom do "
-"chladnejšieho prostredia sa môžete takejto chybe s veľkou pravdepodobnosťou "
-"vyvarovať."
+"nižšej rýchlosti, prípadne vyčistením optiky CD/DVD mechaniky (čistiace sady "
+"často nájdete v predajniach elektroniky), eventuálne zvážením výmeny starého "
+"pevného disku za nový, prípadne presunom do chladnejšieho prostredia sa "
+"môžete takejto chybe s veľkou pravdepodobnosťou vyvarovať."
 
 #. Type: select
 #. Description
@@ -999,8 +989,8 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"Inštalátor potrebuje vykonať zmeny v tabuľke oddielov, ale nemôže, pretože "
-"oddiely na nasledujúcich prípojných bodoch nemôžu byť odpojené:"
+"Inštalátor potrebuje vykonať zmeny v tabuľke oblastí, ale nemôže, pretože "
+"oblasti na nasledujúcich prípojných bodoch nemožno odpojiť:"
 
 #. Type: boolean
 #. Description
@@ -1307,49 +1297,49 @@ msgstr "Myth Flix"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Myth Gallery"
-msgstr "Myth galéria"
+msgstr "Galéria Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Myth Game"
-msgstr "Mýtické hry"
+msgstr "Hra Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Myth Music"
-msgstr "Myth hudba"
+msgstr "Hudba Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth News"
-msgstr "Mýtické správy"
+msgstr "Správy Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
 msgid "Myth Phone"
-msgstr "Myth Phone"
+msgstr "Telefón Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Stream"
-msgstr "Myth Stream"
+msgstr "Stream Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:39001
 msgid "Myth Video"
-msgstr "Myth video"
+msgstr "Video Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:40001
 msgid "Myth Weather"
-msgstr "Myth počasie"
+msgstr "Počasie Myth"
 
 #. Type: text
 #. Description
@@ -1358,15 +1348,16 @@ msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
 msgstr ""
-"Modul pre MythTV, ktorý umožňuje tvorbu DVD z obsahu na vašej sieti MythTV."
+"Zásuvný modul pre MythTV, ktorý umožňuje tvorbu DVD z obsahu na vašej sieti "
+"MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
-#, fuzzy
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr ""
-"Modul pre MythTV, ktorý umožňuje tvorbu DVD z obsahu na vašej sieti MythTV."
+"Zásuvný modul pre MythTV, ktorý vám umožňuje prehliadať upútavky na filmy z "
+"from apple.com."
 
 #. Type: text
 #. Description

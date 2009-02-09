@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-14 10:35+0000\n"
-"Last-Translator: Jun Kobayashi <kobayashi+ubuntu@junkobayashi.jp>\n"
+"PO-Revision-Date: 2009-01-17 02:30+0000\n"
+"Last-Translator: Kentaro Kazuhama <kazken3@gmail.com>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:57+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -155,9 +155,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "選択された地域:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -251,9 +250,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
 msgid "Migrate documents and settings"
-msgstr "Documents and Settingsのインポート"
+msgstr "ドキュメントと設定のインポート"
 
 #. Type: text
 #. Description
@@ -338,16 +336,14 @@ msgstr "ステップ ${INDEX} / ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "インストールを中断しますか？"
+msgstr "インストールを終了しますか?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "本当にここでインストールを中断しますか？"
+msgstr "本当にインストールを終了しますか?"
 
 #. Type: text
 #. Description
@@ -393,10 +389,10 @@ msgid ""
 "and /var/log/partman:"
 msgstr ""
 "インストーラがクラッシュしました。新たにバグレポートを https://launchpad.net/"
-"ubuntu/+source/ubiquity/+filebug に書き込んでください (ただし、既存のバグと結"
-"び付けないようにしてください)。開発者ができる限り早く問題に対処します。開発者"
-"が問題点を理解しやすいように、次の点をバグレポートに含めてください。また、 /"
-"var/log/syslog と /var/log/partmanを添付してください。"
+"ubuntu/+source/ubiquity/+filebug に書き込んでください (既存のバグのコメントと"
+"して、あなたが見つけたバグを報告しないでください)。開発者ができる限り早く問題"
+"に対処します。開発者が問題点を理解しやすいように、次の点をバグレポートに含め"
+"てください。また、 /var/log/syslog と /var/log/partmanを添付してください。"
 
 #. Type: text
 #. Description
@@ -624,14 +620,12 @@ msgstr "続ける"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"インストールが完了しました。新しくインストールしたシステムを使うには、コン"
-"ピュータを再起動する必要があります。このライブCDを使い続けることもできます"
-"が、変更した内容や保存したドキュメントは残りません。"
+"インストールは完了しました。新しいインストールを使うためにはコンピュータの再"
+"起動が必要です。"
 
 #. Type: note
 #. Description
@@ -702,9 +696,8 @@ msgstr "ファイルをコピーしています (残り1分弱です)..."
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "インストール完了"
+msgstr "インストールが失敗しました"
 
 #. Type: error
 #. Description
@@ -722,42 +715,37 @@ msgstr "ハードディスクにファイルをコピー中にエラーが発生
 #. Type: error
 #. Description
 #: ../ubiquity.templates:95001
-#, fuzzy
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"パーティションに、インストールを完了するためのディスク領域が不足しているため"
-"にエラーが発生しました。インストーラを再実行し、より大きなパーティションにイ"
-"ンストールするよう選択してください。"
+"インストールに必要なハードディスクの空き容量が不足しています。インストーラを"
+"立ち上げ直し、充分な空き容量を持ったパーティションを選択してください。"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"このエラーは主に CD/DVD ディスクかドライブの動作不良により発生します。CD/DVD "
-"をクリーニングするか、速度を落として CD/DVD を焼くか、または CD/DVD ドライブ"
-"のレンズを綺麗にするなどして下さい(クリーナセットはメーカから販売されているこ"
-"ともあります)。"
+"多くの場合、CD/DVDかドライブの問題です。CD/DVDのホコリを取り除くか、CD/DVDを"
+"低速で焼き直すか、CD/DVDドライブのレンズを掃除すれば解決するかもしれません"
+"（電気店に行けば、ドライブレンズの掃除キットが販売されています）。"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:97001
-#, fuzzy
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"このエラーは主にハードディスクの動作不良により発生します。ハードディスクが古"
-"い場合は、交換が必要かどうかチェックしてください。また、システムをより涼しい"
-"環境に移動するなどしてみて下さい。"
+"多くの場合、ハードディスクの問題です。ハードディスクが古く置き換える必要があ"
+"るかどうかを確認するか、より低温の環境に移動して動作させると解決するかもしれ"
+"ません。"
 
 #. Type: error
 #. Description
@@ -768,7 +756,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:98001 ../ubiquity.templates:99001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -776,11 +763,11 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"この特定のエラーは多くの場合、CD/DVDディスクもしくはドライブ不良、またはハー"
-"ドディスク不良が原因です。CD/DVDを掃除したり、CD/DVDを低い速度で作成したり、"
-"CD/DVDのレンズを掃除したり（クリーニングキットはたいがい電化量販店で入手でき"
-"ます）、ハードディスクが古くて交換が必要なのか確認したり、コンピューターを涼"
-"しい環境に移動してみると良いかもしれません。"
+"多くの場合、CD/DVDかドライブ、もしくはハードディスクの問題です。CD/DVDのホコ"
+"リを取り除く、CD/DVDを低速で焼き直す、CD/DVDドライブのレンズを掃除する（電気"
+"店に行けば、ドライブレンズの掃除キットが販売されています）、ハードディスクが"
+"古く置き換える必要があるかどうかを確認する、より低温の環境に移動して動作させ"
+"る、などを実行するとと解決するかもしれません。"
 
 #. Type: select
 #. Description
@@ -1369,9 +1356,8 @@ msgstr "MythTVネットワーク上のコンテンツからDVDを作成するた
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
-#, fuzzy
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
-msgstr "MythTVネットワーク上のコンテンツからDVDを作成するためのプラグイン"
+msgstr "apple.comからの映画の予告編を観ることができるMythTV用plug-in"
 
 #. Type: text
 #. Description

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-21 18:42+0000\n"
-"Last-Translator: Denys Rtveliashvili <rtvd@mail.ru>\n"
-"Language-Team: Ukrainian\n"
+"PO-Revision-Date: 2009-01-10 06:00+0000\n"
+"Last-Translator: Jeroen T. Vermeulen <Unknown>\n"
+"Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 22:00+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -154,9 +154,8 @@ msgstr "У цьому полі ви можете перевірити вашу �
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "Обраний регіон:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -246,9 +245,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
 msgid "Migrate documents and settings"
-msgstr "Перенесення документів та налаштувань"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -334,16 +332,14 @@ msgstr "Крок ${INDEX} з ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "Перервати встановлення?"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "Ви справді бажаєте перервати встановлення?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -621,15 +617,12 @@ msgstr "Продовжити"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Встановлення завершено. Ви повинні перезавантажити комп'ютер для того, щоб "
-"почати користуватись вашою щойно встановленою системою. Ви можете продовжити "
-"використання LiveCD, але зауважте, що будь-які зроблені Вами зміни не будуть "
-"збережені."
+"Встановлення завершено. Вам необхідно перезавантажити комп'ютер для того, "
+"щоб використовувати вашу нову систему."
 
 #. Type: note
 #. Description
@@ -700,9 +693,8 @@ msgstr "Копіювання файлів (залишилося менше хв�
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "Встановлення завершено"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -721,42 +713,29 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:95001
-#, fuzzy
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"Ця помилка виникла через нестачу місця на диску для завершення встановлення "
-"в цільовий розділ диску. Перезапустіть встановлювача і оберіть більший "
-"розділ  для встановлення."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Найчастіше ця помилка виникає у зв'язку з пошкодженням CD/DVD дисків. "
-"Можливі шляхи вирішення проблеми: почистити безпосередньо CD/DVD диск, "
-"почистити лінзи CD/DVD дисководу (засоби очищення можна придбати у "
-"комп'ютерних магазинах), записати CD/DVD на меншій швидкості."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:97001
-#, fuzzy
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Найімовірніше, ця проблема виникла через пошкодження жорстоко диску.  "
-"Спробуйте перевірити жорсткий диск, можливо, він застарів та потребує "
-"заміни. Також спробуйте перенести комп'ютер у прохолодніше місце."
 
 #. Type: error
 #. Description
@@ -767,7 +746,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:98001 ../ubiquity.templates:99001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -775,12 +753,6 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Дана помилка частіше за все виникає за вини поганого носія чи то приводу CD/"
-"DVD або жорсткого диску. Допомогти може протирання диска, перезапис диска на "
-"нижчій швидкості, чистка лінзи приводу (засоби для чистки CD/DVD приводів "
-"можна купити в магазинах комп'ютерної техніки), заміна старого жорсткого "
-"диска на новий, перенесення системного блоку до більш прохолодного "
-"приміщення."
 
 #. Type: select
 #. Description
@@ -1304,7 +1276,6 @@ msgstr "Myth Movies"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
-#, fuzzy
 msgid "Myth Flix"
 msgstr "Myth Flix"
 
@@ -1369,11 +1340,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
-#, fuzzy
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr ""
-"Модуль для MythTV, що дозволяє вам створювати DVD диски з даними, що "
-"знаходяться в вашій мережі MythTV"
 
 #. Type: text
 #. Description

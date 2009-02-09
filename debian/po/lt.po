@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-21 08:27+0000\n"
-"Last-Translator: Nerijus Arlauskas <Unknown>\n"
+"PO-Revision-Date: 2009-01-13 11:28+0000\n"
+"Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:57+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -21,13 +21,13 @@ msgstr ""
 #. This is used as a window title.
 #: ../ubiquity.templates:2001
 msgid "Install"
-msgstr "Įdiegti į kompiuterį"
+msgstr "Linux sistemos įdiegimas"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "Įdiegti (OEM rėžimas, tik kompiuterių gamintojams)"
+msgstr "Įdiegti (OEM režimas, kompiuterių gamintojams bei pardavėjams)"
 
 #. Type: text
 #. Description
@@ -43,9 +43,9 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Pasiruošę įdiegti? Kai atsakysite į kelis klausimus sistema iš "
-"demonstracinio kompaktinio disko bus įdiegta į jūsų kompiuterį ir jūs "
-"galėsite paleisti daug greitesnę sistemą ne iš kompaktinio disko."
+"Pasiruošę įdiegti? Kai atsakysite į kelis klausimus į jūsų kompiuterį bus "
+"įdiegta Linux sistema, dabar veikianti iš kompaktinio disko, ir jūs galėsite "
+"naudotis daug greičiau veikiančia sistema nenaudodami šio kompaktinio disko."
 
 #. Type: text
 #. Description
@@ -71,9 +71,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"Jūs įrašote sistemų gamintojų režimu. Prašome įvesti unikalų pavadinimą šiam "
-"sistemų paketui. Šis pavadinimas bus išsaugotas kiekvienoje sistemoje, į "
-"kurią paketas bus įrašomas, kad būtų legviau padėti dėl klaidų."
+"Jūs diegiate sistemos platintojo būdu. Prašome įvesti unikalų pavadinimą "
+"šiai kompiuterių grupei. Šis pavadinimas bus išsaugotas įdiegtoje sistemoje "
+"ir gali padėti pranešant apie klaidas."
 
 #. Type: text
 #. Description
@@ -143,20 +143,19 @@ msgstr "Klaviatūros išdėstymas"
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Kuris išdėstymas labiausiai panašus į jūsų klaviaturos?"
+msgstr "Kuris išdėstymas labiausiai tinka Jūsų klaviatūrai?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "Rašydami į šį langelį galite išbandyti jūsų klaviaturos išdėstyma."
+msgstr "Rašydami į šį laukelį galite išbandyti parinktą klaviatūros išdėstymą."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "Pasirinktas regionas:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -228,8 +227,8 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
-"Šis vardas bus naudojamas jei padarysite kompiuterį matomą kitiems tinklo "
-"vartotojams."
+"Šis vardas bus naudojamas, jei padarysite kompiuterį matomą vietiniame "
+"tinkle ar internete."
 
 #. Type: text
 #. Description
@@ -252,9 +251,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
 msgid "Migrate documents and settings"
-msgstr "Perkelkite dokumentus bei nustatymus"
+msgstr "Įkelkite turimus dokumentų ir nustatymus"
 
 #. Type: text
 #. Description
@@ -263,8 +261,9 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Pasirinkite vartotojus kurie bus importuoti. Po diegimo bus prieinami jų "
-"dokumentai ir nustatymai."
+"Pasirinkite naudotojus, kurių informaciją norite importuoti. Pasirinktų "
+"naudotojų dokumentai, nustatymai bei kiti duomenys bus nukopijuoti į naują "
+"operacinę sistemą."
 
 #. Type: text
 #. Description
@@ -329,7 +328,7 @@ msgstr "Išsamiau..."
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:41001
 msgid "Install[ action ]"
-msgstr "Įdiegimas"
+msgstr "Įdiegti"
 
 #. Type: text
 #. Description
@@ -340,16 +339,14 @@ msgstr "${INDEX} žingsnis iš ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "Nutraukti įdiegimą?"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "Ar tikrai norite nutraukti įdiegimą dabar?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -361,19 +358,19 @@ msgstr "Praleisti"
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Installation complete"
-msgstr "Įdiegimas užbaigtas"
+msgstr "Diegimas baigtas"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Continue using the live CD"
-msgstr "Toliau naudoti demonstracinį kompaktinį diską"
+msgstr "Toliau naudotis demonstracine sistema"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Restart now"
-msgstr "Perkrauti kompiuterį dabar"
+msgstr "Paleisti įdiegtą sistemą"
 
 #. Type: text
 #. Description
@@ -386,7 +383,6 @@ msgstr "Diegimo programa lūžo"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
-#, fuzzy
 msgid ""
 "We're sorry; the installer crashed. Please file a new bug report at https://"
 "launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
@@ -395,12 +391,6 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
-"Mes atsiprašome; diegimo programa lūžo. Malonėkite užpildyti naują klaidų "
-"ataskaitą čia: https://launchpad.net/ubuntu/+source/ubiquity/+filebug "
-"(nepridėkite jūsų ataskaitos prie jau egzistuojančios klaidos ataskaitos) ir "
-"kūrėjai pasirūpins problemos sprendimu kuo skubiau. Įtraukite papildomą "
-"informaciją pridedant rinkmenas /var/log/syslog ir /var/log/partman prie "
-"jūsų klaidos ataskaitos. Tai palengvins programos vystytojų darbą:"
 
 #. Type: text
 #. Description
@@ -584,13 +574,13 @@ msgstr "Dalyvauti paketų vartojimo apžvalgoje"
 #. Description
 #: ../ubiquity.templates:80001
 msgid "Network proxy"
-msgstr "Tinklo įgaliojimas"
+msgstr "Tinklo proxy"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:81001
 msgid "HTTP proxy:"
-msgstr "HTTP įgaliojimas:"
+msgstr "HTTP proxy:"
 
 #. Type: text
 #. Description
@@ -606,9 +596,10 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"Įdiegimas baigtas. Jūs turite perkrauti kompiuterį norėdami naudoti naująją "
-"sistemą. Arba galite toliau naudoti demonstracinį kompaktinį diską, tačiau "
-"visi jūsų padaryti pakeitimai ar dokumentai nebus išsaugoti."
+"Įdiegimas baigtas. Jei norite naudotis įdiegta sistema - paleiskite "
+"kompiuterį iš naujo. Taipogi galite ir toliau naudoti demonstracinį "
+"kompaktinį diską, tačiau visi jūsų padaryti pakeitimai ar sukurti dokumentai "
+"nebus išsaugoti Jūsų kompiuteryje."
 
 #. Type: text
 #. Description
@@ -627,14 +618,12 @@ msgstr "Tęsti"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Įdiegimas baigtas. Jūs turite perkrauti kompiuterį norėdami naudoti naująją "
-"sistemą. Arba galite toliau naudoti demonstracinį kompaktinį diską, tačiau "
-"visi jūsų padaryti pakeitimai ar dokumentai nebus išsaugoti."
+"Įdiegimas baigtas. Norėdami naudotis naująja sistema turite paleisti "
+"kompiuterį iš naujo."
 
 #. Type: note
 #. Description
@@ -705,9 +694,8 @@ msgstr "Kopijuojami failai (liko mažiau nei viena minutė)..."
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "Įdiegimas užbaigtas"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -725,41 +713,29 @@ msgstr "Įvyko klaida kopijuojant failus į kietąjį diską:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:95001
-#, fuzzy
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"Ši klaida įvyko dėl nepakankamos vietos diske, pasirinktame skirsnyje. "
-"Prašome paleisit diegimą iš naujo ir pasirinkti didesnį skirsnį diegimui."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Ši klaida dažnai įvyksta dėl blogo CD/DVD disko ar įrenginio. Pabandykite "
-"nuvalyti CD/DVD diską, įrašyti lėtesniu greičiu arba nuvalyti CD/DVD "
-"įrenginio lęšį (specialią valymo priemonę galite nusipirkti daugumoje "
-"elektronikos parduotuvių)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:97001
-#, fuzzy
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Ši klaida dažnai įvyksta dėl blogo ar sugedusio kietojo disko. Gal Jūsų "
-"kietasis diskas yra labai senas ir jį jau reikėtų pakeisti? Taip pat galite "
-"pabandykite perkelti kietąjį diską ten, kur jis kaistų mažiau."
 
 #. Type: error
 #. Description
@@ -770,7 +746,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:98001 ../ubiquity.templates:99001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -778,12 +753,6 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Ši klaida dažnai įvyksta dėl blogo CD/DVD disko ar įrenginio, sugedusio "
-"kietojo disko. Pabandykite nuvalyti CD/DVD, įrašyti CD/DVD lėtesniu greičiu "
-"arba nuvalyti CD/DVD įrenginio lęšį (specialią valymo priemonę galite "
-"nusipirkti bet kurioje elektronikos parduotuvėje). Taip pat patikrinkite, ar "
-"Jūsų kietasis diskas nėra senas ir ar jo nereikia pakeisti.  Arba "
-"pabandykite perkelti kompiuterį į vėsesnę vietą, kad mažiau kaistų."
 
 #. Type: select
 #. Description
@@ -831,7 +800,7 @@ msgstr "Konfigūruojama klaviatūra..."
 #. Description
 #: ../ubiquity.templates:106001
 msgid "Creating user..."
-msgstr "Kuriamas vartotojas..."
+msgstr "Kuriamas naudotojas..."
 
 #. Type: text
 #. Description
@@ -942,7 +911,6 @@ msgstr "Šie paketai yra sugadintoje būsenoje:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:122001 ../ubiquity.templates:123001
-#, fuzzy
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -952,13 +920,13 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
-"Tai gali būti dėl to, kad naudojamas senas diegimo programos 'atvaizdas', "
-"arba tai gali būti dėl klaidos kažkuriame iš aukščiau išvardintų paketų. "
-"Daugiau detalių galima rasti /var/log/syslog. Įdiegiklis vistiek bandys "
-"tęsti, bet jam gali nepavykti vėlesnioje stadijoje, ir tada negalės įdiegti "
-"arba pašalinti kitų paketų (galbūt ir pačio savęs) iš instaliuotos sistemos. "
-"Jūms derėtų paieškoti naujesnės diegimo programos 'atvaizdo' versijos, arba "
-"nusiųsti tos problemos ataskaitą jūsų distributoriui."
+"Tai gali būti dėl to, kad naudojamas senas diegimo programos 'atvaizdis', "
+"arba dėl klaidos kažkuriame iš aukščiau išvardintų programų paketų. "
+"Detalesnę informaciją galima rasti /var/log/syslog. Įdiegiklis vistiek "
+"bandys tęsti, bet jam gali nepavykti vėlesnėje stadijoje, tada tikriausiai "
+"negalės įdiegti arba pašalinti kitų programų paketų (galbūt ir pačio savęs) "
+"iš įdiegtos sistemos. Jums reiktų naudoti naujesnę įdiegimo programą arba "
+"nusiųsti problemos aprašymą ir ataskaitą jūsų operacinės sistemos gamintojui."
 
 #. Type: error
 #. Description
@@ -1026,9 +994,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:140001
-#, fuzzy
 msgid "Do you want to return to the partitioner?"
-msgstr "Ar norite grįžti į diskų skirsnių tvarkymą?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -1115,15 +1082,14 @@ msgid ""
 "all themes."
 msgstr ""
 "Standartinis diegimas įdiegs ir sukonfigūruos kiekvieną pasirinkimą su "
-"minimaliu vartotojo įsikišimu. Bus suinstaliuota visa galinė, pradinė "
-"programinė įrangos, įskiepiai ir temos."
+"minimaliu naudotojo įsikišimu. Bus įdiegta galinė bei pradinė programinė "
+"įrangą, visi įskiepiai ir temos."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "Išsamesnis diegimas"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1140,9 +1106,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "Įdiegimas užbaigtas"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1235,13 +1200,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:22001
-#, fuzzy
 msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
 msgstr ""
-"Papildiniai gali būti panaudoti MythTV programos funkcionavimo išplietimui "
-"už laiko TV sprendimo keitimų."
 
 #. Type: text
 #. Description
@@ -1365,11 +1327,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
-#, fuzzy
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr ""
-"Papildinys skirtas MythTV programai, leidžiantis jums kūrti DVD kompaktus iš "
-"tūrinio esančio jūsų MythTV tinkle."
 
 #. Type: text
 #. Description
@@ -1487,9 +1446,8 @@ msgstr "Įjungti/Išjungti viską"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
-#, fuzzy
 msgid "Additional Drivers/Firmware"
-msgstr "Papildomos valdyklės / programinė aparatininė įranga (firmware)"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1508,9 +1466,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:61001
-#, fuzzy
 msgid "Modify Video Driver & Settings"
-msgstr "Pakeisti video valdyklę ir parinktis"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1556,7 +1513,7 @@ msgstr "MySQL slaptažodis"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:68001
 msgid "MySQL User Name"
-msgstr "MySQL vartotojo vardas"
+msgstr "MySQL naudotojo vardas"
 
 #. Type: text
 #. Description
@@ -1621,23 +1578,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "Konfigūruojamas apt...."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "Konfigūruojama aparatinė įranga..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:79001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "Konfigūruojama aparatinė įranga..."
+msgstr ""
 
 #. Type: text
 #. Description

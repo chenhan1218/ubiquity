@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-12 02:46+0000\n"
-"Last-Translator: Susana Pereira <susana.pereira@gmail.com>\n"
+"PO-Revision-Date: 2009-01-10 04:18+0000\n"
+"Last-Translator: Miguel Figueiredo <Unknown>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:57+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -155,9 +155,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "Região seleccionada:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -251,9 +250,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
 msgid "Migrate documents and settings"
-msgstr "Importar Documentos e Definições"
+msgstr "Migrar documentos e definições"
 
 #. Type: text
 #. Description
@@ -262,7 +260,7 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Seleccione as contas que gostaria de importar. Os documentos e configurações "
+"Seleccione as contas que gostaria de importar. Os documentos e definições "
 "para estas contas estarão disponíveis assim que a instalação terminar."
 
 #. Type: text
@@ -339,16 +337,14 @@ msgstr "Passo ${INDEX} de ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "Cancelar a instalação?"
+msgstr "Abandonar a instalação?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "Deseja mesmo cancelar a instalação agora?"
+msgstr "Deseja mesmo abandonar a instalação agora?"
 
 #. Type: text
 #. Description
@@ -701,9 +697,8 @@ msgstr "A copiar ficheiros (falta menos de um minuto)..."
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "Instalação completa"
+msgstr "Falha na Instalação"
 
 #. Type: error
 #. Description
@@ -722,42 +717,39 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:95001
-#, fuzzy
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"Este erro particular deve-se ao insuficiente espaço em disco para completar "
-"a instalação na partição alvo. Por favor inicia o instalador novamente e "
-"seleccione uma maior partição onde instalar."
+"Isto deve-se a espaço suficiente no disco para completar a instalação na "
+"partição alvo. Por favor corra novamente o instalador e seleccione uma "
+"partição maior."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Este erro deve-se normalmente a um CD/DVD ou leitor com defeito. Pode ajudar "
-"limpar o CD/DVD, gravar o CD/DVD com uma velocidade menor, ou limpar a lente "
-"da unidade de CD/DVD (os kits de limpeza são normalmente disponibilizados "
-"por fabricantes de electrónica)"
+"Isto deve-se normalmente ao facto de um disco ou leitor de CD/DVD "
+"defeituoso. Pode ajudar a resolver o problema se limpar o CD/DVD, gravar o "
+"CD/DVD numa velocidade inferior, ou limpar as lentes do gravador de CD/DVD "
+"(kits de limpeza são encontrados facilmente em lojas de informática)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:97001
-#, fuzzy
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Este erro deve-se normalmente a um defeito no disco rígido. Pode ajudar "
-"verificar se o disco rígido é velho e necessita de ser substituido ou mover "
-"o sistema para um ambiente mais fresco."
+"Isto deve-se normalmente a um disco rígido defeituoso. Pode ajudar a "
+"resolver o problema se verificar se o disco rígido é antigo e necessita de "
+"ser trocado, ou mover o sistema para um ambiente mais fresco."
 
 #. Type: error
 #. Description
@@ -768,7 +760,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:98001 ../ubiquity.templates:99001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -776,12 +767,13 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Este erro deve-se normalmente a um defeito no CD/DVD, unidade de CD/DVD ou "
-"disco rígido. Pode ajudar fazer uma limpeza ao CD/DVD, gravar o CD/DVD com "
-"uma velocidade menor, limpar a lente da unidade de CD/DVD (os kits de "
-"limpeza são normalmente disponibilizados por fabricantes de electrónica), "
-"verificar de o disco rígido é velho e necessita de ser substituido ou mover "
-"o sistema para um ambiente mais fresco."
+"Isto deve-se normalmente ao facto de um disco ou leitor de CD/DVD "
+"defeituoso, ou a um disco rígido defeituoso. Pode ajudar a resolver o "
+"problema se limpar o CD/DVD, gravar o CD/DVD numa velocidade inferior, ou "
+"limpar as lentes do gravador de CD/DVD (kits de limpeza são encontrados "
+"facilmente em lojas de informática), ou  verificar se o disco rígido é "
+"antigo e necessita de ser trocado, ou mover o sistema para um ambiente mais "
+"fresco."
 
 #. Type: select
 #. Description
@@ -1359,17 +1351,14 @@ msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
 msgstr ""
-"Um plug-in para o Myth que o permite criar DVD´s a partir de conteúdo da "
-"rede MythTV."
+"Um plugin para o MythTV que permite-lhe criar DVD´s a partir de conteúdo da "
+"sua rede MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
-#, fuzzy
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
-msgstr ""
-"Um plug-in para o Myth que o permite criar DVD´s a partir de conteúdo da "
-"rede MythTV."
+msgstr "Um plugin para MythTV permite-lhe ver trailers de filmes da apple.com."
 
 #. Type: text
 #. Description

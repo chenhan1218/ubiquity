@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-08 13:18+0000\n"
-"Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
+"PO-Revision-Date: 2009-02-04 09:50+0000\n"
+"Last-Translator: Chanrithy Thim <Unknown>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:56+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:59+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -109,9 +109,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid "Selected city:"
-msgstr "តំបន់​ពេល​វេលា​ដែល​បាន​ជ្រើស"
+msgstr "ទីក្រុង​ដែល​បាន​ជ្រើស ៖"
 
 #. Type: text
 #. Description
@@ -122,9 +121,8 @@ msgstr "តំបន់​ពេល​វេលា ៖"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:13001
-#, fuzzy
 msgid "Selected region:"
-msgstr "តំបន់​ពេល​វេលា​ដែល​បាន​ជ្រើស"
+msgstr "តំបន់​ដែល​បាន​ជ្រើស ៖"
 
 #. Type: text
 #. Description
@@ -135,9 +133,8 @@ msgstr "ពេល​បច្ចុប្បន្ន ៖"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
-#, fuzzy
 msgid "Keyboard layout"
-msgstr "ជ្រើស​ប្លង់​ក្ដារចុច​មួយ"
+msgstr "ប្លង់​ក្ដារ"
 
 #. Type: text
 #. Description
@@ -154,9 +151,8 @@ msgstr "អ្នក​អាច​វាយ​នៅ​ក្នុង​ប្
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "តំបន់​ពេល​វេលា​ដែល​បាន​ជ្រើស"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -194,9 +190,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
 msgid "Choose a password to keep your account safe."
-msgstr "ជ្រើស​ពាក្យ​សម្ងាត់​សម្រាប់​អ្នក​ប្រើ​ថ្មី ៖"
+msgstr "ជ្រើស​ពាក្យ​សម្ងាត់​ដើម្បី​រក្សារ​គណនី​របស់​អ្នក​ដោយ​សុវត្ថិភាព ។"
 
 #. Type: text
 #. Description
@@ -269,23 +264,20 @@ msgstr "ប្រសិន​បើ​អ្នក​មិនចង់​នា
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
-#, fuzzy
 msgid "Prepare disk space"
-msgstr "បង្កើត​ទំហំ​ស្វប"
+msgstr "រៀប​ចំ​ទំហំ​ថាស"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid "How do you want to partition the disk?"
-msgstr "តើ​អ្នក​ចង់​បន្ត​ចែក​ភាគ​ថាស​ឬ​ទេ ?"
+msgstr "តើ​អ្នក​ចង់​បន្ត​ចែក​ភាគ​ថាស​ឬ​ទេ​?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
-#, fuzzy
 msgid "Prepare partitions"
-msgstr "បំបែក​ភាគ​ថាស /home"
+msgstr "រៀប​ចំ​ចែក​ភាគ​ថាស"
 
 #. Type: text
 #. Description
@@ -293,9 +285,8 @@ msgstr "បំបែក​ភាគ​ថាស /home"
 #. Description
 #: ../ubiquity.templates:37001 ../ubiquity.templates:87001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
 msgid "Ready to install"
-msgstr "ខឺណែល​ដែល​ត្រូវ​ដំឡើង ៖"
+msgstr "រួច​រាល់​សម្រាប់​ដំឡើង"
 
 #. Type: text
 #. Description
@@ -333,16 +324,14 @@ msgstr "ជំហាន​ទី ${INDEX} នៃ ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "បោះបង់​ការ​ដំឡើង"
+msgstr "បញ្ចប់​ការតម្លើង​កម្ម​វិធី?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "តើ​អ្នកចង់​ត្រឡប់​ទៅ​ម៉ឺនុយ​ចែក​ភាគថាស​វិញ​ឬ​ទេ ?"
+msgstr "តើ​អ្នក​ពិត​ជាចង់​បញ្ចប់​ការតម្លើង​កម្មវិធី​មែន​ ឬទេ?"
 
 #. Type: text
 #. Description
@@ -353,9 +342,8 @@ msgstr "រំលង"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:46001
-#, fuzzy
 msgid "Installation complete"
-msgstr "ជំហាន​​ដំឡើង​បាន​បរាជ័យ"
+msgstr "ការ​ដំឡើង​ជោគជ័យ"
 
 #. Type: text
 #. Description
@@ -515,13 +503,13 @@ msgstr "ភាគ​ថាស​ថ្មី​ក្នុង​ទំហំ​
 #. Description
 #: ../ubiquity.templates:68001
 msgid "Beginning"
-msgstr "ដើម"
+msgstr "កំពុង​ចាប់​ផ្តើម"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:69001
 msgid "End"
-msgstr "ចុង"
+msgstr "បញ្ចប់"
 
 #. Type: text
 #. Description
@@ -651,9 +639,8 @@ msgstr "កំពុង​ពិនិត្យ​ការ​ដំឡើង...
 #. Type: title
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
 msgid "Installing system"
-msgstr "កំពុង​ដំឡើង​ប្រព័ន្ធ​គោល"
+msgstr "កំពុង​ដំឡើង​ប្រព័ន្ធ"
 
 #. Type: text
 #. Description
@@ -664,16 +651,14 @@ msgstr "កំពុង​ស្វែង​រក​​របាយ​ដើម
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
-#, fuzzy
 msgid "Scanning files..."
-msgstr "កំពុង​វិភាគ​ថាស..."
+msgstr "កំពុង​វិភាគ​ឯកសារ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:93001
-#, fuzzy
 msgid "Copying files..."
-msgstr "កំពុង​ចម្លងភាគថាស..."
+msgstr "កំពុង​ចម្លង​ឯកសារ..."
 
 #. Type: text
 #. Description
@@ -694,9 +679,8 @@ msgstr "កំពុង​ចម្លង​ឯកសារ (នៅ​សល់�
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "ជំហាន​​ដំឡើង​បាន​បរាជ័យ"
+msgstr "ការ​ដំឡើង បាន​បរាជ័យ"
 
 #. Type: error
 #. Description
@@ -771,9 +755,8 @@ msgstr "ឯកសារ​ដូច​ខាង​ក្រោម​មិនផ
 #. Type: text
 #. Description
 #: ../ubiquity.templates:100001
-#, fuzzy
 msgid "Copying installation logs..."
-msgstr "កំពុង​ចម្លងភាគថាស..."
+msgstr "កំពុង​ចម្លងកំណត់​ហេតុ​ការ​ដំឡើង..."
 
 #. Type: text
 #. Description
@@ -784,37 +767,32 @@ msgstr "កំណត់​រចនាសម្ព័ន្ធ​ប្រព័
 #. Type: text
 #. Description
 #: ../ubiquity.templates:102001
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​ប្រភព APT..."
+msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​មូលដ្ឋាន​ប្រព័ន្ធ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:103001
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "កំណត់​រចនាសម្ព័ន្ធ​ apt"
+msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​ apt..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:104001
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "កំណត់​រចនាសម្ព័ន្ធ​តំបន់​ពេលវេលា"
+msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​តំបន់​ពេលវេលា..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-#, fuzzy
 msgid "Configuring keyboard..."
 msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​ក្ដារចុច..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:106001
-#, fuzzy
 msgid "Creating user..."
-msgstr "កំពុង​សម្អាត..."
+msgstr "កំពុង​បង្កើត​អ្នក​ប្រើ..."
 
 #. Type: text
 #. Description
@@ -825,30 +803,26 @@ msgstr "កំពុង​នាំ​ចូល​ឯកសារ​និង​
 #. Type: text
 #. Description
 #: ../ubiquity.templates:108001
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​ក្ដារចុច..."
+msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​ផ្នែក​រឹង..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:109001
-#, fuzzy
 msgid "Configuring network..."
-msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​ក្ដារចុច..."
+msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​បណ្តាញ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
 msgid "Setting computer name..."
-msgstr "កំពុង​រៀប​ចំ​..."
+msgstr "កំពុង​កំណត់​ឈ្មោះ​កុំព្យូទ័រ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​ក្ដារចុច..."
+msgstr "កំពុង​រចនាសម្ព័ន្ធ​កម្មវិធី​ចាប់ផ្ដើម​ប្រព័ន្ធ..."
 
 #. Type: text
 #. Description
@@ -865,9 +839,8 @@ msgstr "កំពុង​ពិនិត្យ​កញ្ចប់​ត្រ
 #. Type: text
 #. Description
 #: ../ubiquity.templates:114001
-#, fuzzy
 msgid "Removing extra packages..."
-msgstr "កំពុង​ដំឡើង​កញ្ចប់​បន្ថែម..."
+msgstr "កំពុង​យក​កញ្ចប់​បន្ថែម​ចេញ..."
 
 #. Type: text
 #. Description
@@ -884,9 +857,8 @@ msgstr "កំពុង​ទាញយក​កញ្ចប់ (នៅសល់ 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:117001
-#, fuzzy
 msgid "Downloading package lists..."
-msgstr "កំពុង​ស្វែងរក​ទំហំ​កញ្ចប់"
+msgstr "កំពុង​ទាញយក​បញ្ជី​កញ្ចប់..."
 
 #. Type: text
 #. Description
@@ -897,16 +869,14 @@ msgstr "កំពុង​ទាញយក​បញ្ជី​កញ្ចប់
 #. Type: error
 #. Description
 #: ../ubiquity.templates:120001
-#, fuzzy
 msgid "Error installing ${PACKAGE}"
 msgstr "មិន​អាច​ដំឡើង ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:121001
-#, fuzzy
 msgid "Error removing ${PACKAGE}"
-msgstr "កំពុង​ទៅ​យក​ ${PACKAGE}"
+msgstr "មិន​អាច​យក​ ${PACKAGE} ចេញ"
 
 #. Type: error
 #. Description
@@ -967,9 +937,8 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:127001
-#, fuzzy
 msgid "Installing language packs"
-msgstr "កំពុង​ដំឡើង​កញ្ចប់​ស្នូល"
+msgstr "កំពុង​ដំឡើង​កញ្ចប់​ភាសា"
 
 #. Type: text
 #. Description
@@ -981,7 +950,7 @@ msgstr "កំពុង​ទាញ​យក​កញ្ចប់​ភាសា
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Failed to unmount partitions"
-msgstr "បាន​បរាជ័យ​ក្នុងការអាន់ម៉ោនភាគថាស"
+msgstr "កំហុស​ក្នុង​ការមិន​ម៉ោន​ភាគ​ថាស"
 
 #. Type: boolean
 #. Description

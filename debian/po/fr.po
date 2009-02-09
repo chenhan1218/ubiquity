@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-10 06:01+0000\n"
-"Last-Translator: Bruno Patri <bruno.patri@gmail.com>\n"
+"PO-Revision-Date: 2009-02-03 14:50+0000\n"
+"Last-Translator: Christian Perrier <bubulle@debian.org>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 22:00+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:58+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -157,9 +157,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "Région sélectionnée :"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -253,9 +252,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
 msgid "Migrate documents and settings"
-msgstr "Importer les documents et paramètres"
+msgstr "Migrer des documents et des paramètres"
 
 #. Type: text
 #. Description
@@ -342,16 +340,14 @@ msgstr "Étape ${INDEX} sur ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "Interruption de l'installation"
+msgstr "Quitter l'installation ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "Voulez-vous vraiment interrompre l'installation ?"
+msgstr "Voulez-vous vraiment quitter l'installation maintenant ?"
 
 #. Type: text
 #. Description
@@ -704,9 +700,8 @@ msgstr "Copie des fichiers en cours (moins d'une minute restante)..."
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "Installation terminée"
+msgstr "L'installation a échoué"
 
 #. Type: error
 #. Description
@@ -726,43 +721,39 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:95001
-#, fuzzy
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"Cette erreur est due à l'espace insuffisant de la partition sélectionnée "
-"pour une installation complète. Veuillez relancer le programme "
-"d'installation et sélectionner une partition de plus grande taille."
+"Le problème est que l'espace disque est insuffisant pour que l'installation "
+"puisse se terminer sur la partition cible. Veuillez relancer l'installeur et "
+"sélectionner une partition d'installation plus grande."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Cette erreur est souvent due à un disque ou lecteur CD/DVD défectueux. Il "
-"peut être utile de nettoyer le CD/DVD, graver le CD/DVD à une vitesse "
-"inférieure, ou nettoyer la lentille du lecteur de CD/DVD (des kits de "
-"nettoyage sont souvent disponibles chez les fournisseurs d'équipements "
-"électroniques)."
+"Ceci est souvent causé par un disque ou un lecteur CD/DVD défectueux. Vous "
+"pouvez essayer de nettoyer le CD/DVD, de le graver à vitesse réduite ou de "
+"nettoyer la lentille du lecteur CD/DVD (des kits de nettoyage sont souvent "
+"disponibles dans des magasins d'électronique)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:97001
-#, fuzzy
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Cette erreur est souvent due à un disque disque dur défectueux. Il peut être "
-"utile de contrôler si le disque dur est ancien et doit être remplacé ou s'il "
-"est nécessaire de déplacer le système dans un environnement plus frais."
+"Ceci est souvent causé par un disque dur défectueux. Il peut être utile de "
+"vérifier l'âge du disque dur et d'envisager un éventuel remplacement, ou de "
+"déplacer votre système dans un environnement plus frais."
 
 #. Type: error
 #. Description
@@ -773,7 +764,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:98001 ../ubiquity.templates:99001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -781,13 +771,13 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Cette erreur est souvent due à un disque ou lecteur CD/DVD défectueux ou à "
-"un disque disque dur défectueux. Il peut être utile de nettoyer le CD/DVD, "
-"graver le CD/DVD à une vitesse inférieure, ou nettoyer la lentille du "
-"lecteur de CD/DVD (des kits de nettoyage sont souvent disponibles chez les "
-"fournisseurs d'équipements électroniques), contrôler si le disque dur est "
-"ancien et doit être remplacé ou s'il est nécessaire de déplacer le système "
-"dans un environnement plus frais."
+"Ceci est souvent causé par un disque ou un lecteur CD/DVD défectueux ou un "
+"disque dur défectueux. Vous pouvez essayer de nettoyer le CD/DVD, de le "
+"graver à vitesse réduite ou de nettoyer la lentille du lecteur CD/DVD (des "
+"kits de nettoyage sont souvent disponibles dans des magasins "
+"d'électronique). Il peut aussi être utile de vérifier l'âge du disque dur et "
+"d'envisager un éventuel remplacement, ou de déplacer votre système dans un "
+"environnement plus frais."
 
 #. Type: select
 #. Description
@@ -1050,7 +1040,7 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
-"Si vous ne revenez à l'outil de partiotionnement pour augmenter la taille de "
+"Si vous ne revenez à l'outil de partitionnement pour augmenter la taille de "
 "ces partitions, l'installation pourra échouer."
 
 #. Type: note
@@ -1384,11 +1374,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
-#, fuzzy
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr ""
-"Un greffon pour MythTV qui vous permet de créer des DVD à partir du contenu "
-"présent sur votre réseau MythTV."
+"Un greffon pour MythTV qui vous permet de voir des bandes-annonces de films "
+"chez apple.com."
 
 #. Type: text
 #. Description

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-12 15:00+0000\n"
+"PO-Revision-Date: 2009-01-21 19:38+0000\n"
 "Last-Translator: Xosé <Unknown>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:56+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:57+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -27,13 +27,13 @@ msgstr "Instalar"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "Instalar (Modo para computadores novos, só para fabricantes)"
+msgstr "Instalación (modo OEM, só para fabricantes)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Welcome"
-msgstr "Benvido"
+msgstr "Benvido(a)"
 
 #. Type: text
 #. Description
@@ -72,8 +72,8 @@ msgid ""
 "and can be used to help with bug reports."
 msgstr ""
 "Está instalando o sistema en modo para fabricantes. Por favor introduza un "
-"nome único para iste conxunto de sistemas. Iste nome se gardará no sistema "
-"instalado e serviralle de axuda para os reportes de erros."
+"nome único para este conxunto de sistemas.EIste nome gardarase no sistema "
+"instalado e serviralle de axuda para os informes de erros."
 
 #. Type: text
 #. Description
@@ -154,9 +154,8 @@ msgstr "Pode escribir neste cadro para probar a nova distribución das teclas."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "Rexión escollida:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -251,9 +250,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
 msgid "Migrate documents and settings"
-msgstr "Migrar documentos e configuracións"
+msgstr "Migrar os documentos e configuracións"
 
 #. Type: text
 #. Description
@@ -327,7 +325,7 @@ msgstr "Avanzado..."
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:41001
 msgid "Install[ action ]"
-msgstr "Instalar[ action ]"
+msgstr "Instalar"
 
 #. Type: text
 #. Description
@@ -338,16 +336,14 @@ msgstr "Paso ${INDEX} de ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "¿Abortar a instalación?"
+msgstr "Cancela-la instalación"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "¿De verdade quere abortar a instalación agora?"
+msgstr "Seguro de desexas cancela-la instalación?"
 
 #. Type: text
 #. Description
@@ -379,7 +375,7 @@ msgstr "Reiniciar agora"
 #. Description
 #: ../ubiquity.templates:49001 ../ubiquity.templates:50001
 msgid "Installer crashed"
-msgstr "O instalador fallou"
+msgstr "Erro no instalador"
 
 #. Type: text
 #. Description
@@ -392,12 +388,12 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
-"Sentímolo; o instalador fallou. Por favor mande o reporte de erro a https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (non adxunte os seus detalles "
-"a ningún erro existente) e un desarroiador atenderá o seu problema o máis "
-"rápido posible. Para axudar aos desarroiadores a entender que foi mal, "
-"engada os seguintes detalles ao seu reporte de erro, e adxunte os ficheiros /"
-"var/log/syslog e /var/log/partman:"
+"Sentímolo; o instalador fallou. Rexistre un novo informe de erros en https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (non xunte os seus detalles a "
+"ningún erro existente) e un programador atenderá o problema tan pronto como "
+"lle sexa posible. Para axudar ao programador a comprender o que foi mal, "
+"inclúa o seguinte detalle no seu informe de erros e xunte os ficheiros /var/"
+"log/syslog e máis /var/log/partman:"
 
 #. Type: text
 #. Description
@@ -700,9 +696,8 @@ msgstr "Copiando ficheiros (falta menos dun minuto)..."
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "Instalación completa"
+msgstr "Fallou a instalación"
 
 #. Type: error
 #. Description
@@ -721,42 +716,39 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:95001
-#, fuzzy
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"Este erro concreto débese a que non hai espazo suficiente no disco para "
-"completar a instalación na partición de destino. Por favor, execute o "
-"instalador de novo escollendo unha partición máis grande."
+"Isto débese a que non hai espazo abondo na partición seleccionada para que "
+"se complete a instalación. Inicia o instalador outra vez e selecciona unha "
+"partición maior na que realizar a instalación."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Este erro en concreto débese a miúdo a un disco ou unidade de CD/DVD "
-"defectouso. Pode axudar a limpeza do CD/DVD, a gravación do CD/DVD á "
-"velocidade máis baixa, ou a limpeza das lentes do CD/DVD (os kits de limpeza "
-"soen estar dispoñibles nas tendas de electrónica)."
+"Isto adoita deberse a unha lectora  de CD/DVD ou un CD/DVD defectuoso. "
+"Podería axudar limpar o CD/DVD, gravalo a unha velocidade menor, ou mesmo "
+"limpar a lente da lectora (as tendas de electrónica ofrecen normalmente kits "
+"de limpeza)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:97001
-#, fuzzy
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Este erro en concreto débese a miúdo a un disco duro defectouso. Pode axudar "
-"a comprobación de que o disco duro non sexa vello e precise a substitución, "
-"ou levar o sistema a un sitio máis fresco."
+"Isto adoita deberse a un disco duro defectuoso. Podería axudar comprobar se "
+"o disco duro xa vai vello e precisa ser substituído, ou trasladar o sistema "
+"a un ambiente mellor."
 
 #. Type: error
 #. Description
@@ -767,7 +759,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:98001 ../ubiquity.templates:99001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -775,12 +766,11 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Este erro en concreto débese a miúdo a un disco ou unidade de CD/DVD "
-"defectouso ou a un disco duro defectuoso. Pode axudar a limpeza do CD/DVD, a "
-"gravación do CD/DVD á velocidade máis baixa, ou a limpeza das lentes do CD/"
-"DVD (os kits de limpeza soen estar dispoñibles nas tendas de electrónica), a "
-"comprobación de que o disco duro non sexa vello e precise a substitución, ou "
-"levar o sistema a un sitio máis fresco."
+"Isto adoita deberse a unha lectora de CD/DVD, un CD/DVD ou un disco duro "
+"defectuoso. Podería axudar limpar o CD/DVD, gravalo a unha velocidade menor, "
+"limpar a lente da lectora (as tendas de electrónica ofrecen normalmente kits "
+"de limpeza), comprobar se o disco duro xa vai vello e precisa ser "
+"substituído, ou trasladar o sistema a un ambiente mellor."
 
 #. Type: select
 #. Description
@@ -948,9 +938,9 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
-"Isto pode ser debido a unha imaxe de instalación antiga, o pode ser debido a "
-"un erro nalgún dos paquetes listados arriba. Pode atopar máis detalles en /"
-"var/log/syslog. O instalador tratará de continúar de todos modos, pero pode "
+"Isto pode ser debido a unha imaxe de instalación antiga, ou pode ser debido "
+"a un erro nalgún dos paquetes listados arriba. Pode atopar máis detalles en /"
+"var/log/syslog. O instalador tratará de continuar de todos modos, pero pode "
 "fallar máis tarde, e non ser capaz de instalar ou eliminar outros paquetes "
 "(posiblemente incluso el mesmo) do sistema instalado. Debería antes buscar "
 "unha versión máis nova da imaxe de instalación, o mandar o reporte do "
@@ -1078,19 +1068,19 @@ msgstr ""
 "     Disposición do teclado: ${KEYMAP}\n"
 "     Nome completo: ${FULLNAME}\n"
 "     Nome de usuario: ${USERNAME}\n"
-"     Ubicación: ${LOCATION}"
+"     Localización: ${LOCATION}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "What Type of Installation?"
-msgstr "¿Que Tipo de Instalación?"
+msgstr "Que Tipo de Instalación?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr "Hai do tipos de instalación disponibéis para MythTV"
+msgstr "Hai do tipos de instalación disponíbeis para MythTV"
 
 #. Type: text
 #. Description
@@ -1106,9 +1096,9 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
-"Unha instalación estándar instalará e configurarña cada opción coa mínima "
-"interacción co usuario. Isto instalará un backend, frontend, tódolos plugins "
-"e tódolos temas."
+"Unha instalación estándar instala e configura cada opción coa mínima "
+"interacción co usuario. Isto instala un backend, frontend, todos os "
+"engadidos e todos os temas."
 
 #. Type: text
 #. Description
@@ -1141,7 +1131,7 @@ msgstr "Tipo de Instalación Avanzada"
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr "¿Que tipo de sistema vai ser?"
+msgstr "Que tipo de sistema vai ser?"
 
 #. Type: text
 #. Description
@@ -1174,8 +1164,8 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
-"Isto instalará un sistema similar ao Backend w/ Frontend Primario, sen "
-"embargo configurarase para conectar a un backend existente na rede."
+"Isto instala un sistema semellante ao Backend w/ Frontend Primario; porén, "
+"configúrase para conectar a un backend existente na rede."
 
 #. Type: text
 #. Description
@@ -1192,8 +1182,8 @@ msgid ""
 "first backend on a network."
 msgstr ""
 "Unha máquina só con backend deséñase normalmente para funcionar como "
-"servidor; requerindo moi pouco mantemento. Isto faise para instalalo como o "
-"primer backend nunha rede."
+"servidor, requirindo moi pouco mantemento. Isto faise para instalalo como o "
+"primeiro backend nunha rede."
 
 #. Type: text
 #. Description
@@ -1208,8 +1198,8 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
-"Isto instalará un sistema semellante ó Backend Primario, sen embargo "
-"configurarase para conectar a un backend existente na rede."
+"Isto instala un sistema semellante ao Backend Primario; porén, configúrase "
+"para conectar a un backend existente na rede."
 
 #. Type: text
 #. Description
@@ -1271,7 +1261,7 @@ msgid ""
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
 "MythWeb proporciona unha interface web que se pode usar para mirar listados, "
-"programar grabacións, borrar grabacións, e buscar programas."
+"programar gravacións, borrar gravacións, e buscar programas."
 
 #. Type: text
 #. Description
@@ -1328,7 +1318,7 @@ msgstr "Música Myth"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth News"
-msgstr "Novas Myth"
+msgstr "Myth News"
 
 #. Type: text
 #. Description
@@ -1361,23 +1351,22 @@ msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
 msgstr ""
-"Un plugin para MythTV que lle permite crear DVDs a partir de contidos na súa "
-"Rede MythTV"
+"Un engadido para MythTV que lle permite crear DVDs a partir de contidos na "
+"súa Rede MythTV"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
-#, fuzzy
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr ""
-"Un plugin para MythTV que lle permite crear DVDs a partir de contidos na súa "
-"Rede MythTV"
+"Un engadido para MythTV que lle permite ver avances de filmes dende apple."
+"com."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:43001
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr "Un plugin con navegador web integrado para o seu sistema MythTV"
+msgstr "Un engadido con navegador web integrado para o seu sistema MythTV"
 
 #. Type: text
 #. Description
@@ -1386,7 +1375,7 @@ msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
 msgstr ""
-"Controis externos para MythTv. Isto permitiralle modificalas asignación dos "
+"Controis externos para MythTv. Isto permite modificar as asignación dos "
 "botóns e das teclas."
 
 #. Type: text

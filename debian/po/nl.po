@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-08 13:37+0000\n"
+"PO-Revision-Date: 2009-02-03 16:14+0000\n"
 "Last-Translator: Frans Pop <Unknown>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:57+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:58+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -155,9 +155,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "Geselecteerd gebied:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -251,9 +250,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
 msgid "Migrate documents and settings"
-msgstr "Documenten en Instellingen overnemen"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -341,16 +339,14 @@ msgstr "Stap ${INDEX} van ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "Wilt u de installatie afbreken?"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "Weet u zeker dat u de installatie nu wilt afbreken?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -628,15 +624,12 @@ msgstr "Verder"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"De installatie werd voltooid. U moet de computer opnieuw starten om de "
-"nieuwe installatie te kunnen gebruiken. U kunt ook de live-cd blijven "
-"gebruiken, wijzigingen die u van nu af maakt en documenten die u opslaat "
-"worden dan echter niet bewaard."
+"De installatie is voltooid. U moet de computer opnieuw starten om de nieuwe "
+"installatie te kunnen gebruiken."
 
 #. Type: note
 #. Description
@@ -707,9 +700,8 @@ msgstr "Bestanden worden gekopieerd (minder dan een minuut te gaan)..."
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "Installatie is voltooid"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -737,30 +729,20 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Deze fout is vaak een gevolg van een CD/DVD-schijf of -speler met fouten.  "
-"Mogelijk helpt het om de CD/DVD te reinigen, de CD/DVD aan een lagere "
-"snelheid te branden, of de lens van de CD/DVD-speler te reinigen "
-"(reinigingskits zijn bij veel computer- en electronica-winkels te koop)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:97001
-#, fuzzy
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Deze fout is vaak een gevolg van een harde schijf met fouten.  Mogelijk "
-"helpt het om na te kijken of de harde schijf niet oud en versleten is en "
-"vervangen dient te worden, of om het systeem in een koelere omgeving te "
-"plaatsen."
 
 #. Type: error
 #. Description
@@ -771,7 +753,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:98001 ../ubiquity.templates:99001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -779,13 +760,6 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Deze fout is vaak een gevolg van een CD/DVD-schijf of -speler of een harde "
-"schijf met fouten.  Mogelijk helpt het om de CD/DVD te reinigen, de CD/DVD "
-"aan een lagere snelheid te branden, of de lens van de CD/DVD-speler te "
-"reinigen (reinigingskits zijn bij veel computer- en electronica-winkels te "
-"koop), om na te kijken of de harde schijf niet oud en versleten is en "
-"vervangen dient te worden, of om het systeem in een koelere omgeving te "
-"plaatsen."
 
 #. Type: select
 #. Description
@@ -1383,11 +1357,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
-#, fuzzy
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr ""
-"Een plugin vor MythTV waarmee u DVD's kunt maken van de inhoud van uw MythTV-"
-"netwerk."
 
 #. Type: text
 #. Description

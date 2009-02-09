@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-09 08:41+0000\n"
-"Last-Translator: Ionuț Jula <ionutjula@gmail.com>\n"
+"PO-Revision-Date: 2009-01-30 14:26+0000\n"
+"Last-Translator: Manuel R. Ciosici <manuelciosici@yahoo.com>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:57+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:57+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -33,7 +33,7 @@ msgstr "Instalare (mod OEM, doar pentru producători)"
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Welcome"
-msgstr "Bine aţi venit"
+msgstr "Bine ați venit"
 
 #. Type: text
 #. Description
@@ -43,9 +43,9 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Pregătit pentru instalare? O dată ce răspundeţi la câteva întrebări, "
-"conţinutul Live CD-ului se poate instala pe acest calculator astfel încât să "
-"puteţi rula sistemul la întreaga viteză şi fără CD."
+"Pregătit pentru instalare? O dată ce răspundeți la câteva întrebări, "
+"conținutul Live CD-ului se poate instala pe acest calculator astfel încât să "
+"puteți rula sistemul la întreaga viteză și fără CD."
 
 #. Type: text
 #. Description
@@ -60,7 +60,7 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
-"Alegeţi limba utilizată în procesul de instalare. Aceasta va fi limba "
+"Alegeți limba utilizată în procesul de instalare. Aceasta va fi limba "
 "implicită pentru sistemul final."
 
 #. Type: text
@@ -71,9 +71,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"Instalaţi un sistem în modul pentru producători.  Introduceţi un nume unic "
+"Instalați un sistem în modul pentru producători.  Introduceți un nume unic "
 "pentru această serie de sisteme. Acest nume va fi salvat pe sistemul "
-"instalat şi poate fi folosit pentru raportarea erorilor."
+"instalat și poate fi folosit pentru raportarea erorilor."
 
 #. Type: text
 #. Description
@@ -82,20 +82,20 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
-"Dacă aveţi acces la Internet, citiţi notiţele acestei lansări pentru "
-"informaţii legate de problemele care v-ar putea afecta."
+"Dacă aveți acces la Internet, citiți notițele acestei lansări pentru "
+"informații legate de problemele care v-ar putea afecta."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Release Notes"
-msgstr "Notiţe de lansare"
+msgstr "Notițe de lansare"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:9001
 msgid "Where are you?"
-msgstr "Unde vă aflaţi?"
+msgstr "Unde vă aflați?"
 
 #. Type: text
 #. Description
@@ -105,15 +105,15 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
-"Selectaţi un oraş din ţara dumneavastră şi un fus orar. Dacă ora curentă "
-"indcată este incorectă chiar şi după selectarea fusului orar, o puteţi "
+"Selectați un oraș din țara dumneavastră și un fus orar. Dacă ora curentă "
+"indcată este incorectă chiar și după selectarea fusului orar, o puteți "
 "ajusta după restartarea în sistemul instalat."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Selected city:"
-msgstr "Oraşul selectat:"
+msgstr "Orașul selectat:"
 
 #. Type: text
 #. Description
@@ -151,14 +151,13 @@ msgstr ""
 #: ../ubiquity.templates:17001
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
-"Puteţi tasta în această căsuţă pentru a testa noul aranjament al tastaturii."
+"Puteți tasta în această căsuță pentru a testa noul aranjament al tastaturii."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "Regiunea aleasă:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -170,7 +169,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Who are you?"
-msgstr "Cine sunteţi?"
+msgstr "Cine sunteți?"
 
 #. Type: text
 #. Description
@@ -182,7 +181,7 @@ msgstr "Care este numele tău?"
 #. Description
 #: ../ubiquity.templates:22001
 msgid "What name do you want to use to log in?"
-msgstr "Ce nume doreşti să foloseşti pentru autentificare?"
+msgstr "Ce nume dorești să folosești pentru autentificare?"
 
 #. Type: text
 #. Description
@@ -191,20 +190,20 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Dacă mai multe persoane vor utiliza acest calculator, puteţi seta mai multe "
+"Dacă mai multe persoane vor utiliza acest calculator, puteți seta mai multe "
 "conturi după instalare."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Choose a password to keep your account safe."
-msgstr "Alegeţi o parolă pentru a menţine acest cont în siguranţă."
+msgstr "Alegeți o parolă pentru a menține acest cont în siguranță."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "Rulaţi în modul de depanare. Nu folosiţi o parolă importantă."
+msgstr "Rulați în modul de depanare. Nu folosiți o parolă importantă."
 
 #. Type: text
 #. Description
@@ -212,14 +211,14 @@ msgstr "Rulaţi în modul de depanare. Nu folosiţi o parolă importantă."
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
-"Introduceţi aceaşi parolă de două ori pentru a fi verificată împotriva "
+"Introduceți aceași parolă de două ori pentru a fi verificată împotriva "
 "erorilor de tastare."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "What is the name of this computer?"
-msgstr "Cum se numeşte acest calculator?"
+msgstr "Cum se numește acest calculator?"
 
 #. Type: text
 #. Description
@@ -228,7 +227,7 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
-"Acest nume va fi utilizat dacă veţi face calculatorul accesibil într-o reţea."
+"Acest nume va fi utilizat dacă veți face calculatorul accesibil într-o rețea."
 
 #. Type: text
 #. Description
@@ -251,9 +250,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
 msgid "Migrate documents and settings"
-msgstr "Migrează Documentele şi Setările"
+msgstr "Migrează documentele și setările"
 
 #. Type: text
 #. Description
@@ -272,26 +270,26 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"Dacă nu doriţi sa importaţi nici un cont, nu selectaţi nimic şi mergeţi la "
+"Dacă nu doriți sa importați nici un cont, nu selectați nimic și mergeți la "
 "pagina următoare."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Prepare disk space"
-msgstr "Pregătire spaţiu pe disc"
+msgstr "Pregătire spațiu pe disc"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "How do you want to partition the disk?"
-msgstr "Cum doriţi să partiţionaţi discul?"
+msgstr "Cum doriți să partiționați discul?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Prepare partitions"
-msgstr "Pregătire partiţii"
+msgstr "Pregătire partiții"
 
 #. Type: text
 #. Description
@@ -338,16 +336,14 @@ msgstr "Pasul ${INDEX} din ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "Abandonează instalarea?"
+msgstr "Anulează instalarea?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "Vreţi să abandonaţi instalarea acum?"
+msgstr "Sigur doriți să anulați instalarea acum?"
 
 #. Type: text
 #. Description
@@ -371,7 +367,7 @@ msgstr "Continuă folosirea live CD"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Restart now"
-msgstr "Reporneşte acum"
+msgstr "Repornește acum"
 
 #. Type: text
 #. Description
@@ -379,7 +375,7 @@ msgstr "Reporneşte acum"
 #. Description
 #: ../ubiquity.templates:49001 ../ubiquity.templates:50001
 msgid "Installer crashed"
-msgstr "Sistemul de instalare a eşuat"
+msgstr "Sistemul de instalare a eșuat"
 
 #. Type: text
 #. Description
@@ -392,12 +388,12 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
-"Ne pare rău, dar sistemul de instalarea a eşuat. Vă rugăm să raportaţi "
+"Ne pare rău, dar sistemul de instalarea a eșuat. Vă rugăm să raportați "
 "această eroare la adresa https://launchpad.net/ubuntu/+source/ubiquity/"
-"+filebug (nu ataşati detaliile nici unui bug existent) iar un dezvoltator va "
+"+filebug (nu atașati detaliile nici unui bug existent) iar un dezvoltator va "
 "analiza problema în cel mai scurt timp. Pentru a ajuta dezvoltatorii la "
-"analizarea problemei, includeţi următoarele detalii în raport şi ataşati "
-"fişierele /var/log/syslog şi /var/log/partman:"
+"analizarea problemei, includeți următoarele detalii în raport și atașati "
+"fișierele /var/log/syslog și /var/log/partman:"
 
 #. Type: text
 #. Description
@@ -436,7 +432,7 @@ msgstr "Partiție nouă"
 #. Description
 #: ../ubiquity.templates:56001 ../ubiquity.templates:72001
 msgid "Edit partition"
-msgstr "Modifică partiţia"
+msgstr "Modifică partiția"
 
 #. Type: text
 #. Description
@@ -507,7 +503,7 @@ msgstr "necunoscut"
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Create partition"
-msgstr "Creeare partiţii"
+msgstr "Creeare partiții"
 
 #. Type: text
 #. Description
@@ -515,7 +511,7 @@ msgstr "Creeare partiţii"
 #. Description
 #: ../ubiquity.templates:67001 ../ubiquity.templates:74001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr "Dimensiunea noii partiţii în megaocteţi (1000000 octeţi):"
+msgstr "Dimensiunea noii partiții în megaocteți (1000000 octeți):"
 
 #. Type: text
 #. Description
@@ -545,13 +541,13 @@ msgstr "Logică"
 #. Description
 #: ../ubiquity.templates:73001
 msgid "Edit a partition"
-msgstr "Modifică o partiţie"
+msgstr "Modifică o partiție"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:75001
 msgid "Advanced Options"
-msgstr "Opţiuni Avansate"
+msgstr "Opțiuni Avansate"
 
 #. Type: text
 #. Description
@@ -603,8 +599,8 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"Instalarea este completă. Trebuie să reporniţi calculatorul pentru a utiliza "
-"noua instalare. Puteţi continua să folosiţi acest live CD, dar modificările "
+"Instalarea este completă. Trebuie să reporniți calculatorul pentru a utiliza "
+"noua instalare. Puteți continua să folosiți acest live CD, dar modificările "
 "efectuate sau documentele create nu vor fi păstrate."
 
 #. Type: text
@@ -624,13 +620,12 @@ msgstr "Continuă"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Instalarea este completă. Trebuie să reporniţi calculatorul pentru a utiliza "
-"noua instalare. Puteţi continua să folosiţi acest live CD, dar modificările "
+"Instalarea este completă. Trebuie să reporniți calculatorul pentru a utiliza "
+"noua instalare. Puteți continua să folosiți acest live CD, dar modificările "
 "efectuate sau documentele create nu vor fi păstrate."
 
 #. Type: note
@@ -649,8 +644,8 @@ msgstr ""
 " Aranjamentul tastaturii: ${KEYMAP}\n"
 " Numele: ${FULLNAME}\n"
 " Numele de utilizator: ${USERNAME}\n"
-" Locaţia: ${LOCATION}\n"
-" Asitare migraţie:\n"
+" Locația: ${LOCATION}\n"
+" Asitare migrație:\n"
 " ${MIGRATE}"
 
 #. Type: text
@@ -669,25 +664,25 @@ msgstr "Instalare sistem"
 #. Description
 #: ../ubiquity.templates:90001
 msgid "Finding the distribution to copy..."
-msgstr "Căutare distribuţie pentru copiere..."
+msgstr "Căutare distribuție pentru copiere..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Scanning files..."
-msgstr "Examinare fişiere..."
+msgstr "Examinare fișiere..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Copying files..."
-msgstr "Copiere fişiere..."
+msgstr "Copiere fișiere..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:94001
 msgid "Copying files (less than a minute remaining)..."
-msgstr "Copiere fişiere (a rămas mai puţin de un minut)..."
+msgstr "Copiere fișiere (a rămas mai puțin de un minut)..."
 
 #. Type: error
 #. Description
@@ -702,9 +697,8 @@ msgstr "Copiere fişiere (a rămas mai puţin de un minut)..."
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "Instalare completă"
+msgstr "Instalarea a eşuat"
 
 #. Type: error
 #. Description
@@ -718,7 +712,7 @@ msgstr "Instalare completă"
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
-"Programul de instalare a întâmpinat o problemă în timpul copierii fişierelor "
+"Programul de instalare a întâmpinat o problemă în timpul copierii fișierelor "
 "pe hard disc:"
 
 #. Type: error
@@ -736,29 +730,27 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Această eroare este produsă deseori de o problemă cu unitatea sau discul CD/"
-"DVD. Aţi putea repara eroarea curăţând discul, scriind discul la o viteză "
-"mai mică sau curăţând lentila unităţii (kiturile de curăţare pot fi găsite "
-"în magazinele specializate)."
+"Aceasta este de obicei datorită unei unități CD/DVD sau unui CD/DVD "
+"nefuncțional(e). Poate ajută să curățați CD/DVD-ul, să scrieți CD/DVD-ul la "
+"o viteză mai mică sau să curățați lentilele CD/DVD-ului (pachetele de "
+"curățare sunt de obicei disponibile la magazinele de electronice)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:97001
-#, fuzzy
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Această eroare este produsă deseori de o problemă cu hard discul. Verificaţi "
-"dacă hard discul este vechi şi trebuie înlocuit sau mutaţi calculatorul într-"
-"o zonă cu temperatură mai scăzută."
+"Aceasta este de obicei datorită unui hard disc care nu funcționează corect. "
+"Ar putea ajuta dacă ați verifica dacă hard discul nu este vechi sau are "
+"nevoie de înlocuitor sau să mutați sistemul într-un mediul mai răcoros."
 
 #. Type: error
 #. Description
@@ -769,7 +761,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:98001 ../ubiquity.templates:99001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -777,12 +768,12 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Această eroare este produsă deseori de o problemă cu unitatea sau discul CD/"
-"DVD sau o defecţiune a discului dur. Aţi putea încerca să reparaţi eroarea "
-"curăţând discul, scriind discul la o viteză mai mică sau curăţând lentila "
-"unităţii (pachetele de curăţare pot fi găsite în magazinele specializate), "
-"verificând dacă discul dur trebuie înlocuit sau mutând calculatorul într-o "
-"zonă cu temperatură mai mică."
+"Eroarea se datorează adesea unui CD/DVD sau unui hard disk cu probleme. "
+"Încercați să curățați CD-ul sau DVD-ul (kit-uri de curățare se găsesc adesea "
+"la magazinele de electronică) - sau să-l inscripționați la o viteză mai "
+"mică. Curățarea lentilei unității optice poate fi de folos. Mai puteți "
+"verifica starea hard disk-ului, care poate fi vechi și necesita o înlocuire "
+"sau muta sistemul într-un loc mai răcoros."
 
 #. Type: select
 #. Description
@@ -836,7 +827,7 @@ msgstr "Creare utilizator..."
 #. Description
 #: ../ubiquity.templates:107001
 msgid "Importing documents and settings..."
-msgstr "Import documentele şi setările ..."
+msgstr "Import documentele și setările ..."
 
 #. Type: text
 #. Description
@@ -848,7 +839,7 @@ msgstr "Configurare hardware..."
 #. Description
 #: ../ubiquity.templates:109001
 msgid "Configuring network..."
-msgstr "Se configurează reţeaua..."
+msgstr "Se configurează rețeaua..."
 
 #. Type: text
 #. Description
@@ -866,7 +857,7 @@ msgstr "Configurare boot loader..."
 #. Description
 #: ../ubiquity.templates:112001
 msgid "Installing additional packages..."
-msgstr "Se instalează pachete adiţionale..."
+msgstr "Se instalează pachete adiționale..."
 
 #. Type: text
 #. Description
@@ -884,7 +875,7 @@ msgstr "Eliminare pachete extra..."
 #. Description
 #: ../ubiquity.templates:115001
 msgid "Checking for packages to remove..."
-msgstr "Verificare pachete de şters..."
+msgstr "Verificare pachete de șters..."
 
 #. Type: text
 #. Description
@@ -914,7 +905,7 @@ msgstr "Nu am putut instala ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:121001
 msgid "Error removing ${PACKAGE}"
-msgstr "Nu am putut şterge ${PACKAGE}"
+msgstr "Nu am putut șterge ${PACKAGE}"
 
 #. Type: error
 #. Description
@@ -954,10 +945,10 @@ msgstr ""
 "instalare, sau poate fi cauzată de un bug într-unul dintre pachetele listate "
 "mai jos. Mai multe detalii pot fi găsite în /var/log/syslog. Programul de "
 "instalare va încerca să continue oricum, dar s-ar putea să se oprească mai "
-"târziu, şi nu va mai putea instala sau dezinstala alte pachete (incluzându-"
-"se pe sine) din sistemul instalat. Trebuie mai întâi să verificaţi dacă nu "
+"târziu, și nu va mai putea instala sau dezinstala alte pachete (incluzându-"
+"se pe sine) din sistemul instalat. Trebuie mai întâi să verificați dacă nu "
 "există versiuni mai noi ale imaginii programului de instalare, sau să "
-"prezentaţi raportul acestei erori la distribuitorul dvs."
+"prezentați raportul acestei erori la distribuitorul dvs."
 
 #. Type: error
 #. Description
@@ -993,7 +984,7 @@ msgstr "Instalare pachete pentru limba selectată (durată ${TIME})..."
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Failed to unmount partitions"
-msgstr "Eşec la demontarea partiţiilor"
+msgstr "Eșec la demontarea partițiilor"
 
 #. Type: boolean
 #. Description
@@ -1002,8 +993,8 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"Programul de instalare trebuie să aplice modificările tabelelor de partiţii, "
-"dar nu poate face asta deoarece partiţiile cu următoarele locuri de montare "
+"Programul de instalare trebuie să aplice modificările tabelelor de partiții, "
+"dar nu poate face asta deoarece partițiile cu următoarele locuri de montare "
 "nu pot fi demontate:"
 
 #. Type: boolean
@@ -1011,14 +1002,14 @@ msgstr ""
 #: ../ubiquity.templates:134001
 msgid "Please close any applications using these mount points."
 msgstr ""
-"Vă rugăm închideţi orice aplicaţie care foloseşte aceste locuri de montare."
+"Vă rugăm închideți orice aplicație care folosește aceste locuri de montare."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
-"Doriţi ca programul de instalare să încerce demontarea acestor partiţii din "
+"Doriți ca programul de instalare să încerce demontarea acestor partiții din "
 "nou?"
 
 #. Type: boolean
@@ -1070,9 +1061,9 @@ msgid ""
 msgstr ""
 " Tip instalare: ${INSTALLTYPE}\n"
 " Drivere:\n"
-"     Driver video adiţional: ${VIDEO_DRIVER}\n"
+"     Driver video adițional: ${VIDEO_DRIVER}\n"
 "         TV-Out: ${TVOUT}, ${TVSTANDARD}\n"
-" Servicii adiţionale:\n"
+" Servicii adiționale:\n"
 "     VNC: ${EN_VNC}\n"
 "     SSH: ${EN_OPENSSH}\n"
 "     Samba: ${EN_SAMBA}\n"
@@ -1083,7 +1074,7 @@ msgstr ""
 "     Layout tastatură: ${KEYMAP}\n"
 "     Nume complet: ${FULLNAME}\n"
 "     Nume autentificare: ${USERNAME}\n"
-"     Locaţie: ${LOCATION}"
+"     Locație: ${LOCATION}"
 
 #. Type: text
 #. Description
@@ -1111,9 +1102,9 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
-"O instalare standard va instala şi configura toate opţiunile cu o "
-"interacţiune minimă din partea utilizatorului. Aceasta va instala suportul, "
-"interfaţa, toate module şi toate temele."
+"O instalare standard va instala și configura toate opțiunile cu o "
+"interacțiune minimă din partea utilizatorului. Aceasta va instala suportul, "
+"interfața, toate module și toate temele."
 
 #. Type: text
 #. Description
@@ -1131,7 +1122,7 @@ msgid ""
 msgstr ""
 "O instalare avansată poate fi folosită pentru a personaliza ceea ce este "
 "necesar pentru această instalare Mythbuntu. NOTĂ: o instalare avansată este "
-"necesară pentru a adăuga o maşină Mythbuntu la o reţea bazată pe MythTV "
+"necesară pentru a adăuga o mașină Mythbuntu la o rețea bazată pe MythTV "
 "existentă."
 
 #. Type: text
@@ -1153,7 +1144,7 @@ msgstr "Ce rol va avea acest sistem?"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr "Suport Principal cu inteftaţă"
+msgstr "Suport Principal cu inteftață"
 
 #. Type: text
 #. Description
@@ -1163,8 +1154,8 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
-"Un calculator configurat ca Backend şi Frontend este cel mai comun tip de "
-"instalare pentru cineva care doreşte MythTV pentru o aplicaţie de gen Home "
+"Un calculator configurat ca Backend și Frontend este cel mai comun tip de "
+"instalare pentru cineva care dorește MythTV pentru o aplicație de gen Home "
 "Teather PC. Acest tip de instalare este gândit pentru a fi folosit ca o "
 "componentă în sistemul tău de Home Teather."
 
@@ -1172,7 +1163,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr "Backend Secundar cu Interfaţă"
+msgstr "Backend Secundar cu Interfață"
 
 #. Type: text
 #. Description
@@ -1182,8 +1173,8 @@ msgid ""
 "will be configured to connect to an existing backend on the network."
 msgstr ""
 "Acest tip de instalare este foarte similar cu cel de \"Backend Principal cu "
-"Inteftaţă\", dar acest calculator va fi configurat pentru a se conecta la un "
-"Backend deja existent în reţea, fie el principal sau secundar."
+"Inteftață\", dar acest calculator va fi configurat pentru a se conecta la un "
+"Backend deja existent în rețea, fie el principal sau secundar."
 
 #. Type: text
 #. Description
@@ -1200,8 +1191,8 @@ msgid ""
 "first backend on a network."
 msgstr ""
 "Un calculator ce rulează ca Backend principal este configurat de regulă să "
-"funcţioneze ca un dispozitiv electronic; necesită foarte puţină întreţinere. "
-"Acest tip de instalare este gândit pentru primul Backend dintr-o reţea."
+"funcționeze ca un dispozitiv electronic; necesită foarte puțină întreținere. "
+"Acest tip de instalare este gândit pentru primul Backend dintr-o rețea."
 
 #. Type: text
 #. Description
@@ -1216,15 +1207,15 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
-"Această opţiune va configura un calculator foarte similar modului \"Backend "
+"Această opțiune va configura un calculator foarte similar modului \"Backend "
 "Principal\", dar va fi configurat să se conecteze la un Backend existent "
-"deja în reţea."
+"deja în rețea."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Frontend"
-msgstr "Interfaţă"
+msgstr "Interfață"
 
 #. Type: text
 #. Description
@@ -1234,16 +1225,16 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
-"Funcţia de bază a unui sistem \"Interfaţă\" este aceea de a primi conţinut "
-"multimedia de la un Backend (principal sau secundar) şi a-l pune la "
-"dispoziţia utilizatorului pentru folosire sau distribuire. Acest tip de "
-"instalare necesită ca un Backend configurat să existe deja în reţea."
+"Funcția de bază a unui sistem \"Interfață\" este aceea de a primi conținut "
+"multimedia de la un Backend (principal sau secundar) și a-l pune la "
+"dispoziția utilizatorului pentru folosire sau distribuire. Acest tip de "
+"instalare necesită ca un Backend configurat să existe deja în rețea."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr "Alege Module pentru Intefaţă / Backend"
+msgstr "Alege Module pentru Intefață / Backend"
 
 #. Type: text
 #. Description
@@ -1252,8 +1243,8 @@ msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
 msgstr ""
-"Modulele pentru MythTV pot fi folosite pentru a-i oferi sistemului funcţii "
-"suplimentare, pe lângă cea de soluţie TV."
+"Modulele pentru MythTV pot fi folosite pentru a-i oferi sistemului funcții "
+"suplimentare, pe lângă cea de soluție TV."
 
 #. Type: text
 #. Description
@@ -1265,7 +1256,7 @@ msgstr "Module pentru Backend"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Frontend Plugins"
-msgstr "Module pentru Interfaţă"
+msgstr "Module pentru Interfață"
 
 #. Type: text
 #. Description
@@ -1280,9 +1271,9 @@ msgid ""
 "MythWeb provides a web interface which can be used to view listings, "
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
-"MythWeb oferă o interfaţa web ce poate fi accesată de la distanţă pentru a "
+"MythWeb oferă o interfața web ce poate fi accesată de la distanță pentru a "
 "vizualiza programul canalelor tv, pentru a programa înregistrări, pentru a "
-"şterge înregistrări existente sau pentru a căuta programe."
+"șterge înregistrări existente sau pentru a căuta programe."
 
 #. Type: text
 #. Description
@@ -1339,7 +1330,7 @@ msgstr "Muzică Myth"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth News"
-msgstr "Ştiri Myth"
+msgstr "Știri Myth"
 
 #. Type: text
 #. Description
@@ -1372,17 +1363,16 @@ msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
 msgstr ""
-"Un modul pentru MythTV ce îţi oferă posibilitatea de a crea DVD-uri din "
-"conţinut ce se află în reţeaua ta MythTV."
+"Un modul pentru MythTV ce îți oferă posibilitatea de a crea DVD-uri din "
+"conținut ce se află în rețeaua ta MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
-#, fuzzy
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
 msgstr ""
-"Un modul pentru MythTV ce îţi oferă posibilitatea de a crea DVD-uri din "
-"conţinut ce se află în reţeaua ta MythTV."
+"Un modul pentru MythTV care vă permite să vizualizați prezentări ale "
+"filmelor de pe apple.com."
 
 #. Type: text
 #. Description
@@ -1397,8 +1387,8 @@ msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
 msgstr ""
-"Modalităţi externe de a controla MythTV-ul tău. Acest modul îţi permite să "
-"modifici scurtături şi combinaţii de taste."
+"Modalități externe de a controla MythTV-ul tău. Acest modul îți permite să "
+"modifici scurtături și combinații de taste."
 
 #. Type: text
 #. Description
@@ -1410,27 +1400,27 @@ msgstr "Găsiți filmele actuale de la cinematografe apropiate"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr "Cu acest plugin îţi poţi monitoriza contul tău de pe Netflix.com."
+msgstr "Cu acest plugin îți poți monitoriza contul tău de pe Netflix.com."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Allows you to visually browse a directory tree containing image files."
-msgstr "Oferă o aplicaţie pentru a vizualiza directoarele ce conţin imagini."
+msgstr "Oferă o aplicație pentru a vizualiza directoarele ce conțin imagini."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:48001
 msgid "A frontend to start any emulator or binary that Linux runs."
 msgstr ""
-"O interfaţă pentru a porni şi configura orice emulator de jocuri care "
+"O interfață pentru a porni și configura orice emulator de jocuri care "
 "rulează pe Linux."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:49001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr "Oferă un player pentru a reda fişierele audio în MythTV."
+msgstr "Oferă un player pentru a reda fișierele audio în MythTV."
 
 #. Type: text
 #. Description
@@ -1438,7 +1428,7 @@ msgstr "Oferă un player pentru a reda fişierele audio în MythTV."
 msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
-msgstr "Un agregator RSS care te ţine la curent cu ştirile tale preferate."
+msgstr "Un agregator RSS care te ține la curent cu știrile tale preferate."
 
 #. Type: text
 #. Description
@@ -1446,7 +1436,7 @@ msgstr "Un agregator RSS care te ţine la curent cu ştirile tale preferate."
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr ""
-"O aplicaţie care oferă capabilitatea de a folosi telefonie şi videotelefonie "
+"O aplicație care oferă capabilitatea de a folosi telefonie și videotelefonie "
 "bazată pe protocolul SIP (VoIP) în interiorul MythTV."
 
 #. Type: text
@@ -1462,14 +1452,14 @@ msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
 msgstr ""
-"Permite vizualizarea conţinutului video folosind o aplicaţie externă de "
-"redare, în interiorul interfeţei MythTv."
+"Permite vizualizarea conținutului video folosind o aplicație externă de "
+"redare, în interiorul interfeței MythTv."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:54001
 msgid "Displays current and forecast weather information within MythTV."
-msgstr "Arată condiţiile meteo curente şi viitoare în interfaţa MythTV."
+msgstr "Arată condițiile meteo curente și viitoare în interfața MythTV."
 
 #. Type: text
 #. Description
@@ -1500,7 +1490,7 @@ msgstr "Pornețte/Oprește tot"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Additional Drivers/Firmware"
-msgstr "Firmware / Drivere Adiţionale"
+msgstr "Firmware / Drivere Adiționale"
 
 #. Type: text
 #. Description
@@ -1511,30 +1501,30 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
-"Există deja un driver grafic  cu surse deschise activat şi configurat pentru "
-"această instalarea. Dacă doreşti să foloseşti un alt driver grafic o poţi "
+"Există deja un driver grafic  cu surse deschise activat și configurat pentru "
+"această instalarea. Dacă dorești să folosești un alt driver grafic o poți "
 "face de aici. Driveri grafici proprietari pot fi necesaro pentru activarea "
-"ieşiri TV sau efecte OpenGL."
+"ieșiri TV sau efecte OpenGL."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:61001
 msgid "Modify Video Driver & Settings"
-msgstr "Modifică Driver şi Configurări Video"
+msgstr "Modifică Driver și Configurări Video"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:62001
 msgid "If you would like to configure TV-out, choose an option here:"
 msgstr ""
-"Dacă doreşti să configurezi o ieşire TV (tv-out), alege o opţiune de aici:"
+"Dacă dorești să configurezi o ieșire TV (tv-out), alege o opțiune de aici:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 msgstr ""
-"La activarea ieşirii TV (tv-out), este necesară şi alegerea unui standard TV:"
+"La activarea ieșirii TV (tv-out), este necesară și alegerea unui standard TV:"
 
 #. Type: text
 #. Description
@@ -1543,20 +1533,20 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
-"ATENŢIE: Nu configuraţi standardul TV cu unul pe care televizorul nu îl "
-"suportă! Puteţi provoca probleme permanente televizorului dumneavoastră."
+"ATENȢIE: Nu configurați standardul TV cu unul pe care televizorul nu îl "
+"suportă! Puteți provoca probleme permanente televizorului dumneavoastră."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
 msgid "Master Backend Info"
-msgstr "Informaţii Backend"
+msgstr "Informații Backend"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:66001
 msgid "Please enter the information necessary to contact your master backend:"
-msgstr "Introduce informaţia necesară conectării la Backend:"
+msgstr "Introduce informația necesară conectării la Backend:"
 
 #. Type: text
 #. Description
@@ -1596,7 +1586,7 @@ msgid ""
 "configuring the backend for the first time."
 msgstr ""
 "Pentru a finaliza instalarea dumneavoastră este nevoie de a configura un "
-"ghid TV şi de asemenea pentru a configura Backend-ul pentru prima dată."
+"ghid TV și de asemenea pentru a configura Backend-ul pentru prima dată."
 
 #. Type: text
 #. Description
@@ -1613,9 +1603,9 @@ msgid ""
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
 "Utilizatorii din America de Nord vor avea nevoie de un cont pe websiteul "
-"Schedules Direct (SD). SD oferă informaţii tip ghid tv pentru un tarif "
+"Schedules Direct (SD). SD oferă informații tip ghid tv pentru un tarif "
 "infim. Fară SD utilizatorii din America de Nord nu vor beneficia de multe "
-"din facilităţile de programare din MythTV."
+"din facilitățile de programare din MythTV."
 
 #. Type: text
 #. Description
@@ -1632,10 +1622,10 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
-"Dupa configurarea sursei de informaţii tip ghid tv, va fi nevoie de a lansa "
-"aplicaţia MythTV-Setup pentru a configura Backendul pentru prima oară. Va "
-"trebui sa configurezi primele patru secţiuni, fiind absolut sigur ca oferiţi "
-"datele pentru ghidul tv în a treia secţiune."
+"Dupa configurarea sursei de informații tip ghid tv, va fi nevoie de a lansa "
+"aplicația MythTV-Setup pentru a configura Backendul pentru prima oară. Va "
+"trebui sa configurezi primele patru secțiuni, fiind absolut sigur ca oferiți "
+"datele pentru ghidul tv în a treia secțiune."
 
 #. Type: text
 #. Description
@@ -1647,13 +1637,13 @@ msgstr "Configurare mythtv..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
 msgid "Configuring additional drivers..."
-msgstr "Configurare driveri adiţionali..."
+msgstr "Configurare driveri adiționali..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:79001
 msgid "Configuring additional services..."
-msgstr "Configurare servicii adiţionale..."
+msgstr "Configurare servicii adiționale..."
 
 #. Type: text
 #. Description

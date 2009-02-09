@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-10 18:50+0000\n"
-"Last-Translator: NT <Unknown>\n"
+"PO-Revision-Date: 2009-01-26 00:57+0000\n"
+"Last-Translator: Vilson <Unknown>\n"
 "Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:58+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -112,7 +112,6 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid "Selected city:"
 msgstr "Qyteti i zgjedhur:"
 
@@ -137,9 +136,8 @@ msgstr "Koha aktuale:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
-#, fuzzy
 msgid "Keyboard layout"
-msgstr "Zgjedh një tastierë"
+msgstr "Zgjidh një tastierë"
 
 #. Type: text
 #. Description
@@ -157,9 +155,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "Regjioni i zgjedhur:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -255,9 +252,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
 msgid "Migrate documents and settings"
-msgstr "Prano dokumentet dhe rregullimet."
+msgstr "Migro dokumentat dhe preferencat"
 
 #. Type: text
 #. Description
@@ -288,16 +284,14 @@ msgstr "Pregadit hapësirë në disk"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid "How do you want to partition the disk?"
-msgstr "Dëshiron të ripërmbledhësh ndarjen?"
+msgstr "Si dëshironi të ndani diskun?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
-#, fuzzy
 msgid "Prepare partitions"
-msgstr "Krijo një ndarje të re"
+msgstr "Përgatit ndarjet"
 
 #. Type: text
 #. Description
@@ -305,9 +299,8 @@ msgstr "Krijo një ndarje të re"
 #. Description
 #: ../ubiquity.templates:37001 ../ubiquity.templates:87001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
 msgid "Ready to install"
-msgstr "Kerneli për instalim:"
+msgstr "Gati për instalim"
 
 #. Type: text
 #. Description
@@ -345,16 +338,14 @@ msgstr "Hap ${INDEX} i ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "Ndalo instalimin"
+msgstr "Ta lë instalimin?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "Dëshiron të kthehesh tek menuja e ndarjes?"
+msgstr "Me të vërtetë doni ta lini instalimin tani?"
 
 #. Type: text
 #. Description
@@ -631,14 +622,12 @@ msgstr "Vazhdo"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Instalimi u përfundua. Ju duhet ta ristartoni kompjuterin në mënyrë që të "
-"përdorni instalimin e ri. Ju mund të vazhdoni të përdorni këtë Live CD, "
-"mirëpo ndryshimet që i bëni ose dokumentet që i ruani nuk do të ruhen."
+"Instalimi u kompletua. Ju duhet të rindizni kompjuterin për të përdorur "
+"instalimin e ri."
 
 #. Type: note
 #. Description
@@ -669,9 +658,8 @@ msgstr "Duke kontrolluar instalimin"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
 msgid "Installing system"
-msgstr "Instalimi përfundoi"
+msgstr "Duke instaluar sistemin"
 
 #. Type: text
 #. Description
@@ -682,16 +670,14 @@ msgstr "Duke gjetur distribucionin për të kopjuar..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
-#, fuzzy
 msgid "Scanning files..."
-msgstr "Duke kontrolluar disqet..."
+msgstr "Duke skanuar skedarët..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:93001
-#, fuzzy
 msgid "Copying files..."
-msgstr "Duke kopjuar ndarjen..."
+msgstr "Duke kopjuar skedarët..."
 
 #. Type: text
 #. Description
@@ -712,9 +698,8 @@ msgstr "Duke kopjuar skedarët (ngelet më pak se një minutë)..."
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "Instalimi përfundoi"
+msgstr "Instalimi Dështoi"
 
 #. Type: error
 #. Description
@@ -744,32 +729,26 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Ky gabim shpesh ndodh shkaku i CD/DVD pajisjeve ose disqeve të dëmtuara. "
-"Mund të ndihmoj pastrimi i CD/DVD, ta djegni CD/DVD në shpejtësi të vogël, "
-"pastrimi i CD/DVD pajisjes (komplete të pastrimit shpesh ofrohen nga shitës "
-"të elektronikës), kontrolloni nëse disku është i vjetër dhe ka nevoj për "
-"ndrrim, ose lëvizne sistemin në një ambient më të ftoht."
+"Kjo i dedikohet një disku CD/DVD të dëmtuar. Provoni ta pastroni CD/DVD, ta "
+"digjni CD/DVD me një shpejtësi më të vogël, apo të pastroni lenten e "
+"pajisjes CD/DVD (mjete pastruese gjenden shpesh në dyqanet elektronike)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:97001
-#, fuzzy
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Ky gabim shpesh ndodh shkaku i CD/DVD pajisjeve ose disqeve të dëmtuara. "
-"Mund të ndihmoj pastrimi i CD/DVD, ta djegni CD/DVD në shpejtësi të vogël, "
-"pastrimi i CD/DVD pajisjes (komplete të pastrimit shpesh ofrohen nga shitës "
-"të elektronikës), kontrolloni nëse disku është i vjetër dhe ka nevoj për "
-"ndrrim, ose lëvizne sistemin në një ambient më të ftoht."
+"Kjo ndodh për shkak të një Hard Disku të dëmtuar. Shikoni se mos Hard Disku "
+"është i vjetër dhe ka nevojë për një zëvendësim, ose çojeni kompjuterin në "
+"një ambient më të freskët."
 
 #. Type: error
 #. Description
@@ -780,7 +759,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:98001 ../ubiquity.templates:99001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -788,11 +766,11 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Ky gabim shpesh ndodh shkaku i CD/DVD pajisjeve ose disqeve të dëmtuara. "
-"Mund të ndihmoj pastrimi i CD/DVD, ta djegni CD/DVD në shpejtësi të vogël, "
-"pastrimi i CD/DVD pajisjes (komplete të pastrimit shpesh ofrohen nga shitës "
-"të elektronikës), kontrolloni nëse disku është i vjetër dhe ka nevoj për "
-"ndrrim, ose lëvizne sistemin në një ambient më të ftoht."
+"jo i dedikohet një disku CD/DVD të dëmtuar. Provoni ta pastroni CD/DVD, ta "
+"digjni CD/DVD me një shpejtësi më të vogël, apo të pastroni lenten e "
+"pajisjes CD/DVD (mjete pastruese gjenden shpesh në dyqanet elektronike). "
+"Shikoni se mos Hard Disku është i vjetër dhe ka nevojë për një zëvendësim, "
+"ose çojeni kompjuterin në një ambient më të freskët."
 
 #. Type: select
 #. Description
@@ -803,9 +781,8 @@ msgstr "Skedari që vijon nuk përputhet me kopjen në CD/DVD:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:100001
-#, fuzzy
 msgid "Copying installation logs..."
-msgstr "Duke kopjuar ndarjen..."
+msgstr "Duke kopjuar komandat për instalim..."
 
 #. Type: text
 #. Description
@@ -816,9 +793,8 @@ msgstr "Duke konfiguruar sistemin..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:102001
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "Duke konfiguruar rrjetin..."
+msgstr "Duke konfiguruar lokalizimin e sistemit..."
 
 #. Type: text
 #. Description
@@ -829,9 +805,8 @@ msgstr "Duke konfiguruar apt..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:104001
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "Duke konfiguruar rrjetin..."
+msgstr "Duke konfiguruar zonën kohore..."
 
 #. Type: text
 #. Description
@@ -842,9 +817,8 @@ msgstr "Duke konfiguruar tastjeren..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:106001
-#, fuzzy
 msgid "Creating user..."
-msgstr "Duke krijuar file-t e dispozitivit..."
+msgstr "Duke krijuar përdoruesin..."
 
 #. Type: text
 #. Description
@@ -855,9 +829,8 @@ msgstr "Duke importuar dokumentet dhe mjedisin"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:108001
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "Duke konfiguruar rrjetin..."
+msgstr "Duke konfiguruar Hardware..."
 
 #. Type: text
 #. Description
@@ -868,16 +841,14 @@ msgstr "Duke konfiguruar rrjetin..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
 msgid "Setting computer name..."
-msgstr "Duke rregulluar frame buffer..."
+msgstr "Duke vendosur emrin e kompjuterit..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "Duke konfiguruar rrjetin..."
+msgstr "Duke konfiguruar Boot loader..."
 
 #. Type: text
 #. Description
@@ -894,9 +865,8 @@ msgstr "Duke kontrolluar për pakot për instalim..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:114001
-#, fuzzy
 msgid "Removing extra packages..."
-msgstr "Duke instaluar paketat ekstra..."
+msgstr "Duke hequr paketat shtesë..."
 
 #. Type: text
 #. Description
@@ -925,16 +895,14 @@ msgstr "Duke shkarkuar listat e paketave (${TIME} ngelen)..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:120001
-#, fuzzy
 msgid "Error installing ${PACKAGE}"
-msgstr "GRUB nuk mund të instalohet në ${BOOTDEV}"
+msgstr "Gabim në instalim ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:121001
-#, fuzzy
 msgid "Error removing ${PACKAGE}"
-msgstr "Duke tërhequr ${PACKAGE}"
+msgstr "Gabim në heqjen e ${PACKAGE}"
 
 #. Type: error
 #. Description
@@ -999,9 +967,8 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:127001
-#, fuzzy
 msgid "Installing language packs"
-msgstr "Duke instaluar paketat thelbësore"
+msgstr "Duke instaluar paketat e gjuhës"
 
 #. Type: text
 #. Description
@@ -1153,9 +1120,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "Instalimi përfundoi"
+msgstr "Instalim i Avancuar"
 
 #. Type: text
 #. Description
@@ -1610,23 +1576,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "Duke konfiguruar rrjetin..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "Duke konfiguruar rrjetin..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:79001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "Duke konfiguruar rrjetin..."
+msgstr ""
 
 #. Type: text
 #. Description

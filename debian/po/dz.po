@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-08 13:23+0000\n"
-"Last-Translator: Jurmey Rabgay <Unknown>\n"
+"PO-Revision-Date: 2009-01-09 17:45+0000\n"
+"Last-Translator: Jurmey Rabgay (Bongop DIT,BHUTAN) <Unknown>\n"
 "Language-Team: Dzongkha <pgeyleg@dit.gov.bt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:59+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -99,9 +99,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid "Selected city:"
-msgstr "ཆུ་ཚོད་གླིང་སྡེ་སེལ་འཐུ་འབད་ཡོདཔ།"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -112,9 +111,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:13001
-#, fuzzy
 msgid "Selected region:"
-msgstr "ཆུ་ཚོད་གླིང་སྡེ་སེལ་འཐུ་འབད་ཡོདཔ།"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -125,9 +123,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
-#, fuzzy
 msgid "Keyboard layout"
-msgstr "ལྡེ་སྒྲོམ་སྒྲིག་བཀོད་སེལ་འཐུ་འབད།"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -144,9 +141,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "ཆུ་ཚོད་གླིང་སྡེ་སེལ་འཐུ་འབད་ཡོདཔ།"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -183,9 +179,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
 msgid "Choose a password to keep your account safe."
-msgstr "ལག་ལེན་པ་གསངཔ་ཀྱི་དོན་ལུ་ཆོག་ཡིག་གདམ་ཁ་རྐྱབས།"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -257,23 +252,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
-#, fuzzy
 msgid "Prepare disk space"
-msgstr "བརྗེ་སོར་བར་སྟོང་གསར་བསྐྲུན་འབད།"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid "How do you want to partition the disk?"
-msgstr "ཁྱོད་བར་བཅད་འབད་ནི་ལུ་བསྐྱར་ལོག་འབད་ནི་ཨིན་ན?"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
-#, fuzzy
 msgid "Prepare partitions"
-msgstr "སོ་སོ་འཕྱལ་ནི་/ཁྱིམ་གྱི་བར་བཅད།"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -281,9 +273,8 @@ msgstr "སོ་སོ་འཕྱལ་ནི་/ཁྱིམ་གྱི་�
 #. Description
 #: ../ubiquity.templates:37001 ../ubiquity.templates:87001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
 msgid "Ready to install"
-msgstr "ཀར་ནེལ་གྱི་གཞི་བཙུགས:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -321,16 +312,14 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "གཞི་བཙུགས་འདི་བར་བཤོལ་འབད།"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "ཁྱོད་ བར་བཅད་འབད་མིའི་དཀར་ཆག་ནང་ལུ་སླར་ལོག་འབད་ནི་ཨིན་ན?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -341,9 +330,8 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:46001
-#, fuzzy
 msgid "Installation complete"
-msgstr "གཞི་བཙུགས་ཀྱི་རིམ་པ་འཐུས་ཤོར་བྱུང་ནུག"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -626,9 +614,8 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
 msgid "Installing system"
-msgstr "གཞི་རྟེན་རིམ་ལུགས་འདི་གཞི་བཙུགས་འབད་དོ།"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -639,16 +626,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
-#, fuzzy
 msgid "Scanning files..."
-msgstr "ཌིཀསི་ཚུ་ཞིབ་ལྟ་འབད་དོ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:93001
-#, fuzzy
 msgid "Copying files..."
-msgstr "བར་བཅད་འདྲ་བཤུས་འབད་དོ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -669,9 +654,8 @@ msgstr ""
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "གཞི་བཙུགས་ཀྱི་རིམ་པ་འཐུས་ཤོར་བྱུང་ནུག"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -739,9 +723,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:100001
-#, fuzzy
 msgid "Copying installation logs..."
-msgstr "བར་བཅད་འདྲ་བཤུས་འབད་དོ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -752,37 +735,32 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:102001
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "APT འབྱུང་ཁུངས་ཚུ་རིམ་སྒྲིག་འབད་དོ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:103001
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "apt རིམ་སྒྲིག་འབད་དོ།"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:104001
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "ཆུ་ཚོད་གླིང་སྡེ་རིམ་སྒྲིག་འབད།"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "ལྡེ་སྒྲོམ་རིམ་སྒྲིག་འབད་དོ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:106001
-#, fuzzy
 msgid "Creating user..."
-msgstr "གཙང་དག་བཟོ་དོ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -793,30 +771,26 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:108001
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "ལྡེ་སྒྲོམ་རིམ་སྒྲིག་འབད་དོ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:109001
-#, fuzzy
 msgid "Configuring network..."
-msgstr "ལྡེ་སྒྲོམ་རིམ་སྒྲིག་འབད་དོ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
 msgid "Setting computer name..."
-msgstr "གཞི་སྒྲིག་འབད་དོ།"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "ལྡེ་སྒྲོམ་རིམ་སྒྲིག་འབད་དོ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -833,9 +807,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:114001
-#, fuzzy
 msgid "Removing extra packages..."
-msgstr "ཐུམ་སྒྲིལ་ཚུ་ཐེབས་གཞི་བཙུགས་འབད་དོ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -852,9 +825,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:117001
-#, fuzzy
 msgid "Downloading package lists..."
-msgstr "ཐུམ་སྒྲིལ་གྱི་ཚད་ཚུ་འཚོལ་དོ།"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -865,16 +837,14 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:120001
-#, fuzzy
 msgid "Error installing ${PACKAGE}"
-msgstr "${PACKAGE}འདི་གཞི་བཙུགས་ནི་ལུ་འབད་མི་བཏུབ།"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:121001
-#, fuzzy
 msgid "Error removing ${PACKAGE}"
-msgstr "${PACKAGE}སླར་འདྲེན་འབད་དོ།"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -932,9 +902,8 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:127001
-#, fuzzy
 msgid "Installing language packs"
-msgstr "ཐུམ་སྒྲིལ་གྱི་ནང་སྙིང་ཚུ་གཞི་བཙུགས་འབད་དོ།"
+msgstr ""
 
 #. Type: text
 #. Description

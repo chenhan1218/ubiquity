@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-17 18:21+0000\n"
-"Last-Translator: Jannick Kuhr <opensource@kuhr.org>\n"
+"PO-Revision-Date: 2009-01-09 17:45+0000\n"
+"Last-Translator: Jens Seidel <Unknown>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:56+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:59+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -44,7 +44,7 @@ msgid ""
 "and without the CD."
 msgstr ""
 "Bereit zur Installation? Nachdem Sie einige Fragen beantwortet haben, kann "
-"der Inhalt der Live-CD auf diesem Computer installiert werden, so dass Sie "
+"der Inhalt der Live-CD auf diesem Rechner installiert werden, so dass Sie "
 "das System mit voller Geschwindigkeit und ohne die CD benutzen können."
 
 #. Type: text
@@ -158,9 +158,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "Ausgewählte Region:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -193,7 +192,7 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Wenn mehr als eine Person den Computer verwenden wird, können Sie nach der "
+"Wenn mehr als eine Person den Rechner verwenden wird, können Sie nach der "
 "Installation mehrere Benutzerkonten anlegen."
 
 #. Type: text
@@ -223,7 +222,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:27001
 msgid "What is the name of this computer?"
-msgstr "Wie heißt dieser Computer?"
+msgstr "Wie heißt dieser Rechner?"
 
 #. Type: text
 #. Description
@@ -232,8 +231,8 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
-"Dieser Name wird benutzt, wenn Sie Ihren Computer für andere Computer in "
-"einem Netzwerk sichtbar machen."
+"Dieser Name wird benutzt, wenn Sie Ihren Rechner für andere Rechner in einem "
+"Netzwerk sichtbar machen."
 
 #. Type: text
 #. Description
@@ -256,7 +255,6 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
 msgid "Migrate documents and settings"
 msgstr "Dokumente und Einstellungen übernehmen"
 
@@ -267,7 +265,7 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Wählen Sie alle Konten, die Sie importieren wollen. Die Dokumente und "
+"Wählen Sie alle Konten, die Sie importieren möchten. Die Dokumente und "
 "Einstellungen dieser Konten werden nach der Installation zur Verfügung "
 "stehen."
 
@@ -306,7 +304,7 @@ msgstr "Die Partitionen vorbereiten"
 #: ../ubiquity.templates:37001 ../ubiquity.templates:87001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
-msgstr "Bereit zur Installation"
+msgstr "Zur Installation bereit"
 
 #. Type: text
 #. Description
@@ -346,16 +344,14 @@ msgstr "Schritt ${INDEX} von ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "Installation abbrechen?"
+msgstr "Installation beenden"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "Möchten Sie die Installation wirklich jetzt abbrechen?"
+msgstr "Möchten Sie nun wirklich die Installation beenden?"
 
 #. Type: text
 #. Description
@@ -387,7 +383,7 @@ msgstr "Jetzt neu starten"
 #. Description
 #: ../ubiquity.templates:49001 ../ubiquity.templates:50001
 msgid "Installer crashed"
-msgstr "Installation schlug fehl"
+msgstr "Installation ist gescheitert"
 
 #. Type: text
 #. Description
@@ -400,11 +396,11 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
-"Leider schlug die Installation fehl. Bitte melden Sie diesen Fehler unter "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug und ein Entwickler "
-"wird sich so bald als möglich diesem annehmen. Zur besseren Fehleranalyse "
-"legen Sie bitte die Dateien »/var/log/syslog« und »/var/log/partman« dem "
-"Bericht bei:"
+"Leider ist die Installation gescheitert. Bitte melden Sie diesen Fehler "
+"unter https://launchpad.net/ubuntu/+source/ubiquity/+filebug und ein "
+"Entwickler wird sich so bald als möglich diesem annehmen. Zur besseren "
+"Fehleranalyse legen Sie bitte die Dateien »/var/log/syslog« und »/var/log/"
+"partman« dem Bericht bei:"
 
 #. Type: text
 #. Description
@@ -514,7 +510,7 @@ msgstr "unbekannt"
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Create partition"
-msgstr "Partition anlegen"
+msgstr "Partition erstellen"
 
 #. Type: text
 #. Description
@@ -570,7 +566,7 @@ msgstr "Bootloader"
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Install boot loader"
-msgstr "Boot-Loader installieren"
+msgstr "Bootloader installieren"
 
 #. Type: text
 #. Description
@@ -610,7 +606,7 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"Die Installation ist abgeschlossen. Sie müssen jetzt den Computer neu "
+"Die Installation ist abgeschlossen. Sie müssen jetzt den Rechner neu "
 "starten, um die neue Installation zu benutzen. Sie können fortfahren, diese "
 "Live-CD zu benutzen, aber Änderungen, die Sie vornehmen und Dokumente, die "
 "Sie speichern, werden nicht erhalten bleiben."
@@ -632,15 +628,12 @@ msgstr "Weiter"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Die Installation ist abgeschlossen. Sie müssen jetzt den Computer neu "
-"starten, um die neue Installation zu benutzen. Sie können fortfahren, diese "
-"Live-CD zu benutzen, aber Änderungen, die Sie vornehmen und Dokumente, die "
-"Sie speichern, werden nicht erhalten bleiben."
+"Die Installation ist abgeschlossen. Sie müssen jetzt den Rechner neu "
+"starten, um die neue Installation zu benutzen."
 
 #. Type: note
 #. Description
@@ -711,9 +704,8 @@ msgstr "Dateien werden kopiert (weniger als eine Minute verbleibend) ..."
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "Installation abgeschlossen"
+msgstr "Installation fehlgeschlagen"
 
 #. Type: error
 #. Description
@@ -731,42 +723,40 @@ msgstr "Beim Kopieren auf die Festplatte ist ein Fehler aufgetreten:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:95001
-#, fuzzy
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"Dieser Fehler erscheint, wenn auf der Partition, auf der die Installation "
-"erfolgen soll, zu wenig freien Speicherplatz vorhanden ist. Bitte starten "
-"Sie den Installationsvorgang neu und wählen Sie eine größere Partition aus."
+"Dies wurde dadurch verursacht, dass der Festplattenspeicher auf der "
+"Zielpartition nicht ausreicht, um die Installation abzuschließen. Bitte "
+"starten Sie die Installation erneut und wählen Sie eine größere Partition, "
+"auf der installiert werden soll."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Dieser Fehler tritt meist wegen einer fehlerhaften CD/DVD oder eines CD/DVD-"
-"Laufwerksfehlers auf. Es kann helfen, die CD/DVD zu reinigen, eine CD/DVD "
-"mit niedrigerer Geschwindigkeit zu brennen, oder die Linse des CD/DVD-"
-"Laufwerks zu säubern (spezielle Reinigungs-Sets gibt es im Computerladen)."
+"Dies wird oft durch fehlerhafte CD/DVD-Laufwerke oder -Medien verursacht. Es "
+"kann helfen, die CD/DVD zu reinigen, die CD/DVD mit einer niedrigeren "
+"Geschwindigkeit zu brennen oder die Linsen des CD/DVD-Laufwerks zu reinigen "
+"(Zubehör für solche Reinigungen sind häufig im Elektronikhandel verfügbar)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:97001
-#, fuzzy
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Dieser Fehler tritt meist wegen einer fehlerhaften Festplatte auf. Die "
-"Platte könnte zu alt sein und sollte ersetzt werden. Möglicherweise hilft es "
-"auch, das System an einen kühleren Ort zu stellen."
+"Dies wird oft durch eine fehlerhafte Festplatte verursacht. Es kann helfen, "
+"zu überprüfen, ob die Festplatte alt ist und ersetzt werden muss oder "
+"verlagern Sie das System in eine kühlere Umgebung."
 
 #. Type: error
 #. Description
@@ -777,7 +767,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:98001 ../ubiquity.templates:99001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -785,12 +774,12 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Dieser Fehler tritt meist wegen eines Problems mit der CD/DVD, dem CD/DVD-"
-"Laufwerks, oder der Festplatte auf. Es kann helfen, die CD/DVD zu reinigen, "
-"eine CD/DVD mit niedrigerer Geschwindigkeit zu brennen, oder die Linse des "
-"CD/DVD-Laufwerks zu säubern (spezielle Reinigungs-Sets gibt es im "
-"Computerladen), die Festplatte zu ersetzen (falls sie defekt ist), oder das "
-"System an einen kühleren Ort zu stellen."
+"Dies wird oft durch fehlerhafte CD/DVD-Laufwerke oder -Medien oder eine "
+"fehlerhafte Festplatte verursacht. Es kann helfen, die CD/DVD zu reinigen, "
+"die CD/DVD mit einer niedrigeren Geschwindigkeit zu brennen, die Linsen des "
+"CD/DVD-Laufwerks zu reinigen (Zubehör für solche Reinigungen sind häufig im "
+"Elektronikhandel verfügbar), zu prüfen, ob ihre Festplatte alt ist und "
+"ausgetauscht wird oder verlagern Sie das System in eine kühlere Umgebung."
 
 #. Type: select
 #. Description
@@ -868,7 +857,7 @@ msgstr "Computername wird gesetzt ..."
 #. Description
 #: ../ubiquity.templates:111001
 msgid "Configuring boot loader..."
-msgstr "Boot-Loader wird eingerichtet ..."
+msgstr "Bootloader wird eingerichtet ..."
 
 #. Type: text
 #. Description
@@ -928,7 +917,7 @@ msgstr "Fehler beim Löschen von ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:122001
 msgid "Error while installing packages"
-msgstr "Installation schlug fehl"
+msgstr "Fehler beim Installieren der Pakete"
 
 #. Type: error
 #. Description
@@ -961,16 +950,16 @@ msgstr ""
 "Der Fehler kann durch die Verwendung eines veralteten Installationsprogramms "
 "auftreten oder von den obigen Paketen verursacht worden sein. Näheres finden "
 "Sie in der Protokolldatei »/var/log/syslog«. Die Installation wird "
-"fortgesetzt, kann aber zu einem späteren Zeitpunkt fehlschlagen. "
-"Möglicherweise können dann nicht alle erforderlichen Pakete installiert oder "
-"entfernt werden. Sie sollten überprüfen, ob eine neuere Version des "
+"fortgesetzt, kann aber zu einem späteren Zeitpunkt scheitern. Möglicherweise "
+"können dann nicht alle erforderlichen Pakete installiert oder entfernt "
+"werden. Sie sollten überprüfen, ob eine neuere Version des "
 "Installationsprogramms vorliegt oder den Fehler dem Hersteller melden."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Error while removing packages"
-msgstr "Entfernen von Paketen schlug fehl"
+msgstr "Fehler beim Entfernen der Pakete"
 
 #. Type: error
 #. Description
@@ -1032,7 +1021,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:140001
 msgid "Do you want to return to the partitioner?"
-msgstr "Wollen Sie zum Partitionsmenü zurückkehren?"
+msgstr "Möchten Sie zum Partitionsmenü zurückkehren?"
 
 #. Type: boolean
 #. Description
@@ -1052,7 +1041,7 @@ msgid ""
 "partitions, the installation may fail."
 msgstr ""
 "Wenn Sie nicht zum Partitionseditor zurückgehen und den Speicherplatz "
-"vergrößern, kann die Installation fehlschlagen."
+"vergrößern, kann die Installation scheitern."
 
 #. Type: note
 #. Description
@@ -1136,7 +1125,7 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
-"Die erweiterte Installation bietet Ihnen die Möglichkeit Mythubuntu in "
+"Die erweiterte Installation bietet Ihnen die Möglichkeit, Mythubuntu in "
 "vielen Bereichen bereits bei der Installation anzupassen. Hinweis: Wenn Sie "
 "diesen Rechner einem MythTV-Netzwerk hinzufügen möchten, verwenden Sie diese "
 "installationsart."
@@ -1186,7 +1175,7 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
-"Das System ähnelt einem primären Hintergrunddienst mit Benutzerobfläche, "
+"Das System ähnelt einem primären Hintergrunddienst mit Benutzeroberfläche, "
 "greift aber über das Netzwerk auf ein anderen Hintergrunddienst zurück."
 
 #. Type: text
@@ -1326,7 +1315,7 @@ msgstr "Myth-Gallerie"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Myth Game"
-msgstr "Myth-Game"
+msgstr "Myth-Spiele"
 
 #. Type: text
 #. Description
@@ -1375,9 +1364,9 @@ msgstr "DVDs mit Inhalten aus Ihrem MythTV-Netzwerk erstellen"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
-#, fuzzy
 msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
-msgstr "DVDs mit Inhalten aus Ihrem MythTV-Netzwerk erstellen"
+msgstr ""
+"Ein Plugin für MythTV, mit dem Sie sich Trailer von apple.com ansehen können."
 
 #. Type: text
 #. Description

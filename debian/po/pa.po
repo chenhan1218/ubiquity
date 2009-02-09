@@ -1,19 +1,15 @@
-# Panjabi messages for debian-installer.
-# Copyright (C) 2003 Software in the Public Interest, Inc.
-# This file is distributed under the same license as debian-installer.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-08 15:30+0000\n"
-"Last-Translator: A S Alam <Unknown>\n"
-"Language-Team: Punjabi <punjabi-l10n@lists.sf.net>\n"
+"PO-Revision-Date: 2008-10-15 08:55+0000\n"
+"Last-Translator: Jeroen T. Vermeulen <Unknown>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:58+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:57+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -108,9 +104,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid "Selected city:"
-msgstr "ਚੁਣਿਆ ਸਮਾਂ ਜ਼ੋਨ ਚੁਣੋ:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -133,9 +128,8 @@ msgstr "ਮੌਜੂਦਾ ਸਮਾਂ:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
-#, fuzzy
 msgid "Keyboard layout"
-msgstr "ਆਪਣਾ ਕੀ-ਬੋਰਡ ਖਾਕਾ ਚੁਣੋ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -152,9 +146,8 @@ msgstr "ਤੁਸੀਂ ੲਿਸ ਖਾਨੇ ਵਿਚ ਟਾੲੀਪ ਕਰ�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "ਚੁਣਿਅਾ ੲਿਲਾਕਾ:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -244,9 +237,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
 msgid "Migrate documents and settings"
-msgstr "ਦਸਤਾਵੇਜ਼ ਅਤੇ ਸੈਟਿੰਗਾਂ ਅਾਯਾਤ ਕੀਤੀਅਾਂ ਜਾ ਰਹੀਅਾਂ ਹਨ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -273,16 +265,14 @@ msgstr "ਡਿਸਕ ਜਗ੍ਹਾ ਤਿਅਾਰ ਕਰੋ"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid "How do you want to partition the disk?"
-msgstr "ਕੀ ਤੁਸੀਂ ਵਿਭਾਗੀਕਰਨ ਤੇ ਮੁੜ ਜਾਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
-#, fuzzy
 msgid "Prepare partitions"
-msgstr "ਨਵਾਂ ਭਾਗ ਬਣਾਓ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -290,9 +280,8 @@ msgstr "ਨਵਾਂ ਭਾਗ ਬਣਾਓ"
 #. Description
 #: ../ubiquity.templates:37001 ../ubiquity.templates:87001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
 msgid "Ready to install"
-msgstr "ਇੰਸਟਾਲ ਕਰਨ ਲਈ ਕਰਨਲ:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -330,16 +319,14 @@ msgstr "ਕਦਮ ${INDEX} ਤੋਂ ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਨੂੰ ਛੱਡੋ"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "ਕੀ ਤੁਸੀਂ ਵਿਭਾਗੀਕਰਨ ਸੂਚੀ ਤੇ ਵਾਪਸ ਜਾਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -610,14 +597,10 @@ msgstr "ਜਾਰੀ ਰੱਖੋ"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"ੲਿੰਸਟਾਲੇਸ਼ਨ ਸਮਾਪਤ ਹੋੲੀ । ਤੁਹਾਨੂੰ ਨਵੀਂ ੲਿੰਸਟਾਲੇਸ਼ਨ ਦੀ ਵਰਤੋਂ ਲੲੀ ਕੰਮਪੂਟਰ ਦੋਬਾਰਾ ਸ਼ੁਰੂ ਕਰਨਾ ਪੈਣਾ ਹੈ। "
-"ਤੁਸੀਂ ੲਿਸ ਲਾੲੀਵ ਸੀਡੀ ਨੂੰ ਵਰਤਣਾ ਜਾਰੀ ਰਖ ਸਕਦੇ ਹੋ, ਹਾਲਾਂਕਿ ਤੁਹਾਡੀਅਾਂ ਕੋੲੀ ਵੀ ਤਬਦੀਲੀਅਾਂ ਜਾਂ "
-"ਬਚਾੲੇ ਹੋੲੇ ਦਸਤਾਵੇਜ ਸੰਭਾਲੇ ਨਹੀਂ ਜਾਣਗੇ।"
 
 #. Type: note
 #. Description
@@ -647,9 +630,8 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
 msgid "Installing system"
-msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਸਮਾਪਤ ਹੋਈ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -660,16 +642,14 @@ msgstr "ਕਾਪੀ ਕਰਣ ਵਾਲੀ ਡਿਸਟ੍ਰੀਬਿੳੂਸ਼
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
-#, fuzzy
 msgid "Scanning files..."
-msgstr "ਡਿਸਕਾਂ ਦੀ ਜਾਂਚ ਜਾਰੀ ਹੈ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:93001
-#, fuzzy
 msgid "Copying files..."
-msgstr "ਭਾਗ ਨਕਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -690,9 +670,8 @@ msgstr "ਫਾੲੀਲਾਂ ਕਾਪੀ ਕੀਤੀਅਾਂ ਜਾ ਰਹ�
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਸਮਾਪਤ ਹੋਈ"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -719,29 +698,20 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"ੲਿਹ ਖਾਸ ਦੋਸ਼ ਜ਼ਿਅਾਦਾਤਰ ਖਰਾਬ ਸੀਡੀ/ਡੀਵੀਡੀ ਡਿਸਕ ਜਾਂ ਡਰਾੲੀਵ ਕਰਕੇ ਹੁੰਦਾ ਹੈ । ਮਦਦ ਮਿਲ ਸਕਦੀ "
-"ਹੈ ਜੇ ਸੀਡੀ/ਡੀਵੀਡੀ ਨੂੰ ਸਾਫ ਕੀਤਾ ਜਾਵੇ, ਜੇ ਸੀਡੀ/ਡੀਵੀਡੀ ਨੂੰ ਹੌਲੀ ਰਫਤਾਰ ੳੁਤੇ ਬਰਨ ਕੀਤਾ ਜਾਵੇ, "
-"ਜਾਂ ਜੇ ਸੀਡੀ/ਡੀਵੀਡੀ ਡਰਾੲੀਵ ਦੇ ਲੈਨਸ ਨੂੈ ਸਾਫ ਕੀਤਾ ਜਾਵੇ (ਸਫਾੲੀ ਸੰਦ ਜ਼ਿਅਾਦਾਤਰ ਤਕਨੀਕੀ ਸਮਾਨ "
-"ਵਾਲੇ ਸਪਲਾੲਿਅਰਾਂ ਕੋਲ ਮੌਜੂਦ ਹੁੰਦੇ ਹਨ)।"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:97001
-#, fuzzy
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"ੲਿਹ ਖਾਸ ਦੋਸ਼ ਜ਼ਿਅਾਦਾਤਰ ਖਰਾਬ ਹਾਰਡ ਡਿਸਕ ਕਰਕੇ ਹੁੰਦਾ ਹੈ । ਮਦਦ ਮਿਲ ਸਕਦੀ ਹੈ ਜੇ ਪੜਤਾਲ ਕੀਤੀ "
-"ਜਾਵੇ ਕਿ ਹਾਰਡ ਡਿਸਕ ਪੁਰਾਣੀ ਹੈ ਅਤੇ ਬਦਲਣ ਦੀ ਲੋੜ ਵਿਚ ਹੈ, ਜਾਂ ਜੇ ਸਿਸਟਮ ਨੂੰ ਠੰਡੇ ਵਾਤਾਵਰਣ ਵਿਚ "
-"ਵਿਸਥਾਪਿਤ ਕੀਤਾ ਜਾਵੇ।"
 
 #. Type: error
 #. Description
@@ -752,7 +722,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:98001 ../ubiquity.templates:99001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -760,12 +729,6 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"ੲਿਹ ਖਾਸ ਦੋਸ਼ ਜ਼ਿਅਾਦਾਤਰ ਖਰਾਬ ਸੀਡੀ/ਡੀਵੀਡੀ ਡਿਸਕ ਜਾਂ ਡਰਾੲੀਵ, ਜਾਂ ਖਰਾਬ ਹਾਰਡ ਡਿਸਕ ਕਰਕੇ "
-"ਹੁੰਦਾ ਹੈ । ਮਦਦ ਮਿਲ ਸਕਦੀ ਹੈ ਜੇ ਸੀਡੀ/ਡੀਵੀਡੀ ਨੂੰ ਸਾਫ ਕੀਤਾ ਜਾਵੇ, ਜੇ ਸੀਡੀ/ਡੀਵੀਡੀ ਨੂੰ ਹੌਲੀ "
-"ਰਫਤਾਰ ੳੁਤੇ ਬਰਨ ਕੀਤਾ ਜਾਵੇ, ਜਾਂ ਜੇ ਸੀਡੀ/ਡੀਵੀਡੀ ਡਰਾੲੀਵ ਦੇ ਲੈਨਸ ਨੂੈ ਸਾਫ ਕੀਤਾ ਜਾਵੇ (ਸਫਾੲੀ "
-"ਸੰਦ ਜ਼ਿਅਾਦਾਤਰ ਤਕਨੀਕੀ ਸਮਾਨ ਵਾਲੇ ਸਪਲਾੲਿਅਰਾਂ ਕੋਲ ਮੌਜੂਦ ਹੁੰਦੇ ਹਨ),  ਜੇ ਪੜਤਾਲ ਕੀਤੀ ਜਾਵੇ ਕਿ "
-"ਹਾਰਡ ਡਿਸਕ ਪੁਰਾਣੀ ਹੈ ਅਤੇ ਬਦਲਣ ਦੀ ਲੋੜ ਵਿਚ ਹੈ, ਜਾਂ ਜੇ ਸਿਸਟਮ ਨੂੰ ਠੰਡੇ ਵਾਤਾਵਰਣ ਵਿਚ ਵਿਸਥਾਪਿਤ "
-"ਕੀਤਾ ਜਾਵੇ।"
 
 #. Type: select
 #. Description
@@ -776,9 +739,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:100001
-#, fuzzy
 msgid "Copying installation logs..."
-msgstr "ਭਾਗ ਨਕਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -789,9 +751,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:102001
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "ਨੈੱਟਵਰਕ ਸੰਰਚਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -802,9 +763,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:104001
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "ਨੈੱਟਵਰਕ ਸੰਰਚਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -815,9 +775,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:106001
-#, fuzzy
 msgid "Creating user..."
-msgstr "ਜੰਤਰ ਫਾਇਲਾਂ ਬਣਾ ਰਿਹਾ ਹੈ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -828,9 +787,8 @@ msgstr "ਦਸਤਾਵੇਜ਼ ਅਤੇ ਸੈਟਿੰਗਾਂ ਅਾਯਾਤ
 #. Type: text
 #. Description
 #: ../ubiquity.templates:108001
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "ਨੈੱਟਵਰਕ ਸੰਰਚਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -841,16 +799,14 @@ msgstr "ਨੈੱਟਵਰਕ ਸੰਰਚਿਤ ਕੀਤਾ ਜਾ ਰਿਹ�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
 msgid "Setting computer name..."
-msgstr "ਫਰੇਮ ਰਾਖਵਾਂ ਸਥਾਪਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "ਨੈੱਟਵਰਕ ਸੰਰਚਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -867,9 +823,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:114001
-#, fuzzy
 msgid "Removing extra packages..."
-msgstr "ਵਾਧੂ ਪੈਕੇਜ ਇੰਸਟਾਲ ਕਰ ਰਹੇ ਹਨ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -898,16 +853,14 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:120001
-#, fuzzy
 msgid "Error installing ${PACKAGE}"
-msgstr "${BOOTDEV} ਵਿੱਚ GRUB ਇੰਸਟਾਲ ਕਰਨ ਲਈ ਅਸਮਰਥ"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:121001
-#, fuzzy
 msgid "Error removing ${PACKAGE}"
-msgstr "${PACKAGE} ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਹੋ ਰਹੀ ਹੈ"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -965,9 +918,8 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:127001
-#, fuzzy
 msgid "Installing language packs"
-msgstr "ਮੁੱਖ ਪੈਕੇਜ ਇੰਸਟਾਲ ਹੋ ਰਹੇ ਹਨ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1090,9 +1042,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਸਮਾਪਤ ਹੋਈ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1539,23 +1490,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "ਨੈੱਟਵਰਕ ਸੰਰਚਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "ਨੈੱਟਵਰਕ ਸੰਰਚਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:79001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "ਨੈੱਟਵਰਕ ਸੰਰਚਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
+msgstr ""
 
 #. Type: text
 #. Description

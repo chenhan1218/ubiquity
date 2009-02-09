@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-11 22:23+0000\n"
-"Last-Translator: Kamil Páral <ripper42@gmail.com>\n"
+"PO-Revision-Date: 2009-01-09 17:32+0000\n"
+"Last-Translator: Miroslav Kure <kurem@debian.cz>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:57+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:59+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -155,9 +155,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "Zvolený region:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -248,9 +247,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
 msgid "Migrate documents and settings"
-msgstr "Migrovat Dokumenty a Nastavení"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -336,16 +334,14 @@ msgstr "Krok ${INDEX} z ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "Přerušit instalaci?"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "Chcete ukončit instalaci?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -578,9 +574,8 @@ msgstr "Zúčastnit se průzkumu používání balíků"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
 msgid "Network proxy"
-msgstr "Síťová proxy"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -623,14 +618,10 @@ msgstr "Pokračovat"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Instalace úspěšně dokončena. Pro použití nové instalace je potřeba "
-"restartovat počítač. I nadále můžete používat toto živé CD, ale jakékoliv "
-"změny, které provedete, nebo dokumenty, které vytvoříte, nebudou zachovány."
 
 #. Type: note
 #. Description
@@ -701,9 +692,8 @@ msgstr "Kopírují se soubory (zbývá méně než minuta)..."
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "Instalace je kompletní"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -721,42 +711,29 @@ msgstr "Při kopírování souborů na pevný disk oznámil instalátor chybu:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:95001
-#, fuzzy
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"K této chybě došlo z důvodu nedostatku místa potřebného k dokončení "
-"instalace na cílovém oddílu disku. Spusťe prosím instalátor znovu a pro "
-"instalaci zvolte větší oddíl."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Chyba, ke které došlo, je často způsobena vadným CD/DVD diskem nebo "
-"mechanikou. Zkuste CD/DVD vyčistit, vypálit je při nižší rychlosti, nebo "
-"vyčistit čtecí optiku CD/DVD mechaniky (čisticí soubravy bývají dostupné v "
-"obchodech s elektronikou)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:97001
-#, fuzzy
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Chyba, ke které došlo, je často způsobena vadným pevným diskem. Zkuste "
-"zkontrolovat, zda pevný disk není starý a nepotřebuje výměnu, nebo zkuste "
-"přemístit počítač do chladnějšího prostředí."
 
 #. Type: error
 #. Description
@@ -767,7 +744,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:98001 ../ubiquity.templates:99001
-#, fuzzy
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -775,12 +751,6 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Chyba, ke které došlo, je často způsobena vadným CD/DVD diskem, mechanikou "
-"či vadným pevným diskem. Zkuste CD/DVD vyčistit, vypálit je při nižší "
-"rychlosti, nebo vyčistit čtecí optiku CD/DVD mechaniky (čisticí soubravy "
-"bývají dostupné v obchodech s elektronikou). Také ověřte, zda pevný disk "
-"není starý a nepotřebuje výměnu, nebo zkuste přemístit počítač do "
-"chladnějšího prostředí."
 
 #. Type: select
 #. Description
@@ -1017,20 +987,16 @@ msgstr "Chcete, aby instalátor zkusil znovu odpojit tyto oddíly?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:140001
-#, fuzzy
 msgid "Do you want to return to the partitioner?"
-msgstr "Chcete se vrátit zpět k nástroji na dělení disku?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:140001
-#, fuzzy
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
-"Některé vámi vytvořené oddíly jsou příliš malé. Upravte prosím následující "
-"oddíly minimálně na tuto velikost (v bytech):"
 
 #. Type: boolean
 #. Description

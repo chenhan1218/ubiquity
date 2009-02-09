@@ -7,171 +7,142 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-01-28 16:59+0000\n"
-"PO-Revision-Date: 2008-04-08 13:43+0000\n"
+"PO-Revision-Date: 2009-01-10 06:18+0000\n"
 "Last-Translator: Mouhamadou Mamoune Mbacke <Unknown>\n"
-"Language-Team: Wolof <debian-boot@lists.debian.org>\n"
+"Language-Team: Wolof\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-21 21:58+0000\n"
+"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #. This is used as a window title.
 #: ../ubiquity.templates:2001
-#, fuzzy
 msgid "Install"
-msgstr "santie jumtukay bi"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "santie jumtukay bi (diaye kat ordinateur bi)"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
-#, fuzzy
 msgid "Welcome"
-msgstr "dalal ak jamm"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
-#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"bo bëgg santie jumtukay bi , ay laaj cu tuuti doy na ngir santie lii ci biir "
-"CD bi . su noppe jumtukay bi di na dox gënnë gaaw ba noppi du soxla CD bi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
-#, fuzzy
 msgid "Answering the questions should only take a few minutes."
-msgstr "tontu ci laaj yi du yaag"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
-#, fuzzy
 msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
-"tannal làkk bi ga bëgg njariño ci santie bi , làkk bo bu moom la jumtukay bi "
-"di melo ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
-#, fuzzy
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"ya gi njariño santie bii di ngiir jaaykatu ordinateur bi .niou gi lay digal "
-"ga bind tur ngiir xame say jumtukay.tur bi di nañ ko jox jumtukay gi ba "
-"noppi moom lay njariño ngiir yonne ay bataxal jafe-jafe"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:7001
-#, fuzzy
 msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
-"so ame internet , setal xabaar yi giir mën am ay leral ci say jafe-jafe"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:8001
-#, fuzzy
 msgid "Release Notes"
-msgstr "xabaar yu takku"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:9001
-#, fuzzy
 msgid "Where are you?"
-msgstr "fan ga nekk"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-#, fuzzy
 msgid ""
 "Select a city in your country and time zone. If the indicated current time "
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
-"tannal tax ci sa biir dëkk ak waxtu bi .su nekke waxtu bi baxul mënn ga ko "
-"defar bou santie noppe."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid "Selected city:"
-msgstr "Goxu waxtu yiñu tann"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
-#, fuzzy
 msgid "Time zone:"
-msgstr "bokk waxtu"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:13001
-#, fuzzy
 msgid "Selected region:"
-msgstr "dëkk bi ga tann"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
-#, fuzzy
 msgid "Current time:"
-msgstr "waxtu bi jot"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
-#, fuzzy
 msgid "Keyboard layout"
-msgstr "Tannal tërëliinu tablocaabi bi"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
-#, fuzzy
 msgid "Which layout is most similar to your keyboard?"
-msgstr "bann ci yii moo gënnë mengo ak sa bindoukay"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
-#, fuzzy
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "bu la nexe bind fii ngiir xool ndax baxna"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "dëkk bi ga tann"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -182,23 +153,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
-#, fuzzy
 msgid "Who are you?"
-msgstr "yaw yaye kan"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
-#, fuzzy
 msgid "What is your name?"
-msgstr "sa tur nakala"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
-#, fuzzy
 msgid "What name do you want to use to log in?"
-msgstr "bann tur ga bëgg njariño"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -293,16 +261,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid "How do you want to partition the disk?"
-msgstr "Ndax bëgg ngaa tambulewaat a partisoŋ?"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
-#, fuzzy
 msgid "Prepare partitions"
-msgstr "Sos partisoŋ bu bee"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -310,9 +276,8 @@ msgstr "Sos partisoŋ bu bee"
 #. Description
 #: ../ubiquity.templates:37001 ../ubiquity.templates:87001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
 msgid "Ready to install"
-msgstr "kernel bi nuy istale:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -350,16 +315,14 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:43001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "Bayyi istalaasioŋ bi"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "Ndax bëgg ngaa dellu ca menu bu xaajalekaay u disk bi?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -654,9 +617,8 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
 msgid "Installing system"
-msgstr "Istalaasioŋ bi matna"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -667,16 +629,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
-#, fuzzy
 msgid "Scanning files..."
-msgstr "Mi ngi settantal disk yi ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:93001
-#, fuzzy
 msgid "Copying files..."
-msgstr "Mi ngiy kopiye partisoŋ bi..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -697,9 +657,8 @@ msgstr ""
 #: ../ubiquity.templates:95001 ../ubiquity.templates:96001
 #: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "Istalaasioŋ bi matna"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -767,9 +726,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:100001
-#, fuzzy
 msgid "Copying installation logs..."
-msgstr "Mi ngiy kopiye partisoŋ bi..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -780,9 +738,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:102001
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "Mi ngi komfigure resóo bi..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -793,9 +750,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:104001
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "Mi ngi komfigure resóo bi..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -806,9 +762,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:106001
-#, fuzzy
 msgid "Creating user..."
-msgstr "Mi ngi sos fiise yu periferik ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -819,9 +774,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:108001
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "Mi ngi komfigure resóo bi..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -832,16 +786,14 @@ msgstr "Mi ngi komfigure resóo bi..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
 msgid "Setting computer name..."
-msgstr "Mi ngi regle frame buffer..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "Mi ngi komfigure resóo bi..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -858,9 +810,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:114001
-#, fuzzy
 msgid "Removing extra packages..."
-msgstr "Mi ngi istale paket i ndolliit..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -889,16 +840,14 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:120001
-#, fuzzy
 msgid "Error installing ${PACKAGE}"
-msgstr "Manula istale ${PACKAGE}"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:121001
-#, fuzzy
 msgid "Error removing ${PACKAGE}"
-msgstr "Mi ngi jël ${PACKAGE}"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -956,9 +905,8 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:127001
-#, fuzzy
 msgid "Installing language packs"
-msgstr "Mi ngi istale paket yi ëppu solo"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1081,9 +1029,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "Istalaasioŋ bi matna"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1530,23 +1477,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "Mi ngi komfigure resóo bi..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "Mi ngi komfigure resóo bi..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:79001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "Mi ngi komfigure resóo bi..."
+msgstr ""
 
 #. Type: text
 #. Description
