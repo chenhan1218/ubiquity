@@ -25,6 +25,7 @@ import gtk
 from gtk import gdk
 import gobject
 import os
+import datetime
 
 from numpy import array
 # FIXME: Use the proper 40 time zones:
@@ -77,6 +78,8 @@ class TimezoneMap(gtk.Widget):
             'time_zones_colorcodes.png'))
         self.connect('motion-notify-event', self.motion_notify)
         self.connect('button-press-event', self.button_press)
+        self.connect('map-event', self.mapped)
+        self.connect('unmap-event', self.unmapped)
         self.previous_color = None
         self.highlights = rsvg.Handle(os.path.join(self.image_path,
             'time_zones_highlights.svg'))
@@ -84,6 +87,7 @@ class TimezoneMap(gtk.Widget):
         self.selected_offset = None
 
         self.selected = None
+        self.update_timeout = None
         
     def do_size_allocate(self, allocation):
         self.background = self.orig_background.scale_simple(allocation.width,
@@ -145,7 +149,15 @@ class TimezoneMap(gtk.Widget):
             self.cr.line_to(pointx + 3, pointy + 3)
             self.cr.move_to(pointx + 3, pointy - 3)
             self.cr.line_to(pointx - 3, pointy + 3)
+            if self.selected and loc.zone == self.selected:
+                now = datetime.datetime.now(loc.info)
+                time_text = now.strftime('%X')
+                xbearing, ybearing, width, height, xadvance, yadvance = \
+                    self.cr.text_extents(time_text)
+                self.cr.move_to(pointx + 4, pointy + 4 + height)
+                self.cr.show_text(time_text)
             self.cr.stroke()
+
         
         # Render highlight.
         w = float(self.allocation.width) / self.highlights.props.width
@@ -155,7 +167,18 @@ class TimezoneMap(gtk.Widget):
         
         if self.selected_offset != None:
             self.highlights.render_cairo(cr=self.cr, id='#%s' % self.selected_offset)
+    def timeout(self):
+        self.queue_draw()
+        return True
+    
+    def mapped(self, widget, event):
+        if self.update_timeout is None:
+            self.update_timeout = gobject.timeout_add(1000, self.timeout)
 
+    def unmapped(self, widget, event):
+        if self.update_timeout is not None:
+            gobject.source_remove(self.update_timeout)
+            self.update_timeout = None
     def select_city(self, city):
         self.selected = city
         for loc in self.tzdb.locations:
