@@ -58,11 +58,11 @@ _Description:
 
 Template: ubiquity/text/timezone_city_label
 Type: text
-_Description: Selected city:
+_Description: City:
 
 Template: ubiquity/text/timezone_zone_label
 Type: text
-_Description: Selected region:
+_Description: Region:
 
 Template: ubiquity/text/timezone_country_label
 Type: text
