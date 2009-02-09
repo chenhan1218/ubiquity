@@ -17,6 +17,13 @@ ubiquity (1.11.7) UNRELEASED; urgency=low
     partman-commit as well as partman (LP: #324976).
   * Update translations from Launchpad.
 
+  [ Evan Dandrea ]
+  * Replace the previous iteration of the timezone map (zoommap) with a new
+    version (timezone_map) that should be easier to use, in accordance with the
+    JauntyUbiquityUsability specification.
+  * Use wrap_label, a replacement for GtkLabel from libview that does
+    height-for-width text wrapping to work around bgo 101968.
+
  -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 03 Feb 2009 16:31:27 -0600
 
 ubiquity (1.11.6) jaunty; urgency=low
