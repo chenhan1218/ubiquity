@@ -111,6 +111,8 @@ class TimezoneMap(gtk.Widget):
         self.style.attach(self.window)
         self.style.set_background(self.window, gtk.STATE_NORMAL)
         self.window.move_resize(*self.allocation)
+        cursor = gtk.gdk.Cursor(gtk.gdk.HAND2)
+        self.window.set_cursor(cursor)
 
     def do_expose_event(self, event):
         self.cr = self.window.cairo_create()
@@ -151,9 +153,7 @@ class TimezoneMap(gtk.Widget):
         self.cr = self.window.cairo_create()
         self.cr.scale(w, h)
         
-        if self.offset != None:
-            self.highlights.render_cairo(cr=self.cr, id='#%s' % self.offset)
-        if self.selected_offset != None and self.selected_offset != self.offset:
+        if self.selected_offset != None:
             self.highlights.render_cairo(cr=self.cr, id='#%s' % self.selected_offset)
 
     def select_city(self, city):
