@@ -23,6 +23,7 @@ ubiquity (1.11.7) UNRELEASED; urgency=low
     JauntyUbiquityUsability specification.
   * Use wrap_label, a replacement for GtkLabel from libview that does
     height-for-width text wrapping to work around bgo 101968.
+  * Remove some unnecessary GtkAlignments.
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 03 Feb 2009 16:31:27 -0600
 
