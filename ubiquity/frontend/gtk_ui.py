@@ -1853,12 +1853,12 @@ class Wizard(BaseFrontend):
         # question is going to be asked.
 
         if partition['parted']['type'] == 'pri/log':
-            # Is there already a primary or an extended partition?
+            # Is there already a primary partition?
             model = self.partition_list_treeview.get_model()
             for otherpart in [row[1] for row in model]:
                 if (otherpart['dev'] == partition['dev'] and
                     'id' in otherpart and
-                    otherpart['parted']['type'] in ('primary', 'logical')):
+                    otherpart['parted']['type'] == 'primary'):
                     self.partition_create_type_logical.set_active(True)
                     break
             else:
