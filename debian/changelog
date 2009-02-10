@@ -31,6 +31,9 @@ ubiquity (1.11.7) UNRELEASED; urgency=low
   * Use wrap_label, a replacement for GtkLabel from libview that does
     height-for-width text wrapping to work around bgo 101968.
   * Remove some unnecessary GtkAlignments.
+  * Automatic update of included source packages: partman-auto
+    83ubuntu3, partman-base 128ubuntu6, partman-partitioning 64ubuntu3,
+    partman-target 58ubuntu3, user-setup 1.23ubuntu10.
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 03 Feb 2009 16:31:27 -0600
 
