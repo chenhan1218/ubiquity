@@ -64,7 +64,6 @@ ParentFrontend.summary = mythbuntu_install
 
 MYTHPAGES = [
     "mythbuntu_stepCustomInstallType",
-    "tab_themes",
     "mythbuntu_stepServices",
     "mythbuntu_stepPasswords",
     "tab_remote_control",
@@ -116,8 +115,7 @@ class Wizard(ParentFrontend.Wizard):
         self.pages.pop()
 
         #Insert all of our pages
-        for page in [mythbuntu.MythbuntuInstallType,
-            mythbuntu.MythbuntuThemes, mythbuntu.MythbuntuServices,
+        for page in [mythbuntu.MythbuntuInstallType, mythbuntu.MythbuntuServices,
             mythbuntu.MythbuntuPasswords, mythbuntu.MythbuntuRemote,
             mythbuntu.MythbuntuDrivers, mythbuntu_install.Summary]:
             self.pages.append(page)
@@ -144,8 +142,6 @@ class Wizard(ParentFrontend.Wizard):
             cur = self.mythbuntu_stepDrivers
         elif n == 'MythbuntuInstallType':
             cur = self.mythbuntu_stepCustomInstallType
-        elif n == 'MythbuntuThemes':
-            cur = self.tab_themes
         elif n == 'MythbuntuPasswords':
             cur = self.mythbuntu_stepPasswords
             if "Master" not in self.get_installtype():
@@ -284,11 +280,6 @@ class Wizard(ParentFrontend.Wizard):
         else:
             self.master_be_fe.set_active(True)
 
-    def set_themes(self,names):
-        """Preseeds the themes that will be removed"""
-        lists = [get_official_theme_dictionary(self),get_community_theme_dictionary(self)]
-        self._preseed_list(lists,names,False)
-
     def set_service(self,name,value):
         """Preseeds the status of a service"""
         lists = [get_services_dictionary(self),{"x11vnc_password":self.vnc_password}]
@@ -406,13 +397,6 @@ class Wizard(ParentFrontend.Wizard):
                     total_list[item]=list[item].get_active_text()
         return total_list
 
-    def get_themes(self,type):
-        """Returns the status of the theme dictionaries"""
-        if type == 'officialthemes':
-            return self._build_static_list([get_official_theme_dictionary(self)])
-        else:
-            return self._build_static_list([get_community_theme_dictionary(self)])
-
     def get_services(self):
         """Returns the status of all installable services"""
         return self._build_static_list([get_services_dictionary(self),{'x11vnc_password':self.vnc_password}])
@@ -463,21 +447,6 @@ class Wizard(ParentFrontend.Wizard):
 #Toggle functions#
 ##################
 #Called when a widget changes and other GUI elements need to react
-
-    def toggle_meta(self,widget):
-        """Called whenever a request to enable / disable meta pages"""
-        if widget is not None:
-            list = []
-            name = widget.get_name()
-            if (name == 'officialthemes'):
-                list = get_official_theme_dictionary(self)
-            elif (name == 'communitythemes'):
-                list = get_community_theme_dictionary(self)
-
-            toggle = widget.get_active()
-            for item in list:
-                if list[item].flags() & gtk.SENSITIVE:
-                    list[item].set_active(toggle)
 
     def toggle_enablevnc(self,widget):
         """Called when the checkbox to turn on VNC is toggled"""
@@ -575,13 +544,7 @@ class Wizard(ParentFrontend.Wizard):
                 self.mythweb_expander.hide()
                 self.mysql_server_expander.hide()
 
-        def set_all_themes(self,enable):
-            """Enables all themes for defaults"""
-            self.communitythemes.set_active(enable)
-            self.officialthemes.set_active(enable)
-
         if self.master_be_fe.get_active():
-            set_all_themes(self,True)
             set_all_passwords(self,True)
             set_all_services(self,True)
             self.enablessh.set_active(True)
@@ -590,7 +553,6 @@ class Wizard(ParentFrontend.Wizard):
             set_fe_drivers(self,True)
             set_be_drivers(self,True)
         elif self.slave_be_fe.get_active():
-            set_all_themes(self,True)
             set_all_services(self,True)
             set_all_passwords(self,True)
             self.enablessh.set_active(True)
@@ -600,7 +562,6 @@ class Wizard(ParentFrontend.Wizard):
             set_fe_drivers(self,True)
             set_be_drivers(self,True)
         elif self.master_be.get_active():
-            set_all_themes(self,False)
             set_all_services(self,True)
             set_all_passwords(self,True)
             self.enablessh.set_active(True)
@@ -609,7 +570,6 @@ class Wizard(ParentFrontend.Wizard):
             set_fe_drivers(self,False)
             set_be_drivers(self,True)
         elif self.slave_be.get_active():
-            set_all_themes(self,False)
             set_all_services(self,True)
             set_all_passwords(self,True)
             self.enablessh.set_active(True)
@@ -619,7 +579,6 @@ class Wizard(ParentFrontend.Wizard):
             set_fe_drivers(self,False)
             set_be_drivers(self,True)
         else:
-            set_all_themes(self,True)
             set_all_services(self,True)
             set_all_passwords(self,True)
             self.enablessh.set_active(True)

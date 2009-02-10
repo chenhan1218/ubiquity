@@ -80,24 +80,6 @@ _Description:
  A frontend only machine's main function is to receive media content from the backend
  and distribute it.  This configuration requires an existing backend on the network.
 
-Template: ubiquity/text/theme_heading_label
-Type: text
-_Description: Choose Extra Themes
-
-Template: ubiquity/text/theme_description
-Type: text
-_Description:
- Themes can greatly improve the aesthetic appeal of a MythTV
- setup, and display it to match your tastes much better.
-
-Template: ubiquity/text/officialthemes
-Type: text
-_Description: Enable/Disable All
-
-Template: ubiquity/text/communitythemes
-Type: text
-_Description: Enable/Disable All
-
 Template: ubiquity/text/driver_heading_label
 Type: text
 _Description: Additional Drivers/Firmware
@@ -200,14 +182,6 @@ _Description: Configuring infrared devices...
 Template: mythbuntu/install_type
 Type: string
 Description: for internal use; determines install type
-
-Template: mythbuntu/officialthemes
-Type: string
-Description: for internal use; determines if themes are installed
-
-Template: mythbuntu/communitythemes
-Type: string
-Description: for internal use; determines if themes are installed
 
 Template: mythbuntu/video_driver
 Type: string

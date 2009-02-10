@@ -340,6 +340,7 @@ class Install(ParentInstall):
             patternline += "|^mytharchive|^ffmpeg|^genisoimage|^dvdauthor|^mjpegtools|^dvd+rw-tools|^python-imaging|^python-mysqldb"
             patternline += "|^mythvideo|^libwww-perl|^libxml-simple-perl" #mythvideo
             patternline += "|^mythweather" #mythweather
+            patternline += "|^mythtv-theme" #themes
         elif self.type == "Slave Backend":
             patternline += "|^mythtv-backend-master|^mythtv-database|^mysql-server-5.0|^mythtv-frontend|^mythtv\ "
             patternline += "|^mythmusic|^fftw2|^libcdaudio1|^libfaad2-0|^libflac8" #mythmusic
@@ -350,19 +351,10 @@ class Install(ParentInstall):
             patternline += "|^mytharchive|^ffmpeg|^genisoimage|^dvdauthor|^mjpegtools|^dvd+rw-tools|^python-imaging|^python-mysqldb"
             patternline += "|^mythweather" #mythweather
             patternline += "|^apache2|^libapache2|^php|^mythweb" #mythweb
+            patternline += "|^mythtv-theme" #themes
         elif self.type == "Frontend":
             patternline += "|^mythtv-backend-master|^mythtv-database|^mythtv-backend|^mysql-server-5.0|^mysql-server|^mythtv\ "
             patternline += "|^apache2|^libapache2|^php|^mythweb" #mythweb
-        official = self.db.get('mythbuntu/officialthemes')
-        if official != "":
-            for theme in string.split(official," "):
-                if theme != "":
-                    patternline += "|^" + theme
-        community = self.db.get('mythbuntu/communitythemes')
-        if community != "":
-            for theme in string.split(community," "):
-                if theme != "":
-                    patternline += "|^" + theme
         samba = self.db.get('mythbuntu/samba')
         if samba == "false":
             patternline += "|^samba|^samba-common|^smbfs"

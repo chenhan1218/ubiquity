@@ -41,33 +41,6 @@ class MythbuntuInstallType(FilteredCommand):
         self.preseed('mythbuntu/' + self.questions[0],self.frontend.get_installtype())
         FilteredCommand.ok_handler(self)
 
-class MythbuntuThemes(FilteredCommand):
-#since all themes are pre-installed, we are seeding the ones
-#that will be *removed*
-
-    def __init__(self,frontend,db=None):
-        self.themes = ['officialthemes', 'communitythemes']
-        FilteredCommand.__init__(self,frontend,db)
-
-    def prepare(self):
-        questions = []
-        for type in self.themes:
-            answers = self.db.get('mythbuntu/' + type)
-            if answers != '':
-                self.frontend.set_themes(answers)
-            questions.append('^mythbuntu/' + type)
-        return (['/usr/share/ubiquity/ask-themes'], questions)
-
-    def ok_handler(self):
-        for type in self.themes:
-            theme_string=""
-            dictionary = self.frontend.get_themes(type)
-            for theme in dictionary:
-                if not dictionary[theme]:
-                    theme_string+=theme + " "
-            self.preseed('mythbuntu/' + type, theme_string)
-        FilteredCommand.ok_handler(self)
-
 class MythbuntuServices(FilteredCommand):
 #we are seeding the status of each service
 
