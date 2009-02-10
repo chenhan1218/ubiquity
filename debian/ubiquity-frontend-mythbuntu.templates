@@ -29,10 +29,6 @@ Template: ubiquity/text/custominstall_type_label
 Type: text
 _Description: What type of system will this be?
 
-Template: ubiquity/text/custominstall_type_label
-Type: text
-_Description: What type of system will this be?
-
 Template: ubiquity/text/master_be_fe
 Type: text
 _Description: Primary Backend w/ Frontend
