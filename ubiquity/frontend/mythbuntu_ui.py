@@ -64,7 +64,6 @@ ParentFrontend.summary = mythbuntu_install
 
 MYTHPAGES = [
     "mythbuntu_stepCustomInstallType",
-    "mythbuntu_stepPlugins",
     "tab_themes",
     "mythbuntu_stepServices",
     "mythbuntu_stepPasswords",
@@ -117,7 +116,7 @@ class Wizard(ParentFrontend.Wizard):
         self.pages.pop()
 
         #Insert all of our pages
-        for page in [mythbuntu.MythbuntuInstallType, mythbuntu.MythbuntuPlugins,
+        for page in [mythbuntu.MythbuntuInstallType,
             mythbuntu.MythbuntuThemes, mythbuntu.MythbuntuServices,
             mythbuntu.MythbuntuPasswords, mythbuntu.MythbuntuRemote,
             mythbuntu.MythbuntuDrivers, mythbuntu_install.Summary]:
@@ -145,8 +144,6 @@ class Wizard(ParentFrontend.Wizard):
             cur = self.mythbuntu_stepDrivers
         elif n == 'MythbuntuInstallType':
             cur = self.mythbuntu_stepCustomInstallType
-        elif n == 'MythbuntuPlugins':
-            cur = self.mythbuntu_stepPlugins
         elif n == 'MythbuntuThemes':
             cur = self.tab_themes
         elif n == 'MythbuntuPasswords':
@@ -292,11 +289,6 @@ class Wizard(ParentFrontend.Wizard):
         lists = [get_official_theme_dictionary(self),get_community_theme_dictionary(self)]
         self._preseed_list(lists,names,False)
 
-    def set_plugin(self,name,value):
-        """Preseeds the status of a plugin"""
-        lists = [get_frontend_plugin_dictionary(self),get_backend_plugin_dictionary(self)]
-        self._preseed_list(lists,name,value)
-
     def set_service(self,name,value):
         """Preseeds the status of a service"""
         lists = [get_services_dictionary(self),{"x11vnc_password":self.vnc_password}]
@@ -414,10 +406,6 @@ class Wizard(ParentFrontend.Wizard):
                     total_list[item]=list[item].get_active_text()
         return total_list
 
-    def get_plugins(self):
-        """Returns the status of all the plugins"""
-        return self._build_static_list([get_frontend_plugin_dictionary(self),get_backend_plugin_dictionary(self)])
-
     def get_themes(self,type):
         """Returns the status of the theme dictionaries"""
         if type == 'officialthemes':
@@ -485,10 +473,6 @@ class Wizard(ParentFrontend.Wizard):
                 list = get_official_theme_dictionary(self)
             elif (name == 'communitythemes'):
                 list = get_community_theme_dictionary(self)
-            elif (name == 'frontendplugins'):
-                list = get_frontend_plugin_dictionary(self)
-            elif (name == 'backendplugins'):
-                list = get_backend_plugin_dictionary(self)
 
             toggle = widget.get_active()
             for item in list:
@@ -596,89 +580,52 @@ class Wizard(ParentFrontend.Wizard):
             self.communitythemes.set_active(enable)
             self.officialthemes.set_active(enable)
 
-        def set_all_fe_plugins(self,enable):
-            """ Enables all frontend plugins for defaults"""
-            list = get_frontend_plugin_dictionary(self)
-            for item in list:
-                list[item].set_active(enable)
-
-        def set_all_be_plugins(self,enable):
-            """ Enables all backend plugins for defaults"""
-            list = get_backend_plugin_dictionary(self)
-            for item in list:
-                list[item].set_active(enable)
-
         if self.master_be_fe.get_active():
             set_all_themes(self,True)
-            set_all_fe_plugins(self,True)
-            set_all_be_plugins(self,True)
             set_all_passwords(self,True)
             set_all_services(self,True)
             self.enablessh.set_active(True)
             self.enablesamba.set_active(True)
-            self.frontend_plugin_list.show()
-            self.backend_plugin_list.show()
-            self.febe_heading_label.set_label("Choose Frontend / Backend Plugins")
             self.master_backend_expander.hide()
             set_fe_drivers(self,True)
             set_be_drivers(self,True)
         elif self.slave_be_fe.get_active():
             set_all_themes(self,True)
-            set_all_fe_plugins(self,True)
-            set_all_be_plugins(self,True)
             set_all_services(self,True)
             set_all_passwords(self,True)
             self.enablessh.set_active(True)
             self.enablesamba.set_active(True)
-            self.frontend_plugin_list.show()
-            self.backend_plugin_list.show()
-            self.febe_heading_label.set_label("Choose Frontend / Backend Plugins")
             self.mysql_server_expander.hide()
             self.mysql_option_hbox.hide()
             set_fe_drivers(self,True)
             set_be_drivers(self,True)
         elif self.master_be.get_active():
             set_all_themes(self,False)
-            set_all_fe_plugins(self,False)
-            set_all_be_plugins(self,True)
             set_all_services(self,True)
             set_all_passwords(self,True)
             self.enablessh.set_active(True)
             self.enablesamba.set_active(True)
-            self.frontend_plugin_list.hide()
-            self.backend_plugin_list.show()
-            self.febe_heading_label.set_label("Choose Backend Plugins")
             self.master_backend_expander.hide()
             set_fe_drivers(self,False)
             set_be_drivers(self,True)
         elif self.slave_be.get_active():
             set_all_themes(self,False)
-            set_all_fe_plugins(self,False)
-            set_all_be_plugins(self,True)
             set_all_services(self,True)
             set_all_passwords(self,True)
             self.enablessh.set_active(True)
             self.enablesamba.set_active(True)
-            self.frontend_plugin_list.hide()
-            self.backend_plugin_list.show()
-            self.febe_heading_label.set_label("Choose Backend Plugins")
             self.mysql_server_expander.hide()
             self.mysql_option_hbox.hide()
             set_fe_drivers(self,False)
             set_be_drivers(self,True)
         else:
             set_all_themes(self,True)
-            set_all_fe_plugins(self,True)
-            set_all_be_plugins(self,False)
             set_all_services(self,True)
             set_all_passwords(self,True)
             self.enablessh.set_active(True)
             self.enablesamba.set_active(False)
             self.enablenfs.set_active(False)
             self.enablemysql.set_active(False)
-            self.frontend_plugin_list.show()
-            self.backend_plugin_list.hide()
-            self.febe_heading_label.set_label("Choose Frontend Plugins")
             self.mythweb_expander.hide()
             self.mysql_server_expander.hide()
             self.mysql_option_hbox.hide()

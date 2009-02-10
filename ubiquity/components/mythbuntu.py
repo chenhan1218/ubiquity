@@ -41,25 +41,6 @@ class MythbuntuInstallType(FilteredCommand):
         self.preseed('mythbuntu/' + self.questions[0],self.frontend.get_installtype())
         FilteredCommand.ok_handler(self)
 
-class MythbuntuPlugins(FilteredCommand):
-#we are seeding the status of each of these plugins, true/false
-
-    def prepare(self):
-        plugins = self.frontend.get_plugins()
-        questions = []
-        for this_plugin in plugins:
-            answer = create_bool(self.db.get('mythbuntu/' + this_plugin))
-            if answer != '' and answer != plugins[this_plugin]:
-                self.frontend.set_plugin(this_plugin,answer)
-            questions.append('^mythbuntu/' + this_plugin)
-        return (['/usr/share/ubiquity/ask-plugins'], questions)
-
-    def ok_handler(self):
-        plugins = self.frontend.get_plugins()
-        for this_plugin in plugins:
-            self.preseed_bool('mythbuntu/' + this_plugin,plugins[this_plugin])
-        FilteredCommand.ok_handler(self)
-
 class MythbuntuThemes(FilteredCommand):
 #since all themes are pre-installed, we are seeding the ones
 #that will be *removed*

@@ -330,54 +330,29 @@ class Install(ParentInstall):
         patternline = "^mythbuntu-live|^expect|^tcl8.4"
         if self.type == "Slave Backend/Frontend":
             patternline += "|^mythtv-backend-master|^mythtv-database|^mysql-server-5.0|^mysql-server|^mythtv\ "
+            patternline += "|^apache2|^libapache2|^php|^mythweb" #mythweb
         elif self.type == "Master Backend":
             patternline += "|^mythtv-frontend|^mythtv\ "
+            patternline += "|^mythmusic|^fftw2|^libcdaudio1|^libfaad2-0|^libflac8" #mythmusic
+            patternline += "|^mythmovies" #mythmovies
+            patternline += "|^mythgallery" #mythgallery
+            patternline += "|^mythcontrols" #mythcontrols
+            patternline += "|^mytharchive|^ffmpeg|^genisoimage|^dvdauthor|^mjpegtools|^dvd+rw-tools|^python-imaging|^python-mysqldb"
+            patternline += "|^mythvideo|^libwww-perl|^libxml-simple-perl" #mythvideo
+            patternline += "|^mythweather" #mythweather
         elif self.type == "Slave Backend":
             patternline += "|^mythtv-backend-master|^mythtv-database|^mysql-server-5.0|^mythtv-frontend|^mythtv\ "
-        elif self.type == "Frontend":
-            patternline += "|^mythtv-backend-master|^mythtv-database|^mythtv-backend|^mysql-server-5.0|^mysql-server|^mythtv\ |^mythtv-status"
-        mytharchive = self.db.get('mythbuntu/mytharchive')
-        if mytharchive == "false":
+            patternline += "|^mythmusic|^fftw2|^libcdaudio1|^libfaad2-0|^libflac8" #mythmusic
+            patternline += "|^mythmovies" #mythmovies
+            patternline += "|^mythgallery" #mythgallery
+            patternline += "|^mythcontrols" #mythcontrols
+            patternline += "|^mythvideo|^libwww-perl|^libxml-simple-perl" #mythvideo
             patternline += "|^mytharchive|^ffmpeg|^genisoimage|^dvdauthor|^mjpegtools|^dvd+rw-tools|^python-imaging|^python-mysqldb"
-        mythbrowser = self.db.get('mythbuntu/mythbrowser')
-        if mythbrowser == "false":
-            patternline += "|^kdelibs4c2a|^mythbrowser"
-        mythcontrols = self.db.get('mythbuntu/mythcontrols')
-        if mythcontrols == "false":
-            patternline += "|^mythcontrols"
-        mythflix = self.db.get('mythbuntu/mythflix')
-        if mythflix == "false":
-            patternline += "|^mythflix"
-        mythgallery = self.db.get('mythbuntu/mythgallery')
-        if mythgallery == "false":
-            patternline += "|^mythgallery"
-        mythgame = self.db.get('mythbuntu/mythgame')
-        if mythgame == "false":
-            patternline += "|^mythgame"
-        mythmovies = self.db.get('mythbuntu/mythmovies')
-        if mythmovies == "false":
-            patternline += "|^mythmovies"
-        mythmusic = self.db.get('mythbuntu/mythmusic')
-        if mythmusic == "false":
-            patternline += "|^mythmusic|^fftw2|^libcdaudio1|^libfaad2-0|^libflac8"
-        mythnews = self.db.get('mythbuntu/mythnews')
-        if mythnews == "false":
-            patternline += "|^mythnews"
-        mythphone = self.db.get('mythbuntu/mythphone')
-        if mythphone == "false":
-            patternline += "|^mythphone"
-        mythstream = self.db.get('mythbuntu/mythstream')
-        if mythstream == "false":
-            patternline += "|^mythstream"
-        mythvideo = self.db.get('mythbuntu/mythvideo')
-        if mythvideo == "false":
-            patternline += "|^mythvideo|^libwww-perl|^libxml-simple-perl"
-        mythweather = self.db.get('mythbuntu/mythweather')
-        if mythweather == "false":
-            patternline += "|^mythweather"
-        mythweb = self.db.get('mythbuntu/mythweb')
-        if mythweb == "false":
-            patternline += "|^apache2|^libapache2|^php|^mythweb"
+            patternline += "|^mythweather" #mythweather
+            patternline += "|^apache2|^libapache2|^php|^mythweb" #mythweb
+        elif self.type == "Frontend":
+            patternline += "|^mythtv-backend-master|^mythtv-database|^mythtv-backend|^mysql-server-5.0|^mysql-server|^mythtv\ "
+            patternline += "|^apache2|^libapache2|^php|^mythweb" #mythweb
         official = self.db.get('mythbuntu/officialthemes')
         if official != "":
             for theme in string.split(official," "):
