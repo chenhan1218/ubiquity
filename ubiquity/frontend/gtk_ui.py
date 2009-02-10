@@ -568,6 +568,9 @@ class Wizard(BaseFrontend):
         region = m[i][0]
         
         i = self.timezone_city_combo.get_active()
+        if i < 0:
+            # There's no selection yet.
+            return
         m = self.timezone_city_combo.get_model()
         city = m[i][0].replace(' ', '_')
         city = region + '/' + city
