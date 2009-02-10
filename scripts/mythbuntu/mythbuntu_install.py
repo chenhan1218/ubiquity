@@ -328,11 +328,11 @@ class Install(ParentInstall):
         out_f = open("/tmp/filesystem.manifest-mythbuntu", 'w')
         in_f = open("/cdrom/casper/filesystem.manifest-desktop")
         patternline = "^mythbuntu-live|^expect|^tcl8.4"
-        if self.type == "Slave Backend/Frontend":
-            patternline += "|^mythtv-backend-master|^mythtv-database|^mysql-server-5.0|^mysql-server|^mythtv\ "
+        if 'Slave' in self.type or self.type == 'Frontend':
+            patternline += "|^mythtv-backend-master|^mythtv-database|^mysql-server-5.0|^mysql-server|^mythtv\ " #mysql server
             patternline += "|^apache2|^libapache2|^php|^mythweb" #mythweb
-        elif self.type == "Master Backend":
-            patternline += "|^mythtv-frontend|^mythtv\ "
+        if 'Frontend' not in self.type:
+            patternline += "|^mythtv-frontend"
             patternline += "|^mythmusic|^fftw2|^libcdaudio1|^libfaad2-0|^libflac8" #mythmusic
             patternline += "|^mythmovies" #mythmovies
             patternline += "|^mythgallery" #mythgallery
@@ -341,20 +341,6 @@ class Install(ParentInstall):
             patternline += "|^mythvideo|^libwww-perl|^libxml-simple-perl" #mythvideo
             patternline += "|^mythweather" #mythweather
             patternline += "|^mythtv-theme" #themes
-        elif self.type == "Slave Backend":
-            patternline += "|^mythtv-backend-master|^mythtv-database|^mysql-server-5.0|^mythtv-frontend|^mythtv\ "
-            patternline += "|^mythmusic|^fftw2|^libcdaudio1|^libfaad2-0|^libflac8" #mythmusic
-            patternline += "|^mythmovies" #mythmovies
-            patternline += "|^mythgallery" #mythgallery
-            patternline += "|^mythcontrols" #mythcontrols
-            patternline += "|^mythvideo|^libwww-perl|^libxml-simple-perl" #mythvideo
-            patternline += "|^mytharchive|^ffmpeg|^genisoimage|^dvdauthor|^mjpegtools|^dvd+rw-tools|^python-imaging|^python-mysqldb"
-            patternline += "|^mythweather" #mythweather
-            patternline += "|^apache2|^libapache2|^php|^mythweb" #mythweb
-            patternline += "|^mythtv-theme" #themes
-        elif self.type == "Frontend":
-            patternline += "|^mythtv-backend-master|^mythtv-database|^mythtv-backend|^mysql-server-5.0|^mysql-server|^mythtv\ "
-            patternline += "|^apache2|^libapache2|^php|^mythweb" #mythweb
         samba = self.db.get('mythbuntu/samba')
         if samba == "false":
             patternline += "|^samba|^samba-common|^smbfs"
@@ -364,9 +350,6 @@ class Install(ParentInstall):
         ssh = self.db.get('mythbuntu/openssh-server')
         if ssh == "false":
             patternline += "|^openssh-server"
-        hdhomerun = self.db.get('mythbuntu/hdhomerun')
-        if hdhomerun == "false":
-            patternline += "|^hdhomerun-config"
         pattern = re.compile(patternline)
         for line in in_f:
             if pattern.search(line) is None:
