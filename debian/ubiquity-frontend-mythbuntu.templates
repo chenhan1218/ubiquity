@@ -341,10 +341,6 @@ Template: ubiquity/install/ir
 Type: text
 _Description: Configuring infrared devices...
 
-Template: mythbuntu/advanced_install
-Type: boolean
-Description: for internal use; determines if this is an advanced install
-
 Template: mythbuntu/install_type
 Type: string
 Description: for internal use; determines install type
