@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-01-28 16:59+0000\n"
+"POT-Creation-Date: 2009-02-10 16:39+0000\n"
 "PO-Revision-Date: 2008-05-20 16:33+0000\n"
 "Last-Translator: daur88 <daur88@inbox.ru>\n"
 "Language-Team: Kazakh\n"
@@ -111,14 +111,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-msgid "Selected city:"
-msgstr "Таңдалған қала:"
+msgid "City:"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
-msgid "Time zone:"
-msgstr "Уақыт белдеуі:"
+msgid "Region:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1103,75 +1103,26 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-msgid "What Type of Installation?"
-msgstr "Орнату түрін таңдаңыз"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:3001
-msgid "Two installation types are available for Mythbuntu:"
-msgstr "Mythbuntu үшін орнатудың екі түрінен таңдауға болады:"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:4001
-msgid "Standard Installation"
-msgstr "Кәдімгі орнату"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:5001
-msgid ""
-"A standard installation will install and configure every option with minimal "
-"user interaction. This will install a backend, frontend, all plugins, and "
-"all themes."
-msgstr ""
-"Кәдімгі орнату кезінде пайдаланушы тарапынан көп әрекет талап етілмейді. "
-"Кәдімгі орнату кезінде орнатушының өзі, баптаушы, барлық плагиндер мен "
-"безендіру тақырыптары орнатылады."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:6001
-msgid "Advanced Installation"
-msgstr "Кеңейтілген орнату"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:7001
-msgid ""
-"An advanced installation can be used to customize what is needed for this "
-"Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
-"machine to an existing MythTV based network."
-msgstr ""
-"Кеңейтілген орнату Mythbuntu жүйесіне қатысты барлық параметрді қолдан "
-"көрсетуге мүмкіндік береді. ЕСКЕРТУ: Mythbuntu жүйесін MythTV негізіндегі "
-"желіге қосу үшін кеңейтілген орнатуды таңдау керек."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:8001
-msgid "Advanced Installation Type"
+#, fuzzy
+#| msgid "Advanced Installation Type"
+msgid "Installation Type"
 msgstr "Кеңейтілген Орнату Түрі"
 
 #. Type: text
 #. Description
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:9001
-#: ../ubiquity-frontend-mythbuntu.templates:10001
+#: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "What type of system will this be?"
 msgstr "Орнатылатын жүйенің түрін таңдаңыз"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:11001
+#: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Primary Backend w/ Frontend"
 msgstr "Негізгі ішкі/графикалық интерфейс"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:12001
+#: ../ubiquity-frontend-mythbuntu.templates:5001
 msgid ""
 "A Backend/frontend combo machine is the most common setup for people wanting "
 "MythTV for HTPC applications. This type of installation is intended for use "
@@ -1182,13 +1133,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:13001
+#: ../ubiquity-frontend-mythbuntu.templates:6001
 msgid "Secondary Backend w/ Frontend"
 msgstr "Қосымша ішкі/графикалық интерфейс"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:14001
+#: ../ubiquity-frontend-mythbuntu.templates:7001
 msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
@@ -1198,13 +1149,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:15001
+#: ../ubiquity-frontend-mythbuntu.templates:8001
 msgid "Primary Backend"
 msgstr "Негізгі ішкі интерфейс"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:16001
+#: ../ubiquity-frontend-mythbuntu.templates:9001
 msgid ""
 "A backend only machine is typically designed to function like an appliance; "
 "requiring very little maintenance.  This is intended to be installed as the "
@@ -1215,13 +1166,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:17001
+#: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "Secondary Backend"
 msgstr "Қосымша ішкі интерфейс"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:18001
+#: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
@@ -1231,13 +1182,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:19001
+#: ../ubiquity-frontend-mythbuntu.templates:12001
 msgid "Frontend"
 msgstr "Графикалық интерфейс"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:20001
+#: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid ""
 "A frontend only machine's main function is to receive media content from the "
 "backend and distribute it.  This configuration requires an existing backend "
@@ -1249,264 +1200,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:21001
-msgid "Choose Frontend / Backend Plugins"
-msgstr "Графикалық және ішкі интерфейс плагинтерін таңдаңыз"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:22001
-msgid ""
-"Plugins can be used to extend MythTV functionality beyond a time shifting TV "
-"solution."
-msgstr "Плагиндер MythTV мүмкіндіктерін арттыру үшін қолданылады."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:23001
-msgid "Backend Plugins"
-msgstr "Ішкі интерфейс плагиндері"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:24001
-msgid "Frontend Plugins"
-msgstr "Графикалық интерфейс плагиндері"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:25001
-msgid "Myth Web"
-msgstr "Myth Web"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:26001
-msgid ""
-"MythWeb provides a web interface which can be used to view listings, "
-"schedule recordings, delete recordings, and search for programs."
-msgstr ""
-"Myth Web - бағдарламалар тізімін қарау, жазу ұйымдастыру және бағдарламалар "
-"табу үшін арналған веб интерфейс."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:27001
-#: ../ubiquity-frontend-mythbuntu.templates:28001
-msgid "Myth Archive"
-msgstr "Myth Архиві"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:29001
-msgid "Myth Browser"
-msgstr "Myth Шолғышы"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:30001
-msgid "Myth Controls"
-msgstr "Myth Басқару"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:31001
-msgid "Myth Movies"
-msgstr "Myth Кино"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:32001
-msgid "Myth Flix"
-msgstr "Myth Flix"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:33001
-msgid "Myth Gallery"
-msgstr "Myth Галерея"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:34001
-msgid "Myth Game"
-msgstr "Myth Ойын"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:35001
-msgid "Myth Music"
-msgstr "Myth Музыка"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:36001
-msgid "Myth News"
-msgstr "Myth Жаңалық"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:37001
-msgid "Myth Phone"
-msgstr "Myth Телефон"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:38001
-msgid "Myth Stream"
-msgstr "Myth Stream"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:39001
-msgid "Myth Video"
-msgstr "Myth Видео"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:40001
-msgid "Myth Weather"
-msgstr "Myth Ауа райы"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:41001
-msgid ""
-"A plugin for MythTV that lets you create DVDs from content on your MythTV "
-"Network."
-msgstr "MythTV арқылы MythTV желісіндегі құрамнан DVD жазуға арналған плагин."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:42001
-#, fuzzy
-#| msgid ""
-#| "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#| "Network."
-msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
-msgstr "MythTV арқылы MythTV желісіндегі құрамнан DVD жазуға арналған плагин."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:43001
-msgid "An integrated web browser plugin for your MythTV system."
-msgstr "MythTV жүйесіне шолғыш мүмкіндігін қосатын арналған плагин."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:44001
-msgid ""
-"External controls for MythTV. This will allow you to modify button mappings "
-"and key bindings."
-msgstr ""
-"MythTV басқаруын өзгертуге және батырма сәйкестігін түзетуге арналған плагин."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:45001
-msgid "Find movies playing in nearby local cinemas"
-msgstr "Жақын жердегі кинотеатрларда көрсетіп жатқан киноны табу"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:46001
-msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr "Netflix жалға беру тізімін қарауға мүмкіндік беретін плагин."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:47001
-msgid "Allows you to visually browse a directory tree containing image files."
-msgstr "Сурет файлдары бар каталогты шолуға арналған плагин."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:48001
-msgid "A frontend to start any emulator or binary that Linux runs."
-msgstr ""
-"Linux орындай алатын эмулятор не екілік файлды жегуге арналан қолданба."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:49001
-msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr "MythTV-мен біріккен аудиоплейер."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:50001
-msgid ""
-"An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
-"favorite news topics."
-msgstr ""
-"MythTV арқылы соңғы RSS форматындағы жаңалықтарды оқуға арналған плагин."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:51001
-msgid ""
-"A phone and videophone capability on MythTV using the standard SIP protocol."
-msgstr ""
-"MythTV ішіне SIP протоколы негізіндегі телефон мен видеофон функциясын "
-"қосуға арналған плагин."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:52001
-msgid "Provides a method to listen to streaming internet radio stations."
-msgstr "Интернетте тарайтын радиостанцияларды тыңдауға арналған плагин."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:53001
-msgid ""
-"Allows you to browse and play video streams, using an external player, from "
-"within the MythTV interface."
-msgstr ""
-"MythTV интерфейсінен сыртқы плейер арқылы видеоағынды шолуға және қарауға "
-"мүмкіндік беретін плагин."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:54001
-msgid "Displays current and forecast weather information within MythTV."
-msgstr "MythTV арқылы ауа райын білуге арналған плагин."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:55001
-msgid "Choose Extra Themes"
-msgstr "Безендірудің қосымша тақырыбын таңдаңыз."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:56001
-msgid ""
-"Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-"display it to match your tastes much better."
-msgstr ""
-"Безендіру тақырыптары MythTV жүйесін өз қалауыңызға сай көркейтуге арналады."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:57001
-#: ../ubiquity-frontend-mythbuntu.templates:58001
-msgid "Enable/Disable All"
-msgstr "Бәрін қосу/өшіру"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:59001
+#: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Additional Drivers/Firmware"
 msgstr "Қосымша драйверлер мен прошивкалар"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:60001
+#: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid ""
 "An open source graphics driver is already enabled and configured for your "
 "installation.  If you would like to use a different graphics driver, you can "
@@ -1519,25 +1219,25 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:61001
+#: ../ubiquity-frontend-mythbuntu.templates:16001
 msgid "Modify Video Driver & Settings"
 msgstr "Видеодрайвер және параметрлер"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:62001
+#: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "If you would like to configure TV-out, choose an option here:"
 msgstr "TV-шығысты баптауды қаласаңыз, мына опциялардан таңдаңыз:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:63001
+#: ../ubiquity-frontend-mythbuntu.templates:18001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 msgstr "TV-шығысты қолданатын болсаңыз, TV стандартты да таңдаңыз:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:64001
+#: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
@@ -1547,50 +1247,50 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:65001
+#: ../ubiquity-frontend-mythbuntu.templates:20001
 msgid "Master Backend Info"
 msgstr "Ішкі интерфейстің негізгісі туралы"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:66001
+#: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
 "Ішкі интерфейстің негізгісімен байланысуға арналған ақпаратты енгізіңіз:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:67001
+#: ../ubiquity-frontend-mythbuntu.templates:22001
 msgid "MySQL Password"
 msgstr "MySQL паролі:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:68001
+#: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "MySQL User Name"
 msgstr "MySQL пайдаланушы аты:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:69001
+#: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "MySQL Database"
 msgstr "MySQL деректер базасы"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:70001
+#: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "MySQL Server"
 msgstr "MySQL сервері"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:71001
+#: ../ubiquity-frontend-mythbuntu.templates:26001
 msgid "Configure Guide Data / Backend"
 msgstr "Ішкі интерфейстің басқару дерегін баптау"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:72001
+#: ../ubiquity-frontend-mythbuntu.templates:27001
 msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
@@ -1600,13 +1300,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:73001
+#: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Click to open the Schedules Direct website"
 msgstr "Schedules Direct веб сайын ашу үшін шертіңіз"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:74001
+#: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid ""
 "Users in North America will need to setup an account with Schedules Direct "
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
@@ -1619,13 +1319,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:75001
+#: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Launch MythTV Setup"
 msgstr "MythTV орнату"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:76001
+#: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid ""
 "After setting up your guide data source, you will need to launch MythTV-"
 "Setup to run the backend configuration for the first time.  You will need to "
@@ -1635,27 +1335,207 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:77001
+#: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Configuring mythtv..."
 msgstr "mythtv баптау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:78001
+#: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring additional drivers..."
 msgstr "Қосымша драйверлерді баптау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:79001
+#: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Configuring additional services..."
 msgstr "Қосымша қызметтерді баптау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:80001
+#: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Configuring infrared devices..."
 msgstr "Инфрақызыл құрылғыларды баптау..."
+
+#~ msgid "Selected city:"
+#~ msgstr "Таңдалған қала:"
+
+#~ msgid "Time zone:"
+#~ msgstr "Уақыт белдеуі:"
+
+#~ msgid "What Type of Installation?"
+#~ msgstr "Орнату түрін таңдаңыз"
+
+#~ msgid "Two installation types are available for Mythbuntu:"
+#~ msgstr "Mythbuntu үшін орнатудың екі түрінен таңдауға болады:"
+
+#~ msgid "Standard Installation"
+#~ msgstr "Кәдімгі орнату"
+
+#~ msgid ""
+#~ "A standard installation will install and configure every option with "
+#~ "minimal user interaction. This will install a backend, frontend, all "
+#~ "plugins, and all themes."
+#~ msgstr ""
+#~ "Кәдімгі орнату кезінде пайдаланушы тарапынан көп әрекет талап етілмейді. "
+#~ "Кәдімгі орнату кезінде орнатушының өзі, баптаушы, барлық плагиндер мен "
+#~ "безендіру тақырыптары орнатылады."
+
+#~ msgid "Advanced Installation"
+#~ msgstr "Кеңейтілген орнату"
+
+#~ msgid ""
+#~ "An advanced installation can be used to customize what is needed for this "
+#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
+#~ "Mythbuntu machine to an existing MythTV based network."
+#~ msgstr ""
+#~ "Кеңейтілген орнату Mythbuntu жүйесіне қатысты барлық параметрді қолдан "
+#~ "көрсетуге мүмкіндік береді. ЕСКЕРТУ: Mythbuntu жүйесін MythTV негізіндегі "
+#~ "желіге қосу үшін кеңейтілген орнатуды таңдау керек."
+
+#~ msgid "Choose Frontend / Backend Plugins"
+#~ msgstr "Графикалық және ішкі интерфейс плагинтерін таңдаңыз"
+
+#~ msgid ""
+#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
+#~ "TV solution."
+#~ msgstr "Плагиндер MythTV мүмкіндіктерін арттыру үшін қолданылады."
+
+#~ msgid "Backend Plugins"
+#~ msgstr "Ішкі интерфейс плагиндері"
+
+#~ msgid "Frontend Plugins"
+#~ msgstr "Графикалық интерфейс плагиндері"
+
+#~ msgid "Myth Web"
+#~ msgstr "Myth Web"
+
+#~ msgid ""
+#~ "MythWeb provides a web interface which can be used to view listings, "
+#~ "schedule recordings, delete recordings, and search for programs."
+#~ msgstr ""
+#~ "Myth Web - бағдарламалар тізімін қарау, жазу ұйымдастыру және "
+#~ "бағдарламалар табу үшін арналған веб интерфейс."
+
+#~ msgid "Myth Archive"
+#~ msgstr "Myth Архиві"
+
+#~ msgid "Myth Browser"
+#~ msgstr "Myth Шолғышы"
+
+#~ msgid "Myth Controls"
+#~ msgstr "Myth Басқару"
+
+#~ msgid "Myth Movies"
+#~ msgstr "Myth Кино"
+
+#~ msgid "Myth Flix"
+#~ msgstr "Myth Flix"
+
+#~ msgid "Myth Gallery"
+#~ msgstr "Myth Галерея"
+
+#~ msgid "Myth Game"
+#~ msgstr "Myth Ойын"
+
+#~ msgid "Myth Music"
+#~ msgstr "Myth Музыка"
+
+#~ msgid "Myth News"
+#~ msgstr "Myth Жаңалық"
+
+#~ msgid "Myth Phone"
+#~ msgstr "Myth Телефон"
+
+#~ msgid "Myth Stream"
+#~ msgstr "Myth Stream"
+
+#~ msgid "Myth Video"
+#~ msgstr "Myth Видео"
+
+#~ msgid "Myth Weather"
+#~ msgstr "Myth Ауа райы"
+
+#~ msgid ""
+#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
+#~ "Network."
+#~ msgstr ""
+#~ "MythTV арқылы MythTV желісіндегі құрамнан DVD жазуға арналған плагин."
+
+#, fuzzy
+#~| msgid ""
+#~| "A plugin for MythTV that lets you create DVDs from content on your "
+#~| "MythTV Network."
+#~ msgid ""
+#~ "A plugin for MythTV that lets you view movie trailers from apple.com."
+#~ msgstr ""
+#~ "MythTV арқылы MythTV желісіндегі құрамнан DVD жазуға арналған плагин."
+
+#~ msgid "An integrated web browser plugin for your MythTV system."
+#~ msgstr "MythTV жүйесіне шолғыш мүмкіндігін қосатын арналған плагин."
+
+#~ msgid ""
+#~ "External controls for MythTV. This will allow you to modify button "
+#~ "mappings and key bindings."
+#~ msgstr ""
+#~ "MythTV басқаруын өзгертуге және батырма сәйкестігін түзетуге арналған "
+#~ "плагин."
+
+#~ msgid "Find movies playing in nearby local cinemas"
+#~ msgstr "Жақын жердегі кинотеатрларда көрсетіп жатқан киноны табу"
+
+#~ msgid "Allows you to monitor your Netflix dvd rental queue."
+#~ msgstr "Netflix жалға беру тізімін қарауға мүмкіндік беретін плагин."
+
+#~ msgid ""
+#~ "Allows you to visually browse a directory tree containing image files."
+#~ msgstr "Сурет файлдары бар каталогты шолуға арналған плагин."
+
+#~ msgid "A frontend to start any emulator or binary that Linux runs."
+#~ msgstr ""
+#~ "Linux орындай алатын эмулятор не екілік файлды жегуге арналан қолданба."
+
+#~ msgid "Provides a digital audio jukebox integrated with MythTV."
+#~ msgstr "MythTV-мен біріккен аудиоплейер."
+
+#~ msgid ""
+#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
+#~ "your favorite news topics."
+#~ msgstr ""
+#~ "MythTV арқылы соңғы RSS форматындағы жаңалықтарды оқуға арналған плагин."
+
+#~ msgid ""
+#~ "A phone and videophone capability on MythTV using the standard SIP "
+#~ "protocol."
+#~ msgstr ""
+#~ "MythTV ішіне SIP протоколы негізіндегі телефон мен видеофон функциясын "
+#~ "қосуға арналған плагин."
+
+#~ msgid "Provides a method to listen to streaming internet radio stations."
+#~ msgstr "Интернетте тарайтын радиостанцияларды тыңдауға арналған плагин."
+
+#~ msgid ""
+#~ "Allows you to browse and play video streams, using an external player, "
+#~ "from within the MythTV interface."
+#~ msgstr ""
+#~ "MythTV интерфейсінен сыртқы плейер арқылы видеоағынды шолуға және қарауға "
+#~ "мүмкіндік беретін плагин."
+
+#~ msgid "Displays current and forecast weather information within MythTV."
+#~ msgstr "MythTV арқылы ауа райын білуге арналған плагин."
+
+#~ msgid "Choose Extra Themes"
+#~ msgstr "Безендірудің қосымша тақырыбын таңдаңыз."
+
+#~ msgid ""
+#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
+#~ "display it to match your tastes much better."
+#~ msgstr ""
+#~ "Безендіру тақырыптары MythTV жүйесін өз қалауыңызға сай көркейтуге "
+#~ "арналады."
+
+#~ msgid "Enable/Disable All"
+#~ msgstr "Бәрін қосу/өшіру"
 
 #~ msgid "Failed to copy files; out of disk space."
 #~ msgstr "Файлдарды көшіруде қате кетті; диск толды."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-01-28 16:59+0000\n"
+"POT-Creation-Date: 2009-02-10 16:39+0000\n"
 "PO-Revision-Date: 2008-10-11 08:44+0000\n"
 "Last-Translator: David Planella <Unknown>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
@@ -113,14 +113,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-msgid "Selected city:"
-msgstr "Ciutat seleccionada:"
+msgid "City:"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
-msgid "Time zone:"
-msgstr "Fus horari:"
+msgid "Region:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1081,75 +1081,26 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-msgid "What Type of Installation?"
-msgstr "Quin tipus d'instal·lació voleu?"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:3001
-msgid "Two installation types are available for Mythbuntu:"
-msgstr "Hi ha dos tipus d'instal·lació disponibles per al Mythbuntu"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:4001
-msgid "Standard Installation"
-msgstr "Instal·lació estàndard"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:5001
-msgid ""
-"A standard installation will install and configure every option with minimal "
-"user interaction. This will install a backend, frontend, all plugins, and "
-"all themes."
-msgstr ""
-"La instal·lació estàndard instal·larà i configurarà cada opció amb la mínima "
-"interacció de l'usuari possible. Això instal·larà un rerefons, un frontal, "
-"tots els connectors, i tots els temes."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:6001
-msgid "Advanced Installation"
-msgstr "Instal·lació avançada"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:7001
-msgid ""
-"An advanced installation can be used to customize what is needed for this "
-"Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
-"machine to an existing MythTV based network."
-msgstr ""
-"La instal·lació avançada permet personalitzar tot el que sigui necessari per "
-"a aquesta instal·lació del Mythbuntu. Nota: si voleu afegir un ordinador "
-"Mythbuntu a una xarxa MythTV existent, aquesta és l'opció que heu de triar."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:8001
-msgid "Advanced Installation Type"
+#, fuzzy
+#| msgid "Advanced Installation Type"
+msgid "Installation Type"
 msgstr "Tipus d'instal·lació avançada"
 
 #. Type: text
 #. Description
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:9001
-#: ../ubiquity-frontend-mythbuntu.templates:10001
+#: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "What type of system will this be?"
 msgstr "Quin tipus de sistema serà aquest?"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:11001
+#: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Primary Backend w/ Frontend"
 msgstr "Rerefons primari amb frontal"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:12001
+#: ../ubiquity-frontend-mythbuntu.templates:5001
 msgid ""
 "A Backend/frontend combo machine is the most common setup for people wanting "
 "MythTV for HTPC applications. This type of installation is intended for use "
@@ -1162,13 +1113,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:13001
+#: ../ubiquity-frontend-mythbuntu.templates:6001
 msgid "Secondary Backend w/ Frontend"
 msgstr "Rerefons secundari amb frontal"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:14001
+#: ../ubiquity-frontend-mythbuntu.templates:7001
 msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
@@ -1178,13 +1129,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:15001
+#: ../ubiquity-frontend-mythbuntu.templates:8001
 msgid "Primary Backend"
 msgstr "Rerefons primari"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:16001
+#: ../ubiquity-frontend-mythbuntu.templates:9001
 msgid ""
 "A backend only machine is typically designed to function like an appliance; "
 "requiring very little maintenance.  This is intended to be installed as the "
@@ -1196,13 +1147,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:17001
+#: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "Secondary Backend"
 msgstr "Rerefons secundari"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:18001
+#: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
@@ -1212,13 +1163,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:19001
+#: ../ubiquity-frontend-mythbuntu.templates:12001
 msgid "Frontend"
 msgstr "Frontal"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:20001
+#: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid ""
 "A frontend only machine's main function is to receive media content from the "
 "backend and distribute it.  This configuration requires an existing backend "
@@ -1230,271 +1181,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:21001
-msgid "Choose Frontend / Backend Plugins"
-msgstr "Trieu els connectors del frontal / rerefons"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:22001
-msgid ""
-"Plugins can be used to extend MythTV functionality beyond a time shifting TV "
-"solution."
-msgstr ""
-"Els connectors es poden utilitzar per a ampliar la funcinalitat del MythTV "
-"més enllà d'una solució de TV de desplaçament de temps"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:23001
-msgid "Backend Plugins"
-msgstr "Connectors del rerefons"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:24001
-msgid "Frontend Plugins"
-msgstr "Connectors del frontal"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:25001
-msgid "Myth Web"
-msgstr "Myth Web"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:26001
-msgid ""
-"MythWeb provides a web interface which can be used to view listings, "
-"schedule recordings, delete recordings, and search for programs."
-msgstr ""
-"El MythWeb proporciona una interfície web per a visualitzar les cartelleres, "
-"planificar i suprimir enregistraments, i cercar programes."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:27001
-#: ../ubiquity-frontend-mythbuntu.templates:28001
-msgid "Myth Archive"
-msgstr "Arxiu del Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:29001
-msgid "Myth Browser"
-msgstr "Navegador del Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:30001
-msgid "Myth Controls"
-msgstr "Controls del Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:31001
-msgid "Myth Movies"
-msgstr "Pel.lícules del Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:32001
-msgid "Myth Flix"
-msgstr "Myth Flix"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:33001
-msgid "Myth Gallery"
-msgstr "Galeria del Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:34001
-msgid "Myth Game"
-msgstr "Jocs del Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:35001
-msgid "Myth Music"
-msgstr "Música del Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:36001
-msgid "Myth News"
-msgstr "Notícies del Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:37001
-msgid "Myth Phone"
-msgstr "Telèfon del Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:38001
-msgid "Myth Stream"
-msgstr "Fluxos del Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:39001
-msgid "Myth Video"
-msgstr "Vídeos del Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:40001
-msgid "Myth Weather"
-msgstr "Informació del temps del Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:41001
-msgid ""
-"A plugin for MythTV that lets you create DVDs from content on your MythTV "
-"Network."
-msgstr ""
-"Un connector per al MythTV que us permet crear DVD a partir dels continguts "
-"de la xarxa MythTV."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:42001
-msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
-msgstr ""
-"Un connector per al MythTV que us permetrà veure avanços de pel·lícules "
-"d'apple.com."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:43001
-msgid "An integrated web browser plugin for your MythTV system."
-msgstr "Un connector de navegador web integrat per al sistema MythTV."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:44001
-msgid ""
-"External controls for MythTV. This will allow you to modify button mappings "
-"and key bindings."
-msgstr ""
-"Controls externs per al MythTV, els quals us permetran modificar els mapes "
-"de botons i les assignacions de tecles."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:45001
-msgid "Find movies playing in nearby local cinemas"
-msgstr "Cerca pel·lícules de la cartellera dels cinemes locals propers"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:46001
-msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr "Permet fer un seguiment de la llista de DVD llogats al NEtflix."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:47001
-msgid "Allows you to visually browse a directory tree containing image files."
-msgstr ""
-"Permet navegar visualment un arbre de directoris que contingui fitxers "
-"d'imatge."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:48001
-msgid "A frontend to start any emulator or binary that Linux runs."
-msgstr ""
-"Un frontal per a iniciar qualsevol emulador o fitxer binary que es pugui "
-"executar en el Linux."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:49001
-msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr "Proporciona una màquina de tocadiscs digital integrada amb el MythTV."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:50001
-msgid ""
-"An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
-"favorite news topics."
-msgstr ""
-"Un connector de lector de canals RSS per al MythTV que us mantindrà informat "
-"de l'actualitat dels vostres temes preferits."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:51001
-msgid ""
-"A phone and videophone capability on MythTV using the standard SIP protocol."
-msgstr ""
-"Un telèfon i videotelèfon al MythTV a través del protocol estàndard SIP."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:52001
-msgid "Provides a method to listen to streaming internet radio stations."
-msgstr "Proporciona un mètode per a escoltar ràdios a Internet."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:53001
-msgid ""
-"Allows you to browse and play video streams, using an external player, from "
-"within the MythTV interface."
-msgstr ""
-"Permet navegar per i reproduir fluxos de vídeo a través d'un reproductor "
-"extern, a través de la interfície del MythTV."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:54001
-msgid "Displays current and forecast weather information within MythTV."
-msgstr "Mostra l'estat del temps i la previsió des del MythTV."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:55001
-msgid "Choose Extra Themes"
-msgstr "Trieu temes addicionals"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:56001
-msgid ""
-"Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-"display it to match your tastes much better."
-msgstr ""
-"Els temes permeten millorar de manera considerable l'aparença estètica del "
-"MythTV i adequar-la al vostres gustos."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:57001
-#: ../ubiquity-frontend-mythbuntu.templates:58001
-msgid "Enable/Disable All"
-msgstr "Habilita-ho/inhabilita-ho tot"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:59001
+#: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Additional Drivers/Firmware"
 msgstr "Controladors/microprogramari addicionals"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:60001
+#: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid ""
 "An open source graphics driver is already enabled and configured for your "
 "installation.  If you would like to use a different graphics driver, you can "
@@ -1509,25 +1202,25 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:61001
+#: ../ubiquity-frontend-mythbuntu.templates:16001
 msgid "Modify Video Driver & Settings"
 msgstr "Modifica el controlador de vídeo i els paràmetres"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:62001
+#: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "If you would like to configure TV-out, choose an option here:"
 msgstr "Si voleu configurar la sortida de TV, trieu una opció aquí:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:63001
+#: ../ubiquity-frontend-mythbuntu.templates:18001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 msgstr "Si heu habilitat la sortide de TV, haureu de triar un estàndard de TV:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:64001
+#: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
@@ -1538,13 +1231,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:65001
+#: ../ubiquity-frontend-mythbuntu.templates:20001
 msgid "Master Backend Info"
 msgstr "Informació del rerefons principal"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:66001
+#: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
 "Introduïu la informació necessària per a contactar amb el vostre rerefons "
@@ -1552,37 +1245,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:67001
+#: ../ubiquity-frontend-mythbuntu.templates:22001
 msgid "MySQL Password"
 msgstr "Contrasenya del MySQL"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:68001
+#: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "MySQL User Name"
 msgstr "Nom d'usuari del MySQL"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:69001
+#: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "MySQL Database"
 msgstr "Database del MySQL"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:70001
+#: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "MySQL Server"
 msgstr "Servidor MySQL"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:71001
+#: ../ubiquity-frontend-mythbuntu.templates:26001
 msgid "Configure Guide Data / Backend"
 msgstr "Configuració de les dades de programació / rerefons"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:72001
+#: ../ubiquity-frontend-mythbuntu.templates:27001
 msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
@@ -1592,13 +1285,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:73001
+#: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Click to open the Schedules Direct website"
 msgstr "Feu clic per a anar al lloc web de l'«Schedules Direct»"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:74001
+#: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid ""
 "Users in North America will need to setup an account with Schedules Direct "
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
@@ -1611,13 +1304,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:75001
+#: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Launch MythTV Setup"
 msgstr "Inicia la configuració del MythTV"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:76001
+#: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid ""
 "After setting up your guide data source, you will need to launch MythTV-"
 "Setup to run the backend configuration for the first time.  You will need to "
@@ -1631,24 +1324,209 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:77001
+#: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Configuring mythtv..."
 msgstr "S'està configurant el MythTV..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:78001
+#: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring additional drivers..."
 msgstr "S'estan configurant els controladors addicionals..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:79001
+#: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Configuring additional services..."
 msgstr "S'estan configurant els serveis addicionals..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:80001
+#: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Configuring infrared devices..."
 msgstr "S'estan configurant els dispositius d'infrarojos"
+
+#~ msgid "Selected city:"
+#~ msgstr "Ciutat seleccionada:"
+
+#~ msgid "Time zone:"
+#~ msgstr "Fus horari:"
+
+#~ msgid "What Type of Installation?"
+#~ msgstr "Quin tipus d'instal·lació voleu?"
+
+#~ msgid "Two installation types are available for Mythbuntu:"
+#~ msgstr "Hi ha dos tipus d'instal·lació disponibles per al Mythbuntu"
+
+#~ msgid "Standard Installation"
+#~ msgstr "Instal·lació estàndard"
+
+#~ msgid ""
+#~ "A standard installation will install and configure every option with "
+#~ "minimal user interaction. This will install a backend, frontend, all "
+#~ "plugins, and all themes."
+#~ msgstr ""
+#~ "La instal·lació estàndard instal·larà i configurarà cada opció amb la "
+#~ "mínima interacció de l'usuari possible. Això instal·larà un rerefons, un "
+#~ "frontal, tots els connectors, i tots els temes."
+
+#~ msgid "Advanced Installation"
+#~ msgstr "Instal·lació avançada"
+
+#~ msgid ""
+#~ "An advanced installation can be used to customize what is needed for this "
+#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
+#~ "Mythbuntu machine to an existing MythTV based network."
+#~ msgstr ""
+#~ "La instal·lació avançada permet personalitzar tot el que sigui necessari "
+#~ "per a aquesta instal·lació del Mythbuntu. Nota: si voleu afegir un "
+#~ "ordinador Mythbuntu a una xarxa MythTV existent, aquesta és l'opció que "
+#~ "heu de triar."
+
+#~ msgid "Choose Frontend / Backend Plugins"
+#~ msgstr "Trieu els connectors del frontal / rerefons"
+
+#~ msgid ""
+#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
+#~ "TV solution."
+#~ msgstr ""
+#~ "Els connectors es poden utilitzar per a ampliar la funcinalitat del "
+#~ "MythTV més enllà d'una solució de TV de desplaçament de temps"
+
+#~ msgid "Backend Plugins"
+#~ msgstr "Connectors del rerefons"
+
+#~ msgid "Frontend Plugins"
+#~ msgstr "Connectors del frontal"
+
+#~ msgid "Myth Web"
+#~ msgstr "Myth Web"
+
+#~ msgid ""
+#~ "MythWeb provides a web interface which can be used to view listings, "
+#~ "schedule recordings, delete recordings, and search for programs."
+#~ msgstr ""
+#~ "El MythWeb proporciona una interfície web per a visualitzar les "
+#~ "cartelleres, planificar i suprimir enregistraments, i cercar programes."
+
+#~ msgid "Myth Archive"
+#~ msgstr "Arxiu del Myth"
+
+#~ msgid "Myth Browser"
+#~ msgstr "Navegador del Myth"
+
+#~ msgid "Myth Controls"
+#~ msgstr "Controls del Myth"
+
+#~ msgid "Myth Movies"
+#~ msgstr "Pel.lícules del Myth"
+
+#~ msgid "Myth Flix"
+#~ msgstr "Myth Flix"
+
+#~ msgid "Myth Gallery"
+#~ msgstr "Galeria del Myth"
+
+#~ msgid "Myth Game"
+#~ msgstr "Jocs del Myth"
+
+#~ msgid "Myth Music"
+#~ msgstr "Música del Myth"
+
+#~ msgid "Myth News"
+#~ msgstr "Notícies del Myth"
+
+#~ msgid "Myth Phone"
+#~ msgstr "Telèfon del Myth"
+
+#~ msgid "Myth Stream"
+#~ msgstr "Fluxos del Myth"
+
+#~ msgid "Myth Video"
+#~ msgstr "Vídeos del Myth"
+
+#~ msgid "Myth Weather"
+#~ msgstr "Informació del temps del Myth"
+
+#~ msgid ""
+#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
+#~ "Network."
+#~ msgstr ""
+#~ "Un connector per al MythTV que us permet crear DVD a partir dels "
+#~ "continguts de la xarxa MythTV."
+
+#~ msgid ""
+#~ "A plugin for MythTV that lets you view movie trailers from apple.com."
+#~ msgstr ""
+#~ "Un connector per al MythTV que us permetrà veure avanços de pel·lícules "
+#~ "d'apple.com."
+
+#~ msgid "An integrated web browser plugin for your MythTV system."
+#~ msgstr "Un connector de navegador web integrat per al sistema MythTV."
+
+#~ msgid ""
+#~ "External controls for MythTV. This will allow you to modify button "
+#~ "mappings and key bindings."
+#~ msgstr ""
+#~ "Controls externs per al MythTV, els quals us permetran modificar els "
+#~ "mapes de botons i les assignacions de tecles."
+
+#~ msgid "Find movies playing in nearby local cinemas"
+#~ msgstr "Cerca pel·lícules de la cartellera dels cinemes locals propers"
+
+#~ msgid "Allows you to monitor your Netflix dvd rental queue."
+#~ msgstr "Permet fer un seguiment de la llista de DVD llogats al NEtflix."
+
+#~ msgid ""
+#~ "Allows you to visually browse a directory tree containing image files."
+#~ msgstr ""
+#~ "Permet navegar visualment un arbre de directoris que contingui fitxers "
+#~ "d'imatge."
+
+#~ msgid "A frontend to start any emulator or binary that Linux runs."
+#~ msgstr ""
+#~ "Un frontal per a iniciar qualsevol emulador o fitxer binary que es pugui "
+#~ "executar en el Linux."
+
+#~ msgid "Provides a digital audio jukebox integrated with MythTV."
+#~ msgstr ""
+#~ "Proporciona una màquina de tocadiscs digital integrada amb el MythTV."
+
+#~ msgid ""
+#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
+#~ "your favorite news topics."
+#~ msgstr ""
+#~ "Un connector de lector de canals RSS per al MythTV que us mantindrà "
+#~ "informat de l'actualitat dels vostres temes preferits."
+
+#~ msgid ""
+#~ "A phone and videophone capability on MythTV using the standard SIP "
+#~ "protocol."
+#~ msgstr ""
+#~ "Un telèfon i videotelèfon al MythTV a través del protocol estàndard SIP."
+
+#~ msgid "Provides a method to listen to streaming internet radio stations."
+#~ msgstr "Proporciona un mètode per a escoltar ràdios a Internet."
+
+#~ msgid ""
+#~ "Allows you to browse and play video streams, using an external player, "
+#~ "from within the MythTV interface."
+#~ msgstr ""
+#~ "Permet navegar per i reproduir fluxos de vídeo a través d'un reproductor "
+#~ "extern, a través de la interfície del MythTV."
+
+#~ msgid "Displays current and forecast weather information within MythTV."
+#~ msgstr "Mostra l'estat del temps i la previsió des del MythTV."
+
+#~ msgid "Choose Extra Themes"
+#~ msgstr "Trieu temes addicionals"
+
+#~ msgid ""
+#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
+#~ "display it to match your tastes much better."
+#~ msgstr ""
+#~ "Els temes permeten millorar de manera considerable l'aparença estètica "
+#~ "del MythTV i adequar-la al vostres gustos."
+
+#~ msgid "Enable/Disable All"
+#~ msgstr "Habilita-ho/inhabilita-ho tot"

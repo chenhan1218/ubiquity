@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-01-28 16:59+0000\n"
+"POT-Creation-Date: 2009-02-10 16:39+0000\n"
 "PO-Revision-Date: 2009-01-10 00:54+0000\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <Unknown>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
@@ -112,14 +112,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-msgid "Selected city:"
-msgstr "Hautatutako hiria:"
+msgid "City:"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
-msgid "Time zone:"
-msgstr "Ordu-zona:"
+msgid "Region:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1060,75 +1060,26 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-msgid "What Type of Installation?"
-msgstr "Zein instalazio-mota?"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:3001
-msgid "Two installation types are available for Mythbuntu:"
-msgstr "Bi instalazio mota daude Mythbuntu-rentzako:"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:4001
-msgid "Standard Installation"
-msgstr "Instalazio estandarra"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:5001
-msgid ""
-"A standard installation will install and configure every option with minimal "
-"user interaction. This will install a backend, frontend, all plugins, and "
-"all themes."
-msgstr ""
-"Instalazio estandar batean, erabiltzaileak ezer eginbeharrik gabe instalatu "
-"eta konfiguratzen dira aukera guztiak: backend, frontend, plugin guztiak eta "
-"gai guztiak."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:6001
-msgid "Advanced Installation"
-msgstr "Instalazio aureratua"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:7001
-msgid ""
-"An advanced installation can be used to customize what is needed for this "
-"Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
-"machine to an existing MythTV based network."
-msgstr ""
-"Instalazio aurreratua erabil dezakezu Mthbuntu honetan instalatu nahi duzuna "
-"pertsonalizatzeko. OHARRA: instalazio aurreratua burutu beharko duzu "
-"Mythbuntu makina berria gehitzeko MythTV-n oinarritutako sare batera."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:8001
-msgid "Advanced Installation Type"
+#, fuzzy
+#| msgid "Advanced Installation Type"
+msgid "Installation Type"
 msgstr "Instalazio-mota aurreratua"
 
 #. Type: text
 #. Description
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:9001
-#: ../ubiquity-frontend-mythbuntu.templates:10001
+#: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "What type of system will this be?"
 msgstr "Zein sistema mota izango da hau?"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:11001
+#: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Primary Backend w/ Frontend"
 msgstr "Backend primarioa, Frontend-duna"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:12001
+#: ../ubiquity-frontend-mythbuntu.templates:5001
 msgid ""
 "A Backend/frontend combo machine is the most common setup for people wanting "
 "MythTV for HTPC applications. This type of installation is intended for use "
@@ -1140,13 +1091,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:13001
+#: ../ubiquity-frontend-mythbuntu.templates:6001
 msgid "Secondary Backend w/ Frontend"
 msgstr "Backend sekundarioa, Frontend-duna"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:14001
+#: ../ubiquity-frontend-mythbuntu.templates:7001
 msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
@@ -1156,13 +1107,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:15001
+#: ../ubiquity-frontend-mythbuntu.templates:8001
 msgid "Primary Backend"
 msgstr "Backend primarioa"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:16001
+#: ../ubiquity-frontend-mythbuntu.templates:9001
 msgid ""
 "A backend only machine is typically designed to function like an appliance; "
 "requiring very little maintenance.  This is intended to be installed as the "
@@ -1174,13 +1125,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:17001
+#: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "Secondary Backend"
 msgstr "Backend sekundarioa"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:18001
+#: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
@@ -1190,13 +1141,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:19001
+#: ../ubiquity-frontend-mythbuntu.templates:12001
 msgid "Frontend"
 msgstr "Frontend"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:20001
+#: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid ""
 "A frontend only machine's main function is to receive media content from the "
 "backend and distribute it.  This configuration requires an existing backend "
@@ -1208,269 +1159,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:21001
-msgid "Choose Frontend / Backend Plugins"
-msgstr "Frontend / Backend plugin-ak hautatu"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:22001
-msgid ""
-"Plugins can be used to extend MythTV functionality beyond a time shifting TV "
-"solution."
-msgstr ""
-"Plugin-ei esker MythTV-ren funtzionalitateak nabarmen hedatu ahalko dituzu "
-"(bideo-grabatzaile batena baino askoz harago)."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:23001
-msgid "Backend Plugins"
-msgstr "Backend Plugin-ak"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:24001
-msgid "Frontend Plugins"
-msgstr "Frontend Plugin-ak"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:25001
-msgid "Myth Web"
-msgstr "Myth Web"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:26001
-msgid ""
-"MythWeb provides a web interface which can be used to view listings, "
-"schedule recordings, delete recordings, and search for programs."
-msgstr ""
-"MythWeb-ek web-interfaze bat eskaintzen dizu, zerrendak ikusteko, grabazioak "
-"programatzeko, grabazioak ezabatzeko, eta programak bilatzeko."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:27001
-#: ../ubiquity-frontend-mythbuntu.templates:28001
-msgid "Myth Archive"
-msgstr "Myth Archive"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:29001
-msgid "Myth Browser"
-msgstr "Myth Browser"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:30001
-msgid "Myth Controls"
-msgstr "Myth kontrolak"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:31001
-msgid "Myth Movies"
-msgstr "Myth Filmak"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:32001
-msgid "Myth Flix"
-msgstr "Myth Flix"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:33001
-msgid "Myth Gallery"
-msgstr "Myth Gallery"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:34001
-msgid "Myth Game"
-msgstr "Myth Game"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:35001
-msgid "Myth Music"
-msgstr "Myth Music"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:36001
-msgid "Myth News"
-msgstr "Myth News"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:37001
-msgid "Myth Phone"
-msgstr "Myth Phone"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:38001
-msgid "Myth Stream"
-msgstr "Myth Stream"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:39001
-msgid "Myth Video"
-msgstr "Myth Video"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:40001
-msgid "Myth Weather"
-msgstr "Myth Weather"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:41001
-msgid ""
-"A plugin for MythTV that lets you create DVDs from content on your MythTV "
-"Network."
-msgstr ""
-"Zure MythTV Sareko edukiak erabiliz DVDak sortzeko aukera ematen dizun "
-"MythTV plugina."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:42001
-msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:43001
-msgid "An integrated web browser plugin for your MythTV system."
-msgstr "Web-arakatzaile integratua zure MythTV sistemarentzat."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:44001
-msgid ""
-"External controls for MythTV. This will allow you to modify button mappings "
-"and key bindings."
-msgstr ""
-"MythTV-rentzako kanpoko kontrolak. Honekin, botoien diseinua eta teklen "
-"funtzioak aldatu ditzakezu."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:45001
-msgid "Find movies playing in nearby local cinemas"
-msgstr "Gertuko zinema lokaletan dauden filmak aurkitu"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:46001
-msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr "Honekin, zure Netflix dvd-alokairu zerrenda gainbegiratu ahalko duzu."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:47001
-msgid "Allows you to visually browse a directory tree containing image files."
-msgstr "Honekin, bisualki arakatu ahalko dituzu irudidun direktorio-zuhaitzak."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:48001
-msgid "A frontend to start any emulator or binary that Linux runs."
-msgstr ""
-"Linux-en erabili daitekeen edozein emuladore edo binario exekutatzeko "
-"interfaza."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:49001
-msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr "MythTV-rekin integratutako audio erreproduzitzaile digitala."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:50001
-msgid ""
-"An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
-"favorite news topics."
-msgstr ""
-"MythTV-rentzako RSS-jario albiste-irakurlea, zure albiste gai gogokoenekin "
-"eguneratuta egon zaitezen."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:51001
-msgid ""
-"A phone and videophone capability on MythTV using the standard SIP protocol."
-msgstr ""
-"Telefono eta bideofono ahalmena gehitzen dizkio MythTV-ri, SIP protokolo "
-"estandarra erabiliz."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:52001
-msgid "Provides a method to listen to streaming internet radio stations."
-msgstr "Interneteko irrati saioak entzuteko modua hornitzen du."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:53001
-msgid ""
-"Allows you to browse and play video streams, using an external player, from "
-"within the MythTV interface."
-msgstr ""
-"Honekin, MythTV interfazea erabili ahalko duzu bideo jarioak arakatu eta "
-"erreproduzitzeko, kanpoko erreproduzitzaile bat erabiliz."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:54001
-msgid "Displays current and forecast weather information within MythTV."
-msgstr ""
-"Honekin, oraingo eguraldia eta iragarritakoa ere ikusiko dituzu MythTV-n."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:55001
-msgid "Choose Extra Themes"
-msgstr "Gai gehigarriak hautatu"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:56001
-msgid ""
-"Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-"display it to match your tastes much better."
-msgstr ""
-"MythTV-ren sentsazio estetikoa ikaragarri hobetu dezakete gaiek, zure "
-"gustoen arabera moldatuz itxura oro."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:57001
-#: ../ubiquity-frontend-mythbuntu.templates:58001
-msgid "Enable/Disable All"
-msgstr "Guztiak gaity/ezgaitu"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:59001
+#: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Additional Drivers/Firmware"
 msgstr "Kontrolatzaile/Firmware gehigarriak"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:60001
+#: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid ""
 "An open source graphics driver is already enabled and configured for your "
 "installation.  If you would like to use a different graphics driver, you can "
@@ -1484,25 +1179,25 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:61001
+#: ../ubiquity-frontend-mythbuntu.templates:16001
 msgid "Modify Video Driver & Settings"
 msgstr "Bideo-kontrolatzailea eta ezarpenak aldatu"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:62001
+#: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "If you would like to configure TV-out, choose an option here:"
 msgstr "TV irteera bat gaitu nahi baduzu, aukera bat hautatu ezazu hemen:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:63001
+#: ../ubiquity-frontend-mythbuntu.templates:18001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 msgstr "Tv irteera bat gaituz gero, TV estandar bat ere hautatu beharko duzu:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:64001
+#: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
@@ -1512,50 +1207,50 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:65001
+#: ../ubiquity-frontend-mythbuntu.templates:20001
 msgid "Master Backend Info"
 msgstr "Backend nagusiaren informazioa"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:66001
+#: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
 "Zure backend nagusiarekin konektatzeko beharrezko informazioa sartu ezazu:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:67001
+#: ../ubiquity-frontend-mythbuntu.templates:22001
 msgid "MySQL Password"
 msgstr "MySQL pasahitza"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:68001
+#: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "MySQL User Name"
 msgstr "MySQL erabiltzaile-izena"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:69001
+#: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "MySQL Database"
 msgstr "MySQL datubasea"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:70001
+#: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "MySQL Server"
 msgstr "MySQL zerbitzaria"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:71001
+#: ../ubiquity-frontend-mythbuntu.templates:26001
 msgid "Configure Guide Data / Backend"
 msgstr "Gidaren datuak / Backend-a konfiguratu"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:72001
+#: ../ubiquity-frontend-mythbuntu.templates:27001
 msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
@@ -1565,13 +1260,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:73001
+#: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Click to open the Schedules Direct website"
 msgstr "Klik egin ezazu Schedules Direct webgunea irekitzeko"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:74001
+#: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid ""
 "Users in North America will need to setup an account with Schedules Direct "
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
@@ -1584,13 +1279,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:75001
+#: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Launch MythTV Setup"
 msgstr "MythTV Setup abiarazi"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:76001
+#: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid ""
 "After setting up your guide data source, you will need to launch MythTV-"
 "Setup to run the backend configuration for the first time.  You will need to "
@@ -1604,24 +1299,203 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:77001
+#: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Configuring mythtv..."
 msgstr "Mythtv konfiguratzen..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:78001
+#: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring additional drivers..."
 msgstr "Kontrolatzaile gehigarriak konfiguratzen..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:79001
+#: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Configuring additional services..."
 msgstr "Zerbitzu gehigarriak konfiguratzen..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:80001
+#: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Configuring infrared devices..."
 msgstr "Gailu infragorriak konfiguratzen..."
+
+#~ msgid "Selected city:"
+#~ msgstr "Hautatutako hiria:"
+
+#~ msgid "Time zone:"
+#~ msgstr "Ordu-zona:"
+
+#~ msgid "What Type of Installation?"
+#~ msgstr "Zein instalazio-mota?"
+
+#~ msgid "Two installation types are available for Mythbuntu:"
+#~ msgstr "Bi instalazio mota daude Mythbuntu-rentzako:"
+
+#~ msgid "Standard Installation"
+#~ msgstr "Instalazio estandarra"
+
+#~ msgid ""
+#~ "A standard installation will install and configure every option with "
+#~ "minimal user interaction. This will install a backend, frontend, all "
+#~ "plugins, and all themes."
+#~ msgstr ""
+#~ "Instalazio estandar batean, erabiltzaileak ezer eginbeharrik gabe "
+#~ "instalatu eta konfiguratzen dira aukera guztiak: backend, frontend, "
+#~ "plugin guztiak eta gai guztiak."
+
+#~ msgid "Advanced Installation"
+#~ msgstr "Instalazio aureratua"
+
+#~ msgid ""
+#~ "An advanced installation can be used to customize what is needed for this "
+#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
+#~ "Mythbuntu machine to an existing MythTV based network."
+#~ msgstr ""
+#~ "Instalazio aurreratua erabil dezakezu Mthbuntu honetan instalatu nahi "
+#~ "duzuna pertsonalizatzeko. OHARRA: instalazio aurreratua burutu beharko "
+#~ "duzu Mythbuntu makina berria gehitzeko MythTV-n oinarritutako sare batera."
+
+#~ msgid "Choose Frontend / Backend Plugins"
+#~ msgstr "Frontend / Backend plugin-ak hautatu"
+
+#~ msgid ""
+#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
+#~ "TV solution."
+#~ msgstr ""
+#~ "Plugin-ei esker MythTV-ren funtzionalitateak nabarmen hedatu ahalko "
+#~ "dituzu (bideo-grabatzaile batena baino askoz harago)."
+
+#~ msgid "Backend Plugins"
+#~ msgstr "Backend Plugin-ak"
+
+#~ msgid "Frontend Plugins"
+#~ msgstr "Frontend Plugin-ak"
+
+#~ msgid "Myth Web"
+#~ msgstr "Myth Web"
+
+#~ msgid ""
+#~ "MythWeb provides a web interface which can be used to view listings, "
+#~ "schedule recordings, delete recordings, and search for programs."
+#~ msgstr ""
+#~ "MythWeb-ek web-interfaze bat eskaintzen dizu, zerrendak ikusteko, "
+#~ "grabazioak programatzeko, grabazioak ezabatzeko, eta programak bilatzeko."
+
+#~ msgid "Myth Archive"
+#~ msgstr "Myth Archive"
+
+#~ msgid "Myth Browser"
+#~ msgstr "Myth Browser"
+
+#~ msgid "Myth Controls"
+#~ msgstr "Myth kontrolak"
+
+#~ msgid "Myth Movies"
+#~ msgstr "Myth Filmak"
+
+#~ msgid "Myth Flix"
+#~ msgstr "Myth Flix"
+
+#~ msgid "Myth Gallery"
+#~ msgstr "Myth Gallery"
+
+#~ msgid "Myth Game"
+#~ msgstr "Myth Game"
+
+#~ msgid "Myth Music"
+#~ msgstr "Myth Music"
+
+#~ msgid "Myth News"
+#~ msgstr "Myth News"
+
+#~ msgid "Myth Phone"
+#~ msgstr "Myth Phone"
+
+#~ msgid "Myth Stream"
+#~ msgstr "Myth Stream"
+
+#~ msgid "Myth Video"
+#~ msgstr "Myth Video"
+
+#~ msgid "Myth Weather"
+#~ msgstr "Myth Weather"
+
+#~ msgid ""
+#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
+#~ "Network."
+#~ msgstr ""
+#~ "Zure MythTV Sareko edukiak erabiliz DVDak sortzeko aukera ematen dizun "
+#~ "MythTV plugina."
+
+#~ msgid "An integrated web browser plugin for your MythTV system."
+#~ msgstr "Web-arakatzaile integratua zure MythTV sistemarentzat."
+
+#~ msgid ""
+#~ "External controls for MythTV. This will allow you to modify button "
+#~ "mappings and key bindings."
+#~ msgstr ""
+#~ "MythTV-rentzako kanpoko kontrolak. Honekin, botoien diseinua eta teklen "
+#~ "funtzioak aldatu ditzakezu."
+
+#~ msgid "Find movies playing in nearby local cinemas"
+#~ msgstr "Gertuko zinema lokaletan dauden filmak aurkitu"
+
+#~ msgid "Allows you to monitor your Netflix dvd rental queue."
+#~ msgstr ""
+#~ "Honekin, zure Netflix dvd-alokairu zerrenda gainbegiratu ahalko duzu."
+
+#~ msgid ""
+#~ "Allows you to visually browse a directory tree containing image files."
+#~ msgstr ""
+#~ "Honekin, bisualki arakatu ahalko dituzu irudidun direktorio-zuhaitzak."
+
+#~ msgid "A frontend to start any emulator or binary that Linux runs."
+#~ msgstr ""
+#~ "Linux-en erabili daitekeen edozein emuladore edo binario exekutatzeko "
+#~ "interfaza."
+
+#~ msgid "Provides a digital audio jukebox integrated with MythTV."
+#~ msgstr "MythTV-rekin integratutako audio erreproduzitzaile digitala."
+
+#~ msgid ""
+#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
+#~ "your favorite news topics."
+#~ msgstr ""
+#~ "MythTV-rentzako RSS-jario albiste-irakurlea, zure albiste gai "
+#~ "gogokoenekin eguneratuta egon zaitezen."
+
+#~ msgid ""
+#~ "A phone and videophone capability on MythTV using the standard SIP "
+#~ "protocol."
+#~ msgstr ""
+#~ "Telefono eta bideofono ahalmena gehitzen dizkio MythTV-ri, SIP protokolo "
+#~ "estandarra erabiliz."
+
+#~ msgid "Provides a method to listen to streaming internet radio stations."
+#~ msgstr "Interneteko irrati saioak entzuteko modua hornitzen du."
+
+#~ msgid ""
+#~ "Allows you to browse and play video streams, using an external player, "
+#~ "from within the MythTV interface."
+#~ msgstr ""
+#~ "Honekin, MythTV interfazea erabili ahalko duzu bideo jarioak arakatu eta "
+#~ "erreproduzitzeko, kanpoko erreproduzitzaile bat erabiliz."
+
+#~ msgid "Displays current and forecast weather information within MythTV."
+#~ msgstr ""
+#~ "Honekin, oraingo eguraldia eta iragarritakoa ere ikusiko dituzu MythTV-n."
+
+#~ msgid "Choose Extra Themes"
+#~ msgstr "Gai gehigarriak hautatu"
+
+#~ msgid ""
+#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
+#~ "display it to match your tastes much better."
+#~ msgstr ""
+#~ "MythTV-ren sentsazio estetikoa ikaragarri hobetu dezakete gaiek, zure "
+#~ "gustoen arabera moldatuz itxura oro."
+
+#~ msgid "Enable/Disable All"
+#~ msgstr "Guztiak gaity/ezgaitu"

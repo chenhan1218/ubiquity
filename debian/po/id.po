@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-01-28 16:59+0000\n"
+"POT-Creation-Date: 2009-02-10 16:39+0000\n"
 "PO-Revision-Date: 2009-01-11 07:41+0000\n"
 "Last-Translator: Muhammad Bayu <Unknown>\n"
 "Language-Team: Bahasa Indonesia <debian-l10n-id@gurame.fisika.ui.ac.id>\n"
@@ -112,14 +112,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-msgid "Selected city:"
-msgstr "Kota yang dipilih"
+msgid "City:"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
-msgid "Time zone:"
-msgstr "Zona waktu"
+msgid "Region:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1081,76 +1081,26 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-msgid "What Type of Installation?"
-msgstr "Instalasi Tipe Apa?"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:3001
-msgid "Two installation types are available for Mythbuntu:"
-msgstr "Dua tipe instalasi tersedia bagi Mythbuntu:"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:4001
-msgid "Standard Installation"
-msgstr "Instalasi Standar"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:5001
-msgid ""
-"A standard installation will install and configure every option with minimal "
-"user interaction. This will install a backend, frontend, all plugins, and "
-"all themes."
-msgstr ""
-"Suatu instalasi standar akan memasang dan mengkonfigur setiap opsi dengan "
-"interaksi pemakai minimum. Ini akan memasang sebuah backed, frontend, semua "
-"plugin, dan semua tema."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:6001
-msgid "Advanced Installation"
-msgstr "Instalasi Tingkat Lanjut"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:7001
-msgid ""
-"An advanced installation can be used to customize what is needed for this "
-"Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
-"machine to an existing MythTV based network."
-msgstr ""
-"Suatu instalasi tingkat lanjut dapat dipakai untuk mengkustomisasi apa yang "
-"diperlukan bagi instalasi Mythbuntu ini. CATATAN: Suatu instalasi tingkat "
-"lanjut diperlukan untuk menambahkan sebuah mesin Mythbuntu ke jaringan "
-"berbasis MythTV yang telah ada."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:8001
-msgid "Advanced Installation Type"
+#, fuzzy
+#| msgid "Advanced Installation Type"
+msgid "Installation Type"
 msgstr "Tipe Instalasi Tingkat Lanjut"
 
 #. Type: text
 #. Description
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:9001
-#: ../ubiquity-frontend-mythbuntu.templates:10001
+#: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "What type of system will this be?"
 msgstr "Sistem ini akan bertipe apa?"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:11001
+#: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Primary Backend w/ Frontend"
 msgstr "Backend Utama dgn Frontend"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:12001
+#: ../ubiquity-frontend-mythbuntu.templates:5001
 msgid ""
 "A Backend/frontend combo machine is the most common setup for people wanting "
 "MythTV for HTPC applications. This type of installation is intended for use "
@@ -1162,13 +1112,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:13001
+#: ../ubiquity-frontend-mythbuntu.templates:6001
 msgid "Secondary Backend w/ Frontend"
 msgstr "Backend Sekunder dgn Frontend"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:14001
+#: ../ubiquity-frontend-mythbuntu.templates:7001
 msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
@@ -1179,13 +1129,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:15001
+#: ../ubiquity-frontend-mythbuntu.templates:8001
 msgid "Primary Backend"
 msgstr "Backend Utama"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:16001
+#: ../ubiquity-frontend-mythbuntu.templates:9001
 msgid ""
 "A backend only machine is typically designed to function like an appliance; "
 "requiring very little maintenance.  This is intended to be installed as the "
@@ -1197,13 +1147,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:17001
+#: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "Secondary Backend"
 msgstr "Backend Sekunder"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:18001
+#: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
@@ -1213,13 +1163,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:19001
+#: ../ubiquity-frontend-mythbuntu.templates:12001
 msgid "Frontend"
 msgstr "Frontend"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:20001
+#: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid ""
 "A frontend only machine's main function is to receive media content from the "
 "backend and distribute it.  This configuration requires an existing backend "
@@ -1231,274 +1181,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:21001
-msgid "Choose Frontend / Backend Plugins"
-msgstr "Pilih Plugin Frontend / Backend"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:22001
-msgid ""
-"Plugins can be used to extend MythTV functionality beyond a time shifting TV "
-"solution."
-msgstr ""
-"Plugin dapat dipakai untuk memperluas fungsionaliatas MythTV lebih dari "
-"sekedar solusi penggeser waktu TV."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:23001
-msgid "Backend Plugins"
-msgstr "Plugin Backend"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:24001
-msgid "Frontend Plugins"
-msgstr "Plugin Frontend"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:25001
-msgid "Myth Web"
-msgstr "Web Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:26001
-msgid ""
-"MythWeb provides a web interface which can be used to view listings, "
-"schedule recordings, delete recordings, and search for programs."
-msgstr ""
-"MythWeb menyediakan antarmuka web yang dapat dipakai untuk melihat daftar, "
-"jadwal perekaman, menghapus rekaman, dan mencari acara."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:27001
-#: ../ubiquity-frontend-mythbuntu.templates:28001
-msgid "Myth Archive"
-msgstr "Arsip Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:29001
-msgid "Myth Browser"
-msgstr "Perambah Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:30001
-msgid "Myth Controls"
-msgstr "Pengendali Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:31001
-msgid "Myth Movies"
-msgstr "Film Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:32001
-msgid "Myth Flix"
-msgstr "Myth Flix"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:33001
-msgid "Myth Gallery"
-msgstr "Myth Galeri"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:34001
-msgid "Myth Game"
-msgstr "Permainan Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:35001
-msgid "Myth Music"
-msgstr "Musik Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:36001
-msgid "Myth News"
-msgstr "Berita Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:37001
-msgid "Myth Phone"
-msgstr "Telepon Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:38001
-msgid "Myth Stream"
-msgstr "Stream Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:39001
-msgid "Myth Video"
-msgstr "Video Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:40001
-msgid "Myth Weather"
-msgstr "Cuaca Myth"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:41001
-msgid ""
-"A plugin for MythTV that lets you create DVDs from content on your MythTV "
-"Network."
-msgstr ""
-"Sebuah plugin bagi MythTV yang memungkinkan anda membuat DVD dari isi pada "
-"Jaringan MythTV anda."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:42001
-msgid "A plugin for MythTV that lets you view movie trailers from apple.com."
-msgstr ""
-"Tambahan untuk MythTV sehingga anda bisa menonton film triler dari apple.com"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:43001
-msgid "An integrated web browser plugin for your MythTV system."
-msgstr "Sebuah plugin perambah web terintegrasi bagi sistem MythTV anda."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:44001
-msgid ""
-"External controls for MythTV. This will allow you to modify button mappings "
-"and key bindings."
-msgstr ""
-"Pengendali eksternal bagi MythTV. Ini akan memungkinkan anda mengubah "
-"pemetaan tombol dan pengaitan kunci."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:45001
-msgid "Find movies playing in nearby local cinemas"
-msgstr "Cari film yang diputar di bioskop lokal terdekat"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:46001
-msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr "Memungkinkan anda memantau antrian rental DVD Netflix anda."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:47001
-msgid "Allows you to visually browse a directory tree containing image files."
-msgstr ""
-"Memungkinkan anda merambah secara visual suatu struktur direktori yang "
-"memuat berkas-berkas citra."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:48001
-msgid "A frontend to start any emulator or binary that Linux runs."
-msgstr ""
-"Sebuah frontend untuk memulai sebarang emulator atau biner yang berjalan di "
-"Linux."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:49001
-msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr "Menyediakan jukebox audio dijital yang terintegrasi dengan MythTV."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:50001
-msgid ""
-"An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
-"favorite news topics."
-msgstr ""
-"Sebuah plugin pembaca berita asupan RSS bagi MythTV yang menjaga anda tetap "
-"up-to-date pada topik-topik berita favorit anda."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:51001
-msgid ""
-"A phone and videophone capability on MythTV using the standard SIP protocol."
-msgstr ""
-"Sebuah kapabilitas telepon dan telepon video pada MythTV memakai protokol "
-"SIP standar."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:52001
-msgid "Provides a method to listen to streaming internet radio stations."
-msgstr ""
-"Menyediakan sebuah metoda untuk mendengarkan stasiun radio internet "
-"streaming."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:53001
-msgid ""
-"Allows you to browse and play video streams, using an external player, from "
-"within the MythTV interface."
-msgstr ""
-"Membolehkan anda merambah dan memainkan stream video, menggunakan pemutar "
-"eksternal, dari dalam antarmuka MythTV."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:54001
-msgid "Displays current and forecast weather information within MythTV."
-msgstr ""
-"Menampilkan informasi cuaca saat ini dan ramalan cuaca dari dalam MythTV."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:55001
-msgid "Choose Extra Themes"
-msgstr "Pilih tema ekstra"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:56001
-msgid ""
-"Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-"display it to match your tastes much better."
-msgstr ""
-"Tema bisa sangat meningkatkan estetis dari pengaturan MythTV, dan "
-"menampilkannya sesuai dengan selera anda yang jauh lebih lebih baik."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:57001
-#: ../ubiquity-frontend-mythbuntu.templates:58001
-msgid "Enable/Disable All"
-msgstr "Aktifkan/Non-Aktifkan semua"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:59001
+#: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Additional Drivers/Firmware"
 msgstr "Firmware/Driver Tambahan"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:60001
+#: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid ""
 "An open source graphics driver is already enabled and configured for your "
 "installation.  If you would like to use a different graphics driver, you can "
@@ -1512,26 +1201,26 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:61001
+#: ../ubiquity-frontend-mythbuntu.templates:16001
 msgid "Modify Video Driver & Settings"
 msgstr "Ubah Pengaturan & Driver Video"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:62001
+#: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "If you would like to configure TV-out, choose an option here:"
 msgstr "Bila anda ingin mengkonfigur TV-out, pilih sebuah opsi disini:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:63001
+#: ../ubiquity-frontend-mythbuntu.templates:18001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 msgstr ""
 "Bila mengaktifkan TV Out, anda juga akan perlu memilih sebuah Standar TV:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:64001
+#: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
@@ -1541,13 +1230,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:65001
+#: ../ubiquity-frontend-mythbuntu.templates:20001
 msgid "Master Backend Info"
 msgstr "Info Backend Master"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:66001
+#: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
 "Silahkan masukkan informasi yang diperlukan untuk menghubungi backend master "
@@ -1555,37 +1244,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:67001
+#: ../ubiquity-frontend-mythbuntu.templates:22001
 msgid "MySQL Password"
 msgstr "Katasandi MySQL"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:68001
+#: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "MySQL User Name"
 msgstr "Nama Pemakai MySQL"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:69001
+#: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "MySQL Database"
 msgstr "Basisdata MySQL"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:70001
+#: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "MySQL Server"
 msgstr "Server MySQL"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:71001
+#: ../ubiquity-frontend-mythbuntu.templates:26001
 msgid "Configure Guide Data / Backend"
 msgstr "Atur Data Penuntun / Backend"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:72001
+#: ../ubiquity-frontend-mythbuntu.templates:27001
 msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
@@ -1595,13 +1284,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:73001
+#: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Click to open the Schedules Direct website"
 msgstr "Klik untuk membuka situs web Schedules Direct"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:74001
+#: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid ""
 "Users in North America will need to setup an account with Schedules Direct "
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
@@ -1614,13 +1303,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:75001
+#: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Launch MythTV Setup"
 msgstr "Luncurkan Setup MythTV"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:76001
+#: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid ""
 "After setting up your guide data source, you will need to launch MythTV-"
 "Setup to run the backend configuration for the first time.  You will need to "
@@ -1634,24 +1323,212 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:77001
+#: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Configuring mythtv..."
 msgstr "Mengkonfigurasi mythtv..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:78001
+#: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring additional drivers..."
 msgstr "Sedang mengkonfigurasi driver tambahan..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:79001
+#: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Configuring additional services..."
 msgstr "Sedang mengkonfigurasi layanan tambahan..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:80001
+#: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Configuring infrared devices..."
 msgstr "Mengatur peralatan infra merah"
+
+#~ msgid "Selected city:"
+#~ msgstr "Kota yang dipilih"
+
+#~ msgid "Time zone:"
+#~ msgstr "Zona waktu"
+
+#~ msgid "What Type of Installation?"
+#~ msgstr "Instalasi Tipe Apa?"
+
+#~ msgid "Two installation types are available for Mythbuntu:"
+#~ msgstr "Dua tipe instalasi tersedia bagi Mythbuntu:"
+
+#~ msgid "Standard Installation"
+#~ msgstr "Instalasi Standar"
+
+#~ msgid ""
+#~ "A standard installation will install and configure every option with "
+#~ "minimal user interaction. This will install a backend, frontend, all "
+#~ "plugins, and all themes."
+#~ msgstr ""
+#~ "Suatu instalasi standar akan memasang dan mengkonfigur setiap opsi dengan "
+#~ "interaksi pemakai minimum. Ini akan memasang sebuah backed, frontend, "
+#~ "semua plugin, dan semua tema."
+
+#~ msgid "Advanced Installation"
+#~ msgstr "Instalasi Tingkat Lanjut"
+
+#~ msgid ""
+#~ "An advanced installation can be used to customize what is needed for this "
+#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
+#~ "Mythbuntu machine to an existing MythTV based network."
+#~ msgstr ""
+#~ "Suatu instalasi tingkat lanjut dapat dipakai untuk mengkustomisasi apa "
+#~ "yang diperlukan bagi instalasi Mythbuntu ini. CATATAN: Suatu instalasi "
+#~ "tingkat lanjut diperlukan untuk menambahkan sebuah mesin Mythbuntu ke "
+#~ "jaringan berbasis MythTV yang telah ada."
+
+#~ msgid "Choose Frontend / Backend Plugins"
+#~ msgstr "Pilih Plugin Frontend / Backend"
+
+#~ msgid ""
+#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
+#~ "TV solution."
+#~ msgstr ""
+#~ "Plugin dapat dipakai untuk memperluas fungsionaliatas MythTV lebih dari "
+#~ "sekedar solusi penggeser waktu TV."
+
+#~ msgid "Backend Plugins"
+#~ msgstr "Plugin Backend"
+
+#~ msgid "Frontend Plugins"
+#~ msgstr "Plugin Frontend"
+
+#~ msgid "Myth Web"
+#~ msgstr "Web Myth"
+
+#~ msgid ""
+#~ "MythWeb provides a web interface which can be used to view listings, "
+#~ "schedule recordings, delete recordings, and search for programs."
+#~ msgstr ""
+#~ "MythWeb menyediakan antarmuka web yang dapat dipakai untuk melihat "
+#~ "daftar, jadwal perekaman, menghapus rekaman, dan mencari acara."
+
+#~ msgid "Myth Archive"
+#~ msgstr "Arsip Myth"
+
+#~ msgid "Myth Browser"
+#~ msgstr "Perambah Myth"
+
+#~ msgid "Myth Controls"
+#~ msgstr "Pengendali Myth"
+
+#~ msgid "Myth Movies"
+#~ msgstr "Film Myth"
+
+#~ msgid "Myth Flix"
+#~ msgstr "Myth Flix"
+
+#~ msgid "Myth Gallery"
+#~ msgstr "Myth Galeri"
+
+#~ msgid "Myth Game"
+#~ msgstr "Permainan Myth"
+
+#~ msgid "Myth Music"
+#~ msgstr "Musik Myth"
+
+#~ msgid "Myth News"
+#~ msgstr "Berita Myth"
+
+#~ msgid "Myth Phone"
+#~ msgstr "Telepon Myth"
+
+#~ msgid "Myth Stream"
+#~ msgstr "Stream Myth"
+
+#~ msgid "Myth Video"
+#~ msgstr "Video Myth"
+
+#~ msgid "Myth Weather"
+#~ msgstr "Cuaca Myth"
+
+#~ msgid ""
+#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
+#~ "Network."
+#~ msgstr ""
+#~ "Sebuah plugin bagi MythTV yang memungkinkan anda membuat DVD dari isi "
+#~ "pada Jaringan MythTV anda."
+
+#~ msgid ""
+#~ "A plugin for MythTV that lets you view movie trailers from apple.com."
+#~ msgstr ""
+#~ "Tambahan untuk MythTV sehingga anda bisa menonton film triler dari apple."
+#~ "com"
+
+#~ msgid "An integrated web browser plugin for your MythTV system."
+#~ msgstr "Sebuah plugin perambah web terintegrasi bagi sistem MythTV anda."
+
+#~ msgid ""
+#~ "External controls for MythTV. This will allow you to modify button "
+#~ "mappings and key bindings."
+#~ msgstr ""
+#~ "Pengendali eksternal bagi MythTV. Ini akan memungkinkan anda mengubah "
+#~ "pemetaan tombol dan pengaitan kunci."
+
+#~ msgid "Find movies playing in nearby local cinemas"
+#~ msgstr "Cari film yang diputar di bioskop lokal terdekat"
+
+#~ msgid "Allows you to monitor your Netflix dvd rental queue."
+#~ msgstr "Memungkinkan anda memantau antrian rental DVD Netflix anda."
+
+#~ msgid ""
+#~ "Allows you to visually browse a directory tree containing image files."
+#~ msgstr ""
+#~ "Memungkinkan anda merambah secara visual suatu struktur direktori yang "
+#~ "memuat berkas-berkas citra."
+
+#~ msgid "A frontend to start any emulator or binary that Linux runs."
+#~ msgstr ""
+#~ "Sebuah frontend untuk memulai sebarang emulator atau biner yang berjalan "
+#~ "di Linux."
+
+#~ msgid "Provides a digital audio jukebox integrated with MythTV."
+#~ msgstr "Menyediakan jukebox audio dijital yang terintegrasi dengan MythTV."
+
+#~ msgid ""
+#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
+#~ "your favorite news topics."
+#~ msgstr ""
+#~ "Sebuah plugin pembaca berita asupan RSS bagi MythTV yang menjaga anda "
+#~ "tetap up-to-date pada topik-topik berita favorit anda."
+
+#~ msgid ""
+#~ "A phone and videophone capability on MythTV using the standard SIP "
+#~ "protocol."
+#~ msgstr ""
+#~ "Sebuah kapabilitas telepon dan telepon video pada MythTV memakai protokol "
+#~ "SIP standar."
+
+#~ msgid "Provides a method to listen to streaming internet radio stations."
+#~ msgstr ""
+#~ "Menyediakan sebuah metoda untuk mendengarkan stasiun radio internet "
+#~ "streaming."
+
+#~ msgid ""
+#~ "Allows you to browse and play video streams, using an external player, "
+#~ "from within the MythTV interface."
+#~ msgstr ""
+#~ "Membolehkan anda merambah dan memainkan stream video, menggunakan pemutar "
+#~ "eksternal, dari dalam antarmuka MythTV."
+
+#~ msgid "Displays current and forecast weather information within MythTV."
+#~ msgstr ""
+#~ "Menampilkan informasi cuaca saat ini dan ramalan cuaca dari dalam MythTV."
+
+#~ msgid "Choose Extra Themes"
+#~ msgstr "Pilih tema ekstra"
+
+#~ msgid ""
+#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
+#~ "display it to match your tastes much better."
+#~ msgstr ""
+#~ "Tema bisa sangat meningkatkan estetis dari pengaturan MythTV, dan "
+#~ "menampilkannya sesuai dengan selera anda yang jauh lebih lebih baik."
+
+#~ msgid "Enable/Disable All"
+#~ msgstr "Aktifkan/Non-Aktifkan semua"
