@@ -23,36 +23,7 @@ _Description: Ready to install
 
 Template: ubiquity/text/installtype_heading_label
 Type: text
-_Description: What Type of Installation?
-
-Template: ubiquity/text/installtypes_label
-Type: text
-_Description: Two installation types are available for Mythbuntu:
-
-Template: ubiquity/text/standardinstall
-Type: text
-_Description: Standard Installation
-
-Template: ubiquity/text/standard_label
-Type: text
-_Description:
- A standard installation will install and configure every option with minimal user interaction.
- This will install a backend, frontend, all plugins, and all themes.
-
-Template: ubiquity/text/custominstall
-Type: text
-_Description: Advanced Installation
-
-Template: ubiquity/text/custom_label
-Type: text
-_Description:
- An advanced installation can be used to customize what is needed for this Mythbuntu install.
- NOTE: An advanced install is necessary to add a Mythbuntu
- machine to an existing MythTV based network.
-
-Template: ubiquity/text/installtype_heading_label
-Type: text
-_Description: Advanced Installation Type
+_Description: Installation Type
 
 Template: ubiquity/text/custominstall_type_label
 Type: text

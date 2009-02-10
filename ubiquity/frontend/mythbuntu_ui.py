@@ -45,7 +45,6 @@ import string
 import subprocess
 import syslog
 import signal
-import inspect
 
 import gtk
 
@@ -64,7 +63,6 @@ ParentFrontend.install = mythbuntu_install
 ParentFrontend.summary = mythbuntu_install
 
 MYTHPAGES = [
-    "mythbuntu_stepInstallType",
     "mythbuntu_stepCustomInstallType",
     "mythbuntu_stepPlugins",
     "tab_themes",
@@ -102,38 +100,6 @@ class Wizard(ParentFrontend.Wizard):
 
         ParentFrontend.Wizard.__init__(self,distro)
 
-    def allow_change_step(self,allow):
-        """Normally used to determine if we can progress pages.  We have to override
-           this function to determine whether this is a skippable page."""
-
-        #This skipping condition only happens when called with False
-        if not allow:
-            #do stuff only if we are getting called from a function
-            #called run.  No not too ambiguous, right?
-            if inspect.stack()[1][3] == 'run':
-                new_name = self.dbfilter.__class__.__name__
-                advanced=self.get_advanced()
-                type = self.get_installtype()
-                if (not advanced and \
-                                     (new_name == 'MythbuntuInstallType' or \
-                                      new_name == 'MythbuntuPlugins' or \
-                                      new_name == 'MythbuntuThemes' or \
-                                      new_name == 'MythbuntuServices' or \
-                                      new_name == 'MythbuntuPasswords')) or \
-                   ('Frontend' not in type and \
-                                     (new_name == 'MythbuntuThemes' or \
-                                      new_name == 'MythbuntuRemote')):
-                    self.dbfilter.start(auto_process=True)
-                    if not self.backup:
-                        self.dbfilter.ok_handler()
-                    else:
-                        self.dbfilter.cancel_handler()
-                    self.dbfilter = mythbuntu.MythbuntuPageSkipper(self)
-                    self.dbfilter_status=None
-
-        #Finally do something releated to step changing
-        ParentFrontend.Wizard.allow_change_step(self,allow)
-
     def customize_installer(self):
         """Initial UI setup."""
         #Prepopulate some dynamic pages
@@ -151,8 +117,7 @@ class Wizard(ParentFrontend.Wizard):
         self.pages.pop()
 
         #Insert all of our pages
-        for page in [mythbuntu.MythbuntuAdvancedType,
-            mythbuntu.MythbuntuInstallType, mythbuntu.MythbuntuPlugins,
+        for page in [mythbuntu.MythbuntuInstallType, mythbuntu.MythbuntuPlugins,
             mythbuntu.MythbuntuThemes, mythbuntu.MythbuntuServices,
             mythbuntu.MythbuntuPasswords, mythbuntu.MythbuntuRemote,
             mythbuntu.MythbuntuDrivers, mythbuntu_install.Summary]:
@@ -174,9 +139,7 @@ class Wizard(ParentFrontend.Wizard):
         ParentFrontend.Wizard.run_success_cmd(self)
 
     def set_page(self, n):
-        if n == 'MythbuntuAdvancedType':
-            cur = self.mythbuntu_stepInstallType
-        elif n == 'MythbuntuRemote':
+        if n == 'MythbuntuRemote':
             cur = self.tab_remote_control
         elif n == 'MythbuntuDrivers':
             cur = self.mythbuntu_stepDrivers
@@ -309,11 +272,6 @@ class Wizard(ParentFrontend.Wizard):
 #####################
 #Used to preset the status of an element in the GUI
 
-    def set_advanced(self,enable):
-        """Preseeds whether this is an advanced install"""
-        enable = create_bool(enable)
-        self.custominstall.set_active(enable)
-
     def set_installtype(self,type):
         """Preseeds the type of custom install"""
         if type == "Set Top Box":
@@ -425,10 +383,6 @@ class Wizard(ParentFrontend.Wizard):
 #Status Reading  #
 ##################
 #Functions for reading the status of Frontend elements
-
-    def get_advanced(self):
-        """Returns if this is an advanced install"""
-        return self.custominstall.get_active()
 
     def get_installtype(self):
         """Returns the current custom installation type"""
@@ -828,21 +782,3 @@ class Wizard(ParentFrontend.Wizard):
             if (not self.usemythwebpassword.get_active() or ((not self.mythweb_pass_error_image.flags() & gtk.VISIBLE) and (not self.mythweb_user_error_image.flags() & gtk.VISIBLE))):
                 self.allow_go_forward(True)
                 self.allow_go_backward(True)
-
-    def toggle_installtype (self,widget):
-        """Called whenever standard or full are toggled"""
-        if self.standardinstall.get_active() :
-            #Make sure that we have everything turned on in case they came back to this page
-            #and changed their mind
-            #Note: This will recursively handle changing the values on the pages
-            self.master_be_fe.set_active(True)
-            self.enablessh.set_active(True)
-            self.enablevnc.set_active(False)
-            self.enablenfs.set_active(False)
-            self.enablesamba.set_active(True)
-            self.enablemysql.set_active(False)
-
-        else:
-            self.master_backend_expander.hide()
-            self.mythweb_expander.show()
-            self.mysql_server_expander.show()
