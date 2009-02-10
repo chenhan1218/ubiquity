@@ -88,6 +88,10 @@ class TimezoneMap(gtk.Widget):
 
         self.selected = None
         self.update_timeout = None
+
+        self.distances = []
+        self.previous_click = (-1, -1)
+        self.dist_pos = 0
         
     def do_size_allocate(self, allocation):
         self.background = self.orig_background.scale_simple(allocation.width,
@@ -191,21 +195,27 @@ class TimezoneMap(gtk.Widget):
         x = event.x
         y = event.y
 
-        distance = []
-        for loc in self.tzdb.locations:
-            pointx = (loc.longitude + 180) / 360
-            pointy = 1 - ((loc.latitude + 90) / 180)
-            pointx = pointx * self.allocation.width - 20
-            pointy = pointy * self.allocation.height + 42
-            dx = pointx - x
-            dy = pointy - y
-            dist = dx * dx + dy * dy
-            distance.append((dist, loc))
-        distance.sort()
-        # TODO: On left click without moving the mouse since the last click,
-        # cycle through the list of the top X nearby locations.
-        self.emit('city-selected', distance[0][1].zone)
-        self.select_city(distance[0][1].zone)
+        if (x, y) == self.previous_click and self.distances:
+            zone = self.distances[self.dist_pos][1].zone
+            self.dist_pos = (self.dist_pos + 1) % len(self.distances)
+        else:
+            self.distances = []
+            for loc in self.tzdb.locations:
+                pointx = (loc.longitude + 180) / 360
+                pointy = 1 - ((loc.latitude + 90) / 180)
+                pointx = pointx * self.allocation.width - 20
+                pointy = pointy * self.allocation.height + 42
+                dx = pointx - x
+                dy = pointy - y
+                dist = dx * dx + dy * dy
+                self.distances.append((dist, loc))
+            self.distances.sort()
+            self.distances = self.distances[:5]
+            self.previous_click = (x, y)
+            self.dist_pos = 0
+            zone = self.distances[0][1].zone
+        self.emit('city-selected', zone)
+        self.select_city(zone)
         
     def motion_notify(self, widget, event):
         if event.is_hint:
