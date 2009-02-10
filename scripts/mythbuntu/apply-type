@@ -1,8 +1,0 @@
-#! /bin/sh -e
-#Passes on the information gathered in ubiquity
-#about mythtv package variable
-# Written by Mario Limonciello <superm1@ubuntu.com>
-# Copyright (C) 2007 Mario Limonciello
-# Copyright (C) 2007 Jared Greenwald
-
-exit 0
