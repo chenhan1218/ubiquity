@@ -1,4 +1,4 @@
-ubiquity (1.11.7) UNRELEASED; urgency=low
+ubiquity (1.11.7) jaunty; urgency=low
 
   [ Mario Limonciello ]
   * bin/ubiquity-dm, debian/init: Fallback to noninteractive if automatic fails
@@ -35,7 +35,7 @@ ubiquity (1.11.7) UNRELEASED; urgency=low
     83ubuntu3, partman-base 128ubuntu6, partman-partitioning 64ubuntu3,
     partman-target 58ubuntu3, user-setup 1.23ubuntu10.
 
- -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 03 Feb 2009 16:31:27 -0600
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 10 Feb 2009 16:41:51 +0000
 
 ubiquity (1.11.6) jaunty; urgency=low
 
