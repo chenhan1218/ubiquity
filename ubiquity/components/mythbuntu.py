@@ -20,27 +20,6 @@
 
 from ubiquity.misc import create_bool
 from ubiquity.filteredcommand import FilteredCommand
-from threading import Timer
-
-class MythbuntuAdvancedType(FilteredCommand):
-#enable advanced preseeding
-
-    def __init__(self,frontend,db=None):
-        self.questions = ['advanced_install']
-        FilteredCommand.__init__(self,frontend,db)
-
-    def prepare(self):
-        questions = []
-        for question in self.questions:
-            answer = self.db.get('mythbuntu/' + question)
-            if answer != '':
-                self.frontend.set_advanced(answer)
-            questions.append('^mythbuntu/' + question)
-        return (['/usr/share/ubiquity/ask-advanced'], questions)
-
-    def ok_handler(self):
-        self.preseed_bool('mythbuntu/' + self.questions[0], self.frontend.get_advanced())
-        FilteredCommand.ok_handler(self)
 
 class MythbuntuInstallType(FilteredCommand):
 #we are seeding one of the possible install types
@@ -224,14 +203,3 @@ class MythbuntuDrivers(FilteredCommand):
             else:
                 self.preseed('mythbuntu/' + this_driver, drivers[this_driver])
         FilteredCommand.ok_handler(self)
-
-class MythbuntuPageSkipper():
-    def __init__(self,frontend):
-        self.frontend=frontend
-        self.timer=Timer(0.05,self.close_fn)
-
-    def start(self,auto_process):
-        self.timer.start()
-
-    def close_fn(self):
-        self.frontend.quit_main_loop()
