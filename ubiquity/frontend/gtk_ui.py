@@ -542,7 +542,7 @@ class Wizard(BaseFrontend):
         
         self.regions = {}
         for location in self.tzdb.locations:
-            region, city = location.zone.replace('_', ' ').split('/')[:2]
+            region, city = location.zone.replace('_', ' ').split('/', 1)
             if region in self.regions:
                 self.regions[region].append(city)
             else:
@@ -577,7 +577,7 @@ class Wizard(BaseFrontend):
         self.tzmap.select_city(city)
 
     def select_city(self, widget, city):
-        region, city = city.replace('_', ' ').split('/')[:2]
+        region, city = city.replace('_', ' ').split('/', 1)
         m = self.timezone_zone_combo.get_model()
         iterator = m.get_iter_first()
         while iterator:
