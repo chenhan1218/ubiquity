@@ -9,9 +9,8 @@ ubiquity (1.11.7) UNRELEASED; urgency=low
   * mythbuntu frontend: Remove all page skipping functionality.
     - Realistically, it was a hack that only introduced race conditions on
       fast hardware.
-    - Just ask all questions instead.  This will make it clearer which pages
-      will need to go since there is little utility in asking them in the first
-      place.
+    - Just ask all questions instead.
+    - Remove themes and plugins pages and all associated debconf templates.
 
   [ Colin Watson ]
   * Adjust the way we open the debug log so that sys.stderr doesn't end up

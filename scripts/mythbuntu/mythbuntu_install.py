@@ -328,66 +328,19 @@ class Install(ParentInstall):
         out_f = open("/tmp/filesystem.manifest-mythbuntu", 'w')
         in_f = open("/cdrom/casper/filesystem.manifest-desktop")
         patternline = "^mythbuntu-live|^expect|^tcl8.4"
-        if self.type == "Slave Backend/Frontend":
-            patternline += "|^mythtv-backend-master|^mythtv-database|^mysql-server-5.0|^mysql-server|^mythtv\ "
-        elif self.type == "Master Backend":
-            patternline += "|^mythtv-frontend|^mythtv\ "
-        elif self.type == "Slave Backend":
-            patternline += "|^mythtv-backend-master|^mythtv-database|^mysql-server-5.0|^mythtv-frontend|^mythtv\ "
-        elif self.type == "Frontend":
-            patternline += "|^mythtv-backend-master|^mythtv-database|^mythtv-backend|^mysql-server-5.0|^mysql-server|^mythtv\ |^mythtv-status"
-        mytharchive = self.db.get('mythbuntu/mytharchive')
-        if mytharchive == "false":
+        if 'Slave' in self.type or self.type == 'Frontend':
+            patternline += "|^mythtv-backend-master|^mythtv-database|^mysql-server-5.0|^mysql-server|^mythtv\ " #mysql server
+            patternline += "|^apache2|^libapache2|^php|^mythweb" #mythweb
+        if 'Frontend' not in self.type:
+            patternline += "|^mythtv-frontend"
+            patternline += "|^mythmusic|^fftw2|^libcdaudio1|^libfaad2-0|^libflac8" #mythmusic
+            patternline += "|^mythmovies" #mythmovies
+            patternline += "|^mythgallery" #mythgallery
+            patternline += "|^mythcontrols" #mythcontrols
             patternline += "|^mytharchive|^ffmpeg|^genisoimage|^dvdauthor|^mjpegtools|^dvd+rw-tools|^python-imaging|^python-mysqldb"
-        mythbrowser = self.db.get('mythbuntu/mythbrowser')
-        if mythbrowser == "false":
-            patternline += "|^kdelibs4c2a|^mythbrowser"
-        mythcontrols = self.db.get('mythbuntu/mythcontrols')
-        if mythcontrols == "false":
-            patternline += "|^mythcontrols"
-        mythflix = self.db.get('mythbuntu/mythflix')
-        if mythflix == "false":
-            patternline += "|^mythflix"
-        mythgallery = self.db.get('mythbuntu/mythgallery')
-        if mythgallery == "false":
-            patternline += "|^mythgallery"
-        mythgame = self.db.get('mythbuntu/mythgame')
-        if mythgame == "false":
-            patternline += "|^mythgame"
-        mythmovies = self.db.get('mythbuntu/mythmovies')
-        if mythmovies == "false":
-            patternline += "|^mythmovies"
-        mythmusic = self.db.get('mythbuntu/mythmusic')
-        if mythmusic == "false":
-            patternline += "|^mythmusic|^fftw2|^libcdaudio1|^libfaad2-0|^libflac8"
-        mythnews = self.db.get('mythbuntu/mythnews')
-        if mythnews == "false":
-            patternline += "|^mythnews"
-        mythphone = self.db.get('mythbuntu/mythphone')
-        if mythphone == "false":
-            patternline += "|^mythphone"
-        mythstream = self.db.get('mythbuntu/mythstream')
-        if mythstream == "false":
-            patternline += "|^mythstream"
-        mythvideo = self.db.get('mythbuntu/mythvideo')
-        if mythvideo == "false":
-            patternline += "|^mythvideo|^libwww-perl|^libxml-simple-perl"
-        mythweather = self.db.get('mythbuntu/mythweather')
-        if mythweather == "false":
-            patternline += "|^mythweather"
-        mythweb = self.db.get('mythbuntu/mythweb')
-        if mythweb == "false":
-            patternline += "|^apache2|^libapache2|^php|^mythweb"
-        official = self.db.get('mythbuntu/officialthemes')
-        if official != "":
-            for theme in string.split(official," "):
-                if theme != "":
-                    patternline += "|^" + theme
-        community = self.db.get('mythbuntu/communitythemes')
-        if community != "":
-            for theme in string.split(community," "):
-                if theme != "":
-                    patternline += "|^" + theme
+            patternline += "|^mythvideo|^libwww-perl|^libxml-simple-perl" #mythvideo
+            patternline += "|^mythweather" #mythweather
+            patternline += "|^mythtv-theme" #themes
         samba = self.db.get('mythbuntu/samba')
         if samba == "false":
             patternline += "|^samba|^samba-common|^smbfs"
@@ -397,9 +350,6 @@ class Install(ParentInstall):
         ssh = self.db.get('mythbuntu/openssh-server')
         if ssh == "false":
             patternline += "|^openssh-server"
-        hdhomerun = self.db.get('mythbuntu/hdhomerun')
-        if hdhomerun == "false":
-            patternline += "|^hdhomerun-config"
         pattern = re.compile(patternline)
         for line in in_f:
             if pattern.search(line) is None:
