@@ -10,7 +10,7 @@ kboot-installer 0.0.1ubuntu8
 localechooser 2.09ubuntu1
 migration-assistant 0.6.2
 partconf 1.30ubuntu1
-partman-auto 83ubuntu3
+partman-auto 84ubuntu1
 partman-auto-loop 0ubuntu15
 partman-base 128ubuntu6
 partman-basicfilesystems 62ubuntu1
