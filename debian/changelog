@@ -1,4 +1,4 @@
-ubiquity (1.11.8) UNRELEASED; urgency=low
+ubiquity (1.11.8) jaunty; urgency=low
 
   * Make the timezone map only use PNGs to avoid a dependency on
     python-gnome2-desktop and because we want to optimze for speed rather
@@ -6,7 +6,7 @@ ubiquity (1.11.8) UNRELEASED; urgency=low
   * Automatic update of included source packages: partman-auto
     84ubuntu1.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 11 Feb 2009 16:37:03 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 11 Feb 2009 18:00:42 +0000
 
 ubiquity (1.11.7) jaunty; urgency=low
 
