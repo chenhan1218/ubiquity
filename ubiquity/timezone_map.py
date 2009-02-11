@@ -20,8 +20,8 @@
 # A simple timezone map that highlights timezone bands.
 
 import cairo
-import rsvg
 import gtk
+import glib
 from gtk import gdk
 import gobject
 import os
@@ -81,8 +81,6 @@ class TimezoneMap(gtk.Widget):
         self.connect('map-event', self.mapped)
         self.connect('unmap-event', self.unmapped)
         self.previous_color = None
-        self.highlights = rsvg.Handle(os.path.join(self.image_path,
-            'time_zones_highlights.svg'))
         self.offset = None
         self.selected_offset = None
 
@@ -164,13 +162,19 @@ class TimezoneMap(gtk.Widget):
 
         
         # Render highlight.
-        w = float(self.allocation.width) / self.highlights.props.width
-        h = float(self.allocation.height) / self.highlights.props.height
-        self.cr = self.window.cairo_create()
-        self.cr.scale(w, h)
-        
+        # Possibly not the best solution, though in my head it seems better
+        # than keeping two copies (original an resized) of every timezone in
+        # memory.
         if self.selected_offset != None:
-            self.highlights.render_cairo(cr=self.cr, id='#%s' % self.selected_offset)
+            try:
+                pixbuf = gtk.gdk.pixbuf_new_from_file(os.path.join(self.image_path,
+                    'time_zones_highlight_%d.png' % self.selected_offset))
+                pixbuf = pixbuf.scale_simple(self.allocation.width,
+                    self.allocation.height, gtk.gdk.INTERP_BILINEAR)
+                self.cr.set_source_pixbuf(pixbuf, 0, 0)
+                self.cr.paint()
+            except glib.GError:
+                pass
     def timeout(self):
         self.queue_draw()
         return True

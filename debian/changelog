@@ -1,3 +1,11 @@
+ubiquity (1.11.8) jaunty; urgency=low
+
+  * Make the timezone map only use PNGs to avoid a dependency on
+    python-gnome2-desktop and because we want to optimze for speed rather
+    than image quality.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 11 Feb 2009 16:37:03 +0000
+
 ubiquity (1.11.7) jaunty; urgency=low
 
   [ Mario Limonciello ]
