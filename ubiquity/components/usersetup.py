@@ -57,9 +57,11 @@ class UserSetup(FilteredCommand):
         except debconf.DebconfError:
             pass
 
+        # We intentionally don't listen to passwd/auto-login or
+        # user-setup/encrypt-home because we don't want those alone to force
+        # the page to be shown, if they're the only questions not preseeded.
         questions = ['^passwd/user-fullname$', '^passwd/username$',
                      '^passwd/user-password$', '^passwd/user-password-again$',
-                     '^passwd/auto-login$', '^user-setup/encrypt-home$',
                      'ERROR']
         return (['/usr/lib/ubiquity/user-setup/user-setup-ask', '/target'],
                 questions)

@@ -1,3 +1,10 @@
+ubiquity (1.11.9) UNRELEASED; urgency=low
+
+  * Don't show the "Who are you?" page just because the auto-login or
+    encrypt-home questions are asked and not preseeded (LP: #328281).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 11 Feb 2009 22:15:37 +0000
+
 ubiquity (1.11.8) jaunty; urgency=low
 
   * Make the timezone map only use PNGs to avoid a dependency on
