@@ -37,8 +37,8 @@ import gettext
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4 import uic
-#from kdeui import *
-#from kdecore import *
+from PyKDE4.kdeui import *
+from PyKDE4.kdecore import *
 #from kio import KRun
 #import kdedesigner
 
@@ -118,13 +118,25 @@ class Wizard(BaseFrontend):
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
 
-        #about=KAboutData("kubuntu-ubiquity","Installer","0.1","Live CD Installer for Kubuntu",KAboutData.License_GPL,"(c) 2006 Canonical Ltd", "http://wiki.kubuntu.org/KubuntuUbiquity", "jriddell@ubuntu.com")
-        #about.addAuthor("Jonathan Riddell", None,"jriddell@ubuntu.com")
-        #KCmdLineArgs.init(["./installer"],about)
+        appName     = "kubuntu-ubiquity"
+        catalog     = ""
+        programName = ki18n ("Installer")
+        version     = "1.0"
+        description = ki18n ("Live CD Installer for Kubuntu")
+        license     = KAboutData.License_GPL
+        copyright   = ki18n ("(c) 2006 Canonical Ltd")
+        text        = ki18n ("none")
+        homePage    = "http://wiki.kubuntu.org/KubuntuUbiquity"
+        bugEmail    = "jriddell@ubuntu.com"
+        
+        about = KAboutData (appName, catalog, programName, version, description,
+                            license, copyright, text, homePage, bugEmail)
+        about.addAuthor(ki18n("Jonathan Riddell"), KLocalizedString() ,"jriddell@ubuntu.com")
+        KCmdLineArgs.init([""],about)
 
-        #self.app = KApplication()
-
-        self.app = QApplication(['ubiquity', '-style=oxygen'])
+        self.app = KApplication()
+        
+        #self.app = QApplication(['ubiquity', '-style=oxygen'])
 
         self.parentWidget = QWidget()
         self.userinterface = UbiquityUI(self.parentWidget)
