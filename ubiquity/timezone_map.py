@@ -156,7 +156,10 @@ class TimezoneMap(gtk.Widget):
                 time_text = now.strftime('%X')
                 xbearing, ybearing, width, height, xadvance, yadvance = \
                     self.cr.text_extents(time_text)
-                self.cr.move_to(pointx + 4, pointy + 4 + height)
+                if pointx + width > self.allocation.width:
+                    self.cr.move_to(pointx - 4 - width, pointy + 4 + height)
+                else:
+                    self.cr.move_to(pointx + 4, pointy + 4 + height)
                 self.cr.show_text(time_text)
             self.cr.stroke()
 
