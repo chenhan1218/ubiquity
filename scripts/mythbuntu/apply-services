@@ -13,9 +13,6 @@ if [ "$1" ]; then
 fi
 
 samba_config()
-# $1 = videos
-# $2 = music
-# $3 = pictures
 {
     cat > /tmp/smb.conf << EOF
 [global]
@@ -38,10 +35,6 @@ directory mask = 0777
 force user = nobody
 force group = nogroup
 
-EOF
-    if [ "$1" = true ]; then
-        #videos
-        cat >> /tmp/smb.conf << EOF
 [videos]
 comment = Videos
 path = /var/lib/mythtv/videos
@@ -52,11 +45,6 @@ directory mask = 0770
 force user = mythtv
 force group = mythtv
 
-EOF
-    fi
-    if [ "$2" = true ]; then
-        #music
-        cat >> /tmp/smb.conf << EOF
 [music]
 comment = Music
 path = /var/lib/mythtv/music
@@ -67,11 +55,6 @@ directory mask = 0770
 force user = mythtv
 force group = mythtv
 
-EOF
-    fi
-    if [ "$3" = true ]; then
-        #pictures
-        cat >> /tmp/smb.conf << EOF
 [pictures]
 comment = Pictures
 path = /var/lib/mythtv/pictures
@@ -87,28 +70,11 @@ EOF
 }
 
 nfs_config()
-# $1 = videos
-# $2 = music
-# $3 = pictures
 {
     cat > /tmp/exports << EOF
 /var/lib/mythtv/recordings    *(ro,async,no_root_squash,no_subtree_check)
-EOF
-    if [ "$1" = true ]; then
-        #videos
-        cat >> /tmp/exports << EOF
 /var/lib/mythtv/videos    *(ro,async,no_root_squash,no_subtree_check)
-EOF
-    fi
-    if [ "$2" = true ]; then
-        #music
-        cat >> /tmp/exports << EOF
 /var/lib/mythtv/music    *(ro,async,no_root_squash,no_subtree_check)
-EOF
-    fi
-    if [ "$3" = true ]; then
-        #pictures
-        cat >> /tmp/exports << EOF
 /var/lib/mythtv/pictures    *(ro,async,no_root_squash,no_subtree_check)
 EOF
     fi
@@ -167,18 +133,12 @@ SSH="$RET"
 db_get mythbuntu/mysql-server
 MYSQL="$RET"
 if [ "$SAMBA" = true ] || [ "$NFS" = true ]; then
-    db_get mythbuntu/mythvideo
-    VIDEO="$RET"
-    db_get mythbuntu/mythgallery
-    PICTURES="$RET"
-    db_get mythbuntu/mythmusic
-    MUSIC="$RET"
     if [ "$SAMBA" = true ]; then
-        samba_config $VIDEO $MUSIC $PICTURES
+        samba_config
         mv /tmp/smb.conf $ROOT/etc/samba
     fi
     if [ "$NFS" = true ]; then
-        nfs_config $VIDEO $MUSIC $PICTURES
+        nfs_config
         mv /tmp/exports $ROOT/etc
     fi
 fi
