@@ -175,7 +175,7 @@ Description: for internal use; determines install type
 
 Template: mythbuntu/video_driver
 Type: string
-Default: none
+Default: Open Source Driver
 Description: for internal use; determines what video graphics driver to use
 
 Template: mythbuntu/tvout
