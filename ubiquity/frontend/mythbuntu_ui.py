@@ -289,8 +289,7 @@ class Wizard(ParentFrontend.Wizard):
         """Preseeds the status of a driver"""
         lists = [{'video_driver': self.video_driver,
                   'tvout': self.tvouttype,
-                  'tvstandard': self.tvoutstandard,
-                  'hdhomerun': self.hdhomerun}]
+                  'tvstandard': self.tvoutstandard}]
         self._preseed_list(lists,name,value)
 
     def set_password(self,name,value):
@@ -410,8 +409,7 @@ class Wizard(ParentFrontend.Wizard):
                 break
         return self._build_static_list([{'video_driver': active_video_driver,
                                          'tvout': self.tvouttype,
-                                         'tvstandard': self.tvoutstandard,
-                                         'hdhomerun': self.hdhomerun}])
+                                         'tvstandard': self.tvoutstandard}])
 
     def get_mythtv_passwords(self):
         return self._build_static_list([{'mysql_admin_password':self.mysql_root_password,

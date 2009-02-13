@@ -153,7 +153,9 @@ class Install(ParentInstall):
             self.chrex('umount', '/proc')
 
         #Set up authentication on mythweb if necessary
+        self.chroot_setup()
         self.reconfigure('mythweb')
+        self.chroot_cleanup()
 
     def install_extras(self):
         """Overrides main install_extras function to add in Mythbuntu
@@ -161,7 +163,6 @@ class Install(ParentInstall):
         video_driver = self.db.get('mythbuntu/video_driver')
         vnc = self.db.get('mythbuntu/x11vnc')
         nfs = self.db.get('mythbuntu/nfs-kernel-server')
-        hdhomerun = self.db.get('mythbuntu/hdhomerun')
         to_install = []
         to_remove = set()
         if video_driver != "Open Source Driver":
@@ -171,8 +172,6 @@ class Install(ParentInstall):
         if nfs == 'true':
             to_install.append('nfs-kernel-server')
             to_install.append('portmap')
-        if hdhomerun == 'true':
-            to_install.append('hdhomerun-config')
 
         #Remove any conflicts before installing new items
         if to_remove != []:

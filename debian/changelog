@@ -8,6 +8,9 @@ ubiquity (1.11.9) UNRELEASED; urgency=low
   * Show the time to the left of the selected time zone city if the text
     would otherwise extend past the right edge.
 
+  [ Mario Limonciello ]
+  * Remove hdhomerun-config related items from mythbuntu frontend.
+
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 12 Feb 2009 17:47:08 +0000
 
 ubiquity (1.11.8) jaunty; urgency=low

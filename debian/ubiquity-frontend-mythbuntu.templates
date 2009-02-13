@@ -219,7 +219,3 @@ Description: for internal use; determines if nfs is enabled
 Template: mythbuntu/mysql-server
 Type: boolean
 Description: for internal use; determines if mysql access is enabled
-
-Template: mythbuntu/hdhomerun
-Type: boolean
-Description: for internal use; determines if hdhomerun config is to be installed
