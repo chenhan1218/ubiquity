@@ -153,9 +153,7 @@ class Install(ParentInstall):
             self.chrex('umount', '/proc')
 
         #Set up authentication on mythweb if necessary
-        self.chroot_setup()
         self.reconfigure('mythweb')
-        self.chroot_cleanup()
 
     def install_extras(self):
         """Overrides main install_extras function to add in Mythbuntu
