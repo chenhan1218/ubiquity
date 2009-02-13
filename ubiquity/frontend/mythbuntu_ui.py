@@ -62,12 +62,14 @@ import ubiquity.frontend.gtk_ui as ParentFrontend
 ParentFrontend.install = mythbuntu_install
 ParentFrontend.summary = mythbuntu_install
 
+VIDEOPAGE="mythbuntu_stepDrivers"
+
 MYTHPAGES = [
     "mythbuntu_stepCustomInstallType",
     "mythbuntu_stepServices",
     "mythbuntu_stepPasswords",
     "tab_remote_control",
-    "mythbuntu_stepDrivers",
+    VIDEOPAGE,
     "mythbuntu_stepBackendSetup"
 ]
 
@@ -100,12 +102,6 @@ class Wizard(ParentFrontend.Wizard):
 
     def customize_installer(self):
         """Initial UI setup."""
-        #Prepopulate some dynamic pages
-        self.populate_lirc()
-        self.populate_video()
-        self.populate_mysql()
-        self.backup=False
-
         #Default to auto login, but don't make it mandatory
         #This requires disabling encrypted FS
         self.set_auto_login(True)
@@ -119,6 +115,12 @@ class Wizard(ParentFrontend.Wizard):
             mythbuntu.MythbuntuPasswords, mythbuntu.MythbuntuRemote,
             mythbuntu.MythbuntuDrivers, mythbuntu_install.Summary]:
             self.pages.append(page)
+
+        #Prepopulate some dynamic pages
+        self.populate_lirc()
+        self.populate_video()
+        self.populate_mysql()
+        self.backup=False
 
         ParentFrontend.Wizard.customize_installer(self)
 
@@ -180,12 +182,22 @@ class Wizard(ParentFrontend.Wizard):
     def populate_video(self):
         """Finds the currently active video driver"""
         dictionary=get_graphics_dictionary()
-        for driver in dictionary:
-            self.video_driver.append_text(driver)
-        self.video_driver.append_text("Open Source Driver")
-        self.video_driver.set_active(len(dictionary))
-        self.tvoutstandard.set_active(0)
-        self.tvouttype.set_active(0)
+        if len(dictionary) > 0:
+            for driver in dictionary:
+                self.video_driver.append_text(driver)
+            self.video_driver.append_text("Open Source Driver")
+            self.video_driver.set_active(len(dictionary))
+            self.tvoutstandard.set_active(0)
+            self.tvouttype.set_active(0)
+        else:
+            for step in ParentFrontend.BREADCRUMB_STEPS:
+                if (ParentFrontend.BREADCRUMB_STEPS[step] >
+                    ParentFrontend.BREADCRUMB_STEPS[VIDEOPAGE]):
+                    ParentFrontend.BREADCRUMB_STEPS[step] -= 1
+            ParentFrontend.BREADCRUMB_MAX_STEP -= 1
+            ParentFrontend.BREADCRUMB_STEPS.pop(VIDEOPAGE)
+            self.steps.remove_page(self.steps.page_num(self.mythbuntu_stepDrivers))
+            self.pages.remove(mythbuntu.MythbuntuDrivers)
 
     def populate_mysql(self):
         """Puts a new random mysql password into the UI for each run
