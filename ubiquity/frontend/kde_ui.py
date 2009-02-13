@@ -133,9 +133,16 @@ class Wizard(BaseFrontend):
                             license, copyright, text, homePage, bugEmail)
         about.addAuthor(ki18n("Jonathan Riddell"), KLocalizedString() ,"jriddell@ubuntu.com")
         KCmdLineArgs.init([""],about)
-
-        self.app = KApplication()
         
+        #undo the drop, this is needed to play nice with kde
+        os.setegid(0)
+        os.seteuid(0)
+        
+        self.app = KApplication()
+
+        #os.setegid(1000)
+        #os.seteuid(1000)
+
         #self.app = QApplication(['ubiquity', '-style=oxygen'])
 
         self.parentWidget = QWidget()
@@ -216,22 +223,23 @@ class Wizard(BaseFrontend):
         self.partition_bar_vbox.setSpacing(0)
         self.partition_bar_vbox.setMargin(0)
 
-        warningIcon = QPixmap("/usr/share/icons/oxygen/32x32/status/dialog-warning.png")
+        iconLoader = KIconLoader()
+        warningIcon = iconLoader.loadIcon("dialog-warming", KIconLoader.Desktop)
         self.userinterface.fullname_error_image.setPixmap(warningIcon)
         self.userinterface.username_error_image.setPixmap(warningIcon)
         self.userinterface.password_error_image.setPixmap(warningIcon)
         self.userinterface.hostname_error_image.setPixmap(warningIcon)
 
-        self.forwardIcon = QIcon("/usr/share/icons/oxygen/16x16/actions/go-next.png")
+        self.forwardIcon = KIcon("go-next")
         self.userinterface.next.setIcon(self.forwardIcon)
 
         #Used for the last step
-        self.applyIcon = QIcon("/usr/share/icons/oxygen/16x16/actions/dialog-ok-apply.png")
+        self.applyIcon = KIcon("dialog-ok-apply")
 
-        backIcon = QIcon("/usr/share/icons/oxygen/16x16/actions/go-previous.png")
+        backIcon = KIcon("go-previous")
         self.userinterface.back.setIcon(backIcon)
 
-        quitIcon = QIcon("/usr/share/icons/oxygen/16x16/actions/dialog-close.png")
+        quitIcon = KIcon("dialog-close")
         self.userinterface.quit.setIcon(quitIcon)
 
     def excepthook(self, exctype, excvalue, exctb):
@@ -406,8 +414,8 @@ class Wizard(BaseFrontend):
 
     def customize_installer(self):
         """Initial UI setup."""
-
-        self.userinterface.setWindowIcon(QIcon("/usr/share/icons/hicolor/64x64/apps/ubiquity.png"))
+        
+        self.userinterface.setWindowIcon(KIcon("ubiquity.png"))
         self.allow_go_backward(False)
 
         """
