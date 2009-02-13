@@ -483,16 +483,7 @@ class Wizard(ParentFrontend.Wizard):
     def video_changed (self,widget):
         """Called whenever the modify video driver option is toggled or its kids"""
         drivers=get_graphics_dictionary()
-        if (widget is not None and widget.get_name() == 'modifyvideodriver'):
-            if (widget.get_active()):
-                self.videodrivers_hbox.set_sensitive(True)
-            else:
-                self.tvout_vbox.set_sensitive(False)
-                self.videodrivers_hbox.set_sensitive(False)
-                self.video_driver.set_active(len(drivers))
-                self.tvoutstandard.set_active(0)
-                self.tvouttype.set_active(0)
-        elif (widget is not None and widget.get_name() == 'video_driver'):
+        if (widget is not None and widget.get_name() == 'video_driver'):
             type = widget.get_active()
             if (type < len(drivers)):
                 self.tvout_vbox.set_sensitive(True)
@@ -503,20 +494,6 @@ class Wizard(ParentFrontend.Wizard):
 
     def toggle_customtype (self,widget):
         """Called whenever a custom type is toggled"""
-
-        def set_fe_drivers(self,enable):
-            """Toggle Visible Frontend Applicable Drivers"""
-            if enable:
-                self.frontend_driver_list.show()
-            else:
-                self.frontend_driver_list.hide()
-
-        def set_be_drivers(self,enable):
-            """Toggles Visible Backend Applicable Drivers"""
-            if enable:
-                self.backend_driver_list.show()
-            else:
-                self.backend_driver_list.hide()
 
         def set_all_services(self,enable):
             """Toggles visibility on all possible services"""
@@ -548,8 +525,6 @@ class Wizard(ParentFrontend.Wizard):
             self.enablessh.set_active(True)
             self.enablesamba.set_active(True)
             self.master_backend_expander.hide()
-            set_fe_drivers(self,True)
-            set_be_drivers(self,True)
         elif self.slave_be_fe.get_active():
             set_all_services(self,True)
             set_all_passwords(self,True)
@@ -557,16 +532,12 @@ class Wizard(ParentFrontend.Wizard):
             self.enablesamba.set_active(True)
             self.mysql_server_expander.hide()
             self.mysql_option_hbox.hide()
-            set_fe_drivers(self,True)
-            set_be_drivers(self,True)
         elif self.master_be.get_active():
             set_all_services(self,True)
             set_all_passwords(self,True)
             self.enablessh.set_active(True)
             self.enablesamba.set_active(True)
             self.master_backend_expander.hide()
-            set_fe_drivers(self,False)
-            set_be_drivers(self,True)
         elif self.slave_be.get_active():
             set_all_services(self,True)
             set_all_passwords(self,True)
@@ -574,8 +545,6 @@ class Wizard(ParentFrontend.Wizard):
             self.enablesamba.set_active(True)
             self.mysql_server_expander.hide()
             self.mysql_option_hbox.hide()
-            set_fe_drivers(self,False)
-            set_be_drivers(self,True)
         else:
             set_all_services(self,True)
             set_all_passwords(self,True)
@@ -588,8 +557,6 @@ class Wizard(ParentFrontend.Wizard):
             self.mysql_option_hbox.hide()
             self.nfs_option_hbox.hide()
             self.samba_option_hbox.hide()
-            set_fe_drivers(self,True)
-            set_be_drivers(self,False)
 
     def toggle_ir(self,widget):
         """Called whenever a request to enable/disable remote is called"""
