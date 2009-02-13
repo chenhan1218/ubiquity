@@ -82,16 +82,12 @@ _Description:
 
 Template: ubiquity/text/driver_heading_label
 Type: text
-_Description: Additional Drivers/Firmware
+_Description: Graphics Drivers
 
 Template: ubiquity/text/driver_description
 Type: text
 _Description:
  An open source graphics driver is already enabled and configured for your installation.  If you would like to use a different graphics driver, you can do so here.  Note that proprietary graphics drivers may be necessary for TV Output or OpenGL effects.
-
-Template: ubiquity/text/modifyvideodriver
-Type: text
-_Description: Modify Video Driver & Settings
 
 Template: ubiquity/text/tvout_label
 Type: text
@@ -100,12 +96,6 @@ _Description: If you would like to configure TV-out, choose an option here:
 Template: ubiquity/text/tvstandard_label
 Type: text
 _Description: If enabling TV Out, you will also need to choose a TV Standard:
-
-Template: ubiquity/text/tvwarning
-Type: text
-_Description:
- Warning: Do not set the TV standard to something higher than what your TV supports.
- PERMANENT damage may occur.
 
 Template: ubiquity/text/masterinfo_heading_label
 Type: text
