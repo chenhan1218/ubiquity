@@ -67,7 +67,6 @@ class TimezoneMap(gtk.Widget):
 
     def __init__(self, database, image_path):
         gtk.Widget.__init__(self)
-        self.cr = None
         self.tzdb = database
         self.image_path = image_path
         self.orig_background = \
@@ -76,12 +75,9 @@ class TimezoneMap(gtk.Widget):
         self.orig_color_map = \
             gtk.gdk.pixbuf_new_from_file(os.path.join(self.image_path,
             'time_zones_colorcodes.png'))
-        self.connect('motion-notify-event', self.motion_notify)
         self.connect('button-press-event', self.button_press)
         self.connect('map-event', self.mapped)
         self.connect('unmap-event', self.unmapped)
-        self.previous_color = None
-        self.offset = None
         self.selected_offset = None
 
         self.selected = None
@@ -110,9 +106,7 @@ class TimezoneMap(gtk.Widget):
             wclass=gdk.INPUT_OUTPUT,
             event_mask=self.get_events() |
                         gdk.EXPOSURE_MASK |
-                        gdk.BUTTON_PRESS_MASK |
-                        gdk.POINTER_MOTION_MASK |
-                        gdk.POINTER_MOTION_HINT_MASK)
+                        gdk.BUTTON_PRESS_MASK)
         self.window.set_user_data(self)
         self.style.attach(self.window)
         self.style.set_background(self.window, gtk.STATE_NORMAL)
@@ -121,9 +115,9 @@ class TimezoneMap(gtk.Widget):
         self.window.set_cursor(cursor)
 
     def do_expose_event(self, event):
-        self.cr = self.window.cairo_create()
-        self.cr.set_source_pixbuf(self.background, 0, 0)
-        self.cr.paint()
+        cr = self.window.cairo_create()
+        cr.set_source_pixbuf(self.background, 0, 0)
+        cr.paint()
 
         # Plot cities.
         height = self.allocation.height
@@ -131,11 +125,11 @@ class TimezoneMap(gtk.Widget):
         only_draw_selected = True
         for loc in self.tzdb.locations:
             if self.selected and loc.zone == self.selected:
-                self.cr.set_source_color(gtk.gdk.color_parse('black'))
+                cr.set_source_color(gtk.gdk.color_parse('black'))
             else:
                 if only_draw_selected:
                     continue
-                self.cr.set_source_color(gtk.gdk.color_parse("red"))
+                cr.set_source_color(gtk.gdk.color_parse("red"))
             
             pointx = (loc.longitude + 180) / 360
             pointy = 1 - ((loc.latitude + 90) / 180)
@@ -146,22 +140,22 @@ class TimezoneMap(gtk.Widget):
             pointx = pointx * xx - 20
             pointy = pointy * yx + 42
 
-            self.cr.set_line_width(2)
-            self.cr.move_to(pointx - 3, pointy - 3)
-            self.cr.line_to(pointx + 3, pointy + 3)
-            self.cr.move_to(pointx + 3, pointy - 3)
-            self.cr.line_to(pointx - 3, pointy + 3)
+            cr.set_line_width(2)
+            cr.move_to(pointx - 3, pointy - 3)
+            cr.line_to(pointx + 3, pointy + 3)
+            cr.move_to(pointx + 3, pointy - 3)
+            cr.line_to(pointx - 3, pointy + 3)
             if self.selected and loc.zone == self.selected:
                 now = datetime.datetime.now(loc.info)
                 time_text = now.strftime('%X')
                 xbearing, ybearing, width, height, xadvance, yadvance = \
-                    self.cr.text_extents(time_text)
+                    cr.text_extents(time_text)
                 if pointx + width > self.allocation.width:
-                    self.cr.move_to(pointx - 4 - width, pointy + 4 + height)
+                    cr.move_to(pointx - 4 - width, pointy + 4 + height)
                 else:
-                    self.cr.move_to(pointx + 4, pointy + 4 + height)
-                self.cr.show_text(time_text)
-            self.cr.stroke()
+                    cr.move_to(pointx + 4, pointy + 4 + height)
+                cr.show_text(time_text)
+            cr.stroke()
 
         
         # Render highlight.
@@ -171,11 +165,11 @@ class TimezoneMap(gtk.Widget):
         if self.selected_offset != None:
             try:
                 pixbuf = gtk.gdk.pixbuf_new_from_file(os.path.join(self.image_path,
-                    'time_zones_highlight_%d.png' % self.selected_offset))
+                    'time_zones_highlight_%s.png' % self.selected_offset))
                 pixbuf = pixbuf.scale_simple(self.allocation.width,
                     self.allocation.height, gtk.gdk.INTERP_BILINEAR)
-                self.cr.set_source_pixbuf(pixbuf, 0, 0)
-                self.cr.paint()
+                cr.set_source_pixbuf(pixbuf, 0, 0)
+                cr.paint()
             except glib.GError:
                 pass
     def timeout(self):
@@ -190,24 +184,43 @@ class TimezoneMap(gtk.Widget):
         if self.update_timeout is not None:
             gobject.source_remove(self.update_timeout)
             self.update_timeout = None
+
     def select_city(self, city):
         self.selected = city
         for loc in self.tzdb.locations:
             if loc.zone == city:
                 offset = (loc.utc_offset.days * 24) + (loc.utc_offset.seconds / 60 / 60)
-                self.selected_offset = offset
+                self.selected_offset = str(offset)
         self.queue_draw()
 
     def button_press(self, widget, event):
         x = event.x
         y = event.y
+        
+        o = None
+        try:
+            c = self.visible_map_pixels[y][x]
+            for offset in color_codes:
+                if (color_codes[offset] == c).all():
+                    o = offset
+                    break
+        except IndexError:
+            print 'Mouse click outside of the map.'
+        if not o:
+            return
+        
+        self.selected_offset = o
 
+        # FIXME: Why do the first two clicks show the same city?
         if (x, y) == self.previous_click and self.distances:
             zone = self.distances[self.dist_pos][1].zone
             self.dist_pos = (self.dist_pos + 1) % len(self.distances)
         else:
             self.distances = []
             for loc in self.tzdb.locations:
+                offset = (loc.utc_offset.days * 24) + (loc.utc_offset.seconds / 60 / 60)
+                if str(offset) != self.selected_offset:
+                    continue
                 pointx = (loc.longitude + 180) / 360
                 pointy = 1 - ((loc.latitude + 90) / 180)
                 pointx = pointx * self.allocation.width - 20
@@ -217,47 +230,14 @@ class TimezoneMap(gtk.Widget):
                 dist = dx * dx + dy * dy
                 self.distances.append((dist, loc))
             self.distances.sort()
-            self.distances = self.distances[:5]
+            # Disable for now.  As there are only a handful of cities in each
+            # time zone band, it seemingly makes sense to cycle through all of
+            # them.
+            #self.distances = self.distances[:5]
             self.previous_click = (x, y)
             self.dist_pos = 0
             zone = self.distances[0][1].zone
         self.emit('city-selected', zone)
-        self.select_city(zone)
-        
-    def motion_notify(self, widget, event):
-        if event.is_hint:
-            x, y, state = event.window.get_pointer()
-        else:
-            x = event.x
-            y = event.y
-        try:
-            c = self.visible_map_pixels[y][x]
-            if self.previous_color != None and (c == self.previous_color).all():
-                return True
-            for offset in color_codes:
-                if (color_codes[offset] == c).all():
-                    self.previous_color = c
-                    self.offset = offset
-                    self.queue_draw()
-                    return False
-        except IndexError:
-            # The motion is outside of the map.
-            pass
-        self.offset = None
-        return True
+        self.queue_draw()
 
 gobject.type_register(TimezoneMap)
-
-if __name__ == '__main__':
-    import sys
-    win = gtk.Window()
-    svg = None
-    if (len (sys.argv) < 2):
-        raise SystemExit(sys.argv[0] + ' [image search path]')
-
-    o = TimezoneMap(sys.argv[1])
-    win.add(o)
-    win.set_default_size(800, 410)
-    win.show_all()
-    win.connect("destroy", lambda w: gtk.main_quit())
-    gtk.main()

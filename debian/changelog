@@ -7,6 +7,8 @@ ubiquity (1.11.9) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Show the time to the left of the selected time zone city if the text
     would otherwise extend past the right edge.
+  * Only select cities that are in the same UTC offset as where the mouse
+    clicked.
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 12 Feb 2009 17:47:08 +0000
 
