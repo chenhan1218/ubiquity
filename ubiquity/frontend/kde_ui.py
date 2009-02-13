@@ -140,10 +140,8 @@ class Wizard(BaseFrontend):
         
         self.app = KApplication()
 
-        #os.setegid(1000)
-        #os.seteuid(1000)
-
-        #self.app = QApplication(['ubiquity', '-style=oxygen'])
+        # put the privileges back
+        drop_privileges()
 
         self.parentWidget = QWidget()
         self.userinterface = UbiquityUI(self.parentWidget)
@@ -415,7 +413,7 @@ class Wizard(BaseFrontend):
     def customize_installer(self):
         """Initial UI setup."""
         
-        self.userinterface.setWindowIcon(KIcon("ubiquity.png"))
+        self.userinterface.setWindowIcon(KIcon("ubiquity"))
         self.allow_go_backward(False)
 
         """

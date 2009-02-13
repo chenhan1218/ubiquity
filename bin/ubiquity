@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 '''
 Installer
@@ -24,7 +25,7 @@ import atexit
 import optparse
 import subprocess
 
-sys.path.insert(0, '/usr/lib/ubiquity')
+#sys.path.insert(0, '/usr/lib/ubiquity')
 
 from ubiquity import misc
 
