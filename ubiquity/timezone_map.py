@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
 
 # Copyright (C) 2009 Canonical Ltd.
 # Written by Evan Dandrea <evand@ubuntu.com>.
@@ -26,6 +26,7 @@ from gtk import gdk
 import gobject
 import os
 import datetime
+from tz import *
 
 from numpy import array
 # FIXME: Use the proper 40 time zones:
@@ -252,7 +253,7 @@ if __name__ == '__main__':
     if (len (sys.argv) < 2):
         raise SystemExit(sys.argv[0] + ' [image search path]')
 
-    o = TimezoneMap(sys.argv[1])
+    o = TimezoneMap(Database(), sys.argv[1])
     win.add(o)
     win.set_default_size(800, 410)
     win.show_all()

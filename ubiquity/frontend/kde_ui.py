@@ -39,8 +39,6 @@ from PyQt4.QtGui import *
 from PyQt4 import uic
 from PyKDE4.kdeui import *
 from PyKDE4.kdecore import *
-#from kio import KRun
-#import kdedesigner
 
 import debconf
 
@@ -222,7 +220,7 @@ class Wizard(BaseFrontend):
         self.partition_bar_vbox.setMargin(0)
 
         iconLoader = KIconLoader()
-        warningIcon = iconLoader.loadIcon("dialog-warming", KIconLoader.Desktop)
+        warningIcon = iconLoader.loadIcon("dialog-warning", KIconLoader.Desktop)
         self.userinterface.fullname_error_image.setPixmap(warningIcon)
         self.userinterface.username_error_image.setPixmap(warningIcon)
         self.userinterface.password_error_image.setPixmap(warningIcon)
@@ -361,6 +359,7 @@ class Wizard(BaseFrontend):
             first_step = "stepWelcome"
         else:
             first_step = "stepLanguage"
+        
         self.set_current_page(WIDGET_STACK_STEPS[first_step])
         
         if got_intro:
@@ -1865,7 +1864,11 @@ class Wizard(BaseFrontend):
         self.userinterface.ready_text.setText(text)
 
     def set_grub_combo(self, options):
-        # TODO evand 2008-02-13: Port grub combobox.
+        ''' options gives us a possible list of install locations for the boot loader '''
+        #self.advanceddialog.grub_device_entry.clear()
+        ''' options is from summary.py grub_options() '''
+        #for opt in options:
+        #   self.advanceddialog.grub_device_entry.addItem(opt[0]);
         pass
 
     def on_advanced_button_clicked (self):
@@ -1880,7 +1883,12 @@ class Wizard(BaseFrontend):
             self.advanceddialog.bootloader_group_label.show()
             self.advanceddialog.grub_device_label.show()
             self.advanceddialog.grub_device_entry.show()
-            self.advanceddialog.grub_device_entry.setText(summary_device)
+            
+            self.advanceddialog.grub_device_entry.clear()
+            #using find_grub_target to get the actual install device
+            #TODO present user with a list of other options
+            self.advanceddialog.grub_device_entry.addItem(summary.find_grub_target())
+            
             self.advanceddialog.grub_device_entry.setEnabled(grub_en)
             self.advanceddialog.grub_device_label.setEnabled(grub_en)
         else:
@@ -2048,6 +2056,8 @@ class TimezoneMap(object):
         timezone_city_combo = self.frontend.userinterface.timezone_city_combo
         self.timezone_city_index = {}  #map human readable city name to Europe/London style zone
         self.city_index = []  # map cities to indexes for the combo box
+        
+        #TODO two lists, timezone and then cities in a timezone
 
         prev_continent = ''
         for location in self.tzdb.locations:
@@ -2067,7 +2077,10 @@ class TimezoneMap(object):
             timezone_city_combo.addItem(human_zone)
             self.timezone_city_index[human_zone] = location.zone
             self.city_index.append(human_zone)
-            self.tzmap.cities[human_zone] = [location.latitude, location.longitude]
+            #self.tzmap.cities[human_zone] = [location.latitude, location.longitude]
+            
+        # TODO need better interface b/t timezone widget and map
+        self.tzmap.locations = self.tzdb.locations
 
         self.frontend.app.connect(self.tzmap, SIGNAL("cityChanged"), self.cityChanged)
         self.mapped()
@@ -2192,15 +2205,28 @@ class MapWidget(QWidget):
         QWidget.__init__(self, parent)
         self.setObjectName(name)
         self.setAutoFillBackground(True)
-        self.imagePath = "/usr/share/ubiquity/pixmaps/world_map-960.png"
+        self.imagePath = "/usr/share/ubiquity/pixmaps/time_zones_background.png"
         image = QImage(self.imagePath);
         pixmapUnscaled = QPixmap(self.imagePath);
         pixmap = pixmapUnscaled.scaled( QSize(self.width(), self.height()) )
         palette = QPalette()
         palette.setBrush(self.backgroundRole(), QBrush(pixmap))
         self.setPalette(palette)
+
+        self.selectedLoc = 0
+        
+        #TODO prescale the pixmaps, and also add prescaling to the resize method
+        #then remove the w,h from the drawPixmap
+        #that should speed some things up...
+
+        # zonenum + 11 = index (because I can't negative index, but the files go negative)
+        self.zonePixmaps = {}
+        for zone in range (-11, 13):
+            self.zonePixmaps[zone + 11] = QPixmap('/usr/share/ubiquity/pixmaps/time_zones_highlight_%d.png' % zone)
+        
         self.cities = {}
-        self.cities['Edinburgh'] = [self.coordinate(False, 55, 50, 0), self.coordinate(True, 3, 15, 0)]
+        self.locations = {}
+        
         self.timer = QTimer(self)
         self.connect(self.timer, SIGNAL("timeout()"), self.updateCityIndicator)
         self.setMouseTracking(True)
@@ -2210,29 +2236,11 @@ class MapWidget(QWidget):
         self.cityIndicator.hide()
 
     def paintEvent(self, paintEvent):
-        ##FIXME this is slow, need to buffer the output.
         painter = QPainter(self)
-        for city in self.cities:
-            self.drawCity(self.cities[city][0], self.cities[city][1], painter)
+        painter.drawPixmap(0, 0, self.width(), self.height(), self.zonePixmaps[self.selectedLoc + 11])
+        print 'test'
 
-    def drawCity(self, lat, long, painter):
-        point = self.getPosition(lat, long, self.width(), self.height())
-        painter.setPen(QPen(QColor(250,100,100), 1))
-        painter.drawPoint(point.x(), point.y()-1)
-        painter.drawPoint(point.x()-1, point.y())
-        painter.drawPoint(point.x(), point.y())
-        painter.drawPoint(point.x()+1, point.y())
-        painter.drawPoint(point.x(), point.y()+1)
-        painter.setPen(QPen(QColor(0,0,0), 1))
-        painter.drawPoint(point.x(), point.y()-2)
-        painter.drawPoint(point.x()-1, point.y()-1)
-        painter.drawPoint(point.x()+1, point.y()-1)
-        painter.drawPoint(point.x()-2, point.y())
-        painter.drawPoint(point.x()+2, point.y())
-        painter.drawPoint(point.x()-1, point.y()+1)
-        painter.drawPoint(point.x()+1, point.y()+1)
-        painter.drawPoint(point.x(), point.y()+2)
-
+    # @return pixel coordinate of a latitude and longitude
     def getPosition(self, la, lo, w, h):
         x = (w * (180.0 + lo) / 360.0)
         y = (h * (90.0 - la) / 180.0)
@@ -2248,43 +2256,53 @@ class MapWidget(QWidget):
     def getNearestCity(self, w, h, x, y):
         result = None
         dist = 1.0e10
-        for city in self.cities:
-            pos = self.getPosition(self.cities[city][0], self.cities[city][1], self.width(), self.height())
-
+        for loc in self.locations:
+            pos = self.getPosition(loc.latitude, loc.longitude, self.width(), self.height())
+            
             d = (pos.x()-x)*(pos.x()-x) + (pos.y()-y)*(pos.y()-y)
             if d < dist:
                 dist = d
                 self.where = pos
-                result = city
+                result = (loc.utc_offset.days * 24) + (loc.utc_offset.seconds / 60 / 60)
+        print 'zone: ', result
         return result
 
     def mouseMoveEvent(self, mouseEvent):
-        self.x = mouseEvent.pos().x()
+        '''self.x = mouseEvent.pos().x()
         self.y = mouseEvent.pos().y()
         if not self.timer.isActive():
             self.timer.setSingleShot(True)
-            self.timer.start(25)
+            self.timer.start(25)'''
 
     def updateCityIndicator(self):
-        city = self.getNearestCity(self.width(), self.height(), self.x, self.y)
+        '''city = self.getNearestCity(self.width(), self.height(), self.x, self.y)
         if city is None:
             return
         self.cityIndicator.setText(city)
         movePoint = self.getPosition(self.cities[city][0], self.cities[city][1], self.width(), self.height())
         self.cityIndicator.move(movePoint.x(), movePoint.y() - self.cityIndicator.height())
-        self.cityIndicator.show()
+        self.cityIndicator.show()'''
 
     def mouseReleaseEvent(self, mouseEvent):
+        #TODO scan cities and see what is best
+        oldLoc = self.selectedLoc
+        
         pos = mouseEvent.pos()
+        x = int(pos.x() * self.zonePixmaps[0].width()/self.width())
+        y = int(pos.y() * self.zonePixmaps[0].height()/self.height())
+        for i in range (0, 25):
+            # take advantage of the alpha to get the clicked timezone
+            if self.zonePixmaps[i].toImage().pixel(x, y) > 0:
+                self.selectedLoc = i - 11
+                break
 
-        city = self.getNearestCity(self.width(), self.height(), pos.x(), pos.y());
-        if city is None:
-            return
-        elif city == "Edinburgh":
-            self.city = "London"
-        else:
-            self.city = city
-        self.emit(SIGNAL("cityChanged"), ())
+        '''newLoc = self.getNearestCity(self.width(), self.height(), pos.x(), pos.y());
+        if (newLoc != None):
+            self.selectedLoc = newLoc'''
+        
+        if (oldLoc != self.selectedLoc):
+            self.emit(SIGNAL("cityChanged"), ())
+            self.repaint()
 
     def resizeEvent(self, resizeEvent):
         image = QImage(self.imagePath);
