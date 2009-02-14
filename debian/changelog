@@ -10,6 +10,11 @@ ubiquity (1.11.9) UNRELEASED; urgency=low
   * Only select cities that are in the same UTC offset as where the mouse
     clicked.
 
+  [ Roman Shtylman ]
+  * Automatic update of included source packages: base-installer
+    1.98ubuntu2, grub-installer 1.36ubuntu2, hw-detect 1.71ubuntu4,
+    partman-base 128ubuntu7.
+
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 12 Feb 2009 17:47:08 +0000
 
 ubiquity (1.11.8) jaunty; urgency=low

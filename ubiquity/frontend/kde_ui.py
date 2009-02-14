@@ -33,12 +33,15 @@ import atexit
 import signal
 import gettext
 
-#from qt import *
+# kde gui specifics
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4 import uic
 from PyKDE4.kdeui import *
 from PyKDE4.kdecore import *
+
+#import all our custome kde components
+from ubiquity.frontend.kde_components import *
 
 import debconf
 
@@ -46,7 +49,7 @@ from ubiquity import filteredcommand, i18n, validation
 from ubiquity.misc import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman, partman_commit, summary, install
-import ubiquity.tz
+#import ubiquity.tz
 import ubiquity.progressposition
 from ubiquity.frontend.base import BaseFrontend
 
@@ -58,6 +61,7 @@ PATH = '/usr/share/ubiquity'
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
 
+#PATH = '/home/shtylman/projects/ubiquity/ubiquity.kdeui/gui'
 UIDIR = os.path.join(PATH, 'qt')
 
 BREADCRUMB_STEPS = {
@@ -195,9 +199,6 @@ class Wizard(BaseFrontend):
 
         self.debconf_callbacks = {}    # array to keep callback functions needed by debconf file descriptors
 
-        self.map_vbox = QVBoxLayout(self.userinterface.map_frame)
-        self.map_vbox.setMargin(0)
-
         self.customize_installer()
 
         release_notes_layout = QHBoxLayout(self.userinterface.release_notes_frame)
@@ -326,8 +327,6 @@ class Wizard(BaseFrontend):
 
         self.app.connect(self.userinterface.language_treeview, SIGNAL("itemSelectionChanged()"), self.on_language_treeview_selection_changed)
 
-        self.app.connect(self.userinterface.timezone_city_combo, SIGNAL("activated(int)"), self.tzmap.city_combo_changed)
-
         self.app.connect(self.userinterface.advanced_button, SIGNAL("clicked()"), self.on_advanced_button_clicked)
 
         self.app.connect(self.userinterface.partition_button_new_label, SIGNAL("clicked(bool)"), self.on_partition_list_new_label_activate)
@@ -359,6 +358,10 @@ class Wizard(BaseFrontend):
             first_step = "stepWelcome"
         else:
             first_step = "stepLanguage"
+        
+        #TODO remove
+        #first_step = "stepLocation"
+        #self.pagesindex = 1
         
         self.set_current_page(WIDGET_STACK_STEPS[first_step])
         
@@ -415,25 +418,6 @@ class Wizard(BaseFrontend):
         self.userinterface.setWindowIcon(KIcon("ubiquity"))
         self.allow_go_backward(False)
 
-        """
-        PIXMAPSDIR = os.path.join(PATH, 'pixmaps', self.distro)
-
-        # set pixmaps
-        if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
-            logo = os.path.join(PIXMAPSDIR, "logo_1280.jpg")
-            photo = os.path.join(PIXMAPSDIR, "photo_1280.jpg")
-        else:
-            logo = os.path.join(PIXMAPSDIR, "logo_1024.jpg")
-            photo = os.path.join(PIXMAPSDIR, "photo_1024.jpg")
-        if not os.path.exists(logo):
-            logo = None
-        if not os.path.exists(photo):
-            photo = None
-
-        self.logo_image.set_from_file(logo)
-        self.photo.set_from_file(photo)
-        """
-
         if self.oem_config:
             self.userinterface.setWindowTitle(
                 self.get_string('oem_config_title'))
@@ -474,9 +458,12 @@ class Wizard(BaseFrontend):
         except:
             self.userinterface.release_notes_label.hide()
             self.userinterface.release_notes_frame.hide()
-
-        self.tzmap = TimezoneMap(self)
-        self.tzmap.tzmap.show()
+        
+        # init the timezone map
+        self.tzmap = Timezone.TimezoneMap(self)
+        map_vbox = QVBoxLayout(self.userinterface.map_frame)
+        map_vbox.setMargin(0)
+        map_vbox.addWidget(self.tzmap)
 
         self.userinterface.password_debug_warning_label.setVisible(
             'UBIQUITY_DEBUG' in os.environ)
@@ -531,7 +518,7 @@ class Wizard(BaseFrontend):
             return
 
         name = str(widget.objectName())
-
+        
         text = self.get_string(name, lang)
 
         if str(name) == "UbiquityUIBase":
@@ -2039,278 +2026,6 @@ class Wizard(BaseFrontend):
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
         self.app.exit()
-
-class TimezoneMap(object):
-    def __init__(self, frontend):
-        self.frontend = frontend
-        self.tzdb = ubiquity.tz.Database()
-        #self.tzmap = ubiquity.emap.EMap()
-        self.tzmap = MapWidget(self.frontend.userinterface.map_frame)
-        self.frontend.map_vbox.addWidget(self.tzmap)
-        self.tzmap.show()
-        self.update_timeout = None
-        self.point_selected = None
-        self.point_hover = None
-        self.location_selected = None
-
-        timezone_city_combo = self.frontend.userinterface.timezone_city_combo
-        self.timezone_city_index = {}  #map human readable city name to Europe/London style zone
-        self.city_index = []  # map cities to indexes for the combo box
-        
-        #TODO two lists, timezone and then cities in a timezone
-
-        prev_continent = ''
-        for location in self.tzdb.locations:
-            #self.tzmap.add_point("", location.longitude, location.latitude,
-            #                     NORMAL_RGBA)
-            zone_bits = location.zone.split('/')
-            if len(zone_bits) == 1:
-                continue
-            continent = zone_bits[0]
-            if continent != prev_continent:
-                timezone_city_combo.addItem('')
-                self.city_index.append('')
-                timezone_city_combo.addItem("--- %s ---" % continent)
-                self.city_index.append("--- %s ---" % continent)
-                prev_continent = continent
-            human_zone = '/'.join(zone_bits[1:]).replace('_', ' ')
-            timezone_city_combo.addItem(human_zone)
-            self.timezone_city_index[human_zone] = location.zone
-            self.city_index.append(human_zone)
-            #self.tzmap.cities[human_zone] = [location.latitude, location.longitude]
-            
-        # TODO need better interface b/t timezone widget and map
-        self.tzmap.locations = self.tzdb.locations
-
-        self.frontend.app.connect(self.tzmap, SIGNAL("cityChanged"), self.cityChanged)
-        self.mapped()
-
-    def set_city_text(self, name):
-        """ Gets a long name, Europe/London """
-        timezone_city_combo = self.frontend.userinterface.timezone_city_combo
-        count = timezone_city_combo.count()
-        found = False
-        i = 0
-        zone_bits = name.split('/')
-        human_zone = '/'.join(zone_bits[1:]).replace('_', ' ')
-        while not found and i < count:
-            if str(timezone_city_combo.itemText(i)) == human_zone:
-                timezone_city_combo.setCurrentIndex(i)
-                found = True
-            i += 1
-
-    def set_zone_text(self, location):
-        offset = location.utc_offset
-        if offset >= datetime.timedelta(0):
-            minuteoffset = int(offset.seconds / 60)
-        else:
-            minuteoffset = int(offset.seconds / 60 - 1440)
-        if location.zone_letters == 'GMT':
-            text = location.zone_letters
-        else:
-            text = "%s (GMT%+d:%02d)" % (location.zone_letters,
-                                         minuteoffset / 60, minuteoffset % 60)
-        self.frontend.userinterface.timezone_zone_text.setText(text)
-        translations = gettext.translation('iso_3166',
-                                           languages=[self.frontend.locale],
-                                           fallback=True)
-        self.frontend.userinterface.timezone_country_text.setText(translations.ugettext(location.human_country))
-        self.update_current_time()
-
-    def update_current_time(self):
-        if self.location_selected is not None:
-            try:
-                now = datetime.datetime.now(self.location_selected.info)
-                self.frontend.userinterface.timezone_time_text.setText(unicode(now.strftime('%X'), "utf-8"))
-            except ValueError:
-                # Some versions of Python have problems with clocks set
-                # before the epoch (http://python.org/sf/1646728).
-                self.frontend.userinterface.timezone_time_text.setText('<clock error>')
-
-    def set_tz_from_name(self, name):
-        """ Gets a long name, Europe/London """
-
-        (longitude, latitude) = (0.0, 0.0)
-
-        for location in self.tzdb.locations:
-            if location.zone == name:
-                (longitude, latitude) = (location.longitude, location.latitude)
-                break
-        else:
-            return
-
-        self.location_selected = location
-        self.set_city_text(self.location_selected.zone)
-        self.set_zone_text(self.location_selected)
-        self.frontend.allow_go_forward(True)
-
-        if name == None or name == "":
-            return
-
-    def get_tz_from_name(self, name):
-        if len(name) != 0 and name in self.timezone_city_index:
-            return self.timezone_city_index[name]
-        else:
-            return None
-
-    def city_combo_changed(self, index):
-        city = str(self.frontend.userinterface.timezone_city_combo.currentText())
-        try:
-            zone = self.timezone_city_index[city]
-        except KeyError:
-            return
-        self.set_tz_from_name(zone)
-
-    def get_selected_tz_name(self):
-        name = str(self.frontend.userinterface.timezone_city_combo.currentText())
-        return self.get_tz_from_name(name)
-
-    def timeout(self):
-        self.update_current_time()
-        return True
-
-    def mapped(self):
-        if self.update_timeout is None:
-            self.update_timeout = QTimer()
-            self.frontend.app.connect(self.update_timeout, SIGNAL("timeout()"), self.timeout)
-            self.update_timeout.start(100)
-
-    def cityChanged(self):
-        self.frontend.userinterface.timezone_city_combo.setCurrentIndex(self.city_index.index(self.tzmap.city))
-        self.city_combo_changed(self.frontend.userinterface.timezone_city_combo.currentIndex())
-        self.frontend.allow_go_forward(True)
-
-class CityIndicator(QLabel):
-    def __init__(self, parent, name="cityindicator"):
-        QLabel.__init__(self, parent)
-        self.setMouseTracking(True)
-        self.setMargin(1)
-        self.setIndent(0)
-        self.setAutoFillBackground(True)
-        self.setLineWidth(1)
-        self.setFrameStyle(QFrame.Box | QFrame.Plain)
-        self.setPalette(QToolTip.palette())
-        self.setText("CityIndicator")
-
-    def mouseMoveEvent(self, mouseEvent):
-        mouseEvent.ignore()
-
-    def setText(self, text):
-        """ implement auto resize """
-        QLabel.setText(self, text)
-        self.adjustSize()
-
-class MapWidget(QWidget):
-    def __init__(self, parent, name="mapwidget"):
-        QWidget.__init__(self, parent)
-        self.setObjectName(name)
-        self.setAutoFillBackground(True)
-        self.imagePath = "/usr/share/ubiquity/pixmaps/time_zones_background.png"
-        image = QImage(self.imagePath);
-        pixmapUnscaled = QPixmap(self.imagePath);
-        pixmap = pixmapUnscaled.scaled( QSize(self.width(), self.height()) )
-        palette = QPalette()
-        palette.setBrush(self.backgroundRole(), QBrush(pixmap))
-        self.setPalette(palette)
-
-        self.selectedLoc = 0
-        
-        #TODO prescale the pixmaps, and also add prescaling to the resize method
-        #then remove the w,h from the drawPixmap
-        #that should speed some things up...
-
-        # zonenum + 11 = index (because I can't negative index, but the files go negative)
-        self.zonePixmaps = {}
-        for zone in range (-11, 13):
-            self.zonePixmaps[zone + 11] = QPixmap('/usr/share/ubiquity/pixmaps/time_zones_highlight_%d.png' % zone)
-        
-        self.cities = {}
-        self.locations = {}
-        
-        self.timer = QTimer(self)
-        self.connect(self.timer, SIGNAL("timeout()"), self.updateCityIndicator)
-        self.setMouseTracking(True)
-
-        self.cityIndicator = CityIndicator(self)
-        self.cityIndicator.setText("")
-        self.cityIndicator.hide()
-
-    def paintEvent(self, paintEvent):
-        painter = QPainter(self)
-        painter.drawPixmap(0, 0, self.width(), self.height(), self.zonePixmaps[self.selectedLoc + 11])
-        print 'test'
-
-    # @return pixel coordinate of a latitude and longitude
-    def getPosition(self, la, lo, w, h):
-        x = (w * (180.0 + lo) / 360.0)
-        y = (h * (90.0 - la) / 180.0)
-
-        return QPoint(int(x),int(y))
-
-    def coordinate(self, neg, d, m, s):
-        if neg:
-            return - (d + m/60.0 + s/3600.0)
-        else :
-            return d + m/60.0 + s/3600.0
-
-    def getNearestCity(self, w, h, x, y):
-        result = None
-        dist = 1.0e10
-        for loc in self.locations:
-            pos = self.getPosition(loc.latitude, loc.longitude, self.width(), self.height())
-            
-            d = (pos.x()-x)*(pos.x()-x) + (pos.y()-y)*(pos.y()-y)
-            if d < dist:
-                dist = d
-                self.where = pos
-                result = (loc.utc_offset.days * 24) + (loc.utc_offset.seconds / 60 / 60)
-        print 'zone: ', result
-        return result
-
-    def mouseMoveEvent(self, mouseEvent):
-        '''self.x = mouseEvent.pos().x()
-        self.y = mouseEvent.pos().y()
-        if not self.timer.isActive():
-            self.timer.setSingleShot(True)
-            self.timer.start(25)'''
-
-    def updateCityIndicator(self):
-        '''city = self.getNearestCity(self.width(), self.height(), self.x, self.y)
-        if city is None:
-            return
-        self.cityIndicator.setText(city)
-        movePoint = self.getPosition(self.cities[city][0], self.cities[city][1], self.width(), self.height())
-        self.cityIndicator.move(movePoint.x(), movePoint.y() - self.cityIndicator.height())
-        self.cityIndicator.show()'''
-
-    def mouseReleaseEvent(self, mouseEvent):
-        #TODO scan cities and see what is best
-        oldLoc = self.selectedLoc
-        
-        pos = mouseEvent.pos()
-        x = int(pos.x() * self.zonePixmaps[0].width()/self.width())
-        y = int(pos.y() * self.zonePixmaps[0].height()/self.height())
-        for i in range (0, 25):
-            # take advantage of the alpha to get the clicked timezone
-            if self.zonePixmaps[i].toImage().pixel(x, y) > 0:
-                self.selectedLoc = i - 11
-                break
-
-        '''newLoc = self.getNearestCity(self.width(), self.height(), pos.x(), pos.y());
-        if (newLoc != None):
-            self.selectedLoc = newLoc'''
-        
-        if (oldLoc != self.selectedLoc):
-            self.emit(SIGNAL("cityChanged"), ())
-            self.repaint()
-
-    def resizeEvent(self, resizeEvent):
-        image = QImage(self.imagePath);
-        pixmapUnscaled = QPixmap(self.imagePath);
-        pixmap = pixmapUnscaled.scaled( QSize(self.width(), self.height()), Qt.IgnoreAspectRatio, Qt.SmoothTransformation)
-        palette = QPalette()
-        palette.setBrush(self.backgroundRole(), QBrush(pixmap))
-        self.setPalette(palette)
 
 class PartitionModel(QAbstractItemModel):
     def __init__(self, ubiquity, parent=None):
