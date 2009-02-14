@@ -37,6 +37,7 @@ from install import InstallStepError
 from ubiquity.components import mythbuntu_install
 
 from mythbuntu_common.lirc import LircHandler
+from mythbuntu_common.vnc import VNCHandler
 
 class Install(ParentInstall):
 
@@ -47,6 +48,7 @@ class Install(ParentInstall):
         ParentInstall.__init__(self)
 
         self.lirc=LircHandler()
+        self.vnc=VNCHandler()
         self.type = self.db.get('mythbuntu/install_type')
 
         #This forces install_langpacks to do Nothing
@@ -217,8 +219,12 @@ class Install(ParentInstall):
 bind-address=0.0.0.0"""
             f.close()
         if self.db.get('mythbuntu/x11vnc') == 'true':
-            password=self.db.get('mythbuntu/x11vnc_password')
-            self.chrex('/usr/share/mythbuntu-common/scripts/create_vnc_passwd',password)
+            self.vnc.create_password(self.db.get('mythbuntu/x11vnc_password'))
+            directory = self.target + '/home/' + self.db.get('passwd/username') + '/.vnc'
+            if not os.path.exists(directory):
+                os.mkdir(directory)
+            shutil.move('/root/.vnc/passwd', directory + '/passwd')
+            os.system('chown ' + str(self.uid) + ':' + str(self.gid) + ' -R ' + directory)
 
         #Remotes & Transmitters
         self.db.progress('INFO', 'ubiquity/install/ir')
