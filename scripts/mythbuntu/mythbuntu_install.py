@@ -177,7 +177,12 @@ class Install(ParentInstall):
         #Mark new items
         self.record_installed(to_install)
 
+        #Actually install extras
         ParentInstall.install_extras(self)
+
+        #Run depmod if we might be using a DKMS enabled driver
+        if video_driver != "Open Source Driver":
+            self.chrex('/sbin/depmod','-a')
 
     def configure_hardware(self):
         """Overrides parent function to add in hooks for configuring

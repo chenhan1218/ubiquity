@@ -10,8 +10,10 @@ ubiquity (1.11.9) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Remove hdhomerun-config related items from mythbuntu frontend.
+  * Make graphics page optional - only present if options other
+    than open source driver present.
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 12 Feb 2009 17:47:08 +0000
+ -- Mario Limonciello <superm1@ubuntu.com>  Sat, 14 Feb 2009 00:50:42 -0600
 
 ubiquity (1.11.8) jaunty; urgency=low
 

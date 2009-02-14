@@ -158,14 +158,6 @@ EOF
 db_get mythbuntu/video_driver
 PROP="$RET"
 if [ "$PROP" != "Open Source Driver" ]; then
-    #Due to bug 119562, restricted manager won't do this
-    #For us automatically.
-    #$log $chroot $ROOT /usr/bin/restricted-manager -e $PROP
-
-    #Starting w/ intrepid, we need to build the modules
-    #for nv/amd ourselves.  this means depmod must be
-    #run once rather than overloaded with a fake one
-    $log $chroot $ROOT /sbin/depmod -a
 
     #Work out a config that should be fairly generic
     #Also, sort tv-out mess here
