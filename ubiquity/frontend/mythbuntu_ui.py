@@ -507,68 +507,26 @@ class Wizard(ParentFrontend.Wizard):
     def toggle_customtype (self,widget):
         """Called whenever a custom type is toggled"""
 
-        def set_all_services(self,enable):
-            """Toggles visibility on all possible services"""
-            if enable:
-                self.ssh_option_hbox.show()
-                self.samba_option_hbox.show()
-                self.nfs_option_hbox.show()
-                self.mysql_option_hbox.show()
-            else:
-                self.ssh_option_hbox.hide()
-                self.samba_option_hbox.hide()
-                self.nfs_option_hbox.hide()
-                self.mysql_option_hbox.hide()
-
-        def set_all_passwords(self,enable):
-            """Toggles visibility on all password selection boxes"""
-            if enable:
-                self.master_backend_expander.show()
-                self.mythweb_expander.show()
-                self.mysql_server_expander.show()
-            else:
-                self.master_backend_expander.hide()
-                self.mythweb_expander.hide()
-                self.mysql_server_expander.hide()
-
-        if self.master_be_fe.get_active():
-            set_all_passwords(self,True)
-            set_all_services(self,True)
-            self.enablessh.set_active(True)
-            self.enablesamba.set_active(True)
+        if "Master" in self.get_installtype():
             self.master_backend_expander.hide()
-        elif self.slave_be_fe.get_active():
-            set_all_services(self,True)
-            set_all_passwords(self,True)
-            self.enablessh.set_active(True)
-            self.enablesamba.set_active(True)
-            self.mysql_server_expander.hide()
-            self.mysql_option_hbox.hide()
-        elif self.master_be.get_active():
-            set_all_services(self,True)
-            set_all_passwords(self,True)
-            self.enablessh.set_active(True)
-            self.enablesamba.set_active(True)
-            self.master_backend_expander.hide()
-        elif self.slave_be.get_active():
-            set_all_services(self,True)
-            set_all_passwords(self,True)
-            self.enablessh.set_active(True)
-            self.enablesamba.set_active(True)
-            self.mysql_server_expander.hide()
-            self.mysql_option_hbox.hide()
+            self.mysql_server_expander.show()
+            self.mysql_option_hbox.show()
         else:
-            set_all_services(self,True)
-            set_all_passwords(self,True)
-            self.enablessh.set_active(True)
+            self.enablemysql.set_active(False)
+            self.master_backend_expander.show()
+            self.mysql_server_expander.hide()
+            self.mysql_option_hbox.hide()
+
+        if "Backend" in self.get_installtype():
+            self.mythweb_expander.show()
+            self.samba_option_hbox.show()
+            self.nfs_option_hbox.show()
+        else:
             self.enablesamba.set_active(False)
             self.enablenfs.set_active(False)
-            self.enablemysql.set_active(False)
             self.mythweb_expander.hide()
-            self.mysql_server_expander.hide()
-            self.mysql_option_hbox.hide()
-            self.nfs_option_hbox.hide()
             self.samba_option_hbox.hide()
+            self.nfs_option_hbox.hide()
 
     def toggle_ir(self,widget):
         """Called whenever a request to enable/disable remote is called"""
