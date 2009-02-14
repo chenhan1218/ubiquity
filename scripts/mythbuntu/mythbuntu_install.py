@@ -26,6 +26,7 @@ import re
 import syslog
 import debconf
 import shutil
+import XKit.xutils
 
 import string
 
@@ -191,10 +192,13 @@ class Install(ParentInstall):
 
         #Drivers
         self.db.progress('INFO', 'ubiquity/install/drivers')
-        control = mythbuntu_install.AdditionalDrivers(None,self.db)
-        ret = control.run_command(auto_process=True)
-        if ret != 0:
-            raise InstallStepError("Additional Driver Configuration failed with code %d" % ret)
+        video_driver = self.db.get('mythbuntu/video_driver')
+        out = self.db.get('mythbuntu/tvout')
+        standard = self.db.get('mythbuntu/tvstandard')
+        if 'nvidia' in video_driver:
+            self.enable_nvidia(out,standard)
+        elif 'fglrx' in video_driver:
+            self.enable_amd(out,standard)
 
         #Services
         self.db.progress('INFO', 'ubiquity/install/services')
@@ -276,6 +280,64 @@ bind-address=0.0.0.0"""
         os.putenv('HOME',home)
         self.lirc.create_lircrc(self.target + "/etc/lirc/lircd.conf",False)
         os.system('chown ' + str(self.uid) + ':' + str(self.gid) + ' -R ' + home + '/.lirc*')
+
+    def enable_amd(self,type,format):
+        if type == 'Composite Video Output':
+            self.chrex('/usr/bin/aticonfig','--tvs VIDEO', '--tvf ' + format)
+        elif type == 'S-Video Video Output':
+            self.chrex('/usr/bin/aticonfig','--tvs VIDEO', '--tvf ' + format)
+        elif type == 'Component Video Output':
+            self.chrex('/usr/bin/aticonfig','--tvs YUV', '--tvf ' + format)
+        else:
+            self.chrex('/usr/bin/aticonfig')
+
+    def enable_nvidia(self,type,format):
+        """Enables an NVIDIA graphics driver using XKit"""
+        xorg_conf=XKit.xutils.XUtils("/etc/X11/xorg.conf")
+
+        extra_conf_options={'NoLogo': '1',
+                           'DPI': '100x100',
+                           'UseEvents': '1'}
+
+        if type == 'Composite Video Output':
+            extra_conf_options["ConnectedMonitor"]="TV"
+            extra_conf_options["TVOutFormat"]="COMPOSITE"
+            extra_conf_options["TVStandard"]=format
+        elif type == 'S-Video Video Output':
+            extra_conf_options["ConnectedMonitor"]="TV"
+            extra_conf_options["TVOutFormat"]="SVIDEO"
+            extra_conf_options["TVStandard"]=format
+        elif type == 'Component Video Output':
+            extra_conf_options["ConnectedMonitor"]="TV"
+            extra_conf_options["TVOutFormat"]="COMPONENT"
+            extra_conf_options["TVStandard"]=format
+
+        #Set up device section
+        relevant_devices = []
+        if len(xorg_conf.globaldict['Device']) == 0:
+            device = xorg_conf.makeSection('Device', identifier='Default Device')
+            relevant_devices.append(device)
+            xorg_conf.setDriver('Device', 'nvidia', device)
+        else:
+            devices = xorg_conf.getDevicesInUse()
+            if len(devices) > 0:
+                relevant_devices = devices
+            else:
+                relevant_devices = xorg_conf.globaldict['Device'].keys()
+            for device in relevant_devices:
+                xorg_conf.setDriver('Device', 'nvidia', device)
+
+        for device_section in relevant_devices:
+            for k, v in extra_conf_options.iteritems():
+                xorg_conf.addOption('Device', k, v, optiontype='Option', position=device_section)
+
+        #Set up screen section
+        if len(xorg_conf.globaldict['Screen']) == 0:
+            screen = xorg_conf.makeSection('Screen', identifier='Default Screen')
+
+        xorg_conf.addOption('Screen', 'DefaultDepth', '24', position=0, prefix='')
+
+        xorg_conf.writeFile(self.target + "/etc/X11/xorg.conf")
 
     def remove_extras(self):
         """Try to remove packages that are installed on the live CD but not on

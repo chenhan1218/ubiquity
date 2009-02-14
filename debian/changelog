@@ -12,6 +12,9 @@ ubiquity (1.11.9) UNRELEASED; urgency=low
   * Remove hdhomerun-config related items from mythbuntu frontend.
   * Make graphics page optional - only present if options other
     than open source driver present.
+  * debian/control:
+    - Drop depends on restricted-manager
+    - Add depends for python-xkit
 
  -- Mario Limonciello <superm1@ubuntu.com>  Sat, 14 Feb 2009 00:50:42 -0600
 
