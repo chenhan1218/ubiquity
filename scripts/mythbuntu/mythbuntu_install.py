@@ -197,6 +197,7 @@ class Install(ParentInstall):
             raise InstallStepError("Additional Driver Configuration failed with code %d" % ret)
 
         #Services
+        self.db.progress('INFO', 'ubiquity/install/services')
         if self.db.get('mythbuntu/samba') == 'true':
             shutil.copy('/usr/share/mythbuntu-common/examples/smb.conf.dist',self.target + '/etc/samba/smb.conf')
         if self.db.get('mythbuntu/nfs-kernel-server') == 'true':
@@ -205,12 +206,15 @@ class Install(ParentInstall):
             for file in ['ssh_host_dsa_key','ssh_host_dsa_key.pub','ssh_host_rsa_key','ssh_host_rsa_key.pub']:
                 os.remove(self.target + '/etc/ssh/' + file)
             self.reconfigure('openssh-server')
-
-        self.db.progress('INFO', 'ubiquity/install/services')
-        control = mythbuntu_install.AdditionalServices(None,self.db)
-        ret = control.run_command(auto_process=True)
-        if ret != 0:
-            raise InstallStepError("Additional Service Configuration failed with code %d" % ret)
+        if self.db.get('mythbuntu/mysql-server') == 'true':
+            f=open(self.target + '/etc/mysql/conf.d/mythtv.cnf','w')
+            print >>f, """\
+[mysqld]
+bind-address=0.0.0.0"""
+            f.close()
+        if self.db.get('mythbuntu/x11vnc') == 'true':
+            password=self.db.get('mythbuntu/x11vnc_password')
+            self.chrex('/usr/share/mythbuntu-common/scripts/create_vnc_passwd',password)
 
         #Remotes & Transmitters
         self.db.progress('INFO', 'ubiquity/install/ir')
