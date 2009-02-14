@@ -35,7 +35,7 @@ class MythbuntuInstallType(FilteredCommand):
             if answer != '':
                 self.frontend.set_installtype(answer)
             questions.append('^mythbuntu/' + question)
-        return (['/usr/share/ubiquity/ask-type'], questions)
+        return (['/usr/share/ubiquity/ask-mythbuntu','type'], questions)
 
     def ok_handler(self):
         self.preseed('mythbuntu/' + self.questions[0],self.frontend.get_installtype())
@@ -52,7 +52,7 @@ class MythbuntuServices(FilteredCommand):
             if answer != '':
                 self.frontend.set_service(this_service,answer)
         questions.append('^mythbuntu/' + this_service)
-        return (['/usr/share/ubiquity/ask-services'], questions)
+        return (['/usr/share/ubiquity/ask-mythbuntu','services'], questions)
 
     def ok_handler(self):
         services = self.frontend.get_services()
@@ -85,7 +85,7 @@ class MythbuntuPasswords(FilteredCommand):
                 self.frontend.set_password(this_password,answer)
         questions.append('^mythweb/' + this_password)
 
-        return (['/usr/share/ubiquity/ask-passwords'], questions)
+        return (['/usr/share/ubiquity/ask-mythbuntu','passwords'], questions)
 
     def ok_handler(self):
         #mythtv passwords
@@ -116,7 +116,7 @@ class MythbuntuRemote(FilteredCommand):
             if answer != '':
                 self.frontend.set_lirc(question,answer)
             questions.append('^lirc/' + question)
-        return (['/usr/share/ubiquity/ask-ir'], questions)
+        return (['/usr/share/ubiquity/ask-mythbuntu','ir'], questions)
 
     def ok_handler(self):
         for question in self.top:
@@ -134,7 +134,7 @@ class MythbuntuDrivers(FilteredCommand):
             if answer != '':
                 self.frontend.set_driver(this_driver,answer)
         questions.append('^mythbuntu/' + this_driver)
-        return (['/usr/share/ubiquity/ask-drivers'], questions)
+        return (['/usr/share/ubiquity/ask-mythbuntu','drivers'], questions)
 
     def ok_handler(self):
         drivers = self.frontend.get_drivers()
