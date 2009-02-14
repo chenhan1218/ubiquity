@@ -2,22 +2,16 @@ Template: mythbuntu/summary
 Type: note
 #flag:translate!:3
 _Description: Ready to install
-  Install Type:           ${INSTALLTYPE}
-  Drivers:
-      Add. Video Driver:  ${VIDEO_DRIVER}
-          TV-Out:             ${TVOUT}, ${TVSTANDARD}
-  Additional Services:
-      VNC:                ${EN_VNC}
-      SSH:                ${EN_OPENSSH}
-      Samba:              ${EN_SAMBA}
-      NFS:                ${EN_NFS}
-      MythTV Service:     ${EN_MYSQL}
-  Normal Ubuntu Install Questions:
-      Language:           ${LANGUAGE}
-      Keyboard layout:    ${KEYMAP}
-      Regular Name:       ${FULLNAME}
-      Regular Login name: ${USERNAME}
-      Location:           ${LOCATION}
+  Install Type: ${INSTALLTYPE}
+  Language: ${LANGUAGE}
+  Keyboard layout: ${KEYMAP}
+  Name: ${FULLNAME}
+  Login name: ${USERNAME}
+  Location: ${LOCATION}
+  IR Remote: ${REMOTE}
+  IR Transmitter: ${TRANSMITTER}
+  Video Driver: ${VIDEO_DRIVER}
+  Services: ${SERVICES}
  .
  ${PARTMAN_CHANGES}
 
