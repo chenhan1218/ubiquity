@@ -12,72 +12,6 @@ if [ "$1" ]; then
     log='log-output -t mythbuntu'
 fi
 
-samba_config()
-{
-    cat > /tmp/smb.conf << EOF
-[global]
-workgroup = MSHOME
-server string = %h server (Samba, Mythbuntu)
-log file = /var/log/samba/log.%m
-max log size = 1000
-syslog = 0
-panic action = /usr/share/samba/panic-action %d
-dns proxy = no
-security = share
-
-[recordings]
-comment = TV Recordings
-path = /var/lib/mythtv/recordings
-public = yes
-writable = no
-create mask = 0777
-directory mask = 0777
-force user = nobody
-force group = nogroup
-
-[videos]
-comment = Videos
-path = /var/lib/mythtv/videos
-public = yes
-writable = yes
-create mask = 0660
-directory mask = 0770
-force user = mythtv
-force group = mythtv
-
-[music]
-comment = Music
-path = /var/lib/mythtv/music
-public = yes
-writable = yes
-create mask = 0660
-directory mask = 0770
-force user = mythtv
-force group = mythtv
-
-[pictures]
-comment = Pictures
-path = /var/lib/mythtv/pictures
-public = yes
-writable = yes
-create mask = 0660
-directory mask = 0770
-force user = mythtv
-force group = mythtv
-
-EOF
-}
-
-nfs_config()
-{
-    cat > /tmp/exports << EOF
-/var/lib/mythtv/recordings    *(ro,async,no_root_squash,no_subtree_check)
-/var/lib/mythtv/videos    *(ro,async,no_root_squash,no_subtree_check)
-/var/lib/mythtv/music    *(ro,async,no_root_squash,no_subtree_check)
-/var/lib/mythtv/pictures    *(ro,async,no_root_squash,no_subtree_check)
-EOF
-}
-
 vnc_config()
 {
     db_get mythbuntu/x11vnc_password
@@ -98,21 +32,6 @@ EOF
     rm /tmp/vnc_pass_script
 }
 
-ssh_config()
-{
-    rm $ROOT/etc/ssh/*host*
-    cat > $ROOT/tmp/ssh_setup <<EOF
-#!/bin/sh
-/var/lib/dpkg/info/openssh-server.postinst configure
-/etc/init.d/ssh stop
-EOF
-        chmod +x $ROOT/tmp/ssh_setup
-        mount -t proc none $ROOT/proc
-        $log $chroot $ROOT /tmp/ssh_setup
-        umount $ROOT/proc
-        rm $ROOT/tmp/ssh_setup
-}
-
 mysql_config()
 {
     MYSQLCONFIG="${ROOT}/etc/mysql/conf.d/mythtv.cnf"
@@ -120,31 +39,12 @@ mysql_config()
     mv ${MYSQLCONFIG}.new ${MYSQLCONFIG}
 }
 
-db_get mythbuntu/samba
-SAMBA="$RET"
-db_get mythbuntu/nfs-kernel-server
-NFS="$RET"
 db_get mythbuntu/x11vnc
 VNC="$RET"
-db_get mythbuntu/openssh-server
-SSH="$RET"
 db_get mythbuntu/mysql-server
 MYSQL="$RET"
-if [ "$SAMBA" = true ] || [ "$NFS" = true ]; then
-    if [ "$SAMBA" = true ]; then
-        samba_config
-        mv /tmp/smb.conf $ROOT/etc/samba
-    fi
-    if [ "$NFS" = true ]; then
-        nfs_config
-        mv /tmp/exports $ROOT/etc
-    fi
-fi
 if [ "$VNC" = true ]; then
     vnc_config
-fi
-if [ "$SSH" = true ]; then
-    ssh_config
 fi
 if [ "$MYSQL" = true ]; then
     mysql_config

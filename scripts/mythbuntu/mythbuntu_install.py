@@ -25,6 +25,7 @@ import errno
 import re
 import syslog
 import debconf
+import shutil
 
 import string
 
@@ -196,6 +197,15 @@ class Install(ParentInstall):
             raise InstallStepError("Additional Driver Configuration failed with code %d" % ret)
 
         #Services
+        if self.db.get('mythbuntu/samba') == 'true':
+            shutil.copy('/usr/share/mythbuntu-common/examples/smb.conf.dist',self.target + '/etc/samba/smb.conf')
+        if self.db.get('mythbuntu/nfs-kernel-server') == 'true':
+            shutil.copy('/usr/share/mythbuntu-common/examples/exports.dist',self.target + '/etc/exports')
+        if self.db.get('mythbuntu/openssh-server') == 'true':
+            for file in ['ssh_host_dsa_key','ssh_host_dsa_key.pub','ssh_host_rsa_key','ssh_host_rsa_key.pub']:
+                os.remove(self.target + '/etc/ssh/' + file)
+            self.reconfigure('openssh-server')
+
         self.db.progress('INFO', 'ubiquity/install/services')
         control = mythbuntu_install.AdditionalServices(None,self.db)
         ret = control.run_command(auto_process=True)
@@ -225,20 +235,10 @@ class Install(ParentInstall):
         try:
             ir_device["remote"] = self.db.get('lirc/remote')
             self.set_debconf('lirc/remote',ir_device["remote"])
-            if ir_device["remote"] == "Custom":
-                ir_device["modules"] = self.db.get('lirc/remote_modules')
-                ir_device["driver"] = self.db.get('lirc/remote_driver')
-                ir_device["device"] = self.db.get('lirc/remote_device')
-                ir_device["lircd_conf"] = self.db.get('lirc/remote_lircd_conf')
-                self.set_debconf('lirc/remote_modules',ir_device["modules"])
-                self.set_debconf('lirc/remote_driver',ir_device["driver"])
-                self.set_debconf('lirc/remote_device',ir_device["device"])
-                self.set_debconf('lirc/remote_lircd_conf',ir_device["lircd_conf"])
-            else:
-                ir_device["modules"] = ""
-                ir_device["driver"] = ""
-                ir_device["device"] = ""
-                ir_device["lircd_conf"] = ""
+            ir_device["modules"] = ""
+            ir_device["driver"] = ""
+            ir_device["device"] = ""
+            ir_device["lircd_conf"] = ""
             self.lirc.set_device(ir_device,"remote")
         except debconf.DebconfError:
             pass
@@ -246,20 +246,10 @@ class Install(ParentInstall):
         try:
             ir_device["transmitter"] = self.db.get('lirc/transmitter')
             self.set_debconf('lirc/transmitter',ir_device["transmitter"])
-            if ir_device["transmitter"] == "Custom":
-                ir_device["modules"] = self.db.get('lirc/transmitter_modules')
-                ir_device["driver"] = self.db.get('lirc/transmitter_driver')
-                ir_device["device"] = self.db.get('lirc/transmitter_device')
-                ir_device["lircd_conf"] = self.db.get('lirc/transmitter_lircd_conf')
-                self.set_debconf('lirc/transmitter_modules',ir_device["modules"])
-                self.set_debconf('lirc/transmitter_driver',ir_device["driver"])
-                self.set_debconf('lirc/transmitter_device',ir_device["device"])
-                self.set_debconf('lirc/transmitter_lircd_conf',ir_device["lircd_conf"])
-            else:
-                ir_device["modules"] = ""
-                ir_device["driver"] = ""
-                ir_device["device"] = ""
-                ir_device["lircd_conf"] = ""
+            ir_device["modules"] = ""
+            ir_device["driver"] = ""
+            ir_device["device"] = ""
+            ir_device["lircd_conf"] = ""
             self.lirc.set_device(ir_device,"transmitter")
         except debconf.DebconfError:
             pass
