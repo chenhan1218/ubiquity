@@ -318,15 +318,7 @@ class Wizard(ParentFrontend.Wizard):
 
     def set_lirc(self,question,answer):
         """Preseeds a lirc configuration item"""
-        if question == "remote_modules":
-            self.remote_modules.set_text(answer)
-        elif question == "remote_device":
-            self.remote_device.set_text(answer)
-        elif question == "remote_driver":
-            self.remote_driver.set_text(answer)
-        elif question == "remote_lircd_conf":
-            print "TODO"
-        elif question == "remote":
+        if question == "remote":
             for i in range(0,self.remote_count):
                 self.remote_list.set_active(i)
                 found=False
@@ -335,15 +327,7 @@ class Wizard(ParentFrontend.Wizard):
                     break
                 if not found:
                     self.remote_list.set_active(0)
-        if question == "transmitter_modules":
-            self.transmitter_modules.set_text(answer)
-        elif question == "transmitter_device":
-            self.transmitter_modules.set_text(answer)
-        elif question == "transmitter_driver":
-            self.transmitter_driver.set_text(answer)
-        elif question == "transmitter_lircd_conf":
-            print "TODO"
-        elif question == "transmitter":
+        if question == "transmitter":
             for i in range(0,self.transmitter_count):
                 self.transmitter_list.set_active(i)
                 found=False
@@ -439,18 +423,8 @@ class Wizard(ParentFrontend.Wizard):
         item = {"modules":"","device":"","driver":"","lircd_conf":""}
         if type == "remote":
             item["remote"]=self.remote_list.get_active_text()
-            if item["remote"] == "Custom":
-                item["modules"]=self.remote_modules.get_text()
-                item["device"]=self.remote_device.get_text()
-                item["driver"]=self.remote_driver.get_text()
-                item["lircd_conf"]=self.browse_remote_lircd_conf.get_filename()
         elif type == "transmitter":
             item["transmitter"]=self.transmitter_list.get_active_text()
-            if item["transmitter"] == "Custom":
-                item["modules"]=self.transmitter_modules.get_text()
-                item["device"]=self.transmitter_device.get_text()
-                item["driver"]=self.transmitter_driver.get_text()
-                item["lircd_conf"]=self.browse_transmitter_lircd_conf.get_filename()
         return item
 
 ##################
@@ -551,45 +525,12 @@ class Wizard(ParentFrontend.Wizard):
             elif widget.get_name() == 'remote_list':
                 self.generate_lircrc_checkbox.set_active(True)
                 if self.remote_list.get_active() == 0:
-                    custom = False
                     self.remotecontrol.set_active(False)
                     self.generate_lircrc_checkbox.set_active(False)
-                elif self.remote_list.get_active_text() == "Custom":
-                    custom = True
-                else:
-                    custom = False
-                    self.remote_driver.set_text("")
-                    self.remote_modules.set_text("")
-                    self.remote_device.set_text("")
-                self.remote_driver_hbox.set_sensitive(custom)
-                self.remote_modules_hbox.set_sensitive(custom)
-                self.remote_device_hbox.set_sensitive(custom)
-                self.remote_configuration_hbox.set_sensitive(custom)
-                self.browse_remote_lircd_conf.set_filename("/usr/share/lirc/remotes")
             #if our selected transmitter itself changed
             elif widget.get_name() == 'transmitter_list':
                 if self.transmitter_list.get_active() == 0:
-                    custom = False
                     self.transmittercontrol.set_active(False)
-                elif self.transmitter_list.get_active_text() == "Custom":
-                    custom = True
-                else:
-                    custom = False
-                    self.transmitter_driver.set_text("")
-                    self.transmitter_modules.set_text("")
-                    self.transmitter_device.set_text("")
-                self.transmitter_driver_hbox.set_sensitive(custom)
-                self.transmitter_modules_hbox.set_sensitive(custom)
-                self.transmitter_device_hbox.set_sensitive(custom)
-                self.transmitter_configuration_hbox.set_sensitive(custom)
-                self.browse_transmitter_lircd_conf.set_filename("/usr/share/lirc/transmitters")
-
-    def mythweb_toggled(self,widget):
-        """Called when the checkbox to install Mythweb is toggled"""
-        if (self.mythweb_checkbox.get_active()):
-            self.mythweb_expander.show()
-        else:
-            self.mythweb_expander.hide()
 
     def usemythwebpassword_toggled(self,widget):
         """Called when the checkbox to set a mythweb password is pressed"""

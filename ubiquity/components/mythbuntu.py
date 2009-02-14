@@ -107,33 +107,21 @@ class MythbuntuRemote(FilteredCommand):
 
     def __init__(self,frontend,db=None):
         self.top = ['remote', 'transmitter']
-        self.subitems = ['','lircd_conf','modules','driver','device']
         FilteredCommand.__init__(self,frontend,db)
 
     def prepare(self):
         questions = []
         for question in self.top:
-            for subquestion in self.subitems:
-                if subquestion != '':
-                    real_question = question + '_' + subquestion
-                else:
-                    real_question = question
-                answer = self.db.get('lirc/' + real_question)
-                if answer != '':
-                    self.frontend.set_lirc(real_question,answer)
-                questions.append('^lirc/' + real_question)
+            answer = self.db.get('lirc/' + question)
+            if answer != '':
+                self.frontend.set_lirc(question,answer)
+            questions.append('^lirc/' + question)
         return (['/usr/share/ubiquity/ask-ir'], questions)
 
     def ok_handler(self):
         for question in self.top:
             device = self.frontend.get_lirc(question)
-            for subquestion in self.subitems:
-                if subquestion != '':
-                    real_question = question + '_' + subquestion
-                else:
-                    real_question = question
-                    subquestion = question
-                self.preseed('lirc/' + real_question,device[subquestion])
+            self.preseed('lirc/' + question,device[question])
         FilteredCommand.ok_handler(self)
 
 class MythbuntuDrivers(FilteredCommand):
