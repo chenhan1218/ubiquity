@@ -49,7 +49,6 @@ from ubiquity import filteredcommand, i18n, validation
 from ubiquity.misc import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman, partman_commit, summary, install
-#import ubiquity.tz
 import ubiquity.progressposition
 from ubiquity.frontend.base import BaseFrontend
 
@@ -61,6 +60,7 @@ PATH = '/usr/share/ubiquity'
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
 
+#currently using for testing
 #PATH = '/home/shtylman/projects/ubiquity/ubiquity.kdeui/gui'
 UIDIR = os.path.join(PATH, 'qt')
 
@@ -360,8 +360,8 @@ class Wizard(BaseFrontend):
             first_step = "stepLanguage"
         
         #TODO remove
-        #first_step = "stepLocation"
-        #self.pagesindex = 1
+        first_step = "stepLocation"
+        self.pagesindex = 1
         
         self.set_current_page(WIDGET_STACK_STEPS[first_step])
         
@@ -1141,10 +1141,10 @@ class Wizard(BaseFrontend):
         return unicode(self.userinterface.oem_id_entry.text())
 
     def set_timezone (self, timezone):
-        self.tzmap.set_tz_from_name(timezone)
+        self.tzmap.set_timezone(timezone)
 
     def get_timezone (self):
-        return self.tzmap.get_selected_tz_name()
+        return self.tzmap.get_timezone()
 
     def set_keyboard_choices(self, choices):
         self.userinterface.keyboardlayoutview.clear()
