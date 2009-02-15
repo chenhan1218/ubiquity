@@ -1,4 +1,4 @@
-ubiquity (1.11.9) UNRELEASED; urgency=low
+ubiquity (1.11.9) jaunty; urgency=low
 
   [ Colin Watson ]
   * Don't show the "Who are you?" page just because the auto-login or
@@ -22,7 +22,7 @@ ubiquity (1.11.9) UNRELEASED; urgency=low
     1.98ubuntu2, grub-installer 1.36ubuntu2, hw-detect 1.71ubuntu4,
     partman-base 128ubuntu7.
 
- -- Mario Limonciello <superm1@ubuntu.com>  Sat, 14 Feb 2009 00:50:42 -0600
+ -- Mario Limonciello <superm1@ubuntu.com>  Sat, 14 Feb 2009 19:11:00 -0600
 
 ubiquity (1.11.8) jaunty; urgency=low
 
