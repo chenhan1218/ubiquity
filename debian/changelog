@@ -12,6 +12,7 @@ ubiquity (1.11.9) UNRELEASED; urgency=low
   * Remove hdhomerun-config related items from mythbuntu frontend.
   * Make graphics page optional - only present if options other
     than open source driver present.
+  * Port all mythbuntu bash scripts to python.
   * debian/control:
     - Drop depends on restricted-manager
     - Add depends for python-xkit
