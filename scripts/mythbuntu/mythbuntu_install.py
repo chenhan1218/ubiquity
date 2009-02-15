@@ -25,6 +25,8 @@ import errno
 import re
 import syslog
 import debconf
+import shutil
+import XKit.xutils
 
 import string
 
@@ -35,6 +37,7 @@ from install import InstallStepError
 from ubiquity.components import mythbuntu_install
 
 from mythbuntu_common.lirc import LircHandler
+from mythbuntu_common.vnc import VNCHandler
 
 class Install(ParentInstall):
 
@@ -45,6 +48,7 @@ class Install(ParentInstall):
         ParentInstall.__init__(self)
 
         self.lirc=LircHandler()
+        self.vnc=VNCHandler()
         self.type = self.db.get('mythbuntu/install_type')
 
         #This forces install_langpacks to do Nothing
@@ -161,7 +165,6 @@ class Install(ParentInstall):
         video_driver = self.db.get('mythbuntu/video_driver')
         vnc = self.db.get('mythbuntu/x11vnc')
         nfs = self.db.get('mythbuntu/nfs-kernel-server')
-        hdhomerun = self.db.get('mythbuntu/hdhomerun')
         to_install = []
         to_remove = set()
         if video_driver != "Open Source Driver":
@@ -171,8 +174,6 @@ class Install(ParentInstall):
         if nfs == 'true':
             to_install.append('nfs-kernel-server')
             to_install.append('portmap')
-        if hdhomerun == 'true':
-            to_install.append('hdhomerun-config')
 
         #Remove any conflicts before installing new items
         if to_remove != []:
@@ -180,7 +181,12 @@ class Install(ParentInstall):
         #Mark new items
         self.record_installed(to_install)
 
+        #Actually install extras
         ParentInstall.install_extras(self)
+
+        #Run depmod if we might be using a DKMS enabled driver
+        if video_driver != "Open Source Driver":
+            self.chrex('/sbin/depmod','-a')
 
     def configure_hardware(self):
         """Overrides parent function to add in hooks for configuring
@@ -188,17 +194,37 @@ class Install(ParentInstall):
 
         #Drivers
         self.db.progress('INFO', 'ubiquity/install/drivers')
-        control = mythbuntu_install.AdditionalDrivers(None,self.db)
-        ret = control.run_command(auto_process=True)
-        if ret != 0:
-            raise InstallStepError("Additional Driver Configuration failed with code %d" % ret)
+        video_driver = self.db.get('mythbuntu/video_driver')
+        out = self.db.get('mythbuntu/tvout')
+        standard = self.db.get('mythbuntu/tvstandard')
+        if 'nvidia' in video_driver:
+            self.enable_nvidia(out,standard)
+        elif 'fglrx' in video_driver:
+            self.enable_amd(out,standard)
 
         #Services
         self.db.progress('INFO', 'ubiquity/install/services')
-        control = mythbuntu_install.AdditionalServices(None,self.db)
-        ret = control.run_command(auto_process=True)
-        if ret != 0:
-            raise InstallStepError("Additional Service Configuration failed with code %d" % ret)
+        if self.db.get('mythbuntu/samba') == 'true':
+            shutil.copy('/usr/share/mythbuntu-common/examples/smb.conf.dist',self.target + '/etc/samba/smb.conf')
+        if self.db.get('mythbuntu/nfs-kernel-server') == 'true':
+            shutil.copy('/usr/share/mythbuntu-common/examples/exports.dist',self.target + '/etc/exports')
+        if self.db.get('mythbuntu/openssh-server') == 'true':
+            for file in ['ssh_host_dsa_key','ssh_host_dsa_key.pub','ssh_host_rsa_key','ssh_host_rsa_key.pub']:
+                os.remove(self.target + '/etc/ssh/' + file)
+            self.reconfigure('openssh-server')
+        if self.db.get('mythbuntu/mysql-server') == 'true':
+            f=open(self.target + '/etc/mysql/conf.d/mythtv.cnf','w')
+            print >>f, """\
+[mysqld]
+bind-address=0.0.0.0"""
+            f.close()
+        if self.db.get('mythbuntu/x11vnc') == 'true':
+            self.vnc.create_password(self.db.get('mythbuntu/x11vnc_password'))
+            directory = self.target + '/home/' + self.db.get('passwd/username') + '/.vnc'
+            if not os.path.exists(directory):
+                os.mkdir(directory)
+            shutil.move('/root/.vnc/passwd', directory + '/passwd')
+            os.system('chown ' + str(self.uid) + ':' + str(self.gid) + ' -R ' + directory)
 
         #Remotes & Transmitters
         self.db.progress('INFO', 'ubiquity/install/ir')
@@ -223,20 +249,10 @@ class Install(ParentInstall):
         try:
             ir_device["remote"] = self.db.get('lirc/remote')
             self.set_debconf('lirc/remote',ir_device["remote"])
-            if ir_device["remote"] == "Custom":
-                ir_device["modules"] = self.db.get('lirc/remote_modules')
-                ir_device["driver"] = self.db.get('lirc/remote_driver')
-                ir_device["device"] = self.db.get('lirc/remote_device')
-                ir_device["lircd_conf"] = self.db.get('lirc/remote_lircd_conf')
-                self.set_debconf('lirc/remote_modules',ir_device["modules"])
-                self.set_debconf('lirc/remote_driver',ir_device["driver"])
-                self.set_debconf('lirc/remote_device',ir_device["device"])
-                self.set_debconf('lirc/remote_lircd_conf',ir_device["lircd_conf"])
-            else:
-                ir_device["modules"] = ""
-                ir_device["driver"] = ""
-                ir_device["device"] = ""
-                ir_device["lircd_conf"] = ""
+            ir_device["modules"] = ""
+            ir_device["driver"] = ""
+            ir_device["device"] = ""
+            ir_device["lircd_conf"] = ""
             self.lirc.set_device(ir_device,"remote")
         except debconf.DebconfError:
             pass
@@ -244,20 +260,10 @@ class Install(ParentInstall):
         try:
             ir_device["transmitter"] = self.db.get('lirc/transmitter')
             self.set_debconf('lirc/transmitter',ir_device["transmitter"])
-            if ir_device["transmitter"] == "Custom":
-                ir_device["modules"] = self.db.get('lirc/transmitter_modules')
-                ir_device["driver"] = self.db.get('lirc/transmitter_driver')
-                ir_device["device"] = self.db.get('lirc/transmitter_device')
-                ir_device["lircd_conf"] = self.db.get('lirc/transmitter_lircd_conf')
-                self.set_debconf('lirc/transmitter_modules',ir_device["modules"])
-                self.set_debconf('lirc/transmitter_driver',ir_device["driver"])
-                self.set_debconf('lirc/transmitter_device',ir_device["device"])
-                self.set_debconf('lirc/transmitter_lircd_conf',ir_device["lircd_conf"])
-            else:
-                ir_device["modules"] = ""
-                ir_device["driver"] = ""
-                ir_device["device"] = ""
-                ir_device["lircd_conf"] = ""
+            ir_device["modules"] = ""
+            ir_device["driver"] = ""
+            ir_device["device"] = ""
+            ir_device["lircd_conf"] = ""
             self.lirc.set_device(ir_device,"transmitter")
         except debconf.DebconfError:
             pass
@@ -280,6 +286,64 @@ class Install(ParentInstall):
         os.putenv('HOME',home)
         self.lirc.create_lircrc(self.target + "/etc/lirc/lircd.conf",False)
         os.system('chown ' + str(self.uid) + ':' + str(self.gid) + ' -R ' + home + '/.lirc*')
+
+    def enable_amd(self,type,format):
+        if type == 'Composite Video Output':
+            self.chrex('/usr/bin/aticonfig','--tvs VIDEO', '--tvf ' + format)
+        elif type == 'S-Video Video Output':
+            self.chrex('/usr/bin/aticonfig','--tvs VIDEO', '--tvf ' + format)
+        elif type == 'Component Video Output':
+            self.chrex('/usr/bin/aticonfig','--tvs YUV', '--tvf ' + format)
+        else:
+            self.chrex('/usr/bin/aticonfig')
+
+    def enable_nvidia(self,type,format):
+        """Enables an NVIDIA graphics driver using XKit"""
+        xorg_conf=XKit.xutils.XUtils("/etc/X11/xorg.conf")
+
+        extra_conf_options={'NoLogo': '1',
+                           'DPI': '100x100',
+                           'UseEvents': '1'}
+
+        if type == 'Composite Video Output':
+            extra_conf_options["ConnectedMonitor"]="TV"
+            extra_conf_options["TVOutFormat"]="COMPOSITE"
+            extra_conf_options["TVStandard"]=format
+        elif type == 'S-Video Video Output':
+            extra_conf_options["ConnectedMonitor"]="TV"
+            extra_conf_options["TVOutFormat"]="SVIDEO"
+            extra_conf_options["TVStandard"]=format
+        elif type == 'Component Video Output':
+            extra_conf_options["ConnectedMonitor"]="TV"
+            extra_conf_options["TVOutFormat"]="COMPONENT"
+            extra_conf_options["TVStandard"]=format
+
+        #Set up device section
+        relevant_devices = []
+        if len(xorg_conf.globaldict['Device']) == 0:
+            device = xorg_conf.makeSection('Device', identifier='Default Device')
+            relevant_devices.append(device)
+            xorg_conf.setDriver('Device', 'nvidia', device)
+        else:
+            devices = xorg_conf.getDevicesInUse()
+            if len(devices) > 0:
+                relevant_devices = devices
+            else:
+                relevant_devices = xorg_conf.globaldict['Device'].keys()
+            for device in relevant_devices:
+                xorg_conf.setDriver('Device', 'nvidia', device)
+
+        for device_section in relevant_devices:
+            for k, v in extra_conf_options.iteritems():
+                xorg_conf.addOption('Device', k, v, optiontype='Option', position=device_section)
+
+        #Set up screen section
+        if len(xorg_conf.globaldict['Screen']) == 0:
+            screen = xorg_conf.makeSection('Screen', identifier='Default Screen')
+
+        xorg_conf.addOption('Screen', 'DefaultDepth', '24', position=0, prefix='')
+
+        xorg_conf.writeFile(self.target + "/etc/X11/xorg.conf")
 
     def remove_extras(self):
         """Try to remove packages that are installed on the live CD but not on

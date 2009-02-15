@@ -2,22 +2,16 @@ Template: mythbuntu/summary
 Type: note
 #flag:translate!:3
 _Description: Ready to install
-  Install Type:           ${INSTALLTYPE}
-  Drivers:
-      Add. Video Driver:  ${VIDEO_DRIVER}
-          TV-Out:             ${TVOUT}, ${TVSTANDARD}
-  Additional Services:
-      VNC:                ${EN_VNC}
-      SSH:                ${EN_OPENSSH}
-      Samba:              ${EN_SAMBA}
-      NFS:                ${EN_NFS}
-      MythTV Service:     ${EN_MYSQL}
-  Normal Ubuntu Install Questions:
-      Language:           ${LANGUAGE}
-      Keyboard layout:    ${KEYMAP}
-      Regular Name:       ${FULLNAME}
-      Regular Login name: ${USERNAME}
-      Location:           ${LOCATION}
+  Install Type: ${INSTALLTYPE}
+  Language: ${LANGUAGE}
+  Keyboard layout: ${KEYMAP}
+  Name: ${FULLNAME}
+  Login name: ${USERNAME}
+  Location: ${LOCATION}
+  IR Remote: ${REMOTE}
+  IR Transmitter: ${TRANSMITTER}
+  Video Driver: ${VIDEO_DRIVER}
+  Services: ${SERVICES}
  .
  ${PARTMAN_CHANGES}
 
@@ -82,16 +76,12 @@ _Description:
 
 Template: ubiquity/text/driver_heading_label
 Type: text
-_Description: Additional Drivers/Firmware
+_Description: Graphics Drivers
 
 Template: ubiquity/text/driver_description
 Type: text
 _Description:
  An open source graphics driver is already enabled and configured for your installation.  If you would like to use a different graphics driver, you can do so here.  Note that proprietary graphics drivers may be necessary for TV Output or OpenGL effects.
-
-Template: ubiquity/text/modifyvideodriver
-Type: text
-_Description: Modify Video Driver & Settings
 
 Template: ubiquity/text/tvout_label
 Type: text
@@ -100,12 +90,6 @@ _Description: If you would like to configure TV-out, choose an option here:
 Template: ubiquity/text/tvstandard_label
 Type: text
 _Description: If enabling TV Out, you will also need to choose a TV Standard:
-
-Template: ubiquity/text/tvwarning
-Type: text
-_Description:
- Warning: Do not set the TV standard to something higher than what your TV supports.
- PERMANENT damage may occur.
 
 Template: ubiquity/text/masterinfo_heading_label
 Type: text
@@ -185,7 +169,7 @@ Description: for internal use; determines install type
 
 Template: mythbuntu/video_driver
 Type: string
-Default: none
+Default: Open Source Driver
 Description: for internal use; determines what video graphics driver to use
 
 Template: mythbuntu/tvout
@@ -219,7 +203,3 @@ Description: for internal use; determines if nfs is enabled
 Template: mythbuntu/mysql-server
 Type: boolean
 Description: for internal use; determines if mysql access is enabled
-
-Template: mythbuntu/hdhomerun
-Type: boolean
-Description: for internal use; determines if hdhomerun config is to be installed

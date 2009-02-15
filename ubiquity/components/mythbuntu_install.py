@@ -39,8 +39,3 @@ class AdditionalDrivers(ubiquity.filteredcommand.FilteredCommand):
     """Adds any additional drivers that were selected during the question phase"""
     def prepare(self):
         return (['/usr/share/ubiquity/apply-drivers', '/target'],[])
-
-class AdditionalServices(ubiquity.filteredcommand.FilteredCommand):
-    """Adds any additional services that were selected during the question phase"""
-    def prepare(self):
-        return (['/usr/share/ubiquity/apply-services', '/target'],[])
