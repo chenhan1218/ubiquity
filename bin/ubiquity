@@ -25,11 +25,9 @@ import atexit
 import optparse
 import subprocess
 
-#path[0] is the directory containing the script used to invoke the interpreter
-#this will be the bin directory so we get the base of it and add that to the path
-#this lets us find libraries correctly
+#use lauch path to find the ubiquity libraries
+#allows for in place testing ~shtylman
 sys.path.append(os.path.dirname(sys.path[0]))
-#sys.path.insert(0, '/usr/lib/ubiquity')
 
 from ubiquity import misc
 

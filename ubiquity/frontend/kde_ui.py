@@ -60,7 +60,7 @@ PATH = '/usr/share/ubiquity'
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
 
-#currently using for testing
+#currently using for testing, will remove
 #PATH = '/home/shtylman/projects/ubiquity/ubiquity.kdeui/gui'
 UIDIR = os.path.join(PATH, 'qt')
 
@@ -360,8 +360,8 @@ class Wizard(BaseFrontend):
             first_step = "stepLanguage"
         
         #TODO remove
-        first_step = "stepLocation"
-        self.pagesindex = 1
+        #first_step = "stepLocation"
+        #self.pagesindex = 1
         
         self.set_current_page(WIDGET_STACK_STEPS[first_step])
         

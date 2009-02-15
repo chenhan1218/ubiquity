@@ -37,7 +37,7 @@ class TimezoneMap(QWidget):
         
         #redraw timer for selected city time
         self.timer = QTimer(self)
-        self.frontend.app.connect(self.timer, SIGNAL("timeout()"), self.update)
+        QApplication.instance().connect(self.timer, SIGNAL("timeout()"), self.update)
         self.timer.start(1000)
         
         #load the pixmaps for the zone overlays
@@ -80,9 +80,9 @@ class TimezoneMap(QWidget):
             city.index = len(self.zones[zoneName]['cities'])
             self.zones[zoneName]['cities'].append(city)
        
-        self.frontend.app.connect(self.frontend.userinterface.timezone_zone_combo, 
+        QApplication.instance().connect(self.frontend.userinterface.timezone_zone_combo, 
             SIGNAL("currentIndexChanged(QString)"), self.regionChanged)
-        self.frontend.app.connect(self.frontend.userinterface.timezone_city_combo, 
+        QApplication.instance().connect(self.frontend.userinterface.timezone_city_combo, 
             SIGNAL("currentIndexChanged(int)"), self.cityChanged)
             
         # zone needs to be added to combo box
@@ -209,7 +209,7 @@ class TimezoneMap(QWidget):
         self.frontend.userinterface.timezone_city_combo.setCurrentIndex(city.index + 1)
 
     # return the full timezone string
-    def get_timezone(self, name):
+    def get_timezone(self):
         if self.selected_city == None:
             return None
         

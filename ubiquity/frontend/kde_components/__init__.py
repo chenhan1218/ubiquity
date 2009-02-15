@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-__all__ = ['Timezone']
+__all__ = ['Timezone', 'PartitionBar']
