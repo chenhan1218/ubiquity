@@ -18,6 +18,9 @@ ubiquity (1.11.9) UNRELEASED; urgency=low
   * debian/control:
     - Drop depends on restricted-manager
     - Add depends for python-xkit
+  * Automatic update of included source packages: base-installer
+    1.98ubuntu2, grub-installer 1.36ubuntu2, hw-detect 1.71ubuntu4,
+    partman-base 128ubuntu7.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Sat, 14 Feb 2009 00:50:42 -0600
 
