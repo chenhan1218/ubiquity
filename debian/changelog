@@ -1,3 +1,11 @@
+ubiquity (1.11.10) UNRELEASED; urgency=low
+
+  * Map partman-auto translations to more ubiquity appropriate translations,
+    removing the 'Guided -' part of the automatic partitioning options
+    (LP: #173954).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 16 Feb 2009 14:08:14 +0000
+
 ubiquity (1.11.9) jaunty; urgency=low
 
   [ Colin Watson ]
