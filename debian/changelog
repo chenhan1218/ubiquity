@@ -1,8 +1,12 @@
 ubiquity (1.11.10) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Map partman-auto translations to more ubiquity appropriate translations,
     removing the 'Guided -' part of the automatic partitioning options
     (LP: #173954).
+
+  [ Jonathan Riddell ]
+  * Merge in port to KApplication from lp:~shtylman/ubiquity/kdeui by Roman Shtylman
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 16 Feb 2009 14:08:14 +0000
 

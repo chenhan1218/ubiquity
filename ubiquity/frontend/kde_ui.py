@@ -37,8 +37,8 @@ import gettext
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4 import uic
-#from kdeui import *
-#from kdecore import *
+from PyKDE4.kdeui import *
+from PyKDE4.kdecore import *
 #from kio import KRun
 #import kdedesigner
 
@@ -118,13 +118,32 @@ class Wizard(BaseFrontend):
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
 
-        #about=KAboutData("kubuntu-ubiquity","Installer","0.1","Live CD Installer for Kubuntu",KAboutData.License_GPL,"(c) 2006 Canonical Ltd", "http://wiki.kubuntu.org/KubuntuUbiquity", "jriddell@ubuntu.com")
-        #about.addAuthor("Jonathan Riddell", None,"jriddell@ubuntu.com")
-        #KCmdLineArgs.init(["./installer"],about)
+        appName     = "kubuntu-ubiquity"
+        catalog     = ""
+        programName = ki18n ("Installer")
+        version     = "1.0"
+        description = ki18n ("Live CD Installer for Kubuntu")
+        license     = KAboutData.License_GPL
+        copyright   = ki18n ("(c) 2006 Canonical Ltd")
+        text        = ki18n ("none")
+        homePage    = "http://wiki.kubuntu.org/KubuntuUbiquity"
+        bugEmail    = "jriddell@ubuntu.com"
+        
+        about = KAboutData (appName, catalog, programName, version, description,
+                            license, copyright, text, homePage, bugEmail)
+        about.addAuthor(ki18n("Jonathan Riddell"), KLocalizedString() ,"jriddell@ubuntu.com")
+        KCmdLineArgs.init([""],about)
+        
+        #undo the drop, this is needed to play nice with kde
+        os.setegid(0)
+        os.seteuid(0)
+        
+        self.app = KApplication()
 
-        #self.app = KApplication()
+        #os.setegid(1000)
+        #os.seteuid(1000)
 
-        self.app = QApplication(['ubiquity', '-style=oxygen'])
+        #self.app = QApplication(['ubiquity', '-style=oxygen'])
 
         self.parentWidget = QWidget()
         self.userinterface = UbiquityUI(self.parentWidget)
@@ -204,22 +223,23 @@ class Wizard(BaseFrontend):
         self.partition_bar_vbox.setSpacing(0)
         self.partition_bar_vbox.setMargin(0)
 
-        warningIcon = QPixmap("/usr/share/icons/oxygen/32x32/status/dialog-warning.png")
+        iconLoader = KIconLoader()
+        warningIcon = iconLoader.loadIcon("dialog-warming", KIconLoader.Desktop)
         self.userinterface.fullname_error_image.setPixmap(warningIcon)
         self.userinterface.username_error_image.setPixmap(warningIcon)
         self.userinterface.password_error_image.setPixmap(warningIcon)
         self.userinterface.hostname_error_image.setPixmap(warningIcon)
 
-        self.forwardIcon = QIcon("/usr/share/icons/oxygen/16x16/actions/go-next.png")
+        self.forwardIcon = KIcon("go-next")
         self.userinterface.next.setIcon(self.forwardIcon)
 
         #Used for the last step
-        self.applyIcon = QIcon("/usr/share/icons/oxygen/16x16/actions/dialog-ok-apply.png")
+        self.applyIcon = KIcon("dialog-ok-apply")
 
-        backIcon = QIcon("/usr/share/icons/oxygen/16x16/actions/go-previous.png")
+        backIcon = KIcon("go-previous")
         self.userinterface.back.setIcon(backIcon)
 
-        quitIcon = QIcon("/usr/share/icons/oxygen/16x16/actions/dialog-close.png")
+        quitIcon = KIcon("dialog-close")
         self.userinterface.quit.setIcon(quitIcon)
 
     def excepthook(self, exctype, excvalue, exctb):
@@ -394,8 +414,8 @@ class Wizard(BaseFrontend):
 
     def customize_installer(self):
         """Initial UI setup."""
-
-        self.userinterface.setWindowIcon(QIcon("/usr/share/icons/hicolor/64x64/apps/ubiquity.png"))
+        
+        self.userinterface.setWindowIcon(KIcon("ubiquity.png"))
         self.allow_go_backward(False)
 
         """
