@@ -37,6 +37,7 @@ import math
 import cairo
 import pango
 import pangocairo
+from ubiquity.misc import format_size
 #from ubiquity.misc import find_in_os_prober
 
 class Color:
@@ -301,7 +302,7 @@ class SegmentedBar(gtk.Widget):
             aw, ah = layout.get_pixel_size()
             
             layout = self.create_adapt_layout(layout, True, False)
-            layout.set_text('%d%%' % round(self.segments[i].percent * 100))
+            layout.set_text(self.segments[i].subtitle)
             bw, bh = layout.get_pixel_size()
 
             w = max(aw, bw)
@@ -345,7 +346,7 @@ class SegmentedBar(gtk.Widget):
                 last = last + segment.percent
                 grad.add_color_stop_rgb(last, segment.color.r, segment.color.g, segment.color.b)
 
-        CairoExtensions.rounded_rectangle(cr, 0, 0, w, h, r)
+        CairoExtensions.rounded_rectangle(cr, 0, 0, w, h, r, corners=CairoCorners.none)
         cr.set_source(grad)
         cr.fill_preserve()
 
@@ -391,7 +392,7 @@ class SegmentedBar(gtk.Widget):
             cr.stroke()
             x = x + seg_w
 
-        CairoExtensions.rounded_rectangle(cr, 0.5, 0.5, w - 1, h - 1, r)
+        CairoExtensions.rounded_rectangle(cr, 0.5, 0.5, w - 1, h - 1, r, corners=CairoCorners.none)
         cr.set_source(stroke)
         cr.stroke()
         
@@ -426,7 +427,7 @@ class SegmentedBar(gtk.Widget):
             cr.fill()
 
             layout = self.create_adapt_layout(layout, True, False)
-            layout.set_text('%d%%' % (segment.percent * 100))
+            layout.set_text(segment.subtitle)
 
             cr.move_to(x, lh)
             text_color.a = 0.75
@@ -541,6 +542,7 @@ class SegmentedBar(gtk.Widget):
             else:
                 self.title = device
             self.percent = percent
+            self.subtitle = '%d%%' % (percent * 100)
             self.color = color
             self.show_in_bar = show_in_bar
 
@@ -581,7 +583,12 @@ class SegmentedBarSlider(SegmentedBar):
         if self.resize != -1 and len(self.segments) > self.resize + 1:
             val = (float(self.min_size) / self.part_size)
             self.segments[self.resize].percent = val
+            self.segments[self.resize].subtitle = '%d%% (%s)' % \
+                (val * 100, format_size(val * self.part_size))
+
             self.segments[self.resize + 1].percent = 1 - val
+            self.segments[self.resize + 1].subtitle = '%d%% (%s)' % \
+                ((1 - val) * 100, format_size((1 - val) * self.part_size))
             self.queue_draw()
 
     def motion_notify_event(self, widget, event):
@@ -629,10 +636,16 @@ class SegmentedBarSlider(SegmentedBar):
         total = end - start
         pos = x - start
         if (state & gtk.gdk.BUTTON1_MASK):
-            total_percent = self.segments[self.resize].percent + self.segments[self.resize + 1].percent
-            value = (pos / total) * total_percent
-            self.segments[self.resize].percent = round(value, 2)
-            self.segments[self.resize + 1].percent = total_percent - round(value, 2)
+            total_percent = self.segments[self.resize].percent + \
+                self.segments[self.resize + 1].percent
+            value = round((pos / total) * total_percent, 2)
+            self.segments[self.resize].percent = value
+            self.segments[self.resize].subtitle = '%d%% (%s)' % \
+                (value * 100, format_size(value * self.part_size))
+            self.segments[self.resize + 1].percent = total_percent - value
+            self.segments[self.resize + 1].subtitle = '%d%% (%s)' % \
+                ((total_percent - value) * 100,
+                format_size((total_percent - value) * self.part_size))
             self.queue_draw()
 
     def set_min(self, m):
