@@ -541,7 +541,6 @@
                 <child>
                   <widget class="GtkRadioButton" id="login_encrypt">
                     <property name="label" translatable="yes">Require a password to log in and to decrypt your home folder</property>
-                    <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
                     <property name="active">True</property>
