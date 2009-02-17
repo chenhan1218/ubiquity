@@ -1308,42 +1308,17 @@ class Wizard(BaseFrontend):
                     #TODO use find_in_os_proper to give nice name
                     if dev:
                         for p in disks[dev]:
-                            if resize_path == p[5]:
-                                #need to make two partitions to be able to resize them
-                                after_bar.addPartition(p[6], int(p[2]), p[0], p[4], p[5])
-                                after_bar.addPartition(p[6], 0, p[0], 'ntfs', 'kubuntu')
-                            else:
-                                after_bar.addPartition(p[6], int(p[2]), p[0], p[4], p[5])
-                                
                             before_bar.addPartition(p[6], int(p[2]), p[0], p[4], p[5])
+                            after_bar.addPartition(p[6], int(p[2]), p[0], p[4], p[5])
+                            
+                        after_bar.setResizePartition(resize_path, 
+                            resize_min_size, resize_max_size, resize_orig_size, 'Kubuntu')
+                            
+                        print "('%s', '%d', '%d', '%d', '%s')" % (resize_path,
+                            resize_min_size, resize_max_size, resize_orig_size, 'Kubuntu')
                     else:
                         bFrame.removeWidget(before_bar)
-                    
-                    new_size_hbox = QHBoxLayout()
-                    frame.setLayout(new_size_hbox)
-                    
-                    new_size_label = QLabel("New partition size:", frame)
-                    new_size_hbox.addWidget(new_size_label)
-                    self.translate_widget(new_size_label, self.locale)
-                    
-                    new_size_scale = ResizeWidget(frame)
-                    new_size_hbox.addWidget(new_size_scale)     
-                        
-                    def _resize_wrapper(after_bar):
-                        def resized(a, b):
-                            after_bar.resizePart(resize_path, new_size_scale.get_size())
-                            after_bar.resizePart('kubuntu', resize_orig_size - new_size_scale.get_size())
-                            after_bar.update()
-                        return resized
-                        
-                    self.app.connect(new_size_scale, SIGNAL("resized(int, int)"), 
-                        _resize_wrapper(after_bar))
-                        
-                    if (resize_min_size is not None and resize_max_size is not None):
-                        new_size_scale.set_part_size(resize_orig_size)
-                        new_size_scale.set_min(resize_min_size)
-                        new_size_scale.set_max(resize_max_size)
-                        new_size_scale.set_device(resize_path) 
+                        bFrame.removeWidget(after_bar)
                     
                 elif choice != manual_choice:
                     vbox = QVBoxLayout(frame)
