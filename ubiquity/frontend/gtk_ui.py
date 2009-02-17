@@ -2479,6 +2479,8 @@ class Wizard(BaseFrontend):
         return self.login_auto.get_active()
 
     def set_encrypt_home(self, value):
+        if value:
+            self.login_encrypt.show()
         self.login_encrypt.set_active(value)
 
     def get_encrypt_home(self):
