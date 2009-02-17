@@ -160,7 +160,6 @@ class Wizard(BaseFrontend):
         self.username_combo = None
         self.username_changed_id = None
         self.hostname_changed_id = None
-        self.scale_changed_id = None
         self.username_edited = False
         self.hostname_edited = False
         self.grub_en = True
@@ -1208,29 +1207,11 @@ class Wizard(BaseFrontend):
                     self.create_bar(k)
                     self.format_warnings[k].show()
 
-    def scale_changed(self, widget, allocation):
-        s1 = self.new_size_scale.old_os.get_allocation().width
-        s2 = self.new_size_scale.new_os.get_allocation().width
-        totalwidth = s1 + s2
-        percentwidth = float(s1) / float(totalwidth)
-        try:
-            pos = self.action_bar.segments.index(self.resize_path)
-            orig = self.action_bar.segments[pos]
-            new = self.action_bar.segments[pos+1]
-            total = orig.percent + new.percent
-            orig.percent = percentwidth * total
-            new.percent = (1 - percentwidth) * total
-            self.action_bar.queue_draw()
-        except Exception, e:
-            syslog.syslog(str(e))
-
     def on_choice_toggled (self, widget, extra_buttons):
         if widget.get_active():
             choice = unicode(widget.get_label(), 'utf-8', 'replace')
             self.action_bar.remove_all()
-            if choice != self.resize_choice and self.scale_changed_id:
-                self.new_size_scale.new_os.disconnect( \
-                    self.scale_changed_id)
+            self.action_bar.resize = -1
             if choice == self.manual_choice:
                 self.action_bar.add_segment_rgb(self.manual_choice, 1, \
                     self.auto_colors[0])
@@ -1242,9 +1223,6 @@ class Wizard(BaseFrontend):
                             self.create_bar(k)
                             self.create_bar(k, resize_bar=True)
                             break
-                self.scale_changed_id = \
-                    self.new_size_scale.new_os.connect('size-allocate', \
-                    self.scale_changed)
             else:
                 # Use entire disk.
                 self.action_bar.add_segment_rgb(get_release_name(), 1, \
@@ -1558,13 +1536,27 @@ class Wizard(BaseFrontend):
                      0, 1, 0, 1, xoptions=gtk.FILL, yoptions=0)
         self.before_bar = segmented_bar.SegmentedBar()
         self.before_bar.h_padding = self.before_bar.bar_height / 2
-        table.attach(self.before_bar, 1, 2, 0, 1, yoptions=0)
+        eb = gtk.EventBox()
+        eb.add(self.before_bar)
+        table.attach(eb, 1, 2, 0, 1, yoptions=0)
 
         table.attach(gtk.Label(self.get_string('partition_layout_after')),
                      0, 1, 1, 2, xoptions=gtk.FILL, yoptions=0)
-        self.action_bar = segmented_bar.SegmentedBar()
+        if resize_choice in choices:
+            self.action_bar = segmented_bar.SegmentedBarSlider()
+            self.resize_min_size, self.resize_max_size, \
+                self.resize_orig_size, self.resize_path = \
+                    extra_options[resize_choice]
+            self.action_bar.set_part_size(self.resize_orig_size)
+            self.action_bar.set_min(self.resize_min_size)
+            self.action_bar.set_max(self.resize_max_size)
+            self.action_bar.set_device(self.resize_path)
+        else:
+            self.action_bar = segmented_bar.SegmentedBar()
         self.action_bar.h_padding = self.action_bar.bar_height / 2
-        table.attach(self.action_bar, 1, 2, 1, 2, yoptions=0)
+        eb = gtk.EventBox()
+        eb.add(self.action_bar)
+        table.attach(eb, 1, 2, 1, 2, yoptions=0)
 
         sw = gtk.ScrolledWindow()
         sw.add_with_viewport(table)
@@ -1586,23 +1578,7 @@ class Wizard(BaseFrontend):
                 alignment.set_padding(0, 0, 12, 0)
 
                 if choice == resize_choice:
-                    hbox = gtk.HBox(spacing=6)
-                    alignment.add(hbox)
-                    new_size_label = gtk.Label("New partition size:")
-                    new_size_label.set_name('new_size_label')
-                    self.translate_widget(new_size_label, self.locale)
-                    new_size_label.set_selectable(True)
-                    new_size_label.set_property('can-focus', False)
-                    hbox.pack_start(new_size_label, expand=False, fill=False)
-                    self.new_size_scale = ResizeWidget()
-                    self.resize_min_size, self.resize_max_size, \
-                        self.resize_orig_size, self.resize_path = \
-                            extra_options[choice]
-                    self.new_size_scale.set_part_size(self.resize_orig_size)
-                    self.new_size_scale.set_min(self.resize_min_size)
-                    self.new_size_scale.set_max(self.resize_max_size)
-                    self.new_size_scale.set_device(self.resize_path)
-                    hbox.pack_start(self.new_size_scale, expand=True, fill=True)
+                    pass
                 elif choice != manual_choice:
                     vbox = gtk.VBox(spacing=6)
                     alignment.add(vbox)
@@ -1679,8 +1655,8 @@ class Wizard(BaseFrontend):
 
         if choice == self.resize_choice:
             # resize_choice should have been hidden otherwise
-            assert self.new_size_scale is not None
-            return choice, '%d B' % self.new_size_scale.get_size()
+            assert self.action_bar.resize != -1
+            return choice, '%d B' % self.action_bar.get_size()
         elif (choice != self.manual_choice and
               choice in self.autopartition_extras):
             vbox = self.autopartition_extras[choice].child
@@ -2943,107 +2919,5 @@ class TimezoneMap(object):
             self.frontend.allow_go_forward(self.location_selected is not None)
 
         return True
-
-class ResizeWidget(gtk.HPaned):
-    def __init__(self):
-        gtk.HPaned.__init__(self)
-        self.old_os = gtk.Label()
-        self.new_os = gtk.Label()
-        self.old_os.set_justify(gtk.JUSTIFY_CENTER)
-        self.new_os.set_justify(gtk.JUSTIFY_CENTER)
-        self.old_os.set_ellipsize(pango.ELLIPSIZE_END)
-        self.new_os.set_ellipsize(pango.ELLIPSIZE_END)
-
-        color = gtk.gdk.color_parse('orange')
-        frame = gtk.Frame()
-        eb = gtk.EventBox()
-        eb.modify_bg(gtk.STATE_NORMAL, color)
-        eb.add(self.old_os)
-        frame.add(eb)
-        self.pack1(frame, shrink=False)
-        frame = gtk.Frame()
-        eb = gtk.EventBox()
-        eb.add(self.new_os)
-        frame.add(eb)
-        self.pack2(frame, shrink=False)
-
-        self.part_size = 0
-        self.old_os_title = ''
-        self.new_os_title = get_release_name()
-        self.max_size = 0
-        self.min_size = 0
-
-        self.connect('expose_event', self.do_expose_event)
-
-    def do_expose_event(self, widget, event):
-        self._update_min()
-        self._update_max()
-
-        s1 = self.old_os.get_allocation().width
-        s2 = self.new_os.get_allocation().width
-        total = s1 + s2
-
-        percent = (float(s1) / float(total))
-        txt = '%s\n%.0f%% (%s)' % (self.old_os_title,
-            (percent * 100.0),
-            format_size(percent * self.part_size))
-        self.old_os.set_text(txt)
-        self.old_os.set_tooltip_text(txt)
-
-        percent = (float(s2) / float(total))
-        txt = '%s\n%.0f%% (%s)' % (self.new_os_title,
-            (percent * 100.0),
-            format_size(percent * self.part_size))
-        self.new_os.set_text(txt)
-        self.new_os.set_tooltip_text(txt)
-
-    def set_min(self, size):
-        self.min_size = size
-
-    def set_max(self, size):
-        self.max_size = size
-
-    def set_part_size(self, size):
-        self.part_size = size
-
-    def _update_min(self):
-        total = self.new_os.get_allocation().width + self.old_os.get_allocation().width
-        tmp = float(self.min_size) / self.part_size
-        pixels = int(tmp * total)
-        self.old_os.set_size_request(pixels, -1)
-
-    def _update_max(self):
-        total = self.new_os.get_allocation().width + self.old_os.get_allocation().width
-        tmp = ((float(self.part_size) - self.max_size) / self.part_size)
-        pixels = int(tmp * total)
-        self.new_os.set_size_request(pixels, -1)
-
-    def set_device(self, dev):
-        '''Sets the title of the old partition to the name found in os_prober.
-           On failure, sets the title to the device name or the empty string.'''
-        if dev:
-            self.old_os_title = find_in_os_prober(dev)
-        if dev and not self.old_os_title:
-            self.old_os_title = dev
-        elif not self.old_os_title:
-            self.old_os_title = ''
-
-    def get_size(self):
-        '''Returns the size of the old partition, clipped to the minimum and
-           maximum sizes.'''
-        s1 = self.old_os.get_allocation().width
-        s2 = self.new_os.get_allocation().width
-        totalwidth = s1 + s2
-        size = int(float(s1) * self.part_size / float(totalwidth))
-        if size < self.min_size:
-            return self.min_size
-        elif size > self.max_size:
-            return self.max_size
-        else:
-            return size
-
-    def get_value(self):
-        '''Returns the percent the old partition is of the maximum size it can be.'''
-        return int((float(self.get_size()) / self.max_size) * 100)
 
 # vim:ai:et:sts=4:tw=80:sw=4:

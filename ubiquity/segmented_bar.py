@@ -4,7 +4,7 @@
 # Original author:
 #   Aaron Bockover <abockover@novell.com>
 #
-# Translated to Python by:
+# Translated to Python and further modifications by:
 #   Evan Dandrea <evand@ubuntu.com>
 #
 # Copyright (C) 2008 Novell, Inc.
@@ -37,7 +37,7 @@ import math
 import cairo
 import pango
 import pangocairo
-from ubiquity.misc import find_in_os_prober
+#from ubiquity.misc import find_in_os_prober
 
 class Color:
     def __init__(self, r, g, b, a=1.0):
@@ -221,10 +221,9 @@ class CairoExtensions:
                 cr.line_to(x, y)
 
 class SegmentedBar(gtk.Widget):
+    __gtype_name__ = 'SegmentedBar'
     def __init__(self):
         gtk.Widget.__init__(self)
-        self.set_flags(self.flags() | gtk.NO_WINDOW)
-        # WidgetFlags |= WidgetFlags.NoWindow
         
         # State
         self.segments = []
@@ -269,9 +268,6 @@ class SegmentedBar(gtk.Widget):
         requisition.height = 0
 
     def do_realize(self):
-        self.window = self.get_parent_window()
-        gtk.Widget.do_realize(self)
-        return
         self.set_flags(self.flags() | gtk.REALIZED)
         self.window = gdk.Window(
             self.get_parent_window(),
@@ -280,10 +276,7 @@ class SegmentedBar(gtk.Widget):
             window_type=gdk.WINDOW_CHILD,
             wclass=gdk.INPUT_OUTPUT,
             event_mask=self.get_events() |
-                        gdk.EXPOSURE_MASK |
-                        gdk.ENTER_NOTIFY_MASK |
-                        gdk.LEAVE_NOTIFY_MASK |
-                        gdk.POINTER_MOTION_MASK)
+                        gdk.EXPOSURE_MASK)
         self.window.set_user_data(self)
         self.style.attach(self.window)
         self.style.set_background(self.window, gtk.STATE_NORMAL)
@@ -308,7 +301,7 @@ class SegmentedBar(gtk.Widget):
             aw, ah = layout.get_pixel_size()
             
             layout = self.create_adapt_layout(layout, True, False)
-            layout.set_text('%d%%' % int(round(self.segments[i].percent * 100)))
+            layout.set_text('%d%%' % round(self.segments[i].percent * 100))
             bw, bh = layout.get_pixel_size()
 
             w = max(aw, bw)
@@ -433,7 +426,7 @@ class SegmentedBar(gtk.Widget):
             cr.fill()
 
             layout = self.create_adapt_layout(layout, True, False)
-            layout.set_text('%d%%' % int(segment.percent * 100))
+            layout.set_text('%d%%' % (segment.percent * 100))
 
             cr.move_to(x, lh)
             text_color.a = 0.75
@@ -542,7 +535,7 @@ class SegmentedBar(gtk.Widget):
     class Segment:
         def __init__(self, device, percent, color, show_in_bar=True):
             self.device = device
-            self.title = find_in_os_prober(device)
+            self.title = None #find_in_os_prober(device)
             if self.title:
                 self.title = '%s (%s)' % (self.title, device)
             else:
@@ -561,6 +554,151 @@ class SegmentedBar(gtk.Widget):
                 return False
 
 gobject.type_register(SegmentedBar)
+
+class SegmentedBarSlider(SegmentedBar):
+    __gtype_name__ = 'SegmentedBarSlider'
+
+    def __init__(self):
+        SegmentedBar.__init__(self)
+        self.slider_size = 15
+        self.resize = -1
+        self.device = None
+        self.connect('motion-notify-event', self.motion_notify_event)
+
+        self.part_size = 0
+
+    def set_device(self, device):
+        self.device = device
+
+    def add_segment_rgb(self, title, percent, rgb_color):
+        SegmentedBar.add_segment_rgb(self, title, percent, rgb_color)
+        i = 0
+        for s in self.segments:
+            if self.device == s:
+                self.resize = i
+                break
+            i = i + 1
+        if self.resize != -1 and len(self.segments) > self.resize + 1:
+            val = (float(self.min_size) / self.part_size)
+            self.segments[self.resize].percent = val
+            self.segments[self.resize + 1].percent = 1 - val
+            self.queue_draw()
+
+    def motion_notify_event(self, widget, event):
+        if event.is_hint:
+            x, y, state = event.window.get_pointer()
+        else:
+            x = event.x
+            y = event.y
+            state = event.state
+        
+        # Convert the minimum size (min_size) to a pixel width.  If the
+        # position of the cursor is below this value, then set the position of
+        # the slider to this value.  This creates a minimum bound for the
+        # resize value.
+        i = 0
+        start = 0
+        if self.resize == -1:
+            return
+        while i < self.resize:
+            start = start + self.segments[i].percent
+            i = i + 1
+        start = start * self.allocation.width
+        if self.min_size != -1:
+            m = float(self.min_size) / self.part_size * \
+                (self.segments[self.resize].percent +
+                self.segments[self.resize + 1].percent)
+            if x < (start + (m * self.allocation.width)):
+                x = start + (m * self.allocation.width)
+        else:
+            if x < start:
+                x = start
+
+        end = start + ((self.segments[self.resize].percent +
+            self.segments[self.resize + 1].percent) * self.allocation.width)
+        if self.max_size != -1:
+            m = float(self.max_size) / self.part_size * \
+                (self.segments[self.resize].percent +
+                self.segments[self.resize + 1].percent)
+            if x > (start + (m * self.allocation.width)):
+                x = start + (m * self.allocation.width)
+        else:
+            if x > end:
+                x = end
+        
+        total = end - start
+        pos = x - start
+        if (state & gtk.gdk.BUTTON1_MASK):
+            total_percent = self.segments[self.resize].percent + self.segments[self.resize + 1].percent
+            value = (pos / total) * total_percent
+            self.segments[self.resize].percent = round(value, 2)
+            self.segments[self.resize + 1].percent = total_percent - round(value, 2)
+            self.queue_draw()
+
+    def set_min(self, m):
+        self.min_size = m
+
+    def set_max(self, m):
+        self.max_size = m
+
+    def set_part_size(self, size):
+        self.part_size = size
+
+    def get_size(self):
+        return (self.segments[self.resize].percent /
+            (self.segments[self.resize + 1].percent
+            + self.segments[self.resize].percent)) * self.part_size
+
+    def do_realize(self):
+        self.set_flags(self.flags() | gtk.REALIZED)
+        self.window = gdk.Window(
+            self.get_parent_window(),
+            width=self.allocation.width,
+            height=self.allocation.height,
+            window_type=gdk.WINDOW_CHILD,
+            wclass=gdk.INPUT_OUTPUT,
+            event_mask=self.get_events() |
+                        gdk.EXPOSURE_MASK |
+                        gdk.BUTTON1_MOTION_MASK |
+                        gdk.BUTTON_PRESS_MASK |
+                        gdk.POINTER_MOTION_MASK |
+                        gdk.POINTER_MOTION_HINT_MASK)
+        self.window.set_user_data(self)
+        self.style.attach(self.window)
+        self.style.set_background(self.window, gtk.STATE_NORMAL)
+        self.window.move_resize(*self.allocation)
+
+    def render_slider(self, cr, w, h, r):
+        # Render slider.
+        i = 0
+        t = 0
+        while i <= self.resize:
+            t = t + self.segments[i].percent
+            i = i + 1
+        p = (t * w) - ((self.slider_size / w) / 2)
+        #cr.set_line_cap(cairo.LINE_CAP_ROUND)
+        cr.move_to(p, 0)
+        #cr.set_line_cap(cairo.LINE_CAP_ROUND)
+        cr.line_to(p, h)
+        s = self.make_segment_gradient(h, CairoExtensions.rgb_to_color('000000'))
+        cr.set_source(s)
+
+        #cr.set_source_rgb(0, 0, 0)
+        cr.set_line_width(self.slider_size)
+        cr.stroke()
+    
+    def render_bar(self, w, h):
+        s = cairo.ImageSurface(cairo.FORMAT_ARGB32, w, h)
+        cr = cairo.Context(s)
+        self.render_bar_segments(cr, w, h, h / 2)
+        self.render_bar_strokes(cr, w, h, h / 2)
+        if self.resize != -1:
+            self.render_slider(cr, w, h, h / 2)
+        pattern = cairo.SurfacePattern(s)
+        return pattern
+
+gobject.type_register(SegmentedBarSlider)
+
 
 if __name__ == '__main__':
     w = gtk.Window()
