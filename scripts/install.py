@@ -447,6 +447,7 @@ class Install:
 
             self.remove_broken_cdrom()
 
+            self.copy_dcd()
             self.db.progress('SET', 99)
             self.db.progress('INFO', 'ubiquity/install/log_files')
             self.copy_logs()
@@ -775,6 +776,15 @@ class Install:
         self.db.progress('SET', 100)
         self.db.progress('STOP')
 
+
+    def copy_dcd(self):
+        """Copy the Distribution Channel Descriptor (DCD) file into the
+        installed system."""
+
+        dcd = '/cdrom/.disk/ubuntu_dist_channel'
+        if os.path.exists(dcd):
+            shutil.copy(dcd,
+                os.path.join(self.target, 'var/lib/ubuntu_dist_channel'))
 
     def copy_logs(self):
         """copy log files into installed system."""
