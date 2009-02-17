@@ -41,18 +41,18 @@ from PyKDE4.kdeui import *
 from PyKDE4.kdecore import *
 
 #import all our custome kde components
-from ubiquity.frontend.kde_components import *
+from ubiquity.frontend.kde_components.Timezone import *
+from ubiquity.frontend.kde_components.PartitionBar import *
+from ubiquity.frontend.kde_components.PartitionModel import *
 
 import debconf
 
-from ubiquity import filteredcommand, i18n, validation
+from ubiquity import filteredcommand, i18n, validation, parted_server
 from ubiquity.misc import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman, partman_commit, summary, install
 import ubiquity.progressposition
 from ubiquity.frontend.base import BaseFrontend
-
-from PartitionsBarKde import *
 
 # Define global path
 PATH = '/usr/share/ubiquity'
@@ -61,7 +61,7 @@ PATH = '/usr/share/ubiquity'
 LOCALEDIR = "/usr/share/locale"
 
 #currently using for testing, will remove
-#PATH = '/home/shtylman/projects/ubiquity/ubiquity.kdeui/gui'
+PATH = '/home/shtylman/projects/ubiquity/ubiquity.kdeui/gui'
 UIDIR = os.path.join(PATH, 'qt')
 
 BREADCRUMB_STEPS = {
@@ -186,6 +186,8 @@ class Wizard(BaseFrontend):
         self.installing = False
         self.installing_no_return = False
         self.returncode = 0
+        self.partition_bars = []
+        self.disk_layout = None
 
         self.laptop = execute("laptop-detect")
         self.partition_tree_model = None
@@ -216,6 +218,10 @@ class Wizard(BaseFrontend):
         self.autopartition_extra_buttongroup = {}
         self.autopartition_extra_buttongroup_texts = {}
 
+        self.autopartition_bar_vbox = QVBoxLayout(self.userinterface.autopart_bar_frame)
+        self.autopartition_bar_vbox.setSpacing(0)
+        self.autopartition_bar_vbox.setMargin(0)
+        
         self.partition_bar_vbox = QVBoxLayout(self.userinterface.partition_bar_frame)
         self.partition_bar_vbox.setSpacing(0)
         self.partition_bar_vbox.setMargin(0)
@@ -360,8 +366,8 @@ class Wizard(BaseFrontend):
             first_step = "stepLanguage"
         
         #TODO remove
-        #first_step = "stepLocation"
-        #self.pagesindex = 1
+        #first_step = 'stepPart'
+        self.pagesindex = 3
         
         self.set_current_page(WIDGET_STACK_STEPS[first_step])
         
@@ -460,7 +466,7 @@ class Wizard(BaseFrontend):
             self.userinterface.release_notes_frame.hide()
         
         # init the timezone map
-        self.tzmap = Timezone.TimezoneMap(self)
+        self.tzmap = TimezoneMap(self)
         map_vbox = QVBoxLayout(self.userinterface.map_frame)
         map_vbox.setMargin(0)
         map_vbox.addWidget(self.tzmap)
@@ -480,6 +486,7 @@ class Wizard(BaseFrontend):
             direction = Qt.LeftToRight
         self.app.setLayoutDirection(direction)
 
+    # translates widget text based on the object names
     def translate_widgets(self, parentWidget=None):
         if self.locale is None:
             languages = []
@@ -990,13 +997,6 @@ class Wizard(BaseFrontend):
         self.translate_widget(self.userinterface.step_label, self.locale)
         syslog.syslog('switched to page %s' % self.step_name(newPageID))
 
-    def on_autopartition_toggled (self, choice, enable):
-        """Update autopartitioning screen when the resize button is
-        selected."""
-
-        if choice in self.autopartition_extras:
-            self.autopartition_extras[choice].setEnabled(enable)
-
     def watch_debconf_fd (self, from_debconf, process_input):
         self.debconf_fd_counter = 0
         self.socketNotifierRead = QSocketNotifier(from_debconf, QSocketNotifier.Read, self.app)
@@ -1196,8 +1196,9 @@ class Wizard(BaseFrontend):
         else:
             return None
 
+    # provides the basic disk layout
     def set_disk_layout(self, layout):
-        pass
+        self.disk_layout = layout
 
     def set_autopartition_choices (self, choices, extra_options,
                                    resize_choice, manual_choice):
@@ -1212,6 +1213,39 @@ class Wizard(BaseFrontend):
                 self.autopartition_vbox.removeWidget(child)
                 child.hide()
 
+        regain_privileges()
+        pserv = parted_server.PartedServer()
+        
+        disks = {} #dictionary dev -> list of partitions
+        for disk in pserv.disks():
+            d = disks[disk] = []
+            pserv.select_disk(disk)
+            for partition in pserv.partitions():
+                d.append(partition)
+                
+        # p_num, p_id, p_size, p_type, p_fs, p_path, p_name
+        drop_privileges()
+
+        # main frame for bars
+        bFrame = self.userinterface.autopart_bar_frame
+
+        # slot creator for extra options
+        def _on_extra_toggle(choice, bbar, abar):
+            def slot(enable):
+                if bbar:
+                    bbar.setVisible(enable)
+                if abar:
+                    abar.setVisible(enable)
+            return slot
+        
+        # slot creator for main choice toggling
+        def _on_choice_toggle(choice, extra_frame, bar_frame):
+            def slot(enable):
+                bar_frame.setVisible(enable)
+                if extra_frame:
+                    extra_frame.setEnabled(enable)
+            return slot
+            
         firstbutton = None
         idCounter = 0
         for choice in choices:
@@ -1226,98 +1260,151 @@ class Wizard(BaseFrontend):
                 firstbutton = button
             self.autopartition_vbox.addWidget(button)
 
-            if choice in extra_options:
+            before_bar = None
+            after_bar = None
+
+            # make a new frames for bars to make hiding/showing multiple easier
+            # this allows us to hide an entire main bullet with multiple sub bullets
+            bar_frame = QFrame(bFrame)
+            bFrame.layout().addWidget(bar_frame)
+            layout = QVBoxLayout(bar_frame)
+            bar_frame.setVisible(False)
+            
+            frame = None
+
+            # if we have more information about the choice
+            if choice in extra_options:  
+                # label for the before device
+                dev = None
+                
+                # extra options frame
+                frame = QFrame(self.userinterface.autopartition_frame)
+                frame.setEnabled(False)
+                
+                #indextation for the extra widgets
                 indent_hbox = QHBoxLayout()
                 self.autopartition_vbox.addLayout(indent_hbox)
                 indent_hbox.addSpacing(10)
+                indent_hbox.addWidget(frame)
+                
                 if choice == resize_choice:
-                    containerWidget = QWidget(self.userinterface.autopartition_frame)
-                    indent_hbox.addWidget(containerWidget)
+                    # information about what can be resized
+                    extra = extra_options[choice]
+                    
+                    for d in self.disk_layout:
+                        if "%s" % d.strip('=dev=') in extra[3]:
+                            dev = d
+                            break
+                        
+                    before_bar = PartitionsBar(bar_frame)
+                    layout.addWidget(before_bar)
+                    
+                    after_bar = PartitionsBar(bar_frame)
+                    layout.addWidget(after_bar)
+                    
+                    resize_min_size, resize_max_size, \
+                        resize_orig_size, resize_path = extra_options[choice]
+                        
+                    #TODO use find_in_os_proper to give nice name
+                    if dev:
+                        for p in disks[dev]:
+                            if resize_path == p[5]:
+                                #need to make two partitions to be able to resize them
+                                after_bar.addPartition(p[6], int(p[2]), p[0], p[4], p[5])
+                                after_bar.addPartition(p[6], 0, p[0], 'ntfs', 'kubuntu')
+                            else:
+                                after_bar.addPartition(p[6], int(p[2]), p[0], p[4], p[5])
+                                
+                            before_bar.addPartition(p[6], int(p[2]), p[0], p[4], p[5])
+                    else:
+                        bFrame.removeWidget(before_bar)
+                    
                     new_size_hbox = QHBoxLayout()
-                    containerWidget.setLayout(new_size_hbox)
-                    new_size_label = QLabel("New partition size:", self.userinterface.autopartition_frame)
+                    frame.setLayout(new_size_hbox)
+                    
+                    new_size_label = QLabel("New partition size:", frame)
                     new_size_hbox.addWidget(new_size_label)
                     self.translate_widget(new_size_label, self.locale)
-                    new_size_hbox.addWidget(new_size_label)
-                    new_size_label.show()
-                    new_size_scale_vbox = QVBoxLayout()
-                    new_size_hbox.addLayout(new_size_scale_vbox)
-                    #self.new_size_scale = QSlider(Qt.Horizontal, self.userinterface.autopartition_frame)
-                    self.new_size_scale = ResizeWidget(self.userinterface.autopartition_frame)
-                    #self.new_size_scale.setMaximum(100)
-                    #self.new_size_scale.setSizePolicy(QSizePolicy.Expanding,
-                    #                                  QSizePolicy.Minimum)
-                    #self.app.connect(self.new_size_scale,
-                    #                 SIGNAL("valueChanged(int)"),
-                    #                 self.update_new_size_label)
-                    new_size_scale_vbox.addWidget(self.new_size_scale)
-                    self.new_size_scale.show()
-
-                    # TODO evand 2008-02-12: Until the new resize widget is
-                    # ported to Qt, resize_orig_size and resize_path are not
-                    # needed.
-                    self.resize_min_size, self.resize_max_size, \
-                        self.resize_orig_size, self.resize_path = \
-                            extra_options[choice]
-                    if (self.resize_min_size is not None and
-                        self.resize_max_size is not None):
-                        min_percent = int(math.ceil(
-                            100 * self.resize_min_size / self.resize_max_size))
-                        #self.new_size_scale.setMinimum(min_percent)
-                        #self.new_size_scale.setMaximum(100)
-                        #self.new_size_scale.setValue(
-                        #    int((min_percent + 100) / 2))
-                        self.new_size_scale.set_part_size(self.resize_orig_size)
-                        self.new_size_scale.set_min(self.resize_min_size)
-                        self.new_size_scale.set_max(self.resize_max_size)
-                        self.new_size_scale.set_device(self.resize_path)
-                    self.autopartition_extras[choice] = containerWidget
+                    
+                    new_size_scale = ResizeWidget(frame)
+                    new_size_hbox.addWidget(new_size_scale)     
+                        
+                    def _resize_wrapper(after_bar):
+                        def resized(a, b):
+                            after_bar.resizePart(resize_path, new_size_scale.get_size())
+                            after_bar.resizePart('kubuntu', resize_orig_size - new_size_scale.get_size())
+                            after_bar.update()
+                        return resized
+                        
+                    self.app.connect(new_size_scale, SIGNAL("resized(int, int)"), 
+                        _resize_wrapper(after_bar))
+                        
+                    if (resize_min_size is not None and resize_max_size is not None):
+                        new_size_scale.set_part_size(resize_orig_size)
+                        new_size_scale.set_min(resize_min_size)
+                        new_size_scale.set_max(resize_max_size)
+                        new_size_scale.set_device(resize_path) 
+                    
                 elif choice != manual_choice:
-                    disk_frame = QFrame(self.userinterface.autopartition_frame)
-                    indent_hbox.addWidget(disk_frame)
-                    disk_vbox = QVBoxLayout(disk_frame)
-                    disk_buttongroup = QButtonGroup(disk_frame)
-                    disk_buttongroup_texts = {}
+                    vbox = QVBoxLayout(frame)
+                    buttongroup = QButtonGroup(frame)
+                    buttongroup_texts = {}
                     extra_firstbutton = None
                     extraIdCounter = 0
+                    
                     for extra in extra_options[choice]:
+                        #each extra choice needs to toogle a change in the before bar
+                        #extra is just a string with a general description
+                        #each extra choice needs to be a before/after bar option
                         if extra == '':
                             disk_vbox.addSpacing(10)
+                            continue
+                        
+                        extra_button = QRadioButton(extra, frame)
+                        vbox.addWidget(extra_button)
+                        
+                        dev = None
+                        for d in self.disk_layout:
+                            if "(%s)" % d.strip('=dev=') in extra_button.text():
+                                dev = d
+                                break
+                                
+                        before_bar = PartitionsBar(bar_frame)
+                        before_bar.setVisible(False)
+                        layout.addWidget(before_bar)
+                                
+                        if dev:
+                            for p in disks[dev]:
+                                before_bar.addPartition(p[6], int(p[2]), p[0], p[4], p[5])
                         else:
-                            extra_button = QRadioButton(
-                                extra, disk_frame)
-                            disk_buttongroup.addButton(extra_button, extraIdCounter)
-                            extra_id = disk_buttongroup.id(extra_button)
-                            # Qt changes the string by adding accelerators,
-                            # so keep the pristine string here to be
-                            # returned to partman later.
-                            disk_buttongroup_texts[extra_id] = extra
-                            if extra_firstbutton is None:
-                                extra_firstbutton = extra_button
-                            disk_vbox.addWidget(extra_button)
-                            extraIdCounter += 1
+                            bFrame.removeWidget(before_bar)
+                        
+                        buttongroup.addButton(extra_button, extraIdCounter)
+                        extra_id = buttongroup.id(extra_button)
+                        # Qt changes the string by adding accelerators,
+                        # so keep the pristine string here to be
+                        # returned to partman later.
+                        buttongroup_texts[extra_id] = extra
+                        if extra_firstbutton is None:
+                            extra_firstbutton = extra_button
+                        extraIdCounter += 1
+                        
+                        self.app.connect(extra_button, SIGNAL('toggled(bool)'),
+                            _on_extra_toggle(choice, before_bar, after_bar))
+                             
                     if extra_firstbutton is not None:
                         extra_firstbutton.setChecked(True)
                     self.autopartition_extra_buttongroup[choice] = \
-                        disk_buttongroup
+                        buttongroup
                     self.autopartition_extra_buttongroup_texts[choice] = \
-                        disk_buttongroup_texts
-                    disk_frame.show()
-                    self.autopartition_extras[choice] = disk_frame
-
-            def make_on_autopartition_toggled_slot(choice):
-                def slot(enable):
-                    return self.on_autopartition_toggled(choice, enable)
-                return slot
-
-            self.on_autopartition_toggled(choice, button.isChecked())
-            self.autopartition_handlers[choice] = \
-                make_on_autopartition_toggled_slot(choice)
-            self.app.connect(button, SIGNAL('toggled(bool)'),
-                             self.autopartition_handlers[choice])
+                        buttongroup_texts
+            
+            self.app.connect(button, SIGNAL('toggled(bool)'), 
+                _on_choice_toggle(choice, frame, bar_frame))
 
             button.show()
             idCounter += 1
+            
         if firstbutton is not None:
             firstbutton.setChecked(True)
 
@@ -1350,33 +1437,45 @@ class Wizard(BaseFrontend):
                 self.partition_bar_vbox.removeWidget(child)
                 child.hide()
                 del child
-
+        
         self.partition_bars = []
+        partition_bar = None
         indexCount = -1
         for item in cache_order:
             if item in disk_cache:
+                #the item is a disk
                 self.partition_tree_model.append([item, disk_cache[item]], self)
                 indexCount += 1
-                self.partition_bar = PartitionsBar(1000, self.userinterface.partition_bar_frame)
-                self.partition_bars.append(self.partition_bar)
-                self.partition_bar_vbox.addWidget(self.partition_bar)
+                partition_bar = PartitionsBar(self.userinterface.partition_bar_frame)
+                self.partition_bars.append(partition_bar)
+                self.partition_bar_vbox.addWidget(partition_bar)
             else:
-                self.partition_tree_model.append([item, partition_cache[item]], self)
+                #the item is a partition, add it to the current bar
+                partition = partition_cache[item]
+                #add the new partition to our tree display
+                self.partition_tree_model.append([item, partition], self)
                 indexCount += 1
-                size = int(partition_cache[item]['parted']['size']) / 1000000000 #GB, MB are too big
-                fs = partition_cache[item]['parted']['fs']
-                path = partition_cache[item]['parted']['path'].replace("/dev/","")
+                
+                #get data for out bar display
+                size = int(partition['parted']['size']) / 1000000000 #GB, MB are too big
+                fs = partition['parted']['fs']
+                path = partition['parted']['path'].replace("/dev/","")
                 if fs == "free":
                     path = fs
-                self.partition_bar.addPartition(size, indexCount, fs, path)
+                partition_bar.addPartition('name', size, indexCount, fs, path)
+                
         for barSignal in self.partition_bars:
             self.app.connect(barSignal, SIGNAL("clicked(int)"), self.partitionClicked)
             for barSlot in self.partition_bars:
                 self.app.connect(barSignal, SIGNAL("clicked(int)"), barSlot.raiseFrames)
-
+        
         self.userinterface.partition_list_treeview.setModel(self.partition_tree_model)
-        self.app.disconnect(self.userinterface.partition_list_treeview.selectionModel(), SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), self.on_partition_list_treeview_selection_changed)
-        self.app.connect(self.userinterface.partition_list_treeview.selectionModel(), SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), self.on_partition_list_treeview_selection_changed)
+        #self.app.disconnect(self.userinterface.partition_list_treeview.selectionModel(), 
+        #    SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), 
+        #    self.on_partition_list_treeview_selection_changed)
+        self.app.connect(self.userinterface.partition_list_treeview.selectionModel(), 
+            SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), 
+            self.on_partition_list_treeview_selection_changed)
 
         # make sure we're on the advanced partitioning page
         self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
@@ -2026,397 +2125,3 @@ class Wizard(BaseFrontend):
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
         self.app.exit()
-
-class PartitionModel(QAbstractItemModel):
-    def __init__(self, ubiquity, parent=None):
-        QAbstractItemModel.__init__(self, parent)
-
-        rootData = []
-        rootData.append(QVariant(ubiquity.get_string('partition_column_device')))
-        rootData.append(QVariant(ubiquity.get_string('partition_column_type')))
-        rootData.append(QVariant(ubiquity.get_string('partition_column_mountpoint')))
-        rootData.append(QVariant(ubiquity.get_string('partition_column_format')))
-        rootData.append(QVariant(ubiquity.get_string('partition_column_size')))
-        rootData.append(QVariant(ubiquity.get_string('partition_column_used')))
-        self.rootItem = TreeItem(rootData)
-
-    def append(self, data, ubiquity):
-        self.rootItem.appendChild(TreeItem(data, ubiquity, self.rootItem))
-
-    def columnCount(self, parent):
-        if parent.isValid():
-            return parent.internalPointer().columnCount()
-        else:
-            return self.rootItem.columnCount()
-
-    def data(self, index, role):
-        if not index.isValid():
-            return QVariant()
-
-        item = index.internalPointer()
-
-        if role == Qt.CheckStateRole and index.column() == 3:
-            return QVariant(item.data(index.column()))
-        elif role == Qt.DisplayRole and index.column() != 3:
-            return QVariant(item.data(index.column()))
-        else:
-            return QVariant()
-
-    def setData(self, index, value, role):
-        item = index.internalPointer()
-        if role == Qt.CheckStateRole and index.column() == 3:
-            item.partman_column_format_toggled(value.toBool())
-        self.emit(SIGNAL("dataChanged(const QModelIndex&, const QModelIndex&)"), index, index)
-        return True
-
-    def flags(self, index):
-        if not index.isValid():
-            return Qt.ItemIsEnabled
-
-        #self.setData(index, QVariant(Qt.Checked), Qt.CheckStateRole)
-        #return Qt.ItemIsEnabled | Qt.ItemIsSelectable
-        if index.column() == 3:
-            item = index.internalPointer()
-            if item.formatEnabled():
-                return Qt.ItemIsEnabled | Qt.ItemIsSelectable | Qt.ItemIsUserCheckable
-            else:
-                return Qt.ItemIsSelectable | Qt.ItemIsUserCheckable
-        else:
-            return Qt.ItemIsEnabled | Qt.ItemIsSelectable
-
-    def headerData(self, section, orientation, role):
-        if orientation == Qt.Horizontal and role == Qt.DisplayRole:
-            return self.rootItem.data(section)
-
-        return QVariant()
-
-    def index(self, row, column, parent = QModelIndex()):
-        if not parent.isValid():
-            parentItem = self.rootItem
-        else:
-            parentItem = parent.internalPointer()
-
-        childItem = parentItem.child(row)
-        if childItem:
-            return self.createIndex(row, column, childItem)
-        else:
-            return QModelIndex()
-
-    def parent(self, index):
-        if not index.isValid():
-            return QModelIndex()
-
-        childItem = index.internalPointer()
-        parentItem = childItem.parent()
-
-        if parentItem == self.rootItem:
-            return QModelIndex()
-
-        return self.createIndex(parentItem.row(), 0, parentItem)
-
-    def rowCount(self, parent):
-        if not parent.isValid():
-            parentItem = self.rootItem
-        else:
-            parentItem = parent.internalPointer()
-
-        return parentItem.childCount()
-
-    def children(self):
-        return self.rootItem.children()
-
-class TreeItem:
-    def __init__(self, data, ubiquity=None, parent=None):
-        self.parentItem = parent
-        self.itemData = data
-        self.childItems = []
-        self.ubiquity = ubiquity
-
-    def appendChild(self, item):
-        self.childItems.append(item)
-
-    def child(self, row):
-        return self.childItems[row]
-
-    def childCount(self):
-        return len(self.childItems)
-
-    def children(self):
-        return self.childItems
-
-    def columnCount(self):
-        if self.parentItem is None:
-            return len(self.itemData)
-        else:
-            return 5
-
-    def data(self, column):
-        if self.parentItem is None:
-            return QVariant(self.itemData[column])
-        elif column == 0:
-            return QVariant(self.partman_column_name())
-        elif column == 1:
-            return QVariant(self.partman_column_type())
-        elif column == 2:
-            return QVariant(self.partman_column_mountpoint())
-        elif column == 3:
-            return QVariant(self.partman_column_format())
-        elif column == 4:
-            return QVariant(self.partman_column_size())
-        elif column == 5:
-            return QVariant(self.partman_column_used())
-        else:
-            return QVariant("other")
-
-    def parent(self):
-        return self.parentItem
-
-    def row(self):
-        if self.parentItem:
-            return self.parentItem.childItems.index(self)
-
-        return 0
-
-    def partman_column_name(self):
-        partition = self.itemData[1]
-        if 'id' not in partition:
-            # whole disk
-            return partition['device']
-        elif partition['parted']['fs'] != 'free':
-            return '  %s' % partition['parted']['path']
-        elif partition['parted']['type'] == 'unusable':
-            return '  %s' % self.ubiquity.get_string('partman/text/unusable')
-        else:
-            # partman uses "FREE SPACE" which feels a bit too SHOUTY for
-            # this interface.
-            return '  %s' % self.ubiquity.get_string('partition_free_space')
-
-    def partman_column_type(self):
-        partition = self.itemData[1]
-        if 'id' not in partition or 'method' not in partition:
-            if ('parted' in partition and
-                partition['parted']['fs'] != 'free' and
-                'detected_filesystem' in partition):
-                return partition['detected_filesystem']
-            else:
-                return ''
-        elif ('filesystem' in partition and
-              partition['method'] in ('format', 'keep')):
-            return partition['acting_filesystem']
-        else:
-            return partition['method']
-
-    def partman_column_mountpoint(self):
-        partition = self.itemData[1]
-        if isinstance(self.ubiquity.dbfilter, partman.Partman):
-            mountpoint = self.ubiquity.dbfilter.get_current_mountpoint(partition)
-            if mountpoint is None:
-                mountpoint = ''
-        else:
-            mountpoint = ''
-        return mountpoint
-
-    def partman_column_format(self):
-        partition = self.itemData[1]
-        if 'id' not in partition:
-            return ''
-            #cell.set_property('visible', False)
-            #cell.set_property('active', False)
-            #cell.set_property('activatable', False)
-        elif 'method' in partition:
-            if partition['method'] == 'format':
-                return Qt.Checked
-            else:
-                return Qt.Unchecked
-            #cell.set_property('visible', True)
-            #cell.set_property('active', partition['method'] == 'format')
-            #cell.set_property('activatable', 'can_activate_format' in partition)
-        else:
-            return Qt.Unchecked  ##FIXME should be enabled(False)
-            #cell.set_property('visible', True)
-            #cell.set_property('active', False)
-            #cell.set_property('activatable', False)
-
-    def formatEnabled(self):
-        """is the format tickbox enabled"""
-        partition = self.itemData[1]
-        return 'method' in partition and 'can_activate_format' in partition
-
-    def partman_column_format_toggled(self, value):
-        if not self.ubiquity.allowed_change_step:
-            return
-        if not isinstance(self.ubiquity.dbfilter, partman.Partman):
-            return
-        #model = user_data
-        #devpart = model[path][0]
-        #partition = model[path][1]
-        devpart = self.itemData[0]
-        partition = self.itemData[1]
-        if 'id' not in partition or 'method' not in partition:
-            return
-        self.ubiquity.allow_change_step(False)
-        self.ubiquity.dbfilter.edit_partition(devpart, format='dummy')
-
-    def partman_column_size(self):
-        partition = self.itemData[1]
-        if 'id' not in partition:
-            return ''
-        else:
-            # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
-            # partman expects.
-            size_mb = int(partition['parted']['size']) / 1000000
-            return '%d MB' % size_mb
-
-    def partman_column_used(self):
-        partition = self.itemData[1]
-        if 'id' not in partition or partition['parted']['fs'] == 'free':
-            return ''
-        elif 'resize_min_size' not in partition:
-            return self.ubiquity.get_string('partition_used_unknown')
-        else:
-            # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
-            # partman expects.
-            size_mb = int(partition['resize_min_size']) / 1000000
-            return '%d MB' % size_mb
-
-#TODO much of this is duplicated from gtk_ui, abstract it
-class ResizeWidget(QWidget):
-    def __init__(self, parent=None):
-        QWidget.__init__(self, parent)
-
-        frame = QFrame(self)
-        layout = QHBoxLayout(self)
-        layout.addWidget(frame)
-
-        frame.setLineWidth(1)
-        frame.setFrameShadow(QFrame.Plain)
-        frame.setFrameShape(QFrame.StyledPanel)
-
-        layout = QHBoxLayout(frame)
-        layout.setMargin(2)
-        splitter = QSplitter(frame)
-        splitter.setChildrenCollapsible(False)
-        layout.addWidget(splitter)
-
-        self.old_os = QFrame(splitter)
-        self.old_os.setLineWidth(1)
-        self.old_os.setFrameShadow(QFrame.Raised)
-        self.old_os.setFrameShape(QFrame.Box)
-        layout = QHBoxLayout(self.old_os)
-        self.old_os_label = QLabel(self.old_os)
-        layout.addWidget(self.old_os_label)
-
-        self.new_os = QFrame(splitter)
-        self.new_os.setLineWidth(1)
-        self.new_os.setFrameShadow(QFrame.Raised)
-        self.new_os.setFrameShape(QFrame.Box)
-        layout = QHBoxLayout(self.new_os)
-        self.new_os_label = QLabel(self.new_os)
-        layout.addWidget(self.new_os_label)
-
-        self.old_os_label.setAlignment(Qt.AlignHCenter)
-        self.new_os_label.setAlignment(Qt.AlignHCenter)
-
-        self.old_os.setAutoFillBackground(True)
-        palette = self.old_os.palette()
-        palette.setColor(QPalette.Active, QPalette.Background, QColor("#FFA500"))
-        palette.setColor(QPalette.Inactive, QPalette.Background, QColor("#FFA500"))
-
-        self.new_os.setAutoFillBackground(True)
-        palette = self.new_os.palette()
-        palette.setColor(QPalette.Active, QPalette.Background, Qt.white)
-        palette.setColor(QPalette.Inactive, QPalette.Background, Qt.white)
-
-        self.part_size = 0
-        self.old_os_title = ''
-        self._set_new_os_title()
-        self.max_size = 0
-        self.min_size = 0
-
-    def paintEvent(self, event):
-        self._update_min()
-        self._update_max()
-
-        s1 = self.old_os.width()
-        s2 = self.new_os.width()
-        total = s1 + s2
-
-        percent = (float(s1) / float(total))
-        txt = '%s\n%.0f%% (%s)' % (self.old_os_title,
-            (percent * 100.0),
-            format_size(percent * self.part_size))
-        self.old_os_label.setText(txt)
-        self.old_os.setToolTip(txt)
-
-        percent = (float(s2) / float(total))
-        txt = '%s\n%.0f%% (%s)' % (self.new_os_title,
-            (percent * 100.0),
-            format_size(percent * self.part_size))
-        self.new_os_label.setText(txt)
-        self.new_os.setToolTip(txt)
-
-    def set_min(self, size):
-        self.min_size = size
-
-    def set_max(self, size):
-        self.max_size = size
-
-    def set_part_size(self, size):
-        self.part_size = size
-
-    def _update_min(self):
-        total = self.new_os.width() + self.old_os.width()
-        tmp = self.min_size / self.part_size
-        pixels = int(tmp * total)
-        self.old_os.setMinimumWidth(pixels)
-
-    def _update_max(self):
-        total = self.new_os.width() + self.old_os.width()
-        tmp = ((self.part_size - self.max_size) / self.part_size)
-        pixels = int(tmp * total)
-        self.new_os.setMinimumWidth(pixels)
-
-    def _set_new_os_title(self):
-        self.new_os_title = ''
-        fp = None
-        try:
-            fp = open('/cdrom/.disk/info')
-            line = fp.readline()
-            if line:
-                self.new_os_title = ' '.join(line.split()[:2])
-        except:
-            syslog.syslog(syslog.LOG_ERR,
-                "Unable to determine the distribution name from /cdrom/.disk/info")
-        finally:
-            if fp is not None:
-                fp.close()
-        if not self.new_os_title:
-            self.new_os_title = 'Kubuntu'
-
-    def set_device(self, dev):
-        '''Sets the title of the old partition to the name found in os_prober.
-           On failure, sets the title to the device name or the empty string.'''
-        if dev:
-            self.old_os_title = find_in_os_prober(dev)
-        if dev and not self.old_os_title:
-            self.old_os_title = dev
-        elif not self.old_os_title:
-            self.old_os_title = ''
-
-    def get_size(self):
-        '''Returns the size of the old partition, clipped to the minimum and
-           maximum sizes.'''
-        s1 = self.old_os.width()
-        s2 = self.new_os.width()
-        totalwidth = s1 + s2
-        size = int(float(s1) * self.part_size / float(totalwidth))
-        if size < self.min_size:
-            return self.min_size
-        elif size > self.max_size:
-            return self.max_size
-        else:
-            return size
-
-    def get_value(self):
-        '''Returns the percent the old partition is of the maximum size it can be.'''
-        return int((float(self.get_size()) / self.max_size) * 100)

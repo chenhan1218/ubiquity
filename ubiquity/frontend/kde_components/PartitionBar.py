@@ -30,15 +30,13 @@ from PyQt4.QtGui import *
 
 class Partition:
     # colors used to render partition types
-    # TODO try to be consistent with the gtk gui?
-    filesystemColours = {'ext3': Qt.blue,
-                         'ext4': Qt.blue,
+    filesystemColours = {'ext3': Qt.darkCyan,
+                         'ext4': Qt.darkCyan,
                          'free': Qt.white,
                          'linux-swap': Qt.cyan,
                          'fat32': Qt.green,
                          'fat16': Qt.green,
-                         'ntfs': Qt.magenta,
-                         'none' : Qt.darkCyan}
+                         'ntfs': Qt.magenta}
 
     def __init__(self, size, index, fs, path):
         self.size = size
@@ -48,11 +46,11 @@ class Partition:
 
 class PartitionsBar(QWidget):
     """ a widget to graphically show disk partitions. """
-    def __init__(self, diskSize, parent = None):
+    def __init__(self, parent = None):
         QWidget.__init__(self, parent)
         self.partitions = []
-        self.diskSize = diskSize
-        self.setMinimumHeight(50)
+        self.radius = 10
+        self.setMinimumHeight(self.radius*4)
         self.setMinimumWidth(500)
         sizePolicy = self.sizePolicy()
         sizePolicy.setVerticalStretch(10)
@@ -63,82 +61,100 @@ class PartitionsBar(QWidget):
         
         painter = QPainter(self);
         painter.setRenderHint(QPainter.Antialiasing, True)
-        painter.translate(1,1)
         
-        radius = (self.height()-1)//4
-        height = radius * 2
-        effective_width = self.width() - 1 - height
-        
-        if len(self.partitions) == 0:
-            #TODO...need to draw something..?
-            return
-        
-        #first partition bar starts after the cap
-        offset = height//2
-        
-        grad = QLinearGradient(QPointF(0, 0), QPointF(0, height))
-        gradInv = QLinearGradient(QPointF(0, height), QPointF(0, height*1.5))
+        height = self.radius * 2
+        effective_width = self.width() - 1
         
         #create the gradient for colors to populate
         grad = QLinearGradient(QPointF(0, 0), QPointF(0, height * 2))
         
-        startCap = False
+        path = QPainterPath()
+        path.addRoundedRect(0, 0, self.width()-1, height, self.radius, self.radius)
+        
+        mirrPath = QPainterPath()
+        mirrPath.addRoundedRect(0, height, self.width()-1, height, self.radius, self.radius)
+        
+        # do this dynamically to prevent bookeeping elsewhere
+        diskSize = 0
         for p in self.partitions:
-            pix_size = int(effective_width * float(p.size) / self.diskSize)
+            diskSize += p.size
+        
+        part_offset = 0
+        label_offset = 0
+        for p in self.partitions:
+            pix_size = round(effective_width * float(p.size) / diskSize + .5)
             
             #use the right color for the filesystem
             if Partition.filesystemColours.has_key(p.fs):
-                light = QColor(Partition.filesystemColours[p.fs])
+                pColor = QColor(Partition.filesystemColours[p.fs])
             else:
-                light = QColor(Partition.filesystemColours['none'])
+                pColor = QColor(Partition.filesystemColours['free'])
                 
-            dark = QColor(light)
-            
-            h = light.hueF()
-            s = light.saturationF()
-            v = light.valueF()
-            dark.setHsvF(h, s, v * .6)
+            top = QColor.fromHsvF(pColor.hueF(), pColor.saturationF(), pColor.valueF() * .8)
+            light = QColor.fromHsvF(pColor.hueF(), pColor.saturationF(), pColor.valueF() * .9)
+            bot = QColor.fromHsvF(pColor.hueF(), pColor.saturationF(), pColor.valueF() * .6)
             
             #populate gradient
             #gradient is made in such a way that both the object and mirror can be
             #drawn with one brush
-            grad.setColorAt(0, dark);
-            grad.setColorAt(.22, light);
-            grad.setColorAt(.5, dark);
-            dark.setAlphaF(.5)
-            grad.setColorAt(.501, dark);
+            grad.setColorAt(0, top);
+            grad.setColorAt(.2, light);
+            grad.setColorAt(.5, bot);
+            bot.setAlphaF(.5)
+            grad.setColorAt(.501, bot);
             light.setAlpha(0)
             grad.setColorAt(.75, light)
             
-            painter.setPen(Qt.NoPen)
+            painter.setPen(bot)
             painter.setBrush(QBrush(grad))
             
-            #draw start cap if needed
-            if not startCap:
-                painter.drawChord(0, 0, height, height, -90*16, -180*16)
-                painter.drawChord(0, height, height, height, -90*16, -180*16)
-                startCap = True
+            painter.setClipRect(part_offset, 0, pix_size, height*2)
+            part_offset += pix_size
             
-            painter.drawRect(offset, 0, pix_size, height)
-            painter.drawRect(offset, height, pix_size, height)
-            offset = offset + pix_size
+            painter.drawPath(path)
+            painter.setPen(Qt.NoPen)
+            painter.drawPath(mirrPath)
             
-        #TODO if space not used up by partitions, render none zone to fill disk
+            painter.setPen(Qt.black)
+            painter.setBrush(top)
+            painter.setClipping(False)
             
-        #draw end cap at the end, this will use the last brush and the offset
-        painter.drawChord(offset - radius, 0, height, height, 90*16, -180*16)
-        painter.drawChord(offset - radius, height, height, height, 90*16, -180*16)
+            draw_labels = True
+            if draw_labels:
+                metrics = painter.fontMetrics()
+                
+                #name is the path by default, or free space if unpartitioned
+                name = p.path
+                if p.fs == 'free':
+                    name = 'free space'
+                    
+                labelText = "%s (%.01f%%)" % (name, float(p.size) / diskSize * 100)
+                labelTextSize = metrics.size(Qt.TextSingleLine, labelText)
+                
+                #label vertical location
+                labelY = height * 1.5
+                
+                # draw the label text
+                painter.drawText(label_offset + 15, labelY + labelTextSize.height()/2, labelText)
+                
+                #turn off antialiasing for label square
+                painter.setRenderHint(QPainter.Antialiasing, False)
+                painter.drawRect(label_offset, labelY - 2, 10, 10)
+                label_offset += labelTextSize.width() + 30
+                painter.setRenderHint(QPainter.Antialiasing, True)
 
-    def addPartition(self, size, index, fs, path):
+    def addPartition(self, name, size, index, fs, path):
         partition = Partition(size, index, fs, path)
         self.partitions.append(partition)
-
-    def clicked(self, index):
-        self.emit(SIGNAL("clicked(int)"), index)
-
-    def raiseFrames(self):
-        for partition in self.partitions:
-            partition.frame.setFrameShadow(QFrame.Raised)
+    
+    def resizePart(self, path, new_size):
+        for p in self.partitions:
+            if p.path == path:
+                p.size = new_size
+                return
+    
+    #def clicked(self, index):
+    #    self.emit(SIGNAL("clicked(int)"), index)
 
     def selected(self, index):
         for partition in partitions:
@@ -148,15 +164,20 @@ class PartitionsBar(QWidget):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     
-    partBar = PartitionsBar(300)
+    wid = QWidget()
+    layout = QVBoxLayout(wid)
     
-    partBar.addPartition(10, 0, "ext3", "/")
-    partBar.addPartition(20, 1, "linux-swap", "")
-    partBar.addPartition(30, 2, "free", "")
-    partBar.addPartition(40, 1, "ntfs", "")
-    partBar.addPartition(50, 2, "free", "")
+    blank = PartitionsBar(100 ,wid)
+    layout.addWidget(blank)
+    
+    partBar = PartitionsBar(300 ,wid)
+    layout.addWidget(partBar)
+    partBar.addPartition(20, 0, "ext3", "/")
+    partBar.addPartition(30, 1, "linux-swap", "")
+    partBar.addPartition(50, 1, "ntfs", "")
+    partBar.addPartition(60, 2, "fat32", "")
     
     
-    partBar.show()
+    wid.show()
     
     sys.exit(app.exec_())

@@ -22,7 +22,7 @@
    <item row="0" column="0" >
     <widget class="QStackedWidget" name="widgetStack" >
      <property name="currentIndex" >
-      <number>2</number>
+      <number>4</number>
      </property>
      <widget class="QWidget" name="stepWelcome" >
       <layout class="QGridLayout" >
@@ -586,6 +586,9 @@ This language will be the default language for the final system.</string>
           <enum>QFrame::Raised</enum>
          </property>
         </widget>
+       </item>
+       <item row="3" column="0" >
+        <widget class="QWidget" native="1" name="autopart_bar_frame" />
        </item>
       </layout>
      </widget>
