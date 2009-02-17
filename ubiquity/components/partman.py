@@ -404,6 +404,52 @@ class Partman(FilteredCommand):
 
             self.frontend.set_disk_layout(layout)
             drop_privileges()
+            
+            # Set up translation mappings to avoid debian-installer
+            # specific text ('Guided -').
+            self.translation_mappings = {}
+            tmp = self.some_device_desc
+            self.some_device_desc = \
+                self.description('ubiquity/text/use_device')
+            self.translation_mappings[self.some_device_desc] = tmp
+            if tmp in choices:
+                choices.remove(tmp)
+                choices.append(self.some_device_desc)
+            if tmp in self.extra_options:
+                t = self.extra_options[tmp]
+                del self.extra_options[tmp]
+                self.extra_options[self.some_device_desc] = t
+            
+            tmp = self.description('partman-auto/text/use_biggest_free')
+            biggest_free = \
+                self.description('ubiquity/text/biggest_free')
+            self.translation_mappings[biggest_free] = tmp
+            if tmp in choices:
+                choices.remove(tmp)
+                choices.append(biggest_free)
+            if tmp in self.extra_options:
+                t = self.extra_options[tmp]
+                del self.extra_options[tmp]
+                self.extra_options[biggest_free] = t
+
+            tmp = self.resize_desc
+            self.resize_desc = \
+                self.description('ubiquity/text/resize_use_free')
+            self.translation_mappings[self.resize_desc] = tmp
+            if tmp in choices:
+                choices.remove(tmp)
+                choices.append(self.resize_desc)
+            if tmp in self.extra_options:
+                t = self.extra_options[tmp]
+                del self.extra_options[tmp]
+                self.extra_options[self.resize_desc] = t
+
+            # Put 'Manual' at the bottom as it's a separate path from the other
+            # options.
+            if self.manual_desc in choices:
+                choices.remove(self.manual_desc)
+                choices.append(self.manual_desc)
+
             self.frontend.set_autopartition_choices(
                 choices, self.extra_options,
                 self.resize_desc, self.manual_desc)
@@ -1043,6 +1089,7 @@ class Partman(FilteredCommand):
         if self.current_question.endswith('automatically_partition'):
             (autopartition_choice, self.extra_choice) = \
                 self.frontend.get_autopartition_choice()
+            autopartition_choice = self.translation_mappings[autopartition_choice]
             if self.autopartition_question is not None:
                 self.preseed_as_c(self.autopartition_question, autopartition_choice)
             else:

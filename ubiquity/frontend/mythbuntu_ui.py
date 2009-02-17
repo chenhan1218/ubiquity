@@ -62,12 +62,14 @@ import ubiquity.frontend.gtk_ui as ParentFrontend
 ParentFrontend.install = mythbuntu_install
 ParentFrontend.summary = mythbuntu_install
 
+VIDEOPAGE="mythbuntu_stepDrivers"
+
 MYTHPAGES = [
     "mythbuntu_stepCustomInstallType",
     "mythbuntu_stepServices",
     "mythbuntu_stepPasswords",
     "tab_remote_control",
-    "mythbuntu_stepDrivers",
+    VIDEOPAGE,
     "mythbuntu_stepBackendSetup"
 ]
 
@@ -100,12 +102,6 @@ class Wizard(ParentFrontend.Wizard):
 
     def customize_installer(self):
         """Initial UI setup."""
-        #Prepopulate some dynamic pages
-        self.populate_lirc()
-        self.populate_video()
-        self.populate_mysql()
-        self.backup=False
-
         #Default to auto login, but don't make it mandatory
         #This requires disabling encrypted FS
         self.set_auto_login(True)
@@ -119,6 +115,12 @@ class Wizard(ParentFrontend.Wizard):
             mythbuntu.MythbuntuPasswords, mythbuntu.MythbuntuRemote,
             mythbuntu.MythbuntuDrivers, mythbuntu_install.Summary]:
             self.pages.append(page)
+
+        #Prepopulate some dynamic pages
+        self.populate_lirc()
+        self.populate_video()
+        self.populate_mysql()
+        self.backup=False
 
         ParentFrontend.Wizard.customize_installer(self)
 
@@ -180,12 +182,22 @@ class Wizard(ParentFrontend.Wizard):
     def populate_video(self):
         """Finds the currently active video driver"""
         dictionary=get_graphics_dictionary()
-        for driver in dictionary:
-            self.video_driver.append_text(driver)
-        self.video_driver.append_text("Open Source Driver")
-        self.video_driver.set_active(len(dictionary))
-        self.tvoutstandard.set_active(0)
-        self.tvouttype.set_active(0)
+        if len(dictionary) > 0:
+            for driver in dictionary:
+                self.video_driver.append_text(driver)
+            self.video_driver.append_text("Open Source Driver")
+            self.video_driver.set_active(len(dictionary))
+            self.tvoutstandard.set_active(0)
+            self.tvouttype.set_active(0)
+        else:
+            for step in ParentFrontend.BREADCRUMB_STEPS:
+                if (ParentFrontend.BREADCRUMB_STEPS[step] >
+                    ParentFrontend.BREADCRUMB_STEPS[VIDEOPAGE]):
+                    ParentFrontend.BREADCRUMB_STEPS[step] -= 1
+            ParentFrontend.BREADCRUMB_MAX_STEP -= 1
+            ParentFrontend.BREADCRUMB_STEPS.pop(VIDEOPAGE)
+            self.steps.remove_page(self.steps.page_num(self.mythbuntu_stepDrivers))
+            self.pages.remove(mythbuntu.MythbuntuDrivers)
 
     def populate_mysql(self):
         """Puts a new random mysql password into the UI for each run
@@ -289,8 +301,7 @@ class Wizard(ParentFrontend.Wizard):
         """Preseeds the status of a driver"""
         lists = [{'video_driver': self.video_driver,
                   'tvout': self.tvouttype,
-                  'tvstandard': self.tvoutstandard,
-                  'hdhomerun': self.hdhomerun}]
+                  'tvstandard': self.tvoutstandard}]
         self._preseed_list(lists,name,value)
 
     def set_password(self,name,value):
@@ -307,15 +318,7 @@ class Wizard(ParentFrontend.Wizard):
 
     def set_lirc(self,question,answer):
         """Preseeds a lirc configuration item"""
-        if question == "remote_modules":
-            self.remote_modules.set_text(answer)
-        elif question == "remote_device":
-            self.remote_device.set_text(answer)
-        elif question == "remote_driver":
-            self.remote_driver.set_text(answer)
-        elif question == "remote_lircd_conf":
-            print "TODO"
-        elif question == "remote":
+        if question == "remote":
             for i in range(0,self.remote_count):
                 self.remote_list.set_active(i)
                 found=False
@@ -324,15 +327,7 @@ class Wizard(ParentFrontend.Wizard):
                     break
                 if not found:
                     self.remote_list.set_active(0)
-        if question == "transmitter_modules":
-            self.transmitter_modules.set_text(answer)
-        elif question == "transmitter_device":
-            self.transmitter_modules.set_text(answer)
-        elif question == "transmitter_driver":
-            self.transmitter_driver.set_text(answer)
-        elif question == "transmitter_lircd_conf":
-            print "TODO"
-        elif question == "transmitter":
+        if question == "transmitter":
             for i in range(0,self.transmitter_count):
                 self.transmitter_list.set_active(i)
                 found=False
@@ -410,8 +405,7 @@ class Wizard(ParentFrontend.Wizard):
                 break
         return self._build_static_list([{'video_driver': active_video_driver,
                                          'tvout': self.tvouttype,
-                                         'tvstandard': self.tvoutstandard,
-                                         'hdhomerun': self.hdhomerun}])
+                                         'tvstandard': self.tvoutstandard}])
 
     def get_mythtv_passwords(self):
         return self._build_static_list([{'mysql_admin_password':self.mysql_root_password,
@@ -429,18 +423,8 @@ class Wizard(ParentFrontend.Wizard):
         item = {"modules":"","device":"","driver":"","lircd_conf":""}
         if type == "remote":
             item["remote"]=self.remote_list.get_active_text()
-            if item["remote"] == "Custom":
-                item["modules"]=self.remote_modules.get_text()
-                item["device"]=self.remote_device.get_text()
-                item["driver"]=self.remote_driver.get_text()
-                item["lircd_conf"]=self.browse_remote_lircd_conf.get_filename()
         elif type == "transmitter":
             item["transmitter"]=self.transmitter_list.get_active_text()
-            if item["transmitter"] == "Custom":
-                item["modules"]=self.transmitter_modules.get_text()
-                item["device"]=self.transmitter_device.get_text()
-                item["driver"]=self.transmitter_driver.get_text()
-                item["lircd_conf"]=self.browse_transmitter_lircd_conf.get_filename()
         return item
 
 ##################
@@ -485,16 +469,7 @@ class Wizard(ParentFrontend.Wizard):
     def video_changed (self,widget):
         """Called whenever the modify video driver option is toggled or its kids"""
         drivers=get_graphics_dictionary()
-        if (widget is not None and widget.get_name() == 'modifyvideodriver'):
-            if (widget.get_active()):
-                self.videodrivers_hbox.set_sensitive(True)
-            else:
-                self.tvout_vbox.set_sensitive(False)
-                self.videodrivers_hbox.set_sensitive(False)
-                self.video_driver.set_active(len(drivers))
-                self.tvoutstandard.set_active(0)
-                self.tvouttype.set_active(0)
-        elif (widget is not None and widget.get_name() == 'video_driver'):
+        if (widget is not None and widget.get_name() == 'video_driver'):
             type = widget.get_active()
             if (type < len(drivers)):
                 self.tvout_vbox.set_sensitive(True)
@@ -506,92 +481,26 @@ class Wizard(ParentFrontend.Wizard):
     def toggle_customtype (self,widget):
         """Called whenever a custom type is toggled"""
 
-        def set_fe_drivers(self,enable):
-            """Toggle Visible Frontend Applicable Drivers"""
-            if enable:
-                self.frontend_driver_list.show()
-            else:
-                self.frontend_driver_list.hide()
-
-        def set_be_drivers(self,enable):
-            """Toggles Visible Backend Applicable Drivers"""
-            if enable:
-                self.backend_driver_list.show()
-            else:
-                self.backend_driver_list.hide()
-
-        def set_all_services(self,enable):
-            """Toggles visibility on all possible services"""
-            if enable:
-                self.ssh_option_hbox.show()
-                self.samba_option_hbox.show()
-                self.nfs_option_hbox.show()
-                self.mysql_option_hbox.show()
-            else:
-                self.ssh_option_hbox.hide()
-                self.samba_option_hbox.hide()
-                self.nfs_option_hbox.hide()
-                self.mysql_option_hbox.hide()
-
-        def set_all_passwords(self,enable):
-            """Toggles visibility on all password selection boxes"""
-            if enable:
-                self.master_backend_expander.show()
-                self.mythweb_expander.show()
-                self.mysql_server_expander.show()
-            else:
-                self.master_backend_expander.hide()
-                self.mythweb_expander.hide()
-                self.mysql_server_expander.hide()
-
-        if self.master_be_fe.get_active():
-            set_all_passwords(self,True)
-            set_all_services(self,True)
-            self.enablessh.set_active(True)
-            self.enablesamba.set_active(True)
+        if "Master" in self.get_installtype():
             self.master_backend_expander.hide()
-            set_fe_drivers(self,True)
-            set_be_drivers(self,True)
-        elif self.slave_be_fe.get_active():
-            set_all_services(self,True)
-            set_all_passwords(self,True)
-            self.enablessh.set_active(True)
-            self.enablesamba.set_active(True)
-            self.mysql_server_expander.hide()
-            self.mysql_option_hbox.hide()
-            set_fe_drivers(self,True)
-            set_be_drivers(self,True)
-        elif self.master_be.get_active():
-            set_all_services(self,True)
-            set_all_passwords(self,True)
-            self.enablessh.set_active(True)
-            self.enablesamba.set_active(True)
-            self.master_backend_expander.hide()
-            set_fe_drivers(self,False)
-            set_be_drivers(self,True)
-        elif self.slave_be.get_active():
-            set_all_services(self,True)
-            set_all_passwords(self,True)
-            self.enablessh.set_active(True)
-            self.enablesamba.set_active(True)
-            self.mysql_server_expander.hide()
-            self.mysql_option_hbox.hide()
-            set_fe_drivers(self,False)
-            set_be_drivers(self,True)
+            self.mysql_server_expander.show()
+            self.mysql_option_hbox.show()
         else:
-            set_all_services(self,True)
-            set_all_passwords(self,True)
-            self.enablessh.set_active(True)
+            self.enablemysql.set_active(False)
+            self.master_backend_expander.show()
+            self.mysql_server_expander.hide()
+            self.mysql_option_hbox.hide()
+
+        if "Backend" in self.get_installtype():
+            self.mythweb_expander.show()
+            self.samba_option_hbox.show()
+            self.nfs_option_hbox.show()
+        else:
             self.enablesamba.set_active(False)
             self.enablenfs.set_active(False)
-            self.enablemysql.set_active(False)
             self.mythweb_expander.hide()
-            self.mysql_server_expander.hide()
-            self.mysql_option_hbox.hide()
-            self.nfs_option_hbox.hide()
             self.samba_option_hbox.hide()
-            set_fe_drivers(self,True)
-            set_be_drivers(self,False)
+            self.nfs_option_hbox.hide()
 
     def toggle_ir(self,widget):
         """Called whenever a request to enable/disable remote is called"""
@@ -616,45 +525,12 @@ class Wizard(ParentFrontend.Wizard):
             elif widget.get_name() == 'remote_list':
                 self.generate_lircrc_checkbox.set_active(True)
                 if self.remote_list.get_active() == 0:
-                    custom = False
                     self.remotecontrol.set_active(False)
                     self.generate_lircrc_checkbox.set_active(False)
-                elif self.remote_list.get_active_text() == "Custom":
-                    custom = True
-                else:
-                    custom = False
-                    self.remote_driver.set_text("")
-                    self.remote_modules.set_text("")
-                    self.remote_device.set_text("")
-                self.remote_driver_hbox.set_sensitive(custom)
-                self.remote_modules_hbox.set_sensitive(custom)
-                self.remote_device_hbox.set_sensitive(custom)
-                self.remote_configuration_hbox.set_sensitive(custom)
-                self.browse_remote_lircd_conf.set_filename("/usr/share/lirc/remotes")
             #if our selected transmitter itself changed
             elif widget.get_name() == 'transmitter_list':
                 if self.transmitter_list.get_active() == 0:
-                    custom = False
                     self.transmittercontrol.set_active(False)
-                elif self.transmitter_list.get_active_text() == "Custom":
-                    custom = True
-                else:
-                    custom = False
-                    self.transmitter_driver.set_text("")
-                    self.transmitter_modules.set_text("")
-                    self.transmitter_device.set_text("")
-                self.transmitter_driver_hbox.set_sensitive(custom)
-                self.transmitter_modules_hbox.set_sensitive(custom)
-                self.transmitter_device_hbox.set_sensitive(custom)
-                self.transmitter_configuration_hbox.set_sensitive(custom)
-                self.browse_transmitter_lircd_conf.set_filename("/usr/share/lirc/transmitters")
-
-    def mythweb_toggled(self,widget):
-        """Called when the checkbox to install Mythweb is toggled"""
-        if (self.mythweb_checkbox.get_active()):
-            self.mythweb_expander.show()
-        else:
-            self.mythweb_expander.hide()
 
     def usemythwebpassword_toggled(self,widget):
         """Called when the checkbox to set a mythweb password is pressed"""

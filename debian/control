@@ -54,7 +54,7 @@ Description: GTK+ frontend for Ubiquity live installer
 
 Package: ubiquity-frontend-kde
 Architecture: all
-Depends: ${misc:Depends}, ${python:Depends}, ubiquity, python-qt4, kde-window-manager, kdesudo | kdesudo-kde4
+Depends: ${misc:Depends}, ${python:Depends}, ubiquity, python-kde4, kde-window-manager, kdesudo | kdesudo-kde4
 Provides: ubiquity-frontend-${mangled-version}
 XB-Python-Version: ${python:Versions}
 Description: KDE frontend for Ubiquity live installer
@@ -63,7 +63,7 @@ Description: KDE frontend for Ubiquity live installer
 
 Package: ubiquity-frontend-mythbuntu
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, ubiquity, ubiquity-frontend-gtk, restricted-manager, mythtv-common, python-mysqldb, expect, vnc4-common, lirc (>= 0.8.2-0ubuntu3), mythbuntu-common
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, ubiquity, ubiquity-frontend-gtk, mythtv-common, python-mysqldb, expect, vnc4-common, lirc (>= 0.8.2-0ubuntu3), mythbuntu-common, python-xkit
 Provides: ubiquity-frontend-${mangled-version}
 XB-Python-Version: ${python:Versions}
 Description: Mythbuntu frontend for the Ubiquity live installer

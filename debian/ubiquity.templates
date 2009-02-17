@@ -3,6 +3,18 @@ Type: boolean
 Default: true
 Description: enable frame buffer console on boot
 
+Template: ubiquity/text/biggest_free
+Type: text
+_Description: Use the largest continuous free space
+
+Template: ubiquity/text/use_device
+Type: text
+_Description: Use entire disk
+
+Template: ubiquity/text/resize_use_free
+Type: text
+_Description: Resize a partition above and use the freed space
+
 Template: ubiquity/text/live_installer
 Type: text
 # This is used as a window title.
