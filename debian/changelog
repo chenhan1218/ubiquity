@@ -5,6 +5,8 @@ oem-config (1.54.6) UNRELEASED; urgency=low
     is asked and not preseeded (LP: #328281).
   * Handle user-setup's new weak password detection.
   * Add forgotten oem-config/text/network_heading_label template.
+  * Add a "tasks" component (only usable in the debconf frontend at the
+    moment) that runs tasksel.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 18 Feb 2009 22:51:02 +0000
 

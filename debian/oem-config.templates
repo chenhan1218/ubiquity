@@ -89,6 +89,10 @@ Template: oem-config/text/network_heading_label
 Type: text
 _Description: Network configuration
 
+Template: oem-config/text/tasks_heading_label
+Type: text
+_Description: Software selection
+
 Template: oem-config/text/auto_login
 Type: text
 _Description: Log in automatically
@@ -109,7 +113,7 @@ _Description: Continue
 
 Template: oem-config/steps
 Type: multiselect
-Choices: language, timezone, keyboard, user, network
+Choices: language, timezone, keyboard, user, network, tasks
 Default: language, timezone, keyboard, user
 Description: for internal use; can be preseeded
  List of steps to display. Steps are always displayed in the order given by

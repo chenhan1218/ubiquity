@@ -31,7 +31,7 @@ import textwrap
 from debconf import Debconf
 
 from oem_config.components import console_setup, language, timezone, user, \
-                                  network, \
+                                  network, tasks, \
                                   language_apply, timezone_apply, \
                                   console_setup_apply
 from oem_config.frontend.base import BaseFrontend
@@ -86,6 +86,9 @@ class Frontend(BaseFrontend):
             elif current_name == 'step_network':
                 self.db.settitle('oem-config/text/network_heading_label')
                 step = network.Network(self, self.db)
+            elif current_name == 'step_tasks':
+                self.db.settitle('oem-config/text/task_heading_label')
+                step = tasks.Tasks(self, self.db)
             else:
                 raise ValueError, "step %s not recognised" % current_name
 

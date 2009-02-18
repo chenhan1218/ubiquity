@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
-"POT-Creation-Date: 2009-02-18 23:03+0000\n"
+"POT-Creation-Date: 2009-02-18 23:09+0000\n"
 "PO-Revision-Date: 2008-05-20 15:38+0000\n"
 "Last-Translator: Tao Wei <Unknown>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -151,12 +151,18 @@ msgstr "终端用户配置准备就绪"
 #. Type: text
 #. Description
 #: ../oem-config.templates:23001
+msgid "Software selection"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:24001
 msgid "Log in automatically"
 msgstr "自动登录"
 
 #. Type: text
 #. Description
-#: ../oem-config.templates:24001
+#: ../oem-config.templates:25001
 #, fuzzy
 #| msgid "System Configuration"
 msgid "Applying configuration"
@@ -165,14 +171,14 @@ msgstr "系统配置"
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../oem-config.templates:25001
+#: ../oem-config.templates:26001
 msgid "Go Back"
 msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../oem-config.templates:26001
+#: ../oem-config.templates:27001
 msgid "Continue"
 msgstr ""
 

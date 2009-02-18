@@ -36,6 +36,7 @@ VALID_PAGES = [
     'keyboard',
     'user',
     'network',
+    'tasks',
 ]
 
 class BaseFrontend:

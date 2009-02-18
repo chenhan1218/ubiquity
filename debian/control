@@ -55,7 +55,7 @@ Description: KDE frontend for end-user post-OEM-install configuration
 
 Package: oem-config-debconf
 Architecture: all
-Depends: ${python:Depends}, oem-config, debconf (>= 1.5.24ubuntu2) | cdebconf, bogl-bterm (>= 0.1.18-2ubuntu4)
+Depends: ${python:Depends}, oem-config, debconf (>= 1.5.24ubuntu2) | cdebconf, bogl-bterm (>= 0.1.18-2ubuntu4), tasksel
 Provides: oem-config-frontend-${mangled-version}
 XB-Python-Version: ${python:Versions}
 Description: debconf frontend for end-user post-OEM-install configuration

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
-"POT-Creation-Date: 2009-02-18 23:03+0000\n"
+"POT-Creation-Date: 2009-02-18 23:09+0000\n"
 "PO-Revision-Date: 2008-05-20 14:49+0000\n"
 "Last-Translator: Aigars Mahinovs <aigarius@debian.org>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
@@ -155,12 +155,18 @@ msgstr "Gatavs galalietotāja konfigurēšanai"
 #. Type: text
 #. Description
 #: ../oem-config.templates:23001
-msgid "Log in automatically"
+msgid "Software selection"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:24001
+msgid "Log in automatically"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:25001
 #, fuzzy
 #| msgid "System Configuration"
 msgid "Applying configuration"
@@ -169,14 +175,14 @@ msgstr "Sistēmas konfigurācija"
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../oem-config.templates:25001
+#: ../oem-config.templates:26001
 msgid "Go Back"
 msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../oem-config.templates:26001
+#: ../oem-config.templates:27001
 msgid "Continue"
 msgstr ""
 
