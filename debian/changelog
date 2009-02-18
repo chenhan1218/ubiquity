@@ -1,3 +1,10 @@
+ubiquity (1.11.11) UNRELEASED; urgency=low
+
+  * Check to make sure there is a partman-auto translation to map to before
+    assuming there is one.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 18 Feb 2009 10:21:39 +0000
+
 ubiquity (1.11.10) jaunty; urgency=low
 
   [ Evan Dandrea ]

@@ -1089,7 +1089,9 @@ class Partman(FilteredCommand):
         if self.current_question.endswith('automatically_partition'):
             (autopartition_choice, self.extra_choice) = \
                 self.frontend.get_autopartition_choice()
-            autopartition_choice = self.translation_mappings[autopartition_choice]
+            if autopartition_choice in self.translation_mappings:
+                autopartition_choice = \
+                    self.translation_mappings[autopartition_choice]
             if self.autopartition_question is not None:
                 self.preseed_as_c(self.autopartition_question, autopartition_choice)
             else:
