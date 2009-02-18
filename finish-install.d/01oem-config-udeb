@@ -12,4 +12,11 @@ db_go || true
 # Copy the value of debian-installer/locale over to the target system so that
 # it gets used by oem-config as the default language selection.
 # debian-installer/framebuffer is needed for oem-config-debconf.
-echo "oem-config $(debconf-dumpdb configdb -p 'debian-installer/(locale|framebuffer)$')" | chroot /target debconf-set-selections || true
+db_get debian-installer/locale
+LOCALE="$RET"
+db_get debian-installer/framebuffer
+FRAMEBUFFER="$RET"
+chroot /target debconf-set-selections <<EOF || true
+oem-config debian-installer/locale select $LOCALE
+oem-config debian-installer/framebuffer boolean $FRAMEBUFFER
+EOF

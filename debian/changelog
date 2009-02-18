@@ -9,6 +9,9 @@ oem-config (1.54.6) UNRELEASED; urgency=low
     moment) that runs tasksel.
   * Check whether /usr/lib/network-manager/ifblacklist_migrate.sh exists
     before running it.
+  * Fix copying of debian-installer/framebuffer to /target in
+    oem-config-udeb: debconf-dumpdb returns "(null)" as the value if the
+    question has never been set.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 18 Feb 2009 22:51:02 +0000
 
