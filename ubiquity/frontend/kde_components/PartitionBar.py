@@ -52,10 +52,11 @@ class PartitionsBar(QWidget):
     def __init__(self, parent = None):
         QWidget.__init__(self, parent)
         self.partitions = []
-        self.radius = 13
-        self.rounded = False
+        self.radius = 4
+        self.height = 25 #should be a multiple of 2
+        self.rounded = True
         self.diskSize = 0
-        self.setMinimumHeight(self.radius*4 + 10)
+        self.setMinimumHeight(self.height*2 + 10)
         self.setMinimumWidth(500)
         sizePolicy = self.sizePolicy()
         sizePolicy.setVerticalStretch(10)
@@ -71,7 +72,8 @@ class PartitionsBar(QWidget):
         painter = QPainter(self);
         painter.setRenderHint(QPainter.Antialiasing, True)
         
-        height = self.radius * 2
+        height = self.height
+        height_2 = height/2
         effective_width = self.width() - 1
         
         #create the gradient for colors to populate
@@ -101,32 +103,33 @@ class PartitionsBar(QWidget):
                 pColor = QColor(Partition.filesystemColours[p.fs])
             else:
                 pColor = QColor(Partition.filesystemColours['free'])
-                
-            top = QColor.fromHsvF(pColor.hueF(), pColor.saturationF(), pColor.valueF() * .8)
-            light = QColor.fromHsvF(pColor.hueF(), pColor.saturationF(), pColor.valueF() * .9)
-            bot = QColor.fromHsvF(pColor.hueF(), pColor.saturationF(), pColor.valueF() * .6)
+            
+            pal = QPalette(pColor)
+            light = pal.color(QPalette.Light)
+            mid = pal.color(QPalette.Mid)
+            dark = pal.color(QPalette.Dark)
             
             #populate gradient
             #gradient is made in such a way that both the object and mirror can be
             #drawn with one brush
-            grad.setColorAt(0, top);
-            grad.setColorAt(.2, light);
-            grad.setColorAt(.5, bot);
-            bot.setAlphaF(.5)
-            grad.setColorAt(.501, bot);
+            grad.setColorAt(0, light);
+            grad.setColorAt(.5, dark);
+            dark.setAlphaF(.5)
+            grad.setColorAt(.501, dark);
             light.setAlpha(0)
             grad.setColorAt(.75, light)
             
-            painter.setPen(bot)
+            painter.setPen(dark)
             painter.setBrush(QBrush(grad))
             
-            painter.setClipRect(part_offset, 0, pix_size, height*2)    
+            painter.setClipRect(part_offset, 0, pix_size, height*2)
             painter.drawPath(path)
             painter.setPen(Qt.NoPen)
             painter.drawPath(mirrPath)
                 
+            #draw the labels
             painter.setPen(Qt.black)
-            painter.setBrush(top)
+            painter.setBrush(mid)
             painter.setClipping(False)
             
             draw_labels = True
@@ -157,7 +160,9 @@ class PartitionsBar(QWidget):
                 painter.drawRect(label_offset, labelY - 2, 10, 10)
                 label_offset += max(labelTextSize.width(), infoLabelTextSize.width()) + 30
                 painter.setRenderHint(QPainter.Antialiasing, True)
-                
+            
+            painter.setClipPath(path)
+            
             #if this is partition after one we are resizing draw handle
             #this way it appears on top of both partitions
             if self.resize_part and p == self.resize_part.next:
@@ -174,10 +179,10 @@ class PartitionsBar(QWidget):
                 painter.setPen(resize_pen)
                 
                 if part.size > part.minsize:
-                    painter.drawLine(xloc - arr_dist, self.radius, xloc, self.radius)
+                    painter.drawLine(xloc - arr_dist, height_2, xloc, height/2)
                     
                 if part.size < part.maxsize:
-                    painter.drawLine(xloc, self.radius, xloc + arr_dist, self.radius)
+                    painter.drawLine(xloc, height/2, xloc + arr_dist, height/2)
                 
                 resize_pen.setWidth(2)
                 painter.setPen(resize_pen)
@@ -185,12 +190,12 @@ class PartitionsBar(QWidget):
                 painter.drawLine(xloc, 0, xloc, height)
                 
                 if part.size > part.minsize:
-                    painter.drawLine(xloc - arr_dist, self.radius, xloc - arr_dist + side, self.radius+side)
-                    painter.drawLine(xloc - arr_dist, self.radius, xloc - arr_dist + side, self.radius-side)
+                    painter.drawLine(xloc - arr_dist, height_2, xloc - arr_dist + side, height_2+side)
+                    painter.drawLine(xloc - arr_dist, height_2, xloc - arr_dist + side, height_2-side)
                     
                 if part.size < part.maxsize:
-                    painter.drawLine(xloc + arr_dist, self.radius, xloc + arr_dist - side, self.radius+side)
-                    painter.drawLine(xloc + arr_dist, self.radius, xloc + arr_dist - side, self.radius-side)
+                    painter.drawLine(xloc + arr_dist, height_2, xloc + arr_dist - side, height_2+side)
+                    painter.drawLine(xloc + arr_dist, height_2, xloc + arr_dist - side, height_2-side)
                 
             #increment the partition offset
             part_offset += pix_size
@@ -309,11 +314,9 @@ if __name__ == "__main__":
     wid = QWidget()
     layout = QVBoxLayout(wid)
     
-    #blank = PartitionsBar(wid)
-    #layout.addWidget(blank)
-    
     partBar = PartitionsBar(wid)
     layout.addWidget(partBar)
+    
     '''partBar.addPartition('', 5000, 1, "linux-swap", "/dev/sdb1")
     partBar.addPartition('', 20000, 2, "ext3", "/dev/sdb2")
     partBar.addPartition('', 30000, 3, "linux-swap", "/dev/sdb3")
