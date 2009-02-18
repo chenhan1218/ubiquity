@@ -61,7 +61,6 @@ PATH = '/usr/share/ubiquity'
 LOCALEDIR = "/usr/share/locale"
 
 #currently using for testing, will remove
-#PATH = '/home/shtylman/projects/ubiquity/ubiquity.kdeui/gui'
 UIDIR = os.path.join(PATH, 'qt')
 
 BREADCRUMB_STEPS = {
