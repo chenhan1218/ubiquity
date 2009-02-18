@@ -68,9 +68,7 @@ _Description: Where are you?
 Template: ubiquity/text/timezone_comment_label
 Type: text
 _Description:
- Select a city in your country and time zone. If the indicated current time
- is incorrect even after selecting the correct time zone, you can adjust it
- after rebooting into the installed system.
+ Select your time zone from the map, or by region and city.
 
 Template: ubiquity/text/timezone_city_label
 Type: text
