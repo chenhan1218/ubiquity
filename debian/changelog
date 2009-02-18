@@ -7,6 +7,8 @@ oem-config (1.54.6) UNRELEASED; urgency=low
   * Add forgotten oem-config/text/network_heading_label template.
   * Add a "tasks" component (only usable in the debconf frontend at the
     moment) that runs tasksel.
+  * Check whether /usr/lib/network-manager/ifblacklist_migrate.sh exists
+    before running it.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 18 Feb 2009 22:51:02 +0000
 

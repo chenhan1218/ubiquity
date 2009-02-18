@@ -5,4 +5,6 @@ set -e
 
 /usr/lib/oem-config/network/netcfg
 
-NETCFG=1 /usr/lib/network-manager/ifblacklist_migrate.sh
+if [ -f /usr/lib/network-manager/ifblacklist_migrate.sh ]; then
+	NETCFG=1 /usr/lib/network-manager/ifblacklist_migrate.sh
+fi
