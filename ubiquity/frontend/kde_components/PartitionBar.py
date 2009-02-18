@@ -86,17 +86,15 @@ class PartitionsBar(QWidget):
         else:
             path.addRect(0, 0, self.width()-1, height)
             mirrPath.addRect(0, height, self.width()-1, height)
-         
-        #used to debug slider and make sure the total disk size is still the same
-        #t = 0
-        #for p in self.partitions:
-        #    t += p.size
-        #print t    
         
         part_offset = 0
         label_offset = 0
+        trunc_pix = 0
         for p in self.partitions:
-            pix_size = round(effective_width * float(p.size) / self.diskSize + .5)
+            #this is done so that even after resizing, other partitions draw in the same places
+            trunc_pix += (effective_width * float(p.size) / self.diskSize)
+            pix_size = int(round(trunc_pix))
+            trunc_pix -= pix_size
             
             #use the right color for the filesystem
             if Partition.filesystemColours.has_key(p.fs):
@@ -225,21 +223,29 @@ class PartitionsBar(QWidget):
         part.minsize = minsize
         part.maxsize = maxsize
         part.origsize = origsize
+        self.resize_part = part
         
-        part.next.size += origsize - part.size
-        
-        #if our resize partition is at the end or the next one is not free space
         if part.next == None or part.next.index != -1:
+            #if our resize partition is at the end or the next one is not free space
             p = Partition(origsize - new_size, 0, '', 'Kubuntu')
             p.next = part.next
             part.next = p
-            #insert a new fake partition after the part
-            self.partitions.insert(index + 1, p)
             
-        self.resize_part = part
+            #insert a new fake partition after the resize partition
+            self.partitions.insert(index + 1, p)
+        else:
+            #we had a next partition that was free space, use that
+            #set the size of the next partition accordingly
+            part.next.size += origsize - part.size
         
         # need mouse tracking to be able to change the cursor
         self.setMouseTracking(True)
+    
+    # @return the new size of the resize partition if set (in bytes)
+    def resizePartSize():
+        # fail if no resize_part, we don't want to accidentally return 0
+        assert self.resize_part != None, "No resize partition defined"
+        return self.resize_part.size
                 
     def mousePressEvent(self, qMouseEvent):
         if self.resize_part:
@@ -261,16 +267,31 @@ class PartitionsBar(QWidget):
             # mouse position in bytes within this partition
             mx = qMouseEvent.x() * bpp - start
             
+            #make sure we are within resize range
             if mx < self.resize_part.minsize:
                 mx = self.resize_part.minsize
             elif mx > self.resize_part.maxsize:
                 mx = self.resize_part.maxsize
             
+            #chagne the partition sizes
             span = self.resize_part.origsize
             percent = mx / float(span)
             oldsize = self.resize_part.size
-            self.resize_part.size = span * percent
-            self.resize_part.next.size -= (self.resize_part.size - oldsize)
+            self.resize_part.size = int(round(span * percent))
+            self.resize_part.next.size -= self.resize_part.size - oldsize
+            
+            #sum the partitions and make sure the disk size is still the same
+            #this is a precautionary measure
+            t = 0
+            for p in self.partitions:
+                t = t + p.size
+            assert t == self.diskSize
+            
+            #using PyQt object to avoid wrapping the size otherwise qt truncates to 32bit int
+            self.emit(SIGNAL("partitionResized(PyQt_PyObject, PyQt_PyObject)"), 
+                self.resize_part.path, self.resize_part.size)
+            
+            #finally redraw
             self.update()
         else:
             if self.resize_part:
@@ -299,12 +320,14 @@ if __name__ == "__main__":
     partBar.addPartition('', 50000, 4, "ntfs", "/dev/sdb4")
     partBar.setResizePartition('/dev/sdb2', 5000, 15000, 20000, 'Kubuntu')'''
     
-    partBar.addPartition('', 4005679104, 1, 'ext4', '/dev/sdb1')
+    '''partBar.addPartition('', 4005679104, 1, 'ext4', '/dev/sdb1')
     partBar.addPartition('', 53505446400, -1, 'free', '/dev/sdb-1')
     partBar.addPartition('', 2500452864, 5, 'linux-swap', '/dev/sdb5')
+    partBar.setResizePartition('/dev/sdb1', 230989824, 55143440896, 4005679104, 'Kubuntu')'''
     
-    #must set this after we have created the whole partition bar
-    partBar.setResizePartition('/dev/sdb1', 230989824, 55143440896, 4005679104, 'Kubuntu')
+    partBar.addPartition('', 57511125504, 1, 'ext4', '/dev/sdb1')
+    partBar.addPartition('', 2500452864, 5, 'linux-swap', '/dev/sdb5')
+    partBar.setResizePartition('/dev/sdb1', 230989824, 55143440896, 57511125504, 'Kubuntu')
     
     wid.show()
     

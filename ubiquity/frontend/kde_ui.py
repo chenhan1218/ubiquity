@@ -174,10 +174,8 @@ class Wizard(BaseFrontend):
         self.progressDialogue = None
         self.progress_position = ubiquity.progressposition.ProgressPosition()
         self.progress_cancelled = False
-        self.resize_min_size = None
-        self.resize_max_size = None
-        self.new_size_value = None
-        self.new_size_scale = None
+        self.resizePath = None
+        self.resizeSize = None
         self.username_edited = False
         self.hostname_edited = False
         self.previous_partitioning_page = WIDGET_STACK_STEPS["stepPartAuto"]
@@ -365,7 +363,7 @@ class Wizard(BaseFrontend):
             first_step = "stepLanguage"
         
         #TODO remove
-        #first_step = 'stepPart'
+        #first_step = 'stepPartAuto'
         #self.pagesindex = 3
         
         self.set_current_page(WIDGET_STACK_STEPS[first_step])
@@ -626,7 +624,7 @@ class Wizard(BaseFrontend):
         """Show some introductory text, if available."""
 
         intro = os.path.join(PATH, 'intro.txt')
-
+        
         if os.path.isfile(intro):
             intro_file = open(intro)
             text = ""
@@ -1317,13 +1315,20 @@ class Wizard(BaseFrontend):
                         for p in disks[dev]:
                             before_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
                             after_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
-                            
+                         
                         after_bar.setResizePartition(resize_path, 
-                            min_size, max_size, orig_size, 'Kubuntu')
-                            
+                            min_size, max_size, orig_size, 'Kubuntu')    
                     else:
                         bFrame.removeWidget(before_bar)
                         bFrame.removeWidget(after_bar)
+                        
+                    def partitionResized(path, size):
+                        print path, size
+                        self.resizePath = path
+                        self.resizeSize = size
+                    
+                    QApplication.instance().connect(after_bar, 
+                        SIGNAL("partitionResized(PyQt_PyObject, PyQt_PyObject)"), partitionResized)
                     
                 elif choice != manual_choice:
                     #list of possible full disk choices
@@ -1410,8 +1415,8 @@ class Wizard(BaseFrontend):
 
         if choice == self.resize_choice:
             # resize choice should have been hidden otherwise
-            assert self.new_size_scale is not None
-            return choice, '%d B' % self.new_size_scale.get_size()
+            assert self.resizeSize is not None
+            return choice, '%d B' % self.resizeSize
         elif (choice != self.manual_choice and
               choice in self.autopartition_extra_buttongroup):
             disk_id = self.autopartition_extra_buttongroup[choice].checkedId()
