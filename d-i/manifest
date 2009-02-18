@@ -3,7 +3,7 @@ base-installer 1.98ubuntu2
 choose-mirror 2.27ubuntu3
 clock-setup 0.97ubuntu1
 console-setup 1.28ubuntu5
-debian-installer-utils 1.65ubuntu1
+debian-installer-utils 1.65ubuntu2
 grub-installer 1.36ubuntu2
 hw-detect 1.71ubuntu4
 kboot-installer 0.0.1ubuntu8
@@ -26,5 +26,5 @@ partman-xfs 43ubuntu1
 preseed 1.41ubuntu1
 silo-installer 1.15ubuntu1
 tzsetup 1:0.24ubuntu1
-user-setup 1.23ubuntu10
+user-setup 1.23ubuntu11
 yaboot-installer 1.1.14ubuntu1
