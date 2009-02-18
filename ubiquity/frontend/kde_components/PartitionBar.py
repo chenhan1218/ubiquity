@@ -161,11 +161,12 @@ class PartitionsBar(QWidget):
                 label_offset += max(labelTextSize.width(), infoLabelTextSize.width()) + 30
                 painter.setRenderHint(QPainter.Antialiasing, True)
             
-            painter.setClipPath(path)
-            
             #if this is partition after one we are resizing draw handle
             #this way it appears on top of both partitions
+            #this is drawn in the partition loop to give it correct placement
             if self.resize_part and p == self.resize_part.next:
+                painter.setClipPath(path)
+                
                 resize_pen = QPen(Qt.black)
                 part = self.resize_part
                 

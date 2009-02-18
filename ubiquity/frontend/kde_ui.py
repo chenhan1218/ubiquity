@@ -556,8 +556,8 @@ class Wizard(BaseFrontend):
                     widget.setText('<a href="%s">%s</a>' % (url, text))
             else:
                 widget.setText(text)
-
-        elif isinstance(widget, QPushButton) or isinstance(widget, QCheckBox):
+                
+        elif isinstance(widget, QAbstractButton):
             widget.setText(text.replace('_', '&', 1))
 
         elif isinstance(widget, QWidget) and str(name) == "UbiquityUIBase":
@@ -567,6 +567,7 @@ class Wizard(BaseFrontend):
 
         else:
             print "WARNING: unknown widget: " + name
+            print "Type: ", type(widget)
 
     def allow_change_step(self, allowed):
         if allowed:
@@ -1911,12 +1912,10 @@ class Wizard(BaseFrontend):
         return unicode(self.userinterface.verified_password.text())
 
     def set_auto_login(self, value):
-        if value:
-            syslog.syslog(syslog.LOG_WARNING,
-                          "KDE frontend does not support auto-login yet")
+        return self.userinterface.login_auto.setChecked(value)
 
     def get_auto_login(self):
-        return False
+        return self.userinterface.login_auto.isChecked()
     
     def set_encrypt_home(self, value):
         if value:
