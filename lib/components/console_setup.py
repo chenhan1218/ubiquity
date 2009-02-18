@@ -209,15 +209,16 @@ class ConsoleSetup(FilteredCommand):
         self.apply_real_keyboard(model, layout, variant, options)
 
     def apply_real_keyboard(self, model, layout, variant, options):
-        args = ['setxkbmap']
-        if model is not None and model != '':
-            args.extend(("-model", model))
-        args.extend(("-layout", layout))
-        if variant != '':
-            args.extend(("-variant", variant))
-        for option in options:
-            args.extend(("-option", option))
-        subprocess.call(args)
+        if 'DISPLAY' in os.environ:
+            args = ['setxkbmap']
+            if model is not None and model != '':
+                args.extend(("-model", model))
+            args.extend(("-layout", layout))
+            if variant != '':
+                args.extend(("-variant", variant))
+            for option in options:
+                args.extend(("-option", option))
+            subprocess.call(args)
 
     def cleanup(self):
         # TODO cjwatson 2006-09-07: I'd use dexconf, but it seems reasonable
