@@ -2,6 +2,8 @@ ubiquity (1.11.11) UNRELEASED; urgency=low
 
   * Check to make sure there is a partman-auto translation to map to before
     assuming there is one.
+  * Explain the automatic partitioning options more clearly.
+  * Move the "after" partition bar to beneath the autopartition options.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 18 Feb 2009 10:21:39 +0000
 
