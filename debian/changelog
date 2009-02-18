@@ -1,9 +1,9 @@
-ubiquity (1.11.12) UNRELEASED; urgency=low
+ubiquity (1.11.12) jaunty; urgency=low
 
   * Handle user-setup's new weak password detection.
   * Automatic update of included source packages: user-setup 1.23ubuntu12.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 18 Feb 2009 22:14:34 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 18 Feb 2009 23:45:18 +0000
 
 ubiquity (1.11.11) jaunty; urgency=low
 
