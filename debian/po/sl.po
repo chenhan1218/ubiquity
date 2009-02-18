@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
-"POT-Creation-Date: 2009-02-18 23:00+0000\n"
+"POT-Creation-Date: 2009-02-18 23:03+0000\n"
 "PO-Revision-Date: 2008-05-20 14:56+0000\n"
 "Last-Translator: Matej Kovačič <Unknown>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -148,12 +148,20 @@ msgstr "Isto geslo vnesite dvakrat, da se prepreči možne tipkarske napake."
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
+#, fuzzy
+#| msgid "Ready for end-user configuration"
+msgid "Network configuration"
+msgstr "Pripravljen na končne uporabniške nastavitve"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:23001
 msgid "Log in automatically"
 msgstr "Samodejna prijava"
 
 #. Type: text
 #. Description
-#: ../oem-config.templates:23001
+#: ../oem-config.templates:24001
 #, fuzzy
 msgid "Applying configuration"
 msgstr "težave pri nastavitvi apt-ja"
@@ -161,14 +169,14 @@ msgstr "težave pri nastavitvi apt-ja"
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../oem-config.templates:24001
+#: ../oem-config.templates:25001
 msgid "Go Back"
 msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../oem-config.templates:25001
+#: ../oem-config.templates:26001
 msgid "Continue"
 msgstr ""
 

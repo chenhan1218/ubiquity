@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
-"POT-Creation-Date: 2009-02-18 23:00+0000\n"
+"POT-Creation-Date: 2009-02-18 23:03+0000\n"
 "PO-Revision-Date: 2008-06-02 09:34+0000\n"
 "Last-Translator: Tim Chan Rithy <Unknown>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -151,12 +151,19 @@ msgstr "បញ្ចូល​ពាក្យ​សម្ងាត់​ដូច
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
+#, fuzzy
+msgid "Network configuration"
+msgstr "ព្យាយាម​កំណត់​រចនាសម្ព័ន្ធ​បណ្ដាញ​ស្វ័យប្រវត្តិ​ឡើងវិញ"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:23001
 msgid "Log in automatically"
 msgstr "ចូល​ក្នុង​ប្រព័ន្ធ​ដោយ​ស្វ័យ​ប្រវត្ត"
 
 #. Type: text
 #. Description
-#: ../oem-config.templates:23001
+#: ../oem-config.templates:24001
 #, fuzzy
 msgid "Applying configuration"
 msgstr "ការ​កំណត់​រចនាសម្ព័ន្ធ apt មាន​បញ្ហា"
@@ -164,14 +171,14 @@ msgstr "ការ​កំណត់​រចនាសម្ព័ន្ធ apt �
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../oem-config.templates:24001
+#: ../oem-config.templates:25001
 msgid "Go Back"
 msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../oem-config.templates:25001
+#: ../oem-config.templates:26001
 msgid "Continue"
 msgstr ""
 

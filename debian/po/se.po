@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
-"POT-Creation-Date: 2009-02-18 23:00+0000\n"
+"POT-Creation-Date: 2009-02-18 23:03+0000\n"
 "PO-Revision-Date: 2006-09-07 21:06+0000\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <i18n-sme@lister.ping.uio.no>\n"
@@ -147,26 +147,33 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
+#, fuzzy
+msgid "Network configuration"
+msgstr "Geahččal oktii vel heivehit fierpmádaga automáhtalaččat"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:23001
 msgid "Log in automatically"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../oem-config.templates:23001
+#: ../oem-config.templates:24001
 msgid "Applying configuration"
 msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../oem-config.templates:24001
+#: ../oem-config.templates:25001
 msgid "Go Back"
 msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../oem-config.templates:25001
+#: ../oem-config.templates:26001
 msgid "Continue"
 msgstr ""
 

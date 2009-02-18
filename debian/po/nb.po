@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
-"POT-Creation-Date: 2009-02-18 23:00+0000\n"
+"POT-Creation-Date: 2009-02-18 23:03+0000\n"
 "PO-Revision-Date: 2008-05-20 14:51+0000\n"
 "Last-Translator: Bjørn Steensrud <Unknown>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
@@ -146,12 +146,20 @@ msgstr "Skriv passordet to ganger, så det kan kontrolleres for tastefeil."
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
+#, fuzzy
+#| msgid "Ready for end-user configuration"
+msgid "Network configuration"
+msgstr "Klar for sluttbruker konfigureringen"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:23001
 msgid "Log in automatically"
 msgstr "Logg inn automatisk"
 
 #. Type: text
 #. Description
-#: ../oem-config.templates:23001
+#: ../oem-config.templates:24001
 #, fuzzy
 #| msgid "System Configuration"
 msgid "Applying configuration"
@@ -160,14 +168,14 @@ msgstr "Systemkonfigurasjon"
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../oem-config.templates:24001
+#: ../oem-config.templates:25001
 msgid "Go Back"
 msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../oem-config.templates:25001
+#: ../oem-config.templates:26001
 msgid "Continue"
 msgstr ""
 

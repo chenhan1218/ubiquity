@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
-"POT-Creation-Date: 2009-02-18 23:00+0000\n"
+"POT-Creation-Date: 2009-02-18 23:03+0000\n"
 "PO-Revision-Date: 2008-05-20 14:46+0000\n"
 "Last-Translator: Jeroen T. Vermeulen <Unknown>\n"
 "Language-Team: Hindi\n"
@@ -148,12 +148,20 @@ msgstr "एक ही पासर्वड दो बार एन्टर क
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
+#, fuzzy
+#| msgid "Ready for end-user configuration"
+msgid "Network configuration"
+msgstr "अंतिम-उपयोक्ता कॉन्फ़िगरेशन के लिये तैयार"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:23001
 msgid "Log in automatically"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../oem-config.templates:23001
+#: ../oem-config.templates:24001
 #, fuzzy
 msgid "Applying configuration"
 msgstr "एपीटी कॉन्फिगुरेशन में समस्या"
@@ -161,14 +169,14 @@ msgstr "एपीटी कॉन्फिगुरेशन में समस
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../oem-config.templates:24001
+#: ../oem-config.templates:25001
 msgid "Go Back"
 msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../oem-config.templates:25001
+#: ../oem-config.templates:26001
 msgid "Continue"
 msgstr ""
 

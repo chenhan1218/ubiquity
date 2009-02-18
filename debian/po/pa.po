@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
-"POT-Creation-Date: 2009-02-18 23:00+0000\n"
+"POT-Creation-Date: 2009-02-18 23:03+0000\n"
 "PO-Revision-Date: 2008-05-20 14:53+0000\n"
 "Last-Translator: A S Alam <Unknown>\n"
 "Language-Team: Punjabi <punjabi-l10n@lists.sf.net>\n"
@@ -150,12 +150,19 @@ msgstr "ਮੇਲ ਖਾਂਦਾ ਸਫਲਸ਼ਬਦ ਦੋ ਵਾਰ ਦਰਜ 
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
+#, fuzzy
+msgid "Network configuration"
+msgstr "ਨੈੱਟਵਰਕ ਆਟੋ-ਸੰਰਚਨਾ ਦੀ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:23001
 msgid "Log in automatically"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../oem-config.templates:23001
+#: ../oem-config.templates:24001
 #, fuzzy
 msgid "Applying configuration"
 msgstr "apt ਸੰਰਚਨਾ ਸਮੱਸਿਆਾ"
@@ -163,14 +170,14 @@ msgstr "apt ਸੰਰਚਨਾ ਸਮੱਸਿਆਾ"
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../oem-config.templates:24001
+#: ../oem-config.templates:25001
 msgid "Go Back"
 msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../oem-config.templates:25001
+#: ../oem-config.templates:26001
 msgid "Continue"
 msgstr ""
 

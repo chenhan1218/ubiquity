@@ -85,6 +85,10 @@ Template: oem-config/text/password_extra_label
 Type: text
 _Description: Enter the same password twice, so that it can be checked for typing errors.
 
+Template: oem-config/text/network_heading_label
+Type: text
+_Description: Network configuration
+
 Template: oem-config/text/auto_login
 Type: text
 _Description: Log in automatically
