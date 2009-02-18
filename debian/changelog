@@ -10,6 +10,8 @@ ubiquity (1.11.10) UNRELEASED; urgency=low
   * Disable the encrypted home option.  This cannot be considered secure
     without encrypted swap.  The option can still be enabled by preseeding
     it.
+  * Automatic update of included source packages: debian-installer-utils
+    1.65ubuntu2, user-setup 1.23ubuntu11.
 
   [ Jonathan Riddell ]
   * Merge in port to KApplication from lp:~shtylman/ubiquity/kdeui by Roman Shtylman
