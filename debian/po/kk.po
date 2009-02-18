@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-02-10 16:39+0000\n"
+"POT-Creation-Date: 2009-02-18 09:36+0000\n"
 "PO-Revision-Date: 2008-05-20 16:33+0000\n"
 "Last-Translator: daur88 <daur88@inbox.ru>\n"
 "Language-Team: Kazakh\n"
@@ -18,26 +18,44 @@ msgstr ""
 
 #. Type: text
 #. Description
-#. This is used as a window title.
 #: ../ubiquity.templates:2001
+msgid "Use the largest continuous free space"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:3001
+msgid "Use entire disk"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:4001
+msgid "Resize a partition above and use the freed space"
+msgstr ""
+
+#. Type: text
+#. Description
+#. This is used as a window title.
+#: ../ubiquity.templates:5001
 msgid "Install"
 msgstr "Орнату"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:3001
+#: ../ubiquity.templates:6001
 msgid "Install (OEM mode, for manufacturers only)"
 msgstr "Орнату (OEM режимі, жабдық өндірушелір үшін)"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:4001
+#: ../ubiquity.templates:7001
 msgid "Welcome"
 msgstr "Қош келдіңіз"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:5001
+#: ../ubiquity.templates:8001
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
@@ -48,13 +66,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:5001
+#: ../ubiquity.templates:8001
 msgid "Answering the questions should only take a few minutes."
 msgstr "Сұрақтарға жауап беру аз уақыт алады."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:5001
+#: ../ubiquity.templates:8001
 msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
@@ -64,7 +82,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:6001
+#: ../ubiquity.templates:9001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
@@ -76,7 +94,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001
+#: ../ubiquity.templates:10001
 msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
@@ -86,19 +104,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:8001
+#: ../ubiquity.templates:11001
 msgid "Release Notes"
 msgstr "Басылым туралы мәлімет"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:9001
+#: ../ubiquity.templates:12001
 msgid "Where are you?"
 msgstr "Орналасуыңызды таңдаңыз."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:10001
+#: ../ubiquity.templates:13001
 msgid ""
 "Select a city in your country and time zone. If the indicated current time "
 "is incorrect even after selecting the correct time zone, you can adjust it "
@@ -110,49 +128,49 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:11001
+#: ../ubiquity.templates:14001
 msgid "City:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:15001
 msgid "Region:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:16001
 msgid "Selected region:"
 msgstr "Таңдалған аймақ:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:17001
 msgid "Current time:"
 msgstr "Қазіргі уақыт:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
+#: ../ubiquity.templates:18001
 msgid "Keyboard layout"
 msgstr "Пернетақта сәйкестігі"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:16001
+#: ../ubiquity.templates:19001
 msgid "Which layout is most similar to your keyboard?"
 msgstr "Перенетақта сәйкестігін таңдаңыз"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:17001
+#: ../ubiquity.templates:20001
 msgid "You can type into this box to test your new keyboard layout."
 msgstr "Пернетақтаның сәйкестігін тексеру үшін мына жолға жазып көріңіз."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:18001
+#: ../ubiquity.templates:21001
 #, fuzzy
 #| msgid "Selected region:"
 msgid "Suggested option:"
@@ -160,31 +178,31 @@ msgstr "Таңдалған аймақ:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:19001
+#: ../ubiquity.templates:22001
 msgid "Choose your own:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:20001
+#: ../ubiquity.templates:23001
 msgid "Who are you?"
 msgstr "Өзіңізді таныстырыңыз"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:21001
+#: ../ubiquity.templates:24001
 msgid "What is your name?"
 msgstr "Атыңыз кім?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:22001
+#: ../ubiquity.templates:25001
 msgid "What name do you want to use to log in?"
 msgstr "Жүйеге кіру үшін қандай ат қолданғыңыз келеді?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:23001
+#: ../ubiquity.templates:26001
 msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
@@ -194,32 +212,32 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:24001
+#: ../ubiquity.templates:27001
 msgid "Choose a password to keep your account safe."
 msgstr "Тіркелгіңізге сәйкес пароль енгізіңіз."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:25001
+#: ../ubiquity.templates:28001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr "Жүйе жөндеу режимінде жегілген. Шын парольдарыңызды енгізбеңіз!"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:26001
+#: ../ubiquity.templates:29001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr "Қате кетпегенді тексеру үшін парольді екі рет енгізіңіз."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:27001
+#: ../ubiquity.templates:30001
 msgid "What is the name of this computer?"
 msgstr "Компьютердің аты қандай?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:28001
+#: ../ubiquity.templates:31001
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
@@ -227,31 +245,31 @@ msgstr "Компьютердің аты компьютерді желіде ан
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:29001
+#: ../ubiquity.templates:32001
 msgid "Log in automatically"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:30001
+#: ../ubiquity.templates:33001
 msgid "Require a password to log in"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:31001
+#: ../ubiquity.templates:34001
 msgid "Require a password to log in and to decrypt your home folder"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:32001
+#: ../ubiquity.templates:35001
 msgid "Migrate documents and settings"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:33001
+#: ../ubiquity.templates:36001
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
@@ -261,7 +279,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:33001
+#: ../ubiquity.templates:36001
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
@@ -269,19 +287,19 @@ msgstr "Импорттайтын ештеңе жоқ болса, келесі б
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:34001
+#: ../ubiquity.templates:37001
 msgid "Prepare disk space"
 msgstr "Дисктан орын дайындау"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:35001
+#: ../ubiquity.templates:38001
 msgid "How do you want to partition the disk?"
 msgstr "Дискті қалай бөлгенді қалайсыз?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:36001
+#: ../ubiquity.templates:39001
 msgid "Prepare partitions"
 msgstr "Бөлімдерді дайындау"
 
@@ -289,7 +307,7 @@ msgstr "Бөлімдерді дайындау"
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:37001 ../ubiquity.templates:87001
+#: ../ubiquity.templates:40001 ../ubiquity.templates:90001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 #, fuzzy
 msgid "Ready to install"
@@ -297,20 +315,20 @@ msgstr "Орнатуға дайынбыз"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:38001
+#: ../ubiquity.templates:41001
 msgid "Details"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:39001
+#: ../ubiquity.templates:42001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr "Операциялық жүйе келесі параметрлермен орнатылатын болады:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:40001
+#: ../ubiquity.templates:43001
 msgid "Advanced..."
 msgstr "Қосымша..."
 
@@ -318,19 +336,19 @@ msgstr "Қосымша..."
 #. Description
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
-#: ../ubiquity.templates:41001
+#: ../ubiquity.templates:44001
 msgid "Install[ action ]"
 msgstr "Орнату"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:42001
+#: ../ubiquity.templates:45001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr "${TOTAL} қадамның ${INDEX}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:43001
+#: ../ubiquity.templates:46001
 #, fuzzy
 #| msgid "Abort the installation?"
 msgid "Quit the installation?"
@@ -338,7 +356,7 @@ msgstr "Орнатудан бас тартуды қалайсыз ба?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:47001
 #, fuzzy
 #| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
@@ -346,25 +364,25 @@ msgstr "Сіз шынымен орнатудан бас тартуды қала�
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:48001
 msgid "Skip"
 msgstr "Өткізіп жіберу"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:49001
 msgid "Installation complete"
 msgstr "Орнату аяқталды"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:50001
 msgid "Continue using the live CD"
 msgstr "Live CD қолдануды жалғастыру"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:51001
 msgid "Restart now"
 msgstr "Қайта жегу"
 
@@ -372,13 +390,13 @@ msgstr "Қайта жегу"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:49001 ../ubiquity.templates:50001
+#: ../ubiquity.templates:52001 ../ubiquity.templates:53001
 msgid "Installer crashed"
 msgstr "Орнату бағдарламасы қирап қалды"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:54001
 msgid ""
 "We're sorry; the installer crashed. Please file a new bug report at https://"
 "launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
@@ -398,7 +416,7 @@ msgstr ""
 #. Description
 #. Displayed next to a graphical bar depicting the state of the disk before
 #. automatic partitioning.
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:55001
 msgid "Before:"
 msgstr ""
 
@@ -406,14 +424,14 @@ msgstr ""
 #. Description
 #. Displayed next to a graphical bar depicting the state of the disk after
 #. automatic partitioning.
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:56001
 msgid "After:"
 msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:57001
 #, fuzzy
 msgid "New partition table"
 msgstr "Жаңа бөлім кестесі"
@@ -421,7 +439,7 @@ msgstr "Жаңа бөлім кестесі"
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:58001
 msgid "New partition"
 msgstr "Жаңа бөлім"
 
@@ -430,21 +448,21 @@ msgstr "Жаңа бөлім"
 #. An action, displayed on a button or as a menu item.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:56001 ../ubiquity.templates:72001
+#: ../ubiquity.templates:59001 ../ubiquity.templates:75001
 msgid "Edit partition"
 msgstr "Бөлімді түзету"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:60001
 msgid "Delete partition"
 msgstr "Бөлімді жою"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:61001
 msgid "Device"
 msgstr "Құрылғы"
 
@@ -452,28 +470,28 @@ msgstr "Құрылғы"
 #. Description
 #. A column heading in the partitioner. Indicates how the partition is to be
 #. used (ext2, swap, etc.).
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:62001
 msgid "Type"
 msgstr "Түрі"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:63001
 msgid "Mount point"
 msgstr "Тіркеу нүктесі"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:64001
 msgid "Format?"
 msgstr "Пішімдейік пе?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:65001
 msgid "Size"
 msgstr "Өлшемі"
 
@@ -481,27 +499,27 @@ msgstr "Өлшемі"
 #. Description
 #. A column heading in the partitioner. Indicates how much of the space on
 #. this partition is used by data.
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:66001
 msgid "Used"
 msgstr "Пайдалануда"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:67001
 msgid "free space"
 msgstr "Бос орын"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:68001
 msgid "unknown"
 msgstr "белгісіз"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:69001
 msgid "Create partition"
 msgstr "Бөлім жасау"
 
@@ -509,91 +527,91 @@ msgstr "Бөлім жасау"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001 ../ubiquity.templates:74001
+#: ../ubiquity.templates:70001 ../ubiquity.templates:77001
 msgid "New partition size in megabytes (1000000 bytes):"
 msgstr "Жаңа бөлімнің көлемі, МБ (1000000 байт):"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:71001
 msgid "Beginning"
 msgstr "Басы"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:72001
 msgid "End"
 msgstr "Соңы"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:73001
 msgid "Primary"
 msgstr "Негізгі"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:74001
 msgid "Logical"
 msgstr "логикалық"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:76001
 msgid "Edit a partition"
 msgstr "Бөлімді түзету"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:78001
 msgid "Advanced Options"
 msgstr "Қосымша параметрлер"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:79001
 msgid "Boot loader"
 msgstr "Жегуші"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:80001
 msgid "Install boot loader"
 msgstr "Жегушіні орнату"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:81001
 msgid "Popularity contest"
 msgstr "Танымалдық рейтингі"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:82001
 msgid "Participate in the package usage survey"
 msgstr "Дестелерді қолдану рейтингін құруға қатысу"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:83001
 msgid "Network proxy"
 msgstr "Желі проксиі"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:84001
 msgid "HTTP proxy:"
 msgstr "HTTP проксиі"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:85001
 msgid "Port:"
 msgstr "Порты:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:86001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
@@ -606,20 +624,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:87001
 msgid "Go Back"
 msgstr "Қайту"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:88001
 msgid "Continue"
 msgstr "Жалғастыру"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:89001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
@@ -629,7 +647,7 @@ msgstr ""
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:90001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -649,39 +667,39 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:91001
 msgid "Checking the installation..."
 msgstr "Орнату дестесін тексеру..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:92001
 msgid "Installing system"
 msgstr "Жүйе орнатылуда"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:93001
 msgid "Finding the distribution to copy..."
 msgstr "Көшірілетін дистрибутивті табу..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:95001
 #, fuzzy
 msgid "Scanning files..."
 msgstr "Дискілерді қарау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:96001
 #, fuzzy
 msgid "Copying files..."
 msgstr "Файлдарды көшіру"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:97001
 msgid "Copying files (less than a minute remaining)..."
 msgstr "Файлдарды көшіру (бір минуттан аз қалды)..."
 
@@ -695,9 +713,9 @@ msgstr "Файлдарды көшіру (бір минуттан аз қалды
 #. Description
 #. Type: select
 #. Description
-#: ../ubiquity.templates:95001 ../ubiquity.templates:96001
-#: ../ubiquity.templates:97001 ../ubiquity.templates:98001
-#: ../ubiquity.templates:99001
+#: ../ubiquity.templates:98001 ../ubiquity.templates:99001
+#: ../ubiquity.templates:100001 ../ubiquity.templates:101001
+#: ../ubiquity.templates:102001
 #, fuzzy
 #| msgid "Installation complete"
 msgid "Installation Failed"
@@ -711,14 +729,14 @@ msgstr "Орнату аяқталды"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:95001 ../ubiquity.templates:96001
-#: ../ubiquity.templates:97001 ../ubiquity.templates:98001
+#: ../ubiquity.templates:98001 ../ubiquity.templates:99001
+#: ../ubiquity.templates:100001 ../ubiquity.templates:101001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr "Файлдарды қатқыл дискке көшіру кезінде қате кетті:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:98001
 #, fuzzy
 #| msgid ""
 #| "This particular error is due to there being insufficient disk space for "
@@ -734,7 +752,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:99001
 #, fuzzy
 #| msgid ""
 #| "This particular error is often due to a faulty CD/DVD disk or drive. It "
@@ -753,7 +771,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:97001
+#: ../ubiquity.templates:100001
 #, fuzzy
 #| msgid ""
 #| "This particular error is often due to a faulty hard disk. It may help to "
@@ -776,7 +794,7 @@ msgstr ""
 #. Description
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
-#: ../ubiquity.templates:98001 ../ubiquity.templates:99001
+#: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 #, fuzzy
 #| msgid ""
 #| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
@@ -800,152 +818,152 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../ubiquity.templates:99001
+#: ../ubiquity.templates:102001
 msgid "The following file did not match its source copy on the CD/DVD:"
 msgstr "Мына файл CD/DVD дисктегі нұсқасына сәйкес келмейді:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:103001
 msgid "Copying installation logs..."
 msgstr "Орнату журналын көшіру..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:104001
 msgid "Configuring target system..."
 msgstr "Қабылдаушы жүйені баптау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:105001
 #, fuzzy
 msgid "Configuring system locales..."
 msgstr "Жүйені баптау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:103001
+#: ../ubiquity.templates:106001
 msgid "Configuring apt..."
 msgstr "apt баптау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:104001
+#: ../ubiquity.templates:107001
 #, fuzzy
 msgid "Configuring time zone..."
 msgstr "Уақыт белдеуін баптау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:105001
+#: ../ubiquity.templates:108001
 msgid "Configuring keyboard..."
 msgstr "Пернетақтаны баптау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:106001
+#: ../ubiquity.templates:109001
 #, fuzzy
 msgid "Creating user..."
 msgstr "Пайдаланушы жасау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:107001
+#: ../ubiquity.templates:110001
 msgid "Importing documents and settings..."
 msgstr "Құжаттар мен баптауды импорттау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:111001
 #, fuzzy
 msgid "Configuring hardware..."
 msgstr "Жабдықы баптау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:109001
+#: ../ubiquity.templates:112001
 msgid "Configuring network..."
 msgstr "Жүйені баптау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:113001
 #, fuzzy
 msgid "Setting computer name..."
 msgstr "Компьютер атын тағайындау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:111001
+#: ../ubiquity.templates:114001
 #, fuzzy
 msgid "Configuring boot loader..."
 msgstr "Жегушіні баптау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:112001
+#: ../ubiquity.templates:115001
 msgid "Installing additional packages..."
 msgstr "Қосымша дестелерді орнату..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:113001
+#: ../ubiquity.templates:116001
 msgid "Checking for packages to install..."
 msgstr "Орнатылатын дестелерді тексеру..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:114001
+#: ../ubiquity.templates:117001
 #, fuzzy
 msgid "Removing extra packages..."
 msgstr "Қосымша дестелерді жою..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:115001
+#: ../ubiquity.templates:118001
 msgid "Checking for packages to remove..."
 msgstr "Жойылатын дестелерді тексеру..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:116001
+#: ../ubiquity.templates:119001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Дестелерді жүктеп алу (${TIME} қалды)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:117001
+#: ../ubiquity.templates:120001
 msgid "Downloading package lists..."
 msgstr "Десте тізімін жүктеп алу жүруде..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:118001
+#: ../ubiquity.templates:121001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Десте тізімін жүктеп алу жүруде (${TIME} қалды)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:120001
+#: ../ubiquity.templates:123001
 msgid "Error installing ${PACKAGE}"
 msgstr "${PACKAGE} орнатуда қате"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:121001
+#: ../ubiquity.templates:124001
 msgid "Error removing ${PACKAGE}"
 msgstr "${PACKAGE} дестесін жоюда қате кетті"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:122001
+#: ../ubiquity.templates:125001
 msgid "Error while installing packages"
 msgstr "Дестелер орнатуда қате кетті"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:122001
+#: ../ubiquity.templates:125001
 msgid "An error occurred while installing packages:"
 msgstr "Дестелер орнату кезінде қате кетті:"
 
@@ -953,7 +971,7 @@ msgstr "Дестелер орнату кезінде қате кетті:"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:122001 ../ubiquity.templates:123001
+#: ../ubiquity.templates:125001 ../ubiquity.templates:126001
 msgid "The following packages are in a broken state:"
 msgstr "Келесі дестелер зақымданған:"
 
@@ -961,7 +979,7 @@ msgstr "Келесі дестелер зақымданған:"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:122001 ../ubiquity.templates:123001
+#: ../ubiquity.templates:125001 ../ubiquity.templates:126001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -980,43 +998,43 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:123001
+#: ../ubiquity.templates:126001
 msgid "Error while removing packages"
 msgstr "Дестелер жоюда қате кетті"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:123001
+#: ../ubiquity.templates:126001
 msgid "An error occurred while removing packages:"
 msgstr "Дестелер жою кезінде қате кетті:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:126001
+#: ../ubiquity.templates:129001
 msgid "Calculating files to skip copying..."
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:127001
+#: ../ubiquity.templates:130001
 msgid "Installing language packs"
 msgstr "Тілдік дестелерді орнату"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:131001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Тілдік десте жүктелуде (${TIME} қалды)..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:137001
 msgid "Failed to unmount partitions"
 msgstr "Бөлімдерді тіркеуден шығару мүмкін болмады"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:137001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -1026,25 +1044,25 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:137001
 msgid "Please close any applications using these mount points."
 msgstr "Осы тіркеу нүктелерін пайдаланып жатқан қолданбаларды жабыңыз."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:137001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "Осы бөлімдерді тіркеуден шығаруды қайталап көруді қалайсыз ба?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:140001
+#: ../ubiquity.templates:143001
 msgid "Do you want to return to the partitioner?"
 msgstr "Бөлшектеу бағдарламасына оралуды қалайсыз ба?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:140001
+#: ../ubiquity.templates:143001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
@@ -1054,7 +1072,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:140001
+#: ../ubiquity.templates:143001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1065,40 +1083,34 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
+#, fuzzy
+#| msgid ""
+#| " Language: ${LANGUAGE}\n"
+#| " Keyboard layout: ${KEYMAP}\n"
+#| " Name: ${FULLNAME}\n"
+#| " Login name: ${USERNAME}\n"
+#| " Location: ${LOCATION}\n"
+#| " Migration Assistant:\n"
+#| " ${MIGRATE}"
 msgid ""
-" Install Type:           ${INSTALLTYPE}\n"
-" Drivers:\n"
-"     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-"         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-" Additional Services:\n"
-"     VNC:                ${EN_VNC}\n"
-"     SSH:                ${EN_OPENSSH}\n"
-"     Samba:              ${EN_SAMBA}\n"
-"     NFS:                ${EN_NFS}\n"
-"     MythTV Service:     ${EN_MYSQL}\n"
-" Normal Ubuntu Install Questions:\n"
-"     Language:           ${LANGUAGE}\n"
-"     Keyboard layout:    ${KEYMAP}\n"
-"     Regular Name:       ${FULLNAME}\n"
-"     Regular Login name: ${USERNAME}\n"
-"     Location:           ${LOCATION}"
+" Install Type: ${INSTALLTYPE}\n"
+" Language: ${LANGUAGE}\n"
+" Keyboard layout: ${KEYMAP}\n"
+" Name: ${FULLNAME}\n"
+" Login name: ${USERNAME}\n"
+" Location: ${LOCATION}\n"
+" IR Remote: ${REMOTE}\n"
+" IR Transmitter: ${TRANSMITTER}\n"
+" Video Driver: ${VIDEO_DRIVER}\n"
+" Services: ${SERVICES}"
 msgstr ""
-" Орнату түрі: ${INSTALLTYPE}\n"
-" Драйверлер:\n"
-"     Қосымша видео драйвер: ${VIDEO_DRIVER}\n"
-"         TV-шығыс: ${TVOUT}, ${TVSTANDARD}\n"
-" Қосымша қызметтер:\n"
-"     VNC: ${EN_VNC}\n"
-"     SSH: ${EN_OPENSSH}\n"
-"     Samba: ${EN_SAMBA}\n"
-"     NFS: ${EN_NFS}\n"
-"     MythTV қызметі: ${EN_MYSQL}\n"
-" Ubuntu Орнатушысының Сұрақтары:\n"
-"     Тіл: ${LANGUAGE}\n"
-"     Пернетақта сәйкестігі: ${KEYMAP}\n"
-"     Аты: ${FULLNAME}\n"
-"     Пайдаланушы аты: ${USERNAME}\n"
-"     Орналасуы: ${LOCATION}"
+" Тіл: ${LANGUAGE}\n"
+" Пернетақта сәйкестігі: ${KEYMAP}\n"
+" Аты: ${FULLNAME}\n"
+" Пайдаланушы аты: ${USERNAME}\n"
+" Орналасуы: ${LOCATION}\n"
+" Көшіріп әкелу көмекшісі:\n"
+" ${MIGRATE}"
 
 #. Type: text
 #. Description
@@ -1201,8 +1213,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
-msgid "Additional Drivers/Firmware"
-msgstr "Қосымша драйверлер мен прошивкалар"
+msgid "Graphics Drivers"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1220,77 +1232,61 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:16001
-msgid "Modify Video Driver & Settings"
-msgstr "Видеодрайвер және параметрлер"
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "If you would like to configure TV-out, choose an option here:"
 msgstr "TV-шығысты баптауды қаласаңыз, мына опциялардан таңдаңыз:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:18001
+#: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 msgstr "TV-шығысты қолданатын болсаңыз, TV стандартты да таңдаңыз:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:19001
-msgid ""
-"Warning: Do not set the TV standard to something higher than what your TV "
-"supports. PERMANENT damage may occur."
-msgstr ""
-"Ескерту: теледидар қолдамайтын стандартты белгілемеңіз. Мұндай әрекет "
-"қалпына КЕЛМЕЙТІН зақымдауға алып келуі мүмкін."
-
-#. Type: text
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:20001
+#: ../ubiquity-frontend-mythbuntu.templates:18001
 msgid "Master Backend Info"
 msgstr "Ішкі интерфейстің негізгісі туралы"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:21001
+#: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
 "Ішкі интерфейстің негізгісімен байланысуға арналған ақпаратты енгізіңіз:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:22001
+#: ../ubiquity-frontend-mythbuntu.templates:20001
 msgid "MySQL Password"
 msgstr "MySQL паролі:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:23001
+#: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "MySQL User Name"
 msgstr "MySQL пайдаланушы аты:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:24001
+#: ../ubiquity-frontend-mythbuntu.templates:22001
 msgid "MySQL Database"
 msgstr "MySQL деректер базасы"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:25001
+#: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "MySQL Server"
 msgstr "MySQL сервері"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:26001
+#: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Configure Guide Data / Backend"
 msgstr "Ішкі интерфейстің басқару дерегін баптау"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:27001
+#: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
@@ -1300,13 +1296,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:28001
+#: ../ubiquity-frontend-mythbuntu.templates:26001
 msgid "Click to open the Schedules Direct website"
 msgstr "Schedules Direct веб сайын ашу үшін шертіңіз"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:29001
+#: ../ubiquity-frontend-mythbuntu.templates:27001
 msgid ""
 "Users in North America will need to setup an account with Schedules Direct "
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
@@ -1319,13 +1315,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:30001
+#: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Launch MythTV Setup"
 msgstr "MythTV орнату"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:31001
+#: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid ""
 "After setting up your guide data source, you will need to launch MythTV-"
 "Setup to run the backend configuration for the first time.  You will need to "
@@ -1335,27 +1331,75 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:32001
+#: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Configuring mythtv..."
 msgstr "mythtv баптау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:33001
+#: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Configuring additional drivers..."
 msgstr "Қосымша драйверлерді баптау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:34001
+#: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Configuring additional services..."
 msgstr "Қосымша қызметтерді баптау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:35001
+#: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Инфрақызыл құрылғыларды баптау..."
+
+#~ msgid ""
+#~ " Install Type:           ${INSTALLTYPE}\n"
+#~ " Drivers:\n"
+#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
+#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
+#~ " Additional Services:\n"
+#~ "     VNC:                ${EN_VNC}\n"
+#~ "     SSH:                ${EN_OPENSSH}\n"
+#~ "     Samba:              ${EN_SAMBA}\n"
+#~ "     NFS:                ${EN_NFS}\n"
+#~ "     MythTV Service:     ${EN_MYSQL}\n"
+#~ " Normal Ubuntu Install Questions:\n"
+#~ "     Language:           ${LANGUAGE}\n"
+#~ "     Keyboard layout:    ${KEYMAP}\n"
+#~ "     Regular Name:       ${FULLNAME}\n"
+#~ "     Regular Login name: ${USERNAME}\n"
+#~ "     Location:           ${LOCATION}"
+#~ msgstr ""
+#~ " Орнату түрі: ${INSTALLTYPE}\n"
+#~ " Драйверлер:\n"
+#~ "     Қосымша видео драйвер: ${VIDEO_DRIVER}\n"
+#~ "         TV-шығыс: ${TVOUT}, ${TVSTANDARD}\n"
+#~ " Қосымша қызметтер:\n"
+#~ "     VNC: ${EN_VNC}\n"
+#~ "     SSH: ${EN_OPENSSH}\n"
+#~ "     Samba: ${EN_SAMBA}\n"
+#~ "     NFS: ${EN_NFS}\n"
+#~ "     MythTV қызметі: ${EN_MYSQL}\n"
+#~ " Ubuntu Орнатушысының Сұрақтары:\n"
+#~ "     Тіл: ${LANGUAGE}\n"
+#~ "     Пернетақта сәйкестігі: ${KEYMAP}\n"
+#~ "     Аты: ${FULLNAME}\n"
+#~ "     Пайдаланушы аты: ${USERNAME}\n"
+#~ "     Орналасуы: ${LOCATION}"
+
+#~ msgid "Additional Drivers/Firmware"
+#~ msgstr "Қосымша драйверлер мен прошивкалар"
+
+#~ msgid "Modify Video Driver & Settings"
+#~ msgstr "Видеодрайвер және параметрлер"
+
+#~ msgid ""
+#~ "Warning: Do not set the TV standard to something higher than what your TV "
+#~ "supports. PERMANENT damage may occur."
+#~ msgstr ""
+#~ "Ескерту: теледидар қолдамайтын стандартты белгілемеңіз. Мұндай әрекет "
+#~ "қалпына КЕЛМЕЙТІН зақымдауға алып келуі мүмкін."
 
 #~ msgid "Selected city:"
 #~ msgstr "Таңдалған қала:"
