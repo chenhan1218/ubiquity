@@ -61,7 +61,7 @@ PATH = '/usr/share/ubiquity'
 LOCALEDIR = "/usr/share/locale"
 
 #currently using for testing, will remove
-PATH = '/home/shtylman/projects/ubiquity/ubiquity.kdeui/gui'
+#PATH = '/home/shtylman/projects/ubiquity/ubiquity.kdeui/gui'
 UIDIR = os.path.join(PATH, 'qt')
 
 BREADCRUMB_STEPS = {
@@ -367,7 +367,7 @@ class Wizard(BaseFrontend):
         
         #TODO remove
         #first_step = 'stepPart'
-        self.pagesindex = 3
+        #self.pagesindex = 3
         
         self.set_current_page(WIDGET_STACK_STEPS[first_step])
         
@@ -1270,6 +1270,7 @@ class Wizard(BaseFrontend):
             layout = QVBoxLayout(bar_frame)
             bar_frame.setVisible(False)
             
+            # extra options frame
             frame = None
 
             # if we have more information about the choice
@@ -1277,7 +1278,6 @@ class Wizard(BaseFrontend):
                 # label for the before device
                 dev = None
                 
-                # extra options frame
                 frame = QFrame(self.userinterface.autopartition_frame)
                 frame.setEnabled(False)
                 
@@ -1295,32 +1295,39 @@ class Wizard(BaseFrontend):
                         if "%s" % d.strip('=dev=') in extra[3]:
                             dev = d
                             break
-                        
-                    before_bar = PartitionsBar(bar_frame)
-                    layout.addWidget(before_bar)
                     
-                    after_bar = PartitionsBar(bar_frame)
-                    layout.addWidget(after_bar)
                     
-                    resize_min_size, resize_max_size, \
-                        resize_orig_size, resize_path = extra_options[choice]
+                    before_frame = QGroupBox("Before Resize:", bar_frame)
+                    before_frame.setLayout(QVBoxLayout())
+                    layout.addWidget(before_frame)
+                    
+                    before_bar = PartitionsBar(before_frame)
+                    before_frame.layout().addWidget(before_bar)
+                    
+                    after_frame = QGroupBox("After Resize:", bar_frame)
+                    after_frame.setLayout(QVBoxLayout())
+                    layout.addWidget(after_frame)
+                    
+                    after_bar = PartitionsBar(after_frame)
+                    after_frame.layout().addWidget(after_bar)
+                    
+                    min_size, max_size, orig_size, resize_path = extra_options[choice]
                         
                     #TODO use find_in_os_proper to give nice name
                     if dev:
                         for p in disks[dev]:
-                            before_bar.addPartition(p[6], int(p[2]), p[0], p[4], p[5])
-                            after_bar.addPartition(p[6], int(p[2]), p[0], p[4], p[5])
+                            before_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
+                            after_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
                             
                         after_bar.setResizePartition(resize_path, 
-                            resize_min_size, resize_max_size, resize_orig_size, 'Kubuntu')
+                            min_size, max_size, orig_size, 'Kubuntu')
                             
-                        print "('%s', '%d', '%d', '%d', '%s')" % (resize_path,
-                            resize_min_size, resize_max_size, resize_orig_size, 'Kubuntu')
                     else:
                         bFrame.removeWidget(before_bar)
                         bFrame.removeWidget(after_bar)
                     
                 elif choice != manual_choice:
+                    #list of possible full disk choices
                     vbox = QVBoxLayout(frame)
                     buttongroup = QButtonGroup(frame)
                     buttongroup_texts = {}
@@ -1344,15 +1351,27 @@ class Wizard(BaseFrontend):
                                 dev = d
                                 break
                                 
-                        before_bar = PartitionsBar(bar_frame)
-                        before_bar.setVisible(False)
-                        layout.addWidget(before_bar)
-                                
+                        before_frame = QGroupBox("Before Install:", bar_frame)
+                        before_frame.setLayout(QVBoxLayout())
+                        layout.addWidget(before_frame)
+                        
+                        before_bar = PartitionsBar(before_frame)
+                        before_frame.layout().addWidget(before_bar)
+                        
+                        after_frame = QGroupBox("After Install:", bar_frame)
+                        after_frame.setLayout(QVBoxLayout())
+                        layout.addWidget(after_frame)
+                        
+                        after_bar = PartitionsBar(after_frame)
+                        after_frame.layout().addWidget(after_bar)
+                        
                         if dev:
                             for p in disks[dev]:
                                 before_bar.addPartition(p[6], int(p[2]), p[0], p[4], p[5])
                         else:
                             bFrame.removeWidget(before_bar)
+                            
+                        after_bar.addPartition('', before_bar.diskSize, '', '', 'Kubuntu')
                         
                         buttongroup.addButton(extra_button, extraIdCounter)
                         extra_id = buttongroup.id(extra_button)
@@ -1431,23 +1450,23 @@ class Wizard(BaseFrontend):
                 self.partition_tree_model.append([item, partition], self)
                 indexCount += 1
                 
-                #get data for out bar display
-                size = int(partition['parted']['size']) / 1000000000 #GB, MB are too big
+                #get data for bar display
+                size = int(partition['parted']['size'])
                 fs = partition['parted']['fs']
                 path = partition['parted']['path'].replace("/dev/","")
                 if fs == "free":
                     path = fs
                 partition_bar.addPartition('name', size, indexCount, fs, path)
                 
-        for barSignal in self.partition_bars:
-            self.app.connect(barSignal, SIGNAL("clicked(int)"), self.partitionClicked)
-            for barSlot in self.partition_bars:
-                self.app.connect(barSignal, SIGNAL("clicked(int)"), barSlot.raiseFrames)
+        #for barSignal in self.partition_bars:
+        #    self.app.connect(barSignal, SIGNAL("clicked(int)"), self.partitionClicked)
+        #    for barSlot in self.partition_bars:
+        #        self.app.connect(barSignal, SIGNAL("clicked(int)"), barSlot.raiseFrames)
         
         self.userinterface.partition_list_treeview.setModel(self.partition_tree_model)
-        #self.app.disconnect(self.userinterface.partition_list_treeview.selectionModel(), 
-        #    SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), 
-        #    self.on_partition_list_treeview_selection_changed)
+        self.app.disconnect(self.userinterface.partition_list_treeview.selectionModel(), 
+            SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), 
+            self.on_partition_list_treeview_selection_changed)
         self.app.connect(self.userinterface.partition_list_treeview.selectionModel(), 
             SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), 
             self.on_partition_list_treeview_selection_changed)
@@ -1714,8 +1733,10 @@ class Wizard(BaseFrontend):
         if indexes:
             index = indexes[0]
             for bar in self.partition_bars:
+                pass
+                #TODO show the appropriate partition bar
                 ##bar.selected(index)  ##FIXME find out row from index and call bar.selected on it
-                bar.raiseFrames()
+                #bar.raiseFrames()
             item = index.internalPointer()
             devpart = item.itemData[0]
             partition = item.itemData[1]

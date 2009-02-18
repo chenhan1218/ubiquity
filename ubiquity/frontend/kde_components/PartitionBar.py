@@ -45,6 +45,7 @@ class Partition:
         self.fs = fs
         self.path = path
         self.index = index
+        self.next = None
 
 class PartitionsBar(QWidget):
     """ a widget to graphically show disk partitions. """
@@ -85,7 +86,13 @@ class PartitionsBar(QWidget):
         else:
             path.addRect(0, 0, self.width()-1, height)
             mirrPath.addRect(0, height, self.width()-1, height)
-            
+         
+        #used to debug slider and make sure the total disk size is still the same
+        #t = 0
+        #for p in self.partitions:
+        #    t += p.size
+        #print t    
+        
         part_offset = 0
         label_offset = 0
         for p in self.partitions:
@@ -153,9 +160,9 @@ class PartitionsBar(QWidget):
                 label_offset += max(labelTextSize.width(), infoLabelTextSize.width()) + 30
                 painter.setRenderHint(QPainter.Antialiasing, True)
                 
-            #if this is a resize partition, draw the handle on the child 
-            #because the child is drawn after the parent
-            if self.resize_part and p == self.resize_part.child:
+            #if this is partition after one we are resizing draw handle
+            #this way it appears on top of both partitions
+            if self.resize_part and p == self.resize_part.next:
                 resize_pen = QPen(Qt.black)
                 part = self.resize_part
                 
@@ -193,6 +200,12 @@ class PartitionsBar(QWidget):
     def addPartition(self, name, size, index, fs, path):
         partition = Partition(size, index, fs, path)
         self.diskSize += size
+        
+        #set the previous partition to have this one as next partition
+        if len(self.partitions) > 0:
+            last = self.partitions[len(self.partitions)-1]
+            last.next = partition
+            
         self.partitions.append(partition)
         
     def setResizePartition(self, path, minsize, maxsize, origsize, new_label):
@@ -207,16 +220,22 @@ class PartitionsBar(QWidget):
         if not part:
             return
         
-        new_size = (minsize + maxsize)/2
+        new_size = (minsize + p.size)/2
         part.size = new_size
         part.minsize = minsize
         part.maxsize = maxsize
         part.origsize = origsize
         
-        part.child = Partition(origsize - new_size, 0, '', 'Kubuntu')
-        #insert a new fake partition after the part
-        self.partitions.insert(index + 1, part.child)
+        part.next.size += origsize - part.size
         
+        #if our resize partition is at the end or the next one is not free space
+        if part.next == None or part.next.index != -1:
+            p = Partition(origsize - new_size, 0, '', 'Kubuntu')
+            p.next = part.next
+            part.next = p
+            #insert a new fake partition after the part
+            self.partitions.insert(index + 1, p)
+            
         self.resize_part = part
         
         # need mouse tracking to be able to change the cursor
@@ -249,8 +268,9 @@ class PartitionsBar(QWidget):
             
             span = self.resize_part.origsize
             percent = mx / float(span)
+            oldsize = self.resize_part.size
             self.resize_part.size = span * percent
-            self.resize_part.child.size = span - self.resize_part.size
+            self.resize_part.next.size -= (self.resize_part.size - oldsize)
             self.update()
         else:
             if self.resize_part:
@@ -273,21 +293,18 @@ if __name__ == "__main__":
     
     partBar = PartitionsBar(wid)
     layout.addWidget(partBar)
-    #partBar.addPartition('', 5000, 1, "linux-swap", "/dev/sdb1")
-    #partBar.addPartition('', 20000, 0, "ext3", "/dev/sdb2")
-    #partBar.addPartition('', 30000, 1, "linux-swap", "/dev/sdb3")
-    #partBar.addPartition('', 50000, 1, "ntfs", "/dev/sdb4")
+    '''partBar.addPartition('', 5000, 1, "linux-swap", "/dev/sdb1")
+    partBar.addPartition('', 20000, 2, "ext3", "/dev/sdb2")
+    partBar.addPartition('', 30000, 3, "linux-swap", "/dev/sdb3")
+    partBar.addPartition('', 50000, 4, "ntfs", "/dev/sdb4")
+    partBar.setResizePartition('/dev/sdb2', 5000, 15000, 20000, 'Kubuntu')'''
     
-    partBar.addPartition('', 4005679104, '1', 'ext4', '/dev/sdb1')
-    partBar.addPartition('', 53505446400, '-1', 'free', '/dev/sdb-1')
-    partBar.addPartition('', 2500452864, '5', 'linux-swap', '/dev/sdb5')
+    partBar.addPartition('', 4005679104, 1, 'ext4', '/dev/sdb1')
+    partBar.addPartition('', 53505446400, -1, 'free', '/dev/sdb-1')
+    partBar.addPartition('', 2500452864, 5, 'linux-swap', '/dev/sdb5')
+    
+    #must set this after we have created the whole partition bar
     partBar.setResizePartition('/dev/sdb1', 230989824, 55143440896, 4005679104, 'Kubuntu')
-    
-    230989824
-    4005679104
-    55143440896
-    #partBar.addPartition('', 60000, 2, "fat32", "/dev/sdb5")
-    #partBar.setResizePartition('/dev/sdb2', 5000, 15000, 20000, 'Kubuntu')
     
     wid.show()
     

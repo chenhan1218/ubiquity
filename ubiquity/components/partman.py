@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
 
 # Copyright (C) 2006, 2007, 2008 Canonical Ltd.
 # Written by Colin Watson <cjwatson@ubuntu.com>.
@@ -1089,7 +1089,8 @@ class Partman(FilteredCommand):
         if self.current_question.endswith('automatically_partition'):
             (autopartition_choice, self.extra_choice) = \
                 self.frontend.get_autopartition_choice()
-            autopartition_choice = self.translation_mappings[autopartition_choice]
+            #this line was causing problems with the manual choice
+            #autopartition_choice = self.translation_mappings[autopartition_choice]
             if self.autopartition_question is not None:
                 self.preseed_as_c(self.autopartition_question, autopartition_choice)
             else:
