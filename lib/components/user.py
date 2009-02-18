@@ -23,9 +23,12 @@ from oem_config.filteredcommand import FilteredCommand
 # a new one, or what?
 class User(FilteredCommand):
     def prepare(self, unfiltered=False):
+        # We intentionally don't listen to passwd/auto-login or
+        # user-setup/encrypt-home because we don't want those alone to force
+        # the page to be shown, if they're the only questions not preseeded.
         questions = ['^passwd/user-fullname$', '^passwd/username$',
                      '^passwd/user-password$', '^passwd/user-password-again$',
-                     '^passwd/auto-login$', 'ERROR']
+                     'ERROR']
         return (['/usr/lib/oem-config/user/user-setup-wrapper', '/'],
                 questions)
 
