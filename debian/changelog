@@ -4,6 +4,7 @@ ubiquity (1.11.11) UNRELEASED; urgency=low
     assuming there is one.
   * Explain the automatic partitioning options more clearly.
   * Move the "after" partition bar to beneath the autopartition options.
+  * Stop calling os-prober multiple times if the first run returns nothing.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 18 Feb 2009 10:21:39 +0000
 

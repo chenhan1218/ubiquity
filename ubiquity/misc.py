@@ -26,7 +26,8 @@ def find_in_os_prober(device):
        Returns the friendly name of the device, or the empty string on error.'''
     regain_privileges()
     try:
-        if not find_in_os_prober.oslist:
+        if not find_in_os_prober.called:
+            find_in_os_prober.called = True
             subp = subprocess.Popen(['os-prober'], stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE)
             result = subp.communicate()[0].splitlines()
@@ -50,6 +51,7 @@ def find_in_os_prober(device):
         drop_privileges()
     return ''
 find_in_os_prober.oslist = {}
+find_in_os_prober.called = False
 
 def get_release_name():
     if not get_release_name.release_name:
