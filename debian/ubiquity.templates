@@ -9,11 +9,15 @@ _Description: Use the largest continuous free space
 
 Template: ubiquity/text/use_device
 Type: text
-_Description: Use entire disk
+_Description: Use the entire disk
 
 Template: ubiquity/text/resize_use_free
 Type: text
-_Description: Resize a partition above and use the freed space
+_Description: Install them side by side, choosing between them each startup
+
+Template: ubiquity/text/custom_partitioning
+Type: text
+_Description: Specify partitions manually (advanced)
 
 Template: ubiquity/text/live_installer
 Type: text
@@ -177,6 +181,22 @@ _Description: Prepare disk space
 Template: ubiquity/text/part_auto_comment_label
 Type: text
 _Description: How do you want to partition the disk?
+
+Template: ubiquity/text/part_auto_comment_none
+Type: text
+_Description: This computer has no operating systems on it.
+
+Template: ubiquity/text/part_auto_comment_one
+Type: text
+_Description: This computer has %s on it.
+
+Template: ubiquity/text/part_auto_comment_many
+Type: text
+_Description: This computer has several operating systems on it.
+
+Template: ubiquity/text/part_auto_choices_label
+Type: text
+_Description: Where do you want to put ${RELEASE}?
 
 Template: ubiquity/text/part_advanced_heading_label
 Type: text

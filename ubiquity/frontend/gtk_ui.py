@@ -514,6 +514,16 @@ class Wizard(BaseFrontend):
             self.setup_timezone_page()
             self.tzmap.show()
 
+        self.action_bar = segmented_bar.SegmentedBarSlider()
+        self.action_bar.h_padding = self.action_bar.bar_height / 2
+        self.action_bar_eb.add(self.action_bar)
+        self.action_bar.show()
+        
+        self.before_bar = segmented_bar.SegmentedBar()
+        self.before_bar.h_padding = self.before_bar.bar_height / 2
+        self.before_bar_eb.add(self.before_bar)
+        self.before_bar.show()
+
         if 'UBIQUITY_DEBUG' in os.environ:
             self.password_debug_warning_label.show()
 
@@ -1508,6 +1518,18 @@ class Wizard(BaseFrontend):
             b = self.action_bar
         else:
             b = self.before_bar
+            ret = []
+            for part in self.disk_layout[disk]:
+                t = find_in_os_prober(part)
+                if t:
+                    ret.append(t)
+            if len(ret) == 0:
+                s = self.get_string('ubiquity/text/part_auto_comment_none')
+            elif len(ret) == 1:
+                s = self.get_string('ubiquity/text/part_auto_comment_one')
+            else:
+                s = self.get_string('ubiquity/text/part_auto_comment_many')
+            self.part_auto_comment_label.set_text(s)
         i = 0
         for part in self.disk_layout[disk]:
             dev = part[0]
@@ -1527,43 +1549,12 @@ class Wizard(BaseFrontend):
         BaseFrontend.set_autopartition_choices(self, choices, extra_options,
                                                resize_choice, manual_choice)
 
-        for child in self.autopartition_vbox.get_children():
-            self.autopartition_vbox.remove(child)
-
-        table = gtk.Table(2, 2)
-
-        table.attach(gtk.Label(self.get_string('partition_layout_before')),
-                     0, 1, 0, 1, xoptions=gtk.FILL, yoptions=0)
-        self.before_bar = segmented_bar.SegmentedBar()
-        self.before_bar.h_padding = self.before_bar.bar_height / 2
-        eb = gtk.EventBox()
-        eb.add(self.before_bar)
-        table.attach(eb, 1, 2, 0, 1, yoptions=0)
-
-        table.attach(gtk.Label(self.get_string('partition_layout_after')),
-                     0, 1, 1, 2, xoptions=gtk.FILL, yoptions=0)
-        if resize_choice in choices:
-            self.action_bar = segmented_bar.SegmentedBarSlider()
-            self.resize_min_size, self.resize_max_size, \
-                self.resize_orig_size, self.resize_path = \
-                    extra_options[resize_choice]
-            self.action_bar.set_part_size(self.resize_orig_size)
-            self.action_bar.set_min(self.resize_min_size)
-            self.action_bar.set_max(self.resize_max_size)
-            self.action_bar.set_device(self.resize_path)
-        else:
-            self.action_bar = segmented_bar.SegmentedBar()
-        self.action_bar.h_padding = self.action_bar.bar_height / 2
-        eb = gtk.EventBox()
-        eb.add(self.action_bar)
-        table.attach(eb, 1, 2, 1, 2, yoptions=0)
-
-        sw = gtk.ScrolledWindow()
-        sw.add_with_viewport(table)
-        sw.child.set_shadow_type(gtk.SHADOW_NONE)
-        sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_NEVER)
-
-        self.autopartition_vbox.add(sw)
+        for child in self.autopartition_choices_vbox.get_children():
+            self.autopartition_choices_vbox.remove(child)
+        
+        text = self.get_string('ubiquity/text/part_auto_choices_label')
+        text = text.replace('${RELEASE}', get_release_name())
+        self.part_auto_choices_label.set_text(text)
 
         firstbutton = None
         extra_buttons = []
@@ -1571,7 +1562,7 @@ class Wizard(BaseFrontend):
             button = gtk.RadioButton(firstbutton, choice, False)
             if firstbutton is None:
                 firstbutton = button
-            self.autopartition_vbox.add(button)
+            self.autopartition_choices_vbox.add(button)
 
             if choice in extra_options:
                 alignment = gtk.Alignment(xscale=1, yscale=1)
@@ -1626,17 +1617,28 @@ class Wizard(BaseFrontend):
                             vbox.add(a)
                         extra_buttons.append(extra_button)
                         extra_button.connect('toggled', self.on_extra_button_toggled)
-                self.autopartition_vbox.pack_start(alignment,
+                self.autopartition_choices_vbox.pack_start(alignment,
                                                    expand=False, fill=False)
                 self.autopartition_extras[choice] = alignment
                 self.on_autopartition_toggled(button)
                 button.connect('toggled', self.on_autopartition_toggled)
-            self.on_choice_toggled(button, extra_buttons)
+            #self.on_choice_toggled(button, extra_buttons)
             button.connect('toggled', self.on_choice_toggled, extra_buttons)
         if firstbutton is not None:
             firstbutton.set_active(True)
 
-        self.autopartition_vbox.show_all()
+        if resize_choice in choices:
+            self.resize_min_size, self.resize_max_size, \
+                self.resize_orig_size, self.resize_path = \
+                    extra_options[resize_choice]
+            self.action_bar.set_part_size(self.resize_orig_size)
+            self.action_bar.set_min(self.resize_min_size)
+            self.action_bar.set_max(self.resize_max_size)
+            self.action_bar.set_device(self.resize_path)
+
+        if firstbutton is not None:
+            self.on_choice_toggled(firstbutton, extra_buttons)
+        self.autopartition_choices_vbox.show_all()
         for align in self.format_warnings.itervalues():
             align.hide()
 
@@ -1645,7 +1647,7 @@ class Wizard(BaseFrontend):
 
 
     def get_autopartition_choice (self):
-        for button in self.autopartition_vbox.get_children():
+        for button in self.autopartition_choices_vbox.get_children():
             if isinstance(button, gtk.Button):
                 if button.get_active():
                     choice = unicode(button.get_label(), 'utf-8', 'replace')
