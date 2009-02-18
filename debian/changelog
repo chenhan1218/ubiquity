@@ -1,3 +1,9 @@
+ubiquity (1.11.12) UNRELEASED; urgency=low
+
+  * Handle user-setup's new weak password detection.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 18 Feb 2009 22:14:34 +0000
+
 ubiquity (1.11.11) jaunty; urgency=low
 
   * Check to make sure there is a partman-auto translation to map to before
