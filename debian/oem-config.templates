@@ -93,6 +93,16 @@ Template: oem-config/text/applying
 Type: text
 _Description: Applying configuration
 
+Template: oem-config/text/go_back
+Type: text
+# Translators, this text will appear on a button, so KEEP IT SHORT
+_Description: Go Back
+
+Template: oem-config/text/continue
+Type: text
+# Translators, this text will appear on a button, so KEEP IT SHORT
+_Description: Continue
+
 Template: oem-config/steps
 Type: multiselect
 Choices: language, timezone, keyboard, user, network

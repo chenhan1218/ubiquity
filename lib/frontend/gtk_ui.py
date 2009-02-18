@@ -329,6 +329,40 @@ class Frontend(BaseFrontend):
         dialog.run()
         dialog.hide()
 
+    def question_dialog (self, title, msg, options, use_templates=True):
+        self.allow_change_step(True)
+        if not msg:
+            msg = title
+        buttons = []
+        for option in options:
+            if use_templates:
+                text = self.get_string(option)
+            else:
+                text = option
+            if text is None:
+                text = option
+            # Work around PyGTK bug; each button text must actually be a
+            # subtype of str, which unicode isn't.
+            text = str(text)
+            buttons.extend((text, len(buttons) / 2 + 1))
+        dialog = gtk.Dialog(title, self.oem_config,
+                            gtk.DIALOG_MODAL, tuple(buttons))
+        vbox = gtk.VBox()
+        vbox.set_border_width(5)
+        label = gtk.Label(msg)
+        label.set_line_wrap(True)
+        label.set_selectable(True)
+        vbox.pack_start(label)
+        vbox.show_all()
+        dialog.vbox.pack_start(vbox)
+        response = dialog.run()
+        dialog.hide()
+        if response < 0:
+            # something other than a button press, probably destroyed
+            return None
+        else:
+            return options[response - 1]
+
     # Run the UI's main loop until it returns control to us.
     def run_main_loop(self):
         if not self.apply_changes:

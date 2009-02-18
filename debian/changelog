@@ -3,6 +3,7 @@ oem-config (1.54.6) UNRELEASED; urgency=low
   * Only call setxkbmap if DISPLAY is set.
   * Don't show the "Who are you?" page just because the auto-login question
     is asked and not preseeded (LP: #328281).
+  * Handle user-setup's new weak password detection.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 18 Feb 2009 22:51:02 +0000
 

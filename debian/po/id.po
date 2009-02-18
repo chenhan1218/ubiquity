@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
-"POT-Creation-Date: 2009-01-20 14:50+0000\n"
+"POT-Creation-Date: 2009-02-18 23:00+0000\n"
 "PO-Revision-Date: 2008-05-20 14:47+0000\n"
 "Last-Translator: Arief S Fitrianto <Unknown>\n"
 "Language-Team: Debian Indonesia Team <debian-l10n-id@gurame.fisika.ui.ac."
@@ -163,6 +163,20 @@ msgstr "Masuk secara otomatis"
 #| msgid "System Configuration"
 msgid "Applying configuration"
 msgstr "Konfigurasi Sistem"
+
+#. Type: text
+#. Description
+#. Translators, this text will appear on a button, so KEEP IT SHORT
+#: ../oem-config.templates:24001
+msgid "Go Back"
+msgstr ""
+
+#. Type: text
+#. Description
+#. Translators, this text will appear on a button, so KEEP IT SHORT
+#: ../oem-config.templates:25001
+msgid "Continue"
+msgstr ""
 
 #. Type: title
 #. Description

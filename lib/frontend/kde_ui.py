@@ -469,6 +469,35 @@ p, li { white-space: pre-wrap; }
         # TODO: cancel button as well if capb backup
         QMessageBox.warning(self.userinterface, title, msg, QMessageBox.Ok)
 
+    def question_dialog (self, title, msg, options, use_templates=True):
+        # I doubt we'll ever need more than three buttons.
+        assert len(options) <= 3, options
+
+        self.allow_change_step(True)
+        buttons = {}
+        messageBox = QMessageBox(QMessageBox.Question, title, msg, QMessageBox.NoButton, self.userinterface)
+        for option in options:
+            if use_templates:
+                text = self.get_string(option)
+            else:
+                text = option
+            if text is None:
+                text = option
+            # Convention for options is to have the affirmative action last; KDE
+            # convention is to have it first.
+            if option == options[-1]:
+                button = messageBox.addButton(text, QMessageBox.AcceptRole)
+            else:
+                button = messageBox.addButton(text, QMessageBox.RejectRole)
+            buttons[button] = option
+
+        response = messageBox.exec_()
+
+        if response < 0:
+            return None
+        else:
+            return buttons[messageBox.clickedButton()]
+
     def run_main_loop (self):
         if not self.apply_changes:
             self.allow_change_step(True)

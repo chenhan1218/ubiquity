@@ -279,3 +279,7 @@ class BaseFrontend:
     def error_dialog(self, title, msg):
         """Display an error message dialog."""
         self._abstract('error_dialog')
+
+    def question_dialog(self, title, msg, options, use_templates=True):
+        """Ask a question."""
+        self._abstract('question_dialog')

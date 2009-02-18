@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
-"POT-Creation-Date: 2009-01-20 14:50+0000\n"
+"POT-Creation-Date: 2009-02-18 23:00+0000\n"
 "PO-Revision-Date: 2008-06-02 09:34+0000\n"
 "Last-Translator: Tim Chan Rithy <Unknown>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -160,6 +160,20 @@ msgstr "ចូល​ក្នុង​ប្រព័ន្ធ​ដោយ​ស
 #, fuzzy
 msgid "Applying configuration"
 msgstr "ការ​កំណត់​រចនាសម្ព័ន្ធ apt មាន​បញ្ហា"
+
+#. Type: text
+#. Description
+#. Translators, this text will appear on a button, so KEEP IT SHORT
+#: ../oem-config.templates:24001
+msgid "Go Back"
+msgstr ""
+
+#. Type: text
+#. Description
+#. Translators, this text will appear on a button, so KEEP IT SHORT
+#: ../oem-config.templates:25001
+msgid "Continue"
+msgstr ""
 
 #. Type: title
 #. Description
