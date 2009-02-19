@@ -363,8 +363,8 @@ class Wizard(BaseFrontend):
             first_step = "stepLanguage"
         
         #TODO remove
-        #first_step = 'stepPartAuto'
-        #self.pagesindex = 3
+        first_step = 'stepPartAuto'
+        self.pagesindex = 3
         
         self.set_current_page(WIDGET_STACK_STEPS[first_step])
         
@@ -1375,8 +1375,13 @@ class Wizard(BaseFrontend):
                                 before_bar.addPartition(p[6], int(p[2]), p[0], p[4], p[5])
                         else:
                             bFrame.removeWidget(before_bar)
-                            
-                        after_bar.addPartition('', before_bar.diskSize, '', '', 'Kubuntu')
+                        
+                        #FIXME, sometimes the before bar doesn't get a disk size??
+                        #happened in a virtual machine for me
+                        if before_bar.diskSize > 0:
+                            after_bar.addPartition('', before_bar.diskSize, '', '', 'Kubuntu')
+                        else:
+                            after_bar.addPartition('', 1, '', '', 'Kubuntu')
                         
                         buttongroup.addButton(extra_button, extraIdCounter)
                         extra_id = buttongroup.id(extra_button)

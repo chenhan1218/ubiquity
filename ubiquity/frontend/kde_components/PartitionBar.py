@@ -32,13 +32,13 @@ from ubiquity.misc import format_size
 
 class Partition:
     # colors used to render partition types
-    filesystemColours = {'ext3': Qt.darkCyan,
-                         'ext4': Qt.darkCyan,
-                         'free': Qt.white,
-                         'linux-swap': Qt.cyan,
-                         'fat32': Qt.green,
-                         'fat16': Qt.green,
-                         'ntfs': Qt.magenta}
+    filesystemColours = {'ext3':        '#418DD4',
+                         'ext4':        '#418DD4',
+                         'free':        '#FFFFFF',
+                         'linux-swap':  '#FF80E0',
+                         'fat32':       '#C0DAFF',
+                         'fat16':       '#C0DAFF',
+                         'ntfs':        '#888786'}
 
     def __init__(self, size, index, fs, path):
         self.size = size
@@ -46,17 +46,19 @@ class Partition:
         self.path = path
         self.index = index
         self.next = None
+        self.name = None
 
 class PartitionsBar(QWidget):
+    InfoColor = '#333333'
+    
     """ a widget to graphically show disk partitions. """
     def __init__(self, parent = None):
         QWidget.__init__(self, parent)
         self.partitions = []
-        self.radius = 4
-        self.height = 25 #should be a multiple of 2
-        self.rounded = True
+        self.bar_height = 30 #should be a multiple of 2
         self.diskSize = 0
-        self.setMinimumHeight(self.height*2 + 10)
+        self.radius = 3
+        self.setMinimumHeight(self.bar_height*2 + 30)
         self.setMinimumWidth(500)
         sizePolicy = self.sizePolicy()
         sizePolicy.setVerticalStretch(10)
@@ -68,30 +70,20 @@ class PartitionsBar(QWidget):
         self.resize_part = None
         
     def paintEvent(self, qPaintEvent):
-        
         painter = QPainter(self);
         painter.setRenderHint(QPainter.Antialiasing, True)
         
-        height = self.height
-        height_2 = height/2
+        h = self.bar_height
+        h_2 = self.bar_height/2
         effective_width = self.width() - 1
         
-        #create the gradient for colors to populate
-        grad = QLinearGradient(QPointF(0, 0), QPointF(0, height * 2))
-        
         path = QPainterPath()
-        mirrPath = QPainterPath()
-        
-        if self.rounded:
-            path.addRoundedRect(0, 0, self.width()-1, height, self.radius, self.radius)
-            mirrPath.addRoundedRect(0, height, self.width()-1, height, self.radius, self.radius)
-        else:
-            path.addRect(0, 0, self.width()-1, height)
-            mirrPath.addRect(0, height, self.width()-1, height)
+        path.addRoundedRect(2, 2, self.width()-4, h-4, self.radius, self.radius)
         
         part_offset = 0
         label_offset = 0
         trunc_pix = 0
+        resize_handle_x = None
         for p in self.partitions:
             #this is done so that even after resizing, other partitions draw in the same places
             trunc_pix += (effective_width * float(p.size) / self.diskSize)
@@ -105,102 +97,139 @@ class PartitionsBar(QWidget):
                 pColor = QColor(Partition.filesystemColours['free'])
             
             pal = QPalette(pColor)
-            light = pal.color(QPalette.Light)
+            #light = pal.color(QPalette.Light)
+            midl = pal.color(QPalette.Midlight)
             mid = pal.color(QPalette.Mid)
             dark = pal.color(QPalette.Dark)
             
-            #populate gradient
-            #gradient is made in such a way that both the object and mirror can be
-            #drawn with one brush
-            grad.setColorAt(0, light);
-            grad.setColorAt(.5, dark);
-            dark.setAlphaF(.5)
-            grad.setColorAt(.501, dark);
-            light.setAlpha(0)
-            grad.setColorAt(.75, light)
+            #create the gradient for colors to populate
+            grad = QLinearGradient(QPointF(0, 0), QPointF(0, h))
             
-            painter.setPen(dark)
-            painter.setBrush(QBrush(grad))
+            if (p.fs == "free"):
+                grad.setColorAt(.25, mid);
+                grad.setColorAt(1, midl);
+            else:
+                grad.setColorAt(0, midl);
+                grad.setColorAt(.75, mid);    
             
-            painter.setClipRect(part_offset, 0, pix_size, height*2)
-            painter.drawPath(path)
             painter.setPen(Qt.NoPen)
-            painter.drawPath(mirrPath)
-                
-            #draw the labels
-            painter.setPen(Qt.black)
-            painter.setBrush(mid)
+            painter.setBrush(QBrush(grad))
+            painter.setClipRect(part_offset, 0, pix_size, h*2)
+            painter.drawPath(path)
+            
+            if part_offset > 0:
+                painter.setPen(dark)
+                painter.drawLine(part_offset, 2, part_offset, h - 3)
+            
             painter.setClipping(False)
             
             draw_labels = True
             if draw_labels:
-                metrics = painter.fontMetrics()
+                #draw the labels
+                painter.setPen(Qt.black)
                 
                 #name is the path by default, or free space if unpartitioned
-                name = p.path
-                if p.fs == 'free':
-                    name = 'free space'
-                
-                labelText = "%s" % name
-                labelTextSize = metrics.size(Qt.TextSingleLine, labelText)
-                
-                size_text = format_size(p.size)
-                infoLabelText = "%.01f%% (%s)" % (float(p.size) / self.diskSize * 100, size_text)
-                infoLabelTextSize = metrics.size(Qt.TextSingleLine, infoLabelText)
+                name = p.name
+                if name == None:
+                    if p.fs == 'free':
+                        name = 'free space'
+                    elif p.fs == 'swap':
+                        name = 'swap'
+                    else:
+                        name = p.path
                 
                 #label vertical location
-                labelY = height + 8
+                labelY = h + 8
                 
-                # draw the label text
-                painter.drawText(label_offset + 15, labelY + labelTextSize.height()/2, labelText)
-                painter.drawText(label_offset + 15, labelY + labelTextSize.height() + infoLabelTextSize.height()/2, infoLabelText)
+                texts = []
+                texts.append(name)
+                texts.append("%.01f%%" % (float(p.size) / self.diskSize * 100))
+                texts.append("%s" % format_size(p.size))
                 
-                #turn off antialiasing for label square
-                painter.setRenderHint(QPainter.Antialiasing, False)
-                painter.drawRect(label_offset, labelY - 2, 10, 10)
-                label_offset += max(labelTextSize.width(), infoLabelTextSize.width()) + 30
+                nameFont = QFont("arial", 10)
+                infoFont = QFont("arial", 8)
+                
+                painter.setFont(nameFont)
+                v_off = 0
+                width = 0
+                for text in texts:
+                    textSize = painter.fontMetrics().size(Qt.TextSingleLine, text)
+                    painter.drawText(label_offset + 20, labelY + v_off + textSize.height()/2, text)
+                    v_off += textSize.height()
+                    painter.setFont(infoFont)
+                    painter.setPen(QColor(PartitionsBar.InfoColor))
+                    width = max(width, textSize.width())
+                
+                #label square
                 painter.setRenderHint(QPainter.Antialiasing, True)
+                painter.setPen(Qt.NoPen)
+                painter.setBrush(pal.color(QPalette.Shadow))
+                labelRectShadow = QPainterPath()
+                labelRectShadow.addRoundedRect(label_offset+1, labelY - 2+1, 13, 13, 4, 4)
+                painter.drawPath(labelRectShadow)                
+                
+                painter.setBrush(mid)
+                labelRect = QPainterPath()
+                labelRect.addRoundedRect(label_offset, labelY - 2, 13, 13, 4, 4)
+                painter.drawPath(labelRect)
+                
+                label_offset += width + 40
             
-            #if this is partition after one we are resizing draw handle
-            #this way it appears on top of both partitions
-            #this is drawn in the partition loop to give it correct placement
+            #set the handle location for drawing later
             if self.resize_part and p == self.resize_part.next:
-                painter.setClipPath(path)
-                
-                resize_pen = QPen(Qt.black)
-                part = self.resize_part
-                
-                # draw a resize handle
-                xloc = part_offset
-                self.resize_loc = xloc
-                side = 1
-                arr_dist = 5
-                
-                resize_pen.setWidth(1)
-                painter.setPen(resize_pen)
-                
-                if part.size > part.minsize:
-                    painter.drawLine(xloc - arr_dist, height_2, xloc, height/2)
-                    
-                if part.size < part.maxsize:
-                    painter.drawLine(xloc, height/2, xloc + arr_dist, height/2)
-                
-                resize_pen.setWidth(2)
-                painter.setPen(resize_pen)
-                
-                painter.drawLine(xloc, 0, xloc, height)
-                
-                if part.size > part.minsize:
-                    painter.drawLine(xloc - arr_dist, height_2, xloc - arr_dist + side, height_2+side)
-                    painter.drawLine(xloc - arr_dist, height_2, xloc - arr_dist + side, height_2-side)
-                    
-                if part.size < part.maxsize:
-                    painter.drawLine(xloc + arr_dist, height_2, xloc + arr_dist - side, height_2+side)
-                    painter.drawLine(xloc + arr_dist, height_2, xloc + arr_dist - side, height_2-side)
+                resize_handle_x = part_offset
                 
             #increment the partition offset
             part_offset += pix_size
-
+        
+        #draw the overlay frame using oxygen style
+        #TODO redo this...I don't like it
+        o = QStyleOptionFrame()
+        o.rect = QRect(0, 0, self.width(), h)
+        o.state = QStyle.State_Sunken
+        self.style().drawPrimitive(QStyle.PE_Frame, o, painter, self)
+        
+        painter.setClipPath(path)
+        if self.resize_part and resize_handle_x:
+            # draw a resize handle
+            part = self.resize_part
+            xloc = resize_handle_x
+            self.resize_loc = xloc
+            side = 1
+            arr_dist = 5
+            
+            painter.setPen(Qt.NoPen)
+            painter.setBrush(Qt.black)
+            
+            painter.setRenderHint(QPainter.Antialiasing, True)
+            #move out so not created every time
+            arrow_offsets = (
+                (0, h/2-1),
+                (4, h/2-1),
+                (4, h/2-3),
+                (8, h/2),
+                (4, h/2+3),
+                (4, h/2+1),
+                (0, h/2+1)
+                )
+                
+            p1 = arrow_offsets[0]
+            if part.size > part.minsize:
+                arrow = QPainterPath(QPointF(xloc + -1 * p1[0], p1[1]))
+                for p in arrow_offsets:
+                    arrow.lineTo(xloc + -1 * p[0], p[1])
+                painter.drawPath(arrow)
+                
+            if part.size < part.maxsize:
+                arrow = QPainterPath(QPointF(xloc + p1[0], p1[1]))
+                for p in arrow_offsets:
+                    arrow.lineTo(xloc + p[0], p[1])
+                painter.drawPath(arrow)
+            
+            painter.setRenderHint(QPainter.Antialiasing, False)
+            painter.setPen(Qt.black)
+            painter.drawLine(xloc, 0, xloc, h)
+            
     def addPartition(self, name, size, index, fs, path):
         partition = Partition(size, index, fs, path)
         self.diskSize += size
@@ -311,6 +340,7 @@ class PartitionsBar(QWidget):
                 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+    QApplication.setStyle("Oxygen")
     
     wid = QWidget()
     layout = QVBoxLayout(wid)
@@ -320,18 +350,18 @@ if __name__ == "__main__":
     
     '''partBar.addPartition('', 5000, 1, "linux-swap", "/dev/sdb1")
     partBar.addPartition('', 20000, 2, "ext3", "/dev/sdb2")
-    partBar.addPartition('', 30000, 3, "linux-swap", "/dev/sdb3")
+    partBar.addPartition('', 30000, 3, "fat32", "/dev/sdb3")
     partBar.addPartition('', 50000, 4, "ntfs", "/dev/sdb4")
     partBar.setResizePartition('/dev/sdb2', 5000, 15000, 20000, 'Kubuntu')'''
     
-    '''partBar.addPartition('', 4005679104, 1, 'ext4', '/dev/sdb1')
+    partBar.addPartition('', 4005679104, 1, 'ext4', '/dev/sdb1')
     partBar.addPartition('', 53505446400, -1, 'free', '/dev/sdb-1')
     partBar.addPartition('', 2500452864, 5, 'linux-swap', '/dev/sdb5')
-    partBar.setResizePartition('/dev/sdb1', 230989824, 55143440896, 4005679104, 'Kubuntu')'''
+    partBar.setResizePartition('/dev/sdb1', 230989824, 55143440896, 4005679104, 'Kubuntu')
     
-    partBar.addPartition('', 57511125504, 1, 'ext4', '/dev/sdb1')
-    partBar.addPartition('', 2500452864, 5, 'linux-swap', '/dev/sdb5')
-    partBar.setResizePartition('/dev/sdb1', 230989824, 55143440896, 57511125504, 'Kubuntu')
+    '''partBar.addPartition('', 57511125504, 1, 'ext4', '/dev/sdb1')
+    partBar.addPartition('', 2500452864, 5, 'linux-swap', '/dev/sdb5')'''
+    #partBar.setResizePartition('/dev/sdb1', 230989824, 55143440896, 57511125504, 'Kubuntu')
     
     wid.show()
     
