@@ -1377,7 +1377,7 @@ class Wizard(BaseFrontend):
                             bFrame.removeWidget(before_bar)
                         
                         #FIXME, sometimes the before bar doesn't get a disk size??
-                        #happened in a virtual machine for me
+                        #happened in a virtual machine for me ~shtylman
                         if before_bar.diskSize > 0:
                             after_bar.addPartition('', before_bar.diskSize, '', '', 'Kubuntu')
                         else:

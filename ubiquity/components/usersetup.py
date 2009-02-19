@@ -62,6 +62,7 @@ class UserSetup(FilteredCommand):
         # the page to be shown, if they're the only questions not preseeded.
         questions = ['^passwd/user-fullname$', '^passwd/username$',
                      '^passwd/user-password$', '^passwd/user-password-again$',
+                     '^user-setup/password-weak$',
                      'ERROR']
         return (['/usr/lib/ubiquity/user-setup/user-setup-ask', '/target'],
                 questions)
@@ -70,6 +71,23 @@ class UserSetup(FilteredCommand):
         if question == 'passwd/username':
             if self.frontend.get_username() != '':
                 self.frontend.set_username(value)
+
+    def run(self, priority, question):
+        if question.startswith('user-setup/password-weak'):
+            # A dialog is a bit clunky, but workable for now. Perhaps it
+            # would be better to display some text in the style of
+            # password_error, and then let the user carry on anyway by
+            # clicking next again?
+            response = self.frontend.question_dialog(
+                self.description(question),
+                self.extended_description(question),
+                ('ubiquity/text/go_back', 'ubiquity/text/continue'))
+            if response is None or response == 'ubiquity/text/continue':
+                self.preseed(question, 'true')
+            else:
+                self.preseed(question, 'false')
+
+        return True
 
     def ok_handler(self):
         fullname = self.frontend.get_fullname()

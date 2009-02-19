@@ -55,9 +55,9 @@ class PartitionsBar(QWidget):
     def __init__(self, parent = None):
         QWidget.__init__(self, parent)
         self.partitions = []
-        self.bar_height = 30 #should be a multiple of 2
+        self.bar_height = 28 #should be a multiple of 2
         self.diskSize = 0
-        self.radius = 3
+        self.radius = 4
         self.setMinimumHeight(self.bar_height*2 + 30)
         self.setMinimumWidth(500)
         sizePolicy = self.sizePolicy()
@@ -71,7 +71,6 @@ class PartitionsBar(QWidget):
         
     def paintEvent(self, qPaintEvent):
         painter = QPainter(self);
-        painter.setRenderHint(QPainter.Antialiasing, True)
         
         h = self.bar_height
         h_2 = self.bar_height/2
@@ -85,6 +84,8 @@ class PartitionsBar(QWidget):
         trunc_pix = 0
         resize_handle_x = None
         for p in self.partitions:
+            painter.setRenderHint(QPainter.Antialiasing, True)
+            
             #this is done so that even after resizing, other partitions draw in the same places
             trunc_pix += (effective_width * float(p.size) / self.diskSize)
             pix_size = int(round(trunc_pix))
@@ -98,14 +99,16 @@ class PartitionsBar(QWidget):
             
             pal = QPalette(pColor)
             #light = pal.color(QPalette.Light)
-            midl = pal.color(QPalette.Midlight)
-            mid = pal.color(QPalette.Mid)
+            #midl = pal.color(QPalette.Midlight)
+            #mid = pal.color(QPalette.Mid)
             dark = pal.color(QPalette.Dark)
+            mid = pColor.darker(125)
+            midl = mid.lighter(125)
             
             #create the gradient for colors to populate
             grad = QLinearGradient(QPointF(0, 0), QPointF(0, h))
             
-            if (p.fs == "free"):
+            if p.fs == "free":
                 grad.setColorAt(.25, mid);
                 grad.setColorAt(1, midl);
             else:
@@ -119,7 +122,7 @@ class PartitionsBar(QWidget):
             
             if part_offset > 0:
                 painter.setPen(dark)
-                painter.drawLine(part_offset, 2, part_offset, h - 3)
+                painter.drawLine(part_offset, 3, part_offset, h - 3)
             
             painter.setClipping(False)
             
@@ -184,12 +187,54 @@ class PartitionsBar(QWidget):
         
         #draw the overlay frame using oxygen style
         #TODO redo this...I don't like it
-        o = QStyleOptionFrame()
+        '''o = QStyleOptionFrame()
         o.rect = QRect(0, 0, self.width(), h)
         o.state = QStyle.State_Sunken
-        self.style().drawPrimitive(QStyle.PE_Frame, o, painter, self)
+        self.style().drawPrimitive(QStyle.PE_Frame, o, painter, self)'''
+        
+        pp = QPainterPath()
+        pp.moveTo(2, h)
+        pp.lineTo(2, 4)
+        pp.lineTo(4, 2)
+        pp.lineTo(self.width()-4, 2)
+        pp.lineTo(self.width()-2, 4)
+        pp.lineTo(self.width()-2, h)
         
         painter.setClipPath(path)
+        
+        painter.setRenderHint(QPainter.Antialiasing, True)
+        
+        pp = QPainterPath()
+        pp.addRoundedRect(2,2, self.width()-4, h+5, 4, 4)
+        
+        pp2 = QPainterPath()
+        pp2.addRoundedRect(3,3, self.width()-6, h-4, 4, 4)
+        
+        pp3 = QPainterPath()
+        pp3.addRoundedRect(4,4, self.width()-8, h-6, 3, 3)
+        
+        c = QColor(Qt.black)
+        c.setAlphaF(.4)
+        
+        pen = QPen(c)
+        pen.setWidth(2)
+        painter.setPen(pen)
+        painter.setBrush(Qt.NoBrush)
+        
+        painter.drawPath(pp)
+        
+        c.setAlphaF(.25)
+        pen.setColor(c)
+        painter.setPen(pen)
+        painter.drawPath(pp2)
+        
+        c.setAlphaF(.1)
+        pen.setColor(c)
+        painter.setPen(pen)
+        painter.drawPath(pp3)
+        
+        painter.setClipPath(path)
+        
         if self.resize_part and resize_handle_x:
             # draw a resize handle
             part = self.resize_part
@@ -217,7 +262,7 @@ class PartitionsBar(QWidget):
             if part.size > part.minsize:
                 arrow = QPainterPath(QPointF(xloc + -1 * p1[0], p1[1]))
                 for p in arrow_offsets:
-                    arrow.lineTo(xloc + -1 * p[0], p[1])
+                    arrow.lineTo(xloc + -1 * p[0] + 1, p[1])
                 painter.drawPath(arrow)
                 
             if part.size < part.maxsize:
@@ -354,14 +399,14 @@ if __name__ == "__main__":
     partBar.addPartition('', 50000, 4, "ntfs", "/dev/sdb4")
     partBar.setResizePartition('/dev/sdb2', 5000, 15000, 20000, 'Kubuntu')'''
     
-    partBar.addPartition('', 4005679104, 1, 'ext4', '/dev/sdb1')
+    '''partBar.addPartition('', 4005679104, 1, 'ext4', '/dev/sdb1')
     partBar.addPartition('', 53505446400, -1, 'free', '/dev/sdb-1')
-    partBar.addPartition('', 2500452864, 5, 'linux-swap', '/dev/sdb5')
-    partBar.setResizePartition('/dev/sdb1', 230989824, 55143440896, 4005679104, 'Kubuntu')
-    
-    '''partBar.addPartition('', 57511125504, 1, 'ext4', '/dev/sdb1')
     partBar.addPartition('', 2500452864, 5, 'linux-swap', '/dev/sdb5')'''
-    #partBar.setResizePartition('/dev/sdb1', 230989824, 55143440896, 57511125504, 'Kubuntu')
+    #partBar.setResizePartition('/dev/sdb1', 230989824, 55143440896, 4005679104, 'Kubuntu')
+    
+    partBar.addPartition('', 57511125504, 1, 'ext4', '/dev/sdb1')
+    partBar.addPartition('', 2500452864, 5, 'linux-swap', '/dev/sdb5')
+    partBar.setResizePartition('/dev/sdb1', 230989824, 55143440896, 57511125504, 'Kubuntu')
     
     wid.show()
     
