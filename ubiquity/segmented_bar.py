@@ -38,7 +38,7 @@ import cairo
 import pango
 import pangocairo
 from ubiquity.misc import format_size
-#from ubiquity.misc import find_in_os_prober
+from ubiquity.misc import find_in_os_prober
 
 class Color:
     def __init__(self, r, g, b, a=1.0):
@@ -536,7 +536,9 @@ class SegmentedBar(gtk.Widget):
     class Segment:
         def __init__(self, device, percent, color, show_in_bar=True):
             self.device = device
-            self.title = None #find_in_os_prober(device)
+            self.title = ''
+            if device.startswith('/'):
+                self.title = find_in_os_prober(device)
             if self.title:
                 self.title = '%s (%s)' % (self.title, device)
             else:

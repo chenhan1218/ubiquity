@@ -12,6 +12,9 @@ ubiquity (1.11.13) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Give the proper return value in the user-setup component's run
     function.
+  * Restore the OS names in partition bars label code that was accidentally
+    commented out in a previous commit.
+  * Fix the code around showing ubiquity/text/part_auto_comment_*.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 19 Feb 2009 11:09:13 +0000
 
