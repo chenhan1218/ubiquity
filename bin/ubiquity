@@ -1,5 +1,4 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
 
 '''
 Installer
@@ -25,9 +24,7 @@ import atexit
 import optparse
 import subprocess
 
-#use lauch path to find the ubiquity libraries
-#allows for in place testing ~shtylman
-sys.path.append(os.path.dirname(sys.path[0]))
+sys.path.insert(0, '/usr/lib/ubiquity')
 
 from ubiquity import misc
 

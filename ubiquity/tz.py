@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: UTF-8 -*-
 
 # Copyright (C) 2006, 2007 Canonical Ltd.
 # Written by Colin Watson <cjwatson@ubuntu.com>.

@@ -361,7 +361,7 @@ class Wizard(BaseFrontend):
             first_step = "stepWelcome"
         else:
             first_step = "stepLanguage"
-        
+                
         self.set_current_page(WIDGET_STACK_STEPS[first_step])
         
         if got_intro:

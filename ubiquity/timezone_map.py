@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: UTF-8 -*-
 
 # Copyright (C) 2009 Canonical Ltd.
 # Written by Evan Dandrea <evand@ubuntu.com>.
@@ -131,16 +131,14 @@ class TimezoneMap(gtk.Widget):
                     continue
                 cr.set_source_color(gtk.gdk.color_parse("red"))
             
-            xdeg_offset = -6
-            ydeg_offset = 8
-            # the 180 - 35) accounts for the fact that the map does not span the entire -90 to 90
-            # the map does span the entire 360 though, just offset
-            pointx = (width * (180.0 + loc.longitude) / 360.0) + (width * xdeg_offset/ 180.0)
-            pointy = (height * (90.0 - loc.latitude) / (180.0 - 35)) + (height * ydeg_offset / (180 - 35))
-            
-            # this keeps the coordinate on the widget because the map wraps
-            pointx = pointx % width
-            pointy = pointy % height
+            pointx = (loc.longitude + 180) / 360
+            pointy = 1 - ((loc.latitude + 90) / 180)
+            xx = width
+            yx = height
+            # FIXME: Horribly inaccurate, does not take in to account wrapping
+            # some timezone points back to the start of the map.
+            pointx = pointx * xx - 20
+            pointy = pointy * yx + 42
 
             cr.set_line_width(2)
             cr.move_to(pointx - 3, pointy - 3)
@@ -191,9 +189,7 @@ class TimezoneMap(gtk.Widget):
         self.selected = city
         for loc in self.tzdb.locations:
             if loc.zone == city:
-                # zone is the hours offset from 0
-                # adding 1800 to make the hour round correctly (round up) for non hour zones)
-                offset = (loc.utc_offset.seconds + 1800)//3600 + loc.utc_offset.days * 24
+                offset = (loc.utc_offset.days * 24) + (loc.utc_offset.seconds / 60 / 60)
                 self.selected_offset = str(offset)
         self.queue_draw()
 

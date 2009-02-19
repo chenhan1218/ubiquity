@@ -1,4 +1,34 @@
-ubiquity (1.11.10) UNRELEASED; urgency=low
+ubiquity (1.11.13) UNRELEASED; urgency=low
+
+  [ Colin Watson ]
+  * Add LSB init script header.
+
+  [ Roman Shtylman ]
+  * kde_ui: Add SVG timezone map
+  * kde_ui: add new partition bars
+  * kde_ui: in advanced dialogue make grub settings a combo box
+  * kde_ui: add "auto login" option
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 19 Feb 2009 11:09:13 +0000
+
+ubiquity (1.11.12) jaunty; urgency=low
+
+  * Handle user-setup's new weak password detection.
+  * Automatic update of included source packages: user-setup 1.23ubuntu12.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 18 Feb 2009 23:45:18 +0000
+
+ubiquity (1.11.11) jaunty; urgency=low
+
+  * Check to make sure there is a partman-auto translation to map to before
+    assuming there is one.
+  * Explain the automatic partitioning options more clearly.
+  * Move the "after" partition bar to beneath the autopartition options.
+  * Stop calling os-prober multiple times if the first run returns nothing.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 18 Feb 2009 17:43:51 +0000
+
+ubiquity (1.11.10) jaunty; urgency=low
 
   [ Evan Dandrea ]
   * Map partman-auto translations to more ubiquity appropriate translations,
@@ -7,11 +37,16 @@ ubiquity (1.11.10) UNRELEASED; urgency=low
   * Move the resize functionality into the segmented bar widget.
   * Copy the Distribution Channel Descriptor (DCD) file into the target
     filesystem if it exists in /cdrom/.disk/.
+  * Disable the encrypted home option.  This cannot be considered secure
+    without encrypted swap.  The option can still be enabled by preseeding
+    it.
+  * Automatic update of included source packages: debian-installer-utils
+    1.65ubuntu2, user-setup 1.23ubuntu11.
 
   [ Jonathan Riddell ]
   * Merge in port to KApplication from lp:~shtylman/ubiquity/kdeui by Roman Shtylman
 
- -- Evan Dandrea <evand@ubuntu.com>  Mon, 16 Feb 2009 14:08:14 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 18 Feb 2009 09:45:16 +0000
 
 ubiquity (1.11.9) jaunty; urgency=low
 
