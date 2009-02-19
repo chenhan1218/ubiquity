@@ -1,3 +1,9 @@
+ubiquity (1.11.13) UNRELEASED; urgency=low
+
+  * Add LSB init script header.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 19 Feb 2009 11:09:13 +0000
+
 ubiquity (1.11.12) jaunty; urgency=low
 
   * Handle user-setup's new weak password detection.
