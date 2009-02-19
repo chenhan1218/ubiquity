@@ -86,6 +86,7 @@ class UserSetup(FilteredCommand):
                 self.preseed(question, 'true')
             else:
                 self.preseed(question, 'false')
+            return True
 
         return FilteredCommand.run(self, priority, question)
 
