@@ -22,22 +22,10 @@
    <bool>true</bool>
   </property>
   <layout class="QGridLayout" >
-   <property name="leftMargin" >
+   <property name="margin" >
     <number>9</number>
    </property>
-   <property name="topMargin" >
-    <number>9</number>
-   </property>
-   <property name="rightMargin" >
-    <number>9</number>
-   </property>
-   <property name="bottomMargin" >
-    <number>9</number>
-   </property>
-   <property name="horizontalSpacing" >
-    <number>6</number>
-   </property>
-   <property name="verticalSpacing" >
+   <property name="spacing" >
     <number>6</number>
    </property>
    <item row="0" column="0" >
@@ -79,9 +67,6 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="0" >
-    <widget class="QLineEdit" name="grub_device_entry" />
-   </item>
    <item row="4" column="0" >
     <spacer>
      <property name="orientation" >
@@ -90,7 +75,7 @@
      <property name="sizeType" >
       <enum>QSizePolicy::Maximum</enum>
      </property>
-     <property name="sizeHint" >
+     <property name="sizeHint" stdset="0" >
       <size>
        <width>357</width>
        <height>16</height>
@@ -120,7 +105,7 @@
      <property name="sizeType" >
       <enum>QSizePolicy::Maximum</enum>
      </property>
-     <property name="sizeHint" >
+     <property name="sizeHint" stdset="0" >
       <size>
        <width>357</width>
        <height>16</height>
@@ -171,7 +156,7 @@
      <property name="orientation" >
       <enum>Qt::Vertical</enum>
      </property>
-     <property name="sizeHint" >
+     <property name="sizeHint" stdset="0" >
       <size>
        <width>374</width>
        <height>81</height>
@@ -195,9 +180,12 @@
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons" >
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::NoButton|QDialogButtonBox::Ok</set>
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
      </property>
     </widget>
+   </item>
+   <item row="3" column="0" >
+    <widget class="QComboBox" name="grub_device_entry" />
    </item>
   </layout>
  </widget>

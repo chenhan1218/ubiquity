@@ -22,26 +22,14 @@
    <item row="0" column="0" >
     <widget class="QStackedWidget" name="widgetStack" >
      <property name="currentIndex" >
-      <number>0</number>
+      <number>6</number>
      </property>
      <widget class="QWidget" name="stepWelcome" >
       <layout class="QGridLayout" >
-       <property name="leftMargin" >
+       <property name="margin" >
         <number>9</number>
        </property>
-       <property name="topMargin" >
-        <number>9</number>
-       </property>
-       <property name="rightMargin" >
-        <number>9</number>
-       </property>
-       <property name="bottomMargin" >
-        <number>9</number>
-       </property>
-       <property name="horizontalSpacing" >
-        <number>6</number>
-       </property>
-       <property name="verticalSpacing" >
+       <property name="spacing" >
         <number>6</number>
        </property>
        <item row="3" column="1" >
@@ -68,7 +56,7 @@
          <property name="sizeType" >
           <enum>QSizePolicy::Expanding</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0" >
           <size>
            <width>450</width>
            <height>31</height>
@@ -84,7 +72,7 @@
          <property name="sizeType" >
           <enum>QSizePolicy::Expanding</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0" >
           <size>
            <width>161</width>
            <height>31</height>
@@ -100,7 +88,7 @@
          <property name="sizeType" >
           <enum>QSizePolicy::Expanding</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0" >
           <size>
            <width>230</width>
            <height>31</height>
@@ -116,7 +104,7 @@
          <property name="sizeType" >
           <enum>QSizePolicy::Expanding</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0" >
           <size>
            <width>51</width>
            <height>170</height>
@@ -132,7 +120,7 @@
          <property name="sizeType" >
           <enum>QSizePolicy::Expanding</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0" >
           <size>
            <width>41</width>
            <height>130</height>
@@ -157,22 +145,10 @@
      </widget>
      <widget class="QWidget" name="stepLanguage" >
       <layout class="QGridLayout" >
-       <property name="leftMargin" >
+       <property name="margin" >
         <number>9</number>
        </property>
-       <property name="topMargin" >
-        <number>9</number>
-       </property>
-       <property name="rightMargin" >
-        <number>9</number>
-       </property>
-       <property name="bottomMargin" >
-        <number>9</number>
-       </property>
-       <property name="horizontalSpacing" >
-        <number>6</number>
-       </property>
-       <property name="verticalSpacing" >
+       <property name="spacing" >
         <number>6</number>
        </property>
        <item row="2" column="1" colspan="2" >
@@ -238,7 +214,7 @@ This language will be the default language for the final system.</string>
          <property name="sizeType" >
           <enum>QSizePolicy::Preferred</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0" >
           <size>
            <width>20</width>
            <height>150</height>
@@ -276,31 +252,25 @@ This language will be the default language for the final system.</string>
      </widget>
      <widget class="QWidget" name="stepLocation" >
       <layout class="QGridLayout" >
-       <property name="leftMargin" >
+       <property name="margin" >
         <number>9</number>
        </property>
-       <property name="topMargin" >
-        <number>9</number>
-       </property>
-       <property name="rightMargin" >
-        <number>9</number>
-       </property>
-       <property name="bottomMargin" >
-        <number>9</number>
-       </property>
-       <property name="horizontalSpacing" >
+       <property name="spacing" >
         <number>6</number>
        </property>
-       <property name="verticalSpacing" >
-        <number>6</number>
-       </property>
-       <item row="2" column="0" >
-        <widget class="QLabel" name="timezone_comment_label" >
+       <item row="0" column="0" >
+        <widget class="QLabel" name="timezone_heading_label" >
+         <property name="sizePolicy" >
+          <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
+           <horstretch>1</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text" >
-          <string>Select a city in your country and time zone.</string>
+          <string>&lt;h2>Where are you?&lt;/h2></string>
          </property>
          <property name="wordWrap" >
-          <bool>true</bool>
+          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -317,162 +287,13 @@ This language will be the default language for the final system.</string>
          </property>
         </widget>
        </item>
-       <item row="5" column="0" >
-        <layout class="QGridLayout" >
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
-          <number>0</number>
-         </property>
-         <property name="horizontalSpacing" >
-          <number>6</number>
-         </property>
-         <property name="verticalSpacing" >
-          <number>6</number>
-         </property>
-         <item row="0" column="3" colspan="2" >
-          <widget class="QLabel" name="timezone_country_label" >
-           <property name="text" >
-            <string>Selected Region:</string>
-           </property>
-           <property name="wordWrap" >
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0" >
-          <widget class="QLabel" name="timezone_zone_label" >
-           <property name="text" >
-            <string>Time zone:</string>
-           </property>
-           <property name="wordWrap" >
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0" >
-          <widget class="QLabel" name="timezone_city_label" >
-           <property name="text" >
-            <string>Selected City:</string>
-           </property>
-           <property name="wordWrap" >
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="3" >
-          <widget class="QLabel" name="timezone_time_label" >
-           <property name="text" >
-            <string>Current Time:</string>
-           </property>
-           <property name="wordWrap" >
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="5" colspan="2" >
-          <widget class="QLabel" name="timezone_country_text" >
-           <property name="text" >
-            <string/>
-           </property>
-           <property name="wordWrap" >
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="6" >
-          <spacer>
-           <property name="orientation" >
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeType" >
-            <enum>QSizePolicy::Expanding</enum>
-           </property>
-           <property name="sizeHint" >
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item row="1" column="1" >
-          <widget class="QLabel" name="timezone_zone_text" >
-           <property name="text" >
-            <string/>
-           </property>
-           <property name="wordWrap" >
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="2" >
-          <spacer>
-           <property name="orientation" >
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeType" >
-            <enum>QSizePolicy::Expanding</enum>
-           </property>
-           <property name="sizeHint" >
-            <size>
-             <width>100</width>
-             <height>21</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item row="0" column="1" >
-          <widget class="QComboBox" name="timezone_city_combo" />
-         </item>
-         <item row="1" column="4" colspan="2" >
-          <widget class="QLabel" name="timezone_time_text" >
-           <property name="text" >
-            <string/>
-           </property>
-           <property name="wordWrap" >
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="2" >
-          <spacer>
-           <property name="orientation" >
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeType" >
-            <enum>QSizePolicy::Expanding</enum>
-           </property>
-           <property name="sizeHint" >
-            <size>
-             <width>104</width>
-             <height>21</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </item>
-       <item row="0" column="0" >
-        <widget class="QLabel" name="timezone_heading_label" >
-         <property name="sizePolicy" >
-          <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
-           <horstretch>1</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
+       <item row="2" column="0" >
+        <widget class="QLabel" name="timezone_comment_label" >
          <property name="text" >
-          <string>&lt;h2>Where are you?&lt;/h2></string>
+          <string>Select a city in your country and time zone.</string>
          </property>
          <property name="wordWrap" >
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -492,26 +313,90 @@ This language will be the default language for the final system.</string>
          </property>
         </widget>
        </item>
+       <item row="5" column="0" >
+        <layout class="QGridLayout" >
+         <property name="margin" >
+          <number>0</number>
+         </property>
+         <property name="spacing" >
+          <number>6</number>
+         </property>
+         <item row="0" column="0" >
+          <widget class="QLabel" name="timezone_zone_label" >
+           <property name="text" >
+            <string>Selected Region:</string>
+           </property>
+           <property name="wordWrap" >
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1" >
+          <widget class="QComboBox" name="timezone_zone_combo" >
+           <property name="sizePolicy" >
+            <sizepolicy vsizetype="Fixed" hsizetype="Expanding" >
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2" >
+          <spacer name="space" >
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0" >
+            <size>
+             <width>198</width>
+             <height>23</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="3" colspan="2" >
+          <widget class="QLabel" name="timezone_city_label" >
+           <property name="text" >
+            <string>Selected City:</string>
+           </property>
+           <property name="wordWrap" >
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="5" >
+          <widget class="QComboBox" name="timezone_city_combo" >
+           <property name="sizePolicy" >
+            <sizepolicy vsizetype="Fixed" hsizetype="Expanding" >
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="6" >
+          <spacer name="horizontalSpacer" >
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0" >
+            <size>
+             <width>197</width>
+             <height>23</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="stepKeyboardConf" >
       <layout class="QGridLayout" >
-       <property name="leftMargin" >
+       <property name="margin" >
         <number>9</number>
        </property>
-       <property name="topMargin" >
-        <number>9</number>
-       </property>
-       <property name="rightMargin" >
-        <number>9</number>
-       </property>
-       <property name="bottomMargin" >
-        <number>9</number>
-       </property>
-       <property name="horizontalSpacing" >
-        <number>6</number>
-       </property>
-       <property name="verticalSpacing" >
+       <property name="spacing" >
         <number>6</number>
        </property>
        <item row="2" column="0" >
@@ -548,16 +433,7 @@ This language will be the default language for the final system.</string>
          <property name="spacing" >
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin" >
           <number>0</number>
          </property>
          <item>
@@ -571,7 +447,7 @@ This language will be the default language for the final system.</string>
            <property name="sizeType" >
             <enum>QSizePolicy::Expanding</enum>
            </property>
-           <property name="sizeHint" >
+           <property name="sizeHint" stdset="0" >
             <size>
              <width>220</width>
              <height>21</height>
@@ -609,16 +485,7 @@ This language will be the default language for the final system.</string>
          <property name="spacing" >
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin" >
           <number>0</number>
          </property>
          <item>
@@ -632,7 +499,7 @@ This language will be the default language for the final system.</string>
            <property name="sizeType" >
             <enum>QSizePolicy::Fixed</enum>
            </property>
-           <property name="sizeHint" >
+           <property name="sizeHint" stdset="0" >
             <size>
              <width>20</width>
              <height>31</height>
@@ -649,22 +516,10 @@ This language will be the default language for the final system.</string>
      </widget>
      <widget class="QWidget" name="stepPartAuto" >
       <layout class="QGridLayout" >
-       <property name="leftMargin" >
+       <property name="margin" >
         <number>9</number>
        </property>
-       <property name="topMargin" >
-        <number>9</number>
-       </property>
-       <property name="rightMargin" >
-        <number>9</number>
-       </property>
-       <property name="bottomMargin" >
-        <number>9</number>
-       </property>
-       <property name="horizontalSpacing" >
-        <number>6</number>
-       </property>
-       <property name="verticalSpacing" >
+       <property name="spacing" >
         <number>6</number>
        </property>
        <item row="2" column="0" >
@@ -714,7 +569,7 @@ This language will be the default language for the final system.</string>
          <property name="sizeType" >
           <enum>QSizePolicy::Expanding</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0" >
           <size>
            <width>31</width>
            <height>220</height>
@@ -731,6 +586,9 @@ This language will be the default language for the final system.</string>
           <enum>QFrame::Raised</enum>
          </property>
         </widget>
+       </item>
+       <item row="3" column="0" >
+        <widget class="QWidget" native="1" name="autopart_bar_frame" />
        </item>
       </layout>
      </widget>
@@ -809,16 +667,7 @@ This language will be the default language for the final system.</string>
              </sizepolicy>
             </property>
             <layout class="QHBoxLayout" >
-             <property name="leftMargin" >
-              <number>0</number>
-             </property>
-             <property name="topMargin" >
-              <number>0</number>
-             </property>
-             <property name="rightMargin" >
-              <number>0</number>
-             </property>
-             <property name="bottomMargin" >
+             <property name="margin" >
               <number>0</number>
              </property>
              <item>
@@ -854,7 +703,7 @@ This language will be the default language for the final system.</string>
                <property name="orientation" >
                 <enum>Qt::Horizontal</enum>
                </property>
-               <property name="sizeHint" >
+               <property name="sizeHint" stdset="0" >
                 <size>
                  <width>40</width>
                  <height>20</height>
@@ -874,16 +723,7 @@ This language will be the default language for the final system.</string>
              </sizepolicy>
             </property>
             <layout class="QHBoxLayout" >
-             <property name="leftMargin" >
-              <number>0</number>
-             </property>
-             <property name="topMargin" >
-              <number>0</number>
-             </property>
-             <property name="rightMargin" >
-              <number>0</number>
-             </property>
-             <property name="bottomMargin" >
+             <property name="margin" >
               <number>0</number>
              </property>
              <item>
@@ -898,7 +738,7 @@ This language will be the default language for the final system.</string>
                <property name="orientation" >
                 <enum>Qt::Horizontal</enum>
                </property>
-               <property name="sizeHint" >
+               <property name="sizeHint" stdset="0" >
                 <size>
                  <width>40</width>
                  <height>20</height>
@@ -916,46 +756,164 @@ This language will be the default language for the final system.</string>
      </widget>
      <widget class="QWidget" name="stepUserInfo" >
       <layout class="QGridLayout" >
-       <property name="leftMargin" >
+       <property name="margin" >
         <number>9</number>
        </property>
-       <property name="topMargin" >
-        <number>9</number>
-       </property>
-       <property name="rightMargin" >
-        <number>9</number>
-       </property>
-       <property name="bottomMargin" >
-        <number>9</number>
-       </property>
-       <property name="horizontalSpacing" >
+       <property name="spacing" >
         <number>6</number>
        </property>
-       <property name="verticalSpacing" >
-        <number>6</number>
-       </property>
-       <item row="13" column="0" >
+       <item row="0" column="0" >
+        <widget class="QLabel" name="userinfo_heading_label" >
+         <property name="sizePolicy" >
+          <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
+           <horstretch>1</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text" >
+          <string>&lt;h2>Who are you?&lt;/h2></string>
+         </property>
+         <property name="wordWrap" >
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" >
+        <widget class="Line" name="line8" >
+         <property name="frameShape" >
+          <enum>QFrame::HLine</enum>
+         </property>
+         <property name="frameShadow" >
+          <enum>QFrame::Sunken</enum>
+         </property>
+         <property name="orientation" >
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0" >
+        <widget class="QLabel" name="fullname_label" >
+         <property name="text" >
+          <string>What is your name?</string>
+         </property>
+         <property name="wordWrap" >
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0" >
         <layout class="QGridLayout" >
-         <property name="leftMargin" >
+         <property name="margin" >
           <number>0</number>
          </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
-          <number>0</number>
-         </property>
-         <property name="horizontalSpacing" >
+         <property name="spacing" >
           <number>6</number>
          </property>
-         <property name="verticalSpacing" >
+         <item row="0" column="2" >
+          <widget class="QLabel" name="fullname_error_reason" >
+           <property name="sizePolicy" >
+            <sizepolicy vsizetype="Preferred" hsizetype="Expanding" >
+             <horstretch>1</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize" >
+            <size>
+             <width>200</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text" >
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0" >
+          <widget class="QLineEdit" name="fullname" >
+           <property name="minimumSize" >
+            <size>
+             <width>333</width>
+             <height>0</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1" >
+          <widget class="QLabel" name="fullname_error_image" >
+           <property name="sizePolicy" >
+            <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize" >
+            <size>
+             <width>32</width>
+             <height>32</height>
+            </size>
+           </property>
+           <property name="maximumSize" >
+            <size>
+             <width>32</width>
+             <height>32</height>
+            </size>
+           </property>
+           <property name="text" >
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3" >
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0" >
+            <size>
+             <width>0</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item row="4" column="0" >
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType" >
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0" >
+          <size>
+           <width>671</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="5" column="0" >
+        <widget class="QLabel" name="username_label" >
+         <property name="text" >
+          <string>What name do you want to use to log in?</string>
+         </property>
+         <property name="wordWrap" >
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0" >
+        <layout class="QGridLayout" >
+         <property name="margin" >
+          <number>0</number>
+         </property>
+         <property name="spacing" >
           <number>6</number>
          </property>
          <item row="0" column="0" >
-          <widget class="QLineEdit" name="hostname" >
+          <widget class="QLineEdit" name="username" >
            <property name="sizePolicy" >
             <sizepolicy vsizetype="Fixed" hsizetype="Expanding" >
              <horstretch>0</horstretch>
@@ -970,23 +928,10 @@ This language will be the default language for the final system.</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="3" >
-          <spacer>
-           <property name="orientation" >
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" >
-            <size>
-             <width>0</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
          <item row="1" column="0" colspan="4" >
-          <widget class="QLabel" name="hostname_extra_label" >
+          <widget class="QLabel" name="username_extra_label" >
            <property name="text" >
-            <string>&lt;i>This name will be used if you make the computer visible to others on a network.&lt;/i></string>
+            <string>&lt;i>If more than one person will use this computer, you can set up multiple accounts after installation.&lt;/i></string>
            </property>
            <property name="wordWrap" >
             <bool>false</bool>
@@ -994,7 +939,7 @@ This language will be the default language for the final system.</string>
           </widget>
          </item>
          <item row="0" column="1" >
-          <widget class="QLabel" name="hostname_error_image" >
+          <widget class="QLabel" name="username_error_image" >
            <property name="sizePolicy" >
             <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
              <horstretch>0</horstretch>
@@ -1024,8 +969,21 @@ This language will be the default language for the final system.</string>
            </property>
           </widget>
          </item>
+         <item row="0" column="3" >
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0" >
+            <size>
+             <width>0</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
          <item row="0" column="2" >
-          <widget class="QLabel" name="hostname_error_reason" >
+          <widget class="QLabel" name="username_error_reason" >
            <property name="sizePolicy" >
             <sizepolicy vsizetype="Preferred" hsizetype="Expanding" >
              <horstretch>1</horstretch>
@@ -1051,24 +1009,48 @@ This language will be the default language for the final system.</string>
          </item>
         </layout>
        </item>
+       <item row="7" column="0" >
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType" >
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0" >
+          <size>
+           <width>661</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="8" column="0" >
+        <widget class="QLabel" name="password_label" >
+         <property name="text" >
+          <string>Choose a password to keep your account safe.</string>
+         </property>
+         <property name="wordWrap" >
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0" >
+        <widget class="QLabel" name="password_debug_warning_label" >
+         <property name="text" >
+          <string>&lt;strong>You are running in debugging mode. Do not use a valuable password!&lt;/strong></string>
+         </property>
+         <property name="wordWrap" >
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
        <item row="10" column="0" >
         <layout class="QGridLayout" >
-         <property name="leftMargin" >
+         <property name="margin" >
           <number>0</number>
          </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
-          <number>0</number>
-         </property>
-         <property name="horizontalSpacing" >
-          <number>6</number>
-         </property>
-         <property name="verticalSpacing" >
+         <property name="spacing" >
           <number>6</number>
          </property>
          <item row="0" column="4" >
@@ -1076,7 +1058,7 @@ This language will be the default language for the final system.</string>
            <property name="orientation" >
             <enum>Qt::Horizontal</enum>
            </property>
-           <property name="sizeHint" >
+           <property name="sizeHint" stdset="0" >
             <size>
              <width>0</width>
              <height>20</height>
@@ -1190,22 +1172,6 @@ This language will be the default language for the final system.</string>
          </item>
         </layout>
        </item>
-       <item row="14" column="0" >
-        <spacer>
-         <property name="orientation" >
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeType" >
-          <enum>QSizePolicy::Expanding</enum>
-         </property>
-         <property name="sizeHint" >
-          <size>
-           <width>600</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
        <item row="11" column="0" >
         <spacer>
          <property name="orientation" >
@@ -1214,177 +1180,13 @@ This language will be the default language for the final system.</string>
          <property name="sizeType" >
           <enum>QSizePolicy::Fixed</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0" >
           <size>
            <width>661</width>
            <height>10</height>
           </size>
          </property>
         </spacer>
-       </item>
-       <item row="8" column="0" >
-        <widget class="QLabel" name="password_label" >
-         <property name="text" >
-          <string>Choose a password to keep your account safe.</string>
-         </property>
-         <property name="wordWrap" >
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="0" >
-        <widget class="QLabel" name="password_debug_warning_label" >
-         <property name="text" >
-          <string>&lt;strong>You are running in debugging mode. Do not use a valuable password!&lt;/strong></string>
-         </property>
-         <property name="wordWrap" >
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0" >
-        <layout class="QGridLayout" >
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
-          <number>0</number>
-         </property>
-         <property name="horizontalSpacing" >
-          <number>6</number>
-         </property>
-         <property name="verticalSpacing" >
-          <number>6</number>
-         </property>
-         <item row="0" column="2" >
-          <widget class="QLabel" name="fullname_error_reason" >
-           <property name="sizePolicy" >
-            <sizepolicy vsizetype="Preferred" hsizetype="Expanding" >
-             <horstretch>1</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize" >
-            <size>
-             <width>200</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text" >
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0" >
-          <widget class="QLineEdit" name="fullname" >
-           <property name="minimumSize" >
-            <size>
-             <width>333</width>
-             <height>0</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1" >
-          <widget class="QLabel" name="fullname_error_image" >
-           <property name="sizePolicy" >
-            <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize" >
-            <size>
-             <width>32</width>
-             <height>32</height>
-            </size>
-           </property>
-           <property name="maximumSize" >
-            <size>
-             <width>32</width>
-             <height>32</height>
-            </size>
-           </property>
-           <property name="text" >
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="3" >
-          <spacer>
-           <property name="orientation" >
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" >
-            <size>
-             <width>0</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </item>
-       <item row="4" column="0" >
-        <spacer>
-         <property name="orientation" >
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeType" >
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" >
-          <size>
-           <width>671</width>
-           <height>10</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="2" column="0" >
-        <widget class="QLabel" name="fullname_label" >
-         <property name="text" >
-          <string>What is your name?</string>
-         </property>
-         <property name="wordWrap" >
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0" >
-        <widget class="QLabel" name="userinfo_heading_label" >
-         <property name="sizePolicy" >
-          <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
-           <horstretch>1</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text" >
-          <string>&lt;h2>Who are you?&lt;/h2></string>
-         </property>
-         <property name="wordWrap" >
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0" >
-        <widget class="Line" name="line8" >
-         <property name="frameShape" >
-          <enum>QFrame::HLine</enum>
-         </property>
-         <property name="frameShadow" >
-          <enum>QFrame::Sunken</enum>
-         </property>
-         <property name="orientation" >
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
        </item>
        <item row="12" column="0" >
         <widget class="QLabel" name="hostname_label" >
@@ -1396,38 +1198,16 @@ This language will be the default language for the final system.</string>
          </property>
         </widget>
        </item>
-       <item row="5" column="0" >
-        <widget class="QLabel" name="username_label" >
-         <property name="text" >
-          <string>What name do you want to use to log in?</string>
-         </property>
-         <property name="wordWrap" >
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="0" >
+       <item row="13" column="0" >
         <layout class="QGridLayout" >
-         <property name="leftMargin" >
+         <property name="margin" >
           <number>0</number>
          </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
-          <number>0</number>
-         </property>
-         <property name="horizontalSpacing" >
-          <number>6</number>
-         </property>
-         <property name="verticalSpacing" >
+         <property name="spacing" >
           <number>6</number>
          </property>
          <item row="0" column="0" >
-          <widget class="QLineEdit" name="username" >
+          <widget class="QLineEdit" name="hostname" >
            <property name="sizePolicy" >
             <sizepolicy vsizetype="Fixed" hsizetype="Expanding" >
              <horstretch>0</horstretch>
@@ -1442,10 +1222,23 @@ This language will be the default language for the final system.</string>
            </property>
           </widget>
          </item>
+         <item row="0" column="3" >
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0" >
+            <size>
+             <width>0</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
          <item row="1" column="0" colspan="4" >
-          <widget class="QLabel" name="username_extra_label" >
+          <widget class="QLabel" name="hostname_extra_label" >
            <property name="text" >
-            <string>&lt;i>If more than one person will use this computer, you can set up multiple accounts after installation.&lt;/i></string>
+            <string>&lt;i>This name will be used if you make the computer visible to others on a network.&lt;/i></string>
            </property>
            <property name="wordWrap" >
             <bool>false</bool>
@@ -1453,7 +1246,7 @@ This language will be the default language for the final system.</string>
           </widget>
          </item>
          <item row="0" column="1" >
-          <widget class="QLabel" name="username_error_image" >
+          <widget class="QLabel" name="hostname_error_image" >
            <property name="sizePolicy" >
             <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
              <horstretch>0</horstretch>
@@ -1483,21 +1276,8 @@ This language will be the default language for the final system.</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="3" >
-          <spacer>
-           <property name="orientation" >
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" >
-            <size>
-             <width>0</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
          <item row="0" column="2" >
-          <widget class="QLabel" name="username_error_reason" >
+          <widget class="QLabel" name="hostname_error_reason" >
            <property name="sizePolicy" >
             <sizepolicy vsizetype="Preferred" hsizetype="Expanding" >
              <horstretch>1</horstretch>
@@ -1523,42 +1303,50 @@ This language will be the default language for the final system.</string>
          </item>
         </layout>
        </item>
-       <item row="7" column="0" >
+       <item row="16" column="0" >
         <spacer>
          <property name="orientation" >
           <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeType" >
-          <enum>QSizePolicy::Fixed</enum>
+          <enum>QSizePolicy::Expanding</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0" >
           <size>
-           <width>661</width>
-           <height>10</height>
+           <width>600</width>
+           <height>40</height>
           </size>
          </property>
         </spacer>
+       </item>
+       <item row="15" column="0" >
+        <widget class="QRadioButton" name="login_pass" >
+         <property name="text" >
+          <string>Require a password to log in</string>
+         </property>
+         <property name="checked" >
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="14" column="0" >
+        <widget class="QRadioButton" name="login_auto" >
+         <property name="text" >
+          <string>Log in Automatically</string>
+         </property>
+         <property name="checked" >
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
      <widget class="QWidget" name="stepReady" >
       <layout class="QGridLayout" >
-       <property name="leftMargin" >
+       <property name="margin" >
         <number>9</number>
        </property>
-       <property name="topMargin" >
-        <number>9</number>
-       </property>
-       <property name="rightMargin" >
-        <number>9</number>
-       </property>
-       <property name="bottomMargin" >
-        <number>9</number>
-       </property>
-       <property name="horizontalSpacing" >
-        <number>6</number>
-       </property>
-       <property name="verticalSpacing" >
+       <property name="spacing" >
         <number>6</number>
        </property>
        <item row="5" column="0" colspan="2" >
@@ -1566,7 +1354,7 @@ This language will be the default language for the final system.</string>
          <property name="orientation" >
           <enum>Qt::Horizontal</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0" >
           <size>
            <width>40</width>
            <height>20</height>
@@ -1631,7 +1419,7 @@ This language will be the default language for the final system.</string>
          <property name="sizeType" >
           <enum>QSizePolicy::Maximum</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0" >
           <size>
            <width>50</width>
            <height>20</height>
@@ -1671,16 +1459,7 @@ This language will be the default language for the final system.</string>
      <property name="spacing" >
       <number>6</number>
      </property>
-     <property name="leftMargin" >
-      <number>0</number>
-     </property>
-     <property name="topMargin" >
-      <number>0</number>
-     </property>
-     <property name="rightMargin" >
-      <number>0</number>
-     </property>
-     <property name="bottomMargin" >
+     <property name="margin" >
       <number>0</number>
      </property>
      <item>
@@ -1701,7 +1480,7 @@ This language will be the default language for the final system.</string>
        <property name="sizeType" >
         <enum>QSizePolicy::Expanding</enum>
        </property>
-       <property name="sizeHint" >
+       <property name="sizeHint" stdset="0" >
         <size>
          <width>223</width>
          <height>41</height>
@@ -1722,7 +1501,9 @@ This language will be the default language for the final system.</string>
         <string>Next</string>
        </property>
        <property name="icon" >
-        <iconset/>
+        <iconset>
+         <normaloff/>
+        </iconset>
        </property>
       </widget>
      </item>
@@ -1734,7 +1515,7 @@ This language will be the default language for the final system.</string>
        <property name="sizeType" >
         <enum>QSizePolicy::Fixed</enum>
        </property>
-       <property name="sizeHint" >
+       <property name="sizeHint" stdset="0" >
         <size>
          <width>20</width>
          <height>20</height>
@@ -1761,7 +1542,6 @@ This language will be the default language for the final system.</string>
   <tabstop>keyboardlayoutview</tabstop>
   <tabstop>language_treeview</tabstop>
   <tabstop>keyboardvariantview</tabstop>
-  <tabstop>timezone_city_combo</tabstop>
   <tabstop>back</tabstop>
   <tabstop>next</tabstop>
   <tabstop>quit</tabstop>

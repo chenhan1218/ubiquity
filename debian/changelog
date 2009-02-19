@@ -1,6 +1,13 @@
 ubiquity (1.11.13) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Add LSB init script header.
+
+  [ Roman Shtylman ]
+  * kde_ui: Add SVG timezone map
+  * kde_ui: add new partition bars
+  * kde_ui: in advanced dialogue make grub settings a combo box
+  * kde_ui: add "auto login" option
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 19 Feb 2009 11:09:13 +0000
 
