@@ -1520,13 +1520,14 @@ class Wizard(BaseFrontend):
             b = self.before_bar
             ret = []
             for part in self.disk_layout[disk]:
-                t = find_in_os_prober(part)
-                if t:
+                t = find_in_os_prober(part[0])
+                if t and t != 'swap':
                     ret.append(t)
             if len(ret) == 0:
                 s = self.get_string('ubiquity/text/part_auto_comment_none')
             elif len(ret) == 1:
                 s = self.get_string('ubiquity/text/part_auto_comment_one')
+                s = s.replace('${OS}', ret[0])
             else:
                 s = self.get_string('ubiquity/text/part_auto_comment_many')
             self.part_auto_comment_label.set_text(s)

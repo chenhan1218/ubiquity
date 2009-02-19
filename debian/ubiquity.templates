@@ -186,7 +186,7 @@ _Description: This computer has no operating systems on it.
 
 Template: ubiquity/text/part_auto_comment_one
 Type: text
-_Description: This computer has %s on it.
+_Description: This computer has ${OS} on it.
 
 Template: ubiquity/text/part_auto_comment_many
 Type: text

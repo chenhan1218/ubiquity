@@ -39,7 +39,7 @@ def find_in_os_prober(device):
         elif is_swap(device):
             return 'swap'
         else:
-            syslog.syslog("Device %s not found in os-prober output" % device)
+            syslog.syslog('Device %s not found in os-prober output' % str(device))
     except (KeyboardInterrupt, SystemExit):
         pass
     except:

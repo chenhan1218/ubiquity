@@ -26,5 +26,5 @@ partman-xfs 43ubuntu1
 preseed 1.41ubuntu1
 silo-installer 1.15ubuntu1
 tzsetup 1:0.24ubuntu1
-user-setup 1.23ubuntu12
+user-setup 1.23ubuntu13
 yaboot-installer 1.1.14ubuntu1
