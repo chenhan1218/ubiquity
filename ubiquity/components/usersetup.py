@@ -87,7 +87,7 @@ class UserSetup(FilteredCommand):
             else:
                 self.preseed(question, 'false')
 
-        return True
+        return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):
         fullname = self.frontend.get_fullname()

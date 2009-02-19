@@ -9,6 +9,10 @@ ubiquity (1.11.13) UNRELEASED; urgency=low
   * kde_ui: in advanced dialogue make grub settings a combo box
   * kde_ui: add "auto login" option
 
+  [ Evan Dandrea ]
+  * Give the proper return value in the user-setup component's run
+    function.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 19 Feb 2009 11:09:13 +0000
 
 ubiquity (1.11.12) jaunty; urgency=low
