@@ -362,10 +362,6 @@ class Wizard(BaseFrontend):
         else:
             first_step = "stepLanguage"
         
-        #TODO remove
-        first_step = 'stepPartAuto'
-        self.pagesindex = 3
-        
         self.set_current_page(WIDGET_STACK_STEPS[first_step])
         
         if got_intro:

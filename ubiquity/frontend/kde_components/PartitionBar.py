@@ -79,6 +79,9 @@ class PartitionsBar(QWidget):
         path = QPainterPath()
         path.addRoundedRect(2, 2, self.width()-4, h-4, self.radius, self.radius)
         
+        barpath = QPainterPath()
+        barpath.addRoundedRect(2, 2, self.width()-4, h-4, self.radius+1, self.radius+1)
+        
         part_offset = 0
         label_offset = 0
         trunc_pix = 0
@@ -118,7 +121,7 @@ class PartitionsBar(QWidget):
             painter.setPen(Qt.NoPen)
             painter.setBrush(QBrush(grad))
             painter.setClipRect(part_offset, 0, pix_size, h*2)
-            painter.drawPath(path)
+            painter.drawPath(barpath)
             
             if part_offset > 0:
                 painter.setPen(dark)
@@ -149,8 +152,8 @@ class PartitionsBar(QWidget):
                 texts.append("%.01f%%" % (float(p.size) / self.diskSize * 100))
                 texts.append("%s" % format_size(p.size))
                 
-                nameFont = QFont("arial", 10)
-                infoFont = QFont("arial", 8)
+                nameFont = QFont("arial", 8)
+                infoFont = QFont("arial", 7)
                 
                 painter.setFont(nameFont)
                 v_off = 0
@@ -200,21 +203,34 @@ class PartitionsBar(QWidget):
         pp.lineTo(self.width()-2, 4)
         pp.lineTo(self.width()-2, h)
         
+        painter.setClipRect(0,0,self.width(), self.height())
+        painter.setClipping(False)
+        
+        painter.setRenderHint(QPainter.Antialiasing, False)
+        
+        g = QLinearGradient(QPointF(0, 0), QPointF(self.width(), 0))
+        g.setColorAt(0, Qt.transparent)
+        g.setColorAt(.5, Qt.white)
+        g.setColorAt(1, Qt.transparent)
+        
+        painter.setPen(QPen(QBrush(g), 1))
+        painter.drawLine(0, h-2, self.width(), h-2)
+        
         painter.setClipPath(path)
         
         painter.setRenderHint(QPainter.Antialiasing, True)
         
         pp = QPainterPath()
-        pp.addRoundedRect(2,2, self.width()-4, h+5, 4, 4)
+        pp.addRoundedRect(2,2, self.width()-4, h+5, self.radius, self.radius)
         
         pp2 = QPainterPath()
-        pp2.addRoundedRect(3,3, self.width()-6, h-4, 4, 4)
+        pp2.addRoundedRect(3,3, self.width()-6, h-4, self.radius, self.radius)
         
         pp3 = QPainterPath()
-        pp3.addRoundedRect(4,4, self.width()-8, h-6, 3, 3)
+        pp3.addRoundedRect(4,4, self.width()-8, h-6, self.radius-1, self.radius-1)
         
         c = QColor(Qt.black)
-        c.setAlphaF(.4)
+        c.setAlphaF(.35)
         
         pen = QPen(c)
         pen.setWidth(2)
@@ -223,17 +239,15 @@ class PartitionsBar(QWidget):
         
         painter.drawPath(pp)
         
-        c.setAlphaF(.25)
+        c.setAlphaF(.2)
         pen.setColor(c)
         painter.setPen(pen)
         painter.drawPath(pp2)
         
-        c.setAlphaF(.1)
+        c.setAlphaF(.05)
         pen.setColor(c)
         painter.setPen(pen)
         painter.drawPath(pp3)
-        
-        painter.setClipPath(path)
         
         if self.resize_part and resize_handle_x:
             # draw a resize handle
@@ -249,13 +263,13 @@ class PartitionsBar(QWidget):
             painter.setRenderHint(QPainter.Antialiasing, True)
             #move out so not created every time
             arrow_offsets = (
-                (0, h/2-1),
+                (2, h/2-1),
                 (4, h/2-1),
                 (4, h/2-3),
                 (8, h/2),
                 (4, h/2+3),
                 (4, h/2+1),
-                (0, h/2+1)
+                (2, h/2+1)
                 )
                 
             p1 = arrow_offsets[0]
