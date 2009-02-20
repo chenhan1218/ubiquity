@@ -28,6 +28,8 @@ import sys
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
+from PyKDE4.kdeui import *
+
 from ubiquity.misc import format_size
 
 class Partition:
@@ -58,7 +60,7 @@ class PartitionsBar(QWidget):
         self.bar_height = 28 #should be a multiple of 2
         self.diskSize = 0
         self.radius = 4
-        self.setMinimumHeight(self.bar_height*2 + 30)
+        self.setMinimumHeight(self.bar_height)
         self.setMinimumWidth(500)
         sizePolicy = self.sizePolicy()
         sizePolicy.setVerticalStretch(10)
@@ -86,11 +88,21 @@ class PartitionsBar(QWidget):
         label_offset = 0
         trunc_pix = 0
         resize_handle_x = None
+        
         for p in self.partitions:
             painter.setRenderHint(QPainter.Antialiasing, True)
             
-            #this is done so that even after resizing, other partitions draw in the same places
-            trunc_pix += (effective_width * float(p.size) / self.diskSize)
+            if self.diskSize == 0:
+                #Note: if the diskSize is zero and we have a partition, it most likely means
+                #that the before disk had no partition table and we needed a 100% use entire disk parititon
+                #turn off the label size and ~shtylman
+                trunc_pix += effective_width
+                #this also means we should not have other partitions
+                assert len(self.partitions) == 1
+            else:
+                #this is done so that even after resizing, other partitions draw in the same places
+                trunc_pix += (effective_width * float(p.size) / self.diskSize)
+            
             pix_size = int(round(trunc_pix))
             trunc_pix -= pix_size
             
@@ -106,7 +118,7 @@ class PartitionsBar(QWidget):
             #mid = pal.color(QPalette.Mid)
             dark = pal.color(QPalette.Dark)
             mid = pColor.darker(125)
-            midl = mid.lighter(125)
+            midl = mid.lighter(115)
             
             #create the gradient for colors to populate
             grad = QLinearGradient(QPointF(0, 0), QPointF(0, h))
@@ -136,7 +148,7 @@ class PartitionsBar(QWidget):
                 
                 #name is the path by default, or free space if unpartitioned
                 name = p.name
-                if name == None:
+                if name == None or name == '':
                     if p.fs == 'free':
                         name = 'free space'
                     elif p.fs == 'swap':
@@ -149,11 +161,17 @@ class PartitionsBar(QWidget):
                 
                 texts = []
                 texts.append(name)
-                texts.append("%.01f%%" % (float(p.size) / self.diskSize * 100))
-                texts.append("%s" % format_size(p.size))
                 
-                nameFont = QFont("arial", 8)
-                infoFont = QFont("arial", 7)
+                if self.diskSize == 0 and p.size == 0:
+                    texts.append("100%")
+                else:
+                    texts.append("%.01f%%" % (float(p.size) / self.diskSize * 100))
+                    texts.append("%s" % format_size(p.size))
+                
+                nameFont = KGlobalSettings.generalFont()
+                infoFont = KGlobalSettings.smallestReadableFont()
+                #nameFont = QFont("arial", 8)
+                #infoFont = QFont("arial", 7)
                 
                 painter.setFont(nameFont)
                 v_off = 0
@@ -187,13 +205,6 @@ class PartitionsBar(QWidget):
                 
             #increment the partition offset
             part_offset += pix_size
-        
-        #draw the overlay frame using oxygen style
-        #TODO redo this...I don't like it
-        '''o = QStyleOptionFrame()
-        o.rect = QRect(0, 0, self.width(), h)
-        o.state = QStyle.State_Sunken
-        self.style().drawPrimitive(QStyle.PE_Frame, o, painter, self)'''
         
         pp = QPainterPath()
         pp.moveTo(2, h)
@@ -299,6 +310,9 @@ class PartitionsBar(QWidget):
             last.next = partition
             
         self.partitions.append(partition)
+        self.setMinimumHeight(self.bar_height*2 + 30)
+        
+        self.repaint()
         
     def setResizePartition(self, path, minsize, maxsize, origsize, new_label):
         part = None
@@ -334,6 +348,8 @@ class PartitionsBar(QWidget):
         
         # need mouse tracking to be able to change the cursor
         self.setMouseTracking(True)
+        
+        self.repaint()
     
     # @return the new size of the resize partition if set (in bytes)
     def resizePartSize():
@@ -413,14 +429,14 @@ if __name__ == "__main__":
     partBar.addPartition('', 50000, 4, "ntfs", "/dev/sdb4")
     partBar.setResizePartition('/dev/sdb2', 5000, 15000, 20000, 'Kubuntu')'''
     
-    '''partBar.addPartition('', 4005679104, 1, 'ext4', '/dev/sdb1')
+    partBar.addPartition('', 4005679104, 1, 'ext4', '/dev/sdb1')
     partBar.addPartition('', 53505446400, -1, 'free', '/dev/sdb-1')
-    partBar.addPartition('', 2500452864, 5, 'linux-swap', '/dev/sdb5')'''
+    partBar.addPartition('', 2500452864, 5, 'linux-swap', '/dev/sdb5')
     #partBar.setResizePartition('/dev/sdb1', 230989824, 55143440896, 4005679104, 'Kubuntu')
     
-    partBar.addPartition('', 57511125504, 1, 'ext4', '/dev/sdb1')
+    '''partBar.addPartition('', 57511125504, 1, 'ext4', '/dev/sdb1')
     partBar.addPartition('', 2500452864, 5, 'linux-swap', '/dev/sdb5')
-    partBar.setResizePartition('/dev/sdb1', 230989824, 55143440896, 57511125504, 'Kubuntu')
+    partBar.setResizePartition('/dev/sdb1', 230989824, 55143440896, 57511125504, 'Kubuntu')'''
     
     wid.show()
     

@@ -1224,12 +1224,10 @@ class Wizard(BaseFrontend):
         bFrame = self.userinterface.autopart_bar_frame
 
         # slot creator for extra options
-        def _on_extra_toggle(choice, bbar, abar):
+        def _on_extra_toggle(choice, widgets):
             def slot(enable):
-                if bbar:
-                    bbar.setVisible(enable)
-                if abar:
-                    abar.setVisible(enable)
+                for w in widgets:
+                    w.setVisible(enable)
             return slot
         
         # slot creator for main choice toggling
@@ -1290,7 +1288,6 @@ class Wizard(BaseFrontend):
                             dev = d
                             break
                     
-                    
                     before_frame = QGroupBox("Before Resize:", bar_frame)
                     before_frame.setLayout(QVBoxLayout())
                     layout.addWidget(before_frame)
@@ -1336,9 +1333,6 @@ class Wizard(BaseFrontend):
                     extraIdCounter = 0
                     
                     for extra in extra_options[choice]:
-                        #each extra choice needs to toogle a change in the before bar
-                        #extra is just a string with a general description
-                        #each extra choice needs to be a before/after bar option
                         if extra == '':
                             disk_vbox.addSpacing(10)
                             continue
@@ -1352,33 +1346,44 @@ class Wizard(BaseFrontend):
                                 dev = d
                                 break
                                 
-                        before_frame = QGroupBox("Before Install:", bar_frame)
-                        before_frame.setLayout(QVBoxLayout())
-                        layout.addWidget(before_frame)
-                        
-                        before_bar = PartitionsBar(before_frame)
-                        before_frame.layout().addWidget(before_bar)
-                        
-                        after_frame = QGroupBox("After Install:", bar_frame)
-                        after_frame.setLayout(QVBoxLayout())
-                        layout.addWidget(after_frame)
-                        
-                        after_bar = PartitionsBar(after_frame)
-                        after_frame.layout().addWidget(after_bar)
-                        
+                        widgets = []
+                                
+                        #only populate the bars if we have a device
                         if dev:
+                            if len(disks[dev]) > 0:
+                                before_frame = QGroupBox("Before Install:", bar_frame)
+                                before_frame.setVisible(False)
+                                before_frame.setLayout(QVBoxLayout())
+                                layout.addWidget(before_frame)
+                                
+                                before_bar = PartitionsBar(before_frame)
+                                before_frame.layout().addWidget(before_bar)
+                                
+                                widgets.append(before_frame)
+                                
+                            after_frame = QGroupBox("After Install:", bar_frame)
+                            after_frame.setVisible(False)
+                            after_frame.setLayout(QVBoxLayout())
+                            layout.addWidget(after_frame)
+                            
+                            after_bar = PartitionsBar(after_frame)
+                            after_frame.layout().addWidget(after_bar)
+                            
+                            widgets.append(after_frame)
+                            
                             for p in disks[dev]:
-                                before_bar.addPartition(p[6], int(p[2]), p[0], p[4], p[5])
-                        else:
-                            bFrame.removeWidget(before_bar)
-                        
-                        #FIXME, sometimes the before bar doesn't get a disk size??
-                        #happened in a virtual machine for me ~shtylman
-                        if before_bar.diskSize > 0:
-                            after_bar.addPartition('', before_bar.diskSize, '', '', 'Kubuntu')
-                        else:
-                            after_bar.addPartition('', 1, '', '', 'Kubuntu')
-                        
+                                pretty_name = find_in_os_prober(p)
+                                if len(pretty_name) == 0:
+                                    pretty_name == None
+                                before_bar.addPartition(pretty_name, int(p[2]), p[0], p[4], p[5])
+                            
+                            dSize = 0
+                            if before_bar:
+                                dSize = before_bar.diskSize
+                            
+                            #before bar diskSize can be 0 if there is no partition table
+                            after_bar.addPartition(get_release_name(), dSize, '', 'ext3', 'Kubuntu')
+                                                
                         buttongroup.addButton(extra_button, extraIdCounter)
                         extra_id = buttongroup.id(extra_button)
                         # Qt changes the string by adding accelerators,
@@ -1390,7 +1395,7 @@ class Wizard(BaseFrontend):
                         extraIdCounter += 1
                         
                         self.app.connect(extra_button, SIGNAL('toggled(bool)'),
-                            _on_extra_toggle(choice, before_bar, after_bar))
+                            _on_extra_toggle(choice, widgets))
                              
                     if extra_firstbutton is not None:
                         extra_firstbutton.setChecked(True)
@@ -1437,37 +1442,31 @@ class Wizard(BaseFrontend):
                 self.partition_bar_vbox.removeWidget(child)
                 child.hide()
                 del child
-        
+            
         self.partition_bars = []
         partition_bar = None
         indexCount = -1
         for item in cache_order:
             if item in disk_cache:
                 #the item is a disk
-                self.partition_tree_model.append([item, disk_cache[item]], self)
                 indexCount += 1
                 partition_bar = PartitionsBar(self.userinterface.partition_bar_frame)
+                partition_bar.setVisible(False)
+                
                 self.partition_bars.append(partition_bar)
                 self.partition_bar_vbox.addWidget(partition_bar)
+                self.partition_tree_model.append([item, disk_cache[item], partition_bar], self)
             else:
                 #the item is a partition, add it to the current bar
                 partition = partition_cache[item]
-                #add the new partition to our tree display
-                self.partition_tree_model.append([item, partition], self)
+                self.partition_tree_model.append([item, partition, partition_bar], self)
                 indexCount += 1
                 
                 #get data for bar display
                 size = int(partition['parted']['size'])
                 fs = partition['parted']['fs']
-                path = partition['parted']['path'].replace("/dev/","")
-                if fs == "free":
-                    path = fs
+                path = partition['parted']['path']
                 partition_bar.addPartition('name', size, indexCount, fs, path)
-                
-        #for barSignal in self.partition_bars:
-        #    self.app.connect(barSignal, SIGNAL("clicked(int)"), self.partitionClicked)
-        #    for barSlot in self.partition_bars:
-        #        self.app.connect(barSignal, SIGNAL("clicked(int)"), barSlot.raiseFrames)
         
         self.userinterface.partition_list_treeview.setModel(self.partition_tree_model)
         self.app.disconnect(self.userinterface.partition_list_treeview.selectionModel(), 
@@ -1476,7 +1475,7 @@ class Wizard(BaseFrontend):
         self.app.connect(self.userinterface.partition_list_treeview.selectionModel(), 
             SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), 
             self.on_partition_list_treeview_selection_changed)
-
+        
         # make sure we're on the advanced partitioning page
         self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
 
@@ -1732,6 +1731,7 @@ class Wizard(BaseFrontend):
         self.userinterface.partition_button_new.setEnabled(False)
         self.userinterface.partition_button_edit.setEnabled(False)
         self.userinterface.partition_button_delete.setEnabled(False)
+        
         if not isinstance(self.dbfilter, partman.Partman):
             return
 
@@ -1739,10 +1739,13 @@ class Wizard(BaseFrontend):
         if indexes:
             index = indexes[0]
             for bar in self.partition_bars:
+                bar.setVisible(False)
                 pass
-                #TODO show the appropriate partition bar
-                ##bar.selected(index)  ##FIXME find out row from index and call bar.selected on it
-                #bar.raiseFrames()
+            
+            item = index.internalPointer()
+            part_bar = item.itemData[2]
+            part_bar.setVisible(True)
+                
             item = index.internalPointer()
             devpart = item.itemData[0]
             partition = item.itemData[1]
@@ -2004,7 +2007,7 @@ class Wizard(BaseFrontend):
         response = self.advanceddialog.exec_()
         if response == QDialog.Accepted:
             self.set_summary_device(
-                unicode(self.advanceddialog.grub_device_entry.text()))
+                unicode(self.advanceddialog.grub_device_entry.currentText()))
             self.set_popcon(self.advanceddialog.popcon_checkbutton.isChecked())
             self.set_grub(self.advanceddialog.grub_enable.isChecked())
             self.set_proxy_host(unicode(self.advanceddialog.proxy_host_entry.text()))
