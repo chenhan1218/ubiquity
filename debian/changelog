@@ -7,9 +7,10 @@ ubiquity (1.11.13) UNRELEASED; urgency=low
   * kde_ui: Add SVG timezone map
   * kde_ui: add new partition bars
   * kde_ui: in advanced dialogue make grub settings a combo box
-  * kde_ui: add "auto login" option
+  * kde_ui: add "auto login" option 
+  * moved common pixmaps to artwork package
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 19 Feb 2009 11:09:13 +0000
+ -- Roman Shtylman <shtylman@gmail.com>  Fri, 20 Feb 2009 10:36:13 -0500
 
 ubiquity (1.11.12) jaunty; urgency=low
 
