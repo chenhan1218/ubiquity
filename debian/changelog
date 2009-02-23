@@ -19,7 +19,8 @@ ubiquity (1.11.13) UNRELEASED; urgency=low
   * Fix the code around showing ubiquity/text/part_auto_comment_*.
   * Add a dependency on python-numpy for the GTK frontend until we can
     replace it in the time zone code.
-  * Refactor the time zone code to avoid a dependency on python-numpy.
+  * Refactor the time zone code to avoid a dependency on python-numpy
+    (LP: #332978).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 19 Feb 2009 11:09:13 +0000
 
