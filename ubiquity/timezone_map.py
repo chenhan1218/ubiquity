@@ -27,34 +27,33 @@ import gobject
 import os
 import datetime
 
-from numpy import array
 # FIXME: Use the proper 40 time zones:
 # http://en.wikipedia.org/wiki/List_of_time_zones
 color_codes = {
-'-11' : array([192, 128, 128, 255]),
-'-10' : array([255, 128, 128, 255]),
-'-9' : array([192, 192, 128, 255]),
-'-8' : array([128, 192, 128, 255]),
-'-7' : array([128, 255, 128, 255]),
-'-6' : array([128, 192, 192, 255]),
-'-5' : array([128, 255, 255, 255]),
-'-4' : array([128, 128, 192, 255]),
-'-3' : array([128, 128, 255, 255]),
-'-2' : array([192, 128, 192, 255]),
-'-1' : array([255, 128, 255, 255]),
-'0' : array([149, 128, 128, 255]),
-'1' : array([170, 145, 128, 255]),
-'2' : array([255, 179, 128, 255]),
-'3' : array([204, 255, 170, 255]),
-'4' : array([145, 128, 149, 255]),
-'5' : array([255, 213, 230, 255]),
-'6' : array([155, 184, 228, 255]),
-'7' : array([255, 128, 179, 255]),
-'8' : array([128, 192, 153, 255]),
-'9' : array([255, 234, 149, 255]),
-'10' : array([228, 184, 155, 255]),
-'11' : array([213, 234, 128, 255]),
-'12' : array([195, 239, 213, 255]),
+'-11' : [192, 128, 128, 255],
+'-10' : [255, 128, 128, 255],
+'-9' : [192, 192, 128, 255],
+'-8' : [128, 192, 128, 255],
+'-7' : [128, 255, 128, 255],
+'-6' : [128, 192, 192, 255],
+'-5' : [128, 255, 255, 255],
+'-4' : [128, 128, 192, 255],
+'-3' : [128, 128, 255, 255],
+'-2' : [192, 128, 192, 255],
+'-1' : [255, 128, 255, 255],
+'0' : [149, 128, 128, 255],
+'1' : [170, 145, 128, 255],
+'2' : [255, 179, 128, 255],
+'3' : [204, 255, 170, 255],
+'4' : [145, 128, 149, 255],
+'5' : [255, 213, 230, 255],
+'6' : [155, 184, 228, 255],
+'7' : [255, 128, 179, 255],
+'8' : [128, 192, 153, 255],
+'9' : [255, 234, 149, 255],
+'10' : [228, 184, 155, 255],
+'11' : [213, 234, 128, 255],
+'12' : [195, 239, 213, 255],
 }
 
 class TimezoneMap(gtk.Widget):
@@ -93,7 +92,8 @@ class TimezoneMap(gtk.Widget):
 
         color_map = self.orig_color_map.scale_simple(allocation.width,
             allocation.height, gtk.gdk.INTERP_BILINEAR)
-        self.visible_map_pixels = color_map.get_pixels_array()
+        self.visible_map_pixels = color_map.get_pixels()
+        self.visible_map_rowstride = color_map.get_rowstride()
         gtk.Widget.do_size_allocate(self, allocation)
 
     def do_realize(self):
@@ -194,14 +194,20 @@ class TimezoneMap(gtk.Widget):
         self.queue_draw()
 
     def button_press(self, widget, event):
-        x = event.x
-        y = event.y
+        x = int(event.x)
+        y = int(event.y)
         
         o = None
         try:
-            c = self.visible_map_pixels[y][x]
+            pixels = self.visible_map_pixels
+            rowstride = self.visible_map_rowstride
+            c = []
+            c.append(ord(pixels[(rowstride * y + x * 4)]))
+            c.append(ord(pixels[(rowstride * y + x * 4)+1]))
+            c.append(ord(pixels[(rowstride * y + x * 4)+2]))
+            c.append(ord(pixels[(rowstride * y + x * 4)+3]))
             for offset in color_codes:
-                if (color_codes[offset] == c).all():
+                if color_codes[offset] == c:
                     o = offset
                     break
         except IndexError:
