@@ -28,3 +28,11 @@ class HwDetect(FilteredCommand):
         self.frontend.error_dialog(self.description(question),
                                    self.extended_description(question))
         return FilteredCommand.error(self, priority, question)
+
+    def progress_info(self, progress_title, progress_info):
+        # "Loading module ..." messages are boring. Hide them.
+        if progress_info == 'hw-detect/load_progress_step':
+            return True
+
+        return FilteredCommand.progress_info(self,
+                                             progress_title, progress_info)

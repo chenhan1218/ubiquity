@@ -2,6 +2,8 @@ ubiquity (1.11.13) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Add LSB init script header.
+  * Hide some excessively detailed progress messages from hw-detect
+    (LP: #91792).
 
   [ Roman Shtylman ]
   * kde_ui: Add SVG timezone map
