@@ -1,4 +1,4 @@
-ubiquity (1.11.13) UNRELEASED; urgency=low
+ubiquity (1.11.13) jaunty; urgency=low
 
   [ Colin Watson ]
   * Add LSB init script header.
@@ -22,7 +22,7 @@ ubiquity (1.11.13) UNRELEASED; urgency=low
   * Refactor the time zone code to avoid a dependency on python-numpy
     (LP: #332978).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 19 Feb 2009 11:09:13 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 24 Feb 2009 02:18:02 +0000
 
 ubiquity (1.11.12) jaunty; urgency=low
 
