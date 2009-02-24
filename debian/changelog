@@ -19,8 +19,6 @@ ubiquity (1.11.13) UNRELEASED; urgency=low
   * Restore the OS names in partition bars label code that was accidentally
     commented out in a previous commit.
   * Fix the code around showing ubiquity/text/part_auto_comment_*.
-  * Add a dependency on python-numpy for the GTK frontend until we can
-    replace it in the time zone code.
   * Refactor the time zone code to avoid a dependency on python-numpy
     (LP: #332978).
 
