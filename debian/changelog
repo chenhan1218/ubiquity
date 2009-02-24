@@ -4,6 +4,8 @@ ubiquity (1.11.13) UNRELEASED; urgency=low
   * Add LSB init script header.
   * Hide some excessively detailed progress messages from hw-detect
     (LP: #91792).
+  * Automatic update of included source packages: partman-base 128ubuntu8,
+    user-setup 1.23ubuntu13.
 
   [ Roman Shtylman ]
   * kde_ui: Add SVG timezone map

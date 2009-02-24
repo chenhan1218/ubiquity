@@ -12,7 +12,7 @@ migration-assistant 0.6.2
 partconf 1.30ubuntu1
 partman-auto 84ubuntu1
 partman-auto-loop 0ubuntu15
-partman-base 128ubuntu7
+partman-base 128ubuntu8
 partman-basicfilesystems 62ubuntu1
 partman-basicmethods 42
 partman-efi 18ubuntu1
@@ -26,5 +26,5 @@ partman-xfs 43ubuntu1
 preseed 1.41ubuntu1
 silo-installer 1.15ubuntu1
 tzsetup 1:0.24ubuntu1
-user-setup 1.23ubuntu12
+user-setup 1.23ubuntu13
 yaboot-installer 1.1.14ubuntu1
