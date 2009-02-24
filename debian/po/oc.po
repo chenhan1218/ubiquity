@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-02-18 17:41+0000\n"
+"POT-Creation-Date: 2009-02-24 17:11+0000\n"
 "PO-Revision-Date: 2008-05-22 16:53+0000\n"
 "Last-Translator: Yannig MARCHEGAY (Kokoyaya) <yannig@marchegay.org>\n"
 "Language-Team: Occitan (post 1500) <ubuntu-l10n-oci@lists.ubuntu.com>\n"
@@ -319,8 +319,7 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, no-c-format
-msgid "This computer has %s on it."
+msgid "This computer has ${OS} on it."
 msgstr ""
 
 #. Type: text
