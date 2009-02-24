@@ -1,9 +1,9 @@
-ubiquity (1.11.14) UNRELEASED; urgency=low
+ubiquity (1.11.14) jaunty; urgency=low
 
   * Automatic update of included source packages: clock-setup
     0.97ubuntu2, partman-base 128ubuntu9, partman-target 58ubuntu4.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 24 Feb 2009 17:09:34 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 24 Feb 2009 17:12:33 +0000
 
 ubiquity (1.11.13) jaunty; urgency=low
 
