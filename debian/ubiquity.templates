@@ -136,6 +136,9 @@ Template: ubiquity/text/password_extra_label
 Type: text
 _Description:
  Enter the same password twice, so that it can be checked for typing errors.
+ A good password will contain a mixture of letters, numbers and punctuation,
+ should be at least eight characters long, and should be changed at regular
+ intervals.
 
 Template: ubiquity/text/hostname_label
 Type: text
