@@ -1,7 +1,11 @@
 ubiquity (1.11.15) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Expand ubiquity/text/password_extra_label to explain what makes a good
     password (text mostly borrowed from user-setup).
+  
+  [ Roman Shtylman ]
+  * moved common pixmaps to artwork package
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 25 Feb 2009 10:44:52 +0000
 
