@@ -1,7 +1,8 @@
 oem-config (1.54.7) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
-  * Give the proper return value in the user component's run function.
+  * Give the proper return value in the user component's run function
+    (LP: #334281).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 19 Feb 2009 17:16:08 +0000
 
