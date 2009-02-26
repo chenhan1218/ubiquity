@@ -660,9 +660,9 @@ class SegmentedBarSlider(SegmentedBar):
         self.part_size = size
 
     def get_size(self):
-        return (self.segments[self.resize].percent /
+        return int((self.segments[self.resize].percent /
             (self.segments[self.resize + 1].percent
-            + self.segments[self.resize].percent)) * self.part_size
+            + self.segments[self.resize].percent)) * self.part_size)
 
     def do_realize(self):
         self.set_flags(self.flags() | gtk.REALIZED)
