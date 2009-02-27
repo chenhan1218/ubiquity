@@ -33,9 +33,3 @@ class Install(ubiquity.components.install.Install):
         prep = list(ubiquity.components.install.Install.prepare(self))
         prep[0] = ['/usr/share/ubiquity/mythbuntu_install.py']
         return prep
-
-import ubiquity.filteredcommand
-class AdditionalDrivers(ubiquity.filteredcommand.FilteredCommand):
-    """Adds any additional drivers that were selected during the question phase"""
-    def prepare(self):
-        return (['/usr/share/ubiquity/apply-drivers', '/target'],[])

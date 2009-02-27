@@ -14,6 +14,9 @@ ubiquity (1.11.15) UNRELEASED; urgency=low
     float, and functions using the return value expect a number of bytes
     (LP: #334677).
 
+  [ Mario Limonciello ]
+  * Remove dead AdditionalDrivers code.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 25 Feb 2009 10:44:52 +0000
 
 ubiquity (1.11.14) jaunty; urgency=low
