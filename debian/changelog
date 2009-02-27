@@ -3,6 +3,8 @@ ubiquity (1.11.15) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Expand ubiquity/text/password_extra_label to explain what makes a good
     password (text mostly borrowed from user-setup).
+  * Cope with renaming of passwd/allow-password-empty to
+    user-setup/allow-password-empty in user-setup 1.23ubuntu14.
   
   [ Roman Shtylman ]
   * moved common pixmaps to artwork package

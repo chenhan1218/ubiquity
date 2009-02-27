@@ -97,7 +97,7 @@ class BaseFrontend:
 
         self.allow_password_empty = False
         try:
-            self.allow_password_empty = db.get('passwd/allow-password-empty') == 'true'
+            self.allow_password_empty = db.get('user-setup/allow-password-empty') == 'true'
         except debconf.DebconfError:
             pass
 
