@@ -65,7 +65,6 @@ class MythbuntuServices(FilteredCommand):
         FilteredCommand.ok_handler(self)
 
 class MythbuntuPasswords(FilteredCommand):
-#we are seeding passwords and whether to enable mythweb
 
     def prepare(self):
         #mythtv passwords
@@ -75,7 +74,7 @@ class MythbuntuPasswords(FilteredCommand):
             answer = self.db.get('mythtv/' + this_password)
             if answer != '':
                 self.frontend.set_password(this_password,answer)
-        questions.append('^mythtv/' + this_password)
+            questions.append('^mythtv/' + this_password)
 
         #mythweb passwords
         passwords = self.frontend.get_mythweb_passwords()
@@ -92,14 +91,6 @@ class MythbuntuPasswords(FilteredCommand):
         passwords = self.frontend.get_mythtv_passwords()
         for this_password in passwords:
             self.preseed('mythtv/' + this_password, passwords[this_password])
-
-        #mythweb passwords
-        passwords = self.frontend.get_mythweb_passwords()
-        for this_password in passwords:
-            if passwords[this_password] is True or passwords[this_password] is False:
-                self.preseed_bool('mythweb/' + this_password, passwords[this_password])
-            else:
-                self.preseed('mythweb/' + this_password, passwords[this_password])
 
         FilteredCommand.ok_handler(self)
 

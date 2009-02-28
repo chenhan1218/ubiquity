@@ -210,20 +210,7 @@ class Wizard(ParentFrontend.Wizard):
     def mythbuntu_password(self,widget):
         """Checks that certain passwords meet requirements"""
         #For the services page, the only password we have is the VNC
-        if (widget is not None and widget.get_name() == 'mythweb_username'):
-            username = widget.get_text().split(' ')[0]
-            if len(username) >= 1:
-                self.mythweb_user_error_image.hide()
-            else:
-                self.mythweb_user_error_image.show()
-        elif (widget is not None and widget.get_name() == 'mythweb_password'):
-            password = widget.get_text().split(' ')[0]
-            if len(password) >= 1:
-                self.mythweb_pass_error_image.hide()
-            else:
-                self.mythweb_pass_error_image.show()
-
-        elif (widget is not None and widget.get_name() == 'mysql_root_password'):
+        if (widget is not None and widget.get_name() == 'mysql_root_password'):
             password = widget.get_text().split(' ')[0]
             if len(password) >= 1:
                 self.mysql_root_error_image.hide()
@@ -234,9 +221,7 @@ class Wizard(ParentFrontend.Wizard):
         #done in a sequential order
         if (self.usemysqlrootpassword.get_active() or self.usemythwebpassword.get_active()):
             mysql_root_flag = self.mysql_root_error_image.flags() & gtk.VISIBLE
-            mythweb_user_flag = self.mythweb_user_error_image.flags() & gtk.VISIBLE
-            mythweb_pass_flag = self.mythweb_pass_error_image.flags() & gtk.VISIBLE
-            result = not (mythweb_user_flag | mythweb_pass_flag | mysql_root_flag)
+            result = not (mysql_root_flag)
             self.allow_go_forward(result)
             self.allow_go_backward(result)
 
@@ -301,10 +286,7 @@ class Wizard(ParentFrontend.Wizard):
                   'mysql_mythtv_user':self.mysql_user,
                   'mysql_mythtv_password':self.mysql_password,
                   'mysql_mythtv_dbname':self.mysql_database,
-                  'mysql_host':self.mysql_server},
-                 {'enable':self.usemythwebpassword,
-                  'username':self.mythweb_username,
-                  'password':self.mythweb_password}]
+                  'mysql_host':self.mysql_server}]
         self._preseed_list(lists,name,value)
 
     def set_lirc(self,question,answer):
@@ -405,11 +387,6 @@ class Wizard(ParentFrontend.Wizard):
                                          'mysql_mythtv_dbname':self.mysql_database,
                                          'mysql_host':self.mysql_server}])
 
-    def get_mythweb_passwords(self):
-        return self._build_static_list([{'enable':self.usemythwebpassword,
-                                         'username':self.mythweb_username,
-                                         'password':self.mythweb_password}])
-
     def get_lirc(self,type):
         item = {"modules":"","device":"","driver":"","lircd_conf":""}
         if type == "remote":
@@ -469,13 +446,11 @@ class Wizard(ParentFrontend.Wizard):
             self.mysql_option_hbox.hide()
 
         if "Backend" in self.get_installtype():
-            self.mythweb_expander.show()
             self.samba_option_hbox.show()
             self.nfs_option_hbox.show()
         else:
             self.enablesamba.set_active(False)
             self.enablenfs.set_active(False)
-            self.mythweb_expander.hide()
             self.samba_option_hbox.hide()
             self.nfs_option_hbox.hide()
 
@@ -509,24 +484,6 @@ class Wizard(ParentFrontend.Wizard):
                 if self.transmitter_list.get_active() == 0:
                     self.transmittercontrol.set_active(False)
 
-    def usemythwebpassword_toggled(self,widget):
-        """Called when the checkbox to set a mythweb password is pressed"""
-        if (self.usemythwebpassword.get_active()):
-            self.mythweb_table.show()
-            self.allow_go_forward(False)
-            self.allow_go_backward(False)
-            self.mythweb_user_error_image.show()
-            self.mythweb_pass_error_image.show()
-        else:
-            self.mythweb_table.hide()
-            self.mythweb_password.set_text("")
-            self.mythweb_username.set_text("")
-            self.mythweb_user_error_image.hide()
-            self.mythweb_pass_error_image.hide()
-            if (not self.usemysqlrootpassword.get_active() or not self.mysql_root_error_image.flags() & gtk.VISIBLE):
-                self.allow_go_forward(True)
-                self.allow_go_backward(True)
-
     def usemysqlrootpassword_toggled(self,widget):
         """Called when the checkbox to set a MySQL root password is pressed"""
         if (self.usemysqlrootpassword.get_active()):
@@ -538,6 +495,5 @@ class Wizard(ParentFrontend.Wizard):
             self.mysql_server_hbox.hide()
             self.mysql_root_password.set_text("")
             self.mysql_root_error_image.hide()
-            if (not self.usemythwebpassword.get_active() or ((not self.mythweb_pass_error_image.flags() & gtk.VISIBLE) and (not self.mythweb_user_error_image.flags() & gtk.VISIBLE))):
-                self.allow_go_forward(True)
-                self.allow_go_backward(True)
+            self.allow_go_forward(True)
+            self.allow_go_backward(True)

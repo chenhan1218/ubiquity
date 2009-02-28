@@ -60,6 +60,9 @@ class Install(ParentInstall):
 
         #Before beginning, set the initial root sql pass to the user pass
         self.passwd=self.db.get('passwd/user-password')
+        self.set_debconf('mythtv/mysql_admin_password',self.passwd)
+        self.set_debconf('mysql-server/root_password',self.passwd)
+        self.set_debconf('mysql-server/root_password_again',self.passwd)
 
         #Regular ubuntu user configuration
         ParentInstall.configure_user(self)
@@ -133,8 +136,7 @@ class Install(ParentInstall):
         self.db.progress('INFO', 'ubiquity/install/mythbuntu')
 
         #Copy a few debconf questions that were answered in the installer
-        for question in ('mythweb/enable','mythweb/username','mythweb/password',\
-                         'mythtv/mysql_mythtv_user','mythtv/mysql_mythtv_password',\
+        for question in ('mythtv/mysql_mythtv_user','mythtv/mysql_mythtv_password',\
                          'mythtv/mysql_mythtv_dbname','mythtv/mysql_host',\
                          'mythtv/mysql_admin_password'):
             answer=self.db.get(question)
@@ -160,8 +162,11 @@ class Install(ParentInstall):
             self.chrex('invoke-rc.d','mysql','stop')
             self.chrex('umount', '/proc')
 
-        #Set up authentication on mythweb if necessary
-        self.reconfigure('mythweb')
+            #Mythweb
+            self.set_debconf('mythweb/enable', 'true')
+            self.set_debconf('mythweb/username', self.user)
+            self.set_debconf('mythweb/password', self.passwd)
+            self.reconfigure('mythweb')
 
     def install_extras(self):
         """Overrides main install_extras function to add in Mythbuntu
