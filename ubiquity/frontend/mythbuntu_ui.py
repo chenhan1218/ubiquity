@@ -67,9 +67,9 @@ VIDEOPAGE="mythbuntu_stepDrivers"
 MYTHPAGES = [
     "mythbuntu_stepCustomInstallType",
     "mythbuntu_stepServices",
-    "mythbuntu_stepPasswords",
     "tab_remote_control",
     VIDEOPAGE,
+    "mythbuntu_stepPasswords",
     "mythbuntu_stepBackendSetup"
 ]
 
@@ -112,8 +112,8 @@ class Wizard(ParentFrontend.Wizard):
 
         #Insert all of our pages
         for page in [mythbuntu.MythbuntuInstallType, mythbuntu.MythbuntuServices,
-            mythbuntu.MythbuntuPasswords, mythbuntu.MythbuntuRemote,
-            mythbuntu.MythbuntuDrivers, mythbuntu_install.Summary]:
+            mythbuntu.MythbuntuRemote, mythbuntu.MythbuntuDrivers,
+            mythbuntu.MythbuntuPasswords, mythbuntu_install.Summary]:
             self.pages.append(page)
 
         #Prepopulate some dynamic pages
@@ -196,7 +196,6 @@ class Wizard(ParentFrontend.Wizard):
                     ParentFrontend.BREADCRUMB_STEPS[VIDEOPAGE]):
                     ParentFrontend.BREADCRUMB_STEPS[step] -= 1
             ParentFrontend.BREADCRUMB_MAX_STEP -= 1
-            ParentFrontend.BREADCRUMB_STEPS.pop(VIDEOPAGE)
             self.steps.remove_page(self.steps.page_num(self.mythbuntu_stepDrivers))
             self.pages.remove(mythbuntu.MythbuntuDrivers)
 
@@ -416,11 +415,9 @@ class Wizard(ParentFrontend.Wizard):
         """Called whenever a custom type is toggled"""
 
         if "Master" in self.get_installtype():
-            self.master_backend_expander.hide()
             self.mysql_option_hbox.show()
         else:
             self.enablemysql.set_active(False)
-            self.master_backend_expander.show()
             self.mysql_option_hbox.hide()
 
         if "Backend" in self.get_installtype():
