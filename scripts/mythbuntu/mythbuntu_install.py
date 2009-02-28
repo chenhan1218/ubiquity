@@ -137,13 +137,9 @@ class Install(ParentInstall):
 
         #Copy a few debconf questions that were answered in the installer
         for question in ('mythtv/mysql_mythtv_user','mythtv/mysql_mythtv_password',\
-                         'mythtv/mysql_mythtv_dbname','mythtv/mysql_host',\
-                         'mythtv/mysql_admin_password'):
+                         'mythtv/mysql_mythtv_dbname','mythtv/mysql_host'):
             answer=self.db.get(question)
             self.set_debconf(question,answer)
-            if question == 'mythtv/mysql_admin_password':
-                self.set_debconf('mysql-server/root_password',answer)
-                self.set_debconf('mysql-server/root_password_again',answer)
 
         #Setup mysql.txt nicely
         os.remove(self.target + '/etc/mythtv/mysql.txt')

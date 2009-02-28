@@ -16,7 +16,7 @@ ubiquity (1.11.15) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Remove dead AdditionalDrivers code.
-  * Create a Mythweb & VNC password based on your initial user password.
+  * Create a SQL, Mythweb & VNC password based on your initial user password.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 25 Feb 2009 10:44:52 +0000
 

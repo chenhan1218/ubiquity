@@ -37,6 +37,4 @@ elif [ "$1" = "passwords" ]; then
     db_input high mythtv/mysql_mythtv_password || true
     db_input high mythtv/mysql_mythtv_dbname || true
     db_input high mythtv/mysql_host || true
-    #root password
-    db_input high mythtv/mysql_admin_password || true
 fi

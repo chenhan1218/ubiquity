@@ -20,6 +20,7 @@
 
 from ubiquity.misc import create_bool
 from ubiquity.filteredcommand import FilteredCommand
+import os
 
 class MythbuntuInstallType(FilteredCommand):
 #we are seeding one of the possible install types
@@ -76,13 +77,13 @@ class MythbuntuPasswords(FilteredCommand):
                 self.frontend.set_password(this_password,answer)
             questions.append('^mythtv/' + this_password)
 
-        #mythweb passwords
-        passwords = self.frontend.get_mythweb_passwords()
-        for this_password in passwords:
-            answer = self.db.get('mythweb/' + this_password)
-            if answer != '':
-                self.frontend.set_password(this_password,answer)
-        questions.append('^mythweb/' + this_password)
+        #if we are a Master type, we'll skip this page
+        if 'Master' in self.frontend.get_installtype() and 'UBIQUITY_AUTOMATIC' not in os.environ:
+            os.environ['UBIQUITY_AUTOMATIC'] = "2"
+            #regrab the passwords in case any of them actually were supposed preseeded
+            passwords = self.frontend.get_mythtv_passwords()
+            for this_password in passwords:
+                self.preseed('mythtv/' + this_password, passwords[this_password])
 
         return (['/usr/share/ubiquity/ask-mythbuntu','passwords'], questions)
 
@@ -93,6 +94,13 @@ class MythbuntuPasswords(FilteredCommand):
             self.preseed('mythtv/' + this_password, passwords[this_password])
 
         FilteredCommand.ok_handler(self)
+
+    def cleanup(self):
+        #Clear out our skipping if we did it only because of Master
+        if 'UBIQUITY_AUTOMATIC' in os.environ and os.environ['UBIQUITY_AUTOMATIC'] == "2":
+            del os.environ['UBIQUITY_AUTOMATIC']
+
+        FilteredCommand.cleanup(self)
 
 class MythbuntuRemote(FilteredCommand):
 

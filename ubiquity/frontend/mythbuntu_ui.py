@@ -207,24 +207,6 @@ class Wizard(ParentFrontend.Wizard):
         new_pass_caller = subprocess.Popen(['pwgen','-s','8'],stdout=subprocess.PIPE)
         self.mysql_password.set_text(string.split(new_pass_caller.communicate()[0])[0])
 
-    def mythbuntu_password(self,widget):
-        """Checks that certain passwords meet requirements"""
-        #For the services page, the only password we have is the VNC
-        if (widget is not None and widget.get_name() == 'mysql_root_password'):
-            password = widget.get_text().split(' ')[0]
-            if len(password) >= 1:
-                self.mysql_root_error_image.hide()
-            else:
-                self.mysql_root_error_image.show()
-
-        #The password check page is much more complex. Pieces have to be
-        #done in a sequential order
-        if (self.usemysqlrootpassword.get_active() or self.usemythwebpassword.get_active()):
-            mysql_root_flag = self.mysql_root_error_image.flags() & gtk.VISIBLE
-            result = not (mysql_root_flag)
-            self.allow_go_forward(result)
-            self.allow_go_backward(result)
-
     def do_mythtv_setup(self,widget):
         """Spawn MythTV-Setup binary."""
         self.live_installer.hide()
@@ -282,8 +264,7 @@ class Wizard(ParentFrontend.Wizard):
 
     def set_password(self,name,value):
         """Preseeds a password"""
-        lists = [{'mysql_admin_password':self.mysql_root_password,
-                  'mysql_mythtv_user':self.mysql_user,
+        lists = [{'mysql_mythtv_user':self.mysql_user,
                   'mysql_mythtv_password':self.mysql_password,
                   'mysql_mythtv_dbname':self.mysql_database,
                   'mysql_host':self.mysql_server}]
@@ -381,8 +362,7 @@ class Wizard(ParentFrontend.Wizard):
                                          'tvstandard': self.tvoutstandard}])
 
     def get_mythtv_passwords(self):
-        return self._build_static_list([{'mysql_admin_password':self.mysql_root_password,
-                                         'mysql_mythtv_user':self.mysql_user,
+        return self._build_static_list([{'mysql_mythtv_user':self.mysql_user,
                                          'mysql_mythtv_password':self.mysql_password,
                                          'mysql_mythtv_dbname':self.mysql_database,
                                          'mysql_host':self.mysql_server}])
@@ -437,12 +417,10 @@ class Wizard(ParentFrontend.Wizard):
 
         if "Master" in self.get_installtype():
             self.master_backend_expander.hide()
-            self.mysql_server_expander.show()
             self.mysql_option_hbox.show()
         else:
             self.enablemysql.set_active(False)
             self.master_backend_expander.show()
-            self.mysql_server_expander.hide()
             self.mysql_option_hbox.hide()
 
         if "Backend" in self.get_installtype():
@@ -483,17 +461,3 @@ class Wizard(ParentFrontend.Wizard):
             elif widget.get_name() == 'transmitter_list':
                 if self.transmitter_list.get_active() == 0:
                     self.transmittercontrol.set_active(False)
-
-    def usemysqlrootpassword_toggled(self,widget):
-        """Called when the checkbox to set a MySQL root password is pressed"""
-        if (self.usemysqlrootpassword.get_active()):
-            self.mysql_server_hbox.show()
-            self.allow_go_forward(False)
-            self.allow_go_backward(False)
-            self.mysql_root_error_image.show()
-        else:
-            self.mysql_server_hbox.hide()
-            self.mysql_root_password.set_text("")
-            self.mysql_root_error_image.hide()
-            self.allow_go_forward(True)
-            self.allow_go_backward(True)
