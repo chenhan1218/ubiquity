@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.3.3 on Thu Aug 23 23:57:49 2007 -->
+<!--Generated with glade3 3.4.5 on Fri Feb 27 01:17:19 2009 -->
 <glade-interface>
   <widget class="GtkWindow" id="dummy_window">
     <property name="visible">True</property>
@@ -53,125 +53,36 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkVBox" id="vbox1">
+              <widget class="GtkHBox" id="vnc_option_hbox">
                 <property name="visible">True</property>
                 <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                <property name="spacing">10</property>
                 <child>
-                  <widget class="GtkHBox" id="vnc_option_hbox">
+                  <widget class="GtkCheckButton" id="enablevnc">
                     <property name="visible">True</property>
+                    <property name="can_focus">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                    <child>
-                      <widget class="GtkCheckButton" id="enablevnc">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                        <property name="label" translatable="yes">VNC Service</property>
-                        <property name="response_id">0</property>
-                        <property name="draw_indicator">True</property>
-                        <signal name="toggled" handler="toggle_enablevnc"/>
-                      </widget>
-                      <packing>
-                        <property name="expand">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="GtkLabel" id="enablevnc_label">
-                        <property name="width_request">500</property>
-                        <property name="visible">True</property>
-                        <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                        <property name="xalign">0</property>
-                        <property name="label" translatable="yes">VNC is a very commonly used protocol for graphical remote administration and control of a machine.</property>
-                        <property name="wrap">True</property>
-                      </widget>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="padding">32</property>
-                        <property name="position">1</property>
-                      </packing>
-                    </child>
+                    <property name="label" translatable="yes">VNC Service</property>
+                    <property name="response_id">0</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="toggle_enablevnc"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
-                    <property name="fill">False</property>
                   </packing>
                 </child>
                 <child>
-                  <widget class="GtkHBox" id="vnc_pass_hbox">
+                  <widget class="GtkLabel" id="enablevnc_label">
+                    <property name="width_request">500</property>
                     <property name="visible">True</property>
-                    <property name="sensitive">False</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                    <child>
-                      <widget class="GtkVBox" id="vbox2">
-                        <property name="visible">True</property>
-                        <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                        <child>
-                          <widget class="GtkLabel" id="vnc_pass_label">
-                            <property name="width_request">400</property>
-                            <property name="visible">True</property>
-                            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                            <property name="xalign">0</property>
-                            <property name="label" translatable="yes">Enter a password to be used: </property>
-                            <property name="use_markup">True</property>
-                            <property name="wrap">True</property>
-                          </widget>
-                          <packing>
-                            <property name="expand">False</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <widget class="GtkLabel" id="vnc_pass_warning">
-                            <property name="width_request">400</property>
-                            <property name="visible">True</property>
-                            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                            <property name="xalign">0</property>
-                            <property name="label" translatable="yes">&lt;b&gt;Note&lt;/b&gt;: This password must be at least 6 characters.</property>
-                            <property name="use_markup">True</property>
-                            <property name="wrap">True</property>
-                          </widget>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">1</property>
-                          </packing>
-                        </child>
-                      </widget>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="GtkEntry" id="vnc_password">
-                        <property name="width_request">200</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                        <property name="visibility">False</property>
-                        <signal name="changed" handler="mythbuntu_password"/>
-                      </widget>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="position">1</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="GtkImage" id="vnc_error_image">
-                        <property name="visible">True</property>
-                        <property name="stock">gtk-dialog-error</property>
-                      </widget>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="position">2</property>
-                      </packing>
-                    </child>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">VNC is a very commonly used protocol for graphical remote administration and control of a machine.</property>
+                    <property name="wrap">True</property>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">False</property>
+                    <property name="padding">32</property>
                     <property name="position">1</property>
                   </packing>
                 </child>
@@ -331,7 +242,7 @@
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0</property>
-                    <property name="label" translatable="yes">If you will be using a remote Frontend or Backend, you will need to enable MythTV on your ethernet interface.  Be sure to also enable a root MySQL password if you choose this option.</property>
+                    <property name="label" translatable="yes">If you will be using a remote Frontend or Backend, you will need to enable MythTV on your ethernet interface.</property>
                     <property name="use_markup">True</property>
                     <property name="wrap">True</property>
                   </widget>

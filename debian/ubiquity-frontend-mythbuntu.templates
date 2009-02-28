@@ -184,10 +184,6 @@ Template: mythbuntu/x11vnc
 Type: boolean
 Description: for internal use; determines if vnc is enabled
 
-Template: mythbuntu/x11vnc_password
-Type: string
-Description: for internal use; stores the chosen vnc password
-
 Template: mythbuntu/openssh-server
 Type: boolean
 Description: for internal use; determines if ssh is enabled

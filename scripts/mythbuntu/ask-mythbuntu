@@ -26,7 +26,6 @@ elif [ "$1" = "ir" ]; then
 elif [ "$1" = "services" ]; then
     #determine services
     db_input high mythbuntu/x11vnc || true
-    db_input high mythbuntu/x11vnc_password || true
     db_input high mythbuntu/openssh-server || true
     db_input high mythbuntu/samba || true
     db_input high mythbuntu/nfs-kernel-server || true
@@ -38,10 +37,4 @@ elif [ "$1" = "passwords" ]; then
     db_input high mythtv/mysql_mythtv_password || true
     db_input high mythtv/mysql_mythtv_dbname || true
     db_input high mythtv/mysql_host || true
-    #root password
-    db_input high mythtv/mysql_admin_password || true
-    #mythweb htaccess
-    db_input high mythweb/enable || true
-    db_input high mythweb/username || true
-    db_input high mythweb/password || true
 fi
