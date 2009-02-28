@@ -51,7 +51,7 @@ class MythbuntuServices(FilteredCommand):
             answer = self.db.get('mythbuntu/' + this_service)
             if answer != '':
                 self.frontend.set_service(this_service,answer)
-        questions.append('^mythbuntu/' + this_service)
+            questions.append('^mythbuntu/' + this_service)
         return (['/usr/share/ubiquity/ask-mythbuntu','services'], questions)
 
     def ok_handler(self):

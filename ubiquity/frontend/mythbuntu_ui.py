@@ -209,17 +209,7 @@ class Wizard(ParentFrontend.Wizard):
     def mythbuntu_password(self,widget):
         """Checks that certain passwords meet requirements"""
         #For the services page, the only password we have is the VNC
-        if (widget is not None and widget.get_name() == 'vnc_password'):
-            password= widget.get_text().split(' ')[0]
-            if len(password) >= 6:
-                self.allow_go_forward(True)
-                self.allow_go_backward(True)
-                self.vnc_error_image.hide()
-            else:
-                self.allow_go_forward(False)
-                self.allow_go_backward(False)
-                self.vnc_error_image.show()
-        elif (widget is not None and widget.get_name() == 'mythweb_username'):
+        if (widget is not None and widget.get_name() == 'mythweb_username'):
             username = widget.get_text().split(' ')[0]
             if len(username) >= 1:
                 self.mythweb_user_error_image.hide()
@@ -294,7 +284,7 @@ class Wizard(ParentFrontend.Wizard):
 
     def set_service(self,name,value):
         """Preseeds the status of a service"""
-        lists = [get_services_dictionary(self),{"x11vnc_password":self.vnc_password}]
+        lists = [get_services_dictionary(self)]
         self._preseed_list(lists,name,value)
 
     def set_driver(self,name,value):
@@ -394,7 +384,7 @@ class Wizard(ParentFrontend.Wizard):
 
     def get_services(self):
         """Returns the status of all installable services"""
-        return self._build_static_list([get_services_dictionary(self),{'x11vnc_password':self.vnc_password}])
+        return self._build_static_list([get_services_dictionary(self)])
 
     def get_drivers(self):
         video_drivers=get_graphics_dictionary()
@@ -431,20 +421,6 @@ class Wizard(ParentFrontend.Wizard):
 #Toggle functions#
 ##################
 #Called when a widget changes and other GUI elements need to react
-
-    def toggle_enablevnc(self,widget):
-        """Called when the checkbox to turn on VNC is toggled"""
-        if (self.enablevnc.get_active()):
-            self.vnc_pass_hbox.set_sensitive(True)
-            self.allow_go_forward(False)
-            self.allow_go_backward(False)
-            self.vnc_error_image.show()
-        else:
-            self.vnc_pass_hbox.set_sensitive(False)
-            self.vnc_password.set_text("")
-            self.allow_go_forward(True)
-            self.allow_go_backward(True)
-            self.vnc_error_image.hide()
 
     def toggle_tv_out (self,widget):
         """Called when the tv-out type is toggled"""

@@ -26,7 +26,6 @@ elif [ "$1" = "ir" ]; then
 elif [ "$1" = "services" ]; then
     #determine services
     db_input high mythbuntu/x11vnc || true
-    db_input high mythbuntu/x11vnc_password || true
     db_input high mythbuntu/openssh-server || true
     db_input high mythbuntu/samba || true
     db_input high mythbuntu/nfs-kernel-server || true
