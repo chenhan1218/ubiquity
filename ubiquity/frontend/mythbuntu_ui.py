@@ -150,6 +150,7 @@ class Wizard(ParentFrontend.Wizard):
                 self.allow_go_forward(False)
         elif n == 'MythbuntuServices':
             cur = self.mythbuntu_stepServices
+            self.vnc_option_hbox.set_sensitive(len(self.get_password()) >= 6)
         else:
             ParentFrontend.Wizard.set_page(self,n)
             return
