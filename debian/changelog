@@ -13,6 +13,9 @@ ubiquity (1.11.15) UNRELEASED; urgency=low
   * Always return an integer from get_size as the calcuation could produce a
     float, and functions using the return value expect a number of bytes
     (LP: #334677).
+  * Use better descriptions on the finished dialog and show an information
+    icon to be consistent with other dialogs.  Thanks Matthew Paul Thomas
+    (LP: #258017).
 
   [ Mario Limonciello ]
   * Remove dead AdditionalDrivers code.

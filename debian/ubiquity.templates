@@ -243,15 +243,15 @@ _Description: Skip
 
 Template: ubiquity/text/finished_dialog
 Type: title
-_Description: Installation complete
+_Description: Installation Complete
 
 Template: ubiquity/text/quit_button
 Type: text
-_Description: Continue using the live CD
+_Description: Continue Testing
 
 Template: ubiquity/text/reboot_button
 Type: text
-_Description: Restart now
+_Description: Restart Now
 
 Template: ubiquity/text/crash_dialog
 Type: text
@@ -416,9 +416,9 @@ _Description: Port:
 Template: ubiquity/text/finished_label
 Type: text
 _Description:
- Installation is complete. You need to restart the computer in order to use
- the new installation. You can continue to use this live CD, although any
- changes you make or documents you save will not be preserved.
+ Installation has finished.  You can continue testing Ubuntu now, but until
+ you restart the computer, any changes you make or documents you save will
+ not be preserved.
 
 Template: ubiquity/text/go_back
 Type: text
