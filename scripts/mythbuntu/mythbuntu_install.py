@@ -353,78 +353,25 @@ bind-address=0.0.0.0"""
     def remove_extras(self):
         """Try to remove packages that are installed on the live CD but not on
         the installed system."""
-        # Looking through files for packages to remove is pretty quick, so
-        # don't bother with a progress bar for that.
-        # Check for packages specific to the live CD.
-        # Also check for packages that need to be removed based upon the choices made during installation
-        # This file (/tmp/filesystem.manifest-mythbuntu) will be created during the summary step
-        self.create_removal_list()
-        if (os.path.exists("/tmp/filesystem.manifest-mythbuntu") and
-            os.path.exists("/cdrom/casper/filesystem.manifest")):
-            desktop_packages = set()
-            manifest = open("/tmp/filesystem.manifest-mythbuntu")
-            for line in manifest:
-                if line.strip() != '' and not line.startswith('#'):
-                    desktop_packages.add(line.split()[0])
-            manifest.close()
-            live_packages = set()
-            manifest = open("/cdrom/casper/filesystem.manifest")
-            for line in manifest:
-                if line.strip() != '' and not line.startswith('#'):
-                    live_packages.add(line.split()[0])
-            manifest.close()
-            difference = live_packages - desktop_packages
-        else:
-            difference = set()
+        #First remove normal live-desktop packages
+        ParentInstall.remove_extras(self)
 
-        # Keep packages we explicitly installed.
-        difference -= self.query_recorded_installed()
-
-        if len(difference) == 0:
-            return
-
-        # Don't worry about failures removing packages; it will be easier
-        # for the user to sort them out with a graphical package manager (or
-        # whatever) after installation than it will be to try to deal with
-        # them automatically here.
-        self.do_remove(difference)
-
-    #FIXME
-    # I'm ugly
-    # I'm unscalable
-    # I barely get the job done
-    def create_removal_list(self):
-        out_f = open("/tmp/filesystem.manifest-mythbuntu", 'w')
-        in_f = open("/cdrom/casper/filesystem.manifest-desktop")
-        patternline = "^mythbuntu-live|^expect|^tcl8.4"
+        #now take care of mythbuntu specifics
+        packages=set()
+        ## system role
         if 'Slave' in self.type or self.type == 'Frontend':
-            patternline += "|^mythtv-backend-master|^mythtv-database|^mysql-server-5.0|^mysql-server|^mythtv\ " #mysql server
-            patternline += "|^apache2|^libapache2|^php|^mythweb" #mythweb
+            packages.add('mythtv-backend-master')
         if 'Frontend' not in self.type:
-            patternline += "|^mythtv-frontend"
-            patternline += "|^mythmusic|^fftw2|^libcdaudio1|^libfaad2-0|^libflac8" #mythmusic
-            patternline += "|^mythmovies" #mythmovies
-            patternline += "|^mythgallery" #mythgallery
-            patternline += "|^mythcontrols" #mythcontrols
-            patternline += "|^mytharchive|^ffmpeg|^genisoimage|^dvdauthor|^mjpegtools|^dvd+rw-tools|^python-imaging|^python-mysqldb"
-            patternline += "|^mythvideo|^libwww-perl|^libxml-simple-perl" #mythvideo
-            patternline += "|^mythweather" #mythweather
-            patternline += "|^mythtv-theme" #themes
-        samba = self.db.get('mythbuntu/samba')
-        if samba == "false":
-            patternline += "|^samba|^samba-common|^smbfs"
-        vnc = self.db.get('mythbuntu/x11vnc')
-        if vnc == "false":
-            patternline += "|^vnc4-common|^x11vnc"
-        ssh = self.db.get('mythbuntu/openssh-server')
-        if ssh == "false":
-            patternline += "|^openssh-server"
-        pattern = re.compile(patternline)
-        for line in in_f:
-            if pattern.search(line) is None:
-                out_f.write(line)
-        in_f.close()
-        out_f.close()
+            packages.add('mythtv-frontend')
+        ## services that are installed by default
+        for service in ['samba','openssh-server']:
+            if self.db.get('mythbuntu/' + service) == "false":
+                packages.add(service)
+
+        if len(packages) >= 0:
+            #recursively remove to make sure we get plugins and services that
+            #aren't necessary anymore
+            self.do_remove(packages,True)
 
 if __name__ == '__main__':
     if not os.path.exists('/var/lib/ubiquity'):

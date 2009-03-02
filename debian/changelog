@@ -18,6 +18,8 @@ ubiquity (1.11.15) UNRELEASED; urgency=low
   * Remove dead AdditionalDrivers code.
   * Create a SQL, Mythweb & VNC password based on your initial user password.
   * Make the extra passwords page only show up if selecting !Master.
+  * Change the method for mapping role to package removal to something
+    more scalable.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 25 Feb 2009 10:44:52 +0000
 
