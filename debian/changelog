@@ -6,6 +6,8 @@ oem-config (1.54.8) UNRELEASED; urgency=low
     - Explicitly stop our debconf frontend just before exiting, to avoid
       leaving a zombie if tasksel installs some package that starts a daemon
       that doesn't disconnect from fd 3.
+  * Remove obsolete local copy of DebconfCommunicator. We just rely on a new
+    enough debconf now.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 03 Mar 2009 15:01:02 +0000
 
