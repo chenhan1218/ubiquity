@@ -27,6 +27,10 @@ ubiquity (1.11.15) UNRELEASED; urgency=low
   * Make the extra passwords page only show up if selecting !Master.
   * Change the method for mapping role to package removal to something
     more scalable.
+  * bin/ubiquity-dm:
+    - Lower the timeout to declare the X server failed to start to 10 seconds.
+      Realistically it should still be starting up a lot faster than this, but
+      this still allows for cases such as slow media.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 25 Feb 2009 10:44:52 +0000
 
