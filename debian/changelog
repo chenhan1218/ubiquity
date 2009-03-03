@@ -3,6 +3,9 @@ oem-config (1.54.8) UNRELEASED; urgency=low
   * debconf frontend:
     - Fix typo: "oem-config/text/task_heading_label" should have been
       "oem-config/text/tasks_heading_label".
+    - Explicitly stop our debconf frontend just before exiting, to avoid
+      leaving a zombie if tasksel installs some package that starts a daemon
+      that doesn't disconnect from fd 3.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 03 Mar 2009 15:01:02 +0000
 

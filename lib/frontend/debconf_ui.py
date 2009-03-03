@@ -120,3 +120,6 @@ class Frontend(BaseFrontend):
             return 0
         else:
             return 10
+
+    def stop(self):
+        self.db.stop()

@@ -63,6 +63,10 @@ class Wizard:
         self.frontend = self.ui.Frontend()
         return self.frontend.run()
 
+    def stop(self):
+        if hasattr(self.frontend, 'stop'):
+            self.frontend.stop()
+
 def disable_autologin():
     import traceback
 
@@ -321,4 +325,5 @@ if __name__ == '__main__':
         ret = wizard.run()
         run_hooks()
         im_switch.kill_im()
+        wizard.stop()
         sys.exit(ret)
