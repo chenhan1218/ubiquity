@@ -1198,12 +1198,16 @@ class Wizard(BaseFrontend):
 
     def on_steps_switch_page (self, foo, bar, current):
         self.current_page = current
-        # If we're on the language page, then
-        # on_language_treeview_selection_changed will take care of
-        # translating this, and we may not know the correct language at this
-        # point.
+        # If we're on the language page, then we may not know the correct
+        # language yet.  But we still want to update the page number if the
+        # user hit back, so call on_language_treeview_selection_changed and if
+        # we have a language selection, the interface will be translated
+        # properly.
         if self.step_name(current) != 'stepLanguage':
             self.translate_widget(self.step_label, self.locale)
+        else:
+            selection = self.language_treeview.get_selection()
+            self.on_language_treeview_selection_changed(selection)
         syslog.syslog('switched to page %s' % self.step_name(current))
 
     def on_extra_button_toggled (self, widget):

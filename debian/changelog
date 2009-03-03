@@ -16,6 +16,8 @@ ubiquity (1.11.15) UNRELEASED; urgency=low
   * Use better descriptions on the finished dialog and show an information
     icon to be consistent with other dialogs.  Thanks Matthew Paul Thomas
     (LP: #258017).
+  * Properly update the step number when pressing back to get to the language
+    selection page (LP: #336740).
 
   [ Mario Limonciello ]
   * Remove dead AdditionalDrivers code.
