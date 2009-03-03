@@ -1,3 +1,10 @@
+oem-config (1.54.8) UNRELEASED; urgency=low
+
+  * Fix typo: "oem-config/text/task_heading_label" should have been
+    "oem-config/text/tasks_heading_label".
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 03 Mar 2009 15:01:02 +0000
+
 oem-config (1.54.7) jaunty; urgency=low
 
   [ Evan Dandrea ]

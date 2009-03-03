@@ -87,7 +87,7 @@ class Frontend(BaseFrontend):
                 self.db.settitle('oem-config/text/network_heading_label')
                 step = network.Network(self, self.db)
             elif current_name == 'step_tasks':
-                self.db.settitle('oem-config/text/task_heading_label')
+                self.db.settitle('oem-config/text/tasks_heading_label')
                 step = tasks.Tasks(self, self.db)
             else:
                 raise ValueError, "step %s not recognised" % current_name
