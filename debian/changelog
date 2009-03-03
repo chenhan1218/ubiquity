@@ -5,6 +5,8 @@ ubiquity (1.11.15) UNRELEASED; urgency=low
     password (text mostly borrowed from user-setup).
   * Cope with renaming of passwd/allow-password-empty to
     user-setup/allow-password-empty in user-setup 1.23ubuntu14.
+  * Remove obsolete ubiquity/text/timezone_country_label and
+    ubiquity/text/timezone_time_label templates.
   
   [ Roman Shtylman ]
   * moved common pixmaps to artwork package

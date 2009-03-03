@@ -78,14 +78,6 @@ Template: ubiquity/text/timezone_zone_label
 Type: text
 _Description: Region:
 
-Template: ubiquity/text/timezone_country_label
-Type: text
-_Description: Selected region:
-
-Template: ubiquity/text/timezone_time_label
-Type: text
-_Description: Current time:
-
 Template: ubiquity/text/keyboard_heading_label
 Type: text
 _Description: Keyboard layout
