@@ -8,6 +8,7 @@ oem-config (1.54.8) UNRELEASED; urgency=low
       that doesn't disconnect from fd 3.
   * Remove obsolete local copy of DebconfCommunicator. We just rely on a new
     enough debconf now.
+  * Automatic update of included source packages: console-setup 1.28ubuntu6.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 03 Mar 2009 15:01:02 +0000
 
