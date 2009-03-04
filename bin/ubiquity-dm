@@ -107,10 +107,13 @@ class DM:
 
         # Really we should select on a pipe or something, but it's not worth
         # the effort for now.
-        timeout = 10
+        timeout = 60
         while not self.server_started:
+            status = server.poll()
+            if type(status) is int and status != 0:
+                raise XStartupError, "X server exited with return code " + str(status)
             if timeout == 0:
-                raise XStartupError, "X server failed to start after 10 seconds"
+                raise XStartupError, "X server failed to start after 60 seconds"
             time.sleep(1)
             timeout -= 1
 
