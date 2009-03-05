@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-02-24 17:11+0000\n"
+"POT-Creation-Date: 2009-03-05 08:55+0000\n"
 "PO-Revision-Date: 2009-01-30 14:26+0000\n"
 "Last-Translator: Manuel R. Ciosici <manuelciosici@yahoo.com>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
@@ -142,68 +142,56 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
-msgid "Selected region:"
-msgstr "Regiunea aleasă:"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:18001
-msgid "Current time:"
-msgstr "Timpul curent:"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:19001
 msgid "Keyboard layout"
 msgstr "Aranjament tastatură"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:20001
+#: ../ubiquity.templates:18001
 msgid "Which layout is most similar to your keyboard?"
 msgstr ""
 "Ce aranjament este cel mai apropiat de cel al tastaturii dumneavoastră?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:21001
+#: ../ubiquity.templates:19001
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
 "Puteți tasta în această căsuță pentru a testa noul aranjament al tastaturii."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:22001
+#: ../ubiquity.templates:20001
 msgid "Suggested option:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:23001
+#: ../ubiquity.templates:21001
 msgid "Choose your own:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:24001
+#: ../ubiquity.templates:22001
 msgid "Who are you?"
 msgstr "Cine sunteți?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:25001
+#: ../ubiquity.templates:23001
 msgid "What is your name?"
 msgstr "Care este numele tău?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:26001
+#: ../ubiquity.templates:24001
 msgid "What name do you want to use to log in?"
 msgstr "Ce nume dorești să folosești pentru autentificare?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:27001
+#: ../ubiquity.templates:25001
 msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
@@ -213,34 +201,35 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:28001
+#: ../ubiquity.templates:26001
 msgid "Choose a password to keep your account safe."
 msgstr "Alegeți o parolă pentru a menține acest cont în siguranță."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:29001
+#: ../ubiquity.templates:27001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr "Rulați în modul de depanare. Nu folosiți o parolă importantă."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:30001
+#: ../ubiquity.templates:28001
 msgid ""
-"Enter the same password twice, so that it can be checked for typing errors."
+"Enter the same password twice, so that it can be checked for typing errors. "
+"A good password will contain a mixture of letters, numbers and punctuation, "
+"should be at least eight characters long, and should be changed at regular "
+"intervals."
 msgstr ""
-"Introduceți aceași parolă de două ori pentru a fi verificată împotriva "
-"erorilor de tastare."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:31001
+#: ../ubiquity.templates:29001
 msgid "What is the name of this computer?"
 msgstr "Cum se numește acest calculator?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:32001
+#: ../ubiquity.templates:30001
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
@@ -249,31 +238,31 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:33001
+#: ../ubiquity.templates:31001
 msgid "Log in automatically"
 msgstr "Autentificare automată"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:34001
+#: ../ubiquity.templates:32001
 msgid "Require a password to log in"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:35001
+#: ../ubiquity.templates:33001
 msgid "Require a password to log in and to decrypt your home folder"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:36001
+#: ../ubiquity.templates:34001
 msgid "Migrate documents and settings"
 msgstr "Migrează documentele și setările"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:37001
+#: ../ubiquity.templates:35001
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
@@ -283,7 +272,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:37001
+#: ../ubiquity.templates:35001
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
@@ -293,37 +282,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:38001
+#: ../ubiquity.templates:36001
 msgid "Prepare disk space"
 msgstr "Pregătire spațiu pe disc"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:39001
+#: ../ubiquity.templates:37001
 msgid "How do you want to partition the disk?"
 msgstr "Cum doriți să partiționați discul?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:40001
+#: ../ubiquity.templates:38001
 msgid "This computer has no operating systems on it."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:41001
+#: ../ubiquity.templates:39001
 msgid "This computer has ${OS} on it."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:42001
+#: ../ubiquity.templates:40001
 msgid "This computer has several operating systems on it."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:43001
+#: ../ubiquity.templates:41001
 #, fuzzy
 #| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
@@ -331,7 +320,7 @@ msgstr "Ce nume dorești să folosești pentru autentificare?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:42001
 msgid "Prepare partitions"
 msgstr "Pregătire partiții"
 
@@ -339,27 +328,27 @@ msgstr "Pregătire partiții"
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:45001 ../ubiquity.templates:95001
+#: ../ubiquity.templates:43001 ../ubiquity.templates:93001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
 msgstr "Gata de instalare"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:44001
 msgid "Details"
 msgstr "Detalii"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:45001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr "Noul tău sistem de operare va fi instalat cu următoarele setări:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:46001
 msgid "Advanced..."
 msgstr "Avansat..."
 
@@ -367,63 +356,69 @@ msgstr "Avansat..."
 #. Description
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:47001
 msgid "Install[ action ]"
 msgstr "Instalează"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:48001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr "Pasul ${INDEX} din ${TOTAL}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:49001
 msgid "Quit the installation?"
 msgstr "Anulează instalarea?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:50001
 msgid "Do you really want to quit the installation now?"
 msgstr "Sigur doriți să anulați instalarea acum?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:51001
 msgid "Skip"
 msgstr "Treci peste"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:54001
-msgid "Installation complete"
+#: ../ubiquity.templates:52001
+#, fuzzy
+#| msgid "Installation complete"
+msgid "Installation Complete"
 msgstr "Instalare completă"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
-msgid "Continue using the live CD"
-msgstr "Continuă folosirea live CD"
+#: ../ubiquity.templates:53001
+#, fuzzy
+#| msgid "Continue"
+msgid "Continue Testing"
+msgstr "Continuă"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:56001
-msgid "Restart now"
+#: ../ubiquity.templates:54001
+#, fuzzy
+#| msgid "Restart now"
+msgid "Restart Now"
 msgstr "Repornește acum"
 
 #. Type: text
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:57001 ../ubiquity.templates:58001
+#: ../ubiquity.templates:55001 ../ubiquity.templates:56001
 msgid "Installer crashed"
 msgstr "Sistemul de instalare a eșuat"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:57001
 msgid ""
 "We're sorry; the installer crashed. Please file a new bug report at https://"
 "launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
@@ -443,7 +438,7 @@ msgstr ""
 #. Description
 #. Displayed next to a graphical bar depicting the state of the disk before
 #. automatic partitioning.
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:58001
 msgid "Before:"
 msgstr "Înainte:"
 
@@ -451,21 +446,21 @@ msgstr "Înainte:"
 #. Description
 #. Displayed next to a graphical bar depicting the state of the disk after
 #. automatic partitioning.
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:59001
 msgid "After:"
 msgstr "După:"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:60001
 msgid "New partition table"
 msgstr "Tabel nou de partiționare"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:61001
 msgid "New partition"
 msgstr "Partiție nouă"
 
@@ -474,21 +469,21 @@ msgstr "Partiție nouă"
 #. An action, displayed on a button or as a menu item.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001 ../ubiquity.templates:80001
+#: ../ubiquity.templates:62001 ../ubiquity.templates:78001
 msgid "Edit partition"
 msgstr "Modifică partiția"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:63001
 msgid "Delete partition"
 msgstr "Șterge partiție"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:64001
 msgid "Device"
 msgstr "Dispozitiv"
 
@@ -496,28 +491,28 @@ msgstr "Dispozitiv"
 #. Description
 #. A column heading in the partitioner. Indicates how the partition is to be
 #. used (ext2, swap, etc.).
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:65001
 msgid "Type"
 msgstr "Tip"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:66001
 msgid "Mount point"
 msgstr "Punct de montare"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:67001
 msgid "Format?"
 msgstr "Se formatează?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:68001
 msgid "Size"
 msgstr "Dimensiune"
 
@@ -525,27 +520,27 @@ msgstr "Dimensiune"
 #. Description
 #. A column heading in the partitioner. Indicates how much of the space on
 #. this partition is used by data.
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:69001
 msgid "Used"
 msgstr "Utilizat"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:70001
 msgid "free space"
 msgstr "stațiu liber"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:71001
 msgid "unknown"
 msgstr "necunoscut"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:72001
 msgid "Create partition"
 msgstr "Creeare partiții"
 
@@ -553,95 +548,100 @@ msgstr "Creeare partiții"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001 ../ubiquity.templates:82001
+#: ../ubiquity.templates:73001 ../ubiquity.templates:80001
 msgid "New partition size in megabytes (1000000 bytes):"
 msgstr "Dimensiunea noii partiții în megaocteți (1000000 octeți):"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:74001
 msgid "Beginning"
 msgstr "La început"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:75001
 msgid "End"
 msgstr "La sfârșit"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:76001
 msgid "Primary"
 msgstr "Primară"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:77001
 msgid "Logical"
 msgstr "Logică"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:79001
 msgid "Edit a partition"
 msgstr "Modifică o partiție"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:81001
 msgid "Advanced Options"
 msgstr "Opțiuni Avansate"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:82001
 msgid "Boot loader"
 msgstr "Încărcător de sistem"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:83001
 msgid "Install boot loader"
 msgstr "Instalează programul de pornire a sistemului"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:84001
 msgid "Popularity contest"
 msgstr "Concurs de popularitate"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:85001
 msgid "Participate in the package usage survey"
 msgstr "Participă la sondajul de utilizare a pachetelor"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:86001
 msgid "Network proxy"
 msgstr "Proxy rețea"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:87001
 msgid "HTTP proxy:"
 msgstr "Proxy HTTP:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:88001
 msgid "Port:"
 msgstr "Port:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:89001
+#, fuzzy
+#| msgid ""
+#| "Installation is complete. You need to restart the computer in order to "
+#| "use the new installation. You can continue to use this live CD, although "
+#| "any changes you make or documents you save will not be preserved."
 msgid ""
-"Installation is complete. You need to restart the computer in order to use "
-"the new installation. You can continue to use this live CD, although any "
-"changes you make or documents you save will not be preserved."
+"Installation has finished.  You can continue testing Ubuntu now, but until "
+"you restart the computer, any changes you make or documents you save will "
+"not be preserved."
 msgstr ""
 "Instalarea este completă. Trebuie să reporniți calculatorul pentru a utiliza "
 "noua instalare. Puteți continua să folosiți acest live CD, dar modificările "
@@ -650,20 +650,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:90001
 msgid "Go Back"
 msgstr "Înapoi"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:91001
 msgid "Continue"
 msgstr "Continuă"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:92001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
@@ -674,7 +674,7 @@ msgstr ""
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:93001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -694,37 +694,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:94001
 msgid "Checking the installation..."
 msgstr "Verific instalare..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:97001
+#: ../ubiquity.templates:95001
 msgid "Installing system"
 msgstr "Instalare sistem"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:98001
+#: ../ubiquity.templates:96001
 msgid "Finding the distribution to copy..."
 msgstr "Căutare distribuție pentru copiere..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:98001
 msgid "Scanning files..."
 msgstr "Examinare fișiere..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:99001
 msgid "Copying files..."
 msgstr "Copiere fișiere..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:100001
 msgid "Copying files (less than a minute remaining)..."
 msgstr "Copiere fișiere (a rămas mai puțin de un minut)..."
 
@@ -738,9 +738,9 @@ msgstr "Copiere fișiere (a rămas mai puțin de un minut)..."
 #. Description
 #. Type: select
 #. Description
+#: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 #: ../ubiquity.templates:103001 ../ubiquity.templates:104001
-#: ../ubiquity.templates:105001 ../ubiquity.templates:106001
-#: ../ubiquity.templates:107001
+#: ../ubiquity.templates:105001
 msgid "Installation Failed"
 msgstr "Instalarea a eşuat"
 
@@ -752,8 +752,8 @@ msgstr "Instalarea a eşuat"
 #. Description
 #. Type: error
 #. Description
+#: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 #: ../ubiquity.templates:103001 ../ubiquity.templates:104001
-#: ../ubiquity.templates:105001 ../ubiquity.templates:106001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
 "Programul de instalare a întâmpinat o problemă în timpul copierii fișierelor "
@@ -761,7 +761,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:103001
+#: ../ubiquity.templates:101001
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
@@ -773,7 +773,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:104001
+#: ../ubiquity.templates:102001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -786,7 +786,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:105001
+#: ../ubiquity.templates:103001
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -804,7 +804,7 @@ msgstr ""
 #. Description
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
-#: ../ubiquity.templates:106001 ../ubiquity.templates:107001
+#: ../ubiquity.templates:104001 ../ubiquity.templates:105001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -821,145 +821,145 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../ubiquity.templates:107001
+#: ../ubiquity.templates:105001
 msgid "The following file did not match its source copy on the CD/DVD:"
 msgstr "Următorul fișier nu s-a potrivit cu sursa copierii de pe CD/DVD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:106001
 msgid "Copying installation logs..."
 msgstr "Copiere jurnal de instalare..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:109001
+#: ../ubiquity.templates:107001
 msgid "Configuring target system..."
 msgstr "Se configurează sistemul ales..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:108001
 msgid "Configuring system locales..."
 msgstr "Configurare date locale..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:111001
+#: ../ubiquity.templates:109001
 msgid "Configuring apt..."
 msgstr "Configurează apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:112001
+#: ../ubiquity.templates:110001
 msgid "Configuring time zone..."
 msgstr "Configurare fus orar..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:113001
+#: ../ubiquity.templates:111001
 msgid "Configuring keyboard..."
 msgstr "Configurare tastatură..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:114001
+#: ../ubiquity.templates:112001
 msgid "Creating user..."
 msgstr "Creare utilizator..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:115001
+#: ../ubiquity.templates:113001
 msgid "Importing documents and settings..."
 msgstr "Import documentele și setările ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:116001
+#: ../ubiquity.templates:114001
 msgid "Configuring hardware..."
 msgstr "Configurare hardware..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:117001
+#: ../ubiquity.templates:115001
 msgid "Configuring network..."
 msgstr "Se configurează rețeaua..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:118001
+#: ../ubiquity.templates:116001
 msgid "Setting computer name..."
 msgstr "Setare nume calculator..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:119001
+#: ../ubiquity.templates:117001
 msgid "Configuring boot loader..."
 msgstr "Configurare boot loader..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:120001
+#: ../ubiquity.templates:118001
 msgid "Installing additional packages..."
 msgstr "Se instalează pachete adiționale..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:121001
+#: ../ubiquity.templates:119001
 msgid "Checking for packages to install..."
 msgstr "Se verifică pachetele pentru instalare..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:122001
+#: ../ubiquity.templates:120001
 msgid "Removing extra packages..."
 msgstr "Eliminare pachete extra..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:123001
+#: ../ubiquity.templates:121001
 msgid "Checking for packages to remove..."
 msgstr "Verificare pachete de șters..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:124001
+#: ../ubiquity.templates:122001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Descărcare pachete (durată ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:125001
+#: ../ubiquity.templates:123001
 msgid "Downloading package lists..."
 msgstr "Descărcare liste de pachete..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:126001
+#: ../ubiquity.templates:124001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Descărcare liste de pachete (durată ${TIME})..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:126001
 msgid "Error installing ${PACKAGE}"
 msgstr "Nu am putut instala ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:129001
+#: ../ubiquity.templates:127001
 msgid "Error removing ${PACKAGE}"
 msgstr "Nu am putut șterge ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:130001
+#: ../ubiquity.templates:128001
 msgid "Error while installing packages"
 msgstr "Eroare în timpul instalării pachetelor"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:130001
+#: ../ubiquity.templates:128001
 msgid "An error occurred while installing packages:"
 msgstr "O eroare a apărut pe parcursul instalării pachetelor:"
 
@@ -967,7 +967,7 @@ msgstr "O eroare a apărut pe parcursul instalării pachetelor:"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:130001 ../ubiquity.templates:131001
+#: ../ubiquity.templates:128001 ../ubiquity.templates:129001
 msgid "The following packages are in a broken state:"
 msgstr "Următoarele pachete sunt în stadiul \"stricat\":"
 
@@ -975,7 +975,7 @@ msgstr "Următoarele pachete sunt în stadiul \"stricat\":"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:130001 ../ubiquity.templates:131001
+#: ../ubiquity.templates:128001 ../ubiquity.templates:129001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -996,43 +996,43 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:131001
+#: ../ubiquity.templates:129001
 msgid "Error while removing packages"
 msgstr "Eroare în timpu dezinstalării pachetelor"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:131001
+#: ../ubiquity.templates:129001
 msgid "An error occurred while removing packages:"
 msgstr "O eroare a apărut în timpul dezinstalării pachetelor:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:132001
 msgid "Calculating files to skip copying..."
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:135001
+#: ../ubiquity.templates:133001
 msgid "Installing language packs"
 msgstr "Instalare pachete pentru limba selectată"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:136001
+#: ../ubiquity.templates:134001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Instalare pachete pentru limba selectată (durată ${TIME})..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:142001
+#: ../ubiquity.templates:140001
 msgid "Failed to unmount partitions"
 msgstr "Eșec la demontarea partițiilor"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:142001
+#: ../ubiquity.templates:140001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -1043,14 +1043,14 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:142001
+#: ../ubiquity.templates:140001
 msgid "Please close any applications using these mount points."
 msgstr ""
 "Vă rugăm închideți orice aplicație care folosește aceste locuri de montare."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:142001
+#: ../ubiquity.templates:140001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Doriți ca programul de instalare să încerce demontarea acestor partiții din "
@@ -1058,13 +1058,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:148001
+#: ../ubiquity.templates:146001
 msgid "Do you want to return to the partitioner?"
 msgstr "Doriți să vă întoarceți la împărțitor?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:148001
+#: ../ubiquity.templates:146001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
@@ -1074,7 +1074,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:148001
+#: ../ubiquity.templates:146001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1366,6 +1366,22 @@ msgstr "Configurare servicii adiționale..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Se configurează dispozitivele infraroșu..."
+
+#~ msgid "Selected region:"
+#~ msgstr "Regiunea aleasă:"
+
+#~ msgid "Current time:"
+#~ msgstr "Timpul curent:"
+
+#~ msgid ""
+#~ "Enter the same password twice, so that it can be checked for typing "
+#~ "errors."
+#~ msgstr ""
+#~ "Introduceți aceași parolă de două ori pentru a fi verificată împotriva "
+#~ "erorilor de tastare."
+
+#~ msgid "Continue using the live CD"
+#~ msgstr "Continuă folosirea live CD"
 
 #~ msgid ""
 #~ "Select a city in your country and time zone. If the indicated current "
