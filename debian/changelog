@@ -20,6 +20,12 @@ ubiquity (1.11.15) UNRELEASED; urgency=low
     (LP: #258017).
   * Properly update the step number when pressing back to get to the language
     selection page (LP: #336740).
+  * Automatic update of included source packages: apt-setup
+    1:0.37ubuntu10, console-setup 1.28ubuntu6, debian-installer-utils
+    1.66ubuntu1, hw-detect 1.71ubuntu5, kboot-installer 0.0.1ubuntu9,
+    localechooser 2.09ubuntu2, partman-auto-loop 0ubuntu16, partman-base
+    129ubuntu1, partman-basicfilesystems 62ubuntu2, partman-partitioning
+    64ubuntu4, user-setup 1.23ubuntu14.
 
   [ Mario Limonciello ]
   * Remove dead AdditionalDrivers code.
