@@ -27,33 +27,49 @@ import gobject
 import os
 import datetime
 
-# FIXME: Use the proper 40 time zones:
-# http://en.wikipedia.org/wiki/List_of_time_zones
+# We need a color coded map so we can only select from the list of points that
+# are in the time zone band the user clicked on.  It would be odd if the user
+# clicked within UTC-5, but it selected a point in UTC-6 because it was closer
+# to the mouse.
 color_codes = {
-'-11' : [192, 128, 128, 255],
-'-10' : [255, 128, 128, 255],
-'-9' : [192, 192, 128, 255],
-'-8' : [128, 192, 128, 255],
-'-7' : [128, 255, 128, 255],
-'-6' : [128, 192, 192, 255],
-'-5' : [128, 255, 255, 255],
-'-4' : [128, 128, 192, 255],
-'-3' : [128, 128, 255, 255],
-'-2' : [192, 128, 192, 255],
-'-1' : [255, 128, 255, 255],
-'0' : [149, 128, 128, 255],
-'1' : [170, 145, 128, 255],
-'2' : [255, 179, 128, 255],
-'3' : [204, 255, 170, 255],
-'4' : [145, 128, 149, 255],
-'5' : [255, 213, 230, 255],
-'6' : [155, 184, 228, 255],
-'7' : [255, 128, 179, 255],
-'8' : [128, 192, 153, 255],
-'9' : [255, 234, 149, 255],
-'10' : [228, 184, 155, 255],
-'11' : [213, 234, 128, 255],
-'12' : [195, 239, 213, 255],
+# We don't handle UTC-12, but as that's just the US Minor Outlying Islands, I
+# think we're ok, as Wikiepdia says, "As of 2008, none of the islands has any
+# permanent residents."
+'-11.0' : [43, 0, 0, 255],
+'-10.0' : [85, 0, 0, 255],
+'-9.0' : [128, 0, 0, 255],
+'-8.0' : [170, 0, 0, 255],
+'-7.0' : [212, 0, 0, 255],
+'-6.0' : [255, 0, 0, 255],
+'-5.0' : [255, 42, 42, 255],
+'-4.0' : [255, 85, 85, 255],
+'-3.5' : [0, 255, 0, 255],
+'-3.0' : [255, 128, 128, 255],
+'-2.0' : [255, 170, 170, 255],
+'-1.0' : [255, 213, 213, 255],
+'0.0' : [43, 17, 0, 255],
+'1.0' : [85, 34, 0, 255],
+'2.0' : [128, 51, 0, 255],
+'3.0' : [170, 68, 0, 255],
+'3.5' : [0, 255, 102, 255],
+'4.0' : [212, 85, 0, 255],
+'4.5' : [0, 204, 255, 255],
+'5.0' : [255, 102, 0, 255],
+'5.5' : [0, 102, 255, 255],
+'5.75' : [0, 238, 207, 247],
+'6.0' : [255, 127, 42, 255],
+'6.5' : [204, 0, 254, 254],
+'7.0' : [255, 153, 85, 255],
+'8.0' : [255, 179, 128, 255],
+'9.0' : [255, 204, 170, 255],
+'9.5' : [170, 0, 68, 250],
+'10.0' : [255, 230, 213, 255],
+'10.5' : [212, 124, 21, 250],
+'11.0' : [212, 170, 0, 255],
+'11.5' : [249, 25, 87, 253],
+'12.0' : [255, 204, 0, 255],
+'12.75' : [254, 74, 100, 248],
+'13.0' : [255, 85, 153, 250],
 }
 
 class TimezoneMap(gtk.Widget):
@@ -70,10 +86,10 @@ class TimezoneMap(gtk.Widget):
         self.image_path = image_path
         self.orig_background = \
             gtk.gdk.pixbuf_new_from_file(os.path.join(self.image_path,
-            'time_zones_background.png'))
+            'bg.png'))
         self.orig_color_map = \
             gtk.gdk.pixbuf_new_from_file(os.path.join(self.image_path,
-            'time_zones_colorcodes.png'))
+            'cc.png'))
         self.connect('button-press-event', self.button_press)
         self.connect('map-event', self.mapped)
         self.connect('unmap-event', self.unmapped)
@@ -118,6 +134,21 @@ class TimezoneMap(gtk.Widget):
         cr = self.window.cairo_create()
         cr.set_source_pixbuf(self.background, 0, 0)
         cr.paint()
+        
+        # Render highlight.
+        # Possibly not the best solution, though in my head it seems better
+        # than keeping two copies (original an resized) of every timezone in
+        # memory.
+        if self.selected_offset != None:
+            try:
+                pixbuf = gtk.gdk.pixbuf_new_from_file(os.path.join(self.image_path,
+                    'timezone_%s.png' % self.selected_offset))
+                pixbuf = pixbuf.scale_simple(self.allocation.width,
+                    self.allocation.height, gtk.gdk.INTERP_BILINEAR)
+                cr.set_source_pixbuf(pixbuf, 0, 0)
+                cr.paint()
+            except glib.GError, e:
+                print 'Error setting the time zone band highlight:', str(e)
 
         # Plot cities.
         height = self.allocation.height
@@ -157,21 +188,6 @@ class TimezoneMap(gtk.Widget):
                 cr.show_text(time_text)
             cr.stroke()
 
-        
-        # Render highlight.
-        # Possibly not the best solution, though in my head it seems better
-        # than keeping two copies (original an resized) of every timezone in
-        # memory.
-        if self.selected_offset != None:
-            try:
-                pixbuf = gtk.gdk.pixbuf_new_from_file(os.path.join(self.image_path,
-                    'time_zones_highlight_%s.png' % self.selected_offset))
-                pixbuf = pixbuf.scale_simple(self.allocation.width,
-                    self.allocation.height, gtk.gdk.INTERP_BILINEAR)
-                cr.set_source_pixbuf(pixbuf, 0, 0)
-                cr.paint()
-            except glib.GError:
-                pass
     def timeout(self):
         self.queue_draw()
         return True
@@ -189,7 +205,7 @@ class TimezoneMap(gtk.Widget):
         self.selected = city
         for loc in self.tzdb.locations:
             if loc.zone == city:
-                offset = (loc.utc_offset.days * 24) + (loc.utc_offset.seconds / 60 / 60)
+                offset = (loc.utc_offset.days * 24) + (loc.utc_offset.seconds / 60.0 / 60.0)
                 self.selected_offset = str(offset)
         self.queue_draw()
 
@@ -224,7 +240,7 @@ class TimezoneMap(gtk.Widget):
         else:
             self.distances = []
             for loc in self.tzdb.locations:
-                offset = (loc.utc_offset.days * 24) + (loc.utc_offset.seconds / 60 / 60)
+                offset = (loc.utc_offset.days * 24) + (loc.utc_offset.seconds / 60.0 / 60.0)
                 if str(offset) != self.selected_offset:
                     continue
                 pointx = (loc.longitude + 180) / 360

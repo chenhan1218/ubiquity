@@ -32,8 +32,8 @@ class TimezoneMap(QWidget):
         self.setObjectName("timezone_map")
         
         #load background pixmap
-        self.imagePath = "/usr/share/ubiquity/pixmaps"
-        self.pixmap = QPixmap("%s/time_zones_background.png" % self.imagePath)
+        self.imagePath = "/usr/share/ubiquity/pixmaps/timezone"
+        self.pixmap = QPixmap("%s/bg.png" % self.imagePath)
         
         #redraw timer for selected city time
         self.timer = QTimer(self)
@@ -44,7 +44,7 @@ class TimezoneMap(QWidget):
         # zonenum + 11 = index (because I can't negative index, but the files go negative)
         self.zonePixmaps = []
         for zone in range (-11, 13):
-            self.zonePixmaps.append(QPixmap('%s/time_zones_highlight_%d.png' % (self.imagePath, zone)))
+            self.zonePixmaps.append(QPixmap('%s/timezone_%.1f.png' % (self.imagePath, float(zone))))
             
         #load the timezones from database
         tzdb = ubiquity.tz.Database()
@@ -214,3 +214,4 @@ class TimezoneMap(QWidget):
             return None
         
         return self.selected_city.raw_zone
+

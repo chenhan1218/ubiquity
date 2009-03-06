@@ -1,3 +1,10 @@
+ubiquity (1.11.16) UNRELEASED; urgency=low
+
+  * Incorporate the final time zone map artwork.  Support some
+    additional time zones on the map.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 06 Mar 2009 12:57:32 +0000
+
 ubiquity (1.11.15) jaunty; urgency=low
 
   [ Colin Watson ]

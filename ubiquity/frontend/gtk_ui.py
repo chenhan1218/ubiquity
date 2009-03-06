@@ -508,7 +508,7 @@ class Wizard(BaseFrontend):
             self.tzmap.tzmap.show()
         else:
             self.tzdb = ubiquity.tz.Database()
-            self.tzmap = timezone_map.TimezoneMap(self.tzdb, '/usr/share/ubiquity/pixmaps')
+            self.tzmap = timezone_map.TimezoneMap(self.tzdb, '/usr/share/ubiquity/pixmaps/timezone')
             self.tzmap.connect('city-selected', self.select_city)
             self.timezone_map_window.add(self.tzmap)
             self.setup_timezone_page()
