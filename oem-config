@@ -27,6 +27,7 @@ import os
 import optparse
 import subprocess
 import tempfile
+import errno
 
 sys.path.insert(0, '/usr/lib/oem-config')
 

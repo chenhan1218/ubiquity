@@ -1,3 +1,9 @@
+oem-config (1.54.9) UNRELEASED; urgency=low
+
+  * Add missing errno import.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 06 Mar 2009 16:23:35 +0000
+
 oem-config (1.54.8) jaunty; urgency=low
 
   * debconf frontend:
