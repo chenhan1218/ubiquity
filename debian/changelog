@@ -14,6 +14,8 @@ ubiquity (1.11.16) UNRELEASED; urgency=low
   * Add a fudge of 20% to the size of each tree on the live filesystem
     (other than / and /boot, which already have their own fudge factors) for
     the purposes of the partition-too-small check (LP: #298318).
+  * Automatic update of included source packages: choose-mirror 2.27ubuntu4,
+    clock-setup 0.97ubuntu3, partman-partitioning 64ubuntu5.
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 06 Mar 2009 12:57:32 +0000
 
