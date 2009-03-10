@@ -1,12 +1,17 @@
+ubiquity (1.11.17) UNRELEASED; urgency=low
+
+  * Pack the timezone_map in an AspectFrame instead of a regular Gtk Frame.
+  * Plot the time zone cities using a Miller cylindrical map projection with
+    adjustments for the shifted left edge and missing arctic region of the
+    map.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 10 Mar 2009 16:30:11 +0000
+
 ubiquity (1.11.16) jaunty; urgency=low
 
   [ Evan Dandrea ]
   * Incorporate the final time zone map artwork.  Support some
     additional time zones on the map.
-  * Pack the timezone_map in an AspectFrame instead of a regular Gtk Frame.
-  * Plot the time zone cities using a Miller cylindrical map projection with
-    adjustments for the shifted left edge and missing arctic region of the
-    map.
 
   [ Colin Watson ]
   * KDE frontend:
