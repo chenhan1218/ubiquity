@@ -150,6 +150,8 @@ class Wizard(BaseFrontend):
         self.stay_on_page = False
         self.progress_position = ubiquity.progressposition.ProgressPosition()
         self.progress_cancelled = False
+        self.default_keyboard_layout = None
+        self.default_keyboard_variant = None
         self.autopartition_extras = {}
         self.resize_min_size = None
         self.resize_max_size = None
@@ -398,6 +400,8 @@ class Wizard(BaseFrontend):
 
             old_dbfilter = self.dbfilter
             self.dbfilter = self.pages[self.pagesindex](self)
+
+            self.prepare_page()
 
             # Non-debconf steps are no longer possible as the interface is now
             # driven by whether there is a question to ask.
@@ -1062,6 +1066,16 @@ class Wizard(BaseFrontend):
             if layout is not None and variant is not None:
                 self.dbfilter.apply_keyboard(layout, variant)
 
+    def prepare_page(self):
+        """Set up the frontend in preparation for running a step."""
+
+        # Note that self.current_page et al have not been updated for the
+        # new page yet, so we have to check self.dbfilter.
+
+        if isinstance(self.dbfilter, console_setup.ConsoleSetup):
+            self.default_keyboard_layout = None
+            self.default_keyboard_variant = None
+
     def process_step(self):
         """Process and validate the results of this step."""
 
@@ -1438,7 +1452,8 @@ class Wizard(BaseFrontend):
             self.set_keyboard(self.current_layout)
 
     def set_keyboard (self, layout):
-        self.default_keyboard_layout = layout
+        if self.default_keyboard_layout is None:
+            self.default_keyboard_layout = layout
         BaseFrontend.set_keyboard(self, layout)
         model = self.keyboardlayoutview.get_model()
         if model is None:
@@ -1478,7 +1493,8 @@ class Wizard(BaseFrontend):
                               self.on_keyboard_variant_selected)
 
     def set_keyboard_variant (self, variant):
-        self.default_keyboard_variant = variant
+        if self.default_keyboard_variant is None:
+            self.default_keyboard_variant = variant
         # Make sure the "suggested option" is selected, otherwise this will
         # change every time the user selects a new keyboard in the manual
         # choice selection boxes.
@@ -1511,6 +1527,13 @@ class Wizard(BaseFrontend):
     def on_suggested_keymap_toggled (self, widget):
         if self.suggested_keymap.get_active():
             self.keyboard_layout_hbox.set_sensitive(False)
+            if isinstance(self.dbfilter, console_setup.ConsoleSetup):
+                if (self.default_keyboard_layout is not None and
+                    self.default_keyboard_variant is not None):
+                    self.current_layout = self.default_keyboard_layout
+                    self.dbfilter.change_layout(self.default_keyboard_layout)
+                    self.dbfilter.apply_keyboard(self.default_keyboard_layout,
+                                                 self.default_keyboard_variant)
         else:
             self.keyboard_layout_hbox.set_sensitive(True)
         

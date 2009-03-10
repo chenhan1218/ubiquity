@@ -8,6 +8,9 @@ ubiquity (1.11.16) UNRELEASED; urgency=low
   * KDE frontend:
     - grub_device_entry is now a combobox, so we need to use currentText()
       rather than text() (LP: #337181).
+  * GTK frontend:
+    - Fix suggested keymap handling so that selecting that option after
+      selecting a custom keymap applies the suggested keymap (LP: #337998).
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 06 Mar 2009 12:57:32 +0000
 
