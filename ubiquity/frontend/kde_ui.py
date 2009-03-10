@@ -2004,7 +2004,7 @@ class Wizard(BaseFrontend):
         response = self.advanceddialog.exec_()
         if response == QDialog.Accepted:
             self.set_summary_device(
-                unicode(self.advanceddialog.grub_device_entry.currentText()))
+                unicode(self.advanceddialog.grub_device_entry.text()))
             self.set_popcon(self.advanceddialog.popcon_checkbutton.isChecked())
             self.set_grub(self.advanceddialog.grub_enable.isChecked())
             self.set_proxy_host(unicode(self.advanceddialog.proxy_host_entry.text()))
