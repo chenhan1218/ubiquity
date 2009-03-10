@@ -248,7 +248,8 @@ class TimezoneMap(gtk.Widget):
         self.selected = city
         for loc in self.tzdb.locations:
             if loc.zone == city:
-                offset = (loc.utc_offset.days * 24) + (loc.utc_offset.seconds / 60.0 / 60.0)
+                offset = (loc.raw_utc_offset.days * 24) + \
+                    (loc.raw_utc_offset.seconds / 60.0 / 60.0)
                 self.selected_offset = str(offset)
         self.queue_draw()
 
@@ -285,7 +286,8 @@ class TimezoneMap(gtk.Widget):
             height = self.background.get_height()
             width = self.background.get_width()
             for loc in self.tzdb.locations:
-                offset = (loc.utc_offset.days * 24) + (loc.utc_offset.seconds / 60.0 / 60.0)
+                offset = (loc.raw_utc_offset.days * 24) + \
+                    (loc.raw_utc_offset.seconds / 60.0 / 60.0)
                 if str(offset) != self.selected_offset:
                     continue
                 pointx = convert_longitude_to_x(loc.longitude, width)

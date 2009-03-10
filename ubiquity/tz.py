@@ -70,6 +70,14 @@ class SystemTzInfo(datetime.tzinfo):
         finally:
             self._restore_tz(tzbackup)
 
+    def rawutcoffset(self, dt):
+        tzbackup = self._select_tz()
+        try:
+            dstminutes = -time.timezone / 60
+            return datetime.timedelta(minutes=int(dstminutes))
+        finally:
+            self._restore_tz(tzbackup)
+
     def dst(self, dt):
         tzbackup = self._select_tz()
         try:
@@ -175,6 +183,7 @@ class Location(object):
             today = datetime.datetime.fromtimestamp(0)
         self.info = SystemTzInfo(self.zone)
         self.utc_offset = self.info.utcoffset(today)
+        self.raw_utc_offset = self.info.rawutcoffset(today)
         self.zone_letters = self.info.tzname_letters(today)
 
 

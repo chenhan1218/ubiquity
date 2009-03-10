@@ -5,6 +5,8 @@ ubiquity (1.11.17) UNRELEASED; urgency=low
   * Plot the time zone cities using a Miller cylindrical map projection with
     adjustments for the shifted left edge and missing arctic region of the
     map.
+  * Account for daylight savings when highlighting a region in the
+    timezone_map (LP: #335355).
 
   [ Colin Watson ]
   * Stop the user-setup component from believing it's done after the user
