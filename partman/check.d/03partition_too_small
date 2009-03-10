@@ -41,6 +41,9 @@ for part in $parts; do
 		rofssize="$(du -s --block-size=1 /rofs$mountpoint | cut -f1)"
 		if [ "$mountpoint" = "/boot" ]; then
 			rofssize="$(expr $rofssize \* $bootmultfudge)"
+		else
+			# general fudge factor: add 20% for luck
+			rofssize="$(expr $rofssize \* 12 / 10)"
 		fi
 		if ! longint_le $rofssize $size ; then
 			partitions="${partitions:+$partitions, }$mountpoint $rofssize"
