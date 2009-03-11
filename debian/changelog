@@ -1,4 +1,30 @@
-ubiquity (1.11.16) UNRELEASED; urgency=low
+ubiquity (1.11.17) UNRELEASED; urgency=low
+
+  [ Evan Dandrea ]
+  * Pack the timezone_map in an AspectFrame instead of a regular Gtk Frame.
+  * Plot the time zone cities using a Miller cylindrical map projection with
+    adjustments for the shifted left edge and missing arctic region of the
+    map.
+  * Account for daylight savings when highlighting a region in the
+    timezone_map (LP: #335355).
+
+  [ Colin Watson ]
+  * Stop the user-setup component from believing it's done after the user
+    selects "go back" at a weak password dialog (LP: #340549).
+  * Add ubiquity/keep-installed question which can be preseeded with a
+    space-separated list of packages to keep installed even if they aren't
+    in the desktop manifest and aren't in the list of language packs to keep
+    (LP: #290400).
+
+  [ Roman Shtylman ]
+  * updated kde side to new timezones and fixed: LP: #338064
+  * allow kde ui to install grub to other partitions, not just first boot
+    partition (LP: #340023)
+  * 
+
+ -- Roman Shtylman <shtylman@gmail.com>  Wed, 11 Mar 2009 11:18:01 -0400
+
+ubiquity (1.11.16) jaunty; urgency=low
 
   [ Evan Dandrea ]
   * Incorporate the final time zone map artwork.  Support some
@@ -14,13 +40,10 @@ ubiquity (1.11.16) UNRELEASED; urgency=low
   * Add a fudge of 20% to the size of each tree on the live filesystem
     (other than / and /boot, which already have their own fudge factors) for
     the purposes of the partition-too-small check (LP: #298318).
+  * Automatic update of included source packages: choose-mirror 2.27ubuntu4,
+    clock-setup 0.97ubuntu3, partman-partitioning 64ubuntu5.
 
-  [ Roman Shtylman ]
-  * updated kde side to new timezones and fixed: LP: #338064
-  * allow kde ui to install grub to other partitions, not just first boot 
-    partition (LP: #340023)
-
- -- Roman Shtylman <shtylman@gmail.com>  Tue, 10 Mar 2009 22:11:56 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 10 Mar 2009 10:19:54 +0000
 
 ubiquity (1.11.15) jaunty; urgency=low
 

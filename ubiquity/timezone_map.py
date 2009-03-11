@@ -19,6 +19,7 @@
 
 # A simple timezone map that highlights timezone bands.
 
+import math
 import cairo
 import gtk
 import glib
@@ -73,6 +74,36 @@ color_codes = {
 '13.0' : [255, 85, 153, 250],
 }
 
+# The South Pole is transformed from 0.0, -90.0 to 0.5, 1 before being adjusted
+# for the shifted and missing arctic section of the map.
+
+def convert_longitude_to_x(longitude, map_width):
+    # Miller cylindrical map projection is just the longitude as the
+    # calculation is the longitude from the central meridian of the projection.
+    # Convert to radians.
+    x = (longitude * (math.pi / 180)) + math.pi # 0 ... 2pi
+    # Convert to a percentage.
+    x = x / (2 * math.pi)
+    x = x * map_width
+    # Adjust for the visible map starting near 170 degrees.
+    # Percentage shift required, grabbed from measurements using The GIMP.
+    x = x - (map_width * 0.039073402)
+    return x
+
+def convert_latitude_to_y(latitude, map_height):
+    # Miller cylindrical map projection, as used in the source map from the CIA
+    # world factbook.  Convert latitude to radians.
+    y = 1.25 * math.log(math.tan((0.25 * math.pi) + \
+        (0.4 * (latitude * (math.pi / 180)))))
+    # Convert to a percentage.
+    y = abs(y - 2.30341254338) # 0 ... 4.606825
+    y = y / 4.6068250867599998
+    # Adjust for the visible map not including anything beyond 60 degrees south
+    # (150 degrees vs 180 degrees).
+    y = y * (map_height * 1.2)
+    return y
+
+
 class TimezoneMap(gtk.Widget):
     __gtype_name__ = 'TimezoneMap'
     __gsignals__ = {
@@ -103,6 +134,15 @@ class TimezoneMap(gtk.Widget):
         self.previous_click = (-1, -1)
         self.dist_pos = 0
         
+    def do_size_request(self, requisition):
+        # Set a small size request to create an aspect ratio for the parent
+        # widget.
+        width = self.orig_background.get_width() / 2
+        height = self.orig_background.get_height() / 2
+        requisition.width = width
+        requisition.height = height
+        gtk.Widget.do_size_request(self, requisition)
+
     def do_size_allocate(self, allocation):
         self.background = self.orig_background.scale_simple(allocation.width,
             allocation.height, gtk.gdk.INTERP_BILINEAR)
@@ -138,8 +178,9 @@ class TimezoneMap(gtk.Widget):
         
         # Render highlight.
         # Possibly not the best solution, though in my head it seems better
-        # than keeping two copies (original an resized) of every timezone in
+        # than keeping two copies (original and resized) of every timezone in
         # memory.
+        pixbuf = None
         if self.selected_offset != None:
             try:
                 pixbuf = gtk.gdk.pixbuf_new_from_file(os.path.join(self.image_path,
@@ -150,10 +191,13 @@ class TimezoneMap(gtk.Widget):
                 cr.paint()
             except glib.GError, e:
                 print 'Error setting the time zone band highlight:', str(e)
+                return
 
         # Plot cities.
-        height = self.allocation.height
-        width = self.allocation.width
+        height = self.background.get_height()
+        width = self.background.get_width()
+
+        # Useful for debugging time zone plotting.
         only_draw_selected = True
         for loc in self.tzdb.locations:
             if self.selected and loc.zone == self.selected:
@@ -163,21 +207,19 @@ class TimezoneMap(gtk.Widget):
                     continue
                 cr.set_source_color(gtk.gdk.color_parse("red"))
             
-            pointx = (loc.longitude + 180) / 360
-            pointy = 1 - ((loc.latitude + 90) / 180)
-            xx = width
-            yx = height
-            # FIXME: Horribly inaccurate, does not take in to account wrapping
-            # some timezone points back to the start of the map.
-            pointx = pointx * xx - 20
-            pointy = pointy * yx + 42
+            pointx = convert_longitude_to_x(loc.longitude, width)
+            pointy = convert_latitude_to_y(loc.latitude, height)
 
-            cr.set_line_width(2)
-            cr.move_to(pointx - 3, pointy - 3)
-            cr.line_to(pointx + 3, pointy + 3)
-            cr.move_to(pointx + 3, pointy - 3)
-            cr.line_to(pointx - 3, pointy + 3)
-            if self.selected and loc.zone == self.selected:
+            if only_draw_selected:
+                cr.set_line_width(2)
+                cr.move_to(pointx - 3, pointy - 3)
+                cr.line_to(pointx + 3, pointy + 3)
+                cr.move_to(pointx + 3, pointy - 3)
+                cr.line_to(pointx - 3, pointy + 3)
+            else:
+                cr.arc(pointx, pointy, 0.5, 0, 2 * math.pi)
+            # Draw the time.
+            if self.selected and loc.zone == self.selected and only_draw_selected:
                 now = datetime.datetime.now(loc.info)
                 time_text = now.strftime('%X')
                 xbearing, ybearing, width, height, xadvance, yadvance = \
@@ -206,7 +248,8 @@ class TimezoneMap(gtk.Widget):
         self.selected = city
         for loc in self.tzdb.locations:
             if loc.zone == city:
-                offset = (loc.utc_offset.days * 24) + (loc.utc_offset.seconds / 60.0 / 60.0)
+                offset = (loc.raw_utc_offset.days * 24) + \
+                    (loc.raw_utc_offset.seconds / 60.0 / 60.0)
                 self.selected_offset = str(offset)
         self.queue_draw()
 
@@ -240,14 +283,15 @@ class TimezoneMap(gtk.Widget):
             self.dist_pos = (self.dist_pos + 1) % len(self.distances)
         else:
             self.distances = []
+            height = self.background.get_height()
+            width = self.background.get_width()
             for loc in self.tzdb.locations:
-                offset = (loc.utc_offset.days * 24) + (loc.utc_offset.seconds / 60.0 / 60.0)
+                offset = (loc.raw_utc_offset.days * 24) + \
+                    (loc.raw_utc_offset.seconds / 60.0 / 60.0)
                 if str(offset) != self.selected_offset:
                     continue
-                pointx = (loc.longitude + 180) / 360
-                pointy = 1 - ((loc.latitude + 90) / 180)
-                pointx = pointx * self.allocation.width - 20
-                pointy = pointy * self.allocation.height + 42
+                pointx = convert_longitude_to_x(loc.longitude, width)
+                pointy = convert_latitude_to_y(loc.latitude, height)
                 dx = pointx - x
                 dy = pointy - y
                 dist = dx * dx + dy * dy

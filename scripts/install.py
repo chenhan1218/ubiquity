@@ -1181,6 +1181,15 @@ exit 0"""
 
 
     def select_language_packs(self):
+        try:
+            keep_packages = self.db.get('ubiquity/keep-installed')
+            keep_packages = keep_packages.replace(',', '').split()
+            syslog.syslog('keeping packages due to preseeding: %s' %
+                          ' '.join(keep_packages))
+            self.record_installed(keep_packages)
+        except debconf.DebconfError:
+            pass
+
         langpacks = []
         try:
             langpack_db = self.db.get('pkgsel/language-packs')
