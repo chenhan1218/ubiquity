@@ -244,5 +244,3 @@ class TimezoneMap(QWidget):
             return None
         
         return self.selected_city.raw_zone
-
-import sys
