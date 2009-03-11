@@ -41,7 +41,6 @@ class TimezoneMap(QWidget):
         self.timer.start(1000)
         
         #load the pixmaps for the zone overlays
-        # zonenum + 11 = index (because I can't negative index, but the files go negative)
         zones = ['0.0', '1.0', '2.0', '3.0', '3.5', '4.0', '4.5', '5.0', '5.75', '6.0', 
             '6.5', '7.0', '8.0', '9.0', '9.5', '10.0', '10.5', '11.0', '11.5', '12.0', '12.75', '13.0',
             '-1.0', '-2.0', '-3.0', '-3.5', '-4.0', '-5.0', '-5.5', '-6.0', '-7.0', 
@@ -50,9 +49,8 @@ class TimezoneMap(QWidget):
         zonePixmaps = {}
             
         for zone in zones:
-            print '%s/timezone_%s.png' % (self.imagePath, zone)
+            #print '%s/timezone_%s.png' % (self.imagePath, zone)
             zonePixmaps[zone] = QPixmap('%s/timezone_%s.png' % (self.imagePath, zone));
-            #zonePixmaps.append(QPixmap('%s/timezone_%.1f.png' % (self.imagePath, float(zone))))
             
         #load the timezones from database
         tzdb = ubiquity.tz.Database()
@@ -70,8 +68,7 @@ class TimezoneMap(QWidget):
             # zone is the hours offset from 0
             zoneHour = (location.utc_offset.seconds)/3600.0 + location.utc_offset.days * 25
             
-            # FIXME, some locations give a 14 hour ahead time...im lost what does it mean??
-            # hour gives one part of the story, need to get city to know what zone we have
+            #wrap around
             if zoneHour > 13.0:
                 zoneHour -= 24.0
             
