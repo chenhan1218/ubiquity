@@ -15,7 +15,12 @@ ubiquity (1.11.16) UNRELEASED; urgency=low
     (other than / and /boot, which already have their own fudge factors) for
     the purposes of the partition-too-small check (LP: #298318).
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 06 Mar 2009 12:57:32 +0000
+  [ Roman Shtylman ]
+  * updated kde side to new timezones and fixed: LP: #338064
+  * allow kde ui to install grub to other partitions, not just first boot 
+    partition (LP: #340023)
+
+ -- Roman Shtylman <shtylman@gmail.com>  Tue, 10 Mar 2009 22:11:56 -0400
 
 ubiquity (1.11.15) jaunty; urgency=low
 

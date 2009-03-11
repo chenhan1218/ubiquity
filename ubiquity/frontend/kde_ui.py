@@ -1949,13 +1949,13 @@ class Wizard(BaseFrontend):
             i = text.find("\n")
         self.userinterface.ready_text.setText(text)
 
+    ## called to set all possible install locations for grub
     def set_grub_combo(self, options):
         ''' options gives us a possible list of install locations for the boot loader '''
-        #self.advanceddialog.grub_device_entry.clear()
+        self.advanceddialog.grub_device_entry.clear()
         ''' options is from summary.py grub_options() '''
-        #for opt in options:
-        #   self.advanceddialog.grub_device_entry.addItem(opt[0]);
-        pass
+        for opt in options:
+           self.advanceddialog.grub_device_entry.addItem(opt[0]);
 
     def on_advanced_button_clicked (self):
         self.translate_widget_children(self.advanceddialog)
@@ -1970,10 +1970,16 @@ class Wizard(BaseFrontend):
             self.advanceddialog.grub_device_label.show()
             self.advanceddialog.grub_device_entry.show()
             
-            self.advanceddialog.grub_device_entry.clear()
-            #using find_grub_target to get the actual install device
-            #TODO present user with a list of other options
-            self.advanceddialog.grub_device_entry.addItem(summary.find_grub_target())
+            # if the combo box does not yet have the target install device, add it
+            # select current device
+            target = summary.find_grub_target()
+            index = self.advanceddialog.grub_device_entry.findText(target)
+            if (index == -1):
+                self.advanceddialog.grub_device_entry.addItem(target)
+                index = self.advanceddialog.grub_device_entry.count() - 1
+            
+            # select the target device
+            self.advanceddialog.grub_device_entry.setCurrentIndex(index)
             
             self.advanceddialog.grub_device_entry.setEnabled(grub_en)
             self.advanceddialog.grub_device_label.setEnabled(grub_en)

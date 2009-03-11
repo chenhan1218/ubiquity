@@ -8,12 +8,12 @@ import ubiquity.tz
 
 #contains information about a geographical timezone city
 class City:
-    def __init__(self, cName, zName, lat, lng, zone, raw_zone):
+    def __init__(self, cName, zName, lat, lng, raw_zone):
         self.city_name = cName
         self.zone_name = zName
         self.lat = lat
         self.long = lng
-        self.zone = zone
+        self.pixmap = None
         # pre-split zone text
         self.raw_zone = raw_zone
         #index in the cities array
@@ -42,9 +42,17 @@ class TimezoneMap(QWidget):
         
         #load the pixmaps for the zone overlays
         # zonenum + 11 = index (because I can't negative index, but the files go negative)
-        self.zonePixmaps = []
-        for zone in range (-11, 13):
-            self.zonePixmaps.append(QPixmap('%s/timezone_%.1f.png' % (self.imagePath, float(zone))))
+        zones = ['0.0', '1.0', '2.0', '3.0', '3.5', '4.0', '4.5', '5.0', '5.75', '6.0', 
+            '6.5', '7.0', '8.0', '9.0', '9.5', '10.0', '10.5', '11.0', '11.5', '12.0', '12.75', '13.0',
+            '-1.0', '-2.0', '-3.0', '-3.5', '-4.0', '-5.0', '-5.5', '-6.0', '-7.0', 
+            '-8.0', '-9.0', '-9.5', '-10.0', '-11.0']
+            
+        zonePixmaps = {}
+            
+        for zone in zones:
+            print '%s/timezone_%s.png' % (self.imagePath, zone)
+            zonePixmaps[zone] = QPixmap('%s/timezone_%s.png' % (self.imagePath, zone));
+            #zonePixmaps.append(QPixmap('%s/timezone_%.1f.png' % (self.imagePath, float(zone))))
             
         #load the timezones from database
         tzdb = ubiquity.tz.Database()
@@ -60,20 +68,40 @@ class TimezoneMap(QWidget):
             cityName = '/'.join(zone_bits[1:]).replace('_', ' ')
             
             # zone is the hours offset from 0
-            # adding 1800 to make the hour round correctly (round up) for non hour zones)
-            zone = (location.utc_offset.seconds + 1800)//3600 + location.utc_offset.days * 24
+            zoneHour = (location.utc_offset.seconds)/3600.0 + location.utc_offset.days * 25
             
             # FIXME, some locations give a 14 hour ahead time...im lost what does it mean??
             # hour gives one part of the story, need to get city to know what zone we have
-            if zone > 13:
-                zone = zone - 24
+            if zoneHour > 13.0:
+                zoneHour -= 24.0
             
             # add the zone if we don't have t already listed
             if not self.zones.has_key(zoneName):
                 self.zones[zoneName] = {'cities' : [], 'cindex': 0}    
             
             #make new city
-            city = City(cityName, zoneName, location.latitude, location.longitude, zone, location.zone)
+            city = City(cityName, zoneName, location.latitude, location.longitude, location.zone)
+            
+            #set the pixamp to show for the city
+            zoneS = str(zoneHour)
+            
+            #try to find the closest zone
+            if not zonePixmaps.has_key(zoneS):
+                if zonePixmaps.has_key(str(zoneHour + .25)):
+                    zoneS = str(zoneHour + .25)
+                elif zonePixmaps.has_key(str(zoneHour + .25)):
+                    zoneS = str(zoneHour - .25)
+                elif zonePixmaps.has_key(str(zoneHour + .5)):
+                    zoneS = str(zoneHour + .5)
+                elif zonePixmaps.has_key(str(zoneHour - .5)):
+                    zoneS = str(zoneHour - .5)
+                else:
+                    #no zone...default to nothing
+                    zoneS = None
+                
+            if zoneS:
+                city.pixmap = zonePixmaps[zoneS]
+            
             self.cities[location.zone] = city
             
             # add the city to the zone list
@@ -118,7 +146,9 @@ class TimezoneMap(QWidget):
         if self.selected_city != None:
             c = self.selected_city
             cpos = self.getPosition(c.lat, c.long)
-            painter.drawPixmap(self.rect(), self.zonePixmaps[c.zone + 11])
+            
+            if (c.pixmap):
+                painter.drawPixmap(self.rect(), c.pixmap)
             
             painter.drawLine(cpos + QPoint(1,1), cpos - QPoint(1,1))
             painter.drawLine(cpos + QPoint(1,-1), cpos - QPoint(1,-1))
@@ -215,3 +245,4 @@ class TimezoneMap(QWidget):
         
         return self.selected_city.raw_zone
 
+import sys
