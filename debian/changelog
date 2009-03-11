@@ -11,6 +11,10 @@ ubiquity (1.11.17) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Stop the user-setup component from believing it's done after the user
     selects "go back" at a weak password dialog (LP: #340549).
+  * Add ubiquity/keep-installed question which can be preseeded with a
+    space-separated list of packages to keep installed even if they aren't
+    in the desktop manifest and aren't in the list of language packs to keep
+    (LP: #290400).
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 10 Mar 2009 16:30:11 +0000
 

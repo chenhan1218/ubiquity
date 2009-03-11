@@ -712,6 +712,14 @@ Description: Patterns for language packs to install
  language-pack-$LL is required, and is always installed (by localechooser).
  You do not need to list it here.
 
+Template: ubiquity/keep-installed
+Type: string
+Description: for internal use; can be preseeded
+ Packages listed here will not be removed when installing to the target
+ system, even if they are not in the desktop manifest and are not among the
+ language packs that are staying installed. Listing packages here that are
+ not in the live filesystem has no effect.
+
 Template: ubiquity/partman-made-changes
 Type: boolean
 Default: true
