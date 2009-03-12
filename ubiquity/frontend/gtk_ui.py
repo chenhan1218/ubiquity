@@ -2349,7 +2349,7 @@ class Wizard(BaseFrontend):
             if item in disk_cache:
                 dev = disk_cache[item]['device']
                 for seg in self.partition_bars[dev].segments:
-                    seg.percent = seg.percent / total_size[dev]
+                    seg.set_percent(seg.get_percent() / total_size[dev])
         sel = self.partition_list_treeview.get_selection()
         if sel.count_selected_rows() == 0:
             sel.select_path(0)

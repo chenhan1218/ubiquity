@@ -543,8 +543,7 @@ class SegmentedBar(gtk.Widget):
                 self.title = '%s (%s)' % (self.title, device)
             else:
                 self.title = device
-            self.percent = percent
-            self.subtitle = '%d%%' % (percent * 100)
+            self.set_percent(percent)
             self.color = color
             self.show_in_bar = show_in_bar
 
@@ -556,6 +555,13 @@ class SegmentedBar(gtk.Widget):
                 return True
             else:
                 return False
+
+        def set_percent(self, percent):
+            self.percent = percent
+            self.subtitle = '%d%%' % (percent * 100)
+
+        def get_percent(self):
+            return self.percent
 
 gobject.type_register(SegmentedBar)
 

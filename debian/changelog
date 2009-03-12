@@ -7,6 +7,8 @@ ubiquity (1.11.17) UNRELEASED; urgency=low
     map.
   * Account for daylight savings when highlighting a region in the
     timezone_map (LP: #335355).
+  * Properly set the percent of each partition in the segmented_bar on the
+    advanced page (LP: #334826).
 
   [ Colin Watson ]
   * Stop the user-setup component from believing it's done after the user
