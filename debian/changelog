@@ -17,6 +17,17 @@ ubiquity (1.11.17) UNRELEASED; urgency=low
     space-separated list of packages to keep installed even if they aren't
     in the desktop manifest and aren't in the list of language packs to keep
     (LP: #290400).
+  * Expand dependencies of packages we know we want to keep (language packs,
+    etc.) before calculating which packages to blacklist from file copying
+    or to remove. This is more correct in the presence of Recommends of
+    language packs, and furthermore saves considerable time when
+    blacklisting. My test results for various language pack sets:
+    - en: 4:00 -> 3:30
+    - de+en+es+fr+ja+ko+nb+nds+nl+nn+si+sk+sv: 5:30 -> 2:50
+    - all: 14:37 -> 0:10 (!)
+    This doesn't quite solve LP #335596 because testing a large number of
+    packages for removal when there genuinely are lots of packages to remove
+    is still quite slow, but it very significantly improves the worst cases.
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 10 Mar 2009 16:30:11 +0000
 
