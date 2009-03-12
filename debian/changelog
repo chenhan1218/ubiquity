@@ -12,6 +12,8 @@ ubiquity (1.11.17) UNRELEASED; urgency=low
   * Clean up the code around handling a partitioning choice change.
     Show the format warning when the disk is automatically selected
     (LP: #335704).
+  * Automatic update of included source packages: base-installer
+    1.98ubuntu3.
 
   [ Colin Watson ]
   * Stop the user-setup component from believing it's done after the user
@@ -31,10 +33,6 @@ ubiquity (1.11.17) UNRELEASED; urgency=low
     This doesn't quite solve LP #335596 because testing a large number of
     packages for removal when there genuinely are lots of packages to remove
     is still quite slow, but it very significantly improves the worst cases.
-
-  [ Evan Dandrea ]
-  * Automatic update of included source packages: base-installer
-    1.98ubuntu3.
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 10 Mar 2009 16:30:11 +0000
 
