@@ -21,7 +21,7 @@ ubiquity (1.11.17) UNRELEASED; urgency=low
     etc.) before calculating which packages to blacklist from file copying
     or to remove. This is more correct in the presence of Recommends of
     language packs, and furthermore saves considerable time when
-    blacklisting. My test results for various language pack sets:
+    blacklisting. My test results for various language pack sets on a DVD:
     - en: 4:00 -> 3:30
     - de+en+es+fr+ja+ko+nb+nds+nl+nn+si+sk+sv: 5:30 -> 2:50
     - all: 14:37 -> 0:10 (!)
