@@ -1,4 +1,4 @@
-ubiquity (1.11.17) UNRELEASED; urgency=low
+ubiquity (1.11.17) jaunty; urgency=low
 
   [ Evan Dandrea ]
   * Pack the timezone_map in an AspectFrame instead of a regular Gtk Frame.
@@ -34,7 +34,7 @@ ubiquity (1.11.17) UNRELEASED; urgency=low
     packages for removal when there genuinely are lots of packages to remove
     is still quite slow, but it very significantly improves the worst cases.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 10 Mar 2009 16:30:11 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 12 Mar 2009 23:04:00 +0000
 
 ubiquity (1.11.16) jaunty; urgency=low
 
