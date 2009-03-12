@@ -32,6 +32,10 @@ ubiquity (1.11.17) UNRELEASED; urgency=low
     packages for removal when there genuinely are lots of packages to remove
     is still quite slow, but it very significantly improves the worst cases.
 
+  [ Evan Dandrea ]
+  * Automatic update of included source packages: base-installer
+    1.98ubuntu3.
+
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 10 Mar 2009 16:30:11 +0000
 
 ubiquity (1.11.16) jaunty; urgency=low
