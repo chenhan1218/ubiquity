@@ -13,6 +13,8 @@ oem-config (1.54.9) UNRELEASED; urgency=low
       map, among other widgets, easier to use. (Ported from Evan Dandrea's
       similar change to Ubiquity; the KDE frontend needed no change as in
       oem-config it's always full-screen.)
+    - Use stock preferences-system icon (thanks, Michael Terry;
+      LP: #341770).
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 06 Mar 2009 16:23:35 +0000
 
