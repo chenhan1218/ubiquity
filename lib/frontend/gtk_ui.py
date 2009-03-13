@@ -109,11 +109,24 @@ class Frontend(BaseFrontend):
         self.language_iconview.connect('size-request', iv_size_req)
 
         def win_size_req(win, req):
-            s = gtk.gdk.get_default_root_window().get_screen()
-            if req.width > s.get_width():
-                win.set_size_request(s.get_width(), -1)
-            if req.height > s.get_height():
-                win.set_size_request(-1, s.get_height())
+            s = win.get_screen()
+            m = s.get_monitor_geometry(0)
+            w = -1
+            h = -1
+
+            # What's the size of the WM border?
+            total_frame = win.window.get_frame_extents()
+            (cur_x, cur_y, cur_w, cur_h, depth) = win.window.get_geometry()
+            wm_w = total_frame.width - cur_w
+            wm_h = total_frame.height - cur_h
+
+            if req.width > m.width - wm_w:
+                w = m.width - wm_w
+            if req.height > m.height - wm_h:
+                h = m.height - wm_h
+
+            win.set_size_request(w, h)
+            win.resize(w, h)
         self.oem_config.connect('size-request', win_size_req)
 
         self.translate_widgets()

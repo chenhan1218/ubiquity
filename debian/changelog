@@ -2,6 +2,8 @@ oem-config (1.54.9) UNRELEASED; urgency=low
 
   * Add missing errno import.
   * Merge in the new timezone widget from ubiquity (LP: #335557).
+  * Fix 'resize if too big for screen' logic (LP: #341758).  Thanks Michael
+    Terry!
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 06 Mar 2009 16:23:35 +0000
 
