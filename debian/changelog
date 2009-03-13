@@ -6,6 +6,11 @@ ubiquity (1.11.18) UNRELEASED; urgency=low
     found reaches cache._depcache.BrokenCount; this improves blacklist
     calculation time for the previously-mentioned DVD English-only install
     from 3:30 to 2:30 (see LP #335596).
+  * GTK frontend:
+    - Restore set_window_hints method for use by windows other than the main
+      one (it was still called in the Glade file), just in case we're using
+      a window manager that pays attention to this. In these cases
+      maximisation doesn't really make sense so we no longer permit that.
 
   [ Evan Dandrea ]
   * Fix a bit of code that wasn't updated to reflect other changes in
