@@ -1,9 +1,18 @@
 oem-config (1.54.9) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Add missing errno import.
   * Merge in the new timezone widget from ubiquity (LP: #335557).
   * Fix 'resize if too big for screen' logic (LP: #341758).  Thanks Michael
     Terry!
+
+  [ Colin Watson ]
+  * GTK frontend:
+    - Full-screen the window when --only is used - i.e. more or less always,
+      except for testing. The extra screen real estate makes the timezone
+      map, among other widgets, easier to use. (Ported from Evan Dandrea's
+      similar change to Ubiquity; the KDE frontend needed no change as in
+      oem-config it's always full-screen.)
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 06 Mar 2009 16:23:35 +0000
 

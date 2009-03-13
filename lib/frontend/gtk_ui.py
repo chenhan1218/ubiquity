@@ -127,7 +127,11 @@ class Frontend(BaseFrontend):
 
             win.set_size_request(w, h)
             win.resize(w, h)
-        self.oem_config.connect('size-request', win_size_req)
+
+        if 'OEM_CONFIG_ONLY' in os.environ:
+            self.oem_config.fullscreen()
+        else:
+            self.oem_config.connect('size-request', win_size_req)
 
         self.translate_widgets()
 
@@ -263,13 +267,6 @@ class Frontend(BaseFrontend):
             return 0
         else:
             return 10
-
-    def set_window_hints(self, widget):
-        if 'OEM_CONFIG_ONLY' in os.environ:
-            # Disable minimise button.
-            widget.window.set_functions(
-                gtk.gdk.FUNC_RESIZE | gtk.gdk.FUNC_MOVE |
-                gtk.gdk.FUNC_MAXIMIZE)
 
     # Internationalisation.
 
