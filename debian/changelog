@@ -14,7 +14,7 @@ ubiquity (1.11.18) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Fix a bit of code that wasn't updated to reflect other changes in
-    remove_extras.
+    remove_extras (LP: #342319).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 13 Mar 2009 13:01:02 +0000
 
