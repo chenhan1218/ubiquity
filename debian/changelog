@@ -1,3 +1,13 @@
+ubiquity (1.11.18) UNRELEASED; urgency=low
+
+  * broken_packages is fairly slow due to having to iterate over the whole
+    cache. Speed it up a bit by stopping when the number of broken packages
+    found reaches cache._depcache.BrokenCount; this improves blacklist
+    calculation time for the previously-mentioned DVD English-only install
+    from 3:30 to 2:30 (see LP #335596).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 13 Mar 2009 13:01:02 +0000
+
 ubiquity (1.11.17) jaunty; urgency=low
 
   [ Evan Dandrea ]

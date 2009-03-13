@@ -1652,14 +1652,19 @@ exit 0"""
 
 
     def broken_packages(self, cache):
+        expect_count = cache._depcache.BrokenCount
+        count = 0
         brokenpkgs = set()
         for pkg in cache.keys():
             try:
                 if cache._depcache.IsInstBroken(cache._cache[pkg]):
                     brokenpkgs.add(pkg)
+                    count += 1
             except KeyError:
                 # Apparently sometimes the cache goes a bit bonkers ...
                 continue
+            if count >= expect_count:
+                break
         return brokenpkgs
 
     def do_install(self, to_install):
