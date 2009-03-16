@@ -1,4 +1,4 @@
-ubiquity (1.11.18) UNRELEASED; urgency=low
+ubiquity (1.11.18) jaunty; urgency=low
 
   [ Colin Watson ]
   * broken_packages is fairly slow due to having to iterate over the whole
@@ -21,7 +21,7 @@ ubiquity (1.11.18) UNRELEASED; urgency=low
   * Automatic update of included source packages: grub-installer
     1.36ubuntu3, partman-base 129ubuntu2, partman-target 58ubuntu5.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 13 Mar 2009 13:01:02 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 16 Mar 2009 17:02:01 +0000
 
 ubiquity (1.11.17) jaunty; urgency=low
 
