@@ -1,4 +1,24 @@
-ubiquity (1.11.17) UNRELEASED; urgency=low
+ubiquity (1.11.18) UNRELEASED; urgency=low
+
+  [ Colin Watson ]
+  * broken_packages is fairly slow due to having to iterate over the whole
+    cache. Speed it up a bit by stopping when the number of broken packages
+    found reaches cache._depcache.BrokenCount; this improves blacklist
+    calculation time for the previously-mentioned DVD English-only install
+    from 3:30 to 2:30 (see LP #335596).
+  * GTK frontend:
+    - Restore set_window_hints method for use by windows other than the main
+      one (it was still called in the Glade file), just in case we're using
+      a window manager that pays attention to this. In these cases
+      maximisation doesn't really make sense so we no longer permit that.
+
+  [ Evan Dandrea ]
+  * Fix a bit of code that wasn't updated to reflect other changes in
+    remove_extras (LP: #342319).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 13 Mar 2009 13:01:02 +0000
+
+ubiquity (1.11.17) jaunty; urgency=low
 
   [ Evan Dandrea ]
   * Pack the timezone_map in an AspectFrame instead of a regular Gtk Frame.
@@ -7,6 +27,13 @@ ubiquity (1.11.17) UNRELEASED; urgency=low
     map.
   * Account for daylight savings when highlighting a region in the
     timezone_map (LP: #335355).
+  * Properly set the percent of each partition in the segmented_bar on the
+    advanced page (LP: #334826).
+  * Clean up the code around handling a partitioning choice change.
+    Show the format warning when the disk is automatically selected
+    (LP: #335704).
+  * Automatic update of included source packages: base-installer
+    1.98ubuntu3.
 
   [ Colin Watson ]
   * Stop the user-setup component from believing it's done after the user
@@ -15,15 +42,19 @@ ubiquity (1.11.17) UNRELEASED; urgency=low
     space-separated list of packages to keep installed even if they aren't
     in the desktop manifest and aren't in the list of language packs to keep
     (LP: #290400).
+  * Expand dependencies of packages we know we want to keep (language packs,
+    etc.) before calculating which packages to blacklist from file copying
+    or to remove. This is more correct in the presence of Recommends of
+    language packs, and furthermore saves considerable time when
+    blacklisting. My test results for various language pack sets on a DVD:
+    - en: 4:00 -> 3:30
+    - de+en+es+fr+ja+ko+nb+nds+nl+nn+si+sk+sv: 5:30 -> 2:50
+    - all: 14:37 -> 0:10 (!)
+    This doesn't quite solve LP #335596 because testing a large number of
+    packages for removal when there genuinely are lots of packages to remove
+    is still quite slow, but it very significantly improves the worst cases.
 
-  [ Roman Shtylman ]
-  * updated kde side to new timezones and fixed: LP: #338064
-  * allow kde ui to install grub to other partitions, not just first boot
-    partition (LP: #340023)
-  * proper projection points for the cities
-  * fixed label wrap for a user setup screen label
-
- -- Roman Shtylman <shtylman@gmail.com>  Wed, 11 Mar 2009 13:15:11 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 12 Mar 2009 23:04:00 +0000
 
 ubiquity (1.11.16) jaunty; urgency=low
 

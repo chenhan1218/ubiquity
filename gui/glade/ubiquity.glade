@@ -7,7 +7,6 @@
     <property name="title" translatable="yes">Install</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
-    <signal name="realize" handler="set_window_hints"/>
     <signal name="delete_event" handler="on_live_installer_delete_event"/>
     <child>
       <widget class="GtkVBox" id="wizard">

@@ -627,6 +627,14 @@ class Wizard(BaseFrontend):
                                    gobject.SPAWN_STDERR_TO_DEV_NULL))
         return True
 
+
+    def set_window_hints(self, widget):
+        if 'UBIQUITY_ONLY' in os.environ:
+            # Disable minimise button.
+            widget.window.set_functions(
+                gtk.gdk.FUNC_RESIZE | gtk.gdk.FUNC_MOVE)
+
+
     def set_locales(self):
         """internationalization config. Use only once."""
 
@@ -1234,8 +1242,19 @@ class Wizard(BaseFrontend):
                     self.before_bar.remove_all()
                     self.create_bar(k)
                     self.format_warnings[k].show()
+                    break
+    
+    def on_autopartition_toggled (self, widget, extra_buttons):
+        """Update autopartitioning screen when a button is selected."""
 
-    def on_choice_toggled (self, widget, extra_buttons):
+        choice = unicode(widget.get_label(), 'utf-8', 'replace')
+        if choice is not None and choice in self.autopartition_extras:
+            element = self.autopartition_extras[choice]
+            if widget.get_active():
+                element.set_sensitive(True)
+            else:
+                element.set_sensitive(False)
+
         if widget.get_active():
             choice = unicode(widget.get_label(), 'utf-8', 'replace')
             self.action_bar.remove_all()
@@ -1256,28 +1275,7 @@ class Wizard(BaseFrontend):
                 self.action_bar.add_segment_rgb(get_release_name(), 1, \
                     self.auto_colors[0])
                 for b in extra_buttons:
-                    if b.get_active():
-                        t = unicode(b.get_label(), 'utf-8', 'replace')
-                        for align in self.format_warnings.itervalues():
-                            align.hide()
-                        for k in self.disk_layout.iterkeys():
-                            if '(%s)' % k.strip('=dev=') in t:
-                                self.before_bar.remove_all()
-                                self.create_bar(k)
-                                self.format_warnings[k].show()
-                                break
-
-    def on_autopartition_toggled (self, widget):
-        """Update autopartitioning screen when a button is selected."""
-
-        choice = unicode(widget.get_label(), 'utf-8', 'replace')
-        if choice is not None and choice in self.autopartition_extras:
-            element = self.autopartition_extras[choice]
-            if widget.get_active():
-                element.set_sensitive(True)
-            else:
-                element.set_sensitive(False)
-
+                    self.on_extra_button_toggled(b)
 
     # Callbacks provided to components.
 
@@ -1534,6 +1532,7 @@ class Wizard(BaseFrontend):
                     self.dbfilter.change_layout(self.default_keyboard_layout)
                     self.dbfilter.apply_keyboard(self.default_keyboard_layout,
                                                  self.default_keyboard_variant)
+
         else:
             self.keyboard_layout_hbox.set_sensitive(True)
         
@@ -1619,6 +1618,7 @@ class Wizard(BaseFrontend):
                                         l.append(ret)
                                 a = gtk.Alignment(xscale=1, yscale=1)
                                 a.set_padding(0, 0, 12, 0)
+                                a.hide()
                                 self.format_warnings[k] = a
                                 break
                         if l:
@@ -1648,12 +1648,7 @@ class Wizard(BaseFrontend):
                 self.autopartition_choices_vbox.pack_start(alignment,
                                                    expand=False, fill=False)
                 self.autopartition_extras[choice] = alignment
-                self.on_autopartition_toggled(button)
-                button.connect('toggled', self.on_autopartition_toggled)
-            #self.on_choice_toggled(button, extra_buttons)
-            button.connect('toggled', self.on_choice_toggled, extra_buttons)
-        if firstbutton is not None:
-            firstbutton.set_active(True)
+            button.connect('toggled', self.on_autopartition_toggled, extra_buttons)
 
         if resize_choice in choices:
             self.resize_min_size, self.resize_max_size, \
@@ -1665,10 +1660,9 @@ class Wizard(BaseFrontend):
             self.action_bar.set_device(self.resize_path)
 
         if firstbutton is not None:
-            self.on_choice_toggled(firstbutton, extra_buttons)
+            firstbutton.set_active(True)
+            self.on_autopartition_toggled(firstbutton, extra_buttons)
         self.autopartition_choices_vbox.show_all()
-        for align in self.format_warnings.itervalues():
-            align.hide()
 
         # make sure we're on the autopartitioning page
         self.set_current_page(self.steps.page_num(self.stepPartAuto))
@@ -2349,7 +2343,7 @@ class Wizard(BaseFrontend):
             if item in disk_cache:
                 dev = disk_cache[item]['device']
                 for seg in self.partition_bars[dev].segments:
-                    seg.percent = seg.percent / total_size[dev]
+                    seg.set_percent(seg.get_percent() / total_size[dev])
         sel = self.partition_list_treeview.get_selection()
         if sel.count_selected_rows() == 0:
             sel.select_path(0)

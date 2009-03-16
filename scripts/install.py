@@ -561,9 +561,23 @@ class Install:
             difference = live_packages - desktop_packages
         else:
             difference = set()
-        
+
+        cache = Cache()
+
+        use_restricted = True
+        try:
+            if self.db.get('apt-setup/restricted') == 'false':
+                use_restricted = False
+        except debconf.DebconfError:
+            pass
+        if not use_restricted:
+            for pkg in cache.keys():
+                if (cache[pkg].isInstalled and
+                    cache[pkg].section.startswith('restricted/')):
+                    difference.add(pkg)
+
         # Keep packages we explicitly installed.
-        difference -= self.query_recorded_installed()
+        keep = self.query_recorded_installed()
         archdetect = subprocess.Popen(['archdetect'], stdout=subprocess.PIPE)
         subarch = archdetect.communicate()[0].strip()
 
@@ -572,30 +586,20 @@ class Install:
         # apt-install-direct is present during configure_bootloader (code
         # removed).
         if subarch.startswith('amd64/') or subarch.startswith('i386/') or subarch.startswith('lpia/'):
-            difference -= set(['grub'])
+            keep.add('grub')
         elif subarch == 'powerpc/ps3':
             pass
         elif subarch.startswith('powerpc/'):
-            difference -= set(['yaboot', 'hfsutils'])
- 
+            keep.add('yaboot')
+            keep.add('hfsutils')
+
+        difference -= self.expand_dependencies_simple(cache, keep, difference)
+
         if len(difference) == 0:
+            del cache
             self.blacklist = {}
             return
  
-        use_restricted = True
-        try:
-            if self.db.get('apt-setup/restricted') == 'false':
-                use_restricted = False
-        except debconf.DebconfError:
-            pass
-        if not use_restricted:
-            cache = Cache()
-            for pkg in cache.keys():
-                if (cache[pkg].isInstalled and
-                    cache[pkg].section.startswith('restricted/')):
-                    difference.add(pkg)
-            del cache
-        cache = Cache()
         confirmed_remove = set()
         for pkg in sorted(difference):
             if pkg in confirmed_remove:
@@ -1648,14 +1652,19 @@ exit 0"""
 
 
     def broken_packages(self, cache):
+        expect_count = cache._depcache.BrokenCount
+        count = 0
         brokenpkgs = set()
         for pkg in cache.keys():
             try:
                 if cache._depcache.IsInstBroken(cache._cache[pkg]):
                     brokenpkgs.add(pkg)
+                    count += 1
             except KeyError:
                 # Apparently sometimes the cache goes a bit bonkers ...
                 continue
+            if count >= expect_count:
+                break
         return brokenpkgs
 
     def do_install(self, to_install):
@@ -1738,6 +1747,59 @@ exit 0"""
             self.db.go()
 
         self.db.progress('STOP')
+
+
+    def expand_dependencies_simple(self, cache, keep, to_remove,
+                                   recommends=True):
+        """Return the list of packages in to_remove that clearly cannot be
+        removed if we want to keep the set of packages in keep. Except in
+        the case of Recommends, this is not required for correctness (we
+        could just let apt figure it out), but it allows us to ask apt fewer
+        separate questions, and so is faster."""
+
+        keys = ['Pre-Depends', 'Depends']
+        if recommends:
+            keys.append('Recommends')
+
+        to_scan = set(keep)
+        to_scan_next = set()
+        expanded = set(keep)
+        while to_scan:
+            for pkg in to_scan:
+                cachedpkg = self.get_cache_pkg(cache, pkg)
+                if cachedpkg is None:
+                    continue
+                ver = cachedpkg._pkg.CurrentVer
+                if ver is None:
+                    continue
+                for key in keys:
+                    if key in ver.DependsList:
+                        for dep_or in ver.DependsList[key]:
+                            # Keep the first element of a disjunction that's
+                            # installed; this mirrors what 'apt-get install'
+                            # would do if you were installing the package
+                            # from scratch. This doesn't handle versioned
+                            # dependencies, but that's largely OK since apt
+                            # will spot those later; the only case I can
+                            # think of where this might have trouble is
+                            # "Recommends: foo (>= 2) | bar".
+                            for dep in dep_or:
+                                depname = dep.TargetPkg.Name
+                                cacheddep = self.get_cache_pkg(cache, depname)
+                                if cacheddep is None:
+                                    continue
+                                if cacheddep._pkg.CurrentVer is not None:
+                                    break
+                            else:
+                                continue
+                            if depname in expanded or depname not in to_remove:
+                                continue
+                            expanded.add(depname)
+                            to_scan_next.add(depname)
+            to_scan = to_scan_next
+            to_scan_next = set()
+
+        return expanded
 
 
     def get_remove_list(self, cache, to_remove, recursive=False):
@@ -2004,17 +2066,20 @@ exit 0"""
             difference = set()
 
         # Keep packages we explicitly installed.
-        recorded = self.query_recorded_installed()
-        difference -= recorded
+        keep = self.query_recorded_installed()
 
         archdetect = subprocess.Popen(['archdetect'], stdout=subprocess.PIPE)
         subarch = archdetect.communicate()[0].strip()
 
         if subarch.startswith('amd64/') or subarch.startswith('i386/') or subarch.startswith('lpia/'):
-            if 'grub' not in recorded:
+            if 'grub' not in keep:
                 difference.add('grub')
-            if 'lilo' not in recorded:
+            if 'lilo' not in keep:
                 difference.add('lilo')
+
+        cache = Cache()
+        difference -= self.expand_dependencies_simple(cache, keep, difference)
+        del cache
 
         if len(difference) == 0:
             return
