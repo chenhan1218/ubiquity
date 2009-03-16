@@ -96,6 +96,7 @@ class Partman(FilteredCommand):
                      '^partman-basicfilesystems/(fat_mountpoint|mountpoint|mountpoint_manual)$',
                      '^partman/exception_handler$',
                      '^partman/exception_handler_note$',
+                     '^partman/unmount_active$',
                      'type:boolean',
                      'ERROR',
                      'PROGRESS']
