@@ -18,6 +18,8 @@ ubiquity (1.11.18) UNRELEASED; urgency=low
   * Start NetworkManager before ubiquity in only-ubiquity mode
     (LP: #340929).
   * Support the new partman/unmount_active question.
+  * Automatic update of included source packages: grub-installer
+    1.36ubuntu3, partman-base 129ubuntu2, partman-target 58ubuntu5.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 13 Mar 2009 13:01:02 +0000
 
