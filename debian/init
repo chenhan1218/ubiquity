@@ -61,6 +61,7 @@ fi
 
 case "$1" in
 	start|force-start)
+		/etc/init.d/NetworkManager start
 		log_begin_msg "Starting Ubiquity..."
 		# if usplash is running, make sure to stop it now, yes "start" kills it.
 		if pidof usplash > /dev/null; then
