@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2008-10-13 13:10+0000\n"
-"Last-Translator: Štefan Baebler <Unknown>\n"
+"PO-Revision-Date: 2009-03-10 10:42+0000\n"
+"Last-Translator: Matej Kovačič <Unknown>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:57+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -310,10 +310,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Katero ime želite uporabljati za prijavo?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -384,26 +382,20 @@ msgstr "Preskoči"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Namestitev je končana"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Nadaljuj"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Ponoven zagon"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -630,19 +622,11 @@ msgstr "Vrata:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Namestitev je zaključena. Da bi lahko uporabili novo namestitev, je potrebno "
-"znova zagnati računalnik. Z uporabo tega živege zgoščenke lahko nadaljujete, "
-"vendar opravljene spremembe in shranjeni dokumenti ne bodo ohranjeni."
 
 #. Type: text
 #. Description
@@ -761,6 +745,9 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"Vzrok za neuspelo namestitev na ciljni razdelek je v nezadostni količini "
+"diskovnega prostora. Prosimo, da ponovno zaženete namestitev in pri tem "
+"izberete večji razdelek diska, na katerega boste nameščali."
 
 #. Type: error
 #. Description
@@ -770,6 +757,10 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
+"Ponavadi je razlog v okvarjeni CD/DVD plošči ali enoti. Pomaga lahko, če "
+"očistite CD/DVD, da zapišete CD/DVD pri nižji hitrosti ali da očistite lečo "
+"CD/DVD enote (čistilni paketi so ponavadi dostopni pri dobavitelju "
+"elektronike)."
 
 #. Type: error
 #. Description
@@ -779,6 +770,9 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
+"Ponavadi je razlog v okvari trdega diska. Pomaga lahko, če preverite ali je "
+"trdi disk starejše izdelave in ali ga je morda potrebno zamenjati, ali pa je "
+"potrebno prestaviti celoten sistem v hladnejše okolje."
 
 #. Type: error
 #. Description
@@ -796,6 +790,12 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
+"Ponavadi je razlog v okvarjeni CD/DVD plošči ali enoti ali v okvari trdega "
+"diska. Pomaga lahko, če očistite CD/DVD, da zapišete CD/DVD pri nižji "
+"hitrosti ali da očistite lečo CD/DVD enote (čistilni paketi so ponavadi "
+"dostopni pri dobavitelju elektronike), ali pa je potrebno preveriti ali je "
+"trdi disk starejše izdelave in ali ga je morda potrebno zamenjati, ali pa je "
+"potrebno prestaviti celoten sistem v hladnejše okolje."
 
 #. Type: select
 #. Description
@@ -1060,15 +1060,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1081,20 +1072,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" Jezik: ${LANGUAGE}\n"
-"Razporeditev tipkovnice: ${KEYMAP}\n"
-"Ime: ${FULLNAME}\n"
-"Uporabniško ime: ${USERNAME}\n"
-"Lokacija: ${LOCATION}\n"
-"Pomočnik pri prehodu: ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Vrsta napredne namestitve"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1311,215 +1294,3 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Nastavljam infrardeče naprave..."
-
-#~ msgid "Selected region:"
-#~ msgstr "Izbrana regija:"
-
-#~ msgid "Current time:"
-#~ msgstr "Trenutni čas:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr "Isto geslo vnesite dvakrat, da se prepreči možne tipkarske napake."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Nadaljujte uporabo žive zgoščenke."
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Izberite mesto v svoji državi in časovno območje. Če je trenutno "
-#~ "prikazani čas napačen tudi ob ustrezno izbranem časovnem območju, ga "
-#~ "lahko spremenite po ponovnem zagonu v nameščeni sistem."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Vrsta namestitve: ${INSTALLTYPE}\n"
-#~ "Gonilniki:\n"
-#~ "dodaj video gonilnilk: ${VIDEO_DRIVER}\n"
-#~ "TV-Izhod: ${TVOUT}, ${TVSTANDARD}\n"
-#~ "Dodatni servisi:\n"
-#~ "VNC: ${EN_VNC}\n"
-#~ "SSH: ${EN_OPENSSH}\n"
-#~ "Samba: ${EN_SAMBA}\n"
-#~ "NFS: ${EN_NFS}\n"
-#~ "MythTV Servis: ${EN_MYSQL}\n"
-#~ "Normalna Ubuntu Namestitvena vprašanja:\n"
-#~ "Jezik: ${LANGUAGE}\n"
-#~ "Nastavitve tipkovnice: ${KEYMAP}\n"
-#~ "Navadno ime: ${FULLNAME}\n"
-#~ "Navadno uporabniško ime: ${USERNAME}\n"
-#~ "Lokacija: ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "Dodatni gonilniki/firmware"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "Spremeni video gonilnike in nastavitve"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "Pozor: Ne nastavljajte TV standarda na na višjega kot ga podpira vaša "
-#~ "televizija. Lahko se pojavi TRAJNA okvara."
-
-#~ msgid "Selected city:"
-#~ msgstr "Izbrano mesto:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Časovni pas:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Kakšno vrsto namestitve želite?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Za namestitev Mythbuntu sta na voljo dve različici:"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Običajna namestitev"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "Standardna namestitev poskrbi za nastavitev vseh možnosti s kar najmanj "
-#~ "potrebnimi posegi uporabnika. Namestijo se ogrodje, vidni del, vsi "
-#~ "vključki ter vse teme."
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Napredna namestitev"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "Napredna namestitev se lahko uporabi za prikrojene nastavitve Mythbuntu. "
-#~ "OPOMBA: Napredna namestitev je potrebna za dodajanje računalnika "
-#~ "Mythbuntu v obstoječo mrežo MythTV."
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth Splet"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb vklučuje spletni vmesnik, ki se ga lahko uporablja za ogled "
-#~ "seznamov, urejanje snemanja, brisanje posnetkov in iskanje programov."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth arhiv"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Myth brskalnik"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Myth nadzor"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Myth filmi"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Myth galerija"
-
-#~ msgid "Myth Game"
-#~ msgstr "Myth igrica"
-
-#~ msgid "Myth Music"
-#~ msgstr "Myth glasba"
-
-#~ msgid "Myth News"
-#~ msgstr "Myth novice"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Myth telefon"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Myth tok"
-
-#~ msgid "Myth Video"
-#~ msgstr "Myth Video"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Myth vreme"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "Razširitev za MythTV, ki vam omogoča, da ustvarite DVD-je z vsebino iz "
-#~ "vašega MythTV omrežja."
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "Vgrajeni spletni brskalnik za MythTV"
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "Sekundarne nastavitve za MythTV. Tukaj je mogoče spreminjati nadzorne "
-#~ "tipke."
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "Najdi filme, ki se predvajajo v bližnjih kinodvoranah"
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr ""
-#~ "Omogoča vam vizualno brskanje po drevesu direktorija, ki vsebuje slikovne "
-#~ "datoteke."
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr ""
-#~ "Vtičnik bralnika RSS virov za MythTV, ki vam vaše najbolj priljubljene "
-#~ "novice redno osvežuje."
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr ""
-#~ "Telefonske in videotelefonske sposobnosti v MythTV uporabljajo standartni "
-#~ "SIP protokol"
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "Način za poslušanje internetnih radio postaj."
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "Vam omogoča brskanje in igranje video tokov z uporabo zunanjega "
-#~ "prevajalnika znotraj MythTV vmesnika."
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "Prikaži trenutno vreme in vremensko napoved v MythTV"
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "Izberi dodatne teme"
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "Omogoči/onemogoči vse"

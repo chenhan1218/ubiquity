@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2007-01-15 07:08+0000\n"
-"Last-Translator: Orkhan Guliyev <admin@ourtechnology.az>\n"
+"PO-Revision-Date: 2008-07-17 06:34+0000\n"
+"Last-Translator: Teymur Huseynov <Unknown>\n"
 "Language-Team: Azerbaijani <az@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 15:34+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:40+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -373,10 +373,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Davam Et"
+msgstr ""
 
 #. Type: text
 #. Description

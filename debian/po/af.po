@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 15:33+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -81,13 +81,10 @@ msgstr "Om die vrae te beantwoord sal net 'n paar minute duur."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:9001
-#, fuzzy
 msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
-"Kies asseblief die taal om vir die installasie proses te gebruik.  Die taal "
-"dal as die standaard taal vir die finale stelsel gebruik word."
 
 #. Type: text
 #. Description
@@ -159,10 +156,8 @@ msgstr "Jy kan in hierdie boks tik om jou nuwe sleutelborduitleg te toets."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
-#, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
-msgstr "Gekose streek:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -309,10 +304,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Watter naam gebruik jy om aan te teken?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -354,9 +347,8 @@ msgstr "Gevorderde..."
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:47001
-#, fuzzy
 msgid "Install[ action ]"
-msgstr "Installeer[ aksie ]"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -367,49 +359,38 @@ msgstr "Stap ${INDEX} van ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:49001
-#, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
-msgstr "Staak die installasie?"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
-msgstr "Wil jy rêrig die installasie nou staak?"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
-#, fuzzy
 msgid "Skip"
-msgstr "Oorslaan"
+msgstr ""
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Installasie is voltooi"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Gaan voort"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Restart nou"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -538,9 +519,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72001
-#, fuzzy
 msgid "Create partition"
-msgstr "Skep partisie"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -631,20 +611,11 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Installasie is voltooi.  Jy moet die rekenaar laat restart om die nuwe "
-"installasie te gebruik.  Jy mag hierdie live CD aanhou gebruik, maar enige "
-"veranderinge wat jy aanbring of dokumente wat jy stoor sal nie bewaar word "
-"nie."
 
 #. Type: text
 #. Description
@@ -737,10 +708,8 @@ msgstr "Besig om lêers te kopieer (minder as 'n minuut oor)..."
 #: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 #: ../ubiquity.templates:103001 ../ubiquity.templates:104001
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
-msgstr "Installasie is voltooi"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -767,21 +736,11 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
-#, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Die spesifieke fout gebeur baie keer as gevolg van 'n foutiewe CD/DVD of "
-"skyfspeler. Dit kan help as jy die CD/DVD skoonmaak of die CD/DVD skryf teen "
-"'n laêr spoed. Dit kan ook help as jy die CD/DVD lens skoonmaak (skoonmaak "
-"toerusting kan verkry word van elekroniese toerusting verskaffers)."
 
 #. Type: error
 #. Description
@@ -801,12 +760,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:104001 ../ubiquity.templates:105001
-#, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -814,10 +767,6 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Die spesifieke fout gebeur baie keer as gevolg van 'n foutiewe CD/DVD of "
-"skyfspeler. Dit kan help as jy die CD/DVD skoonmaak of die CD/DVD skryf teen "
-"'n laêr spoed. Dit kan ook help as jy die CD/DVD lens skoonmaak (skoonmaak "
-"toerusting kan verkry word van elekroniese toerusting verskaffers)."
 
 #. Type: select
 #. Description
@@ -828,9 +777,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:106001
-#, fuzzy
 msgid "Copying installation logs..."
-msgstr "Kopieër installasielogs..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -865,9 +813,8 @@ msgstr "Stel sleutelbord op..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
 msgid "Creating user..."
-msgstr "Skep gebruiker..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -932,16 +879,14 @@ msgstr "Laai pakette af (${TIME} bly nog oor)..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:123001
-#, fuzzy
 msgid "Downloading package lists..."
-msgstr "Laai paketlyste af..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124001
-#, fuzzy
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Laai paketlyste af (${TIME} bly nog oor)..."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -952,9 +897,8 @@ msgstr "Fout met installasie van ${PACKAGE}"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:127001
-#, fuzzy
 msgid "Error removing ${PACKAGE}"
-msgstr "Fout met verwydering van ${PACKAGE}"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1072,15 +1016,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1093,21 +1028,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" Taal: ${LANGUAGE}\n"
-"Sleutelbord uitleg: ${KEYMAP}\n"
-"Naam: ${FULLNAME}\n"
-"Aanteken naam: ${USERNAME}\n"
-"Plek: ${LOCATION}\n"
-"Migrasie Assistent:\n"
-"${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Type"
-msgstr "Installasie is voltooi"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1320,49 +1246,3 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Selected region:"
-#~ msgstr "Gekose streek:"
-
-#~ msgid "Current time:"
-#~ msgstr "Gekose tyd:"
-
-#, fuzzy
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr "Skryf die selfde wagwoord twee keer, sodat tikfoute vermy kan word."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Hou aan om die live CD te geebruik"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Selekteer 'n stad in jou land en tydsone. As die aangeduide plaaslike tyd "
-#~ "verkeerd aangedui is, selfs al is die korrekte tydsone gekies, kan dit "
-#~ "reggestel word as die sisteem weer aangesit is."
-
-#, fuzzy
-#~ msgid "Selected city:"
-#~ msgstr "Gekose stad:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Tydsone:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Watter Tipe installasie?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Twee instalasie tipes is beskikbaar vir Mythbuntu:"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Standarde Instalasie"
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Gevorderde Instalasie"
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "Kon geen leêrs kopieër nie; Foutiewe CD/DVD?"

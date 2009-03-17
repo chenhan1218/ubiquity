@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 15:33+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -153,10 +153,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
-#, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
-msgstr "Тандалган регион:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -277,9 +275,8 @@ msgstr "Диск боштугун даярдоо"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
 msgid "How do you want to partition the disk?"
-msgstr "Дисктин кандай бөлүнүшүн каалайсыз?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -302,17 +299,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Кирүүдө кандай ат колдоносуз?"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
-#, fuzzy
 msgid "Prepare partitions"
-msgstr "Бөлүмдөрдү даярдоо"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -377,18 +371,14 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Жүктөө аяктады"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Улант"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -705,10 +695,8 @@ msgstr ""
 #: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 #: ../ubiquity.templates:103001 ../ubiquity.templates:104001
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
-msgstr "Жүктөө аяктады"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -955,9 +943,8 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
 msgid "Installing language packs"
-msgstr "Тил пакеттерин жүктөө"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1032,10 +1019,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Type"
-msgstr "Жүктөө аяктады"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1248,15 +1233,3 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Selected region:"
-#~ msgstr "Тандалган регион:"
-
-#~ msgid "Current time:"
-#~ msgstr "Азыркы убакыт:"
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "live CD колдонууну улант"
-
-#~ msgid "Selected city:"
-#~ msgstr "Шаарды тандаңыз:"

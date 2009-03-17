@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2008-11-14 13:28+0000\n"
-"Last-Translator: Pavol Klačanský <pavol@klacansky.com>\n"
+"PO-Revision-Date: 2009-03-10 10:42+0000\n"
+"Last-Translator: helix84 <Unknown>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:58+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -313,10 +313,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Aké prihlasovacie meno chcete používať?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -388,26 +386,20 @@ msgstr "Preskočiť"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Inštalácia je kompletná"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Pokračovať"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Reštartovať"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -634,19 +626,11 @@ msgstr "Port:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Inštalácia je ukončená. Ak chcete použiť nový nainštalovaný systém, musíte "
-"reštartovať počítač. Samozrejme môžete naďalej používať toto Live CD, no "
-"nezachovajú sa žiadne zmeny alebo súbory uložené počas používania tohto CD."
 
 #. Type: text
 #. Description
@@ -1080,15 +1064,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1101,21 +1076,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" Jazyk: ${LANGUAGE}\n"
-" Rozloženie klávesnice: ${KEYMAP}\n"
-" Meno: ${FULLNAME}\n"
-" Prihlasovacie meno: ${USERNAME}\n"
-" Umiestnenie: ${LOCATION}\n"
-" Pomocník pri migrácii:\n"
-" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Pokročilý typ inštalácie"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1354,258 +1320,3 @@ msgstr "Nastavujú sa ďalšie služby..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Nastavujú sa infračervené zariadenia..."
-
-#~ msgid "Selected region:"
-#~ msgstr "Zvolený región:"
-
-#~ msgid "Current time:"
-#~ msgstr "Aktuálny čas:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr "Heslo zadajte dvakrát, aby ste sa presvedčili o jeho správnosti."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Naďalej používať toto Live CD"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Vyberte mesto vo vašom štáte a časovú zónu. Ak zobrazovaný čas nie je "
-#~ "správny ani po vybratí časovej zóny, môžete ho upraviť po reštartovaní do "
-#~ "nainštalovaného systému."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Typ inštalácie:           ${INSTALLTYPE}\n"
-#~ " Ovládače:\n"
-#~ "     Dopl. video ovládač:  ${VIDEO_DRIVER}\n"
-#~ "         TV-výstup:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Ďalšie služby:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     služba MythTV:     ${EN_MYSQL}\n"
-#~ " Bežné inštalačné otázky Ubuntu:\n"
-#~ "     Jazyk:           ${LANGUAGE}\n"
-#~ "     Rozloženie klávesnice:    ${KEYMAP}\n"
-#~ "     Bežné meno:       ${FULLNAME}\n"
-#~ "     Bežné prihlasovacie meno: ${USERNAME}\n"
-#~ "     Lokalita:           ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "Ďalšie ovládače/firmvér"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "Zmeniť grafický ovládač a nastavenia"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "Upozornenie: Nenastavujte TV štandard na niečo vyššie ako podporuje váš "
-#~ "TV. Mohlo by to spôsobiť TRVALÉ poškodenie."
-
-#~ msgid "Selected city:"
-#~ msgstr "Zvolené mesto:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Časové pásmo:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Ktorý typ inštalácie?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Pre Mythbuntu sú k dispozícii dva typy inštalácie."
-
-#~ msgid "Standard Installation"
-#~ msgstr "Štandardná inštalácia"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "Štandardná inštalácia nainštaluje a nastaví každú voľbu, pričom vyžaduje "
-#~ "najmenej práce používateľa. Nainštaluje backend, frontend, všetky zásuvné "
-#~ "moduly a témy vzhľadu."
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Pokročilá inštalácia"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "Je možné použiť pokročilú inštaláciu na prispôsobenie potrebných "
-#~ "komponentov Mythbuntu. POZN.: Pokročilá inštalácia je potrebná pre "
-#~ "pridanie stroja Mythbuntu do existujúcej siete založenej na MythTV."
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "Zvoľte moduly frontend / backend"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "Moduly môžu byť použité na rozšírenie funkčnosti MythTV o schopnosť "
-#~ "posúvania času TV."
-
-#~ msgid "Backend Plugins"
-#~ msgstr "Backend moduly"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "Frontend moduly"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth Web"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb poskytuje webové rozhranie, ktoré slúži na prezeranie programu "
-#~ "TV, plánovanie záznamov, mazanie záznamov a vyhľadávanie relácií."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth archív"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Prehliadač Myth"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Ovládacie prvky Myth"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Filmy Myth"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Galéria Myth"
-
-#~ msgid "Myth Game"
-#~ msgstr "Hra Myth"
-
-#~ msgid "Myth Music"
-#~ msgstr "Hudba Myth"
-
-#~ msgid "Myth News"
-#~ msgstr "Správy Myth"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Telefón Myth"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Stream Myth"
-
-#~ msgid "Myth Video"
-#~ msgstr "Video Myth"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Počasie Myth"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "Zásuvný modul pre MythTV, ktorý umožňuje tvorbu DVD z obsahu na vašej "
-#~ "sieti MythTV."
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you view movie trailers from apple.com."
-#~ msgstr ""
-#~ "Zásuvný modul pre MythTV, ktorý vám umožňuje prehliadať upútavky na filmy "
-#~ "z from apple.com."
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "Modul webového prehliadača integrovaného do vášho systému MythTV."
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "Externé ovládanie MythTV. Umožní vám zmeniť mapovanie kláves a klávesové "
-#~ "väzby."
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "Nájsť filmy, ktoré sa hrajú v neďalekých kinách"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "Umožňuje vám monitorovať váš front výpožičiek DVD Netflix."
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr ""
-#~ "Umožňuje vám vizuálne prezerať strom adresárov obsahujúci obrázkové "
-#~ "súbory."
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr ""
-#~ "Frontend, ktorý spustí akýkoľvek emulátor alebo binárny súbor, ktorý "
-#~ "spustí Linux."
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "Poskytuje integráciu digitálneho jukeboxu s MythTV."
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr ""
-#~ "Zásuvný modul Čítačka RSS kanálov pre MythTV, ktorá vám prináša aktuálne "
-#~ "informácie na vaše obľúbené témy noviniek."
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr ""
-#~ "Možnosť telefonovania a videotelefonovania s MythTV pomocou štandardného "
-#~ "protokolu SIP."
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "Poskytuje možnosť počúvať internetové rádio stanice."
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "Umožňuje prezeranie a prehrávanie streamovaného videa pomocou externého "
-#~ "prehrávača priamo z prostredia MythTV."
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "Zobrazuje aktuálne a predpovedané počasie v rámci MythTV."
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "Zvoliť ďalšie témy"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr ""
-#~ "Témy vzhľadu môžu veľmi vylepšiť estetickosť vzhľadu MythTV a zobraziť ho "
-#~ "tak, aby vyhovoval vášmu vkusu."
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "Zapnúť/vypnúť všetky"

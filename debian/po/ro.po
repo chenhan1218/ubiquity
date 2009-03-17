@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-01-30 14:26+0000\n"
-"Last-Translator: Manuel R. Ciosici <manuelciosici@yahoo.com>\n"
+"PO-Revision-Date: 2009-03-10 10:40+0000\n"
+"Last-Translator: Eddy Petrisor <eddy.petrisor@gmail.com>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:57+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -313,10 +313,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Ce nume dorești să folosești pentru autentificare?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -387,26 +385,20 @@ msgstr "Treci peste"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Instalare completă"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Continuă"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Repornește acum"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -633,19 +625,11 @@ msgstr "Port:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Instalarea este completă. Trebuie să reporniți calculatorul pentru a utiliza "
-"noua instalare. Puteți continua să folosiți acest live CD, dar modificările "
-"efectuate sau documentele create nu vor fi păstrate."
 
 #. Type: text
 #. Description
@@ -1085,15 +1069,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1106,21 +1081,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" Limba: ${LANGUAGE}\n"
-" Aranjamentul tastaturii: ${KEYMAP}\n"
-" Numele: ${FULLNAME}\n"
-" Numele de utilizator: ${USERNAME}\n"
-" Locația: ${LOCATION}\n"
-" Asitare migrație:\n"
-" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Tip Instalarea Avansată"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1366,259 +1332,3 @@ msgstr "Configurare servicii adiționale..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Se configurează dispozitivele infraroșu..."
-
-#~ msgid "Selected region:"
-#~ msgstr "Regiunea aleasă:"
-
-#~ msgid "Current time:"
-#~ msgstr "Timpul curent:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr ""
-#~ "Introduceți aceași parolă de două ori pentru a fi verificată împotriva "
-#~ "erorilor de tastare."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Continuă folosirea live CD"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Selectați un oraș din țara dumneavastră și un fus orar. Dacă ora curentă "
-#~ "indcată este incorectă chiar și după selectarea fusului orar, o puteți "
-#~ "ajusta după restartarea în sistemul instalat."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Tip instalare: ${INSTALLTYPE}\n"
-#~ " Drivere:\n"
-#~ "     Driver video adițional: ${VIDEO_DRIVER}\n"
-#~ "         TV-Out: ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Servicii adiționale:\n"
-#~ "     VNC: ${EN_VNC}\n"
-#~ "     SSH: ${EN_OPENSSH}\n"
-#~ "     Samba: ${EN_SAMBA}\n"
-#~ "     NFS: ${EN_NFS}\n"
-#~ "     Serviciul MythTV: ${EN_MYSQL}\n"
-#~ " Întrebări instalare normală Ubuntu:\n"
-#~ "     Limba: ${LANGUAGE}\n"
-#~ "     Layout tastatură: ${KEYMAP}\n"
-#~ "     Nume complet: ${FULLNAME}\n"
-#~ "     Nume autentificare: ${USERNAME}\n"
-#~ "     Locație: ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "Firmware / Drivere Adiționale"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "Modifică Driver și Configurări Video"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "ATENȢIE: Nu configurați standardul TV cu unul pe care televizorul nu îl "
-#~ "suportă! Puteți provoca probleme permanente televizorului dumneavoastră."
-
-#~ msgid "Selected city:"
-#~ msgstr "Orașul selectat:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Fus orar:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Ce tip de instalare?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Doua variante de instalare sunt disponibile pentru Mythbuntu"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Instalare Standard"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "O instalare standard va instala și configura toate opțiunile cu o "
-#~ "interacțiune minimă din partea utilizatorului. Aceasta va instala "
-#~ "suportul, interfața, toate module și toate temele."
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Instalare Avansată"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "O instalare avansată poate fi folosită pentru a personaliza ceea ce este "
-#~ "necesar pentru această instalare Mythbuntu. NOTĂ: o instalare avansată "
-#~ "este necesară pentru a adăuga o mașină Mythbuntu la o rețea bazată pe "
-#~ "MythTV existentă."
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "Alege Module pentru Intefață / Backend"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "Modulele pentru MythTV pot fi folosite pentru a-i oferi sistemului "
-#~ "funcții suplimentare, pe lângă cea de soluție TV."
-
-#~ msgid "Backend Plugins"
-#~ msgstr "Module pentru Backend"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "Module pentru Interfață"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth Web"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb oferă o interfața web ce poate fi accesată de la distanță pentru "
-#~ "a vizualiza programul canalelor tv, pentru a programa înregistrări, "
-#~ "pentru a șterge înregistrări existente sau pentru a căuta programe."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Arhiva Myth"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Navigator Myth"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Controale Myth"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Filme Myth"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix (netflix.com)"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Galerie Myth"
-
-#~ msgid "Myth Game"
-#~ msgstr "Jocuri Myth (emulatoare)"
-
-#~ msgid "Myth Music"
-#~ msgstr "Muzică Myth"
-
-#~ msgid "Myth News"
-#~ msgstr "Știri Myth"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Telefon Myth"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Radiouri Myth"
-
-#~ msgid "Myth Video"
-#~ msgstr "Video Myth"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Vremea Myth"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "Un modul pentru MythTV ce îți oferă posibilitatea de a crea DVD-uri din "
-#~ "conținut ce se află în rețeaua ta MythTV."
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you view movie trailers from apple.com."
-#~ msgstr ""
-#~ "Un modul pentru MythTV care vă permite să vizualizați prezentări ale "
-#~ "filmelor de pe apple.com."
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "Un modul integrat de navigare web pentru sistemul tau MythTV."
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "Modalități externe de a controla MythTV-ul tău. Acest modul îți permite "
-#~ "să modifici scurtături și combinații de taste."
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "Găsiți filmele actuale de la cinematografe apropiate"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "Cu acest plugin îți poți monitoriza contul tău de pe Netflix.com."
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr ""
-#~ "Oferă o aplicație pentru a vizualiza directoarele ce conțin imagini."
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr ""
-#~ "O interfață pentru a porni și configura orice emulator de jocuri care "
-#~ "rulează pe Linux."
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "Oferă un player pentru a reda fișierele audio în MythTV."
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr "Un agregator RSS care te ține la curent cu știrile tale preferate."
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr ""
-#~ "O aplicație care oferă capabilitatea de a folosi telefonie și "
-#~ "videotelefonie bazată pe protocolul SIP (VoIP) în interiorul MythTV."
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "Oferă posibilitatea de a ascula posturile de radio de pe internet."
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "Permite vizualizarea conținutului video folosind o aplicație externă de "
-#~ "redare, în interiorul interfeței MythTv."
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "Arată condițiile meteo curente și viitoare în interfața MythTV."
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "Alege Teme Extra"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr ""
-#~ "Temele pot îmbunătăți cu mult estetica unei instalării MythTV și o pot "
-#~ "adapta mult mai bine gusturilor dumneavoastră."
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "Pornețte/Oprește tot"

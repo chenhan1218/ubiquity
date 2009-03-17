@@ -7,38 +7,38 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-02-03 14:08+0000\n"
-"Last-Translator: rainofchaos <rainofchaos@gmail.com>\n"
+"PO-Revision-Date: 2009-03-16 15:55+0000\n"
+"Last-Translator: lhquark <lhquark@yahoo.com.cn>\n"
 "Language-Team: Simplified Chinese <debian-chinese-gb@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:58+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:43+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "使用最大的连续空间"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the entire disk"
-msgstr ""
+msgstr "使用整个硬盘"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "分别安装它们，在启动时从中选择"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "手动指定分区(高级)"
 
 #. Type: text
 #. Description
@@ -119,19 +119,19 @@ msgstr "你在什么地方？"
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Select your time zone from the map, or by region and city."
-msgstr ""
+msgstr "在地图中选择您的时区，或通过区域及城市指定。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "City:"
-msgstr ""
+msgstr "城市:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Region:"
-msgstr ""
+msgstr "区域:"
 
 #. Type: text
 #. Description
@@ -155,13 +155,13 @@ msgstr "您可以在该框内测试您新的键盘布局。"
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Suggested option:"
-msgstr ""
+msgstr "建议的选项:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your own:"
-msgstr ""
+msgstr "选择您的:"
 
 #. Type: text
 #. Description
@@ -210,6 +210,8 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"输入相同的密码两次，以检查避免输入错误。好的密码混合了字母、数字和标点，具有"
+"至少八个字符的长度，并且需要定期更换。"
 
 #. Type: text
 #. Description
@@ -235,13 +237,13 @@ msgstr "自动登录"
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Require a password to log in"
-msgstr ""
+msgstr "需要密码以登入"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Require a password to log in and to decrypt your home folder"
-msgstr ""
+msgstr "需要密码以登入及解密主文件夹"
 
 #. Type: text
 #. Description
@@ -281,27 +283,25 @@ msgstr "你想怎样对硬盘进行分区？"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "这台计算机没有安装操作系统。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "这台计算机安装了${OS}操作系统。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "这台计算机安装了若干个操作系统。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "您想用什么名字作为登录名？"
+msgstr "您要将${RELEASE}放置在何处？"
 
 #. Type: text
 #. Description
@@ -372,24 +372,18 @@ msgstr "跳过"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
 msgstr "安装完成"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "继续"
+msgstr "继续测试"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
 msgstr "现在重启"
 
@@ -616,18 +610,13 @@ msgstr "端口："
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"安装完成。你需要重新启动计算机以使用新安装的系统。你可以继续使用live CD，不过"
-"你所做的任何更改和保存的文档不会被保留。"
+"安装以完成。您现在可以继续测试Ubuntu，但是重启以前您所做的任何更改以及保存的"
+"任何文档都不会保留。"
 
 #. Type: text
 #. Description
@@ -977,7 +966,7 @@ msgstr "删除软件包时发生了一个错误："
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "计算要跳过复制的文件中..."
 
 #. Type: title
 #. Description
@@ -1042,15 +1031,6 @@ msgstr "如果您不回到分区工具并增加这些分区的大小，安装可
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1063,21 +1043,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" 语言：${LANGUAGE}\n"
-"键盘布局：${KEYMAP}\n"
-"名称：${FULLNAME}\n"
-"登录名称：${USERNAME}\n"
-"位置：${LOCATION}\n"
-"迁移助手：\n"
-"${MIGRATE}"
+" 安装类型: ${INSTALLTYPE}\n"
+" 语言: ${LANGUAGE}\n"
+" 键盘布局: ${KEYMAP}\n"
+" 姓名: ${FULLNAME}\n"
+" 登录名: ${USERNAME}\n"
+" 地点: ${LOCATION}\n"
+" 红外遥控器: ${REMOTE}\n"
+" 红外发送器: ${TRANSMITTER}\n"
+" 显卡驱动: ${VIDEO_DRIVER}\n"
+" 服务: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "高级安装类型"
+msgstr "安装类型"
 
 #. Type: text
 #. Description
@@ -1171,7 +1152,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "图形驱动"
 
 #. Type: text
 #. Description
@@ -1306,236 +1287,3 @@ msgstr "正在配置附加服务..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "配置红外设备..."
-
-#~ msgid "Selected region:"
-#~ msgstr "所选区域："
-
-#~ msgid "Current time:"
-#~ msgstr "当前时间："
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr "请再次输入相同密码，以防止输入错误。"
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "继续使用 live CD"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "请选择你所在国家的城市名称和时区。选择了正确的时区后，如果显示的当前时间不"
-#~ "正确，你可以在重新启动系统后进行调整。"
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " 安装类型：${INSTALLTYPE}\n"
-#~ "驱动程序：\n"
-#~ "     添加视频驱动：${VIDEO_DRIVER}\n"
-#~ "         电视输出：${TVOUT}，${TVSTANDARD}\n"
-#~ "额外服务：\n"
-#~ "     VNC: ${EN_VNC}\n"
-#~ "     SSH: ${EN_OPENSSH}\n"
-#~ "     Samba: ${EN_SAMBA}\n"
-#~ "     NFS: ${EN_NFS}\n"
-#~ "     MythTV服务: ${EN_MYSQL}\n"
-#~ "普通ubuntu安装问题：\n"
-#~ "     语言：${LANGUAGE}\n"
-#~ "     键盘布局：${KEYMAP}\n"
-#~ "     完整名称：${FULLNAME}\n"
-#~ "     登录名称：${USERNAME}\n"
-#~ "     位置：${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "更多的驱动/固件"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "更改视频驱动和设置"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "警告：不要把电视标准设置得高于你的电视所能支持的。否则可能发生永久性损害。"
-
-#~ msgid "Selected city:"
-#~ msgstr "所选城市："
-
-#~ msgid "Time zone:"
-#~ msgstr "时区："
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "有哪些安装类型？"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Mythbuntu有两种安装类型："
-
-#~ msgid "Standard Installation"
-#~ msgstr "标准安装"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "标准安装只需同用户进行最少的互动就能安装并设置每个选醒。这种类型将安装前"
-#~ "端、后端、所有插件和所有主题。"
-
-#~ msgid "Advanced Installation"
-#~ msgstr "高级安装"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "高级安装能够用来按需安装Mythbuntu。注意：高级安装必须向基于MythTV的现有网"
-#~ "络添加Mythbuntu机器。"
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "选择前端／后端插件"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "插件可以用来拓展MythTV的功能，而不仅仅是作为电视收看时间转移的方案。"
-
-#~ msgid "Backend Plugins"
-#~ msgstr "后端插件"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "前端插件"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth Web"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb提供了一个网络界面，可以用来查看清单，预定录制，删除录制，并搜索节"
-#~ "目。"
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth Archive"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Myth 浏览器"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Myth 控制"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Myth 电影"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Myth 画廊"
-
-#~ msgid "Myth Game"
-#~ msgstr "Myth Game"
-
-#~ msgid "Myth Music"
-#~ msgstr "Myth 音乐"
-
-#~ msgid "Myth News"
-#~ msgstr "Myth 新闻"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Myth Phone"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Myth Stream"
-
-#~ msgid "Myth Video"
-#~ msgstr "Myth 视频"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Myth Weather"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr "MythTV的一个插件让你可以利用MythTV网络的内容制作DVD光碟。"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you view movie trailers from apple.com."
-#~ msgstr "MythTV 的插件使你可以观看apple.com上的电影预告片。"
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "MythTV系统内整合的一个网络浏览器插件。"
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr "MythTV的外部控制 。这将允许你改变按钮映射和按键绑定。"
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "寻找附近影院播放的电影"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "允许你监测你的Netflix dvd租借排队情况。"
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr "让你从视觉上浏览含图片档案的目录树。"
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr "一个前端用来启动在Linux下可运行的任意模拟器或执行程序。"
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "提供一个整合于MythTV的数字音频播放器。"
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr "MythTV的rss聚合新闻阅读插件让你了解所喜欢的新闻专题的最新进展。"
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr "MythTV的电话和可视电话功能使用标准会话发起协议（SIP）。"
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "提供一种方法来听流媒体网络电台。"
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr "利用外部播放器可以从MythTV的界面内让你浏览和播放视频流。"
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "在MythTV 内显示当前和预测的天气信息。"
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "选择额外主题"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr ""
-#~ "主题可以极大的改善MythTV设置的美学魅力，并更好地符合你的品味地进行显示。"
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "全部启用/禁用"

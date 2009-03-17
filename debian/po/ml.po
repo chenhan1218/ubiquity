@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-02-03 15:59+0000\n"
+"PO-Revision-Date: 2009-03-10 10:38+0000\n"
 "Last-Translator: Praveen A <Unknown>\n"
 "Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc-"
 "discuss@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:58+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -308,10 +308,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "എന്ത് പേര് വെച്ചാണ് നിങ്ങള്‍ അകത്ത് കടക്കുവാന്‍ (log in) ഉദ്ദേശിക്കുന്നത്?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -382,26 +380,20 @@ msgstr "അടുത്തതിലേക്ക് കടക്കുക"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "ഇന്‍സ്റ്റോളേഷന്‍ പൂര്‍ണ്ണം"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "തുടരുക"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "ഇപ്പോള്‍ റീസ്റ്റാര്‍ട്ട് ചെയ്യുക"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1036,10 +1028,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Type"
-msgstr "ഇന്‍സ്റ്റോളേഷന്‍ പൂര്‍ണ്ണം"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1252,32 +1242,3 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Selected region:"
-#~ msgstr "തിരഞ്ഞെടുത്ത പ്രദേശം:"
-
-#~ msgid "Current time:"
-#~ msgstr "ഇപ്പോഴത്തെ സമയം:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr "രഹസ്യവാക്ക് രണ്ട് തവണ നല്‍കുക, ടൈപ്പിങ്ങ് അപാകതകള്‍ പരിശോധിക്കുവാന്‍ വേണ്ടിയാണിത്."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "ലൈവ് CD ഉപയോഗിക്കുന്നത് തുടരുക"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "താങ്കളുടെ രാജ്യത്തെ ഒരു പട്ടണവും സമയമേഖലയും തെരെഞ്ഞെടുക്കുക. ശരിയായ സമയമേഖല "
-#~ "തെരെഞ്ഞെടുത്തതിനു ശേഷവും സമയം തെറ്റായി കാണിക്കുന്നുണ്ടെങ്കില്‍, സജ്ജമാകിയ കമ്പ്യൂട്ടര്‍ "
-#~ "പുനരാരംഭിച്ചതിനു ശേഷം ക്രമീകരിക്കാവുന്നതാണ്."
-
-#~ msgid "Selected city:"
-#~ msgstr "തിരഞ്ഞെടുത്ത പട്ടണം:"
-
-#~ msgid "Time zone:"
-#~ msgstr "സമയ മേഖല:"

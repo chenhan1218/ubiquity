@@ -7,13 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-02-03 15:36+0000\n"
+"PO-Revision-Date: 2009-03-10 10:33+0000\n"
 "Last-Translator: SZERVÑC Attila <Unknown>\n"
-"Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian>\n"
+"Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
+"org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:58+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -313,10 +314,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Milyen felhasználói nevet szeretne használni a bejelentkezéshez?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -387,26 +386,20 @@ msgstr "Kihagyás"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "A telepítés befejeződött"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Folytatás"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Újraindítás most"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -633,19 +626,11 @@ msgstr "Port:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"A telepítés befejeződött. Az új rendszer használatához újra kell indítani a "
-"számítógépet. Folytatható a live CD használata is, de az így létrejött "
-"változtatások és dokumentumok el fognak veszni."
 
 #. Type: text
 #. Description
@@ -1081,15 +1066,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1102,21 +1078,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" Nyelv: ${LANGUAGE}\n"
-" Billentyűzetkiosztás: ${KEYMAP}\n"
-" Név: ${FULLNAME}\n"
-" Bejelentkezési név: ${USERNAME}\n"
-" Hely: ${LOCATION}\n"
-" Átviteli segéd:\n"
-" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Haladó telepítési típus"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1356,258 +1323,3 @@ msgstr "További szolgáltatások beállítása..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Infravörös eszközök beállítása..."
-
-#~ msgid "Selected region:"
-#~ msgstr "Kiválasztott régió:"
-
-#~ msgid "Current time:"
-#~ msgstr "Jelenlegi idő:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr ""
-#~ "Írja be ugyanazt a jelszót kétszer a gépelési hibák ellenőrzése érdekében."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Folytatom a Live CD használatát"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Válasszon egy várost az országnak és időzónának megfelelően. Ha a "
-#~ "megfelelő időzóna kiválasztása után is helytelen a pillanatnyilag jelzett "
-#~ "idő, akkor azt a telepített rendszer újraindítása után beállíthatja."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Telepítési típus:              ${INSTALLTYPE}\n"
-#~ " Meghajtók:\n"
-#~ "     További videomeghajtó:     ${VIDEO_DRIVER}\n"
-#~ "         TV-kimenet:            ${TVOUT}, ${TVSTANDARD}\n"
-#~ " További szolgáltatások:\n"
-#~ "     VNC:                       ${EN_VNC}\n"
-#~ "     SSH:                       ${EN_OPENSSH}\n"
-#~ "     Samba:                     ${EN_SAMBA}\n"
-#~ "     NFS:                       ${EN_NFS}\n"
-#~ "     MythTV szolgáltatás:       ${EN_MYSQL}\n"
-#~ " A normál Ubuntu telepítő kérdései:\n"
-#~ "     Nyelv:                     ${LANGUAGE}\n"
-#~ "     Billentyűzetkiosztás:      ${KEYMAP}\n"
-#~ "     Normál név:                ${FULLNAME}\n"
-#~ "     Normál bejelentkezési név: ${USERNAME}\n"
-#~ "     Hely:                      ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "További meghajtók/firmware"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "Videomeghajtó és beállítások módosítása"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "Figyelmeztetés: a TV szabványát ne állítsa a készüléke által ténylegesen "
-#~ "támogatottnál nagyobbra. Ez TARTÓSAN károsíthatja a készüléket."
-
-#~ msgid "Selected city:"
-#~ msgstr "Kiválasztott város:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Időzóna:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Válasszon telepítési típust"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Két telepítési mód érhető el a Mythbuntuhoz:"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Általános telepítés"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "Az általános telepítés minden beállítást minimális felhasználói "
-#~ "beavatkozás mellett állít be. Ez telepíti a háttérprogramot, az "
-#~ "előtétprogramot, az összes bővítményt és az összes témát."
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Haladó telepítés"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "A haladó telepítés segítségével személyre szabható, hogy mi szükséges "
-#~ "ehhez a Mythbuntu telepítéshez. Megjegyzés: a haladó telepítés szükséges "
-#~ "egy Mythbuntu gép meglévő MythTV-alapú hálózathoz adásához."
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "Előtét/háttér bővítmények kiválasztása"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "A bővítmények segítségével a MythTV funkcionalitását kiterjesztheti az "
-#~ "időeltolásos TV megoldásokon túlra."
-
-#~ msgid "Backend Plugins"
-#~ msgstr "Háttérbővítmények"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "Előtétbővítmények"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth web"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "A MythWeb webes felületet biztosít, amelyen műsorokat jeleníthet meg, "
-#~ "ütemezheti és törölheti a felvételeket, valamint műsorokat kereshet."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth archívum"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Myth böngésző"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Myth vezérlés"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Myth filmek"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Myth galéria"
-
-#~ msgid "Myth Game"
-#~ msgstr "Myth játék"
-
-#~ msgid "Myth Music"
-#~ msgstr "Myth zene"
-
-#~ msgid "Myth News"
-#~ msgstr "Myth hírek"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Myth telefon"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Myth műsor"
-
-#~ msgid "Myth Video"
-#~ msgstr "Myth videó"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Myth időjárás"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "A saját MythTV hálózatán elérhető tartalomból DVD-k létrehozását lehetővé "
-#~ "tevő MythTV bővítmény."
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you view movie trailers from apple.com."
-#~ msgstr "MythTV bővítmény az apple.com filmbemutatóinak megjelenítéséhez."
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "Integrált webböngésző-bővítmény a MythTV rendszerhez."
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "Külső vezérlés a MythTV-hez. Ez lehetővé teszi a gombleképezések és "
-#~ "billentyűtársítások módosítását."
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "A közeli mozikban játszott filmek keresése"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "Lehetővé teszi a Netflix DVD-kölcsönzési sor figyelését."
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr ""
-#~ "Lehetővé teszi egy képfájlokat tartalmazó könyvtárfa vizuális böngészését."
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr ""
-#~ "Előtétprogram a Linux által futtatott tetszőleges emulátor vagy bináris "
-#~ "elindításához."
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "A MythTV-be integrált digitális zenegép."
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr ""
-#~ "RSS hírfolyamolvasó bővítmény a MythTV-hez, a kedvenc hírtémák "
-#~ "naprakészen tartásához."
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr ""
-#~ "Telefon- és videofon szolgáltatás a MythTV-hez, a szabványos SIP "
-#~ "protokoll használatával."
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "Lehetőséget ad internetes rádióállomások hallgatására."
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "Lehetővé teszi videoműsorok tallózását és lejátszását külső lejátszó "
-#~ "segítségével a MythTV felületén belül."
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr ""
-#~ "Megjeleníti az aktuális és előrejelzett időjárás-információkat a MythTV-n "
-#~ "belül."
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "Extra témák kiválasztása"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr ""
-#~ "A témák jelentősen javíthatják a MythTV rendszer megjelenését és az "
-#~ "ízlésének megfelelően jelenítik azt meg."
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "Összes engedélyezése/tiltása"

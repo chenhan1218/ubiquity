@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-01-24 09:20+0000\n"
-"Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
-"Language-Team: Danish\n"
+"PO-Revision-Date: 2009-03-10 10:28+0000\n"
+"Last-Translator: Данило Шеган <danilo@canonical.com>\n"
+"Language-Team: <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -310,10 +310,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Hvilket navn vil du bruge til at logge ind med?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -386,26 +384,20 @@ msgstr "Spring over"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Installation fuldført"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Fortsæt"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Genstart nu"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -632,19 +624,11 @@ msgstr "Port:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Installationen er færdig. Du skal genstarte computeren, for at kunne bruge "
-"den nye installation. Du kan forsætte med at bruge denne live-cd, men de "
-"ændringer du foretager eller dokumenter du gemmer, vil ikke blive gemt."
 
 #. Type: text
 #. Description
@@ -1058,10 +1042,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Avanceret installationstype"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1278,168 +1260,3 @@ msgstr "Konfigurerer øvrige tjenester..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Selected region:"
-#~ msgstr "Valgt region:"
-
-#~ msgid "Current time:"
-#~ msgstr "Aktuelt tidspunkt:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr ""
-#~ "Indtast det samme kodeord to gange, så det kan blive kontrolleret for "
-#~ "tastefejl."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Forsæt med at bruge live-cd'en"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Vælg en by i dit land og tidszone. Hvis den angivne tid ikke er korrekt "
-#~ "på trods af valg af tidszone kan du justere den når du logger ind i det "
-#~ "installerede system."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Installationstype:           ${INSTALLTYPE}\n"
-#~ " Drivere:\n"
-#~ "     Ekstra Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Ekstra Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Almindelige Ubuntu installationsspørgsmål:\n"
-#~ "     Sprog:           ${LANGUAGE}\n"
-#~ "     Tastaturlayout:    ${KEYMAP}\n"
-#~ "     Fulde navn:       ${FULLNAME}\n"
-#~ "     Alment navn til login: ${USERNAME}\n"
-#~ "     Sted:           ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "Yderligere Drivere/Firmware"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "Ændr Videodriver og Indstillinger"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "Advarsel: Sæt ikke TV standarden til noget højere end dit TV "
-#~ "understøtter. PERMANENT skade kan ske."
-
-#~ msgid "Selected city:"
-#~ msgstr "Valgt by:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Tidszone:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Hvilken type installation?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Der findes to installationstyper til Mythbuntu:"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Standard Installation"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "En standard installation vil installere og konfigurere enhver indstilling "
-#~ "med minimal interaktion fra brugerens side. Dette vil installere en "
-#~ "backend, frontend, alle tilføjelser og temaer."
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Avanceret installation"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "En avanceret installation kan bruges til at tilrette det som skal bruges "
-#~ "i denne Mythbuntu installation. BEMÆRK: Ved en avanceret installation er "
-#~ "det nødventigt at tilføje en Mythbuntumaskine til et eksisterende MythTV "
-#~ "netværk."
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "Plugins kan bruges til at udvide MythTVs funktionalitet udover en "
-#~ "tidsskiftende TV-løsning."
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth Web"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb tilbyder en internetbrugerflade som kan bruges til at se TV-"
-#~ "oversigter, planlægge optagelser, slette optagelser og søge efter TV-"
-#~ "programmer."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth Arkiv"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Myth Browser"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Myth Stream"
-
-#~ msgid "Myth Video"
-#~ msgstr "Myth Video"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Myth Vejr"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "Et plugin til MythTV som gør det muligt at lave DVDer ud fra indhold fra "
-#~ "dit MythTV Netværk."
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "Et integreret web-browser-plugin til dit MythTV system."
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "Lader dig se køen over DVD'er du venter på at leje fra Netflix."
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr "Lader dig bladre igennem mapper som indeholder billedfiler visuelt."
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr ""
-#~ "En brugerflade til starte en hvilken som helst emulator eller binær fil "
-#~ "som Linux kører."

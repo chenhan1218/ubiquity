@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-01-09 16:54+0000\n"
-"Last-Translator: Hleb Rubanau <Unknown>\n"
+"PO-Revision-Date: 2009-03-10 10:25+0000\n"
+"Last-Translator: Pavel Piatruk <Unknown>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:59+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -309,10 +309,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Якую назву хочаш ужываць ў часе ўваходу ў сыстэму?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -385,26 +383,20 @@ msgstr "Прапусьціць"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Інсталяцыя скончана"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Працяг"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Перазагрузіць цяпер"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -625,19 +617,11 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Інсталяцыя скончаная. Каб карыстацца новай інсталяцыяй, трэба перагрузіць "
-"кампутар. Можаш працягваць карыстацца сыстэмай на гэтым кампакт-дыску, але "
-"ўсе зробленые зьмены і записаныя дакуманты ня будуць захаваныя."
 
 #. Type: text
 #. Description
@@ -1045,15 +1029,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1066,21 +1041,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" Мова: ${LANGUAGE}\n"
-"Раскладка клявіятуры: ${KEYMAP}\n"
-"Імя: ${FULLNAME}\n"
-"Імя па ўваходзе: ${USERNAME}\n"
-"Месца: ${LOCATION}\n"
-"Асыстэнт міграцыі:\n"
-"${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Type"
-msgstr "Інсталяцыя скончана"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1293,32 +1259,3 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Selected region:"
-#~ msgstr "Выбраны рэгіён:"
-
-#~ msgid "Current time:"
-#~ msgstr "Бягучы час:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr "Увядзі той самы пароль двойчы, каб пазьбегнуць памылак друку."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Працягвай карыстацца сістэмай на кампакт-дыску"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Вылучыце места вашай краіны і часавы пояс. Калі нават пасля вылучэння "
-#~ "правільнага часавога поясу, вы бачыце не правільны час, вы зможаце яго "
-#~ "выправіць пасля загрузкі ў усталяваную сістэму."
-
-#~ msgid "Selected city:"
-#~ msgstr "Выбраны горад:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Часавая зона:"

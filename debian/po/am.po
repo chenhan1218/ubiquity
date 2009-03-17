@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-01-09 16:23+0000\n"
+"PO-Revision-Date: 2009-03-10 10:24+0000\n"
 "Last-Translator: teferra <Unknown>\n"
 "Language-Team: Amharic\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:59+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -368,26 +368,20 @@ msgstr "ዝለል"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "ተከላው ተፈጽሟል"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "ቀጥል"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "እንደገና አስጀምር"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1022,10 +1016,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Type"
-msgstr "ተከላው ተፈጽሟል"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1238,15 +1230,3 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Selected region:"
-#~ msgstr "የተመረጠው አካባቢ፦"
-
-#~ msgid "Current time:"
-#~ msgstr "የአሁን ሰዓት፡"
-
-#~ msgid "Selected city:"
-#~ msgstr "የተመረጠው ከተማ፦"
-
-#~ msgid "Time zone:"
-#~ msgstr "የሰዓት ክልል፦"

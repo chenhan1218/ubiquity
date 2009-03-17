@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-01-10 06:36+0000\n"
+"PO-Revision-Date: 2009-03-10 10:46+0000\n"
 "Last-Translator: Tetralet <Unknown>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -301,10 +301,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "您要使用什麼名稱登入？"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -375,26 +373,20 @@ msgstr "略過"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "安裝完成"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "繼續"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "立刻重新啟動"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -621,18 +613,11 @@ msgstr "連接埠："
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"安裝已經完成。 您必須重新啟動電腦以使用新安裝的系統。 您可以繼續使用這個 "
-"live CD，但是您所做的更改或儲存的文件將不會被保留。"
 
 #. Type: text
 #. Description
@@ -1051,15 +1036,6 @@ msgstr "如果您不回到磁碟分割程式並增加這些分割區的大小，
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1072,21 +1048,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" 使用語言：${LANGUAGE}\n"
-" 鍵盤模式：${KEYMAP}\n"
-" 真實姓名：${FULLNAME}\n"
-" 登入帳號：${USERNAME}\n"
-" 所在地區：${LOCATION}\n"
-" 資料轉移：\n"
-" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "進階安裝模式"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1315,234 +1282,3 @@ msgstr "正在設定附加的服務..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "設定紅外線裝置中..."
-
-#~ msgid "Selected region:"
-#~ msgstr "選擇的區域"
-
-#~ msgid "Current time:"
-#~ msgstr "當前時間："
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr "輸入相同的密碼兩次，以檢查是否有打錯字。"
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "繼續使用 live CD"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "請選擇您所在的城市以及時區。如果時區設定正常但時間不對，您仍可以在安裝完"
-#~ "成、重開機以後設定。"
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " 安裝模式：${INSTALLTYPE}\n"
-#~ " 驅動程式：\n"
-#~ "     新增視訊驅動程式：${VIDEO_DRIVER}\n"
-#~ "         輸出到電視；${TVOUT}, ${TVSTANDARD}\n"
-#~ " 附加服務：\n"
-#~ "     VNC: ${EN_VNC}\n"
-#~ "     SSH: ${EN_OPENSSH}\n"
-#~ "     Samba: ${EN_SAMBA}\n"
-#~ "     NFS: ${EN_NFS}\n"
-#~ "     MythTV 服務: ${EN_MYSQL}\n"
-#~ " 標準Ubuntu安裝問題：\n"
-#~ "     語言：${LANGUAGE}\n"
-#~ "     鍵盤對應：${KEYMAP}\n"
-#~ "     全名：${FULLNAME}\n"
-#~ "     登入帳號：${USERNAME}\n"
-#~ "     地區：${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "附加驅動程式/韌體"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "修改影像驅動程式 & 設定"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr "警告：不要設定高於您的電視支援的標準。這可能會造成電視的永久損害！"
-
-#~ msgid "Selected city:"
-#~ msgstr "已選擇的城市："
-
-#~ msgid "Time zone:"
-#~ msgstr "時區："
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "您要選擇何種安裝模式？"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Mythbuntu 提供兩種安裝模式："
-
-#~ msgid "Standard Installation"
-#~ msgstr "標準安裝"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "標準安裝以最少的使用者互動（即問最少的問題）來安裝以及設定每個項目。標準安"
-#~ "裝將會安裝後台、前台、所有的附加元件以及所有的佈景主題。"
-
-#~ msgid "Advanced Installation"
-#~ msgstr "進階安裝"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "進階安裝可以用來個人化 Mythbuntu 安裝程式需要安裝哪些元件。注意：進階安裝"
-#~ "必須新增一個 Mythbuntu 機器到存在的 MythTV 基礎網路。"
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "選擇前端/後端程式的附加元件"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "附加元件可以用來擴充 MythTV 的功能，使其超越「時間平移」的電視功能。"
-
-#~ msgid "Backend Plugins"
-#~ msgstr "後端程式附加元件"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "前端程式附加元件"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth 網路"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb 提供一個可以用來觀看節目表，排程錄音，刪除錄音，並搜尋程式的網路介"
-#~ "面。"
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth 檔案庫"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Myth 瀏覽器"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Myth 控制台"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Myth 電影"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Myth 相簿"
-
-#~ msgid "Myth Game"
-#~ msgstr "Myth 遊戲"
-
-#~ msgid "Myth Music"
-#~ msgstr "Myth 音樂"
-
-#~ msgid "Myth News"
-#~ msgstr "Myth 新聞"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Myth 電話"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Myth 串流"
-
-#~ msgid "Myth Video"
-#~ msgstr "Myth 影音"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Myth 氣象"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr "一個讓您從您的 MythTV 網路的內容建立 DVD 的附加元件。"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you view movie trailers from apple.com."
-#~ msgstr "MythTV 的插件讓您從 apple.com 觀賞電影預告。"
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "一個 MythTV 系統的整合網路瀏覽器附加元件。"
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr "MythTV 的外部控制。這將允許您修改按鍵和鍵盤對應。"
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "尋找本地附近電影院上映的電影。"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "讓您可以監視您的 Netflix dvd rental 佇列。"
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr "讓你可以視覺化的瀏覽包含圖檔的樹狀資料夾。"
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr "用來啟動任何模擬器或 Linux 可執行的二進位檔案的前端介面。"
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "提供一個整合到 MythTV 的數位點唱機。"
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr "一個 MythTV 的 RSS 閱讀器讓你最喜歡的主題維持最新的資訊。"
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr "可用於 MythTV 的電話或影像電話使用標準的 SIP 通訊協定。"
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "提供一個方法聆聽網路廣播電台。"
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr "讓您可以在 MythTV 的介面使用外部播放程式瀏覽並播放串流視訊。"
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "在 MythTV 內顯示現在的天氣和氣象預報。"
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "選擇額外的佈景主題"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr "佈景主題可以大大改善 MythTV 設定的外觀美感和更切合您的品味。"
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "啟用/關閉 所有"

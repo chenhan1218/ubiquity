@@ -7,26 +7,26 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-01-11 07:41+0000\n"
-"Last-Translator: Muhammad Bayu <Unknown>\n"
+"PO-Revision-Date: 2009-03-16 11:41+0000\n"
+"Last-Translator: Bagus Herlambang <bagus@vfemail.net>\n"
 "Language-Team: Bahasa Indonesia <debian-l10n-id@gurame.fisika.ui.ac.id>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:43+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "Gunakan ruang kosong terbesar yang menyatu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the entire disk"
-msgstr ""
+msgstr "Gunakan seluruh disk"
 
 #. Type: text
 #. Description
@@ -38,7 +38,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "Tentukan partisi secara manual (advanced)"
 
 #. Type: text
 #. Description
@@ -125,19 +125,19 @@ msgstr "Di mana lokasi anda"
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Select your time zone from the map, or by region and city."
-msgstr ""
+msgstr "Pilih zona waktu anda dari peta"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "City:"
-msgstr ""
+msgstr "Kota"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Region:"
-msgstr ""
+msgstr "Daerah"
 
 #. Type: text
 #. Description
@@ -163,13 +163,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Suggested option:"
-msgstr ""
+msgstr "Pilihan yang disarankan:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your own:"
-msgstr ""
+msgstr "Pilih sendiri:"
 
 #. Type: text
 #. Description
@@ -222,6 +222,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Masukkan kata sandi yang sama dua kali, sehingga dapat diperiksa apabila "
+"terjadi kesalahan pengetikan. Sebuah kata sandi yang baik sebaiknya "
+"merupakan kombinasi dari huruf, angka, dan tanda baca, setidaknya terdiri "
+"dari minimal delapan karakter, dan sebaiknya sering diganti secara berkala."
 
 #. Type: text
 #. Description
@@ -249,13 +253,13 @@ msgstr "Masuk secara otomatis"
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Require a password to log in"
-msgstr ""
+msgstr "Membutuhkan kata sandi untuk masuk"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Require a password to log in and to decrypt your home folder"
-msgstr ""
+msgstr "Membutuhkan kata sandi untuk masuk dan mendekripsi home folder anda"
 
 #. Type: text
 #. Description
@@ -299,27 +303,25 @@ msgstr "Bagaimana anda ingin membuat partisi disk?"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "Komputer ini tidak memiliki sistem operasi.."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "Komputer ini memiliki ${OS} di dalamnya"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "Komputer ini memiliki beberapa sistem operasi di dalamnya."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Nama apakah yang ingin anda gunakan untuk melakukan log in?"
+msgstr "Dimanakah anda ingin meletakkan ${RELEASE}?"
 
 #. Type: text
 #. Description
@@ -391,26 +393,20 @@ msgstr "Lewati"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Instalasi selesai."
+msgstr "Instalasi Selesai"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Teruskan"
+msgstr "Lanjutkan Pengecekan"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Restart sekarang"
+msgstr "Restart Sekarang"
 
 #. Type: text
 #. Description
@@ -637,20 +633,14 @@ msgstr "Port:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Instalasi telah selesai. Anda perlu melakukan restart komputer ini agar "
-"dapat menggunakan instalasi baru tersebut. Anda dapat melanjutkan "
-"menggunakan live CD ini, walaupun setiap perubahan yang anda buat atau "
-"dokumen yang anda simpan tidak akan disimpan secara permanen."
+"Instalasi telah selesai. Anda dapat melanjutkan pengecekan Ubuntu sekarang, "
+"tetapi sebelum anda merestart komputer, setiap perubahan yang anda buat atau "
+"dokumen yang anda simpan tidak akan disimpan."
 
 #. Type: text
 #. Description
@@ -1087,15 +1077,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1108,21 +1089,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" Bahasa: ${LANGUAGE}\n"
-" Susunan keyboard: ${KEYMAP}\n"
-" Nama: ${FULLNAME}\n"
-" Nama login: ${USERNAME}\n"
-" Lokasi: ${LOCATION}\n"
-" Asisten migrasi:\n"
-" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Tipe Instalasi Tingkat Lanjut"
+msgstr "Jenis Instalasi"
 
 #. Type: text
 #. Description
@@ -1366,265 +1338,3 @@ msgstr "Sedang mengkonfigurasi layanan tambahan..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Mengatur peralatan infra merah"
-
-#~ msgid "Selected region:"
-#~ msgstr "Daerah yang dipilih:"
-
-#~ msgid "Current time:"
-#~ msgstr "Waktu saat ini:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr ""
-#~ "Masukkan password yang sama dua kali, sehingga dapat diperiksa jikalau "
-#~ "terjadi kesalahan ketik."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Lanjut menggukanan live CD"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Pilihlah sebuah kota dalam negara dan daerah waktu anda. Jika waktu saat "
-#~ "ini yang tertera tidak tepat bahkan setelah memilih daerah waktu yang "
-#~ "tepat, anda dapat mencocokkannya setelah reboot ke dalam sistem yang ter-"
-#~ "install."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Tipe Pemasangan: ${INSTALLTYPE}\n"
-#~ " Driver:\n"
-#~ "     Driver Video Ekstra: ${VIDEO_DRIVER}\n"
-#~ "         TV-Out: ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Layanan Tambahan:\n"
-#~ "     VNC: ${EN_VNC}\n"
-#~ "     SSH: ${EN_OPENSSH}\n"
-#~ "     Samba: ${EN_SAMBA}\n"
-#~ "     NFS: ${EN_NFS}\n"
-#~ "     Layanan MythTV: ${EN_MYSQL}\n"
-#~ " Pertanyaan Pemasangan Ubuntu Normal:\n"
-#~ "     Bahasa: ${LANGUAGE}\n"
-#~ "     Tata letak papan kunci: ${KEYMAP}\n"
-#~ "     Nama Biasa: ${FULLNAME}\n"
-#~ "     Nama Login Biasa: ${USERNAME}\n"
-#~ "     Lokasi: ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "Firmware/Driver Tambahan"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "Ubah Pengaturan & Driver Video"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "Peringatan: Jangan mengatur standar TV ke sesuatu yang lebih tinggi "
-#~ "daripada yang didukung TV anda. Kerusakan PERMANEN dapat terjadi."
-
-#~ msgid "Selected city:"
-#~ msgstr "Kota yang dipilih"
-
-#~ msgid "Time zone:"
-#~ msgstr "Zona waktu"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Instalasi Tipe Apa?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Dua tipe instalasi tersedia bagi Mythbuntu:"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Instalasi Standar"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "Suatu instalasi standar akan memasang dan mengkonfigur setiap opsi dengan "
-#~ "interaksi pemakai minimum. Ini akan memasang sebuah backed, frontend, "
-#~ "semua plugin, dan semua tema."
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Instalasi Tingkat Lanjut"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "Suatu instalasi tingkat lanjut dapat dipakai untuk mengkustomisasi apa "
-#~ "yang diperlukan bagi instalasi Mythbuntu ini. CATATAN: Suatu instalasi "
-#~ "tingkat lanjut diperlukan untuk menambahkan sebuah mesin Mythbuntu ke "
-#~ "jaringan berbasis MythTV yang telah ada."
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "Pilih Plugin Frontend / Backend"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "Plugin dapat dipakai untuk memperluas fungsionaliatas MythTV lebih dari "
-#~ "sekedar solusi penggeser waktu TV."
-
-#~ msgid "Backend Plugins"
-#~ msgstr "Plugin Backend"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "Plugin Frontend"
-
-#~ msgid "Myth Web"
-#~ msgstr "Web Myth"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb menyediakan antarmuka web yang dapat dipakai untuk melihat "
-#~ "daftar, jadwal perekaman, menghapus rekaman, dan mencari acara."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Arsip Myth"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Perambah Myth"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Pengendali Myth"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Film Myth"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Myth Galeri"
-
-#~ msgid "Myth Game"
-#~ msgstr "Permainan Myth"
-
-#~ msgid "Myth Music"
-#~ msgstr "Musik Myth"
-
-#~ msgid "Myth News"
-#~ msgstr "Berita Myth"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Telepon Myth"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Stream Myth"
-
-#~ msgid "Myth Video"
-#~ msgstr "Video Myth"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Cuaca Myth"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "Sebuah plugin bagi MythTV yang memungkinkan anda membuat DVD dari isi "
-#~ "pada Jaringan MythTV anda."
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you view movie trailers from apple.com."
-#~ msgstr ""
-#~ "Tambahan untuk MythTV sehingga anda bisa menonton film triler dari apple."
-#~ "com"
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "Sebuah plugin perambah web terintegrasi bagi sistem MythTV anda."
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "Pengendali eksternal bagi MythTV. Ini akan memungkinkan anda mengubah "
-#~ "pemetaan tombol dan pengaitan kunci."
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "Cari film yang diputar di bioskop lokal terdekat"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "Memungkinkan anda memantau antrian rental DVD Netflix anda."
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr ""
-#~ "Memungkinkan anda merambah secara visual suatu struktur direktori yang "
-#~ "memuat berkas-berkas citra."
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr ""
-#~ "Sebuah frontend untuk memulai sebarang emulator atau biner yang berjalan "
-#~ "di Linux."
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "Menyediakan jukebox audio dijital yang terintegrasi dengan MythTV."
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr ""
-#~ "Sebuah plugin pembaca berita asupan RSS bagi MythTV yang menjaga anda "
-#~ "tetap up-to-date pada topik-topik berita favorit anda."
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr ""
-#~ "Sebuah kapabilitas telepon dan telepon video pada MythTV memakai protokol "
-#~ "SIP standar."
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr ""
-#~ "Menyediakan sebuah metoda untuk mendengarkan stasiun radio internet "
-#~ "streaming."
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "Membolehkan anda merambah dan memainkan stream video, menggunakan pemutar "
-#~ "eksternal, dari dalam antarmuka MythTV."
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr ""
-#~ "Menampilkan informasi cuaca saat ini dan ramalan cuaca dari dalam MythTV."
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "Pilih tema ekstra"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr ""
-#~ "Tema bisa sangat meningkatkan estetis dari pengaturan MythTV, dan "
-#~ "menampilkannya sesuai dengan selera anda yang jauh lebih lebih baik."
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "Aktifkan/Non-Aktifkan semua"

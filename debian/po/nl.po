@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-02-03 16:14+0000\n"
+"PO-Revision-Date: 2009-03-10 10:39+0000\n"
 "Last-Translator: Frans Pop <Unknown>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:58+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -186,7 +186,7 @@ msgstr "Wat is uw naam?"
 #. Description
 #: ../ubiquity.templates:24001
 msgid "What name do you want to use to log in?"
-msgstr "Welke naam wil u gebruiken om u aan te melden?"
+msgstr "Welke naam wilt u gebruiken om aan te melden?"
 
 #. Type: text
 #. Description
@@ -209,7 +209,7 @@ msgstr "Kies een wachtwoord om uw account te beveiligen."
 #: ../ubiquity.templates:27001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
-"U bevindt zich in de debugging mode. Gebruik geen waardevol wachtwoord!"
+"U bevindt zich in de debuggingsmodus. Gebruik geen waardevol wachtwoord!"
 
 #. Type: text
 #. Description
@@ -241,7 +241,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Automatisch inloggen"
 
 #. Type: text
 #. Description
@@ -259,7 +259,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Migrate documents and settings"
-msgstr ""
+msgstr "Documenten en instellingen overzetten"
 
 #. Type: text
 #. Description
@@ -292,7 +292,7 @@ msgstr "Schijfruimte voorbereiden"
 #. Description
 #: ../ubiquity.templates:37001
 msgid "How do you want to partition the disk?"
-msgstr "Hoe wilt u de schrijf verdelen?"
+msgstr "Hoe wilt u de schijf verdelen?"
 
 #. Type: text
 #. Description
@@ -315,10 +315,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Welke naam wil u gebruiken om u aan te melden?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -333,13 +331,13 @@ msgstr "Partities voorbereiden"
 #: ../ubiquity.templates:43001 ../ubiquity.templates:93001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
-msgstr "Klaar voor de installatie van"
+msgstr "Klaar om te installeren"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 #. Type: text
 #. Description
@@ -374,13 +372,13 @@ msgstr "Stap ${INDEX} van ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Quit the installation?"
-msgstr ""
+msgstr "Installatie afbreken?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Do you really want to quit the installation now?"
-msgstr ""
+msgstr "Weet u zeker dat u de installatie wilt afbreken?"
 
 #. Type: text
 #. Description
@@ -391,26 +389,20 @@ msgstr "Overslaan"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Installatie is voltooid"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Verder"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Nu herstarten"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -418,7 +410,7 @@ msgstr "Nu herstarten"
 #. Description
 #: ../ubiquity.templates:55001 ../ubiquity.templates:56001
 msgid "Installer crashed"
-msgstr "Installatieprogramma is gecrashed"
+msgstr "Installatieprogramma is vastgelopen"
 
 #. Type: text
 #. Description
@@ -431,12 +423,12 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
-"Het spijt ons, het installatieprogramma is gecrashed. Dien een bugreport in "
+"Excuses, het installatieprogramma is vastgelopen. Dien een foutenrapport in "
 "op https://launchpad.net/ubuntu/+source/ubiquity/+filebug (voeg niet uw "
-"gegevens toe aan een bestaande bug) en een ontwikkelaar zal zo snel mogelijk "
-"met het probleem aan de slag gaan. Om het ontwikkelaars te helpen begrijpen "
-"wat er fout ging, voeg onderstaande details aan uw bugreport toe, voeg ook "
-"de bestanden /var/log/syslog en /var/log/partman bij."
+"gegevens toe aan een bestaand foutenrapport) en een ontwikkelaar zal zo snel "
+"mogelijk met het probleem aan de slag gaan. Om ontwikkelaars te helpen "
+"begrijpen wat er fout ging, voegt u onderstaande details aan uw "
+"foutenrapport toe, evenals de bestanden /var/log/syslog en /var/log/partman."
 
 #. Type: text
 #. Description
@@ -444,7 +436,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:58001
 msgid "Before:"
-msgstr ""
+msgstr "Voor:"
 
 #. Type: text
 #. Description
@@ -452,7 +444,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:59001
 msgid "After:"
-msgstr ""
+msgstr "Na:"
 
 #. Type: text
 #. Description
@@ -584,19 +576,19 @@ msgstr "Logisch"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Edit a partition"
-msgstr "Bewerk een partitie"
+msgstr "Een partitie bewerken"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:81001
 msgid "Advanced Options"
-msgstr "Geavanceerde opties"
+msgstr "Geavanceerde instellingen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:82001
 msgid "Boot loader"
-msgstr "Opstartmenu"
+msgstr "Opstartlader"
 
 #. Type: text
 #. Description
@@ -608,13 +600,13 @@ msgstr "Opstartlader installeren"
 #. Description
 #: ../ubiquity.templates:84001
 msgid "Popularity contest"
-msgstr "Popularity contest"
+msgstr "Populariteitswedstrijd"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:85001
 msgid "Participate in the package usage survey"
-msgstr "Neem deel aan het pakketgebruik-onderzoek"
+msgstr "Neem deel aan het onderzoek naar pakketgebruik"
 
 #. Type: text
 #. Description
@@ -637,20 +629,11 @@ msgstr "Poort:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"De installatie werd voltooid. U moet de computer opnieuw starten om de "
-"nieuwe installatie te kunnen gebruiken. U kunt ook de live-cd blijven "
-"gebruiken, wijzigingen die u van nu af maakt en documenten die u opslaat "
-"worden dan echter niet bewaard."
 
 #. Type: text
 #. Description
@@ -664,7 +647,7 @@ msgstr "Terug"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:91001
 msgid "Continue"
-msgstr "Verder"
+msgstr "Doorgaan"
 
 #. Type: text
 #. Description
@@ -693,7 +676,7 @@ msgstr ""
 " Naam: ${FULLNAME}\n"
 " Gebruikersnaam: ${USERNAME}\n"
 " Locatie: ${LOCATION}\n"
-"Migratie assistent:\n"
+"Migratieassistent:\n"
 "${MIGRATE}"
 
 #. Type: text
@@ -712,7 +695,7 @@ msgstr "Het systeem wordt geïnstalleerd"
 #. Description
 #: ../ubiquity.templates:96001
 msgid "Finding the distribution to copy..."
-msgstr "Vinden van de te kopiëren distributie..."
+msgstr "De te kopiëren distributie vinden..."
 
 #. Type: text
 #. Description
@@ -746,7 +729,7 @@ msgstr "Bestanden worden gekopieerd (minder dan een minuut te gaan)..."
 #: ../ubiquity.templates:103001 ../ubiquity.templates:104001
 #: ../ubiquity.templates:105001
 msgid "Installation Failed"
-msgstr ""
+msgstr "Installatie mislukt"
 
 #. Type: error
 #. Description
@@ -770,6 +753,8 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"Er is niet voldoende ruimte beschikbaar voor de installatie op de "
+"doelpartitie. Start de installatie opnieuw en kies een grotere partitie."
 
 #. Type: error
 #. Description
@@ -779,6 +764,11 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
+"Dit wordt vaak veroorzaakt door een gebrekkige CD/DVD-schijf of speler. "
+"Mogelijke oplossingen zijn het schoonmaken van de CD/DVD, de CD/DVD opnieuw "
+"branden op een lagere snelheid of het schoonmaken van de lens van de CD/DVD-"
+"speler (schoonmaakproducten zijn te verkrijgen bij de meeste "
+"elektronicawinkels)."
 
 #. Type: error
 #. Description
@@ -788,6 +778,10 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
+"Dit is vaak het gevolg van een defecte harde schijf. Het kan helpen om na te "
+"gaan of de harde schijf te oud is en vervanging noodzakelijk is, of te "
+"zorgen voor een betere koeling, bij voorbeeld verplaatsen naar een koelere "
+"omgeving."
 
 #. Type: error
 #. Description
@@ -805,6 +799,13 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
+"Dit wordt vaak veroorzaakt door een gebrekkige CD/DVD-schijf of speler. "
+"Mogelijke oplossingen zijn het schoonmaken van de CD/DVD, de CD/DVD opnieuw "
+"branden op een lagere snelheid of het schoonmaken van de lens van de CD/DVD-"
+"speler (schoonmaakproducten zijn te verkrijgen bij de meeste "
+"elektronicawinkels), na te gaan of de harde schijf te oud is en vervanging "
+"noodzakelijk is, of te zorgen voor een betere koeling, bij voorbeeld "
+"verplaatsen naar een koelere omgeving."
 
 #. Type: select
 #. Description
@@ -818,13 +819,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:106001
 msgid "Copying installation logs..."
-msgstr "De installatielogs worden gekopieerd..."
+msgstr "De installatielogboeken worden gekopieerd..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:107001
 msgid "Configuring target system..."
-msgstr "Configureer doel systeem..."
+msgstr "Doelsysteem configureren..."
 
 #. Type: text
 #. Description
@@ -974,15 +975,14 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
-"Dit kan komen doordat u een oud installatieprogramma-image gebruikt, of het "
-"kan komen door een bug in enkele van de hierboven weergegeven pakketten. "
-"Meer details zijn te vinden in /var/log/syslog. Het installatieprogramma zal "
-"desondanks trachten door te gaan, maar de installatie kan op een later "
-"moment toch nog mislukken. Het zal dan niet in staat zijn om andere "
-"pakketten te installeren of te verwijderen (waaronder mogelijk zichzelf) "
-"vanaf het geïnstalleerde systeem. Probeer een nieuwere versies van uw "
-"installatieprogramma-image te vinden of, als dat niet lukt, rapporteer het "
-"probleem aan uw distributeur."
+"Dit kan komen doordat u een oud installatieprogramma gebruikt, of door een "
+"fout in enkele van de hierboven weergegeven pakketten. Meer details zijn te "
+"vinden in /var/log/syslog. Het installatieprogramma zal desondanks trachten "
+"door te gaan, maar de installatie kan op een later moment toch nog "
+"mislukken. Het zal dan niet in staat zijn om andere pakketten te installeren "
+"of te verwijderen (waaronder mogelijk zichzelf) vanaf het geïnstalleerde "
+"systeem. Probeer een nieuwere versies van uw installatieprogramma te vinden "
+"of, als dat niet lukt, rapporteer het probleem aan uw distributeur."
 
 #. Type: error
 #. Description
@@ -1027,16 +1027,15 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"Het installatie programma moet wijzigingen maken aan de partitie tabel, maar "
-"kan dit niet doen omdat de volgende aankoppel punten niet losgekoppeld "
-"konden worden:"
+"Het installatieprogramma moet wijzigingen aanbrengen aan de partitietabel, "
+"maar kan dit niet doen omdat de volgende aankoppelingspunten niet "
+"losgekoppeld konden worden:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:140001
 msgid "Please close any applications using these mount points."
-msgstr ""
-"Sluit alle programma's die deze aankoppel punten gebruiken, alstublieft."
+msgstr "Sluit alle programma's die deze aankoppelingspunten gebruiken."
 
 #. Type: boolean
 #. Description
@@ -1075,15 +1074,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1096,21 +1086,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" Taal: ${LANGUAGE}\n"
-" Toetsenbordindeling: ${KEYMAP}\n"
-" Naam: ${FULLNAME}\n"
-" Gebruikersnaam: ${USERNAME}\n"
-" Locatie: ${LOCATION}\n"
-"Migratie assistent:\n"
-"${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Geavanceerd installatietype"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1132,8 +1113,8 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
-"Een machine met een backend/frontend combinatie is de meest gebruikelijke "
-"installatie voor mensen die MythTV willen gebruiken voor HTPC applicaties. "
+"Een machine met een backend/frontend-combinatie is de meest gebruikelijke "
+"installatie voor mensen die MythTV willen gebruiken voor HTPC-toepassingen. "
 "Dit installatietype is bedoeld voor gebruik als onderdeel van uw "
 "thuistheater."
 
@@ -1151,14 +1132,14 @@ msgid ""
 "will be configured to connect to an existing backend on the network."
 msgstr ""
 "Dit zal een systeem installeren, vergelijkbaar met een primair frontend met "
-"backend, het zal echter worden geconfigureerd om op het netwerk verbinding "
-"te maken met een bestaand backend."
+"backend, maar zal geconfigureerd worden om op het netwerk verbinding te "
+"maken met een bestaand backend."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
 msgid "Primary Backend"
-msgstr "Primaire backend"
+msgstr "Primair backend"
 
 #. Type: text
 #. Description
@@ -1168,15 +1149,15 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
-"Een alleen-backend machine is gewoonlijk ontworpen om te werken als een "
-"apparaat dat weinig onderhoud nodig heeft. Dit is bedoeld om als het eerste "
-"backend op het netwerk geïnstalleerd te worden."
+"Een systeem met alleen een backend is gewoonlijk ontworpen om te werken als "
+"een apparaat dat weinig onderhoud nodig heeft. Dit is bedoeld om als het "
+"eerste backend op het netwerk geïnstalleerd te worden."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "Secondary Backend"
-msgstr "Secundaire backend"
+msgstr "Secundair backend"
 
 #. Type: text
 #. Description
@@ -1185,9 +1166,9 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
-"Dit zal een systeem installeren, vergelijkbaar met een primair backend, het "
-"zal echter geconfigureerd worden om op het netwerk verbinding te maken met "
-"een bestaand backendk."
+"Dit zal een systeem installeren, vergelijkbaar met een primair backend, maar "
+"zal geconfigureerd worden om op het netwerk verbinding te maken met een "
+"bestaand backend."
 
 #. Type: text
 #. Description
@@ -1203,9 +1184,9 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
-"De belangrijkste functie van een alleen-frontend machine is om media-inhoud "
-"te ontvangen van het backend en deze te verdelen. Deze configuratie vereist "
-"een bestaand backend op het netwerk."
+"De belangrijkste functie van een machine met alleen een frontend is om media-"
+"inhoud te ontvangen van de backend en deze te verdelen. Deze configuratie "
+"vereist een bestaand backend op het netwerk."
 
 #. Type: text
 #. Description
@@ -1222,41 +1203,41 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
-"Er is al een open-source videodriver voor uw installatie ingeschakeld en "
-"geconfigureerd. Als u een andere videodriver wilt gebruiken, dan kunt u dat "
-"hier doen. Merk op dat u mogelijk niet-vrije videodrivers nodig hebt voor TV-"
-"uitvoer en OpenGL-effecten."
+"Er is al een open-source videostuurprogramma voor uw installatie "
+"ingeschakeld en geconfigureerd. Als u een ander wilt gebruiken, dan kunt u "
+"dat hier doen. Merk op dat u mogelijk niet-vrije videostuurprogramma's nodig "
+"hebt voor TV-uitvoer en OpenGL-effecten."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:16001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr "Kies hier een optie als u TV-out wilt configureren:"
+msgstr "Kies hier een optie als u TV-uit wilt configureren:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-msgstr "Als u TV-out aanzet, moet u ook een TV-standaard kiezen:"
+msgstr "Als u TV-uit aanzet, moet u ook een TV-standaard kiezen:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:18001
 msgid "Master Backend Info"
-msgstr "Hoofd-backend informatie"
+msgstr "Informatie over hoofd-backend"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
-"Voer de vereiste informatie in om contact te leggen met het hoofd-backend."
+"Voer de vereiste informatie in om contact te leggen met het hoofd-backend:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:20001
 msgid "MySQL Password"
-msgstr "MySQL wachtwoord"
+msgstr "MySQL-wachtwoord"
 
 #. Type: text
 #. Description
@@ -1280,7 +1261,7 @@ msgstr "MySQL-server"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Configure Guide Data / Backend"
-msgstr "Configureer gidsgegevens / backend"
+msgstr "Gidsgegevens / backend configureren"
 
 #. Type: text
 #. Description
@@ -1289,14 +1270,14 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
-"XDe laatste stappen van de installatie vereisen dat u uw gidsgegevens "
-"instelt en dat u het backend voor eerste gebruik configureert."
+"De laatste stappen van de installatie vereisen dat u uw gidsgegevens instelt "
+"en dat u de backend voor eerste gebruik configureert."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:26001
 msgid "Click to open the Schedules Direct website"
-msgstr "Klik om de Schedules Direct website te openen."
+msgstr "Klik om de Schedules Direct-website te openen."
 
 #. Type: text
 #. Description
@@ -1306,16 +1287,16 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
-"Gebruikers in Noord Amerika moeten een account bij Schedules Direct (SD) "
-"aanmaken. SD biedt gidsgegevens voor een nominaal bedrag. Zonder SD kunnen "
-"gebruikers in Noord Amerika veel programmeerfunctionaliteiten van MythTV "
+"Gebruikers in Noord-Amerika moeten een account bij Schedules Direct (SD) "
+"aanmaken. SD biedt gidsgegevens voor een laag bedrag. Zonder SD kunnen "
+"gebruikers in Noord-Amerika veel programmeerfunctionaliteiten van MythTV "
 "verliezen."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Launch MythTV Setup"
-msgstr "MythTV setup starten"
+msgstr "MythTV-setup starten"
 
 #. Type: text
 #. Description
@@ -1328,8 +1309,8 @@ msgid ""
 msgstr ""
 "Nadat u uw gidsgegevensbron hebt ingesteld, moet u MythTV-Setup starten om "
 "voor de eerste keer de backendconfiguratie te starten. U moet de eerste vier "
-"secties configureren en er daarbij zorg voor dragen dat u uw gidsgegevens in "
-"de derde sectie opgeeft."
+"secties configureren en zorgen dat u uw gidsgegevens in de derde sectie "
+"opgeeft."
 
 #. Type: text
 #. Description
@@ -1341,7 +1322,7 @@ msgstr "Mythtv wordt geconfigureerd..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Configuring additional drivers..."
-msgstr "Extra drivers worden geconfigureerd..."
+msgstr "Extra stuurprogramma's worden geconfigureerd..."
 
 #. Type: text
 #. Description
@@ -1354,256 +1335,3 @@ msgstr "Extra diensten worden geconfigureerd..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Configureren van infraroodapparaten..."
-
-#~ msgid "Selected region:"
-#~ msgstr "Geselecteerd gebied:"
-
-#~ msgid "Current time:"
-#~ msgstr "Huidige tijd:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr ""
-#~ "Voer het wachtwoord tweemaal in, zodat we op tikfouten kunnen controleren."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "De live-cd verder blijven gebruiken"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Selecteer een stad in uw land en tijdzone. Als de aangegeven huidige tijd "
-#~ "niet de juiste is, ook niet na het selecteren van de correcte tijdzone, "
-#~ "kunt u die aanpassen na het opnieuw opstarten."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Installatie Type:       ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Aanv. Videodriver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Aanvullende diensten:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV dienst:      ${EN_MYSQL}\n"
-#~ " Normale Ubuntu-installatievragen:\n"
-#~ "     Taal:               ${LANGUAGE}\n"
-#~ "     Toetsenbordindeling:${KEYMAP}\n"
-#~ "     Gewone naam:        ${FULLNAME}\n"
-#~ "     Gewone inlognaam:   ${USERNAME}\n"
-#~ "     Locatie:            ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "Aanvullende drivers/firmware"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "Videodrivers & -instellingen wijzigen"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "Waarschuwing: Stel de TV-standaard niet hoger in dan wat uw TV "
-#~ "ondersteunt. Dit kan leiden tot PERMANENTE schade."
-
-#~ msgid "Selected city:"
-#~ msgstr "Geselecteerde stad:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Tijdzone:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Welk installatietype?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Er zijn twee installatietypen voor Mythbuntu beschikbaar:"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Standaardinstallatie"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "Een standaardinstallatie installeert en configureert iedere optie met zo "
-#~ "min mogelijk gebruikersinteractie. Dit omvat een backend, frontend, alle "
-#~ "plugins en alle thema's"
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Geavanceerde installatie"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "Een geavanceerde installatie kan gebruikt worden om de benodigdheden voor "
-#~ "deze Mythbuntu installatie aan te passen. Noot: Een geavanceerde "
-#~ "installatie is vereist om een Mythbuntu machine aan een bestaand MythTV-"
-#~ "gebaseerd netwerk toe te voegen."
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "Kies frontend / backend plugins"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "Plugins kunnen worden gebruikt om de functionaliteit van MythTV verder "
-#~ "uit te breiden dan alleen het opnemen van televisieprogramma's"
-
-#~ msgid "Backend Plugins"
-#~ msgstr "Backend plugins"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "Frontend plugins"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth Web"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MyWeb biedt een webinterface dat gebruikt kan worden om online "
-#~ "televisiegidsen te raadplegen, opnamen in te programmeren, opnamen te "
-#~ "verwijderen en om naar programma's te zoeken"
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth Archief"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Myth Browser"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Myth Bediening"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Myth Movies"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Myth Gallerie"
-
-#~ msgid "Myth Game"
-#~ msgstr "Myth Spellen"
-
-#~ msgid "Myth Music"
-#~ msgstr "Myth Muziek"
-
-#~ msgid "Myth News"
-#~ msgstr "Myth Nieuws"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Myth Telefoon"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Myth Stream"
-
-#~ msgid "Myth Video"
-#~ msgstr "Myth Video"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Myth Weer"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "Een plugin vor MythTV waarmee u DVD's kunt maken van de inhoud van uw "
-#~ "MythTV-netwerk."
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "Een geïntegreerde webbrowser plugin voor uw MythTV-systeem."
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "Externe bedoiening voor MythTV. Hiermee kunt u toets-instellingen en "
-#~ "toetsbindingen wijzigen."
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "Zoek films die in bioscopen bij u in de buurt draaien"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "Hiermee kunt u uw Netflix DVD-huurwachtrij in de gaten houden."
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr ""
-#~ "Hiermee kunt u visueel door een mappenboom bladeren dat "
-#~ "afbeeldingsbestanden bevat."
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr ""
-#~ "Een frontend om elke emulator en binair bestand te starten dat onder "
-#~ "Linux draait."
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "Geeft u een met MythTV geïntegreerde digitale audio-jukebox"
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr ""
-#~ "Een RSS-feed nieuwslezerplugin voor MythTV dat u bij de tijd houdt over "
-#~ "uw favoriete nieuwsonderwerpen."
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr ""
-#~ "Telefoon en videofoonfunctionaliteit onder MythTV dat gebruik maakt van "
-#~ "het standaard SIP-protocol."
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "Biedt de mogelijkheid om naar internetradiostations te luisteren."
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "Hiermee kunt u door videostreams bladeren en ze vanuit de MythTV "
-#~ "interface met een externe speler afspelen."
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr ""
-#~ "Geeft weersvoorspellingen en de huidige weerinformatie vanuit MythTV."
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "Kies extra thema's"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr ""
-#~ "Thema's kunnen de uiterlijke aantrekkingskracht van MythTV sterk "
-#~ "verbeteren, en het weergeven op een manier die met uw smaak overeen komt."
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "Alles in-/uitschakelen"

@@ -7,38 +7,38 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-02-08 14:41+0000\n"
-"Last-Translator: Mr.Dust <like.a.dust@gmail.com>\n"
+"PO-Revision-Date: 2009-03-16 15:44+0000\n"
+"Last-Translator: Shin Hungjae <Unknown>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:57+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:43+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "연결된 가장 큰 빈공간 사용"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the entire disk"
-msgstr ""
+msgstr "디스크 전체 사용"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "나란히 설치, 각 시작마다 선택하기"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "수동으로 파티션 조정(고급)"
 
 #. Type: text
 #. Description
@@ -124,19 +124,19 @@ msgstr "어디에 있습니까?"
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Select your time zone from the map, or by region and city."
-msgstr ""
+msgstr "지도나 지역, 도시명으로 지도에서 시간대 선택"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "City:"
-msgstr ""
+msgstr "도시:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Region:"
-msgstr ""
+msgstr "지역:"
 
 #. Type: text
 #. Description
@@ -160,13 +160,13 @@ msgstr "새 키보드 배치를 시험하려면 아래의 박스에 입력해 �
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Suggested option:"
-msgstr ""
+msgstr "제안된 선택:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your own:"
-msgstr ""
+msgstr "원하는것 선택:"
 
 #. Type: text
 #. Description
@@ -216,6 +216,8 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"입력오류를 검사하기 위해 같은 비밀번호를 2번 입력하세요. 기호와 숫자, 문자가 "
+"석여있고, 8자이상이 좋은 비밀번호이며, 자주 변경해야 합니다."
 
 #. Type: text
 #. Description
@@ -241,13 +243,13 @@ msgstr "자동으로 로그인합니다"
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Require a password to log in"
-msgstr ""
+msgstr "로그인시 암호 요구"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Require a password to log in and to decrypt your home folder"
-msgstr ""
+msgstr "처음폴터를 풀고 로그인할 암호를 요구"
 
 #. Type: text
 #. Description
@@ -291,27 +293,25 @@ msgstr "파티션을 다시 시작하시겠습니까?"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "이 컴퓨터에 운영체제가 없습니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "이 컴퓨터에 ${OS}가 있습니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "이 컴퓨터에 여러개의 운영체제가 있습니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "로그인 시 어떤 이름을 사용하시겠습니까?"
+msgstr "${RELEASE}를 어디에 저장할까요?"
 
 #. Type: text
 #. Description
@@ -382,26 +382,20 @@ msgstr "건너뛰기"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "설치를 마쳤습니다"
+msgstr "설치 완료"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "계속"
+msgstr "검사 진행"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "지금 다시 시작합니다."
+msgstr "지금 제시작"
 
 #. Type: text
 #. Description
@@ -627,19 +621,13 @@ msgstr "포트:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"설치가 완료되었습니다. 새로 설치된 프로그램을 사용하기 위해 컴퓨터를 다시 시"
-"작하십시오. 변경된 문서가 보존되지는 않지만, 현재 CD를 계속 사용할 수 있습니"
-"다."
+"설치 완료됨. 우분투가 지금 테스트중입니다. 컴퓨터가 제시작할때까지, 저장된 문"
+"서는 보호되지 않으면 변경될 수 있습니다."
 
 #. Type: text
 #. Description
@@ -993,7 +981,7 @@ msgstr "패키지를 제거하는 도중 다음 에러가 발생하였습니다:
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "복사하지 않을 파일 계산중 ..."
 
 #. Type: title
 #. Description
@@ -1064,15 +1052,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1085,21 +1064,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" 설치 형태: ${INSTALLTYPE}\n"
 " 언어: ${LANGUAGE}\n"
-" 키보드 배치: ${KEYMAP}\n"
+" 키보드 형태: ${KEYMAP}\n"
 " 이름: ${FULLNAME}\n"
 " 로그인 이름: ${USERNAME}\n"
-" 위치: ${LOCATION}\n"
-" 이전 도우미:\n"
-" ${MIGRATE}"
+" 지역: ${LOCATION}\n"
+" 원격 IR: ${REMOTE}\n"
+" IR 전달자: ${TRANSMITTER}\n"
+" 비디오 드라이버: ${VIDEO_DRIVER}\n"
+" 서비스: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "고급 설치 형식"
+msgstr "설치 형태"
 
 #. Type: text
 #. Description
@@ -1195,7 +1175,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "시각적 드라이버"
 
 #. Type: text
 #. Description
@@ -1335,247 +1315,3 @@ msgstr "추가적인 서비스를 설정하는 중입니다..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "적외선 장비를 설정하고 있습니다..."
-
-#~ msgid "Selected region:"
-#~ msgstr "선택한 영역:"
-
-#~ msgid "Current time:"
-#~ msgstr "현재 시간:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr "암호를 다시 입력하세요. 오타를 확인할 수 있습니다."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "현재 CD를 계속 사용합니다."
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "여러분의 국가와 시간대를 선택해 주세요. 현재 시간대를 선택하고도 표시된 현"
-#~ "재 시간이 맞지 않는다면, 설치한 시스템으로 재부팅을 하고 나서 조정할 수 있"
-#~ "습니다."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " 설치 방식:           ${INSTALLTYPE}\n"
-#~ " 드라이버:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " 추가적인 서비스:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " 일반 우분투 설치 옵션:\n"
-#~ "     언어:           ${LANGUAGE}\n"
-#~ "     키보드 레이아웃:    ${KEYMAP}\n"
-#~ "     전체 이름:       ${FULLNAME}\n"
-#~ "     로그인 이름: ${USERNAME}\n"
-#~ "     위치:           ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "추가 드라이버/펌웨어"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "비디오 드라이버와 설정 변경"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "경고:TV 표준을 TV가 지원하는 것보다 더 높이 설정하지 마십시오. 영구적인 손"
-#~ "상이 일어날 수도 있습니다."
-
-#~ msgid "Selected city:"
-#~ msgstr "선택된 시간대:"
-
-#~ msgid "Time zone:"
-#~ msgstr "시간대:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "설치 형식은 무엇입니까?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Mythbuntu는 두 가지 형식의 설치를 지원합니다:"
-
-#~ msgid "Standard Installation"
-#~ msgstr "표준 설치"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "표준 설치는 최소의 사용자 대화로 모든 옵션들을 설치 및 설정할 것입니다. "
-#~ "이 과정은 백엔드, 프론트엔드 및 모든 플러그인과 테마들을 설치할 것입니다."
-
-#~ msgid "Advanced Installation"
-#~ msgstr "고급 설치"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "고급 설치는 이 Mythbuntu 설치에 필요로 하는 것을 개인화하는데 사용될 수 있"
-#~ "습니다. 고급 설치는 Mythbuntu 머신을 이미 존재하는 네트워크 기반의 MythTV"
-#~ "에 추가하기 위해 필수적입니다."
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "프론트엔드/백엔드 플러그인 선택"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "플러그인은 타임시프팅 TV 기법을 포함하여 MythTV의 기능을 확장하는 데 사용"
-#~ "될 수 있습니다."
-
-#~ msgid "Backend Plugins"
-#~ msgstr "백엔드 플러그인"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "프론트엔드 플러그인"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth Web"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb은 목록 보기, 예약 녹화, 녹화 삭제, 프로그램 검색 등의 기능을 이용"
-#~ "할 수 있는 웹 인터페이스를 제공합니다."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth Archive"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Myth Browser"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Myth Controls"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Myth 영화"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Myth Gallery"
-
-#~ msgid "Myth Game"
-#~ msgstr "Myth Game"
-
-#~ msgid "Myth Music"
-#~ msgstr "Myth Music"
-
-#~ msgid "Myth News"
-#~ msgstr "Myth News"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Myth Phone"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Myth Stream"
-
-#~ msgid "Myth Video"
-#~ msgstr "Myth Video"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Myth Weather"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "MythTV 네트워크 상의 컨텐츠를 이용하여 DVD를 제작할 수 있는 플러그인."
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you view movie trailers from apple.com."
-#~ msgstr ""
-#~ "Myth TV를 이용해 apple.com 에서 영화 예고편을 볼 수 있는 플러그인입니다."
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "MythTV 시스템을 위한 웹 브라우저 플러그인."
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "MythTV 제어 플러그인. 이를 이용하면 버튼이나 키 매핑을 변경할 수 있습니다."
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "가까운 동네 영화관에서 상영하고 있는 영화 찾기"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "여러분의 Netflix DVD 대여 목록을 관리합니다."
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr "이미지 파일을 포함하는 디렉토리 트리를 보여줍니다."
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr ""
-#~ "리눅스에서 실행되는 에뮬레이터 혹은 실행 파일을 실행할 수 있는 프론트엔드."
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "MythTV와 통합된 디지털 오디오 주크박스를 제공합니다."
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr "MythTV를 위한 RSS 피드 뉴스 리더 플러그인."
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr "표준 SIP 프로토콜을 이용한 MythTV의 (화상) 전화 기능."
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "스트리밍 인터넷 라디오 방송을 들을 수 있습니다."
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "MythTV 인터페이스 내에서 외부 플레이어를 이용하여 비디오 스트림을 찾아보거"
-#~ "나 재생할 수 있습니다."
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "MythTV 내에 현재 날씨와 기상 예보를 표시합니다."
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "별도의 테마 선택"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr ""
-#~ "테마는 MythTV 세트업을 멋지게 꾸밀수 있습니다, 그리고 원하시는 모양으로 바"
-#~ "꿀 수도 있습니다."
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "모두 활성화/비활성화"

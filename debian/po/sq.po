@@ -7,38 +7,38 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-01-26 00:57+0000\n"
+"PO-Revision-Date: 2009-03-11 05:19+0000\n"
 "Last-Translator: Vilson <Unknown>\n"
 "Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "Përdor hapësirën e lirë të vazhdueshme më të madhe"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the entire disk"
-msgstr ""
+msgstr "Përdor të gjithë diskun"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "Instaloji krah për krah, duke zgjedhur midis tyre në çdo ndezje"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "Specifiko particionet në mënyrë manuale (e avancuar)"
 
 #. Type: text
 #. Description
@@ -125,19 +125,19 @@ msgstr "Ku ndodheni?"
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Select your time zone from the map, or by region and city."
-msgstr ""
+msgstr "Zgjidhni zonën tuaj të orës nga harta, ose me krahinë dhe qytet."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "City:"
-msgstr ""
+msgstr "Qyteti:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Region:"
-msgstr ""
+msgstr "Krahina:"
 
 #. Type: text
 #. Description
@@ -162,13 +162,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Suggested option:"
-msgstr ""
+msgstr "Opsioni i Sugjeruar:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your own:"
-msgstr ""
+msgstr "Zgjidhni tuajin:"
 
 #. Type: text
 #. Description
@@ -221,6 +221,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Vendosni të njëjtin fjalëkalim dy herë, kështu që mund të kontrollohet për "
+"gabime në shtypje. Një fjalëkalim i mirë duhet të përmbajë një përzierje "
+"shkronjash, numrash dhe shenjash pikësimi, duhet të jetë të paktën me tetë "
+"shifra i gjatë dhe duhet ndërruar me intervale të rregullta."
 
 #. Type: text
 #. Description
@@ -248,13 +252,13 @@ msgstr "Hyr automatikisht"
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Require a password to log in"
-msgstr ""
+msgstr "Kërko një fjalëkalim oër të hyrë"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Require a password to log in and to decrypt your home folder"
-msgstr ""
+msgstr "Kërko një fjalëkalim për të hyrë dhe për të çkoduar folderin tuaj bazë"
 
 #. Type: text
 #. Description
@@ -298,27 +302,25 @@ msgstr "Si dëshironi të ndani diskun?"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "Ky kompjuter nuk ka një sistem operativ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "Ky kompjuter nuk ka një ${OS}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "Ky kompjuter ka disa sisteme operative."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Çfarë emri dëshironi të përdorni për login?"
+msgstr "Ku dëshironi ta vendosni ${RELEASE}?"
 
 #. Type: text
 #. Description
@@ -389,26 +391,20 @@ msgstr "Kapërce"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Instalimi përfundoi"
+msgstr "Instalimi u Kompletua"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Vazhdo"
+msgstr "Vazhdoni Testimin"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Ristarto tani"
+msgstr "Rindize Tani"
 
 #. Type: text
 #. Description
@@ -635,19 +631,14 @@ msgstr "Porti:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Instalimi u përfundua. Ju duhet ta ristartoni kompjuterin në mënyrë që të "
-"përdorni instalimin e ri. Ju mund të vazhdoni të përdorni këtë Live CD, "
-"mirëpo ndryshimet që i bëni ose dokumentet që i ruani nuk do të ruhen."
+"Instalimi përfundoi. Ju mund të vazhdoni ta testoni Ubuntu-n tani, por për "
+"sa kohë që nuk rindizni kompjuterin, çdo ndryshim që bëni apo dokumenta që "
+"ruani nuk do të regjistrohen."
 
 #. Type: text
 #. Description
@@ -1006,7 +997,7 @@ msgstr "Një gabim ndodhi në heqjen e paketave:"
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Po llogarisim skedarët që do lëmë pa kopjuar..."
 
 #. Type: title
 #. Description
@@ -1077,15 +1068,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1098,21 +1080,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Lloji i Instalimit: ${INSTALLTYPE}\n"
 " Gjuha: ${LANGUAGE}\n"
-" Dalja e tastierës: ${KEYMAP}\n"
+" Gjuha e Tastierës: ${KEYMAP}\n"
 " Emri: ${FULLNAME}\n"
-" Emri në hyrje: ${USERNAME}\n"
+" Emri në Hyrje: ${USERNAME}\n"
 " Vendndodhja: ${LOCATION}\n"
-" Asistent Migrimi\n"
-" ${MIGRATE}"
+" IR Remote: ${REMOTE}\n"
+" IR Transmitter: ${TRANSMITTER}\n"
+" Video Driver: ${VIDEO_DRIVER}\n"
+" Shërbimet: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Instalim i Avancuar"
+msgstr "Lloji i Instalimit"
 
 #. Type: text
 #. Description
@@ -1185,12 +1168,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"Kjo do të vendosë një sistem të ngjajshëm me Primary backend, sidoqoftë ai "
+"do të konfigurohet për tu lidhur me një fund ekzistues në rrjet."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:12001
 msgid "Frontend"
-msgstr ""
+msgstr "Frontend"
 
 #. Type: text
 #. Description
@@ -1200,12 +1185,15 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"Në frontend i vetmi funksion i makinës është të marrë përmbajtje mediash nga "
+"backend dhe ta shpërndajë atë. Ky konfigurim kërkon që të ketë një backend "
+"ekzistues në rrjet."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Driverat Grafikë"
 
 #. Type: text
 #. Description
@@ -1216,60 +1204,67 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"Një driver grafik me burim të hapur është aktivizuar tashmë dhe është "
+"konfiguruar për instalimin tuaj. Nëse doni të përdorni një driver grafik "
+"tjetër, mund ta bëni këtu. Duhet të keni parasysh që driverat me pagesë mund "
+"të jenë të nevojshëm për daljen TV apo për efektet OpenGL."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:16001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr ""
+msgstr "Nëse doni të konfiguroni daljen TV, zgjidhni një opsion këtu:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 msgstr ""
+"Nëse aktivizoni daljen TV, do t'iu duhet të zgjidhni dhe një standart TV:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:18001
 msgid "Master Backend Info"
-msgstr ""
+msgstr "Informacion për Master Backend"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
+"Ju lutem futni informacionin e nevojshëm për të kontaktuar backend-in "
+"kryesor:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:20001
 msgid "MySQL Password"
-msgstr ""
+msgstr "Fjalëkalimi MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "MySQL User Name"
-msgstr ""
+msgstr "Emri i Përdoruesit MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:22001
 msgid "MySQL Database"
-msgstr ""
+msgstr "MySQL Database"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "MySQL Server"
-msgstr ""
+msgstr "Serveri MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "Konfiguro të Dhënat Udhëzuese / Backend"
 
 #. Type: text
 #. Description
@@ -1278,12 +1273,14 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
+"Hapat finale të instalimit kërkojnë që të vendosni të dhënat tuaja udhëzuese "
+"dhe të konfiguroni backend për herë të parë."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:26001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "Kliko prë të hapur faqen web të skedimit të drejtpërdrejtë"
 
 #. Type: text
 #. Description
@@ -1293,12 +1290,16 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
+"Përdoruesve në Amerikën e Veriut do tu duhet të krijojnë një llogari me "
+"Schedules Direct (SD). SD ju jep të dhëna shtesë për një tarifë shtesë. Pa "
+"SD, përdoruesit amerikano-veriorë mund të humbasin shumë nga rregullimet e "
+"MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "Nis instalimin e MythTV"
 
 #. Type: text
 #. Description
@@ -1309,127 +1310,31 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"Pasi të vendosni burimin e të dhënave, juve do t'iu duhet të nisni "
+"instalimin e MythTV dhe të nisni konfigurimin e backend për herë të parë. "
+"Juvo do t'iu duhet të konfiguroni katër seksionet e para, sigurohuni që të "
+"jepni të dhënat tuaja udhëzuese gjatë të tretit."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Configuring mythtv..."
-msgstr ""
+msgstr "Duke konfiguruar MythTV..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Configuring additional drivers..."
-msgstr ""
+msgstr "Duke konfiguruar drivera shtesë..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Configuring additional services..."
-msgstr ""
+msgstr "Duke konfiguruar shërbime shtesë..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
-msgstr ""
-
-#~ msgid "Selected region:"
-#~ msgstr "Regjioni i zgjedhur:"
-
-#~ msgid "Current time:"
-#~ msgstr "Koha aktuale:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr ""
-#~ "Jepeni të njëjtin fjalëkalim dy herë, që të mund të kontrollohet për "
-#~ "gabime tipografike."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Vazhdo me përdorimin e Live CD"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Zgjedh qytetin në vendin tënd dhe brezin kohor. Nëse koha aktuale edhe "
-#~ "përkundër zgjedhjes korrekte të brezit kohor nuk është korrekte, ti do "
-#~ "mund ta rregullosh atë pas ristartimit në sistemin e instaluar."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Tipi i Instalimit: ${INSTALLTYPE}\n"
-#~ " Drajverat:\n"
-#~ "     Shto Drajver Video: ${VIDEO_DRIVER}\n"
-#~ "         Dalja TV: ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Shërbime Shtesë:\n"
-#~ "     VNC: ${EN_VNC}\n"
-#~ "     SSH: ${EN_OPENSSH}\n"
-#~ "     Samba: ${EN_SAMBA}\n"
-#~ "     NFS: ${EN_NFS}\n"
-#~ "     Shërbimi MythTV: ${EN_MYSQL}\n"
-#~ " Pyetje normale të instalimit të Ubuntu:\n"
-#~ "     Gjuha: ${LANGUAGE}\n"
-#~ "     Gjuha e tastierës: ${KEYMAP}\n"
-#~ "     Emri Juaj: ${FULLNAME}\n"
-#~ "     Emri i përdoruesit: ${USERNAME}\n"
-#~ "     Vendndodhja: ${LOCATION}"
-
-#~ msgid "Selected city:"
-#~ msgstr "Qyteti i zgjedhur:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Brezi kohor:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Çfarë lloj instalimi?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Dy lloje instalimi disponohen për Mythbuntu:"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Instalim Standart"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "Një instalim standart do instalojë dhe konfigurojë çdo opsion me "
-#~ "ndërhyrje minimale nga ana e përdoruesit. Kjo do instalojë të parat, të "
-#~ "fundit, të gjithë plugin dhe të gjitha temat."
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Instalim i avancuar"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "Një instalim i avancuar mund të përdoret për të përshtatur çfarë ju "
-#~ "nevojitet nga ky instalim i Mythbuntu. SHËNIM: Një instalim i avancuar "
-#~ "është i nevojshëm për t'i shtuar një makinë Mythbuntu një rrjeti "
-#~ "ekzistues të bazuar në MythTV."
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth Web"
+msgstr "Duke konfiguruar pajisjet infra të kuqe..."

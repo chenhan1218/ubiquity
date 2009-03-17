@@ -7,38 +7,40 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-02-06 23:03+0000\n"
+"PO-Revision-Date: 2009-03-13 07:56+0000\n"
 "Last-Translator: Krasimir Chonov <mk2616@abv.bg>\n"
 "Language-Team: American English <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:58+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:43+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "Използване на най-голямото свободно място"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the entire disk"
-msgstr ""
+msgstr "Използване на целия диск"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Install them side by side, choosing between them each startup"
 msgstr ""
+"Инсталиране една под друга, като може да се избира всяка една при стартиране "
+"на компютъра"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "Задаване на дялове ръчно (за напреднали)"
 
 #. Type: text
 #. Description
@@ -125,19 +127,19 @@ msgstr "Къде се намирате?"
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Select your time zone from the map, or by region and city."
-msgstr ""
+msgstr "Изберете вашата часове зона от картата или регион и град."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "City:"
-msgstr ""
+msgstr "Град:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Region:"
-msgstr ""
+msgstr "Регион"
 
 #. Type: text
 #. Description
@@ -162,13 +164,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Suggested option:"
-msgstr ""
+msgstr "Предложена опция:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your own:"
-msgstr ""
+msgstr "Изберете ваш собствен:"
 
 #. Type: text
 #. Description
@@ -220,6 +222,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Въведете еднаква парола два пъти, така че да сте сигурни, че не сте "
+"допуснали правописни грешки. Добрата парола ще съдържа комбинация от букви, "
+"числа и пунктуационни знаци, трябва да е поне осем знака и трябва да се "
+"сменя често на равни интевали."
 
 #. Type: text
 #. Description
@@ -247,13 +253,15 @@ msgstr "Автоматично влизане в системата"
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Require a password to log in"
-msgstr ""
+msgstr "Изискване на парола при влизане в системата"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Require a password to log in and to decrypt your home folder"
 msgstr ""
+"Изискване на парола за влизане в системата и разшифроване на вашата домашна "
+"папка."
 
 #. Type: text
 #. Description
@@ -297,27 +305,25 @@ msgstr "Как желаете да разделите диска?"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "Този компютър няма операционни системи на него."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "Този компютър има инсталирана ${OS}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "Този компютър има няколко операционни системи."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Какво име искате да използвате за вход?"
+msgstr "Къде искате да инсталирате ${RELEASE}?"
 
 #. Type: text
 #. Description
@@ -389,26 +395,20 @@ msgstr "Пропусни"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Завършване на инсталацията"
+msgstr "Инсталацията завърши"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Продължаване"
+msgstr "Продължаване на пробването"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Рестартиране сега"
+msgstr "Рестартиране"
 
 #. Type: text
 #. Description
@@ -635,20 +635,14 @@ msgstr "Порт:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Инсталацията е завършена. Нужно е да рестартирате компютъра за да използвате "
-"новата инсталация. Можете да продължите да ползвате Живото CD, въпреки че "
-"промените, които правите, или документите, които записвате, няма да бъдат "
-"запазени."
+"Инсталацията завърши. Можете да продължите да пробвате Ubuntu, но докато не "
+"рестартирате компютъра, няма да имат ефект никакви промени, които сте "
+"направили или няма да имате документи, които сте запазили."
 
 #. Type: text
 #. Description
@@ -1010,7 +1004,7 @@ msgstr "Възникна грешка при премахването на па�
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Изчисляване на файлове, които да не се копират..."
 
 #. Type: title
 #. Description
@@ -1085,15 +1079,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1106,21 +1091,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Тип инсталация: ${INSTALLTYPE}\n"
 " Език: ${LANGUAGE}\n"
 " Клавиатурна подредба: ${KEYMAP}\n"
-" Пълно име: ${FULLNAME}\n"
-" Потребителско име: ${USERNAME}\n"
+" Име: ${FULLNAME}\n"
+" Име за влизане: ${USERNAME}\n"
 " Местоположение: ${LOCATION}\n"
-" Асистент за мигрирането:\n"
-" ${MIGRATE}"
+" IR отдалечен: ${REMOTE}\n"
+" IR изпращане: ${TRANSMITTER}\n"
+" Видео драйвер: ${VIDEO_DRIVER}\n"
+" Услуги: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Вид на инсталацията за напреднали"
+msgstr "Тип инсталация"
 
 #. Type: text
 #. Description
@@ -1205,7 +1191,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Графични драйвери"
 
 #. Type: text
 #. Description
@@ -1244,6 +1230,7 @@ msgstr "Информация за главна програма"
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
+"Моля, въведете информацията необходима за свързване с вашия главен драйвер:"
 
 #. Type: text
 #. Description
@@ -1337,248 +1324,3 @@ msgstr "Настройване на допълнителни услуги..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Конфигуриране на инфрачервени устройства..."
-
-#~ msgid "Selected region:"
-#~ msgstr "Избран регион:"
-
-#~ msgid "Current time:"
-#~ msgstr "Текущ час:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr ""
-#~ "Въведете паролата два пъти, за да бъде проверена за грешки при изписване."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Продължаване използването на Живо CD"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Изберете град във Вашата държава и часова зона. Ако показваният час не е "
-#~ "верен, дори след като сте избрали правилната часова зона, можете да го "
-#~ "настроите след като стартирате инсталираната система."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Вид на инсталацията: ${INSTALLTYPE}\n"
-#~ "Драйвери:\n"
-#~ "Добавяне на видео-драйвер: ${VIDEO_DRIVER}\n"
-#~ "ТВ-изход: ${TVOUT}, ${TVSTANDARD}\n"
-#~ "Допълнителни услуги:\n"
-#~ "VNC: ${EN_VNC}\n"
-#~ "SSH: ${EN_OPENSSH}\n"
-#~ "\"Самба\" (\"Samba\"): ${EN_SAMBA}\n"
-#~ "NFS: ${EN_NFS}\n"
-#~ "Услуга \"MythTV\": ${EN_MYSQL}\n"
-#~ "Инсталационни въпроси за Ubuntu:\n"
-#~ "Език: ${LANGUAGE}\n"
-#~ "Настройки на клавиатурата: ${KEYMAP}\n"
-#~ "Име: ${FULLNAME}\n"
-#~ "Име за влизане в системата: ${USERNAME}\n"
-#~ "Разположение: ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "Допълнителни драйвери/фърмуеър"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "Промяна на видео драйвер и настройки"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "Внимание: Не задавайте ТВ стандарт на настройка по-висока от тази, която "
-#~ "вашия телевизор поддържа. Може да се случи НЕИЗМЕНЯЕМА."
-
-#~ msgid "Selected city:"
-#~ msgstr "Избран град:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Часови пояс:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Какъв вид инсталация?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Предлагат се два типа инсталация за Mythbuntu:"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Стандартна инсталация"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "Стандартната инсталация ще инсталира и конфигурира всяка опция с "
-#~ "минимална намеса от потребителя. Ще бъдат инсталирани бекенд, фронтенд, "
-#~ "всички приставки и всички теми."
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Инсталация за напреднали"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "Инсталацията за напреднали ще бъде ползвана за персонализация, която е "
-#~ "нужна за тази инсталация на Mythbuntu. ЗАБЕЛЕЖКА: Необходима е инсталация "
-#~ "за напреднали, за да бъде добавена Mythbuntu машина към съществуваща "
-#~ "MythTV мрежа."
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "Избор на фронтенд/бекенд приставки"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "Могат да се използват приставки за разширяване функциите на MythTV повече "
-#~ "от променливо телевизионно решение."
-
-#~ msgid "Backend Plugins"
-#~ msgstr "Бекенд приставки"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "Фронтенд приставки"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth уеб"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb предоставя уеб интерфейс, който може да бъде използван за "
-#~ "преглеждане на списъци, да се задават разписания за записи, да се "
-#~ "изтриват записи и да се търсят телевизионни програми."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth архив"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Myth браузър"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Myth контроли"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Myth Филми"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Myth Галерия"
-
-#~ msgid "Myth Game"
-#~ msgstr "Myth Игра"
-
-#~ msgid "Myth Music"
-#~ msgstr "Myth Музика"
-
-#~ msgid "Myth News"
-#~ msgstr "Myth Новини"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Myth Телефон"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Myth Поток"
-
-#~ msgid "Myth Video"
-#~ msgstr "Myth Видео"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Myth време"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "Приставка за  MythTV, която ви позволява да създавате DVD дискове от "
-#~ "съдържанието на вашата MythTV мрежа."
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you view movie trailers from apple.com."
-#~ msgstr ""
-#~ "Приставка за MythTV, която ви позволява да гледате трейлъри на филми от "
-#~ "apple.com"
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "Интегрирана уеб браузър приставка за вашата MythTV система."
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "Външни контроли за MythTV. Това ще ви позволи да модифицирате "
-#~ "присвояванията и привързванията на бутоните."
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "Намиране на филми, които се прожектират в киносалоните наблизо"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "Позволява ви да следите вашата Netflix DVD опашка за наемане"
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr ""
-#~ "Позволява ви да прегледате дървовидната структура съдържаща образ файлове."
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "Осигурява дигитален звуков плеър интегриран с MythTV."
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr ""
-#~ "Добавка за MythTV- RSS четец на новини, който ви държи в крак с вашите "
-#~ "любими новинарски теми."
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr ""
-#~ "Възможност за телефония и видеотелефония за MythTV чрез стандартен SIP "
-#~ "протокол."
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "Предоставя метод за слушане на поточни интернет радио станции."
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "Позволява ви да прегледате и възпроизвеждате видео потоци, с помощта на "
-#~ "външен плеър от интерфейса на MythTV."
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "Показва текущото време и прогноза за времето в MythTV."
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "Избиране на допълнителни теми"
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "Разреши/Забрани всички"

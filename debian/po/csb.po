@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2007-03-19 18:26+0000\n"
-"Last-Translator: Michôł Òstrowsczi <Unknown>\n"
+"PO-Revision-Date: 2008-11-28 21:56+0000\n"
+"Last-Translator: Mark Kwidzińsczi <mark@linuxcsb.org>\n"
 "Language-Team: Kashubian <csb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 15:33+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -52,7 +52,7 @@ msgstr "Instalëjë"
 #. Description
 #: ../ubiquity.templates:7001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "Jinstalacëjô (trib OEM, blós dlô producentów)"
 
 #. Type: text
 #. Description
@@ -96,6 +96,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"Przeprowôdzónô je jinstalcëjô w tribie producenta systemë. Wpiszë unikalné "
+"miono dlô ti pacczi systemów. Ne miono òstanié zapisóné na zajinstalowónym "
+"systemie ë bãdze wëzwëskónô przë zgłosziwanim rapòrtów ò felach."
 
 #. Type: text
 #. Description
@@ -158,10 +161,8 @@ msgstr "Mòżesz pisac w nym òknie, abë przetestowac nowi ùkłôd klawiaturë
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
-#, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
-msgstr "Wëbierzë òbéndã:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -237,7 +238,7 @@ msgstr "To miono mdze brëkòwóné, eżle nen kòmpùtr mdze widzóny w sécë.
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Wlogùjë aùtomatno"
 
 #. Type: text
 #. Description
@@ -255,7 +256,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Migrate documents and settings"
-msgstr ""
+msgstr "Migrëjë dokùmentë ë nastôwë"
 
 #. Type: text
 #. Description
@@ -264,6 +265,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Proszã wëbrac kònta, jaczé mają bëc zajimpòrtowóné. Dokùmentë ë ùstôwë tëch "
+"kòntów òstaną ùprzëstãpnioné pò zakùńczenim jinstalacëji."
 
 #. Type: text
 #. Description
@@ -272,6 +275,8 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"Biéj do pòstãpnégò pòkrokù jinstalacëji, żelë nie chcesz jimpòrtowac nëch "
+"kòntów."
 
 #. Type: text
 #. Description
@@ -306,10 +311,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Jaczé miono të bë chcôł brëkòwac do logòwaniô?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -330,7 +333,7 @@ msgstr "Parôt do instalacëji"
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Details"
-msgstr ""
+msgstr "Detale"
 
 #. Type: text
 #. Description
@@ -343,7 +346,7 @@ msgstr "Twójô nowô systema mdze terô zainstalowónô z pòsobnëma nastôwam
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Advanced..."
-msgstr ""
+msgstr "Awansowóné..."
 
 #. Type: text
 #. Description
@@ -351,7 +354,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:47001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "Zajinstalëjë"
 
 #. Type: text
 #. Description
@@ -362,18 +365,14 @@ msgstr "Krok ${INDEX} z ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:49001
-#, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
-msgstr "Òprzestac instalacëjã?"
+msgstr "Zakùńczëc instalacëjã?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
-msgstr "Chcësz zarôzkù òprzestac instalacëjã?"
+msgstr "Chcesz terô zakùńczëc instalacëjã?"
 
 #. Type: text
 #. Description
@@ -384,26 +383,20 @@ msgstr "Pòminie"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Instalacëjô zakùńczonô"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Dali"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Zrëszë terô znowa"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -411,7 +404,7 @@ msgstr "Zrëszë terô znowa"
 #. Description
 #: ../ubiquity.templates:55001 ../ubiquity.templates:56001
 msgid "Installer crashed"
-msgstr ""
+msgstr "Fela jinstalatora"
 
 #. Type: text
 #. Description
@@ -424,6 +417,12 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"Przeprôszajemë, wëstãpiła fela jinstalatora. Prszëmë ò zgłoszenię nowi felë "
+"pòd adresã https://launchpad.net/ubuntu/+source/ubiquity/+filebug (proszëmë "
+"nie dołączëwac detalów feli do niżódnégò bëtnégò òpisënkù). Czedë le mdze to "
+"mòżebné deweloperowie zajimną sã problémą. Abë pòmóc ùsôdzcóm systemë w "
+"zrozmienim co pòszło zle, proszã dołączëc rapòrt felów, a téż lopczi z "
+"katalogów /var/log/syslog a téż /var/log/partman:"
 
 #. Type: text
 #. Description
@@ -431,7 +430,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:58001
 msgid "Before:"
-msgstr ""
+msgstr "Przed:"
 
 #. Type: text
 #. Description
@@ -439,21 +438,21 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:59001
 msgid "After:"
-msgstr ""
+msgstr "Pò:"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:60001
 msgid "New partition table"
-msgstr ""
+msgstr "Nowô tablëca particëji"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:61001
 msgid "New partition"
-msgstr ""
+msgstr "Nowô particëjô"
 
 #. Type: text
 #. Description
@@ -462,21 +461,21 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:62001 ../ubiquity.templates:78001
 msgid "Edit partition"
-msgstr ""
+msgstr "Mòdifikùjë particëjã"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:63001
 msgid "Delete partition"
-msgstr ""
+msgstr "Rëmôj particëjã"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:64001
 msgid "Device"
-msgstr ""
+msgstr "Ùrzãdzenie"
 
 #. Type: text
 #. Description
@@ -484,28 +483,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:65001
 msgid "Type"
-msgstr ""
+msgstr "Ôrt"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:66001
 msgid "Mount point"
-msgstr ""
+msgstr "Pùnkt mòntowaniô"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:67001
 msgid "Format?"
-msgstr ""
+msgstr "Fòrmatowac?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:68001
 msgid "Size"
-msgstr ""
+msgstr "Miara"
 
 #. Type: text
 #. Description
@@ -513,27 +512,27 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:69001
 msgid "Used"
-msgstr ""
+msgstr "Zajãté"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:70001
 msgid "free space"
-msgstr ""
+msgstr "przëstãpny rum"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:71001
 msgid "unknown"
-msgstr ""
+msgstr "nieznóny"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72001
 msgid "Create partition"
-msgstr ""
+msgstr "Ùsôdzë particëjã"
 
 #. Type: text
 #. Description
@@ -541,7 +540,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:73001 ../ubiquity.templates:80001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "Miara nowi particëji w megabajtach (1000000 bajtów)"
 
 #. Type: text
 #. Description
@@ -571,72 +570,64 @@ msgstr "Logiczne"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Edit a partition"
-msgstr ""
+msgstr "Mòdifikacëjô particëji"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:81001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Awansowóné òptacëje"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:82001
 msgid "Boot loader"
-msgstr ""
+msgstr "Ladownô programa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:83001
 msgid "Install boot loader"
-msgstr ""
+msgstr "Zajinstalëjë ladowną programã"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:84001
 msgid "Popularity contest"
-msgstr ""
+msgstr "Kònkùrs pòpùlarnotë"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:85001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Wez dzél w badanim pòpùlarnotë brëkòwania paczétów"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
 msgid "Network proxy"
-msgstr ""
+msgstr "Sécowy pòstrzédnik"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:87001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "Pòstrzédnik HTTP:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:88001
 msgid "Port:"
-msgstr ""
+msgstr "Pòrt:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Instalacëjô je ju zakùńczonô. Nót je zrëszëc znowa kòmpùtr abë brëkòwac nową "
-"instalacëjã. Mòże téż dali brëkòwac systemë z ti live CD, leno zmianë czë "
-"dokùmentë nie òstaną zachòwóné."
 
 #. Type: text
 #. Description
@@ -659,6 +650,8 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
+"Jinstalcëjô zakùńczono. Nót je zrëszëc kòmpùtr znowa, abë ùżëc ti "
+"jinstalacëji."
 
 #. Type: note
 #. Description
@@ -672,12 +665,19 @@ msgid ""
 " Migration Assistant:\n"
 " ${MIGRATE}"
 msgstr ""
+" Jãzëk: ${LANGUAGE}\n"
+" Ùkłôd klawiaturë: ${KEYMAP}\n"
+" Miono: ${FULLNAME}\n"
+" Miono logòwaniô: ${USERNAME}\n"
+" Môl: ${LOCATION}\n"
+" Asystent migracëji:\n"
+" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:94001
 msgid "Checking the installation..."
-msgstr ""
+msgstr "Sprôwdzanié jinstalacëji..."
 
 #. Type: title
 #. Description
@@ -722,10 +722,8 @@ msgstr "Kòpérowanié lopków (òsta mni nigle minuta)..."
 #: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 #: ../ubiquity.templates:103001 ../ubiquity.templates:104001
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
-msgstr "Instalacëjô zakùńczonô"
+msgstr "Fela instalacëji"
 
 #. Type: error
 #. Description
@@ -748,42 +746,26 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"Przëczëną je za mało placu na docélowi particëji. Proszã zrëszëc "
+"instalownika znowa ë wëbrac wikszą particëjã."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
-#, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Na fela wëstãpiwô czãsto z przëczënë zepsëtégò diskù abò nëkù CD/DVD. Pòmóc "
-"tuwò móże wëczëszczenié platë CD/DVD, wëpalenié platë w niższi chùtkòsce, "
-"abò wëczëszczenié soczewczi nëkù CD/DVD (czëszczącé zestôwczi są przistãpné "
-"w eletronicznëch krómach)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:103001
-#, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Na fela wëstãpiwô czãsto z przëczënë zepsëtégò cwiardegò diskù. Pòmóc mòże "
-"sprôwdzenié tegò czë disk czasã nie je stôri ë nie wëmôgô wëmianë, abò "
-"przeniesenié systemë w chłodniszi plac."
 
 #. Type: error
 #. Description
@@ -794,14 +776,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:104001 ../ubiquity.templates:105001
-#, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -809,18 +783,12 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Na fela wëstãpiwô czãsto z przëczënë zepsëtégò diskù, nëkù CD/DVD abò "
-"cwiardegò diskù. Pòmóc mòże wëczëszczenié platë CD/DVD, wëpalenié platë w "
-"niższi chùtkòsce, abò wëczëszczenié soczewczi nëkù CD/DVD (czëszczącé "
-"zestôwczi są przistãpné w eletronicznëch krómach), sprôwdzenié tegò czë disk "
-"czasã nie je stôri ë nie wëmôgô wëmianë, abò przeniesenié systemë w "
-"chłodniszi plac."
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:105001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "Lopk nie je zgódny ze zdrojã na platce CD/DVD:"
 
 #. Type: text
 #. Description
@@ -832,7 +800,7 @@ msgstr "Kòpérowanié logów z instalacëji..."
 #. Description
 #: ../ubiquity.templates:107001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "Kònfigùrowanié docélowi systemë..."
 
 #. Type: text
 #. Description
@@ -868,7 +836,7 @@ msgstr "Dodôwanié brëkòwnika..."
 #. Description
 #: ../ubiquity.templates:113001
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "Jimpòrtowanié dokùmentów ë ùstawów..."
 
 #. Type: text
 #. Description
@@ -898,13 +866,13 @@ msgstr "Kònfigùrowanié zrëszëniowi programë..."
 #. Description
 #: ../ubiquity.templates:118001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "Jinstalowanié dodôwnëch paczétów..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:119001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "Sprôwdzanié paczétów do zajinstalowaniô..."
 
 #. Type: text
 #. Description
@@ -952,13 +920,13 @@ msgstr "Fela przë rëmaniô ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:128001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "Fela òbczas jinstalowaniô paczétów"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:128001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "Wëstąpiła fela òbczas jinstalowaniô paczétów:"
 
 #. Type: error
 #. Description
@@ -966,7 +934,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:128001 ../ubiquity.templates:129001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "Paczétë niżi są w stónie ùszkòdzeniô:"
 
 #. Type: error
 #. Description
@@ -982,18 +950,24 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"Mòże tak bëc bez brëkòwanié stôrégò òbrazu jinstalatora abò téż feli w "
+"jednym z paczétów wëżi. Wicy detalów mòże nalézc w katalogù /var/log/syslog. "
+"Jinstalator nimò wszëtczégò spróbùje kòntinuòwac, ale mòże dac felã òbczas "
+"jednégò z pòstãpnëch kroków ë nie bëc w sztądze dodac czë rëmnąc jinëch "
+"paczétów (téż razã ze sobą) z zajinstalowóny systemë. Nôpierwi nót je "
+"pòszëkac nowégò òbrazu jinstalatora abò wësłac nen rapòrt do distribùtora."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "Fela òbczas rëmaniô lopków"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:129001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "Wëstąpiła fela òbczas rëmaniô paczétów:"
 
 #. Type: text
 #. Description
@@ -1017,7 +991,7 @@ msgstr "Zladënk jãzëkòwëch paczétów (òstało${TIME})..."
 #. Description
 #: ../ubiquity.templates:140001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "Òdmòntowanié particëji nie darzëło sã"
 
 #. Type: boolean
 #. Description
@@ -1080,22 +1054,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Type"
-msgstr "Instalacëjô zakùńczonô"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "Jaczi ôrt systemë mdze brëkòwóny?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "Przédny mòduł robiący z jinterfejsã"
 
 #. Type: text
 #. Description
@@ -1124,7 +1096,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
 msgid "Primary Backend"
-msgstr ""
+msgstr "Przédny mòduł robiący"
 
 #. Type: text
 #. Description
@@ -1153,7 +1125,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:12001
 msgid "Frontend"
-msgstr ""
+msgstr "Interfejs"
 
 #. Type: text
 #. Description
@@ -1208,25 +1180,25 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:20001
 msgid "MySQL Password"
-msgstr ""
+msgstr "Parola MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "MySQL User Name"
-msgstr ""
+msgstr "Miono brëkòwnika MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:22001
 msgid "MySQL Database"
-msgstr ""
+msgstr "Baza pòdôwków MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "MySQL Server"
-msgstr ""
+msgstr "Serwera MySQL"
 
 #. Type: text
 #. Description
@@ -1261,7 +1233,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "Zrëszanié ùstawów MythTV"
 
 #. Type: text
 #. Description
@@ -1277,13 +1249,13 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Configuring mythtv..."
-msgstr ""
+msgstr "Kònfigùrowaniw mythtv..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Configuring additional drivers..."
-msgstr ""
+msgstr "Kònfigùrowanié dodôwnëch czerowników..."
 
 #. Type: text
 #. Description
@@ -1296,41 +1268,3 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Selected region:"
-#~ msgstr "Wëbierzë òbéndã:"
-
-#~ msgid "Current time:"
-#~ msgstr "Terny czas:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr "Pòdôj tą samą parolã dwa razë, abë sprôwdzëc pòprawnosc wpisënkù."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Brëkùjë dali systemë na live CD"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Wëbierzë gard w swòjim krôju ë czasową strefã. Eżlë pòkazóny czas je "
-#~ "zmiłkòwi nawetka pò wëbraniu dobri czasowi strefë, mòżesz pòprawic gò pò "
-#~ "zrëszenim znowa kòmpùtra do zainstalowóny systemë."
-
-#~ msgid "Selected city:"
-#~ msgstr "Wëbróny gard:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Czasowô cona:"
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "Kòpérowanié lopków nie darzëło sã, lëchi CD/DVD?"
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "Nie dało sã skòpiërowac lopków; mòże disk je ùszkòdzony?"
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr "Kòpérowanié lopków nie darzëło sã, lëchi CD/DVD abò cwiôrdi disk?"

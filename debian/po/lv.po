@@ -7,38 +7,39 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-02-03 15:54+0000\n"
-"Last-Translator: Viesturs Zariņš <viesturs.zarins@mii.lu.lv>\n"
+"PO-Revision-Date: 2009-03-13 05:36+0000\n"
+"Last-Translator: Raivis Dejus <orvils@gmail.com>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:58+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:43+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "Izmantot lielāko secīgi brīvo vietu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the entire disk"
-msgstr ""
+msgstr "Izmantot visu disku"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Install them side by side, choosing between them each startup"
 msgstr ""
+"Instalēt tās vienu otrai blakus, ielādes laikā varēs izvēlēties kuru izmantot"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "Norādīt partīcijas pašrocīgi (lietpratējiem)"
 
 #. Type: text
 #. Description
@@ -125,19 +126,19 @@ msgstr "Kur jūs atrodaties?"
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Select your time zone from the map, or by region and city."
-msgstr ""
+msgstr "Izvēlieties savu laika joslu kartē, vai norādot reģionu un pilsētu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "City:"
-msgstr ""
+msgstr "Pilsēta:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Region:"
-msgstr ""
+msgstr "Reģions:"
 
 #. Type: text
 #. Description
@@ -161,13 +162,13 @@ msgstr "Varat pārbaudīt tastatūras izkārtojumu šajā laukā:"
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Suggested option:"
-msgstr ""
+msgstr "Ieteiktā izvēle:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your own:"
-msgstr ""
+msgstr "Izvēlieties savu:"
 
 #. Type: text
 #. Description
@@ -218,6 +219,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Ievadiet vienu paroli divas reizes, lai izvairītos no drukas kļūdām. Labai "
+"parolei jābūt vismaz astoņus simbolus garai, jāsastāv no burtu, ciparu un "
+"citu simbolu sajaukuma un to regulāri jāmaina."
 
 #. Type: text
 #. Description
@@ -238,25 +242,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Pieslēgties automātiski"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Require a password to log in"
-msgstr ""
+msgstr "Prasīt paroli pirms pieslēgšanās"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Require a password to log in and to decrypt your home folder"
-msgstr ""
+msgstr "Prasīt paroli, lai pieslēgtos un atkodētu jūsu mājas mapi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Migrate documents and settings"
-msgstr ""
+msgstr "Pārcelt dokumentus un iestatījumus"
 
 #. Type: text
 #. Description
@@ -292,27 +296,25 @@ msgstr "Kā vēlaties dalīt disku?"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "Uz šī datora nav nevienas operētājsistēmas"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "Uz šī datora jau ir ${OS}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "Uz šī datora jau ir vairākas operētājsistēmas"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Ar kādu lietotājvārdu vēlaties pieteikties sistēmā?"
+msgstr "Kur jūs vēlaties likt ${RELEASE}?"
 
 #. Type: text
 #. Description
@@ -333,7 +335,7 @@ msgstr "Gatavs instalēt"
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Details"
-msgstr ""
+msgstr "Sīkāka informācija"
 
 #. Type: text
 #. Description
@@ -367,13 +369,13 @@ msgstr "Solis ${INDEX} no ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Quit the installation?"
-msgstr ""
+msgstr "Pārtraukt instalāciju?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Do you really want to quit the installation now?"
-msgstr ""
+msgstr "Vai tiesām vēlaties iziet no instalēšanas tagad?"
 
 #. Type: text
 #. Description
@@ -384,24 +386,18 @@ msgstr "Izlaist"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
 msgstr "Instalēšana pabeigta"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Turpināt"
+msgstr "Turpināt testēšanu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
 msgstr "Pārstartēt tagad"
 
@@ -437,7 +433,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:58001
 msgid "Before:"
-msgstr ""
+msgstr "Pirms:"
 
 #. Type: text
 #. Description
@@ -445,7 +441,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:59001
 msgid "After:"
-msgstr ""
+msgstr "Pēc:"
 
 #. Type: text
 #. Description
@@ -630,19 +626,11 @@ msgstr "Ports:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Instalēšana ir pabeigta. Lai lietotu jauno sistēmu, jāpārstartē dators. Ja "
-"vēlaties, varat arī turpināt lietot šo \"dzīvo\" CD, bet tad sistēmā veiktās "
-"izmaiņas un izveidotie dokumenti netiks saglabāti."
 
 #. Type: text
 #. Description
@@ -738,7 +726,7 @@ msgstr "Kopē failus (atlicis mazāk par minūti)..."
 #: ../ubiquity.templates:103001 ../ubiquity.templates:104001
 #: ../ubiquity.templates:105001
 msgid "Installation Failed"
-msgstr ""
+msgstr "Instalēšana neizdevās"
 
 #. Type: error
 #. Description
@@ -1057,15 +1045,6 @@ msgstr "Instalēšana var neizdoties, ja nepalielināsiet sadaļu izmērus."
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1078,21 +1057,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Instalācijas tips: ${INSTALLTYPE}\n"
 " Valoda: ${LANGUAGE}\n"
 " Tastatūras izkārtojums: ${KEYMAP}\n"
 " Vārds: ${FULLNAME}\n"
-" Pieteikumvārds: ${USERNAME}\n"
+" Lietotājvārds: ${USERNAME}\n"
 " Atrašanās vieta: ${LOCATION}\n"
-" Dokumentu un iestatījumu pārcelšana: \n"
-" ${MIGRATE}"
+" IR tālvadība: ${REMOTE}\n"
+" IR raidītājs: ${TRANSMITTER}\n"
+" Video draiveris: ${VIDEO_DRIVER}\n"
+" Pakalpojumi: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Paplašinātās instalēšanas veids"
+msgstr "Instalācijas tips"
 
 #. Type: text
 #. Description
@@ -1189,7 +1169,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Grafiskais draiveris"
 
 #. Type: text
 #. Description
@@ -1330,252 +1310,3 @@ msgstr "Konfigurē papildpakalpojumus..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Konfigurē infrasarkanās ierīces..."
-
-#~ msgid "Selected region:"
-#~ msgstr "Izvēlētais reģions:"
-
-#~ msgid "Current time:"
-#~ msgstr "Pašreizējais laiks:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr ""
-#~ "Lai izvairītos no pārrakstīšanās kļūdām, ievadiet to pašu paroli divas "
-#~ "reizes."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Turpināt lietot \"dzīvo\" CD"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Izvēlieties tuvāko pilsētu jūsu valstī un laika zonu. Ja norādītais laiks "
-#~ "nav pareizs pat pēc pareizās laika zonas izvēles, varēsiet to noregulēt "
-#~ "pēc uzinstalētās sistēmas palaišanas."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Instalēšanas veids:           ${INSTALLTYPE}\n"
-#~ " Draiveri:\n"
-#~ "     Papildus video draiveris: ${VIDEO_DRIVER}\n"
-#~ "     TV izeja:                 ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Papildpakalpojumi:\n"
-#~ "     VNC:                      ${EN_VNC}\n"
-#~ "     SSH:                      ${EN_OPENSSH}\n"
-#~ "     Samba:                    ${EN_SAMBA}\n"
-#~ "     NFS:                      ${EN_NFS}\n"
-#~ "     MythTV pakalpojums:       ${EN_MYSQL}\n"
-#~ " Parastie Ubuntu instalēšanas jautājumi:\n"
-#~ "     Valoda:                   ${LANGUAGE}\n"
-#~ "     Tastatūras izkārtojums:   ${KEYMAP}\n"
-#~ "     Vārds:                    ${FULLNAME}\n"
-#~ "     Pieteikumvārds:           ${USERNAME}\n"
-#~ "     Atrašanās vieta:          ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "Papildu draiveri/programmaparatūra"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "Mainīt video draiveri un iestatījumus"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "Brīdinājums: Neiestatiet TV standartu augstāku par jūsu TV atbalstīto. "
-#~ "Tas var radīt PALIEKOŠUS bojājumus."
-
-#~ msgid "Selected city:"
-#~ msgstr "Izvēlētā pilsēta:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Laika josla:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Instalēšanas veids"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Mythbuntu ir pieejami divi instalēšanas veidi:"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Standarta instalēšana"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "Standarta instalēšanas ietvaros katra opcija tiks uzinstalēta un "
-#~ "nokonfigurēta ar minimālu lietotāja iejaukšanos. Tādējādi tiks "
-#~ "uzinstalēta aizmugure, priekšpuse, visi spraudņi un visas tēmas."
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Paplašinātā instalēšana"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "Paplašināto instalēšanu var lietot, lai pielāgotu Mythbuntu instalāciju. "
-#~ "PIEZĪME: paplašinātā instalācija ir nepieciešama, ja vēlaties pievienot "
-#~ "Mythbuntu datoru esošam MythTV tīklam."
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "Izvēlieties priekšpuses / aizmugures spraudņus"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "Spraudņus var izmantot, lai papildinātu MythTV minimālo funkcionalitāti "
-#~ "(TV ar laika nobīdi) ar citām iespējām."
-
-#~ msgid "Backend Plugins"
-#~ msgstr "Aizmugures spraudņi"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "Priekšpuses spraudņi"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth tīmeklis"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "Myth tīmekļa programma (MythWeb) piedāvā tīmekļa saskarni, kuru var "
-#~ "izmantot,lai apskatītu sarakstus, plānotu ierakstīšanu, dzēstu ierakstus "
-#~ "un meklētu raidījumus."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth arhīvs"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Myth pārlūks"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Myth vadība"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Myth filmas"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Myth galerija"
-
-#~ msgid "Myth Game"
-#~ msgstr "Myth spēle"
-
-#~ msgid "Myth Music"
-#~ msgstr "Myth mūzika"
-
-#~ msgid "Myth News"
-#~ msgstr "Myth ziņas"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Myth tālrunis"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Myth straume"
-
-#~ msgid "Myth Video"
-#~ msgstr "Myth video"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Myth laika prognoze"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "MythTV spraudnis, kurš jums ļauj izveidot DVD no jūsu MythTV tīklā "
-#~ "esošajiem materiāliem."
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "Integrēts tīmekļa pārlūka spraudnis jūsu MythTV sistēmai."
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "MythTV ārējā vadība. Šis spraudnis ļaus jums mainīt pogu un taustiņu "
-#~ "piesaistes."
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "Atrast filmas, kuras tiek rādītas kinoteātros tuvākajā apkārtnē"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "Atļauj jums pārraudzīt Netflix iznomāto DVD filmu rindu."
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr ""
-#~ "Atļauj jums vizuāli pārlūkot direktoriju koku, kurā ir attēlu faili."
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr "Priekšpuse jebkura emulatora vai Linux izpildāma faila palaišanai."
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "Piedāvā MythTV integrētu digitālu mūzikas kasti."
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr ""
-#~ "MythTV RSS ziņu lasītāja spraudnis, kurš informē par jaunumiem jūsu "
-#~ "mīļākajos ziņu tematos."
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr ""
-#~ "Tālruņa un videotālruņa iespējas uz MythTV, izmantojot standarta SIP "
-#~ "protokolu."
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "Nodrošina iespēju klausīties straumētās Interneta radio stacijas."
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "Ļauj pārlūkot un atskaņot video straumes no MythTV saskarnes, izmantojot "
-#~ "ārēju atskaņotāju."
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "Parāda pašreizējo laiku un laika prognozi MythTV."
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "Izvēlēties papildu tēmas"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr ""
-#~ "Tēmas var krietni uzlabot MythTV estētisko baudījumu un daudz labāk "
-#~ "piemērot to jūsu gaumei."
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "Ieslēgt/atslēgt visu"

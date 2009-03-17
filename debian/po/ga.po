@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2007-11-30 19:00+0000\n"
-"Last-Translator: Ceallsach Robertson <Unknown>\n"
+"PO-Revision-Date: 2009-03-10 10:31+0000\n"
+"Last-Translator: Kevin Patrick Scannell <Unknown>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 15:34+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -132,9 +132,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
-#, fuzzy
 msgid "Keyboard layout"
-msgstr "Roghnaigh leagan amach méarchláir"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -151,9 +150,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
-#, fuzzy
 msgid "Suggested option:"
-msgstr "Ceantar ama roghnaithe"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -272,9 +270,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
 msgid "How do you want to partition the disk?"
-msgstr "Ar mhaith leat leanúint ar aghaidh leis an deighilt?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -303,9 +300,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
-#, fuzzy
 msgid "Prepare partitions"
-msgstr "Deighilt /home ar leith"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -352,16 +348,14 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:49001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "Tobscoir an tsuiteáil"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "An bhfuil tú cinnte gur mian leat scor anois?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -372,17 +366,14 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
 msgid "Installation Complete"
-msgstr "Theip ar shuiteáil"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Lean ar aghaidh"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -517,18 +508,16 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72001
-#, fuzzy
 msgid "Create partition"
-msgstr "Cruthaigh deighilt"
+msgstr ""
 
 #. Type: text
 #. Description
 #. Type: text
 #. Description
 #: ../ubiquity.templates:73001 ../ubiquity.templates:80001
-#, fuzzy
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr "Méid an deighilt nua i MB (1000000 bytes)"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -661,9 +650,8 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:95001
-#, fuzzy
 msgid "Installing system"
-msgstr "Bunchóras á shuiteáil"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -674,16 +662,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:98001
-#, fuzzy
 msgid "Scanning files..."
-msgstr "Dioscaí á scanadh..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Copying files..."
-msgstr "Deighilt á cóipeáil..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -704,9 +690,8 @@ msgstr ""
 #: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 #: ../ubiquity.templates:103001 ../ubiquity.templates:104001
 #: ../ubiquity.templates:105001
-#, fuzzy
 msgid "Installation Failed"
-msgstr "Theip ar shuiteáil"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -774,9 +759,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:106001
-#, fuzzy
 msgid "Copying installation logs..."
-msgstr "Deighilt á cóipeáil..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -787,37 +771,32 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:108001
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "Foinsí API á gcumrú..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:109001
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "apt á chumrú"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "Cumraigh an crios ama"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "Méarchlár á chumrú..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
 msgid "Creating user..."
-msgstr "Á Ghlanadh..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -828,30 +807,26 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:114001
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "Méarchlár á chumrú..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:115001
-#, fuzzy
 msgid "Configuring network..."
-msgstr "Méarchlár á chumrú..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:116001
-#, fuzzy
 msgid "Setting computer name..."
-msgstr "Á Shocrú..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:117001
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "Méarchlár á chumrú..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -868,9 +843,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:120001
-#, fuzzy
 msgid "Removing extra packages..."
-msgstr "Pacáistí breisithe á suiteáil..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -887,9 +861,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:123001
-#, fuzzy
 msgid "Downloading package lists..."
-msgstr "Comhad \"Release\" á íosluchtú..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -900,16 +873,14 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:126001
-#, fuzzy
 msgid "Error installing ${PACKAGE}"
-msgstr "${PACKAGE} á fháil"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:127001
-#, fuzzy
 msgid "Error removing ${PACKAGE}"
-msgstr "${PACKAGE} á fháil"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -967,9 +938,8 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
 msgid "Installing language packs"
-msgstr "Bunphacáistí á suiteáil"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1044,9 +1014,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "Installation Type"
-msgstr "Theip ar shuiteáil"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1259,15 +1228,3 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#, fuzzy
-#~ msgid "Selected region:"
-#~ msgstr "Ceantar ama roghnaithe"
-
-#, fuzzy
-#~ msgid "Continue using the live CD"
-#~ msgstr "Lean ar aghaidh ag úsáid an CD"
-
-#, fuzzy
-#~ msgid "Selected city:"
-#~ msgstr "Cathair ama roghnaithe"

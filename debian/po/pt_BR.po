@@ -7,38 +7,39 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-01-10 04:23+0000\n"
-"Last-Translator: Felipe Augusto van de Wiel (faw) <Unknown>\n"
-"Language-Team: l10n portuguese <debian-l10n-portuguese@lists.debian.org>\n"
+"PO-Revision-Date: 2009-03-12 00:28+0000\n"
+"Last-Translator: André Gondim <andregondim@ubuntu.com>\n"
+"Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
+"org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "Utilizar o maior espaço livre contínuo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the entire disk"
-msgstr ""
+msgstr "Usar o disco inteiro"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "Instalá-los lado a lado, escolhendo entre eles a cada inicialização."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "Especificar particionamento manual (avançado)"
 
 #. Type: text
 #. Description
@@ -125,19 +126,19 @@ msgstr "Qual sua localidade?"
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Select your time zone from the map, or by region and city."
-msgstr ""
+msgstr "Selecione seu fuso horário no mapa, ou região ou cidade"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "City:"
-msgstr ""
+msgstr "Cidade"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Region:"
-msgstr ""
+msgstr "Região"
 
 #. Type: text
 #. Description
@@ -162,13 +163,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Suggested option:"
-msgstr ""
+msgstr "Opção sugerida"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your own:"
-msgstr ""
+msgstr "Escolha o seu próprio:"
 
 #. Type: text
 #. Description
@@ -219,6 +220,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Digite a mesma senha duas vezes, dessa forma ela pode ser verificada por "
+"erros de digitação. Uma boa senha contém uma mistura de letras, números e "
+"pontuação, deve ter ao menos oito caracteres, e deve ser trocada em "
+"intervalos regulares."
 
 #. Type: text
 #. Description
@@ -246,13 +251,13 @@ msgstr "Iniciar sessão automaticamente"
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Require a password to log in"
-msgstr ""
+msgstr "Pedir uma senha para entrar"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Require a password to log in and to decrypt your home folder"
-msgstr ""
+msgstr "Pedir uma senha para entrar e desencriptar seu diretório pessoal"
 
 #. Type: text
 #. Description
@@ -297,27 +302,25 @@ msgstr "Como você deseja particionar o disco?"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "Este computador não possui sistemas operacionais."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "Este computador possui um ${OS}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "Este computador possui muitos sistemas operacionais."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Que nome você deseja usar para entrar no sistema?"
+msgstr "Onde você deseja colocar o ${RELEASE}?"
 
 #. Type: text
 #. Description
@@ -390,24 +393,18 @@ msgstr "Ignorar"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Instalação finalizada"
+msgstr "Instalação completa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Continuar"
+msgstr "Continuar testando"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
 msgstr "Reiniciar agora"
 
@@ -636,19 +633,14 @@ msgstr "Porta:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Instalação completa. Você precisa reiniciar o computador para usar a nova "
-"instalação. Você pode continuar usando este live CD, embora algumas "
-"modificações feitas ou documentos salvos não serão preservados."
+"Instalação terminou. Você pode continuar a testar o Ubuntu agora, mas até "
+"que você reinicie o computador, qualquer mudança que você tenha feito ou "
+"documentos que tenha salvo não serão preservados."
 
 #. Type: text
 #. Description
@@ -1012,7 +1004,7 @@ msgstr "Um erro ocorreu ao remover os pacotes:"
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Calculando arquivos para pular durante a cópia..."
 
 #. Type: title
 #. Description
@@ -1086,15 +1078,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1107,21 +1090,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Tipo de instalação: ${INSTALLTYPE}\n"
 " Idioma: ${LANGUAGE}\n"
-" Disposição do teclado: ${KEYMAP}\n"
+" Layout: de teclado ${KEYMAP}\n"
 " Nome: ${FULLNAME}\n"
 " Nome de usuário: ${USERNAME}\n"
-" Localização: ${LOCATION}\n"
-" Assistente de Migração:\n"
-" ${MIGRATE}"
+" Local: ${LOCATION}\n"
+" IR Remoto: ${REMOTE}\n"
+" Transmissor de IR: ${TRANSMITTER}\n"
+" Driver de vídeo: ${VIDEO_DRIVER}\n"
+" Serviços: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Tipo de Instalação Avançada"
+msgstr "Tipo de instalação"
 
 #. Type: text
 #. Description
@@ -1219,7 +1203,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Drivers gráficos"
 
 #. Type: text
 #. Description
@@ -1363,260 +1347,3 @@ msgstr "Configurando serviços adicionais..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Configurando dispositivos infravermelhos..."
-
-#~ msgid "Selected region:"
-#~ msgstr "Região selecionada:"
-
-#~ msgid "Current time:"
-#~ msgstr "Hora atual:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr ""
-#~ "Entre com a mesma senha duas vezes, para que ela possa ser verificada por "
-#~ "erros de digitação."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Continue usando este live CD"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Selecione uma cidade em seu país e fuso horário. Se o horário atual "
-#~ "estiver incorreto mesmo após selecionar o fuso horário certo, você pode "
-#~ "ajustá-lo após reiniciar em seu sistema instalado."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Tipo de Instalação:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Adicionar Driver de Video:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Serviços Adicionais:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Questões Normais de instalação do Ubuntu:\n"
-#~ "     Idioma         :           ${LANGUAGE}\n"
-#~ "     Teclado:    ${KEYMAP}\n"
-#~ "     Nome Completo:       ${FULLNAME}\n"
-#~ "     Nome do Usuário: ${USERNAME}\n"
-#~ "     Endereço:           ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "Drivers e Firmware adicionais"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "Alterar Driver de Vídeo e Configurações"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "Atenção: Não defina um padrão de TV como algo superior ao que a sua TV "
-#~ "suportar. Danos PERMANENTES podem ocorrer."
-
-#~ msgid "Selected city:"
-#~ msgstr "Fuso horário:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Fuso horário:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Qual Tipo de Instalação?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Dois tipos de instalação estão disponíveis para o Mythbuntu:"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Instalação Padrão"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "Uma instalação básica irá instalar e configurar todas as opções com o "
-#~ "mínimo de interação com o usuário. Isso irá instalar um backend, "
-#~ "frontend, todos os plugins e todos os temas"
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Instalação Avançada"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "Uma instalação avançada pode ser usada para personalizar o que é for "
-#~ "necessário para essa instalação do Mythbuntu. NOTA: Uma instalação "
-#~ "avançada é necessária para adicionar uma máquina Mythbuntu em uma rede "
-#~ "MythTV existente."
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "Escolha os plugins de Frontend / Backend"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "Plugins podem ser usados para aumentar a funcionalidade de atraso de "
-#~ "tempo do MythTV."
-
-#~ msgid "Backend Plugins"
-#~ msgstr "Plugins de Backend"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "Plugins de Frontend"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth Web"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "O MythWeb provê uma interface web que pode ser usada para ver listagens, "
-#~ "agendar gravações, apagar gravações e buscar por programas."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Arquivo Myth"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Navegador Myth"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Controles Myth"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Filmes do Myth"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Galeria Myth"
-
-#~ msgid "Myth Game"
-#~ msgstr "Jogo Myth"
-
-#~ msgid "Myth Music"
-#~ msgstr "Música Myth"
-
-#~ msgid "Myth News"
-#~ msgstr "Notícias Myth"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Telefone Myth"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Transmissão Myth"
-
-#~ msgid "Myth Video"
-#~ msgstr "Video Myth"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Previsão do tempo Myth"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "Um plugin para o MythTV que permite você criar DVDs a partir do conteúdo "
-#~ "da sua Rede MythTV."
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you view movie trailers from apple.com."
-#~ msgstr "Um plugin para MythTV que permite a você ver trailers da apple.com."
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "Um plugin de navegador integrado ao MythTV"
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "Controles externos  para o MythTV. Isto irá permitir que você modifique "
-#~ "os mapas de botões e as associações às teclas."
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "Encontre filmes em cartaz nos cinemas próximos"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "Permite que você monitore sua fila Netflixdvd de aluguel de dvd."
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr ""
-#~ "Permite que você navegue visualmente em uma árvore de diretórios contendo "
-#~ "arquivos de imagens."
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr ""
-#~ "Um frontend para iniciar um emulador ou um binário que o Linux execute."
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "Provê uma biblioteca de audio digital integrada ao MythTV"
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr ""
-#~ "Um plugin leitor de notícias RSS para o MythTV que mantém você atualizado "
-#~ "com seus assuntos favoritos."
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr ""
-#~ "Telefone ou Videofone são capazes de serem usados no MythTV usando o "
-#~ "protocolo padrão SIP."
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr ""
-#~ "Provê um método para escutar a uma transmissão de estação de rádio pela "
-#~ "internet."
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "Permite a você navegar e tocar streams de video, usando um player "
-#~ "externo, de dentro da interface do MythTV."
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "Mostra informação da previsão do tempo de dentro do MythTV"
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "Escolher Temas Extras"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr ""
-#~ "Temas podem realmente aprimorar a estética de uma instalação do MythTV e "
-#~ "apresentá-lo de uma forma que corresponda melhor ao seu gosto."
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "Habilitar/Desabilitar Todos"
