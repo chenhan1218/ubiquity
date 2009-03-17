@@ -1,4 +1,4 @@
-oem-config (1.54.9) UNRELEASED; urgency=low
+oem-config (1.54.9) jaunty; urgency=low
 
   [ Evan Dandrea ]
   * Add missing errno import.
@@ -17,7 +17,7 @@ oem-config (1.54.9) UNRELEASED; urgency=low
       LP: #341770).
   * Update translations from Launchpad.
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 06 Mar 2009 16:23:35 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 17 Mar 2009 01:22:18 +0000
 
 oem-config (1.54.8) jaunty; urgency=low
 
