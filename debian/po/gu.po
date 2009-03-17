@@ -7,27 +7,26 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2008-05-20 14:27+0000\n"
+"PO-Revision-Date: 2009-03-10 10:32+0000\n"
 "Last-Translator: Kartik Mistry <Unknown>\n"
 "Language-Team: Gujarati <team@utkarsh.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 14:56+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
 msgid "System Configuration"
-msgstr "apt રૂપરેખાંકન મુશ્કેલી"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:3001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "પગથિયું ${INDEX} (${TOTAL} પૈકી)"
 
 #. Type: text
 #. Description
@@ -45,16 +44,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:6001
-#, fuzzy
 msgid "Choose time zone"
-msgstr "સમય વિસ્તાર રૂપરેખાંકિત કરો"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:7001
-#, fuzzy
 msgid "Select a city in your country and time zone."
-msgstr "તમારા સમય વિસ્તારમાંનું શહેર પસંદ કરો:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -65,39 +62,38 @@ msgstr "પસંદ કરેલ શહેર"
 #. Type: text
 #. Description
 #: ../oem-config.templates:9001
-#, fuzzy
 msgid "Selected region:"
-msgstr "પસંદ કરેલ સમય વિસ્તાર"
+msgstr "પસંદ કરેલુ ક્ષેત્રઃ"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:10001
 msgid "Time zone:"
-msgstr ""
+msgstr "ટાઈમ ઝોન:"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:11001
 msgid "Current time:"
-msgstr ""
+msgstr "હાલનો સમય:"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:12001
 msgid "Keyboard layout"
-msgstr ""
+msgstr "કીબોર્ડ લેઆઉટ:"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:13001
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "ક્યો કીબોર્ડ લેઆઉટ તમારા કીબોર્ડ સાથે સૌથી વધુ મળતો આવે છે?"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:14001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "તમે તમારો નવો કીબોર્ડ લેઆઉટ ચકાસવા આ ખાનામાં લખી શકો છો."
 
 #. Type: text
 #. Description
@@ -109,13 +105,13 @@ msgstr "તમે કોણ છો?"
 #. Description
 #: ../oem-config.templates:16001
 msgid "What is your name?"
-msgstr "તમારુ નામ શું છે?"
+msgstr "તમારૂ નામ શું છે?"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:17001
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "તમે અંદર પ્રવેશ મેળવવા (લોગઇન કરવા) ક્યુ નામ વાપરવા માગો છો?"
 
 #. Type: text
 #. Description
@@ -137,7 +133,7 @@ msgstr "તમારુ ખાતુ સુરક્ષિત રાખવા �
 #. Description
 #: ../oem-config.templates:20001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
+msgstr "તમે અત્યારે ખામીશોધક (ડીબગીંગ) ઢબ માં છો. એક કીંમતી પાસવર્ડ વાપરી નાખશો નહી !"
 
 #. Type: text
 #. Description
@@ -149,9 +145,8 @@ msgstr "એજ પાસવર્ડ બે વાર નાખો, જેથી
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
-#, fuzzy
 msgid "Network configuration"
-msgstr "આપમેળે નેટવર્ક ગોઠવવાનો ફરી પ્રયત્ન કરો"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -163,28 +158,27 @@ msgstr ""
 #. Description
 #: ../oem-config.templates:24001
 msgid "Log in automatically"
-msgstr ""
+msgstr "આપોઆપ લોગઇન કરો"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:25001
-#, fuzzy
 msgid "Applying configuration"
-msgstr "apt રૂપરેખાંકન મુશ્કેલી"
+msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:26001
 msgid "Go Back"
-msgstr ""
+msgstr "પાછા જાઓ"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:27001
 msgid "Continue"
-msgstr ""
+msgstr "ચાલુ રાખો"
 
 #. Type: title
 #. Description
@@ -201,24 +195,21 @@ msgstr ""
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
 msgid "Prepare for OEM configuration"
-msgstr "વાયરલેસ નેટવર્ક રૂપરેખાંકન"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
 msgid "Preparing for OEM configuration..."
-msgstr "યાબૂટ રૂપરેખાંકન બનાવે છે"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
 msgid "Ready for OEM configuration"
-msgstr "આપમેળે નેટવર્ક ગોઠવવાનો ફરી પ્રયત્ન કરો"
+msgstr ""
 
 #. Type: text
 #. Description

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2008-05-20 14:49+0000\n"
-"Last-Translator: Aigars Mahinovs <aigarius@debian.org>\n"
+"PO-Revision-Date: 2009-03-13 05:36+0000\n"
+"Last-Translator: Raivis Dejus <orvils@gmail.com>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 15:00+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:43+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -32,7 +32,7 @@ msgstr "Solis ${INDEX} no ${TOTAL}"
 #. Description
 #: ../oem-config.templates:4001
 msgid "Choose language"
-msgstr "Valodas izvēle/Choose language"
+msgstr "Izvēlieties valodu/Choose language"
 
 #. Type: text
 #. Description
@@ -46,7 +46,7 @@ msgstr ""
 #. Description
 #: ../oem-config.templates:6001
 msgid "Choose time zone"
-msgstr "Izvēlaties laika joslu"
+msgstr "Izvēlieties laika joslu"
 
 #. Type: text
 #. Description
@@ -76,7 +76,7 @@ msgstr "Laika josla:"
 #. Description
 #: ../oem-config.templates:11001
 msgid "Current time:"
-msgstr "Tekošais laiks:"
+msgstr "Pašreizējais laiks:"
 
 #. Type: text
 #. Description
@@ -88,13 +88,13 @@ msgstr "Tastatūras izkārtojums"
 #. Description
 #: ../oem-config.templates:13001
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Kāds ir jūsu tastatūras izkārtojums?"
+msgstr "Kurš izkārtojums vislabāk atbilst jūsu tastatūrai?"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:14001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "Pārbaudiet tastatūras izkārtojumu šeit:"
+msgstr "Varat pārbaudīt tastatūras izkārtojumu šajā laukā:"
 
 #. Type: text
 #. Description
@@ -112,7 +112,7 @@ msgstr "Kāds ir jūsu vārds?"
 #. Description
 #: ../oem-config.templates:17001
 msgid "What name do you want to use to log in?"
-msgstr "Ar kādu lietotājvārdu jūs vēlaties pieteikties sistēmā?"
+msgstr "Ar kādu lietotājvārdu vēlaties pieteikties sistēmā?"
 
 #. Type: text
 #. Description
@@ -121,8 +121,8 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Ja datoru izmantos vairākas personas, pēc instalēšanas varēsiet pievienot "
-"papildu lietotāju kontus."
+"Ja datoru izmantos vairāki cilvēki, pēc instalēšanas varēsiet izveidot "
+"pārējos lietotāju kontus."
 
 #. Type: text
 #. Description
@@ -134,23 +134,22 @@ msgstr "Izvēlieties paroli, lai aizsargātu jūsu kontu."
 #. Description
 #: ../oem-config.templates:20001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
-"Jūs darbojaties atkļūdošanas režīmā. Neizmantojiet jums nozīmīgu paroli!"
+msgstr "Jūs darbojaties atkļūdošanas režīmā. Neizmantojiet vērtīgu paroli!"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:21001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr "Lai izvairītos no pārrakstīšanās kļūdām, ievadiet paroli divas reizes."
+msgstr ""
+"Lai izvairītos no pārrakstīšanās kļūdām, ievadiet to pašu paroli divas "
+"reizes."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Network configuration"
-msgstr "Gatavs galalietotāja konfigurēšanai"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -162,36 +161,34 @@ msgstr ""
 #. Description
 #: ../oem-config.templates:24001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Pieslēgties automātiski"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:25001
-#, fuzzy
-#| msgid "System Configuration"
 msgid "Applying configuration"
-msgstr "Sistēmas konfigurācija"
+msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:26001
 msgid "Go Back"
-msgstr ""
+msgstr "Atpakaļ"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:27001
 msgid "Continue"
-msgstr ""
+msgstr "Turpināt"
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
 msgid "OEM mode (for manufacturers only)"
-msgstr "OEM režīms (tikai izgatavotājiem)"
+msgstr "OEM režīms (tikai ražotājiem)"
 
 #. Type: text
 #. Description
@@ -201,27 +198,21 @@ msgstr "OEM režīms (tikai izgatavotājiem)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Prepare for end-user configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Sagatavoties galalietotāja konfigurēšanai"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Preparing for end-user configuration..."
 msgid "Preparing for OEM configuration..."
-msgstr "Gatavojos galalietotāja konfigurēšanai..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Ready for OEM configuration"
-msgstr "Gatavs galalietotāja konfigurēšanai"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -232,9 +223,9 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
-"Kad ielādēsiet sistēmu, jūs varēsiet ielogoties kā 'oem' lietotājs ar "
+"Kad ielādēsiet sistēmu, jūs varēsiet pieteikties kā 'oem' lietotājs ar "
 "paroli, kuru norādījāt iepriekš. Izmantojot komandu 'sudo', šim lietotājam "
-"ir arī root lietotāja privilēģijas un tālāk iespējams veikt jelkādas "
+"ir arī root lietotāja privilēģijas, un tālāk iespējams veikt jebkādas "
 "izmaiņas sistēmā atbilstoši savām vēlmēm."
 
 #. Type: text
@@ -245,7 +236,7 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
-"Kad sistēma ir nokonfigurēta pēc jūsu patikšanas, palaidiet 'oem-config-"
-"prepare'. Tas liks sistēmai izdzēst pagaidu lietotāju 'oem' un gala "
-"lietotājam uzdos vairākus konfigurācijas jautājumus nākamajā sistēmas "
+"Kad sistēma ir nokonfigurēta pēc jūsu vēlmēm, palaidiet 'oem-config-"
+"prepare'. Tas liks sistēmai izdzēst pagaidu lietotāju 'oem' un "
+"galalietotājam uzdos vairākus konfigurācijas jautājumus nākamajā sistēmas "
 "ielādes reizē."

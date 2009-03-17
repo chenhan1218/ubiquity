@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2008-05-20 14:47+0000\n"
+"PO-Revision-Date: 2009-03-10 10:36+0000\n"
 "Last-Translator: Aiet Kolkhi <aietkolkhi@gmail.com>\n"
-"Language-Team: Georgian <www.gia.ge>\n"
+"Language-Team: Georgian <aietkolkhi@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 14:56+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -150,10 +150,8 @@ msgstr "შეცდომებისაგან დასაზღვევ�
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Network configuration"
-msgstr "საბოლოო მომხმარებლურ კონფიგურაციისთვის მზად ყოფნაშია"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -170,24 +168,22 @@ msgstr "სისტემაში ავტომატური დარე�
 #. Type: text
 #. Description
 #: ../oem-config.templates:25001
-#, fuzzy
-#| msgid "System Configuration"
 msgid "Applying configuration"
-msgstr "სისტემის კონფიგურაცია"
+msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:26001
 msgid "Go Back"
-msgstr ""
+msgstr "დაბრუნება"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:27001
 msgid "Continue"
-msgstr ""
+msgstr "გაგრძელება"
 
 #. Type: title
 #. Description
@@ -204,27 +200,21 @@ msgstr "OEM რეჟიმი (მხოლ. მწარმოებლის�
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Prepare for end-user configuration"
 msgid "Prepare for OEM configuration"
-msgstr "მომხმარებლურ კონფიგურაციისთვის მზადება"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Preparing for end-user configuration..."
 msgid "Preparing for OEM configuration..."
-msgstr "საბოლოო მომხმარებლის კონფიგურირება..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Ready for OEM configuration"
-msgstr "საბოლოო მომხმარებლურ კონფიგურაციისთვის მზად ყოფნაშია"
+msgstr ""
 
 #. Type: text
 #. Description

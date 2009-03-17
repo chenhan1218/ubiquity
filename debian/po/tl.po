@@ -7,21 +7,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2008-05-20 14:58+0000\n"
+"PO-Revision-Date: 2009-03-10 10:45+0000\n"
 "Last-Translator: Eric Pareja <xenos@upm.edu.ph>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 14:56+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
 msgid "System Configuration"
-msgstr "Problema sa pagsasaayos ng apt"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -45,16 +44,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:6001
-#, fuzzy
 msgid "Choose time zone"
-msgstr "Isaayos ang zonang orasan"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:7001
-#, fuzzy
 msgid "Select a city in your country and time zone."
-msgstr "Pumili ng siyudad sa inyong zonang orasan:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -71,9 +68,8 @@ msgstr "Napiling rehiyon:"
 #. Type: text
 #. Description
 #: ../oem-config.templates:10001
-#, fuzzy
 msgid "Time zone:"
-msgstr "Sonang orasan:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -153,9 +149,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
-#, fuzzy
 msgid "Network configuration"
-msgstr "Subukan muli ang pagsasaayos ng network"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -172,23 +167,22 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:25001
-#, fuzzy
 msgid "Applying configuration"
-msgstr "Problema sa pagsasaayos ng apt"
+msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:26001
 msgid "Go Back"
-msgstr ""
+msgstr "Bumalik"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:27001
 msgid "Continue"
-msgstr ""
+msgstr "Ituloy"
 
 #. Type: title
 #. Description
@@ -205,24 +199,21 @@ msgstr ""
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
 msgid "Prepare for OEM configuration"
-msgstr "Pagsasaayos ng wireless network"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
 msgid "Preparing for OEM configuration..."
-msgstr "Binubuo ang pagkaayos ng yaboot"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
 msgid "Ready for OEM configuration"
-msgstr "Subukan muli ang pagsasaayos ng network"
+msgstr ""
 
 #. Type: text
 #. Description

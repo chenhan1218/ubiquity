@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2008-05-20 14:55+0000\n"
-"Last-Translator: Peter Mann <peter.mann@tuke.sk>\n"
+"PO-Revision-Date: 2009-03-10 10:42+0000\n"
+"Last-Translator: helix84 <Unknown>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 14:57+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -146,10 +146,8 @@ msgstr "Heslo zadajte dvakrát, aby ste sa presvedčili o jeho správnosti."
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Network configuration"
-msgstr "Pripravený na konfiguráciu pre koncového používateľa"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -161,29 +159,27 @@ msgstr ""
 #. Description
 #: ../oem-config.templates:24001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Prihlásiť sa automaticky"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:25001
-#, fuzzy
-#| msgid "System Configuration"
 msgid "Applying configuration"
-msgstr "Konfigurácia systému"
+msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:26001
 msgid "Go Back"
-msgstr ""
+msgstr "Naspäť"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:27001
 msgid "Continue"
-msgstr ""
+msgstr "Pokračovať"
 
 #. Type: title
 #. Description
@@ -200,27 +196,21 @@ msgstr "Režim OEM (len pre výrobcov)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Prepare for end-user configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Pripraviť na konfiguráciu pre koncového používateľa"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Preparing for end-user configuration..."
 msgid "Preparing for OEM configuration..."
-msgstr "Pripravuje sa konfigurácia pre koncového používateľa..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Ready for OEM configuration"
-msgstr "Pripravený na konfiguráciu pre koncového používateľa"
+msgstr ""
 
 #. Type: text
 #. Description

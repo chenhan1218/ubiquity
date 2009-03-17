@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2008-05-22 06:05+0000\n"
-"Last-Translator: Ionuț Jula <ionutjula@gmail.com>\n"
+"PO-Revision-Date: 2009-03-10 10:40+0000\n"
+"Last-Translator: Eddy Petrisor <eddy.petrisor@gmail.com>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 14:59+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -32,7 +32,7 @@ msgstr "Pasul ${INDEX} din ${TOTAL}"
 #. Description
 #: ../oem-config.templates:4001
 msgid "Choose language"
-msgstr "Alegeţi limba / Choose language"
+msgstr "Alegeți limba / Choose language"
 
 #. Type: text
 #. Description
@@ -58,7 +58,7 @@ msgstr "Alege un oraş din ţara sau fusul tău orar:"
 #. Description
 #: ../oem-config.templates:8001
 msgid "Selected city:"
-msgstr "Oraşul selectat:"
+msgstr "Orașul selectat:"
 
 #. Type: text
 #. Description
@@ -96,13 +96,13 @@ msgstr ""
 #: ../oem-config.templates:14001
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
-"Puteţi tasta în această căsuţă pentru a testa noul aranjament al tastaturii."
+"Puteți tasta în această căsuță pentru a testa noul aranjament al tastaturii."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:15001
 msgid "Who are you?"
-msgstr "Cine sunteţi?"
+msgstr "Cine sunteți?"
 
 #. Type: text
 #. Description
@@ -114,7 +114,7 @@ msgstr "Care este numele tău?"
 #. Description
 #: ../oem-config.templates:17001
 msgid "What name do you want to use to log in?"
-msgstr "Ce nume doreşti să foloseşti pentru autentificare?"
+msgstr "Ce nume dorești să folosești pentru autentificare?"
 
 #. Type: text
 #. Description
@@ -123,20 +123,20 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Dacă mai multe persoane vor utiliza acest calculator, puteţi seta mai multe "
+"Dacă mai multe persoane vor utiliza acest calculator, puteți seta mai multe "
 "conturi după instalare."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:19001
 msgid "Choose a password to keep your account safe."
-msgstr "Alegeţi o parolă pentru a menţine acest cont în siguranţă."
+msgstr "Alegeți o parolă pentru a menține acest cont în siguranță."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:20001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "Rulaţi în modul de depanare. Nu folosiţi o parolă importantă."
+msgstr "Rulați în modul de depanare. Nu folosiți o parolă importantă."
 
 #. Type: text
 #. Description
@@ -144,16 +144,14 @@ msgstr "Rulaţi în modul de depanare. Nu folosiţi o parolă importantă."
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
-"Introduceţi aceaşi parolă de două ori pentru a fi verificată împotriva "
+"Introduceți aceași parolă de două ori pentru a fi verificată împotriva "
 "erorilor de tastare."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Network configuration"
-msgstr "Pregătit pentru configurarea utilizatorului final"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -170,24 +168,22 @@ msgstr "Autentificare automată"
 #. Type: text
 #. Description
 #: ../oem-config.templates:25001
-#, fuzzy
-#| msgid "System Configuration"
 msgid "Applying configuration"
-msgstr "Configurare Sistem"
+msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:26001
 msgid "Go Back"
-msgstr ""
+msgstr "Înapoi"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:27001
 msgid "Continue"
-msgstr ""
+msgstr "Continuă"
 
 #. Type: title
 #. Description
@@ -204,27 +200,21 @@ msgstr "Mod OEM (doar pentru producători)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Prepare for end-user configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Pregătire configurare pentru utilizatorul final"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Preparing for end-user configuration..."
 msgid "Preparing for OEM configuration..."
-msgstr "Pregătire pentru configurarea utilizatorului final"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Ready for OEM configuration"
-msgstr "Pregătit pentru configurarea utilizatorului final"
+msgstr ""
 
 #. Type: text
 #. Description

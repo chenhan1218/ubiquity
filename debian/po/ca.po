@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2008-05-20 14:22+0000\n"
+"PO-Revision-Date: 2009-03-10 10:27+0000\n"
 "Last-Translator: Jordi Mallach <jordi@canonical.com>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 14:57+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -103,13 +103,13 @@ msgstr ""
 #. Description
 #: ../oem-config.templates:15001
 msgid "Who are you?"
-msgstr "Qui ets?"
+msgstr "Qui sou?"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:16001
 msgid "What is your name?"
-msgstr "Quin és el teu nom?"
+msgstr "Com us dieu?"
 
 #. Type: text
 #. Description
@@ -151,10 +151,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Network configuration"
-msgstr "A punt per a la configuració de l'usuari final"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -171,24 +169,22 @@ msgstr "Entra de manera automàtica"
 #. Type: text
 #. Description
 #: ../oem-config.templates:25001
-#, fuzzy
-#| msgid "System Configuration"
 msgid "Applying configuration"
-msgstr "Configuració del sistema"
+msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:26001
 msgid "Go Back"
-msgstr ""
+msgstr "Vés enrere"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:27001
 msgid "Continue"
-msgstr ""
+msgstr "Continua"
 
 #. Type: title
 #. Description
@@ -205,27 +201,21 @@ msgstr "Mode OEM (només per a distribuïdors)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Prepare for end-user configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Prepara per a la configuració de l'usuari final"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Preparing for end-user configuration..."
 msgid "Preparing for OEM configuration..."
-msgstr "S'està preparant per a la configuració de l'usuari final..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Ready for OEM configuration"
-msgstr "A punt per a la configuració de l'usuari final"
+msgstr ""
 
 #. Type: text
 #. Description

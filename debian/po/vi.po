@@ -7,21 +7,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2008-05-20 14:59+0000\n"
+"PO-Revision-Date: 2009-03-10 10:46+0000\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 14:56+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
 msgid "System Configuration"
-msgstr "lỗi cấu hình trình apt"
+msgstr "Cấu hình hệ thống"
 
 #. Type: text
 #. Description
@@ -45,22 +44,20 @@ msgstr "Sau khi bạn trả lời xong vài câu hỏi, hệ thống sẽ sẵn 
 #. Type: text
 #. Description
 #: ../oem-config.templates:6001
-#, fuzzy
 msgid "Choose time zone"
-msgstr "Cấu hình múi giờ"
+msgstr "Chọn múi giờ"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:7001
-#, fuzzy
 msgid "Select a city in your country and time zone."
-msgstr "Chọn một thành phố trong múi giờ của bạn:"
+msgstr "Chọn thành phố và múi giờ của bạn:"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:8001
 msgid "Selected city:"
-msgstr "Thành phố được chọn:"
+msgstr "Thành phố đã chọn"
 
 #. Type: text
 #. Description
@@ -78,13 +75,13 @@ msgstr "Múi giờ:"
 #. Description
 #: ../oem-config.templates:11001
 msgid "Current time:"
-msgstr "Thời gian hiện hành:"
+msgstr "Thời gian hiện tại:"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:12001
 msgid "Keyboard layout"
-msgstr "Chọn kiểu bàn phím"
+msgstr "Bố trí bàn phím"
 
 #. Type: text
 #. Description
@@ -135,23 +132,22 @@ msgstr "Hãy chọn mật khẩu để đảm bảo an toàn cho tài khoản c�
 #. Type: text
 #. Description
 #: ../oem-config.templates:20001
-#, fuzzy
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "Bạn đang chạy ở chế độ gỡ rối. Không nên dùng mật khẩu quan trọng!"
+msgstr ""
+"Bạn đang chạy ở chế độ truy tìm lỗi. Không nên dùng mật khẩu quan trọng!"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:21001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr "Hãy nhập lại mật khẩu để kiểm tra lỗi khi nhập."
+msgstr "Hãy nhập lại mật khẩu để chắc chắn bạn không đánh sai."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
-#, fuzzy
 msgid "Network configuration"
-msgstr "Sẵn sàng cấu hình cho người dùng cuối"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -168,23 +164,22 @@ msgstr "Đăng nhập tự động"
 #. Type: text
 #. Description
 #: ../oem-config.templates:25001
-#, fuzzy
 msgid "Applying configuration"
-msgstr "lỗi cấu hình trình apt"
+msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:26001
 msgid "Go Back"
-msgstr ""
+msgstr "Lùi lại"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:27001
 msgid "Continue"
-msgstr ""
+msgstr "Tiếp tục"
 
 #. Type: title
 #. Description
@@ -201,26 +196,21 @@ msgstr "Chế độ OEM (chỉ dành cho nhà sản xuất)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Prepare for end-user configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Chuẩn bị cấu hình cho người dùng cuối"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Preparing for end-user configuration..."
 msgid "Preparing for OEM configuration..."
-msgstr "Đang chuẩn bị cấu hình cho người dùng cuối..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
 msgid "Ready for OEM configuration"
-msgstr "Sẵn sàng cấu hình cho người dùng cuối"
+msgstr ""
 
 #. Type: text
 #. Description

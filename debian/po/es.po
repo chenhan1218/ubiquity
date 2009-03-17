@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2008-05-20 17:56+0000\n"
-"Last-Translator: Paco Molinero <paco@byasl.com>\n"
+"PO-Revision-Date: 2009-03-16 02:46+0000\n"
+"Last-Translator: Julián Alarcón <alarconj@gmail.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 14:58+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:43+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -26,13 +26,13 @@ msgstr "Configuración del sistema"
 #. Description
 #: ../oem-config.templates:3001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr "Etapa ${INDEX} de ${TOTAL}"
+msgstr "Paso ${INDEX} de ${TOTAL}"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:4001
 msgid "Choose language"
-msgstr "Escoja el idioma / Choose language"
+msgstr "Escoja el idioma"
 
 #. Type: text
 #. Description
@@ -123,7 +123,7 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Si este equipo va a ser usado por más de una persona, deberá configurar "
+"Si este equipo va a ser usado por más de una persona, podrá configurar "
 "varias cuentas después de la instalación."
 
 #. Type: text
@@ -150,16 +150,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Network configuration"
-msgstr "Listo para la configuración del usuario final"
+msgstr "Configuración de red"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:23001
 msgid "Software selection"
-msgstr ""
+msgstr "Selección de programas"
 
 #. Type: text
 #. Description
@@ -170,24 +168,22 @@ msgstr "Entrar automáticamente"
 #. Type: text
 #. Description
 #: ../oem-config.templates:25001
-#, fuzzy
-#| msgid "System Configuration"
 msgid "Applying configuration"
-msgstr "Configuración del sistema"
+msgstr "Aplicando configuración"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:26001
 msgid "Go Back"
-msgstr ""
+msgstr "Retroceder"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:27001
 msgid "Continue"
-msgstr ""
+msgstr "Continuar"
 
 #. Type: title
 #. Description
@@ -204,27 +200,21 @@ msgstr "Modo OEM (sólo para fabricantes)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Prepare for end-user configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Preparación para la configuración del usuario final"
+msgstr "Preparar para la configuración OEM"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Preparing for end-user configuration..."
 msgid "Preparing for OEM configuration..."
-msgstr "Preparación para la configuración del usuario final..."
+msgstr "Preparando para la configuración OEM..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Ready for OEM configuration"
-msgstr "Listo para la configuración del usuario final"
+msgstr "Preparado para la configuración OEM"
 
 #. Type: text
 #. Description

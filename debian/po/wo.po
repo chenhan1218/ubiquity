@@ -7,21 +7,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2008-05-20 14:59+0000\n"
+"PO-Revision-Date: 2009-03-10 10:46+0000\n"
 "Last-Translator: Mouhamadou Mamoune Mbacke <Unknown>\n"
-"Language-Team: Wolof <debian-boot@lists.debian.org>\n"
+"Language-Team: Wolof\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 14:57+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
 msgid "System Configuration"
-msgstr "jafejafe ci komfiguraasioŋ u apt"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -45,86 +44,74 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:6001
-#, fuzzy
 msgid "Choose time zone"
-msgstr "Komfigure gox u waxt wi"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:7001
-#, fuzzy
 msgid "Select a city in your country and time zone."
-msgstr "Tannal ab dëkk bu ne ci sa gox u waxtu:"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:8001
-#, fuzzy
 msgid "Selected city:"
-msgstr "Goxu waxtu yiñu tann"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:9001
-#, fuzzy
 msgid "Selected region:"
-msgstr "dëkk bi ga tann"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:10001
-#, fuzzy
 msgid "Time zone:"
-msgstr "bokk waxtu"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:11001
-#, fuzzy
 msgid "Current time:"
-msgstr "waxtu bi jot"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:12001
-#, fuzzy
 msgid "Keyboard layout"
-msgstr "Tannal tërëliinu tablocaabi bi"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:13001
-#, fuzzy
 msgid "Which layout is most similar to your keyboard?"
-msgstr "bann ci yii moo gënnë mengo ak sa bindoukay"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:14001
-#, fuzzy
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "bu la nexe bind fii ngiir xool ndax baxna"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:15001
-#, fuzzy
 msgid "Who are you?"
-msgstr "yaw yaye kan"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:16001
-#, fuzzy
 msgid "What is your name?"
-msgstr "sa tur nakala"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:17001
-#, fuzzy
 msgid "What name do you want to use to log in?"
-msgstr "bann tur ga bëgg njariño"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -158,9 +145,8 @@ msgstr "Bindal niari yoon sa mot de passe bi ndax niou meuneu kham ndax juumo"
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
-#, fuzzy
 msgid "Network configuration"
-msgstr "Jéemaat komfiguraasioŋ otomatik bu resóo bi"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -177,23 +163,22 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:25001
-#, fuzzy
 msgid "Applying configuration"
-msgstr "jafejafe ci komfiguraasioŋ u apt"
+msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:26001
 msgid "Go Back"
-msgstr ""
+msgstr "Delluwaat"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:27001
 msgid "Continue"
-msgstr ""
+msgstr "Kontine"
 
 #. Type: title
 #. Description
@@ -210,24 +195,21 @@ msgstr ""
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
 msgid "Prepare for OEM configuration"
-msgstr "Komfiguraasioŋ u resóo sãa fiil"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
 msgid "Preparing for OEM configuration..."
-msgstr "Mi ngi sos komfiguraasioŋ bu yaboot"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
 msgid "Ready for OEM configuration"
-msgstr "Jéemaat komfiguraasioŋ otomatik bu resóo bi"
+msgstr ""
 
 #. Type: text
 #. Description

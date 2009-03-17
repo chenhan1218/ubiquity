@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2008-05-22 08:22+0000\n"
-"Last-Translator: Kemal YAYLALI <kemal.yaylali@gmail.com>\n"
+"PO-Revision-Date: 2009-03-13 13:20+0000\n"
+"Last-Translator: Tahir Emre KALAYCI <tekrei@gmail.com>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 14:58+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:43+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -147,44 +147,40 @@ msgstr "Yazım hatalarının denetlenebilmesi için aynı şifreyi iki defa giri
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Network configuration"
-msgstr "Son kullanıcı yapılandırması için hazır"
+msgstr "Ağ yapılandırması"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:23001
 msgid "Software selection"
-msgstr ""
+msgstr "Yazılım seçimi"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:24001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Otomatik giriş yap"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:25001
-#, fuzzy
-#| msgid "System Configuration"
 msgid "Applying configuration"
-msgstr "Sistem Yapılandırması"
+msgstr "Yapılandırma uygulanıyor"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:26001
 msgid "Go Back"
-msgstr ""
+msgstr "Geri Dön"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:27001
 msgid "Continue"
-msgstr ""
+msgstr "Devam Et"
 
 #. Type: title
 #. Description
@@ -201,27 +197,21 @@ msgstr "OEM modu (sadece üreticiler için)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Prepare for end-user configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Son kullanıcı yapılandırması için hazırla"
+msgstr "OEM yapılandırması için hazırla"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Preparing for end-user configuration..."
 msgid "Preparing for OEM configuration..."
-msgstr "Son kullanıcı yapılandırması için hazırlanıyor"
+msgstr "OEM yapılandırması için hazırlanıyor..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Ready for OEM configuration"
-msgstr "Son kullanıcı yapılandırması için hazır"
+msgstr "OEM yapılandırması için hazır"
 
 #. Type: text
 #. Description

@@ -7,21 +7,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2008-05-20 14:21+0000\n"
-"Last-Translator: Safir Šećerović <Unknown>\n"
+"PO-Revision-Date: 2009-03-10 10:27+0000\n"
+"Last-Translator: adioe3 <Unknown>\n"
 "Language-Team: Bosnian <lokal@linux.org.ba>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 14:57+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
 msgid "System Configuration"
-msgstr "apt konfiguracioni problem"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -45,23 +44,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:6001
-#, fuzzy
 msgid "Choose time zone"
-msgstr "Podesi vremensku zonu"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:7001
-#, fuzzy
 msgid "Select a city in your country and time zone."
-msgstr "Odaberite grad u vašoj vremenskog zoni:"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:8001
-#, fuzzy
 msgid "Selected city:"
-msgstr "Odaberite vaš floppy uređaj:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -84,9 +80,8 @@ msgstr "Trenutno vrijeme:"
 #. Type: text
 #. Description
 #: ../oem-config.templates:12001
-#, fuzzy
 msgid "Keyboard layout"
-msgstr "Izaberite raspored tipki"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -150,9 +145,8 @@ msgstr "Upišite istu šifru dva puta, kako bi se mogla provjeriti."
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
-#, fuzzy
 msgid "Network configuration"
-msgstr "Ponovi automatsku konfiguraciju mreže"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -169,23 +163,22 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:25001
-#, fuzzy
 msgid "Applying configuration"
-msgstr "apt konfiguracioni problem"
+msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:26001
 msgid "Go Back"
-msgstr ""
+msgstr "Vrati se"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:27001
 msgid "Continue"
-msgstr ""
+msgstr "Nastavi"
 
 #. Type: title
 #. Description
@@ -202,24 +195,21 @@ msgstr ""
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
 msgid "Prepare for OEM configuration"
-msgstr "Konfiguracija bežične (wireless) mreže"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
 msgid "Preparing for OEM configuration..."
-msgstr "Kreiram yaboot konfiguraciju"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
 msgid "Ready for OEM configuration"
-msgstr "Ponovi automatsku konfiguraciju mreže"
+msgstr ""
 
 #. Type: text
 #. Description

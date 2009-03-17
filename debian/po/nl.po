@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2008-05-22 15:34+0000\n"
-"Last-Translator: Balaam's Miracle <Unknown>\n"
+"PO-Revision-Date: 2009-03-10 10:39+0000\n"
+"Last-Translator: Frans Pop <Unknown>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 14:59+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -32,7 +32,7 @@ msgstr "Stap ${INDEX} van ${TOTAL}"
 #. Description
 #: ../oem-config.templates:4001
 msgid "Choose language"
-msgstr "Een taal kiezen/Choose language"
+msgstr "Taal kiezen"
 
 #. Type: text
 #. Description
@@ -113,7 +113,7 @@ msgstr "Wat is uw naam?"
 #. Description
 #: ../oem-config.templates:17001
 msgid "What name do you want to use to log in?"
-msgstr "Welke naam wil u gebruiken om u aan te melden?"
+msgstr "Welke naam wilt u gebruiken om aan te melden?"
 
 #. Type: text
 #. Description
@@ -136,7 +136,7 @@ msgstr "Kies een wachtwoord om uw account te beveiligen."
 #: ../oem-config.templates:20001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
-"U bevindt zich in de debugging mode. Gebruik geen waardevol wachtwoord!"
+"U bevindt zich in de debuggingsmodus. Gebruik geen waardevol wachtwoord!"
 
 #. Type: text
 #. Description
@@ -144,15 +144,14 @@ msgstr ""
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
-"Voer het wachtwoord tweemaal in, zodat we op tikfouten kunnen controleren."
+"Voer het wachtwoord tweemaal in, zodat er op typefouten gecontroleerd kan "
+"worden."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Network configuration"
-msgstr "De eindgebruiker-configuratie is voorbereid"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -164,29 +163,27 @@ msgstr ""
 #. Description
 #: ../oem-config.templates:24001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Automatisch inloggen"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:25001
-#, fuzzy
-#| msgid "System Configuration"
 msgid "Applying configuration"
-msgstr "Systeemconfiguratie"
+msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:26001
 msgid "Go Back"
-msgstr ""
+msgstr "Terug"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:27001
 msgid "Continue"
-msgstr ""
+msgstr "Doorgaan"
 
 #. Type: title
 #. Description
@@ -203,27 +200,21 @@ msgstr "OEM modus (alleen voor fabrikanten)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Prepare for end-user configuration"
 msgid "Prepare for OEM configuration"
-msgstr "De eindgebruiker-configuratie voorbereiden"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Preparing for end-user configuration..."
 msgid "Preparing for OEM configuration..."
-msgstr "De eindgebruiker-configuratie wordt voorbereid..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Ready for OEM configuration"
-msgstr "De eindgebruiker-configuratie is voorbereid"
+msgstr ""
 
 #. Type: text
 #. Description

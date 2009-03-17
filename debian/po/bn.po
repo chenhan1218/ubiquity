@@ -7,21 +7,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2008-05-20 14:20+0000\n"
-"Last-Translator: Jamil Ahmed <itsjamil@gmail.com>\n"
+"PO-Revision-Date: 2009-03-10 10:26+0000\n"
+"Last-Translator: Mahay Alam Khan <Unknown>\n"
 "Language-Team: Bangla <core@BengaLinux.Org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 15:00+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
 msgid "System Configuration"
-msgstr "apt কনফিগারেশন করতে সমস্যা"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -45,16 +44,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:6001
-#, fuzzy
 msgid "Choose time zone"
-msgstr "সময়-অঞ্চল কনফিগার করুন"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:7001
-#, fuzzy
 msgid "Select a city in your country and time zone."
-msgstr "আপনার সময় অঞ্চলে অবস্থিত একটি শহর বেছে নিন:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -113,9 +110,8 @@ msgstr "আপনার নাম কি?"
 #. Type: text
 #. Description
 #: ../oem-config.templates:17001
-#, fuzzy
 msgid "What name do you want to use to log in?"
-msgstr "আপনি কি নামে লগ ইন করতে চান?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -136,9 +132,8 @@ msgstr "আপনার আকাউন্টটি নিরাপদ রাখ
 #. Type: text
 #. Description
 #: ../oem-config.templates:20001
-#, fuzzy
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "আপনি ত্রুটিমুক্তকরণ অবস্থায় আছেন। গুরুত্বপূর্ণ পাসওয়ার্ড ব্যবহার করবেন না।"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -150,9 +145,8 @@ msgstr "টাইপিং ত্রুটি নিরিক্ষা করা
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
-#, fuzzy
 msgid "Network configuration"
-msgstr "নেটওয়ার্ক স্বয়ংক্রিয়-কনফিগারেশন এর জন্য পুনঃপ্রচেষ্টা চালাও"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -169,23 +163,22 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:25001
-#, fuzzy
 msgid "Applying configuration"
-msgstr "apt কনফিগারেশন করতে সমস্যা"
+msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:26001
 msgid "Go Back"
-msgstr ""
+msgstr "পেছনে যাও"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:27001
 msgid "Continue"
-msgstr ""
+msgstr "এগিয়ে যাও"
 
 #. Type: title
 #. Description
@@ -202,24 +195,21 @@ msgstr ""
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
 msgid "Prepare for OEM configuration"
-msgstr "ওয়্যারলেস নেটওয়ার্ক কনফিগারেশন"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
 msgid "Preparing for OEM configuration..."
-msgstr "yaboot-এর কনফিগারেশন তৈরি করা হচ্ছে"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
 msgid "Ready for OEM configuration"
-msgstr "নেটওয়ার্ক স্বয়ংক্রিয়-কনফিগারেশন এর জন্য পুনঃপ্রচেষ্টা চালাও"
+msgstr ""
 
 #. Type: text
 #. Description

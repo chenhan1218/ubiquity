@@ -1,27 +1,22 @@
-# Panjabi messages for debian-installer.
-# Copyright (C) 2003 Software in the Public Interest, Inc.
-# This file is distributed under the same license as debian-installer.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2008-05-20 14:53+0000\n"
-"Last-Translator: A S Alam <Unknown>\n"
-"Language-Team: Punjabi <punjabi-l10n@lists.sf.net>\n"
+"PO-Revision-Date: 2008-10-15 08:55+0000\n"
+"Last-Translator: Jeroen T. Vermeulen <Unknown>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 14:57+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
 msgid "System Configuration"
-msgstr "apt ਸੰਰਚਨਾ ਸਮੱਸਿਆਾ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -45,23 +40,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:6001
-#, fuzzy
 msgid "Choose time zone"
-msgstr "ਸਮਾਂ ਜ਼ੋਨ ਕ ਸੰਰਚਨਾ ਕਰੋ"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:7001
-#, fuzzy
 msgid "Select a city in your country and time zone."
-msgstr "ਆਪਣੇ ਸਮਾਂ ਜ਼ੋਨ ਵਿੱਚ ਸ਼ਹਿਰ ਚੁਣੋਰ ਚੁਣੋ:"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:8001
-#, fuzzy
 msgid "Selected city:"
-msgstr "ਚੁਣਿਆ ਸਮਾਂ ਜ਼ੋਨ ਚੁਣੋ:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -84,9 +76,8 @@ msgstr "ਮੌਜੂਦਾ ਸਮਾਂ:"
 #. Type: text
 #. Description
 #: ../oem-config.templates:12001
-#, fuzzy
 msgid "Keyboard layout"
-msgstr "ਆਪਣਾ ਕੀ-ਬੋਰਡ ਖਾਕਾ ਚੁਣੋ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -150,9 +141,8 @@ msgstr "ਮੇਲ ਖਾਂਦਾ ਸਫਲਸ਼ਬਦ ਦੋ ਵਾਰ ਦਰਜ 
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
-#, fuzzy
 msgid "Network configuration"
-msgstr "ਨੈੱਟਵਰਕ ਆਟੋ-ਸੰਰਚਨਾ ਦੀ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -169,23 +159,22 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:25001
-#, fuzzy
 msgid "Applying configuration"
-msgstr "apt ਸੰਰਚਨਾ ਸਮੱਸਿਆਾ"
+msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:26001
 msgid "Go Back"
-msgstr ""
+msgstr "ਪਿੱਛੇ ਜਾਓ"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:27001
 msgid "Continue"
-msgstr ""
+msgstr "ਜਾਰੀ ਰੱਖੋ"
 
 #. Type: title
 #. Description
@@ -202,24 +191,21 @@ msgstr ""
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
 msgid "Prepare for OEM configuration"
-msgstr "ਬੇਤਾਰ ਨੈੱਟਵਰਕ ਸੰਰਚਨਾ"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
 msgid "Preparing for OEM configuration..."
-msgstr "yaboot ਸੰਰਚਨਾ ਬਣਾ ਰਿਹਾ ਹੈ"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
 msgid "Ready for OEM configuration"
-msgstr "ਨੈੱਟਵਰਕ ਆਟੋ-ਸੰਰਚਨਾ ਦੀ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ"
+msgstr ""
 
 #. Type: text
 #. Description

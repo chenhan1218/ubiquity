@@ -7,27 +7,26 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2008-05-20 14:56+0000\n"
-"Last-Translator: Elian Myftiu <Unknown>\n"
+"PO-Revision-Date: 2009-03-11 05:19+0000\n"
+"Last-Translator: Vilson <Unknown>\n"
 "Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 14:57+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
 msgid "System Configuration"
-msgstr "Problem konfigurimi për apt"
+msgstr "Konfigurimi i sistemit"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:3001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Hap ${INDEX} i ${TOTAL}"
 
 #. Type: text
 #. Description
@@ -41,25 +40,24 @@ msgstr "Zgjidh gjuhën/Choose language"
 msgid ""
 "Once you answer a few questions, the system will be ready for you to use."
 msgstr ""
+"Pasi t'i jeni përgjigjur disa pyetjeve, sistemi do të jetë gati që ju ta "
+"përdorni."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:6001
-#, fuzzy
 msgid "Choose time zone"
-msgstr "Konfiguro zonën kohore"
+msgstr "Zgjidh zonën kohore"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:7001
-#, fuzzy
 msgid "Select a city in your country and time zone."
 msgstr "Zgjidh një qytet në zonën tënde kohore:"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:8001
-#, fuzzy
 msgid "Selected city:"
 msgstr "Qyteti i zgjedhur:"
 
@@ -84,9 +82,8 @@ msgstr "Koha aktuale:"
 #. Type: text
 #. Description
 #: ../oem-config.templates:12001
-#, fuzzy
 msgid "Keyboard layout"
-msgstr "Zgjedh një tastierë"
+msgstr "Zgjidh një tastierë"
 
 #. Type: text
 #. Description
@@ -155,49 +152,47 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
-#, fuzzy
 msgid "Network configuration"
-msgstr "Riprovo autokonfigurimin e rrjetit"
+msgstr "Konfigurimi i rrjetit"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:23001
 msgid "Software selection"
-msgstr ""
+msgstr "Përzgjedhja e programeve"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:24001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Hyr automatikisht"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:25001
-#, fuzzy
 msgid "Applying configuration"
-msgstr "Problem konfigurimi për apt"
+msgstr "Aplikim i konfigurimit"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:26001
 msgid "Go Back"
-msgstr ""
+msgstr "Kthehu prapa"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:27001
 msgid "Continue"
-msgstr ""
+msgstr "Vazhdo"
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
 msgid "OEM mode (for manufacturers only)"
-msgstr ""
+msgstr "Mënyrë OEM (Vetëm për prodhuesit)"
 
 #. Type: text
 #. Description
@@ -207,24 +202,21 @@ msgstr ""
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
 msgid "Prepare for OEM configuration"
-msgstr "Konfigurimi i rrjetit me valë"
+msgstr "Përgatitje për konfigurimin e OEM"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
 msgid "Preparing for OEM configuration..."
-msgstr "Duke krijuar konfigurimin yaboot"
+msgstr "Duke u përgatitur për konfigurimin e OEM..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
 msgid "Ready for OEM configuration"
-msgstr "Riprovo autokonfigurimin e rrjetit"
+msgstr "Gati për konfigurimin e OEM"
 
 #. Type: text
 #. Description
@@ -235,6 +227,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"Kur hyni në sistemin e ri, ju do të jeni në gjendje që të futeni si një "
+"përdorues 'oem' me fjalëkalimin që keni zgjedhur më parë; ky përdorues ka "
+"gjithashtu privilegje administratori kur përdor 'sudo'. Pas kësaj do të jeni "
+"në gjendje që të bëni çdo ndryshim të sistemit që të dëshironi."
 
 #. Type: text
 #. Description
@@ -244,3 +240,6 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"Pasi e keni konfiguruar sistemin sipas dëshirës, nisni 'oem-config-prepare'. "
+"Kjo do të bëjë që sistemi ta fshijë përdoruesin e përkohshëm 'oem' dhe ta "
+"pyesë përdoruesin për pyetje të ndryshme konfigurimi herën tjetër që ndizet."

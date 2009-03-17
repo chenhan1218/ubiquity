@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2008-05-20 14:25+0000\n"
-"Last-Translator: Siim Põder <Unknown>\n"
+"PO-Revision-Date: 2009-02-09 09:06+0000\n"
+"Last-Translator: Laur Mõtus <vprints@gmail.com>\n"
 "Language-Team: Eesti <linuxiabi@hot.ee>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 14:59+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:40+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -26,7 +26,7 @@ msgstr "Süsteemi seadistus"
 #. Description
 #: ../oem-config.templates:3001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr "Samm ${INDEX} / ${TOTAL} 'st"
+msgstr "Samm ${INDEX} / ${TOTAL}-st"
 
 #. Type: text
 #. Description
@@ -93,7 +93,7 @@ msgstr "Milline klahvide asetus on sinu klaviatuurile kõige sarnasem?"
 #. Description
 #: ../oem-config.templates:14001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "Siia kasti saad trükkida, et proovida oma uut klaviatuuriasetust."
+msgstr "Siia kasti saad trükkida, et uut klaviatuuriasetust proovida."
 
 #. Type: text
 #. Description
@@ -111,7 +111,7 @@ msgstr "Mis su nimi on?"
 #. Description
 #: ../oem-config.templates:17001
 msgid "What name do you want to use to log in?"
-msgstr "Mis nime tahad sa kasutada sisselogimiseks?"
+msgstr "Mis nime tahad sisselogimiseks kasutada?"
 
 #. Type: text
 #. Description
@@ -120,38 +120,34 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Kui arvutit hakkab kasutama rohkem kui üks inimene, saad sa peale paigaldust "
+"Kui arvutit hakkab kasutama rohkem kui üks inimene, saad peale paigaldust "
 "üles seada mitu kasutajakontot."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:19001
 msgid "Choose a password to keep your account safe."
-msgstr "Vali parool kasutamaks oma arvutit turvaliselt."
+msgstr "Vali parool, et arvuti kasutamine oleks turvaline."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:20001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
-"Sa töötad vigade kõrvaldamise režiimis. Ära kasuta väärtuslikku parooli!"
+"Arvuti töötab vigade silumise režiimis. Ära kasuta väärtuslikku parooli!"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:21001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr ""
-"Sisesta parooli kaks korda, seda selleks, et parooli oleks võimalik "
-"kontrollida tippimise vigade vastu."
+msgstr "Sisesta parool kaks korda. Nii saab kontrollida tippimise vigu."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Network configuration"
-msgstr "Lõppkasutaja seadistus valmis"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -168,24 +164,22 @@ msgstr "Automaatselt sisselogimine"
 #. Type: text
 #. Description
 #: ../oem-config.templates:25001
-#, fuzzy
-#| msgid "System Configuration"
 msgid "Applying configuration"
-msgstr "Süsteemi seadistus"
+msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:26001
 msgid "Go Back"
-msgstr ""
+msgstr "Mine tagasi"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:27001
 msgid "Continue"
-msgstr ""
+msgstr "Jätka"
 
 #. Type: title
 #. Description
@@ -202,27 +196,21 @@ msgstr "Paigalda (OEM režiim, ainult tootjatele)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Prepare for end-user configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Lõppkasutaja seadistuste ettevalmistamine"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Preparing for end-user configuration..."
 msgid "Preparing for OEM configuration..."
-msgstr "Lõppkasutaja seadistuse ettevalmistamine..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Ready for OEM configuration"
-msgstr "Lõppkasutaja seadistus valmis"
+msgstr ""
 
 #. Type: text
 #. Description

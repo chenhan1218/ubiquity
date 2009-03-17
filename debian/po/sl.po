@@ -7,21 +7,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2008-05-20 14:56+0000\n"
+"PO-Revision-Date: 2009-03-10 10:42+0000\n"
 "Last-Translator: Matej Kovačič <Unknown>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 14:56+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
 msgid "System Configuration"
-msgstr "težave pri nastavitvi apt-ja"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -45,16 +44,14 @@ msgstr "Ko odgovorite na nekaj vprašanj, bo sistem pripravljen za uporabo."
 #. Type: text
 #. Description
 #: ../oem-config.templates:6001
-#, fuzzy
 msgid "Choose time zone"
-msgstr "Nastavite vaš časovni pas"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:7001
-#, fuzzy
 msgid "Select a city in your country and time zone."
-msgstr "Izberite mesto v vašem časovnem pasu:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -148,10 +145,8 @@ msgstr "Isto geslo vnesite dvakrat, da se prepreči možne tipkarske napake."
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Network configuration"
-msgstr "Pripravljen na končne uporabniške nastavitve"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -168,31 +163,29 @@ msgstr "Samodejna prijava"
 #. Type: text
 #. Description
 #: ../oem-config.templates:25001
-#, fuzzy
 msgid "Applying configuration"
-msgstr "težave pri nastavitvi apt-ja"
+msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:26001
 msgid "Go Back"
-msgstr ""
+msgstr "Pojdi nazaj"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:27001
 msgid "Continue"
-msgstr ""
+msgstr "Nadaljuj"
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
 msgid "OEM mode (for manufacturers only)"
-msgstr "Namesti (OEM način, samo za proizvajalce)"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -202,26 +195,21 @@ msgstr "Namesti (OEM način, samo za proizvajalce)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Prepare for end-user configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Pripravite se na končne uporabniške nastavitve"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
 msgid "Preparing for OEM configuration..."
-msgstr "Pripravljanje na končne uporabniške nastavitve ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Ready for OEM configuration"
-msgstr "Pripravljen na končne uporabniške nastavitve"
+msgstr ""
 
 #. Type: text
 #. Description

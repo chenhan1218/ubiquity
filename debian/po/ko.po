@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2008-05-20 14:48+0000\n"
-"Last-Translator: Sunjae Park <darehanl@gmail.com>\n"
+"PO-Revision-Date: 2009-03-16 15:44+0000\n"
+"Last-Translator: Shin Hungjae <Unknown>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 14:57+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:43+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -81,19 +81,19 @@ msgstr "현재 시간:"
 #. Description
 #: ../oem-config.templates:12001
 msgid "Keyboard layout"
-msgstr "키보드 레이아웃을 선택하십시오"
+msgstr "키보드 배치"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:13001
 msgid "Which layout is most similar to your keyboard?"
-msgstr "여러분의 키보드는 어떤 레이아웃입니까?"
+msgstr "여러분의 키보드와 가장 비슷한 배치는 어떤 것입니까?"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:14001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "새 키보드 레이아웃을 시험해 보기 위하여 아래 상자에 입력해 보십시오."
+msgstr "새 키보드 배치를 시험하려면 아래의 박스에 입력해 보십시오."
 
 #. Type: text
 #. Description
@@ -144,44 +144,40 @@ msgstr "암호를 다시 입력하세요. 오타를 확인할 수 있습니다."
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Network configuration"
-msgstr "사용자 설정 준비됨"
+msgstr "네트워크 설정"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:23001
 msgid "Software selection"
-msgstr ""
+msgstr "무른모 선택"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:24001
 msgid "Log in automatically"
-msgstr ""
+msgstr "자동으로 로그인합니다"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:25001
-#, fuzzy
-#| msgid "System Configuration"
 msgid "Applying configuration"
-msgstr "시스템 설정"
+msgstr "설정 적용중"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:26001
 msgid "Go Back"
-msgstr ""
+msgstr "뒤로 가기"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:27001
 msgid "Continue"
-msgstr ""
+msgstr "계속"
 
 #. Type: title
 #. Description
@@ -198,27 +194,21 @@ msgstr "OEM 모드(제조사 전용)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Prepare for end-user configuration"
 msgid "Prepare for OEM configuration"
-msgstr "사용자 설정 준비"
+msgstr "OEM설정용으로 준비합니다."
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Preparing for end-user configuration..."
 msgid "Preparing for OEM configuration..."
-msgstr "사용자 설정을 준비하는 중입니다"
+msgstr "OEM설정용으로 준비중 ..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Ready for end-user configuration"
 msgid "Ready for OEM configuration"
-msgstr "사용자 설정 준비됨"
+msgstr "OEM설정용으로 준비됨."
 
 #. Type: text
 #. Description

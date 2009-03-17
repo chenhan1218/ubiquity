@@ -7,22 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2008-05-20 14:51+0000\n"
+"PO-Revision-Date: 2009-03-10 10:38+0000\n"
 "Last-Translator: Praveen A <Unknown>\n"
-"Language-Team: Swathanthra Malayalam Computing <smc-discuss@googlegroups."
-"com>\n"
+"Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc-"
+"discuss@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 14:59+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
 msgid "System Configuration"
-msgstr "apt ക്രമീകരണ പ്രശ്നം"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -46,16 +45,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:6001
-#, fuzzy
 msgid "Choose time zone"
-msgstr "സമയ സീമ ക്രമീകരിക്കുക"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:7001
-#, fuzzy
 msgid "Select a city in your country and time zone."
-msgstr "നിങ്ങളുടെ സമയ സീമയിലെ പട്ടണം തിരഞ്ഞെടുക്കുക:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -97,7 +94,7 @@ msgstr "ഏത് ലേയൌട്ടിനാണ് നിങ്ങളുട�
 #. Description
 #: ../oem-config.templates:14001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "പുതിയ കീബോര്‍ഡ് രൂപകല്പന പരിശോധിക്കുവാന്‍ ഈ ചതുരത്തില്‍ ടൈപ് ചെയ്യുക."
 
 #. Type: text
 #. Description
@@ -124,6 +121,8 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"ഒന്നിലധികം ആളുകള്‍ ഈ കമ്പ്യൂട്ടര്‍ ഉപയോഗിക്കുവാന്‍ താല്പര്യപ്പെടുന്നുണ്ടെങ്കില്‍, സജ്ജീകരണം "
+"പൂര്‍ത്തിയായതിനു ശേഷം അനേകം അംഗത്വങ്ങള്‍ ഒരുക്കാവുന്നതാണ്"
 
 #. Type: text
 #. Description
@@ -136,20 +135,20 @@ msgstr "നിങ്ങ്~അളുടെ അക്കൌണ്ട് സുര
 #: ../oem-config.templates:20001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
+"താങ്കള്‍ പ്രശ്നപരിഹാര സമ്പ്രദായത്തിലാണ് പ്രവര്‍ത്തിക്കുന്നത്. വിലപ്പെട്ട രഹസ്യവാക്കുകള്‍ ഉപയോഗിക്കരുത്!"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:21001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr ""
+msgstr "രഹസ്യവാക്ക് രണ്ട് തവണ നല്‍കുക, ടൈപ്പിങ്ങ് അപാകതകള്‍ പരിശോധിക്കുവാന്‍ വേണ്ടിയാണിത്."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:22001
-#, fuzzy
 msgid "Network configuration"
-msgstr "നെറ്റ്‌വര്‍ക്ക് സ്വയംക്രമീകരണം വീണ്ടും ശ്രമിക്കുക"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -166,23 +165,22 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:25001
-#, fuzzy
 msgid "Applying configuration"
-msgstr "apt ക്രമീകരണ പ്രശ്നം"
+msgstr ""
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:26001
 msgid "Go Back"
-msgstr ""
+msgstr "തിരിച്ചു പോകുക"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../oem-config.templates:27001
 msgid "Continue"
-msgstr ""
+msgstr "തുടരുക"
 
 #. Type: title
 #. Description
@@ -199,24 +197,21 @@ msgstr ""
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
 msgid "Prepare for OEM configuration"
-msgstr "വയര്‍ലെസ്സ് നെറ്റ്‌വര്‍ക്ക് ക്രമീകരണം"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
 msgid "Preparing for OEM configuration..."
-msgstr "യാബൂട്ട് ക്രമീകരണം സൃഷ്ടിക്കുന്നു"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
 msgid "Ready for OEM configuration"
-msgstr "നെറ്റ്‌വര്‍ക്ക് സ്വയംക്രമീകരണം വീണ്ടും ശ്രമിക്കുക"
+msgstr ""
 
 #. Type: text
 #. Description
