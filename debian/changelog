@@ -1,6 +1,11 @@
 ubiquity (1.11.19) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Update translations from Launchpad.
+
+  [ Evan Dandrea ]
+  * Only create one virtual desktop when in only-ubiquity mode
+    (LP: #343451).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 17 Mar 2009 01:23:39 +0000
 
