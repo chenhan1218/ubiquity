@@ -10,6 +10,8 @@ ubiquity (1.11.19) UNRELEASED; urgency=low
     (LP: #343451, LP: #321212).
   * When the user selects "go back" in response to the weak password dialog,
     select the text in the first password entry (LP: #344402).
+  * Add partman/unmount_active to the list of questions that mean "do you want
+    to continue?" in the partman component.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 17 Mar 2009 01:23:39 +0000
 
