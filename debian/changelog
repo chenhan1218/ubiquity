@@ -12,6 +12,8 @@ ubiquity (1.11.19) UNRELEASED; urgency=low
     select the text in the first password entry (LP: #344402).
   * Add partman/unmount_active to the list of questions that mean "do you want
     to continue?" in the partman component.
+  * Automatic update of included source packages: partman-base
+    129ubuntu3, partman-partitioning 64ubuntu6, user-setup 1.23ubuntu15.
 
   [ Jonathan Riddell ]
   * turn on wordwrap for long string in gui/qt/liveinstaller.ui
