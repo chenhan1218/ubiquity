@@ -1072,7 +1072,7 @@ This language will be the default language for the final system.</string>
             <string>&lt;i>Enter the same password twice, so that it can be checked for typing errors.&lt;/i></string>
            </property>
            <property name="wordWrap" >
-            <bool>false</bool>
+            <bool>true</bool>
            </property>
           </widget>
          </item>
