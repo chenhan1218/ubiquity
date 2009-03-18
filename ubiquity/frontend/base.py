@@ -375,6 +375,10 @@ class BaseFrontend:
         """Get the user's password confirmation."""
         self._abstract('get_password')
 
+    def select_password(self):
+        """Select the text in the first password entry widget."""
+        self._abstract('select_password')
+
     def set_auto_login(self, value):
         """Set whether the user should be automatically logged in."""
         self._abstract('set_auto_login')
