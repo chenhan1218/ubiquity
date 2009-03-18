@@ -1,4 +1,4 @@
-ubiquity (1.11.19) UNRELEASED; urgency=low
+ubiquity (1.11.19) jaunty; urgency=low
 
   [ Colin Watson ]
   * Update translations from Launchpad.
@@ -18,7 +18,7 @@ ubiquity (1.11.19) UNRELEASED; urgency=low
   [ Jonathan Riddell ]
   * turn on wordwrap for long string in gui/qt/liveinstaller.ui
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 18 Mar 2009 20:57:38 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 18 Mar 2009 21:41:26 +0000
 
 ubiquity (1.11.18) jaunty; urgency=low
 
