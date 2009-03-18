@@ -23,7 +23,7 @@ Description: Perform end-user configuration after initial OEM installation
 
 Package: oem-config-gtk
 Architecture: any
-Depends: ${shlibs:Depends}, ${python:Depends}, oem-config, xserver-xorg, python-gtk2, python-glade2, python-cairo, metacity
+Depends: ${shlibs:Depends}, ${python:Depends}, oem-config (= ${binary:Version}), xserver-xorg, python-gtk2, python-glade2, python-cairo, metacity
 Recommends: hwtest-gtk
 Suggests: gnome-control-center
 Replaces: oem-config (<< 1.0)
@@ -40,7 +40,7 @@ Description: GTK+ frontend for end-user post-OEM-install configuration
 
 Package: oem-config-kde
 Architecture: all
-Depends: ${python:Depends}, oem-config, xserver-xorg, python-kde4, kde-window-manager, kdesudo
+Depends: ${python:Depends}, oem-config (= ${binary:Version}), xserver-xorg, python-kde4, kde-window-manager, kdesudo
 Replaces: oem-config (<< 1.0)
 Provides: oem-config-frontend-${mangled-version}
 XB-Python-Version: ${python:Versions}
@@ -55,7 +55,7 @@ Description: KDE frontend for end-user post-OEM-install configuration
 
 Package: oem-config-debconf
 Architecture: all
-Depends: ${python:Depends}, oem-config, debconf (>= 1.5.24ubuntu2) | cdebconf, bogl-bterm (>= 0.1.18-2ubuntu4), tasksel
+Depends: ${python:Depends}, oem-config (= ${binary:Version}), debconf (>= 1.5.24ubuntu2) | cdebconf, bogl-bterm (>= 0.1.18-2ubuntu4), tasksel
 Provides: oem-config-frontend-${mangled-version}
 XB-Python-Version: ${python:Versions}
 Description: debconf frontend for end-user post-OEM-install configuration
