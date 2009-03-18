@@ -1,7 +1,12 @@
 oem-config (1.54.10) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Tighten frontend dependencies on oem-config to prevent problems when one
     architecture is out of sync.
+
+  [ Evan Dandrea ]
+  * Update the timezone_map to match changes in ubiquity (more accurate
+    city placement).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 18 Mar 2009 14:32:32 +0000
 
