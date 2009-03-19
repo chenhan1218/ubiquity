@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:40+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -312,10 +312,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Mis nime tahad sisselogimiseks kasutada?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -386,26 +384,20 @@ msgstr "Jäta vahele"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Paigaldamine on lõppenud"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Jätka"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Taaskäivita kohe"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -631,19 +623,11 @@ msgstr "Port:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Paigaldamine on lõppenud. Paigaldatud süsteemi kasutamiseks tuleb arvuti "
-"taaskäivitada. Sa võid jätkata selle live CD kasutamist, kuigi ühtegi tehtud "
-"muudatust või salvestatud dokumenti ei säilitata."
 
 #. Type: text
 #. Description
@@ -1068,15 +1052,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1089,21 +1064,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" Keel: ${LANGUAGE}\n"
-" Klaviatuuri paigutus: ${KEYMAP}\n"
-" Nimi: ${FULLNAME}\n"
-" Kasutajanimi: ${USERNAME}\n"
-" Asukoht: ${LOCATION}\n"
-" Migreerimise abiline:\n"
-" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Täpsema paigalduse tüüp"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1334,249 +1300,3 @@ msgstr "Võrgu seadistamine..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Selected region:"
-#~ msgstr "Valitud regioon:"
-
-#~ msgid "Current time:"
-#~ msgstr "Kohalik aeg:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr "Sisesta parool kaks korda. Nii saab kontrollida tippimise vigu."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Jätka live-CD kasutamist"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Vali linn oma riigis ning ajavöönd. Kui näidatav kellaaeg on vale ka "
-#~ "pärast ajavööndi valimist, saab seda seadistada pärast süsteemi "
-#~ "taaskäivitust."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Paigaldamistüüp:           ${INSTALLTYPE}\n"
-#~ " Draiverid:\n"
-#~ "     Lisa videodraiver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Lisateenused:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV teenus:     ${EN_MYSQL}\n"
-#~ " Tavalised Ubuntu paigaldamise küsimused:\n"
-#~ "     Keel:           ${LANGUAGE}\n"
-#~ "     Klaviatuuri paigutus:    ${KEYMAP}\n"
-#~ "     Täisnimi:       ${FULLNAME}\n"
-#~ "     Kasutajanimi: ${USERNAME}\n"
-#~ "     Asukoht:           ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "Täiendavad draiverid/püsivara"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "Muuda videodraivereid ja sätteid"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "Hoiatus: Ärga vali TV standardit, mida sinu televiisor ei toeta. Võivad "
-#~ "tekkida JÄÄDAVAD kahjustused."
-
-#~ msgid "Selected city:"
-#~ msgstr "Valitud linn:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Ajavöönd:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Mis tüüpi paigaldus?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Mythbuntu tarbeks on kaks paigaldustüüpi:"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Standardne paigaldus"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "Tavapaigaldus paigaldab ja seadistab kõik valikud vähima kasutajapoolse "
-#~ "sekkumisega. See paigaldab taustarakendusef, kasutajaliidese, kõik "
-#~ "pluginad ja teemad."
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Täpsem paigaldus"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "Täpsem paigaldus on mõeldud selleks, et seadistada Mythbuntu paigaldus "
-#~ "oma valikutega. MÄRKUS: See valik on vajalik, kui on sooviks lisada "
-#~ "Mythbuntu masin olemasolevasse MythTV võrku."
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "Kasutajaliidese / taustarakenduse pluginate valimine"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "Pluginaid saab kasutada MythTV funktsionaalsuse laiendamiseks TV "
-#~ "rakendusest kaugemale."
-
-#~ msgid "Backend Plugins"
-#~ msgstr "Taustarakenduse pluginad"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "Kasutajaliidese pluginad"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth veeb"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb pakub veebiliidest, mida saab kasutada kavade vaatamiseks, "
-#~ "salvestuste ajastamiseks, salvestuste kustutamiseks ja saadete otsimiseks."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth'i arhiiv"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Myth'i brauser"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Myth'i juhtimine"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Myth'i filmid"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth'i Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Myth'i galerii"
-
-#~ msgid "Myth Game"
-#~ msgstr "Myth'i mängud"
-
-#~ msgid "Myth Music"
-#~ msgstr "Myth'i muusika"
-
-#~ msgid "Myth News"
-#~ msgstr "Myth'i uudised"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Myth'i telefon"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Myth'i voog"
-
-#~ msgid "Myth Video"
-#~ msgstr "Myth'i video"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Myth'i ilmateade"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "MythTV plugin mille abil saab sinu MythTV võrgus olevast sisust DVD-sid "
-#~ "teha."
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "Sisseehitatud veebibrauseri plugin MythTV jaoks."
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "MythTV välisjuhtimisnupud. Sellega saab muuta nupukaardistusi ja "
-#~ "klahviseoseid."
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "Leia lähedalasuvates kinodes jooksvaid filme"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "Võimaldab jälgida Netflix DVD laenutuse järjekorda."
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr "Võimaldab visuaalselt lehitseda pilte sisaldavat kataloogipuud."
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr ""
-#~ "Liides Linuxis töötavate emulaatorite või binaarfailide käivitamiseks"
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "Lisab MythTV-ga integreeritud digiaudio muusikamängija."
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr ""
-#~ "RSS-voo uudistelugeja plugin MythTV-le, mis hoiab kursis lemmik-"
-#~ "uudiseteemadega."
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr ""
-#~ "Tele- ja videofoni võimalus MythTV-le mis kasutab standardset SIP "
-#~ "protokolli."
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "Lisab vooga internetiraadiote kuulamise võimaluse"
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "Laseb MythTV liideses välise esitlusprogrammiga lehitseda ja esitada "
-#~ "videovoogusid."
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "Näitab MythTV siseselt praegust ja prognoositavat ilma."
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "Vali lisateemad"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr ""
-#~ "Teemad võivad oluliselt parandada MythTV välimust ja näidata seda sulle "
-#~ "palju meelepärasemana."
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "Lülita kõik sisse/välja"

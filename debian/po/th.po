@@ -7,38 +7,38 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2008-10-10 21:46+0000\n"
-"Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
+"PO-Revision-Date: 2009-03-13 02:52+0000\n"
+"Last-Translator: Roys Hengwatanakul <roysheng@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:43+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "ใช้พื้นที่ว่างต่อเนื่องที่ใหญ่ที่สุด"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the entire disk"
-msgstr ""
+msgstr "ใช้พื้นที่ของดิสก์ทั้งหมด"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "ติดตั้งคู่ขนานกัน, เลือกใช้ได้ตอนเริ่มขึ้น"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "กำหนดพาร์ติชั่นเอง (ขั้นสูง)"
 
 #. Type: text
 #. Description
@@ -120,19 +120,19 @@ msgstr "คุณอยู่ที่ไหน?"
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Select your time zone from the map, or by region and city."
-msgstr ""
+msgstr "เลือกเขตเวลาของคุณจากแผนที่หรือจากภูมิภาคและเมือง"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "City:"
-msgstr ""
+msgstr "เมือง:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Region:"
-msgstr ""
+msgstr "ภูมิภาค:"
 
 #. Type: text
 #. Description
@@ -156,13 +156,13 @@ msgstr "คุณสามารถพิมพ์ลงในช่องนี
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Suggested option:"
-msgstr ""
+msgstr "ตัวเลือกที่แนะนำ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your own:"
-msgstr ""
+msgstr "คุณเลือกเอง:"
 
 #. Type: text
 #. Description
@@ -211,6 +211,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"กรุณาใส่รหัสสองครั้ง เพื่อป้องกันการผิดพลาดจากการพิมพ์ "
+"รหัสที่ดีนั้นต้องมีทั้งตัวอักษรตัวเลขเครื่องหมายวรรคตอน มีความยาวอย่างน้อยแปดตัวขึ้นไป "
+"และควรเปลี่ยนใหม่อย่างสม่ำเสมอ"
 
 #. Type: text
 #. Description
@@ -230,25 +233,25 @@ msgstr "ชื่อนี้จะถูกใช้ถ้าคุณปรั
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Log in automatically"
-msgstr ""
+msgstr "ล็อกอินโดยอัตโนมัติ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Require a password to log in"
-msgstr ""
+msgstr "ต้องใส่รหัสเพื่อที่จะล็อกอิน"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Require a password to log in and to decrypt your home folder"
-msgstr ""
+msgstr "ต้องใส่รหัสเพื่อที่จะล็อกอินและถอดรหัส(decrypt)แฟ้มบ้านของคุณ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Migrate documents and settings"
-msgstr ""
+msgstr "ขนย้ายเอกสารและปรับแต่ง"
 
 #. Type: text
 #. Description
@@ -283,27 +286,25 @@ msgstr "คุณต้องการพาร์ทิชันดิสก์
 #. Description
 #: ../ubiquity.templates:38001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "ไม่มีระบบปฎิบัติการติดตั้งอยู่ในเครื่องคอมพิวเตอร์นี้"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "มีระบบปฎิบัติการ${OS} ติดตั้งอยู่ในเครื่องคอมพิวเตอร์นี้"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "มีระบบปฎิบัติการหลายแบบติดตั้งอยู่ในเครื่องคอมพิวเตอร์นี้"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "คุณต้องการใช้ชื่ออะไรในการเข้าสู่ระบบ?"
+msgstr "คุณต้องการติดตั้งระบบ ${RELEASE} ตรงใหน?"
 
 #. Type: text
 #. Description
@@ -324,7 +325,7 @@ msgstr "พร้อมที่จะติดตั้งแล้ว"
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Details"
-msgstr ""
+msgstr "รายละเอียด"
 
 #. Type: text
 #. Description
@@ -357,13 +358,13 @@ msgstr "ขั้นที่ ${INDEX} จาก ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Quit the installation?"
-msgstr ""
+msgstr "ยกเลิกการติดตั้ง?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Do you really want to quit the installation now?"
-msgstr ""
+msgstr "คุณต้องการที่จะยกเลิกการติดตั้งเดี๋ยวนี้หรือเปล่า?"
 
 #. Type: text
 #. Description
@@ -374,26 +375,20 @@ msgstr "ข้าม"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "การติดตั้งเรียบร้อย"
+msgstr "การติดตั้งเสร็จสิ้นแล้ว"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "ดำเนินการต่อ"
+msgstr "ทำการทดสอบต่อไป"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "รีสตาร์ทเดี๋ยวนี้"
+msgstr "เริ่มใหม่"
 
 #. Type: text
 #. Description
@@ -426,7 +421,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:58001
 msgid "Before:"
-msgstr ""
+msgstr "ก่อน:"
 
 #. Type: text
 #. Description
@@ -434,7 +429,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:59001
 msgid "After:"
-msgstr ""
+msgstr "หลัง:"
 
 #. Type: text
 #. Description
@@ -619,19 +614,13 @@ msgstr "พอร์ต:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"การติดตั้งสำเร็จแล้วคุณจะต้องเริ่มการทำงานของเครื่องคอมพิวเตอร์ใหม่ "
-"เพื่อเริ่มใช้งานระบบที่ติดตั้งลงไป หรือจะทำงานบนแผ่นไลฟ์ซีดีนี้ต่อไปก็ได้ "
-"แต่งานต่างๆที่คุณทำไว้จะไม่สามารถบันทึกลงในเครื่องของคุณได้"
+"การติดตั้งเสร็จสิ้นแล้ว คุณสามารถทำการทดสอบอูบุนตูต่อไป "
+"แต่การปรับแต่งหรือเอกสารที่คุณบันทึกไว้จะสูญหายไปเมื่อคุณเริ่มเครื่องใหม่"
 
 #. Type: text
 #. Description
@@ -725,7 +714,7 @@ msgstr "กำลังคัดลอกไฟล์(เหลืออีก�
 #: ../ubiquity.templates:103001 ../ubiquity.templates:104001
 #: ../ubiquity.templates:105001
 msgid "Installation Failed"
-msgstr ""
+msgstr "การติดตั้งล้มเหลว"
 
 #. Type: error
 #. Description
@@ -748,6 +737,8 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"ปัญหานี้เกิดมาจากมีพื้นที่ไม่พอในพาร์ทิชั่นที่กำหนดไว้ทำให้การติดตั้งไม่สำเร็จ "
+"กรุณาเริ่มใหม่อีกครั้งแล้วเลือกพาร์ทิชั่นที่ใหญ่กว่านี้"
 
 #. Type: error
 #. Description
@@ -757,6 +748,9 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
+"ปัญหานี้ส่วนใหญ่เกิดมาจากแผ่นซีดีหรือเครื่องเล่นเสีย อาจลองทำความสะอาดแผ่นซีดี "
+"เขียนแผ่นซีดีที่ความเร็วตำ่กว่า หรือทำความสะอาดเลนส์ของเครื่องเล่น "
+"(ชุดทำความสะอาดเลนส์หาซื้อได้จากร้านค้าคอมพิวเตอร์)"
 
 #. Type: error
 #. Description
@@ -766,6 +760,8 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
+"ปัญหานี้ส่วนใหญ่เกิดจากฮาร์ดดิสก์เสีย กรุณาตรวจสอบว่าฮาร์ดดิสก์เก่าและต้องเปลี่ยนใหม่หรือไม่ "
+"หรืออาจจะต้องย้ายเครื่องคอมพิวเตอร์ไปอยู่ในที่ที่เย็นกว่านี้"
 
 #. Type: error
 #. Description
@@ -783,6 +779,10 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
+"ปัณหานี้ส่วนใหญเกิดจากแผ่นซีดีหรือเครื่องเล่นหรือฮาร์ดดิสก์มีปัญหา "
+"กรุณาตรวจสอบและทำความสะอาดแผ่นซีดี เขียนแผ่นซีดีด้วยความเร็วที่ต่ำกว่า "
+"ทำความสะอาดเลนส์ของเครื่องเล่นซีดี (ชุดทำความสะอาดหาซื้อได้จากร้านขายคอมพิวเตอร์) "
+"ฮาร์ดดิสก์เก่าและต้องเปลี่ยนใหม่หรือไม่ หรือย้ายเครื่องคอมไปอยู่ในที่ที่เย็นกว่านี้"
 
 #. Type: select
 #. Description
@@ -972,7 +972,7 @@ msgstr "เกิดข้อผิดพลาดขณะเอาแพคเ
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "กำลังตรวจสอบแฟ้มที่ไม่ต้องคัดลอก..."
 
 #. Type: title
 #. Description
@@ -1041,15 +1041,6 @@ msgstr "หากคุณไม่กลับไปที่ตัวจัด
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1062,21 +1053,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" ติดตั้งแบบ: ${INSTALLTYPE}\n"
 " ภาษา: ${LANGUAGE}\n"
 " แป้นพิมพ์: ${KEYMAP}\n"
-" ชื่อ: ${FULLNAME}\n"
-" ชื่อในการเข้าระบบ: ${USERNAME}\n"
-" ตำแหน่งที่อยู่: ${LOCATION}\n"
-" ผู้ช่วยเหลือในการโอนย้าย:\n"
-" ${MIGRATE}"
+" ชื่อเต็ม: ${FULLNAME}\n"
+" ชื่อผู้ใช้: ${USERNAME}\n"
+" ตำแหน่ง: ${LOCATION}\n"
+" IR Remote: ${REMOTE}\n"
+" IR Transmitter: ${TRANSMITTER}\n"
+" กราฟิกไดรเวอร์: ${VIDEO_DRIVER}\n"
+" บริการ: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "การติดตั้งแบบผู้เชี่ยวชาญ"
+msgstr "รุปแบบของการติดตั้ง"
 
 #. Type: text
 #. Description
@@ -1169,7 +1161,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "กราฟิกไดรเวอร์"
 
 #. Type: text
 #. Description
@@ -1306,233 +1298,3 @@ msgstr "กำลังปรับแต่งservicesที่เพิ่ม�
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "ตั้งค่าอุปกรณ์อินฟราเรด..."
-
-#~ msgid "Selected region:"
-#~ msgstr "กรุณาเลือกภูมิภาค:"
-
-#~ msgid "Current time:"
-#~ msgstr "เวลาปัจจุบัน:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr "พิมพ์รหัสผ่านอีกครั้ง"
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "ใช้แผ่น Live ซีดีต่อไป"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "เลือกเมืองในประเทศของท่านและเขตเวลาของท่าน "
-#~ "หากเวลาที่ระบุไว้ไม่ถูกต้องหลังจากเลือกเขตเวลาที่ถูกต้องแล้ว "
-#~ "คุณสามารถปรับมันหลังจากเข้าระบบที่ติดตั้งแล้ว"
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " ชนิดการติดตั้ง:           ${INSTALLTYPE}\n"
-#~ " ไดรฟ์เวอร์:\n"
-#~ "     เพิ่มไดรฟ์เวอร์วิดีโอการ์ด:  ${VIDEO_DRIVER}\n"
-#~ "         ออกโทรทัศน์:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " บริการเสริม:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     บริการ MythTV:     ${EN_MYSQL}\n"
-#~ " คำถามการติดตั้ง Ubuntu ทั่วไป:\n"
-#~ "    ภาษา:           ${LANGUAGE}\n"
-#~ "     โครงสร้างแป้นพิมพ์:    ${KEYMAP}\n"
-#~ "     ชื่อทั่วไป:       ${FULLNAME}\n"
-#~ "     ชื่อเข้าระบบทั่วไป: ${USERNAME}\n"
-#~ "     ที่อยู่:           ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "ไดร์ฟเวอร์/เฟิร์มแวร์ เพิ่มเติม"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "แก้ไขไดร์ฟเวอร์วิดีโอ และ ตั้งค่า"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "คำเตือน: อย่าตั้งค่าบางอย่างที่สูงกว่า TV ของคุณจะรองรับได้ อาจเกิดความเสียหายอย่างถาวร"
-
-#~ msgid "Selected city:"
-#~ msgstr "เลือกจังหวัด:"
-
-#~ msgid "Time zone:"
-#~ msgstr "เขตเวลา:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "ต้องการติดตั้งแบบไหน?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "มีชนิดการติดตั้งให้เลือกสองแบบสำหรับ Mythbuntu"
-
-#~ msgid "Standard Installation"
-#~ msgstr "ติดตั้งแบบมาตราฐาน"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "การติดตั้งแบบมาตราฐานจะติดตั้งและตั้งค่าตัวเลือกทุกอย่างโดยให้ผู้ใช้ทำงานน้อยที่สุด "
-#~ "มันจะติดตั้งแบ็คเอนด์, ฟรอนท์เอนด์, ส่วนขยายทั้งหมด, และธีมทั้งหมด"
-
-#~ msgid "Advanced Installation"
-#~ msgstr "การติดตั้งโดยผู้เชี่ยวชาญ"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "สามารถใช้การติดตั้งขั้นสูงเพื่อปรับแต่งว่าต้องการอะไรบ้างในการติดตั้ง Mythbuntu นี้ โปรดจำ: "
-#~ "จำเป็นต้องใช้การติดตั้งขั้นสูงถ้าจะเพิ่มเครื่อง Mythbuntu ไปยังเครือข่าย MythTV ที่มีอยู่แล้ว"
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "เลือกส่วนขยายฟรอนท์เอนด์/แบ็คเอนด์"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr "ส่วนขยายสามารถใช้เพื่อเพิ่มฟังค์ชั่นของ MyTV นอกเหนือจากการดูโทรทัศน์แบบย้อนภาพได้"
-
-#~ msgid "Backend Plugins"
-#~ msgstr "ส่วนขยายแบ็คเอนด์"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "ส่วนขยายฟรอนท์เอนด์"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth Web"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb จะให้บริการหน้าเว็บที่สามารถดูรายชื่อ, การอัดที่ตั้งเวลาไว้, ลบการอัด "
-#~ "และค้นหารายการ"
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth Archive"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Myth Browser"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Myth Controls"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Myth Movies"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Myth Gallery"
-
-#~ msgid "Myth Game"
-#~ msgstr "Myth Game"
-
-#~ msgid "Myth Music"
-#~ msgstr "Myth Music"
-
-#~ msgid "Myth News"
-#~ msgstr "Myth News"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Myth Phone"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Myth Stream"
-
-#~ msgid "Myth Video"
-#~ msgstr "Myth Video"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Myth Weather"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr "ปลั๊คอินสำหรับ MythTV ที่ให้คุณสร้าง DVD จากเนื้อหาในเครือข่าย MythTV ของคุณ"
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "เว็บบราวเซอร์ปล๊กอินสำหรับระบบ MythTV ของคุณ"
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "ปุ่มควบคุมภายนอกสำหรับ MythTV เพื่อที่จะให้คุณสามารถปรับเปลี่ยนแป้นพิมพ์ที่ใช้กับปุ่มควบคุม"
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "ค้นหาภาพยนตร์ที่ฉายอยู่ในโรงภาพยนตร์ใกล้บ้านคุณ"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "ทำให้คุณสามารถดูคิวการยืม DVD จาก Netflix"
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr "ให้คุณดูโครงสร้างไดเรคทอรี่ที่เก็บไฟล์ภาพไว้"
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr "ส่วนหน้าที่จะเริ่มโปรแกรมที่ลีนุกซ์ใช้"
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "กล่องเพลงดิจิทัลที่รวมอยู่ใน MythTV"
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr ""
-#~ "ตัวรับข่าวสาร RSS สำหรับ MythTV ซึ่งทำให้คุณเกาะติดหัวข้อข่าวสารสุดโปรดได้อย่างใกล้ชิด"
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr "โทรศัพท์และโทรศัพท์แบบเห็นหน้าบน MythTV ด้วยโปรโตรคอล SIP"
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "ฟังเพลงบนสถานีวิทยุออนไลน์"
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr "อนุญาตให้คุณค้นหาและเล่นวิดีโิอผ่านโปรแกรมเล่นภายนอกใน MythTV"
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "แสดงสภาพอากาศในปัจจุบันและการพยากรณ์อากาศใน MythTV"
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "เลือก Theme เพิ่มเติม"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr "ธีมสามารถเพิ่มความสวยงามของ MythTV และทำให้มันเหมาะกับรสนิยมของคุณ"
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "เปิด/ปิดทั้งหมด"

@@ -1,4 +1,26 @@
-ubiquity (1.11.18) UNRELEASED; urgency=low
+ubiquity (1.11.19) jaunty; urgency=low
+
+  [ Colin Watson ]
+  * Update translations from Launchpad.
+  * Tighten frontend dependencies on ubiquity to prevent problems when one
+    architecture is out of sync.
+
+  [ Evan Dandrea ]
+  * Only create one virtual desktop when in only-ubiquity mode
+    (LP: #343451, LP: #321212).
+  * When the user selects "go back" in response to the weak password dialog,
+    select the text in the first password entry (LP: #344402).
+  * Add partman/unmount_active to the list of questions that mean "do you want
+    to continue?" in the partman component.
+  * Automatic update of included source packages: partman-base
+    129ubuntu3, partman-partitioning 64ubuntu6, user-setup 1.23ubuntu15.
+
+  [ Jonathan Riddell ]
+  * turn on wordwrap for long string in gui/qt/liveinstaller.ui
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 18 Mar 2009 21:41:26 +0000
+
+ubiquity (1.11.18) jaunty; urgency=low
 
   [ Colin Watson ]
   * broken_packages is fairly slow due to having to iterate over the whole
@@ -15,8 +37,13 @@ ubiquity (1.11.18) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Fix a bit of code that wasn't updated to reflect other changes in
     remove_extras (LP: #342319).
+  * Start NetworkManager before ubiquity in only-ubiquity mode
+    (LP: #340929).
+  * Support the new partman/unmount_active question.
+  * Automatic update of included source packages: grub-installer
+    1.36ubuntu3, partman-base 129ubuntu2, partman-target 58ubuntu5.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 13 Mar 2009 13:01:02 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 16 Mar 2009 17:02:01 +0000
 
 ubiquity (1.11.17) jaunty; urgency=low
 

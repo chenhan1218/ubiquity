@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2008-04-02 00:49+0000\n"
-"Last-Translator: artificialive <mohdnajwan@gmail.com>\n"
+"PO-Revision-Date: 2009-02-22 17:09+0000\n"
+"Last-Translator: Harith Dawi <harithd@gmail.com>\n"
 "Language-Team: Malay <ms@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 15:34+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:40+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -163,10 +163,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
-#, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
-msgstr "Kawasan dipilih:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -246,7 +244,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Log masuk secara automatik"
 
 #. Type: text
 #. Description
@@ -264,7 +262,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Migrate documents and settings"
-msgstr ""
+msgstr "Pindahkan dokumen dan tetapan"
 
 #. Type: text
 #. Description
@@ -273,6 +271,9 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Pilih mana-mana akaun yang anda ingin import. Dokumen-dokumen dan pilihan "
+"untuk akaun-akaun ini akan sedia ada selepas pemasangan perisian "
+"diselesaikan."
 
 #. Type: text
 #. Description
@@ -317,10 +318,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Apakah nama yang anda ingin gunakan untuk daftar masuk?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -341,7 +340,7 @@ msgstr "Bersedia untuk memasang"
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Details"
-msgstr ""
+msgstr "Perincian"
 
 #. Type: text
 #. Description
@@ -374,19 +373,14 @@ msgstr "Langkah ${INDEX} dari ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:49001
-#, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
-msgstr "Batalkan pamasangan tersebut?"
+msgstr "Berhenti dari pemasangan perisian?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
-msgstr ""
-"Adakah anda benar-benar ingin membatalkan pemasangan tersebut sekarang?"
+msgstr "Adakah anda betul-betul ingin berhenti pemasangan perisian sekarang?"
 
 #. Type: text
 #. Description
@@ -397,26 +391,20 @@ msgstr "Langkau"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Pemasangan selesai"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Teruskan"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Mulakan semula sekarang"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -450,7 +438,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:58001
 msgid "Before:"
-msgstr ""
+msgstr "Sebelum:"
 
 #. Type: text
 #. Description
@@ -458,21 +446,21 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:59001
 msgid "After:"
-msgstr ""
+msgstr "Selepas:"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:60001
 msgid "New partition table"
-msgstr ""
+msgstr "Papan pembahagian baru"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:61001
 msgid "New partition"
-msgstr ""
+msgstr "Pembahagian baru"
 
 #. Type: text
 #. Description
@@ -480,23 +468,22 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001 ../ubiquity.templates:78001
-#, fuzzy
 msgid "Edit partition"
-msgstr "Ubahsuai pembahagian"
+msgstr "Ubahsuai Pembahagian Cakera"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:63001
 msgid "Delete partition"
-msgstr ""
+msgstr "Buang pembahagian"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:64001
 msgid "Device"
-msgstr ""
+msgstr "Peranti"
 
 #. Type: text
 #. Description
@@ -504,28 +491,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:65001
 msgid "Type"
-msgstr ""
+msgstr "Jenis"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:66001
 msgid "Mount point"
-msgstr ""
+msgstr "Tempat memasang"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:67001
 msgid "Format?"
-msgstr ""
+msgstr "Format?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:68001
 msgid "Size"
-msgstr ""
+msgstr "Saiz"
 
 #. Type: text
 #. Description
@@ -533,21 +520,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:69001
 msgid "Used"
-msgstr ""
+msgstr "Sudah Diguna"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:70001
 msgid "free space"
-msgstr ""
+msgstr "ruang kosong"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:71001
 msgid "unknown"
-msgstr ""
+msgstr "tidak diketahui"
 
 #. Type: text
 #. Description
@@ -590,7 +577,6 @@ msgstr "Logikal"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:79001
-#, fuzzy
 msgid "Edit a partition"
 msgstr "Ubahsuai satu pembahagian"
 
@@ -628,37 +614,28 @@ msgstr "Libatkan diri dalam pungutan pendapat mengenai penggunaan pakej"
 #. Description
 #: ../ubiquity.templates:86001
 msgid "Network proxy"
-msgstr ""
+msgstr "Network proxy"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:87001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP proxy:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:88001
 msgid "Port:"
-msgstr ""
+msgstr "Port:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Pemasangan sudah selesai. Anda perlu mulakan kembali komputer anda untuk "
-"menggunakan pemasangan yang baru ini. Anda boleh terus menggunakan Live CD "
-"ini, tetapi sebarang pengubahan yang anda buat atau dokumen yang anda simpan "
-"tidak akan disimpan."
 
 #. Type: text
 #. Description
@@ -681,6 +658,8 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
+"Instalasi adalah lengkap. Anda perlu tutup dan buka balik komputer anda "
+"untuk menggunakan instalasi baru."
 
 #. Type: note
 #. Description
@@ -750,10 +729,8 @@ msgstr "Menyalin fail (tinggal kurang dari seminit)..."
 #: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 #: ../ubiquity.templates:103001 ../ubiquity.templates:104001
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
-msgstr "Pemasangan selesai"
+msgstr "Instalasi Gagal"
 
 #. Type: error
 #. Description
@@ -776,42 +753,34 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"Ini disebabkan kekurangan ruang kosong bagi pelengkapan instalasi pada "
+"pembahagian yang dipilih. Sila jalankan pemasang perisian semula dan memilih "
+"pembahagian yang mempunyai ruang yang mencukupi."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
-#, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Ralat ini kebiasaanya disebabkan oleh cakera atau pemacu CD/DVD yang rosak. "
-"Membersihkan CD/DVD, melebur CD/DVD pada kelajuan yang lebih rendah, atau "
-"membersihkan kanta pemacu CD/DVD (kit pembersihan seringnya boleh didapati "
-"daripada pembekal elektronik) mungkin boleh membantu."
+"Ini biasanya disebabkan disk CD/DVD atau drive CD/DVD yang rosak. Ia mungkin "
+"membantu untuk membersihkan CD/DVD, burn CD/DVD pada kelajuan lebih rendah, "
+"atau membersihkan lensa drive CD/DVD (perkakas membersih biasanya sedia ada "
+"di pembekal electronic)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:103001
-#, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Ralat ini kebiasaanya disebabkan oleh cakera keras yang rosak. Menyemak sama "
-"ada cakera keras terlalu lama dan perlu digantikan, atau mengalih sistem ke "
-"persekitaran yang lebih dingin mungkin boleh membantu."
+"Ini biasanya disebabkan hard disk yang rosak. Ia mungkin membantu untuk "
+"memeriksa sama ada hard disk tersebut lama atau memerlukan penggantian, atau "
+"meletakkan sistem pada tempat yang lebih sejuk."
 
 #. Type: error
 #. Description
@@ -822,14 +791,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:104001 ../ubiquity.templates:105001
-#, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -837,18 +798,18 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Ralat ini kebiasaannya disebabkan oleh cakera atau pemacu CD/DVD ataupun "
-"cakera keras yang rosak. Membersihkan CD/DVD, melebur CD/DVD pada kelajuan "
-"yang lebih rendah, membersihkan kanca pemacu CD/DVD (kit pembersihan "
-"seringnya boleh didapati daripada pembekal elektronik), menyemak adakah "
-"cakera keras terlalu lama dan perlu digantikan, atau mengalih sistem ke "
-"persekitaran yang lebih sejuk mungkin boleh membantu."
+"Ini biasanya disebabkan disk atau drive CD/DVD yang rosak, atau hard disk "
+"yang rosak. Ia mungkin membantu untuk membersihkan CD/DVD, burn CD/DVD pada "
+"kelajuan yang lebih rendah, membersihkan lensa drive CD/DVD (perkakas "
+"membersih biasanya sedia ada pada pembekal alat-alat elektronik), untuk "
+"memeriksa sama ada hard disk adalah lama atau memerlukan penggantian, atau "
+"untuk meletakkan sistem pada tempat yang lebih sejuk."
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:105001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "Fail berikut tidak ada persamaan dengan sumber salinan pada CD/DVD:"
 
 #. Type: text
 #. Description
@@ -1083,7 +1044,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:146001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "Adakah anda ingin pulang ke pembahagi?"
 
 #. Type: boolean
 #. Description
@@ -1092,6 +1053,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"Beberapa pembahagian yang anda menciptakan terlalu kecil. Sila jadikan "
+"pembahagian berikut sekurang-kurangnya sebesar ini (didalam byte):"
 
 #. Type: boolean
 #. Description
@@ -1100,19 +1063,12 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"Jika anda tidak pulang ke pembahagi dan menambahkan saiz-saiz pembahagian "
+"ini, instalasi mungkin akan gagal."
 
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1125,20 +1081,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" Bahasa: $(LANGUAGE)\n"
-" Susunatur papan kekunci $(KEYMAP)\n"
-" Nama: #(FULLNAME)\n"
-" Nama log masuk: $(USERNAME)\n"
-" Lokasi: $(LOCATION)\n"
-" Bantuan Penghijrahan $(MIGRATE)"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Jenis Pemasangan Maju"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1149,14 +1097,12 @@ msgstr "Apakah jenis sistem yang akan dijadikan?"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
-#, fuzzy
 msgid "Primary Backend w/ Frontend"
 msgstr "Bahagian belakang utama dengan Bahagian hadapan"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:5001
-#, fuzzy
 msgid ""
 "A Backend/frontend combo machine is the most common setup for people wanting "
 "MythTV for HTPC applications. This type of installation is intended for use "
@@ -1170,14 +1116,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Secondary Backend w/ Frontend"
 msgstr "Backend w/ Frontend Kedua"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:7001
-#, fuzzy
 msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
@@ -1189,14 +1133,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Primary Backend"
 msgstr "Backend Utama"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:9001
-#, fuzzy
 msgid ""
 "A backend only machine is typically designed to function like an appliance; "
 "requiring very little maintenance.  This is intended to be installed as the "
@@ -1209,14 +1151,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:10001
-#, fuzzy
 msgid "Secondary Backend"
 msgstr "Backend Kedua"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
-#, fuzzy
 msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
@@ -1228,14 +1168,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:12001
-#, fuzzy
 msgid "Frontend"
 msgstr "Frontend"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
-#, fuzzy
 msgid ""
 "A frontend only machine's main function is to receive media content from the "
 "backend and distribute it.  This configuration requires an existing backend "
@@ -1254,7 +1192,6 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
-#, fuzzy
 msgid ""
 "An open source graphics driver is already enabled and configured for your "
 "installation.  If you would like to use a different graphics driver, you can "
@@ -1281,14 +1218,12 @@ msgstr "Jika mengaktifkan TV keluar, anda juga perlu memilih standard TV:"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:18001
-#, fuzzy
 msgid "Master Backend Info"
 msgstr "Maklumat Bahagian Belakang Utama"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
-#, fuzzy
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr "Sila masukkan maklumat penting untuk hubungi bahagian belakang utama:"
 
@@ -1319,7 +1254,6 @@ msgstr "Pelayan MySQL"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
-#, fuzzy
 msgid "Configure Guide Data / Backend"
 msgstr "Menyusun Data Panduan / Backend"
 
@@ -1354,14 +1288,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
-#, fuzzy
 msgid "Launch MythTV Setup"
 msgstr "Lancarkan Penetapan MythTV"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:29001
-#, fuzzy
 msgid ""
 "After setting up your guide data source, you will need to launch MythTV-"
 "Setup to run the backend configuration for the first time.  You will need to "
@@ -1395,259 +1327,4 @@ msgstr "Konfigurasi perkhidmatan tambahan..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
-msgstr ""
-
-#~ msgid "Selected region:"
-#~ msgstr "Kawasan dipilih:"
-
-#~ msgid "Current time:"
-#~ msgstr "Masa sekarang:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr ""
-#~ "Masukkan kata laluan yang sama sebanya dua kali supaya kesilapan menaip "
-#~ "boleh disemak."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Terus menggunakan Live CD"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Pilih bandar dalam negara dan zon masa anda. Jika masa sekarang masih "
-#~ "salah walaupun selepas memilih zon masa yang betul, anda boleh "
-#~ "mengubahnya selepas boot kembali ke dalam sistem yang telah dipasang."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Jenis pemasangan: ${INSTALLTYPE)\n"
-#~ " Pemacu:\n"
-#~ "     Tambah. Pemacu Video: ${VIDEO_DRIVER}\n"
-#~ "         TV-Out: ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Perkhidmatan Tambahan:\n"
-#~ "     VNC: ${MY_VNC}\n"
-#~ "     SSH: ${MY_OPENSSH}\n"
-#~ "     Samba: ${MY_SAMBA}\n"
-#~ "     NFS: ${MY_NFS}\n"
-#~ "     Servis MythTV: ${MY_MYSQL}\n"
-#~ " Soalan Lazim Pemasangan Ubuntu:\n"
-#~ "     Bahasa: ${LANGUAGE}\n"
-#~ "     Paparan kekunci: ${KEYMAP}\n"
-#~ "     Nama biasa: ${FULLNAME}\n"
-#~ "     Nama daftar masuk biasa: ${USERNAME}\n"
-#~ "     Lokasi: ${LOCATION}"
-
-#, fuzzy
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "Pemacu/Firmware tambahan"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "Ubahsuai pemacu video & Seting"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "Amaran: Jangan tetapkan Standard TV lebih dari apa yang TV anda sokong. "
-#~ "Kerosakan KEKAL mungkin berlaku."
-
-#~ msgid "Selected city:"
-#~ msgstr "Bandar dipilih:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Zon masa:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Apakah Jenis Pemasangan?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Dua jenis pemasangan boleh didpati untuk Mythbuntu:"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Pemasangan Standard"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "Pemasangan standard akan memasang dan mengkonfigurasi setiap opsyen "
-#~ "dengan interaksi pengguna yang minima. Ia akan memasang bahagia belakang. "
-#~ "hadapan, kesemua plugin dan kesemua tema"
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Pemasangan Maju"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "Pemasangan maju boleh digunakan untuk memasang Mythbuntu secara "
-#~ "persendirian. NOTA: Pemasangan maju adalah penting untuk menambah mesin "
-#~ "Mythbuntu kepada rangkan berasaskan MythTV sedia ada."
-
-#, fuzzy
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "Memilih Frontend / Backend Plugins"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "Plugins boleh digunakan untuk menambah fungsi MythTV melangkaui "
-#~ "penyelesai pengubah masa TV."
-
-#~ msgid "Backend Plugins"
-#~ msgstr "Plugin Bahagian belakang"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "Plugin bahagian hadapan"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth Web"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb menyediakan antara muka web yang boleh digunakan untuk melihat "
-#~ "penyenaraian, rekod yang dijadualkan, padam rekod dan caria program."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Arkib Myth"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Pelayar Myth"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Kawalan Myth"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Galeri Myth"
-
-#~ msgid "Myth Game"
-#~ msgstr "Permainan Myth"
-
-#~ msgid "Myth Music"
-#~ msgstr "Muzik Myth"
-
-#~ msgid "Myth News"
-#~ msgstr "Berita Myth"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Telefon Myth"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Aliran Myth"
-
-#~ msgid "Myth Video"
-#~ msgstr "Video Myth"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Cuaca Myth"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "Plugin untuk MythTV yang membolehkan anda hasilkan DVDs dari kandungan "
-#~ "Rangkaian MythTV anda."
-
-#, fuzzy
-#~| msgid ""
-#~| "A plugin for MythTV that lets you create DVDs from content on your "
-#~| "MythTV Network."
-#~ msgid ""
-#~ "A plugin for MythTV that lets you view movie trailers from apple.com."
-#~ msgstr ""
-#~ "Plugin untuk MythTV yang membolehkan anda hasilkan DVDs dari kandungan "
-#~ "Rangkaian MythTV anda."
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "Plugin pelayar web yang diintegrasikan untuk sistem MythTV"
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "Kawalan luaran untuk MythTV. Membenarkan anda mengubahsuai kedudukan "
-#~ "butang dan pelekatan kekunci."
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "Membenarkan anda mengawasi barisan penyewaan dvd dari Netflix."
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr ""
-#~ "Membenarkan anda melayari secara visual pokok direktori yang mengandungi "
-#~ "fail imej."
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr ""
-#~ "Bahagian hadapan untuk memulakan emulasi atau binari yang dilarikan Linux."
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "Menyediakan Kotak-lagu audio digital dintegrasikan dengan MythTV."
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr ""
-#~ "Plugin suapan RSS untuk MythTV yang berikan anda kemaskini mengenai topik "
-#~ "kebenaran anda."
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr ""
-#~ "Kemampuan telefon dan telefon video pada MythTV menggunakan protokol SIP."
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr ""
-#~ "Meneydiakan cara untuk mendengar stesen radio internet yang dialirkan"
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "Membolehkan anda mencari dan memainkan aliran video dengan menggunakan "
-#~ "pemain luar melalui antaramuka MythTV."
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "Memaparkan ramalan serta cuaca semasa dari dalam MythTV."
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "Pilih Tema Tambahan"
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "Gagal menyalin fail, CD/DVD rosak?"
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "Gagal menyalin fail; cakera keras rosak?"
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr "Gagal menyalin fail, CD/DVD atau cakera keras rosak?"
+msgstr "Menyusun peralatan infrared..."

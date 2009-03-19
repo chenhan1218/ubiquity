@@ -1906,6 +1906,9 @@ class Wizard(BaseFrontend):
     def get_verified_password(self):
         return unicode(self.userinterface.verified_password.text())
 
+    def select_password(self):
+        self.userinterface.password.selectAll()
+
     def set_auto_login(self, value):
         return self.userinterface.login_auto.setChecked(value)
 

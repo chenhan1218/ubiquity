@@ -10,13 +10,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2008-05-22 16:53+0000\n"
+"PO-Revision-Date: 2008-11-29 20:21+0000\n"
 "Last-Translator: Yannig MARCHEGAY (Kokoyaya) <yannig@marchegay.org>\n"
 "Language-Team: Occitan (post 1500) <ubuntu-l10n-oci@lists.ubuntu.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 15:35+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -60,7 +60,7 @@ msgstr "Installar (mòde OEM, sonque pels fabricants)"
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Welcome"
-msgstr "Planvengut"
+msgstr "Planvenguda"
 
 #. Type: text
 #. Description
@@ -70,9 +70,9 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"I sètz per installar ? Quant auretz respondut a qualquas questions, poiretz "
-"installar lo contengut del Live CD sul ordenador per que pòscatz utilisar lo "
-"sistèma a plena velocitat e sens lo CD."
+"I sètz per installar ? Quant auretz respondut a qualques questions, poiretz "
+"installar lo contengut del Live CD sus l'ordenador per que poscatz utilizar "
+"lo sistèma amb velocitat plena e sens lo CD."
 
 #. Type: text
 #. Description
@@ -87,7 +87,7 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
-"Causissètz la lenga qu'utilisarem pendent l'installacion. Serà la lenga "
+"Causissètz la lenga qu'utilizarem pendent l'installacion. Serà la lenga "
 "predefinida del sistèma final."
 
 #. Type: text
@@ -109,8 +109,8 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
-"Se avètz un accès a internet, legissètz las nòtas de version per obténer "
-"d'informacions suls problemas que vos pòdon tocar."
+"S'avètz un accès a internet, legissètz las nòtas de version per obténer "
+"d'entresenhas suls problèmas que vos pòdon tocar."
 
 #. Type: text
 #. Description
@@ -122,7 +122,7 @@ msgstr "Nòtas de version"
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Where are you?"
-msgstr "Ont sètz ?"
+msgstr "Ont sètz ?"
 
 #. Type: text
 #. Description
@@ -146,29 +146,27 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Keyboard layout"
-msgstr "Dispausicion del clavièr"
+msgstr "Disposicion del clavièr"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Que disposicion sembla mai al vòstre clavièr ?"
+msgstr "Que disposicion sembla mai al vòstre clavièr ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
-"Podètz picar dins la zòna de tèxt per testar la nòva dispausicion del "
+"Podètz picar dins la zòna de tèxt per testar la disposicion novèla del "
 "clavièr."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
-#, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
-msgstr "Region seleccionada :"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -180,19 +178,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Who are you?"
-msgstr "Ont sètz ?"
+msgstr "Ont sètz ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "What is your name?"
-msgstr "Cossí vos sonatz ?"
+msgstr "Cossí vos sonatz ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "What name do you want to use to log in?"
-msgstr "Que nom volètz utilisar per vos connectar ?"
+msgstr "Quin nom volètz utilzar per vos connectar ?"
 
 #. Type: text
 #. Description
@@ -201,22 +199,22 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Se mai d'una persona utilisarà l'ordenador, podètz definir mai d'un compte "
-"après l'installacion."
+"Se mai d'una persona utilizarà l'ordenador, poiretz definir mai d'un compte "
+"aprèp l'installacion."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Choose a password to keep your account safe."
-msgstr "Causissètz un mot de pas per que su compte sià segur."
+msgstr "Causissètz un senhal per que vòstre compte sià segur."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
-"Sètz dins lo mòde de desbugatge (debug mode. Vos cal pas utilizar un mot de "
-"santa Clara valable !"
+"Sètz dins lo mòde de desbugatge (debug mode. Vos cal pas utilizar un senhal "
+"valable !"
 
 #. Type: text
 #. Description
@@ -232,7 +230,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:29001
 msgid "What is the name of this computer?"
-msgstr "Qual es lo nom de l'ordenador ?"
+msgstr "Qual es lo nom d'aqueste ordenador ?"
 
 #. Type: text
 #. Description
@@ -241,14 +239,14 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
-"Aqueste nom serà utilisat se volètz permetre a d'autres usuaris de véser "
+"Aqueste nom serà utilizat se volètz permetre a d'autres utilizaires de veire "
 "l'ordenador dins una ret."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Se connectar automaticament"
 
 #. Type: text
 #. Description
@@ -266,7 +264,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Migrate documents and settings"
-msgstr ""
+msgstr "Migracion de documents e de paramètres"
 
 #. Type: text
 #. Description
@@ -285,8 +283,8 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"Si desiratz pas importar de comptes usancièr, seleccionatz pas ges e anatz "
-"sus la pagina seguenta."
+"Se desiratz pas importar de comptes d'utilizaire, seleccionatz pas res e "
+"anatz sus la pagina seguenta."
 
 #. Type: text
 #. Description
@@ -298,7 +296,7 @@ msgstr "Preparar l'espaci del disc"
 #. Description
 #: ../ubiquity.templates:37001
 msgid "How do you want to partition the disk?"
-msgstr "Cossí volètz particionar lo disc ?"
+msgstr "Cossí volètz particionar lo disc ?"
 
 #. Type: text
 #. Description
@@ -321,10 +319,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Que nom volètz utilisar per vos connectar ?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -345,7 +341,7 @@ msgstr "Prèst a installar"
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Details"
-msgstr ""
+msgstr "Detalhs"
 
 #. Type: text
 #. Description
@@ -353,7 +349,7 @@ msgstr ""
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
-"Anam installar vòstre sistèma d'explotacion amb los paramètres seguents :"
+"Anam installar vòstre sistèma d'espleitacion amb los paramètres seguents :"
 
 #. Type: text
 #. Description
@@ -378,18 +374,14 @@ msgstr "Etapa ${INDEX} sus ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:49001
-#, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
-msgstr "Abandonar l'installacion ?"
+msgstr "Sortir de l'installacion ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
-msgstr "Volètz realament abandonar l'installation ara ?"
+msgstr "Volètz vertadièrament sortir de l'installacion ara ?"
 
 #. Type: text
 #. Description
@@ -400,26 +392,20 @@ msgstr "Sautar"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Installacion terminada"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Contunhar"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Tornar aviar ara"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -427,7 +413,7 @@ msgstr "Tornar aviar ara"
 #. Description
 #: ../ubiquity.templates:55001 ../ubiquity.templates:56001
 msgid "Installer crashed"
-msgstr "L'installaire a rencontrat una error"
+msgstr "L'installador a rencontrat una error"
 
 #. Type: text
 #. Description
@@ -453,7 +439,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:58001
 msgid "Before:"
-msgstr ""
+msgstr "Abans :"
 
 #. Type: text
 #. Description
@@ -461,7 +447,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:59001
 msgid "After:"
-msgstr ""
+msgstr "Aprèp :"
 
 #. Type: text
 #. Description
@@ -520,7 +506,7 @@ msgstr "Punt de montatge"
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:67001
 msgid "Format?"
-msgstr ""
+msgstr "Formatar ?"
 
 #. Type: text
 #. Description
@@ -569,7 +555,7 @@ msgstr "Talha de la particion novèla en Mo (1 000 000 octets)"
 #. Description
 #: ../ubiquity.templates:74001
 msgid "Beginning"
-msgstr "Debuta"
+msgstr "Començament"
 
 #. Type: text
 #. Description
@@ -629,13 +615,13 @@ msgstr "Concors de popularitat"
 #. Description
 #: ../ubiquity.templates:86001
 msgid "Network proxy"
-msgstr ""
+msgstr "Servidor mandatòri (proxy)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:87001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "Servidor mandatòri HTTP :"
 
 #. Type: text
 #. Description
@@ -646,26 +632,18 @@ msgstr "Pòrt :"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"L'installacion es terminada. Debètz tornar aviar l'ordenador per utilisar lo "
-"sistèma nòu. Podètz contunhar a utilisar lo live CD mas los cambis que "
-"farètz o los fichièrs qu'enregistrarètz seràn pas conservats."
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:90001
 msgid "Go Back"
-msgstr "Tornar"
+msgstr "Tornar en rèire"
 
 #. Type: text
 #. Description
@@ -681,7 +659,7 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"L'installacion es acabada. Debètz tornar aviar l'ordenador per utilizar lo "
+"L'installacion es acabada. Vos cal tornar aviar l'ordenador per utilizar lo "
 "sistèma installat novèl."
 
 #. Type: note
@@ -753,10 +731,8 @@ msgstr "Còpia de fichièrs (mens d'una minuta restanta)..."
 #: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 #: ../ubiquity.templates:103001 ../ubiquity.templates:104001
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
-msgstr "Installacion terminada"
+msgstr "L'installacion a pas capitat"
 
 #. Type: error
 #. Description
@@ -770,8 +746,8 @@ msgstr "Installacion terminada"
 #: ../ubiquity.templates:103001 ../ubiquity.templates:104001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
-"Lo programa d'installacion a encontrat una error al moment de copiar de "
-"fichièrs sul disc dur :"
+"Lo programa d'installacion a rencontrat una error al moment de copiar de "
+"fichièrs sul disc dur :"
 
 #. Type: error
 #. Description
@@ -781,42 +757,27 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"Lo problèma es que l'espaci disc es pas sufisent per que l'installacion se "
+"pòsca acabar sus la particion cibla. Tornatz aviar l'installaire e "
+"seleccionatz una particion d'installacion pus bèla."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
-#, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Aquesta error es sovent deguda a un CD/DVD o un disc defectuós. Pòt ajudar "
-"d'engravar lo CD/DVD a una pichòta velocitat  o de netejar la lent del "
-"legidor de CD/DVD (de lòts de netejatge son sovent disponibles en çò de "
-"vendedors d'electronic)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:103001
-#, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Aquesta error es sovent deguda a un disc dur defectuós. Pòt ajudar de "
-"verificar si lo disc dur es vielh e que lo debètz remplaçar o s'es necessari "
-"de desplaçar lo sistèma dins un environament melhor."
 
 #. Type: error
 #. Description
@@ -827,14 +788,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:104001 ../ubiquity.templates:105001
-#, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -842,17 +795,12 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Aquesta error es sovent deguda a un CD/DVD o un disc defectuós. Pòt ajudar "
-"d'engravar lo CD/DVD a una pichòta velocitat  o de netejar la lent del "
-"legidor de CD/DVD (de lòts de netejatge son sovent disponibles en çò de "
-"vendedors d'electronic), de verificar se lo disc dur es vielh e deu èsser "
-"remplaçat o de desplaçar lo sistèma dins un environament melhor"
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:105001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "Lo fichièr seguent correspon pas a sa còpia originala sul CD/DVD :"
 
 #. Type: text
 #. Description
@@ -870,7 +818,7 @@ msgstr "Configuracion del sistèma de destinacion..."
 #. Description
 #: ../ubiquity.templates:108001
 msgid "Configuring system locales..."
-msgstr "Configuracion dels paramètres regionales del sistèma"
+msgstr "Configuracion dels paramètres regionals del sistèma"
 
 #. Type: text
 #. Description
@@ -954,19 +902,19 @@ msgstr "Verificacion dels paquetatges de suprimir..."
 #. Description
 #: ../ubiquity.templates:122001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Telecarga dels paquetatges (resta ${TIME})..."
+msgstr "Telecargament dels paquetatges (demòra ${TIME})..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Downloading package lists..."
-msgstr "Telecarga de las tièras de paquetatges"
+msgstr "Telecargament de las tièras de paquetatges"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Telecarga de las tièras de paquetatges (resta ${TIME})..."
+msgstr "Telecargament de las tièras de paquetatges (resta ${TIME})..."
 
 #. Type: error
 #. Description
@@ -1050,13 +998,13 @@ msgstr "Installacion dels paquetatges de lenga"
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Telecarga dels paquetatges de lenga (demòran ${TIME})..."
+msgstr "Telecargament dels paquetatges de lenga (demòran ${TIME})..."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:140001
 msgid "Failed to unmount partitions"
-msgstr "Impossible de desmontar particions"
+msgstr "Impossible de desmontar las particions"
 
 #. Type: boolean
 #. Description
@@ -1065,16 +1013,16 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"Lo programa d'installacion a de besonh de modificar las taulas de particion, "
-"mas o pòt pas faire perque los punches de montatge seguents se pòdon pas "
-"desmontats:"
+"Lo programa d'installacion a besonh de modificar las taulas de particion, "
+"mas o pòt pas far perque los punches de montatge seguents se pòdon pas "
+"desmontar :"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:140001
 msgid "Please close any applications using these mount points."
 msgstr ""
-"Se vos plai, tampatz las aplicacions qu'utilisan aquestes punches de "
+"Se vos plai, tampatz las aplicacions qu'utilizan aquestes punches de "
 "montatge."
 
 #. Type: boolean
@@ -1082,14 +1030,14 @@ msgstr ""
 #: ../ubiquity.templates:140001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
-"Volgatz que lo programa d'installacion ensage un còp de mai lo desmontatge "
+"Voliatz que lo programa d'installacion ensage un còp de mai lo desmontatge "
 "d'aquestas particions ?"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:146001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "Volètz tornar a l'esplech de particionament ?"
 
 #. Type: boolean
 #. Description
@@ -1098,6 +1046,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"D'unas particions qu'avètz creadas son tròp pichonas. Balhatz a las "
+"particions seguentas una talha minimum (en octets) de :"
 
 #. Type: boolean
 #. Description
@@ -1106,19 +1056,12 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"Se tornatz pas a l'esplech de particionament per augmentar la talha "
+"d'aquestas particions, es possible que l'installacion se faga pas plan."
 
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1131,21 +1074,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" Lenga : ${LANGUAGE}\n"
-" Disposicion de clavièr : ${KEYMAP}\n"
-" Nom : ${FULLNAME}\n"
-" Nom de connexion : ${USERNAME}\n"
-" Emplaçament : ${LOCATION}\n"
-" Assistant de migracion :\n"
-" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Mena d'installacion avançada"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1274,7 +1208,7 @@ msgstr "Se desiratz configurar la sortida TV, causissètz una opcion aicí :"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-msgstr "Se activatz la sortida TV, tanben devètz causir un estandard TV :"
+msgstr "S'activatz la sortida TV, tanben vos cal causir un estandard TV :"
 
 #. Type: text
 #. Description
@@ -1294,7 +1228,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:20001
 msgid "MySQL Password"
-msgstr "Mot de pas MySQL"
+msgstr "Senhal MySQL"
 
 #. Type: text
 #. Description
@@ -1306,7 +1240,7 @@ msgstr "Nom d'utilizaire MySQL"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:22001
 msgid "MySQL Database"
-msgstr "Basa de donadas MySQL"
+msgstr "Banca de donadas MySQL"
 
 #. Type: text
 #. Description
@@ -1391,267 +1325,4 @@ msgstr "Configuracion de servicis suplementaris..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
-msgstr ""
-
-#~ msgid "Selected region:"
-#~ msgstr "Region seleccionada :"
-
-#~ msgid "Current time:"
-#~ msgstr "Ora actuala :"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr ""
-#~ "Picatz los meteis mot de pas dos còps per verificar se i a pas de "
-#~ "cauquilla."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Contunhar amb lo Live CD"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Causissètz vòstre país e lo fus orari. Se l'ora visualizada es pas "
-#~ "corrècta (e mai aprèp la causida del fus orari), la poiretz cambiar quand "
-#~ "tornaretz aviar dins lo sistèma installat."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Tipe d'installacion[nbsp ]: ${INSTALLTYPE}\n"
-#~ " Pilòts :\n"
-#~ "     Pilòt vidèo suplementar : ${VIDEO_DRIVER}\n"
-#~ "         Sortida TV : ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Servicis suplementaris :\n"
-#~ "     VNC : ${EN_VNC}\n"
-#~ "     SSH : ${EN_OPENSSH}\n"
-#~ "     Samba : ${EN_SAMBA}\n"
-#~ "     NFS : ${EN_NFS}\n"
-#~ "     Servici MythTV : ${EN_MYSQL}\n"
-#~ " Questions per l'installacion Ubuntu estandarda :\n"
-#~ "     Lenga : ${LANGUAGE}\n"
-#~ "     Disposicion del clavièr : ${KEYMAP}\n"
-#~ "     Nom : ${FULLNAME}\n"
-#~ "     Identificant de connexion : ${USERNAME}\n"
-#~ "     Emplaçament : ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "Pilòts/micrologicials (firmwares) adicionals"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "Cambiar lo pilòt e los paramètres vidèo"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "Atencion : Definissetz pas un estandard TV qu'es pas pres en carga per "
-#~ "vòstre televisor. Lo riscatz de damatjar definitivament."
-
-#~ msgid "Selected city:"
-#~ msgstr "Ciutat seleccionada :"
-
-#~ msgid "Time zone:"
-#~ msgstr "Fus orari :"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Quina mena d'installacion ?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Doas menas d'installacion son disponiblas per Mythbuntu :"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Installacion estandarda"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "Una installacion estandarda installarà e configurarà totas las opcions "
-#~ "amb un minimom d'intervencion de l'utilizaire. Aquò installarà lo motor "
-#~ "de tractament, l'interfàcia, totes los ensèrts e totes los tèmas."
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Installacion avançada"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "Una installacion avançada pòt èsser utilizada per personalizar çò qu'es "
-#~ "necessari a aquesta installacion de Mythbuntu. Una installacion avançada "
-#~ "es necessària per ajustar una maquina MythBuntu a una ret basada sus "
-#~ "MythTV."
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "Causir los ensèrts per l'interfàcia/motor de tractament"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "D'ensèrtss pòdon èsser utilizats per espandir las foncionalitats de "
-#~ "MythTV al delà de la foncion de « dirècte en diferit » (Time Shifting)."
-
-#~ msgid "Backend Plugins"
-#~ msgstr "Ensèrts pel motor de tractament"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "Ensèrts per l'interfàcia"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth Web"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb prepausa una interfàcia Web que permet de veire de listas, de "
-#~ "programar d'enregistraments, suprimir d'enregistraments, e de cercar de "
-#~ "programas."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Archiu Myth"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Navegaire Myth"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Contraròtles Myth"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Galariá Myth"
-
-#~ msgid "Myth Game"
-#~ msgstr "Jòc Myth"
-
-#~ msgid "Myth Music"
-#~ msgstr "Musica Myth"
-
-#~ msgid "Myth News"
-#~ msgstr "Novèlas Myth"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Telèfon Myth"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Flus Myth"
-
-#~ msgid "Myth Video"
-#~ msgstr "Vidèo Myth"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Meteo Myth"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "Un ensèrt per MythTV que vos permet de crear de DVD à partir du contenu "
-#~ "présent sur votre réseau MythTV."
-
-#, fuzzy
-#~| msgid ""
-#~| "A plugin for MythTV that lets you create DVDs from content on your "
-#~| "MythTV Network."
-#~ msgid ""
-#~ "A plugin for MythTV that lets you view movie trailers from apple.com."
-#~ msgstr ""
-#~ "Un ensèrt per MythTV que vos permet de crear de DVD à partir du contenu "
-#~ "présent sur votre réseau MythTV."
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "Un navegaire Web integrat per vòstre sistèma MythTV."
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "Contraròtles extèrnes per MythTV. Aquò vos permetrà de modificar los "
-#~ "botons e acorchis de clavièr."
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "Vos permet de susvelhar vòstra lista de locacion de DVD Netfix"
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr ""
-#~ "Vos permet de navegar visualament dins un repertòri contenent d'imatges."
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr ""
-#~ "Una interfàcia permetent d'aviar tot emulator o executable que Linux pòt "
-#~ "amodar."
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "Provesís un lector audio numeric integrat a MythTV."
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr ""
-#~ "Un lector de flus RSS per MythTV que permet de demorar a jorn sus vòstres "
-#~ "subjèctes preferits."
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr ""
-#~ "Una foncion de telefonia e visiofonia, utilizant lo protocòl estandard "
-#~ "SIP, integrada a MythTV."
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr ""
-#~ "Provesîs un mejan d'escotar d'estacions de ràdio difusent lor flus sus "
-#~ "Internet"
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "Vos permet de legir e de navegar demest las vidèos, en utilizant un "
-#~ "lector extèrn, al sen de l'interfàcia MythTV."
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "Aficha la meteo actuala e las previsions dins MythTV."
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "Causir de tèmas suplementaris"
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "Tot activar/desactivar"
-
-#~ msgid "Failed to copy files; out of disk space."
-#~ msgstr "Error al moment de copiar de fichièr ; espaci disc insufisent."
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "Impossible de copiar los fichièrs ; CD/DVD defectuós ?"
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "Impossible de copiar los fichièrs ; disc dur defectuós ?"
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr "Impossible de copiar los fichièrs ; CD/DVD o disc dur defectuós ?"
+msgstr "Configuracion dels periferics infraroges..."

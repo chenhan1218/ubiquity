@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-01-13 11:28+0000\n"
-"Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>\n"
+"PO-Revision-Date: 2009-03-10 10:37+0000\n"
+"Last-Translator: Kęstutis Biliūnas <Unknown>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -315,10 +315,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Kokiu vardu jūs norite registruotis sistemoje?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -390,26 +388,20 @@ msgstr "Praleisti"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Diegimas baigtas"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Tęsti"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Paleisti įdiegtą sistemą"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -630,20 +622,11 @@ msgstr "Prievadas:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Įdiegimas baigtas. Jei norite naudotis įdiegta sistema - paleiskite "
-"kompiuterį iš naujo. Taipogi galite ir toliau naudoti demonstracinį "
-"kompaktinį diską, tačiau visi jūsų padaryti pakeitimai ar sukurti dokumentai "
-"nebus išsaugoti Jūsų kompiuteryje."
 
 #. Type: text
 #. Description
@@ -1064,15 +1047,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1085,21 +1059,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" Kalba: ${LANGUAGE}\n"
-" Klaviatūros išdėstymas: ${KEYMAP}\n"
-" Vardas, pavardė: ${FULLNAME}\n"
-" Prisijungimo vardas: ${USERNAME}\n"
-" Vieta: ${LOCATION}\n"
-" Duomenų bei nustatymų importavimas:\n"
-" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Type"
-msgstr "Diegimas baigtas"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1319,230 +1284,3 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Selected region:"
-#~ msgstr "Pasirinktas regionas:"
-
-#~ msgid "Current time:"
-#~ msgstr "Dabartinis laikas:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr ""
-#~ "Įrašykite tą patį slaptažodį du kartus, taip jis bus patikrintas nuo "
-#~ "rašymo klaidų."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Toliau naudotis demonstracine sistema"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Pasirinkite miestą, esantį Jūsų valstybės tinkamoje laiko juostoje. Jei "
-#~ "rodomas esamas laikas yra neteisingas net pasirinkus teisingą laiko "
-#~ "juostą, Jūs galėsite jį patikslinti kai paleisite įdiegtą sistemą."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Įdiegimo tipai:           ${INSTALLTYPE}\n"
-#~ " Tvarkyklės:\n"
-#~ "     Pridėti. Vaizdo tvarkyklę:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Papildomos paslaugos:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV paslauga:     ${EN_MYSQL}\n"
-#~ " Normalūs Ubuntu įdiegimo klausimai:\n"
-#~ "     Kalba:           ${LANGUAGE}\n"
-#~ "     Klaviatūros išdėstymas:    ${KEYMAP}\n"
-#~ "     Įprastas vardas:       ${FULLNAME}\n"
-#~ "     Įprastas registravimosi vardas: ${USERNAME}\n"
-#~ "     Vieta:           ${LOCATION}"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "Įspėjimas: Nenustatykite TV standarto į geresnį, nei tinkamas jūsų "
-#~ "televizoriui. Gali būti padaryta NEATITAISOMA žala."
-
-#~ msgid "Selected city:"
-#~ msgstr "Pasirinktas miestas:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Laiko juosta:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Koks diegimo tipas?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Yra prieinami du Mythbuntu diegimo tipai :"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Standartinis įdiegimas"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "Standartinis diegimas įdiegs ir sukonfigūruos kiekvieną pasirinkimą su "
-#~ "minimaliu naudotojo įsikišimu. Bus įdiegta galinė bei pradinė programinė "
-#~ "įrangą, visi įskiepiai ir temos."
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "Galima panaudoti išplėstinį diegimą tam, kad nustatyti kas yra reikalinga "
-#~ "šiame  Mythbuntu diegime. PASTABA: Išplėstinis diegimas yra reikalingas "
-#~ "Mythbuntu įrenginio įtraukimui į egzistuojantį MythTV pagrįstą tinklą."
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "Sąsajos papildiniai"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth Žiniatinklis"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb pateikia žiniatinklio sąsają, kuri gali būti panaudota spaudinių "
-#~ "rodymui, įrašų planavimui, trynimui, bei programų paieškai."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth archyvas"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Myth naršyklė"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Myth valdikliai"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Myth filmai"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Myth galerija"
-
-#~ msgid "Myth Game"
-#~ msgstr "Myth žaidimas"
-
-#~ msgid "Myth Music"
-#~ msgstr "Myth muzika"
-
-#~ msgid "Myth News"
-#~ msgstr "Myth naujienos"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Myth telefonas"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Myth srautas"
-
-#~ msgid "Myth Video"
-#~ msgstr "Myth video"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Myth orai"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "Papildinys skirtas MythTV programai, leidžiantis jums kūrti DVD kompaktus "
-#~ "iš tūrinio esančio jūsų MythTV tinkle."
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "Integruotas naršyklės papildinys jūsų MythTV sistemai."
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "Išorinis valdymas MythTV programai. Tai leis jums keisti mygtukų "
-#~ "atvaizdavimus ir klavišų saistymus."
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "Rasti artimuose kino teatruose rodomus filmus"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "Leidžia jum s stebėti savo Netflix DVD nuomos eilę."
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr "Leidžia vizualiai naršyti katalogų medį su atvaizdų failais."
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr ""
-#~ "Sąsaja paleisti bet kokį emuliatorių ar programą, veikiančią Linux "
-#~ "sistemoje."
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "Suteikia skaitmeninį audio grotuvą integruotą į MythTV"
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr ""
-#~ "RSS naujienų srauto skaitytuvo įskiepis MythTV, kuris leidžia sekti jums "
-#~ "svarbiausias naujienų temas."
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr ""
-#~ "Telefono ir videotelefono galimybė MythTV naudojant standartinį SIP "
-#~ "protokolą."
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "Pateikia metodą klausytis srautinių interneto radijo stočių."
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "Leidžia jums naršyti ir paleisti video srautus, naudojant išorinį "
-#~ "grotuvą, iš MythTV sąsajos."
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "Parodo dabartinę bei prognuozuojamą orų informaciją per MythTV."
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "Pasirinkti papildomus apipavidalinimus"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr ""
-#~ "Temos gali smarkiai pagerinti estetinį MythTV vaizdą, kad jis geriau "
-#~ "atitiktų jūsų skonį."
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "Įjungti/Išjungti viską"

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2008-10-11 08:44+0000\n"
-"Last-Translator: David Planella <Unknown>\n"
+"PO-Revision-Date: 2009-03-10 10:27+0000\n"
+"Last-Translator: Jordi Mallach <jordi@canonical.com>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -316,10 +316,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Quin nom voleu utilitzar per a entrar al sistema?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -390,26 +388,20 @@ msgstr "Omet"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Instal·lació completa"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Continua"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Reinicia ara"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -636,20 +628,11 @@ msgstr "Port:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"S'ha completat la instal·lació. Heu de tornar a iniciar l'ordinador per a "
-"utilitzar la instal·lació nova. Podeu continuar utilitzant aquest CD "
-"autònom, tot i que qualsevol canvi que feu els documents que deseu no es "
-"preservaran."
 
 #. Type: text
 #. Description
@@ -1087,15 +1070,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1108,21 +1082,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" Llengua:${LANGUAGE}\n"
-" Disposició del teclat: ${KEYMAP}\n"
-" Nom: ${FULLNAME}\n"
-" Nom d'entrada: ${USERNAME}\n"
-" Ubicació: ${LOCATION}\n"
-" Assistent de migració:\n"
-" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Tipus d'instal·lació avançada"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1366,262 +1331,3 @@ msgstr "S'estan configurant els serveis addicionals..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "S'estan configurant els dispositius d'infrarojos"
-
-#~ msgid "Selected region:"
-#~ msgstr "Regió seleccionada:"
-
-#~ msgid "Current time:"
-#~ msgstr "Hora actual:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr ""
-#~ "Introduïu la mateixa contrasenya dues vegades, per a que es puga "
-#~ "comprovar que no conté errors de tecleig."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Continueu utilitzant el CD autònom"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Trieu una població del vostre país i una zona horària. Si l'hora segueix "
-#~ "sent incorrecta fins i tot després de triar la vostra zona horària, "
-#~ "podreu ajustar-la un cop es reiniciï el sistema."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Tipus d'instal·lació:   ${INSTALLTYPE}\n"
-#~ " Controladors:\n"
-#~ "     Cntr. de víd. add.: ${VIDEO_DRIVER}\n"
-#~ "         Sortida de TV:      ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Serveis addicionals:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     Servei del MythTV:  ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Llengua:           v${LANGUAGE}\n"
-#~ "     Disposició teclat:  ${KEYMAP}\n"
-#~ "     Nom complet:        ${FULLNAME}\n"
-#~ "     Nom d'entrada:      ${USERNAME}\n"
-#~ "     Ubicació:           ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "Controladors/microprogramari addicionals"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "Modifica el controlador de vídeo i els paràmetres"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "Avís: no establiu l'estàndard de televisió a un valor major que el "
-#~ "compatible amb el vostre televisor, cosa que podria ocasionar-li danys "
-#~ "permanents."
-
-#~ msgid "Selected city:"
-#~ msgstr "Ciutat seleccionada:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Fus horari:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Quin tipus d'instal·lació voleu?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Hi ha dos tipus d'instal·lació disponibles per al Mythbuntu"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Instal·lació estàndard"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "La instal·lació estàndard instal·larà i configurarà cada opció amb la "
-#~ "mínima interacció de l'usuari possible. Això instal·larà un rerefons, un "
-#~ "frontal, tots els connectors, i tots els temes."
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Instal·lació avançada"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "La instal·lació avançada permet personalitzar tot el que sigui necessari "
-#~ "per a aquesta instal·lació del Mythbuntu. Nota: si voleu afegir un "
-#~ "ordinador Mythbuntu a una xarxa MythTV existent, aquesta és l'opció que "
-#~ "heu de triar."
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "Trieu els connectors del frontal / rerefons"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "Els connectors es poden utilitzar per a ampliar la funcinalitat del "
-#~ "MythTV més enllà d'una solució de TV de desplaçament de temps"
-
-#~ msgid "Backend Plugins"
-#~ msgstr "Connectors del rerefons"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "Connectors del frontal"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth Web"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "El MythWeb proporciona una interfície web per a visualitzar les "
-#~ "cartelleres, planificar i suprimir enregistraments, i cercar programes."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Arxiu del Myth"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Navegador del Myth"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Controls del Myth"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Pel.lícules del Myth"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Galeria del Myth"
-
-#~ msgid "Myth Game"
-#~ msgstr "Jocs del Myth"
-
-#~ msgid "Myth Music"
-#~ msgstr "Música del Myth"
-
-#~ msgid "Myth News"
-#~ msgstr "Notícies del Myth"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Telèfon del Myth"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Fluxos del Myth"
-
-#~ msgid "Myth Video"
-#~ msgstr "Vídeos del Myth"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Informació del temps del Myth"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "Un connector per al MythTV que us permet crear DVD a partir dels "
-#~ "continguts de la xarxa MythTV."
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you view movie trailers from apple.com."
-#~ msgstr ""
-#~ "Un connector per al MythTV que us permetrà veure avanços de pel·lícules "
-#~ "d'apple.com."
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "Un connector de navegador web integrat per al sistema MythTV."
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "Controls externs per al MythTV, els quals us permetran modificar els "
-#~ "mapes de botons i les assignacions de tecles."
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "Cerca pel·lícules de la cartellera dels cinemes locals propers"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "Permet fer un seguiment de la llista de DVD llogats al NEtflix."
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr ""
-#~ "Permet navegar visualment un arbre de directoris que contingui fitxers "
-#~ "d'imatge."
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr ""
-#~ "Un frontal per a iniciar qualsevol emulador o fitxer binary que es pugui "
-#~ "executar en el Linux."
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr ""
-#~ "Proporciona una màquina de tocadiscs digital integrada amb el MythTV."
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr ""
-#~ "Un connector de lector de canals RSS per al MythTV que us mantindrà "
-#~ "informat de l'actualitat dels vostres temes preferits."
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr ""
-#~ "Un telèfon i videotelèfon al MythTV a través del protocol estàndard SIP."
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "Proporciona un mètode per a escoltar ràdios a Internet."
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "Permet navegar per i reproduir fluxos de vídeo a través d'un reproductor "
-#~ "extern, a través de la interfície del MythTV."
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "Mostra l'estat del temps i la previsió des del MythTV."
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "Trieu temes addicionals"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr ""
-#~ "Els temes permeten millorar de manera considerable l'aparença estètica "
-#~ "del MythTV i adequar-la al vostres gustos."
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "Habilita-ho/inhabilita-ho tot"

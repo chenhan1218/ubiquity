@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 15:35+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -132,9 +132,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
-#, fuzzy
 msgid "Keyboard layout"
-msgstr "Fidio ny filaharan'ny fitendry"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -271,9 +270,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
 msgid "How do you want to partition the disk?"
-msgstr "Tianao averina ve ny fizarana?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -302,9 +300,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
-#, fuzzy
 msgid "Prepare partitions"
-msgstr "Mamorona fizarana vaovao"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -312,9 +309,8 @@ msgstr "Mamorona fizarana vaovao"
 #. Description
 #: ../ubiquity.templates:43001 ../ubiquity.templates:93001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
 msgid "Ready to install"
-msgstr "Kernel izay hapetraka:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -352,16 +348,14 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:49001
-#, fuzzy
 msgid "Quit the installation?"
-msgstr "Ajanony ny fametrahana"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
 msgid "Do you really want to quit the installation now?"
-msgstr "Hiverina any amin'ny safidin'ny fizarana ve ianao?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -372,18 +366,14 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Tapitra ny fametrahana"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Tohizo"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -544,9 +534,8 @@ msgstr "Fiafarana"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76001
-#, fuzzy
 msgid "Primary"
-msgstr "Primary"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -661,9 +650,8 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:95001
-#, fuzzy
 msgid "Installing system"
-msgstr "Tapitra ny fametrahana"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -674,16 +662,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:98001
-#, fuzzy
 msgid "Scanning files..."
-msgstr "Misafo ny kapila ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Copying files..."
-msgstr "Mandika ny fizarana..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -704,10 +690,8 @@ msgstr ""
 #: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 #: ../ubiquity.templates:103001 ../ubiquity.templates:104001
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
-msgstr "Tapitra ny fametrahana"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -775,9 +759,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:106001
-#, fuzzy
 msgid "Copying installation logs..."
-msgstr "Mandika ny fizarana..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -788,9 +771,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:108001
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "Manefy ny rezo..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -801,9 +783,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "Manefy ny rezo..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -814,9 +795,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
 msgid "Creating user..."
-msgstr "Manadio ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -827,9 +807,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:114001
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "Manefy ny rezo..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -840,16 +819,14 @@ msgstr "Manefy ny rezo..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:116001
-#, fuzzy
 msgid "Setting computer name..."
-msgstr "Manefy ny frame buffer..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:117001
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "Manefy ny rezo..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -866,9 +843,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:120001
-#, fuzzy
 msgid "Removing extra packages..."
-msgstr "Mametraka ny pakajy fanampiny..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -897,16 +873,14 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:126001
-#, fuzzy
 msgid "Error installing ${PACKAGE}"
-msgstr "Tsy mavita mametraka an'i GRUB ao amin'ny ${BOOTDEV}"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:127001
-#, fuzzy
 msgid "Error removing ${PACKAGE}"
-msgstr "Mandray ny ${PACKAGE}"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -964,9 +938,8 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
 msgid "Installing language packs"
-msgstr "Mametraka ny pakajy tsy azo avela..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1041,10 +1014,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Type"
-msgstr "Tapitra ny fametrahana"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1257,7 +1228,3 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#, fuzzy
-#~ msgid "Selected city:"
-#~ msgstr "Faritrora voafidy"

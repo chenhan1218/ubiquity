@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-01-09 17:14+0000\n"
-"Last-Translator: Safir Šećerović <Unknown>\n"
+"PO-Revision-Date: 2009-03-10 10:27+0000\n"
+"Last-Translator: adioe3 <Unknown>\n"
 "Language-Team: Bosnian <lokal@linux.org.ba>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:59+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -303,10 +303,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Koje korisničko ime želite koristiti?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -377,26 +375,20 @@ msgstr "Preskoči"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Instalacija završena"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Nastavi"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Odmah ponovo pokreni računar"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -617,19 +609,11 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Instalacija je završena. Morate ponovo pokrenuti računar kako bi ste "
-"pokrenuli novi sistem. Možete nastaviti koristiti ovaj Live CD, ali promjene "
-"koje napravite na dokumentima, neće biti sačuvane."
 
 #. Type: text
 #. Description
@@ -1040,10 +1024,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Type"
-msgstr "Instalacija završena"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1256,20 +1238,3 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Selected region:"
-#~ msgstr "Odabrana zemlja;"
-
-#~ msgid "Current time:"
-#~ msgstr "Trenutno vrijeme:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr "Upišite istu šifru dva puta, kako bi se mogla provjeriti."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Nastavite koristiti Live-CD"
-
-#~ msgid "Time zone:"
-#~ msgstr "Vremenska zona:"

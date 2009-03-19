@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-01-10 04:00+0000\n"
+"PO-Revision-Date: 2009-03-10 10:40+0000\n"
 "Last-Translator: Håvard Korsvoll <korsvoll@skulelinux.no>\n"
 "Language-Team: Norwegian nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -310,10 +310,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Kva navn vil du bruke for å logge inn?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -385,26 +383,20 @@ msgstr "Hopp over"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Installasjon ferdig"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Hald fram"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Start på nytt no"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -631,19 +623,11 @@ msgstr "Port:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Installasjonen er ferdig. Det er naudsynt med ein omstart av maskina for å "
-"ta i bruk den nye installasjonen. Du kan halda fram med å bruka live-CD'en, "
-"men ingen endringar eller dokument vil bli lagra."
 
 #. Type: text
 #. Description
@@ -1062,15 +1046,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1083,21 +1058,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" Språk: ${LANGUAGE}\n"
-" Tastaturoppsett: ${KEYMAP}\n"
-" Namn: ${FULLNAME}\n"
-" Påloggingsnamn: ${USERNAME}\n"
-" Stad: ${LOCATION}\n"
-" Migreringassistent:\n"
-" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Avansert installasjonstype"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1337,249 +1303,3 @@ msgstr "Set opp ekstra tenester..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Konfigurerer infraraude einheiter..."
-
-#~ msgid "Selected region:"
-#~ msgstr "Vel region"
-
-#~ msgid "Current time:"
-#~ msgstr "Gjeldande tid:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr ""
-#~ "Skriv passordet to ganger, slik at det kan kontrollerast for tastefeil."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Hald fram med å bruka live CD'en"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Velg ein by som er i landet ditt og i tidssona di. Om tida er feil etter "
-#~ "du har valgt rett tidssone kan du stille klokka etter du har starta opp "
-#~ "igjen."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Installasjonsform: ${INSTALLTYPE}\n"
-#~ "Drivarar:\n"
-#~ "Legg til videodrivar: ${VIDEO_DRIVER}\n"
-#~ "TV-ut: ${TVOUT}, ${TVSTANDARD}\n"
-#~ "Ekstratenester:\n"
-#~ "VNC: ${EN_VNC}\n"
-#~ "SSH: ${EN_OPENSSH}\n"
-#~ "Samba: ${EN_SAMBA}\n"
-#~ "NFS: ${EN_NFS}\n"
-#~ "MythTV: ${EN_MYSQL}\n"
-#~ "Vanlege Ubuntu installasjonsspørsmål:\n"
-#~ "Språk: ${LANGUAGE}\n"
-#~ "Tastaturoppsett: ${KEYMAP}\n"
-#~ "Fult namn: ${FULLNAME}\n"
-#~ "Vanleg innloggingsnamn: ${USERNAME}\n"
-#~ "Lokalisering: ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "Tilleggsdrivarar/Fastvare"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "Endre videodrivarar og instillingar"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "Åtvaring: Set ikkje TV-standarden til noko høgare enn det din TV støttar. "
-#~ "Det kan oppstå PERMANENT skade."
-
-#~ msgid "Selected city:"
-#~ msgstr "Valt by:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Tidssone:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Kva type installasjon?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "To installasjonstypar er tilgjengelege for Mythbuntu:"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Standardinstallasjon"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "Ein standardinstallasjon vil installere og konfigurere alle val med "
-#~ "minimal brukarinvolvering. Dette vil installere ein bakende, framende, "
-#~ "alle utvidingar og alle tema."
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Avansert installasjon"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "Ein avansert installasjon kan nyttast til å tilpasse kva som trengs for "
-#~ "denne Mythbuntu-installasjonen. MERK: Ein avansert installasjon er "
-#~ "nødvendig for å leggje ei Mythbuntu-maskin til eit eksisterande MythTV-"
-#~ "basert nettverk."
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "Vel framende- / bakendeutvidingar"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "Utvidingar kan brukast for å byggje ut funksjonaliteten til MythTV utover "
-#~ "ei tidsskiftande TV-løysing."
-
-#~ msgid "Backend Plugins"
-#~ msgstr "Bakende-utvidingar"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "Framende-utvidingar"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth-vev"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb tilbyr eit vevgrensesnitt som kan nyttast til å sjå programguide, "
-#~ "planlegge opptak, slette opptak og søke etter TV-program."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth-arkiv"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Myth Utforskar"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Myth-kontrollar"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Myth Filmar"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Myth Galleri"
-
-#~ msgid "Myth Game"
-#~ msgstr "Myth Spel"
-
-#~ msgid "Myth Music"
-#~ msgstr "Myth Musikk"
-
-#~ msgid "Myth News"
-#~ msgstr "Myth Nyhende"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Myth Telefon"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Myth Straum"
-
-#~ msgid "Myth Video"
-#~ msgstr "Myth Video"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Myth Vermelding"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "Ei utviding for MythTV som let deg komponere DVDar frå innhaldet på ditt "
-#~ "MythTV-nettverk."
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "Ei nettlesarutviding som vert integrert i ditt MythTV-system."
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "Eksterne kontrollar for MythTV. Desse vil la deg modifisere tasteoppsett "
-#~ "og tastebindingar."
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "Finn filmar som vert vist på lokale kinoar"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "Let deg overvake din Netflix DVD-leigekø."
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr "Let deg utforske eit mappetre som inneheld bilete."
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr ""
-#~ "Ein fasade for å starte ein hvilken som helst emulator eller program som "
-#~ "Linux køyrer."
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "Tilbyr ein digital jukebox integrert med MythTV."
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr "Ei RSS-lesarutviding for MythTV som held deg oppdatert."
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr ""
-#~ "Ei telefon- og videotelefonutviding for MythTV som nyttar SIP-protokollen."
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "Let deg lytte til Internettradio."
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "Let deg utforske og spele av videostraumar ved å bruke ein ekstern "
-#~ "avspelar inne i MythTV-grensesnittet."
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "Syner dagens vêr og vêrvarsling inne i MythTV."
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "Vel ekstra tema"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr ""
-#~ "Temaer kan auke estetikken til MythTV oppsettet, og passe din personlige "
-#~ "smak betre."
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "Aktiver/Deaktiver Alt"

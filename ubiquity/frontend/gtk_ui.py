@@ -2496,6 +2496,13 @@ class Wizard(BaseFrontend):
     def get_verified_password(self):
         return self.verified_password.get_text()
 
+    def select_password(self):
+        # LP: 344402, the password should be selected if we just said "go back"
+        # to the weak password entry.
+        if self.password.get_text_length():
+            self.password.select_region(0, -1)
+            self.password.grab_focus()
+
     def set_auto_login(self, value):
         self.login_auto.set_active(value)
 

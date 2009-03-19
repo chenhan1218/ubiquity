@@ -7,38 +7,38 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-02-07 19:50+0000\n"
-"Last-Translator: Bytan AraX <bytan.arax@gmail.com>\n"
+"PO-Revision-Date: 2009-03-13 13:20+0000\n"
+"Last-Translator: Tahir Emre KALAYCI <tekrei@gmail.com>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:43+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "En büyük kesintisiz boş alanı kullan"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the entire disk"
-msgstr ""
+msgstr "Bütün diski kullan"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "Yan yana kur, açılışta aralarından biri seçilebilsin"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "Bölümleri elle belirt (gelişmiş)"
 
 #. Type: text
 #. Description
@@ -125,19 +125,19 @@ msgstr "Neredesiniz?"
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Select your time zone from the map, or by region and city."
-msgstr ""
+msgstr "Zaman diliminizi haritadan ya da bölge ve şehre göre seçin."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "City:"
-msgstr ""
+msgstr "Şehir:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Region:"
-msgstr ""
+msgstr "Bölge:"
 
 #. Type: text
 #. Description
@@ -161,13 +161,13 @@ msgstr "Yeni klavye düzeninizi denemek için bu kutuya yazabilirsiniz."
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Suggested option:"
-msgstr ""
+msgstr "Önerilen seçenek:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your own:"
-msgstr ""
+msgstr "Kendinizinkini seçin:"
 
 #. Type: text
 #. Description
@@ -218,6 +218,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Aynı parolayı iki kere girin, böylelikle yazım hatalarına karşı da "
+"denetlenmiş olur. İyi bir parola, harflerin, sayıların ve noktalama "
+"işaretlerinin bir karışımını içermelidir; En az sekiz karakter uzunluğunda "
+"olmalıdır; Belirli aralıklarla değiştirilmelidir."
 
 #. Type: text
 #. Description
@@ -245,13 +249,14 @@ msgstr "Otomatik giriş yap"
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Require a password to log in"
-msgstr ""
+msgstr "Oturum açmak için bir parola gerekli"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Require a password to log in and to decrypt your home folder"
 msgstr ""
+"Oturum açmak ve ev dizininizin şifresini çözmek için bir parola gerekli"
 
 #. Type: text
 #. Description
@@ -296,27 +301,25 @@ msgstr "Diski nasıl bölümlemek istiyorsunuz?"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "Bu bilgisayarda yüklü işletim sistemi bulunmuyor."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "Bu bilgisayarda ${OS} bulunuyor."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "Bu bilgisayarda birkaç işletim sistemi bulunuyor."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Oturum açmak için hangi adı kullanmak istersiniz?"
+msgstr "${RELEASE} sürümünü nereye yerleştirmek istiyorsunuz?"
 
 #. Type: text
 #. Description
@@ -387,26 +390,20 @@ msgstr "Atla"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Kurulum tamamlandı"
+msgstr "Kurulum Tamamlandı"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Devam Et"
+msgstr "Sınamayı sürdür"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Yeniden başlat"
+msgstr "Şimdi Yeniden Başlat"
 
 #. Type: text
 #. Description
@@ -633,19 +630,14 @@ msgstr "Bağlantı kapısı:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Kurulum tamamlandı. Yeni kurulumu kullanmak için bilgisayarı yeniden "
-"başlatmanız gerekiyor. Bu live CD'yi kullanmaya devam edebilirsiniz ancak "
-"yapacağınız değişiklikler veya kaydedeceğiniz belgeler saklanmayacaktır."
+"Kurulum bitti. Ubuntu'yu sınamayı sürdürebilirsiniz ancak bilgisayarınızı "
+"yeniden başlatmadan yaptığınız değişiklikler ya da kaydettiğiniz belgeler "
+"saklanmayacak."
 
 #. Type: text
 #. Description
@@ -1005,7 +997,7 @@ msgstr "Paketler kaldırılırken bir hata oluştu:"
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Kopyalamada atlanacak dosyalar hesaplanıyor"
 
 #. Type: title
 #. Description
@@ -1078,15 +1070,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1099,21 +1082,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Kurulum tipi: ${INSTALLTYPE}\n"
 " Dil: ${LANGUAGE}\n"
 " Klavye düzeni: ${KEYMAP}\n"
-" Ad: ${FULLNAME}\n"
-" Oturum açma adı: ${USERNAME}\n"
+" İsim: ${FULLNAME}\n"
+" Giriş ismi: ${USERNAME}\n"
 " Konum: ${LOCATION}\n"
-" Aktarım Yardımcısı:\n"
-" ${MIGRATE}"
+" IR Remote: ${REMOTE}\n"
+" IR İleticisi: ${TRANSMITTER}\n"
+" Video sürücüsü: ${VIDEO_DRIVER}\n"
+" Hizmetler: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Gelişmiş Yükleme Türü"
+msgstr "Kurulum Türü"
 
 #. Type: text
 #. Description
@@ -1210,7 +1194,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Grafik Sürücüleri"
 
 #. Type: text
 #. Description
@@ -1353,257 +1337,3 @@ msgstr "Ek servisler yapılandırılıyor..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Kızılötesi cihazları yapılandırıyor..."
-
-#~ msgid "Selected region:"
-#~ msgstr "Seçilen bölge:"
-
-#~ msgid "Current time:"
-#~ msgstr "Geçerli zaman:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr ""
-#~ "Yazım hatalarının denetlenebilmesi için aynı şifreyi iki defa girin."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Çalışan CD'yi kullanarak devam et"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Bulunduğunuz ülke ve saat diliminden bir şehir seçin. Doğru saat dilimini "
-#~ "seçmenize karşın gösterilen saat doğru değilse, kurulan sistem tekrar "
-#~ "başlatıldıktan sonra saati ayarlayabilirsiniz."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Yükleme Türü: ${INSTALLTYPE}\n"
-#~ " Sürücüler:\n"
-#~ "     Ek Grafik Sürücüsü: ${VIDEO_DRIVER}\n"
-#~ "         TV-Çıkışı: ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Ek Servisler:\n"
-#~ "     VNC (Uzak Masaüstü): ${EN_VNC}\n"
-#~ "     SSH (Güvenli Komut İstemi): ${EN_OPENSSH}\n"
-#~ "     Samba (Windows Ağ Hizmetleri): ${EN_SAMBA}\n"
-#~ "     NFS (Ağ Dosya Sistemi): ${EN_NFS}\n"
-#~ "     MythTV Servisi: ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Yükleme Soruları:\n"
-#~ "     Dil: ${LANGUAGE}\n"
-#~ "     Klavye Düzeni: ${KEYMAP}\n"
-#~ "     Tam Ad: ${FULLNAME}\n"
-#~ "     Kullanıcı Adı: ${USERNAME}\n"
-#~ "     Konum: ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "Ek Sürücüler/Aygıt Yazılımı"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "Görüntü Sürücüsü & Ayarlarını Değiştir"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "Uyarı: TV'nizin desteklediğinden daha yüksek TV standardı belirlemeyin. "
-#~ "KALICI hasar meydana gelebilir."
-
-#~ msgid "Selected city:"
-#~ msgstr "Seçilen şehir:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Zaman dilimi:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Yükleme Türünü Belirtin:"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Mythbuntu için iki yükleme türü mevcuttur:"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Standart Yükleme"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "Standart yükleme, her seçeneği en az kullanıcı etkileşimi ile yükler ve "
-#~ "yapılandırır. Bu; altyapı, üstyapı, tüm eklentiler ve tüm temaları "
-#~ "yükleyecektir."
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Gelişmiş Yükleme"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "Mythbuntu kurulumunu özelleştirmek için gelişmiş kurulum seçeneği "
-#~ "seçilebilir. Not: Varolan MythTV temelli ağa Mythbuntu makinesi eklemek "
-#~ "için gelişmiş kurulum seçeneği seçilmelidir."
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "Önuç / Arkauç Eklentilerini Seçin"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "Eklentiler MythTV'nin geciktirme özellikli bir TV sisteminden daha "
-#~ "fazlasını yapabilmesini sağlar."
-
-#~ msgid "Backend Plugins"
-#~ msgstr "Arkauç Eklentileri"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "Üstyapı eklentileri"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth Web"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb, yayın akışlarını görüntüleyebileceğiniz, belirli programları "
-#~ "kayıt için işaretleyebileceğiniz, varolan kayıtları silebileceğiniz ve "
-#~ "program arayabileceğiniz bir arayüz sunar."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth Arşiv"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Myth Tarayıcı"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Myth Kontroller"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Myth Filmleri"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Myth Galeri"
-
-#~ msgid "Myth Game"
-#~ msgstr "Myth Oyun"
-
-#~ msgid "Myth Music"
-#~ msgstr "Myth Müzik"
-
-#~ msgid "Myth News"
-#~ msgstr "Myth Haber"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Myth Telefon"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Myth Akışı"
-
-#~ msgid "Myth Video"
-#~ msgstr "Myth Görüntü"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Myth Hava Durumu"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "MythTV Ağınızdaki içerikle DVD yaratabilmenize yarayan bir MythTV "
-#~ "eklentisi."
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you view movie trailers from apple.com."
-#~ msgstr ""
-#~ "apple.com'dan film fragmanlarını izlemenizi sağlayan bir MythTV eklentisi."
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "MythTV sisteminiz için bütünleşik web tarayıcı eklentisi."
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "Myth TV İçin harici kontroller.Bu sizin tuş görevlerini düzenlemenizi "
-#~ "sağlar."
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "Yakınlardaki sinemalarda gösterimde olan filmleri bul"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "Netflix DVD kiralama kuyruğunuzu görmenizi sağlar."
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr "Resim dosyaları içeren dizine göz atmanızı sağlar."
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr ""
-#~ "Linux üzerinde çalışan herhangi bir emulatör veya çalıştırılabilir "
-#~ "dosyayı başlatmak için arayüz"
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "MythTV ile entegre çalışan bir dijital muzik kutusu sağlar"
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr ""
-#~ "MythTV için en sevilen haber konularınızı güncel tutan bir RSS haber "
-#~ "okuyucu eklentisi"
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr ""
-#~ "MythTV'de standart SIP protokolünü kullanan bir telefon ve görüntülü "
-#~ "telefon kapasitesi"
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "Akıcı internet radyo istasyonlarını dinleme yöntemi sağlar."
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "Harici bir oynatıcı kullanarak, MythTV arabirimi içerisindeki video "
-#~ "akışlarına göz atmanıza ve oynatmanıza izin verir."
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "MythTV içerisinde güncel ve tahmini hava durumunu gösterir."
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "Fazladan Tema Seç"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr ""
-#~ "Temalar bir MythTV kurulumunun estetik begenilirliğini iyice artırır, ve "
-#~ "sizin zevkinize çok daha uygun olarak segiler."
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "Hepsini  Seçilir/Seçilemez Kıl"

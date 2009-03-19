@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-02-03 15:18+0000\n"
+"PO-Revision-Date: 2009-03-10 10:32+0000\n"
 "Last-Translator: Kumar Appaiah <Unknown>\n"
-"Language-Team: Tamil\n"
+"Language-Team: Hindi <debian-in-workers@lists.alioth.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:58+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -306,10 +306,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "आप लॉग इन करने के लिए किस नाम का प्रयोग करना चाहते है?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -380,26 +378,20 @@ msgstr "छोड़े"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "संस्थापना सम्पन्न।"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "आगे बढ़ें"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "पुनः चालू करें।"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -620,19 +612,11 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"संस्थापना पूरा हो चुका है। नई संस्थापना का इस्तेमाल करने के लिए आपको कम्प्यूटर फिर से चालू "
-"करना होगा। इस जीवंत सीडी का इस्तेमाल आप जारी रख सकते हैं, मगर जो परिवर्तन आप करेंगे या "
-"दस्तावेज़ सहेजेंगे, वे सुरक्षित सहेजे नहीं जाऐंगे।"
 
 #. Type: text
 #. Description
@@ -1050,10 +1034,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Type"
-msgstr "संस्थापना सम्पन्न।"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1266,31 +1248,3 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Selected region:"
-#~ msgstr "चुना गया क्षेत्र:"
-
-#~ msgid "Current time:"
-#~ msgstr "अभी का समय"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr "एक ही पासर्वड दो बार एन्टर करे,ताकि लिखने में हुई त्रुटियों कि जाँच की जा सके।"
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "लाइव सीडी के साथ जारी रखें"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "अपने देश एवं समय क्षेत्र के चुनाव करे। अगर दृश्य समय ग़लत है तो इसे आप संस्थापना के बाद भी "
-#~ "बदल सकते है।"
-
-#~ msgid "Selected city:"
-#~ msgstr "चुना गया शहर:"
-
-#~ msgid "Time zone:"
-#~ msgstr "समय क्षेत्र:"

@@ -7,38 +7,39 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-01-10 00:59+0000\n"
-"Last-Translator: Esko Arajärvi <Unknown>\n"
+"PO-Revision-Date: 2009-03-10 17:53+0000\n"
+"Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "Käytä suurinta yhtenäistä vapaata tilaa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the entire disk"
-msgstr ""
+msgstr "Käytä koko levyä"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Install them side by side, choosing between them each startup"
 msgstr ""
+"Asenna rinnakkain, valitsemismahdollisuus jokaisella käynnistyskerralla"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "Määritä osiot käsin (edistyneille)"
 
 #. Type: text
 #. Description
@@ -125,19 +126,19 @@ msgstr "Mikä on sijaintisi?"
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Select your time zone from the map, or by region and city."
-msgstr ""
+msgstr "Valitse aikavyöhykkeesi kartalta tai alueen ja kaupungin mukaan."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "City:"
-msgstr ""
+msgstr "Kaupunki:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Region:"
-msgstr ""
+msgstr "Alue:"
 
 #. Type: text
 #. Description
@@ -162,13 +163,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Suggested option:"
-msgstr ""
+msgstr "Ehdotettu valinta:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your own:"
-msgstr ""
+msgstr "Valitse oma:"
 
 #. Type: text
 #. Description
@@ -219,6 +220,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Syötä sama salasana kahdesti, jotta mahdolliset kirjoitusvirheet huomataan. "
+"Hyvä salasana muodostuu kirjainten, numeroiden ja erikoismerkkien "
+"sekoituksesta, on vähintään kahdeksanmerkkinen, ja vaihdetaan säännöllisesti."
 
 #. Type: text
 #. Description
@@ -244,13 +248,13 @@ msgstr "Kirjaudu sisään automaattisesti"
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Require a password to log in"
-msgstr ""
+msgstr "Vaadi salasana kirjauduttaessa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Require a password to log in and to decrypt your home folder"
-msgstr ""
+msgstr "Vaadi salasana kirjauduttaessa ja kotikansion salauksen purkamiseen"
 
 #. Type: text
 #. Description
@@ -294,27 +298,25 @@ msgstr "Kuinka haluat osioida levyn?"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "Tällä tietokoneella ei ole käyttöjärjestelmiä."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "Tässä tietokoneessa on asennettuna ${OS}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "Tässä tietokoneessa on useita käyttöjärjestelmiä asennettuna."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Mitä nimeä haluat käyttää kirjautuaksesi koneelle?"
+msgstr "Mihin ${RELEASE} sijoitetaan?"
 
 #. Type: text
 #. Description
@@ -385,26 +387,20 @@ msgstr "Ohita"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
 msgstr "Asennus on valmis"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Jatka"
+msgstr "Jatka testaamista"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Uudelleenkäynnistä nyt"
+msgstr "Käynnistä uudelleen nyt"
 
 #. Type: text
 #. Description
@@ -631,19 +627,13 @@ msgstr "Portti:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Asennus on valmis. Tietokone täytyy käynnistää uudelleen, jotta uutta "
-"asennusta käytettäisiin. Voit myös jatkaa tämän Ubuntu-CD:n käyttöä, mutta "
-"mitkään tekemäsi muutokset tai tallentamasi asiakirjat eivät säily."
+"Asennus on valmis. Voit jatkaa Ubuntun testaamista, mutta ennen tietokoneen "
+"käynnistämistä uudelleen tekemäsi muutokset ja asiakirjat tulevat häviämään."
 
 #. Type: text
 #. Description
@@ -1005,7 +995,7 @@ msgstr "Poistettaessa paketteja tapahtui virhe:"
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Lasketaan tiedostoja joiden kopiointi ohitetaan..."
 
 #. Type: title
 #. Description
@@ -1076,15 +1066,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1097,21 +1078,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Asennustapa: ${INSTALLTYPE}\n"
 " Kieli: ${LANGUAGE}\n"
 " Näppäimistön asettelu: ${KEYMAP}\n"
 " Nimi: ${FULLNAME}\n"
 " Kirjautumisnimi: ${USERNAME}\n"
 " Sijainti: ${LOCATION}\n"
-" Siirtoapulainen:\n"
-" ${MIGRATE}"
+" IR-ohjain: ${REMOTE}\n"
+" IR-lähetin: ${TRANSMITTER}\n"
+" Näytönohjainajuri: ${VIDEO_DRIVER}\n"
+" Palvelut: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Edistynyt asennuksen tyyppi"
+msgstr "Asennustapa"
 
 #. Type: text
 #. Description
@@ -1210,7 +1192,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Näytönohjainajurit"
 
 #. Type: text
 #. Description
@@ -1352,261 +1334,3 @@ msgstr "Tehdään palveluiden asetuksia..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Määritetään infrapunalaitteita..."
-
-#~ msgid "Selected region:"
-#~ msgstr "Valittu alue:"
-
-#~ msgid "Current time:"
-#~ msgstr "Aika nyt:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr ""
-#~ "Syötä sama salasana kahdesti, jotta mahdolliset kirjoitusvirheet "
-#~ "huomataan."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Jatka esittely-CD:n käyttämistä"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Valitse kaupunki maastasi ja aikavyöhykkeeltäsi. Jos ilmoitettu aika on "
-#~ "väärin myös oikean aikavyöhykkeen valitsemisen jälkeen, voit muuttaa sitä "
-#~ "sen jälkeen kun olet käynnistänyt tietokoneen asennettuun järjestelmään."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Asennustyyppi: ${INSTALLTYPE}\n"
-#~ " Ajurit:\n"
-#~ "     Lisänäytönohj.ajuri: ${VIDEO_DRIVER}\n"
-#~ "         TV-Out: ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Lisäpalvelut:\n"
-#~ "     VNC: ${EN_VNC}\n"
-#~ "     SSH: ${EN_OPENSSH}\n"
-#~ "     Samba: ${EN_SAMBA}\n"
-#~ "     NFS: ${EN_NFS}\n"
-#~ "     MythTV-palvelu: ${EN_MYSQL}\n"
-#~ " Tavalliset Ubuntun asennuskysymykset:\n"
-#~ "     Kieli: ${LANGUAGE}\n"
-#~ "     Näppäimistöasettelu: ${KEYMAP}\n"
-#~ "     Koko nimi: ${FULLNAME}\n"
-#~ "     Kirjautumisnimi: ${USERNAME}\n"
-#~ "     Sijainti: ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "Lisäajurit/laiteohjelmistot"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "Muuta näytönohjainajuria ja asetuksia"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "Varoitus: Älä aseta TV-standardia korkeammaksi kuin mitä TV-laitteesi "
-#~ "tukee. PYSYVÄÄ vahinkoa voi tapahtua."
-
-#~ msgid "Selected city:"
-#~ msgstr "Valittu kaupunki:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Aikavyöhyke:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Minkä tyyppinen asennus?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Mythbuntun asentamiseen on tarjolla kaksi asennustapaa:"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Tavallinen asennus"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "Tavallinen asennus asentaa ja määrittelee kaikki valinnat minimaalisella "
-#~ "kysymysmäärällä. Tämä asentaa taustaosa, edustaosan, kaikki liitännäiset "
-#~ "ja kaikki teemat."
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Edistynyt asennus"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "Edistynyttä asennusta voidaan käyttää Mythbuntu-asennuksen "
-#~ "mukauttamiseen. Huom: Edistynyt asennus on tarpeen lisättäessä Mythbuntu-"
-#~ "konetta olemassa olevaan MythTV-pohjaiseen verkkoon."
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "Valitse edustakone/taustakoneliitännäiset"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "Liitännäisiä voidaan käyttää MythTV:n toiminnallisuuden lisäämiseksi "
-#~ "muihinkin tarkoituksiin kuin aikasiirtoratkaisuihin"
-
-#~ msgid "Backend Plugins"
-#~ msgstr "Taustakoneliitännäiset"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "Edustakoneliitännäiset"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth-web"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb tarjoaa WWW-käyttöliittymän, jolla voidaan katsoa ohjelmatietoja, "
-#~ "ajastaa nauhoituksia, poistaa nauhoituksia ja etsiä ohjelmia."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth-arkisto"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Myth-selain"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Myth-ohjaus"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Myth-elokuvat"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Myth-galleria"
-
-#~ msgid "Myth Game"
-#~ msgstr "Myth-pelit"
-
-#~ msgid "Myth Music"
-#~ msgstr "Myth-musiikki"
-
-#~ msgid "Myth News"
-#~ msgstr "Myth-uutiset"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Myth-puhelin"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Myth-virta"
-
-#~ msgid "Myth Video"
-#~ msgstr "Myth-video"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Myth-sää"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "MythTV-liitännäinen jolla voidaan luoda MythTV-verkossa olevasta "
-#~ "sisällöstä DVD-levyjä."
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you view movie trailers from apple.com."
-#~ msgstr ""
-#~ "MythTV-liitännäinen, jolla voidaan katsoa elokuvatrailereita osoitteesta "
-#~ "apple.com."
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "Integroitu WWW-selainliitännäinen MythTV-järjestelmään."
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "Ulkoinen MythTV-ohjaus. Tämä mahdollistaa näppäinkarttojen ja "
-#~ "pikanäppäinten muuttamisen."
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "Paikallisissa elokuvateattereissa esitettävien elokuvien löytäminen"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "Mahdollistaa Netflix-DVD-vuokrajonon seuraamisen"
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr ""
-#~ "Mahdollistaa kuvatiedostoja sisältävän hakemistopuun selaamisen "
-#~ "visuaalisesti."
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr ""
-#~ "Edustaohjelma minkä tahansa emulaattorin tai Linux-ohjelman "
-#~ "suorittamiseksi."
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "Tarjoaa digitaalisen MythTV:seen integroidun musiikkijukeboxin."
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr ""
-#~ "RSS-syötelukijaliitännäinen joka pitää MythTV:n ajan tasalla halutuista "
-#~ "uutisaiheista."
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr ""
-#~ "Puhelin ja videopuhelin MythTV:ssä käyttäen standardia SIP-"
-#~ "yhteyskäytäntöä."
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "Tarjoaa tavan kuunnella Internetin radioasemia."
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "Mahdollistaa videovirtojen selaamisen ja toistamisen käyttäen ulkoista "
-#~ "soitinta, MythTV-käyttöliittymällä."
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "Näyttää nykyisen ja ennustetun sään MythTV:ssä."
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "Valitse lisäteemoja"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr ""
-#~ "Teemat voivat parantaa MythTV-asennuksen esteettistä vaikutelmaa "
-#~ "huomattavasti, ja mukauttaa ulkoasua henkilökohtaiseen makuun paremmin "
-#~ "sopivaksi."
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "Käytä / poista käytöstä kaikki"

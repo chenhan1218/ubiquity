@@ -88,6 +88,7 @@ class UserSetup(FilteredCommand):
                 self.preseed(question, 'false')
                 self.succeeded = False
                 self.done = False
+                self.frontend.select_password()
             return True
 
         return FilteredCommand.run(self, priority, question)

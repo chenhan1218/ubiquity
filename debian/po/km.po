@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-02-04 09:50+0000\n"
-"Last-Translator: Chanrithy Thim <Unknown>\n"
+"PO-Revision-Date: 2009-03-10 10:36+0000\n"
+"Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:59+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -304,10 +304,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "តើ​អ្នក​ចង់​ប្រើ​ឈ្មោះ​អ្វី​សម្រាប់​ចូល​?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -378,26 +376,20 @@ msgstr "រំលង"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "ការ​ដំឡើង​ជោគជ័យ"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "បន្ត"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "ចាប់​ផ្តើម​ឡើង​វិញឥឡូវ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -622,18 +614,11 @@ msgstr "ច្រក ៖"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"ការ​ដំឡើង​បាន​ជោគជ័យ ។ អ្នក​ត្រូវ​ចាប់​ផ្តើម​កុំព្យូទ័រ​ឡើង​វិញ​ក្នុង​ការ​រៀប​ចំ​ប្រើ​ការ​ដំឡើង​ថ្មី ។ អ្នក​អាច​បន្ត​"
-"ប្រើ live CD, ទោះ​បី​ជា​អ្នក​បង្កើត​ការ​ផ្លាស់​ប្ដូរ ឬឯកសារ​ដែល​អ្នក​រក្សារ​ទុក្ខ​នឹង​មិន​បាន​ការ​ពារឡើយ ។"
 
 #. Type: text
 #. Description
@@ -1046,15 +1031,6 @@ msgstr "ប្រសិន​បើ​អ្នក​ចង់​ត្រឡប
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1067,21 +1043,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" ភាសា ៖ ${LANGUAGE}\n"
-" ប្លង់​ក្ដារ​ចុច ៖ ${KEYMAP}\n"
-" ឈ្មោះ ៖ ${FULLNAME}\n"
-" ឈ្មោះចូល ៖ ${USERNAME}\n"
-" ទីតាំង ៖ ${LOCATION}\n"
-" ជំនួយ​ការ​ទេសន្ដរប្រវេសន៍ ៖\n"
-" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "ការ​ដំឡើង​ប្រភេទ​ខ្ពស់"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1315,242 +1282,3 @@ msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​ឧបករណ៍ infrared..."
-
-#~ msgid "Selected region:"
-#~ msgstr "តំបន់​ដែល​បាន​ជ្រើស ៖"
-
-#~ msgid "Current time:"
-#~ msgstr "ពេល​បច្ចុប្បន្ន ៖"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr "បញ្ចូល​ពាក្យ​សម្ងាត់​ដូច​គ្នា​ពីរ​ដង, ដូច្នេះ​វា​អាច​ពិនិត្យ​កំហុស​របស់​ការ​វាយ ។"
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "បន្ត​ប្រើ live CD"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "ជ្រើស​ទី​ក្រុង​ក្នុង​ប្រទេស និង​តំបន់​ពេល​វេលា​របស់​អ្នក ។ ប្រសិន​បើពេល​ចង្អុល​មិន​ត្រឹម​ត្រូវបន្ទាប់​ពី​ការ​ជ្រើស​"
-#~ "រើស​តម្រូវ​តំបន់​ពេល​វេលា, អ្នក​អាច​ផ្លាស់​ប្តូរ​វា​បន្ទាប់​ពី​កុំព្យូទ័រ​ឡើង​វិញ​នៅ​ពេល​ដំឡើង​ប្រព័ន្ធ​រួច​រាល់ ។"
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " ប្រភេទ​ដំឡើង ${INSTALLTYPE}\n"
-#~ " កម្មវិធី ៖\n"
-#~ "    Add. Video Driver: ${VIDEO_DRIVER}\n"
-#~ "         TV-Out: ${TVOUT}, ${TVSTANDARD}\n"
-#~ " សេវា​បន្ថែម ៖\n"
-#~ "     VNC ៖ ${EN_VNC}\n"
-#~ "     SSH ៖ ${EN_OPENSSH}\n"
-#~ "     Samba ៖ ${EN_SAMBA}\n"
-#~ "     NFS ៖ ${EN_NFS}\n"
-#~ "     MythTV Service ៖ ${EN_MYSQL}\n"
-#~ " សំណួរ​ដំឡើង​អូប៊ុនទូ​ធម្មតា ៖\n"
-#~ "     ភាសា ៖ ${LANGUAGE}\n"
-#~ "     ប្លង់​ក្ដារ​ចុច ៖ ${KEYMAP}\n"
-#~ "     ឈ្មោះ​ពេញ ${FULLNAME}\n"
-#~ "     ឈ្មោះ​ចូល ៖ ${USERNAME}\n"
-#~ "     ទីកន្លែង ៖ ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "កម្មវិធី​បញ្ជា/Firmware បន្ថែម"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "កែសម្រួល​ការកំណត់ និង កម្មវិធី​បញ្ជា​វិដេអូ"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "ប្រមាន ៖ មិន​ត្រូវ​កំណត់​ខ្នាត​គំរូរ TV ទៅ​វត្ថុ​ដែល​ខ្ពស់​ជាង​អ្វី​ដែល TV របស់​អ្នក​គាំទ្រ​នោះ​ទេ ។ ការ​ខូច​"
-#~ "ខាត​នឹង​អាច​កើត​មាន​ជានិច្ច ។"
-
-#~ msgid "Selected city:"
-#~ msgstr "ទីក្រុង​ដែល​បាន​ជ្រើស ៖"
-
-#~ msgid "Time zone:"
-#~ msgstr "តំបន់​ពេល​វេលា ៖"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "ការ​ដំឡើង​ប្រភេទ​អ្វី ?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "ការ​ដំឡើង​របស់​ម៉ាត់​ប៊ុនទូ​មាន​ពីរ​ប្រភេទ ៖"
-
-#~ msgid "Standard Installation"
-#~ msgstr "ការ​ដំឡើង​ខ្នាត​គំរូ"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "ការ​ដំឡើង​ខ្នាត​គំរូ​នឹង​ដំឡើង​ និង​កំណត់​រាល់​ជម្រើស​ជា​មួយ​អន្តរអំពើ​របស់​អ្នកប្រើ​អប្បបរមា ។ វា​នឹង​ដំឡើង​ "
-#~ "កម្មវិធី​ខាងក្រោយ, កម្មវិធី​ខាង​មុខ, គ្រប់​កម្មវិធី​ជំនួយ​ក្នុង, និង​គ្រប់​ស្បែក​ទាំង​អស់ ។"
-
-#~ msgid "Advanced Installation"
-#~ msgstr "ការ​ដំឡើង​កម្រឹត​ខ្ពស់"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "ការ​ដំឡើង​កម្រិត​ខ្ពស់ អាច​ត្រូវបាន​ប្រើ​ដើម្បី​ប្ដូរ​នូវ​អ្វី​ដែល​ត្រូវការ​សម្រាប់​ការ​ដំឡើង Mythbuntu នេះ "
-#~ "។ ចំណាំ ៖ ការ​ដំឡើង​កម្រិត​ខ្ពស់ គឺ​មាន​សារៈសំខាន់​ក្នុងការ​បន្ថែម​ម៉ាស៊ីន Mythbuntu ទៅ​បណ្ដាញ​"
-#~ "មូលដ្ឋាន MythTV ដែល​មាន​ស្រាប់ ។"
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "ជ្រើស​កម្មវិធី​ជំនួយ ផ្នែក​ខាង​មុខ / ផ្នែក​ខាង​ក្រោយ"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "កម្មវិធី​ជំនួយ អាច​ត្រូវបាន​ប្រើ​ដើម្បី​បន្ថែមមុខងារ MythTV ក្រៅ​ពី​ពេល​ប្ដូរ​គុណភាព​បង្ហាញ​របស់​ទូរទស្សន៍ ។"
-
-#~ msgid "Backend Plugins"
-#~ msgstr "កម្មវិធី​ជំនួយ​ផ្នែក​ខាង​ក្រោយ"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "កម្មវិធី​ជំនួយ​ផ្នែក​ខាង​មុខ"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth Web"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb ផ្ដល់​នូវ​ចំណុចប្រទាក់​បណ្ដាញ ដែល​អាច​ប្រើ​ដើម្បី​មើល​បញ្ជី កំណត់ត្រាតារាង​ពេលវេលា លុប​"
-#~ "កំណត់ត្រា និង​ស្វែងរក​កម្មវិធី ។"
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth Archive"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Myth Browser"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Myth Controls"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Myth Movies"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Myth Gallery"
-
-#~ msgid "Myth Game"
-#~ msgstr "Myth Game"
-
-#~ msgid "Myth Music"
-#~ msgstr "Myth Music"
-
-#~ msgid "Myth News"
-#~ msgstr "Myth News"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Myth Phone"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Myth Stream"
-
-#~ msgid "Myth Video"
-#~ msgstr "Myth Video"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Myth Weather"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "កម្មវិធី​ជំនួយ​សម្រាប់ MythTV អ្នក​ឲ្យ​អ្នក​បង្កើត​ឌីវីឌី​មក​ពី​មាតិការ​នៅ​លើ​បណ្ដាញ MythTV របស់​អ្នក ។"
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "កម្មវិធី​ជំនួយ​រុករក​បណ្ដាញ​ត្រូវ​បាន​រួម​បញ្ចូល​សម្រាប់​ប្រព័ន្ធ MythTV របស់​អ្នក ។"
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "ឧបករណ៍​គ្រប់គ្រង​ខាងក្រៅ​សម្រាប់ MythTV ។ វា​នឹង​អនុញ្ញាត​ឲ្យ​អ្នក​កែប្រែ​ការ​ផ្គូផ្គង​ប៊ូតុង ជាមួយ​ការ​ចង​"
-#~ "គ្រាប់ចុច ។"
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "ស្វែង​រក​រឿង​ដែល​កំពុង​ចាក់​ក្នុង​រោង​កុន​ក្បែរ​មូលដ្ឋាន"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "អនុញ្ញាត​ឲ្យ​អ្នក​គ្រប់គ្រង​ជួរ​ជួល​ឌីវីឌី Netflix របស់​អ្នក ។"
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr "អនុញ្ញាត​ឲ្យ​អ្នក​រកមើល​មែកធាង​ថត​ដែល​មាន​ឯកសារ​រូបភាព ។"
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr "ផ្នែក​ខាងមុខ ដែល​ត្រូវ​ចាប់ផ្ដើម​កម្មវិធី​ត្រាប់តាម ឬ​គោលពីរ​ដែល​លីនុច​ដំណើរការ ។"
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "ផ្ដល់​នូវ​ធុង​ចាក់​អូឌីយ៉ូ​ឌីជីថល (jukebox) ដែល​រួមបញ្ចូល​ជាមួយ MythTV ។"
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr ""
-#~ "កម្មវិធី​ជំនួយ​សម្រាប់​កម្មវិធី​អាន​មតិព័ត៌មាន RSS  សម្រាប់ MythTV ដែល​ធ្វើ​ឲ្យ​អ្នក​ទទួល​បាន​នូវ​ព័ត៌មាន​ថ្មីៗ​"
-#~ "ជាប់ជានិច្ច ។"
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr "ទូរស័ព្ទ​និង​ទូរស័ព្ទ​វិដេអូ​អាច​ដំណើរ​ការ​បាន​នៅ​លើ MythTV ដោយ​ប្រើ​ខ្នាត​គំរូ​ពិធីការ SIP ។"
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "ផ្ដល់​នូវ​វិធីសាស្ដ្រ​ក្នុង​ការ​ស្ដាប់​ស្ថានីយ៍​វិទ្យុ​នៅ​លើ​អ៊ីន​ធឺណិត ។"
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "អនុញ្ញាត​ឲ្យ​អ្នក​ស្វែង​រក​និង​ចាក់​វីដេអូ, ដោយ​ប្រើ​ឧបករណ៍​ចាក់​ខាង​ក្រៅ, ដោយ​មក​ជា​មួយ​ចំនុច​ប្រទាក់​អ្នក​ប្រើ "
-#~ "MythTV ។"
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "បង្ហាញ​នូវ​ព័ត៌មាន​បច្ចុប្បន្ន​អំពី​ការ​ព្យាករណ៍​អាកាសធាតុ​ជា​មួយ MythTV ។"
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "ជ្រើស​ស្បែក​ផ្សេង​ទៀត"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr ""
-#~ "ស្បែក អាច​បង្កើន​ការ​រចនា​យ៉ាង​អស្ចារ្យ​នៃ​ការ​ដំឡើង MythTV និង​បង្ហាញ​វា ដើម្បី​តម្រូវ​ឲ្យ​កាន់តែ​មាន​"
-#~ "សោភ័ណ្ឌភាព​ស្រស់ស្អាត ។"
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "បើក/បិទ ទាំង​អស់"

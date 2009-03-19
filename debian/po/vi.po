@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-01-21 13:22+0000\n"
-"Last-Translator: bautroibaola <bautroibaola@gmail.com>\n"
+"PO-Revision-Date: 2009-03-10 10:46+0000\n"
+"Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:57+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -314,10 +314,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Bạn muốn sử dụng tên gì để đăng nhập?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -388,26 +386,20 @@ msgstr "Bỏ qua"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Quá trình cài đặt đã hoàn tất"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Tiếp tục"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Khởi động lại ngay"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -634,19 +626,11 @@ msgstr "Cổng:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Quá trình cài đặt đã hoàn tất. Bạn cần khởi động lại máy để có thể dùng bản "
-"cài đặt mới. Bạn có thể tiếp tục sử dụng live CD này, mặc dù các thay đổi mà "
-"bạn đã thực hiện hay các tài liệu bạn đã lưu sẽ không được lưu giữ."
 
 #. Type: text
 #. Description
@@ -1072,15 +1056,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1093,21 +1068,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" Ngôn ngữ: ${LANGUAGE}\n"
-" Cách sắp xếp bàn phím: ${KEYMAP}\n"
-" Tên: ${FULLNAME}\n"
-" Tên đăng nhập: ${USERNAME}\n"
-" Vị trí : ${LOCATION}\n"
-" Trợ lý di cư:\n"
-" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Kiểu cài đặt chuyên sâu"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1345,253 +1311,3 @@ msgstr "Đang cấu hình các dịch vụ tăng thêm..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Cấu hình các thiết bị hồng ngoại..."
-
-#~ msgid "Selected region:"
-#~ msgstr "Khu vực được chọn:"
-
-#~ msgid "Current time:"
-#~ msgstr "Thời gian hiện tại:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr "Hãy nhập lại mật khẩu để chắc chắn bạn không đánh sai."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Tiếp tục sử dụng live CD"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Chọn một thành phố và múi giờ tại nơi bạn đang ở. Nếu giờ hiện tại không "
-#~ "đúng sau khi bạn đã chỉnh múi giờ, bạn có thể chỉnh lại nó sau khi khởi "
-#~ "động vào hệ thống đã được cài đặt."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Kiểu cài đặt:           ${INSTALLTYPE}\n"
-#~ " Các trình điều khiển:\n"
-#~ "     Thêm. Trình diều khiển video:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Những dịch vụ bổ sung:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Các thông tin căn bản:\n"
-#~ "     Ngôn ngữ:           ${LANGUAGE}\n"
-#~ "     Trình tự sắp xếp của bàn phím:    ${KEYMAP}\n"
-#~ "     Tên thật:       ${FULLNAME}\n"
-#~ "     Tên đăng nhập: ${USERNAME}\n"
-#~ "     Vị trí:           ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "Các trình điều khiển (Drivers)/Kiên liệu (Firmware)"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "Hiệu chỉnhVideo Driver & Các thiết lập"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "Cảnh báo: Không chỉnh chuẩn TV thành chuẩn khác với các tiêu chuẩn mà TV "
-#~ "của bạn hỗ trợ. Hư hỏng VĨNH VIỄN có thể xảy ra."
-
-#~ msgid "Selected city:"
-#~ msgstr "Thành phố đã chọn"
-
-#~ msgid "Time zone:"
-#~ msgstr "Múi giờ:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Chọn kiểu cài đặt"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Có hai kiểu cài đặt cho Mythbuntu:"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Cài đặt chuẩn"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "Kiểu cài đặt chuẩn sẽ cài đặt và cấu hình tất cả các tùy chọn tự động và "
-#~ "hạn chế hỏi người dùng. Kiểu này sẽ cài đặt 2 chiều tiến trình, tất cả "
-#~ "phụ kiện và tất cả các kiểu giao diện."
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Cài đặt nâng cao"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "Cài đặt nâng cao sử dụng để tuỳ chỉnh cần thiết để cài đặt Mythbuntu. LƯU "
-#~ "Ý: Bạn phải sử dụng cài đặt nâng cao để thêm một máy Mythbuntu vào mạng "
-#~ "MythTV đã có."
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "Chọn các phụ kiện cho Máy chạy nền/Giao diện"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr "Các phụ kiện được sử dụng để mở rộng chức năng của MythTV."
-
-#~ msgid "Backend Plugins"
-#~ msgstr "Phụ kiện cho máy chạy nền"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "Phụ kiện cho giao diện"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth Web"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb cung cấp một giao diện web, sử dụng để xem danh sách, hẹn giờ "
-#~ "ghi, xoá bản ghi, và tìm kiếm chương trình."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth Lưu trữ"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Myth Trình duyệt"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Myth Điều khiển"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Myth Phim"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Myth Thư viện ảnh"
-
-#~ msgid "Myth Game"
-#~ msgstr "Myth Trò chơi"
-
-#~ msgid "Myth Music"
-#~ msgstr "Myth Âm nhạc"
-
-#~ msgid "Myth News"
-#~ msgstr "Myth Tin tức"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Myth Điện thoại"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Myth Phát sóng"
-
-#~ msgid "Myth Video"
-#~ msgstr "Myth Video"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Myth Thời tiết"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr "Một phụ kiện cho MythTV cho phép bạn tạo DVD từ Mạng MythTV."
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you view movie trailers from apple.com."
-#~ msgstr ""
-#~ "Cài đặt thêm plugin MythTV để bạn xem các bản giới thiệu phim (trailers) "
-#~ "từ apple.com"
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr ""
-#~ "Một phụ kiện hoạt động như trình duyệt web tích hợp trên hệ thống MythTV "
-#~ "của bạn."
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "Điều khiển ngoài cho MythTV. Cái này cho phép bạn thay đổi các chức năng "
-#~ "của điều khiển ngoài."
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "Tìm các phim đang chiếu tại các rạp chiếu phim gần nhà"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "Cho phép theo dõi vé thuê DVD Netflix của bạn."
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr "Cho phép bạn một duyệt cây thư mục chứa ảnh."
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr ""
-#~ "Một frontend để khởi động thiết bị mô phỏng hoặc nhị phân để chạy Linux."
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "Cung cấp một kênh âm thanh số jukebox kết hợp với MythTV"
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr ""
-#~ "Một plugin RSS đọc tin tức cho MythTV giúp bạn cập nhật các tiêu đề tin "
-#~ "tức yêu thích của mình."
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr ""
-#~ "Khả năng gọi điện thoại và điện thoại video trên MythTV dùng cổng SIP "
-#~ "chuẩn"
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "Cung cấp phương thức thể nghe radio từ internet"
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "Cho phép bạn duyệt và xem video, sử dụng trình chơi ở ngoài ngay tại giao "
-#~ "diện của MythTV"
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "Hiển thị thông tin tỉ giá và dự báo thời tiết trong MythTV"
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "Chọn Theme"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr ""
-#~ "Các Theme có thể giúp cải thiện nhiều về tính thẩm mỹ của trình cài đặt "
-#~ "MythTV, và hiển thị hợp với thị hiếu của bạn hơn."
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "Cho phép/Cấm tất cả"

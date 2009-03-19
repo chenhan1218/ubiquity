@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-02-03 15:00+0000\n"
+"PO-Revision-Date: 2009-03-10 10:32+0000\n"
 "Last-Translator: Kartik Mistry <Unknown>\n"
 "Language-Team: Gujarati <team@utkarsh.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:58+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -306,10 +306,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "તમે અંદર પ્રવેશ મેળવવા (લોગઇન કરવા) ક્યુ નામ વાપરવા માગો છો?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -380,26 +378,20 @@ msgstr "છોડી દો"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "સ્થાપન સફળ થયું"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "ચાલુ રાખો"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "હવે કોમ્પ્યુટર ફરી શરુ કરો"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -625,18 +617,11 @@ msgstr "પોર્ટ:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"સ્થાપન સંપન્ન થયુ. નવુ સ્થાપન વાપરવા માટે તમારે કોમ્પ્યુટર ફરી શરૂ કરવાની જરૂર છે. તમે હજી "
-"પણ લાઇવ સીડી વાપરી શકો છો, પણ તેમાં તમે કરેલા કોઇપણ બદલાવ જાળવી શકાશે નહી."
 
 #. Type: text
 #. Description
@@ -1039,15 +1024,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1060,21 +1036,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" ભાષા: ${LANGUAGE}\n"
-" કીબોર્ડ લેઆઉટ (રચના): ${KEYMAP}\n"
-" નામ: ${FULLNAME}\n"
-" પ્રવેશહેતુ નામ: ${USERNAME}\n"
-" સ્થાન: ${LOCATION}\n"
-" સ્થાનાન્તરણ સહાયક:\n"
-" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Type"
-msgstr "સ્થાપન સફળ થયું"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1287,32 +1254,3 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Selected region:"
-#~ msgstr "પસંદ કરેલુ ક્ષેત્રઃ"
-
-#~ msgid "Current time:"
-#~ msgstr "હાલનો સમય:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr "એજ પાસવર્ડ બે વાર નાખો, જેથી તેને ભૂલો માટે ચકાસી શકાય."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "લાઇવ સીડી વાપરવાનું શરૂ રાખો"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "તમારૂ શહેર અને ટાઈમ ઝોન પસંદ કરો. જો સાચો ટાઈમ ઝોન પસંદ કર્યા બાદ પણ દર્શાવાતો "
-#~ "હાલનો સમય ખોટો હોય, તો તમે કોમ્પ્યુટર ફરી શરૂ કર્યા બાદ સ્થાપિત સિસ્ટમમાં તેને બદલી "
-#~ "શકો છો."
-
-#~ msgid "Selected city:"
-#~ msgstr "પસંદ કરેલ શહેર"
-
-#~ msgid "Time zone:"
-#~ msgstr "ટાઈમ ઝોન:"

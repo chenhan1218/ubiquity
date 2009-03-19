@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:57+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -299,10 +299,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "ਤੁਸੀਂ ਲੌਗਿਨ ਕਰਣ ਲੲੀ ਕਿਹੜਾ ਨਾਂ ਵਰਤਣਾ ਚਾਂਓਦੇ ਹੋ?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -373,26 +371,20 @@ msgstr "ਛੱਡੋ"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਸਮਾਪਤ ਹੋਈ"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "ਜਾਰੀ ਰੱਖੋ"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "ਹੁਣੇ ਦੋਬਾਰਾ ਸ਼ੁਰੂ ਕਰੋ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -613,19 +605,11 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"ੲਿੰਸਟਾਲੇਸ਼ਨ ਸਮਾਪਤ ਹੋੲੀ । ਤੁਹਾਨੂੰ ਨਵੀਂ ੲਿੰਸਟਾਲੇਸ਼ਨ ਦੀ ਵਰਤੋਂ ਲੲੀ ਕੰਮਪੂਟਰ ਦੋਬਾਰਾ ਸ਼ੁਰੂ ਕਰਨਾ ਪੈਣਾ ਹੈ। "
-"ਤੁਸੀਂ ੲਿਸ ਲਾੲੀਵ ਸੀਡੀ ਨੂੰ ਵਰਤਣਾ ਜਾਰੀ ਰਖ ਸਕਦੇ ਹੋ, ਹਾਲਾਂਕਿ ਤੁਹਾਡੀਅਾਂ ਕੋੲੀ ਵੀ ਤਬਦੀਲੀਅਾਂ ਜਾਂ "
-"ਬਚਾੲੇ ਹੋੲੇ ਦਸਤਾਵੇਜ ਸੰਭਾਲੇ ਨਹੀਂ ਜਾਣਗੇ।"
 
 #. Type: text
 #. Description
@@ -1025,15 +1009,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1046,20 +1021,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" ਭਾਸ਼ਾ: ${LANGUAGE}\n"
-" ਕੀਬੋਰਡ ਤਰਤੀਬ: ${KEYMAP}\n"
-" ਨਾਂ: ${FULLNAME}\n"
-" ਟਿਕਾਣਾ: ${LOCATION} \n"
-" ੳੁਡਾਰੀ ਸਹਾੲਿਕ: \n"
-" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Type"
-msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਸਮਾਪਤ ਹੋਈ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1272,29 +1239,3 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Selected region:"
-#~ msgstr "ਚੁਣਿਅਾ ੲਿਲਾਕਾ:"
-
-#~ msgid "Current time:"
-#~ msgstr "ਮੌਜੂਦਾ ਸਮਾਂ:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr ""
-#~ "ਮੇਲ ਖਾਂਦਾ ਸਫਲਸ਼ਬਦ ਦੋ ਵਾਰ ਦਰਜ ਕਰੋ ਤਾਂਕਿ ੳੁਸਨੂੰ ਟਾੲੀਪ ਗਲਤੀਅਾਂ ਲੲੀ ਪੜਤਾਲਿਅਾ ਜਾ ਸਕੇ।"
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "ਲਾੲੀਵ ਸੀਡੀ ਵਰਤਣੀ ਜਾਰੀ ਰਖੋ"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "7.ਅਾਪਣੇ ਦੇਸ਼ ਅਤੇ ਸਮਾਂ ਖੇਤਰ ਵਿਚੋਂ ਿੲਕ ਸ਼ਹਿਰ ਚੁਣੋਂ । ਜੇ ਸਹੀ ਸਮਾਂ ਖੇਤਰ ਚੁਣਨ ਦੇ ਬਾਵਜੂਦ ਮੌਜੂਦਾ ਸਮਾਂ "
-#~ "ਗਲਤ ਹੈ ਤਾਂ ਤੁਸੀਂ ੲਿੰਸਟਾਲ ਕੀਤੇ ਸਿਸਟਮ ਵਿਚ ਦੋਬਾਰਾ ਸ਼ੁਰੂ ਕਰ ਕੇ ੳੁਸਦਾ ਤਾਲਮੇਲ ਕਰ ਸਕਦੇ ਹੋ।"
-
-#~ msgid "Time zone:"
-#~ msgstr "ਸਮਾਂ ਖੇਤਰ:"

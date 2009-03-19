@@ -7,26 +7,26 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-01-17 02:30+0000\n"
-"Last-Translator: Kentaro Kazuhama <kazken3@gmail.com>\n"
+"PO-Revision-Date: 2009-03-15 10:55+0000\n"
+"Last-Translator: Mitsuya Shibata <mty.shibata@gmail.com>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:43+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "連続する最大の空き領域を使用する"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the entire disk"
-msgstr ""
+msgstr "ディスク全体を使用する"
 
 #. Type: text
 #. Description
@@ -38,7 +38,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "手動でパーティションを設定する（高度な知識が必要です）"
 
 #. Type: text
 #. Description
@@ -126,18 +126,19 @@ msgstr "どこで利用しますか？"
 #: ../ubiquity.templates:14001
 msgid "Select your time zone from the map, or by region and city."
 msgstr ""
+"時刻を設定するために地図上をクリックするか、地域と都市を選択してください。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "City:"
-msgstr ""
+msgstr "都市："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Region:"
-msgstr ""
+msgstr "地域："
 
 #. Type: text
 #. Description
@@ -163,13 +164,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Suggested option:"
-msgstr ""
+msgstr "既定値："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your own:"
-msgstr ""
+msgstr "自分で選択する："
 
 #. Type: text
 #. Description
@@ -222,6 +223,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"入力間違いがないことを確認するために、同じパスワードを二回入力してください。"
+"パスワードは、さまざまな文字や数字、記号が混在し、少なくとも8文字以上であるこ"
+"とが好ましいです。また、定期的に変更するようにしましょう。"
 
 #. Type: text
 #. Description
@@ -249,13 +253,13 @@ msgstr "自動的にログインする"
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Require a password to log in"
-msgstr ""
+msgstr "ログイン時にパスワードを要求する"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Require a password to log in and to decrypt your home folder"
-msgstr ""
+msgstr "ログイン時にパスワードを要求し、ホームフォルダの暗号化解除を行う"
 
 #. Type: text
 #. Description
@@ -300,26 +304,27 @@ msgstr "どのようにディスクを分割しますか？"
 #: ../ubiquity.templates:38001
 msgid "This computer has no operating systems on it."
 msgstr ""
+"このコンピュータ上にはオペレーティングシステムがインストールされていません。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "このコンピュータ上には ${OS} がインストールされています。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "This computer has several operating systems on it."
 msgstr ""
+"このコンピュータ上には複数のオペレーティングシステムがインストールされていま"
+"す。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "ログインに使いたい名前は何ですか？"
+msgstr "どこに ${RELEASE} をインストールしますか？"
 
 #. Type: text
 #. Description
@@ -390,26 +395,20 @@ msgstr "スキップ"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "インストール完了"
+msgstr "インストールが完了しました"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "続ける"
+msgstr "試用を続ける"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "すぐに再起動する"
+msgstr "今すぐ再起動する"
 
 #. Type: text
 #. Description
@@ -636,19 +635,14 @@ msgstr "ポート番号:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"インストールが完了しました。新しくインストールしたシステムを使うには、コン"
-"ピュータを再起動する必要があります。このライブCDを使い続けることもできます"
-"が、変更した内容や保存したドキュメントは残りません。"
+"インストールが完了しました。このままUbuntuの試用を続けることもできますが、一"
+"度コンピュータを再起動しない限り、手動で行った変更や作成したドキュメントはす"
+"べて保存されません。"
 
 #. Type: text
 #. Description
@@ -1082,15 +1076,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1103,21 +1088,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" 言語: ${LANGUAGE}\n"
-" キーボードレイアウト: ${KEYMAP}\n"
-" フルネーム: ${FULLNAME}\n"
-" ログイン名: ${USERNAME}\n"
-" 地域: ${LOCATION}\n"
-" 移行アシスタント:\n"
-" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "詳細なインストールタイプ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1356,249 +1332,3 @@ msgstr "追加サービスの設定をしています・・・"
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "赤外線デバイスを設定しています..."
-
-#~ msgid "Selected region:"
-#~ msgstr "選択された地域:"
-
-#~ msgid "Current time:"
-#~ msgstr "現在時刻:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr ""
-#~ "打ち間違っているといけないので、同じパスワードを2回入力してください。"
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "ライブCDを使い続ける"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "あなたの住んでいる国と時間帯を選択してください。選択した後も表示されている"
-#~ "現在時刻が正しくなければ、再起動後にインストールしたシステムで調整できま"
-#~ "す。"
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " インストールタイプ:　${INSTALLTYPE}\n"
-#~ " ドライバ:\n"
-#~ "     追加ビデオドライバ: ${VIDEO_DRIVER}\n"
-#~ "         テレビ出力: ${TVOUT}, ${TVSTANDARD}\n"
-#~ " 付加的なサービス:\n"
-#~ "     VNC: ${EN_VNC}\n"
-#~ "     SSH: ${EN_OPENSSH}\n"
-#~ "     Samba: ${EN_SAMBA}\n"
-#~ "     NFS: ${EN_NFS}\n"
-#~ "     MythTV サービス: ${EN_MYSQL}\n"
-#~ " 通常の Ubuntu インストール時における質問 :\n"
-#~ "     言語: ${LANGUAGE}\n"
-#~ "     キーボード: ${KEYMAP}\n"
-#~ "     名前: ${FULLNAME}\n"
-#~ "     ログイン名: ${USERNAME}\n"
-#~ "     地域: ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "追加ドライバ／ファームウエア"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "ビデオドライバと設定を変更してください"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "警告：お持ちのTVがサポートしている放送方式より高度な放送方式を選ばないでく"
-#~ "ださい\r\n"
-#~ "TVが破壊されるおそれがあります"
-
-#~ msgid "Selected city:"
-#~ msgstr "選択された都市:"
-
-#~ msgid "Time zone:"
-#~ msgstr "タイムゾーン:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "インストールのタイプをどれにしますか？"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Mythbuntu では、2つのインストール方法を選択できます。"
-
-#~ msgid "Standard Installation"
-#~ msgstr "通常のインストール"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "標準のインストールでは、ユーザーの作業が最小となるよう、全てのオプションが"
-#~ "設定されインストールされます\r\n"
-#~ "このインストールでは、バックエンド、フロントエンド、全てのテーマとプラグイ"
-#~ "ンがインストールされます"
-
-#~ msgid "Advanced Installation"
-#~ msgstr "詳細なインストール設定"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "高度なインストールは、Mythbuntu のインストールにカスタマイズが必要な際に利"
-#~ "用できます\r\n"
-#~ "注意：高度なインストールはMythTVネットワークにMythbuntuマシンを加えるのに"
-#~ "必要です"
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "フロントエンド／バックエンドプラグインの選択"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr "プラグインはMythTVにタイムシフト視聴機能を拡張するために使われます"
-
-#~ msgid "Backend Plugins"
-#~ msgstr "バックエンドプラグイン"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "フロントエンドプラグイン"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth Web"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWebはリスト表示、録画予約、録画の削除、番組の検索を行うためのWebイン"
-#~ "ターフェースです"
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth アーカイブ"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Myth ブラウザ"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Myth コントロール"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Myth 映画"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Myth ギャラリー"
-
-#~ msgid "Myth Game"
-#~ msgstr "Myth ゲーム"
-
-#~ msgid "Myth Music"
-#~ msgstr "Myth ミュージック"
-
-#~ msgid "Myth News"
-#~ msgstr "Myth ニュース"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Myth 電話"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Mythストリーム"
-
-#~ msgid "Myth Video"
-#~ msgstr "Myth ビデオ"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Myth天気情報"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr "MythTVネットワーク上のコンテンツからDVDを作成するためのプラグイン"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you view movie trailers from apple.com."
-#~ msgstr "apple.comからの映画の予告編を観ることができるMythTV用plug-in"
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "MythTVに組み込まれたWebブラウザプラグイン"
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr "MythTV の外部コントロール。ボタン配置とキーバインドを変更できます"
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "近所の映画館で上映されている映画を探す"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "Netflix のDVD貸出し状況を表示します"
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr "画像を含むディレクトリ・ツリーをブラウズできます"
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr ""
-#~ "Linuxで動作するエミュレータやプログラムを起動させるためのフロントエンドで"
-#~ "す"
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "MythTVに組み込まれた音楽プレーヤーです"
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr "お好みの最新のニュースを表示するRSSフィードニュースリーダーです"
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr "MythTVに電話／テレビ電話機能（SIP標準プロトコル）を追加します"
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr ""
-#~ "インターネットラジオステーションのストリーミングを聴く方法を提供します"
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "MythTV の画面から、外部プレーヤーによるストリーミングビデオのブラウズと再"
-#~ "生を行います"
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "MythTV で現在の天気と天気予報を表示します"
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "拡張テーマを選びます"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr ""
-#~ "テーマを使用すると、MythTV設定の見た目を大いに改善し、よりあなたの好みに合"
-#~ "うように表示されます。"
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "全てを有効または無効にする"

@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2008-03-18 16:54+0000\n"
-"Last-Translator: Љубиша Радовановић <prevod@gmail.com>\n"
+"PO-Revision-Date: 2009-02-22 14:04+0000\n"
+"Last-Translator: Milan Prvulović <prvulm@gmail.com>\n"
 "Language-Team: Serbian <sr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 15:34+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:40+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -161,10 +161,8 @@ msgstr "Можете типкати у ово поље како бисте ис�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
-#, fuzzy
-#| msgid "Selected region:"
 msgid "Suggested option:"
-msgstr "Одабрана земља:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -240,7 +238,7 @@ msgstr "Под овим ће именом други у мрежи видети 
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Аутоматско пријављивање"
 
 #. Type: text
 #. Description
@@ -258,7 +256,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Migrate documents and settings"
-msgstr ""
+msgstr "Преузети документа и подешавања"
 
 #. Type: text
 #. Description
@@ -267,6 +265,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Изаберите све налоге које би желели да увезете. Документи и подешавања ових "
+"налога ће бити доступни након завршетка инсталације."
 
 #. Type: text
 #. Description
@@ -311,10 +311,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Које корисничко име желите користити?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -335,7 +333,7 @@ msgstr "Спреман за инсталацију"
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Details"
-msgstr ""
+msgstr "Детаљи"
 
 #. Type: text
 #. Description
@@ -367,18 +365,14 @@ msgstr "Корак ${INDEX} од ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:49001
-#, fuzzy
-#| msgid "Abort the installation?"
 msgid "Quit the installation?"
 msgstr "Прекинути инсталацију?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Do you really want to abort the installation now?"
 msgid "Do you really want to quit the installation now?"
-msgstr "Заиста желите прекинути инсталацију?"
+msgstr "Да ли стварно желите да прекинете инсталацију?"
 
 #. Type: text
 #. Description
@@ -389,26 +383,20 @@ msgstr "Прескочи"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Инсталација је завршена"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Настави"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Изнова покрените рачунар"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -442,7 +430,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:58001
 msgid "Before:"
-msgstr ""
+msgstr "Пре:"
 
 #. Type: text
 #. Description
@@ -450,14 +438,14 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:59001
 msgid "After:"
-msgstr ""
+msgstr "После:"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:60001
 msgid "New partition table"
-msgstr ""
+msgstr "Нова партициона табела"
 
 #. Type: text
 #. Description
@@ -635,19 +623,11 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Инсталација је завршена. Морате изнова покренути рачунар како бисте "
-"подигнули нови систем. Можете наставити користити овај Live CD, али промене "
-"које направите на документима, неће бити сачуване."
 
 #. Type: text
 #. Description
@@ -740,10 +720,8 @@ msgstr "Копирање датотека (преостало је мање од
 #: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 #: ../ubiquity.templates:103001 ../ubiquity.templates:104001
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
-msgstr "Инсталација је завршена"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -770,38 +748,20 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
-#, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive. It "
-#| "may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to "
-#| "clean the CD/DVD drive lens (cleaning kits are often available from "
-#| "electronics suppliers)."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Ова грешка често настаје због неисправног CD/DVD диска или уређаја. Може "
-"помоћи чишћење CD/DVD-а, нарезивање CD/DVD-а нижом брзином, или чишћење "
-"сочива на CD/DVD уређају (опрема за чишћење је често доступна код продаваца "
-"електронске опреме)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:103001
-#, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty hard disk. It may help to "
-#| "check whether the hard disk is old and in need of replacement, or to move "
-#| "the system to a cooler environment."
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Ова грешка често настаје због неисправног хард диска. Може помоћи провера да "
-"ли је хард диск стар и треба замену или можда, премештање система у хладније "
-"окружење."
 
 #. Type: error
 #. Description
@@ -812,14 +772,6 @@ msgstr ""
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
 #: ../ubiquity.templates:104001 ../ubiquity.templates:105001
-#, fuzzy
-#| msgid ""
-#| "This particular error is often due to a faulty CD/DVD disk or drive, or a "
-#| "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at "
-#| "a lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
-#| "available from electronics suppliers), to check whether the hard disk is "
-#| "old and in need of replacement, or to move the system to a cooler "
-#| "environment."
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -827,11 +779,6 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Ова грешка је честа  настаје због неисправног CD/DVD диска или погона, или "
-"оштећеног хард диска. Може помоћи чишћење CD/DVD-а, нарезивање CD/DVD-а "
-"нижом брзином, или чишћење сочива на CD/DVD уређају (опрема за чишћење је "
-"често доступна код продаваца електронске опреме), да ли је хард диск стар и "
-"треба замену, или премештање система у хладније окружење."
 
 #. Type: select
 #. Description
@@ -1092,15 +1039,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1113,21 +1051,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" Језик: ${LANGUAGE}\n"
-" Распоред тастатуре: ${KEYMAP}\n"
-" Име: ${FULLNAME}\n"
-" Корисничко име: ${USERNAME}\n"
-" Локација: ${LOCATION}\n"
-" Миграциони асистент:\n"
-" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Напредна врста инсталације"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1353,236 +1282,3 @@ msgstr "Подешавање додатних сервиса..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Selected region:"
-#~ msgstr "Одабрана земља:"
-
-#~ msgid "Current time:"
-#~ msgstr "Тренутно време:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr "Унесите исту лозинку два пута како би се избегле грешке при уносу."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Наставите користити live CD"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Изаберите град у својој држави и временску зону. Ако је тренутно "
-#~ "назначено време нетачно, чак и после бирања временске зоне, можете га "
-#~ "наместити после покретања система."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Врста инсталације:           ${INSTALLTYPE}\n"
-#~ " Управљачки програми:\n"
-#~ "     Додатни управљачки програм за слику:  ${VIDEO_DRIVER}\n"
-#~ "         ТВ-излаз:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Додатни сервиси:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Обична питања инсталације Убунтуа:\n"
-#~ "     Језик:           ${LANGUAGE}\n"
-#~ "     Распоред на тастатури:    ${KEYMAP}\n"
-#~ "     Име и презиме:       ${FULLNAME}\n"
-#~ "     Корисничко име: ${USERNAME}\n"
-#~ "     Локација:           ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "Додатни управљачки програми/Firmware"
-
-#~ msgid "Selected city:"
-#~ msgstr "Одабрани град:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Временска зона:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Коју врсту инсталације?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "За Mythbuntu су доступна два начина инсталације:"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Стандардна инсталација"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "Стандардна инсталација инсталира и подешава све опције са минималним "
-#~ "учествовањем корисника. Биће инсталирани програми за покретање, контролу, "
-#~ "сви додаци, и све теме."
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Напредна инсталација"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "Напредну инсталацију можете користити за подешавање ваших потреба. "
-#~ "НАПОМЕНА: Ова инсталација је неопходна ако Mythbuntu рачунар треба да "
-#~ "прикључите на MythTV-базирану мрежу."
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "Одаберите фронтенд / бекенд додатке"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "Додаци се могу користити да би проширили функционалност MythTV у односу "
-#~ "на стандардно решење ТВ временског померања."
-
-#~ msgid "Backend Plugins"
-#~ msgstr "Покретачки додаци"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "Контролни додаци"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth Web"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb обезбеђује веб интерфејс који се може користити да се прегледају "
-#~ "листинзи, заказују снимања, бришу снимања и претражују  програми."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth архива"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Myth претраживач"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Myth контроле"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Myth галерија"
-
-#~ msgid "Myth Game"
-#~ msgstr "Myth игре"
-
-#~ msgid "Myth Music"
-#~ msgstr "Myth музика"
-
-#~ msgid "Myth News"
-#~ msgstr "Myth вести"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Myth телефон"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Миф Стрим"
-
-#~ msgid "Myth Video"
-#~ msgstr "Myth видео"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Myth време"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "MythTV додатак који омогућава прављење ДВД-а од метеријала са ваше MythTV "
-#~ "мреже."
-
-#, fuzzy
-#~| msgid ""
-#~| "A plugin for MythTV that lets you create DVDs from content on your "
-#~| "MythTV Network."
-#~ msgid ""
-#~ "A plugin for MythTV that lets you view movie trailers from apple.com."
-#~ msgstr ""
-#~ "MythTV додатак који омогућава прављење ДВД-а од метеријала са ваше MythTV "
-#~ "мреже."
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "Интегрисани додатак за Ваш веб прегледник за Миф стрим систем."
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "Спољне контроле за MythTV.  Оне вам дају могућност мењања функционалности "
-#~ "типки и пречица на тастатури."
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr ""
-#~ "Омогућава вам да визуелно разгледате стабло фасцикли које садрже слике."
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr "Сучеље за покретање емулатора или бинарне датотеке на Линуксу"
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "Омогућава дигитални аудио џубокс интегрисан са MythTV."
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr ""
-#~ "Додатак за RSS читач вести за MythTV који вам омогућава да будете у току "
-#~ "са вашим омиљеним вестима."
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr ""
-#~ "Могућност телефонирања и видео-телефонирања у MythTV користећи стандардан "
-#~ "SIP протокол."
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "Омогућава слушање интернет радио станица."
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "Омогућава вам да прегледате и пуштате видео записе користећи екстерни "
-#~ "плејер унутар MythTV корисничког интерфејса."
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "Одаберите додатне теме"
-
-#~ msgid "Failed to copy files; faulty CD/DVD?"
-#~ msgstr "Неуспех при копирању датотека; неисправан CD/DVD?"
-
-#~ msgid "Failed to copy files; faulty hard disk?"
-#~ msgstr "Неуспешно копирање датотека; да ли оштећен хард диск?"
-
-#~ msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-#~ msgstr "Неуспешно копирање датотека; Можда је оштећен CD/DVD или хард диск?"

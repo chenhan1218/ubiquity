@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-02-03 14:45+0000\n"
-"Last-Translator: Jeroen T. Vermeulen <Unknown>\n"
+"PO-Revision-Date: 2009-03-10 10:28+0000\n"
+"Last-Translator: Данило Шеган <danilo@canonical.com>\n"
 "Language-Team: <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:58+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -318,10 +318,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Τι όνομα θέλετε να χρησιμοποιήσετε για την είσοδο στο σύστημα;"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -394,26 +392,20 @@ msgstr "Παράκαμψη"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Η εγκατάσταση ολοκληρώθηκε"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Συνέχεια"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Επανεκκίνηση τώρα"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -641,20 +633,11 @@ msgstr "Θύρα:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Η εγκατάσταση ολοκληρώθηκε. Θα χρειαστεί να επανεκκινήσετε τον υπολογιστή "
-"σας για να χρησιμοποιήσετε τη νέα εγκατάσταση. Μπορείτε να συνεχίσετε να "
-"χρησιμοποιείτε το live CD, αλλά δεν θα αποθηκευθούν όποιες αλλαγές κάνετε "
-"από εδώ και πέρα."
 
 #. Type: text
 #. Description
@@ -1092,15 +1075,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1113,21 +1087,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" Γλώσσα: ${LANGUAGE}\n"
-" Διάταξη πληκτρολογίου: ${KEYMAP}\n"
-" Όνομα: ${FULLNAME}\n"
-" Όνομα χρήστη: ${USERNAME}\n"
-" Τοποθεσία: ${LOCATION}\n"
-" Βοηθός μετάβασης:\n"
-" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Προχωρημένη εγκατάσταση"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1345,132 +1310,3 @@ msgstr "Ρύθμιση επιπρόσθετων υπηρεσιών..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Ρυθμίζει συσκευές υπερύθρων"
-
-#~ msgid "Selected region:"
-#~ msgstr "Επιλεγμένη περιοχή:"
-
-#~ msgid "Current time:"
-#~ msgstr "Τρέχουσα ώρα:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr ""
-#~ "Εισάγετε το κωδικό σας δύο φορές, ώστε να ελεγχθεί για τυχόν λάθη στην "
-#~ "πληκτρολόγηση του."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "Συνέχεια με την χρήση του live CD"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Διαλέξτε μία πόλη στην χώρα και ζώνη ώρας σας. Αν η εμφανιζόμενη ώρα "
-#~ "είναι λανθασμένη ακόμα και μετά την επιλογή της σωστής ζώνης ώρας, "
-#~ "μπορείτε να την ρυθμίσετε αφού επανεκινήσετε στο εγκατεστημένο σύστημα."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Τύπος Εγκατάστασης: ${INSTALLTYPE}\n"
-#~ " Οδηγοί υλικού:\n"
-#~ "     Προσθήκη οδηγού κάρτας γραφικών: ${VIDEO_DRIVER}\n"
-#~ "         Έξοδος τηλεόρασης: ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Επιπρόσθετες υπηρεσίες:\n"
-#~ "     VNC: ${EN_VNC}\n"
-#~ "     SSH: ${EN_OPENSSH}\n"
-#~ "     Samba: ${EN_SAMBA}\n"
-#~ "     NFS: ${EN_NFS}\n"
-#~ "     MythTV Service: ${EN_MYSQL}\n"
-#~ " Βασικές επιλογές εγκατάστασης Ubuntu:\n"
-#~ "     Γλώσσα: ${LANGUAGE}\n"
-#~ "     Διαμόρφωση πληκτρολογίου: ${KEYMAP}\n"
-#~ "     Κανονικό όνομα: ${FULLNAME}\n"
-#~ "     Κανονικό όνομα εισόδου: ${USERNAME}\n"
-#~ "     Περιοχή: ${LOCATION}"
-
-#~ msgid "Selected city:"
-#~ msgstr "Επιλεγμένη πόλη:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Ζώνη ώρας:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Τι τύπος εγκατάστασςη;"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Δύο τρόποι εγκατάστασης είναι διαθέσιμοι για το Mythbuntu:"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Τυπική εγκατάσταση"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "Μια τυπική εγκατάσταση θα διαμορφώσει κάθε επιλογή με την ελάχιστη "
-#~ "εμπλοκή του χρήστη. Θα εγκατασταθεί το σύστημα υποστήριξης, σύστημα "
-#~ "παρουσίασης, οι επεκτάσεις και όλα τα θέματα παρουσίασης."
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Προχωρημένη εγκατάσταση"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "Μια εγκατάσταση για προχωρημένους μπορεί να χρησιμοποιηθεί για την "
-#~ "παραμετροποίηση αυτής της εγκατάστασης Mythbuntu.  ΣΗΜΕΙΩΣΗ: Για την "
-#~ "προσθήκη ενός σταθμού Mythbuntu σε κάποιο υπάρχον δικτυο MythTV, είναι "
-#~ "απαραίτητη η εγκατάσταση για προχωρημένους."
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "Το MythWeb παρέχει ένα περιβάλλον που χρησιμοποιείται για την εμφάνιση "
-#~ "και αναζήτηση λίστας προγραμμάτων, προγραμματισμένες εγγραφές και "
-#~ "διαγραφή εγγραφών."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth Archive"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Συλλογή Myth."
-
-#~ msgid "Myth Game"
-#~ msgstr "Παιχνίδι Myth."
-
-#~ msgid "Myth Music"
-#~ msgstr "Μουσική Myth."
-
-#~ msgid "Myth News"
-#~ msgstr "Νέα του Myth."
-
-#~ msgid "Myth Phone"
-#~ msgstr "Myth Phone"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Myth Stream"

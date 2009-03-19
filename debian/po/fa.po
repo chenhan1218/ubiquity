@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-06-02 15:34+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -44,13 +44,8 @@ msgstr ""
 #. Description
 #. This is used as a window title.
 #: ../ubiquity.templates:6001
-#, fuzzy
 msgid "Install"
 msgstr ""
-"#-#-#-#-#  fa.po (debian-installer)  #-#-#-#-#\n"
-"نصب کردن\n"
-"#-#-#-#-#  fa.po (ubiquity)  #-#-#-#-#\n"
-"نصب"
 
 #. Type: text
 #. Description
@@ -302,10 +297,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "از چه نامی برای ثبت ورود میخواهید استفاده کنید؟"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -376,18 +369,14 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "نصب پایان یافت!"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "ادامه"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -704,10 +693,8 @@ msgstr ""
 #: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 #: ../ubiquity.templates:103001 ../ubiquity.templates:104001
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Failed"
-msgstr "نصب پایان یافت!"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -799,9 +786,8 @@ msgstr "در حال تنظیم کردن apt..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "در حال انجام تنظیمات شبکه ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -824,9 +810,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:114001
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "در حال انجام تنظیمات شبکه ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -843,9 +828,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:117001
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "در حال انجام تنظیمات شبکه ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1033,10 +1017,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Type"
-msgstr "نصب پایان یافت!"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1249,6 +1231,3 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Current time:"
-#~ msgstr "زمان کنونی:"

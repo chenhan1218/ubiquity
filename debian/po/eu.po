@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-01-10 00:54+0000\n"
+"PO-Revision-Date: 2009-03-10 10:29+0000\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <Unknown>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:56+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -313,10 +313,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "Zein izen erabili nahi duzu saioa hasteko?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -387,26 +385,20 @@ msgstr "Utzi"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "Instalazioa burutu da"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "Jarraitu"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "Orain berrabiarazi"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -634,19 +626,11 @@ msgstr "Ataka:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Instalazioa burutu egin da. Orain zure sistema berrabiarazi behar duzu zure "
-"sistema berria erabili ahal izateko. Nahi baduzu, CD hau erabiltzen jarrai "
-"dezakezu, baina ez da gordeko egiten duzun aldaketa edo dokumenturik."
 
 #. Type: text
 #. Description
@@ -1068,15 +1052,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1089,21 +1064,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" Hizkuntza: ${LANGUAGE}\n"
-" Teklatu-diseinua: ${KEYMAP}\n"
-" Izen osoa: ${FULLNAME}\n"
-" Erabiltzaile izena: ${USERNAME}\n"
-" Kokalekua: ${LOCATION}\n"
-" Migrazio Laguntzailea:\n"
-" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "Instalazio-mota aurreratua"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1344,254 +1310,3 @@ msgstr "Zerbitzu gehigarriak konfiguratzen..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Gailu infragorriak konfiguratzen..."
-
-#~ msgid "Selected region:"
-#~ msgstr "Hautatutako eskualdea:"
-
-#~ msgid "Current time:"
-#~ msgstr "Oraingo ordua:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr ""
-#~ "Pasahitz berdina sartu birritan, idaztean egindako hutsak saihesteko."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "CD-a erabiltzen jarraitu"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "Zure herrialde eta ordu-zonan dagoen hiri bat hautatu. Ordu-zona egokia "
-#~ "hautatu ondoren adierazitako ordua okerra bada, sistema berrabiarazi "
-#~ "ondoren zuzendu ahalko duzu."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Instalazio-mota:           ${INSTALLTYPE}\n"
-#~ " Kontrolatzaileak:\n"
-#~ "     Bideo kontrolatzaile gehig.:  ${VIDEO_DRIVER}\n"
-#~ "         TV-irteera:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Zerbitzu gehigarriak:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Zerbitzua:     ${EN_MYSQL}\n"
-#~ " Ubuntu-instalazioko ohiko galderak:\n"
-#~ "     Hizkuntza:           ${LANGUAGE}\n"
-#~ "     Teklatu-diseinua:    ${KEYMAP}\n"
-#~ "     Izen osoa:       ${FULLNAME}\n"
-#~ "     Erabiltzaile-izena: ${USERNAME}\n"
-#~ "     Kokalekua:           ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "Kontrolatzaile/Firmware gehigarriak"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "Bideo-kontrolatzailea eta ezarpenak aldatu"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "Abisua: Ez ezazu zure telebistak jasaten duena baino TV estandar altuagoa "
-#~ "ezarri. BETIRAKO kaltetu zenezake."
-
-#~ msgid "Selected city:"
-#~ msgstr "Hautatutako hiria:"
-
-#~ msgid "Time zone:"
-#~ msgstr "Ordu-zona:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "Zein instalazio-mota?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "Bi instalazio mota daude Mythbuntu-rentzako:"
-
-#~ msgid "Standard Installation"
-#~ msgstr "Instalazio estandarra"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "Instalazio estandar batean, erabiltzaileak ezer eginbeharrik gabe "
-#~ "instalatu eta konfiguratzen dira aukera guztiak: backend, frontend, "
-#~ "plugin guztiak eta gai guztiak."
-
-#~ msgid "Advanced Installation"
-#~ msgstr "Instalazio aureratua"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "Instalazio aurreratua erabil dezakezu Mthbuntu honetan instalatu nahi "
-#~ "duzuna pertsonalizatzeko. OHARRA: instalazio aurreratua burutu beharko "
-#~ "duzu Mythbuntu makina berria gehitzeko MythTV-n oinarritutako sare batera."
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "Frontend / Backend plugin-ak hautatu"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "Plugin-ei esker MythTV-ren funtzionalitateak nabarmen hedatu ahalko "
-#~ "dituzu (bideo-grabatzaile batena baino askoz harago)."
-
-#~ msgid "Backend Plugins"
-#~ msgstr "Backend Plugin-ak"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "Frontend Plugin-ak"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth Web"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb-ek web-interfaze bat eskaintzen dizu, zerrendak ikusteko, "
-#~ "grabazioak programatzeko, grabazioak ezabatzeko, eta programak bilatzeko."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth Archive"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Myth Browser"
-
-#~ msgid "Myth Controls"
-#~ msgstr "Myth kontrolak"
-
-#~ msgid "Myth Movies"
-#~ msgstr "Myth Filmak"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "Myth Gallery"
-
-#~ msgid "Myth Game"
-#~ msgstr "Myth Game"
-
-#~ msgid "Myth Music"
-#~ msgstr "Myth Music"
-
-#~ msgid "Myth News"
-#~ msgstr "Myth News"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Myth Phone"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Myth Stream"
-
-#~ msgid "Myth Video"
-#~ msgstr "Myth Video"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Myth Weather"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "Zure MythTV Sareko edukiak erabiliz DVDak sortzeko aukera ematen dizun "
-#~ "MythTV plugina."
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "Web-arakatzaile integratua zure MythTV sistemarentzat."
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "MythTV-rentzako kanpoko kontrolak. Honekin, botoien diseinua eta teklen "
-#~ "funtzioak aldatu ditzakezu."
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "Gertuko zinema lokaletan dauden filmak aurkitu"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr ""
-#~ "Honekin, zure Netflix dvd-alokairu zerrenda gainbegiratu ahalko duzu."
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr ""
-#~ "Honekin, bisualki arakatu ahalko dituzu irudidun direktorio-zuhaitzak."
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr ""
-#~ "Linux-en erabili daitekeen edozein emuladore edo binario exekutatzeko "
-#~ "interfaza."
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "MythTV-rekin integratutako audio erreproduzitzaile digitala."
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr ""
-#~ "MythTV-rentzako RSS-jario albiste-irakurlea, zure albiste gai "
-#~ "gogokoenekin eguneratuta egon zaitezen."
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr ""
-#~ "Telefono eta bideofono ahalmena gehitzen dizkio MythTV-ri, SIP protokolo "
-#~ "estandarra erabiliz."
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "Interneteko irrati saioak entzuteko modua hornitzen du."
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "Honekin, MythTV interfazea erabili ahalko duzu bideo jarioak arakatu eta "
-#~ "erreproduzitzeko, kanpoko erreproduzitzaile bat erabiliz."
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr ""
-#~ "Honekin, oraingo eguraldia eta iragarritakoa ere ikusiko dituzu MythTV-n."
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "Gai gehigarriak hautatu"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr ""
-#~ "MythTV-ren sentsazio estetikoa ikaragarri hobetu dezakete gaiek, zure "
-#~ "gustoen arabera moldatuz itxura oro."
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "Guztiak gaity/ezgaitu"

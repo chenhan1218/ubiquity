@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-02-03 15:06+0000\n"
+"PO-Revision-Date: 2009-03-10 10:32+0000\n"
 "Last-Translator: Lior Kaplan <kaplan@debian.org>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-02-09 11:58+0000\n"
+"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -303,10 +303,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "What name do you want to use to log in?"
 msgid "Where do you want to put ${RELEASE}?"
-msgstr "באיזה שם ברצונך להשתמש כדי להיכנס למערכת?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -377,26 +375,20 @@ msgstr "דלג"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Installation Complete"
-msgstr "ההתקנה הסתיימה"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
-#| msgid "Continue"
 msgid "Continue Testing"
-msgstr "המשך"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-#, fuzzy
-#| msgid "Restart now"
 msgid "Restart Now"
-msgstr "בצע אתחול של המחשב"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -622,18 +614,11 @@ msgstr "יציאה:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"ההתקנה הושלמה. עליך לאתחל את המחשב על מנת להשתמש בהתקנה החדשה.\r\n"
-"תוכל להמשיך להשתמש ב live CD, על אף ששינוים שתעשה או מסמכים שתשמור, לא ישמרו."
 
 #. Type: text
 #. Description
@@ -1056,15 +1041,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-#| msgid ""
-#| " Language: ${LANGUAGE}\n"
-#| " Keyboard layout: ${KEYMAP}\n"
-#| " Name: ${FULLNAME}\n"
-#| " Login name: ${USERNAME}\n"
-#| " Location: ${LOCATION}\n"
-#| " Migration Assistant:\n"
-#| " ${MIGRATE}"
 msgid ""
 " Install Type: ${INSTALLTYPE}\n"
 " Language: ${LANGUAGE}\n"
@@ -1077,21 +1053,12 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
-" שפה: ${LANGUAGE}\n"
-" סידור המקשים במקלדת: ${KEYMAP}\n"
-" שם: ${FULLNAME}\n"
-" שם משתמש: ${USERNAME}\n"
-" מיקום: ${LOCATION}\n"
-"עזרה ביבוא:\n"
-" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
-#| msgid "Advanced Installation Type"
 msgid "Installation Type"
-msgstr "סוג התקנה מתקדמת"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1325,249 +1292,3 @@ msgstr "מגדיר שירותים נוספים..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "מגדיר את התקני האינפרא-אדום..."
-
-#~ msgid "Selected region:"
-#~ msgstr "בחר איזור:"
-
-#~ msgid "Current time:"
-#~ msgstr "השעה כרגע:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors."
-#~ msgstr "הקלד את אותה הסיסמה פעמיים על מנת לוודא שלא נפלה טעות במהלך ההקלדה."
-
-#~ msgid "Continue using the live CD"
-#~ msgstr "המשך להשתמש ב Live CD"
-
-#~ msgid ""
-#~ "Select a city in your country and time zone. If the indicated current "
-#~ "time is incorrect even after selecting the correct time zone, you can "
-#~ "adjust it after rebooting into the installed system."
-#~ msgstr ""
-#~ "בחר עיר במדינתך ובאזור הזמן שלך. אם הזמן המוצג עדיין אינו מדוייק אף לאחר "
-#~ "הבחירה, תוכל לשנותו לאחר איתחול מחדש של המערכת."
-
-#~ msgid ""
-#~ " Install Type:           ${INSTALLTYPE}\n"
-#~ " Drivers:\n"
-#~ "     Add. Video Driver:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " Additional Services:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " סוג ההתקנה:           ${INSTALLTYPE}\n"
-#~ " התקנים:\n"
-#~ "     הוסף התקן וידאו:  ${VIDEO_DRIVER}\n"
-#~ "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-#~ " שירותים נוספים:\n"
-#~ "     VNC:                ${EN_VNC}\n"
-#~ "     SSH:                ${EN_OPENSSH}\n"
-#~ "     Samba:              ${EN_SAMBA}\n"
-#~ "     NFS:                ${EN_NFS}\n"
-#~ "     MythTV Service:     ${EN_MYSQL}\n"
-#~ " מאפייני התקנה רגילה של אובונטו:\n"
-#~ "     שפה:           ${LANGUAGE}\n"
-#~ "     פריסת מקלדת:    ${KEYMAP}\n"
-#~ "     שם מלא:       ${FULLNAME}\n"
-#~ "     שם משתמש: ${USERNAME}\n"
-#~ "     מיקום:           ${LOCATION}"
-
-#~ msgid "Additional Drivers/Firmware"
-#~ msgstr "מנהלי התקן/קושחה נוספים"
-
-#~ msgid "Modify Video Driver & Settings"
-#~ msgstr "שנה את מנהל כרטיס המסך והגדרותיו"
-
-#~ msgid ""
-#~ "Warning: Do not set the TV standard to something higher than what your TV "
-#~ "supports. PERMANENT damage may occur."
-#~ msgstr ""
-#~ "אזהרה: אל תקבע את תקן הפלט למשהו גבוה יותר ממה שהטלויזיה שלך תומכת. עלול "
-#~ "להגרם נזק תמידי."
-
-#~ msgid "Selected city:"
-#~ msgstr "בחר עיר:"
-
-#~ msgid "Time zone:"
-#~ msgstr "איזור זמן:"
-
-#~ msgid "What Type of Installation?"
-#~ msgstr "איה סוג של התקנה?"
-
-#~ msgid "Two installation types are available for Mythbuntu:"
-#~ msgstr "שתי דרכים קיימות להתקנת Mythbuntu:"
-
-#~ msgid "Standard Installation"
-#~ msgstr "התקנה רגילה"
-
-#~ msgid ""
-#~ "A standard installation will install and configure every option with "
-#~ "minimal user interaction. This will install a backend, frontend, all "
-#~ "plugins, and all themes."
-#~ msgstr ""
-#~ "התקנה רגילה תתקין ותגדיר כמעט את כל הדברים הנצרכים ללא צורך במשתמש. התקנה "
-#~ "זו תתקין את ה-backend, frontend, ואת כל התוספים והערכות הנושא."
-
-#~ msgid "Advanced Installation"
-#~ msgstr "התקנה מתקדמת"
-
-#~ msgid ""
-#~ "An advanced installation can be used to customize what is needed for this "
-#~ "Mythbuntu install. NOTE: An advanced install is necessary to add a "
-#~ "Mythbuntu machine to an existing MythTV based network."
-#~ msgstr ""
-#~ "התקנה מתקדמת מיועדת למשתמשים הרוצים לשלוט בהגדרות של Mythubuntu. שים לב: "
-#~ "יש להשתמש בהתקנה מתקדמת בכדי להוסיף מחשב המריץ Mythubuntu לרשת קיימת "
-#~ "המריצה MythTV."
-
-#~ msgid "Choose Frontend / Backend Plugins"
-#~ msgstr "בחר תוספי ממשק / מנגנון"
-
-#~ msgid ""
-#~ "Plugins can be used to extend MythTV functionality beyond a time shifting "
-#~ "TV solution."
-#~ msgstr ""
-#~ "תוספים יכולים להרחיב את התכונות של MythTV מעבר לפתרונות צפייה מבוססי "
-#~ "תיזמון."
-
-#~ msgid "Backend Plugins"
-#~ msgstr "תוספי Backend"
-
-#~ msgid "Frontend Plugins"
-#~ msgstr "תוספי Frontend"
-
-#~ msgid "Myth Web"
-#~ msgstr "Myth Web"
-
-#~ msgid ""
-#~ "MythWeb provides a web interface which can be used to view listings, "
-#~ "schedule recordings, delete recordings, and search for programs."
-#~ msgstr ""
-#~ "MythWeb מספק גישה דרך ממשק אינטרנט (דרך הדפדפן) המשמש לצפייה ברשימות "
-#~ "צפייה, תזמון הקלטות, מחיקת הקלטות, וחיפוש תוכניות."
-
-#~ msgid "Myth Archive"
-#~ msgstr "Myth Archive"
-
-#~ msgid "Myth Browser"
-#~ msgstr "Myth Browser"
-
-#~ msgid "Myth Controls"
-#~ msgstr "פקדי Myth"
-
-#~ msgid "Myth Movies"
-#~ msgstr "סרטי Myth"
-
-#~ msgid "Myth Flix"
-#~ msgstr "Myth Flix"
-
-#~ msgid "Myth Gallery"
-#~ msgstr "גלריית Myth"
-
-#~ msgid "Myth Game"
-#~ msgstr "Myth משחקים"
-
-#~ msgid "Myth Music"
-#~ msgstr "Myth מוסיקה"
-
-#~ msgid "Myth News"
-#~ msgstr "Myth חדשות"
-
-#~ msgid "Myth Phone"
-#~ msgstr "Myth טלפון"
-
-#~ msgid "Myth Stream"
-#~ msgstr "Myth זרימה"
-
-#~ msgid "Myth Video"
-#~ msgstr "Myth וידאו"
-
-#~ msgid "Myth Weather"
-#~ msgstr "Myth תחזית"
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you create DVDs from content on your MythTV "
-#~ "Network."
-#~ msgstr ""
-#~ "תוסף עבור MythTV המאפשר לך ליצור תקליטורי DVD מהתוכן המצוי ברשת ה-MythTV "
-#~ "שלך."
-
-#~ msgid ""
-#~ "A plugin for MythTV that lets you view movie trailers from apple.com."
-#~ msgstr "תוסף עבור MythTV המאפשר לך לצפות בטריילרים מ-apple.com."
-
-#~ msgid "An integrated web browser plugin for your MythTV system."
-#~ msgstr "תוסף מובנה בדפדפן האינטרנט עבור מערכת ה-MythTV שלך."
-
-#~ msgid ""
-#~ "External controls for MythTV. This will allow you to modify button "
-#~ "mappings and key bindings."
-#~ msgstr ""
-#~ "שליטה חיצונית עבור MythTV. תוכל לשנות את מיפוי הכפתורים וצירופי המקשים."
-
-#~ msgid "Find movies playing in nearby local cinemas"
-#~ msgstr "מצא סרטים המוקרנים בבתי קולנוע הסמוכים אליך"
-
-#~ msgid "Allows you to monitor your Netflix dvd rental queue."
-#~ msgstr "מאפשר לפקח על רשימת ההמתנה שלך בשירות הזמנת הסרטים Netflix."
-
-#~ msgid ""
-#~ "Allows you to visually browse a directory tree containing image files."
-#~ msgstr "מאפשר לסייר בצורה ויזואלית בעץ תיקיות המכילות קבצי תמונה."
-
-#~ msgid "A frontend to start any emulator or binary that Linux runs."
-#~ msgstr ""
-#~ "ממשק הפעלה המאפשר להריץ כל תוכנית הדמיה או קובץ בינארי שלינוקס יכול להריץ."
-
-#~ msgid "Provides a digital audio jukebox integrated with MythTV."
-#~ msgstr "מספק מכונת נגינה דיגיטלית המשולבת עם MythTV."
-
-#~ msgid ""
-#~ "An RSS feed news reader plugin for MythTV that keeps you up-to-date on "
-#~ "your favorite news topics."
-#~ msgstr ""
-#~ "תוסף ל-MythTV הקורא עדכוני RSS המאפשר לך להשאר מעודכן בנושאים שבאמת "
-#~ "מעניינים אותך."
-
-#~ msgid ""
-#~ "A phone and videophone capability on MythTV using the standard SIP "
-#~ "protocol."
-#~ msgstr ""
-#~ "תמיכה בטלפון וטלפון עם וידאו עבור MythTV על ידי שימוש בפרוטוקול SIP התקני."
-
-#~ msgid "Provides a method to listen to streaming internet radio stations."
-#~ msgstr "מספק שיטה להאזנה לתחנות רדיו המוזרמות דרך האינטרנט."
-
-#~ msgid ""
-#~ "Allows you to browse and play video streams, using an external player, "
-#~ "from within the MythTV interface."
-#~ msgstr ""
-#~ "מאפשר לך לדפדף בין ולנגן זרמי וידאו, באמצעות שימוש בנגן חיצוני, מתוך ממשק "
-#~ "MythTV."
-
-#~ msgid "Displays current and forecast weather information within MythTV."
-#~ msgstr "מציג את נתוני תחזית מזג האוויר בתוך MythTV."
-
-#~ msgid "Choose Extra Themes"
-#~ msgstr "בחר ערכות נושא נוספות"
-
-#~ msgid ""
-#~ "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
-#~ "display it to match your tastes much better."
-#~ msgstr ""
-#~ "ערכות נושא יכולות לשפר באופן משמעותי את הרושם החזותי של התקנת MythTV, "
-#~ "ולהציג אותה כך שתתאים לטעמך."
-
-#~ msgid "Enable/Disable All"
-#~ msgstr "הפעל/כבה הכל"
