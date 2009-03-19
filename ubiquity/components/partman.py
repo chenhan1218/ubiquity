@@ -1072,10 +1072,15 @@ class Partman(FilteredCommand):
                 return True
 
         elif self.question_type(question) == 'boolean':
+            if question == 'partman/unmount_active':
+                yes = 'ubiquity/imported/yes'
+                no = 'ubiquity/imported/no'
+            else:
+                yes = 'ubiquity/text/continue'
+                no = 'ubiquity/text/go_back'
             response = self.frontend.question_dialog(
                 self.description(question),
-                self.extended_description(question),
-                ('ubiquity/text/go_back', 'ubiquity/text/continue'))
+                self.extended_description(question), (no, yes))
 
             answer_reversed = False
             if question in ('partman-jfs/jfs_boot', 'partman-jfs/jfs_root',

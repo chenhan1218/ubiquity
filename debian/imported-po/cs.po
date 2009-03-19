@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-03-19 12:00+0000\n"
+"POT-Creation-Date: 2009-03-19 12:33+0000\n"
 "PO-Revision-Date: 2009-03-01 00:16+0100\n"
 "Last-Translator: Petr Kovar <pknbe@volny.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
@@ -79,3 +79,21 @@ msgstr "_Budiž"
 msgctxt "Stock label"
 msgid "_Quit"
 msgstr "U_končit"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../ubiquity.templates-imported:7001
+msgctxt "Stock label"
+msgid "_Yes"
+msgstr "_Ano"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../ubiquity.templates-imported:8001
+msgctxt "Stock label"
+msgid "_No"
+msgstr "_Ne"

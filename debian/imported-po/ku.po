@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ku\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-03-19 12:00+0000\n"
+"POT-Creation-Date: 2009-03-19 12:33+0000\n"
 "PO-Revision-Date: 2009-02-24 01:08+0200\n"
 "Last-Translator: Erdal Ronahi <erdal dot ronahi at gmail dot com>\n"
 "Language-Team: http;//pckurd.net\n"
@@ -35,3 +35,21 @@ msgstr "_Betal"
 msgctxt "Stock label"
 msgid "_OK"
 msgstr "_Temam"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../ubiquity.templates-imported:7001
+msgctxt "Stock label"
+msgid "_Yes"
+msgstr "_Erê"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../ubiquity.templates-imported:8001
+msgctxt "Stock label"
+msgid "_No"
+msgstr "_Na"

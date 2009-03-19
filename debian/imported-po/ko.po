@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-03-19 12:00+0000\n"
+"POT-Creation-Date: 2009-03-19 12:33+0000\n"
 "PO-Revision-Date: 2009-02-20 08:35+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: Gnome Korea <gnome-kr-hackers@lists.kldp.net>\n"
@@ -70,3 +70,21 @@ msgstr "확인(_O)"
 msgctxt "Stock label"
 msgid "_Quit"
 msgstr "끝내기(_Q)"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../ubiquity.templates-imported:7001
+msgctxt "Stock label"
+msgid "_Yes"
+msgstr "예(_Y)"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../ubiquity.templates-imported:8001
+msgctxt "Stock label"
+msgid "_No"
+msgstr "아니오(_N)"

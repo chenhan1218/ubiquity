@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+.HEAD.hi\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-03-19 12:00+0000\n"
+"POT-Creation-Date: 2009-03-19 12:33+0000\n"
 "PO-Revision-Date: 2009-03-03 15:50+0530\n"
 "Last-Translator: Rajesh Ranjan <rranjan@redhat.com>\n"
 "Language-Team: maithili <maithili.sf.net>\n"
@@ -75,3 +75,21 @@ msgstr "ठीक (_O)"
 msgctxt "Stock label"
 msgid "_Quit"
 msgstr "बाहर जाएँ (_Q)"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../ubiquity.templates-imported:7001
+msgctxt "Stock label"
+msgid "_Yes"
+msgstr "हाँ (_Y)"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../ubiquity.templates-imported:8001
+msgctxt "Stock label"
+msgid "_No"
+msgstr "नहीं (_N)"

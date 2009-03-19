@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-03-19 12:00+0000\n"
+"POT-Creation-Date: 2009-03-19 12:33+0000\n"
 "PO-Revision-Date: 2009-03-11 13:49+0200\n"
 "Last-Translator: Vytautas Rėkus <v.rekus@gmail.com>\n"
 "Language-Team: Lithuanian <gnome-lt@lists.akl.lt>\n"
@@ -76,3 +76,21 @@ msgstr "_Gerai"
 msgctxt "Stock label"
 msgid "_Quit"
 msgstr "Išei_ti"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../ubiquity.templates-imported:7001
+msgctxt "Stock label"
+msgid "_Yes"
+msgstr "_Taip"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../ubiquity.templates-imported:8001
+msgctxt "Stock label"
+msgid "_No"
+msgstr "_Ne"

@@ -1,7 +1,11 @@
 ubiquity (1.11.20) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Update for new message context system in GTK+ 2.15.1, and update
     imported translations from gtk+2.0 2.16.0-1ubuntu2.
+
+  [ Evan Dandrea ]
+  * Make the partman/unmount_active dialog a yes or no question.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 19 Mar 2009 12:02:04 +0000
 
