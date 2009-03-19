@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# -*- kate: indent-mode python; space-indent true; indent-width 4; backspace-indents true
 #
 # Copyright (C) 2006, 2007, 2008, 2009 Canonical Ltd.
 #
@@ -1224,12 +1225,12 @@ class Wizard(BaseFrontend):
         bFrame = self.userinterface.autopart_bar_frame
 
         # slot creator for extra options
-        def _on_extra_toggle(choice, bbar, abar):
+        def _on_extra_toggle(choice, wid1, wid2):
             def slot(enable):
-                if bbar:
-                    bbar.setVisible(enable)
-                if abar:
-                    abar.setVisible(enable)
+                if wid1:
+                    wid1.setVisible(enable)
+                if wid2:
+                    wid2.setVisible(enable)
             return slot
         
         # slot creator for main choice toggling
@@ -1239,6 +1240,12 @@ class Wizard(BaseFrontend):
                 if extra_frame:
                     extra_frame.setEnabled(enable)
             return slot
+            
+        # slot for when partition is resized on the bar
+        def partitionResized(path, size):
+            print path, size
+            self.resizePath = path
+            self.resizeSize = size
             
         firstbutton = None
         idCounter = 0
@@ -1254,8 +1261,8 @@ class Wizard(BaseFrontend):
                 firstbutton = button
             self.autopartition_vbox.addWidget(button)
 
-            before_bar = None
-            after_bar = None
+            before_frame = None
+            after_frame = None
 
             # make a new frames for bars to make hiding/showing multiple easier
             # this allows us to hide an entire main bullet with multiple sub bullets
@@ -1314,15 +1321,14 @@ class Wizard(BaseFrontend):
                         after_frame.layout().addWidget(after_bar)
                          
                         after_bar.setResizePartition(resize_path, 
-                            min_size, max_size, orig_size, 'Kubuntu')    
+                            min_size, max_size, orig_size, 'Kubuntu')     
+                            
+                        before_frame.setVisible(False)
+                        after_frame.setVisible(False)
                         
-                    def partitionResized(path, size):
-                        print path, size
-                        self.resizePath = path
-                        self.resizeSize = size
-                    
-                    QApplication.instance().connect(after_bar, 
-                        SIGNAL("partitionResized(PyQt_PyObject, PyQt_PyObject)"), partitionResized)
+                        QApplication.instance().connect(after_bar, 
+                            SIGNAL("partitionResized(PyQt_PyObject, PyQt_PyObject)"), 
+                            partitionResized)
                     
                 elif choice != manual_choice:
                     #list of possible full disk choices
@@ -1368,10 +1374,13 @@ class Wizard(BaseFrontend):
                             for p in disks[dev]:
                                 before_bar.addPartition(p[6], int(p[2]), p[0], p[4], p[5])
                                 
-                            if before_bar and before_bar.diskSize > 0:
+                            if before_bar.diskSize > 0:
                                 after_bar.addPartition('', before_bar.diskSize, '', '', 'Kubuntu')
                             else:
                                 after_bar.addPartition('', 1, '', '', 'Kubuntu')
+                                
+                            before_frame.setVisible(False)
+                            after_frame.setVisible(False)
                         
                         buttongroup.addButton(extra_button, extraIdCounter)
                         extra_id = buttongroup.id(extra_button)
@@ -1384,7 +1393,7 @@ class Wizard(BaseFrontend):
                         extraIdCounter += 1
                         
                         self.app.connect(extra_button, SIGNAL('toggled(bool)'),
-                            _on_extra_toggle(choice, before_bar, after_bar))
+                            _on_extra_toggle(choice, before_frame, after_frame))
                              
                     if extra_firstbutton is not None:
                         extra_firstbutton.setChecked(True)
@@ -2128,3 +2137,4 @@ class Wizard(BaseFrontend):
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
         self.app.exit()
+		
