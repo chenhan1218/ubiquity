@@ -6,6 +6,7 @@ ubiquity (1.11.20) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Make the partman/unmount_active dialog a yes or no question.
+  * Sort the list of regions on the timezone page (LP: #344334).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 19 Mar 2009 12:02:04 +0000
 

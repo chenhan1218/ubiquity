@@ -562,6 +562,7 @@ class Wizard(BaseFrontend):
                 self.regions[region] = [city]
 
         r = self.regions.keys()
+        r.sort()
         for region in r:
             list_store.append([region])
 
