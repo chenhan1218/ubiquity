@@ -41,11 +41,6 @@ def get_supported_locales():
 _strip_context_re = None
 
 def strip_context(question, string):
-    # GTK context
-    if question is not None and question.startswith('ubiquity/imported/'):
-        if '|' in string:
-            string = string.split('|', 1)[1]
-
     # po-debconf context
     global _strip_context_re
     if _strip_context_re is None:

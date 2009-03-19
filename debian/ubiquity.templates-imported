@@ -14,13 +14,13 @@ Template: ubiquity/imported/go-back
 Type: text
 # Translations for this template are imported from GTK. Please keep them in
 # sync.
-_Description: Navigation|_Back
+_Description: _Back
 
 Template: ubiquity/imported/go-forward
 Type: text
 # Translations for this template are imported from GTK. Please keep them in
 # sync.
-_Description: Navigation|_Forward
+_Description: _Forward
 
 Template: ubiquity/imported/ok
 Type: text

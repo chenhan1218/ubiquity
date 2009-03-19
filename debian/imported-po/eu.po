@@ -1,28 +1,29 @@
 # translation of eu.po to Basque
 # Joseba Bidaurrazaga van Dierdonck <gcpbivaj@lg.ehu.es>, 1999-2000.
 # Hizkuntza Politikarako Sailburuordetza <hizpol@ej-gv.es>, 2004.
-# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2004, 2005, 2006, 2008.
+# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2004, 2005, 2006, 2008, 2009.
 # Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2007.
-# Copyright (C) 1999, 2004, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
+# Copyright (C) 1999, 2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
 msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
-"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-02-08 11:28+0000\n"
-"PO-Revision-Date: 2008-08-30 12:17+0200\n"
+"Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2009-03-19 12:00+0000\n"
+"PO-Revision-Date: 2009-02-11 13:07+0100\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #. Type: text
 #. Description
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:1001
+msgctxt "Stock label"
 msgid "_Cancel"
 msgstr "_Utzi"
 
@@ -31,6 +32,7 @@ msgstr "_Utzi"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:2001
+msgctxt "Stock label"
 msgid "_Close"
 msgstr "It_xi"
 
@@ -39,7 +41,8 @@ msgstr "It_xi"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:3001
-msgid "Navigation|_Back"
+msgctxt "Stock label, navigation"
+msgid "_Back"
 msgstr "_Atzera"
 
 #. Type: text
@@ -47,21 +50,24 @@ msgstr "_Atzera"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:4001
-msgid "Navigation|_Forward"
-msgstr "A_urrera"
+msgctxt "Stock label, navigation"
+msgid "_Forward"
+msgstr "Au_rrera"
 
 #. Type: text
 #. Description
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:5001
+msgctxt "Stock label"
 msgid "_OK"
-msgstr "Ado_s"
+msgstr "_Ados"
 
 #. Type: text
 #. Description
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:6001
+msgctxt "Stock label"
 msgid "_Quit"
 msgstr "Irte_n"

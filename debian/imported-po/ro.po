@@ -1,15 +1,15 @@
 # Romanian translation for gtk+
-# Copyright (C) 1999 - 2008 Free Software Foundation, Inc.
+# Copyright (C) 1999 - 2009 Free Software Foundation, Inc.
 # Dan Damian <dand@gnome.ro>, 1999, 2000.
 # Marius Andreiana <marius galuna.ro>, 2001, 2002.
-# Mișu Moldovan <dumol@gnome.ro>, 2003 - 2008.
+# Mișu Moldovan <dumol@gnome.ro>, 2003 - 2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+\n"
-"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-02-08 11:28+0000\n"
-"PO-Revision-Date: 2008-09-19 00:21+0300\n"
+"Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2009-03-19 12:00+0000\n"
+"PO-Revision-Date: 2009-03-07 20:49+0200\n"
 "Last-Translator: Mișu Moldovan <dumol@gnome.ro>\n"
 "Language-Team: Română <gnomero-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,7 @@ msgstr ""
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:1001
+msgctxt "Stock label"
 msgid "_Cancel"
 msgstr "_Renunță"
 
@@ -31,6 +32,7 @@ msgstr "_Renunță"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:2001
+msgctxt "Stock label"
 msgid "_Close"
 msgstr "În_chide"
 
@@ -39,7 +41,8 @@ msgstr "În_chide"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:3001
-msgid "Navigation|_Back"
+msgctxt "Stock label, navigation"
+msgid "_Back"
 msgstr "Îna_poi"
 
 #. Type: text
@@ -47,7 +50,8 @@ msgstr "Îna_poi"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:4001
-msgid "Navigation|_Forward"
+msgctxt "Stock label, navigation"
+msgid "_Forward"
 msgstr "Înai_nte"
 
 #. Type: text
@@ -55,6 +59,7 @@ msgstr "Înai_nte"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:5001
+msgctxt "Stock label"
 msgid "_OK"
 msgstr "_OK"
 
@@ -63,5 +68,6 @@ msgstr "_OK"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:6001
+msgctxt "Stock label"
 msgid "_Quit"
 msgstr "_Ieșire"

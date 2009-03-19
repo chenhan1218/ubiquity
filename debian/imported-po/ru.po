@@ -14,10 +14,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+ trunk\n"
-"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-02-08 11:28+0000\n"
-"PO-Revision-Date: 2008-09-15 18:06+0300\n"
-"Last-Translator: Yuriy Penkin <yuriy.penkin@gmail.com>\n"
+"Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2009-03-19 12:00+0000\n"
+"PO-Revision-Date: 2008-10-26 23:42+0800\n"
+"Last-Translator: Anton Shestakov <engored@ya.ru>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,6 +30,7 @@ msgstr ""
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:1001
+msgctxt "Stock label"
 msgid "_Cancel"
 msgstr "О_тменить"
 
@@ -38,6 +39,7 @@ msgstr "О_тменить"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:2001
+msgctxt "Stock label"
 msgid "_Close"
 msgstr "_Закрыть"
 
@@ -45,23 +47,8 @@ msgstr "_Закрыть"
 #. Description
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
-#: ../ubiquity.templates-imported:3001
-msgid "Navigation|_Back"
-msgstr "На_зад"
-
-#. Type: text
-#. Description
-#. Translations for this template are imported from GTK. Please keep them in
-#. sync.
-#: ../ubiquity.templates-imported:4001
-msgid "Navigation|_Forward"
-msgstr "_Далее"
-
-#. Type: text
-#. Description
-#. Translations for this template are imported from GTK. Please keep them in
-#. sync.
 #: ../ubiquity.templates-imported:5001
+msgctxt "Stock label"
 msgid "_OK"
 msgstr "_OK"
 
@@ -70,5 +57,6 @@ msgstr "_OK"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:6001
+msgctxt "Stock label"
 msgid "_Quit"
 msgstr "В_ыход"

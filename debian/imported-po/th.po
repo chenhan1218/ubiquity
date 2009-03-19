@@ -1,15 +1,15 @@
 # Thai translation for gtk+.
-# Copyright (C) 2003-2008 Free Software Foundation, Inc.
+# Copyright (C) 2003-2009 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gtk+ package.
 # Paisa Seeluangsawat <paisa@users.sf.net>, 2003, 2004.
-# Theppitak Karoonboonyanan <thep@linux.thai.net>, 2005-2008.
+# Theppitak Karoonboonyanan <thep@linux.thai.net>, 2005-2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+\n"
-"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-02-08 11:28+0000\n"
-"PO-Revision-Date: 2008-09-16 20:26+0700\n"
+"Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2009-03-19 12:00+0000\n"
+"PO-Revision-Date: 2009-02-12 14:42+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -22,6 +22,7 @@ msgstr ""
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:1001
+msgctxt "Stock label"
 msgid "_Cancel"
 msgstr "_ยกเลิก"
 
@@ -30,6 +31,7 @@ msgstr "_ยกเลิก"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:2001
+msgctxt "Stock label"
 msgid "_Close"
 msgstr "ปิ_ด"
 
@@ -38,7 +40,8 @@ msgstr "ปิ_ด"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:3001
-msgid "Navigation|_Back"
+msgctxt "Stock label, navigation"
+msgid "_Back"
 msgstr "_ถอยกลับ"
 
 #. Type: text
@@ -46,7 +49,8 @@ msgstr "_ถอยกลับ"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:4001
-msgid "Navigation|_Forward"
+msgctxt "Stock label, navigation"
+msgid "_Forward"
 msgstr "ถั_ดไป"
 
 #. Type: text
@@ -54,6 +58,7 @@ msgstr "ถั_ดไป"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:5001
+msgctxt "Stock label"
 msgid "_OK"
 msgstr "_ตกลง"
 
@@ -62,5 +67,6 @@ msgstr "_ตกลง"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:6001
+msgctxt "Stock label"
 msgid "_Quit"
 msgstr "_ออก"

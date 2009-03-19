@@ -1,13 +1,13 @@
-# translation of lv.po to Latvian
-# Copyright (C) 2006, 2007 Free Software Foundation, Inc.
+# translation of gtk+.HEAD.po to Latvian
+# Copyright (C) 2006, 2007, 2009 Free Software Foundation, Inc.
 #
-# Raivis Dejus <orvils@gmail.com>, 2006, 2007.
+# Raivis Dejus <orvils@gmail.com>, 2006, 2007, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: lv\n"
-"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-02-08 11:28+0000\n"
-"PO-Revision-Date: 2007-04-11 11:34+0300\n"
+"Project-Id-Version: gtk+.HEAD\n"
+"Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2009-03-19 12:00+0000\n"
+"PO-Revision-Date: 2009-02-13 10:13+0200\n"
 "Last-Translator: Raivis Dejus <orvils@gmail.com>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
 "MIME-Version: 1.0\n"
@@ -22,14 +22,16 @@ msgstr ""
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:1001
+msgctxt "Stock label"
 msgid "_Cancel"
-msgstr "_Atcelt"
+msgstr "At_celt"
 
 #. Type: text
 #. Description
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:2001
+msgctxt "Stock label"
 msgid "_Close"
 msgstr "Aiz_vērt"
 
@@ -38,7 +40,8 @@ msgstr "Aiz_vērt"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:3001
-msgid "Navigation|_Back"
+msgctxt "Stock label, navigation"
+msgid "_Back"
 msgstr "_Atpakaļ"
 
 #. Type: text
@@ -46,7 +49,8 @@ msgstr "_Atpakaļ"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:4001
-msgid "Navigation|_Forward"
+msgctxt "Stock label, navigation"
+msgid "_Forward"
 msgstr "Uz _priekšu"
 
 #. Type: text
@@ -54,6 +58,7 @@ msgstr "Uz _priekšu"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:5001
+msgctxt "Stock label"
 msgid "_OK"
 msgstr "_Labi"
 
@@ -62,5 +67,6 @@ msgstr "_Labi"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../ubiquity.templates-imported:6001
+msgctxt "Stock label"
 msgid "_Quit"
 msgstr "_Iziet"
