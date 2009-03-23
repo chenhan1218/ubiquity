@@ -77,32 +77,50 @@ color_codes = {
 # The South Pole is transformed from 0.0, -90.0 to 0.5, 1 before being adjusted
 # for the shifted and missing arctic section of the map.
 
+#def convert_longitude_to_x(longitude, map_width):
+#    # Miller cylindrical map projection is just the longitude as the
+#    # calculation is the longitude from the central meridian of the projection.
+#    # Convert to radians.
+#    x = (longitude * (math.pi / 180)) + math.pi # 0 ... 2pi
+#    # Convert to a percentage.
+#    x = x / (2 * math.pi)
+#    x = x * map_width
+#    # Adjust for the visible map starting near 170 degrees.
+#    # Percentage shift required, grabbed from measurements using The GIMP.
+#    x = x - (map_width * 0.039073402)
+#    return x
+
 def convert_longitude_to_x(longitude, map_width):
-    # Miller cylindrical map projection is just the longitude as the
-    # calculation is the longitude from the central meridian of the projection.
-    # Convert to radians.
-    x = (longitude * (math.pi / 180)) + math.pi # 0 ... 2pi
-    # Convert to a percentage.
-    x = x / (2 * math.pi)
-    x = x * map_width
-    # Adjust for the visible map starting near 170 degrees.
-    # Percentage shift required, grabbed from measurements using The GIMP.
-    x = x - (map_width * 0.039073402)
+    xdeg_offset = -6
+    x = (map_width * (180.0 + longitude) / 360.0) + (map_width * xdeg_offset / 180.0)
+    x = x % map_width
     return x
 
-def convert_latitude_to_y(latitude, map_height):
-    # Miller cylindrical map projection, as used in the source map from the CIA
-    # world factbook.  Convert latitude to radians.
-    y = 1.25 * math.log(math.tan((0.25 * math.pi) + \
-        (0.4 * (latitude * (math.pi / 180)))))
-    # Convert to a percentage.
-    y = abs(y - 2.30341254338) # 0 ... 4.606825
-    y = y / 4.6068250867599998
-    # Adjust for the visible map not including anything beyond 60 degrees south
-    # (150 degrees vs 180 degrees).
-    y = y * (map_height * 1.2)
-    return y
+#def convert_latitude_to_y(latitude, map_height):
+#    # Miller cylindrical map projection, as used in the source map from the CIA
+#    # world factbook.  Convert latitude to radians.
+#    y = 1.25 * math.log(math.tan((0.25 * math.pi) + \
+#        (0.4 * (latitude * (math.pi / 180)))))
+#    # Convert to a percentage.
+#    y = abs(y - 2.30341254338) # 0 ... 4.606825
+#    y = y / 4.6068250867599998
+#    # Adjust for the visible map not including anything beyond 60 degrees south
+#    # (150 degrees vs 180 degrees).
+#    y = y * (map_height * 1.2)
+#    return y
 
+def convert_latitude_to_y(latitude, map_height):
+    bottom_lat = -59
+    top_lat = 81
+    top_per = top_lat / 180.0
+    y = 1.25 * math.log(math.tan(math.pi / 4.0 + 0.4 * math.radians(latitude)))
+    full_range = 4.6068250867599998
+    top_offset = full_range * top_per
+    map_range = abs(1.25 * math.log(math.tan(math.pi / 4.0 + 0.4 * math.radians(bottom_lat))) - top_offset)
+    y = abs(y - top_offset)
+    y = y / map_range
+    y = y * map_height
+    return y
 
 class TimezoneMap(gtk.Widget):
     __gtype_name__ = 'TimezoneMap'
