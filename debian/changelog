@@ -1,10 +1,10 @@
-ubiquity (1.11.20) UNRELEASED; urgency=low
+ubiquity (1.11.20) jaunty; urgency=low
 
   * Disable the introduction page in preparation for the 9.04 Beta.
   * Automatic update of included source packages: grub-installer
     1.36ubuntu4, partman-partitioning 65ubuntu1.
 
- -- Evan Dandrea <evand@ubuntu.com>  Mon, 23 Mar 2009 12:01:25 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 23 Mar 2009 12:40:29 +0000
 
 ubiquity (1.11.19) jaunty; urgency=low
 
