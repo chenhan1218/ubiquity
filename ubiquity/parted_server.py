@@ -34,15 +34,15 @@ class PartedServerError(Exception):
 
     Attributes:
         exctype -- exception type
-        message -- message returned with exception
+        parted_error -- message returned with exception
         options -- list of options for the user to select (e.g. OK, Cancel)
 
     """
 
-    def __init__(self, exctype, message, options):
-        Exception.__init__(self, exctype, message, options)
+    def __init__(self, exctype, parted_error, options):
+        Exception.__init__(self, exctype, parted_error, options)
         self.exctype = exctype
-        self.message = message
+        self.parted_error = parted_error
         self.options = list(options)
 
 class PartedServer(object):

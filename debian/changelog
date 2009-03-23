@@ -3,6 +3,9 @@ ubiquity (1.11.20) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Update for new message context system in GTK+ 2.15.1, and update
     imported translations from gtk+2.0 2.16.0-1ubuntu2.
+  * Stop setting message attribute in InstallStepError; it isn't used and it
+    generates a deprecation warning with Python 2.6. Similarly, rename
+    PartedServerError's message attribute to parted_error.
 
   [ Evan Dandrea ]
   * Make the partman/unmount_active dialog a yes or no question.

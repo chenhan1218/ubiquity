@@ -255,16 +255,10 @@ class DebconfInstallProgress(InstallProgress):
             self.started = False
 
 class InstallStepError(Exception):
-    """Raised when an install step fails.
-
-    Attributes:
-        message -- message returned with exception
-
-    """
+    """Raised when an install step fails."""
 
     def __init__(self, message):
         Exception.__init__(self, message)
-        self.message = message
 
 class Install:
 
