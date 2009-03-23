@@ -1,3 +1,9 @@
+ubiquity (1.11.20) UNRELEASED; urgency=low
+
+  * Disable the introduction page in preparation for the 9.04 Beta.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 23 Mar 2009 12:01:25 +0000
+
 ubiquity (1.11.19) jaunty; urgency=low
 
   [ Colin Watson ]
