@@ -35,11 +35,12 @@ def find_in_os_prober(device):
                 res = res.split(':')
                 find_in_os_prober.oslist[res[0]] = res[1]
         if device in find_in_os_prober.oslist:
-            return find_in_os_prober.oslist[device]
+            ret = find_in_os_prober.oslist[device]
         elif is_swap(device):
-            return 'swap'
+            ret = 'swap'
         else:
             syslog.syslog('Device %s not found in os-prober output' % str(device))
+        return unicode(ret, 'utf-8', 'replace')
     except (KeyboardInterrupt, SystemExit):
         pass
     except:
