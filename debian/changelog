@@ -12,7 +12,8 @@ ubiquity (1.11.20) UNRELEASED; urgency=low
     (LP: #346589).
   * Sort the list of regions on the timezone page (LP: #344334).
   * Merge Roman's city placement code into the GTK frontend.
-  * Work in bytes rather than percentages in the partition bar code.
+  * Work in bytes rather than percentages in the partition bar code
+    (LP: #336203).
   * Fix partition bar slider (for resizing) code by adding correct
     calcuations for bounds checking and slider positioning.
   * Properly encode data from os-prober (LP: #345573).
