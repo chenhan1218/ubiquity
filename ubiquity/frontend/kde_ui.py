@@ -438,6 +438,8 @@ class Wizard(BaseFrontend):
             else:
                 self.userinterface.hostname.setText('oem-desktop')
             self.hostname_edited = True
+            self.login_pass.hide()
+            self.login_auto.hide()
             # The UserSetup component takes care of preseeding passwd/user-uid.
             execute_root('apt-install', 'oem-config-kde')
         else:

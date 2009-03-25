@@ -7,6 +7,9 @@ ubiquity (1.12.0) UNRELEASED; urgency=low
     generates a deprecation warning with Python 2.6. Similarly, rename
     PartedServerError's message attribute to parted_error.
   * Always set auto-login for OEM installations.
+  * KDE frontend:
+    - Hide auto-login and require-password radio buttons for OEM
+      installations.
 
   [ Evan Dandrea ]
   * Make the partman/unmount_active dialog a yes or no question
