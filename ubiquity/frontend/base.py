@@ -81,6 +81,12 @@ class BaseFrontend:
         except debconf.DebconfError:
             self.oem_id = ''
 
+        if self.oem_config:
+            try:
+                db.set('passwd/auto-login', 'true')
+            except debconf.DebconfError:
+                pass
+
         # set commands
         # Note that this will never work if the database is locked, so you
         # cannot trap that particular error using failure_command.
