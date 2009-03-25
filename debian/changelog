@@ -3,6 +3,8 @@ oem-config (1.54.10) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Tighten frontend dependencies on oem-config to prevent problems when one
     architecture is out of sync.
+  * Set passwd/auto-login=true rather than implementing auto-login ourselves
+    (LP: #347900).
 
   [ Evan Dandrea ]
   * Update the timezone_map to match changes in ubiquity (more accurate
