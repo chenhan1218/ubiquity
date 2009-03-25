@@ -1997,29 +1997,6 @@ exit 0"""
                                        '/home/oem/Desktop/%s' % desktop_base)
                             break
 
-                # Some serious horribleness is needed here to handle absolute
-                # symlinks.
-                for name in ('gdm-cdd.conf', 'gdm.conf'):
-                    gdm_conf = osextras.realpath_root(
-                        self.target, os.path.join('/etc/gdm', name))
-                    if os.path.isfile(gdm_conf):
-                        self.chrex('sed', '-i.oem',
-                                   '-e', 's/^AutomaticLoginEnable=.*$/AutomaticLoginEnable=true/',
-                                   '-e', 's/^AutomaticLogin=.*$/AutomaticLogin=oem/',
-                                   '-e', 's/^TimedLoginEnable=.*$/TimedLoginEnable=true/',
-                                   '-e', 's/^TimedLogin=.*$/TimedLogin=oem/',
-                                   '-e', 's/^TimedLoginDelay=.*$/TimedLoginDelay=10/',
-                                   os.path.join('/etc/gdm', name));
-                        break
-
-                kdmrc = os.path.join(self.target, 'etc/kde4/kdm/kdmrc')
-                if os.path.isfile(kdmrc):
-                    misc.execute('sed', '-i.oem', '-r',
-                                 '-e', 's/^#?AutoLoginEnable=.*$/AutoLoginEnable=true/',
-                                 '-e', 's/^#?AutoLoginUser=.*$/AutoLoginUser=oem/',
-                                 '-e', 's/^#?AutoReLogin=.*$/AutoReLogin=true/',
-                                 kdmrc)
-
 		# Carry the locale setting over to the installed system.
 		# This mimics the behavior in 01oem-config-udeb.
                 di_locale = self.db.get('debian-installer/locale')
