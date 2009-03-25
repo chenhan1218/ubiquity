@@ -4,7 +4,7 @@ from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 
 import datetime
-import ubiquity.tz
+import oem_config.tz
 import math
 
 #contains information about a geographical timezone city
@@ -33,7 +33,7 @@ class TimezoneMap(QWidget):
         self.setObjectName("timezone_map")
         
         #load background pixmap
-        self.imagePath = "/usr/share/ubiquity/pixmaps/timezone"
+        self.imagePath = "/usr/share/oem-config/pixmaps/timezone"
         self.pixmap = QPixmap("%s/bg.png" % self.imagePath)
         
         #redraw timer for selected city time
@@ -54,7 +54,7 @@ class TimezoneMap(QWidget):
             zonePixmaps[zone] = QPixmap('%s/timezone_%s.png' % (self.imagePath, zone));
             
         #load the timezones from database
-        tzdb = ubiquity.tz.Database()
+        tzdb = oem_config.tz.Database()
         for location in tzdb.locations:
             zone_bits = location.zone.split('/')
             
@@ -181,7 +181,7 @@ class TimezoneMap(QWidget):
             
             # paint the time instead of the name
             try:
-                now = datetime.datetime.now(ubiquity.tz.SystemTzInfo(c.raw_zone))
+                now = datetime.datetime.now(oem_config.tz.SystemTzInfo(c.raw_zone))
                 timestring = now.strftime('%X')
                 
                 text_offset = QPoint(2,-2)

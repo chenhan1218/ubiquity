@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>SysConf</class>
- <widget class="QWidget" name="SysConf" >
-  <property name="geometry" >
+ <widget class="QWidget" name="SysConf">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,25 +10,25 @@
     <height>720</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>System Configuration</string>
   </property>
-  <layout class="QGridLayout" >
-   <property name="margin" >
+  <layout class="QGridLayout">
+   <property name="margin">
     <number>9</number>
    </property>
-   <property name="spacing" >
+   <property name="spacing">
     <number>6</number>
    </property>
-   <item row="1" column="0" >
+   <item row="1" column="0">
     <spacer>
-     <property name="orientation" >
+     <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
-     <property name="sizeType" >
+     <property name="sizeType">
       <enum>QSizePolicy::Maximum</enum>
      </property>
-     <property name="sizeHint" >
+     <property name="sizeHint" stdset="0">
       <size>
        <width>131</width>
        <height>51</height>
@@ -35,42 +36,40 @@
      </property>
     </spacer>
    </item>
-   <item rowspan="3" row="1" column="1" >
-    <widget class="QStackedWidget" name="stackedWidget" >
-     <property name="sizePolicy" >
-      <sizepolicy>
-       <hsizetype>7</hsizetype>
-       <vsizetype>7</vsizetype>
+   <item row="1" column="1" rowspan="3">
+    <widget class="QStackedWidget" name="stackedWidget">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
-     <property name="minimumSize" >
+     <property name="minimumSize">
       <size>
        <width>500</width>
        <height>381</height>
       </size>
      </property>
-     <property name="currentIndex" >
-      <number>0</number>
+     <property name="currentIndex">
+      <number>1</number>
      </property>
-     <widget class="QWidget" name="step_language" >
-      <layout class="QGridLayout" >
-       <property name="margin" >
+     <widget class="QWidget" name="step_language">
+      <layout class="QGridLayout">
+       <property name="margin">
         <number>9</number>
        </property>
-       <property name="spacing" >
+       <property name="spacing">
         <number>6</number>
        </property>
-       <item row="3" column="1" >
+       <item row="3" column="1">
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
-         <property name="sizeType" >
+         <property name="sizeType">
           <enum>QSizePolicy::Fixed</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>191</width>
            <height>91</height>
@@ -78,15 +77,15 @@
          </property>
         </spacer>
        </item>
-       <item row="0" column="1" >
+       <item row="0" column="1">
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
-         <property name="sizeType" >
+         <property name="sizeType">
           <enum>QSizePolicy::Fixed</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>191</width>
            <height>71</height>
@@ -94,9 +93,9 @@
          </property>
         </spacer>
        </item>
-       <item row="2" column="1" >
-        <widget class="QListWidget" name="language_list" >
-         <property name="maximumSize" >
+       <item row="2" column="1">
+        <widget class="QListWidget" name="language_list">
+         <property name="maximumSize">
           <size>
            <width>260</width>
            <height>350</height>
@@ -104,27 +103,25 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="1" >
-        <widget class="QLabel" name="language_label" >
-         <property name="sizePolicy" >
-          <sizepolicy>
-           <hsizetype>5</hsizetype>
-           <vsizetype>0</vsizetype>
+       <item row="1" column="1">
+        <widget class="QLabel" name="language_label">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="text" >
+         <property name="text">
           <string>Choose language</string>
          </property>
         </widget>
        </item>
-       <item rowspan="4" row="0" column="2" >
+       <item row="0" column="2" rowspan="4">
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>231</width>
            <height>421</height>
@@ -132,12 +129,12 @@
          </property>
         </spacer>
        </item>
-       <item rowspan="4" row="0" column="0" >
+       <item row="0" column="0" rowspan="4">
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>181</width>
            <height>421</height>
@@ -147,48 +144,78 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="step_timezone" >
-      <layout class="QGridLayout" >
-       <property name="margin" >
+     <widget class="QWidget" name="step_timezone">
+      <layout class="QGridLayout">
+       <property name="margin">
         <number>9</number>
        </property>
-       <property name="spacing" >
+       <property name="spacing">
         <number>6</number>
        </property>
-       <item row="1" column="1" >
-        <widget class="QLabel" name="timezone_comment_label" >
-         <property name="sizePolicy" >
-          <sizepolicy>
-           <hsizetype>5</hsizetype>
-           <vsizetype>0</vsizetype>
+       <item row="0" column="1">
+        <spacer>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="timezone_comment_label">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="text" >
+         <property name="text">
           <string>Select a city in your country and time zone.</string>
          </property>
         </widget>
        </item>
-       <item row="2" column="1" >
-        <widget class="QFrame" name="map_frame" >
-         <property name="frameShape" >
+       <item row="2" column="0">
+        <spacer>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>100</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="2" column="1">
+        <widget class="QFrame" name="map_frame">
+         <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
-         <property name="frameShadow" >
+         <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
         </widget>
        </item>
-       <item row="2" column="2" >
+       <item row="2" column="2">
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
-         <property name="sizeType" >
+         <property name="sizeType">
           <enum>QSizePolicy::Fixed</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>60</width>
            <height>20</height>
@@ -196,270 +223,53 @@
          </property>
         </spacer>
        </item>
-       <item row="2" column="0" >
-        <spacer>
-         <property name="orientation" >
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType" >
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" >
-          <size>
-           <width>100</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="3" column="1" >
-        <layout class="QGridLayout" >
-         <property name="margin" >
+       <item row="3" column="1">
+        <layout class="QGridLayout">
+         <property name="margin">
           <number>0</number>
          </property>
-         <property name="spacing" >
+         <property name="spacing">
           <number>6</number>
          </property>
-         <item row="0" column="0" >
-          <widget class="QLabel" name="timezone_city_label" >
-           <property name="sizePolicy" >
-            <sizepolicy>
-             <hsizetype>5</hsizetype>
-             <vsizetype>0</vsizetype>
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="text" >
-            <string>Selected city:</string>
+         <item row="0" column="0">
+          <widget class="QLabel" name="timezone_zone_label">
+           <property name="text">
+            <string>Select Region:</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="1" >
-          <widget class="QComboBox" name="city_combo" >
-           <property name="sizePolicy" >
-            <sizepolicy>
-             <hsizetype>7</hsizetype>
-             <vsizetype>0</vsizetype>
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-          </widget>
+         <item row="0" column="1">
+          <widget class="QComboBox" name="timezone_zone_combo"/>
          </item>
-         <item row="0" column="4" >
-          <widget class="QLabel" name="region_selected_label" >
-           <property name="sizePolicy" >
-            <sizepolicy>
-             <hsizetype>5</hsizetype>
-             <vsizetype>0</vsizetype>
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="text" >
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0" >
-          <widget class="QLabel" name="timezone_zone_label" >
-           <property name="sizePolicy" >
-            <sizepolicy>
-             <hsizetype>5</hsizetype>
-             <vsizetype>0</vsizetype>
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="text" >
-            <string>Time zone:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1" >
-          <widget class="QLabel" name="tz_selected_label" >
-           <property name="sizePolicy" >
-            <sizepolicy>
-             <hsizetype>5</hsizetype>
-             <vsizetype>0</vsizetype>
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="text" >
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="3" >
-          <widget class="QLabel" name="timezone_country_label" >
-           <property name="sizePolicy" >
-            <sizepolicy>
-             <hsizetype>5</hsizetype>
-             <vsizetype>0</vsizetype>
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="text" >
-            <string>Selected region:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="2" >
-          <spacer>
-           <property name="orientation" >
+         <item row="0" column="2">
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
-           <property name="sizeHint" >
+           <property name="sizeHint" stdset="0">
             <size>
-             <width>111</width>
+             <width>40</width>
              <height>20</height>
             </size>
            </property>
           </spacer>
          </item>
-         <item row="1" column="3" >
-          <widget class="QLabel" name="timezone_time_label" >
-           <property name="sizePolicy" >
-            <sizepolicy>
-             <hsizetype>5</hsizetype>
-             <vsizetype>0</vsizetype>
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="text" >
-            <string>Current time:</string>
+         <item row="0" column="3">
+          <widget class="QLabel" name="timezone_city_label">
+           <property name="text">
+            <string>Select City:</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="4" >
-          <widget class="QLabel" name="time_current_label" >
-           <property name="sizePolicy" >
-            <sizepolicy>
-             <hsizetype>5</hsizetype>
-             <vsizetype>0</vsizetype>
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="text" >
-            <string/>
-           </property>
-          </widget>
+         <item row="0" column="4">
+          <widget class="QComboBox" name="timezone_city_combo"/>
          </item>
-         <item row="1" column="5" colspan="2" >
-          <spacer>
-           <property name="orientation" >
+         <item row="0" column="5">
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
-           <property name="sizeHint" >
-            <size>
-             <width>31</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item row="0" column="5" >
-          <spacer>
-           <property name="orientation" >
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" >
-            <size>
-             <width>111</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </item>
-       <item row="4" column="1" >
-        <spacer>
-         <property name="orientation" >
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeType" >
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" >
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="0" column="1" >
-        <spacer>
-         <property name="orientation" >
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeType" >
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" >
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="step_keyboard" >
-      <layout class="QGridLayout" >
-       <property name="margin" >
-        <number>9</number>
-       </property>
-       <property name="spacing" >
-        <number>6</number>
-       </property>
-       <item row="3" column="1" >
-        <layout class="QGridLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
-         <property name="spacing" >
-          <number>6</number>
-         </property>
-         <item row="1" column="1" >
-          <widget class="QLineEdit" name="keyboard_test_ledit" />
-         </item>
-         <item row="0" column="1" >
-          <widget class="QLabel" name="keyboard_test_label" >
-           <property name="text" >
-            <string>You can type into this box to test your new keyboard layout.</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0" >
-          <spacer>
-           <property name="orientation" >
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeType" >
-            <enum>QSizePolicy::Expanding</enum>
-           </property>
-           <property name="sizeHint" >
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item row="1" column="2" >
-          <spacer>
-           <property name="orientation" >
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" >
+           <property name="sizeHint" stdset="0">
             <size>
              <width>40</width>
              <height>20</height>
@@ -469,15 +279,15 @@
          </item>
         </layout>
        </item>
-       <item row="2" column="1" >
+       <item row="4" column="1">
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
-         <property name="sizeType" >
+         <property name="sizeType">
           <enum>QSizePolicy::Fixed</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
            <height>40</height>
@@ -485,15 +295,74 @@
          </property>
         </spacer>
        </item>
-       <item row="4" column="1" colspan="2" >
+      </layout>
+     </widget>
+     <widget class="QWidget" name="step_keyboard">
+      <layout class="QGridLayout">
+       <property name="margin">
+        <number>9</number>
+       </property>
+       <property name="spacing">
+        <number>6</number>
+       </property>
+       <item row="3" column="1">
+        <layout class="QGridLayout">
+         <property name="margin">
+          <number>0</number>
+         </property>
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="keyboard_test_ledit"/>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="keyboard_test_label">
+           <property name="text">
+            <string>You can type into this box to test your new keyboard layout.</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <spacer>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Expanding</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="1" column="2">
+          <spacer>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item row="2" column="1">
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
-         <property name="sizeType" >
+         <property name="sizeType">
           <enum>QSizePolicy::Fixed</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
            <height>40</height>
@@ -501,15 +370,31 @@
          </property>
         </spacer>
        </item>
-       <item row="0" column="1" colspan="2" >
+       <item row="4" column="1" colspan="2">
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
-         <property name="sizeType" >
+         <property name="sizeType">
           <enum>QSizePolicy::Fixed</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="1" colspan="2">
+        <spacer>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
            <height>50</height>
@@ -517,12 +402,12 @@
          </property>
         </spacer>
        </item>
-       <item row="1" column="0" >
+       <item row="1" column="0">
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>40</width>
            <height>20</height>
@@ -530,12 +415,12 @@
          </property>
         </spacer>
        </item>
-       <item row="1" column="2" >
+       <item row="1" column="2">
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>40</width>
            <height>20</height>
@@ -543,26 +428,26 @@
          </property>
         </spacer>
        </item>
-       <item row="1" column="1" >
-        <layout class="QGridLayout" >
-         <property name="margin" >
+       <item row="1" column="1">
+        <layout class="QGridLayout">
+         <property name="margin">
           <number>0</number>
          </property>
-         <property name="spacing" >
+         <property name="spacing">
           <number>6</number>
          </property>
-         <item row="1" column="3" >
-          <widget class="QListWidget" name="keyboard_list_2" />
+         <item row="1" column="3">
+          <widget class="QListWidget" name="keyboard_list_2"/>
          </item>
-         <item row="1" column="2" >
+         <item row="1" column="2">
           <spacer>
-           <property name="orientation" >
+           <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
-           <property name="sizeType" >
+           <property name="sizeType">
             <enum>QSizePolicy::Fixed</enum>
            </property>
-           <property name="sizeHint" >
+           <property name="sizeHint" stdset="0">
             <size>
              <width>20</width>
              <height>20</height>
@@ -570,25 +455,25 @@
            </property>
           </spacer>
          </item>
-         <item row="1" column="1" >
-          <widget class="QListWidget" name="keyboard_list_1" />
+         <item row="1" column="1">
+          <widget class="QListWidget" name="keyboard_list_1"/>
          </item>
-         <item row="0" column="1" colspan="3" >
-          <widget class="QLabel" name="keyboard_comment_label" >
-           <property name="text" >
+         <item row="0" column="1" colspan="3">
+          <widget class="QLabel" name="keyboard_comment_label">
+           <property name="text">
             <string>Which layout is most similar to your keyboard?</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="0" >
+         <item row="1" column="0">
           <spacer>
-           <property name="orientation" >
+           <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
-           <property name="sizeType" >
+           <property name="sizeType">
             <enum>QSizePolicy::Expanding</enum>
            </property>
-           <property name="sizeHint" >
+           <property name="sizeHint" stdset="0">
             <size>
              <width>40</width>
              <height>20</height>
@@ -600,23 +485,23 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="step_user" >
-      <layout class="QHBoxLayout" >
-       <property name="margin" >
-        <number>9</number>
-       </property>
-       <property name="spacing" >
+     <widget class="QWidget" name="step_user">
+      <layout class="QHBoxLayout">
+       <property name="spacing">
         <number>6</number>
+       </property>
+       <property name="margin">
+        <number>9</number>
        </property>
        <item>
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
-         <property name="sizeType" >
+         <property name="sizeType">
           <enum>QSizePolicy::Fixed</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>100</width>
            <height>20</height>
@@ -625,19 +510,19 @@
         </spacer>
        </item>
        <item>
-        <layout class="QVBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
-         <property name="spacing" >
+        <layout class="QVBoxLayout">
+         <property name="spacing">
           <number>6</number>
+         </property>
+         <property name="margin">
+          <number>0</number>
          </property>
          <item>
           <spacer>
-           <property name="orientation" >
+           <property name="orientation">
             <enum>Qt::Vertical</enum>
            </property>
-           <property name="sizeHint" >
+           <property name="sizeHint" stdset="0">
             <size>
              <width>20</width>
              <height>40</height>
@@ -646,22 +531,22 @@
           </spacer>
          </item>
          <item>
-          <layout class="QGridLayout" >
-           <property name="margin" >
+          <layout class="QGridLayout">
+           <property name="margin">
             <number>0</number>
            </property>
-           <property name="spacing" >
+           <property name="spacing">
             <number>6</number>
            </property>
-           <item row="1" column="0" >
+           <item row="1" column="0">
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
-             <property name="sizeType" >
+             <property name="sizeType">
               <enum>QSizePolicy::Fixed</enum>
              </property>
-             <property name="sizeHint" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>20</height>
@@ -669,29 +554,29 @@
              </property>
             </spacer>
            </item>
-           <item row="1" column="3" >
-            <widget class="QLabel" name="name_error_reason" >
-             <property name="text" >
+           <item row="1" column="3">
+            <widget class="QLabel" name="name_error_reason">
+             <property name="text">
               <string/>
              </property>
             </widget>
            </item>
-           <item row="1" column="1" >
-            <widget class="QLineEdit" name="name_ledit" />
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="name_ledit"/>
            </item>
-           <item row="1" column="2" >
-            <widget class="QLabel" name="name_error_image" >
-             <property name="text" >
+           <item row="1" column="2">
+            <widget class="QLabel" name="name_error_image">
+             <property name="text">
               <string/>
              </property>
             </widget>
            </item>
-           <item row="1" column="4" >
+           <item row="1" column="4">
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
-             <property name="sizeHint" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>40</width>
                <height>20</height>
@@ -699,17 +584,15 @@
              </property>
             </spacer>
            </item>
-           <item row="0" column="1" colspan="4" >
-            <widget class="QLabel" name="fullname_label" >
-             <property name="sizePolicy" >
-              <sizepolicy>
-               <hsizetype>5</hsizetype>
-               <vsizetype>0</vsizetype>
+           <item row="0" column="1" colspan="4">
+            <widget class="QLabel" name="fullname_label">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
-             <property name="text" >
+             <property name="text">
               <string>What is your name?</string>
              </property>
             </widget>
@@ -718,10 +601,10 @@
          </item>
          <item>
           <spacer>
-           <property name="orientation" >
+           <property name="orientation">
             <enum>Qt::Vertical</enum>
            </property>
-           <property name="sizeHint" >
+           <property name="sizeHint" stdset="0">
             <size>
              <width>20</width>
              <height>20</height>
@@ -730,46 +613,44 @@
           </spacer>
          </item>
          <item>
-          <layout class="QGridLayout" >
-           <property name="margin" >
+          <layout class="QGridLayout">
+           <property name="margin">
             <number>0</number>
            </property>
-           <property name="spacing" >
+           <property name="spacing">
             <number>6</number>
            </property>
-           <item row="2" column="1" colspan="4" >
-            <widget class="QLabel" name="username_extra_label" >
-             <property name="sizePolicy" >
-              <sizepolicy>
-               <hsizetype>1</hsizetype>
-               <vsizetype>1</vsizetype>
+           <item row="2" column="1" colspan="4">
+            <widget class="QLabel" name="username_extra_label">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
-             <property name="text" >
-              <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-style:italic;">If more than one person will use this computer, you can set up multiple accounts after installation.&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;If more than one person will use this computer, you can set up multiple accounts after installation.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
-             <property name="scaledContents" >
+             <property name="scaledContents">
               <bool>true</bool>
              </property>
-             <property name="wordWrap" >
+             <property name="wordWrap">
               <bool>true</bool>
              </property>
             </widget>
            </item>
-           <item row="1" column="1" >
-            <widget class="QLineEdit" name="uname_ledit" />
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="uname_ledit"/>
            </item>
-           <item row="1" column="4" >
+           <item row="1" column="4">
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
-             <property name="sizeHint" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>40</width>
                <height>20</height>
@@ -777,15 +658,15 @@ p, li { white-space: pre-wrap; }
              </property>
             </spacer>
            </item>
-           <item row="1" column="0" >
+           <item row="1" column="0">
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
-             <property name="sizeType" >
+             <property name="sizeType">
               <enum>QSizePolicy::Fixed</enum>
              </property>
-             <property name="sizeHint" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>31</height>
@@ -793,31 +674,29 @@ p, li { white-space: pre-wrap; }
              </property>
             </spacer>
            </item>
-           <item row="1" column="3" >
-            <widget class="QLabel" name="uname_error_reason" >
-             <property name="text" >
+           <item row="1" column="3">
+            <widget class="QLabel" name="uname_error_reason">
+             <property name="text">
               <string/>
              </property>
             </widget>
            </item>
-           <item row="1" column="2" >
-            <widget class="QLabel" name="uname_error_image" >
-             <property name="text" >
+           <item row="1" column="2">
+            <widget class="QLabel" name="uname_error_image">
+             <property name="text">
               <string/>
              </property>
             </widget>
            </item>
-           <item row="0" column="1" colspan="4" >
-            <widget class="QLabel" name="username_label" >
-             <property name="sizePolicy" >
-              <sizepolicy>
-               <hsizetype>5</hsizetype>
-               <vsizetype>0</vsizetype>
+           <item row="0" column="1" colspan="4">
+            <widget class="QLabel" name="username_label">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
-             <property name="text" >
+             <property name="text">
               <string>What name do you want to use to log in?</string>
              </property>
             </widget>
@@ -826,10 +705,10 @@ p, li { white-space: pre-wrap; }
          </item>
          <item>
           <spacer>
-           <property name="orientation" >
+           <property name="orientation">
             <enum>Qt::Vertical</enum>
            </property>
-           <property name="sizeHint" >
+           <property name="sizeHint" stdset="0">
             <size>
              <width>20</width>
              <height>40</height>
@@ -838,22 +717,22 @@ p, li { white-space: pre-wrap; }
           </spacer>
          </item>
          <item>
-          <layout class="QGridLayout" >
-           <property name="margin" >
+          <layout class="QGridLayout">
+           <property name="margin">
             <number>0</number>
            </property>
-           <property name="spacing" >
+           <property name="spacing">
             <number>6</number>
            </property>
-           <item row="1" column="0" >
+           <item row="1" column="0">
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
-             <property name="sizeType" >
+             <property name="sizeType">
               <enum>QSizePolicy::Fixed</enum>
              </property>
-             <property name="sizeHint" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>20</height>
@@ -861,12 +740,12 @@ p, li { white-space: pre-wrap; }
              </property>
             </spacer>
            </item>
-           <item row="1" column="5" >
+           <item row="1" column="5">
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
-             <property name="sizeHint" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>40</width>
                <height>20</height>
@@ -874,66 +753,62 @@ p, li { white-space: pre-wrap; }
              </property>
             </spacer>
            </item>
-           <item row="1" column="4" >
-            <widget class="QLabel" name="password_error_reason" >
-             <property name="text" >
+           <item row="1" column="4">
+            <widget class="QLabel" name="password_error_reason">
+             <property name="text">
               <string/>
              </property>
             </widget>
            </item>
-           <item row="0" column="1" colspan="5" >
-            <widget class="QLabel" name="password_label" >
-             <property name="sizePolicy" >
-              <sizepolicy>
-               <hsizetype>5</hsizetype>
-               <vsizetype>0</vsizetype>
+           <item row="0" column="1" colspan="5">
+            <widget class="QLabel" name="password_label">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
-             <property name="text" >
+             <property name="text">
               <string>Choose a password to keep your account safe.</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="1" >
-            <widget class="QLineEdit" name="pass_ledit_1" >
-             <property name="echoMode" >
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="pass_ledit_1">
+             <property name="echoMode">
               <enum>QLineEdit::Password</enum>
              </property>
             </widget>
            </item>
-           <item row="1" column="2" >
-            <widget class="QLineEdit" name="pass_ledit_2" >
-             <property name="echoMode" >
+           <item row="1" column="2">
+            <widget class="QLineEdit" name="pass_ledit_2">
+             <property name="echoMode">
               <enum>QLineEdit::Password</enum>
              </property>
             </widget>
            </item>
-           <item row="1" column="3" >
-            <widget class="QLabel" name="password_error_label" >
-             <property name="text" >
+           <item row="1" column="3">
+            <widget class="QLabel" name="password_error_label">
+             <property name="text">
               <string/>
              </property>
             </widget>
            </item>
-           <item row="2" column="1" colspan="5" >
-            <widget class="QLabel" name="password_extra_label" >
-             <property name="sizePolicy" >
-              <sizepolicy>
-               <hsizetype>5</hsizetype>
-               <vsizetype>0</vsizetype>
+           <item row="2" column="1" colspan="5">
+            <widget class="QLabel" name="password_extra_label">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
-             <property name="text" >
-              <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-style:italic;">Enter the same password twice, so that it can be checked for typing errors.&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Enter the same password twice, so that it can be checked for typing errors.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
-             <property name="wordWrap" >
+             <property name="wordWrap">
               <bool>false</bool>
              </property>
             </widget>
@@ -942,10 +817,10 @@ p, li { white-space: pre-wrap; }
          </item>
          <item>
           <spacer>
-           <property name="orientation" >
+           <property name="orientation">
             <enum>Qt::Vertical</enum>
            </property>
-           <property name="sizeHint" >
+           <property name="sizeHint" stdset="0">
             <size>
              <width>20</width>
              <height>40</height>
@@ -955,10 +830,10 @@ p, li { white-space: pre-wrap; }
          </item>
          <item>
           <spacer>
-           <property name="orientation" >
+           <property name="orientation">
             <enum>Qt::Vertical</enum>
            </property>
-           <property name="sizeHint" >
+           <property name="sizeHint" stdset="0">
             <size>
              <width>20</width>
              <height>40</height>
@@ -970,13 +845,13 @@ p, li { white-space: pre-wrap; }
        </item>
        <item>
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
-         <property name="sizeType" >
+         <property name="sizeType">
           <enum>QSizePolicy::Fixed</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>40</width>
            <height>20</height>
@@ -988,15 +863,15 @@ p, li { white-space: pre-wrap; }
      </widget>
     </widget>
    </item>
-   <item row="3" column="0" >
+   <item row="3" column="0">
     <spacer>
-     <property name="orientation" >
+     <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
-     <property name="sizeType" >
+     <property name="sizeType">
       <enum>QSizePolicy::Maximum</enum>
      </property>
-     <property name="sizeHint" >
+     <property name="sizeHint" stdset="0">
       <size>
        <width>131</width>
        <height>71</height>
@@ -1004,20 +879,20 @@ p, li { white-space: pre-wrap; }
      </property>
     </spacer>
    </item>
-   <item row="4" column="0" colspan="2" >
-    <layout class="QHBoxLayout" >
-     <property name="margin" >
-      <number>0</number>
-     </property>
-     <property name="spacing" >
+   <item row="4" column="0" colspan="2">
+    <layout class="QHBoxLayout">
+     <property name="spacing">
       <number>6</number>
+     </property>
+     <property name="margin">
+      <number>0</number>
      </property>
      <item>
       <spacer>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>561</width>
          <height>20</height>
@@ -1026,53 +901,51 @@ p, li { white-space: pre-wrap; }
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="back" >
-       <property name="text" >
+      <widget class="QPushButton" name="back">
+       <property name="text">
         <string>&lt; &amp;Back</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="next" >
-       <property name="text" >
-        <string>&amp;Forward ></string>
+      <widget class="QPushButton" name="next">
+       <property name="text">
+        <string>&amp;Forward &gt;</string>
        </property>
       </widget>
      </item>
     </layout>
    </item>
-   <item row="0" column="0" colspan="2" >
-    <layout class="QGridLayout" >
-     <property name="margin" >
+   <item row="0" column="0" colspan="2">
+    <layout class="QGridLayout">
+     <property name="margin">
       <number>0</number>
      </property>
-     <property name="spacing" >
+     <property name="spacing">
       <number>6</number>
      </property>
-     <item row="0" column="0" >
-      <widget class="QLabel" name="welcome_label" >
-       <property name="sizePolicy" >
-        <sizepolicy>
-         <hsizetype>5</hsizetype>
-         <vsizetype>0</vsizetype>
+     <item row="0" column="0">
+      <widget class="QLabel" name="welcome_label">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
-       <property name="text" >
-        <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:20pt; font-style:italic;">Welcome!&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt; font-style:italic;&quot;&gt;Welcome!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="1" colspan="2" >
+     <item row="1" column="1" colspan="2">
       <spacer>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>646</width>
          <height>21</height>
@@ -1080,12 +953,12 @@ p, li { white-space: pre-wrap; }
        </property>
       </spacer>
      </item>
-     <item row="0" column="1" colspan="2" >
+     <item row="0" column="1" colspan="2">
       <spacer>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>713</width>
          <height>50</height>
@@ -1093,50 +966,48 @@ p, li { white-space: pre-wrap; }
        </property>
       </spacer>
      </item>
-     <item row="1" column="0" >
-      <widget class="QLabel" name="welcome_label_2" >
-       <property name="sizePolicy" >
-        <sizepolicy>
-         <hsizetype>5</hsizetype>
-         <vsizetype>0</vsizetype>
+     <item row="1" column="0">
+      <widget class="QLabel" name="welcome_label_2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
-       <property name="text" >
-        <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:20pt; font-style:italic;">&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt; font-style:italic;&quot;&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
     </layout>
    </item>
-   <item row="2" column="0" >
-    <layout class="QGridLayout" >
-     <property name="margin" >
+   <item row="2" column="0">
+    <layout class="QGridLayout">
+     <property name="margin">
       <number>0</number>
      </property>
-     <property name="spacing" >
+     <property name="spacing">
       <number>6</number>
      </property>
-     <item row="4" column="0" >
-      <widget class="QLabel" name="step_icon_key" >
-       <property name="text" >
+     <item row="4" column="0">
+      <widget class="QLabel" name="step_icon_key">
+       <property name="text">
         <string/>
        </property>
       </widget>
      </item>
-     <item row="5" column="0" colspan="2" >
+     <item row="5" column="0" colspan="2">
       <spacer>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
-       <property name="sizeType" >
+       <property name="sizeType">
         <enum>QSizePolicy::Fixed</enum>
        </property>
-       <property name="sizeHint" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>20</width>
          <height>40</height>
@@ -1144,22 +1015,22 @@ p, li { white-space: pre-wrap; }
        </property>
       </spacer>
      </item>
-     <item row="2" column="0" >
-      <widget class="QLabel" name="step_icon_loc" >
-       <property name="text" >
+     <item row="2" column="0">
+      <widget class="QLabel" name="step_icon_loc">
+       <property name="text">
         <string/>
        </property>
       </widget>
      </item>
-     <item row="3" column="0" colspan="2" >
+     <item row="3" column="0" colspan="2">
       <spacer>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
-       <property name="sizeType" >
+       <property name="sizeType">
         <enum>QSizePolicy::Fixed</enum>
        </property>
-       <property name="sizeHint" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>20</width>
          <height>40</height>
@@ -1167,15 +1038,15 @@ p, li { white-space: pre-wrap; }
        </property>
       </spacer>
      </item>
-     <item row="1" column="0" colspan="2" >
+     <item row="1" column="0" colspan="2">
       <spacer>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
-       <property name="sizeType" >
+       <property name="sizeType">
         <enum>QSizePolicy::Fixed</enum>
        </property>
-       <property name="sizeHint" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>20</width>
          <height>40</height>
@@ -1183,57 +1054,57 @@ p, li { white-space: pre-wrap; }
        </property>
       </spacer>
      </item>
-     <item row="4" column="1" >
-      <widget class="QLabel" name="keyboard_heading_label" >
-       <property name="text" >
-        <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+     <item row="4" column="1">
+      <widget class="QLabel" name="keyboard_heading_label">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">  &lt;span style=" font-size:13pt; color:gray;">Keyboard layout&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;  &lt;span style=&quot; font-size:13pt; color:gray;&quot;&gt;Keyboard layout&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="1" >
-      <widget class="QLabel" name="language_heading_label" >
-       <property name="text" >
-        <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+     <item row="0" column="1">
+      <widget class="QLabel" name="language_heading_label">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">  &lt;span style=" font-size:13pt; color:gray;">Choose language&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;  &lt;span style=&quot; font-size:13pt; color:gray;&quot;&gt;Choose language&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="0" >
-      <widget class="QLabel" name="step_icon_lang" >
-       <property name="text" >
+     <item row="0" column="0">
+      <widget class="QLabel" name="step_icon_lang">
+       <property name="text">
         <string/>
        </property>
       </widget>
      </item>
-     <item row="2" column="1" >
-      <widget class="QLabel" name="timezone_heading_label" >
-       <property name="text" >
-        <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+     <item row="2" column="1">
+      <widget class="QLabel" name="timezone_heading_label">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">  &lt;span style=" font-size:13pt; color:gray;">Choose time zone&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;  &lt;span style=&quot; font-size:13pt; color:gray;&quot;&gt;Choose time zone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
-     <item row="6" column="0" >
-      <widget class="QLabel" name="step_icon_user" >
-       <property name="text" >
+     <item row="6" column="0">
+      <widget class="QLabel" name="step_icon_user">
+       <property name="text">
         <string/>
        </property>
       </widget>
      </item>
-     <item row="6" column="1" >
-      <widget class="QLabel" name="user_heading_label" >
-       <property name="text" >
-        <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+     <item row="6" column="1">
+      <widget class="QLabel" name="user_heading_label">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">  &lt;span style=" font-size:13pt; color:gray;">Who are you?&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;  &lt;span style=&quot; font-size:13pt; color:gray;&quot;&gt;Who are you?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
@@ -1244,7 +1115,6 @@ p, li { white-space: pre-wrap; }
  <tabstops>
   <tabstop>back</tabstop>
   <tabstop>language_list</tabstop>
-  <tabstop>city_combo</tabstop>
   <tabstop>keyboard_list_1</tabstop>
   <tabstop>keyboard_list_2</tabstop>
   <tabstop>keyboard_test_ledit</tabstop>
