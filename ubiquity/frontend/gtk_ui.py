@@ -1261,7 +1261,7 @@ class Wizard(BaseFrontend):
             self.action_bar.remove_all()
             self.action_bar.resize = -1
             if choice == self.manual_choice:
-                self.action_bar.add_segment_rgb(self.manual_choice, 1, \
+                self.action_bar.add_segment_rgb(self.manual_choice, -1, \
                     self.auto_colors[0])
             elif choice == self.resize_choice:
                 for k in self.disk_layout:
@@ -1273,7 +1273,7 @@ class Wizard(BaseFrontend):
                             break
             else:
                 # Use entire disk.
-                self.action_bar.add_segment_rgb(get_release_name(), 1, \
+                self.action_bar.add_segment_rgb(get_release_name(), -1, \
                     self.auto_colors[0])
                 for b in extra_buttons:
                     self.on_extra_button_toggled(b)
@@ -1568,7 +1568,7 @@ class Wizard(BaseFrontend):
                 b.add_segment_rgb(dev, size, self.auto_colors[i])
                 i = (i + 1) % len(self.auto_colors)
                 if dev == self.resize_path and resize_bar:
-                    self.action_bar.add_segment_rgb(get_release_name(), 0, \
+                    self.action_bar.add_segment_rgb(get_release_name(), -1, \
                         self.auto_colors[i])
                     i = (i + 1) % len(self.auto_colors)
 
@@ -1576,6 +1576,15 @@ class Wizard(BaseFrontend):
                                    resize_choice, manual_choice):
         BaseFrontend.set_autopartition_choices(self, choices, extra_options,
                                                resize_choice, manual_choice)
+
+        if resize_choice in choices:
+            self.resize_min_size, self.resize_max_size, \
+                self.resize_orig_size, self.resize_path = \
+                    extra_options[resize_choice]
+            self.action_bar.set_part_size(self.resize_orig_size)
+            self.action_bar.set_min(self.resize_min_size)
+            self.action_bar.set_max(self.resize_max_size)
+            self.action_bar.set_device(self.resize_path)
 
         for child in self.autopartition_choices_vbox.get_children():
             self.autopartition_choices_vbox.remove(child)
@@ -1650,15 +1659,6 @@ class Wizard(BaseFrontend):
                                                    expand=False, fill=False)
                 self.autopartition_extras[choice] = alignment
             button.connect('toggled', self.on_autopartition_toggled, extra_buttons)
-
-        if resize_choice in choices:
-            self.resize_min_size, self.resize_max_size, \
-                self.resize_orig_size, self.resize_path = \
-                    extra_options[resize_choice]
-            self.action_bar.set_part_size(self.resize_orig_size)
-            self.action_bar.set_min(self.resize_min_size)
-            self.action_bar.set_max(self.resize_max_size)
-            self.action_bar.set_device(self.resize_path)
 
         if firstbutton is not None:
             firstbutton.set_active(True)
@@ -2340,11 +2340,6 @@ class Wizard(BaseFrontend):
                     c = self.auto_colors[i]
                     txt = '%s (%s)' % (path, fs)
                 partition_bar.add_segment_rgb(txt, size, c)
-        for item in cache_order:
-            if item in disk_cache:
-                dev = disk_cache[item]['device']
-                for seg in self.partition_bars[dev].segments:
-                    seg.set_percent(seg.get_percent() / total_size[dev])
         sel = self.partition_list_treeview.get_selection()
         if sel.count_selected_rows() == 0:
             sel.select_path(0)

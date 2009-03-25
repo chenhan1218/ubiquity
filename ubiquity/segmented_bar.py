@@ -243,9 +243,12 @@ class SegmentedBar(gtk.Widget):
         self.reflect = True
         self.remainder_color = 'eeeeee'
 
-    def add_segment(self, title, percent, color, show_in_bar=True):
+        self.disk_size = 0
+
+    def add_segment(self, title, size, color, show_in_bar=True):
         self.do_size_allocate(self.get_allocation())
-        self.segments.append(self.Segment(title, percent, color, show_in_bar))
+        self.disk_size += size
+        self.segments.append(self.Segment(title, size, color, show_in_bar))
         self.queue_draw()
 
     def remove_segment(self, title):
@@ -253,15 +256,17 @@ class SegmentedBar(gtk.Widget):
         for segment in self.segments:
             if segment.title == title:
                 self.segments.remove(segment)
+                self.disk_size -= size
                 self.queue_draw()
                 break
     
     def remove_all(self):
         self.segments = []
+        self.disk_size = 0
         self.queue_draw()
 
-    def add_segment_rgb(self, title, percent, rgb_color):
-        self.add_segment(title, percent, CairoExtensions.rgb_to_color(rgb_color))
+    def add_segment_rgb(self, title, size, rgb_color):
+        self.add_segment(title, size, CairoExtensions.rgb_to_color(rgb_color))
         c = CairoExtensions.rgb_to_color(rgb_color)
     
     def do_size_request(self, requisition):
@@ -341,9 +346,10 @@ class SegmentedBar(gtk.Widget):
         last = 0.0
         
         for segment in self.segments:
-            if segment.percent > 0:
+            percent = segment.size / float(self.disk_size)
+            if percent > 0:
                 grad.add_color_stop_rgb(last, segment.color.r, segment.color.g, segment.color.b)
-                last = last + segment.percent
+                last = last + percent
                 grad.add_color_stop_rgb(last, segment.color.r, segment.color.g, segment.color.b)
 
         CairoExtensions.rounded_rectangle(cr, 0, 0, w, h, r, corners=CairoCorners.none)
@@ -534,7 +540,7 @@ class SegmentedBar(gtk.Widget):
         return layout
 
     class Segment:
-        def __init__(self, device, percent, color, show_in_bar=True):
+        def __init__(self, device, size, color, show_in_bar=True):
             self.device = device
             self.title = ''
             if device.startswith('/'):
@@ -543,7 +549,7 @@ class SegmentedBar(gtk.Widget):
                 self.title = '%s (%s)' % (self.title, device)
             else:
                 self.title = device
-            self.set_percent(percent)
+            self.set_size(size)
             self.color = color
             self.show_in_bar = show_in_bar
 
@@ -556,12 +562,12 @@ class SegmentedBar(gtk.Widget):
             else:
                 return False
 
-        def set_percent(self, percent):
-            self.percent = percent
-            self.subtitle = '%d%%' % (percent * 100)
-
-        def get_percent(self):
-            return self.percent
+        def set_size(self, size):
+            self.size = size
+            if size > 0:
+                self.subtitle = format_size(self.size)
+            else:
+                self.subtitle = ''
 
 gobject.type_register(SegmentedBar)
 
@@ -588,15 +594,16 @@ class SegmentedBarSlider(SegmentedBar):
                 self.resize = i
                 break
             i = i + 1
-        if self.resize != -1 and len(self.segments) > self.resize + 1:
-            val = (float(self.min_size) / self.part_size)
-            self.segments[self.resize].percent = val
-            self.segments[self.resize].subtitle = '%d%% (%s)' % \
-                (val * 100, format_size(val * self.part_size))
 
-            self.segments[self.resize + 1].percent = 1 - val
-            self.segments[self.resize + 1].subtitle = '%d%% (%s)' % \
-                ((1 - val) * 100, format_size((1 - val) * self.part_size))
+        # FIXME: Should be done in some sort of expose event, so it doesn't
+        # matter if the min_size is set after the segments are added.
+        if self.resize != -1 and len(self.segments) > self.resize + 1:
+            s = self.segments[self.resize + 1]
+            diff = s.size - self.min_size
+            s.set_size(self.min_size)
+
+            s = self.segments[self.resize]
+            s.set_size(s.size + diff)
             self.queue_draw()
 
     def motion_notify_event(self, widget, event):
@@ -607,54 +614,49 @@ class SegmentedBarSlider(SegmentedBar):
             y = event.y
             state = event.state
         
-        # Convert the minimum size (min_size) to a pixel width.  If the
-        # position of the cursor is below this value, then set the position of
-        # the slider to this value.  This creates a minimum bound for the
-        # resize value.
-        i = 0
-        start = 0
-        if self.resize == -1:
+        if not (state & gtk.gdk.BUTTON1_MASK) or self.resize == -1:
             return
-        while i < self.resize:
-            start = start + self.segments[i].percent
-            i = i + 1
-        start = start * self.allocation.width
-        if self.min_size != -1:
-            m = float(self.min_size) / self.part_size * \
-                (self.segments[self.resize].percent +
-                self.segments[self.resize + 1].percent)
-            if x < (start + (m * self.allocation.width)):
-                x = start + (m * self.allocation.width)
-        else:
-            if x < start:
-                x = start
-
-        end = start + ((self.segments[self.resize].percent +
-            self.segments[self.resize + 1].percent) * self.allocation.width)
-        if self.max_size != -1:
-            m = float(self.max_size) / self.part_size * \
-                (self.segments[self.resize].percent +
-                self.segments[self.resize + 1].percent)
-            if x > (start + (m * self.allocation.width)):
-                x = start + (m * self.allocation.width)
-        else:
-            if x > end:
-                x = end
         
-        total = end - start
-        pos = x - start
-        if (state & gtk.gdk.BUTTON1_MASK):
-            total_percent = self.segments[self.resize].percent + \
-                self.segments[self.resize + 1].percent
-            value = round((pos / total) * total_percent, 2)
-            self.segments[self.resize].percent = value
-            self.segments[self.resize].subtitle = '%d%% (%s)' % \
-                (value * 100, format_size(value * self.part_size))
-            self.segments[self.resize + 1].percent = total_percent - value
-            self.segments[self.resize + 1].subtitle = '%d%% (%s)' % \
-                ((total_percent - value) * 100,
-                format_size((total_percent - value) * self.part_size))
-            self.queue_draw()
+        i = 0
+        resize_part_start = 0
+        while i < self.resize:
+            resize_part_start += self.segments[i].size
+            i += 1
+        sum = self.segments[self.resize].size + \
+              self.segments[self.resize + 1].size
+        b = x / float(self.allocation.width - self.h_padding)
+        
+        # The minimum size the old partition can be.
+        if self.min_size != -1:
+            a = ((self.min_size + resize_part_start) /
+                float(self.disk_size))
+            if b < a:
+                self.segments[self.resize].set_size(self.min_size)
+                self.segments[self.resize + 1].set_size(sum - self.min_size)
+                self.queue_draw()
+                return
+        else:
+            # FIXME
+            return
+
+        # The maximum size the old partition can be.
+        if self.max_size != -1:
+            a = ((self.max_size + resize_part_start) /
+                float(self.disk_size))
+            if b > a:
+                self.segments[self.resize].set_size(self.max_size)
+                self.segments[self.resize + 1].set_size(sum - self.max_size)
+                self.queue_draw()
+                return
+        else:
+            # FIXME
+            return
+
+        s = (b - (resize_part_start / float(self.disk_size))) * self.disk_size
+        self.segments[self.resize].set_size(s)
+        self.segments[self.resize + 1].set_size(sum - s)
+
+        self.queue_draw()
 
     def set_min(self, m):
         self.min_size = m
@@ -666,9 +668,7 @@ class SegmentedBarSlider(SegmentedBar):
         self.part_size = size
 
     def get_size(self):
-        return int((self.segments[self.resize].percent /
-            (self.segments[self.resize + 1].percent
-            + self.segments[self.resize].percent)) * self.part_size)
+        return int(self.segments[self.resize].size)
 
     def do_realize(self):
         self.set_flags(self.flags() | gtk.REALIZED)
@@ -690,21 +690,18 @@ class SegmentedBarSlider(SegmentedBar):
         self.window.move_resize(*self.allocation)
 
     def render_slider(self, cr, w, h, r):
-        # Render slider.
         i = 0
-        t = 0
+        size = 0.0
         while i <= self.resize:
-            t = t + self.segments[i].percent
-            i = i + 1
+            size += self.segments[i].size
+            i += 1
+        t = size / float(self.disk_size)
         p = (t * w) - ((self.slider_size / w) / 2)
         #cr.set_line_cap(cairo.LINE_CAP_ROUND)
         cr.move_to(p, 0)
         #cr.set_line_cap(cairo.LINE_CAP_ROUND)
         cr.line_to(p, h)
-        s = self.make_segment_gradient(h, CairoExtensions.rgb_to_color('000000'))
-        cr.set_source(s)
-
-        #cr.set_source_rgb(0, 0, 0)
+        cr.set_source_rgb(0, 0, 0)
         cr.set_line_width(self.slider_size)
         cr.stroke()
     
@@ -720,43 +717,3 @@ class SegmentedBarSlider(SegmentedBar):
 
 gobject.type_register(SegmentedBarSlider)
 
-
-if __name__ == '__main__':
-    w = gtk.Window()
-    w.set_app_paintable(True)
-    box = gtk.VBox(spacing=10)
-    w.add(box)
-
-    bar = SegmentedBar()
-    #w.add(bar)
-    bar.h_padding = bar.bar_height / 2
-    bar.add_segment_rgb("Windows XP Professional", 0.20, '3465a4')
-    bar.add_segment_rgb("Ubuntu 8.04", 0.20, '73d216')
-    bar.add_segment_rgb("Plan 9", 0.20, 'f57900')
-    bar.add_segment_rgb("Free Space", 0.40, bar.remainder_color)
-
-    # FIXME evand 2008-07-19: The widget does not size properly when packed in
-    # a HBox with other widgets.
-
-    controls = gtk.HBox(spacing=5)
-    label = gtk.Label("Height:")
-    controls.pack_start(label, False, False, 0)
-
-    def set_height(x):
-        bar.bar_height = x.get_value_as_int()
-    height = gtk.SpinButton(gtk.Adjustment(bar.bar_height, 5, 100, 1, 1, 1), 1, 0)
-    height.connect('activate', set_height)
-    def on_value_changed(x):
-        bar.bar_height = x.get_value_as_int()
-        bar.h_padding = bar.bar_height / 2
-    height.connect('value-changed', on_value_changed)
-    controls.pack_start(height, False, False, 0)
-
-    box.pack_start(controls, False, False, 0)
-    box.pack_start(gtk.HSeparator(), False, False, 0)
-    box.pack_start(bar, False, False, 0)
-    w.set_size_request(-1, -1)
-    w.connect("delete-event", gtk.main_quit)
-    w.show_all()
-
-    gtk.main()

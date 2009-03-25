@@ -391,16 +391,13 @@ class Partman(FilteredCommand):
                 ret = []
                 total = 0
                 for partition in parted.partitions():
-                    size = int(partition[2])
-                    total = total + size
-                for partition in parted.partitions():
                     print 'partition: %s' % str(partition)
                     size = int(partition[2])
                     if partition[4] == 'free':
                         dev = 'free'
                     else:
                         dev = partition[5]
-                    ret.append((dev, size / float(total)))
+                    ret.append((dev, size))
                 layout[disk] = ret
 
             self.frontend.set_disk_layout(layout)
