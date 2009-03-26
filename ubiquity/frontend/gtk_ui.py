@@ -168,7 +168,10 @@ class Wizard(BaseFrontend):
         self.installing_no_return = False
         self.returncode = 0
         self.partition_bars = {}
+        # FIXME: Grab this from the GTK theme.
+        self.release_color = 'D07316'
         self.auto_colors = ['3465a4', '73d216', 'f57900']
+        self.dev_colors = {}
         self.segmented_bar_vbox = None
         self.format_warnings = {}
 
@@ -1261,7 +1264,7 @@ class Wizard(BaseFrontend):
             self.action_bar.resize = -1
             if choice == self.manual_choice:
                 self.action_bar.add_segment_rgb(self.manual_choice, -1, \
-                    self.auto_colors[0])
+                    self.release_color)
             elif choice == self.resize_choice:
                 for k in self.disk_layout:
                     for p in self.disk_layout[k]:
@@ -1273,7 +1276,7 @@ class Wizard(BaseFrontend):
             else:
                 # Use entire disk.
                 self.action_bar.add_segment_rgb(get_release_name(), -1, \
-                    self.auto_colors[0])
+                    self.release_color)
                 for b in extra_buttons:
                     self.on_extra_button_toggled(b)
 
@@ -1564,12 +1567,16 @@ class Wizard(BaseFrontend):
             if dev == 'free':
                 b.add_segment_rgb("Free Space", size, b.remainder_color)
             else:
-                b.add_segment_rgb(dev, size, self.auto_colors[i])
-                i = (i + 1) % len(self.auto_colors)
+                if dev in self.dev_colors:
+                    c = self.dev_colors[dev]
+                else:
+                    c = self.auto_colors[i]
+                    self.dev_colors[dev] = c
+                b.add_segment_rgb(dev, size, c)
                 if dev == self.resize_path and resize_bar:
-                    self.action_bar.add_segment_rgb(get_release_name(), -1, \
-                        self.auto_colors[i])
-                    i = (i + 1) % len(self.auto_colors)
+                    self.action_bar.add_segment_rgb(get_release_name(), -1,
+                        self.release_color)
+                i = (i + 1) % len(self.auto_colors)
 
     def set_autopartition_choices (self, choices, extra_options,
                                    resize_choice, manual_choice):
