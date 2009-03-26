@@ -44,8 +44,9 @@ class Install(FilteredCommand):
             if not (automatic_mode and only_debian != ''):
                 self.preseed('grub-installer/only_debian', 'false')
         
-        install_bootloader = self.db.get('ubiquity/install_bootloader')
-        if not (automatic_mode and install_bootloader):
+        install_bootloader_seen = self.db.fget('ubiquity/install_bootloader',
+                                               'seen')
+        if not (automatic_mode and install_bootloader_seen):
             if self.frontend.get_grub() is not None:
                 self.preseed_bool('ubiquity/install_bootloader', self.frontend.get_grub())
             else:
