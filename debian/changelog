@@ -33,6 +33,7 @@ ubiquity (1.12.0) UNRELEASED; urgency=low
     colors for the same partitions (LP: #289324).
   * Fix the placement of the partition bars in scrolled windows when
     necessary.
+  * Don't let the partition bars eat up any extra space.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 19 Mar 2009 12:02:04 +0000
 
