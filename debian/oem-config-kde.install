@@ -1,3 +1,5 @@
 desktop/oem-config-prepare-kde.desktop usr/share/oem-config/desktop
 lib/frontend/kde_ui.py usr/lib/oem-config/oem_config/frontend
+lib/frontend/Timezone.py usr/lib/oem-config/oem_config/frontend
 gui/qt/sysconf.ui usr/share/oem-config/qt
+pixmaps/timezone usr/share/oem-config/pixmaps

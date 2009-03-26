@@ -9,6 +9,8 @@ oem-config (1.54.10) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Update the timezone_map to match changes in ubiquity (more accurate
     city placement).
+  * Merge in the new KDE time zone map from ubiquity.  Thanks Roman
+    Shtylman.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 18 Mar 2009 14:32:32 +0000
 

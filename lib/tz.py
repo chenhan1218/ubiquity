@@ -1,6 +1,6 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
 
-# Copyright (C) 2006 Canonical Ltd.
+# Copyright (C) 2006, 2007 Canonical Ltd.
 # Written by Colin Watson <cjwatson@ubuntu.com>.
 #
 # This program is free software; you can redistribute it and/or modify
@@ -36,24 +36,24 @@ class SystemTzInfo(datetime.tzinfo):
         self.tz = tz
 
     def _select_tz(self):
-        self.tzbackup = None
+        tzbackup = None
         if 'TZ' in os.environ:
-            self.tzbackup = os.environ['TZ']
+            tzbackup = os.environ['TZ']
         if self.tz is not None:
             os.environ['TZ'] = self.tz
         time.tzset()
+        return tzbackup
 
-    def _restore_tz(self):
-        if self.tzbackup is None:
+    def _restore_tz(self, tzbackup):
+        if tzbackup is None:
             if 'TZ' in os.environ:
                 del os.environ['TZ']
         else:
-            os.environ['TZ'] = self.tzbackup
-            self.tzbackup = None
+            os.environ['TZ'] = tzbackup
         time.tzset()
 
     def utcoffset(self, dt):
-        self._select_tz()
+        tzbackup = self._select_tz()
         try:
             if time.daylight == 0:
                 # no DST information
@@ -68,10 +68,18 @@ class SystemTzInfo(datetime.tzinfo):
                     dstminutes = -time.altzone / 60
             return datetime.timedelta(minutes=int(dstminutes))
         finally:
-            self._restore_tz()
+            self._restore_tz(tzbackup)
+
+    def rawutcoffset(self, dt):
+        tzbackup = self._select_tz()
+        try:
+            dstminutes = -time.timezone / 60
+            return datetime.timedelta(minutes=int(dstminutes))
+        finally:
+            self._restore_tz(tzbackup)
 
     def dst(self, dt):
-        self._select_tz()
+        tzbackup = self._select_tz()
         try:
             if time.daylight == 0:
                 # no DST information, so assume no DST; None would be more
@@ -86,18 +94,18 @@ class SystemTzInfo(datetime.tzinfo):
                     dstminutes = (time.timezone - time.altzone) / 60
                     return datetime.timedelta(minutes=int(dstminutes))
         finally:
-            self._restore_tz()
+            self._restore_tz(tzbackup)
 
     def tzname(self, dt):
         return self.tz
 
     def tzname_letters(self, dt):
-        self._select_tz()
+        tzbackup = self._select_tz()
         try:
             localtime = time.localtime(_seconds_since_epoch(dt))
             return time.strftime('%Z', localtime)
         finally:
-            self._restore_tz()
+            self._restore_tz(tzbackup)
 
 
 class Iso3166(object):
@@ -175,10 +183,11 @@ class Location(object):
             today = datetime.datetime.fromtimestamp(0)
         self.info = SystemTzInfo(self.zone)
         self.utc_offset = self.info.utcoffset(today)
+        self.raw_utc_offset = self.info.rawutcoffset(today)
         self.zone_letters = self.info.tzname_letters(today)
 
 
-class Database(object):
+class _Database(object):
     def __init__(self):
         self.locations = []
         iso3166 = Iso3166()
@@ -189,3 +198,11 @@ class Database(object):
             self.locations.append(Location(line, iso3166))
         tzdata.close()
         self.locations.sort(cmp, lambda location: location.zone)
+
+_database = None
+
+def Database():
+    global _database
+    if not _database:
+        _database = _Database()
+    return _database
