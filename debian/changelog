@@ -16,6 +16,8 @@ ubiquity (1.12.0) UNRELEASED; urgency=low
   * Fix ubiquity/install_bootloader handling to check the seen flag rather
     its value when deciding whether to override it with the UI's value (see
     LP #348660).
+  * Outside automatic mode, default the UI's "Install boot loader" question
+    to the value of ubiquity/install_bootloader (see LP #348660).
 
   [ Evan Dandrea ]
   * Make the partman/unmount_active dialog a yes or no question

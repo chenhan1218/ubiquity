@@ -164,7 +164,6 @@ class Wizard(BaseFrontend):
         self.hostname_changed_id = None
         self.username_edited = False
         self.hostname_edited = False
-        self.grub_en = True
         self.installing = False
         self.installing_no_return = False
         self.returncode = 0
@@ -2558,17 +2557,27 @@ class Wizard(BaseFrontend):
 
     def on_advanced_button_clicked (self, button):
         display = False
-        summary_device = self.get_summary_device()
         grub_en = self.get_grub()
+        summary_device = self.get_summary_device()
+
+        if grub_en is not None:
+            display = True
+            self.bootloader_vbox.show()
+            self.grub_enable.set_active(grub_en)
+        else:
+            self.bootloader_vbox.hide()
+            summary_device = None
 
         if summary_device is not None:
             display = True
-            self.bootloader_vbox.show()
+            self.grub_device_label.show()
+            self.grub_device_entry.show()
             self.grub_device_entry.child.set_text(summary_device)
             self.grub_device_entry.set_sensitive(grub_en)
             self.grub_device_label.set_sensitive(grub_en)
         else:
-            self.bootloader_vbox.hide()
+            self.grub_device_label.hide()
+            self.grub_device_entry.hide()
 
         if self.popcon is not None:
             display = True
@@ -2593,7 +2602,8 @@ class Wizard(BaseFrontend):
         response = self.advanced_dialog.run()
         self.advanced_dialog.hide()
         if response == gtk.RESPONSE_OK:
-            self.set_summary_device(self.grub_device_entry.child.get_text())
+            if summary_device is not None:
+                self.set_summary_device(self.grub_device_entry.child.get_text())
             self.set_popcon(self.popcon_checkbutton.get_active())
             self.set_grub(self.grub_enable.get_active())
             self.set_proxy_host(self.proxy_host_entry.get_text())

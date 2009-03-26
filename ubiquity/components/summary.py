@@ -152,6 +152,12 @@ class Summary(FilteredCommand):
 
             self.frontend.set_summary_text(text)
 
+            try:
+                install_bootloader = self.db.get('ubiquity/install_bootloader')
+                self.frontend.set_grub(install_bootloader == 'true')
+            except debconf.DebconfError:
+                self.frontend.set_grub(None)
+
             if os.access('/usr/share/grub-installer/grub-installer', os.X_OK):
                 # TODO cjwatson 2006-09-04: a bit inelegant, and possibly
                 # Ubuntu-specific?

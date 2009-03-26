@@ -179,7 +179,6 @@ class Wizard(BaseFrontend):
         self.username_edited = False
         self.hostname_edited = False
         self.previous_partitioning_page = WIDGET_STACK_STEPS["stepPartAuto"]
-        self.grub_en = True
         self.installing = False
         self.installing_no_return = False
         self.returncode = 0
@@ -1967,8 +1966,14 @@ class Wizard(BaseFrontend):
         self.app.connect(self.advanceddialog.grub_enable, SIGNAL("stateChanged(int)"), self.toggle_grub)
         self.app.connect(self.advanceddialog.proxy_host_entry, SIGNAL("textChanged(const QString &)"), self.enable_proxy_spinbutton)
         display = False
-        summary_device = self.get_summary_device()
         grub_en = self.get_grub()
+        summary_device = self.get_summary_device()
+        if grub_en is not None:
+            self.advanceddialog.grub_enable.show()
+            self.advanceddialog.grub_enable.setChecked(grub_en)
+        else:
+            self.advanceddialog.grub_enable.hide()
+            summary_device = None
         if summary_device is not None:
             display = True
             self.advanceddialog.bootloader_group_label.show()
@@ -2008,8 +2013,9 @@ class Wizard(BaseFrontend):
 
         response = self.advanceddialog.exec_()
         if response == QDialog.Accepted:
-            self.set_summary_device(
-                unicode(self.advanceddialog.grub_device_entry.currentText()))
+            if summary_device is not None:
+                self.set_summary_device(
+                    unicode(self.advanceddialog.grub_device_entry.currentText()))
             self.set_popcon(self.advanceddialog.popcon_checkbutton.isChecked())
             self.set_grub(self.advanceddialog.grub_enable.isChecked())
             self.set_proxy_host(unicode(self.advanceddialog.proxy_host_entry.text()))
