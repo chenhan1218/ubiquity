@@ -54,23 +54,13 @@
             <property name="orientation">vertical</property>
             <property name="spacing">12</property>
             <child>
-              <widget class="GtkScrolledWindow" id="scrolledwindow1">
+              <widget class="GtkEventBox" id="before_bar_eb">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="hscrollbar_policy">automatic</property>
-                <property name="vscrollbar_policy">never</property>
                 <child>
-                  <widget class="GtkEventBox" id="before_bar_eb">
-                    <property name="visible">True</property>
-                    <child>
-                      <placeholder/>
-                    </child>
-                  </widget>
+                  <placeholder/>
                 </child>
               </widget>
               <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
                 <property name="position">0</property>
               </packing>
             </child>
@@ -118,23 +108,13 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkScrolledWindow" id="scrolledwindow2">
+              <widget class="GtkEventBox" id="action_bar_eb">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="hscrollbar_policy">automatic</property>
-                <property name="vscrollbar_policy">never</property>
                 <child>
-                  <widget class="GtkEventBox" id="action_bar_eb">
-                    <property name="visible">True</property>
-                    <child>
-                      <placeholder/>
-                    </child>
-                  </widget>
+                  <placeholder/>
                 </child>
               </widget>
               <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
                 <property name="position">2</property>
               </packing>
             </child>

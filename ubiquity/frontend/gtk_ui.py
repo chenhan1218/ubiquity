@@ -522,13 +522,21 @@ class Wizard(BaseFrontend):
 
         self.action_bar = segmented_bar.SegmentedBarSlider()
         self.action_bar.h_padding = self.action_bar.bar_height / 2
-        self.action_bar_eb.add(self.action_bar)
-        self.action_bar.show()
+        sw = gtk.ScrolledWindow()
+        sw.add_with_viewport(self.action_bar)
+        sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_NEVER)
+        sw.child.set_shadow_type(gtk.SHADOW_NONE)
+        sw.show_all()
+        self.action_bar_eb.add(sw)
         
         self.before_bar = segmented_bar.SegmentedBar()
         self.before_bar.h_padding = self.before_bar.bar_height / 2
-        self.before_bar_eb.add(self.before_bar)
-        self.before_bar.show()
+        sw = gtk.ScrolledWindow()
+        sw.add_with_viewport(self.before_bar)
+        sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_NEVER)
+        sw.child.set_shadow_type(gtk.SHADOW_NONE)
+        sw.show_all()
+        self.before_bar_eb.add(sw)
 
         if 'UBIQUITY_DEBUG' in os.environ:
             self.password_debug_warning_label.show()

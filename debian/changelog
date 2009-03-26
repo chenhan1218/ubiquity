@@ -31,6 +31,8 @@ ubiquity (1.12.0) UNRELEASED; urgency=low
   * Properly encode data from os-prober (LP: #345573).
   * Make sure that the before and after partitioning bars use the same
     colors for the same partitions (LP: #289324).
+  * Fix the placement of the partition bars in scrolled windows when
+    necessary.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 19 Mar 2009 12:02:04 +0000
 
