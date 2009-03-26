@@ -598,12 +598,9 @@ class SegmentedBarSlider(SegmentedBar):
         # FIXME: Should be done in some sort of expose event, so it doesn't
         # matter if the min_size is set after the segments are added.
         if self.resize != -1 and len(self.segments) > self.resize + 1:
-            s = self.segments[self.resize + 1]
-            diff = s.size - self.min_size
-            s.set_size(self.min_size)
-
-            s = self.segments[self.resize]
-            s.set_size(s.size + diff)
+            sum = self.segments[self.resize].size + self.segments[self.resize + 1].size
+            self.segments[self.resize].set_size(self.max_size)
+            self.segments[self.resize + 1].set_size(sum - self.max_size)
             self.queue_draw()
 
     def motion_notify_event(self, widget, event):
