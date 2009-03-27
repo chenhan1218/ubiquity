@@ -5,15 +5,16 @@ from PyQt4.QtCore import *
 
 import datetime
 import ubiquity.tz
+import math
 
 #contains information about a geographical timezone city
 class City:
-    def __init__(self, cName, zName, lat, lng, zone, raw_zone):
+    def __init__(self, cName, zName, lat, lng, raw_zone):
         self.city_name = cName
         self.zone_name = zName
         self.lat = lat
         self.long = lng
-        self.zone = zone
+        self.pixmap = None
         # pre-split zone text
         self.raw_zone = raw_zone
         #index in the cities array
@@ -41,10 +42,16 @@ class TimezoneMap(QWidget):
         self.timer.start(1000)
         
         #load the pixmaps for the zone overlays
-        # zonenum + 11 = index (because I can't negative index, but the files go negative)
-        self.zonePixmaps = []
-        for zone in range (-11, 13):
-            self.zonePixmaps.append(QPixmap('%s/timezone_%.1f.png' % (self.imagePath, float(zone))))
+        zones = ['0.0', '1.0', '2.0', '3.0', '3.5', '4.0', '4.5', '5.0', '5.75', '6.0', 
+            '6.5', '7.0', '8.0', '9.0', '9.5', '10.0', '10.5', '11.0', '11.5', '12.0', '12.75', '13.0',
+            '-1.0', '-2.0', '-3.0', '-3.5', '-4.0', '-5.0', '-5.5', '-6.0', '-7.0', 
+            '-8.0', '-9.0', '-9.5', '-10.0', '-11.0']
+            
+        zonePixmaps = {}
+            
+        for zone in zones:
+            #print '%s/timezone_%s.png' % (self.imagePath, zone)
+            zonePixmaps[zone] = QPixmap('%s/timezone_%s.png' % (self.imagePath, zone));
             
         #load the timezones from database
         tzdb = ubiquity.tz.Database()
@@ -60,20 +67,39 @@ class TimezoneMap(QWidget):
             cityName = '/'.join(zone_bits[1:]).replace('_', ' ')
             
             # zone is the hours offset from 0
-            # adding 1800 to make the hour round correctly (round up) for non hour zones)
-            zone = (location.utc_offset.seconds + 1800)//3600 + location.utc_offset.days * 24
+            zoneHour = (location.raw_utc_offset.seconds)/3600.0 + location.raw_utc_offset.days * 24
             
-            # FIXME, some locations give a 14 hour ahead time...im lost what does it mean??
-            # hour gives one part of the story, need to get city to know what zone we have
-            if zone > 13:
-                zone = zone - 24
+            #wrap around
+            if zoneHour > 13.0:
+                zoneHour -= 24.0
             
             # add the zone if we don't have t already listed
             if not self.zones.has_key(zoneName):
                 self.zones[zoneName] = {'cities' : [], 'cindex': 0}    
             
             #make new city
-            city = City(cityName, zoneName, location.latitude, location.longitude, zone, location.zone)
+            city = City(cityName, zoneName, location.latitude, location.longitude, location.zone)
+            
+            #set the pixamp to show for the city
+            zoneS = str(zoneHour)
+            
+            #try to find the closest zone
+            if not zonePixmaps.has_key(zoneS):
+                if zonePixmaps.has_key(str(zoneHour + .25)):
+                    zoneS = str(zoneHour + .25)
+                elif zonePixmaps.has_key(str(zoneHour + .25)):
+                    zoneS = str(zoneHour - .25)
+                elif zonePixmaps.has_key(str(zoneHour + .5)):
+                    zoneS = str(zoneHour + .5)
+                elif zonePixmaps.has_key(str(zoneHour - .5)):
+                    zoneS = str(zoneHour - .5)
+                else:
+                    #no zone...default to nothing
+                    zoneS = None
+                
+            if zoneS:
+                city.pixmap = zonePixmaps[zoneS]
+            
             self.cities[location.zone] = city
             
             # add the city to the zone list
@@ -110,6 +136,33 @@ class TimezoneMap(QWidget):
         city = self.frontend.userinterface.timezone_city_combo.itemData(cityindex).toPyObject()
         self.selected_city = city
         self.repaint()
+        
+    #taken from gtk side
+    def longitudeToX(self, longitude):
+        # Miller cylindrical map projection is just the longitude as the
+        # calculation is the longitude from the central meridian of the projection.
+        # Convert to radians.
+        x = (longitude * (math.pi / 180)) + math.pi # 0 ... 2pi
+        # Convert to a percentage.
+        x = x / (2 * math.pi)
+        x = x * self.width()
+        # Adjust for the visible map starting near 170 degrees.
+        # Percentage shift required, grabbed from measurements using The GIMP.
+        x = x - (self.width() * 0.039073402)
+        return x
+
+    def latitudeToY(self, latitude):
+        # Miller cylindrical map projection, as used in the source map from the CIA
+        # world factbook.  Convert latitude to radians.
+        y = 1.25 * math.log(math.tan((0.25 * math.pi) + \
+            (0.4 * (latitude * (math.pi / 180)))))
+        # Convert to a percentage.
+        y = abs(y - 2.30341254338) # 0 ... 4.606825
+        y = y / 4.6068250867599998
+        # Adjust for the visible map not including anything beyond 60 degrees south
+        # (150 degrees vs 180 degrees).
+        y = y * (self.height() * 1.2)
+        return y
        
     def paintEvent(self, paintEvent):
         painter = QPainter(self)
@@ -118,7 +171,9 @@ class TimezoneMap(QWidget):
         if self.selected_city != None:
             c = self.selected_city
             cpos = self.getPosition(c.lat, c.long)
-            painter.drawPixmap(self.rect(), self.zonePixmaps[c.zone + 11])
+            
+            if (c.pixmap):
+                painter.drawPixmap(self.rect(), c.pixmap)
             
             painter.drawLine(cpos + QPoint(1,1), cpos - QPoint(1,1))
             painter.drawLine(cpos + QPoint(1,-1), cpos - QPoint(1,-1))
@@ -154,20 +209,40 @@ class TimezoneMap(QWidget):
             #painter.drawText(cpos + QPoint(2,-2), c.city_name)'''
         
     # @return pixel coordinate of a latitude and longitude for self
+    # map uses Miller Projection, but is also clipped
     def getPosition(self, la, lo):
         # need to add/sub magic numbers because the map doesn't actually go from -180...180, -90...90
         # thus the upper corner is not -180, -90 and we have to compensate
         # we need a better method of determining the actually range so we can better place citites (shtylman)
         xdeg_offset = -6
-        ydeg_offset = 8
         # the 180 - 35) accounts for the fact that the map does not span the entire -90 to 90
         # the map does span the entire 360 though, just offset
         x = (self.width() * (180.0 + lo) / 360.0) + (self.width() * xdeg_offset/ 180.0)
-        y = (self.height() * (90.0 - la) / (180.0 - 35)) + (self.height() * ydeg_offset / (180 - 35))
-        
-        # this keeps the coordinate on the widget because the map wraps
-        y = y % self.height()
         x = x % self.width()
+        
+        #top and bottom clipping latitudes
+        topLat = 81
+        bottomLat = -59
+        
+        #percent of entire possible range
+        topPer = topLat/180.0
+        totalPer = (topLat - bottomLat)/180.0
+        
+        # get the y in rectangular coordinates
+        y = 1.25 * math.log(math.tan(math.pi/4.0 + 0.4 * math.radians(la)))
+        
+        # calculate the map range (smaller than full range because the map is clipped on top and bottom
+        fullRange = 4.6068250867599998
+        # the amount of the full range devoted to the upper hemisphere
+        topOffset = fullRange*topPer
+        mapRange = abs(1.25 * math.log(math.tan(math.pi/4.0 + 0.4 * math.radians(bottomLat))) - topOffset)
+        
+        # Convert to a percentage of the map range
+        y = abs(y - topOffset)
+        y = y / mapRange
+        
+        # this then becomes the percentage of the height
+        y = y * self.height()
         
         return QPoint(int(x), int(y))
         
@@ -214,4 +289,3 @@ class TimezoneMap(QWidget):
             return None
         
         return self.selected_city.raw_zone
-
