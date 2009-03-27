@@ -34,6 +34,10 @@ ubiquity (1.12.0) UNRELEASED; urgency=low
   * Fix the placement of the partition bars in scrolled windows when
     necessary.
   * Don't let the partition bars eat up any extra space.
+  * Move selecting a disk from radio buttons to a drop down box on the
+    automatic partitioning page.  This saves a lot of space when
+    multiple disks are present and makes the code a little cleaner
+    (LP 325958).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 19 Mar 2009 12:02:04 +0000
 
