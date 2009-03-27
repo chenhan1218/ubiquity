@@ -39,6 +39,10 @@ ubiquity (1.12.0) UNRELEASED; urgency=low
     multiple disks are present and makes the code a little cleaner
     (LP 325958).
 
+  [ Roman Shtylman ]
+  * Partitions bars show and hide as appropriate
+  * Proper projection points for the cities in kde Timezone map
+
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 19 Mar 2009 12:02:04 +0000
 
 ubiquity (1.11.20) jaunty; urgency=low

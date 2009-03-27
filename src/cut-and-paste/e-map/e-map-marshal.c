@@ -50,10 +50,10 @@
 /* VOID:OBJECT,OBJECT (e-map-marshal.list:1) */
 void
 g_cclosure_user_marshal_VOID__OBJECT_OBJECT (GClosure     *closure,
-                                             GValue       *return_value G_GNUC_UNUSED,
+                                             GValue       *return_value,
                                              guint         n_param_values,
                                              const GValue *param_values,
-                                             gpointer      invocation_hint G_GNUC_UNUSED,
+                                             gpointer      invocation_hint,
                                              gpointer      marshal_data)
 {
   typedef void (*GMarshalFunc_VOID__OBJECT_OBJECT) (gpointer     data1,
