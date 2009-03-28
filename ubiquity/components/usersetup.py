@@ -81,8 +81,8 @@ class UserSetup(FilteredCommand):
             response = self.frontend.question_dialog(
                 self.description(question),
                 self.extended_description(question),
-                ('ubiquity/text/go_back', 'ubiquity/text/continue'))
-            if response is None or response == 'ubiquity/text/continue':
+                ('ubiquity/text/no', 'ubiquity/text/yes'))
+            if response is None or response == 'ubiquity/text/yes':
                 self.preseed(question, 'true')
             else:
                 self.preseed(question, 'false')
