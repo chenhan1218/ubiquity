@@ -12,6 +12,10 @@ oem-config (1.54.10) UNRELEASED; urgency=low
   * Merge in the new KDE time zone map from ubiquity.  Thanks Roman
     Shtylman.
 
+  [ Mario Limonciello ]
+  * Change the number of columns in the language icon view to 5.  This 
+    should make it fit in 1024x600 or at least very close. (LP: #347350)
+
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 18 Mar 2009 14:32:32 +0000
 
 oem-config (1.54.9) jaunty; urgency=low
