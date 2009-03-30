@@ -1,4 +1,4 @@
-ubiquity (1.12.0) UNRELEASED; urgency=low
+ubiquity (1.12.0) jaunty; urgency=low
 
   [ Colin Watson ]
   * Update for new message context system in GTK+ 2.15.1, and update
@@ -67,7 +67,7 @@ ubiquity (1.12.0) UNRELEASED; urgency=low
     - Don't prevent going forward in the UI if the connection test fails.
       It's no longer necessary for 9.04 to actually work. (LP: #343432)
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 19 Mar 2009 12:02:04 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 30 Mar 2009 15:49:42 +0100
 
 ubiquity (1.11.20) jaunty; urgency=low
 
