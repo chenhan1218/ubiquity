@@ -27,6 +27,9 @@ ubiquity (1.12.0) UNRELEASED; urgency=low
     and can cause problems (LP: #349937).
   * Permit dmraid-style /dev/mapper/* device names in advanced boot loader
     selector, as well as disk and partition numbers over 9 (LP: #342354).
+  * Remove /target/var/lib/apt-xapian-index per Michael Vogt, since it needs
+    to be rebuilt based on the installed system's sources.list, and apt's
+    cron.daily script and/or synaptic will do this.
 
   [ Evan Dandrea ]
   * Make the partman/unmount_active dialog a yes or no question

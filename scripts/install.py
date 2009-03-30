@@ -1120,6 +1120,15 @@ exit 0"""
             }""")
         apt_conf_nmc.close()
 
+        # This will be reindexed after installation based on the full
+        # installed sources.list.
+        try:
+            shutil.rmtree(
+                os.path.join(self.target, 'var/lib/apt-xapian-index'),
+                ignore_errors=True)
+        except OSError:
+            pass
+
         dbfilter = apt_setup.AptSetup(None, self.db)
         ret = dbfilter.run_command(auto_process=True)
         if ret != 0:
