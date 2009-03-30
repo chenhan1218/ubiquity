@@ -41,7 +41,7 @@ ubiquity (1.12.0) UNRELEASED; urgency=low
   * Work in bytes rather than percentages in the partition bar code
     (LP: #336203).
   * Fix partition bar slider (for resizing) code by adding correct
-    calcuations for bounds checking and slider positioning.
+    calculations for bounds checking and slider positioning.
   * Properly encode data from os-prober (LP: #345573).
   * Make sure that the before and after partitioning bars use the same
     colors for the same partitions (LP: #289324).
