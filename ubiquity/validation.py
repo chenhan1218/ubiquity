@@ -36,11 +36,11 @@ def check_grub_device(device):
     """Check that the user entered a valid boot device.
         @return True if the device is valid, False if it is not."""
     import re
-    regex = re.compile(r'^/dev/[a-zA-Z0-9]+$')
+    regex = re.compile(r'^/dev/([a-zA-Z0-9]+|mapper/[a-zA-Z0-9_]+)$')
     if regex.search(device):
         return True
     # (device[,part-num])
-    regex = re.compile(r'^\((hd|fd)[0-9](,[0-9])*\)$')
+    regex = re.compile(r'^\((hd|fd)[0-9]+(,[0-9]+)*\)$')
     if regex.search(device):
         return True
     else:

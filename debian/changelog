@@ -25,6 +25,8 @@ ubiquity (1.12.0) UNRELEASED; urgency=low
   * Add a compatibility wrapper for update-dev to ensure that it never
     attempts to call 'udevadm trigger', which isn't necessary in ubiquity
     and can cause problems (LP: #349937).
+  * Permit dmraid-style /dev/mapper/* device names in advanced boot loader
+    selector, as well as disk and partition numbers over 9 (LP: #342354).
 
   [ Evan Dandrea ]
   * Make the partman/unmount_active dialog a yes or no question
