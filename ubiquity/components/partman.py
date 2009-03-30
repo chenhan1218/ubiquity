@@ -410,9 +410,10 @@ class Partman(FilteredCommand):
             self.some_device_desc = \
                 self.description('ubiquity/text/use_device')
             self.translation_mappings[self.some_device_desc] = tmp
-            if tmp in choices:
-                choices.remove(tmp)
-                choices.append(self.some_device_desc)
+            try:
+                choices[choices.index(tmp)] = self.some_device_desc
+            except ValueError:
+                pass
             if tmp in self.extra_options:
                 t = self.extra_options[tmp]
                 del self.extra_options[tmp]
@@ -422,9 +423,10 @@ class Partman(FilteredCommand):
             biggest_free = \
                 self.description('ubiquity/text/biggest_free')
             self.translation_mappings[biggest_free] = tmp
-            if tmp in choices:
-                choices.remove(tmp)
-                choices.append(biggest_free)
+            try:
+                choices[choices.index(tmp)] = biggest_free
+            except ValueError:
+                pass
             if tmp in self.extra_options:
                 t = self.extra_options[tmp]
                 del self.extra_options[tmp]
@@ -434,9 +436,10 @@ class Partman(FilteredCommand):
             self.resize_desc = \
                 self.description('ubiquity/text/resize_use_free')
             self.translation_mappings[self.resize_desc] = tmp
-            if tmp in choices:
-                choices.remove(tmp)
-                choices.append(self.resize_desc)
+            try:
+                choices[choices.index(tmp)] = self.resize_desc
+            except ValueError:
+                pass
             if tmp in self.extra_options:
                 t = self.extra_options[tmp]
                 del self.extra_options[tmp]
@@ -446,9 +449,10 @@ class Partman(FilteredCommand):
             self.manual_desc = \
                 self.description('ubiquity/text/custom_partitioning')
             self.translation_mappings[self.manual_desc] = tmp
-            if tmp in choices:
-                choices.remove(tmp)
-                choices.append(self.manual_desc)
+            try:
+                choices[choices.index(tmp)] = self.manual_desc
+            except ValueError:
+                pass
             if tmp in self.extra_options:
                 t = self.extra_options[tmp]
                 del self.extra_options[tmp]
