@@ -97,17 +97,6 @@ class Frontend(BaseFrontend):
         for page in self.pages:
             add_subpage(self, steps, page)
 
-        # Hack to only show the scrollbars on the language selector when the
-        # language selector would otherwise be larger than the desktop.  The
-        # code does not have to care about the size of the GNOME panels as
-        # oem-config is run in a minimal session without them.
-        def iv_size_req(iv, req):
-            sw = self.language_scrolledwindow
-            hs = sw.get_hscrollbar().size_request()[1] + 5
-            vs = sw.get_vscrollbar().size_request()[0] + 5
-            sw.set_size_request(req.width + vs, req.height + hs)
-        self.language_iconview.connect('size-request', iv_size_req)
-
         def win_size_req(win, req):
             s = win.get_screen()
             m = s.get_monitor_geometry(0)

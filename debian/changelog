@@ -14,7 +14,11 @@ oem-config (1.54.10) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Change the number of columns in the language icon view to 5.  This 
-    should make it fit in 1024x600 or at least very close. (LP: #347350)
+    should make it fit in 1024x600. (LP: #347350)
+  * Remove old hack in gtk frontend to only show scrollbars on language 
+    selector when it would be larger than the desktop.  With the hack taken 
+    out, the scrollbars aren't showing up on 800x576, which is likely the 
+    lowest supportable resolution.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 18 Mar 2009 14:32:32 +0000
 
