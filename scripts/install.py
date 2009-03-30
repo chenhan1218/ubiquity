@@ -581,6 +581,7 @@ class Install:
         # removed).
         if subarch.startswith('amd64/') or subarch.startswith('i386/') or subarch.startswith('lpia/'):
             keep.add('grub')
+            keep.add('grub-pc')
         elif subarch == 'powerpc/ps3':
             pass
         elif subarch.startswith('powerpc/'):
@@ -2045,6 +2046,8 @@ exit 0"""
         if subarch.startswith('amd64/') or subarch.startswith('i386/') or subarch.startswith('lpia/'):
             if 'grub' not in keep:
                 difference.add('grub')
+            if 'grub-pc' not in keep:
+                difference.add('grub-pc')
             if 'lilo' not in keep:
                 difference.add('lilo')
 
