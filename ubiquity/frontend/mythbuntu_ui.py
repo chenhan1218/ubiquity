@@ -222,10 +222,7 @@ class Wizard(ParentFrontend.Wizard):
         config["database"]=self.mysql_database.get_text()
         self.mysql.update_config(config)
         result=self.mysql.do_connection_test()
-        if result == "Successful":
-            self.allow_go_forward(True)
-        else:
-            self.allow_go_forward(False)
+        self.allow_go_forward(True)
         self.connection_results_label.show()
         self.connection_results.set_text(result)
 
