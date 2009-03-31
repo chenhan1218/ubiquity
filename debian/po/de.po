@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2009-03-10 10:28+0000\n"
-"Last-Translator: Jens Seidel <Unknown>\n"
+"PO-Revision-Date: 2009-03-27 21:20+0000\n"
+"Last-Translator: Jochen Skulj <jochen@jochenskulj.de>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
+"X-Launchpad-Export-Date: 2009-03-31 13:46+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -152,13 +152,13 @@ msgstr ""
 #. Description
 #: ../oem-config.templates:22001
 msgid "Network configuration"
-msgstr ""
+msgstr "Netzwerkkonfiguration"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:23001
 msgid "Software selection"
-msgstr ""
+msgstr "Software-Auswahl"
 
 #. Type: text
 #. Description
@@ -170,7 +170,7 @@ msgstr "Automatisch anmelden"
 #. Description
 #: ../oem-config.templates:25001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Konfiguration anwenden"
 
 #. Type: text
 #. Description
@@ -202,20 +202,20 @@ msgstr "OEM-Modus (nur für Hersteller)"
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
 msgid "Prepare for OEM configuration"
-msgstr ""
+msgstr "Für die OEM-Konfiguration vorbereiten"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
 msgid "Preparing for OEM configuration..."
-msgstr ""
+msgstr "Die OEM-Konfiguration wird vorbereitet ..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
 msgid "Ready for OEM configuration"
-msgstr ""
+msgstr "Bereit zur OEM-Konfiguration"
 
 #. Type: text
 #. Description

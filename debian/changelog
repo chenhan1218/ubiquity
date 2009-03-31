@@ -7,6 +7,7 @@ oem-config (1.54.10) UNRELEASED; urgency=low
     (LP: #347900).
   * Suggest checkbox/checkbox-gtk rather than recommending
     hwtest/hwtest-gtk.
+  * Update translations from Launchpad.
 
   [ Evan Dandrea ]
   * Update the timezone_map to match changes in ubiquity (more accurate

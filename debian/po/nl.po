@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2009-03-10 10:39+0000\n"
+"PO-Revision-Date: 2009-03-24 11:56+0000\n"
 "Last-Translator: Frans Pop <Unknown>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
+"X-Launchpad-Export-Date: 2009-03-31 13:45+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -95,7 +95,7 @@ msgstr "Welke indeling lijkt het meest op dat van uw toetsenbord?"
 #: ../oem-config.templates:14001
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
-"U kan iets in dit veld intikken om de nieuwe toetsenbordindeling te testen."
+"U kunt iets in dit veld invoeren om de gekozen toetsenbordindeling te testen."
 
 #. Type: text
 #. Description
