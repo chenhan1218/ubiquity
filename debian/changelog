@@ -1,4 +1,4 @@
-ubiquity (1.12.1) UNRELEASED; urgency=low
+ubiquity (1.12.1) jaunty; urgency=low
 
   * Refactor architecture/subarchitecture detection slightly.
   * First pass at flash-kernel integration for armel (LP: #345534).
@@ -7,7 +7,7 @@ ubiquity (1.12.1) UNRELEASED; urgency=low
   * Automatic update of included source packages: base-installer
     1.98ubuntu5, flash-kernel 2.13ubuntu5, partman-partitioning 65ubuntu2.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Mar 2009 11:32:06 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Mar 2009 23:19:19 +0100
 
 ubiquity (1.12.0) jaunty; urgency=low
 
