@@ -37,11 +37,15 @@ PYTHON := $(shell pyversions -r)
 ifneq (,$(findstring :$(DEB_HOST_ARCH_CPU):,:amd64:i386:lpia:))
   bootloader-depends := grub | grub-pc
 else
+ifeq ($(DEB_HOST_ARCH_CPU),armel)
+  bootloader-depends := flash-kernel
+else
 ifeq ($(DEB_HOST_ARCH_CPU),powerpc)
   bootloader-depends := yaboot, hfsutils
 else
 ifeq ($(DEB_HOST_ARCH_CPU),sparc)
   bootloader-depends := silo
+endif
 endif
 endif
 endif
@@ -198,6 +202,11 @@ endif
 			> debian/ubiquity/usr/lib/ubiquity/user-setup/$$x; \
 		chmod +x debian/ubiquity/usr/lib/ubiquity/user-setup/$$x; \
 	done
+ifeq ($(DEB_HOST_ARCH),armel)
+	dh_installdirs -pubiquity usr/lib/ubiquity/flash-kernel
+	install d-i/source/flash-kernel/debian/flash-kernel-installer.postinst \
+		debian/ubiquity/usr/lib/ubiquity/flash-kernel/flash-kernel-installer
+endif
 ifeq ($(DEB_HOST_ARCH),powerpc)
 	dh_installdirs -pubiquity usr/lib/ubiquity/kboot-installer
 	install d-i/source/kboot-installer/debian/postinst \

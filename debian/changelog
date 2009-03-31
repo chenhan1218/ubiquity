@@ -1,6 +1,7 @@
 ubiquity (1.12.1) UNRELEASED; urgency=low
 
   * Refactor architecture/subarchitecture detection slightly.
+  * First pass at flash-kernel integration for armel (LP: #345534).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Mar 2009 11:32:06 +0100
 

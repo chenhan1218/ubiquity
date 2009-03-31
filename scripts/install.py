@@ -591,6 +591,9 @@ class Install:
         if arch in ('amd64', 'i386', 'lpia'):
             keep.add('grub')
             keep.add('grub-pc')
+        elif (arch == 'armel' and
+              subarch in ('imx51', 'iop32x', 'ixp4xx', 'orion5x')):
+            keep.add('flash-kernel')
         elif arch == 'powerpc' and subarch != 'ps3':
             keep.add('yaboot')
             keep.add('hfsutils')
@@ -1638,6 +1641,14 @@ exit 0"""
                     if ret != 0:
                         raise InstallStepError(
                             "GrubInstaller failed with code %d" % ret)
+                elif (arch == 'armel' and
+                      subarch in ('imx51', 'iop32x', 'ixp4xx', 'orion5x')):
+                    from ubiquity.components import flash_kernel
+                    dbfilter = flash_kernel.FlashKernel(None)
+                    ret = dbfilter.run_command(auto_process=True)
+                    if ret != 0:
+                        raise InstallStepError(
+                            "FlashKernel failed with code %d" % ret)
                 elif arch == 'powerpc' and subarch == 'ps3':
                     from ubiquity.components import kbootinstaller
                     dbfilter = kbootinstaller.KbootInstaller(None)
