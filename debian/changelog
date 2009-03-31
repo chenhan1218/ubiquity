@@ -5,6 +5,8 @@ oem-config (1.54.10) UNRELEASED; urgency=low
     architecture is out of sync.
   * Set passwd/auto-login=true rather than implementing auto-login ourselves
     (LP: #347900).
+  * Suggest checkbox/checkbox-gtk rather than recommending
+    hwtest/hwtest-gtk.
 
   [ Evan Dandrea ]
   * Update the timezone_map to match changes in ubiquity (more accurate
