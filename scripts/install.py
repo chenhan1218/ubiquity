@@ -537,6 +537,16 @@ class Install:
 
         return None
 
+
+    def archdetect(self):
+        archdetect = subprocess.Popen(['archdetect'], stdout=subprocess.PIPE)
+        answer = archdetect.communicate()[0].strip()
+        try:
+            return answer.split('/', 1)
+        except ValueError:
+            return answer, ''
+
+
     def generate_blacklist(self):
         if (os.path.exists("/cdrom/casper/filesystem.manifest-desktop") and
             os.path.exists("/cdrom/casper/filesystem.manifest")):
@@ -572,19 +582,16 @@ class Install:
 
         # Keep packages we explicitly installed.
         keep = self.query_recorded_installed()
-        archdetect = subprocess.Popen(['archdetect'], stdout=subprocess.PIPE)
-        subarch = archdetect.communicate()[0].strip()
+        arch, subarch = self.archdetect()
 
         # Less than ideal.  Since we cannot know which bootloader we'll need
         # at file copy time, we should figure out why grub still fails when
         # apt-install-direct is present during configure_bootloader (code
         # removed).
-        if subarch.startswith('amd64/') or subarch.startswith('i386/') or subarch.startswith('lpia/'):
+        if arch in ('amd64', 'i386', 'lpia'):
             keep.add('grub')
             keep.add('grub-pc')
-        elif subarch == 'powerpc/ps3':
-            pass
-        elif subarch.startswith('powerpc/'):
+        elif arch == 'powerpc' and subarch != 'ps3':
             keep.add('yaboot')
             keep.add('hfsutils')
 
@@ -1621,25 +1628,24 @@ exit 0"""
             misc.execute('mount', '--bind', '/proc', self.target + '/proc')
             misc.execute('mount', '--bind', '/dev', self.target + '/dev')
 
-            archdetect = subprocess.Popen(['archdetect'], stdout=subprocess.PIPE)
-            subarch = archdetect.communicate()[0].strip()
+            arch, subarch = self.archdetect()
 
             try:
-                if subarch.startswith('amd64/') or subarch.startswith('i386/') or subarch.startswith('lpia/'):
+                if arch in ('amd64', 'i386', 'lpia'):
                     from ubiquity.components import grubinstaller
                     dbfilter = grubinstaller.GrubInstaller(None)
                     ret = dbfilter.run_command(auto_process=True)
                     if ret != 0:
                         raise InstallStepError(
                             "GrubInstaller failed with code %d" % ret)
-                elif subarch == 'powerpc/ps3':
+                elif arch == 'powerpc' and subarch == 'ps3':
                     from ubiquity.components import kbootinstaller
                     dbfilter = kbootinstaller.KbootInstaller(None)
                     ret = dbfilter.run_command(auto_process=True)
                     if ret != 0:
                         raise InstallStepError(
                             "KbootInstaller failed with code %d" % ret)
-                elif subarch.startswith('powerpc/'):
+                elif arch == 'powerpc':
                     from ubiquity.components import yabootinstaller
                     dbfilter = yabootinstaller.YabootInstaller(None)
                     ret = dbfilter.run_command(auto_process=True)
@@ -2049,10 +2055,9 @@ exit 0"""
         # Keep packages we explicitly installed.
         keep = self.query_recorded_installed()
 
-        archdetect = subprocess.Popen(['archdetect'], stdout=subprocess.PIPE)
-        subarch = archdetect.communicate()[0].strip()
+        arch, subarch = self.archdetect()
 
-        if subarch.startswith('amd64/') or subarch.startswith('i386/') or subarch.startswith('lpia/'):
+        if arch in ('amd64', 'i386', 'lpia'):
             if 'grub' not in keep:
                 difference.add('grub')
             if 'grub-pc' not in keep:

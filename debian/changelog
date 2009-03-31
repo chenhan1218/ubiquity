@@ -1,3 +1,9 @@
+ubiquity (1.12.1) UNRELEASED; urgency=low
+
+  * Refactor architecture/subarchitecture detection slightly.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Mar 2009 11:32:06 +0100
+
 ubiquity (1.12.0) jaunty; urgency=low
 
   [ Colin Watson ]
