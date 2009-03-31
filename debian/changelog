@@ -4,6 +4,8 @@ ubiquity (1.12.1) UNRELEASED; urgency=low
   * First pass at flash-kernel integration for armel (LP: #345534).
   * Fix yes/no question text in weak-password warning (LP: #352348).
   * Update translations from Launchpad.
+  * Automatic update of included source packages: base-installer
+    1.98ubuntu5, flash-kernel 2.13ubuntu5, partman-partitioning 65ubuntu2.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Mar 2009 11:32:06 +0100
 
