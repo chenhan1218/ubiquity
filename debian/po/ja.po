@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-03-15 10:55+0000\n"
-"Last-Translator: Mitsuya Shibata <mty.shibata@gmail.com>\n"
+"PO-Revision-Date: 2009-03-29 21:06+0000\n"
+"Last-Translator: Shushi Kurose <md81bird@hitaki.net>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-16 23:43+0000\n"
+"X-Launchpad-Export-Date: 2009-03-31 13:46+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -32,7 +32,7 @@ msgstr "ディスク全体を使用する"
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "それぞれ別のものとしてインストールし、起動時にどれを起動するか選択"
 
 #. Type: text
 #. Description
@@ -119,7 +119,7 @@ msgstr "リリースノート"
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Where are you?"
-msgstr "どこで利用しますか？"
+msgstr "どこにお住まいですか？"
 
 #. Type: text
 #. Description
@@ -157,7 +157,7 @@ msgstr "どのレイアウトがお使いのキーボードに最も近いです
 #: ../ubiquity.templates:19001
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
-"この入力欄をつかって、選択したキーボードレイアウトのテストをすることができま"
+"この入力欄を使って、選択したキーボードレイアウトのテストをすることができま"
 "す。"
 
 #. Type: text
@@ -1001,7 +1001,7 @@ msgstr "パッケージの削除中に1件のエラーが発生しました"
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "コピーをスキップするファイルを算出中……"
 
 #. Type: title
 #. Description
@@ -1028,9 +1028,9 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"インストーラは、パーティーションテーブルへの変更を反映する必要がありますが、"
-"以下のマウントポイントのパーティーションがアンマウントされていない為に実行で"
-"きません:"
+"インストーラは、パーティションテーブルへの変更を反映する必要がありますが、以"
+"下のマウントポイントのパーティションがアンマウントされていない為に実行できま"
+"せん:"
 
 #. Type: boolean
 #. Description
@@ -1044,14 +1044,14 @@ msgstr ""
 #: ../ubiquity.templates:140001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
-"再度、インストーラによるこれらのパーティーションのアンマウントを実行してよい"
-"ですか?"
+"再度、インストーラによるこれらのパーティションのアンマウントを実行してよいで"
+"すか?"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:146001
 msgid "Do you want to return to the partitioner?"
-msgstr "パーティション作成ソフトに戻りますか？"
+msgstr "partitionerに戻りますか？"
 
 #. Type: boolean
 #. Description
@@ -1060,8 +1060,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
-"作成したパーティッションうちのいくつかのパーティションが小さすぎます．次の"
-"パーティッションを少なくともこのサイズにしてください (バイトで):"
+"作成したパーティションのうち、いくつかのパーティションが小さすぎます．次の"
+"パーティションを少なくともこのサイズにしてください (バイトで):"
 
 #. Type: boolean
 #. Description
@@ -1070,8 +1070,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
-"もしパーティション作成ソフトに戻らず、これらパーティションのサイズが増えてい"
-"るならば、インストールに失敗しているかもしれません。"
+"もしpartitionerに戻らず、これらパーティションのサイズが増えているならば、イン"
+"ストールに失敗しているかもしれません。"
 
 #. Type: note
 #. Description
@@ -1088,12 +1088,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" インストールタイプ: ${INSTALLTYPE}\n"
+" 言語: ${LANGUAGE}\n"
+" キーボードレイアウト: ${KEYMAP}\n"
+" 名前: ${FULLNAME}\n"
+" ログイン名: ${USERNAME}\n"
+" 場所: ${LOCATION}\n"
+" IR Remote: ${REMOTE}\n"
+" IR Transmitter: ${TRANSMITTER}\n"
+" ビデオドライバ: ${VIDEO_DRIVER}\n"
+" サービス: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "インストールタイプ"
 
 #. Type: text
 #. Description
@@ -1192,7 +1202,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "グラフィックドライバ"
 
 #. Type: text
 #. Description

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-03-10 10:36+0000\n"
-"Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
+"PO-Revision-Date: 2009-03-31 02:51+0000\n"
+"Last-Translator: Chanrithy Thim <Unknown>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
+"X-Launchpad-Export-Date: 2009-03-31 13:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -26,7 +26,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the entire disk"
-msgstr ""
+msgstr "ប្រើ​ថាស​ទាំង​ស្រុង"
 
 #. Type: text
 #. Description
@@ -123,19 +123,19 @@ msgstr "អ្នក​រស់​នៅ​ឯណា ?"
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Select your time zone from the map, or by region and city."
-msgstr ""
+msgstr "ជ្រើស​ពេល​វេលា​តំបន់​របស់​អ្នក ពី​ផែនទី, ឬ ដោយ តំបន់ និង ទីក្រុង​។"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "City:"
-msgstr ""
+msgstr "ទីក្រុង ៖"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Region:"
-msgstr ""
+msgstr "តំបន់ ៖"
 
 #. Type: text
 #. Description
@@ -165,7 +165,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your own:"
-msgstr ""
+msgstr "ជ្រើស​ផ្ទាល់​ខ្លួន ៖"
 
 #. Type: text
 #. Description
@@ -240,7 +240,7 @@ msgstr "ចូល​ក្នុង​ប្រព័ន្ធ​ដោយ​ស
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Require a password to log in"
-msgstr ""
+msgstr "តម្រូវ​ឲ្យ​មាន​ពាក្យ​សម្ងាត់​សម្រាប់​ចូល"
 
 #. Type: text
 #. Description
@@ -287,25 +287,25 @@ msgstr "តើ​អ្នក​ចង់​បន្ត​ចែក​ភាគ
 #. Description
 #: ../ubiquity.templates:38001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "កុំ​ព្យូទ័រ​នេះ​មិន​មាន​ប្រព័ន្ធ​ប្រតិបត្តិ​ការ​នៅ​លើ​វា​ទេ​។"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "កុំ​ព្យូទ័រ​នេះ​មាន ${OS} នៅ​លើ​វា។"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "កុំ​ព្យូទ័រ​នេះ​មានប្រព័ន្ធ​ប្រតិបត្តិ​ការ​មួយ​ចំនួន​នៅ​លើ​វា។"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "តើ​អ្នក​ចង់​ដាក់ ${RELEASE} នៅ​កន្លែង​ណា?"
 
 #. Type: text
 #. Description
@@ -377,19 +377,19 @@ msgstr "រំលង"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Installation Complete"
-msgstr ""
+msgstr "ការ​ដំឡើង​ជោគជ័យ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Continue Testing"
-msgstr ""
+msgstr "បន្ដ​ការ​សាកល្បង"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Restart Now"
-msgstr ""
+msgstr "ចាប់​ផ្ដើម​ឡើង​វិញ​ឥឡូវ"
 
 #. Type: text
 #. Description
@@ -619,6 +619,8 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"ការ​ដំឡើង​ត្រូវ​បាន​រួចរាល់។ ឥឡូវ​អ្នក​បន្ដ​ការ​សាកល្បង​អ៊ូប៊ុនទូ, ប៉ុន្ដែ​ដល់​ពេល​អ្នក​ចាប់​ផ្ដើម​កុំព្យូទ័រ​ឡើង​វិញ, "
+"ការ​ផ្លាស់ប្ដូរ​ដែល​អ្នក​បង្កើត ឬ​ឯកសារ​ដែល​អ្នក​រក្សារ​ទុក​នឹង​មិន​ត្រូវ​បាន​ការ​ពារ​ទេ។"
 
 #. Type: text
 #. Description

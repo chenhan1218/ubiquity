@@ -7,38 +7,38 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-03-10 10:28+0000\n"
-"Last-Translator: Jens Seidel <Unknown>\n"
+"PO-Revision-Date: 2009-03-27 21:20+0000\n"
+"Last-Translator: Jochen Skulj <jochen@jochenskulj.de>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-16 23:42+0000\n"
+"X-Launchpad-Export-Date: 2009-03-31 13:46+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "Den größten, zusammenhängenden freien Speicherplatz verwenden"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the entire disk"
-msgstr ""
+msgstr "Die gesamte Festplatte verwenden"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "Nebeneinander installieren und bei jedem Start zwischen ihnen wählen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "Partitionen manuell festlegen (fortgeschritten)"
 
 #. Type: text
 #. Description
@@ -128,19 +128,19 @@ msgstr "Wo befinden Sie sich?"
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Select your time zone from the map, or by region and city."
-msgstr ""
+msgstr "Wählen Sie ihre Zeitzone aus der Karte oder nach Region und Stadt."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "City:"
-msgstr ""
+msgstr "Stadt:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Region:"
-msgstr ""
+msgstr "Region:"
 
 #. Type: text
 #. Description
@@ -165,13 +165,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Suggested option:"
-msgstr ""
+msgstr "Empfohlene Option:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your own:"
-msgstr ""
+msgstr "Wählen Sie selbst:"
 
 #. Type: text
 #. Description
@@ -224,6 +224,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Geben Sie das Passwort doppelt ein, so dass es nach Tippfehlern überprüft "
+"werden kann. Ein sicheres Passwort beinhaltet eine Mischung aus Buchstaben, "
+"Ziffern und Sonderzeichen, sollte mindestens 8 Zeichen lang sein und sollte "
+"regelmäßig geändert werden."
 
 #. Type: text
 #. Description
@@ -251,13 +255,15 @@ msgstr "Automatisch anmelden"
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Require a password to log in"
-msgstr ""
+msgstr "Ein Passwort zur Anmeldung wird benötigt"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Require a password to log in and to decrypt your home folder"
 msgstr ""
+"Ein Passwort zur Anmeldung und Entschlüsselung Ihres persönlichen Ordners "
+"wird benötigt"
 
 #. Type: text
 #. Description
@@ -302,25 +308,25 @@ msgstr "Wie möchten Sie die Festplatte partitionieren?"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "Auf diesem Rechner ist kein Betriebssystem vorhanden."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "Auf diesem Rechner ist $(OS) vorhanden."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "Auf diesem Rechner sind mehrere Betriebssysteme vorhanden."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "Wo möchten Sie $(RELEASE) platzieren?"
 
 #. Type: text
 #. Description
@@ -394,19 +400,19 @@ msgstr "Überspringen"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Installation Complete"
-msgstr ""
+msgstr "Installation abgeschlossen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Continue Testing"
-msgstr ""
+msgstr "Ausprobieren fortsetzen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Restart Now"
-msgstr ""
+msgstr "Jetzt neu starten"
 
 #. Type: text
 #. Description
@@ -637,6 +643,9 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"Die Installation wurde beendet. Sie können Ubuntu nun weiter ausprobieren, "
+"aber alle Änderungen oder gespeicherte Dokumente gehen bei einem Neustart "
+"des Rechners verloren."
 
 #. Type: text
 #. Description
@@ -998,7 +1007,7 @@ msgstr "Ein Fehler trat beim Entfernen von Paketen auf:"
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Beim Kopiervorgang zu überspringende Dateien werden berechnet ..."
 
 #. Type: title
 #. Description
@@ -1085,12 +1094,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Installationsmethode: ${INSTALLTYPE}\n"
+" Sprache: ${LANGUAGE}\n"
+" Tastaturmodell: ${KEYMAP}\n"
+" Vollständiger Name: ${FULLNAME}\n"
+" Benutzername: ${USERNAME}\n"
+" Standort: ${LOCATION}\n"
+" IR Remote: ${REMOTE}\n"
+" IR Transmitter: $[TRANSMITTER}\n"
+" Grafiktreiber: ${VIDEO_DRIVER}\n"
+" Dienste: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "Installationsmethode"
 
 #. Type: text
 #. Description
@@ -1185,7 +1204,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Grafiktreiber"
 
 #. Type: text
 #. Description

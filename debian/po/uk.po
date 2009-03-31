@@ -7,20 +7,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-03-13 12:05+0000\n"
+"PO-Revision-Date: 2009-03-31 07:47+0000\n"
 "Last-Translator: CrabMan <oleg-min@ukr.net>\n"
 "Language-Team: uk <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-16 23:43+0000\n"
+"X-Launchpad-Export-Date: 2009-03-31 13:45+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "Використати найбільший суцільний вільний простір"
 
 #. Type: text
 #. Description
@@ -32,7 +32,7 @@ msgstr "Використати весь диск"
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "Встановити їх пліч-о-пліч, вибираючи між ними кожен запуск"
 
 #. Type: text
 #. Description
@@ -161,7 +161,7 @@ msgstr "У цьому полі ви можете перевірити вашу �
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Suggested option:"
-msgstr ""
+msgstr "Пропоновані параметри:"
 
 #. Type: text
 #. Description
@@ -218,6 +218,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Введіть будь-який пароль двічі, для того щоб уникнути опечатки. Гарний "
+"пароль буде містити літери, цифри та знаки пунктуації, довжина повинна бути "
+"не менше восьми символів, і також пароль повинен регулярно змінюватись."
 
 #. Type: text
 #. Description
@@ -243,13 +246,13 @@ msgstr "Входити автоматично"
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Require a password to log in"
-msgstr ""
+msgstr "Потрібен пароль для входу"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Require a password to log in and to decrypt your home folder"
-msgstr ""
+msgstr "Потрібен пароль, для входу та дешифрування Вашої домашньої папки"
 
 #. Type: text
 #. Description
@@ -311,7 +314,7 @@ msgstr "На цьому комп'ютері встановлено декіль�
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "Де ви хочете розмістити ${RELEASE}?"
 
 #. Type: text
 #. Description
@@ -390,7 +393,7 @@ msgstr "Встановлення завершено"
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Continue Testing"
-msgstr ""
+msgstr "Продовження Тестування"
 
 #. Type: text
 #. Description
@@ -628,6 +631,9 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"Встановлення завершене. Ви можете продовжити тестування Ubuntu зараз, але "
+"після перезавантаження комп'ютера, будь-які зміни які ви зробили чи "
+"документи не будуть збережені."
 
 #. Type: text
 #. Description
@@ -988,7 +994,7 @@ msgstr "Помилка при видалення пакетів:"
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Підрахунок файлів для пропуску копіювання ..."
 
 #. Type: title
 #. Description

@@ -8,38 +8,38 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-05 08:55+0000\n"
-"PO-Revision-Date: 2009-02-22 17:09+0000\n"
-"Last-Translator: Harith Dawi <harithd@gmail.com>\n"
+"PO-Revision-Date: 2009-03-27 00:10+0000\n"
+"Last-Translator: dequan <mridzuanm@gmail.com>\n"
 "Language-Team: Malay <ms@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-16 23:40+0000\n"
+"X-Launchpad-Export-Date: 2009-03-31 13:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "Gunakan ruang kosong berturutan yang paling besar"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the entire disk"
-msgstr ""
+msgstr "Gunakan keseluruhan cakera"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "Pasang mereka seiringan, pilih antara mereka disetiap permulaan"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "Tetapkan paritition secara manual (pakar)"
 
 #. Type: text
 #. Description
@@ -126,19 +126,19 @@ msgstr "Di mana anda?"
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Select your time zone from the map, or by region and city."
-msgstr ""
+msgstr "Pilih zon masa anda dari peta, atau dari kawasan dan bandar."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "City:"
-msgstr ""
+msgstr "Bandar:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Region:"
-msgstr ""
+msgstr "Kawasan:"
 
 #. Type: text
 #. Description
@@ -164,13 +164,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Suggested option:"
-msgstr ""
+msgstr "Pilihan dicadangkan:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your own:"
-msgstr ""
+msgstr "Pilihan sendiri:"
 
 #. Type: text
 #. Description
@@ -223,6 +223,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Masukkan katalaluan yang sama sebanyak dua kali, supaya ralat menaip dapat "
+"diperiksa. Katalaluan yang baik mengandungi gabungan huruf, nombor dan "
+"simbol-simbol, kata laluan haruslah sekurang-kurangnya sepanjang lapan abjad "
+"dan kerap ditukar pada sela masa tertentu."
 
 #. Type: text
 #. Description
@@ -250,13 +254,13 @@ msgstr "Log masuk secara automatik"
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Require a password to log in"
-msgstr ""
+msgstr "Memerlukan katalaluan untuk log masuk"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Require a password to log in and to decrypt your home folder"
-msgstr ""
+msgstr "Memerlukan katalaluan untuk log masuk dan nyahkod direktori 'home'"
 
 #. Type: text
 #. Description
@@ -301,25 +305,25 @@ msgstr "Bagaimana anda mahu cakera dibahagikan?"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "Komputer ini tidak mempunyai sistem operasi di dalamnya."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "Komputer ini mempunyai ${OS} di dalamnya."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "Komputer ini mempunyai beberap sistem operasi di dalamnya."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "Di mana hendak diletakkan ${RELEASE}?"
 
 #. Type: text
 #. Description
@@ -392,19 +396,19 @@ msgstr "Langkau"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Installation Complete"
-msgstr ""
+msgstr "Pemasangan Lengkap"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Continue Testing"
-msgstr ""
+msgstr "Teruskan Pengujian"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Restart Now"
-msgstr ""
+msgstr "Mula Semula Sekarang"
 
 #. Type: text
 #. Description
@@ -636,6 +640,9 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"Proses pemasangan selesai. Anda boleh mencuba Ubuntu sekarang tetapi "
+"sehingga anda ulang-mula komputer, sebarang perubahan yang dilakukan atau "
+"dokumen yang disimpan tidak akan di dilindungi"
 
 #. Type: text
 #. Description
@@ -996,7 +1003,7 @@ msgstr "Ralat berlaku semasa mengeluarkan pakej"
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Mengira fail untuk melangkau penyalinan..."
 
 #. Type: title
 #. Description
@@ -1081,12 +1088,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Jenis Pemasangan:${INSTALLTYPE}\n"
+"Bahasa:${LANGUAGE}\n"
+"Hamparan papan kekunci:${KEYMAP}\n"
+"Nama:${FULLNAME}\n"
+"Nama log masuk:${USERNAME}\n"
+"Lokasi:${LOCATION}\n"
+"Kawalan IR:${REMOTE}\n"
+"Pemancar IR:${TRANSMITTER}\n"
+"Pemacu Video:${VIDEO_DRIVER}\n"
+"Perkhidmatan:${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "Jenis Pemasangan"
 
 #. Type: text
 #. Description
@@ -1187,7 +1204,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Pemacu Grafik"
 
 #. Type: text
 #. Description
