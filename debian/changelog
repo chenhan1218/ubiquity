@@ -8,6 +8,8 @@ oem-config (1.54.10) UNRELEASED; urgency=low
   * Suggest checkbox/checkbox-gtk rather than recommending
     hwtest/hwtest-gtk.
   * Update translations from Launchpad.
+  * Automatic update of included source packages: console-setup 1.28ubuntu7,
+    user-setup 1.23ubuntu15.
 
   [ Evan Dandrea ]
   * Update the timezone_map to match changes in ubiquity (more accurate
