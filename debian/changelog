@@ -7,6 +7,9 @@ ubiquity (1.12.2) UNRELEASED; urgency=low
     another password" (breaking the string freeze, but at least for only one
     string).
   * Suppress unnecessary exception if find_in_os_prober fails.
+  * GTK frontend:
+    - Don't bother calling find_in_os_prober for partitions without real
+      devices (e.g. free space).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 01 Apr 2009 13:33:12 +0100
 
