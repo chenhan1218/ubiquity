@@ -1087,7 +1087,7 @@ class Partman(FilteredCommand):
             if question in ('partman-jfs/jfs_boot', 'partman-jfs/jfs_root',
                             'partman/unmount_active'):
                 answer_reversed = True
-            if response is None or response == 'ubiquity/text/continue':
+            if response is None or response == yes:
                 answer = answer_reversed
             else:
                 answer = not answer_reversed

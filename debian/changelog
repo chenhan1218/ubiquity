@@ -10,6 +10,7 @@ ubiquity (1.12.2) UNRELEASED; urgency=low
   * GTK frontend:
     - Don't bother calling find_in_os_prober for partitions without real
       devices (e.g. free space).
+  * Fix handling of "yes" response to partman/unmount_active.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 01 Apr 2009 13:33:12 +0100
 
