@@ -126,8 +126,9 @@ class Install(ParentInstall):
                 #on a live disk, this will appear a broken link, but it works
                 pass
 
-        #mythtv group membership
+        #group membership
         self.chrex('adduser', self.user, 'mythtv')
+        self.chrex('adduser', self.user, 'video')
 
     def configure_ma(self):
         """Overrides module assistant configuration method.  Mythbuntu doesn't

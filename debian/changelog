@@ -1,5 +1,6 @@
 ubiquity (1.12.2) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Add a comment to partman/commit.d/01unmount_busy to explain why this
     script is still here despite similar code in partman-base.
   * Using "Yes" and "No" buttons for the weak-password question turns out to
@@ -11,6 +12,10 @@ ubiquity (1.12.2) UNRELEASED; urgency=low
     - Don't bother calling find_in_os_prober for partitions without real
       devices (e.g. free space).
   * Fix handling of "yes" response to partman/unmount_active.
+
+  [ Mario Limonciello ]
+  * Make sure mythbuntu installs have users installed into the 'video'
+    group. (LP: #351773)
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 01 Apr 2009 13:33:12 +0100
 
