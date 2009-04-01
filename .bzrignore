@@ -19,8 +19,12 @@ debian/*.debhelper*
 debian/*.substvars
 ./Makefile
 ./autom4te.cache
+./config.h
+./config.log
+./config.status
 ./intltool-*
 ./libtool
+./stamp-h1
 d-i/apt
 d-i/manifest.old
 d-i/source
@@ -41,6 +45,8 @@ src/cut-and-paste/e-map/Makefile
 src/.deps
 src/.libs
 src/e-map.c
+src/*.la
+src/*.lo
 pixmaps/Makefile
 ubiquity/frontend/*.bak
 ubiquity/frontend/liveinstaller.py
