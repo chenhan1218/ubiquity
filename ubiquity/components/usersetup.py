@@ -81,8 +81,9 @@ class UserSetup(FilteredCommand):
             response = self.frontend.question_dialog(
                 self.description(question),
                 self.extended_description(question),
-                ('ubiquity/imported/no', 'ubiquity/imported/yes'))
-            if response is None or response == 'ubiquity/imported/yes':
+                ('ubiquity/text/choose_another_password',
+                 'ubiquity/text/continue'))
+            if response is None or response == 'ubiquity/text/continue':
                 self.preseed(question, 'true')
             else:
                 self.preseed(question, 'false')

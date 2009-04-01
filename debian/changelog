@@ -2,6 +2,10 @@ ubiquity (1.12.2) UNRELEASED; urgency=low
 
   * Add a comment to partman/commit.d/01unmount_busy to explain why this
     script is still here despite similar code in partman-base.
+  * Using "Yes" and "No" buttons for the weak-password question turns out to
+    be more confusing than I'd hoped. Instead, use "Continue" and "Choose
+    another password" (breaking the string freeze, but at least for only one
+    string).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 01 Apr 2009 13:33:12 +0100
 

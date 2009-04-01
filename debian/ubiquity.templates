@@ -154,6 +154,10 @@ Template: ubiquity/text/login_encrypt
 Type: text
 _Description: Require a password to log in and to decrypt your home folder
 
+Template: ubiquity/text/choose_another_password
+Type: text
+_Description: Choose another password
+
 Template: ubiquity/text/ma_heading_label
 Type: text
 _Description: Migrate documents and settings
