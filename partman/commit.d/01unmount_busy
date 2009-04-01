@@ -1,5 +1,10 @@
 #! /bin/sh
 
+# This should largely be unnecessary now that partman-base/init.d/parted
+# checks for mounted partitions at startup, but it may still serve as
+# insurance against partitions being mounted while the partitioner is
+# running.
+
 . /lib/partman/lib/base.sh
 
 db_get ubiquity/partman-skip-unmount
