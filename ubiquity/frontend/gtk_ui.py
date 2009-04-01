@@ -2431,6 +2431,7 @@ class Wizard(BaseFrontend):
         # TODO evand 2007-01-11 I'm on the fence as to whether or not skipping
         # the page would be better than showing the user this error.
         if not choices:
+            # TODO cjwatson 2009-04-01: i18n
             msg = 'There were no users or operating systems suitable for ' \
                   'importing from.'
             liststore = gtk.ListStore(str)
