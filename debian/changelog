@@ -6,6 +6,7 @@ ubiquity (1.12.2) UNRELEASED; urgency=low
     be more confusing than I'd hoped. Instead, use "Continue" and "Choose
     another password" (breaking the string freeze, but at least for only one
     string).
+  * Suppress unnecessary exception if find_in_os_prober fails.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 01 Apr 2009 13:33:12 +0100
 

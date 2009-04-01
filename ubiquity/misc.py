@@ -40,6 +40,7 @@ def find_in_os_prober(device):
             ret = 'swap'
         else:
             syslog.syslog('Device %s not found in os-prober output' % str(device))
+            ret = ''
         return unicode(ret, 'utf-8', 'replace')
     except (KeyboardInterrupt, SystemExit):
         pass
