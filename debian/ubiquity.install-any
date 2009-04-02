@@ -45,7 +45,9 @@ ubiquity/components/console_setup.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/console_setup_apply.py usr/lib/ubiquity/ubiquity/components
 
 # debian-installer-utils
+d-i/source/debian-installer-utils/chroot-setup.sh lib
 d-i/source/debian-installer-utils/debconf-get bin
+d-i/source/debian-installer-utils/in-target bin
 d-i/source/debian-installer-utils/list-devices bin
 d-i/source/debian-installer-utils/log-output bin
 d-i/source/debian-installer-utils/mapdevfs bin

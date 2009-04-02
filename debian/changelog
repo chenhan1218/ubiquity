@@ -20,6 +20,8 @@ ubiquity (1.12.2) UNRELEASED; urgency=low
     DEB_HOST_ARCH rather than DEB_HOST_ARCH_CPU.
   * Use the full size of the underlying images for the timezone map if the
     screen is big enough.
+  * Install chroot-setup.sh and in-target from debian-installer-utils
+    (LP: #353941).
 
   [ Mario Limonciello ]
   * Make sure mythbuntu installs have users installed into the 'video'
