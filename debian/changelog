@@ -24,6 +24,9 @@ ubiquity (1.12.2) UNRELEASED; urgency=low
     (LP: #353941).
   * Move bootloader dependencies to recommendations, to make it easier to
     cope with grub and grub-pc conflicting (LP: #353273).
+  * Automatic update of included source packages: partman-auto 84ubuntu2,
+    partman-base 129ubuntu5, partman-ext3 56ubuntu1, user-setup
+    1.23ubuntu16.
 
   [ Mario Limonciello ]
   * Make sure mythbuntu installs have users installed into the 'video'
