@@ -1,4 +1,4 @@
-ubiquity (1.12.2) UNRELEASED; urgency=low
+ubiquity (1.12.2) jaunty; urgency=low
 
   [ Colin Watson ]
   * Add a comment to partman/commit.d/01unmount_busy to explain why this
@@ -32,7 +32,7 @@ ubiquity (1.12.2) UNRELEASED; urgency=low
   * Make sure mythbuntu installs have users installed into the 'video'
     group. (LP: #351773)
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 01 Apr 2009 13:33:12 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 02 Apr 2009 23:12:54 +0100
 
 ubiquity (1.12.1) jaunty; urgency=low
 
