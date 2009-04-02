@@ -22,6 +22,8 @@ ubiquity (1.12.2) UNRELEASED; urgency=low
     screen is big enough.
   * Install chroot-setup.sh and in-target from debian-installer-utils
     (LP: #353941).
+  * Move bootloader dependencies to recommendations, to make it easier to
+    cope with grub and grub-pc conflicting (LP: #353273).
 
   [ Mario Limonciello ]
   * Make sure mythbuntu installs have users installed into the 'video'

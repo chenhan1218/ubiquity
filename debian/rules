@@ -35,16 +35,16 @@ endif
 PYTHON := $(shell pyversions -r)
 
 ifneq (,$(findstring :$(DEB_HOST_ARCH_CPU):,:amd64:i386:lpia:))
-  bootloader-depends := grub | grub-pc
+  bootloader-recommends := grub | grub-pc
 else
 ifeq ($(DEB_HOST_ARCH),armel)
-  bootloader-depends := flash-kernel
+  bootloader-recommends := flash-kernel
 else
 ifeq ($(DEB_HOST_ARCH),powerpc)
-  bootloader-depends := yaboot, hfsutils
+  bootloader-recommends := yaboot, hfsutils
 else
 ifeq ($(DEB_HOST_ARCH),sparc)
-  bootloader-depends := silo
+  bootloader-recommends := silo
 endif
 endif
 endif
@@ -283,7 +283,7 @@ binary-arch: install
 	dh_pycentral
 	dh_installdeb
 	dh_shlibdeps
-	dh_gencontrol -- -V'console-setup-depends=$(console-setup-depends)' -V'partman-depends=$(partman-depends)' -V'bootloader-depends=$(bootloader-depends)' -Vmangled-version='$(MANGLED_VERSION)'
+	dh_gencontrol -- -V'console-setup-depends=$(console-setup-depends)' -V'partman-depends=$(partman-depends)' -V'bootloader-recommends=$(bootloader-recommends)' -Vmangled-version='$(MANGLED_VERSION)'
 	dh_md5sums
 	dh_builddeb
 
