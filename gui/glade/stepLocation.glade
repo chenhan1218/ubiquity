@@ -8,6 +8,7 @@
       <widget class="GtkVBox" id="stepLocation">
         <property name="visible">True</property>
         <property name="border_width">6</property>
+        <property name="spacing">6</property>
         <child>
           <widget class="GtkLabel" id="timezone_heading_label">
             <property name="visible">True</property>
@@ -31,7 +32,6 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">False</property>
-            <property name="padding">6</property>
             <property name="position">1</property>
           </packing>
         </child>
