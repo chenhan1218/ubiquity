@@ -18,6 +18,8 @@ ubiquity (1.12.2) UNRELEASED; urgency=low
     the disk containing it is still offered for partitioning (LP: #347916).
   * On armel, DEB_HOST_ARCH=armel but DEB_HOST_ARCH_CPU=arm. Check
     DEB_HOST_ARCH rather than DEB_HOST_ARCH_CPU.
+  * Use the full size of the underlying images for the timezone map if the
+    screen is big enough.
 
   [ Mario Limonciello ]
   * Make sure mythbuntu installs have users installed into the 'video'
