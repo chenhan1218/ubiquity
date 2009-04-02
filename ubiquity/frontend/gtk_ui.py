@@ -1051,7 +1051,10 @@ class Wizard(BaseFrontend):
 
         step = self.step_name(self.steps.get_current_page())
 
-        if step == "stepUserInfo":
+        if step == "stepPartAuto":
+            self.part_advanced_warning_message.set_text('')
+            self.part_advanced_warning_hbox.hide()
+        elif step == "stepUserInfo":
             self.username_error_box.hide()
             self.password_error_box.hide()
             self.hostname_error_box.hide()
@@ -1716,6 +1719,11 @@ class Wizard(BaseFrontend):
             return choice, None
 
 
+    def installation_medium_mounted (self, message):
+        self.part_advanced_warning_message.set_text(message)
+        self.part_advanced_warning_hbox.show_all()
+
+
     def partman_column_name (self, column, cell, model, iterator):
         partition = model[iterator][1]
         if 'id' not in partition:
@@ -2334,7 +2342,7 @@ class Wizard(BaseFrontend):
             sw.child.set_shadow_type(gtk.SHADOW_NONE)
             sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_NEVER)
             sw.show_all()
-            self.part_advanced_vbox.pack_start(sw, expand=False, padding=6)
+            self.part_advanced_vbox.pack_start(sw, expand=False)
             self.part_advanced_vbox.reorder_child(sw, 0)
 
         for item in cache_order:

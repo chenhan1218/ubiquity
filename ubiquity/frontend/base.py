@@ -311,6 +311,7 @@ class BaseFrontend:
 
     def get_keyboard_variant(self):
         self._abstract('get_keyboard_variant')
+
     # ubiquity.components.partman
 
     def set_disk_layout(self, layout):
@@ -325,6 +326,13 @@ class BaseFrontend:
     def get_autopartition_choice(self):
         """Get the selected autopartitioning choice."""
         self._abstract('get_autopartition_choice')
+
+    def installation_medium_mounted(self, message):
+        """Note that the installation medium is mounted."""
+        # not flagged as abstract because some frontends may not be able to
+        # present this sensibly, for example if they only implement
+        # autopartitioning
+        pass
 
     def update_partman(self, disk_cache, partition_cache, cache_order):
         """Update the manual partitioner display."""

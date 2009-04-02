@@ -225,6 +225,7 @@ class Wizard(BaseFrontend):
 
         iconLoader = KIconLoader()
         warningIcon = iconLoader.loadIcon("dialog-warning", KIconLoader.Desktop)
+        self.userinterface.part_advanced_warning_image.setPixmap(warningIcon)
         self.userinterface.fullname_error_image.setPixmap(warningIcon)
         self.userinterface.username_error_image.setPixmap(warningIcon)
         self.userinterface.password_error_image.setPixmap(warningIcon)
@@ -841,14 +842,18 @@ class Wizard(BaseFrontend):
 
         step = self.step_name(self.get_current_page())
 
-        self.userinterface.fullname_error_image.hide()
-        self.userinterface.fullname_error_reason.hide()
-        self.userinterface.username_error_image.hide()
-        self.userinterface.username_error_reason.hide()
-        self.userinterface.password_error_image.hide()
-        self.userinterface.password_error_reason.hide()
-        self.userinterface.hostname_error_image.hide()
-        self.userinterface.hostname_error_reason.hide()
+        if step == "stepPartAuto":
+            self.userinterface.part_advanced_warning_message.clear()
+            self.userinterface.part_advanced_warning_hbox.hide()
+        elif step == "stepUserInfo":
+            self.userinterface.fullname_error_image.hide()
+            self.userinterface.fullname_error_reason.hide()
+            self.userinterface.username_error_image.hide()
+            self.userinterface.username_error_reason.hide()
+            self.userinterface.password_error_image.hide()
+            self.userinterface.password_error_reason.hide()
+            self.userinterface.hostname_error_image.hide()
+            self.userinterface.hostname_error_reason.hide()
 
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
@@ -1430,6 +1435,10 @@ class Wizard(BaseFrontend):
             return choice, unicode(disk_texts[disk_id])
         else:
             return choice, None
+
+    def installation_medium_mounted (self, message):
+        self.userinterface.part_advanced_warning.message.setText(message)
+        self.userinterface.part_advanced_warning_hbox.show()
 
     def update_partman (self, disk_cache, partition_cache, cache_order):
         #throwing away the old model if there is one

@@ -97,6 +97,7 @@ class Partman(FilteredCommand):
                      '^partman/exception_handler$',
                      '^partman/exception_handler_note$',
                      '^partman/unmount_active$',
+                     '^partman/installation_medium_mounted$',
                      'type:boolean',
                      'ERROR',
                      'PROGRESS']
@@ -1071,6 +1072,11 @@ class Partman(FilteredCommand):
                 return FilteredCommand.error(self, priority, question)
             else:
                 return True
+
+        elif question == 'partman/installation_medium_mounted':
+            self.frontend.installation_medium_mounted(
+                self.extended_description(question))
+            return True
 
         elif self.question_type(question) == 'boolean':
             if question == 'partman/unmount_active':

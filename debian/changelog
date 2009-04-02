@@ -12,6 +12,9 @@ ubiquity (1.12.2) UNRELEASED; urgency=low
     - Don't bother calling find_in_os_prober for partitions without real
       devices (e.g. free space).
   * Fix handling of "yes" response to partman/unmount_active.
+  * Display a warning on the advanced partitioning screen if the
+    installation medium is mounted but not filling the whole disk, so that
+    the disk containing it is still offered for partitioning (LP: #347916).
 
   [ Mario Limonciello ]
   * Make sure mythbuntu installs have users installed into the 'video'
