@@ -13,7 +13,7 @@ migration-assistant 0.6.2
 partconf 1.30ubuntu1
 partman-auto 84ubuntu2
 partman-auto-loop 0ubuntu16
-partman-base 129ubuntu5
+partman-base 129ubuntu6
 partman-basicfilesystems 62ubuntu2
 partman-basicmethods 42
 partman-efi 18ubuntu1

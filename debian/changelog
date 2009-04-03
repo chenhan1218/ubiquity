@@ -10,6 +10,7 @@ ubiquity (1.12.3) UNRELEASED; urgency=low
     Thanks to Mario Limonciello for testing (LP: #337748).
   * Mythbuntu frontend:
     - Don't crash if --no-migration-assistant was used (LP: #354368).
+  * Automatic update of included source packages: partman-base 129ubuntu6.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 03 Apr 2009 01:30:51 +0100
 
