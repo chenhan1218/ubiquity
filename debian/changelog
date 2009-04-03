@@ -4,6 +4,10 @@ ubiquity (1.12.3) UNRELEASED; urgency=low
     Robb Topolski; LP: #301430).
   * Silently skip non-existent devices in /proc/swaps (LP: #290947).
   * Use small print rather than italics in "Who are you?" (LP: #287626).
+  * Revert r2984 from ubiquity 1.11.5, and instead filter out language packs
+    that don't exist in the live filesystem's apt cache; this allows us to
+    accurately produce incomplete language support notifications again.
+    Thanks to Mario Limonciello for testing (LP: #337748).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 03 Apr 2009 01:30:51 +0100
 

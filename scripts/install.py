@@ -1246,6 +1246,15 @@ exit 0"""
             # More extensive language support packages.
             to_install.append('language-support-%s' % lp)
 
+        # Filter the list of language packs to include only language packs
+        # that exist in the live filesystem's apt cache, so that we can tell
+        # the difference between "no such language pack" and "language pack
+        # not retrievable given apt configuration in /target" later on.
+        cache = Cache()
+        to_install = [lp for lp in to_install
+                         if self.get_cache_pkg(cache, lp) is not None]
+        del cache
+
         self.record_installed(to_install)
         self.langpacks = to_install
 
@@ -1256,7 +1265,7 @@ exit 0"""
         incomplete = False
         for pkg in self.langpacks:
             cachedpkg = self.get_cache_pkg(cache, pkg)
-            if cachedpkg is not None and not cachedpkg.isInstalled:
+            if cachedpkg is None or not cachedpkg.isInstalled:
                 incomplete = True
                 break
         if incomplete:
