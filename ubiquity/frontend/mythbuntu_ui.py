@@ -78,7 +78,8 @@ class Wizard(ParentFrontend.Wizard):
 #Overriden Methods
     def __init__(self, distro):
         #Remove migration assistant
-        del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
+        if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
+            del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
         place=ParentFrontend.BREADCRUMB_STEPS["stepReady"]
 
         #Max steps
