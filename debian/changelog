@@ -1,4 +1,4 @@
-ubiquity (1.12.3) UNRELEASED; urgency=low
+ubiquity (1.12.3) jaunty; urgency=low
 
   * Sync with netcfg 1.44: Define IPv6 ::1 address as "localhost" (thanks,
     Robb Topolski; LP: #301430).
@@ -12,7 +12,7 @@ ubiquity (1.12.3) UNRELEASED; urgency=low
     - Don't crash if --no-migration-assistant was used (LP: #354368).
   * Automatic update of included source packages: partman-base 129ubuntu6.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 03 Apr 2009 01:30:51 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 03 Apr 2009 23:39:10 +0100
 
 ubiquity (1.12.2) jaunty; urgency=low
 
