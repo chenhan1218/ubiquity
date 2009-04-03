@@ -1,3 +1,11 @@
+oem-config (1.54.11) UNRELEASED; urgency=low
+
+  * GTK frontend:
+    - Use the full size of the underlying images for the timezone map if the
+      screen is big enough.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 03 Apr 2009 13:56:14 +0100
+
 oem-config (1.54.10) jaunty; urgency=low
 
   [ Colin Watson ]
