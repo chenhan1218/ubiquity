@@ -1328,6 +1328,8 @@ exit 0"""
             words = line.split()
             if words[1] != 'partition':
                 continue
+            if not os.path.exists(words[0]):
+                continue
             if words[0].startswith('/dev/ramzswap'):
                 continue
             size = int(words[2])
