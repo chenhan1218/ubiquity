@@ -707,7 +707,7 @@ class Wizard(BaseFrontend):
                 widget.set_attributes(attrs)
             elif 'extra_label' in name:
                 attrs = pango.AttrList()
-                attrs.insert(pango.AttrStyle(pango.STYLE_ITALIC, 0, textlen))
+                attrs.insert(pango.AttrScale(pango.SCALE_SMALL, 0, textlen))
                 widget.set_attributes(attrs)
             elif ('group_label' in name or 'warning_label' in name or
                   name in ('drives_label', 'partition_method_label')):

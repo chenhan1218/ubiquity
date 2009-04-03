@@ -987,7 +987,7 @@ This language will be the default language for the final system.</string>
          <item row="1" column="0" colspan="4" >
           <widget class="QLabel" name="username_extra_label" >
            <property name="text" >
-            <string>&lt;i>If more than one person will use this computer, you can set up multiple accounts after installation.&lt;/i></string>
+            <string>&lt;small>If more than one person will use this computer, you can set up multiple accounts after installation.&lt;/small></string>
            </property>
            <property name="wordWrap" >
             <bool>false</bool>
@@ -1125,7 +1125,7 @@ This language will be the default language for the final system.</string>
          <item row="1" column="0" colspan="5" >
           <widget class="QLabel" name="password_extra_label" >
            <property name="text" >
-            <string>&lt;i>Enter the same password twice, so that it can be checked for typing errors.&lt;/i></string>
+            <string>&lt;small>Enter the same password twice, so that it can be checked for typing errors.&lt;/small></string>
            </property>
            <property name="wordWrap" >
             <bool>true</bool>
@@ -1294,7 +1294,7 @@ This language will be the default language for the final system.</string>
          <item row="1" column="0" colspan="4" >
           <widget class="QLabel" name="hostname_extra_label" >
            <property name="text" >
-            <string>&lt;i>This name will be used if you make the computer visible to others on a network.&lt;/i></string>
+            <string>&lt;small>This name will be used if you make the computer visible to others on a network.&lt;/small></string>
            </property>
            <property name="wordWrap" >
             <bool>false</bool>

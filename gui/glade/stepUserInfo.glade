@@ -234,7 +234,7 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="xalign">0</property>
-                                        <property name="label" translatable="yes">&lt;i&gt;If more than one person will use this computer, you can set up multiple accounts after installation.&lt;/i&gt;</property>
+                                        <property name="label" translatable="yes">&lt;small&gt;If more than one person will use this computer, you can set up multiple accounts after installation.&lt;/small&gt;</property>
                                         <property name="use_markup">True</property>
                                         <property name="wrap">True</property>
                                         <property name="selectable">True</property>
@@ -387,7 +387,7 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="xalign">0</property>
-                                        <property name="label" translatable="yes">&lt;i&gt;Enter the same password twice, so that it can be checked for typing errors.&lt;/i&gt;</property>
+                                        <property name="label" translatable="yes">&lt;small&gt;Enter the same password twice, so that it can be checked for typing errors.&lt;/small&gt;</property>
                                         <property name="use_markup">True</property>
                                         <property name="wrap">True</property>
                                         <property name="selectable">True</property>
@@ -506,7 +506,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">&lt;i&gt;This name will be used if you make the computer visible to others on a network.&lt;/i&gt;</property>
+                                    <property name="label" translatable="yes">&lt;small&gt;This name will be used if you make the computer visible to others on a network.&lt;/small&gt;</property>
                                     <property name="use_markup">True</property>
                                     <property name="wrap">True</property>
                                     <property name="selectable">True</property>

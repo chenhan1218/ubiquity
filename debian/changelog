@@ -3,6 +3,7 @@ ubiquity (1.12.3) UNRELEASED; urgency=low
   * Sync with netcfg 1.44: Define IPv6 ::1 address as "localhost" (thanks,
     Robb Topolski; LP: #301430).
   * Silently skip non-existent devices in /proc/swaps (LP: #290947).
+  * Use small print rather than italics in "Who are you?" (LP: #287626).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 03 Apr 2009 01:30:51 +0100
 

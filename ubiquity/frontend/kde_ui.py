@@ -544,7 +544,7 @@ class Wizard(BaseFrontend):
             if 'heading_label' in name:
                 widget.setText("<h2>" + text + "</h2>")
             elif 'extra_label' in name:
-                widget.setText("<em>" + text + "</em>")
+                widget.setText("<small>" + text + "</small>")
             elif ('group_label' in name or 'warning_label' in name or
                   name in ('drives_label', 'partition_method_label')):
                 widget.setText("<strong>" + text + "</strong>")
