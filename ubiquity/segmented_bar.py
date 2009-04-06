@@ -267,7 +267,6 @@ class SegmentedBar(gtk.Widget):
 
     def add_segment_rgb(self, title, size, rgb_color):
         self.add_segment(title, size, CairoExtensions.rgb_to_color(rgb_color))
-        c = CairoExtensions.rgb_to_color(rgb_color)
     
     def do_size_request(self, requisition):
         requisition.width = 200
@@ -576,7 +575,7 @@ class SegmentedBarSlider(SegmentedBar):
 
     def __init__(self):
         SegmentedBar.__init__(self)
-        self.slider_size = 15
+        self.slider_size = 16
         self.resize = -1
         self.device = None
         self.connect('motion-notify-event', self.motion_notify_event)
@@ -694,12 +693,29 @@ class SegmentedBarSlider(SegmentedBar):
             i += 1
         t = size / float(self.disk_size)
         p = (t * w) - ((self.slider_size / w) / 2)
-        #cr.set_line_cap(cairo.LINE_CAP_ROUND)
-        cr.move_to(p, 0)
-        #cr.set_line_cap(cairo.LINE_CAP_ROUND)
-        cr.line_to(p, h)
-        cr.set_source_rgb(0, 0, 0)
-        cr.set_line_width(self.slider_size)
+
+        grad = cairo.LinearGradient(0, 0, 0, h)
+        c = CairoExtensions.rgb_to_color('f4f1ef')
+        grad.add_color_stop_rgb(0, c.r, c.g, c.b)
+        c = CairoExtensions.rgb_to_color('f2efec')
+        grad.add_color_stop_rgb(0.5, c.r, c.g, c.b)
+        c = CairoExtensions.rgb_to_color('ece7e2')
+        grad.add_color_stop_rgb(0.5, c.r, c.g, c.b)
+        c = CairoExtensions.rgb_to_color('e8e2dc')
+        grad.add_color_stop_rgb(1, c.r, c.g, c.b)
+        CairoExtensions.rounded_rectangle(cr, p - (self.slider_size / 2), 0,
+            self.slider_size, h, r / 2, corners=CairoCorners.all)
+        cr.set_source(grad)
+        cr.fill_preserve()
+        c = CairoExtensions.rgb_to_color('9f9890')
+        cr.set_source_rgb(c.r, c.g, c.b)
+        cr.set_line_width(1)
+
+        # Handle
+        cr.move_to(p - 2, (h / 4))
+        cr.line_to(p - 2, h - (h / 4))
+        cr.move_to(p + 2, (h / 4))
+        cr.line_to(p + 2, h - (h / 4))
         cr.stroke()
     
     def render_bar(self, w, h):

@@ -1,7 +1,12 @@
 ubiquity (1.12.4) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Don't pass the debconf PURGE command through debconffilter, since we
     don't know the owner of the package calling it (LP: #354534).
+
+  [ Evan Dandrea ]
+  * Draw something resembling a slider, rather than a black box, for the
+    slider on the partition bar.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 06 Apr 2009 14:50:23 +0100
 
