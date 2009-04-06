@@ -1,19 +1,88 @@
+# #-#-#-#-#  debian-installer_packages_po_sublevel1_el.po (el)  #-#-#-#-#
+# translation of el.po to Greek
+# translation of el.po to
 # Greek messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
+# George Papamichelakis <george@step.gr>, 2004.
+# Emmanuel Galatoulas <galas@tee.gr>, 2004.
+# Konstantinos Margaritis <markos@debian.org>, 2004, 2006.
+# Greek Translation Team <debian-l10n-greek@lists.debian.org>, 2004, 2005.
+# quad-nrg.net <galaxico@quad-nrg.net>, 2005, 2006, 2007.
+# quad-nrg.net <yodesy@quad-nrg.net>, 2006, 2008.
+# QUAD-nrg.net <yodesy@quad-nrg.net>, 2006.
+# galaxico@quad-nrg.net <galaxico@quad-nrg.net>, 2009.
+# #-#-#-#-#  debian-installer_packages_po_sublevel2_el.po (el)  #-#-#-#-#
+# translation of el.po to Greek
+# translation of el.po to
+# Greek messages for debian-installer.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+#
+# George Papamichelakis <george@step.gr>, 2004.
+# Emmanuel Galatoulas <galas@tee.gr>, 2004.
+# Konstantinos Margaritis <markos@debian.org>, 2004, 2006.
+# Greek Translation Team <debian-l10n-greek@lists.debian.org>, 2004, 2005.
+# quad-nrg.net <galaxico@quad-nrg.net>, 2005, 2006, 2007.
+# quad-nrg.net <yodesy@quad-nrg.net>, 2006, 2008.
+# QUAD-nrg.net <yodesy@quad-nrg.net>, 2006.
+# galaxico@quad-nrg.net <galaxico@quad-nrg.net>, 2009.
+# #-#-#-#-#  debian-installer_packages_po_sublevel3_el.po (el)  #-#-#-#-#
+# translation of el.po to Greek
+# translation of el.po to
+# Greek messages for debian-installer.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+#
+# George Papamichelakis <george@step.gr>, 2004.
+# Emmanuel Galatoulas <galas@tee.gr>, 2004.
+# Konstantinos Margaritis <markos@debian.org>, 2004, 2006.
+# Greek Translation Team <debian-l10n-greek@lists.debian.org>, 2004, 2005.
+# quad-nrg.net <galaxico@quad-nrg.net>, 2005, 2006, 2007.
+# quad-nrg.net <yodesy@quad-nrg.net>, 2006, 2008.
+# QUAD-nrg.net <yodesy@quad-nrg.net>, 2006.
+# galaxico@quad-nrg.net <galaxico@quad-nrg.net>, 2009.
+# #-#-#-#-#  debian-installer_packages_po_sublevel4_el.po (el)  #-#-#-#-#
+# translation of el.po to Greek
+# translation of el.po to
+# Greek messages for debian-installer.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+#
+# George Papamichelakis <george@step.gr>, 2004.
+# Emmanuel Galatoulas <galas@tee.gr>, 2004.
+# Konstantinos Margaritis <markos@debian.org>, 2004, 2006.
+# Greek Translation Team <debian-l10n-greek@lists.debian.org>, 2004, 2005.
+# quad-nrg.net <galaxico@quad-nrg.net>, 2005, 2006, 2007.
+# quad-nrg.net <yodesy@quad-nrg.net>, 2006.
+# QUAD-nrg.net <yodesy@quad-nrg.net>, 2006.
+# galaxico@quad-nrg.net <galaxico@quad-nrg.net>, 2009.
+# #-#-#-#-#  debian-installer_packages_po_sublevel5_el.po (el)  #-#-#-#-#
+# translation of el.po to
+# Greek messages for debian-installer.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+#
+# George Papamichelakis <george@step.gr>, 2004.
+# Emmanuel Galatoulas <galas@tee.gr>, 2004.
+# Konstantinos Margaritis <markos@debian.org>, 2004, 2006.
+# Greek Translation Team <debian-l10n-greek@lists.debian.org>, 2004, 2005.
+# quad-nrg.net <galaxico@quad-nrg.net>, 2005, 2006, 2007.
+# quad-nrg.net <yodesy@quad-nrg.net>, 2006.
+# QUAD-nrg.net <yodesy@quad-nrg.net>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer\n"
+"Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2009-03-24 11:52+0000\n"
-"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
-"Language-Team: <en@li.org>\n"
+"PO-Revision-Date: 2009-04-05 18:13+0000\n"
+"Last-Translator: Thanos Lefteris <alefteris@gmail.com>\n"
+"Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-31 13:44+0000\n"
+"X-Launchpad-Export-Date: 2009-04-06 12:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -28,11 +97,13 @@ msgstr "Ρυθμίσεις συστήματος"
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr "Βήμα ${INDEX} από ${TOTAL}"
 
+#
+# File: ../localechooser.templates-in, line: 1001
 #. Type: text
 #. Description
 #: ../oem-config.templates:4001
 msgid "Choose language"
-msgstr "Επιλογή Γλώσσας/Choose language"
+msgstr "Επιλογή Γλώσσας / Choose language"
 
 #. Type: text
 #. Description
@@ -154,13 +225,13 @@ msgstr ""
 #. Description
 #: ../oem-config.templates:22001
 msgid "Network configuration"
-msgstr ""
+msgstr "Ρύθμιση δικτύου"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:23001
 msgid "Software selection"
-msgstr ""
+msgstr "Επιλογή λογισμικού"
 
 #. Type: text
 #. Description
@@ -172,7 +243,7 @@ msgstr "Αυτόματη είσοδος χρήστη"
 #. Description
 #: ../oem-config.templates:25001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Εφαρμογή ρυθμίσεων"
 
 #. Type: text
 #. Description
@@ -204,20 +275,20 @@ msgstr "Λειτουργία ΟΕΜ (μόνο για κατασκευαστές)
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
 msgid "Prepare for OEM configuration"
-msgstr ""
+msgstr "Προετοιμασία για διαμόρφωση OEM"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
 msgid "Preparing for OEM configuration..."
-msgstr ""
+msgstr "Γίνεται προετοιμασία για διαμόρφωση OEM"
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
 msgid "Ready for OEM configuration"
-msgstr ""
+msgstr "Έτοιμο για διαμόρφωση OEM"
 
 #. Type: text
 #. Description

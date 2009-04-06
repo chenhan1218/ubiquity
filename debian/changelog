@@ -6,6 +6,7 @@ oem-config (1.54.11) UNRELEASED; urgency=low
     - Fix spacing on timezone page (LP: #336745).
   * Don't pass the debconf PURGE command through debconffilter, since we
     don't know the owner of the package calling it (see LP #354534).
+  * Update translations from Launchpad.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 03 Apr 2009 13:56:14 +0100
 

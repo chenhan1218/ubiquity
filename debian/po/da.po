@@ -1,23 +1,21 @@
-# Danish messages for debian-installer.
-# This file is distributed under the same license as debian-installer.
+# Danish translation for usb-creator
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the usb-creator package.
+# Mads Bille Lundby <lundbymads@gmail.com>, 2009.
 #
-# Jacob Sparre Andersen <sparre@nbi.dk>, 2008.
-# Claus Hindsgaul <claus.hindsgaul@gmail.com>, 2004-2007.
-# Reviewed 2007 by Niels Rasmussen
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer\n"
+"Project-Id-Version: usb-creator\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2009-03-30 06:27+0000\n"
+"PO-Revision-Date: 2009-04-01 18:40+0000\n"
 "Last-Translator: Mads Lundby <Unknown>\n"
-"Language-Team: Danish\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-31 13:48+0000\n"
+"X-Launchpad-Export-Date: 2009-04-06 12:22+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"X-Poedit-Bookmarks: 282,1006,1041,-1,-1,-1,-1,-1,-1,-1\n"
 
 #. Type: text
 #. Description
@@ -154,25 +152,25 @@ msgstr ""
 #. Description
 #: ../oem-config.templates:22001
 msgid "Network configuration"
-msgstr ""
+msgstr "Netværkskonfiguration"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:23001
 msgid "Software selection"
-msgstr ""
+msgstr "Softwarevalg"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:24001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Log ind automatisk"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:25001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Udfører konfiguration"
 
 #. Type: text
 #. Description
@@ -204,20 +202,20 @@ msgstr "OEM-tilstand (kun for fabrikanter)"
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
 msgid "Prepare for OEM configuration"
-msgstr ""
+msgstr "Forbered OEM-konfiguration"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
 msgid "Preparing for OEM configuration..."
-msgstr ""
+msgstr "Forbereder OEM-konfiguration..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
 msgid "Ready for OEM configuration"
-msgstr ""
+msgstr "Klar til OEM-konfiguration"
 
 #. Type: text
 #. Description

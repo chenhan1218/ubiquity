@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2009-02-22 14:04+0000\n"
-"Last-Translator: Milan Prvulović <prvulm@gmail.com>\n"
+"PO-Revision-Date: 2009-04-01 19:32+0000\n"
+"Last-Translator: Slobodan Simic <Unknown>\n"
 "Language-Team: Serbian <sr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-31 13:46+0000\n"
+"X-Launchpad-Export-Date: 2009-04-06 12:21+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -40,19 +40,19 @@ msgstr "Изаберите језик/Choose language"
 #: ../oem-config.templates:5001
 msgid ""
 "Once you answer a few questions, the system will be ready for you to use."
-msgstr ""
+msgstr "Када одговорите на пар питања, систем ће бити спреман за коришћење."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:6001
 msgid "Choose time zone"
-msgstr ""
+msgstr "Изаберите временску зону"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:7001
 msgid "Select a city in your country and time zone."
-msgstr ""
+msgstr "Изаберите град у својој земљи и временску зону."
 
 #. Type: text
 #. Description
@@ -64,7 +64,7 @@ msgstr "Одабрани град:"
 #. Description
 #: ../oem-config.templates:9001
 msgid "Selected region:"
-msgstr "Одабрана земља:"
+msgstr "Одабрана област:"
 
 #. Type: text
 #. Description
@@ -147,13 +147,13 @@ msgstr "Унесите исту лозинку два пута како би с�
 #. Description
 #: ../oem-config.templates:22001
 msgid "Network configuration"
-msgstr ""
+msgstr "Подешавање мреже"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:23001
 msgid "Software selection"
-msgstr ""
+msgstr "Избор програма"
 
 #. Type: text
 #. Description
@@ -165,7 +165,7 @@ msgstr "Аутоматско пријављивање"
 #. Description
 #: ../oem-config.templates:25001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Примењујем подешавање"
 
 #. Type: text
 #. Description
