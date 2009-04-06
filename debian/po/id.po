@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-04-02 19:02+0100\n"
-"PO-Revision-Date: 2009-03-24 16:12+0000\n"
-"Last-Translator: Arief Setiadi Wibowo <Unknown>\n"
+"PO-Revision-Date: 2009-04-03 18:09+0000\n"
+"Last-Translator: M Sulchan Darmawan <bleketux@gmail.com>\n"
 "Language-Team: Bahasa Indonesia <debian-l10n-id@gurame.fisika.ui.ac.id>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-31 13:45+0000\n"
+"X-Launchpad-Export-Date: 2009-04-06 12:21+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -33,6 +33,7 @@ msgstr "Gunakan seluruh disk"
 #: ../ubiquity.templates:4001
 msgid "Install them side by side, choosing between them each startup"
 msgstr ""
+"Pasang paket-paket tersebut satu persatu, pilih salah satunya setiap kali"
 
 #. Type: text
 #. Description
@@ -1008,7 +1009,7 @@ msgstr "Sebuah kesalahan terjadi ketika sedang menghapus paket:"
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Menghitung berkas untuk melewati penyalinan"
 
 #. Type: title
 #. Description
@@ -1209,7 +1210,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Driver grafis"
 
 #. Type: text
 #. Description

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-04-02 19:02+0100\n"
-"PO-Revision-Date: 2009-03-27 13:24+0000\n"
+"PO-Revision-Date: 2009-04-01 16:42+0000\n"
 "Last-Translator: Bruno Patri <bruno.patri@gmail.com>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-31 13:45+0000\n"
+"X-Launchpad-Export-Date: 2009-04-06 12:22+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -693,7 +693,9 @@ msgstr ""
 " Disposition du clavier : ${KEYMAP}\n"
 " Nom : ${FULLNAME}\n"
 " Nom d'utilisateur : ${USERNAME}\n"
-" Emplacement : ${LOCATION}"
+" Emplacement : ${LOCATION}\n"
+" Assistant de migration :\n"
+" ${MIGRATE}"
 
 #. Type: text
 #. Description

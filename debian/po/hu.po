@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-04-02 19:02+0100\n"
-"PO-Revision-Date: 2009-03-31 00:33+0000\n"
+"PO-Revision-Date: 2009-04-03 23:00+0000\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
 "org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-31 13:44+0000\n"
+"X-Launchpad-Export-Date: 2009-04-06 12:21+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -251,13 +251,15 @@ msgstr "Automatikus bejelentkezés"
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Require a password to log in"
-msgstr ""
+msgstr "Jelszókérés a bejelentkezés előtt"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Require a password to log in and to decrypt your home folder"
 msgstr ""
+"Jelszókérés a bejelentkezés előtt, valamint a saját mappa titkosításának "
+"feloldásához"
 
 #. Type: text
 #. Description
@@ -307,25 +309,26 @@ msgstr "Hogyan kívánja particionálni a lemezt?"
 #. Description
 #: ../ubiquity.templates:39001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "A számítógépen jelenleg nincs operációs rendszer."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "This computer has ${OS} on it."
 msgstr ""
+"Erre a számítógépre jelenleg a(z) ${OS} operációs rendszer van telepítve."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "Erre a számítógépre jelenleg több operációs rendszer van telepítve."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "Hová szeretné telepíteni a(z) ${RELEASE} operációs rendszert?"
 
 #. Type: text
 #. Description
@@ -397,19 +400,19 @@ msgstr "Kihagyás"
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Installation Complete"
-msgstr ""
+msgstr "A telepítés befejeződött"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Continue Testing"
-msgstr ""
+msgstr "A tesztelés folytatása"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Restart Now"
-msgstr ""
+msgstr "Újraindítás most"
 
 #. Type: text
 #. Description
@@ -641,6 +644,9 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"A telepítés befejeződött. Folytathatja az Ubuntu tesztelését, de ha "
+"újraindítja a számítógépét, a végrehajtott változtatások és az elmentett "
+"dokumentumok el fognak veszni."
 
 #. Type: text
 #. Description
@@ -1003,7 +1009,7 @@ msgstr "Hiba történt a csomagok eltávolításakor:"
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Fájlok számolása a másolás kihagyásához..."
 
 #. Type: title
 #. Description
@@ -1088,12 +1094,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Telepítés típusa: ${INSTALLTYPE}\n"
+" Nyelv: ${LANGUAGE}\n"
+" Billentyűzetkiosztás: ${KEYMAP}\n"
+" Név: ${FULLNAME}\n"
+" Felhasználói név: ${USERNAME}\n"
+" Hely: ${LOCATION}\n"
+" Infra távirányító: ${REMOTE}\n"
+" Infra átvivő: ${TRANSMITTER}\n"
+" Videokártya eszközmeghajtója: ${VIDEO_DRIVER}\n"
+" Szolgáltatások: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "Telepítés típusa"
 
 #. Type: text
 #. Description
@@ -1191,7 +1207,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Grafikus meghajtók"
 
 #. Type: text
 #. Description

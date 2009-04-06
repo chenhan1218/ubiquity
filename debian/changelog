@@ -8,6 +8,7 @@ ubiquity (1.12.4) UNRELEASED; urgency=low
     Also set APT_LISTCHANGES_FRONTEND=none just in case.
   * Install boot loader packages immediately rather than queueing them until
     later. Boot loader installers typically need them immediately.
+  * Update translations from Launchpad.
 
   [ Evan Dandrea ]
   * Add the missing UTC+5.5 time zone image.

@@ -7,39 +7,39 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-04-02 19:02+0100\n"
-"PO-Revision-Date: 2009-03-24 11:58+0000\n"
-"Last-Translator: Tetralet <Unknown>\n"
+"PO-Revision-Date: 2009-04-06 11:07+0000\n"
+"Last-Translator: Roy Chan <roy.chan@linux.org.hk>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-31 13:48+0000\n"
+"X-Launchpad-Export-Date: 2009-04-06 12:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "使用最大的連續未使用空間"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the entire disk"
-msgstr ""
+msgstr "使用整個磁碟"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "依一個接著一個方式安裝，每次啟動時在其中做選擇"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "手動指定分割區(進階)"
 
 #. Type: text
 #. Description
@@ -122,19 +122,19 @@ msgstr "您在哪裡?"
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Select your time zone from the map, or by region and city."
-msgstr ""
+msgstr "請從地圖裡選擇您的時區，或是使用地區和城市名稱。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "City:"
-msgstr ""
+msgstr "城市："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Region:"
-msgstr ""
+msgstr "地區："
 
 #. Type: text
 #. Description
@@ -158,13 +158,13 @@ msgstr "您可以在此處測試您新選擇的鍵盤排列方式。"
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Suggested option:"
-msgstr ""
+msgstr "建議的選項："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your own:"
-msgstr ""
+msgstr "選擇您自己的選項："
 
 #. Type: text
 #. Description
@@ -213,6 +213,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"請輸入相同的密碼兩次，以便檢查是否輸入錯誤。一個良好的密碼會混有字母、數字、"
+"標點符號，\r\n"
+"應至少為８個字母長度並且定期變更。"
 
 #. Type: text
 #. Description
@@ -238,13 +241,13 @@ msgstr "自動登入"
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Require a password to log in"
-msgstr ""
+msgstr "必須有密碼才能登入"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Require a password to log in and to decrypt your home folder"
-msgstr ""
+msgstr "必須有密碼才能登入並且解密您的個人目錄"
 
 #. Type: text
 #. Description
@@ -290,25 +293,25 @@ msgstr "您想要如何分割磁碟？"
 #. Description
 #: ../ubiquity.templates:39001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "此電腦中並沒有作業系統。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "此電腦中有 ${OS} 作業系統。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "此電腦中有數個作業系統。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "您想將 ${RELEASE} 放在哪個位置？"
 
 #. Type: text
 #. Description
@@ -380,19 +383,19 @@ msgstr "略過"
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Installation Complete"
-msgstr ""
+msgstr "安裝完成"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Continue Testing"
-msgstr ""
+msgstr "繼續試用"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Restart Now"
-msgstr ""
+msgstr "現在就重新啟動電腦"
 
 #. Type: text
 #. Description
@@ -624,6 +627,8 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"安裝 Ubuntu 已經完成。您現在可以繼續試用 Ubuntu，但是您做的任何變更或儲存的文"
+"件都不會保留直到重新啟動電腦。"
 
 #. Type: text
 #. Description
@@ -975,7 +980,7 @@ msgstr "移除套件時發生錯誤"
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "正在計算略過不複製的檔案..."
 
 #. Type: title
 #. Description
@@ -1054,12 +1059,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" 安裝類型: ${INSTALLTYPE}\n"
+"語言: ${LANGUAGE}\n"
+"鍵盤配置: ${KEYMAP}\n"
+"名稱: ${FULLNAME}\n"
+"登入名稱: ${USERNAME}\n"
+"地點: ${LOCATION}\n"
+"紅外線搖控: ${REMOTE}\n"
+"紅外線傳輸器: ${TRANSMITTER}\n"
+"顯示卡驅動程式: ${VIDEO_DRIVER}\n"
+"服務: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "安裝類型"
 
 #. Type: text
 #. Description
@@ -1152,7 +1167,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "顯示卡驅動程式"
 
 #. Type: text
 #. Description

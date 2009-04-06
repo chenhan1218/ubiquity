@@ -1,47 +1,45 @@
-# Danish messages for debian-installer.
-# This file is distributed under the same license as debian-installer.
+# Danish translation for usb-creator
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the usb-creator package.
+# Mads Bille Lundby <lundbymads@gmail.com>, 2009.
 #
-# Jacob Sparre Andersen <sparre@nbi.dk>, 2008.
-# Claus Hindsgaul <claus.hindsgaul@gmail.com>, 2004-2007.
-# Reviewed 2007 by Niels Rasmussen
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer\n"
+"Project-Id-Version: usb-creator\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-04-02 19:02+0100\n"
-"PO-Revision-Date: 2009-03-30 06:27+0000\n"
+"PO-Revision-Date: 2009-04-01 18:40+0000\n"
 "Last-Translator: Mads Lundby <Unknown>\n"
-"Language-Team: Danish\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-31 13:48+0000\n"
+"X-Launchpad-Export-Date: 2009-04-06 12:22+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"X-Poedit-Bookmarks: 282,1006,1041,-1,-1,-1,-1,-1,-1,-1\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "Brug den største sammenhængende frie plads"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the entire disk"
-msgstr ""
+msgstr "Brug hele disken"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "Installér dem side om side, og vælg mellem dem ved hver opstart"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "Angiv partitioner manuelt (avanceret)"
 
 #. Type: text
 #. Description
@@ -128,19 +126,19 @@ msgstr "Angiv din lokation"
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Select your time zone from the map, or by region and city."
-msgstr ""
+msgstr "Vælg din tidszone på kortet eller vælg ud fra region og by."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "City:"
-msgstr ""
+msgstr "By:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Region:"
-msgstr ""
+msgstr "Region:"
 
 #. Type: text
 #. Description
@@ -164,13 +162,13 @@ msgstr "Du kan skrive i denne boks for at teste dit nye tastaturlayout."
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Suggested option:"
-msgstr ""
+msgstr "Foreslået indstilling:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your own:"
-msgstr ""
+msgstr "Vælg din egen:"
 
 #. Type: text
 #. Description
@@ -222,6 +220,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Indtast den samme adgangskode to gange, så den kan blive tjekket for "
+"tastefejl. En god adgangskode indeholder en blanding af bogstaver, tal og "
+"andre tegn, den bør være mindst otte tegn lang, og den bør udskiftes med "
+"jævne mellemrum."
 
 #. Type: text
 #. Description
@@ -243,19 +245,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Log ind automatisk"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Require a password to log in"
-msgstr ""
+msgstr "Kræv en adgangskode for at logge ind"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Require a password to log in and to decrypt your home folder"
-msgstr ""
+msgstr "Kræv en adgangskode for at logge ind og dekryptere din hjemmemappe"
 
 #. Type: text
 #. Description
@@ -267,7 +269,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Migrate documents and settings"
-msgstr ""
+msgstr "Overfør dokumenter og indstillinger"
 
 #. Type: text
 #. Description
@@ -276,6 +278,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Vælg de konti du ønsker at importere. Disse kontis dokumenter og "
+"indstillinger vil være tilgængelige, efter at installationen er fuldført."
 
 #. Type: text
 #. Description
@@ -302,25 +306,25 @@ msgstr "Hvordan vil du partitionere disken?"
 #. Description
 #: ../ubiquity.templates:39001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "Denne computer har ikke noget operativsystem installeret."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "Denne computer har ${OS} installeret."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "Denne computer har flere operativsystemer installeret."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "Hvor vil du placere ${RELEASE}?"
 
 #. Type: text
 #. Description
@@ -341,7 +345,7 @@ msgstr "Klar til at installere"
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Details"
-msgstr ""
+msgstr "Detaljer"
 
 #. Type: text
 #. Description
@@ -376,13 +380,13 @@ msgstr "Skridt ${INDEX} af ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Quit the installation?"
-msgstr ""
+msgstr "Afslut installationen?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Do you really want to quit the installation now?"
-msgstr ""
+msgstr "Er du sikker på, at du vil afslutte installationen nu?"
 
 #. Type: text
 #. Description
@@ -394,19 +398,19 @@ msgstr "Spring over"
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Installation Complete"
-msgstr ""
+msgstr "Installation fuldført"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Continue Testing"
-msgstr ""
+msgstr "Fortsæt afprøvning"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Restart Now"
-msgstr ""
+msgstr "Genstart nu"
 
 #. Type: text
 #. Description
@@ -440,7 +444,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:59001
 msgid "Before:"
-msgstr ""
+msgstr "Før:"
 
 #. Type: text
 #. Description
@@ -448,14 +452,14 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:60001
 msgid "After:"
-msgstr ""
+msgstr "Efter:"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:61001
 msgid "New partition table"
-msgstr ""
+msgstr "Ny partitionstabel"
 
 #. Type: text
 #. Description
@@ -471,7 +475,7 @@ msgstr "Ny partition"
 #. Description
 #: ../ubiquity.templates:63001 ../ubiquity.templates:79001
 msgid "Edit partition"
-msgstr ""
+msgstr "Redigér partition"
 
 #. Type: text
 #. Description
@@ -485,7 +489,7 @@ msgstr "Slet partition"
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:65001
 msgid "Device"
-msgstr "Udstyr"
+msgstr "Enhed"
 
 #. Type: text
 #. Description
@@ -493,28 +497,28 @@ msgstr "Udstyr"
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:66001
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:67001
 msgid "Mount point"
-msgstr ""
+msgstr "Monteringspunkt"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:68001
 msgid "Format?"
-msgstr ""
+msgstr "Formatér?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:69001
 msgid "Size"
-msgstr ""
+msgstr "Størrelse"
 
 #. Type: text
 #. Description
@@ -522,7 +526,7 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:70001
 msgid "Used"
-msgstr ""
+msgstr "Brugt"
 
 #. Type: text
 #. Description
@@ -592,37 +596,37 @@ msgstr "Avancerede indstillinger"
 #. Description
 #: ../ubiquity.templates:83001
 msgid "Boot loader"
-msgstr ""
+msgstr "Opstartsindlæser"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:84001
 msgid "Install boot loader"
-msgstr ""
+msgstr "Installér opstartsindlæser"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:85001
 msgid "Popularity contest"
-msgstr ""
+msgstr "Popularitetskonkurrence"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Deltag i kortlægning af pakkeanvendelse"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:87001
 msgid "Network proxy"
-msgstr ""
+msgstr "Netværksproxy"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:88001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP-proxy:"
 
 #. Type: text
 #. Description
@@ -638,6 +642,9 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"Installationen er færdig. Du kan fortsætte med at afprøve Ubuntu nu, men "
+"hvis du laver ændringer eller gemmer dokumenter, før du genstarter "
+"computeren, vil disse ikke blive gemt."
 
 #. Type: text
 #. Description
@@ -660,6 +667,8 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
+"Installationen er fuldført. Du skal genstarte computeren for at tage den nye "
+"installation i brug."
 
 #. Type: note
 #. Description
@@ -673,6 +682,13 @@ msgid ""
 " Migration Assistant:\n"
 " ${MIGRATE}"
 msgstr ""
+" Sprog: ${LANGUAGE}\\n\n"
+" Tastaturlayout: ${KEYMAP}\\n\n"
+" Navn: ${FULLNAME}\\n\n"
+" Logindnavn: ${USERNAME}\\n\n"
+" Sted: ${LOCATION}\\n\n"
+" Overførselshjælper:\\n\n"
+" ${MIGRATE}"
 
 #. Type: text
 #. Description
@@ -690,7 +706,7 @@ msgstr "Installerer systemet"
 #. Description
 #: ../ubiquity.templates:97001
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "Finder distributionen, som skal kopieres..."
 
 #. Type: text
 #. Description
@@ -724,7 +740,7 @@ msgstr "Kopierer filer (mindre end et minut tilbage)..."
 #: ../ubiquity.templates:104001 ../ubiquity.templates:105001
 #: ../ubiquity.templates:106001
 msgid "Installation Failed"
-msgstr ""
+msgstr "Installation mislykkedes"
 
 #. Type: error
 #. Description
@@ -749,6 +765,9 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"Dette skyldes, at der ikke er tilstrækkelig plads på disken, til at "
+"installationen kan gennemføres på målpartitionen. Kør venligst "
+"installationsprogrammet igen, og vælg en større partition at installere på."
 
 #. Type: error
 #. Description
@@ -758,6 +777,10 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
+"Dette skyldes ofte fejl på cd/dvd-disken eller i selve drevet. Det kan "
+"hjælpe at rengøre cd/dvd'en, at brænde cd/dvd'en ved en lavere hastighed, "
+"eller at rense cd/dvd-drevets linse (rensesæt kan ofte købes i "
+"elektronikforretninger)."
 
 #. Type: error
 #. Description
@@ -767,6 +790,9 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
+"Dette skyldes ofte fejl på harddisken. Det kan hjælpe at tjekke, om "
+"harddisken er gammel og bør udskiftes eller at flytte systemet til et "
+"køligere miljø."
 
 #. Type: error
 #. Description
@@ -784,12 +810,17 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
+"Dette skyldes ofte fejl på cd/dvd-disken, i drevet eller på harddisken. Det "
+"kan hjælpe at rengøre cd/dvd'en, at brænde cd/dvd'en ved en lavere "
+"hastighed, at rense cd/dvd-drevets linse (rensesæt kan ofte købes i "
+"elektronikforretninger), at tjekke om harddisken er gammel og bør udskiftes "
+"eller at flytte systemet til et køligere miljø."
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:106001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "Den følgende fil stemte ikke overens med kildekopien på cd/dvd'en:"
 
 #. Type: text
 #. Description
@@ -867,13 +898,13 @@ msgstr "Konfigurerer bootloader..."
 #. Description
 #: ../ubiquity.templates:119001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "Installerer yderligere pakker..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:120001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "Tjekker hvilke pakker, som skal installeres..."
 
 #. Type: text
 #. Description
@@ -921,13 +952,13 @@ msgstr "Fejl ved fjernelse af ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "Fejl under installation af pakker"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:129001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "Der opstod en fejl under installationen af pakker:"
 
 #. Type: error
 #. Description
@@ -935,7 +966,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:129001 ../ubiquity.templates:130001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "Følgende pakker er i en beskadiget tilstand:"
 
 #. Type: error
 #. Description
@@ -951,24 +982,32 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"Dette kan skyldes, at du bruger et gammelt installationsaftryk, eller at der "
+"er en fejl i nogle af pakkerne, som er listet ovenfor. Yderligere detaljer "
+"findes måske i /var/log/syslog. Installationsprogrammet vil forsøge at "
+"forsætte alligevel, men programmet kan fejle senere i processen, og det vil "
+"ikke være i stand til at installere eller fjerne andre pakker (måske "
+"inklusiv sig selv) fra det installerede system. Du bør undersøge, om der "
+"findes nyere versioner af dit installationsaftryk. Hvis det ikke er "
+"tilfældet, kan du rapportere problemet til din distributør."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:130001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "Fejl under fjernelse af pakker"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:130001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "Der opstod en fejl under fjernelse af pakker:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Beregner hvilke filer, der skal springes over under kopiering..."
 
 #. Type: title
 #. Description
@@ -995,12 +1034,15 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"Installationsprogrammet skal skrive ændringer til partitionstabeller, men "
+"kan ikke gøre dette, fordi partitioner på følgende monteringspunkter ikke "
+"kunne afmonteres:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:142001
 msgid "Please close any applications using these mount points."
-msgstr ""
+msgstr "Luk venligst alle programmer, som bruger disse monteringspunkter."
 
 #. Type: boolean
 #. Description
@@ -1014,7 +1056,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:148001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "Vil du vende tilbage til partitioneringsprogrammet?"
 
 #. Type: boolean
 #. Description
@@ -1023,6 +1065,9 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"Nogle af de partitioner, som du har oprettet er for små. Følgende "
+"partitioners størrelse skal forøges, så de mindst er denne størrelse (i "
+"byte):"
 
 #. Type: boolean
 #. Description
@@ -1031,6 +1076,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"Hvis du ikke går tilbage til partitionsprogrammet og øger størrelsen af "
+"disse partitioner, vil installationen måske mislykkes."
 
 #. Type: note
 #. Description
@@ -1052,7 +1099,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "Installationstype"
 
 #. Type: text
 #. Description
