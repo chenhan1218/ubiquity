@@ -1,3 +1,9 @@
+ubiquity (1.12.4) UNRELEASED; urgency=low
+
+  * Add the missing UTC+5.5 time zone image.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 06 Apr 2009 11:14:40 +0100
+
 ubiquity (1.12.3) jaunty; urgency=low
 
   * Sync with netcfg 1.44: Define IPv6 ::1 address as "localhost" (thanks,
