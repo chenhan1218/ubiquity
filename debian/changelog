@@ -1,4 +1,4 @@
-oem-config (1.54.11) UNRELEASED; urgency=low
+oem-config (1.54.11) jaunty; urgency=low
 
   * GTK frontend:
     - Use the full size of the underlying images for the timezone map if the
@@ -9,7 +9,7 @@ oem-config (1.54.11) UNRELEASED; urgency=low
   * Update translations from Launchpad.
   * Automatic update of included source packages: user-setup 1.23ubuntu16.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 03 Apr 2009 13:56:14 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 06 Apr 2009 21:36:39 +0100
 
 oem-config (1.54.10) jaunty; urgency=low
 
