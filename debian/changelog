@@ -9,6 +9,7 @@ ubiquity (1.12.4) UNRELEASED; urgency=low
   * Install boot loader packages immediately rather than queueing them until
     later. Boot loader installers typically need them immediately.
   * Update translations from Launchpad.
+  * Automatic update of included source packages: partman-ext3 56ubuntu2.
 
   [ Evan Dandrea ]
   * Add the missing UTC+5.5 time zone image.
