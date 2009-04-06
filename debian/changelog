@@ -1,4 +1,4 @@
-ubiquity (1.12.4) UNRELEASED; urgency=low
+ubiquity (1.12.4) jaunty; urgency=low
 
   [ Colin Watson ]
   * Don't pass the debconf PURGE command through debconffilter, since we
@@ -16,7 +16,7 @@ ubiquity (1.12.4) UNRELEASED; urgency=low
   * Draw something resembling a slider, rather than a black box, for the
     slider on the partition bar.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 06 Apr 2009 14:50:23 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 06 Apr 2009 19:44:24 +0100
 
 ubiquity (1.12.3) jaunty; urgency=low
 
