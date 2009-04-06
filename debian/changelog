@@ -5,6 +5,7 @@ ubiquity (1.12.4) UNRELEASED; urgency=low
     don't know the owner of the package calling it (LP: #354534).
 
   [ Evan Dandrea ]
+  * Add the missing UTC+5.5 time zone image.
   * Draw something resembling a slider, rather than a black box, for the
     slider on the partition bar.
 
