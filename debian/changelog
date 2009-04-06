@@ -4,6 +4,8 @@ oem-config (1.54.11) UNRELEASED; urgency=low
     - Use the full size of the underlying images for the timezone map if the
       screen is big enough.
     - Fix spacing on timezone page (LP: #336745).
+  * Don't pass the debconf PURGE command through debconffilter, since we
+    don't know the owner of the package calling it (see LP #354534).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 03 Apr 2009 13:56:14 +0100
 
