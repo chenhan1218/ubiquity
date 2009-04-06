@@ -378,6 +378,14 @@ class DebconfFilter:
             self.reply(30, 'backup', log=True)
             return True
 
+        if command == 'PURGE':
+            # PURGE probably corresponds to a package being removed, but
+            # since we don't know which package that is at this level,
+            # passing it through will purge our own templates rather than
+            # the package's.
+            self.reply(0, log=True)
+            return True
+
         if command == 'STOP':
             return True
 
