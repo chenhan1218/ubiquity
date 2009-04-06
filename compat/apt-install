@@ -12,8 +12,13 @@ if [ -f /var/lib/ubiquity/apt-install-direct ]; then
 	toinstall="$(echo "$@" | xargs -n1 | sort | join -v1 - "$installed")"
 	if [ "$toinstall" ]; then
 		# TODO: use chroot-setup
-		DEBIAN_FRONTEND=noninteractive DEBIAN_HAS_FRONTEND= \
-		DEBCONF_ADMIN_EMAIL= chroot /target apt-get --no-upgrade \
+		unset DEBIAN_HAS_FRONTEND
+		export DEBIAN_FRONTEND=noninteractive
+		unset DEBCONF_FRONTEND
+		unset DEBCONF_REDIR
+		export DEBCONF_ADMIN_EMAIL=
+		export APT_LISTCHANGES_FRONTEND=none
+		chroot /target apt-get --no-upgrade \
 			-o Acquire::gpgv::Options::=--ignore-time-conflict -y \
 			install $toinstall </dev/null
 	fi

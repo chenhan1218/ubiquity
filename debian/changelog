@@ -3,6 +3,9 @@ ubiquity (1.12.4) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Don't pass the debconf PURGE command through debconffilter, since we
     don't know the owner of the package calling it (LP: #354534).
+  * Unset DEBCONF_REDIR in our apt-install shim so that starting up another
+    debconf frontend will actually work, as needed when installing grub-pc.
+    Also set APT_LISTCHANGES_FRONTEND=none just in case.
 
   [ Evan Dandrea ]
   * Add the missing UTC+5.5 time zone image.
