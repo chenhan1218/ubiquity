@@ -424,6 +424,11 @@ class Install:
             self.db.progress('INFO', 'ubiquity/install/hardware')
             self.configure_hardware()
 
+            # Tell apt-install to install packages directly from now on.
+            apt_install_direct = open('/var/lib/ubiquity/apt-install-direct',
+                                      'w')
+            apt_install_direct.close()
+
             self.db.progress('SET', 93)
             self.db.progress('REGION', 93, 94)
             self.db.progress('INFO', 'ubiquity/install/bootloader')
@@ -2042,10 +2047,6 @@ exit 0"""
                     self.set_debconf('debian-installer/locale', di_locale)
         except debconf.DebconfError:
             pass
-
-        # Tell apt-install to install packages directly from now on.
-        apt_install_direct = open('/var/lib/ubiquity/apt-install-direct', 'w')
-        apt_install_direct.close()
 
 
     def remove_extras(self):

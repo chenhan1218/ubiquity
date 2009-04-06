@@ -6,6 +6,8 @@ ubiquity (1.12.4) UNRELEASED; urgency=low
   * Unset DEBCONF_REDIR in our apt-install shim so that starting up another
     debconf frontend will actually work, as needed when installing grub-pc.
     Also set APT_LISTCHANGES_FRONTEND=none just in case.
+  * Install boot loader packages immediately rather than queueing them until
+    later. Boot loader installers typically need them immediately.
 
   [ Evan Dandrea ]
   * Add the missing UTC+5.5 time zone image.
