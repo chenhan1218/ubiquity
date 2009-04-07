@@ -1437,7 +1437,7 @@ class Wizard(BaseFrontend):
             return choice, None
 
     def installation_medium_mounted (self, message):
-        self.userinterface.part_advanced_warning.message.setText(message)
+        self.userinterface.part_advanced_warning_message.setText(message)
         self.userinterface.part_advanced_warning_hbox.show()
 
     def update_partman (self, disk_cache, partition_cache, cache_order):

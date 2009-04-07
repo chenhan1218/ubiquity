@@ -1,6 +1,11 @@
 ubiquity (1.12.5) UNRELEASED; urgency=low
 
+  [ Robert Ancell ]
   * Workaround for radio button labels dissapearing (LP: #353090)
+
+  [ Colin Watson ]
+  * KDE frontend:
+    - Fix typo in installation_medium_mounted handler (LP: #354515).
 
  -- Robert Ancell <robert.ancell@canonical.com>  Tue, 07 Apr 2009 17:18:57 +1000
 
