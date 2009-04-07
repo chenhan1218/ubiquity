@@ -723,7 +723,7 @@ class Wizard(BaseFrontend):
             question = i18n.map_widget_name(widget.get_name())
             widget.set_label(text)
             
-            # Workaround for radio button labels dissapearing on second
+            # Workaround for radio button labels disappearing on second
             # translate when not visible. LP: #353090
             widget.realize()
             
