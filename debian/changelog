@@ -1,3 +1,9 @@
+ubiquity (1.12.5) UNRELEASED; urgency=low
+
+  * Workaround for radio button labels dissapearing (LP: #353090)
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Tue, 07 Apr 2009 17:18:57 +1000
+
 ubiquity (1.12.4) jaunty; urgency=low
 
   [ Colin Watson ]
