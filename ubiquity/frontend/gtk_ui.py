@@ -722,6 +722,11 @@ class Wizard(BaseFrontend):
 
             question = i18n.map_widget_name(widget.get_name())
             widget.set_label(text)
+            
+            # Workaround for radio button labels dissapearing on second
+            # translate when not visible. LP: #353090
+            widget.realize()
+            
             if question.startswith('ubiquity/imported/'):
                 stock_id = question[18:]
                 widget.set_use_stock(False)
