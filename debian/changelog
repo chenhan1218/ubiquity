@@ -1,3 +1,16 @@
+ubiquity (1.12.6) UNRELEASED; urgency=low
+
+  * GTK frontend:
+    - Copy-and-paste gdm-signal from powermanagement-interface, since that
+      package is no longer in main and is slated to go away. In future we
+      ought to be able to use gnome-session D-BUS calls or similar for this
+      work (LP: #357101).
+  * Use gksudo --preserve-env / sudo -E so that we can check DESKTOP_SESSION
+    from the GTK frontend, and use other desktop environment variables in
+    future.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 08 Apr 2009 14:41:13 +0100
+
 ubiquity (1.12.5) jaunty; urgency=low
 
   [ Robert Ancell ]
