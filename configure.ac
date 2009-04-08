@@ -28,11 +28,16 @@ AM_PATH_PYTHON([2.4])
 UBIQUITY_CHECK_PYTHON_HEADERS(,[AC_MSG_ERROR([could not find Python headers])])
 
 if test "x$UBIQUITY_NO_GTK" = x; then
+  PKG_CHECK_MODULES(GTK, [glib-2.0 gtk+-2.0 >= $GTK_REQUIRED])
+  AC_SUBST(GTK_CFLAGS)
+  AC_SUBST(GTK_LIBS)
   PKG_CHECK_MODULES(PYGTK, [gtk+-2.0 >= $GTK_REQUIRED pygtk-2.0])
   AC_SUBST(PYGTK_CFLAGS)
   AC_SUBST(PYGTK_LIBS)
   AC_PATH_PROG(PYGOBJECT_CODEGEN, [pygobject-codegen-2.0], [no])
 else
+  AC_SUBST(GTK_CFLAGS, [])
+  AC_SUBST(GTK_LIBS, [])
   AC_SUBST(PYGTK_CFLAGS, [])
   AC_SUBST(PYGTK_LIBS, [])
   AC_SUBST(PYGOBJECT_CODEGEN, [no])
@@ -58,6 +63,7 @@ if test "x$PYGOBJECT_CODEGEN" != xno; then
 	src/Makefile
 	src/cut-and-paste/Makefile
 	src/cut-and-paste/e-map/Makefile
+	src/cut-and-paste/gdm-signal/Makefile
 	)
 fi
 

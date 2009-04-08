@@ -792,8 +792,6 @@ LIBOBJS
 pixmapsdir
 UBIQUITY_DEPENDS_LIBS
 UBIQUITY_DEPENDS_CFLAGS
-GTK_LIBS
-GTK_CFLAGS
 GLIB_GENMARSHAL
 PYGTK_DEFSDIR
 PYGOBJECT_CODEGEN_FALSE
@@ -801,6 +799,8 @@ PYGOBJECT_CODEGEN_TRUE
 PYGOBJECT_CODEGEN
 PYGTK_LIBS
 PYGTK_CFLAGS
+GTK_LIBS
+GTK_CFLAGS
 PKG_CONFIG
 PYTHON_INCLUDES
 pkgpyexecdir
@@ -988,6 +988,8 @@ LIBS
 CPPFLAGS
 CPP
 PKG_CONFIG
+GTK_CFLAGS
+GTK_LIBS
 PYGTK_CFLAGS
 PYGTK_LIBS
 UBIQUITY_DEPENDS_CFLAGS
@@ -1657,6 +1659,8 @@ Some influential environment variables:
               you have headers in a nonstandard directory <include dir>
   CPP         C preprocessor
   PKG_CONFIG  path to pkg-config utility
+  GTK_CFLAGS  C compiler flags for GTK, overriding pkg-config
+  GTK_LIBS    linker flags for GTK, overriding pkg-config
   PYGTK_CFLAGS
               C compiler flags for PYGTK, overriding pkg-config
   PYGTK_LIBS  linker flags for PYGTK, overriding pkg-config
@@ -4438,13 +4442,13 @@ if test "${lt_cv_nm_interface+set}" = set; then
 else
   lt_cv_nm_interface="BSD nm"
   echo "int some_variable = 0;" > conftest.$ac_ext
-  (eval echo "\"\$as_me:4441: $ac_compile\"" >&5)
+  (eval echo "\"\$as_me:4445: $ac_compile\"" >&5)
   (eval "$ac_compile" 2>conftest.err)
   cat conftest.err >&5
-  (eval echo "\"\$as_me:4444: $NM \\\"conftest.$ac_objext\\\"\"" >&5)
+  (eval echo "\"\$as_me:4448: $NM \\\"conftest.$ac_objext\\\"\"" >&5)
   (eval "$NM \"conftest.$ac_objext\"" 2>conftest.err > conftest.out)
   cat conftest.err >&5
-  (eval echo "\"\$as_me:4447: output\"" >&5)
+  (eval echo "\"\$as_me:4451: output\"" >&5)
   cat conftest.out >&5
   if $GREP 'External.*some_variable' conftest.out > /dev/null; then
     lt_cv_nm_interface="MS dumpbin"
@@ -5650,7 +5654,7 @@ ia64-*-hpux*)
   ;;
 *-*-irix6*)
   # Find out which ABI we are using.
-  echo '#line 5653 "configure"' > conftest.$ac_ext
+  echo '#line 5657 "configure"' > conftest.$ac_ext
   if { (eval echo "$as_me:$LINENO: \"$ac_compile\"") >&5
   (eval $ac_compile) 2>&5
   ac_status=$?
@@ -7507,11 +7511,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:7510: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:7514: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:7514: \$? = $ac_status" >&5
+   echo "$as_me:7518: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -7846,11 +7850,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:7849: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:7853: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:7853: \$? = $ac_status" >&5
+   echo "$as_me:7857: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -7951,11 +7955,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:7954: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:7958: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:7958: \$? = $ac_status" >&5
+   echo "$as_me:7962: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -8006,11 +8010,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:8009: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:8013: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:8013: \$? = $ac_status" >&5
+   echo "$as_me:8017: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -10819,7 +10823,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<_LT_EOF
-#line 10822 "configure"
+#line 10826 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -10915,7 +10919,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<_LT_EOF
-#line 10918 "configure"
+#line 10922 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -13498,6 +13502,82 @@ INTLTOOL_SOUNDLIST_RULE='%.soundlist: %.soundlist.in $(INTLTOOL_MERGE) $(wildcar
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Check the gettext tools to make sure they are GNU
 # Extract the first word of "xgettext", so it can be a program name with args.
 set dummy xgettext; ac_word=$2
@@ -13715,14 +13795,21 @@ fi
 
 
 if test -z "$INTLTOOL_PERL"; then
-   { { $as_echo "$as_me:$LINENO: error: perl not found; required for intltool" >&5
-$as_echo "$as_me: error: perl not found; required for intltool" >&2;}
+   { { $as_echo "$as_me:$LINENO: error: perl not found" >&5
+$as_echo "$as_me: error: perl not found" >&2;}
    { (exit 1); exit 1; }; }
 fi
-if test -z "`$INTLTOOL_PERL -v | fgrep '5.' 2> /dev/null`"; then
-   { { $as_echo "$as_me:$LINENO: error: perl 5.x required for intltool" >&5
-$as_echo "$as_me: error: perl 5.x required for intltool" >&2;}
+{ $as_echo "$as_me:$LINENO: checking for perl >= 5.8.1" >&5
+$as_echo_n "checking for perl >= 5.8.1... " >&6; }
+$INTLTOOL_PERL -e "use 5.8.1;" > /dev/null 2>&1
+if test $? -ne 0; then
+   { { $as_echo "$as_me:$LINENO: error: perl 5.8.1 is required for intltool" >&5
+$as_echo "$as_me: error: perl 5.8.1 is required for intltool" >&2;}
    { (exit 1); exit 1; }; }
+else
+   IT_PERL_VERSION="`$INTLTOOL_PERL -e \"printf '%vd', $^V\"`"
+   { $as_echo "$as_me:$LINENO: result: $IT_PERL_VERSION" >&5
+$as_echo "$IT_PERL_VERSION" >&6; }
 fi
 if test "xno-xml" != "xno-xml"; then
    { $as_echo "$as_me:$LINENO: checking for XML::Parser" >&5
@@ -15438,6 +15525,121 @@ $as_echo "no" >&6; }
 fi
 
 pkg_failed=no
+{ $as_echo "$as_me:$LINENO: checking for GTK" >&5
+$as_echo_n "checking for GTK... " >&6; }
+
+if test -n "$PKG_CONFIG"; then
+    if test -n "$GTK_CFLAGS"; then
+        pkg_cv_GTK_CFLAGS="$GTK_CFLAGS"
+    else
+        if test -n "$PKG_CONFIG" && \
+    { ($as_echo "$as_me:$LINENO: \$PKG_CONFIG --exists --print-errors \"glib-2.0 gtk+-2.0 >= \$GTK_REQUIRED\"") >&5
+  ($PKG_CONFIG --exists --print-errors "glib-2.0 gtk+-2.0 >= $GTK_REQUIRED") 2>&5
+  ac_status=$?
+  $as_echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); }; then
+  pkg_cv_GTK_CFLAGS=`$PKG_CONFIG --cflags "glib-2.0 gtk+-2.0 >= $GTK_REQUIRED" 2>/dev/null`
+else
+  pkg_failed=yes
+fi
+    fi
+else
+	pkg_failed=untried
+fi
+if test -n "$PKG_CONFIG"; then
+    if test -n "$GTK_LIBS"; then
+        pkg_cv_GTK_LIBS="$GTK_LIBS"
+    else
+        if test -n "$PKG_CONFIG" && \
+    { ($as_echo "$as_me:$LINENO: \$PKG_CONFIG --exists --print-errors \"glib-2.0 gtk+-2.0 >= \$GTK_REQUIRED\"") >&5
+  ($PKG_CONFIG --exists --print-errors "glib-2.0 gtk+-2.0 >= $GTK_REQUIRED") 2>&5
+  ac_status=$?
+  $as_echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); }; then
+  pkg_cv_GTK_LIBS=`$PKG_CONFIG --libs "glib-2.0 gtk+-2.0 >= $GTK_REQUIRED" 2>/dev/null`
+else
+  pkg_failed=yes
+fi
+    fi
+else
+	pkg_failed=untried
+fi
+
+
+
+if test $pkg_failed = yes; then
+
+if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
+        _pkg_short_errors_supported=yes
+else
+        _pkg_short_errors_supported=no
+fi
+        if test $_pkg_short_errors_supported = yes; then
+	        GTK_PKG_ERRORS=`$PKG_CONFIG --short-errors --errors-to-stdout --print-errors "glib-2.0 gtk+-2.0 >= $GTK_REQUIRED"`
+        else
+	        GTK_PKG_ERRORS=`$PKG_CONFIG --errors-to-stdout --print-errors "glib-2.0 gtk+-2.0 >= $GTK_REQUIRED"`
+        fi
+	# Put the nasty error message in config.log where it belongs
+	echo "$GTK_PKG_ERRORS" >&5
+
+	{ { $as_echo "$as_me:$LINENO: error: Package requirements (glib-2.0 gtk+-2.0 >= $GTK_REQUIRED) were not met:
+
+$GTK_PKG_ERRORS
+
+Consider adjusting the PKG_CONFIG_PATH environment variable if you
+installed software in a non-standard prefix.
+
+Alternatively, you may set the environment variables GTK_CFLAGS
+and GTK_LIBS to avoid the need to call pkg-config.
+See the pkg-config man page for more details.
+" >&5
+$as_echo "$as_me: error: Package requirements (glib-2.0 gtk+-2.0 >= $GTK_REQUIRED) were not met:
+
+$GTK_PKG_ERRORS
+
+Consider adjusting the PKG_CONFIG_PATH environment variable if you
+installed software in a non-standard prefix.
+
+Alternatively, you may set the environment variables GTK_CFLAGS
+and GTK_LIBS to avoid the need to call pkg-config.
+See the pkg-config man page for more details.
+" >&2;}
+   { (exit 1); exit 1; }; }
+elif test $pkg_failed = untried; then
+	{ { $as_echo "$as_me:$LINENO: error: in \`$ac_pwd':" >&5
+$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
+{ { $as_echo "$as_me:$LINENO: error: The pkg-config script could not be found or is too old.  Make sure it
+is in your PATH or set the PKG_CONFIG environment variable to the full
+path to pkg-config.
+
+Alternatively, you may set the environment variables GTK_CFLAGS
+and GTK_LIBS to avoid the need to call pkg-config.
+See the pkg-config man page for more details.
+
+To get pkg-config, see <http://pkg-config.freedesktop.org/>.
+See \`config.log' for more details." >&5
+$as_echo "$as_me: error: The pkg-config script could not be found or is too old.  Make sure it
+is in your PATH or set the PKG_CONFIG environment variable to the full
+path to pkg-config.
+
+Alternatively, you may set the environment variables GTK_CFLAGS
+and GTK_LIBS to avoid the need to call pkg-config.
+See the pkg-config man page for more details.
+
+To get pkg-config, see <http://pkg-config.freedesktop.org/>.
+See \`config.log' for more details." >&2;}
+   { (exit 1); exit 1; }; }; }
+else
+	GTK_CFLAGS=$pkg_cv_GTK_CFLAGS
+	GTK_LIBS=$pkg_cv_GTK_LIBS
+        { $as_echo "$as_me:$LINENO: result: yes" >&5
+$as_echo "yes" >&6; }
+	:
+fi
+
+
+
+pkg_failed=no
 { $as_echo "$as_me:$LINENO: checking for PYGTK" >&5
 $as_echo_n "checking for PYGTK... " >&6; }
 
@@ -15593,6 +15795,8 @@ fi
 
 
 else
+
+
 
 
   PYGOBJECT_CODEGEN=no
@@ -16120,7 +16324,7 @@ $as_echo "yes" >&6; }
 	:
 fi
 
-  ac_config_files="$ac_config_files src/Makefile src/cut-and-paste/Makefile src/cut-and-paste/e-map/Makefile"
+  ac_config_files="$ac_config_files src/Makefile src/cut-and-paste/Makefile src/cut-and-paste/e-map/Makefile src/cut-and-paste/gdm-signal/Makefile"
 
 fi
 
@@ -17047,6 +17251,7 @@ do
     "src/Makefile") CONFIG_FILES="$CONFIG_FILES src/Makefile" ;;
     "src/cut-and-paste/Makefile") CONFIG_FILES="$CONFIG_FILES src/cut-and-paste/Makefile" ;;
     "src/cut-and-paste/e-map/Makefile") CONFIG_FILES="$CONFIG_FILES src/cut-and-paste/e-map/Makefile" ;;
+    "src/cut-and-paste/gdm-signal/Makefile") CONFIG_FILES="$CONFIG_FILES src/cut-and-paste/gdm-signal/Makefile" ;;
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
     "desktop/Makefile") CONFIG_FILES="$CONFIG_FILES desktop/Makefile" ;;
     "pixmaps/Makefile") CONFIG_FILES="$CONFIG_FILES pixmaps/Makefile" ;;
@@ -18588,7 +18793,7 @@ _LT_EOF
       esac
     done ;;
     "po/stamp-it":C)
-    if  ! grep "^# INTLTOOL_MAKEFILE$" "po/Makefile.in" ; then
+    if  ! grep "^# INTLTOOL_MAKEFILE$" "po/Makefile.in" > /dev/null ; then
        { { $as_echo "$as_me:$LINENO: error: po/Makefile.in.in was not created by intltoolize." >&5
 $as_echo "$as_me: error: po/Makefile.in.in was not created by intltoolize." >&2;}
    { (exit 1); exit 1; }; }
