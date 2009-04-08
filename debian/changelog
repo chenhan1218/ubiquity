@@ -7,6 +7,7 @@ ubiquity (1.12.5) UNRELEASED; urgency=low
   [ Colin Watson ]
   * KDE frontend:
     - Fix typo in installation_medium_mounted handler (LP: #354515).
+  * Automatic update of included source packages: user-setup 1.23ubuntu17.
 
  -- Robert Ancell <robert.ancell@canonical.com>  Tue, 07 Apr 2009 17:18:57 +1000
 
