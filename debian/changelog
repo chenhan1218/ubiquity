@@ -1,4 +1,4 @@
-ubiquity (1.12.5) UNRELEASED; urgency=low
+ubiquity (1.12.5) jaunty; urgency=low
 
   [ Robert Ancell ]
   * GTK frontend:
@@ -9,7 +9,7 @@ ubiquity (1.12.5) UNRELEASED; urgency=low
     - Fix typo in installation_medium_mounted handler (LP: #354515).
   * Automatic update of included source packages: user-setup 1.23ubuntu17.
 
- -- Robert Ancell <robert.ancell@canonical.com>  Tue, 07 Apr 2009 17:18:57 +1000
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 08 Apr 2009 02:29:12 +0100
 
 ubiquity (1.12.4) jaunty; urgency=low
 
