@@ -1,3 +1,10 @@
+oem-config (1.54.12) UNRELEASED; urgency=low
+
+  * Sync with console-setup 1.28ubuntu8: treat the Kazakhstan layout (kz) as
+    non-Latin (LP: #356816).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 09 Apr 2009 00:26:26 +0100
+
 oem-config (1.54.11) jaunty; urgency=low
 
   * GTK frontend:

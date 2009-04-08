@@ -107,9 +107,9 @@ class ConsoleSetup(FilteredCommand):
 
         if layout in ('am', 'ara', 'ben', 'bd', 'bg', 'bt', 'by', 'deva', 'ge',
                       'gh', 'gr', 'guj', 'guru', 'il', 'in', 'ir', 'iku',
-                      'kan', 'kh', 'la', 'lao', 'lk', 'mk', 'mm', 'mn', 'mv',
-                      'mal', 'ori', 'pk', 'ru', 'scc', 'sy', 'syr', 'tel',
-                      'th', 'tj', 'tam', 'ua', 'uz'):
+                      'kan', 'kh', 'kz', 'la', 'lao', 'lk', 'mk', 'mm', 'mn',
+                      'mv', 'mal', 'ori', 'pk', 'ru', 'scc', 'sy', 'syr',
+                      'tel', 'th', 'tj', 'tam', 'ua', 'uz'):
             latin = False
             real_layout = 'us,%s' % layout
         elif layout == 'jp':
