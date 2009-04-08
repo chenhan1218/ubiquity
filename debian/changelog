@@ -12,6 +12,9 @@ ubiquity (1.12.5) UNRELEASED; urgency=low
       package is no longer in main and is slated to go away. In future we
       ought to be able to use gnome-session D-BUS calls or similar for this
       work (LP: #357101).
+  * Use gksudo --preserve-env / sudo -E so that we can check DESKTOP_SESSION
+    from the GTK frontend, and use other desktop environment variables in
+    future.
 
  -- Robert Ancell <robert.ancell@canonical.com>  Tue, 07 Apr 2009 17:18:57 +1000
 
