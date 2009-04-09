@@ -9,7 +9,7 @@ grub-installer 1.36ubuntu5
 hw-detect 1.71ubuntu6
 kboot-installer 0.0.1ubuntu9
 localechooser 2.09ubuntu2
-migration-assistant 0.6.2
+migration-assistant 0.6.4
 partconf 1.30ubuntu1
 partman-auto 84ubuntu3
 partman-auto-loop 0ubuntu16
