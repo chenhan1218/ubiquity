@@ -7,15 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-04-02 19:02+0100\n"
-"PO-Revision-Date: 2009-03-26 23:13+0000\n"
-"Last-Translator: argisti <Unknown>\n"
+"PO-Revision-Date: 2009-04-06 19:40+0000\n"
+"Last-Translator: Amed Çeko Jiyan <amedcj@gmail.com>\n"
 "Language-Team: ku <ubuntu-l10n-kur@lists.ubuntu.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-06 12:22+0000\n"
+"X-Launchpad-Export-Date: 2009-04-08 23:29+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"X-Poedit-Language: Kurdish\n"
 
 #. Type: text
 #. Description

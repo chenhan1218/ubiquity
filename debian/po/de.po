@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-04-02 19:02+0100\n"
-"PO-Revision-Date: 2009-04-01 13:02+0000\n"
-"Last-Translator: Moritz Baumann <Unknown>\n"
+"PO-Revision-Date: 2009-04-08 17:52+0000\n"
+"Last-Translator: Jochen Skulj <jochen@jochenskulj.de>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-06 12:22+0000\n"
+"X-Launchpad-Export-Date: 2009-04-08 23:34+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -269,7 +269,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Choose another password"
-msgstr ""
+msgstr "Wählen Sie ein anderes Passwort"
 
 #. Type: text
 #. Description
