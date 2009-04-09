@@ -29,13 +29,14 @@ import ubiquity.tz
 class Timezone(FilteredCommand):
     def prepare(self):
         self.tzdb = ubiquity.tz.Database()
+        self.multiple = False
         if not 'UBIQUITY_AUTOMATIC' in os.environ:
             self.db.fset('time/zone', 'seen', 'false')
             cc = self.db.get('debian-installer/country')
             try:
                 self.db.get('tzsetup/country/%s' % cc)
                 # ... and if that succeeded:
-                self.db.reset('time/zone')
+                self.multiple = True
             except debconf.DebconfError:
                 pass
         questions = ['^time/zone$', '^tzsetup/selected$']
@@ -43,6 +44,12 @@ class Timezone(FilteredCommand):
 
     def run(self, priority, question):
         if question == 'time/zone':
+            if self.multiple:
+                # Work around a debconf bug: REGISTER does not appear to
+                # give a newly-registered question the same default as the
+                # question associated with its template, unless we also
+                # RESET it.
+                self.db.reset(question)
             zone = self.db.get(question)
             # Some countries don't have a default zone, so just pick the
             # first choice in the list.
