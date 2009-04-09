@@ -2,19 +2,19 @@
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
+# Gabor Kelemen <kelemeng@gnome.hu>, 2007, 2008, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-02-18 23:09+0000\n"
-"PO-Revision-Date: 2009-04-03 23:00+0000\n"
+"PO-Revision-Date: 2009-04-07 10:34+0000\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
-"Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
-"org>\n"
+"Language-Team: Hungarian <gnome@fsf.hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-06 12:21+0000\n"
+"X-Launchpad-Export-Date: 2009-04-08 23:29+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -207,7 +207,7 @@ msgstr "Az OEM beállítás előkészítése"
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
 msgid "Preparing for OEM configuration..."
-msgstr "Az OEM beállítás előkészítése..."
+msgstr "Az OEM beállítás előkészítése…"
 
 #. Type: text
 #. Description
