@@ -1,4 +1,4 @@
-ubiquity (1.12.7) UNRELEASED; urgency=low
+ubiquity (1.12.7) jaunty; urgency=low
 
   [ Evan Dandrea ]
   * Draw a box around the time zone text and a highlight around the time
@@ -9,7 +9,7 @@ ubiquity (1.12.7) UNRELEASED; urgency=low
     GTK frontend got away with this because the widgets in question are
     hidden in the glade file; the KDE frontend wasn't so lucky.
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 09 Apr 2009 17:30:13 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 09 Apr 2009 18:16:39 +0100
 
 ubiquity (1.12.6) jaunty; urgency=low
 
