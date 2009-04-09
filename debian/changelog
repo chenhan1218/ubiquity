@@ -7,6 +7,8 @@ oem-config (1.54.12) UNRELEASED; urgency=low
     the same default as the question associated with its template, unless we
     also RESET it, so do that (LP: #356794).
   * Update translations from Launchpad.
+  * Automatic update of included source packages: console-setup 1.28ubuntu8,
+    user-setup 1.23ubuntu18.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 09 Apr 2009 00:26:26 +0100
 
