@@ -1610,19 +1610,13 @@ class Wizard(BaseFrontend):
                     if ret and ret != 'swap':
                         l.append(ret)
                 if l:
-                    # TODO evand 2008-11-05: i18n
                     if len(l) == 1:
-                        txt = l[0]
-                    if len(l) == 2:
-                        txt = '%s and %s' % (l[0], l[1])
-                    elif len(l) > 2:
-                        l[-1] = 'and ' + l[-1]
-                        txt = ', '.join(l)
-                    txt = 'This will delete %s and replace' % txt
-                    if len(l) > 1:
-                        txt = txt + ' them with %s.' % get_release_name()
-                    else:
-                        txt = txt + ' it with %s.' % get_release_name()
+                        l = l[0]
+                    elif len(l) > 1:
+                        l = ', '.join(l)
+                    txt = self.get_string('ubiquity/text/part_format_warning')
+                    txt = txt.replace('${RELEASE}', get_release_name())
+                    txt = txt.replace('${SYSTEMS}', l)
                     self.format_warnings[extra] = txt
 
     def set_autopartition_choices (self, choices, extra_options,

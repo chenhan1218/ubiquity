@@ -1,5 +1,6 @@
 ubiquity (1.12.6) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * GTK frontend:
     - Copy-and-paste gdm-signal from powermanagement-interface, since that
       package is no longer in main and is slated to go away. In future we
@@ -17,6 +18,11 @@ ubiquity (1.12.6) UNRELEASED; urgency=low
     the same default as the question associated with its template, unless we
     also RESET it, so do that (LP: #356794).
   * Update translations from Launchpad.
+
+  [ Evan Dandrea ]
+  * Provide translation support for the format warning on the automatic
+    partitioning page, and make it less tied to English grammar.  Thanks
+    Timo Jyrinki (LP: #356333).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 08 Apr 2009 14:41:13 +0100
 

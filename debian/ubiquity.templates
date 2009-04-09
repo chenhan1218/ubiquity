@@ -199,6 +199,11 @@ Template: ubiquity/text/part_advanced_heading_label
 Type: text
 _Description: Prepare partitions
 
+Template: ubiquity/text/part_format_warning
+Type: text
+# SYSTEMS is a comma-separated list of operating systems present on the disk.
+_Description: This will delete ${SYSTEMS} and install ${RELEASE}.
+
 Template: ubiquity/text/ready_heading_label
 Type: text
 _Description: Ready to install
