@@ -39,8 +39,7 @@ class MigrationAssistant(FilteredCommand):
 
 
     def run(self, priority, question):
-        if (question != 'ubiquity/run-ma-again') and \
-            (question != 'migration-assistant/partitions'):
+        if question.endswith('items'):
             self.got_a_question = True
         if question == 'migration-assistant/failed-unmount':
             response = self.frontend.question_dialog(
