@@ -29,6 +29,7 @@ ubiquity (1.12.6) UNRELEASED; urgency=low
     Timo Jyrinki (LP: #356333).
   * Only show the migration-assistant page if we have items we can
     import.
+  * Don't let the time zone map image grow larger than the original.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 08 Apr 2009 14:41:13 +0100
 
