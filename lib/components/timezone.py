@@ -37,12 +37,13 @@ class Timezone(FilteredCommand):
             return (['/usr/lib/oem-config/timezone/tzsetup'])
 
         self.tzdb = oem_config.tz.Database()
+        self.multiple = False
         self.db.fset('time/zone', 'seen', 'false')
         cc = self.db.get('debian-installer/country')
         try:
             self.db.get('tzsetup/country/%s' % cc)
             # ... and if that succeeded:
-            self.db.reset('time/zone')
+            self.multiple = True
         except debconf.DebconfError:
             pass
         questions = ['^time/zone$', '^tzsetup/selected$']
@@ -50,6 +51,12 @@ class Timezone(FilteredCommand):
 
     def run(self, priority, question):
         if question == 'time/zone':
+            if self.multiple:
+                # Work around a debconf bug: REGISTER does not appear to
+                # give a newly-registered question the same default as the
+                # question associated with its template, unless we also
+                # RESET it.
+                self.db.reset(question)
             zone = self.db.get(question)
             # Some countries don't have a default zone, so just pick the
             # first choice in the list.

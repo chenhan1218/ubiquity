@@ -2,6 +2,10 @@ oem-config (1.54.12) UNRELEASED; urgency=low
 
   * Sync with console-setup 1.28ubuntu8: treat the Kazakhstan layout (kz) as
     non-Latin (LP: #356816).
+  * Work around a debconf bug which broke the default time zone for some
+    countries: REGISTER does not appear to give a newly-registered question
+    the same default as the question associated with its template, unless we
+    also RESET it, so do that (LP: #356794).
   * Update translations from Launchpad.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 09 Apr 2009 00:26:26 +0100
