@@ -842,10 +842,14 @@ class Wizard(BaseFrontend):
 
         step = self.step_name(self.get_current_page())
 
+        # Beware that 'step' is the step we're leaving, not the one we're
+        # entering. At present it's a little awkward to define actions that
+        # occur upon entering a page without unwanted side-effects when the
+        # user tries to go forward but fails due to validation.
         if step == "stepPartAuto":
             self.userinterface.part_advanced_warning_message.clear()
             self.userinterface.part_advanced_warning_hbox.hide()
-        elif step == "stepUserInfo":
+        if step in ("stepPartAuto", "stepPartAdvanced"):
             self.userinterface.fullname_error_image.hide()
             self.userinterface.fullname_error_reason.hide()
             self.userinterface.username_error_image.hide()

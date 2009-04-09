@@ -1,7 +1,13 @@
 ubiquity (1.12.7) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Draw a box around the time zone text and a highlight around the time
     zone point so that they are more legible.
+
+  [ Colin Watson ]
+  * Stop error images always being shown on the user page (LP: #358548). The
+    GTK frontend got away with this because the widgets in question are
+    hidden in the glade file; the KDE frontend wasn't so lucky.
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 09 Apr 2009 17:30:13 +0100
 
