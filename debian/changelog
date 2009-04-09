@@ -18,6 +18,10 @@ ubiquity (1.12.6) UNRELEASED; urgency=low
     the same default as the question associated with its template, unless we
     also RESET it, so do that (LP: #356794).
   * Update translations from Launchpad.
+  * Automatic update of included source packages: base-installer
+    1.98ubuntu6, console-setup 1.28ubuntu8, flash-kernel 2.13ubuntu6,
+    partman-auto 84ubuntu3, partman-base 129ubuntu7, partman-target
+    58ubuntu7, user-setup 1.23ubuntu18.
 
   [ Evan Dandrea ]
   * Provide translation support for the format warning on the automatic
