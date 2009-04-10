@@ -1310,12 +1310,7 @@ class Wizard(BaseFrontend):
                     min_size, max_size, orig_size, resize_path = extra_options[choice]
                         
                     #TODO use find_in_os_proper to give nice name
-                    dev = None
                     if dev:
-                        for p in disks[dev]:
-                            before_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
-                            after_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
-                            
                         before_frame = QGroupBox("Before Resize:", bar_frame)
                         before_frame.setLayout(QVBoxLayout())
                         layout.addWidget(before_frame)
@@ -1329,12 +1324,19 @@ class Wizard(BaseFrontend):
                         
                         after_bar = PartitionsBar(after_frame)
                         after_frame.layout().addWidget(after_bar)
-                         
+                        
+                        for p in disks[dev]:
+                            before_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
+                            after_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
+                        
                         after_bar.setResizePartition(resize_path, 
                             min_size, max_size, orig_size, 'Kubuntu')     
-                            
-                        before_frame.setVisible(False)
-                        after_frame.setVisible(False)
+                           
+                        before_frame.setVisible(True)
+                        after_frame.setVisible(True)
+                        
+                        self.resizePath = after_bar.resize_part.path
+                        self.resizeSize = after_bar.resize_part.size
                         
                         QApplication.instance().connect(after_bar, 
                             SIGNAL("partitionResized(PyQt_PyObject, PyQt_PyObject)"), 
