@@ -192,6 +192,9 @@ class Wizard(BaseFrontend):
         # set custom language
         self.set_locales()
 
+        gtk.window_set_default_icon_from_file('/usr/share/pixmaps/'
+                                              'ubiquity.png')
+
         # load the main interface
         self.glade = gtk.glade.XML('%s/ubiquity.glade' % GLADEDIR)
         add_widgets(self, self.glade)
@@ -448,9 +451,6 @@ class Wizard(BaseFrontend):
 
     def customize_installer(self):
         """Initial UI setup."""
-
-        gtk.window_set_default_icon_from_file('/usr/share/pixmaps/'
-                                              'ubiquity.png')
 
         PIXMAPSDIR = os.path.join(PATH, 'pixmaps', self.distro)
 
