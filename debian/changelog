@@ -8,6 +8,7 @@ ubiquity (1.12.8) UNRELEASED; urgency=low
   * GTK frontend:
     - Fix window icon; gtk.window_set_default_icon_from_file seems to work
       better if it's called before the window is created (LP: #358961).
+  * Update translations from Launchpad.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 10 Apr 2009 21:31:25 +0100
 

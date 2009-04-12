@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-04-09 14:44+0100\n"
-"PO-Revision-Date: 2009-04-08 17:52+0000\n"
-"Last-Translator: Jochen Skulj <jochen@jochenskulj.de>\n"
+"PO-Revision-Date: 2009-04-11 09:43+0000\n"
+"Last-Translator: Moritz Baumann <Unknown>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-08 23:34+0000\n"
+"X-Launchpad-Export-Date: 2009-04-12 11:46+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -345,7 +345,7 @@ msgstr "Die Partitionen vorbereiten"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:44001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "${SYSTEMS} werden gelöscht werden und ${RELEASE} wird installiert."
 
 #. Type: text
 #. Description
@@ -354,7 +354,7 @@ msgstr ""
 #: ../ubiquity.templates:45001 ../ubiquity.templates:95001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
-msgstr "Zur Installation bereit"
+msgstr "Bereit zur Installation"
 
 #. Type: text
 #. Description

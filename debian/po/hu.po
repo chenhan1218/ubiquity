@@ -2,19 +2,19 @@
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
-# Gabor Kelemen <kelemeng@gnome.hu>, 2007, 2008, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-04-09 14:44+0100\n"
-"PO-Revision-Date: 2009-04-07 10:34+0000\n"
+"PO-Revision-Date: 2009-04-12 09:42+0000\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
-"Language-Team: Hungarian <gnome@fsf.hu>\n"
+"Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
+"org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-08 23:29+0000\n"
+"X-Launchpad-Export-Date: 2009-04-12 11:46+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -341,6 +341,7 @@ msgstr "Partíciók előkészítése"
 #: ../ubiquity.templates:44001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
 msgstr ""
+"Ez törli a(z) ${SYSTEMS} rendszert és telepíti a(z) ${RELEASE} rendszert."
 
 #. Type: text
 #. Description

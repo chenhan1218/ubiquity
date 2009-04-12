@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-04-09 14:44+0100\n"
-"PO-Revision-Date: 2009-04-06 19:40+0000\n"
-"Last-Translator: Aigars Mahinovs <aigarius@debian.org>\n"
+"PO-Revision-Date: 2009-04-09 20:11+0000\n"
+"Last-Translator: Peteris Krisjanis <pecisk@gmail.com>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-08 23:34+0000\n"
+"X-Launchpad-Export-Date: 2009-04-12 11:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -260,7 +260,7 @@ msgstr "Prasīt paroli, lai pieslēgtos un atkodētu jūsu mājas mapi"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Choose another password"
-msgstr ""
+msgstr "Izvēlaties citu paroli"
 
 #. Type: text
 #. Description
@@ -644,6 +644,9 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"Instalēšana ir pabeigta. Jūs varat turpināt izmēģināt Ubuntu, bet, tiklīdz "
+"pārstartēsiet datoru, visas izmaiņas, ko veicāt vai dokumenti, kurus "
+"izveidojāt, tiks dzēsti."
 
 #. Type: text
 #. Description
@@ -762,6 +765,9 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"Nepietiek diska vietas, lai veiktu instalēšanu uz mērķa sadaļas. Lūdzu "
+"palaidiet instalatoru vēlreiz un izvēlieties lielāku mērķa sadaļu, kurā "
+"instalēt distribūciju."
 
 #. Type: error
 #. Description
@@ -771,6 +777,10 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
+"Šādu situāciju bieži izraisa bojāts CD/DVD disks vai disku lasošais "
+"diskdzinis. Varētu palīdzēt diska tīrīšana, kā arī diska ierakstīšana zemākā "
+"ātrumā, vai arī diskdziņa lēcu tīrīšana (tīrīšanas komplekti ir bieži vien "
+"pieejami pie elektronisko preču pārdevējiem)."
 
 #. Type: error
 #. Description
@@ -780,6 +790,9 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
+"Šādu situāciju bieži izraisa bojāts cietais disks. Būtu vēlams pārbaudīt, "
+"vai cietais disks nav vecs un to nevajadzētu aizvietot, vai arī pārvietojiet "
+"sistēmu uz vēsāku vidi."
 
 #. Type: error
 #. Description
@@ -797,6 +810,12 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
+"Šādu situāciju bieži izraisa bojāts CD/DVD disks vai disku lasošais "
+"diskdzinis, vai arī bojāts cietais disks. Varētu palīdzēt diska tīrīšana, kā "
+"arī diska ierakstīšana zemākā ātrumā, vai arī diskdziņa lēcu tīrīšana "
+"(tīrīšanas komplekti ir bieži vien pieejami pie elektronisko preču "
+"pārdevējiem), kā arī cietā diska vecuma pārbaude, vai sistēmas pārvietošana "
+"uz vēsāku vidi."
 
 #. Type: select
 #. Description
@@ -987,7 +1006,7 @@ msgstr "Gadījās kļūda, noņemot pakotnes:"
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Aprēķina failus, kurus izlaist kopējot..."
 
 #. Type: title
 #. Description

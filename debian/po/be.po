@@ -7,26 +7,26 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-04-09 14:44+0100\n"
-"PO-Revision-Date: 2009-04-06 19:31+0000\n"
-"Last-Translator: Pavel Piatruk <Unknown>\n"
+"PO-Revision-Date: 2009-04-11 23:13+0000\n"
+"Last-Translator: Alexander Nyakhaychyk <nyakhaychyk@gmail.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-08 23:28+0000\n"
+"X-Launchpad-Export-Date: 2009-04-12 11:46+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "Ужыць"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the entire disk"
-msgstr ""
+msgstr "Ужыць увесь дыск"
 
 #. Type: text
 #. Description
@@ -38,7 +38,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "Самастойна задаць падзелы"
 
 #. Type: text
 #. Description
@@ -125,19 +125,19 @@ msgstr "Дзе ты знаходзішся?"
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Select your time zone from the map, or by region and city."
-msgstr ""
+msgstr "Вылучыце ваш часавы поя на мапе ці праз рэгіён/места."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "City:"
-msgstr ""
+msgstr "Места:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Region:"
-msgstr ""
+msgstr "Рэгіён:"
 
 #. Type: text
 #. Description
@@ -162,13 +162,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Suggested option:"
-msgstr ""
+msgstr "Прапанаваная опцыя:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your own:"
-msgstr ""
+msgstr "Ваш выбар:"
 
 #. Type: text
 #. Description
@@ -238,31 +238,31 @@ msgstr "Назва будзе ўжывацца, калі зробіш гэты �
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Уваходзіць аўтаматычна"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Require a password to log in"
-msgstr ""
+msgstr "Патрабаваць пароль для ўваходу"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Require a password to log in and to decrypt your home folder"
-msgstr ""
+msgstr "Патрабаваць пароль для ўваходу й дэшыфравання хатняе дырэкторыі"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Choose another password"
-msgstr ""
+msgstr "Выбярыце іншы пароль"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Migrate documents and settings"
-msgstr ""
+msgstr "Міграцыя дакументаў і настаўленняў"
 
 #. Type: text
 #. Description
@@ -271,6 +271,9 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Абярыце ўліковыя запісы, якія б вы жадалі імпартаваць. Дакументы і "
+"настаўленні для для гэтых рахункаў будуць даступныя пасьля завяршэння "
+"усталёўкі"
 
 #. Type: text
 #. Description
@@ -298,25 +301,25 @@ msgstr "Хочаш зьмяніць расклад партыцыяў на ды�
 #. Description
 #: ../ubiquity.templates:39001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "Гэты кампутар ня мае аперацыйнае сістэмы."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "На гэтым кампутары прысутнічае ${OS}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "На гэтым кампутары прысутнічае некалькі аперацыйных сістэм."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "Дзе Вы жадаеце змясціць ${RELEASE}?"
 
 #. Type: text
 #. Description
@@ -344,7 +347,7 @@ msgstr "Гатовы да ўсталёўкі"
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Details"
-msgstr ""
+msgstr "Падрабязнасці"
 
 #. Type: text
 #. Description
