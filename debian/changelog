@@ -1,5 +1,6 @@
 oem-config (1.54.12) jaunty; urgency=low
 
+  [ Colin Watson ]
   * Sync with console-setup 1.28ubuntu8: treat the Kazakhstan layout (kz) as
     non-Latin (LP: #356816).
   * Work around a debconf bug which broke the default time zone for some
@@ -10,7 +11,11 @@ oem-config (1.54.12) jaunty; urgency=low
   * Automatic update of included source packages: console-setup 1.28ubuntu8,
     user-setup 1.23ubuntu18.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 09 Apr 2009 10:03:54 +0100
+  [ Roman Shtylman ]
+  * coped over the code for CairoExtensions from segmented_bar.py in ubiquity
+    used by the timezone map
+
+ -- Roman Shtylman <shtylman@gmail.com>  Mon, 13 Apr 2009 17:30:32 -0400
 
 oem-config (1.54.11) jaunty; urgency=low
 
