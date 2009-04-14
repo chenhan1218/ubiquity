@@ -29,8 +29,6 @@ import os
 import datetime
 
 from oem_config.cairo_extensions import CairoExtensions
-from oem_config.cairo_extensions import CairoCorners
-from oem_config.cairo_extensions import Color
 
 # We need a color coded map so we can only select from the list of points that
 # are in the time zone band the user clicked on.  It would be odd if the user
