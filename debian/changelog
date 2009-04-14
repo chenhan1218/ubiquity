@@ -1,9 +1,9 @@
-ubiquity (1.12.9) UNRELEASED; urgency=low
+ubiquity (1.12.9) jaunty; urgency=low
 
   * Update timezone map images.  Slight changes to the color and size of the
     time zone time box.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 14 Apr 2009 09:15:18 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 14 Apr 2009 12:02:13 +0100
 
 ubiquity (1.12.8) jaunty; urgency=low
 
