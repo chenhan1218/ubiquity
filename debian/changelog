@@ -2,7 +2,8 @@ oem-config (1.54.13) UNRELEASED; urgency=low
 
   * Updated the timezone map from ubiquity (LP: #360652), including copying
     CairoExtensions from ubiquity/segmented_bar.py.
-  * Moved common artwork files to main install file.
+  * Moved common artwork files from oem-config-gtk/oem-config-kde to
+    oem-config.
 
  -- Roman Shtylman <shtylman@gmail.com>  Mon, 13 Apr 2009 17:30:32 -0400
 
