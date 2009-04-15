@@ -232,9 +232,9 @@ class TimezoneMap(gtk.Widget):
             pointx = convert_longitude_to_x(loc.longitude, width)
             pointy = convert_latitude_to_y(loc.latitude, height)
 
-            cr.set_source_color(gtk.gdk.color_parse('black'))
+            cr.set_source_color(gtk.gdk.color_parse('#1e1e1e'))
             cr.arc(pointx, pointy, 4.5, 0, 2 * math.pi)
-            cr.set_line_width(2)
+            cr.set_line_width(1.5)
             cr.fill_preserve()
             cr.set_source_color(gtk.gdk.color_parse('white'))
             cr.stroke()
@@ -243,17 +243,17 @@ class TimezoneMap(gtk.Widget):
             now = datetime.datetime.now(loc.info)
             time_text = now.strftime('%X')
             cr.select_font_face('Sans', cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
-            cr.set_font_size(13.0)
+            cr.set_font_size(12.0)
             xbearing, ybearing, width, height, xadvance, yadvance = \
                 cr.text_extents(time_text)
-            newy = pointy - ybearing
+            newy = pointy - (ybearing / 2)
             if pointx + width + 10 > self.allocation.width:
                 newx = pointx - 12 - width - 4
             else:
                 newx = pointx + 12
             cr.move_to(newx, newy)
-            cr.set_source_color(gtk.gdk.color_parse('black'))
-            CairoExtensions.rounded_rectangle(cr, newx - 4, newy + ybearing - 6, width + 10, height + 12, height / 6)
+            cr.set_source_color(gtk.gdk.color_parse('#1e1e1e'))
+            CairoExtensions.rounded_rectangle(cr, newx - 5, newy + ybearing - 6, width + 10, height + 12, height / 6)
             cr.fill_preserve()
             cr.stroke()
             cr.set_source_color(gtk.gdk.color_parse('white'))
