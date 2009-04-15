@@ -1,3 +1,10 @@
+ubiquity (1.12.10) UNRELEASED; urgency=low
+
+  * Fix a crash when in OEM mode.  Child widgets are members of the the
+    self.userinterface list.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 15 Apr 2009 12:58:09 +0100
+
 ubiquity (1.12.9) jaunty; urgency=low
 
   * Update timezone map images.  Slight changes to the color and size of the
