@@ -359,6 +359,8 @@ class Partman(FilteredCommand):
                     self.description('partman-auto/text/resize_use_free')
                 self.manual_desc = \
                     self.description('partman-auto/text/custom_partitioning')
+                self.biggest_free_desc = \
+                    self.description('partman-auto/text/use_biggest_free')
                 self.extra_options = {}
                 if choices:
                     self.auto_state = [0, None]
@@ -384,21 +386,20 @@ class Partman(FilteredCommand):
                 except ValueError:
                     pass
             regain_privileges()
-            # {'/dev/sda' : [ ('/dev/sda1', 24973243297), ('free', 23492732) ], '/dev/sdb' : .., }
+            # {'/dev/sda' : { '32256-2352430079' : ('/dev/sda1', 24973242), ...
             parted = parted_server.PartedServer()
             layout = {}
             for disk in parted.disks():
                 parted.select_disk(disk)
-                ret = []
+                ret = {}
                 total = 0
                 for partition in parted.partitions():
-                    print 'partition: %s' % str(partition)
                     size = int(partition[2])
                     if partition[4] == 'free':
                         dev = 'free'
                     else:
                         dev = partition[5]
-                    ret.append((dev, size))
+                    ret[partition[1]] = (dev, size)
                 layout[disk] = ret
 
             self.frontend.set_disk_layout(layout)
@@ -420,18 +421,18 @@ class Partman(FilteredCommand):
                 del self.extra_options[tmp]
                 self.extra_options[self.some_device_desc] = t
             
-            tmp = self.description('partman-auto/text/use_biggest_free')
-            biggest_free = \
+            tmp = self.biggest_free_desc
+            self.biggest_free_desc = \
                 self.description('ubiquity/text/biggest_free')
-            self.translation_mappings[biggest_free] = tmp
+            self.translation_mappings[self.biggest_free_desc] = tmp
             try:
-                choices[choices.index(tmp)] = biggest_free
+                choices[choices.index(tmp)] = self.biggest_free_desc
             except ValueError:
                 pass
             if tmp in self.extra_options:
                 t = self.extra_options[tmp]
                 del self.extra_options[tmp]
-                self.extra_options[biggest_free] = t
+                self.extra_options[self.biggest_free_desc] = t
 
             tmp = self.resize_desc
             self.resize_desc = \
@@ -458,10 +459,16 @@ class Partman(FilteredCommand):
                 t = self.extra_options[tmp]
                 del self.extra_options[tmp]
                 self.extra_options[self.manual_desc] = t
+            
+            biggest_free = self.find_script(menu_options, 'biggest_free')
+            if biggest_free:
+                biggest_free = biggest_free[0][1]
+                biggest_free = self.split_devpart(biggest_free)[1]
+            self.extra_options[self.biggest_free_desc] = biggest_free
 
             self.frontend.set_autopartition_choices(
-                choices, self.extra_options,
-                self.resize_desc, self.manual_desc)
+                choices, self.extra_options, self.resize_desc,
+                self.manual_desc, self.biggest_free_desc)
 
         elif question == 'partman-auto/select_disk':
             if self.auto_state is not None:
