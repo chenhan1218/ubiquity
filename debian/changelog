@@ -1,7 +1,7 @@
 ubiquity (1.12.10) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
-  * Fix a crash when in OEM mode.  Child widgets are members of the the
+  * Fix a crash when in OEM mode.  Child widgets are members of the
     self.userinterface list (LP: #361668).
 
   [ Colin Watson ]
