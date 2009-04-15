@@ -1027,7 +1027,7 @@ class Wizard(BaseFrontend):
             else:
                 hostname_suffix = '-desktop'
             self.hostname.handler_block(self.hostname_changed_id)
-            self.hostname.set_text(widget.get_text() + hostname_suffix)
+            self.hostname.set_text(widget.get_text().strip() + hostname_suffix)
             self.hostname.handler_unblock(self.hostname_changed_id)
 
         complete = True

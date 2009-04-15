@@ -1,3 +1,9 @@
+ubiquity (1.13.0) UNRELEASED; urgency=low
+
+  * Strip whitespace from username (LP: #358656).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 16 Apr 2009 00:33:23 +0100
+
 ubiquity (1.12.10) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
