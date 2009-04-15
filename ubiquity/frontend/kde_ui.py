@@ -1303,7 +1303,10 @@ class Wizard(BaseFrontend):
                     extra = extra_options[choice]
                     
                     for d in self.disk_layout:
-                        if "%s" % d.strip('=dev=') in extra[3]:
+                        disk = d
+                        if disk.startswith('=dev='):
+                            disk = disk[5:]
+                        if "%s" % disk in extra[3]:
                             dev = d
                             break
                     
@@ -1363,7 +1366,10 @@ class Wizard(BaseFrontend):
                         
                         dev = None
                         for d in self.disk_layout:
-                            if "(%s)" % d.strip('=dev=') in extra_button.text():
+                            disk = d
+                            if disk.startswith('=dev='):
+                                disk = disk[5:]
+                            if "(%s)" % disk in extra_button.text():
                                 dev = d
                                 break
                                 

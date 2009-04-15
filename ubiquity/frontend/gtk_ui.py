@@ -1260,7 +1260,10 @@ class Wizard(BaseFrontend):
     def on_extra_combo_changed (self, widget):
         txt = widget.get_active_text()
         for k in self.disk_layout.iterkeys():
-            if '(%s)' % k.strip('=dev=') in txt:
+            disk = k
+            if disk.startswith('=dev='):
+                disk = disk[5:]
+            if '(%s)' % disk in txt:
                 self.before_bar.remove_all()
                 self.create_bar(k)
                 break
@@ -1604,7 +1607,10 @@ class Wizard(BaseFrontend):
     def setup_format_warnings(self, extra_options):
         for extra in extra_options:
             for k in self.disk_layout.iterkeys():
-                if '(%s)' % k.strip('=dev=') not in extra:
+                disk = k
+                if disk.startswith('=dev='):
+                    disk = disk[5:]
+                if '(%s)' % disk not in extra:
                     continue
                 l = []
                 for part, size in self.disk_layout[k]:
