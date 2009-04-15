@@ -1,9 +1,16 @@
 oem-config (1.54.13) UNRELEASED; urgency=low
 
+  [ Roman Shtylman ]
   * Updated the timezone map from ubiquity (LP: #360652), including copying
     CairoExtensions from ubiquity/segmented_bar.py.
   * Moved common artwork files from oem-config-gtk/oem-config-kde to
     oem-config.
+
+  [ Colin Watson ]
+  * Preseed tzsetup/selected up-front rather than filtering it and then
+    preseeding it; filtering it causes the backup state to be reset, which
+    causes an infinite loop when backing up from the timezone page when the
+    default country only has one timezone (LP: #361674).
 
  -- Roman Shtylman <shtylman@gmail.com>  Mon, 13 Apr 2009 17:30:32 -0400
 
