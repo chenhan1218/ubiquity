@@ -12,7 +12,7 @@ Architecture: any
 Depends: ${shlibs:Depends}, ${python:Depends}, debconf (>= 1.4.52), oem-config-frontend-${mangled-version}, localechooser-data, iso-codes, apt, locales (>= 2.3.7-1), ${console-setup-depends}, passwd, adduser
 Suggests: checkbox
 Conflicts: oem-config-keyboard, oem-config-locale, oem-config-timezone
-Replaces: oem-config-keyboard, oem-config-locale, oem-config-timezone
+Replaces: oem-config-keyboard, oem-config-locale, oem-config-timezone, oem-config-gtk (<< 1.54.13), oem-config-kde (<< 1.54.13)
 XB-Python-Version: ${python:Versions}
 Description: Perform end-user configuration after initial OEM installation
  The oem-config script re-asks a number of questions that are normally asked

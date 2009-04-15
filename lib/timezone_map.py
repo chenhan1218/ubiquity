@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
 
 # Copyright (C) 2009 Canonical Ltd.
 # Written by Evan Dandrea <evand@ubuntu.com>.
@@ -27,6 +27,8 @@ from gtk import gdk
 import gobject
 import os
 import datetime
+
+from oem_config.cairo_extensions import CairoExtensions
 
 # We need a color coded map so we can only select from the list of points that
 # are in the time zone band the user clicked on.  It would be odd if the user
@@ -219,42 +221,44 @@ class TimezoneMap(gtk.Widget):
                 print 'Error setting the time zone band highlight:', str(e)
                 return
 
-        # Plot cities.
+        # Plot city and time.
         height = self.background.get_height()
         width = self.background.get_width()
 
-        # Useful for debugging time zone plotting.
         only_draw_selected = True
         for loc in self.tzdb.locations:
-            if self.selected and loc.zone == self.selected:
-                cr.set_source_color(gtk.gdk.color_parse('black'))
-            else:
-                if only_draw_selected:
-                    continue
-                cr.set_source_color(gtk.gdk.color_parse("red"))
-            
+            if not (self.selected and loc.zone == self.selected):
+                continue
             pointx = convert_longitude_to_x(loc.longitude, width)
             pointy = convert_latitude_to_y(loc.latitude, height)
 
-            if only_draw_selected:
-                cr.set_line_width(2)
-                cr.move_to(pointx - 3, pointy - 3)
-                cr.line_to(pointx + 3, pointy + 3)
-                cr.move_to(pointx + 3, pointy - 3)
-                cr.line_to(pointx - 3, pointy + 3)
-            else:
-                cr.arc(pointx, pointy, 0.5, 0, 2 * math.pi)
+            cr.set_source_color(gtk.gdk.color_parse('#1e1e1e'))
+            cr.arc(pointx, pointy, 4.5, 0, 2 * math.pi)
+            cr.set_line_width(1.5)
+            cr.fill_preserve()
+            cr.set_source_color(gtk.gdk.color_parse('white'))
+            cr.stroke()
+
             # Draw the time.
-            if self.selected and loc.zone == self.selected and only_draw_selected:
-                now = datetime.datetime.now(loc.info)
-                time_text = now.strftime('%X')
-                xbearing, ybearing, width, height, xadvance, yadvance = \
-                    cr.text_extents(time_text)
-                if pointx + width > self.allocation.width:
-                    cr.move_to(pointx - 4 - width, pointy + 4 + height)
-                else:
-                    cr.move_to(pointx + 4, pointy + 4 + height)
-                cr.show_text(time_text)
+            now = datetime.datetime.now(loc.info)
+            time_text = now.strftime('%X')
+            cr.select_font_face('Sans', cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
+            cr.set_font_size(12.0)
+            xbearing, ybearing, width, height, xadvance, yadvance = \
+                cr.text_extents(time_text)
+            newy = pointy - (ybearing / 2)
+            if pointx + width + 10 > self.allocation.width:
+                newx = pointx - 12 - width - 4
+            else:
+                newx = pointx + 12
+            cr.move_to(newx, newy)
+            cr.set_source_color(gtk.gdk.color_parse('#1e1e1e'))
+            CairoExtensions.rounded_rectangle(cr, newx - 5, newy + ybearing - 6, width + 10, height + 12, height / 6)
+            cr.fill_preserve()
+            cr.stroke()
+            cr.set_source_color(gtk.gdk.color_parse('white'))
+            cr.move_to(newx, newy)
+            cr.show_text(time_text)
             cr.stroke()
 
     def timeout(self):
