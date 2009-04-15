@@ -277,11 +277,11 @@ class Wizard(BaseFrontend):
         pass
 
     def set_autopartition_choices(self, choices, extra_options,
-                                  resize_choice, manual_choice):
+                                  resize_choice, manual_choice,
+                                  biggest_free_choice):
         """Set available autopartitioning choices."""
-        self.resize_choice = resize_choice
-        self.manual_choice = manual_choice
-        #print '*** set_autopartition_choices: manual_choice: %s' % manual_choice
+        BaseFrontend.set_autopartition_choices(self, choices, extra_options,
+            resize_choice, manual_choice, biggest_free_choice)
 
     def get_autopartition_choice(self):
         """Get the selected autopartitioning choice."""

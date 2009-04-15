@@ -1206,9 +1206,11 @@ class Wizard(BaseFrontend):
         self.disk_layout = layout
 
     def set_autopartition_choices (self, choices, extra_options,
-                                   resize_choice, manual_choice):
+                                   resize_choice, manual_choice,
+                                   biggest_free_choice):
         BaseFrontend.set_autopartition_choices(self, choices, extra_options,
-                                               resize_choice, manual_choice)
+                                               resize_choice, manual_choice,
+                                               biggest_free_choice)
 
         children = self.userinterface.autopartition_frame.children()
         for child in children:
