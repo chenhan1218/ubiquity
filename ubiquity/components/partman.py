@@ -408,57 +408,23 @@ class Partman(FilteredCommand):
             # Set up translation mappings to avoid debian-installer
             # specific text ('Guided -').
             self.translation_mappings = {}
-            tmp = self.some_device_desc
-            self.some_device_desc = \
-                self.description('ubiquity/text/use_device')
-            self.translation_mappings[self.some_device_desc] = tmp
-            try:
-                choices[choices.index(tmp)] = self.some_device_desc
-            except ValueError:
-                pass
-            if tmp in self.extra_options:
-                t = self.extra_options[tmp]
-                del self.extra_options[tmp]
-                self.extra_options[self.some_device_desc] = t
-            
-            tmp = self.biggest_free_desc
-            self.biggest_free_desc = \
-                self.description('ubiquity/text/biggest_free')
-            self.translation_mappings[self.biggest_free_desc] = tmp
-            try:
-                choices[choices.index(tmp)] = self.biggest_free_desc
-            except ValueError:
-                pass
-            if tmp in self.extra_options:
-                t = self.extra_options[tmp]
-                del self.extra_options[tmp]
-                self.extra_options[self.biggest_free_desc] = t
+            def map_trans(di_string, ubiquity_string):
+                ubiquity_string = self.description(ubiquity_string)
+                self.translation_mappings[ubiquity_string] = di_string
+                try:
+                    choices[choices.index(di_string)] = ubiquity_string
+                except ValueError:
+                    pass
+                if di_string in self.extra_options:
+                    t = self.extra_options[di_string]
+                    del self.extra_options[di_string]
+                    self.extra_options[ubiquity_string] = t
+                return ubiquity_string
 
-            tmp = self.resize_desc
-            self.resize_desc = \
-                self.description('ubiquity/text/resize_use_free')
-            self.translation_mappings[self.resize_desc] = tmp
-            try:
-                choices[choices.index(tmp)] = self.resize_desc
-            except ValueError:
-                pass
-            if tmp in self.extra_options:
-                t = self.extra_options[tmp]
-                del self.extra_options[tmp]
-                self.extra_options[self.resize_desc] = t
-
-            tmp = self.manual_desc
-            self.manual_desc = \
-                self.description('ubiquity/text/custom_partitioning')
-            self.translation_mappings[self.manual_desc] = tmp
-            try:
-                choices[choices.index(tmp)] = self.manual_desc
-            except ValueError:
-                pass
-            if tmp in self.extra_options:
-                t = self.extra_options[tmp]
-                del self.extra_options[tmp]
-                self.extra_options[self.manual_desc] = t
+            self.some_device_desc = map_trans(self.some_device_desc, 'ubiquity/text/use_device')
+            self.biggest_free_desc = map_trans(self.biggest_free_desc, 'ubiquity/text/biggest_free')
+            self.resize_desc = map_trans(self.resize_desc, 'ubiquity/text/resize_use_free')
+            self.manual_desc = map_trans(self.manual_desc, 'ubiquity/text/custom_partitioning')
             
             biggest_free = self.find_script(menu_options, 'biggest_free')
             if biggest_free:
