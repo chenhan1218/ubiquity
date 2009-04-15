@@ -39,7 +39,8 @@ class Timezone(FilteredCommand):
                 self.multiple = True
             except debconf.DebconfError:
                 pass
-        questions = ['^time/zone$', '^tzsetup/selected$']
+        self.preseed('tzsetup/selected', 'false')
+        questions = ['^time/zone$']
         return (['/usr/share/ubiquity/tzsetup-wrapper'], questions)
 
     def run(self, priority, question):
@@ -63,9 +64,6 @@ class Timezone(FilteredCommand):
             elif zone == 'US/Eastern':
                 zone = 'America/New_York'
             self.frontend.set_timezone(zone)
-        elif question == 'tzsetup/selected':
-            self.preseed(question, 'false')
-            return True
 
         return FilteredCommand.run(self, priority, question)
 
