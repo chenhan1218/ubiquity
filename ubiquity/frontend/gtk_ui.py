@@ -1259,7 +1259,7 @@ class Wizard(BaseFrontend):
 
     def on_extra_combo_changed (self, widget):
         txt = widget.get_active_text()
-        for k in self.disk_layout.iterkeys():
+        for k in self.disk_layout:
             disk = k
             if disk.startswith('=dev='):
                 disk = disk[5:]
@@ -1292,19 +1292,20 @@ class Wizard(BaseFrontend):
                     self.release_color)
             elif choice == self.resize_choice:
                 for k in self.disk_layout:
-                    for p in self.disk_layout[k].itervalues():
-                        if self.resize_path in p:
+                    for p in self.disk_layout[k]:
+                        if self.resize_path == p[0]:
                             self.before_bar.remove_all()
                             self.create_bar(k)
                             self.create_bar(k, type=choice)
-                            break
+                            return
             elif choice == self.biggest_free_choice:
                 for k in self.disk_layout:
-                    if self.biggest_free_id in self.disk_layout[k].keys():
-                        self.before_bar.remove_all()
-                        self.create_bar(k)
-                        self.create_bar(k, type=choice)
-                        break
+                    for p in self.disk_layout[k]:
+                        if self.biggest_free_id == p[2]:
+                            self.before_bar.remove_all()
+                            self.create_bar(k)
+                            self.create_bar(k, type=choice)
+                            return
             else:
                 # Use entire disk.
                 self.action_bar.add_segment_rgb(get_release_name(), -1, \
@@ -1579,7 +1580,7 @@ class Wizard(BaseFrontend):
         else:
             b = self.before_bar
             ret = []
-            for part in self.disk_layout[disk].itervalues():
+            for part in self.disk_layout[disk]:
                 if part[0].startswith('/'):
                     t = find_in_os_prober(part[0])
                     if t and t != 'swap':
@@ -1593,10 +1594,10 @@ class Wizard(BaseFrontend):
                 s = self.get_string('ubiquity/text/part_auto_comment_many')
             self.part_auto_comment_label.set_text(s)
         i = 0
-        for key, part in self.disk_layout[disk].iteritems():
+        for part in self.disk_layout[disk]:
             dev = part[0]
             size = part[1]
-            if type == self.biggest_free_choice and key == self.biggest_free_id:
+            if type == self.biggest_free_choice and part[2] == self.biggest_free_id:
                 b.add_segment_rgb(get_release_name(), size, self.release_color)
             elif dev == 'free':
                 b.add_segment_rgb("Free Space", size, b.remainder_color)
@@ -1614,17 +1615,17 @@ class Wizard(BaseFrontend):
 
     def setup_format_warnings(self, extra_options):
         for extra in extra_options:
-            for k in self.disk_layout.iterkeys():
+            for k in self.disk_layout:
                 disk = k
                 if disk.startswith('=dev='):
                     disk = disk[5:]
                 if '(%s)' % disk not in extra:
                     continue
                 l = []
-                for part, size in self.disk_layout[k].itervalues():
-                    if part == 'free':
+                for part in self.disk_layout[k]:
+                    if part[0] == 'free':
                         continue
-                    ret = find_in_os_prober(part)
+                    ret = find_in_os_prober(part[0])
                     if ret and ret != 'swap':
                         l.append(ret)
                 if l:

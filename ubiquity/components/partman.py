@@ -386,12 +386,13 @@ class Partman(FilteredCommand):
                 except ValueError:
                     pass
             regain_privileges()
-            # {'/dev/sda' : { '32256-2352430079' : ('/dev/sda1', 24973242), ...
+            # {'/dev/sda' : ('/dev/sda1', 24973242, '32256-2352430079'), ...
+            # TODO evand 2009-04-16: We should really use named tuples here.
             parted = parted_server.PartedServer()
             layout = {}
             for disk in parted.disks():
                 parted.select_disk(disk)
-                ret = {}
+                ret = []
                 total = 0
                 for partition in parted.partitions():
                     size = int(partition[2])
@@ -399,7 +400,7 @@ class Partman(FilteredCommand):
                         dev = 'free'
                     else:
                         dev = partition[5]
-                    ret[partition[1]] = (dev, size)
+                    ret.append((dev, size, partition[1]))
                 layout[disk] = ret
 
             self.frontend.set_disk_layout(layout)
