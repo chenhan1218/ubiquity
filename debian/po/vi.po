@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-04-09 14:44+0100\n"
-"PO-Revision-Date: 2009-04-12 05:38+0000\n"
+"PO-Revision-Date: 2009-04-14 14:32+0000\n"
 "Last-Translator: zeratulbk <congtumotsach@gmail.com>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-12 11:46+0000\n"
+"X-Launchpad-Export-Date: 2009-04-16 12:14+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -324,7 +324,7 @@ msgstr "Máy tính này chứa một số hệ điều hành trên nó."
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "Bạn muốn đặt ${RELEASE} ở đâu?"
 
 #. Type: text
 #. Description
@@ -337,7 +337,7 @@ msgstr "Tạo các phân vùng mới"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:44001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "Tiến trình này sẽ xóa ${SYSTEMS} và cài đặt ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -1004,7 +1004,7 @@ msgstr "Có lỗi xẩy ra trong khi đang gỡ bỏ các gói:"
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Đang tính toán các tập tin để bỏ qua sao chép..."
 
 #. Type: title
 #. Description
@@ -1087,12 +1087,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Hình thức cài đặt: ${INSTALLTYPE}\n"
+" Ngôn ngữ: ${LANGUAGE}\n"
+" Khuôn mẫu bàn phím: ${KEYMAP}\n"
+" Tên: ${FULLNAME}\n"
+" Tên đăng nhập: ${USERNAME}\n"
+" Địa điểm: ${LOCATION}\n"
+" Điều khiển hồng ngoại: ${REMOTE}\n"
+" Bộ chuyển phát hồng ngoại: ${TRANSMITTER}\n"
+" Trình điều khiển hình ảnh: ${VIDEO_DRIVER}\n"
+" Các dịch vụ: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "Dạng Cài đặt"
 
 #. Type: text
 #. Description
@@ -1191,7 +1201,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Các Trình điều khiển Đồ họa"
 
 #. Type: text
 #. Description
@@ -1223,7 +1233,7 @@ msgstr "Nếu muốn hiệu lực TV Out, bạn cần chọn thêm một chuẩn
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:18001
 msgid "Master Backend Info"
-msgstr ""
+msgstr "Thông tin người điều khiển tiến trình cuối"
 
 #. Type: text
 #. Description

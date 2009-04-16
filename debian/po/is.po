@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-04-09 14:44+0100\n"
-"PO-Revision-Date: 2009-04-01 11:24+0000\n"
+"PO-Revision-Date: 2009-04-13 00:34+0000\n"
 "Last-Translator: Baldur <baldurpet@gmail.com>\n"
 "Language-Team: Icelandic <debian-user-icelandic@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-12 11:41+0000\n"
+"X-Launchpad-Export-Date: 2009-04-16 12:14+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -266,7 +266,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Choose another password"
-msgstr ""
+msgstr "Veldu annað lykilorð"
 
 #. Type: text
 #. Description
@@ -341,7 +341,7 @@ msgstr "Undirbúa sneiðar"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:44001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "Þetta mun eyða ${SYSTEMS} og setja ${RELEASE} upp."
 
 #. Type: text
 #. Description
