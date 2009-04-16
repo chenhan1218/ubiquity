@@ -298,7 +298,7 @@ class PartitionsBar(QWidget):
         if not part:
             return
         
-        new_size = (minsize + p.size)/2
+        new_size = maxsize
         part.size = new_size
         part.minsize = minsize
         part.maxsize = maxsize

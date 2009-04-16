@@ -1,7 +1,21 @@
 ubiquity (1.12.10) UNRELEASED; urgency=low
 
-  * Fix a crash when in OEM mode.  Child widgets are members of the the
+  [ Evan Dandrea ]
+  * Fix a crash when in OEM mode.  Child widgets are members of the
     self.userinterface list (LP: #361668).
+
+  [ Colin Watson ]
+  * Fix stripping of '=dev=' from device names when creating partition bars
+    to avoid reducing e.g. '=dev=vda' to 'a'.
+  * KDE frontend:
+    - Start the resize slider at the maximum possible size for the partition
+      being resized; this is in line with the GTK frontend, and fixes the
+      situation where the previous default (half-way between the minimum
+      size and the current size) is out of range.
+  * Preseed tzsetup/selected up-front rather than filtering it and then
+    preseeding it; filtering it causes the backup state to be reset, which
+    causes an infinite loop when backing up from the timezone page when the
+    default country only has one timezone (LP: #361674).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 15 Apr 2009 12:58:09 +0100
 

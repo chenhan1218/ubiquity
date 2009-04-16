@@ -1266,7 +1266,7 @@ class Wizard(BaseFrontend):
             self.autopartition_buttongroup.addButton(button, idCounter)
             id = self.autopartition_buttongroup.id(button)
 
-            #Qt changes the string by adding accelarators,
+            #Qt changes the string by adding accelerators,
             #so keep pristine string here as is returned later to partman
             self.autopartition_buttongroup_texts[id] = choice
             if firstbutton is None:
@@ -1294,7 +1294,7 @@ class Wizard(BaseFrontend):
                 frame = QFrame(self.userinterface.autopartition_frame)
                 frame.setEnabled(False)
                 
-                #indextation for the extra widgets
+                #indentation for the extra widgets
                 indent_hbox = QHBoxLayout()
                 self.autopartition_vbox.addLayout(indent_hbox)
                 indent_hbox.addSpacing(10)
@@ -1305,13 +1305,16 @@ class Wizard(BaseFrontend):
                     extra = extra_options[choice]
                     
                     for d in self.disk_layout:
-                        if "%s" % d.strip('=dev=') in extra[3]:
+                        disk = d
+                        if disk.startswith('=dev='):
+                            disk = disk[5:]
+                        if "%s" % disk in extra[3]:
                             dev = d
                             break
                     
                     min_size, max_size, orig_size, resize_path = extra_options[choice]
                         
-                    #TODO use find_in_os_proper to give nice name
+                    #TODO use find_in_os_prober to give nice name
                     if dev:
                         before_frame = QGroupBox("Before Resize:", bar_frame)
                         before_frame.setLayout(QVBoxLayout())
@@ -1353,7 +1356,7 @@ class Wizard(BaseFrontend):
                     extraIdCounter = 0
                     
                     for extra in extra_options[choice]:
-                        #each extra choice needs to toogle a change in the before bar
+                        #each extra choice needs to toggle a change in the before bar
                         #extra is just a string with a general description
                         #each extra choice needs to be a before/after bar option
                         if extra == '':
@@ -1365,11 +1368,14 @@ class Wizard(BaseFrontend):
                         
                         dev = None
                         for d in self.disk_layout:
-                            if "(%s)" % d.strip('=dev=') in extra_button.text():
+                            disk = d
+                            if disk.startswith('=dev='):
+                                disk = disk[5:]
+                            if "(%s)" % disk in extra_button.text():
                                 dev = d
                                 break
                                 
-                        #add the bars if we founs the device
+                        #add the bars if we found the device
                         if dev:
                             before_frame = QGroupBox("Before Install:", bar_frame)
                             before_frame.setLayout(QVBoxLayout())
