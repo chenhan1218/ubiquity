@@ -766,11 +766,10 @@ class Wizard(BaseFrontend):
         """Callback for main program to actually reboot the machine."""
 
         if 'DESKTOP_SESSION' in os.environ:
-            print "FIXME, port logout to KDE 4"
-            #execute('dcop', 'ksmserver', 'ksmserver', 'logout',
-            #        # ShutdownConfirmNo, ShutdownTypeReboot,
-            #        # ShutdownModeForceNow
-            #        '0', '1', '2')
+            execute('qdbus', 'org.kde.ksmserver', '/KSMServer', 'org.kde.KSMServerInterface.logout',
+                    # ShutdownConfirmNo, ShutdownTypeReboot,
+                    # ShutdownModeForceNow
+                    '0', '1', '2')
         else:
             execute('reboot')
 

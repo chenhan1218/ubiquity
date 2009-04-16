@@ -17,6 +17,10 @@ ubiquity (1.12.10) UNRELEASED; urgency=low
     causes an infinite loop when backing up from the timezone page when the
     default country only has one timezone (LP: #361674).
 
+  [ Jonathan Riddell ]
+  * KDE frontend:
+    - port reboot code to KDE 4, (LP: #360838)
+
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 15 Apr 2009 12:58:09 +0100
 
 ubiquity (1.12.9) jaunty; urgency=low
