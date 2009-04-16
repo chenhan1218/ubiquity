@@ -2690,6 +2690,10 @@ class Wizard(BaseFrontend):
     def error_dialog (self, title, msg, fatal=True):
         # TODO: cancel button as well if capb backup
         self.run_automation_error_cmd()
+        # TODO cjwatson 2009-04-16: We need to call allow_change_step here
+        # to get a normal cursor, but that also enables the Back/Forward
+        # buttons. Cursor handling should be controllable independently.
+        saved_allowed_change_step = self.allowed_change_step
         self.allow_change_step(True)
         if self.current_page is not None:
             transient = self.live_installer
@@ -2701,12 +2705,17 @@ class Wizard(BaseFrontend):
                                    gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
         dialog.set_title(title)
         dialog.run()
+        self.allow_change_step(saved_allowed_change_step)
         dialog.hide()
         if fatal:
             self.return_to_partitioning()
 
     def question_dialog (self, title, msg, options, use_templates=True):
         self.run_automation_error_cmd()
+        # TODO cjwatson 2009-04-16: We need to call allow_change_step here
+        # to get a normal cursor, but that also enables the Back/Forward
+        # buttons. Cursor handling should be controllable independently.
+        saved_allowed_change_step = self.allowed_change_step
         self.allow_change_step(True)
         if self.current_page is not None:
             transient = self.live_installer
@@ -2736,6 +2745,7 @@ class Wizard(BaseFrontend):
         vbox.show_all()
         dialog.vbox.pack_start(vbox)
         response = dialog.run()
+        self.allow_change_step(saved_allowed_change_step)
         dialog.hide()
         if response < 0:
             # something other than a button press, probably destroyed

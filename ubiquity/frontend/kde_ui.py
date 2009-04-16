@@ -2117,9 +2117,14 @@ class Wizard(BaseFrontend):
 
     def error_dialog (self, title, msg, fatal=True):
         self.run_automation_error_cmd()
+        # TODO cjwatson 2009-04-16: We need to call allow_change_step here
+        # to get a normal cursor, but that also enables the Back/Forward
+        # buttons. Cursor handling should be controllable independently.
+        saved_allowed_change_step = self.allowed_change_step
         self.allow_change_step(True)
         # TODO: cancel button as well if capb backup
         QMessageBox.warning(self.userinterface, title, msg, QMessageBox.Ok)
+        self.allow_change_step(saved_allowed_change_step)
         if fatal:
             self.return_to_partitioning()
 
@@ -2128,6 +2133,10 @@ class Wizard(BaseFrontend):
         # I doubt we'll ever need more than three buttons.
         assert len(options) <= 3, options
 
+        # TODO cjwatson 2009-04-16: We need to call allow_change_step here
+        # to get a normal cursor, but that also enables the Back/Forward
+        # buttons. Cursor handling should be controllable independently.
+        saved_allowed_change_step = self.allowed_change_step
         self.allow_change_step(True)
         buttons = {}
         messageBox = QMessageBox(QMessageBox.Question, title, msg, QMessageBox.NoButton, self.userinterface)
@@ -2147,6 +2156,7 @@ class Wizard(BaseFrontend):
             buttons[button] = option
 
         response = messageBox.exec_()
+        self.allow_change_step(saved_allowed_change_step)
 
         if response < 0:
             return None

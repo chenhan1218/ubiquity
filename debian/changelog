@@ -23,6 +23,14 @@ ubiquity (1.12.10) UNRELEASED; urgency=low
   * Preseed passwd/auto-login-backup=oem in OEM mode, so that the original
     configuration files are available for restoration (LP: #361272).
   * Add a little extra state machine debugging to the partman component.
+  * If an error/question dialog is displayed while changing steps is
+    disabled, we currently need to re-enable changing steps in order to get
+    a normal cursor, but that also enables the Back/Forward buttons and
+    allows people to violate assertions by being too quick (e.g. selecting
+    an autopartitioning choice while the installer is still busy analysing
+    the possible choices). We should clean this up properly later, but for
+    now just restore the allowed-change-step state when the dialog is
+    finished.
   * Update translations from Launchpad.
 
   [ Jonathan Riddell ]
