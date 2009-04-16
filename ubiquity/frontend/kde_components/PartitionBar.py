@@ -32,7 +32,9 @@ from ubiquity.misc import format_size
 
 class Partition:
     # colors used to render partition types
-    filesystemColours = {'ext3':        '#418DD4',
+    # 'auto' is used to represent the results of automatic partitioning.
+    filesystemColours = {'auto':        '#509DE8',
+                         'ext3':        '#418DD4',
                          'ext4':        '#418DD4',
                          'free':        '#FFFFFF',
                          'linux-swap':  '#FF80E0',
@@ -307,7 +309,7 @@ class PartitionsBar(QWidget):
         
         if part.next == None or part.next.index != -1:
             #if our resize partition is at the end or the next one is not free space
-            p = Partition(origsize - new_size, 0, '', 'Kubuntu')
+            p = Partition(origsize - new_size, 0, 'auto', 'Kubuntu')
             p.next = part.next
             part.next = p
             

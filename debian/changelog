@@ -18,6 +18,8 @@ ubiquity (1.12.10) UNRELEASED; urgency=low
       being resized; this is in line with the GTK frontend, and fixes the
       situation where the previous default (half-way between the minimum
       size and the current size) is out of range.
+    - Use a better colour to represent the results of automatic partitioning
+      (LP: #348461).
   * Preseed tzsetup/selected up-front rather than filtering it and then
     preseeding it; filtering it causes the backup state to be reset, which
     causes an infinite loop when backing up from the timezone page when the

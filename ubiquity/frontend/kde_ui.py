@@ -1329,7 +1329,7 @@ class Wizard(BaseFrontend):
                         for p in disks[dev]:
                             before_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
                             if p[1] == biggest_free_id:
-                                after_bar.addPartition('', int(p[2]), int(p[0]), '', get_release_name())
+                                after_bar.addPartition('', int(p[2]), int(p[0]), 'auto', get_release_name())
                             else:
                                 after_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
                            
@@ -1433,9 +1433,9 @@ class Wizard(BaseFrontend):
                                 
                             release_name = get_release_name()
                             if before_bar.diskSize > 0:
-                                after_bar.addPartition('', before_bar.diskSize, '', '', release_name)
+                                after_bar.addPartition('', before_bar.diskSize, '', 'auto', release_name)
                             else:
-                                after_bar.addPartition('', 1, '', '', release_name)
+                                after_bar.addPartition('', 1, '', 'auto', release_name)
                                 
                             before_frame.setVisible(False)
                             after_frame.setVisible(False)
