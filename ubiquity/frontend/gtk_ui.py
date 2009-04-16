@@ -1259,7 +1259,7 @@ class Wizard(BaseFrontend):
 
     def on_extra_combo_changed (self, widget):
         txt = widget.get_active_text()
-        for k in self.disk_layout.iterkeys():
+        for k in self.disk_layout:
             disk = k
             if disk.startswith('=dev='):
                 disk = disk[5:]
@@ -1285,7 +1285,6 @@ class Wizard(BaseFrontend):
                 element.set_sensitive(False)
 
         if widget.get_active():
-            choice = unicode(widget.get_label(), 'utf-8', 'replace')
             self.action_bar.remove_all()
             self.action_bar.resize = -1
             if choice == self.manual_choice:
@@ -1294,11 +1293,19 @@ class Wizard(BaseFrontend):
             elif choice == self.resize_choice:
                 for k in self.disk_layout:
                     for p in self.disk_layout[k]:
-                        if self.resize_path in p:
+                        if self.resize_path == p[0]:
                             self.before_bar.remove_all()
                             self.create_bar(k)
-                            self.create_bar(k, resize_bar=True)
-                            break
+                            self.create_bar(k, type=choice)
+                            return
+            elif choice == self.biggest_free_choice:
+                for k in self.disk_layout:
+                    for p in self.disk_layout[k]:
+                        if self.biggest_free_id == p[2]:
+                            self.before_bar.remove_all()
+                            self.create_bar(k)
+                            self.create_bar(k, type=choice)
+                            return
             else:
                 # Use entire disk.
                 self.action_bar.add_segment_rgb(get_release_name(), -1, \
@@ -1567,8 +1574,8 @@ class Wizard(BaseFrontend):
     def set_disk_layout(self, layout):
         self.disk_layout = layout
 
-    def create_bar(self, disk, resize_bar=False):
-        if resize_bar:
+    def create_bar(self, disk, type=None):
+        if type:
             b = self.action_bar
         else:
             b = self.before_bar
@@ -1590,7 +1597,9 @@ class Wizard(BaseFrontend):
         for part in self.disk_layout[disk]:
             dev = part[0]
             size = part[1]
-            if dev == 'free':
+            if type == self.biggest_free_choice and part[2] == self.biggest_free_id:
+                b.add_segment_rgb(get_release_name(), size, self.release_color)
+            elif dev == 'free':
                 b.add_segment_rgb("Free Space", size, b.remainder_color)
             else:
                 if dev in self.dev_colors:
@@ -1599,24 +1608,24 @@ class Wizard(BaseFrontend):
                     c = self.auto_colors[i]
                     self.dev_colors[dev] = c
                 b.add_segment_rgb(dev, size, c)
-                if dev == self.resize_path and resize_bar:
+                if dev == self.resize_path and type == self.resize_choice:
                     self.action_bar.add_segment_rgb(get_release_name(), -1,
                         self.release_color)
                 i = (i + 1) % len(self.auto_colors)
 
     def setup_format_warnings(self, extra_options):
         for extra in extra_options:
-            for k in self.disk_layout.iterkeys():
+            for k in self.disk_layout:
                 disk = k
                 if disk.startswith('=dev='):
                     disk = disk[5:]
                 if '(%s)' % disk not in extra:
                     continue
                 l = []
-                for part, size in self.disk_layout[k]:
-                    if part == 'free':
+                for part in self.disk_layout[k]:
+                    if part[0] == 'free':
                         continue
-                    ret = find_in_os_prober(part)
+                    ret = find_in_os_prober(part[0])
                     if ret and ret != 'swap':
                         l.append(ret)
                 if l:
@@ -1630,9 +1639,11 @@ class Wizard(BaseFrontend):
                     self.format_warnings[extra] = txt
 
     def set_autopartition_choices (self, choices, extra_options,
-                                   resize_choice, manual_choice):
+                                   resize_choice, manual_choice,
+                                   biggest_free_choice):
         BaseFrontend.set_autopartition_choices(self, choices, extra_options,
-                                               resize_choice, manual_choice)
+                                               resize_choice, manual_choice,
+                                               biggest_free_choice)
 
         if resize_choice in choices:
             self.resize_min_size, self.resize_max_size, \
@@ -1642,6 +1653,8 @@ class Wizard(BaseFrontend):
             self.action_bar.set_min(self.resize_min_size)
             self.action_bar.set_max(self.resize_max_size)
             self.action_bar.set_device(self.resize_path)
+        if biggest_free_choice in choices:
+            self.biggest_free_id = extra_options[biggest_free_choice]
 
         for child in self.autopartition_choices_vbox.get_children():
             self.autopartition_choices_vbox.remove(child)
@@ -1658,13 +1671,11 @@ class Wizard(BaseFrontend):
                 firstbutton = button
             self.autopartition_choices_vbox.add(button)
 
-            if choice in extra_options:
+            if choice in extra_options and choice != biggest_free_choice:
                 alignment = gtk.Alignment(xscale=1, yscale=1)
                 alignment.set_padding(0, 0, 12, 0)
 
-                if choice == resize_choice:
-                    pass
-                elif choice != manual_choice:
+                if choice not in [resize_choice, manual_choice]:
                     extra_combo = gtk.combo_box_new_text()
                     vbox = gtk.VBox(spacing=6)
                     alignment.add(vbox)

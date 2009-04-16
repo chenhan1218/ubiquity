@@ -359,6 +359,8 @@ class Partman(FilteredCommand):
                     self.description('partman-auto/text/resize_use_free')
                 self.manual_desc = \
                     self.description('partman-auto/text/custom_partitioning')
+                self.biggest_free_desc = \
+                    self.description('partman-auto/text/use_biggest_free')
                 self.extra_options = {}
                 if choices:
                     self.auto_state = [0, None]
@@ -384,7 +386,8 @@ class Partman(FilteredCommand):
                 except ValueError:
                     pass
             regain_privileges()
-            # {'/dev/sda' : [ ('/dev/sda1', 24973243297), ('free', 23492732) ], '/dev/sdb' : .., }
+            # {'/dev/sda' : ('/dev/sda1', 24973242, '32256-2352430079'), ...
+            # TODO evand 2009-04-16: We should really use named tuples here.
             parted = parted_server.PartedServer()
             layout = {}
             for disk in parted.disks():
@@ -392,13 +395,12 @@ class Partman(FilteredCommand):
                 ret = []
                 total = 0
                 for partition in parted.partitions():
-                    print 'partition: %s' % str(partition)
                     size = int(partition[2])
                     if partition[4] == 'free':
                         dev = 'free'
                     else:
                         dev = partition[5]
-                    ret.append((dev, size))
+                    ret.append((dev, size, partition[1]))
                 layout[disk] = ret
 
             self.frontend.set_disk_layout(layout)
@@ -407,61 +409,33 @@ class Partman(FilteredCommand):
             # Set up translation mappings to avoid debian-installer
             # specific text ('Guided -').
             self.translation_mappings = {}
-            tmp = self.some_device_desc
-            self.some_device_desc = \
-                self.description('ubiquity/text/use_device')
-            self.translation_mappings[self.some_device_desc] = tmp
-            try:
-                choices[choices.index(tmp)] = self.some_device_desc
-            except ValueError:
-                pass
-            if tmp in self.extra_options:
-                t = self.extra_options[tmp]
-                del self.extra_options[tmp]
-                self.extra_options[self.some_device_desc] = t
+            def map_trans(di_string, ubiquity_string):
+                ubiquity_string = self.description(ubiquity_string)
+                self.translation_mappings[ubiquity_string] = di_string
+                try:
+                    choices[choices.index(di_string)] = ubiquity_string
+                except ValueError:
+                    pass
+                if di_string in self.extra_options:
+                    t = self.extra_options[di_string]
+                    del self.extra_options[di_string]
+                    self.extra_options[ubiquity_string] = t
+                return ubiquity_string
+
+            self.some_device_desc = map_trans(self.some_device_desc, 'ubiquity/text/use_device')
+            self.biggest_free_desc = map_trans(self.biggest_free_desc, 'ubiquity/text/biggest_free')
+            self.resize_desc = map_trans(self.resize_desc, 'ubiquity/text/resize_use_free')
+            self.manual_desc = map_trans(self.manual_desc, 'ubiquity/text/custom_partitioning')
             
-            tmp = self.description('partman-auto/text/use_biggest_free')
-            biggest_free = \
-                self.description('ubiquity/text/biggest_free')
-            self.translation_mappings[biggest_free] = tmp
-            try:
-                choices[choices.index(tmp)] = biggest_free
-            except ValueError:
-                pass
-            if tmp in self.extra_options:
-                t = self.extra_options[tmp]
-                del self.extra_options[tmp]
-                self.extra_options[biggest_free] = t
-
-            tmp = self.resize_desc
-            self.resize_desc = \
-                self.description('ubiquity/text/resize_use_free')
-            self.translation_mappings[self.resize_desc] = tmp
-            try:
-                choices[choices.index(tmp)] = self.resize_desc
-            except ValueError:
-                pass
-            if tmp in self.extra_options:
-                t = self.extra_options[tmp]
-                del self.extra_options[tmp]
-                self.extra_options[self.resize_desc] = t
-
-            tmp = self.manual_desc
-            self.manual_desc = \
-                self.description('ubiquity/text/custom_partitioning')
-            self.translation_mappings[self.manual_desc] = tmp
-            try:
-                choices[choices.index(tmp)] = self.manual_desc
-            except ValueError:
-                pass
-            if tmp in self.extra_options:
-                t = self.extra_options[tmp]
-                del self.extra_options[tmp]
-                self.extra_options[self.manual_desc] = t
+            biggest_free = self.find_script(menu_options, 'biggest_free')
+            if biggest_free:
+                biggest_free = biggest_free[0][1]
+                biggest_free = self.split_devpart(biggest_free)[1]
+            self.extra_options[self.biggest_free_desc] = biggest_free
 
             self.frontend.set_autopartition_choices(
-                choices, self.extra_options,
-                self.resize_desc, self.manual_desc)
+                choices, self.extra_options, self.resize_desc,
+                self.manual_desc, self.biggest_free_desc)
 
         elif question == 'partman-auto/select_disk':
             if self.auto_state is not None:

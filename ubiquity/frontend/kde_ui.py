@@ -1205,9 +1205,11 @@ class Wizard(BaseFrontend):
         self.disk_layout = layout
 
     def set_autopartition_choices (self, choices, extra_options,
-                                   resize_choice, manual_choice):
+                                   resize_choice, manual_choice,
+                                   biggest_free_choice):
         BaseFrontend.set_autopartition_choices(self, choices, extra_options,
-                                               resize_choice, manual_choice)
+                                               resize_choice, manual_choice,
+                                               biggest_free_choice)
 
         children = self.userinterface.autopartition_frame.children()
         for child in children:
@@ -1284,7 +1286,7 @@ class Wizard(BaseFrontend):
             frame = None
 
             # if we have more information about the choice
-            if choice in extra_options:  
+            if choice in extra_options:
                 # label for the before device
                 dev = None
                 
@@ -1297,10 +1299,45 @@ class Wizard(BaseFrontend):
                 indent_hbox.addSpacing(10)
                 indent_hbox.addWidget(frame)
                 
-                if choice == resize_choice:
+                before_label = self.get_string('ubiquity/text/partition_layout_before')
+                after_label = self.get_string('ubiquity/text/partition_layout_after')
+                if choice == biggest_free_choice:
+                    biggest_free_id = extra_options[choice]
+                    dev = None
+                    for disk in disks:
+                        for p in disks[disk]:
+                            if p[1] == biggest_free_id:
+                                dev = disk
+                                break
+                        if dev:
+                            break
+                    if dev:
+                        before_frame = QGroupBox(before_label, bar_frame)
+                        before_frame.setLayout(QVBoxLayout())
+                        layout.addWidget(before_frame)
+                        
+                        before_bar = PartitionsBar(before_frame)
+                        before_frame.layout().addWidget(before_bar)
+                        
+                        after_frame = QGroupBox(after_label, bar_frame)
+                        after_frame.setLayout(QVBoxLayout())
+                        layout.addWidget(after_frame)
+                        
+                        after_bar = PartitionsBar(after_frame)
+                        after_frame.layout().addWidget(after_bar)
+                        
+                        for p in disks[dev]:
+                            before_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
+                            if p[1] == biggest_free_id:
+                                after_bar.addPartition('', int(p[2]), int(p[0]), '', get_release_name())
+                            else:
+                                after_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
+                           
+                        before_frame.setVisible(True)
+                        after_frame.setVisible(True)
+                elif choice == resize_choice:
                     # information about what can be resized
                     extra = extra_options[choice]
-                    
                     for d in self.disk_layout:
                         disk = d
                         if disk.startswith('=dev='):
@@ -1308,19 +1345,22 @@ class Wizard(BaseFrontend):
                         if "%s" % disk in extra[3]:
                             dev = d
                             break
-                    
+
                     min_size, max_size, orig_size, resize_path = extra_options[choice]
-                        
+                    
                     #TODO use find_in_os_prober to give nice name
                     if dev:
-                        before_frame = QGroupBox("Before Resize:", bar_frame)
+                        # TODO evand 2009-04-16: i18n.
+                        before_label = "Before Resize:"
+                        after_label = "After Resize:"
+                        before_frame = QGroupBox(before_label, bar_frame)
                         before_frame.setLayout(QVBoxLayout())
                         layout.addWidget(before_frame)
                         
                         before_bar = PartitionsBar(before_frame)
                         before_frame.layout().addWidget(before_bar)
                         
-                        after_frame = QGroupBox("After Resize:", bar_frame)
+                        after_frame = QGroupBox(after_label, bar_frame)
                         after_frame.setLayout(QVBoxLayout())
                         layout.addWidget(after_frame)
                         
@@ -1332,7 +1372,7 @@ class Wizard(BaseFrontend):
                             after_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
                         
                         after_bar.setResizePartition(resize_path, 
-                            min_size, max_size, orig_size, 'Kubuntu')     
+                            min_size, max_size, orig_size, get_release_name())
                            
                         before_frame.setVisible(True)
                         after_frame.setVisible(True)
@@ -1374,14 +1414,14 @@ class Wizard(BaseFrontend):
                                 
                         #add the bars if we found the device
                         if dev:
-                            before_frame = QGroupBox("Before Install:", bar_frame)
+                            before_frame = QGroupBox(before_label, bar_frame)
                             before_frame.setLayout(QVBoxLayout())
                             layout.addWidget(before_frame)
                             
                             before_bar = PartitionsBar(before_frame)
                             before_frame.layout().addWidget(before_bar)
                             
-                            after_frame = QGroupBox("After Install:", bar_frame)
+                            after_frame = QGroupBox(after_label, bar_frame)
                             after_frame.setLayout(QVBoxLayout())
                             layout.addWidget(after_frame)
                             
@@ -1391,10 +1431,11 @@ class Wizard(BaseFrontend):
                             for p in disks[dev]:
                                 before_bar.addPartition(p[6], int(p[2]), p[0], p[4], p[5])
                                 
+                            release_name = get_release_name()
                             if before_bar.diskSize > 0:
-                                after_bar.addPartition('', before_bar.diskSize, '', '', 'Kubuntu')
+                                after_bar.addPartition('', before_bar.diskSize, '', '', release_name)
                             else:
-                                after_bar.addPartition('', 1, '', '', 'Kubuntu')
+                                after_bar.addPartition('', 1, '', '', release_name)
                                 
                             before_frame.setVisible(False)
                             after_frame.setVisible(False)

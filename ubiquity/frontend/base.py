@@ -319,10 +319,12 @@ class BaseFrontend:
         pass
 
     def set_autopartition_choices(self, choices, extra_options,
-                                  resize_choice, manual_choice):
+                                  resize_choice, manual_choice,
+                                  biggest_free_choice):
         """Set available autopartitioning choices."""
         self.resize_choice = resize_choice
         self.manual_choice = manual_choice
+        self.biggest_free_choice = biggest_free_choice
 
     def get_autopartition_choice(self):
         """Get the selected autopartitioning choice."""
