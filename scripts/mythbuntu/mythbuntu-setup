@@ -42,7 +42,7 @@ fi
 
 #Stop MySQL if we started it
 if $chroot $ROOT invoke-rc.d mysql status >/dev/null; then
-    $log mount umount /var/run/mysqld
+    $log umount /var/run/mysqld
     $log $chroot $ROOT invoke-rc.d mysql stop
 fi
 
