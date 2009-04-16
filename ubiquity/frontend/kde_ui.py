@@ -1287,7 +1287,7 @@ class Wizard(BaseFrontend):
             frame = None
 
             # if we have more information about the choice
-            if choice in extra_options:  
+            if choice in extra_options and choice != biggest_free_choice:
                 # label for the before device
                 dev = None
                 
