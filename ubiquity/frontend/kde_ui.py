@@ -1335,7 +1335,7 @@ class Wizard(BaseFrontend):
                             after_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
                         
                         after_bar.setResizePartition(resize_path, 
-                            min_size, max_size, orig_size, 'Kubuntu')     
+                            min_size, max_size, orig_size, get_release_name())     
                            
                         before_frame.setVisible(True)
                         after_frame.setVisible(True)
@@ -1394,10 +1394,11 @@ class Wizard(BaseFrontend):
                             for p in disks[dev]:
                                 before_bar.addPartition(p[6], int(p[2]), p[0], p[4], p[5])
                                 
+                            release_name = get_release_name()
                             if before_bar.diskSize > 0:
-                                after_bar.addPartition('', before_bar.diskSize, '', '', 'Kubuntu')
+                                after_bar.addPartition('', before_bar.diskSize, '', '', release_name)
                             else:
-                                after_bar.addPartition('', 1, '', '', 'Kubuntu')
+                                after_bar.addPartition('', 1, '', '', release_name)
                                 
                             before_frame.setVisible(False)
                             after_frame.setVisible(False)
