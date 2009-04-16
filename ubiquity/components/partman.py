@@ -347,6 +347,7 @@ class Partman(FilteredCommand):
         options = self.snoop()
         menu_options = self.snoop_menu(options)
         self.debug('Partman: state = %s', self.__state)
+        self.debug('Partman: auto_state = %s', self.auto_state)
 
         if question.endswith('automatically_partition'):
             self.autopartition_question = question

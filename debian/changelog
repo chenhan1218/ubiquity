@@ -22,6 +22,7 @@ ubiquity (1.12.10) UNRELEASED; urgency=low
     default country only has one timezone (LP: #361674).
   * Preseed passwd/auto-login-backup=oem in OEM mode, so that the original
     configuration files are available for restoration (LP: #361272).
+  * Add a little extra state machine debugging to the partman component.
   * Update translations from Launchpad.
 
   [ Jonathan Riddell ]
