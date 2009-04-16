@@ -42,6 +42,13 @@ ubiquity (1.12.10) UNRELEASED; urgency=low
   * KDE frontend:
     - port reboot code to KDE 4, (LP: #360838)
 
+  [ Mario Limonciello ]
+  * Mythbuntu Frontend:
+    - Don't launch GUI applications from within the chroot as this causes 
+      problems when libGL.so.1 and friends are diverted.  Instead bind 
+      mount the necessary files to launch them outside the chroot.
+      (LP: #362419)
+
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 15 Apr 2009 12:58:09 +0100
 
 ubiquity (1.12.9) jaunty; urgency=low
