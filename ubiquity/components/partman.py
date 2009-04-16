@@ -1087,13 +1087,8 @@ class Partman(FilteredCommand):
             if autopartition_choice in self.translation_mappings:
                 autopartition_choice = \
                     self.translation_mappings[autopartition_choice]
-            if self.autopartition_question is not None:
-                self.preseed_as_c(self.autopartition_question, autopartition_choice)
-            else:
-                self.preseed_as_c('partman-auto/init_automatically_partition',
-                             autopartition_choice)
-                self.preseed_as_c('partman-auto/automatically_partition',
-                             autopartition_choice)
+            self.preseed_as_c(self.current_question, autopartition_choice,
+                              seen=False)
             # Don't exit partman yet.
         else:
             self.finish_partitioning = True

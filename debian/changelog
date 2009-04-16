@@ -31,6 +31,11 @@ ubiquity (1.12.10) UNRELEASED; urgency=low
     the possible choices). We should clean this up properly later, but for
     now just restore the allowed-change-step state when the dialog is
     finished.
+  * Fix preseeding of the autopartitioning question to work in automatic
+    mode: it needs to be preseeded as unseen, otherwise going back from a
+    confirmation question doesn't work (LP: #361828). Remove an old code
+    path that would have been very complicated to fix for this and is
+    guaranteed to never be used nowadays.
   * Update translations from Launchpad.
 
   [ Jonathan Riddell ]
