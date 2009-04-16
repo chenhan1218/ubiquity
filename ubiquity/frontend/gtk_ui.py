@@ -1664,13 +1664,11 @@ class Wizard(BaseFrontend):
                 firstbutton = button
             self.autopartition_choices_vbox.add(button)
 
-            if choice in extra_options:
+            if choice in extra_options and choice != biggest_free_choice:
                 alignment = gtk.Alignment(xscale=1, yscale=1)
                 alignment.set_padding(0, 0, 12, 0)
 
-                if choice == resize_choice:
-                    pass
-                elif choice != manual_choice and choice != biggest_free_choice:
+                if choice not in [resize_choice, manual_choice]:
                     extra_combo = gtk.combo_box_new_text()
                     vbox = gtk.VBox(spacing=6)
                     alignment.add(vbox)
