@@ -12,7 +12,7 @@ ubiquity (1.12.10) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Fix stripping of '=dev=' from device names when creating partition bars
-    to avoid reducing e.g. '=dev=vda' to 'a'.
+    to avoid reducing e.g. '=dev=vda' to 'a' (LP: #362466).
   * KDE frontend:
     - Start the resize slider at the maximum possible size for the partition
       being resized; this is in line with the GTK frontend, and fixes the
