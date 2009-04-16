@@ -85,6 +85,7 @@ class BaseFrontend:
         if self.oem_config:
             try:
                 db.set('passwd/auto-login', 'true')
+                db.set('passwd/auto-login-backup', 'oem')
             except debconf.DebconfError:
                 pass
 

@@ -16,6 +16,8 @@ ubiquity (1.12.10) UNRELEASED; urgency=low
     preseeding it; filtering it causes the backup state to be reset, which
     causes an infinite loop when backing up from the timezone page when the
     default country only has one timezone (LP: #361674).
+  * Preseed passwd/auto-login-backup=oem in OEM mode, so that the original
+    configuration files are available for restoration (LP: #361272).
 
   [ Jonathan Riddell ]
   * KDE frontend:
