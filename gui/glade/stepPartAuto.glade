@@ -54,8 +54,11 @@
             <property name="orientation">vertical</property>
             <property name="spacing">12</property>
             <child>
-              <widget class="GtkEventBox" id="before_bar_eb">
+              <widget class="GtkFrame" id="before_bar_eb">
                 <property name="visible">True</property>
+                <property name="label_xalign">0</property>
+                <property name="label_yalign">0</property>
+                <property name="shadow_type">none</property>
                 <child>
                   <placeholder/>
                 </child>
@@ -110,8 +113,11 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkEventBox" id="action_bar_eb">
+              <widget class="GtkFrame" id="action_bar_eb">
                 <property name="visible">True</property>
+                <property name="label_xalign">0</property>
+                <property name="label_yalign">0</property>
+                <property name="shadow_type">none</property>
                 <child>
                   <placeholder/>
                 </child>

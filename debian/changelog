@@ -7,6 +7,8 @@ ubiquity (1.12.10) UNRELEASED; urgency=low
     option in the partition bars.  Previously ubiquity would create a single
     Ubuntu partition that filled the entire drive when this option was
     selected (LP: #289663).
+  * Pack the SegmentedBar widgets in GtkFrames rather than GtkEventBoxes
+    to work around repainting issues (LP: #362334).
 
   [ Colin Watson ]
   * Fix stripping of '=dev=' from device names when creating partition bars
