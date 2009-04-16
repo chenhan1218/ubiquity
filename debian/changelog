@@ -4,7 +4,7 @@ ubiquity (1.12.10) UNRELEASED; urgency=low
   * Fix a crash when in OEM mode.  Child widgets are members of the
     self.userinterface list (LP: #361668).
   * Add support for displaying the "Use the largest continuous free space"
-    option in the partition bars.  Previously ubiquity would create an single
+    option in the partition bars.  Previously ubiquity would create a single
     Ubuntu partition that filled the entire drive when this option was
     selected.
 
