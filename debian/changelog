@@ -1,4 +1,4 @@
-ubiquity (1.12.10) UNRELEASED; urgency=low
+ubiquity (1.12.10) jaunty; urgency=low
 
   [ Evan Dandrea ]
   * Fix a crash when in OEM mode.  Child widgets are members of the
@@ -55,7 +55,7 @@ ubiquity (1.12.10) UNRELEASED; urgency=low
       mount the necessary files to launch them outside the chroot.
       (LP: #362419)
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 15 Apr 2009 12:58:09 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 17 Apr 2009 10:07:14 +0100
 
 ubiquity (1.12.9) jaunty; urgency=low
 
