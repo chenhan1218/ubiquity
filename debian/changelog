@@ -9,6 +9,8 @@ ubiquity (1.12.10) UNRELEASED; urgency=low
     selected (LP: #289663).
   * Pack the SegmentedBar widgets in GtkFrames rather than GtkEventBoxes
     to work around repainting issues (LP: #362334).
+  * Automatic update of included source packages: flash-kernel
+    2.13ubuntu7, user-setup 1.23ubuntu20.
 
   [ Colin Watson ]
   * Fix stripping of '=dev=' from device names when creating partition bars
