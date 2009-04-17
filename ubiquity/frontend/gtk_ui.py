@@ -1335,6 +1335,10 @@ class Wizard(BaseFrontend):
     def debconf_progress_start (self, progress_min, progress_max, progress_title):
         if self.current_page is not None:
             self.debconf_progress_window.set_transient_for(self.live_installer)
+            # Metacity doesn't seem to respect the modal flag for normal
+            # windows when the parent window is fullscreened.
+            self.debconf_progress_window.set_type_hint(
+                gtk.gdk.WINDOW_TYPE_HINT_DIALOG)
         else:
             self.debconf_progress_window.set_transient_for(None)
         if progress_title is None:
