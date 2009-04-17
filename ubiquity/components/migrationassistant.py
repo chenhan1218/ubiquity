@@ -126,18 +126,12 @@ class MigrationAssistant(FilteredCommand):
                 # We check to see if the partition is scheduled to be
                 # formatted and if not add it to the list of post-commit
                 # available partitions.
-                filename = '/var/lib/partman/devices/%s/%s/view' % \
+                filename = '/var/lib/partman/devices/%s/%s/format' % \
                     (disk, partition[1])
-                fd = open(filename)
-                pieces = fd.readline().rstrip('\n').split(None, 8)
-                fd.close()
-                line = [''] * 8
-                line[0:len(pieces)] = pieces
-                formatted = ['F', 'f', 'swap']
-                if not (set(line) & set(formatted)):
-                    parts.append(partition[5])
-                else:
+                if os.path.exists(filename):
                     syslog.syslog('filtering out %s as it is to be formatted.' % partition[5])
+                else:
+                    parts.append(partition[5])
 
         drop_privileges()
         ret = []
@@ -154,10 +148,10 @@ class MigrationAssistant(FilteredCommand):
             systems = systems.split(', ')
             try:
                 ret = []
-                for os in systems:
-                    osref = os
-                    part = os[os.rfind('/')+1:-1] # hda1
-                    os = os[:os.rfind('(')-1]
+                for oper in systems:
+                    osref = oper
+                    part = oper[oper.rfind('/')+1:-1] # hda1
+                    oper = oper[:oper.rfind('(')-1]
 
                     users = self.db.get('migration-assistant/' + part + '/users')
                     if not users:
@@ -178,7 +172,7 @@ class MigrationAssistant(FilteredCommand):
                             items = items.split(', ')
                             tree.append({'user': user,
                                          'part': part,
-                                         'os': os,
+                                         'os': oper,
                                          'items': items,
                                          'selected': False})
                     # We now unset everything as the checkboxes will be unselected

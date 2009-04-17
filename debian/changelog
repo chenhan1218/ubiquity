@@ -1,3 +1,11 @@
+ubiquity (1.12.11) UNRELEASED; urgency=low
+
+  * Properly filter out partitions that are going to be formatted from
+    migration-assistant again after changes to partman broke the code
+    (LP: #349334).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 17 Apr 2009 12:07:17 +0100
+
 ubiquity (1.12.10) jaunty; urgency=low
 
   [ Evan Dandrea ]
