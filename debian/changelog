@@ -13,6 +13,7 @@ oem-config (1.54.13) UNRELEASED; urgency=low
     default country only has one timezone (LP: #361674).
   * Preseed passwd/auto-login-backup=oem in the udeb, so that the original
     configuration files are available for restoration (LP: #361272).
+  * Automatic update of included source packages: user-setup 1.23ubuntu20.
 
  -- Roman Shtylman <shtylman@gmail.com>  Mon, 13 Apr 2009 17:30:32 -0400
 
