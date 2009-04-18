@@ -1,4 +1,4 @@
-ubiquity (1.12.12) UNRELEASED; urgency=low
+ubiquity (1.12.12) jaunty; urgency=low
 
   * Set the window manager type hint to dialog for
     debconf_progress_window to prevent it from being hidden behind the
@@ -6,7 +6,7 @@ ubiquity (1.12.12) UNRELEASED; urgency=low
   * Automatic update of included source packages: base-installer
     1.98ubuntu7.
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 17 Apr 2009 16:35:54 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Sat, 18 Apr 2009 11:24:33 +0100
 
 ubiquity (1.12.11) jaunty; urgency=low
 
