@@ -401,6 +401,7 @@ class Wizard(ParentFrontend.Wizard):
         """Called whenever the modify video driver option is toggled or its kids"""
         drivers=get_graphics_dictionary()
         if (widget is not None and widget.get_name() == 'video_driver'):
+            self.allow_go_forward(True)
             type = widget.get_active()
             if (type < len(drivers)):
                 self.tvout_vbox.set_sensitive(True)
