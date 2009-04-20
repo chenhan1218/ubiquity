@@ -1706,6 +1706,7 @@ class Wizard(BaseFrontend):
                 self.autopartition_choices_vbox.pack_start(alignment,
                                                    expand=False, fill=False)
                 self.autopartition_extras[choice] = alignment
+                alignment.set_sensitive(False)
             button.connect('toggled', self.on_autopartition_toggled, extra_combo)
 
         if firstbutton is not None:

@@ -1,10 +1,15 @@
 ubiquity (1.12.13) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
   * Mythbuntu Frontend:
     - Explicitly allow the user to progress when the graphics driver is
       selected.  For Wubi installs that contain an NVIDIA or AMD graphics
       card, the installer would be stuck on this page because of being in
       automatic mode.  This page is not shown on Non-NVIDIA or AMD systems.
+
+  [ Evan Dandrea ]
+  * Initially set the extra autopartition options to an insensitive
+    state (LP: #362914).
 
  -- Mario Limonciello <superm1@ubuntu.com>  Mon, 20 Apr 2009 01:15:56 -0500
 
