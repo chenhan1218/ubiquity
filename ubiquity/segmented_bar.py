@@ -584,6 +584,7 @@ class SegmentedBarSlider(SegmentedBar):
 
     def set_device(self, device):
         self.device = device
+        self.resize = -1
 
     def add_segment_rgb(self, title, percent, rgb_color):
         SegmentedBar.add_segment_rgb(self, title, percent, rgb_color)

@@ -10,6 +10,8 @@ ubiquity (1.12.13) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Initially set the extra autopartition options to an insensitive
     state (LP: #362914).
+  * Properly reset the 'after' partition bar when switching between 'use
+    the largest continuous free space' and 'install them side by side.'
 
  -- Mario Limonciello <superm1@ubuntu.com>  Mon, 20 Apr 2009 01:15:56 -0500
 

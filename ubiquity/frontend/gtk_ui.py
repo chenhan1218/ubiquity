@@ -1286,11 +1286,11 @@ class Wizard(BaseFrontend):
 
         if widget.get_active():
             self.action_bar.remove_all()
-            self.action_bar.resize = -1
             if choice == self.manual_choice:
                 self.action_bar.add_segment_rgb(self.manual_choice, -1, \
                     self.release_color)
             elif choice == self.resize_choice:
+                self.action_bar.set_device(self.resize_path)
                 for k in self.disk_layout:
                     for p in self.disk_layout[k]:
                         if self.resize_path == p[0]:
@@ -1299,6 +1299,7 @@ class Wizard(BaseFrontend):
                             self.create_bar(k, type=choice)
                             return
             elif choice == self.biggest_free_choice:
+                self.action_bar.set_device(None)
                 for k in self.disk_layout:
                     for p in self.disk_layout[k]:
                         if self.biggest_free_id == p[2]:
@@ -1656,7 +1657,6 @@ class Wizard(BaseFrontend):
             self.action_bar.set_part_size(self.resize_orig_size)
             self.action_bar.set_min(self.resize_min_size)
             self.action_bar.set_max(self.resize_max_size)
-            self.action_bar.set_device(self.resize_path)
         if biggest_free_choice in choices:
             self.biggest_free_id = extra_options[biggest_free_choice]
 
