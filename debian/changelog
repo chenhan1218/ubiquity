@@ -1,4 +1,4 @@
-ubiquity (1.12.13) UNRELEASED; urgency=low
+ubiquity (1.12.13) jaunty; urgency=low
 
   [ Mario Limonciello ]
   * Mythbuntu Frontend:
@@ -14,7 +14,7 @@ ubiquity (1.12.13) UNRELEASED; urgency=low
     the largest continuous free space' and 'install them side by side'
     (LP: #364181).
 
- -- Mario Limonciello <superm1@ubuntu.com>  Mon, 20 Apr 2009 01:15:56 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 21 Apr 2009 09:43:58 +0100
 
 ubiquity (1.12.12) jaunty; urgency=low
 
