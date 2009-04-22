@@ -4,6 +4,8 @@ ubiquity (1.13.0) UNRELEASED; urgency=low
   * GTK frontend:
     - Fix return value from get_keyboard/get_keyboard_variant if the stored
       default layout/variant is None (LP: #364539).
+    - Make create/edit partition mount combo box activate the window default
+      (LP: #364564).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 16 Apr 2009 00:33:23 +0100
 

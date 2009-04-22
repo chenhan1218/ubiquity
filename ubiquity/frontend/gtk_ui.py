@@ -540,6 +540,9 @@ class Wizard(BaseFrontend):
         sw.show_all()
         self.before_bar_eb.add(sw)
 
+        self.partition_create_mount_combo.child.set_activates_default(True)
+        self.partition_edit_mount_combo.child.set_activates_default(True)
+
         if 'UBIQUITY_DEBUG' in os.environ:
             self.password_debug_warning_label.show()
 
