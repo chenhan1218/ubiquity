@@ -1496,7 +1496,10 @@ class Wizard(BaseFrontend):
 
     def get_keyboard (self):
         if self.suggested_keymap.get_active():
-            return unicode(self.default_keyboard_layout)
+            if self.default_keyboard_layout is not None:
+                return None
+            else:
+                return unicode(self.default_keyboard_layout)
         selection = self.keyboardlayoutview.get_selection()
         (model, iterator) = selection.get_selected()
         if iterator is None:
@@ -1542,7 +1545,10 @@ class Wizard(BaseFrontend):
 
     def get_keyboard_variant (self):
         if self.suggested_keymap.get_active():
-            return unicode(self.default_keyboard_variant)
+            if self.default_keyboard_variant is None:
+                return None
+            else:
+                return unicode(self.default_keyboard_variant)
         selection = self.keyboardvariantview.get_selection()
         (model, iterator) = selection.get_selected()
         if iterator is None:
