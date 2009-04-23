@@ -812,7 +812,7 @@ class Wizard(BaseFrontend):
             else:
                 hostname_suffix = '-desktop'
             self.userinterface.hostname.blockSignals(True)
-            self.userinterface.hostname.setText(unicode(widget.text()) + hostname_suffix)
+            self.userinterface.hostname.setText(unicode(widget.text()).strip() + hostname_suffix)
             self.userinterface.hostname.blockSignals(False)
 
         complete = True

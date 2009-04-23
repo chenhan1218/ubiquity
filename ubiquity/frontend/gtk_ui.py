@@ -540,6 +540,9 @@ class Wizard(BaseFrontend):
         sw.show_all()
         self.before_bar_eb.add(sw)
 
+        self.partition_create_mount_combo.child.set_activates_default(True)
+        self.partition_edit_mount_combo.child.set_activates_default(True)
+
         if 'UBIQUITY_DEBUG' in os.environ:
             self.password_debug_warning_label.show()
 
@@ -1027,7 +1030,7 @@ class Wizard(BaseFrontend):
             else:
                 hostname_suffix = '-desktop'
             self.hostname.handler_block(self.hostname_changed_id)
-            self.hostname.set_text(widget.get_text() + hostname_suffix)
+            self.hostname.set_text(widget.get_text().strip() + hostname_suffix)
             self.hostname.handler_unblock(self.hostname_changed_id)
 
         complete = True
@@ -1508,7 +1511,10 @@ class Wizard(BaseFrontend):
 
     def get_keyboard (self):
         if self.suggested_keymap.get_active():
-            return unicode(self.default_keyboard_layout)
+            if self.default_keyboard_layout is not None:
+                return None
+            else:
+                return unicode(self.default_keyboard_layout)
         selection = self.keyboardlayoutview.get_selection()
         (model, iterator) = selection.get_selected()
         if iterator is None:
@@ -1554,7 +1560,10 @@ class Wizard(BaseFrontend):
 
     def get_keyboard_variant (self):
         if self.suggested_keymap.get_active():
-            return unicode(self.default_keyboard_variant)
+            if self.default_keyboard_variant is None:
+                return None
+            else:
+                return unicode(self.default_keyboard_variant)
         selection = self.keyboardvariantview.get_selection()
         (model, iterator) = selection.get_selected()
         if iterator is None:

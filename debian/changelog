@@ -14,6 +14,14 @@ ubiquity (1.13.0) UNRELEASED; urgency=low
     the largest continuous free space' and 'install them side by side'
     (LP: #364181).
 
+  [ Colin Watson ]
+  * Strip whitespace from username (LP: #358656).
+  * GTK frontend:
+    - Fix return value from get_keyboard/get_keyboard_variant if the stored
+      default layout/variant is None (LP: #364539).
+    - Make create/edit partition mount combo box activate the window default
+      (LP: #364564).
+
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 21 Apr 2009 09:43:58 +0100
 
 ubiquity (1.12.12) jaunty; urgency=low

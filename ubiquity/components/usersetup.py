@@ -96,7 +96,7 @@ class UserSetup(FilteredCommand):
 
     def ok_handler(self):
         fullname = self.frontend.get_fullname()
-        username = self.frontend.get_username()
+        username = self.frontend.get_username().strip()
         password = self.frontend.get_password()
         password_confirm = self.frontend.get_verified_password()
         auto_login = self.frontend.get_auto_login()
