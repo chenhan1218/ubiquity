@@ -315,7 +315,7 @@
                                                 <property name="visibility">False</property>
                                                 <property name="invisible_char">&#x25CF;</property>
                                                 <property name="activates_default">True</property>
-                                                <property name="width_chars">12</property>
+                                                <property name="width_chars">20</property>
                                                 <signal name="changed" handler="info_loop"/>
                                               </widget>
                                               <packing>
@@ -329,7 +329,7 @@
                                                 <property name="visibility">False</property>
                                                 <property name="invisible_char">&#x25CF;</property>
                                                 <property name="activates_default">True</property>
-                                                <property name="width_chars">12</property>
+                                                <property name="width_chars">20</property>
                                                 <signal name="changed" handler="info_loop"/>
                                               </widget>
                                               <packing>
