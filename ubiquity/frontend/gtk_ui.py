@@ -1614,7 +1614,8 @@ class Wizard(BaseFrontend):
             if type == self.biggest_free_choice and part[2] == self.biggest_free_id:
                 b.add_segment_rgb(get_release_name(), size, self.release_color)
             elif dev == 'free':
-                b.add_segment_rgb("Free Space", size, b.remainder_color)
+                s = self.get_string('ubiquity/text/partition_free_space')
+                b.add_segment_rgb(s, size, b.remainder_color)
             else:
                 if dev in self.dev_colors:
                     c = self.dev_colors[dev]

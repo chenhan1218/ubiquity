@@ -13,6 +13,8 @@ ubiquity (1.13.0) UNRELEASED; urgency=low
   * Properly reset the 'after' partition bar when switching between 'use
     the largest continuous free space' and 'install them side by side'
     (LP: #364181).
+  * Add translation support for the "Free Space" string in the GTK frontend
+    partition bars (LP: #365490).
 
   [ Colin Watson ]
   * Strip whitespace from username (LP: #358656).
@@ -22,7 +24,7 @@ ubiquity (1.13.0) UNRELEASED; urgency=low
     - Make create/edit partition mount combo box activate the window default
       (LP: #364564).
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 21 Apr 2009 09:43:58 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 24 Apr 2009 13:36:27 +0100
 
 ubiquity (1.12.12) jaunty; urgency=low
 
