@@ -16,6 +16,7 @@ ubiquity (1.13.0) UNRELEASED; urgency=low
   * Add translation support for the "Free Space" string in the GTK frontend
     partition bars (LP: #365490).
   * Re-enable the alpha intro message.
+  * Provide better labels for the partition buttons (LP: #336764).
 
   [ Colin Watson ]
   * Strip whitespace from username (LP: #358656).

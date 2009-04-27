@@ -287,22 +287,27 @@ _Description: After:
 Template: ubiquity/text/partition_button_new_label
 Type: text
 # An action, displayed on a button or as a menu item.
-_Description: New partition table
+_Description: New Partition Table...
 
 Template: ubiquity/text/partition_button_new
 Type: text
 # An action, displayed on a button or as a menu item.
-_Description: New partition
+_Description: Add...
 
 Template: ubiquity/text/partition_button_edit
 Type: text
 # An action, displayed on a button or as a menu item.
-_Description: Edit partition
+_Description: Change...
 
 Template: ubiquity/text/partition_button_delete
 Type: text
 # An action, displayed on a button or as a menu item.
-_Description: Delete partition
+_Description: Delete
+
+Template: ubiquity/text/partition_button_undo
+Type: text
+# An action, displayed on a button or as a menu item.
+_Description: Revert
 
 Template: ubiquity/text/partition_column_device
 Type: text

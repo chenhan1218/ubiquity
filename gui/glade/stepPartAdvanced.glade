@@ -162,17 +162,6 @@
                         <property name="position">3</property>
                       </packing>
                     </child>
-                  </widget>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <widget class="GtkHBox" id="partition_list_buttonbox_2">
-                    <property name="visible">True</property>
-                    <property name="spacing">6</property>
                     <child>
                       <widget class="GtkButton" id="partition_button_undo">
                         <property name="label" translatable="yes">Undo changes to partitions</property>
@@ -185,14 +174,14 @@
                       </widget>
                       <packing>
                         <property name="expand">False</property>
-                        <property name="position">0</property>
+                        <property name="position">4</property>
                       </packing>
                     </child>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">False</property>
-                    <property name="position">1</property>
+                    <property name="position">0</property>
                   </packing>
                 </child>
               </widget>

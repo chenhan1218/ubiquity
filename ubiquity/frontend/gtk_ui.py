@@ -677,9 +677,6 @@ class Wizard(BaseFrontend):
         for widget in self.all_widgets:
             self.translate_widget(widget, self.locale)
 
-        self.partition_button_undo.set_label(
-            self.get_string('partman/text/undo_everything'))
-
     def translate_widget(self, widget, lang):
         if isinstance(widget, gtk.Button) and widget.get_use_stock():
             widget.set_label(widget.get_label())
@@ -1894,7 +1891,7 @@ class Wizard(BaseFrontend):
         if partition_list_menu.get_children():
             partition_list_menu.append(gtk.SeparatorMenuItem())
         undo_item = gtk.MenuItem(
-            self.get_string('partman/text/undo_everything'))
+            self.get_string('partition_button_undo'))
         undo_item.connect('activate', self.on_partition_list_undo_activate)
         partition_list_menu.append(undo_item)
         partition_list_menu.show_all()
