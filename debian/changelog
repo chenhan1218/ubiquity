@@ -17,6 +17,8 @@ ubiquity (1.13.0) UNRELEASED; urgency=low
     partition bars (LP: #365490).
   * Re-enable the alpha intro message.
   * Provide better labels for the partition buttons (LP: #336764).
+  * Move the ubiquity icon into the ubiquity-ubuntu-artwork package
+    (LP: #322174).
 
   [ Colin Watson ]
   * Strip whitespace from username (LP: #358656).
