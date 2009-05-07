@@ -360,8 +360,14 @@ bind-address=0.0.0.0"""
         #now take care of mythbuntu specifics
         packages=set()
         ## system role
+        if 'Backend' not in self.type:
+            packages.add('libnet-upnp-perl') #causes mythtv-backend to be removed
+            packages.add('php5-common')      #causes mythweb to be removed
+            packages.add('libaprutil1')      #causes apache2 to be removed
         if 'Slave' in self.type or self.type == 'Frontend':
-            packages.add('mythtv-backend-master')
+            packages.add('ntp')              #causes mythtv-backend-master to go
+            packages.add('mythtv-database')
+            packages.add('mysql-server-core-5.0')
         if 'Frontend' not in self.type:
             packages.add('mythtv-frontend')
         ## services that are installed by default

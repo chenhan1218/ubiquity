@@ -6,6 +6,10 @@ ubiquity (1.13.0) UNRELEASED; urgency=low
       selected.  For Wubi installs that contain an NVIDIA or AMD graphics
       card, the installer would be stuck on this page because of being in
       automatic mode.  This page is not shown on Non-NVIDIA or AMD systems.
+    - Be more specific about packages that are removed in role selection.
+      Unfortunately prior to this fix, choosing a Frontend role for example
+      was not cleaning up mysql, apache, or mythtv-backend (completely 
+      defeating the purpose of a frontend role).
 
   [ Evan Dandrea ]
   * Initially set the extra autopartition options to an insensitive
