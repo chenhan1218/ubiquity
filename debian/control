@@ -25,7 +25,7 @@ Description: Ubuntu live CD installer
 Package: ubiquity-ubuntu-artwork
 Architecture: all
 Conflicts: ubuntu-express-ubuntu-artwork, ubuntu-express-ubuntu-doc, espresso-ubuntu-artwork, espresso-ubuntu-doc, ubiquity-ubuntu-doc
-Replaces: ubuntu-express-ubuntu-artwork, ubuntu-express-ubuntu-doc, espresso-ubuntu-artwork, espresso-ubuntu-doc, ubiquity-ubuntu-doc
+Replaces: ubuntu-express-ubuntu-artwork, ubuntu-express-ubuntu-doc, espresso-ubuntu-artwork, espresso-ubuntu-doc, ubiquity-ubuntu-doc, ubiquity (<< 1.13.0)
 Provides: ubiquity-artwork-${mangled-version}
 Description: Ubuntu artwork for Ubiquity live installer
  This package provides Ubuntu-themed user interface artwork, help files, and
