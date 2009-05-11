@@ -1,4 +1,4 @@
-ubiquity (1.13.0) UNRELEASED; urgency=low
+ubiquity (1.13.0) karmic; urgency=low
 
   [ Mario Limonciello ]
   * Mythbuntu Frontend:
@@ -40,7 +40,7 @@ ubiquity (1.13.0) UNRELEASED; urgency=low
     partman-newworld 21, partman-target 59ubuntu1.
   * Adjust for changes in console-setup 1.34ubuntu1.
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 24 Apr 2009 13:36:27 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 11 May 2009 11:22:35 +0100
 
 ubiquity (1.12.12) jaunty; urgency=low
 
