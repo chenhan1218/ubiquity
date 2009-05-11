@@ -9,3 +9,15 @@ Type: text
 # Translations for this template are imported from GTK. Please keep them in
 # sync.
 _Description: _Forward
+
+Template: oem-config/imported/yes
+Type: text
+# Translations for this template are imported from GTK. Please keep them in
+# sync.
+_Description: _Yes
+
+Template: oem-config/imported/no
+Type: text
+# Translations for this template are imported from GTK. Please keep them in
+# sync.
+_Description: _No

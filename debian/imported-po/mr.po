@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+.HEAD.mr\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
-"POT-Creation-Date: 2009-05-11 10:12+0100\n"
+"POT-Creation-Date: 2009-05-11 10:19+0100\n"
 "PO-Revision-Date: 2009-03-15 16:42+0530\n"
 "Last-Translator: Sandeep Shedmake <sandeep.shedmake@gmail.com>\n"
 "Language-Team: marathi\n"
@@ -34,3 +34,21 @@ msgstr "मागील (_B)"
 msgctxt "Stock label, navigation"
 msgid "_Forward"
 msgstr "पुढे (_F)"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../oem-config.templates-imported:3001
+msgctxt "Stock label"
+msgid "_Yes"
+msgstr "होय (_Y)"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../oem-config.templates-imported:4001
+msgctxt "Stock label"
+msgid "_No"
+msgstr "नाही (_N)"

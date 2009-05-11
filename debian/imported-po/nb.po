@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+ 2.15.x\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
-"POT-Creation-Date: 2009-05-11 10:12+0100\n"
+"POT-Creation-Date: 2009-05-11 10:19+0100\n"
 "PO-Revision-Date: 2009-02-10 07:24+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
@@ -33,3 +33,21 @@ msgstr "Til_bake"
 msgctxt "Stock label, navigation"
 msgid "_Forward"
 msgstr "_Fremover"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../oem-config.templates-imported:3001
+msgctxt "Stock label"
+msgid "_Yes"
+msgstr "_Ja"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../oem-config.templates-imported:4001
+msgctxt "Stock label"
+msgid "_No"
+msgstr "_Nei"

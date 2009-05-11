@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+.HEAD.he\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
-"POT-Creation-Date: 2009-05-11 10:12+0100\n"
+"POT-Creation-Date: 2009-05-11 10:19+0100\n"
 "PO-Revision-Date: 2008-10-24 14:32+0200\n"
 "Last-Translator: Mark Krapivner <mark125@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
@@ -36,3 +36,21 @@ msgstr "_חזרה"
 msgctxt "Stock label, navigation"
 msgid "_Forward"
 msgstr "_קדימה"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../oem-config.templates-imported:3001
+msgctxt "Stock label"
+msgid "_Yes"
+msgstr "_כן"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../oem-config.templates-imported:4001
+msgctxt "Stock label"
+msgid "_No"
+msgstr "_לא"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
-"POT-Creation-Date: 2009-05-11 10:12+0100\n"
+"POT-Creation-Date: 2009-05-11 10:19+0100\n"
 "PO-Revision-Date: 2009-02-13 22:19+0100\n"
 "Last-Translator: Pavol Šimo <palo.simo@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -37,3 +37,21 @@ msgstr "_Späť"
 msgctxt "Stock label, navigation"
 msgid "_Forward"
 msgstr "Ď_alej"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../oem-config.templates-imported:3001
+msgctxt "Stock label"
+msgid "_Yes"
+msgstr "Án_o"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../oem-config.templates-imported:4001
+msgctxt "Stock label"
+msgid "_No"
+msgstr "_Nie"

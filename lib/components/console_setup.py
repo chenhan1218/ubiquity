@@ -57,7 +57,8 @@ class ConsoleSetup(FilteredCommand):
         # bother for now.
         return (['/usr/lib/oem-config/console/console-setup.postinst',
                  'configure'],
-                ['^console-setup/layout', '^console-setup/variant'])
+                ['^console-setup/layout', '^console-setup/variant',
+                 '^console-setup/unsupported_'])
 
     def run(self, priority, question):
         if self.done:
@@ -80,6 +81,16 @@ class ConsoleSetup(FilteredCommand):
                 self.choices_untranslated(question))
             self.frontend.set_keyboard_variant(self.db.get(question))
             return FilteredCommand.run(self, priority, question)
+        elif question.startswith('console-setup/unsupported_'):
+            response = self.frontend.question_dialog(
+                self.description(question),
+                self.extended_description(question),
+                ('oem-config/imported/yes', 'oem-config/imported/no'))
+            if response is None or response == 'oem-config/imported/yes':
+                self.preseed(question, 'true')
+            else:
+                self.preseed(question, 'false')
+            return True
         else:
             return True
 
@@ -113,7 +124,7 @@ class ConsoleSetup(FilteredCommand):
             latin = False
             real_layout = 'us,%s' % layout
         elif layout == 'jp':
-            if variant in ('106', 'common', 'OADG109A', 'nicola_f_bs'):
+            if variant in ('106', 'common', 'OADG109A', 'nicola_f_bs', ''):
                 latin = True
                 real_layout = layout
             else:

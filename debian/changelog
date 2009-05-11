@@ -4,6 +4,7 @@ oem-config (1.55.0) UNRELEASED; urgency=low
     localechooser 2.11ubuntu1, netcfg 1.48ubuntu1.
   * Update for new message context system in GTK+ 2.15.1, and update
     imported translations from gtk+2.0 2.16.1-0ubuntu3.
+  * Adjust for changes in console-setup 1.34ubuntu1.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 11 May 2009 09:42:33 +0100
 
