@@ -1,3 +1,10 @@
+oem-config (1.55.0) UNRELEASED; urgency=low
+
+  * Automatic update of included source packages: console-setup 1.34ubuntu1,
+    localechooser 2.11ubuntu1, netcfg 1.48ubuntu1.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 11 May 2009 09:42:33 +0100
+
 oem-config (1.54.13) jaunty; urgency=low
 
   [ Roman Shtylman ]
