@@ -61,7 +61,8 @@ class ConsoleSetup(FilteredCommand):
         # bother for now.
         return (['/usr/lib/ubiquity/console-setup/console-setup.postinst',
                  'configure'],
-                ['^console-setup/layout', '^console-setup/variant'],
+                ['^console-setup/layout', '^console-setup/variant',
+                 '^console-setup/unsupported_'],
                 {'OVERRIDE_ALLOW_PRESEEDING': '1'})
 
     def run(self, priority, question):
@@ -93,6 +94,16 @@ class ConsoleSetup(FilteredCommand):
                 return True
             else:
                 return FilteredCommand.run(self, priority, question)
+        elif question.startswith('console-setup/unsupported_'):
+            response = self.frontend.question_dialog(
+                self.description(question),
+                self.extended_description(question),
+                ('ubiquity/imported/yes', 'ubiquity/imported/no'))
+            if response is None or response == 'ubiquity/imported/yes':
+                self.preseed(question, 'true')
+            else:
+                self.preseed(question, 'false')
+            return True
         else:
             return True
 
@@ -126,7 +137,7 @@ class ConsoleSetup(FilteredCommand):
             latin = False
             real_layout = 'us,%s' % layout
         elif layout == 'jp':
-            if variant in ('106', 'common', 'OADG109A', 'nicola_f_bs'):
+            if variant in ('106', 'common', 'OADG109A', 'nicola_f_bs', ''):
                 latin = True
                 real_layout = layout
             else:

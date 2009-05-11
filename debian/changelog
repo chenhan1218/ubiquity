@@ -38,6 +38,7 @@ ubiquity (1.13.0) UNRELEASED; urgency=low
     1.34ubuntu1, debian-installer-utils 1.67ubuntu1, grub-installer
     1.37ubuntu1, localechooser 2.11ubuntu1, partman-auto 85ubuntu1,
     partman-newworld 21, partman-target 59ubuntu1.
+  * Adjust for changes in console-setup 1.34ubuntu1.
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 24 Apr 2009 13:36:27 +0100
 
