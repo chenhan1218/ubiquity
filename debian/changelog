@@ -1,4 +1,4 @@
-oem-config (1.55.0) UNRELEASED; urgency=low
+oem-config (1.55.0) karmic; urgency=low
 
   * Automatic update of included source packages: console-setup 1.34ubuntu1,
     localechooser 2.11ubuntu1, netcfg 1.48ubuntu1.
@@ -6,7 +6,7 @@ oem-config (1.55.0) UNRELEASED; urgency=low
     imported translations from gtk+2.0 2.16.1-0ubuntu3.
   * Adjust for changes in console-setup 1.34ubuntu1.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 11 May 2009 09:42:33 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 11 May 2009 10:30:19 +0100
 
 oem-config (1.54.13) jaunty; urgency=low
 
