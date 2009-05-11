@@ -1,22 +1,21 @@
-# This is the Italian locale definition for Gtk+.
-# Copyright (C) 1998-2003 Free Software Foundation, Inc.
-# Tristan Tarrant <ttarrant@etnoteam.it>, 1999.
-# Christopher Gabriel <cgabriel@gnu.org>, 2000,2001,2002
-# Alessio Dessì <alessiodessi@tiscali.it>, 2003,2004,2005,2006,2007
+# translation of gtk+.HEAD.mr.po to marathi
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 #
-# Luca Ferretti <elle.uca@libero.it>, 2007-2008, 2009.
+# Sandeep Shedmake <sandeep.shedmake@gmail.com>, 2008, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: gtk+ 2.14\n"
+"Project-Id-Version: gtk+.HEAD.mr\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-19 12:33+0000\n"
-"PO-Revision-Date: 2009-04-08 21:45+0200\n"
-"Last-Translator: Luca Ferretti <elle.uca@libero.it>\n"
-"Language-Team: Italian <tp@lists.linux.it>\n"
+"PO-Revision-Date: 2009-03-15 16:42+0530\n"
+"Last-Translator: Sandeep Shedmake <sandeep.shedmake@gmail.com>\n"
+"Language-Team: marathi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #. Type: text
 #. Description
@@ -25,7 +24,7 @@ msgstr ""
 #: ../ubiquity.templates-imported:1001
 msgctxt "Stock label"
 msgid "_Cancel"
-msgstr "A_nnulla"
+msgstr "रद्द करा (_C)"
 
 #. Type: text
 #. Description
@@ -34,7 +33,7 @@ msgstr "A_nnulla"
 #: ../ubiquity.templates-imported:2001
 msgctxt "Stock label"
 msgid "_Close"
-msgstr "_Chiudi"
+msgstr "बंद करा (_C)"
 
 #. Type: text
 #. Description
@@ -43,7 +42,7 @@ msgstr "_Chiudi"
 #: ../ubiquity.templates-imported:3001
 msgctxt "Stock label, navigation"
 msgid "_Back"
-msgstr "_Indietro"
+msgstr "मागील (_B)"
 
 #. Type: text
 #. Description
@@ -52,7 +51,7 @@ msgstr "_Indietro"
 #: ../ubiquity.templates-imported:4001
 msgctxt "Stock label, navigation"
 msgid "_Forward"
-msgstr "_Avanti"
+msgstr "पुढे (_F)"
 
 #. Type: text
 #. Description
@@ -61,7 +60,7 @@ msgstr "_Avanti"
 #: ../ubiquity.templates-imported:5001
 msgctxt "Stock label"
 msgid "_OK"
-msgstr "_OK"
+msgstr "ठिक आहे (_O)"
 
 #. Type: text
 #. Description
@@ -70,7 +69,7 @@ msgstr "_OK"
 #: ../ubiquity.templates-imported:6001
 msgctxt "Stock label"
 msgid "_Quit"
-msgstr "_Esci"
+msgstr "बाहेर पडा (_Q)"
 
 #. Type: text
 #. Description
@@ -79,7 +78,7 @@ msgstr "_Esci"
 #: ../ubiquity.templates-imported:7001
 msgctxt "Stock label"
 msgid "_Yes"
-msgstr "_Sì"
+msgstr "होय (_Y)"
 
 #. Type: text
 #. Description
@@ -88,4 +87,4 @@ msgstr "_Sì"
 #: ../ubiquity.templates-imported:8001
 msgctxt "Stock label"
 msgid "_No"
-msgstr "_No"
+msgstr "नाही (_N)"

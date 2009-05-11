@@ -1,23 +1,26 @@
-# This is the Italian locale definition for Gtk+.
-# Copyright (C) 1998-2003 Free Software Foundation, Inc.
-# Tristan Tarrant <ttarrant@etnoteam.it>, 1999.
-# Christopher Gabriel <cgabriel@gnu.org>, 2000,2001,2002
-# Alessio Dessì <alessiodessi@tiscali.it>, 2003,2004,2005,2006,2007
+# Turkish translations of gtk+.
+# Copyright (C) 1999-2003, 2004, 2006, 2007 Free Software Foundation, Inc.
 #
-# Luca Ferretti <elle.uca@libero.it>, 2007-2008, 2009.
+# Arman Aksoy <armish@linux-sevenler.de, 2003.
+#  Ömer Fadıl USTA <omer_fad@hotmail.com>,2002.
+# Nilgün Belma Bugüner <nilgun@fide.org>, 2001, 2002.
+# Fatih Demir <kabalak@gtranslator.org>, 1999-2001.
+# Görkem Cetin <gorkem@gelecek.com.tr>, 2001.
+# Baris Cicek <baris@teamforce.name.tr>, 2006, 2007, 2008, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: gtk+ 2.14\n"
+"Project-Id-Version: gtk+\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-19 12:33+0000\n"
-"PO-Revision-Date: 2009-04-08 21:45+0200\n"
-"Last-Translator: Luca Ferretti <elle.uca@libero.it>\n"
-"Language-Team: Italian <tp@lists.linux.it>\n"
+"PO-Revision-Date: 2009-02-22 18:57+0200\n"
+"Last-Translator: Baris Cicek <baris@teamforce.name.tr>\n"
+"Language-Team: Turkish <gnome-turk@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms:  nplurals=1; plural=0;\n"
 
+# gtk/gtkstock.c:277
 #. Type: text
 #. Description
 #. Translations for this template are imported from GTK. Please keep them in
@@ -25,8 +28,9 @@ msgstr ""
 #: ../ubiquity.templates-imported:1001
 msgctxt "Stock label"
 msgid "_Cancel"
-msgstr "A_nnulla"
+msgstr "İ_ptal"
 
+# gtk/gtkstock.c:279
 #. Type: text
 #. Description
 #. Translations for this template are imported from GTK. Please keep them in
@@ -34,7 +38,7 @@ msgstr "A_nnulla"
 #: ../ubiquity.templates-imported:2001
 msgctxt "Stock label"
 msgid "_Close"
-msgstr "_Chiudi"
+msgstr "_Kapat"
 
 #. Type: text
 #. Description
@@ -43,8 +47,9 @@ msgstr "_Chiudi"
 #: ../ubiquity.templates-imported:3001
 msgctxt "Stock label, navigation"
 msgid "_Back"
-msgstr "_Indietro"
+msgstr "_Geri"
 
+# gtk/gtkstock.c:285
 #. Type: text
 #. Description
 #. Translations for this template are imported from GTK. Please keep them in
@@ -52,8 +57,9 @@ msgstr "_Indietro"
 #: ../ubiquity.templates-imported:4001
 msgctxt "Stock label, navigation"
 msgid "_Forward"
-msgstr "_Avanti"
+msgstr "İ_leri"
 
+# gtk/gtkstock.c:295
 #. Type: text
 #. Description
 #. Translations for this template are imported from GTK. Please keep them in
@@ -61,8 +67,9 @@ msgstr "_Avanti"
 #: ../ubiquity.templates-imported:5001
 msgctxt "Stock label"
 msgid "_OK"
-msgstr "_OK"
+msgstr "_Tamam"
 
+# gtk/gtkstock.c:302
 #. Type: text
 #. Description
 #. Translations for this template are imported from GTK. Please keep them in
@@ -70,8 +77,9 @@ msgstr "_OK"
 #: ../ubiquity.templates-imported:6001
 msgctxt "Stock label"
 msgid "_Quit"
-msgstr "_Esci"
+msgstr "Çı_k"
 
+# gtk/gtkstock.c:312
 #. Type: text
 #. Description
 #. Translations for this template are imported from GTK. Please keep them in
@@ -79,8 +87,9 @@ msgstr "_Esci"
 #: ../ubiquity.templates-imported:7001
 msgctxt "Stock label"
 msgid "_Yes"
-msgstr "_Sì"
+msgstr "_Evet"
 
+# gtk/gtkstock.c:294
 #. Type: text
 #. Description
 #. Translations for this template are imported from GTK. Please keep them in
@@ -88,4 +97,4 @@ msgstr "_Sì"
 #: ../ubiquity.templates-imported:8001
 msgctxt "Stock label"
 msgid "_No"
-msgstr "_No"
+msgstr "_Hayır"
