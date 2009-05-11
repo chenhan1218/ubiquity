@@ -1,13 +1,13 @@
-# translation of lv.po to Latvian
-# Copyright (C) 2006, 2007 Free Software Foundation, Inc.
+# translation of gtk+.HEAD.po to Latvian
+# Copyright (C) 2006, 2007, 2009 Free Software Foundation, Inc.
 #
-# Raivis Dejus <orvils@gmail.com>, 2006, 2007.
+# Raivis Dejus <orvils@gmail.com>, 2006, 2007, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: lv\n"
-"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-09-29 16:27+0100\n"
-"PO-Revision-Date: 2007-04-11 11:34+0300\n"
+"Project-Id-Version: gtk+.HEAD\n"
+"Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
+"POT-Creation-Date: 2009-05-11 10:12+0100\n"
+"PO-Revision-Date: 2009-02-13 10:13+0200\n"
 "Last-Translator: Raivis Dejus <orvils@gmail.com>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,8 @@ msgstr ""
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../oem-config.templates-imported:1001
-msgid "Navigation|_Back"
+msgctxt "Stock label, navigation"
+msgid "_Back"
 msgstr "_Atpakaļ"
 
 #. Type: text
@@ -30,5 +31,6 @@ msgstr "_Atpakaļ"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../oem-config.templates-imported:2001
-msgid "Navigation|_Forward"
+msgctxt "Stock label, navigation"
+msgid "_Forward"
 msgstr "Uz _priekšu"

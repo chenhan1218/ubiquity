@@ -1,22 +1,25 @@
-# Slovenian translation of gtk+.
-# Copyright (C) 2006 Free Software Foundation, Inc.
+# Copyright (C) 2006-2007 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gtk+ package.
 #
 # Matic Žgur <mr.zgur@gmail.com>, 2006.
+# Martin Srebotnjak <miles@filmsi.net>, 2007.
+# Matej Urbančič <mateju@svn.gnome.org>, 2007 - 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GTK+ 1.4.0\n"
-"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-09-29 16:27+0100\n"
-"PO-Revision-Date: 2006-10-22 18:01+0100\n"
-"Last-Translator: Matic Žgur <mr.zgur@gmail.com>\n"
-"Language-Team: slovenian <sl@li.org>\n"
+"Project-Id-Version: GTK+\n"
+"Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
+"POT-Creation-Date: 2009-05-11 10:12+0100\n"
+"PO-Revision-Date: 2009-03-10 11:21+0100\n"
+"Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
+"Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
+"X-Poedit-Country: SLOVENIA\n"
+"X-Poedit-SourceCharset: iso-8859-1\n"
 "X-Poedit-Language: Slovenian\n"
 
 #. Type: text
@@ -24,7 +27,8 @@ msgstr ""
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../oem-config.templates-imported:1001
-msgid "Navigation|_Back"
+msgctxt "Stock label, navigation"
+msgid "_Back"
 msgstr "_Nazaj"
 
 #. Type: text
@@ -32,5 +36,6 @@ msgstr "_Nazaj"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../oem-config.templates-imported:2001
-msgid "Navigation|_Forward"
+msgctxt "Stock label, navigation"
+msgid "_Forward"
 msgstr "_Naprej"

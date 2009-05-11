@@ -1,30 +1,21 @@
-# translation of gtk+.HEAD.ta.po to
-# translation of ta.po to
-# Tamil translation of Gtk+
-# Copyright (C) 2001, 2002, 2003, 2006, 2009 Free Software Foundation, Inc.
+# translation of gtk+.HEAD.mr.po to marathi
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 #
-# Dinesh Nadarajah <n_dinesh@yahoo.com>, 2001, 2002, 2003.
-# Felix <ifelix25@gmail.com>, 2006.
-# I. Felix <ifelix@redhat.com>, 2009.
+# Sandeep Shedmake <sandeep.shedmake@gmail.com>, 2008, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: gtk+.HEAD.ta\n"
+"Project-Id-Version: gtk+.HEAD.mr\n"
 "Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
 "POT-Creation-Date: 2009-05-11 10:12+0100\n"
-"PO-Revision-Date: 2009-03-09 13:51+0530\n"
-"Last-Translator: \n"
-"Language-Team:  <en@li.org>\n"
+"PO-Revision-Date: 2009-03-15 16:42+0530\n"
+"Last-Translator: Sandeep Shedmake <sandeep.shedmake@gmail.com>\n"
+"Language-Team: marathi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\\n\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
 
 #. Type: text
 #. Description
@@ -33,7 +24,7 @@ msgstr ""
 #: ../oem-config.templates-imported:1001
 msgctxt "Stock label, navigation"
 msgid "_Back"
-msgstr "பின்னால் (_B)"
+msgstr "मागील (_B)"
 
 #. Type: text
 #. Description
@@ -42,4 +33,4 @@ msgstr "பின்னால் (_B)"
 #: ../oem-config.templates-imported:2001
 msgctxt "Stock label, navigation"
 msgid "_Forward"
-msgstr "முன்னோக்கு (_F)"
+msgstr "पुढे (_F)"

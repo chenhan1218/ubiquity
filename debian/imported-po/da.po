@@ -1,12 +1,12 @@
 # Danish translation of GTK+.
-# Copyright (C) 1999-2007 Free Software Foundation, Inc.
+# Copyright (C) 1999-2009 Free Software Foundation, Inc.
 # Birger Langkjer <birger.langkjer@image.dk>, 1999.
 # Kenneth Christiansen, 1999-2000
 # Keld Simonsen <keld@dkuug.dk>, 2000.
 # Ole Laursen <olau@hardworking.dk>, 2001, 02, 03, 04.
 # Martin Willemoes Hansen <mwh@sysrq.dk>, 2005.
 # Marie Lund <marielund@post.cybercity.dk>, 2005.
-# Ask Hjorth Larsen <asklarsen@gmail.com>, 2007.
+# Ask Hjorth Larsen <asklarsen@gmail.com>, 2007, 08, 09.
 #
 # Konventioner:
 #
@@ -35,9 +35,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+\n"
-"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-09-29 16:27+0100\n"
-"PO-Revision-Date: 2007-08-24 02:26+0200\n"
+"Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
+"POT-Creation-Date: 2009-05-11 10:12+0100\n"
+"PO-Revision-Date: 2009-03-13 21:42+0100\n"
 "Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
@@ -50,7 +50,8 @@ msgstr ""
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../oem-config.templates-imported:1001
-msgid "Navigation|_Back"
+msgctxt "Stock label, navigation"
+msgid "_Back"
 msgstr "Til_bage"
 
 #. Type: text
@@ -58,5 +59,6 @@ msgstr "Til_bage"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../oem-config.templates-imported:2001
-msgid "Navigation|_Forward"
-msgstr "Frem_ad"
+msgctxt "Stock label, navigation"
+msgid "_Forward"
+msgstr "_Fremad"

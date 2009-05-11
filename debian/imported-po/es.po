@@ -1,5 +1,5 @@
-# translation of gtk+.HEAD.es.po to Spanish
-# Copyright © 1999-2002, 2006, 2007 Free Software Foundation, Inc.
+# translation of gtk+.HEAD.po to Español
+# Copyright © 1999-2002, 2006, 2007, 2008 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gtk+ package.
 #
 # Pablo Saratxaga <srtxg@chanae.alphanet.ch>, 1998-2000.
@@ -9,15 +9,15 @@
 # Pablo Gonzalo del Campo <pablodc@bigfoot.com>, 2002, 2003.
 # Juan Manuel García Molina <juanma_gm@wanadoo.es>, 2003.
 # Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2003 - 2006.
-# Jorge González <jorgegonz@svn.gnome.org>, 2007.
+# Jorge González <jorgegonz@svn.gnome.org>, 2007, 200, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: gtk+.HEAD.es\n"
-"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-09-29 16:27+0100\n"
-"PO-Revision-Date: 2007-08-16 21:36+0200\n"
+"Project-Id-Version: gtk+.HEAD\n"
+"Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
+"POT-Creation-Date: 2009-05-11 10:12+0100\n"
+"PO-Revision-Date: 2009-04-08 18:14+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
-"Language-Team: Spanish <traductores@es.gnome.org>\n"
+"Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -29,7 +29,8 @@ msgstr ""
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../oem-config.templates-imported:1001
-msgid "Navigation|_Back"
+msgctxt "Stock label, navigation"
+msgid "_Back"
 msgstr "A_trás"
 
 #. Type: text
@@ -37,5 +38,6 @@ msgstr "A_trás"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../oem-config.templates-imported:2001
-msgid "Navigation|_Forward"
+msgctxt "Stock label, navigation"
+msgid "_Forward"
 msgstr "A_delante"

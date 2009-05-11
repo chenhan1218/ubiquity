@@ -1,19 +1,19 @@
 # gtk+ ja.po.
-# Copyright (C) 1998,2000-2007 Free Software Foundation, Inc.
+# Copyright (C) 1998,2000-2009 Free Software Foundation, Inc.
 # Yasuhiro SHIRASAKI <yasuhiro@awa.tohoku.ac.jp>, 1998.
 # Yukihiro Nakai <nakai@gnome.gr.jp>, 2000-2001.
 # Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 2002.
 # Akira TAGOH <tagoh@gnome.gr.jp>, 2002.
-# Takeshi AIHANA <takeshi.aihana@gmail.com>, 2003-2007.
+# Takeshi AIHANA <takeshi.aihana@gmail.com>, 2003-2009.
 # KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>, 2003.
 # Satoru SATOh <ss@gnome.gr.jp>, 2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+ trunk\n"
-"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-09-29 16:27+0100\n"
-"PO-Revision-Date: 2007-07-21 21:26+0900\n"
+"Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
+"POT-Creation-Date: 2009-05-11 10:12+0100\n"
+"PO-Revision-Date: 2009-03-03 08:23+0900\n"
 "Last-Translator: Takeshi AIHANA <takeshi.aihana@gmail.com>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,8 @@ msgstr ""
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../oem-config.templates-imported:1001
-msgid "Navigation|_Back"
+msgctxt "Stock label, navigation"
+msgid "_Back"
 msgstr "戻る(_B)"
 
 #. Type: text
@@ -34,5 +35,6 @@ msgstr "戻る(_B)"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../oem-config.templates-imported:2001
-msgid "Navigation|_Forward"
+msgctxt "Stock label, navigation"
+msgid "_Forward"
 msgstr "進む(_F)"

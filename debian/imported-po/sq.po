@@ -1,16 +1,15 @@
-# Përkthimi i mesazheve të GTK+ në shqip
-# Copyright (C) 2006, 2007 Free Software Foundation, Inc.
+# Përkthimi i gtk+.HEAD në shqip.
+# Copyright (C) 2006 - 2009 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gtk+ package.
 #
-#
-# Besnik Bleta <besnikbleta@hotmail.com>, 2003.
-# Laurent Dhima <laurenti@alblinux.net>, 2003, 2004, 2005, 2006, 2007.
+# Besnik Bleta	<besnikbleta@hotmail.com>,	2003.
+# Laurent Dhima	<laurenti@alblinux.net>,	2003-2008, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+ HEAD\n"
-"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-09-29 16:27+0100\n"
-"PO-Revision-Date: 2007-09-12 17:02+0200\n"
+"Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
+"POT-Creation-Date: 2009-05-11 10:12+0100\n"
+"PO-Revision-Date: 2009-02-13 12:58+0100\n"
 "Last-Translator: Laurent Dhima <laurenti@alblinux.net>\n"
 "Language-Team: albanian <gnome-albanian-perkthyesit@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +22,8 @@ msgstr ""
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../oem-config.templates-imported:1001
-msgid "Navigation|_Back"
+msgctxt "Stock label, navigation"
+msgid "_Back"
 msgstr "_Mbrapa"
 
 #. Type: text
@@ -31,5 +31,6 @@ msgstr "_Mbrapa"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../oem-config.templates-imported:2001
-msgid "Navigation|_Forward"
+msgctxt "Stock label, navigation"
+msgid "_Forward"
 msgstr "_Vazhdo"

@@ -2,6 +2,7 @@ all: update
 
 templates.pot: ../oem-config.templates-imported
 	debconf-updatepo --skip-merge --podir=.
+	./add-contexts templates.pot
 
 update: templates.pot
 	@if [ -z "$(GTK_PO)" ]; then \

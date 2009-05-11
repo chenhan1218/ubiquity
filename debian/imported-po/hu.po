@@ -1,20 +1,20 @@
 # translation of gtk+.HEAD.hu.po to Hungarian
 # Hungarian translation of gtk+.
-# Copyright (C) 1999, 2000, 2001, 2002, 2004, 2005, 2007 Free Software Foundation, Inc.
+# Copyright (C) 1999, 2000, 2001, 2002, 2004, 2005, 2007, 2008, 2009 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gtk+ package.
 #
 # Szabolcs Ban <shooby@gnome.hu>, 1999, 2000, 2001, 2002.
 # Andras Timar <timar@gnome.hu>, 2002.
 # Laszlo Dvornik <dvornik@gnome.hu>, 2004, 2005.
-# Gabor Kelemen <kelemeng@gnome.hu>, 2004, 2005, 2007.
+# Gabor Kelemen <kelemeng@gnome.hu>, 2004, 2005, 2007, 2008, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+.HEAD.hu\n"
-"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-09-29 16:27+0100\n"
-"PO-Revision-Date: 2007-08-25 11:59+0200\n"
+"Report-Msgid-Bugs-To: oem-config@packages.debian.org\n"
+"POT-Creation-Date: 2009-05-11 10:12+0100\n"
+"PO-Revision-Date: 2009-02-23 16:49+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
-"Language-Team: Hungarian <gnome@gnome.hu>\n"
+"Language-Team: Hungarian <gnome@fsf.hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,7 +26,8 @@ msgstr ""
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../oem-config.templates-imported:1001
-msgid "Navigation|_Back"
+msgctxt "Stock label, navigation"
+msgid "_Back"
 msgstr "_Vissza"
 
 #. Type: text
@@ -34,5 +35,6 @@ msgstr "_Vissza"
 #. Translations for this template are imported from GTK. Please keep them in
 #. sync.
 #: ../oem-config.templates-imported:2001
-msgid "Navigation|_Forward"
-msgstr "Elő_re"
+msgctxt "Stock label, navigation"
+msgid "_Forward"
+msgstr "_Tovább"
