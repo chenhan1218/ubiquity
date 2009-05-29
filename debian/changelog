@@ -1,3 +1,10 @@
+ubiquity (1.13.1) UNRELEASED; urgency=low
+
+  * Drop custom recipe for Mythbuntu as XFS will no longer be necessary
+    for recordings with switching to ext4.
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Fri, 29 May 2009 11:45:32 +0200
+
 ubiquity (1.13.0) karmic; urgency=low
 
   [ Mario Limonciello ]
