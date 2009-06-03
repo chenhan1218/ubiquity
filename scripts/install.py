@@ -1216,7 +1216,12 @@ exit 0"""
         langpacks = []
         try:
             langpack_db = self.db.get('pkgsel/language-packs')
-            langpacks = langpack_db.replace(',', '').split()
+            if langpack_db == 'ALL':
+                langpacks = subprocess.Popen(
+                    ['apt-cache', '-n', 'search', '^language-pack-[^-][^-]*$'],
+                    stdout=subprocess.PIPE).communicate()[0].split()
+            else:
+                langpacks = langpack_db.replace(',', '').split()
         except debconf.DebconfError:
             pass
         if not langpacks:
