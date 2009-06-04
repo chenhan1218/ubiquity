@@ -11,6 +11,7 @@ ubiquity (1.13.1) UNRELEASED; urgency=low
   * Fix the intro message to have the correct release version and date.
   * Various minor adjustments to cope with ext4 now being the default
     filesystem.
+  * Use block-attr rather than vol_id.
   * Automatic update of included source packages: base-installer
     1.99ubuntu2, debian-installer-utils 1.68ubuntu1, flash-kernel
     2.13ubuntu8, hw-detect 1.72ubuntu1, partman-base 129ubuntu8,
