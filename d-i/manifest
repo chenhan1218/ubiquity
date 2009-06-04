@@ -17,7 +17,7 @@ partman-base 129ubuntu8
 partman-basicfilesystems 62ubuntu2
 partman-basicmethods 42
 partman-efi 18ubuntu1
-partman-ext3 56ubuntu2
+partman-ext3 56ubuntu3
 partman-jfs 29ubuntu1
 partman-newworld 21
 partman-partitioning 65ubuntu2

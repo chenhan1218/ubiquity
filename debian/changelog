@@ -14,8 +14,8 @@ ubiquity (1.13.1) UNRELEASED; urgency=low
   * Automatic update of included source packages: base-installer
     1.99ubuntu2, debian-installer-utils 1.68ubuntu1, flash-kernel
     2.13ubuntu8, hw-detect 1.72ubuntu1, partman-base 129ubuntu8,
-    partman-target 59ubuntu2, silo-installer 1.15ubuntu2, user-setup
-    1.26ubuntu1.
+    partman-ext3 56ubuntu3, partman-target 59ubuntu2, silo-installer
+    1.15ubuntu2, user-setup 1.26ubuntu1.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Fri, 29 May 2009 11:45:32 +0200
 
