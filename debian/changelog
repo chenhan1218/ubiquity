@@ -1,4 +1,4 @@
-ubiquity (1.13.1) UNRELEASED; urgency=low
+ubiquity (1.13.1) karmic; urgency=low
 
   [ Mario Limonciello ]
   * Drop custom recipe for Mythbuntu as XFS will no longer be necessary
@@ -18,7 +18,7 @@ ubiquity (1.13.1) UNRELEASED; urgency=low
     partman-ext3 56ubuntu3, partman-target 59ubuntu2, silo-installer
     1.15ubuntu2, user-setup 1.26ubuntu1.
 
- -- Mario Limonciello <superm1@ubuntu.com>  Fri, 29 May 2009 11:45:32 +0200
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 04 Jun 2009 23:56:01 +0100
 
 ubiquity (1.13.0) karmic; urgency=low
 
