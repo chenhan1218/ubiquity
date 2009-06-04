@@ -9,6 +9,8 @@ ubiquity (1.13.1) UNRELEASED; urgency=low
     everything available on the installation media (LP: #371470).
   * Install block-attr from debian-installer-utils 1.68.
   * Fix the intro message to have the correct release version and date.
+  * Various minor adjustments to cope with ext4 now being the default
+    filesystem.
   * Automatic update of included source packages: base-installer
     1.99ubuntu2, debian-installer-utils 1.68ubuntu1, flash-kernel
     2.13ubuntu8, hw-detect 1.72ubuntu1, partman-base 129ubuntu8,

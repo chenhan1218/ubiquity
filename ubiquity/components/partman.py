@@ -228,7 +228,7 @@ class Partman(FilteredCommand):
             else:
                 yield (method, method, self.method_description(method))
 
-    def default_mountpoint_choices(self, fs='ext3'):
+    def default_mountpoint_choices(self, fs='ext4'):
         """Yields the possible mountpoints for a partition."""
 
         # We can't find out the real list of possible mountpoints from
