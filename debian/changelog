@@ -8,6 +8,7 @@ ubiquity (1.13.1) UNRELEASED; urgency=low
   * Add support for setting pkgsel/language-packs to "ALL", to install
     everything available on the installation media (LP: #371470).
   * Install block-attr from debian-installer-utils 1.68.
+  * Fix the intro message to have the correct release version and date.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Fri, 29 May 2009 11:45:32 +0200
 
