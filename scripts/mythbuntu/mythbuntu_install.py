@@ -211,9 +211,9 @@ class Install(ParentInstall):
         #Services
         self.db.progress('INFO', 'ubiquity/install/services')
         if self.db.get('mythbuntu/samba') == 'true':
-            shutil.copy('/usr/share/mythbuntu-common/examples/smb.conf.dist',self.target + '/etc/samba/smb.conf')
+            shutil.copy('/usr/share/mythbuntu/examples/smb.conf.dist',self.target + '/etc/samba/smb.conf')
         if self.db.get('mythbuntu/nfs-kernel-server') == 'true':
-            shutil.copy('/usr/share/mythbuntu-common/examples/exports.dist',self.target + '/etc/exports')
+            shutil.copy('/usr/share/mythbuntu/examples/exports.dist',self.target + '/etc/exports')
         if self.db.get('mythbuntu/openssh-server') == 'true':
             for file in ['ssh_host_dsa_key','ssh_host_dsa_key.pub','ssh_host_rsa_key','ssh_host_rsa_key.pub']:
                 os.remove(self.target + '/etc/ssh/' + file)
