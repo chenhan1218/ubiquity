@@ -9,6 +9,8 @@ ubiquity (1.13.2) UNRELEASED; urgency=low
   [ Colin Watson ]
   * If devkit-disks is available, use that for desktop storage locking
     rather than hal-lock.
+  * Automatic update of included source packages: grub-installer
+    1.37ubuntu2.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Mon, 08 Jun 2009 14:17:11 -0500
 
