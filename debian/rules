@@ -35,7 +35,7 @@ endif
 PYTHON := $(shell pyversions -r)
 
 ifneq (,$(findstring :$(DEB_HOST_ARCH_CPU):,:amd64:i386:lpia:))
-  bootloader-recommends := grub | grub-pc
+  bootloader-recommends := grub-pc | grub
 else
 ifeq ($(DEB_HOST_ARCH),armel)
   bootloader-recommends := flash-kernel
