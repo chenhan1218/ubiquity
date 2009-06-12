@@ -2,6 +2,8 @@ oem-config (1.55.1) UNRELEASED; urgency=low
 
   * Declare GTK frontend as "NotShowIn=KDE;" rather than
     "OnlyShowIn=GNOME;XFCE;" (LP: #163518).
+  * Sync up oem-config/text/password_extra_label text with the corresponding
+    string in ubiquity.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 10 Jun 2009 10:39:42 +0100
 
