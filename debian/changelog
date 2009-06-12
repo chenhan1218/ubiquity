@@ -1,4 +1,4 @@
-oem-config (1.55.1) UNRELEASED; urgency=low
+oem-config (1.55.1) karmic; urgency=low
 
   * Declare GTK frontend as "NotShowIn=KDE;" rather than
     "OnlyShowIn=GNOME;XFCE;" (LP: #163518).
@@ -9,7 +9,7 @@ oem-config (1.55.1) UNRELEASED; urgency=low
   * Use small print rather than italics in "Who are you?" (LP: #287626).
   * Automatic update of included source packages: user-setup 1.26ubuntu1.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 10 Jun 2009 10:39:42 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 12 Jun 2009 11:22:58 +0100
 
 oem-config (1.55.0) karmic; urgency=low
 
