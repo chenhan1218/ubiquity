@@ -206,7 +206,7 @@
                             <property name="visible">True</property>
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                             <property name="xalign">0</property>
-                            <property name="label" translatable="yes">&lt;i&gt;If more than one person will use this computer, you can set up multiple accounts after installation.&lt;/i&gt;</property>
+                            <property name="label" translatable="yes">&lt;small&gt;If more than one person will use this computer, you can set up multiple accounts after installation.&lt;/small&gt;</property>
                             <property name="use_markup">True</property>
                             <property name="wrap">True</property>
                             <property name="selectable">True</property>
@@ -357,7 +357,7 @@
                             <property name="visible">True</property>
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                             <property name="xalign">0</property>
-                            <property name="label" translatable="yes">&lt;i&gt;Enter the same password twice, so that it can be checked for typing errors. A good password will contain a mixture of letters, numbers and punctuation, should be at least eight characters long, and should be changed at regular intervals.&lt;/i&gt;</property>
+                            <property name="label" translatable="yes">&lt;small&gt;Enter the same password twice, so that it can be checked for typing errors. A good password will contain a mixture of letters, numbers and punctuation, should be at least eight characters long, and should be changed at regular intervals.&lt;/small&gt;</property>
                             <property name="use_markup">True</property>
                             <property name="wrap">True</property>
                             <property name="selectable">True</property>

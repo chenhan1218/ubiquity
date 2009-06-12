@@ -6,6 +6,7 @@ oem-config (1.55.1) UNRELEASED; urgency=low
     string in ubiquity.
   * Update translations from my last conveniently available Launchpad export
     (2009-04-16); we'll update again after Karmic translations open.
+  * Use small print rather than italics in "Who are you?" (LP: #287626).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 10 Jun 2009 10:39:42 +0100
 
