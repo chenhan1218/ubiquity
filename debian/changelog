@@ -4,6 +4,8 @@ oem-config (1.55.1) UNRELEASED; urgency=low
     "OnlyShowIn=GNOME;XFCE;" (LP: #163518).
   * Sync up oem-config/text/password_extra_label text with the corresponding
     string in ubiquity.
+  * Update translations from my last conveniently available Launchpad export
+    (2009-04-16); we'll update again after Karmic translations open.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 10 Jun 2009 10:39:42 +0100
 
