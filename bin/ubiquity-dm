@@ -15,6 +15,7 @@ import ubiquity.frontend
 import pwd
 
 from ubiquity import osextras
+from ubiquity.casper import get_casper
 
 background = '/usr/share/backgrounds/warty-final-ubuntu.png'
 
@@ -30,24 +31,7 @@ class DM:
         self.display = display
         self.server_started = False
 
-        fp = open('/etc/casper.conf', 'r')
-        try:
-            for line in fp:
-                if line.startswith('#'):
-                    continue
-                line = line.split()
-                if not line:
-                    continue
-                if line[0] == 'export':
-                    w = line[1].split('=')
-                    if w[0] == 'USERNAME':
-                        self.username = w[1].strip('"')
-        except IOError:
-            import syslog
-            syslog.syslog('Unable to determine the username from /etc/casper.conf, using the default.')
-            self.username = 'ubuntu'
-        finally:
-            fp.close()
+        self.username = get_casper('USERNAME', 'ubuntu')
         self.uid, self.gid = pwd.getpwnam(self.username)[2:4]
         self.homedir = pwd.getpwnam(self.username)[5]
         self.uid = int(self.uid)
