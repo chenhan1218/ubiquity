@@ -47,6 +47,7 @@ sys.path.insert(0, '/usr/lib/ubiquity')
 
 from ubiquity import misc
 from ubiquity import osextras
+from ubiquity.casper import get_casper
 from ubiquity.components import language_apply, apt_setup, timezone_apply, \
                                 clock_setup, console_setup_apply, \
                                 usersetup_apply, hw_detect, check_kernels, \
@@ -274,6 +275,8 @@ class Install:
         else:
             self.source = '/var/lib/ubiquity/source'
         self.target = '/target'
+        self.casper_path = os.path.join(
+            '/cdrom', get_casper('LIVE_MEDIA_PATH', 'casper').lstrip('/'))
         self.kernel_version = platform.release()
         self.db = debconf.Debconf()
 
@@ -526,16 +529,16 @@ class Install:
             subarch = None
 
         for prefix in ('vmlinux', 'vmlinuz'):
-            kernel = os.path.join('/cdrom/casper', prefix)
+            kernel = os.path.join(self.casper_path, prefix)
             if os.path.exists(kernel):
                 return kernel
 
             if subarch:
-                kernel = os.path.join('/cdrom/casper', subarch, prefix)
+                kernel = os.path.join(self.casper_path, subarch, prefix)
                 if os.path.exists(kernel):
                     return kernel
 
-                kernel = os.path.join('/cdrom/casper',
+                kernel = os.path.join(self.casper_path,
                                       '%s-%s' % (prefix, subarch))
                 if os.path.exists(kernel):
                     return kernel
@@ -553,16 +556,19 @@ class Install:
 
 
     def generate_blacklist(self):
-        if (os.path.exists("/cdrom/casper/filesystem.manifest-desktop") and
-            os.path.exists("/cdrom/casper/filesystem.manifest")):
+        manifest_desktop = os.path.join(self.casper_path,
+                                        'filesystem.manifest-desktop')
+        manifest = os.path.join(self.casper_path, 'filesystem.manifest')
+        if (os.path.exists(manifest_desktop) and
+            os.path.exists(manifest):
             desktop_packages = set()
-            manifest = open("/cdrom/casper/filesystem.manifest-desktop")
+            manifest = open(manifest_desktop)
             for line in manifest:
                 if line.strip() != '' and not line.startswith('#'):
                     desktop_packages.add(line.split()[0])
             manifest.close()
             live_packages = set()
-            manifest = open("/cdrom/casper/filesystem.manifest")
+            manifest = open(manifest)
             for line in manifest:
                 if line.strip() != '' and not line.startswith('#'):
                     live_packages.add(line.split()[0])
@@ -917,8 +923,8 @@ class Install:
             mounts.close()
 
             # Manual detection on non-unionfs systems
-            fsfiles = ['/cdrom/casper/filesystem.cloop',
-                       '/cdrom/casper/filesystem.squashfs',
+            fsfiles = [os.path.join(self.casper_path, 'filesystem.cloop'),
+                       os.path.join(self.casper_path, 'filesystem.squashfs'),
                        '/cdrom/META/META.squashfs',
                        '/live/image/live/filesystem.squashfs']
 
@@ -2062,16 +2068,19 @@ exit 0"""
         # don't bother with a progress bar for that.
 
         # Check for packages specific to the live CD.
-        if (os.path.exists("/cdrom/casper/filesystem.manifest-desktop") and
-            os.path.exists("/cdrom/casper/filesystem.manifest")):
+        manifest_desktop = os.path.join(self.casper_path,
+                                        'filesystem.manifest-desktop')
+        manifest = os.path.join(self.casper_path, 'filesystem.manifest')
+        if (os.path.exists(manifest_desktop) and
+            os.path.exists(manifest)):
             desktop_packages = set()
-            manifest = open("/cdrom/casper/filesystem.manifest-desktop")
+            manifest = open(manifest_desktop)
             for line in manifest:
                 if line.strip() != '' and not line.startswith('#'):
                     desktop_packages.add(line.split()[0])
             manifest.close()
             live_packages = set()
-            manifest = open("/cdrom/casper/filesystem.manifest")
+            manifest = open(manifest)
             for line in manifest:
                 if line.strip() != '' and not line.startswith('#'):
                     live_packages.add(line.split()[0])
