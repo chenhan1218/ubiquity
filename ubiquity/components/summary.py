@@ -25,6 +25,7 @@ import debconf
 
 from ubiquity.parted_server import PartedServer
 from ubiquity.misc import *
+from ubiquity.casper import get_casper
 
 from ubiquity.filteredcommand import FilteredCommand
 
@@ -124,7 +125,10 @@ def grub_options():
 
 def will_be_installed(pkg):
     try:
-        manifest = open('/cdrom/casper/filesystem.manifest-desktop')
+        casper_path = os.path.join(
+            '/cdrom', get_casper('LIVE_MEDIA_PATH', 'casper').lstrip('/'))
+        manifest = open(os.path.join(casper_path,
+                                     'filesystem.manifest-desktop'))
         try:
             for line in manifest:
                 if line.strip() == '' or line.startswith('#'):
