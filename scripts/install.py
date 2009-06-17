@@ -281,6 +281,7 @@ class Install:
         self.db = debconf.Debconf()
 
         self.select_language_packs()
+        self.select_ecryptfs()
         use_restricted = True
         try:
             if self.db.get('apt-setup/restricted') == 'false':
@@ -1298,6 +1299,23 @@ exit 0"""
                     shutil.copy(notepath,
                                 os.path.join(update_notifier_dir, note))
                     break
+
+
+    def select_ecryptfs(self):
+        """Is ecryptfs in use by an existing user? If so, keep it installed.
+
+        This duplicates code from user-setup, but necessarily so; when
+        user-setup-ask runs in ubiquity, /target is not yet mounted, but we
+        need to make this decision before generating the file copy blacklist
+        so user-setup-apply would be too late."""
+
+        home = os.path.join(self.target, 'home')
+        for homedir in os.listdir(home):
+            if os.path.isdir(os.path.join(home, homedir, '.ecryptfs')):
+                syslog.syslog('ecryptfs already in use in %s' %
+                              os.path.join(home, homedir))
+                self.record_installed(['ecryptfs-utils'])
+                break
 
 
     def configure_timezone(self):

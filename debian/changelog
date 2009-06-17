@@ -4,6 +4,10 @@ ubiquity (1.13.5) UNRELEASED; urgency=low
     Python module, with a few corner-case bugs fixed along the way.
   * Honour LIVE_MEDIA_PATH in /etc/casper.conf when looking for files
     normally found under /cdrom/casper.
+  * Keep ecryptfs-utils installed if it's already in use by users on an
+    existing /home (LP: #361627). This duplicates code from user-setup, but
+    necessarily so since /target isn't yet mounted when user-setup-ask runs
+    in ubiquity.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 15 Jun 2009 19:36:53 +0100
 
