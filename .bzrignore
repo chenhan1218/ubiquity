@@ -23,7 +23,6 @@ debian/*.substvars
 ./config.log
 ./config.status
 ./intltool-*
-./libtool
 ./stamp-h1
 d-i/apt
 d-i/manifest.old
@@ -38,19 +37,6 @@ po/Makefile.in
 po/POTFILES
 po/remove-potcdate.sed
 po/stamp-it
-src/Makefile
-src/cut-and-paste/Makefile
-src/cut-and-paste/e-map/.deps
-src/cut-and-paste/e-map/Makefile
-src/cut-and-paste/gdm-signal/.deps
-src/cut-and-paste/gdm-signal/.libs
-src/cut-and-paste/gdm-signal/Makefile
-src/cut-and-paste/gdm-signal/gdm-signal
-src/.deps
-src/.libs
-src/e-map.c
-src/*.la
-src/*.lo
 pixmaps/Makefile
 ubiquity/frontend/*.bak
 ubiquity/frontend/liveinstaller.py
