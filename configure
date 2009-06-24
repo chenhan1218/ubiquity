@@ -15692,7 +15692,9 @@ rm -f core conftest.err conftest.$ac_objext conftest_ipa8_conftest.oo \
   ac_config_files="$ac_config_files src/Makefile src/cut-and-paste/Makefile src/cut-and-paste/gdm-signal/Makefile"
 
 else
+  GTK_CFLAGS=""
 
+  GTK_LIBS=""
 
 fi
 

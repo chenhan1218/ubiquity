@@ -35,8 +35,8 @@ if test "x$UBIQUITY_NO_GTK" = x; then
 	src/cut-and-paste/gdm-signal/Makefile
 	)
 else
-  AC_SUBST(GTK_CFLAGS, [])
-  AC_SUBST(GTK_LIBS, [])
+  AC_SUBST(GTK_CFLAGS, [""])
+  AC_SUBST(GTK_LIBS, [""])
 fi
 
 AC_DEFINE_UNQUOTED(PIXMAPS_DIR, "${datadir}/${PACKAGE}/pixmaps", [pixmaps directory])
