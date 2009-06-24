@@ -1,5 +1,0 @@
-Where possible, please don't modify code in this directory except to update
-it to the latest version from its original project.
-
-gdm-signal is imported from powermanagement-interface, pending proper
-interfaces in gdm/gnome-session for this kind of thing.

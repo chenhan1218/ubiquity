@@ -43,6 +43,7 @@ import signal
 import xml.sax.saxutils
 import gettext
 
+import dbus
 import pygtk
 pygtk.require('2.0')
 import pango
@@ -958,16 +959,16 @@ class Wizard(BaseFrontend):
     def do_reboot(self):
         """Callback for main program to actually reboot the machine."""
 
-        if (os.path.exists("/usr/lib/ubiquity/gdm-signal") and
-            os.path.exists("/usr/bin/gnome-session-save") and
-            'DESKTOP_SESSION' in os.environ):
-            execute("/usr/lib/ubiquity/gdm-signal", "--reboot")
-            if 'SUDO_UID' in os.environ:
-                user = '#%d' % int(os.environ['SUDO_UID'])
-            else:
-                user = 'ubuntu'
-            execute("sudo", "-u", user, "-H",
-                    "gnome-session-save", "--kill", "--silent")
+        try:
+            session = dbus.Bus.get_session()
+            gnome_session = session.name_has_owner('org.gnome.SessionManager')
+        except dbus.exceptions.DBusException:
+            gnome_session = False
+
+        if gnome_session:
+            manager = session.get_object('org.gnome.SessionManager',
+                                         '/org/gnome/SessionManager')
+            manager.RequestReboot()
         else:
             execute("reboot")
 
