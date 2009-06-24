@@ -1,6 +1,6 @@
 AC_PREREQ(2.52)
-AC_INIT(ubiquity, 1.13, https://launchpad.net/ubuntu/+source/ubiquity/+filebug)
-AC_CONFIG_SRCDIR(ubiquity/filteredcommand.py)
+AC_INIT([ubiquity], [1.13], [https://launchpad.net/ubuntu/+source/ubiquity/+filebug])
+AC_CONFIG_SRCDIR([ubiquity/filteredcommand.py])
 AC_CONFIG_AUX_DIR([build])
 AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([foreign])
@@ -17,12 +17,12 @@ AC_PROG_MAKE_SET
 
 AC_DEFINE_UNQUOTED(PIXMAPS_DIR, "${datadir}/${PACKAGE}/pixmaps", [pixmaps directory])
 pixmapsdir="${datadir}/${PACKAGE}/pixmaps"
-AC_SUBST(pixmapsdir)
+AC_SUBST([pixmapsdir])
 
-AC_CONFIG_FILES(
+AC_CONFIG_FILES([
 	Makefile
 	desktop/Makefile
 	pixmaps/Makefile
 	po/Makefile.in
-	)
+	])
 AC_OUTPUT
