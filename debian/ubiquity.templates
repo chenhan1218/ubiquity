@@ -1,3 +1,10 @@
+Template: debian-installer/dummy
+Type: string
+Description: dummy template for preseeding unavailable questions
+ The answer to this question has been preseeded (${ID}).
+ If you see this template, you've found a bug in the installer;
+ please file a report.
+
 Template: debian-installer/framebuffer
 Type: boolean
 Default: true
@@ -801,3 +808,44 @@ _Description: Do you want to return to the partitioner?
  .
  If you do not go back to the partitioner and increase the size of these
  partitions, the installation may fail.
+
+Template: ubiquity/text/oem_config
+Type: text
+_Description: System Configuration
+
+Template: ubiquity/text/language_heading_label
+Type: text
+_Description: Choose language
+
+Template: ubiquity/text/language_text_label
+Type: text
+_Description: Once you answer a few questions, the system will be ready for you to use.
+
+Template: ubiquity/text/timezone_country_label
+Type: text
+_Description: Selected region:
+
+Template: ubiquity/text/timezone_time_label
+Type: text
+_Description: Current time:
+
+Template: ubiquity/text/network_heading_label
+Type: text
+_Description: Network configuration
+
+Template: ubiquity/text/tasks_heading_label
+Type: text
+_Description: Software selection
+
+Template: ubiquity/text/applying
+Type: text
+_Description: Applying configuration
+
+Template: ubiquity/steps
+Type: multiselect
+Choices: LanguageOnly, Language, Location, KeyboardConf, PartAuto, PartAdvanced, UserInfo, MigrationAssistant, Network, Tasks, Ready
+Default: Language, Location, KeyboardConf, PartAuto, PartAdvanced, UserInfo, MigrationAssistant, Ready
+Description: for internal use; can be preseeded
+ List of steps to display. Steps are always displayed in the order given by
+ this list of choices, regardless of the order given in the answer to this
+ question.

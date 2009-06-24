@@ -8129,6 +8129,9 @@ $as_echo_n "checking whether the $compiler linker ($LD) supports shared librarie
   openbsd*)
     with_gnu_ld=no
     ;;
+  linux* | k*bsd*-gnu)
+    link_all_deplibs=no
+    ;;
   esac
 
   ld_shlibs=yes
@@ -10823,7 +10826,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<_LT_EOF
-#line 10826 "configure"
+#line 10829 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -10919,7 +10922,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<_LT_EOF
-#line 10922 "configure"
+#line 10925 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -15320,12 +15323,19 @@ if test "${am_cv_python_pythondir+set}" = set; then
 else
   if test "x$prefix" = xNONE
      then
-       py_prefix_arg=
+       am_py_prefix=$ac_default_prefix
      else
-       py_prefix_arg=",prefix='$prefix'"
+       am_py_prefix=$prefix
      fi
-     am_cv_python_pythondir=`$PYTHON -c "from distutils import sysconfig; print sysconfig.get_python_lib(0,0$py_prefix_arg)" -n -q install $py_prefix_arg 2>/dev/null ||
+     am_cv_python_pythondir=`$PYTHON -c "import sys; from distutils import sysconfig; sys.stdout.write(sysconfig.get_python_lib(0,0,prefix='$am_py_prefix'))" 2>/dev/null ||
      echo "$PYTHON_PREFIX/lib/python$PYTHON_VERSION/site-packages"`
+     case $am_cv_python_pythondir in
+     $am_py_prefix*)
+       am__strip_prefix=`echo "$am_py_prefix" | sed 's|.|.|g'`
+       am_cv_python_pythondir=`echo "$am_cv_python_pythondir" | sed "s,^$am__strip_prefix,$PYTHON_PREFIX,"`
+       ;;
+     esac
+
 fi
 { $as_echo "$as_me:$LINENO: result: $am_cv_python_pythondir" >&5
 $as_echo "$am_cv_python_pythondir" >&6; }
@@ -15343,12 +15353,19 @@ if test "${am_cv_python_pyexecdir+set}" = set; then
 else
   if test "x$exec_prefix" = xNONE
      then
-       py_exec_prefix_arg=$py_prefix_arg
+       am_py_exec_prefix=$am_py_prefix
      else
-       py_exec_prefix_arg=",prefix='$exec_prefix'"
+       am_py_exec_prefix=$exec_prefix
      fi
-     am_cv_python_pyexecdir=`$PYTHON -c "from distutils import sysconfig; print sysconfig.get_python_lib(1,0$py_exec_prefix_arg)" -n -q install $py_exec_prefix_arg 2>/dev/null ||
+     am_cv_python_pyexecdir=`$PYTHON -c "import sys; from distutils import sysconfig; sys.stdout.write(sysconfig.get_python_lib(1,0,prefix='$am_py_exec_prefix'))" 2>/dev/null ||
      echo "$PYTHON_EXEC_PREFIX/lib/python$PYTHON_VERSION/site-packages"`
+     case $am_cv_python_pyexecdir in
+     $am_py_exec_prefix*)
+       am__strip_prefix=`echo "$am_py_exec_prefix" | sed 's|.|.|g'`
+       am_cv_python_pyexecdir=`echo "$am_cv_python_pyexecdir" | sed "s,^$am__strip_prefix,$PYTHON_EXEC_PREFIX,"`
+       ;;
+     esac
+
 fi
 { $as_echo "$as_me:$LINENO: result: $am_cv_python_pyexecdir" >&5
 $as_echo "$am_cv_python_pyexecdir" >&6; }

@@ -72,7 +72,9 @@ install:
 			if [ -f "udeb-control/$$name/templates" ]; then \
 				sed -n '/./,$$p' "udeb-control/$$name/templates" | \
 					grep -iv '^indices.*:' >> templates; \
-				echo >> templates; \
+				if [ "$$(tail -n1 templates)" ]; then \
+					echo >> templates; \
+				fi; \
 			fi; \
 		fi; \
 	done

@@ -27,8 +27,27 @@ import subprocess
 import debconf
 from ubiquity.debconfcommunicator import DebconfCommunicator
 from ubiquity.misc import drop_privileges
-
+from ubiquity.components import console_setup, language, timezone, usersetup, \
+                                partman, partman_commit, \
+                                summary, install, migrationassistant
 from ubiquity import i18n
+
+# Pages that may be loaded. Interpretation is up to the frontend, but it is
+# strongly recommended to keep the page identifiers the same. Order is
+# important, and 'step' will be prepended to all identifiers.
+VALID_PAGES = {
+    'LanguageOnly' : language.Language,
+    'Language' : language.Language,
+    'Location' : timezone.Timezone,
+    'KeyboardConf' : console_setup.ConsoleSetup,
+    'PartAuto' : partman.Partman,
+    'PartAdvanced' : partman.Partman,
+    'UserInfo' : usersetup.UserSetup,
+    'Network' : None,
+    'Tasks' : None,
+    'MigrationAssistant' : migrationassistant.MigrationAssistant,
+    'Ready' : summary.Summary,
+}
 
 class BaseFrontend:
     """Abstract ubiquity frontend.
@@ -108,6 +127,26 @@ class BaseFrontend:
             self.allow_password_empty = db.get('user-setup/allow-password-empty') == 'true'
         except debconf.DebconfError:
             pass
+
+        step_list = db.get('ubiquity/steps')
+        steps = step_list.replace(',', ' ').split()
+        self.pagenames = []
+        for valid_page in VALID_PAGES:
+            if valid_page in steps:
+                if valid_page == 'MigrationAssistant' and \
+                   'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
+                    continue
+                self.pagenames.append("step%s" % valid_page)
+                page_class = VALID_PAGES[valid_page]
+                if page_class is not None and page_class not in self.pages:
+                    self.pages.append(page_class)
+        for step in steps:
+            if step not in VALID_PAGES:
+                syslog.syslog(syslog.LOG_WARNING,
+                              "Unknown step name in ubiquity/steps: %s" %
+                              step)
+        if not self.pagenames:
+            raise ValueError, "No valid steps in ubiquity/steps"
 
         if 'SUDO_USER' in os.environ:
             os.environ['SCIM_USER'] = os.environ['SUDO_USER']

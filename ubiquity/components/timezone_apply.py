@@ -20,5 +20,8 @@
 from ubiquity.filteredcommand import FilteredCommand
 
 class TimezoneApply(FilteredCommand):
-    def prepare(self):
-        return (['/usr/lib/ubiquity/tzsetup/post-base-installer'], [])
+    def prepare(self, unfiltered=False):
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            return (['/usr/lib/ubiquity/tzsetup/post-base-installer-oem'], [])
+        else:
+            return (['/usr/lib/ubiquity/tzsetup/post-base-installer'], [])

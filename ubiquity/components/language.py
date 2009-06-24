@@ -23,11 +23,13 @@ import locale
 
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity import i18n
+from ubiquity import im_switch
 from ubiquity import misc
 
 class Language(FilteredCommand):
-    def prepare(self):
+    def prepare(self, unfiltered=False):
         self.language_question = None
+        self.initial_language = None
         self.db.fset('localechooser/languagelist', 'seen', 'false')
         try:
             os.unlink('/var/lib/localechooser/preseeded')
@@ -35,13 +37,19 @@ class Language(FilteredCommand):
         except OSError:
             pass
         questions = ['localechooser/languagelist']
+        environ = {'PATH': '/usr/lib/ubiquity/localechooser:' + os.environ['PATH']}
+        if 'UBIQUITY_FRONTEND' in os.environ and os.environ['UBIQUITY_FRONTEND'] == "debconf_ui":
+          environ['TERM_FRAMEBUFFER'] = '1'
+        else:
+          environ['OVERRIDE_SHOW_ALL_LANGUAGES'] = '1'
         return (['/usr/lib/ubiquity/localechooser/localechooser'], questions,
-                {'PATH': '/usr/lib/ubiquity/localechooser:' + os.environ['PATH'],
-                 'OVERRIDE_SHOW_ALL_LANGUAGES': '1'})
+                environ)
 
     def run(self, priority, question):
         if question == 'localechooser/languagelist':
             self.language_question = question
+            if self.initial_language is None:
+                self.initial_language = self.db.get(question)
             current_language_index = self.value_index(question)
             current_language = "English"
 
@@ -79,13 +87,22 @@ class Language(FilteredCommand):
 
     def ok_handler(self):
         if self.language_question is not None:
-            self.preseed(self.language_question, self.frontend.get_language())
+            new_language = self.frontend.get_language()
+            self.preseed(self.language_question, new_language)
+            if (self.initial_language is None or
+                self.initial_language != new_language):
+                self.db.reset('debian-installer/country')
         FilteredCommand.ok_handler(self)
 
     def cleanup(self):
         di_locale = self.db.get('debian-installer/locale')
         if di_locale not in i18n.get_supported_locales():
             di_locale = self.db.get('debian-installer/fallbacklocale')
+        if di_locale == '':
+            # TODO cjwatson 2006-07-17: maybe fetch
+            # languagechooser/language-name and set a language based on
+            # that?
+            di_locale = 'en_US.UTF-8'
         if di_locale != self.frontend.locale:
             self.frontend.locale = di_locale
             os.environ['LANG'] = di_locale
@@ -97,3 +114,4 @@ class Language(FilteredCommand):
                            e, di_locale)
             misc.execute_root('fontconfig-voodoo',
                               '--auto', '--force', '--quiet')
+            im_switch.start_im()

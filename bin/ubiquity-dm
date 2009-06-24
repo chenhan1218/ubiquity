@@ -248,7 +248,7 @@ class DM:
             return 1
 
 if len(sys.argv) < 3:
-    sys.stderr.write('Usage: ubiquity-dm <vt[1-N]> <:[0-N]> <program> [<arguments>]\n')
+    sys.stderr.write('Usage: %s <vt[1-N]> <:[0-N]> <program> [<arguments>]\n' % sys.argv[0])
     sys.exit(1)
 
 vt, display = sys.argv[1:3]

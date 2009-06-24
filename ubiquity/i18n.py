@@ -142,6 +142,7 @@ def get_translations(languages=None, core_names=[]):
     return _translations
 
 string_questions = {
+    'language_label': 'ubiquity/text/language_heading_label',
     'new_size_label': 'partman-partitioning/new_size',
     'partition_create_heading_label': 'partman-partitioning/text/new',
     'partition_create_type_label': 'partman-partitioning/new_partition_type',

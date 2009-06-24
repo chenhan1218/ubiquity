@@ -33,6 +33,7 @@ my @basebd = (
     'dctrl-tools',
     'debhelper (>= 5.0.37.3ubuntu2)',
     'intltool (>= 0.40.0)',
+    'libart-2.0-dev',
     'libglib2.0-dev',
     'libgtk2.0-dev',
     'libart-2.0-dev',

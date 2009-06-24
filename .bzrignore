@@ -5,6 +5,12 @@ tailor.state.journal
 ./build-stamp
 debian/build
 debian/files
+debian/oem-config
+debian/oem-config-check
+debian/oem-config-debconf
+debian/oem-config-gtk
+debian/oem-config-kde
+debian/oem-config-udeb
 debian/ubiquity
 debian/ubiquity-frontend-cloner
 debian/ubiquity-frontend-gtk

@@ -1,0 +1,3 @@
+usr/share/lintian/overrides
+var/lib/localechooser
+usr/lib/oem-config/post-install

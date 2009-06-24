@@ -26,7 +26,7 @@ from ubiquity import keyboard_names
 from ubiquity import misc
 
 class ConsoleSetup(FilteredCommand):
-    def prepare(self):
+    def prepare(self, unfiltered=False):
         self.preseed('console-setup/ask_detect', 'false')
 
         # We need to get rid of /etc/default/console-setup, or console-setup

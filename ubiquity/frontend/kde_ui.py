@@ -64,28 +64,6 @@ LOCALEDIR = "/usr/share/locale"
 #currently using for testing, will remove
 UIDIR = os.path.join(PATH, 'qt')
 
-BREADCRUMB_STEPS = {
-    "stepLanguage": 1,
-    "stepLocation": 2,
-    "stepKeyboardConf": 3,
-    "stepPartAuto": 4,
-    "stepPartAdvanced": 4,
-    "stepUserInfo": 5,
-    "stepReady": 6
-}
-BREADCRUMB_MAX_STEP = 6
-
-WIDGET_STACK_STEPS = {
-    "stepWelcome": 0,
-    "stepLanguage": 1,
-    "stepLocation": 2,
-    "stepKeyboardConf": 3,
-    "stepPartAuto": 4,
-    "stepPartAdvanced": 5,
-    "stepUserInfo": 6,
-    "stepReady": 7
-}
-
 class UbiquityUI(QWidget):
 
     def __init__(self, parent):
@@ -339,10 +317,6 @@ class Wizard(BaseFrontend):
         self.app.connect(self.userinterface.partition_button_delete, SIGNAL("clicked(bool)"),self.on_partition_list_delete_activate)
         self.app.connect(self.userinterface.partition_button_undo, SIGNAL("clicked(bool)"),self.on_partition_list_undo_activate)
 
-        self.pages = [language.Language, timezone.Timezone,
-            console_setup.ConsoleSetup, partman.Partman,
-            usersetup.UserSetup, summary.Summary]
-
         self.pagesindex = 0
         pageslen = len(self.pages)
 
@@ -354,11 +328,7 @@ class Wizard(BaseFrontend):
 
         # Start the interface
         if got_intro:
-            global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
-            for step in BREADCRUMB_STEPS:
-                BREADCRUMB_STEPS[step] += 1
-            BREADCRUMB_STEPS["stepWelcome"] = 1
-            BREADCRUMB_MAX_STEP += 1
+            self.pages.insert(0, None) # for page index bookkeeping
             first_step = "stepWelcome"
         else:
             first_step = "stepLanguage"
@@ -532,14 +502,13 @@ class Wizard(BaseFrontend):
 
         if isinstance(widget, QLabel):
             if name == 'step_label':
-                global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
                 curstep = '?'
-                if self.current_page is not None:
-                    current_name = self.step_name(self.current_page)
-                    if current_name in BREADCRUMB_STEPS:
-                        curstep = str(BREADCRUMB_STEPS[current_name])
+                for page in self.pages:
+                    if isinstance(self.dbfilter, page):
+                        curstep = str(self.pages.index(page))
+                        break
                 text = text.replace('${INDEX}', curstep)
-                text = text.replace('${TOTAL}', str(BREADCRUMB_MAX_STEP))
+                text = text.replace('${TOTAL}', str(len(self.pages)))
 
             if 'heading_label' in name:
                 widget.setText("<h2>" + text + "</h2>")
@@ -2106,7 +2075,7 @@ class Wizard(BaseFrontend):
         if self.installing and not self.installing_no_return:
             # Go back to the partitioner and try again.
             #self.live_installer.show()
-            self.pagesindex = 1
+            self.pagesindex = self.pages.index(partman.Partman)
             self.dbfilter = partman.Partman(self)
             self.set_current_page(self.previous_partitioning_page)
             self.userinterface.next.setText(self.get_string("next").replace('_', '&', 1))

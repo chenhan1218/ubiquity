@@ -191,6 +191,11 @@ endif
 		debian/ubiquity/usr/lib/ubiquity/localechooser/
 	install d-i/source/tzsetup/post-base-installer.d/*tzsetup \
 		debian/ubiquity/usr/lib/ubiquity/tzsetup/post-base-installer
+	mkdir -p debian/oem-config/usr/lib/ubiquity/tzsetup
+	sed -e 's,/target,,g' \
+		d-i/source/tzsetup/post-base-installer.d/*tzsetup \
+		> debian/oem-config/usr/lib/ubiquity/tzsetup/post-base-installer-oem
+	chmod +x debian/oem-config/usr/lib/ubiquity/tzsetup/post-base-installer-oem
 	sed -i -e 's,db_input medium tzsetup/selected,db_input high tzsetup/selected,' \
 	       -e 's,/usr/share/tzsetup/tzmap,/usr/lib/ubiquity/tzsetup/tzmap,g' \
 		debian/ubiquity/usr/lib/ubiquity/tzsetup/tzsetup
@@ -201,6 +206,9 @@ endif
 			> debian/ubiquity/usr/lib/ubiquity/user-setup/$$x; \
 		chmod +x debian/ubiquity/usr/lib/ubiquity/user-setup/$$x; \
 	done
+	sed -i -e 's,db_input high user-setup/encrypt-home,db_input medium user-setup/encrypt-home,' \
+		debian/ubiquity/usr/lib/ubiquity/user-setup/user-setup-ask
+	echo oem >> debian/ubiquity/usr/lib/ubiquity/user-setup/reserved-usernames
 ifeq ($(DEB_HOST_ARCH),armel)
 	dh_installdirs -pubiquity usr/lib/ubiquity/flash-kernel
 	install d-i/source/flash-kernel/debian/flash-kernel-installer.postinst \
@@ -262,6 +270,7 @@ binary-arch: install
 	dh_installchangelogs
 	dh_installdocs
 	dh_installdebconf
+	cp debian/lintian-override debian/oem-config/usr/share/lintian/overrides/oem-config
 	echo >> debian/ubiquity/DEBIAN/templates
 	po2debconf --podir=debian/imported-po \
 		debian/ubiquity.templates-imported \

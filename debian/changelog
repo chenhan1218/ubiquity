@@ -1,5 +1,6 @@
 ubiquity (1.13.5) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Factor out /etc/casper.conf parsing from ubiquity-dm to a separate
     Python module, with a few corner-case bugs fixed along the way.
   * Honour LIVE_MEDIA_PATH in /etc/casper.conf when looking for files
@@ -8,6 +9,9 @@ ubiquity (1.13.5) UNRELEASED; urgency=low
     existing /home (LP: #361627). This duplicates code from user-setup, but
     necessarily so since /target isn't yet mounted when user-setup-ask runs
     in ubiquity.
+
+  [ Michael Terry ]
+  * Automatic update of included source packages.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 15 Jun 2009 19:36:53 +0100
 
