@@ -19,11 +19,9 @@ debian/*.debhelper*
 debian/*.substvars
 ./Makefile
 ./autom4te.cache
-./config.h
 ./config.log
 ./config.status
 ./intltool-*
-./stamp-h1
 d-i/apt
 d-i/manifest.old
 d-i/source
