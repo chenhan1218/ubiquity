@@ -32,8 +32,6 @@ ifeq ($(DEB_HOST_ARCH_CPU),)
   endif
 endif
 
-PYTHON := $(shell pyversions -r)
-
 ifneq (,$(findstring :$(DEB_HOST_ARCH_CPU):,:amd64:i386:lpia:))
   bootloader-recommends := grub-pc | grub
 else
@@ -67,7 +65,7 @@ build: build-stamp
 build-stamp:
 	dh_testdir
 
-	PYTHON=$(PYTHON) ./configure --prefix=/usr
+	./configure --prefix=/usr
 	$(MAKE)
 	$(MAKE) -C d-i build
 
