@@ -108,9 +108,7 @@ install: build ubiquity/keyboard_names.py
 	# For the meantime, nearly everything automake wants to install is
 	# part of the GTK frontend.
 ifndef UBIQUITY_NO_GTK
-	$(MAKE) install DESTDIR=$(CURDIR)/debian/ubiquity-frontend-gtk \
-		pythondir=\$${prefix}/lib/ubiquity \
-		pyexecdir=\$${prefix}/lib/ubiquity
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/ubiquity-frontend-gtk
 	rm -rf debian/ubiquity-frontend-gtk/usr/share/applications \
 		debian/ubiquity-frontend-gtk/usr/share/ubiquity/pixmaps
 endif
