@@ -72,13 +72,20 @@ Description: Mythbuntu frontend for the Ubiquity live installer
  when performing a Mythbuntu installation.  The interface is derived
  from the GTK frontend already available.
 
+Package: ubiquity-frontend-debconf
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}, ubiquity (= ${binary:Version}), debconf (>= 1.5.24ubuntu2) | cdebconf, bogl-bterm (>= 0.1.18-2ubuntu4), tasksel
+Provides: ubiquity-frontend-${mangled-version}
+XB-Python-Version: ${python:Versions}
+Description: debconf frontend for the Ubiquity live installer
+ This package provides a debconf-based user interface frontend for the
+ Ubiquity live CD installer.
+
 Package: oem-config
-Architecture: any
-Depends: ${shlibs:Depends}, ${python:Depends}, debconf (>= 1.4.52), oem-config-frontend-${mangled-version}, localechooser-data, iso-codes, apt, locales (>= 2.3.7-1), ${console-setup-depends}, passwd, adduser
-Suggests: checkbox
+Architecture: all
+Depends: ${misc:Depends}, ubiquity (= ${binary:Version}), oem-config-frontend-${mangled-version}
 Conflicts: oem-config-keyboard, oem-config-locale, oem-config-timezone
 Replaces: oem-config-keyboard, oem-config-locale, oem-config-timezone, oem-config-gtk (<< 1.54.13), oem-config-kde (<< 1.54.13)
-XB-Python-Version: ${python:Versions}
 Description: Perform end-user configuration after initial OEM installation
  The oem-config script re-asks a number of questions that are normally asked
  during installation, and reconfigures the system accordingly. This allows a
@@ -87,12 +94,10 @@ Description: Perform end-user configuration after initial OEM installation
  up their own username and password, language, timezone, and so on.
 
 Package: oem-config-gtk
-Architecture: any
-Depends: ${shlibs:Depends}, ${python:Depends}, oem-config (= ${binary:Version}), xserver-xorg, python-gtk2, python-glade2, python-cairo, metacity
-Suggests: checkbox-gtk, gnome-control-center
+Architecture: all
+Depends: ${misc:Depends}, oem-config (= ${source:Version}), ubiquity-frontend-gtk (= ${binary:Version})
 Replaces: oem-config (<< 1.0)
 Provides: oem-config-frontend-${mangled-version}
-XB-Python-Version: ${python:Versions}
 Description: GTK+ frontend for end-user post-OEM-install configuration
  The oem-config script re-asks a number of questions that are normally asked
  during installation, and reconfigures the system accordingly. This allows a
@@ -104,10 +109,9 @@ Description: GTK+ frontend for end-user post-OEM-install configuration
 
 Package: oem-config-kde
 Architecture: all
-Depends: ${python:Depends}, oem-config (= ${binary:Version}), xserver-xorg, python-kde4, kde-window-manager, kdesudo
+Depends: ${misc:Depends}, oem-config (= ${source:Version}), ubiquity-frontend-kde (= ${source:Version})
 Replaces: oem-config (<< 1.0)
 Provides: oem-config-frontend-${mangled-version}
-XB-Python-Version: ${python:Versions}
 Description: KDE frontend for end-user post-OEM-install configuration
  The oem-config script re-asks a number of questions that are normally asked
  during installation, and reconfigures the system accordingly. This allows a
@@ -116,21 +120,6 @@ Description: KDE frontend for end-user post-OEM-install configuration
  up their own username and password, language, timezone, and so on.
  .
  This is a KDE frontend to oem-config.
-
-Package: oem-config-debconf
-Architecture: all
-Depends: ${python:Depends}, oem-config (= ${binary:Version}), debconf (>= 1.5.24ubuntu2) | cdebconf, bogl-bterm (>= 0.1.18-2ubuntu4), tasksel
-Provides: oem-config-frontend-${mangled-version}
-XB-Python-Version: ${python:Versions}
-Description: debconf frontend for end-user post-OEM-install configuration
- The oem-config script re-asks a number of questions that are normally asked
- during installation, and reconfigures the system accordingly. This allows a
- vendor to install a skeleton system, clone it onto a large number of
- machines, and ship it to end users, while still allowing end users to set
- up their own username and password, language, timezone, and so on.
- .
- This is a frontend to oem-config that simply arranges for questions to be
- asked using the normal debconf frontend.
 
 Package: oem-config-check
 XC-Package-Type: udeb
