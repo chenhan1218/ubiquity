@@ -95,7 +95,7 @@ Description: Perform end-user configuration after initial OEM installation
 
 Package: oem-config-gtk
 Architecture: all
-Depends: ${misc:Depends}, oem-config (= ${source:Version}), ubiquity-frontend-gtk (= ${binary:Version})
+Depends: ${misc:Depends}, oem-config (= ${source:Version}), ubiquity-frontend-gtk (= ${source:Version})
 Replaces: oem-config (<< 1.0)
 Provides: oem-config-frontend-${mangled-version}
 Description: GTK+ frontend for end-user post-OEM-install configuration
