@@ -9,6 +9,12 @@ ubiquity (1.13.5) UNRELEASED; urgency=low
     existing /home (LP: #361627). This duplicates code from user-setup, but
     necessarily so since /target isn't yet mounted when user-setup-ask runs
     in ubiquity.
+  * GTK frontend:
+    - Remove support for old timezone map.
+    - Use a D-Bus call to gnome-session rather than the old gdm-signal code
+      we copied from powermanagement-interface. We need to depend on
+      python-dbus for this, but on the upside ubiquity-frontend-gtk becomes
+      architecture-independent.
 
   [ Michael Terry ]
   * Automatic update of included source packages.

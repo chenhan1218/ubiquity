@@ -32,8 +32,6 @@ ifeq ($(DEB_HOST_ARCH_CPU),)
   endif
 endif
 
-PYTHON := $(shell pyversions -r)
-
 ifneq (,$(findstring :$(DEB_HOST_ARCH_CPU):,:amd64:i386:lpia:))
   bootloader-recommends := grub-pc | grub
 else
@@ -56,11 +54,6 @@ endif
 
 console-setup-depends := console-setup (>= $(shell cd d-i/source/console-setup && dpkg-parsechangelog | awk '/Version:/ {print $$2}'))
 
-ifeq (,$(strip $(foreach dir,$(subst :, ,$(PATH)),$(wildcard $(dir)/pygobject-codegen-2.0))))
-$(warning pygobject-codegen-2.0 missing; disabling GTK frontend)
-export UBIQUITY_NO_GTK := 1
-endif
-
 update:
 	$(MAKE) -C d-i update
 
@@ -72,7 +65,7 @@ build: build-stamp
 build-stamp:
 	dh_testdir
 
-	PYTHON=$(PYTHON) ./configure --prefix=/usr
+	./configure --prefix=/usr
 	$(MAKE)
 	$(MAKE) -C d-i build
 
@@ -115,9 +108,7 @@ install: build ubiquity/keyboard_names.py
 	# For the meantime, nearly everything automake wants to install is
 	# part of the GTK frontend.
 ifndef UBIQUITY_NO_GTK
-	$(MAKE) install DESTDIR=$(CURDIR)/debian/ubiquity-frontend-gtk \
-		pythondir=\$${prefix}/lib/ubiquity \
-		pyexecdir=\$${prefix}/lib/ubiquity
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/ubiquity-frontend-gtk
 	rm -rf debian/ubiquity-frontend-gtk/usr/share/applications \
 		debian/ubiquity-frontend-gtk/usr/share/ubiquity/pixmaps
 endif
@@ -234,12 +225,16 @@ endif
 		cp desktop/hi$${size}-app-ubiquity.png debian/ubiquity-frontend-kde/usr/share/icons/hicolor/$${size}x$${size}/apps/ubiquity.png; \
 	done
 
-# Build architecture-independent files here.
-ifdef UBIQUITY_NO_KDE
-binary-indep: DH_OPTIONS=-i -Nubiquity-frontend-kde
-else
-binary-indep: DH_OPTIONS=-i
+BINARY_INDEP_OPTIONS := -i
+ifdef UBIQUITY_NO_GTK
+BINARY_INDEP_OPTIONS += -Nubiquity-frontend-gtk
 endif
+ifdef UBIQUITY_NO_KDE
+BINARY_INDEP_OPTIONS += -Nubiquity-frontend-kde
+endif
+
+# Build architecture-independent files here.
+binary-indep: DH_OPTIONS=$(BINARY_INDEP_OPTIONS)
 binary-indep: install
 	dh_testdir
 	dh_testroot
@@ -250,7 +245,8 @@ binary-indep: install
 	dh_strip
 	dh_compress
 	dh_fixperms
-	DH_OPTIONS= dh_pycentral -pubiquity-frontend-kde \
+	DH_OPTIONS= dh_pycentral -pubiquity-frontend-gtk \
+				 -pubiquity-frontend-kde \
 				 -pubiquity-frontend-mythbuntu
 	dh_installdeb
 	dh_shlibdeps
@@ -259,11 +255,7 @@ binary-indep: install
 	dh_builddeb
 
 # Build architecture-dependent files here.
-ifdef UBIQUITY_NO_GTK
-binary-arch: DH_OPTIONS=-a -Nubiquity-frontend-gtk
-else
 binary-arch: DH_OPTIONS=-a
-endif
 binary-arch: install
 	dh_testdir
 	dh_testroot

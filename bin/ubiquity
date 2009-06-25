@@ -329,8 +329,6 @@ def main(oem_config):
     parser.add_option('--automatic', dest='automatic', action='store_true',
                       help='do not ignore the "seen" flag (useful for ' \
                       'unattended installations).')
-    parser.add_option('--old-tzmap', dest='old_tzmap', action='store_true',
-                      help='use the old timezone map.')
     parser.add_option('--only', dest='only', action='store_true',
                       help='tell the application that it is the only desktop ' \
                       'program running so that it can customize its UI to ' \
@@ -357,9 +355,6 @@ def main(oem_config):
 
     if options.migration_assistant:
         os.environ['UBIQUITY_MIGRATION_ASSISTANT'] = '1'
-
-    if options.old_tzmap:
-        os.environ['UBIQUITY_OLD_TZMAP'] = '1'
 
     if options.only:
         os.environ['UBIQUITY_ONLY'] = '1'
