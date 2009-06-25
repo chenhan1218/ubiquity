@@ -202,9 +202,11 @@ def install(frontend=None, query=False):
         frontends = ['mythbuntu_ui', 'gtk_ui', 'kde_ui']
     else:
         frontends = [frontend]
+    chosen = None
     mod = __import__('ubiquity.frontend', globals(), locals(), frontends)
     for f in frontends:
         if hasattr(mod, f):
+            chosen = f
             ui = getattr(mod, f)
             # Noninteractive implies automatic mode.
             if f == 'noninteractive':
@@ -213,6 +215,7 @@ def install(frontend=None, query=False):
     else:
         raise AttributeError, ('No frontend available; tried %s' %
                                ', '.join(frontends))
+    os.environ['UBIQUITY_FRONTEND'] = chosen
 
     unmount_target()
     distro = distribution().lower()
@@ -410,7 +413,7 @@ def main(oem_config):
         install(args[0], query=options.query)
     else:
         install(query=options.query)
-    
+
     if oem_config:
         run_oem_hooks()
     im_switch.kill_im()
