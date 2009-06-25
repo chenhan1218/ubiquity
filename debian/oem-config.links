@@ -1,1 +1,1 @@
-/usr/sbin/oem-config /usr/lib/ubiquity/bin/ubiquity
+/usr/lib/ubiquity/bin/ubiquity /usr/sbin/oem-config
