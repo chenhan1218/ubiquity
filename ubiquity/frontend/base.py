@@ -128,7 +128,11 @@ class BaseFrontend:
         except debconf.DebconfError:
             pass
 
-        step_list = db.get('ubiquity/steps')
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            step_list_name = 'ubiquity/oem-config-steps'
+        else:
+            step_list_name = 'ubiquity/steps'
+        step_list = db.get(step_list_name)
         steps = step_list.replace(',', ' ').split()
         self.pagenames = []
         for valid_page in VALID_PAGES:

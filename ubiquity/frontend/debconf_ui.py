@@ -22,7 +22,7 @@
 # for use on a server.
 #
 # Note that this frontend relies on being run under the control of a debconf
-# frontend; the main oem-config program takes care of this.
+# frontend; the main ubiquity program takes care of this.
 
 import sys
 import os
@@ -40,7 +40,7 @@ class Frontend(BaseFrontend):
     def __init__(self):
         BaseFrontend.__init__(self)
 
-        self.db.info('oem-config/text/oem_config')
+        self.db.info('ubiquity/text/oem_config')
 
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
@@ -72,22 +72,22 @@ class Frontend(BaseFrontend):
         while self.current_page >= 0 and self.current_page < len(self.pages):
             current_name = self.pages[self.current_page]
             if current_name == 'step_language':
-                self.db.settitle('oem-config/text/language_heading_label')
+                self.db.settitle('ubiquity/text/language_heading_label')
                 step = language.Language(self, self.db)
             elif current_name == 'step_timezone':
-                self.db.settitle('oem-config/text/timezone_heading_label')
+                self.db.settitle('ubiquity/text/timezone_heading_label')
                 step = timezone.Timezone(self, self.db)
             elif current_name == 'step_keyboard':
-                self.db.settitle('oem-config/text/keyboard_heading_label')
+                self.db.settitle('ubiquity/text/keyboard_heading_label')
                 step = console_setup.ConsoleSetup(self, self.db)
             elif current_name == 'step_user':
-                self.db.settitle('oem-config/text/userinfo_heading_label')
+                self.db.settitle('ubiquity/text/userinfo_heading_label')
                 step = user.User(self, self.db)
             elif current_name == 'step_network':
-                self.db.settitle('oem-config/text/network_heading_label')
+                self.db.settitle('ubiquity/text/network_heading_label')
                 step = network.Network(self, self.db)
             elif current_name == 'step_tasks':
-                self.db.settitle('oem-config/text/tasks_heading_label')
+                self.db.settitle('ubiquity/text/tasks_heading_label')
                 step = tasks.Tasks(self, self.db)
             else:
                 raise ValueError, "step %s not recognised" % current_name
@@ -101,7 +101,7 @@ class Frontend(BaseFrontend):
 
         # TODO: handle errors
         if self.current_page >= len(self.pages):
-            self.db.progress('START', 0, 3, 'oem-config/text/applying')
+            self.db.progress('START', 0, 3, 'ubiquity/text/applying')
 
             step = language_apply.LanguageApply(self, self.db)
             step.run_unfiltered()
