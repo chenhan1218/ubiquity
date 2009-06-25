@@ -448,6 +448,10 @@ class Wizard(BaseFrontend):
         else:
             self.live_installer.connect('size-request', self.win_size_req)
 
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            self.quit_button.hide()
+            self.hostname_vbox.hide()
+
         if self.oem_config:
             self.live_installer.set_title(self.get_string('oem_config_title'))
             self.oem_id_vbox.show()

@@ -132,6 +132,9 @@ class Wizard(BaseFrontend):
         self.userinterface.setWindowFlags(Qt.Dialog)
         #self.app.setMainWidget(self.userinterface)
 
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            self.userinterface.quit.hide()
+
         self.advanceddialog = QDialog(self.userinterface)
         uic.loadUi("%s/advanceddialog.ui" % UIDIR, self.advanceddialog)
 
