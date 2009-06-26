@@ -19,7 +19,7 @@ ubiquity (1.13.5) karmic; urgency=low
     0.98ubuntu1, debian-installer-utils 1.69ubuntu1, grub-installer
     1.38ubuntu1, localechooser 2.12ubuntu2, partconf 1.31, partman-auto
     86ubuntu1, partman-base 131ubuntu1, partman-basicfilesystems 63ubuntu1,
-    partman-basicmethods 43, partman-efi 20ubuntu1, partman- ext3 58ubuntu1,
+    partman-basicmethods 43, partman-efi 20ubuntu1, partman-ext3 58ubuntu1,
     partman-jfs 30, partman-partitioning 68ubuntu1, partman-reiserfs 45,
     partman-target 60ubuntu1, partman-xfs 44, preseed 1.42ubuntu1,
     silo-installer 1.16ubuntu1, tzsetup 1:0.25ubuntu1, user-setup
