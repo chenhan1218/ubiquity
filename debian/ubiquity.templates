@@ -51,6 +51,16 @@ _Description:
  Please choose the language used for the installation process. This
  language will be the default language for the final system.
 
+Template: ubiquity/text/welcome_text_oem_user_label
+Type: text
+_Description:
+ Once you answer a few questions, this computer will be ready to use.
+ .
+ Answering the questions should only take a few minutes.
+ .
+ Please choose the language used for the configuration process. This
+ language will be the default language for this computer.
+
 Template: ubiquity/text/oem_id_label
 Type: text
 _Description:

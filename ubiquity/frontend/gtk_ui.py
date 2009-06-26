@@ -475,7 +475,9 @@ class Wizard(BaseFrontend):
             # The UserSetup component takes care of preseeding passwd/user-uid.
             execute_root('apt-install', 'oem-config-gtk')
         elif self.oem_user_config:
+            self.live_installer.set_title(self.get_string('oem_user_config_title'))
             self.live_installer.set_icon_name("preferences-system")
+            self.live_installer.window.set_functions(gtk.gdk.FUNC_RESIZE | gtk.gdk.FUNC_MOVE)
             self.quit.hide()
             self.hostname_vbox.hide()
 
@@ -679,6 +681,8 @@ class Wizard(BaseFrontend):
                         break
                 text = text.replace('${INDEX}', curstep)
                 text = text.replace('${TOTAL}', str(len(self.pages)))
+            elif name == 'welcome_text_label' and self.oem_user_config:
+                text = self.get_string('welcome_text_oem_user_label', lang)
             widget.set_text(text)
 
             # Ideally, these attributes would be in the glade file somehow ...
