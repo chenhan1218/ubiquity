@@ -145,7 +145,12 @@ class BaseFrontend:
                 if valid_page == 'MigrationAssistant' and \
                    'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
                     continue
-                self.pagenames.append("step%s" % valid_page)
+                step_name = "step%s" % valid_page
+                # Handle special frontend overrides
+                if hasattr(self, 'pages_override_remove') and \
+                   step_name in self.pages_override_remove:
+                    continue
+                self.pagenames.append(step_name)
                 page_class = VALID_PAGES[valid_page]
                 if page_class is not None and page_class not in self.pages:
                     self.pages.append(page_class)
@@ -154,6 +159,14 @@ class BaseFrontend:
                 syslog.syslog(syslog.LOG_WARNING,
                               "Unknown step name in %s: %s" %
                               (step_list_name, step))
+
+        # Handle special frontend extra pages
+        if hasattr(self, 'pages_override_append'):
+            for page in self.pages_override_append:
+                self.pagenames.append(page[0])
+                if page[1]:
+                    self.pages.append(page[1])
+
         if not self.pagenames:
             raise ValueError, "No valid steps in %s" % step_list_name
 
