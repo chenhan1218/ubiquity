@@ -561,7 +561,7 @@ class Install:
                                         'filesystem.manifest-desktop')
         manifest = os.path.join(self.casper_path, 'filesystem.manifest')
         if (os.path.exists(manifest_desktop) and
-            os.path.exists(manifest):
+            os.path.exists(manifest)):
             desktop_packages = set()
             manifest = open(manifest_desktop)
             for line in manifest:
