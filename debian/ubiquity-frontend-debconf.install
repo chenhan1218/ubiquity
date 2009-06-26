@@ -1,0 +1,12 @@
+ubiquity/frontend/debconf_ui.py usr/lib/ubiquity/ubiquity/frontend
+
+# bterm-unifont
+d-i/source/bterm-unifont/unifont.bgf usr/share/ubiquity
+
+# netcfg
+d-i/source/netcfg/netcfg usr/lib/ubiquity/netcfg
+scripts/netcfg-wrapper usr/lib/ubiquity
+ubiquity/components/network.py usr/lib/ubiquity/ubiquity/components
+
+# tasksel
+ubiquity/components/tasks.py usr/lib/ubiquity/ubiquity/components

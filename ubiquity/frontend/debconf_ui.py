@@ -30,24 +30,30 @@ import textwrap
 
 from debconf import Debconf
 
-from oem_config.components import console_setup, language, timezone, user, \
-                                  network, tasks, \
-                                  language_apply, timezone_apply, \
-                                  console_setup_apply
-from oem_config.frontend.base import BaseFrontend
+from ubiquity.components import console_setup, language, timezone, usersetup, \
+                                network, tasks, \
+                                language_apply, timezone_apply, \
+                                console_setup_apply
+from ubiquity.frontend.base import BaseFrontend
 
-class Frontend(BaseFrontend):
-    def __init__(self):
-        BaseFrontend.__init__(self)
+class Wizard(BaseFrontend):
+    def __init__(self, distro):
+        BaseFrontend.__init__(self, distro)
 
-        self.db.info('ubiquity/text/oem_user_config_title')
+        db = self.debconf_communicator()
+        if self.oem_user_config:
+            db.info('ubiquity/text/oem_user_config_title')
+        else:
+            db.info('ubiquity/text/live_installer')
+        db.shutdown()
 
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
 
         # Set default language.
-        dbfilter = language.Language(self, self.db)
+        dbfilter = language.Language(self, self.debconf_communicator())
         dbfilter.cleanup()
+        dbfilter.db.shutdown()
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -67,59 +73,61 @@ class Frontend(BaseFrontend):
                 'cannot continue without them.')
             sys.exit(1)
 
-        self.current_page = 0
+        self.pagesindex = 0
+        pageslen = len(self.pages)
 
-        while self.current_page >= 0 and self.current_page < len(self.pages):
-            current_name = self.pages[self.current_page]
-            if current_name == 'step_language':
+        while(self.pagesindex >= 0 and self.pagesindex < pageslen):
+            current_name = self.pagenames[self.current_page]
+            step = self.pages[self.pagesindex](self)
+
+            if current_name == 'stepLanguage':
                 self.db.settitle('ubiquity/text/language_heading_label')
-                step = language.Language(self, self.db)
-            elif current_name == 'step_timezone':
+            elif current_name == 'stepLocation':
                 self.db.settitle('ubiquity/text/timezone_heading_label')
-                step = timezone.Timezone(self, self.db)
-            elif current_name == 'step_keyboard':
+            elif current_name == 'stepKeyboardConf':
                 self.db.settitle('ubiquity/text/keyboard_heading_label')
-                step = console_setup.ConsoleSetup(self, self.db)
-            elif current_name == 'step_user':
+            elif current_name == 'stepUserInfo':
                 self.db.settitle('ubiquity/text/userinfo_heading_label')
-                step = user.User(self, self.db)
-            elif current_name == 'step_network':
+            elif current_name == 'stepNetwork':
                 self.db.settitle('ubiquity/text/network_heading_label')
-                step = network.Network(self, self.db)
-            elif current_name == 'step_tasks':
+            elif current_name == 'stepTasks':
                 self.db.settitle('ubiquity/text/tasks_heading_label')
-                step = tasks.Tasks(self, self.db)
             else:
                 raise ValueError, "step %s not recognised" % current_name
 
             ret = step.run_unfiltered()
 
             if ret == 10:
-                self.current_page -= 1
+                self.pagesindex -= 1
             else:
-                self.current_page += 1
+                self.pagesindex += 1
 
         # TODO: handle errors
-        if self.current_page >= len(self.pages):
-            self.db.progress('START', 0, 3, 'ubiquity/text/applying')
+        if self.pagesindex == pageslen:
+            dbfilter = install.Install(self)
+            ret = dbfilter.run_command(auto_process=True)
+            if ret != 0:
+                self.installing = False
+                if ret == 3:
+                    # error already handled by Install
+                    sys.exit(ret)
+                elif (os.WIFSIGNALED(ret) and
+                      os.WTERMSIG(ret) in (signal.SIGINT, signal.SIGKILL,
+                                           signal.SIGTERM)):
+                    sys.exit(ret)
+                elif os.path.exists('/var/lib/ubiquity/install.trace'):
+                    tbfile = open('/var/lib/ubiquity/install.trace')
+                    realtb = tbfile.read()
+                    tbfile.close()
+                    raise RuntimeError, ("Install failed with exit code %s\n%s" %
+                                         (ret, realtb))
+                else:
+                    raise RuntimeError, ("Install failed with exit code %s; see "
+                                         "/var/log/syslog" % ret)
 
-            step = language_apply.LanguageApply(self, self.db)
-            step.run_unfiltered()
-            self.db.progress('STEP', 1)
-
-            step = timezone_apply.TimezoneApply(self, self.db)
-            step.run_unfiltered()
-            self.db.progress('STEP', 1)
-
-            step = console_setup_apply.ConsoleSetupApply(self, self.db)
-            step.run_unfiltered()
-            self.db.progress('STEP', 1)
-
-            self.db.progress('STOP')
+            while self.progress_position.depth() != 0:
+                self.debconf_progress_stop()
 
             return 0
         else:
             return 10
-
-    def stop(self):
-        self.db.stop()
