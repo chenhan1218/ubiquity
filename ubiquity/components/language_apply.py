@@ -22,7 +22,7 @@ from ubiquity.filteredcommand import FilteredCommand
 
 class LanguageApply(FilteredCommand):
     def prepare(self, unfiltered=False):
-        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+        if self.frontend.oem_user_config:
             return (['/usr/lib/ubiquity/localechooser-apply'], [])
         else:
             return (['sh', '-c',

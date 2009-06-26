@@ -421,8 +421,8 @@ def main(oem_config):
 if __name__ == '__main__':
     # Are we running as ubiquity or oem-config?
     oem_config = False
-    script_name = os.path.dirname(sys.argv[0])
-    if script_name = 'oem-config':
+    script_name = os.path.basename(sys.argv[0])
+    if script_name == 'oem-config':
         oem_config = True
 
     main(oem_config)

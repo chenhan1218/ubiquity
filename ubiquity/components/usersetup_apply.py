@@ -22,7 +22,7 @@ from ubiquity.filteredcommand import FilteredCommand
 class UserSetupApply(FilteredCommand):
     def prepare(self, unfiltered=False):
         environ = {'OVERRIDE_SYSTEM_USER': '1'}
-        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+        if self.frontend.oem_user_config:
             return (['/usr/lib/ubiquity/user-setup/user-setup-apply'], [], environ)
         else:
             return (['/usr/lib/ubiquity/user-setup/user-setup-apply', '/target'],

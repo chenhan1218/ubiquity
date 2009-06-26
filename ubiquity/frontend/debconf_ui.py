@@ -40,7 +40,7 @@ class Frontend(BaseFrontend):
     def __init__(self):
         BaseFrontend.__init__(self)
 
-        self.db.info('ubiquity/text/oem_config')
+        self.db.info('ubiquity/text/oem_user_config_title')
 
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook

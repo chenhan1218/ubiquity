@@ -65,7 +65,7 @@ class UserSetup(FilteredCommand):
                      '^user-setup/password-weak$',
                      'ERROR']
         environ = {'OVERRIDE_SYSTEM_USER': '1'}
-        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+        if self.frontend.oem_user_config:
             return (['/usr/lib/ubiquity/user-setup/user-setup-ask'],
                     questions, environ)
         else:

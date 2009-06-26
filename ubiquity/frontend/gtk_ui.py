@@ -58,7 +58,6 @@ from ubiquity.misc import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman, partman_commit, \
                                 summary, install, migrationassistant
-import ubiquity.emap
 import ubiquity.tz
 import ubiquity.progressposition
 from ubiquity.frontend.base import BaseFrontend
@@ -340,7 +339,7 @@ class Wizard(BaseFrontend):
             self.pages.insert(0, None) # for page index bookkeeping
             first_step = self.stepWelcome
         else:
-            first_step = self.stepLanguage
+            first_step = getattr(self, self.pagenames[0])
         self.set_current_page(self.steps.page_num(first_step))
         if got_intro:
             # intro_label was the only focusable widget, but got can-focus
@@ -350,10 +349,14 @@ class Wizard(BaseFrontend):
         else:
             # Similarly, the Quit button seems to end up with focus by
             # default, but we'd rather a navigable widget had it.
-            self.language_treeview.grab_focus()
+            if hasattr(self, 'language_treeview'):
+                self.language_treeview.grab_focus()
+            elif hasattr(self, 'language_iconview'):
+                self.language_iconview.grab_focus()
 
         if got_intro:
             gtk.main()
+            self.pagesindex += 1
 
         while(self.pagesindex < pageslen):
             if self.current_page == None:
@@ -403,15 +406,15 @@ class Wizard(BaseFrontend):
         return self.returncode
 
 
-    def win_size_req(self, req):
-        s = self.get_screen()
+    def win_size_req(self, widget, req):
+        s = widget.get_screen()
         m = s.get_monitor_geometry(0)
         w = -1
         h = -1
 
         # What's the size of the WM border?
-        total_frame = self.window.get_frame_extents()
-        (cur_x, cur_y, cur_w, cur_h, depth) = self.window.get_geometry()
+        total_frame = widget.window.get_frame_extents()
+        (cur_x, cur_y, cur_w, cur_h, depth) = widget.window.get_geometry()
         wm_w = total_frame.width - cur_w
         wm_h = total_frame.height - cur_h
 
@@ -420,8 +423,8 @@ class Wizard(BaseFrontend):
         if req.height > m.height - wm_h:
             h = m.height - wm_h
 
-        self.set_size_request(w, h)
-        self.resize(w, h)
+        widget.set_size_request(w, h)
+        widget.resize(w, h)
 
     def customize_installer(self):
         """Initial UI setup."""
@@ -448,10 +451,6 @@ class Wizard(BaseFrontend):
         else:
             self.live_installer.connect('size-request', self.win_size_req)
 
-        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
-            self.quit_button.hide()
-            self.hostname_vbox.hide()
-
         if self.oem_config:
             self.live_installer.set_title(self.get_string('oem_config_title'))
             self.oem_id_vbox.show()
@@ -475,20 +474,25 @@ class Wizard(BaseFrontend):
             self.login_vbox.hide()
             # The UserSetup component takes care of preseeding passwd/user-uid.
             execute_root('apt-install', 'oem-config-gtk')
+        elif self.oem_user_config:
+            self.live_installer.set_icon_name("preferences-system")
+            self.quit.hide()
+            self.hostname_vbox.hide()
 
         if not 'UBIQUITY_AUTOMATIC' in os.environ:
             self.live_installer.show()
         self.allow_change_step(False)
 
-        try:
-            release_notes = open('/cdrom/.disk/release_notes_url')
-            self.release_notes_url.set_uri(
-                release_notes.read().rstrip('\n'))
-            release_notes.close()
-        except (KeyboardInterrupt, SystemExit):
-            raise
-        except:
-            self.release_notes_vbox.hide()
+        if hasattr(self, 'release_notes_vbox'):
+            try:
+                release_notes = open('/cdrom/.disk/release_notes_url')
+                self.release_notes_url.set_uri(
+                    release_notes.read().rstrip('\n'))
+                release_notes.close()
+            except (KeyboardInterrupt, SystemExit):
+                raise
+            except:
+                self.release_notes_vbox.hide()
         gtk.link_button_set_uri_hook(self.link_button_browser)
 
         self.tzdb = ubiquity.tz.Database()
@@ -498,23 +502,25 @@ class Wizard(BaseFrontend):
         self.setup_timezone_page()
         self.tzmap.show()
 
-        self.action_bar = segmented_bar.SegmentedBarSlider()
-        self.action_bar.h_padding = self.action_bar.bar_height / 2
-        sw = gtk.ScrolledWindow()
-        sw.add_with_viewport(self.action_bar)
-        sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_NEVER)
-        sw.child.set_shadow_type(gtk.SHADOW_NONE)
-        sw.show_all()
-        self.action_bar_eb.add(sw)
+        if hasattr(self, 'action_bar_eb'):
+            self.action_bar = segmented_bar.SegmentedBarSlider()
+            self.action_bar.h_padding = self.action_bar.bar_height / 2
+            sw = gtk.ScrolledWindow()
+            sw.add_with_viewport(self.action_bar)
+            sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_NEVER)
+            sw.child.set_shadow_type(gtk.SHADOW_NONE)
+            sw.show_all()
+            self.action_bar_eb.add(sw)
         
-        self.before_bar = segmented_bar.SegmentedBar()
-        self.before_bar.h_padding = self.before_bar.bar_height / 2
-        sw = gtk.ScrolledWindow()
-        sw.add_with_viewport(self.before_bar)
-        sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_NEVER)
-        sw.child.set_shadow_type(gtk.SHADOW_NONE)
-        sw.show_all()
-        self.before_bar_eb.add(sw)
+        if hasattr(self, 'before_bar_eb'):
+            self.before_bar = segmented_bar.SegmentedBar()
+            self.before_bar.h_padding = self.before_bar.bar_height / 2
+            sw = gtk.ScrolledWindow()
+            sw.add_with_viewport(self.before_bar)
+            sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_NEVER)
+            sw.child.set_shadow_type(gtk.SHADOW_NONE)
+            sw.show_all()
+            self.before_bar_eb.add(sw)
 
         self.partition_create_mount_combo.child.set_activates_default(True)
         self.partition_edit_mount_combo.child.set_activates_default(True)
@@ -522,8 +528,9 @@ class Wizard(BaseFrontend):
         if 'UBIQUITY_DEBUG' in os.environ:
             self.password_debug_warning_label.show()
 
-        self.previous_partitioning_page = \
-            self.steps.page_num(self.stepPartAuto)
+        if hasattr(self, 'stepPartAuto'):
+            self.previous_partitioning_page = \
+                self.steps.page_num(self.stepPartAuto)
 
         # set initial bottom bar status
         self.allow_go_backward(False)
@@ -645,6 +652,7 @@ class Wizard(BaseFrontend):
             languages = [self.locale]
         core_names = ['ubiquity/text/%s' % q for q in self.language_questions]
         core_names.append('ubiquity/text/oem_config_title')
+        core_names.append('ubiquity/text/oem_user_config_title')
         for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
                            'ok', 'quit'):
             core_names.append('ubiquity/imported/%s' % stock_item)
@@ -666,8 +674,8 @@ class Wizard(BaseFrontend):
             if name == 'step_label':
                 curstep = '?'
                 for page in self.pages:
-                    if isinstance(self.dbfilter, page):
-                        curstep = str(self.pages.index(page))
+                    if self.dbfilter is page or (page and isinstance(self.dbfilter, page)):
+                        curstep = str(self.pages.index(page) + 1)
                         break
                 text = text.replace('${INDEX}', curstep)
                 text = text.replace('${TOTAL}', str(len(self.pages)))
@@ -709,8 +717,11 @@ class Wizard(BaseFrontend):
                     'gtk-%s' % stock_id, gtk.ICON_SIZE_BUTTON))
 
         elif isinstance(widget, gtk.Window):
-            if name == 'live_installer' and self.oem_config:
-                text = self.get_string('oem_config_title', lang)
+            if name == 'live_installer':
+                if self.oem_config:
+                    text = self.get_string('oem_config_title', lang)
+                elif self.oem_user_config:
+                    text = self.get_string('oem_user_config_title', lang)
             widget.set_title(text)
 
 
@@ -800,6 +811,9 @@ class Wizard(BaseFrontend):
     def show_intro(self):
         """Show some introductory text, if available."""
 
+        if self.oem_user_config:
+            return False
+
         intro = os.path.join(PATH, 'intro.txt')
 
         if os.path.isfile(intro):
@@ -823,7 +837,10 @@ class Wizard(BaseFrontend):
         self.backup = False
         self.live_installer.show()
         if n == 'Language':
-            cur = self.stepLanguage
+            if hasattr(self, 'stepLanguage'):
+                cur = self.stepLanguage
+            else:
+                cur = self.stepLanguageOnly
         elif n == 'ConsoleSetup':
             cur = self.stepKeyboardConf
         elif n == 'Timezone':
@@ -1095,7 +1112,7 @@ class Wizard(BaseFrontend):
         if step.startswith("stepPart"):
             self.previous_partitioning_page = step_num
 
-        elif step == "stepLanguage":
+        elif step == "stepLanguage" or step == "stepLanguageOnly":
             self.translate_widgets()
             # FIXME: needed anymore now that we're doing dbfilter first?
             #self.allow_go_forward(self.get_timezone() is not None)
@@ -1215,11 +1232,13 @@ class Wizard(BaseFrontend):
         # user hit back, so call on_language_treeview_selection_changed and if
         # we have a language selection, the interface will be translated
         # properly.
-        if self.step_name(current) != 'stepLanguage':
+        if self.step_name(current) != 'stepLanguage' and self.step_name(current) != 'stepLanguageOnly':
             self.translate_widget(self.step_label, self.locale)
-        else:
+        elif hasattr(self, 'language_treeview'):
             selection = self.language_treeview.get_selection()
             self.on_language_treeview_selection_changed(selection)
+        elif hasattr(self, 'language_iconview'):
+            self.on_language_iconview_selection_changed(self.language_iconview)
         syslog.syslog('switched to page %s' % self.step_name(current))
 
     def on_extra_combo_changed (self, widget):
@@ -1457,7 +1476,8 @@ class Wizard(BaseFrontend):
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
             for widget in self.language_questions:
-                self.translate_widget(getattr(self, widget), lang)
+                if hasattr(self, widget):
+                    self.translate_widget(getattr(self, widget), lang)
 
 
     def get_oem_id (self):

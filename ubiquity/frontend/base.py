@@ -95,6 +95,10 @@ class BaseFrontend:
                     del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
         except debconf.DebconfError:
             pass
+
+        self.oem_user_config = False
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+          self.oem_user_config = True
         
         try:
             self.oem_id = db.get('oem-config/id')
@@ -128,13 +132,14 @@ class BaseFrontend:
         except debconf.DebconfError:
             pass
 
-        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+        if self.oem_user_config:
             step_list_name = 'ubiquity/oem-config-steps'
         else:
             step_list_name = 'ubiquity/steps'
         step_list = db.get(step_list_name)
         steps = step_list.replace(',', ' ').split()
         self.pagenames = []
+        self.pages = []
         for valid_page in VALID_PAGES:
             if valid_page in steps:
                 if valid_page == 'MigrationAssistant' and \
@@ -147,10 +152,10 @@ class BaseFrontend:
         for step in steps:
             if step not in VALID_PAGES:
                 syslog.syslog(syslog.LOG_WARNING,
-                              "Unknown step name in ubiquity/steps: %s" %
-                              step)
+                              "Unknown step name in %s: %s" %
+                              (step_list_name, step))
         if not self.pagenames:
-            raise ValueError, "No valid steps in ubiquity/steps"
+            raise ValueError, "No valid steps in %s" % step_list_name
 
         if 'SUDO_USER' in os.environ:
             os.environ['SCIM_USER'] = os.environ['SUDO_USER']

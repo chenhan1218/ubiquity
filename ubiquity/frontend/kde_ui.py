@@ -132,9 +132,6 @@ class Wizard(BaseFrontend):
         self.userinterface.setWindowFlags(Qt.Dialog)
         #self.app.setMainWidget(self.userinterface)
 
-        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
-            self.userinterface.quit.hide()
-
         self.advanceddialog = QDialog(self.userinterface)
         uic.loadUi("%s/advanceddialog.ui" % UIDIR, self.advanceddialog)
 
@@ -334,7 +331,7 @@ class Wizard(BaseFrontend):
             self.pages.insert(0, None) # for page index bookkeeping
             first_step = "stepWelcome"
         else:
-            first_step = "stepLanguage"
+            first_step = self.pagenames[0]
                 
         self.set_current_page(WIDGET_STACK_STEPS[first_step])
         
@@ -419,6 +416,12 @@ class Wizard(BaseFrontend):
         else:
             self.userinterface.oem_id_label.hide()
             self.userinterface.oem_id_entry.hide()
+
+        if self.oem_user_config:
+            self.userinterface.setWindowTitle(
+                self.get_string('oem_user_config_title'))
+            self.userinterface.setWindowIcon(KIcon("preferences-system"))
+            self.userinterface.quit.hide()
         
         if not 'UBIQUITY_AUTOMATIC' in os.environ:
             self.userinterface.show()
@@ -594,6 +597,9 @@ class Wizard(BaseFrontend):
 
     def show_intro(self):
         """Show some introductory text, if available."""
+
+        if self.oem_user_config:
+            return False
 
         intro = os.path.join(PATH, 'intro.txt')
         
