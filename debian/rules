@@ -79,6 +79,8 @@ clean:
 	dh_testroot
 	rm -fr build-stamp $(BUILDDIR) ubiquity/frontend/liveinstaller.py \
 		ubiquity/frontend/crashdialog.py
+	# Sanity-check before upload.
+	find -name debian -prune -o -name \*.py -print | xargs py_compilefiles
 	find -type f \( -name \*.pyc -o -name \*.pyo \) -print0 | xargs -0r rm -f
 	rm -f po/.intltool-merge-cache po/stamp-po
 

@@ -1,6 +1,8 @@
 ubiquity (1.13.6) UNRELEASED; urgency=low
 
   * Fix syntax error in install.py (LP: #392424).
+  * Add sanity-check on clean to stop trivial syntax errors like this being
+    uploaded again.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 26 Jun 2009 17:56:29 +0100
 
