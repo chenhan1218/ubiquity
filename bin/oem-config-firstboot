@@ -46,8 +46,9 @@ fi
 # TODO: will this work for X-based frontends when X isn't up yet?
 FRONTEND="$(/usr/sbin/oem-config -q)"
 
-if not os.path.exists('/var/log/installer'):
-	os.makedirs('/var/log/installer')
+if [ ! -e '/var/log/installer']; then
+	mkdir -p /var/log/installer
+fi
 
 if [ "$DEBUG" ]; then
 	TRY=1
@@ -61,7 +62,7 @@ for try in $(seq 1 $TRY); do
 		/usr/sbin/oem-config $DEBUG --only 2>>/var/log/installer/debug \
 			|| CODE=$?
 	else
-		/usr/sbin/oem-config-dm vt7 :0 \
+		/usr/bin/ubiquity-dm vt7 :0 root \
 			/usr/sbin/oem-config $DEBUG --only || CODE=$?
 	fi
 	if [ "$CODE" -eq 0 ]; then

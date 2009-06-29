@@ -119,10 +119,10 @@ ifneq (,$(wildcard debian/ubiquity.install-$(DEB_HOST_ARCH)))
 	cat debian/ubiquity.install-$(DEB_HOST_ARCH) >> debian/ubiquity.install
 endif
 ifdef UBIQUITY_NO_GTK
-	dh_install -Nubiquity-frontend-gtk
+	dh_install -Nubiquity-frontend-gtk -Noem-config-gtk
 else
 ifdef UBIQUITY_NO_KDE
-	dh_install -Nubiquity-frontend-kde
+	dh_install -Nubiquity-frontend-kde -Noem-config-kde
 else
 	dh_install
 endif
@@ -199,6 +199,7 @@ endif
 	done
 	sed -i -e 's,db_input high user-setup/encrypt-home,db_input medium user-setup/encrypt-home,' \
 		debian/ubiquity/usr/lib/ubiquity/user-setup/user-setup-ask
+	mkdir -p debian/oem-config/usr/lib/ubiquity/debian-installer-utils
 	sed -e 's,/target,,g' \
 		d-i/source/debian-installer-utils/register-module.post-base-installer \
 		> debian/oem-config/usr/lib/ubiquity/debian-installer-utils/register-module.post-base-installer-oem
@@ -231,10 +232,10 @@ endif
 
 BINARY_INDEP_OPTIONS := -i
 ifdef UBIQUITY_NO_GTK
-BINARY_INDEP_OPTIONS += -Nubiquity-frontend-gtk
+BINARY_INDEP_OPTIONS += -Nubiquity-frontend-gtk -Noem-config-gtk
 endif
 ifdef UBIQUITY_NO_KDE
-BINARY_INDEP_OPTIONS += -Nubiquity-frontend-kde
+BINARY_INDEP_OPTIONS += -Nubiquity-frontend-kde -Noem-config-kde
 endif
 
 # Build architecture-independent files here.
@@ -245,6 +246,7 @@ binary-indep: install
 	dh_installchangelogs
 	dh_installdocs
 	dh_installdebconf
+	dh_installinit -n  # oem-config
 	dh_link
 	dh_strip
 	dh_compress
@@ -280,7 +282,7 @@ binary-arch: install
 	fi
 	grep-dctrl -v -FTemplate base-installer/ d-i/templates \
 		>> debian/ubiquity/DEBIAN/templates
-	dh_installinit --no-start -- start 29 2 3 4 5 .
+	dh_installinit --no-start -- start 29 2 3 4 5 .  # ubiquity
 	dh_installman doc/ubiquity.8
 	dh_link
 	dh_strip

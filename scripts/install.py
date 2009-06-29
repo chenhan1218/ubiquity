@@ -305,9 +305,9 @@ class Install:
         apt_pkg.InitConfig()
         apt_pkg.Config.Set("Dir", self.target)
         apt_pkg.Config.Set("Dir::State::status",
-                           os.path.join(self.target, 'var/lib/dpkg/status')
+                           os.path.join(self.target, 'var/lib/dpkg/status'))
         apt_pkg.Config.Set("APT::GPGV::TrustedKeyring",
-                           os.path.join(self.target, 'etc/apt/trusted.gpg')
+                           os.path.join(self.target, 'etc/apt/trusted.gpg'))
         apt_pkg.Config.Set("Acquire::gpgv::Options::",
                            "--ignore-time-conflict")
         apt_pkg.Config.Set("DPkg::Options::", "--root=%s" % self.target)
@@ -1419,7 +1419,7 @@ exit 0"""
 
         self.db.progress('INFO', 'ubiquity/install/hardware')
 
-        script = '/usr/lib/ubiquity/debian-installer-utils'
+        script = '/usr/lib/ubiquity/debian-installer-utils' \
                  '/register-module.post-base-installer'
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
             script += '-oem'

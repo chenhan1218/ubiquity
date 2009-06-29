@@ -895,13 +895,14 @@ class Wizard(BaseFrontend):
             0, 100, self.get_string('ubiquity/install/title'))
         self.debconf_progress_region(0, 15)
 
-        dbfilter = partman_commit.PartmanCommit(self)
-        if dbfilter.run_command(auto_process=True) != 0:
-            while self.progress_position.depth() != 0:
-                self.debconf_progress_stop()
-            self.debconf_progress_window.hide()
-            self.return_to_partitioning()
-            return
+        if not self.oem_user_config:
+            dbfilter = partman_commit.PartmanCommit(self)
+            if dbfilter.run_command(auto_process=True) != 0:
+                while self.progress_position.depth() != 0:
+                    self.debconf_progress_stop()
+                self.debconf_progress_window.hide()
+                self.return_to_partitioning()
+                return
 
         # No return to partitioning from now on
         self.installing_no_return = True
