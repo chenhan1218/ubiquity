@@ -199,6 +199,10 @@ endif
 	done
 	sed -i -e 's,db_input high user-setup/encrypt-home,db_input medium user-setup/encrypt-home,' \
 		debian/ubiquity/usr/lib/ubiquity/user-setup/user-setup-ask
+	sed -e 's,/target,,g' \
+		d-i/source/debian-installer-utils/register-module.post-base-installer \
+		> debian/oem-config/usr/lib/ubiquity/debian-installer-utils/register-module.post-base-installer-oem
+	chmod +x debian/oem-config/usr/lib/ubiquity/debian-installer-utils/register-module.post-base-installer-oem
 	echo oem >> debian/ubiquity/usr/lib/ubiquity/user-setup/reserved-usernames
 ifeq ($(DEB_HOST_ARCH),armel)
 	dh_installdirs -pubiquity usr/lib/ubiquity/flash-kernel

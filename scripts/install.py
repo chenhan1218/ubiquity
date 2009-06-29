@@ -279,6 +279,13 @@ class Install:
             '/cdrom', get_casper('LIVE_MEDIA_PATH', 'casper').lstrip('/'))
         self.kernel_version = platform.release()
         self.db = debconf.Debconf()
+        self.langpacks = []
+        self.blacklist = {}
+
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            self.source = None
+            self.target = '/'
+            return
 
         self.select_language_packs()
         self.select_ecryptfs()
@@ -290,20 +297,20 @@ class Install:
             pass
         if not use_restricted:
             self.restricted_cache = Cache()
-        self.blacklist = {}
         if self.db.get('ubiquity/install/generate-blacklist') == 'true':
             self.db.progress('START', 0, 100, 'ubiquity/install/title')
             self.db.progress('INFO', 'ubiquity/install/blacklist')
             self.generate_blacklist()
 
         apt_pkg.InitConfig()
-        apt_pkg.Config.Set("Dir", "/target")
-        apt_pkg.Config.Set("Dir::State::status", "/target/var/lib/dpkg/status")
+        apt_pkg.Config.Set("Dir", self.target)
+        apt_pkg.Config.Set("Dir::State::status",
+                           os.path.join(self.target, 'var/lib/dpkg/status')
         apt_pkg.Config.Set("APT::GPGV::TrustedKeyring",
-                           "/target/etc/apt/trusted.gpg")
+                           os.path.join(self.target, 'etc/apt/trusted.gpg')
         apt_pkg.Config.Set("Acquire::gpgv::Options::",
                            "--ignore-time-conflict")
-        apt_pkg.Config.Set("DPkg::Options::", "--root=/target")
+        apt_pkg.Config.Set("DPkg::Options::", "--root=%s" % self.target)
         # We don't want apt-listchanges or dpkg-preconfigure, so just clear
         # out the list of pre-installation hooks.
         apt_pkg.Config.Clear("DPkg::Pre-Install-Pkgs")
@@ -341,13 +348,14 @@ class Install:
             self.db.progress('SET', 1)
             self.db.progress('REGION', 1, 75)
             try:
-                self.copy_all()
+                if self.target != '/':
+                    self.copy_all()
             except EnvironmentError, e:
                 if e.errno in (errno.ENOENT, errno.EIO, errno.EFAULT,
                                errno.ENOTDIR, errno.EROFS):
                     if e.filename is None:
                         error_template = 'cd_hd_fault'
-                    elif e.filename.startswith('/target'):
+                    elif e.filename.startswith(self.target):
                         error_template = 'hd_fault'
                     else:
                         error_template = 'cd_fault'
@@ -985,6 +993,9 @@ class Install:
 
     def chroot_setup(self, x11=False):
         """Set up /target for safe package management operations."""
+        if self.target == '/':
+            return
+
         policy_rc_d = os.path.join(self.target, 'usr/sbin/policy-rc.d')
         f = open(policy_rc_d, 'w')
         print >>f, """\
@@ -1027,6 +1038,9 @@ exit 0"""
 
     def chroot_cleanup(self, x11=False):
         """Undo the work done by chroot_setup."""
+        if self.target == '/':
+            return
+
         if x11 and 'DISPLAY' in os.environ:
             misc.execute('umount', os.path.join(self.target, 'tmp/.X11-unix'))
             try:
@@ -1088,6 +1102,9 @@ exit 0"""
     def configure_apt(self):
         """Configure /etc/apt/sources.list."""
 
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            return # apt will already be setup as the OEM wants
+
         # TODO cjwatson 2007-07-06: Much of the following is
         # cloned-and-hacked from base-installer/debian/postinst. Perhaps we
         # should come up with a way to avoid this.
@@ -1121,11 +1138,12 @@ exit 0"""
             pass
 
         # let apt inside the chroot see the cdrom
-        target_cdrom = os.path.join(self.target, 'cdrom')
-        misc.execute('umount', target_cdrom)
-        if not os.path.exists(target_cdrom):
-            os.mkdir(target_cdrom)
-        misc.execute('mount', '--bind', '/cdrom', target_cdrom)
+        if self.target != "/":
+            target_cdrom = os.path.join(self.target, 'cdrom')
+            misc.execute('umount', target_cdrom)
+            if not os.path.exists(target_cdrom):
+                os.mkdir(target_cdrom)
+            misc.execute('mount', '--bind', '/cdrom', target_cdrom)
 
         # Make apt-cdrom and apt not unmount/mount CD-ROMs.
         # This file will be left in place until the end of the install.
@@ -1276,6 +1294,9 @@ exit 0"""
         self.langpacks = to_install
 
     def install_language_packs(self):
+        if not self.langpacks:
+            return
+
         self.do_install(self.langpacks)
 
         cache = Cache()
@@ -1398,8 +1419,11 @@ exit 0"""
 
         self.db.progress('INFO', 'ubiquity/install/hardware')
 
-        misc.execute('/usr/lib/ubiquity/debian-installer-utils'
-                     '/register-module.post-base-installer')
+        script = '/usr/lib/ubiquity/debian-installer-utils'
+                 '/register-module.post-base-installer'
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            script += '-oem'
+        misc.execute(script)
 
         resume = self.get_resume_partition()
         if resume is not None:
@@ -1428,7 +1452,7 @@ exit 0"""
                 configfile.close()
 
         try:
-            os.unlink('/target/etc/usplash.conf')
+            os.unlink(os.path.join(self.target, 'etc/usplash.conf'))
         except OSError:
             pass
         try:
@@ -1438,7 +1462,7 @@ exit 0"""
             pass
 
         try:
-            os.unlink('/target/etc/popularity-contest.conf')
+            os.unlink(os.path.join(self.target, 'etc/popularity-contest.conf'))
         except OSError:
             pass
         try:
@@ -1448,7 +1472,7 @@ exit 0"""
             pass
 
         try:
-            os.unlink('/target/etc/papersize')
+            os.unlink(os.path.join(self.target, 'etc/papersize'))
         except OSError:
             pass
         subprocess.call(['log-output', '-t', 'ubiquity', 'chroot', self.target,
@@ -1460,11 +1484,13 @@ exit 0"""
             pass
 
         try:
-            os.unlink('/target/etc/ssl/certs/ssl-cert-snakeoil.pem')
+            os.unlink(os.path.join(self.target,
+                      'etc/ssl/certs/ssl-cert-snakeoil.pem'))
         except OSError:
             pass
         try:
-            os.unlink('/target/etc/ssl/private/ssl-cert-snakeoil.key')
+            os.unlink(os.path.join(self.target,
+                      'etc/ssl/private/ssl-cert-snakeoil.key'))
         except OSError:
             pass
 
@@ -1472,7 +1498,8 @@ exit 0"""
         self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
                    '--quiet', '--add', '/usr/sbin/update-initramfs')
         try:
-            os.symlink('/bin/true', '/target/usr/sbin/update-initramfs')
+            os.symlink('/bin/true', os.path.join(self.target,
+                                                 'usr/sbin/update-initramfs'))
         except OSError:
             pass
 
@@ -1489,7 +1516,8 @@ exit 0"""
                 self.reconfigure(package)
         finally:
             try:
-                os.unlink('/target/usr/sbin/update-initramfs')
+                os.unlink(os.path.join(self.target,
+                          'usr/sbin/update-initramfs'))
             except OSError:
                 pass
             self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
@@ -1611,6 +1639,9 @@ exit 0"""
             ff02::2 ip6-allrouters
             ff02::3 ip6-allhosts""")
         hosts.close()
+
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            os.system("/bin/hostname %s" % hostname)
 
         persistent_net = '/etc/udev/rules.d/70-persistent-net.rules'
         if os.path.exists(persistent_net):
@@ -2025,6 +2056,9 @@ exit 0"""
         """Try to install additional packages requested by installer
         components."""
 
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            return
+
         # We only ever install these packages from the CD.
         sources_list = os.path.join(self.target, 'etc/apt/sources.list')
         os.rename(sources_list, "%s.apt-setup" % sources_list)
@@ -2081,6 +2115,9 @@ exit 0"""
     def remove_extras(self):
         """Try to remove packages that are needed on the live CD but not on
         the installed system."""
+
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            return
 
         # Looking through files for packages to remove is pretty quick, so
         # don't bother with a progress bar for that.
@@ -2148,6 +2185,8 @@ exit 0"""
         self.do_remove(difference)
 
     def remove_broken_cdrom(self):
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            return
         fstab = os.path.join(self.target, 'etc/fstab')
         ret = []
         try:
