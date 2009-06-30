@@ -58,7 +58,6 @@ from ubiquity.misc import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman, partman_commit, \
                                 summary, install, migrationassistant
-import ubiquity.emap
 import ubiquity.tz
 import ubiquity.progressposition
 from ubiquity.frontend.base import BaseFrontend
