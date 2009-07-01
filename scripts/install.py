@@ -1603,9 +1603,10 @@ exit 0"""
         # this; requires a netcfg binary that doesn't bring interfaces up
         # and down
 
-        for path in ('/etc/network/interfaces', '/etc/resolv.conf'):
-            if os.path.exists(path):
-                shutil.copy2(path, os.path.join(self.target, path[1:]))
+        if self.target != '/':
+            for path in ('/etc/network/interfaces', '/etc/resolv.conf'):
+                if os.path.exists(path):
+                    shutil.copy2(path, os.path.join(self.target, path[1:]))
 
         try:
             hostname = self.db.get('netcfg/get_hostname')
@@ -1645,8 +1646,9 @@ exit 0"""
 
         persistent_net = '/etc/udev/rules.d/70-persistent-net.rules'
         if os.path.exists(persistent_net):
-            shutil.copy2(persistent_net,
-                         os.path.join(self.target, persistent_net[1:]))
+            if self.target != '/':
+                shutil.copy2(persistent_net,
+                             os.path.join(self.target, persistent_net[1:]))
         else:
             # TODO cjwatson 2006-03-30: from <bits/ioctls.h>; ugh, but no
             # binding available

@@ -17,11 +17,12 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import os
 from ubiquity.filteredcommand import FilteredCommand
 
 class TimezoneApply(FilteredCommand):
     def prepare(self, unfiltered=False):
-        if self.frontend.oem_user_config:
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
             return (['/usr/lib/ubiquity/tzsetup/post-base-installer-oem'], [])
         else:
             return (['/usr/lib/ubiquity/tzsetup/post-base-installer'], [])

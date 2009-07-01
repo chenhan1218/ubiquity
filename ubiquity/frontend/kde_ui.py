@@ -129,7 +129,9 @@ class Wizard(BaseFrontend):
             self.userinterface.setWindowState(
                 self.userinterface.windowState() ^ Qt.WindowFullScreen)
         self.userinterface.setWizard(self)
-        self.userinterface.setWindowFlags(Qt.Window | Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint)
+        self.userinterface.setWindowFlags(Qt.Window | Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowMinMaxButtonsHint)
+        if hasattr(Qt, 'WindowCloseButtonHint'):
+            self.userinterface.setWindowFlags(self.userinterface.windowFlags() | Qt.WindowCloseButtonHint)
         rect = QApplication.instance().desktop().availableGeometry(self.userinterface);
         self.userinterface.move(rect.center() - self.userinterface.rect().center());
 
@@ -425,8 +427,10 @@ class Wizard(BaseFrontend):
             self.userinterface.setWindowTitle(
                 self.get_string('oem_user_config_title'))
             self.userinterface.setWindowIcon(KIcon("preferences-system"))
-            flags = self.userinterface.windowFlags()
-            self.userinterface.setWindowFlags(flags ^ (Qt.WindowCloseButtonHint | Qt.WindowMinMaxButtonsHint))
+            flags = self.userinterface.windowFlags() ^ Qt.WindowMinMaxButtonsHint
+            if hasattr(Qt, 'WindowCloseButtonHint'):
+                flags = flags ^ Qt.WindowCloseButtonHint
+            self.userinterface.setWindowFlags(flags)
             self.userinterface.quit.hide()
         
         if not 'UBIQUITY_AUTOMATIC' in os.environ:
@@ -689,7 +693,7 @@ class Wizard(BaseFrontend):
             0, 100, self.get_string('ubiquity/install/title'))
         self.debconf_progress_region(0, 15)
 
-        if self.oem_user_config:
+        if not self.oem_user_config:
             dbfilter = partman_commit.PartmanCommit(self)
             if dbfilter.run_command(auto_process=True) != 0:
                 while self.progress_position.depth() != 0:
