@@ -1,3 +1,11 @@
+ubiquity (1.13.8) UNRELEASED; urgency=low
+
+  * Elaborate on the purpose of timezone selection in the heading, to
+    better assist those confused about the need to select a city.  Thanks
+    Colin Watson.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 01 Jul 2009 09:44:32 +0100
+
 ubiquity (1.13.7) karmic; urgency=low
 
   * GTK frontend:
