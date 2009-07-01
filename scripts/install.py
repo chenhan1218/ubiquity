@@ -1310,12 +1310,13 @@ exit 0"""
         so user-setup-apply would be too late."""
 
         home = os.path.join(self.target, 'home')
-        for homedir in os.listdir(home):
-            if os.path.isdir(os.path.join(home, homedir, '.ecryptfs')):
-                syslog.syslog('ecryptfs already in use in %s' %
-                              os.path.join(home, homedir))
-                self.record_installed(['ecryptfs-utils'])
-                break
+        if os.path.isdir(home):
+            for homedir in os.listdir(home):
+                if os.path.isdir(os.path.join(home, homedir, '.ecryptfs')):
+                    syslog.syslog('ecryptfs already in use in %s' %
+                                  os.path.join(home, homedir))
+                    self.record_installed(['ecryptfs-utils'])
+                    break
 
 
     def configure_timezone(self):

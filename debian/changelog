@@ -1,10 +1,15 @@
 ubiquity (1.13.8) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Elaborate on the purpose of timezone selection in the heading, to
     better assist those confused about the need to select a city.  Thanks
     Colin Watson.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 01 Jul 2009 09:44:32 +0100
+  [ Mario Limonciello ]
+  * Check that the home directory actually exists before running os.listdir
+    on it in the select_ecryptfs function. (LP: #394338)
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Wed, 01 Jul 2009 10:16:28 -0500
 
 ubiquity (1.13.7) karmic; urgency=low
 
