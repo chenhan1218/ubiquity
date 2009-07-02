@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-04-09 14:44+0100\n"
+"POT-Creation-Date: 2009-07-02 20:30+0100\n"
 "PO-Revision-Date: 2009-04-09 01:48+0000\n"
 "Last-Translator: Vladimer Sichinava <vsichi@gnome.org>\n"
 "Language-Team: Georgian <aietkolkhi@gmail.com>\n"
@@ -25,7 +25,9 @@ msgstr "ყველაზე დიდი უწყვეტი თავის
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-msgid "Use the entire disk"
+#, fuzzy
+#| msgid "Use the entire disk"
+msgid "Erase and use the entire disk"
 msgstr "მთელი დისკის გამოყენება"
 
 #. Type: text
@@ -121,12 +123,6 @@ msgstr "გამოშვების მონაცემები"
 #: ../ubiquity.templates:13001
 msgid "Where are you?"
 msgstr "სად იმყოფებით?"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:14001
-msgid "Select your time zone from the map, or by region and city."
-msgstr "დროის ზონის რუქის, რეგიონის, ან ქალაქის მიხედვით ამორჩევა."
 
 #. Type: text
 #. Description
@@ -345,7 +341,7 @@ msgstr ""
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:45001 ../ubiquity.templates:95001
+#: ../ubiquity.templates:45001 ../ubiquity.templates:96001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
 msgstr "მზადაა დაყენებისთვის"
@@ -466,36 +462,47 @@ msgstr "შემდეგ:"
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:62001
-msgid "New partition table"
+#, fuzzy
+#| msgid "New partition table"
+msgid "New Partition Table..."
 msgstr "ახალი პარტიციების ცხრილი"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:63001
-msgid "New partition"
-msgstr "ახალი პარტიცია"
+#, fuzzy
+#| msgid "Advanced..."
+msgid "Add..."
+msgstr "დამატებითი..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#. Type: text
-#. Description
-#: ../ubiquity.templates:64001 ../ubiquity.templates:80001
-msgid "Edit partition"
-msgstr "დანაყოფის რედაქტირება"
+#: ../ubiquity.templates:64001
+#, fuzzy
+#| msgid "Creating user..."
+msgid "Change..."
+msgstr "მომხმარებლის შექმნა..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
-msgid "Delete partition"
-msgstr "პარტიციის წაშლა"
+msgid "Delete"
+msgstr ""
+
+#. Type: text
+#. Description
+#. An action, displayed on a button or as a menu item.
+#: ../ubiquity.templates:66001
+msgid "Revert"
+msgstr ""
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:67001
 msgid "Device"
 msgstr "მოწყობილობა"
 
@@ -503,28 +510,28 @@ msgstr "მოწყობილობა"
 #. Description
 #. A column heading in the partitioner. Indicates how the partition is to be
 #. used (ext2, swap, etc.).
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:68001
 msgid "Type"
 msgstr "ტიპი"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:69001
 msgid "Mount point"
 msgstr "მონტაჟის წერტილი"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:70001
 msgid "Format?"
 msgstr "ფორმატი"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:71001
 msgid "Size"
 msgstr "ზომა"
 
@@ -532,27 +539,27 @@ msgstr "ზომა"
 #. Description
 #. A column heading in the partitioner. Indicates how much of the space on
 #. this partition is used by data.
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:72001
 msgid "Used"
 msgstr "გამოყენებული"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:73001
 msgid "free space"
 msgstr "თავისუფალი სივრცე"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:74001
 msgid "unknown"
 msgstr "უცნობი"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:75001
 msgid "Create partition"
 msgstr "დანაყოფის შექმნა"
 
@@ -560,91 +567,97 @@ msgstr "დანაყოფის შექმნა"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001 ../ubiquity.templates:82001
+#: ../ubiquity.templates:76001 ../ubiquity.templates:83001
 msgid "New partition size in megabytes (1000000 bytes):"
 msgstr "ახალი დანაყოფის ზომა მეგაბაიტებში (1000000 bytes):"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:77001
 msgid "Beginning"
 msgstr "დასაწყისი"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:78001
 msgid "End"
 msgstr "ბოლოში"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:79001
 msgid "Primary"
 msgstr "პირველადი"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:80001
 msgid "Logical"
 msgstr "ლოგიკური"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:81001
+msgid "Edit partition"
+msgstr "დანაყოფის რედაქტირება"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:82001
 msgid "Edit a partition"
 msgstr "დანაყოფის რედაქტირება"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:84001
 msgid "Advanced Options"
 msgstr "დამატებითი პარამეტრები"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:85001
 msgid "Boot loader"
 msgstr "მტვირთავი პროგრამა"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:86001
 msgid "Install boot loader"
 msgstr "მტვირთავი პროგრამის დაყენება"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:87001
 msgid "Popularity contest"
 msgstr "პოპულარიზაცია"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:88001
 msgid "Participate in the package usage survey"
 msgstr "პაკეტის პოპულარიზაციაში მონაწილეობა"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:89001
 msgid "Network proxy"
 msgstr "ქსელის პროქსი"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:90001
 msgid "HTTP proxy:"
 msgstr "HTTP პროქსი:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001
 msgid "Port:"
 msgstr "პორტი:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:92001
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
@@ -657,20 +670,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:93001
 msgid "Go Back"
 msgstr "დაბრუნება"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:94001
 msgid "Continue"
 msgstr "გაგრძელება"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:95001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
@@ -680,7 +693,7 @@ msgstr ""
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:96001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -700,37 +713,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:97001
 msgid "Checking the installation..."
 msgstr "დაყენებულის შემოწმება..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:97001
+#: ../ubiquity.templates:98001
 msgid "Installing system"
 msgstr "სისტემის დაყენება"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:98001
+#: ../ubiquity.templates:99001
 msgid "Finding the distribution to copy..."
 msgstr "დისტრიბუტივის გადაწერითვის მოძიება..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:101001
 msgid "Scanning files..."
 msgstr "მიმდინარეობს ფაილების სკანირება..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:102001
 msgid "Copying files..."
 msgstr "მიმდინარეობს ფაილების გადაწერა..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:103001
 msgid "Copying files (less than a minute remaining)..."
 msgstr "მიმდინარეობს ფაილების კოპირება (რჩება წუთზე ნაკლები დრო)..."
 
@@ -744,9 +757,9 @@ msgstr "მიმდინარეობს ფაილების კოპ�
 #. Description
 #. Type: select
 #. Description
-#: ../ubiquity.templates:103001 ../ubiquity.templates:104001
-#: ../ubiquity.templates:105001 ../ubiquity.templates:106001
-#: ../ubiquity.templates:107001
+#: ../ubiquity.templates:104001 ../ubiquity.templates:105001
+#: ../ubiquity.templates:106001 ../ubiquity.templates:107001
+#: ../ubiquity.templates:108001
 msgid "Installation Failed"
 msgstr "დაყენების პროცესი ვერ შესრულდა"
 
@@ -758,14 +771,14 @@ msgstr "დაყენების პროცესი ვერ შესრ
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:103001 ../ubiquity.templates:104001
-#: ../ubiquity.templates:105001 ../ubiquity.templates:106001
+#: ../ubiquity.templates:104001 ../ubiquity.templates:105001
+#: ../ubiquity.templates:106001 ../ubiquity.templates:107001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr "ინსტალერმა ვერ გადაწერა ფაილები მყარ დისკზე:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:103001
+#: ../ubiquity.templates:104001
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
@@ -776,7 +789,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:104001
+#: ../ubiquity.templates:105001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -788,7 +801,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:105001
+#: ../ubiquity.templates:106001
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -803,7 +816,7 @@ msgstr ""
 #. Description
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
-#: ../ubiquity.templates:106001 ../ubiquity.templates:107001
+#: ../ubiquity.templates:107001 ../ubiquity.templates:108001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -814,145 +827,145 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../ubiquity.templates:107001
+#: ../ubiquity.templates:108001
 msgid "The following file did not match its source copy on the CD/DVD:"
 msgstr "მოცემული ფაილი არ ემთხვევა CD/DVD-ზე მყოფ ფაილს:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:109001
 msgid "Copying installation logs..."
 msgstr "დაყენების ოქმის გადაწერა..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:109001
+#: ../ubiquity.templates:110001
 msgid "Configuring target system..."
 msgstr "მიმღები სისტემის კონფიგურირება..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:111001
 msgid "Configuring system locales..."
 msgstr "მიმდინარეობს სისტემის locale-ბის კონფიგურაცია..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:111001
+#: ../ubiquity.templates:112001
 msgid "Configuring apt..."
 msgstr "მიმდინარეობს apt-ს კონფიგურაცია..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:112001
+#: ../ubiquity.templates:113001
 msgid "Configuring time zone..."
 msgstr "დროის სარტყლის კონფიგურაცია..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:113001
+#: ../ubiquity.templates:114001
 msgid "Configuring keyboard..."
 msgstr "მიმდინარეობს კლავიატურის კონფიგურაცია..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:114001
+#: ../ubiquity.templates:115001
 msgid "Creating user..."
 msgstr "მომხმარებლის შექმნა..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:115001
+#: ../ubiquity.templates:116001
 msgid "Importing documents and settings..."
 msgstr "მიმდინარეობს დოკუმენტებისა და პარამეტრების იმპორტი..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:116001
+#: ../ubiquity.templates:117001
 msgid "Configuring hardware..."
 msgstr "მოწყობილობების კონფიგურაცია..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:117001
+#: ../ubiquity.templates:118001
 msgid "Configuring network..."
 msgstr "მიმდინარეობს ქსელის კონფიგურაცია..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:118001
+#: ../ubiquity.templates:119001
 msgid "Setting computer name..."
 msgstr "კომპიუტერის სახელის მინიჭება..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:119001
+#: ../ubiquity.templates:120001
 msgid "Configuring boot loader..."
 msgstr "boot-ჩამტვირთველის (საწყისი ჩამტვირთველის) კონფიგურაცია..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:120001
+#: ../ubiquity.templates:121001
 msgid "Installing additional packages..."
 msgstr "დამატებითი პაკეტების დაყენება..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:121001
+#: ../ubiquity.templates:122001
 msgid "Checking for packages to install..."
 msgstr "დასაყენებელი პაკეტების შემოწმება..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:122001
+#: ../ubiquity.templates:123001
 msgid "Removing extra packages..."
 msgstr "დამატებითი პაკეტების წაშლა..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:123001
+#: ../ubiquity.templates:124001
 msgid "Checking for packages to remove..."
 msgstr "მიმდინარეობს მოსაშორებელი პაკეტების ძიება..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:124001
+#: ../ubiquity.templates:125001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "მიმდინარეობს პაკეტების გადმოწერა (დარჩა ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:125001
+#: ../ubiquity.templates:126001
 msgid "Downloading package lists..."
 msgstr "პაკეტების სიის გადმოწერა..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:126001
+#: ../ubiquity.templates:127001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "პაკეტების სიის გადმოწერა (დარჩენილი დრო ${TIME})..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:129001
 msgid "Error installing ${PACKAGE}"
 msgstr "${PACKAGE} ვერ დაყენდა"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:129001
+#: ../ubiquity.templates:130001
 msgid "Error removing ${PACKAGE}"
 msgstr "${PACKAGE} ვერ წაიშალა"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:130001
+#: ../ubiquity.templates:131001
 msgid "Error while installing packages"
 msgstr "შეცდომა პაკეტების დაყენებისას"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:130001
+#: ../ubiquity.templates:131001
 msgid "An error occurred while installing packages:"
 msgstr "დაიშვა შეცდომა პაკეტების დაყენების დროს:"
 
@@ -960,7 +973,7 @@ msgstr "დაიშვა შეცდომა პაკეტების დ
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:130001 ../ubiquity.templates:131001
+#: ../ubiquity.templates:131001 ../ubiquity.templates:132001
 msgid "The following packages are in a broken state:"
 msgstr "დაზიანებული პაკეტების სია:"
 
@@ -968,7 +981,7 @@ msgstr "დაზიანებული პაკეტების სია:
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:130001 ../ubiquity.templates:131001
+#: ../ubiquity.templates:131001 ../ubiquity.templates:132001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -988,43 +1001,43 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:131001
+#: ../ubiquity.templates:132001
 msgid "Error while removing packages"
 msgstr "შეცდომა პაკეტების წაშლისას"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:131001
+#: ../ubiquity.templates:132001
 msgid "An error occurred while removing packages:"
 msgstr "დაიშვა შეცდომა პაკეტების წაშლის დროს:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:135001
 msgid "Calculating files to skip copying..."
 msgstr "გამოსატოვებელი ფაილების გამოთვლა..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:135001
+#: ../ubiquity.templates:136001
 msgid "Installing language packs"
 msgstr "ყენდება ენის პაკეტები"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:136001
+#: ../ubiquity.templates:137001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "ენის პაკეტების ჩამოტვირთვა (დარჩენილი დრო ${TIME})..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:143001
+#: ../ubiquity.templates:144001
 msgid "Failed to unmount partitions"
 msgstr "ვერ მოხერხდა დანაყოფების დემონტაჟი"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:143001
+#: ../ubiquity.templates:144001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -1035,25 +1048,25 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:143001
+#: ../ubiquity.templates:144001
 msgid "Please close any applications using these mount points."
 msgstr "გეთაყვა, დახურეთ პროგრამები, რომლებიც იყენებენ ამ მონტაჟის პუნქტებს."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:143001
+#: ../ubiquity.templates:144001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "გნებავთ რომ შემდეგი დანაყოფები ინსტალერის მიერ იქნას მოხსნილი?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:149001
+#: ../ubiquity.templates:150001
 msgid "Do you want to return to the partitioner?"
 msgstr "გნებავთ დისკის დაყოფის პროგრამაში დაბრუნება ?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:149001
+#: ../ubiquity.templates:150001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
@@ -1063,7 +1076,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:149001
+#: ../ubiquity.templates:150001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1342,3 +1355,12 @@ msgstr "დამატებითი სერვისების კონ�
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "ინფრაწითელი მოწყობილობების გამართვა..."
+
+#~ msgid "Select your time zone from the map, or by region and city."
+#~ msgstr "დროის ზონის რუქის, რეგიონის, ან ქალაქის მიხედვით ამორჩევა."
+
+#~ msgid "New partition"
+#~ msgstr "ახალი პარტიცია"
+
+#~ msgid "Delete partition"
+#~ msgstr "პარტიციის წაშლა"
