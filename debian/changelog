@@ -1,6 +1,39 @@
 ubiquity (1.99.0) UNRELEASED; urgency=low
 
+  * Automatic update of included source packages.
+
+ -- Michael Terry <michael.terry@canonical.com>  Thu, 02 Jul 2009 14:13:41 -0400
+
+ubiquity (1.13.8) UNRELEASED; urgency=low
+
   [ Colin Watson ]
+  * Elaborate on the purpose of timezone selection in the heading, to
+    better assist those confused about the need to select a city.  Thanks
+    Colin Watson.
+
+  [ Mario Limonciello ]
+  * Check that the home directory actually exists before running os.listdir
+    on it in the select_ecryptfs function. (LP: #394338)
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Wed, 01 Jul 2009 10:16:28 -0500
+
+ubiquity (1.13.7) karmic; urgency=low
+
+  * GTK frontend:
+    - Stop importing ubiquity.emap (LP: #393175).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 01 Jul 2009 01:01:04 +0100
+
+ubiquity (1.13.6) karmic; urgency=low
+
+  * Fix syntax error in install.py (LP: #392424).
+  * Add sanity-check on clean to stop trivial syntax errors like this being
+    uploaded again.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 26 Jun 2009 18:06:27 +0100
+
+ubiquity (1.13.5) karmic; urgency=low
+
   * Factor out /etc/casper.conf parsing from ubiquity-dm to a separate
     Python module, with a few corner-case bugs fixed along the way.
   * Honour LIVE_MEDIA_PATH in /etc/casper.conf when looking for files
@@ -15,11 +48,18 @@ ubiquity (1.99.0) UNRELEASED; urgency=low
       we copied from powermanagement-interface. We need to depend on
       python-dbus for this, but on the upside ubiquity-frontend-gtk becomes
       architecture-independent.
+  * Automatic update of included source packages: apt-setup 1:0.41ubuntu1,
+    base-installer 1.101ubuntu2, choose-mirror 2.29ubuntu1, clock-setup
+    0.98ubuntu1, debian-installer-utils 1.69ubuntu1, grub-installer
+    1.38ubuntu1, localechooser 2.12ubuntu2, partconf 1.31, partman-auto
+    86ubuntu1, partman-base 131ubuntu1, partman-basicfilesystems 63ubuntu1,
+    partman-basicmethods 43, partman-efi 20ubuntu1, partman-ext3 58ubuntu1,
+    partman-jfs 30, partman-partitioning 68ubuntu1, partman-reiserfs 45,
+    partman-target 60ubuntu1, partman-xfs 44, preseed 1.42ubuntu1,
+    silo-installer 1.16ubuntu1, tzsetup 1:0.25ubuntu1, user-setup
+    1.27ubuntu1, yaboot-installer 1.1.15ubuntu1.
 
-  [ Michael Terry ]
-  * Automatic update of included source packages.
-
- -- Michael Terry <michael.terry@canonical.com>  Thu, 25 Jun 2009 12:55:41 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 26 Jun 2009 05:58:13 +0100
 
 ubiquity (1.13.4) karmic; urgency=low
 
