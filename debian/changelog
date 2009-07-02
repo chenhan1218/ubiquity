@@ -9,7 +9,11 @@ ubiquity (1.13.8) UNRELEASED; urgency=low
   * Check that the home directory actually exists before running os.listdir
     on it in the select_ecryptfs function. (LP: #394338)
 
- -- Mario Limonciello <superm1@ubuntu.com>  Wed, 01 Jul 2009 10:16:28 -0500
+  [ Michael Terry ]
+  * GTK frontend: Let timezone map take up as much space as it can
+  * GTK frontend: Remove horizontal separator at bottom
+
+ -- Michael Terry <michael.terry@canonical.com>  Thu, 02 Jul 2009 14:42:20 -0400
 
 ubiquity (1.13.7) karmic; urgency=low
 
