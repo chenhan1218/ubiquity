@@ -9,7 +9,7 @@ _Description: Use the largest continuous free space
 
 Template: ubiquity/text/use_device
 Type: text
-_Description: Use the entire disk
+_Description: Erase and use the entire disk
 
 Template: ubiquity/text/resize_use_free
 Type: text
