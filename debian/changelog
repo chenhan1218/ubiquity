@@ -1,6 +1,6 @@
 ubiquity (1.13.8) UNRELEASED; urgency=low
 
-  [ Colin Watson ]
+  [ Evan Dandrea ]
   * Elaborate on the purpose of timezone selection in the heading, to
     better assist those confused about the need to select a city.  Thanks
     Colin Watson.
