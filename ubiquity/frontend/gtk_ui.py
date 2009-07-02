@@ -939,7 +939,9 @@ class Wizard(BaseFrontend):
         self.installing = False
 
         self.run_success_cmd()
-        if not self.get_reboot_seen():
+        if self.oem_user_config:
+            self.quit_installer()
+        elif not self.get_reboot_seen():
             if 'UBIQUITY_ONLY' in os.environ:
                 txt = self.get_string('ubiquity/finished_restart_only')
                 self.finished_label.set_label(txt)
@@ -1228,7 +1230,8 @@ class Wizard(BaseFrontend):
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
             for widget in self.language_questions:
-                self.translate_widget(getattr(self, widget), lang)
+                if hasattr(self, widget):
+                    self.translate_widget(getattr(self, widget), lang)
 
     def on_steps_switch_page (self, foo, bar, current):
         self.current_page = current

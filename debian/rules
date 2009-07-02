@@ -158,7 +158,7 @@ endif
 		debian/ubiquity/usr/lib/ubiquity/clock-setup/finish-install
 	chmod +x debian/ubiquity/usr/lib/ubiquity/clock-setup/finish-install
 	mkdir -p debian/oem-config/usr/lib/ubiquity/clock-setup
-	sed -e 's,/target,,g' \
+	sed -e 's,/target/,/,g;s,/target,/,g' \
 		debian/ubiquity/usr/lib/ubiquity/clock-setup/finish-install \
 		> debian/oem-config/usr/lib/ubiquity/clock-setup/finish-install-oem
 	chmod +x debian/oem-config/usr/lib/ubiquity/clock-setup/finish-install-oem
@@ -188,7 +188,7 @@ endif
 	install d-i/source/tzsetup/post-base-installer.d/*tzsetup \
 		debian/ubiquity/usr/lib/ubiquity/tzsetup/post-base-installer
 	mkdir -p debian/oem-config/usr/lib/ubiquity/tzsetup
-	sed -e 's,/target,,g' \
+	sed -e 's,/target/,/,g;s,/target,/,g' \
 		debian/ubiquity/usr/lib/ubiquity/tzsetup/post-base-installer \
 		> debian/oem-config/usr/lib/ubiquity/tzsetup/post-base-installer-oem
 	chmod +x debian/oem-config/usr/lib/ubiquity/tzsetup/post-base-installer-oem
@@ -205,7 +205,7 @@ endif
 	sed -i -e 's,db_input high user-setup/encrypt-home,db_input medium user-setup/encrypt-home,' \
 		debian/ubiquity/usr/lib/ubiquity/user-setup/user-setup-ask
 	mkdir -p debian/oem-config/usr/lib/ubiquity/debian-installer-utils
-	sed -e 's,/target,,g' \
+	sed -e 's,/target/,/,g;s,/target,/,g' \
 		d-i/source/debian-installer-utils/register-module.post-base-installer \
 		> debian/oem-config/usr/lib/ubiquity/debian-installer-utils/register-module.post-base-installer-oem
 	chmod +x debian/oem-config/usr/lib/ubiquity/debian-installer-utils/register-module.post-base-installer-oem

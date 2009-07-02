@@ -10,7 +10,7 @@ setup_env()
 	export APT_LISTCHANGES_FRONTEND=none
 }
 
-apt_get_args=--no-upgrade -o Acquire::gpgv::Options::=--ignore-time-conflict -y
+apt_get_args="--no-upgrade -o Acquire::gpgv::Options::=--ignore-time-conflict -y"
 
 if [ -n "$UBIQUITY_OEM_USER_CONFIG" ]; then
 	# The installer uses apt-install to queue packages for installation in the

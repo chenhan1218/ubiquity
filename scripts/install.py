@@ -338,43 +338,46 @@ class Install:
         """Run the install stage: copy everything to the target system, then
         configure it as necessary."""
 
-        self.db.progress('START', 0, 100, 'ubiquity/install/title')
+        if self.target != '/':
+            self.db.progress('START', 0, 100, 'ubiquity/install/title')
+        else:
+            self.db.progress('START', 75, 100, 'ubiquity/install/title')
         self.db.progress('INFO', 'ubiquity/install/mounting_source')
 
         try:
             if self.source == '/var/lib/ubiquity/source':
                 self.mount_source()
 
-            self.db.progress('SET', 1)
-            self.db.progress('REGION', 1, 75)
-            try:
-                if self.target != '/':
+            if self.target != '/':
+                self.db.progress('SET', 1)
+                self.db.progress('REGION', 1, 75)
+                try:
                     self.copy_all()
-            except EnvironmentError, e:
-                if e.errno in (errno.ENOENT, errno.EIO, errno.EFAULT,
-                               errno.ENOTDIR, errno.EROFS):
-                    if e.filename is None:
-                        error_template = 'cd_hd_fault'
-                    elif e.filename.startswith(self.target):
-                        error_template = 'hd_fault'
+                except EnvironmentError, e:
+                    if e.errno in (errno.ENOENT, errno.EIO, errno.EFAULT,
+                                   errno.ENOTDIR, errno.EROFS):
+                        if e.filename is None:
+                            error_template = 'cd_hd_fault'
+                        elif e.filename.startswith(self.target):
+                            error_template = 'hd_fault'
+                        else:
+                            error_template = 'cd_fault'
+                        error_template = ('ubiquity/install/copying_error/%s' %
+                                          error_template)
+                        self.db.subst(error_template, 'ERROR', str(e))
+                        self.db.input('critical', error_template)
+                        self.db.go()
+                        # Exit code 3 signals to the frontend that we have
+                        # handled this error.
+                        sys.exit(3)
+                    elif e.errno == errno.ENOSPC:
+                        error_template = 'ubiquity/install/copying_error/no_space'
+                        self.db.subst(error_template, 'ERROR', str(e))
+                        self.db.input('critical', error_template)
+                        self.db.go()
+                        sys.exit(3)
                     else:
-                        error_template = 'cd_fault'
-                    error_template = ('ubiquity/install/copying_error/%s' %
-                                      error_template)
-                    self.db.subst(error_template, 'ERROR', str(e))
-                    self.db.input('critical', error_template)
-                    self.db.go()
-                    # Exit code 3 signals to the frontend that we have
-                    # handled this error.
-                    sys.exit(3)
-                elif e.errno == errno.ENOSPC:
-                    error_template = 'ubiquity/install/copying_error/no_space'
-                    self.db.subst(error_template, 'ERROR', str(e))
-                    self.db.input('critical', error_template)
-                    self.db.go()
-                    sys.exit(3)
-                else:
-                    raise
+                        raise
 
             self.db.progress('SET', 75)
             self.db.progress('REGION', 75, 76)
@@ -2259,20 +2262,24 @@ exit 0"""
 
 
     def set_debconf(self, question, value):
-        dccomm = subprocess.Popen(['log-output', '-t', 'ubiquity',
-                                   '--pass-stdout',
-                                   'chroot', self.target,
-                                   'debconf-communicate',
-                                   '-fnoninteractive', 'ubiquity'],
-                                  stdin=subprocess.PIPE,
-                                  stdout=subprocess.PIPE, close_fds=True)
-        try:
-            dc = debconf.Debconf(read=dccomm.stdout, write=dccomm.stdin)
-            dc.set(question, value)
-            dc.fset(question, 'seen', 'true')
-        finally:
-            dccomm.stdin.close()
-            dccomm.wait()
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            self.db.set(question, value)
+            self.db.fset(question, 'seen', 'true')
+        else:
+            dccomm = subprocess.Popen(['log-output', '-t', 'ubiquity',
+                                       '--pass-stdout',
+                                       'chroot', self.target,
+                                       'debconf-communicate',
+                                       '-fnoninteractive', 'ubiquity'],
+                                      stdin=subprocess.PIPE,
+                                      stdout=subprocess.PIPE, close_fds=True)
+            try:
+                dc = debconf.Debconf(read=dccomm.stdout, write=dccomm.stdin)
+                dc.set(question, value)
+                dc.fset(question, 'seen', 'true')
+            finally:
+                dccomm.stdin.close()
+                dccomm.wait()
 
 
     def reconfigure_preexec(self):

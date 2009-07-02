@@ -743,7 +743,9 @@ class Wizard(BaseFrontend):
         ##FIXME use non-stock messagebox to customise button text
         #quitAnswer = QMessageBox.question(self.userinterface, titleText, quitText, rebootButtonText, quitButtonText)
         self.run_success_cmd()
-        if not self.get_reboot_seen():
+        if self.oem_user_config:
+            self.quit()
+        elif not self.get_reboot_seen():
             if 'UBIQUITY_ONLY' in os.environ:
                 quitText = self.get_string('ubiquity/finished_restart_only')
             messageBox = QMessageBox(QMessageBox.Question, titleText, quitText, QMessageBox.NoButton, self.userinterface)
