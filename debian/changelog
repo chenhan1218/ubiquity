@@ -1,6 +1,8 @@
 ubiquity (1.99.0) UNRELEASED; urgency=low
 
-  * Automatic update of included source packages.
+  * Merge oem-config code into ubiquity.  Adds several new binary packages
+  * Automatic update of included source packages: debian-installer-utils
+    1.70ubuntu1, user-setup 1.27ubuntu4.
 
  -- Michael Terry <michael.terry@canonical.com>  Thu, 02 Jul 2009 14:13:41 -0400
 
