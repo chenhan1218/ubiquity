@@ -8,7 +8,7 @@ ubiquity (1.99.0) UNRELEASED; urgency=low
 
 ubiquity (1.13.8) UNRELEASED; urgency=low
 
-  [ Colin Watson ]
+  [ Evan Dandrea ]
   * Elaborate on the purpose of timezone selection in the heading, to
     better assist those confused about the need to select a city.  Thanks
     Colin Watson.
@@ -16,6 +16,10 @@ ubiquity (1.13.8) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Check that the home directory actually exists before running os.listdir
     on it in the select_ecryptfs function. (LP: #394338)
+
+  [ Colin Watson ]
+  * Clarify that "use the entire disk" really does mean erasing everything
+    on it (thanks, Jason Spiro; LP: #94382).
 
  -- Mario Limonciello <superm1@ubuntu.com>  Wed, 01 Jul 2009 10:16:28 -0500
 
