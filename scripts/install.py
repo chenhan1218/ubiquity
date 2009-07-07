@@ -2135,17 +2135,17 @@ exit 0"""
         if (os.path.exists(manifest_desktop) and
             os.path.exists(manifest)):
             desktop_packages = set()
-            manifest = open(manifest_desktop)
-            for line in manifest:
+            manifest_file = open(manifest_desktop)
+            for line in manifest_file:
                 if line.strip() != '' and not line.startswith('#'):
                     desktop_packages.add(line.split()[0])
-            manifest.close()
+            manifest_file.close()
             live_packages = set()
-            manifest = open(manifest)
-            for line in manifest:
+            manifest_file = open(manifest)
+            for line in manifest_file:
                 if line.strip() != '' and not line.startswith('#'):
                     live_packages.add(line.split()[0])
-            manifest.close()
+            manifest_file.close()
             difference = live_packages - desktop_packages
         else:
             difference = set()
