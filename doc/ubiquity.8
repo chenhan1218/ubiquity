@@ -14,6 +14,7 @@
 .Op Fl Fl no\-migration\-assistant
 .Op Fl Fl automatic
 .Op Fl Fl only
+.Op Fl Fl query
 .Op Ar frontend
 .Sh DESCRIPTION
 .Nm
@@ -92,6 +93,8 @@ that it is the only desktop program running so that it can customize its
 user interface to better suit a minimal environment.
 This allows the installer to be run standalone, reducing memory
 requirements.
+.It Fl Fl query
+Print the frontend that would be used and then exit.
 .El
 .Sh AUTHORS
 .An -nosplit
