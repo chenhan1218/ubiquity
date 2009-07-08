@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-07-02 20:30+0100\n"
+"POT-Creation-Date: 2009-07-08 17:26+0100\n"
 "PO-Revision-Date: 2009-04-10 12:10+0000\n"
 "Last-Translator: Sampada <Unknown>\n"
 "Language-Team: Marathi, janabhaaratii, C-DAC, Mumbai, India "
@@ -116,6 +116,16 @@ msgstr "रिलीज़ नोट्स"
 #: ../ubiquity.templates:13001
 msgid "Where are you?"
 msgstr "आपण कुठे आहात?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:14001
+msgid ""
+"Select your location, so that the system can use appropriate display "
+"conventions for your country, fetch updates from sites close to you, and set "
+"the clock to the correct local time. Don't worry about finding exactly the "
+"closest city to you; just select a city in the same country and time zone."
+msgstr ""
 
 #. Type: text
 #. Description
