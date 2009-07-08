@@ -221,7 +221,7 @@ def install(frontend=None, query=False):
     distro = distribution().lower()
     wizard = ui.Wizard(distro)
     if query:
-        print os.environ['UBIQUITY_FRONTEND']
+        print >> sys.__stdout__, os.environ['UBIQUITY_FRONTEND']
         sys.exit(0)
     if os.environ['UBIQUITY_FRONTEND'] == 'debconf_ui':
         open_terminal()
