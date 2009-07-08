@@ -12,6 +12,9 @@ ubiquity (1.13.8) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Clarify that "use the entire disk" really does mean erasing everything
     on it (thanks, Jason Spiro; LP: #94382).
+  * Match up chroot_cleanup start-stop-daemon conditionals with
+    chroot_setup, to avoid failing if the target filesystem didn't contain
+    /sbin/start-stop-daemon for some reason (LP: #394669).
 
  -- Mario Limonciello <superm1@ubuntu.com>  Wed, 01 Jul 2009 10:16:28 -0500
 

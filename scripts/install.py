@@ -1042,7 +1042,10 @@ exit 0"""
         self.chrex('umount', '/proc')
 
         start_stop_daemon = os.path.join(self.target, 'sbin/start-stop-daemon')
-        os.rename('%s.REAL' % start_stop_daemon, start_stop_daemon)
+        if os.path.exists('%s.REAL' % start_stop_daemon):
+            os.rename('%s.REAL' % start_stop_daemon, start_stop_daemon)
+        else:
+            os.unlink(start_stop_daemon)
 
         policy_rc_d = os.path.join(self.target, 'usr/sbin/policy-rc.d')
         os.unlink(policy_rc_d)
