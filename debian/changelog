@@ -1,13 +1,5 @@
 ubiquity (1.99.0) UNRELEASED; urgency=low
 
-  * Merge oem-config code into ubiquity.  Adds several new binary packages
-  * Automatic update of included source packages: debian-installer-utils
-    1.70ubuntu1, user-setup 1.27ubuntu4.
-
- -- Michael Terry <michael.terry@canonical.com>  Thu, 02 Jul 2009 14:13:41 -0400
-
-ubiquity (1.13.8) UNRELEASED; urgency=low
-
   [ Evan Dandrea ]
   * Elaborate on the purpose of timezone selection in the heading, to
     better assist those confused about the need to select a city.  Thanks
@@ -21,7 +13,12 @@ ubiquity (1.13.8) UNRELEASED; urgency=low
   * Clarify that "use the entire disk" really does mean erasing everything
     on it (thanks, Jason Spiro; LP: #94382).
 
- -- Mario Limonciello <superm1@ubuntu.com>  Wed, 01 Jul 2009 10:16:28 -0500
+  [ Michael Terry ]
+  * Merge oem-config code into ubiquity.  Adds several new binary packages
+  * Automatic update of included source packages: debian-installer-utils
+    1.70ubuntu1, user-setup 1.27ubuntu4.
+
+ -- Michael Terry <michael.terry@canonical.com>  Wed, 08 Jul 2009 09:18:20 -0400
 
 ubiquity (1.13.7) karmic; urgency=low
 
