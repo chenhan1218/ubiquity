@@ -15,6 +15,7 @@ ubiquity (1.13.8) UNRELEASED; urgency=low
   * Match up chroot_cleanup start-stop-daemon conditionals with
     chroot_setup, to avoid failing if the target filesystem didn't contain
     /sbin/start-stop-daemon for some reason (LP: #394669).
+  * Fix manifest file handling, broken in 1.13.5 (LP: #395195).
 
  -- Mario Limonciello <superm1@ubuntu.com>  Wed, 01 Jul 2009 10:16:28 -0500
 
