@@ -16,6 +16,8 @@ ubiquity (1.13.8) UNRELEASED; urgency=low
     chroot_setup, to avoid failing if the target filesystem didn't contain
     /sbin/start-stop-daemon for some reason (LP: #394669).
   * Fix manifest file handling, broken in 1.13.5 (LP: #395195).
+  * Automatic update of included source packages: debian-installer-utils
+    1.70ubuntu1, partconf 1.32, user-setup 1.27ubuntu4.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Wed, 01 Jul 2009 10:16:28 -0500
 
