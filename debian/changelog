@@ -1,4 +1,4 @@
-ubiquity (1.13.8) UNRELEASED; urgency=low
+ubiquity (1.13.8) karmic; urgency=low
 
   [ Evan Dandrea ]
   * Elaborate on the purpose of timezone selection in the heading, to
@@ -19,7 +19,7 @@ ubiquity (1.13.8) UNRELEASED; urgency=low
   * Automatic update of included source packages: debian-installer-utils
     1.70ubuntu1, partconf 1.32, user-setup 1.27ubuntu4.
 
- -- Mario Limonciello <superm1@ubuntu.com>  Wed, 01 Jul 2009 10:16:28 -0500
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 08 Jul 2009 17:27:36 +0100
 
 ubiquity (1.13.7) karmic; urgency=low
 
