@@ -121,6 +121,20 @@ Description: KDE frontend for end-user post-OEM-install configuration
  .
  This is a KDE frontend to oem-config.
 
+Package: oem-config-debconf
+Architecture: all
+Depends: ${misc:Depends}, oem-config (= ${source:Version}), ubiquity-frontend-debconf (= ${source:Version})
+Provides: oem-config-frontend-${mangled-version}
+Description: debconf frontend for end-user post-OEM-install configuration
+ The oem-config script re-asks a number of questions that are normally asked
+ during installation, and reconfigures the system accordingly. This allows a
+ vendor to install a skeleton system, clone it onto a large number of
+ machines, and ship it to end users, while still allowing end users to set
+ up their own username and password, language, timezone, and so on.
+ .
+ This is a frontend to oem-config that simply arranges for questions to be
+ asked using the normal debconf frontend.
+
 Package: oem-config-check
 XC-Package-Type: udeb
 Section: debian-installer
