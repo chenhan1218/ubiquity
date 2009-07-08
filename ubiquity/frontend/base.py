@@ -135,7 +135,8 @@ class BaseFrontend:
             step_list_name = 'ubiquity/oem-config-steps'
         else:
             step_list_name = 'ubiquity/steps'
-        valid_steps = db.metaget(step_list_name, 'choices-c')
+        valid_step_list = db.metaget(step_list_name, 'choices-c')
+        valid_steps = valid_step_list.replace(',', ' ').split()
         step_list = db.get(step_list_name)
         steps = step_list.replace(',', ' ').split()
         self.pagenames = []
