@@ -1646,7 +1646,7 @@ exit 0"""
         hosts.close()
 
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
-            os.system("/bin/hostname %s" % hostname)
+            os.system("hostname %s" % hostname)
 
         persistent_net = '/etc/udev/rules.d/70-persistent-net.rules'
         if os.path.exists(persistent_net):
@@ -2263,22 +2263,23 @@ exit 0"""
 
 
     def set_debconf(self, question, value):
-        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
-            self.db.set(question, value)
-            self.db.fset(question, 'seen', 'true')
-        else:
-            dccomm = subprocess.Popen(['log-output', '-t', 'ubiquity',
-                                       '--pass-stdout',
-                                       'chroot', self.target,
-                                       'debconf-communicate',
-                                       '-fnoninteractive', 'ubiquity'],
-                                      stdin=subprocess.PIPE,
-                                      stdout=subprocess.PIPE, close_fds=True)
-            try:
+        try:
+            if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+                dccomm = None
+                dc = self.db
+            else:
+                dccomm = subprocess.Popen(['log-output', '-t', 'ubiquity',
+                                           '--pass-stdout',
+                                           'chroot', self.target,
+                                           'debconf-communicate',
+                                           '-fnoninteractive', 'ubiquity'],
+                                          stdin=subprocess.PIPE,
+                                          stdout=subprocess.PIPE, close_fds=True)
                 dc = debconf.Debconf(read=dccomm.stdout, write=dccomm.stdin)
-                dc.set(question, value)
-                dc.fset(question, 'seen', 'true')
-            finally:
+            dc.set(question, value)
+            dc.fset(question, 'seen', 'true')
+        finally:
+            if dccomm:
                 dccomm.stdin.close()
                 dccomm.wait()
 

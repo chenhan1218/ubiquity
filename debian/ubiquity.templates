@@ -845,7 +845,7 @@ _Description: Applying configuration
 
 Template: ubiquity/steps
 Type: multiselect
-Choices: LanguageOnly, Language, Location, KeyboardConf, PartAuto, PartAdvanced, UserInfo, MigrationAssistant, Network, Tasks, Ready
+Choices: LanguageOnly, Language, Location, KeyboardConf, PartAuto, PartAdvanced, UserInfo, MigrationAssistant, Ready
 Default: Language, Location, KeyboardConf, PartAuto, PartAdvanced, UserInfo, MigrationAssistant, Ready
 Description: for internal use; can be preseeded
  List of steps to display. Steps are always displayed in the order given by
@@ -854,7 +854,7 @@ Description: for internal use; can be preseeded
 
 Template: ubiquity/oem-config-steps
 Type: multiselect
-Choices: LanguageOnly, Language, Location, KeyboardConf, PartAuto, PartAdvanced, UserInfo, MigrationAssistant, Network, Tasks, Ready
+Choices: LanguageOnly, Language, Location, KeyboardConf, UserInfo, Network, Tasks, Ready
 Default: LanguageOnly, Location, KeyboardConf, UserInfo
 Description: for internal use; can be preseeded
  List of steps to display. Steps are always displayed in the order given by

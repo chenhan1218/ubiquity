@@ -64,13 +64,13 @@ class UserSetup(FilteredCommand):
                      '^passwd/user-password$', '^passwd/user-password-again$',
                      '^user-setup/password-weak$',
                      'ERROR']
-        environ = {'OVERRIDE_SYSTEM_USER': '1'}
         if self.frontend.oem_user_config:
+            environ = {'OVERRIDE_SYSTEM_USER': '1'}
             return (['/usr/lib/ubiquity/user-setup/user-setup-ask'],
                     questions, environ)
         else:
             return (['/usr/lib/ubiquity/user-setup/user-setup-ask', '/target'],
-                    questions, environ)
+                    questions)
 
     def set(self, question, value):
         if question == 'passwd/username':

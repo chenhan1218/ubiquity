@@ -33,9 +33,8 @@ from ubiquity.components import console_setup, language, timezone, usersetup, \
 from ubiquity import i18n
 
 # Pages that may be loaded. Interpretation is up to the frontend, but it is
-# strongly recommended to keep the page identifiers the same. Order is
-# important, and 'step' will be prepended to all identifiers.
-VALID_PAGES = {
+# strongly recommended to keep the page identifiers the same.
+PAGE_COMPONENTS = {
     'LanguageOnly' : language.Language,
     'Language' : language.Language,
     'Location' : timezone.Timezone,
@@ -136,11 +135,12 @@ class BaseFrontend:
             step_list_name = 'ubiquity/oem-config-steps'
         else:
             step_list_name = 'ubiquity/steps'
+        valid_steps = db.metaget(step_list_name, 'choices-c')
         step_list = db.get(step_list_name)
         steps = step_list.replace(',', ' ').split()
         self.pagenames = []
         self.pages = []
-        for valid_page in VALID_PAGES:
+        for valid_page in valid_steps:
             if valid_page in steps:
                 if valid_page == 'MigrationAssistant' and \
                    'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
@@ -151,11 +151,11 @@ class BaseFrontend:
                    step_name in self.pages_override_remove:
                     continue
                 self.pagenames.append(step_name)
-                page_class = VALID_PAGES[valid_page]
+                page_class = PAGE_COMPONENTS[valid_page]
                 if page_class is not None and page_class not in self.pages:
                     self.pages.append(page_class)
         for step in steps:
-            if step not in VALID_PAGES:
+            if step not in valid_steps:
                 syslog.syslog(syslog.LOG_WARNING,
                               "Unknown step name in %s: %s" %
                               (step_list_name, step))
