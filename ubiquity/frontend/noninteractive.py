@@ -35,7 +35,7 @@ import signal
 
 from ubiquity import filteredcommand, i18n
 from ubiquity.misc import *
-from ubiquity.components import install
+from ubiquity.components import install, language, partman_commit
 import ubiquity.progressposition
 from ubiquity.frontend.base import BaseFrontend
 import debconf
