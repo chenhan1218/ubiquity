@@ -28,6 +28,8 @@ import ubiquity.tz
 
 class Timezone(FilteredCommand):
     def prepare(self):
+        self.regions = {}
+        self.timezones = {}
         self.tzdb = ubiquity.tz.Database()
         self.multiple = False
         if not 'UBIQUITY_AUTOMATIC' in os.environ:
@@ -58,14 +60,56 @@ class Timezone(FilteredCommand):
                 choices_c = self.choices_untranslated(question)
                 if choices_c:
                     zone = choices_c[0]
-            # special cases where default is not in zone.tab
-            if zone == 'Canada/Eastern':
-                zone = 'America/Toronto'
-            elif zone == 'US/Eastern':
-                zone = 'America/New_York'
             self.frontend.set_timezone(zone)
 
         return FilteredCommand.run(self, priority, question)
+
+    def get_default_for_region(self, region):
+        try:
+            return self.db.get('tzsetup/country/%s' % region)
+        except debconf.DebconfError:
+            return None
+
+    # Returns {'translated country name' : 'country iso3166 code'} dict
+    def build_region_pairs(self):
+        if self.regions: return self.regions
+        continents = self.choices_untranslated('localechooser/continentlist')
+        for continent in continents:
+            question = 'localechooser/countrylist/%s' % continent.replace(' ', '_')
+            self.regions.update(self.choices_display_map(question))
+        return self.regions
+
+    # Returns {'human timezone name' : 'timezone'} dict
+    def build_timezone_pairs(self):
+        if self.timezones: return self.timezones
+        for location in self.tzdb.locations:
+            self.timezones[location.human_zone] = location.zone
+        return self.timezones
+
+    # Returns {'translated short list of countries' : 'timezone'} dict
+    def build_shortlist_region_pairs(self, language_code):
+        try:
+            shortlist = self.choices_display_map('localechooser/shortlist/%s' % language_code)
+            # Remove any 'other' entry
+            for pair in shortlist.items():
+                if pair[1] == 'other':
+                    del shortlist[pair[0]]
+                    break
+            return shortlist
+        except debconf.DebconfError:
+            return None
+
+    # Returns {'translated short list of timezones' : 'timezone'} dict
+    def build_shortlist_timezone_pairs(self, country_code):
+        try:
+            shortlist = self.choices_display_map('tzsetup/country/%s' % country_code)
+            for pair in shortlist.items():
+                # Remove any 'other' entry, we don't need it
+                if pair[1] == 'other':
+                    del shortlist[pair[0]]
+            return shortlist
+        except debconf.DebconfError:
+            return None
 
     def ok_handler(self):
         zone = self.frontend.get_timezone()
