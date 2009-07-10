@@ -225,9 +225,8 @@ class TimezoneMap(gtk.Widget):
         width = self.background.get_width()
 
         only_draw_selected = True
-        for loc in self.tzdb.locations:
-            if not (self.selected and loc.zone == self.selected):
-                continue
+        loc = self.selected and self.tzdb.get_loc(self.selected)
+        if loc:
             pointx = convert_longitude_to_x(loc.longitude, width)
             pointy = convert_latitude_to_y(loc.latitude, height)
 
@@ -275,11 +274,11 @@ class TimezoneMap(gtk.Widget):
 
     def select_city(self, city):
         self.selected = city
-        for loc in self.tzdb.locations:
-            if loc.zone == city:
-                offset = (loc.raw_utc_offset.days * 24) + \
-                    (loc.raw_utc_offset.seconds / 60.0 / 60.0)
-                self.selected_offset = str(offset)
+        loc = self.tzdb.get_loc(city)
+        if loc:
+            offset = (loc.raw_utc_offset.days * 24) + \
+                (loc.raw_utc_offset.seconds / 60.0 / 60.0)
+            self.selected_offset = str(offset)
         self.queue_draw()
 
     def button_press(self, widget, event):
