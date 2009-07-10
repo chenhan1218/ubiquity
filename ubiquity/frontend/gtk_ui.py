@@ -549,72 +549,108 @@ class Wizard(BaseFrontend):
         self.allow_go_backward(False)
 
     def setup_timezone_page(self):
+        def is_separator(m, i):
+            return m[i][0] is None
 
         renderer = gtk.CellRendererText()
         self.timezone_zone_combo.pack_start(renderer, True)
         self.timezone_zone_combo.add_attribute(renderer, 'text', 0)
-        list_store = gtk.ListStore(gobject.TYPE_STRING)
-        self.timezone_zone_combo.set_model(list_store)
+        zone_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
+        self.timezone_zone_combo.set_model(zone_store)
+        self.timezone_zone_combo.set_row_separator_func(is_separator)
         self.timezone_zone_combo.connect('changed', self.zone_combo_selection_changed)
-        self.timezone_city_combo.connect('changed', self.city_combo_selection_changed)
 
         renderer = gtk.CellRendererText()
         self.timezone_city_combo.pack_start(renderer, True)
         self.timezone_city_combo.add_attribute(renderer, 'text', 0)
-        city_store = gtk.ListStore(gobject.TYPE_STRING)
+        city_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
         self.timezone_city_combo.set_model(city_store)
-        
-        self.regions = {}
-        for location in self.tzdb.locations:
-            region, city = location.zone.replace('_', ' ').split('/', 1)
-            if region in self.regions:
-                self.regions[region].append(city)
-            else:
-                self.regions[region] = [city]
-
-        r = self.regions.keys()
-        r.sort()
-        for region in r:
-            list_store.append([region])
+        self.timezone_city_combo.set_row_separator_func(is_separator)
+        self.timezone_city_combo.connect('changed', self.city_combo_selection_changed)
 
     def zone_combo_selection_changed(self, widget):
+        if not isinstance(self.dbfilter, timezone.Timezone):
+            return
+
         i = self.timezone_zone_combo.get_active()
         m = self.timezone_zone_combo.get_model()
-        region = m[i][0]
-        
+        if not i:
+            return
+        region = m[i][1]
+
         m = self.timezone_city_combo.get_model()
-        m.clear()
-        for city in self.regions[region]:
-            m.append([city])
+
+        # Remove any existing shortlist
+        if self.timezone_city_combo_has_shortlist:
+            iterator = m.get_iter_first()
+            while iterator:
+                is_sep = m[iterator][0] is None
+                if not m.remove(iterator) or is_sep:
+                    break
+            self.timezone_city_combo_has_shortlist = False
+
+        pairs = self.dbfilter.build_shortlist_timezone_pairs(region)
+        if not pairs:
+            # Build our own shortlist
+            pairs = {}
+            locs = self.tzdb.cc_to_locs[region]
+            for loc in locs:
+                pairs[loc.human_zone] = loc.zone
+
+        items = pairs.items()
+        items.sort()
+        sep = m.prepend([None, None])
+        for pair in items:
+            m.insert_before(sep, list(pair))
+        self.timezone_city_combo_has_shortlist = True
+
+        default = self.dbfilter.get_default_for_region(region)
+        if default:
+            self.select_city(None, default)
+        else:
+            iterator = m.get_iter_first()
+            self.timezone_city_combo.set_active_iter(iterator)
 
     def city_combo_selection_changed(self, widget):
-        i = self.timezone_zone_combo.get_active()
-        m = self.timezone_zone_combo.get_model()
-        region = m[i][0]
-        
         i = self.timezone_city_combo.get_active()
         if i < 0:
             # There's no selection yet.
             return
-        m = self.timezone_city_combo.get_model()
-        city = m[i][0].replace(' ', '_')
-        city = region + '/' + city
-        self.tzmap.select_city(city)
 
-    def select_city(self, widget, city):
-        region, city = city.replace('_', ' ').split('/', 1)
+        zone = self.get_timezone()
+        self.tzmap.select_city(zone)
+
+        # have to update region as well, in case user picked a city outside
+        # current region
+        loc = self.tzdb.get_loc(zone)
+        if not loc:
+            return
         m = self.timezone_zone_combo.get_model()
         iterator = m.get_iter_first()
         while iterator:
-            if m[iterator][0] == region:
+            if m[iterator][1] == loc.country:
                 self.timezone_zone_combo.set_active_iter(iterator)
                 break
             iterator = m.iter_next(iterator)
-        
+
+    def select_city(self, widget, city):
+        loc = self.tzdb.get_loc(city)
+        if not loc:
+            return
+        region = loc.country
+
+        m = self.timezone_zone_combo.get_model()
+        iterator = m.get_iter_first()
+        while iterator:
+            if m[iterator][1] == region:
+                self.timezone_zone_combo.set_active_iter(iterator)
+                break
+            iterator = m.iter_next(iterator)
+
         m = self.timezone_city_combo.get_model()
         iterator = m.get_iter_first()
         while iterator:
-            if m[iterator][0] == city:
+            if m[iterator][1] == city:
                 self.timezone_city_combo.set_active_iter(iterator)
                 break
             iterator = m.iter_next(iterator)
@@ -1095,6 +1131,37 @@ class Wizard(BaseFrontend):
             if layout is not None and variant is not None:
                 self.dbfilter.apply_keyboard(layout, variant)
 
+    def fill_timezone_boxes(self):
+        region_store = self.timezone_zone_combo.get_model()
+        if region_store.get_iter_first():
+            return
+        if not isinstance(self.dbfilter, timezone.Timezone):
+            return
+        tz = self.dbfilter
+
+        # Regions are a translated shortlist of regions, followed by full list
+        region_store.clear()
+        region_pairs = tz.build_shortlist_region_pairs(self.get_language())
+        if region_pairs:
+            items = region_pairs.items()
+            items.sort()
+            for pair in items:
+                region_store.append(list(pair))
+            region_store.append([None, None])
+        region_pairs = tz.build_region_pairs()
+        items = region_pairs.items()
+        items.sort()
+        for pair in items:
+            region_store.append(list(pair))
+
+        self.timezone_city_combo_has_shortlist = False
+        m = self.timezone_city_combo.get_model()
+        pairs = self.dbfilter.build_timezone_pairs()
+        items = pairs.items()
+        items.sort()
+        for pair in items:
+            m.append(list(pair))
+
     def prepare_page(self):
         """Set up the frontend in preparation for running a step."""
 
@@ -1238,6 +1305,9 @@ class Wizard(BaseFrontend):
             lang = lang.split('.')[0].lower()
             for widget in self.language_questions:
                 self.translate_widget(getattr(self, widget), lang)
+        # Clear zone combo, it will need to be regenerated
+        self.timezone_city_combo_has_shortlist = False
+        self.timezone_zone_combo.get_model().clear()
 
     def on_steps_switch_page (self, foo, bar, current):
         self.current_page = current
@@ -1455,18 +1525,13 @@ class Wizard(BaseFrontend):
 
 
     def set_timezone (self, timezone):
+        self.fill_timezone_boxes()
         self.select_city(None, timezone)
 
     def get_timezone (self):
-        i = self.timezone_zone_combo.get_active()
-        m = self.timezone_zone_combo.get_model()
-        region = m[i][0]
-        
         i = self.timezone_city_combo.get_active()
         m = self.timezone_city_combo.get_model()
-        city = m[i][0].replace(' ', '_')
-        city = region + '/' + city
-        return city
+        return m[i][1]
     
     def set_keyboard_choices(self, choices):
         layouts = gtk.ListStore(gobject.TYPE_STRING)
