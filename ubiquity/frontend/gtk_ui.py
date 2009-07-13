@@ -176,6 +176,7 @@ class Wizard(BaseFrontend):
         self.format_warnings = {}
         self.format_warning = None
         self.format_warning_align = None
+        self.timezone_city_combo_has_shortlist = False
 
         self.laptop = execute("laptop-detect")
 
@@ -1130,29 +1131,29 @@ class Wizard(BaseFrontend):
                 self.dbfilter.apply_keyboard(layout, variant)
 
     def fill_timezone_boxes(self):
-        region_store = self.timezone_zone_combo.get_model()
-        if region_store.get_iter_first():
+        m = self.timezone_zone_combo.get_model()
+        if m.get_iter_first():
             return
         if not isinstance(self.dbfilter, timezone.Timezone):
             return
         tz = self.dbfilter
 
         # Regions are a translated shortlist of regions, followed by full list
-        region_store.clear()
+        m.clear()
         region_pairs = tz.build_shortlist_region_pairs(self.get_language())
         if region_pairs:
             for pair in region_pairs:
-                region_store.append(pair)
-            region_store.append([None, None])
+                m.append(pair)
+            m.append([None, None])
         region_pairs = tz.build_region_pairs()
         for pair in region_pairs:
-            region_store.append(pair)
-
-        self.timezone_city_combo_has_shortlist = False
-        m = self.timezone_city_combo.get_model()
-        pairs = self.dbfilter.build_timezone_pairs()
-        for pair in pairs:
             m.append(pair)
+
+        m = self.timezone_city_combo.get_model()
+        if not m.get_iter_first():
+            pairs = self.dbfilter.build_timezone_pairs()
+            for pair in pairs:
+                m.append(pair)
 
     def prepare_page(self):
         """Set up the frontend in preparation for running a step."""
@@ -1298,7 +1299,6 @@ class Wizard(BaseFrontend):
             for widget in self.language_questions:
                 self.translate_widget(getattr(self, widget), lang)
         # Clear zone combo, it will need to be regenerated
-        self.timezone_city_combo_has_shortlist = False
         self.timezone_zone_combo.get_model().clear()
 
     def on_steps_switch_page (self, foo, bar, current):
