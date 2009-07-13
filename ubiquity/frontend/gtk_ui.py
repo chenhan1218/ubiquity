@@ -628,7 +628,9 @@ class Wizard(BaseFrontend):
         iterator = m.get_iter_first()
         while iterator:
             if m[iterator][1] == loc.country:
+                self.timezone_zone_combo.handler_block_by_func(self.zone_combo_selection_changed)
                 self.timezone_zone_combo.set_active_iter(iterator)
+                self.timezone_zone_combo.handler_unblock_by_func(self.zone_combo_selection_changed)
                 break
             iterator = m.iter_next(iterator)
 
