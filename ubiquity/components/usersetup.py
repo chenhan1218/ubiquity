@@ -66,7 +66,7 @@ class UserSetup(FilteredCommand):
                      'ERROR']
         if self.frontend.oem_user_config:
             environ = {'OVERRIDE_SYSTEM_USER': '1'}
-            return (['/usr/lib/ubiquity/user-setup/user-setup-ask'],
+            return (['/usr/lib/ubiquity/user-setup/user-setup-ask-oem'],
                     questions, environ)
         else:
             return (['/usr/lib/ubiquity/user-setup/user-setup-ask', '/target'],
