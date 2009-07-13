@@ -592,16 +592,14 @@ class Wizard(BaseFrontend):
         pairs = self.dbfilter.build_shortlist_timezone_pairs(region)
         if not pairs:
             # Build our own shortlist
-            pairs = {}
+            pairs = []
             locs = self.tzdb.cc_to_locs[region]
             for loc in locs:
-                pairs[loc.human_zone] = loc.zone
+                pairs.append((loc.human_zone, loc.zone))
 
-        items = pairs.items()
-        items.sort()
         sep = m.prepend([None, None])
-        for pair in items:
-            m.insert_before(sep, list(pair))
+        for pair in pairs:
+            m.insert_before(sep, pair)
         self.timezone_city_combo_has_shortlist = True
 
         default = self.dbfilter.get_default_for_region(region)
@@ -1143,24 +1141,18 @@ class Wizard(BaseFrontend):
         region_store.clear()
         region_pairs = tz.build_shortlist_region_pairs(self.get_language())
         if region_pairs:
-            items = region_pairs.items()
-            items.sort()
-            for pair in items:
-                region_store.append(list(pair))
+            for pair in region_pairs:
+                region_store.append(pair)
             region_store.append([None, None])
         region_pairs = tz.build_region_pairs()
-        items = region_pairs.items()
-        items.sort()
-        for pair in items:
-            region_store.append(list(pair))
+        for pair in region_pairs:
+            region_store.append(pair)
 
         self.timezone_city_combo_has_shortlist = False
         m = self.timezone_city_combo.get_model()
         pairs = self.dbfilter.build_timezone_pairs()
-        items = pairs.items()
-        items.sort()
-        for pair in items:
-            m.append(list(pair))
+        for pair in pairs:
+            m.append(pair)
 
     def prepare_page(self):
         """Set up the frontend in preparation for running a step."""

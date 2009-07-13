@@ -26,12 +26,24 @@ from ubiquity.filteredcommand import FilteredCommand
 from ubiquity import i18n
 import ubiquity.tz
 
+try:
+    import PyICU
+except:
+    PyICU = None
+
 class Timezone(FilteredCommand):
     def prepare(self):
-        self.regions = {}
-        self.timezones = {}
+        self.regions = []
+        self.timezones = []
         self.tzdb = ubiquity.tz.Database()
         self.multiple = False
+        try:
+            # Strip .UTF-8 from locale, PyICU doesn't parse it
+            locale = self.frontend.locale and self.frontend.locale.rsplit('.', 1)[0]
+            self.collator = locale and PyICU and \
+                            PyICU.Collator.createInstance(PyICU.Locale(locale))
+        except:
+            self.collator = None
         if not 'UBIQUITY_AUTOMATIC' in os.environ:
             self.db.fset('time/zone', 'seen', 'false')
             cc = self.db.get('debian-installer/country')
@@ -70,23 +82,33 @@ class Timezone(FilteredCommand):
         except debconf.DebconfError:
             return None
 
-    # Returns {'translated country name' : 'country iso3166 code'} dict
+    def collation_key(self, s):
+        if self.collator:
+            try:
+                return self.collator.getCollationKey(s[0]).getByteArray()
+            except:
+                pass
+        return s[0]
+
+    # Returns [('translated country name', 'country iso3166 code')...] list
     def build_region_pairs(self):
         if self.regions: return self.regions
         continents = self.choices_untranslated('localechooser/continentlist')
         for continent in continents:
             question = 'localechooser/countrylist/%s' % continent.replace(' ', '_')
-            self.regions.update(self.choices_display_map(question))
+            self.regions.extend(self.choices_display_map(question).items())
+        self.regions.sort(key=self.collation_key)
         return self.regions
 
-    # Returns {'human timezone name' : 'timezone'} dict
+    # Returns [('human timezone name', 'timezone')...] list
     def build_timezone_pairs(self):
         if self.timezones: return self.timezones
         for location in self.tzdb.locations:
-            self.timezones[location.human_zone] = location.zone
+            self.timezones.append((location.human_zone, location.zone))
+        self.timezones.sort(key=self.collation_key)
         return self.timezones
 
-    # Returns {'translated short list of countries' : 'timezone'} dict
+    # Returns [('translated short list of countries', 'timezone')...] list
     def build_shortlist_region_pairs(self, language_code):
         try:
             shortlist = self.choices_display_map('localechooser/shortlist/%s' % language_code)
@@ -95,11 +117,13 @@ class Timezone(FilteredCommand):
                 if pair[1] == 'other':
                     del shortlist[pair[0]]
                     break
+            shortlist = shortlist.items()
+            shortlist.sort(key=self.collation_key)
             return shortlist
         except debconf.DebconfError:
             return None
 
-    # Returns {'translated short list of timezones' : 'timezone'} dict
+    # Returns [('translated short list of timezones', 'timezone')...] list
     def build_shortlist_timezone_pairs(self, country_code):
         try:
             shortlist = self.choices_display_map('tzsetup/country/%s' % country_code)
@@ -107,6 +131,8 @@ class Timezone(FilteredCommand):
                 # Remove any 'other' entry, we don't need it
                 if pair[1] == 'other':
                     del shortlist[pair[0]]
+            shortlist = shortlist.items()
+            shortlist.sort(key=self.collation_key)
             return shortlist
         except debconf.DebconfError:
             return None
