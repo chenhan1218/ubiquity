@@ -35,9 +35,7 @@ import signal
 
 from ubiquity import filteredcommand, i18n
 from ubiquity.misc import *
-from ubiquity.components import console_setup, language, timezone, usersetup, \
-                                partman, partman_commit, \
-                                summary, install, migrationassistant
+from ubiquity.components import install, language, partman_commit
 import ubiquity.progressposition
 from ubiquity.frontend.base import BaseFrontend
 import debconf
@@ -75,17 +73,7 @@ class Wizard(BaseFrontend):
                 'privileges, and cannot continue without them.'
             sys.exit(1)
 
-        if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
-            pages = [language.Language, timezone.Timezone,
-                console_setup.ConsoleSetup, partman.Partman,
-                migrationassistant.MigrationAssistant, usersetup.UserSetup,
-                summary.Summary]
-        else:
-            pages = [language.Language, timezone.Timezone,
-                console_setup.ConsoleSetup, partman.Partman,
-                usersetup.UserSetup, summary.Summary]
-
-        for x in pages:
+        for x in self.pages:
             self.dbfilter = x(self)
             self.dbfilter.start(auto_process=True)
             self.mainloop.run()

@@ -21,7 +21,7 @@ from ubiquity.filteredcommand import FilteredCommand
 import debconf
 
 class UserSetup(FilteredCommand):
-    def prepare(self):
+    def prepare(self, unfiltered=False):
         if self.frontend.get_hostname() == '':
             try:
                 hostname = self.db.get('netcfg/get_hostname')
@@ -64,8 +64,13 @@ class UserSetup(FilteredCommand):
                      '^passwd/user-password$', '^passwd/user-password-again$',
                      '^user-setup/password-weak$',
                      'ERROR']
-        return (['/usr/lib/ubiquity/user-setup/user-setup-ask', '/target'],
-                questions)
+        if self.frontend.oem_user_config:
+            environ = {'OVERRIDE_SYSTEM_USER': '1'}
+            return (['/usr/lib/ubiquity/user-setup/user-setup-ask-oem'],
+                    questions, environ)
+        else:
+            return (['/usr/lib/ubiquity/user-setup/user-setup-ask', '/target'],
+                    questions)
 
     def set(self, question, value):
         if question == 'passwd/username':

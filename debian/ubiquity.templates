@@ -1,3 +1,10 @@
+Template: debian-installer/dummy
+Type: string
+Description: dummy template for preseeding unavailable questions
+ The answer to this question has been preseeded (${ID}).
+ If you see this template, you've found a bug in the installer;
+ please file a report.
+
 Template: debian-installer/framebuffer
 Type: boolean
 Default: true
@@ -9,7 +16,7 @@ _Description: Use the largest continuous free space
 
 Template: ubiquity/text/use_device
 Type: text
-_Description: Use the entire disk
+_Description: Erase and use the entire disk
 
 Template: ubiquity/text/resize_use_free
 Type: text
@@ -44,6 +51,16 @@ _Description:
  Please choose the language used for the installation process. This
  language will be the default language for the final system.
 
+Template: ubiquity/text/welcome_text_oem_user_label
+Type: text
+_Description:
+ Once you answer a few questions, this computer will be ready to use.
+ .
+ Answering the questions should only take a few minutes.
+ .
+ Please choose the language used for the configuration process. This
+ language will be the default language for this computer.
+
 Template: ubiquity/text/oem_id_label
 Type: text
 _Description:
@@ -68,11 +85,11 @@ _Description: Where are you?
 Template: ubiquity/text/timezone_comment_label
 Type: text
 _Description:
- Select your location, so that the system can use appropriate display
- conventions for your country, fetch updates from sites close to you,
- and set the clock to the correct local time. Don't worry about finding
- exactly the closest city to you; just select a city in the same
- country and time zone.
+ Select your location, so that the system can use appropriate display
+ conventions for your country, fetch updates from sites close to you,
+ and set the clock to the correct local time. Don't worry about finding
+ exactly the closest city to you; just select a city in the same
+ country and time zone.
 
 Template: ubiquity/text/timezone_city_label
 Type: text
@@ -805,3 +822,43 @@ _Description: Do you want to return to the partitioner?
  .
  If you do not go back to the partitioner and increase the size of these
  partitions, the installation may fail.
+
+Template: ubiquity/text/oem_user_config_title
+Type: text
+_Description: System Configuration
+
+Template: ubiquity/text/language_heading_label
+Type: text
+_Description: Choose language
+
+Template: ubiquity/text/network_heading_label
+Type: text
+_Description: Network configuration
+
+Template: ubiquity/text/tasks_heading_label
+Type: text
+_Description: Software selection
+
+Template: ubiquity/text/applying
+Type: text
+_Description: Applying configuration
+
+Template: ubiquity/steps
+Type: multiselect
+Choices: LanguageOnly, Language, Location, KeyboardConf, PartAuto, PartAdvanced, UserInfo, MigrationAssistant, Ready
+Default: Language, Location, KeyboardConf, PartAuto, PartAdvanced, UserInfo, MigrationAssistant, Ready
+Description: for internal use; can be preseeded
+ List of steps to display. Steps are always displayed in the order given by
+ this list of choices, regardless of the order given in the answer to this
+ question.
+
+Template: ubiquity/oem-config-steps
+Type: multiselect
+Choices: LanguageOnly, Language, Location, KeyboardConf, UserInfo, Network, Tasks, Ready
+Default: LanguageOnly, Location, KeyboardConf, UserInfo
+Description: for internal use; can be preseeded
+ List of steps to display. Steps are always displayed in the order given by
+ this list of choices, regardless of the order given in the answer to this
+ question.
+ .
+ This is used when run as 'oem-config'

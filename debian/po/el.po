@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-04-09 14:44+0100\n"
+"POT-Creation-Date: 2009-07-14 09:12-0400\n"
 "PO-Revision-Date: 2009-04-10 11:20+0000\n"
 "Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
 "Language-Team: <en@li.org>\n"
@@ -18,50 +18,52 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:2001
+#: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
 msgstr "Χρήση του μεγαλύτερου συνεχούς ελεύθερου χώρου"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:3001
-msgid "Use the entire disk"
+#: ../ubiquity.templates:4001
+#, fuzzy
+#| msgid "Use the entire disk"
+msgid "Erase and use the entire disk"
 msgstr "Χρήση ολόκληρου του δίσκου"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:4001
+#: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
 msgstr "Εγκαταστήστε τα παράλληλα, με μεταξύ τους επιλογή σε κάθε εκκίνηση"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:5001
+#: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
 msgstr "Ορίστε τα διαμερίσματα χειροκίνητα (για προχωρημένους)"
 
 #. Type: text
 #. Description
 #. This is used as a window title.
-#: ../ubiquity.templates:6001
+#: ../ubiquity.templates:7001
 msgid "Install"
 msgstr "Εγκατάσταση"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001
+#: ../ubiquity.templates:8001
 msgid "Install (OEM mode, for manufacturers only)"
 msgstr "Εγκατάσταση (OEM, για κατασκευαστές)"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:8001
+#: ../ubiquity.templates:9001
 msgid "Welcome"
 msgstr "Καλώς ήλθατε"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:9001
+#: ../ubiquity.templates:10001
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
@@ -73,13 +75,15 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:9001
+#. Type: text
+#. Description
+#: ../ubiquity.templates:10001 ../ubiquity.templates:11001
 msgid "Answering the questions should only take a few minutes."
 msgstr "Η απάντηση στις ερωτήσεις θα διαρκέσει μόνο λίγα λεπτά."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:9001
+#: ../ubiquity.templates:10001
 msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
@@ -90,7 +94,28 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:10001
+#: ../ubiquity.templates:11001
+msgid "Once you answer a few questions, this computer will be ready to use."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:11001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language used for the installation process. This "
+#| "language will be the default language for the final system."
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
+msgstr ""
+"Παρακαλώ επιλέξτε τη γλώσσα που θα χρησιμοποιηθεί για τη διαδικασία "
+"εγκατάστασης. Αυτή η γλώσσα θα είναι και η προεπιλεγμένη για το τελικό "
+"σύστημα."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:12001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
@@ -102,7 +127,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:11001
+#: ../ubiquity.templates:13001
 msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
@@ -112,50 +137,53 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:14001
 msgid "Release Notes"
 msgstr "Σημειώσεις έκδοσης"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:15001
 msgid "Where are you?"
 msgstr "Από που είστε;"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
-msgid "Select your time zone from the map, or by region and city."
+#: ../ubiquity.templates:16001
+msgid ""
+"Select your location, so that the system can use appropriate display "
+"conventions for your country, fetch updates from sites close to you, and set "
+"the clock to the correct local time. Don't worry about finding exactly the "
+"closest city to you; just select a city in the same country and time zone."
 msgstr ""
-"Επιλέξτε την ζώνη ώρας από τον χάρτη, είτε με βάση την περιοχή και την πόλη."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
+#: ../ubiquity.templates:17001
 msgid "City:"
 msgstr "Πόλη:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:16001
+#: ../ubiquity.templates:18001
 msgid "Region:"
 msgstr "Περιοχή:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:17001
+#: ../ubiquity.templates:19001
 msgid "Keyboard layout"
 msgstr "Διάταξη πληκτρολογίου"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:18001
+#: ../ubiquity.templates:20001
 msgid "Which layout is most similar to your keyboard?"
 msgstr "Ποία διάταξη είναι παρόμοια με το πληκτρολόγιο σας;"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:19001
+#: ../ubiquity.templates:21001
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
 "Μπορείτε να πληκτρολογείτε σε αυτό το πλαίσιο για να δοκιμάσετε τη νέα "
@@ -163,37 +191,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:20001
+#: ../ubiquity.templates:22001
 msgid "Suggested option:"
 msgstr "Προτεινόμενη επιλογή:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:21001
+#: ../ubiquity.templates:23001
 msgid "Choose your own:"
 msgstr "Επιλέξτε το δικό σας:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:22001
+#: ../ubiquity.templates:24001
 msgid "Who are you?"
 msgstr "Ποιος είστε;"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:23001
+#: ../ubiquity.templates:25001
 msgid "What is your name?"
 msgstr "Ποιο είναι το όνομα σας;"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:24001
+#: ../ubiquity.templates:26001
 msgid "What name do you want to use to log in?"
 msgstr "Τι όνομα θέλετε να χρησιμοποιήσετε για την είσοδο στο σύστημα;"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:25001
+#: ../ubiquity.templates:27001
 msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
@@ -203,13 +231,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:26001
+#: ../ubiquity.templates:28001
 msgid "Choose a password to keep your account safe."
 msgstr "Επιλέξτε ένα κωδικό για να διατηρήσετε το λογαριασμό σας ασφαλή."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:27001
+#: ../ubiquity.templates:29001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
 "Βρίσκεστε σε κατάσταση αποσφαλμάτωσης. Μην χρησιμοποιήσετε κάποιον σημαντικό "
@@ -217,7 +245,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:28001
+#: ../ubiquity.templates:30001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors. "
 "A good password will contain a mixture of letters, numbers and punctuation, "
@@ -231,13 +259,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:29001
+#: ../ubiquity.templates:31001
 msgid "What is the name of this computer?"
 msgstr "Ποιο είναι το όνομα του υπολογιστή;"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:30001
+#: ../ubiquity.templates:32001
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
@@ -247,19 +275,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:31001
+#: ../ubiquity.templates:33001
 msgid "Log in automatically"
 msgstr "Αυτόματη είσοδος χρήστη"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:32001
+#: ../ubiquity.templates:34001
 msgid "Require a password to log in"
 msgstr "Απαιτείται κωδικός για την είσοδο στο σύστημα"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:33001
+#: ../ubiquity.templates:35001
 msgid "Require a password to log in and to decrypt your home folder"
 msgstr ""
 "Απαιτείται κωδικός για την είσοδο και την αποκρυπτογράφηση του προσωπικού "
@@ -267,19 +295,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:34001
+#: ../ubiquity.templates:36001
 msgid "Choose another password"
 msgstr "Επιλέξτε διαφορετικό συνθηματικό"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:35001
+#: ../ubiquity.templates:37001
 msgid "Migrate documents and settings"
 msgstr "Μεταφορά εγγράφων και ρυθμίσεων"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:36001
+#: ../ubiquity.templates:38001
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
@@ -290,7 +318,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:36001
+#: ../ubiquity.templates:38001
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
@@ -300,50 +328,50 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:37001
+#: ../ubiquity.templates:39001
 msgid "Prepare disk space"
 msgstr "Προετοιμασία χώρου στο δίσκο"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:38001
+#: ../ubiquity.templates:40001
 msgid "How do you want to partition the disk?"
 msgstr "Πως θέλετε να κάνετε τη κατάτμηση του δίσκου;"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:39001
+#: ../ubiquity.templates:41001
 msgid "This computer has no operating systems on it."
 msgstr "Ο υπολογιστής αυτός δεν έχει εγκατεστημένα λειτουργικά συστήματα."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:40001
+#: ../ubiquity.templates:42001
 msgid "This computer has ${OS} on it."
 msgstr "Ο υπολογιστής αυτός έχει εγκατεστημένο ${OS}."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:41001
+#: ../ubiquity.templates:43001
 msgid "This computer has several operating systems on it."
 msgstr "Ο υπολογιστής αυτός έχει αρκετά λειτουργικά συστήματα εγκατεστημένα."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:42001
+#: ../ubiquity.templates:44001
 msgid "Where do you want to put ${RELEASE}?"
 msgstr "Που θα θέλετε να εγκαταστήσετε το ${RELEASE};"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:43001
+#: ../ubiquity.templates:45001
 msgid "Prepare partitions"
 msgstr "Προετοιμασία τμημάτων"
 
 #. Type: text
 #. Description
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:46001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
 msgstr ""
 
@@ -351,20 +379,20 @@ msgstr ""
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:45001 ../ubiquity.templates:95001
+#: ../ubiquity.templates:47001 ../ubiquity.templates:98001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
 msgstr "Έτοιμο για εγκατάσταση"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:48001
 msgid "Details"
 msgstr "Λεπτομέρειες"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:49001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
@@ -373,7 +401,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:50001
 msgid "Advanced..."
 msgstr "Προχωρημένα..."
 
@@ -381,49 +409,49 @@ msgstr "Προχωρημένα..."
 #. Description
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:51001
 msgid "Install[ action ]"
 msgstr "Εγκατάσταση"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:52001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr "Βήμα ${INDEX} από ${TOTAL}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:53001
 msgid "Quit the installation?"
 msgstr "Τερματισμός της εγκατάστασης;"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:54001
 msgid "Do you really want to quit the installation now?"
 msgstr "Θέλετε πραγματικά να σταματήσετε την εγκατάσταση;"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:55001
 msgid "Skip"
 msgstr "Παράκαμψη"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:56001
 msgid "Installation Complete"
 msgstr "Η εγκατάσταση ολοκληρώθηκε"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:57001
 msgid "Continue Testing"
 msgstr "Συνέχεια ελέγχου"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:58001
 msgid "Restart Now"
 msgstr "Επανεκκίνηση τώρα"
 
@@ -431,13 +459,13 @@ msgstr "Επανεκκίνηση τώρα"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:57001 ../ubiquity.templates:58001
+#: ../ubiquity.templates:59001 ../ubiquity.templates:60001
 msgid "Installer crashed"
 msgstr "Η διαδικασία εγκατάστασης απέτυχε"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:61001
 msgid ""
 "We're sorry; the installer crashed. Please file a new bug report at https://"
 "launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
@@ -458,7 +486,7 @@ msgstr ""
 #. Description
 #. Displayed next to a graphical bar depicting the state of the disk before
 #. automatic partitioning.
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:62001
 msgid "Before:"
 msgstr "Πριν:"
 
@@ -466,44 +494,55 @@ msgstr "Πριν:"
 #. Description
 #. Displayed next to a graphical bar depicting the state of the disk after
 #. automatic partitioning.
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:63001
 msgid "After:"
 msgstr "Μετά:"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:62001
-msgid "New partition table"
+#: ../ubiquity.templates:64001
+#, fuzzy
+#| msgid "New partition table"
+msgid "New Partition Table..."
 msgstr "Νέος πίνακας διαμερισμάτων"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:63001
-msgid "New partition"
-msgstr "Νέο διαμέρισμα"
-
-#. Type: text
-#. Description
-#. An action, displayed on a button or as a menu item.
-#. Type: text
-#. Description
-#: ../ubiquity.templates:64001 ../ubiquity.templates:80001
-msgid "Edit partition"
-msgstr "Επεξεργασία κατάτμησης"
-
-#. Type: text
-#. Description
-#. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
-msgid "Delete partition"
-msgstr "Διαγραφή διαμερίσματος"
+#, fuzzy
+#| msgid "Advanced..."
+msgid "Add..."
+msgstr "Προχωρημένα..."
+
+#. Type: text
+#. Description
+#. An action, displayed on a button or as a menu item.
+#: ../ubiquity.templates:66001
+#, fuzzy
+#| msgid "Creating user..."
+msgid "Change..."
+msgstr "Δημιουργία χρήστη..."
+
+#. Type: text
+#. Description
+#. An action, displayed on a button or as a menu item.
+#: ../ubiquity.templates:67001
+msgid "Delete"
+msgstr ""
+
+#. Type: text
+#. Description
+#. An action, displayed on a button or as a menu item.
+#: ../ubiquity.templates:68001
+msgid "Revert"
+msgstr ""
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:69001
 msgid "Device"
 msgstr "Συσκευή"
 
@@ -511,28 +550,28 @@ msgstr "Συσκευή"
 #. Description
 #. A column heading in the partitioner. Indicates how the partition is to be
 #. used (ext2, swap, etc.).
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:70001
 msgid "Type"
 msgstr "Τύπος"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:71001
 msgid "Mount point"
 msgstr "Σημείο προσάρτησης"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:72001
 msgid "Format?"
 msgstr "Διαμόρφωση;"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:73001
 msgid "Size"
 msgstr "Μέγεθος"
 
@@ -540,27 +579,27 @@ msgstr "Μέγεθος"
 #. Description
 #. A column heading in the partitioner. Indicates how much of the space on
 #. this partition is used by data.
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:74001
 msgid "Used"
 msgstr "Σε χρήση"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:75001
 msgid "free space"
 msgstr "ελεύθερος χώρος"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:76001
 msgid "unknown"
 msgstr "άγνωστο"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:77001
 msgid "Create partition"
 msgstr "Δημιουργία κατάτμησης"
 
@@ -568,19 +607,19 @@ msgstr "Δημιουργία κατάτμησης"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001 ../ubiquity.templates:82001
+#: ../ubiquity.templates:78001 ../ubiquity.templates:85001
 msgid "New partition size in megabytes (1000000 bytes):"
 msgstr "Μέγεθος νέας κατάτμησης σε megabyte (1000000 bytes):"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:79001
 msgid "Beginning"
 msgstr "Αρχή"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:80001
 msgid "End"
 msgstr "Τέλος"
 
@@ -588,7 +627,7 @@ msgstr "Τέλος"
 # File: ../partman-partitioning.templates, line: 17001
 #. Type: text
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:81001
 msgid "Primary"
 msgstr "Πρωτεύουσα"
 
@@ -596,67 +635,73 @@ msgstr "Πρωτεύουσα"
 # File: ../partman-partitioning.templates, line: 17001
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:82001
 msgid "Logical"
 msgstr "Λογική"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:83001
+msgid "Edit partition"
+msgstr "Επεξεργασία κατάτμησης"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:84001
 msgid "Edit a partition"
 msgstr "Επεξεργασία μιας κατάτμησης"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:86001
 msgid "Advanced Options"
 msgstr "Προχωρημένες Επιλογές"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:87001
 msgid "Boot loader"
 msgstr "Boot loader"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:88001
 msgid "Install boot loader"
 msgstr "Εγκατάσταση boot loader"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:89001
 msgid "Popularity contest"
 msgstr "Διαγωνισμός δημοφιλίας"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:90001
 msgid "Participate in the package usage survey"
 msgstr "Συμμετέχετε στην έρευνα για τη χρήση των πακέτων εφαρμογών"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:91001
 msgid "Network proxy"
 msgstr "Διακομιστής μεσολάβησης (proxy)"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:92001
 msgid "HTTP proxy:"
 msgstr "Διακομιστής μεσολάβησης HTTP"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:93001
 msgid "Port:"
 msgstr "Θύρα:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:94001
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
@@ -669,20 +714,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:95001
 msgid "Go Back"
 msgstr "Επιστροφή"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:96001
 msgid "Continue"
 msgstr "Συνέχεια"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:97001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
@@ -692,7 +737,7 @@ msgstr ""
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:98001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -712,37 +757,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:99001
 msgid "Checking the installation..."
 msgstr "Έλεγχος της εγκατάστασης"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:97001
+#: ../ubiquity.templates:100001
 msgid "Installing system"
 msgstr "Εγκατάσταση του βασικού συστήματος"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:98001
+#: ../ubiquity.templates:101001
 msgid "Finding the distribution to copy..."
 msgstr "Εύρεση της διανομής για αντιγραφή..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:103001
 msgid "Scanning files..."
 msgstr "Ανίχνευση αρχείων..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:104001
 msgid "Copying files..."
 msgstr "Αντιγραφή αρχείων..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:105001
 msgid "Copying files (less than a minute remaining)..."
 msgstr "Αντιγραφή αρχείων (απομένει λιγότερο από ένα λεπτό)..."
 
@@ -756,9 +801,9 @@ msgstr "Αντιγραφή αρχείων (απομένει λιγότερο α�
 #. Description
 #. Type: select
 #. Description
-#: ../ubiquity.templates:103001 ../ubiquity.templates:104001
-#: ../ubiquity.templates:105001 ../ubiquity.templates:106001
-#: ../ubiquity.templates:107001
+#: ../ubiquity.templates:106001 ../ubiquity.templates:107001
+#: ../ubiquity.templates:108001 ../ubiquity.templates:109001
+#: ../ubiquity.templates:110001
 msgid "Installation Failed"
 msgstr "Η εγκατάσταση απέτυχε"
 
@@ -770,8 +815,8 @@ msgstr "Η εγκατάσταση απέτυχε"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:103001 ../ubiquity.templates:104001
-#: ../ubiquity.templates:105001 ../ubiquity.templates:106001
+#: ../ubiquity.templates:106001 ../ubiquity.templates:107001
+#: ../ubiquity.templates:108001 ../ubiquity.templates:109001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
 "Η εγκατάσταση αντιμετώπισε πρόβλημα κατά την εγγραφή αρχείων στο σκληρό "
@@ -779,7 +824,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:103001
+#: ../ubiquity.templates:106001
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
@@ -791,7 +836,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:104001
+#: ../ubiquity.templates:107001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -804,7 +849,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:105001
+#: ../ubiquity.templates:108001
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -822,7 +867,7 @@ msgstr ""
 #. Description
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
-#: ../ubiquity.templates:106001 ../ubiquity.templates:107001
+#: ../ubiquity.templates:109001 ../ubiquity.templates:110001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -839,145 +884,145 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../ubiquity.templates:107001
+#: ../ubiquity.templates:110001
 msgid "The following file did not match its source copy on the CD/DVD:"
 msgstr "Το παρακάτω αρχείο δεν αντιστοιχεί στο αρχικό αντίγραφο του CD/DVD:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:111001
 msgid "Copying installation logs..."
 msgstr "Αντιγραφή των καταγραφών εγκατάστασης..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:109001
+#: ../ubiquity.templates:112001
 msgid "Configuring target system..."
 msgstr "Ρύθμιση του επιλεγμένου συστήματος..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:113001
 msgid "Configuring system locales..."
 msgstr "Ρύθμιση των γλωσσικών εντοπιοτήτων συστήματος..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:111001
+#: ../ubiquity.templates:114001
 msgid "Configuring apt..."
 msgstr "Γίνεται ρύθμιση του apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:112001
+#: ../ubiquity.templates:115001
 msgid "Configuring time zone..."
 msgstr "Ρύθμιση ζώνης ώρας..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:113001
+#: ../ubiquity.templates:116001
 msgid "Configuring keyboard..."
 msgstr "Γίνεται ρύθμιση του πληκτρολογίου..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:114001
+#: ../ubiquity.templates:117001
 msgid "Creating user..."
 msgstr "Δημιουργία χρήστη..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:115001
+#: ../ubiquity.templates:118001
 msgid "Importing documents and settings..."
 msgstr "Μεταφορά εγγράφων και ρυθμίσεων..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:116001
+#: ../ubiquity.templates:119001
 msgid "Configuring hardware..."
 msgstr "Ρύθμιση υλικού..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:117001
+#: ../ubiquity.templates:120001
 msgid "Configuring network..."
 msgstr "Ρύθμιση δικτύου..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:118001
+#: ../ubiquity.templates:121001
 msgid "Setting computer name..."
 msgstr "Ρύθμιση ονόματος συστήματος...."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:119001
+#: ../ubiquity.templates:122001
 msgid "Configuring boot loader..."
 msgstr "Ρύθμιση boot loader..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:120001
+#: ../ubiquity.templates:123001
 msgid "Installing additional packages..."
 msgstr "Εγκατάσταση πρόσθετων πακέτων..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:121001
+#: ../ubiquity.templates:124001
 msgid "Checking for packages to install..."
 msgstr "Έλεγχος για πακέτα προς εγκατάσταση.."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:122001
+#: ../ubiquity.templates:125001
 msgid "Removing extra packages..."
 msgstr "Απομάκρυνση επιπλέον πακέτων..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:123001
+#: ../ubiquity.templates:126001
 msgid "Checking for packages to remove..."
 msgstr "Έλεγχος για πακέτα που θα απομακρυνθούν..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:124001
+#: ../ubiquity.templates:127001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Λήψη πακέτων (${TIME} απομένουν)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:125001
+#: ../ubiquity.templates:128001
 msgid "Downloading package lists..."
 msgstr "Λήψη λίστας πακέτων..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:126001
+#: ../ubiquity.templates:129001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Λήψη λίστας πακέτων (${TIME} απομένουν)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:131001
 msgid "Error installing ${PACKAGE}"
 msgstr "Σφάλμα εγκατάστασης του ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:129001
+#: ../ubiquity.templates:132001
 msgid "Error removing ${PACKAGE}"
 msgstr "Σφάλμα απομάκρυνσης του ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:130001
+#: ../ubiquity.templates:133001
 msgid "Error while installing packages"
 msgstr "Σφάλμα κατά την εγκατάσταση των πακέτων"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:130001
+#: ../ubiquity.templates:133001
 msgid "An error occurred while installing packages:"
 msgstr "Ένα σφάλμα εμφανίστηκε κατά την εγκατάσταση των πακέτων:"
 
@@ -985,7 +1030,7 @@ msgstr "Ένα σφάλμα εμφανίστηκε κατά την εγκατά�
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:130001 ../ubiquity.templates:131001
+#: ../ubiquity.templates:133001 ../ubiquity.templates:134001
 msgid "The following packages are in a broken state:"
 msgstr "Τα παρακάτω πακέτα εφαρμογών είναι σε προβληματική κατάσταση"
 
@@ -993,7 +1038,7 @@ msgstr "Τα παρακάτω πακέτα εφαρμογών είναι σε π
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:130001 ../ubiquity.templates:131001
+#: ../ubiquity.templates:133001 ../ubiquity.templates:134001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -1013,43 +1058,43 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:131001
+#: ../ubiquity.templates:134001
 msgid "Error while removing packages"
 msgstr "Σφάλμα κατα την απομάκρυνση πακέτων"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:131001
+#: ../ubiquity.templates:134001
 msgid "An error occurred while removing packages:"
 msgstr "Σφάλμα κατά την απομάκρυνση πακέτων:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:137001
 msgid "Calculating files to skip copying..."
 msgstr "Υπολογισμός αρχείων για παράλειψη αντιγραφής..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:135001
+#: ../ubiquity.templates:138001
 msgid "Installing language packs"
 msgstr "Εγκατάσταση πακέτων γλωσσικής εντοπιότητας"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:136001
+#: ../ubiquity.templates:139001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Λήψη πακέτων γλωσσικής υποστήριξης (${TIME} απομένουν).."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:143001
+#: ../ubiquity.templates:146001
 msgid "Failed to unmount partitions"
 msgstr "Σφάλμα κατά την αποπροσάρτηση των τμημάτων"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:143001
+#: ../ubiquity.templates:146001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -1060,14 +1105,14 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:143001
+#: ../ubiquity.templates:146001
 msgid "Please close any applications using these mount points."
 msgstr ""
 "Παρακαλώ κλείστε όσες εφαρμογές χρησιμοποιούν αυτά τα σημεία προσάρτησης."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:143001
+#: ../ubiquity.templates:146001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Θέλετε η εφαρμογή εγκατάστασης, να αποπροσαρτήσει  τις συγκεκριμένες "
@@ -1075,13 +1120,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:149001
+#: ../ubiquity.templates:152001
 msgid "Do you want to return to the partitioner?"
 msgstr "Θέλετε να επιστρέψετε στον οδηγό διαμέρισης;"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:149001
+#: ../ubiquity.templates:152001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
@@ -1091,13 +1136,43 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:149001
+#: ../ubiquity.templates:152001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
 "Eάν δεν επιστρέψετε στον οδηγό διαμέρισης και να μεγαλώσετε το μέγεθος αυτών "
 "των διαμερισμάτων, η εγκατάσταση πιθανών να αποτύχει."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:153001
+msgid "System Configuration"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:154001
+msgid "Choose language"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:155001
+msgid "Network configuration"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:156001
+msgid "Software selection"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:157001
+msgid "Applying configuration"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -1378,3 +1453,14 @@ msgstr "Ρύθμιση επιπρόσθετων υπηρεσιών..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Ρυθμίζει συσκευές υπερύθρων"
+
+#~ msgid "Select your time zone from the map, or by region and city."
+#~ msgstr ""
+#~ "Επιλέξτε την ζώνη ώρας από τον χάρτη, είτε με βάση την περιοχή και την "
+#~ "πόλη."
+
+#~ msgid "New partition"
+#~ msgstr "Νέο διαμέρισμα"
+
+#~ msgid "Delete partition"
+#~ msgstr "Διαγραφή διαμερίσματος"

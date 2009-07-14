@@ -85,7 +85,7 @@ case "$1" in
 			cmd="ubiquity noninteractive"
 		else
 			# Run in the foreground.
-			cmd="ubiquity-dm vt7 :0 /usr/bin/ubiquity $debug $automatic --only"
+			cmd="ubiquity-dm vt7 :0 ubuntu /usr/bin/ubiquity $debug $automatic --only"
 			if ${cmd}; then
 				cmd="/bin/true"
 			else

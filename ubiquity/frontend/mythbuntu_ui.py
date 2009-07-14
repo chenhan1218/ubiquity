@@ -62,42 +62,21 @@ import ubiquity.frontend.gtk_ui as ParentFrontend
 ParentFrontend.install = mythbuntu_install
 ParentFrontend.summary = mythbuntu_install
 
-VIDEOPAGE="mythbuntu_stepDrivers"
-
-MYTHPAGES = [
-    "mythbuntu_stepCustomInstallType",
-    "mythbuntu_stepServices",
-    "tab_remote_control",
-    VIDEOPAGE,
-    "mythbuntu_stepPasswords",
-    "mythbuntu_stepBackendSetup"
-]
-
 class Wizard(ParentFrontend.Wizard):
 
 #Overriden Methods
     def __init__(self, distro):
-        #Remove migration assistant
-        if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
-            del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
-        place=ParentFrontend.BREADCRUMB_STEPS["stepReady"]
+        self.pages_override_remove = ['stepMigrationAssistant', 'stepReady']
+        self.pages_override_append = []
 
-        #Max steps
-        ParentFrontend.BREADCRUMB_MAX_STEP = place + len(MYTHPAGES)
-
-        #update location of summary page
-        ParentFrontend.BREADCRUMB_STEPS["stepReady"]=place+len(MYTHPAGES)-1
-
-        #Add in final page
-        final_page=MYTHPAGES.pop()
-        ParentFrontend.BREADCRUMB_STEPS[final_page]=place+len(MYTHPAGES)+1
-        ParentFrontend.SUBPAGES.append(final_page)
-
-        #Add in individual mythpages pages
-        for string in MYTHPAGES:
-            ParentFrontend.BREADCRUMB_STEPS[string]=place
-            ParentFrontend.SUBPAGES.insert(len(ParentFrontend.SUBPAGES)-2,string)
-            place+=1
+        self.pages_override_append += [("mythbuntu_stepCustomInstallType", mythbuntu.MythbuntuInstallType)]
+        self.pages_override_append += [("mythbuntu_stepServices", mythbuntu.MythbuntuServices)]
+        self.pages_override_append += [("tab_remote_control", mythbuntu.MythbuntuRemote)]
+        if len(get_graphics_dictionary()) > 0:
+            self.pages_override_append += [("mythbuntu_stepDrivers", mythbuntu.MythbuntuDrivers)]
+        self.pages_override_append += [("mythbuntu_stepPasswords", mythbuntu.MythbuntuPasswords)]
+        self.pages_override_append += [("stepReady", mythbuntu_install.Summary)]
+        self.pages_override_append += [("mythbuntu_stepBackendSetup", None)]
 
         ParentFrontend.Wizard.__init__(self,distro)
 
@@ -107,15 +86,6 @@ class Wizard(ParentFrontend.Wizard):
         #This requires disabling encrypted FS
         self.set_auto_login(True)
         self.login_encrypt.set_sensitive(False)
-
-        #Remove their summary page.  ours is better
-        self.pages.pop()
-
-        #Insert all of our pages
-        for page in [mythbuntu.MythbuntuInstallType, mythbuntu.MythbuntuServices,
-            mythbuntu.MythbuntuRemote, mythbuntu.MythbuntuDrivers,
-            mythbuntu.MythbuntuPasswords, mythbuntu_install.Summary]:
-            self.pages.append(page)
 
         #Prepopulate some dynamic pages
         self.populate_lirc()
@@ -191,14 +161,6 @@ class Wizard(ParentFrontend.Wizard):
             self.video_driver.set_active(len(dictionary))
             self.tvoutstandard.set_active(0)
             self.tvouttype.set_active(0)
-        else:
-            for step in ParentFrontend.BREADCRUMB_STEPS:
-                if (ParentFrontend.BREADCRUMB_STEPS[step] >
-                    ParentFrontend.BREADCRUMB_STEPS[VIDEOPAGE]):
-                    ParentFrontend.BREADCRUMB_STEPS[step] -= 1
-            ParentFrontend.BREADCRUMB_MAX_STEP -= 1
-            self.steps.remove_page(self.steps.page_num(self.mythbuntu_stepDrivers))
-            self.pages.remove(mythbuntu.MythbuntuDrivers)
 
     def populate_mysql(self):
         """Puts a new random mysql password into the UI for each run

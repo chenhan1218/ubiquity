@@ -17,12 +17,17 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import os
 from ubiquity.filteredcommand import FilteredCommand
 
 class UserSetupApply(FilteredCommand):
-    def prepare(self):
-        return (['/usr/lib/ubiquity/user-setup/user-setup-apply', '/target'],
-                [])
+    def prepare(self, unfiltered=False):
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            environ = {'OVERRIDE_SYSTEM_USER': '1'}
+            return (['/usr/lib/ubiquity/user-setup/user-setup-apply'], [], environ)
+        else:
+            return (['/usr/lib/ubiquity/user-setup/user-setup-apply', '/target'],
+                    [])
 
     def error(self, priority, question):
         self.frontend.error_dialog(self.description(question),
