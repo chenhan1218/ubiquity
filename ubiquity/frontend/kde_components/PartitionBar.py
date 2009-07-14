@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8; Mode: Python; indent-tabs-mode: nil; tab-width: 4 -*-
 #
 # Copyright (C) 2006, 2007, 2008, 2009 Canonical Ltd.
 #

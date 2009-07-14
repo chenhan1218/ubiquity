@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8; Mode: Python; indent-tabs-mode: nil; tab-width: 4 -*-
 
 # Written by Mario Limonciello <superm1@ubuntu.com>.
 # Copyright (C) 2007-2008 Mario Limonciello
