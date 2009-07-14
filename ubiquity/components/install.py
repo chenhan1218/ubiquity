@@ -47,7 +47,9 @@ class Install(FilteredCommand):
         install_bootloader_seen = self.db.fget('ubiquity/install_bootloader',
                                                'seen')
         if not (automatic_mode and install_bootloader_seen):
-            if self.frontend.get_grub() is not None:
+            if self.frontend.oem_user_config:
+                self.preseed_bool('ubiquity/install_bootloader', False)
+            elif self.frontend.get_grub() is not None:
                 self.preseed_bool('ubiquity/install_bootloader', self.frontend.get_grub())
             else:
                 self.preseed_bool('ubiquity/install_bootloader', True)

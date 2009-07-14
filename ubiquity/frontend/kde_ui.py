@@ -64,28 +64,6 @@ LOCALEDIR = "/usr/share/locale"
 #currently using for testing, will remove
 UIDIR = os.path.join(PATH, 'qt')
 
-BREADCRUMB_STEPS = {
-    "stepLanguage": 1,
-    "stepLocation": 2,
-    "stepKeyboardConf": 3,
-    "stepPartAuto": 4,
-    "stepPartAdvanced": 4,
-    "stepUserInfo": 5,
-    "stepReady": 6
-}
-BREADCRUMB_MAX_STEP = 6
-
-WIDGET_STACK_STEPS = {
-    "stepWelcome": 0,
-    "stepLanguage": 1,
-    "stepLocation": 2,
-    "stepKeyboardConf": 3,
-    "stepPartAuto": 4,
-    "stepPartAdvanced": 5,
-    "stepUserInfo": 6,
-    "stepReady": 7
-}
-
 class UbiquityUI(QWidget):
 
     def __init__(self, parent):
@@ -151,7 +129,12 @@ class Wizard(BaseFrontend):
             self.userinterface.setWindowState(
                 self.userinterface.windowState() ^ Qt.WindowFullScreen)
         self.userinterface.setWizard(self)
-        self.userinterface.setWindowFlags(Qt.Dialog)
+        self.userinterface.setWindowFlags(Qt.Window | Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowMinMaxButtonsHint)
+        if hasattr(Qt, 'WindowCloseButtonHint'):
+            self.userinterface.setWindowFlags(self.userinterface.windowFlags() | Qt.WindowCloseButtonHint)
+        rect = QApplication.instance().desktop().availableGeometry(self.userinterface);
+        self.userinterface.move(rect.center() - self.userinterface.rect().center());
+
         #self.app.setMainWidget(self.userinterface)
 
         self.advanceddialog = QDialog(self.userinterface)
@@ -179,7 +162,7 @@ class Wizard(BaseFrontend):
         self.resizeSize = None
         self.username_edited = False
         self.hostname_edited = False
-        self.previous_partitioning_page = WIDGET_STACK_STEPS["stepPartAuto"]
+        self.previous_partitioning_page = self.step_index("stepPartAuto")
         self.installing = False
         self.installing_no_return = False
         self.returncode = 0
@@ -339,12 +322,7 @@ class Wizard(BaseFrontend):
         self.app.connect(self.userinterface.partition_button_delete, SIGNAL("clicked(bool)"),self.on_partition_list_delete_activate)
         self.app.connect(self.userinterface.partition_button_undo, SIGNAL("clicked(bool)"),self.on_partition_list_undo_activate)
 
-        self.pages = [language.Language, timezone.Timezone,
-            console_setup.ConsoleSetup, partman.Partman,
-            usersetup.UserSetup, summary.Summary]
-
         self.pagesindex = 0
-        pageslen = len(self.pages)
 
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             got_intro = False
@@ -354,20 +332,18 @@ class Wizard(BaseFrontend):
 
         # Start the interface
         if got_intro:
-            global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
-            for step in BREADCRUMB_STEPS:
-                BREADCRUMB_STEPS[step] += 1
-            BREADCRUMB_STEPS["stepWelcome"] = 1
-            BREADCRUMB_MAX_STEP += 1
+            self.pages.insert(0, None) # for page index bookkeeping
             first_step = "stepWelcome"
         else:
-            first_step = "stepLanguage"
+            first_step = self.pagenames[0]
                 
-        self.set_current_page(WIDGET_STACK_STEPS[first_step])
+        self.set_current_page(self.step_index(first_step))
         
         if got_intro:
             self.app.exec_()
+            self.pagesindex += 1
         
+        pageslen = len(self.pages)
         while(self.pagesindex < pageslen):
             if self.current_page == None:
                 break
@@ -446,6 +422,16 @@ class Wizard(BaseFrontend):
         else:
             self.userinterface.oem_id_label.hide()
             self.userinterface.oem_id_entry.hide()
+
+        if self.oem_user_config:
+            self.userinterface.setWindowTitle(
+                self.get_string('oem_user_config_title'))
+            self.userinterface.setWindowIcon(KIcon("preferences-system"))
+            flags = self.userinterface.windowFlags() ^ Qt.WindowMinMaxButtonsHint
+            if hasattr(Qt, 'WindowCloseButtonHint'):
+                flags = flags ^ Qt.WindowCloseButtonHint
+            self.userinterface.setWindowFlags(flags)
+            self.userinterface.quit.hide()
         
         if not 'UBIQUITY_AUTOMATIC' in os.environ:
             self.userinterface.show()
@@ -490,6 +476,7 @@ class Wizard(BaseFrontend):
             languages = [self.locale]
         core_names = ['ubiquity/text/%s' % q for q in self.language_questions]
         core_names.append('ubiquity/text/oem_config_title')
+        core_names.append('ubiquity/text/oem_user_config_title')
         for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
                            'ok', 'quit'):
             core_names.append('ubiquity/imported/%s' % stock_item)
@@ -532,14 +519,15 @@ class Wizard(BaseFrontend):
 
         if isinstance(widget, QLabel):
             if name == 'step_label':
-                global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
                 curstep = '?'
-                if self.current_page is not None:
-                    current_name = self.step_name(self.current_page)
-                    if current_name in BREADCRUMB_STEPS:
-                        curstep = str(BREADCRUMB_STEPS[current_name])
+                for page in self.pages:
+                    if self.dbfilter is page or (page and isinstance(self.dbfilter, page)):
+                        curstep = str(self.pages.index(page) + 1)
+                        break
                 text = text.replace('${INDEX}', curstep)
-                text = text.replace('${TOTAL}', str(BREADCRUMB_MAX_STEP))
+                text = text.replace('${TOTAL}', str(len(self.pages)))
+            elif name == 'welcome_text_label' and self.oem_user_config:
+                text = self.get_string('welcome_text_oem_user_label', lang)
 
             if 'heading_label' in name:
                 widget.setText("<h2>" + text + "</h2>")
@@ -562,6 +550,8 @@ class Wizard(BaseFrontend):
         elif isinstance(widget, QWidget) and str(name) == "UbiquityUIBase":
             if self.oem_config:
                 text = self.get_string('oem_config_title', lang)
+            elif self.oem_user_config:
+                text = self.get_string('oem_user_config_title', lang)
             widget.setWindowTitle(text)
 
         else:
@@ -617,11 +607,14 @@ class Wizard(BaseFrontend):
         else:
             step = self.step_name(self.get_current_page())
             if str(step).startswith("stepPart"):
-                self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
+                self.set_current_page(self.step_index("stepPartAuto"))
             return False
 
     def show_intro(self):
         """Show some introductory text, if available."""
+
+        if self.oem_user_config:
+            return False
 
         intro = os.path.join(PATH, 'intro.txt')
         
@@ -641,24 +634,31 @@ class Wizard(BaseFrontend):
             step_index = 0
         return str(self.userinterface.widgetStack.widget(step_index).objectName())
 
+    def step_index(self, step_name):
+        if hasattr(self.userinterface, step_name):
+          step = getattr(self.userinterface, step_name)
+          return self.userinterface.widgetStack.indexOf(step)
+        else:
+          return 0
+
     def set_page(self, n):
         self.run_automation_error_cmd()
         self.userinterface.show()
         if n == 'Language':
-            self.set_current_page(WIDGET_STACK_STEPS["stepLanguage"])
+            self.set_current_page(self.step_index("stepLanguage"))
         elif n == 'ConsoleSetup':
-            self.set_current_page(WIDGET_STACK_STEPS["stepKeyboardConf"])
+            self.set_current_page(self.step_index("stepKeyboardConf"))
         elif n == 'Timezone':
-            self.set_current_page(WIDGET_STACK_STEPS["stepLocation"])
+            self.set_current_page(self.step_index("stepLocation"))
         elif n == 'Partman':
             # Rather than try to guess which partman page we should be on,
             # we leave that decision to set_autopartitioning_choices and
             # update_partman.
             return
         elif n == 'UserSetup':
-            self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
+            self.set_current_page(self.step_index("stepUserInfo"))
         elif n == 'Summary':
-            self.set_current_page(WIDGET_STACK_STEPS["stepReady"])
+            self.set_current_page(self.step_index("stepReady"))
             self.userinterface.next.setText(self.get_string('install_button').replace('_', '&', 1))
             self.userinterface.next.setIcon(self.applyIcon)
         else:
@@ -693,13 +693,14 @@ class Wizard(BaseFrontend):
             0, 100, self.get_string('ubiquity/install/title'))
         self.debconf_progress_region(0, 15)
 
-        dbfilter = partman_commit.PartmanCommit(self)
-        if dbfilter.run_command(auto_process=True) != 0:
-            while self.progress_position.depth() != 0:
-                self.debconf_progress_stop()
-            self.progressDialogue.hide()
-            self.return_to_partitioning()
-            return
+        if not self.oem_user_config:
+            dbfilter = partman_commit.PartmanCommit(self)
+            if dbfilter.run_command(auto_process=True) != 0:
+                while self.progress_position.depth() != 0:
+                    self.debconf_progress_stop()
+                self.progressDialogue.hide()
+                self.return_to_partitioning()
+                return
 
         # No return to partitioning from now on
         self.installing_no_return = True
@@ -742,7 +743,9 @@ class Wizard(BaseFrontend):
         ##FIXME use non-stock messagebox to customise button text
         #quitAnswer = QMessageBox.question(self.userinterface, titleText, quitText, rebootButtonText, quitButtonText)
         self.run_success_cmd()
-        if not self.get_reboot_seen():
+        if self.oem_user_config:
+            self.quit()
+        elif not self.get_reboot_seen():
             if 'UBIQUITY_ONLY' in os.environ:
                 quitText = self.get_string('ubiquity/finished_restart_only')
             messageBox = QMessageBox(QMessageBox.Question, titleText, quitText, QMessageBox.NoButton, self.userinterface)
@@ -944,9 +947,9 @@ class Wizard(BaseFrontend):
         # then go to manual partitioning.
         #choice = self.get_autopartition_choice()[0]
         #if self.manual_choice is None or choice == self.manual_choice:
-        #    self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
+        #    self.set_current_page(self.step_index("stepPartAdvanced"))
         #else:
-        #    self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
+        #    self.set_current_page(self.step_index("stepUserInfo"))
 
     def on_back_clicked(self):
         """Callback to set previous screen."""
@@ -1470,7 +1473,7 @@ class Wizard(BaseFrontend):
             firstbutton.setChecked(True)
 
         # make sure we're on the autopartitioning page
-        self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
+        self.set_current_page(self.step_index("stepPartAuto"))
 
     def get_autopartition_choice (self):
         id = self.autopartition_buttongroup.checkedId()
@@ -1543,7 +1546,7 @@ class Wizard(BaseFrontend):
             self.on_partition_list_treeview_selection_changed)
 
         # make sure we're on the advanced partitioning page
-        self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
+        self.set_current_page(self.step_index("stepPartAdvanced"))
 
     def partitionClicked(self, indexCounter):
         """ a partition in a partition bar has been clicked, select correct entry in list view """
@@ -2106,7 +2109,7 @@ class Wizard(BaseFrontend):
         if self.installing and not self.installing_no_return:
             # Go back to the partitioner and try again.
             #self.live_installer.show()
-            self.pagesindex = 1
+            self.pagesindex = self.pages.index(partman.Partman)
             self.dbfilter = partman.Partman(self)
             self.set_current_page(self.previous_partitioning_page)
             self.userinterface.next.setText(self.get_string("next").replace('_', '&', 1))

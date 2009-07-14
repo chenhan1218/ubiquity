@@ -1,3 +1,19 @@
+ubiquity (1.99.0) UNRELEASED; urgency=low
+
+  * Merge oem-config code into ubiquity.
+    - Adds several new binary packages (oem-config, oem-config-gtk,
+      oem-config-kde, oem-config-debconf, oem-config-check, and
+      oem-config-udeb).
+    - Various architectural changes as well, including support in various
+      places for running in 'oem user config' mode.  Which is when the user is
+      configuring an already-installed system after opening it (i.e. when run
+      as the binary 'oem-config'.
+    - Baby-step support for preseeding different page sequences.
+  * Automatic update of included source packages: debian-installer-utils
+    1.70ubuntu1, user-setup 1.27ubuntu4.
+
+ -- Michael Terry <michael.terry@canonical.com>  Wed, 08 Jul 2009 09:18:20 -0400
+
 ubiquity (1.13.8) karmic; urgency=low
 
   [ Evan Dandrea ]
