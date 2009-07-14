@@ -323,7 +323,6 @@ class Wizard(BaseFrontend):
         self.app.connect(self.userinterface.partition_button_undo, SIGNAL("clicked(bool)"),self.on_partition_list_undo_activate)
 
         self.pagesindex = 0
-        pageslen = len(self.pages)
 
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             got_intro = False
@@ -344,6 +343,7 @@ class Wizard(BaseFrontend):
             self.app.exec_()
             self.pagesindex += 1
         
+        pageslen = len(self.pages)
         while(self.pagesindex < pageslen):
             if self.current_page == None:
                 break

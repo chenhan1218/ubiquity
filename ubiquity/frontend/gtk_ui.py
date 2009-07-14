@@ -326,7 +326,6 @@ class Wizard(BaseFrontend):
             'changed', self.on_hostname_changed)
 
         self.pagesindex = 0
-        pageslen = len(self.pages)
 
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             got_intro = False
@@ -358,6 +357,7 @@ class Wizard(BaseFrontend):
             gtk.main()
             self.pagesindex += 1
 
+        pageslen = len(self.pages)
         while(self.pagesindex < pageslen):
             if self.current_page == None:
                 break
