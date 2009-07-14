@@ -11,7 +11,7 @@ db_capb backup
 # us.
 db_get debian-installer/country
 country="$RET"
-db_set mirror/country "$country"
+db_set mirror/country "$country" || true
 db_get debian-installer/locale
 newlocale="$(echo "$RET" | sed "s/_[A-Z][A-Z]*/_$country/")"
 if grep -q "^${newlocale%%[.@]*}[.@ ]" /usr/share/i18n/SUPPORTED; then

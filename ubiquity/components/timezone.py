@@ -24,6 +24,7 @@ import debconf
 
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity import i18n
+from ubiquity import im_switch
 import ubiquity.tz
 
 try:
@@ -32,7 +33,14 @@ except:
     PyICU = None
 
 class Timezone(FilteredCommand):
-    def prepare(self):
+    def prepare(self, unfiltered=False):
+        if unfiltered:
+            # In unfiltered mode, localechooser is responsible for selecting
+            # the country, so there's no need to repeat the job here. As a
+            # result, plain tzsetup rather than the wrapper that calls both
+            # tzsetup and localechooser will be sufficient.
+            return (['/usr/lib/ubiquity/tzsetup/tzsetup'])
+
         self.regions = []
         self.timezones = []
         self.tzdb = ubiquity.tz.Database()
@@ -162,3 +170,4 @@ class Timezone(FilteredCommand):
             except locale.Error, e:
                 self.debug('locale.setlocale failed: %s (LANG=%s)',
                            e, di_locale)
+            im_switch.start_im()

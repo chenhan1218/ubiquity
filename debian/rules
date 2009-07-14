@@ -121,10 +121,10 @@ ifneq (,$(wildcard debian/ubiquity.install-$(DEB_HOST_ARCH)))
 	cat debian/ubiquity.install-$(DEB_HOST_ARCH) >> debian/ubiquity.install
 endif
 ifdef UBIQUITY_NO_GTK
-	dh_install -Nubiquity-frontend-gtk
+	dh_install -Nubiquity-frontend-gtk -Noem-config-gtk
 else
 ifdef UBIQUITY_NO_KDE
-	dh_install -Nubiquity-frontend-kde
+	dh_install -Nubiquity-frontend-kde -Noem-config-kde
 else
 	dh_install
 endif
@@ -159,6 +159,11 @@ endif
 	install d-i/source/clock-setup/finish-install.d/10clock-setup \
 		debian/ubiquity/usr/lib/ubiquity/clock-setup/finish-install
 	chmod +x debian/ubiquity/usr/lib/ubiquity/clock-setup/finish-install
+	mkdir -p debian/oem-config/usr/lib/ubiquity/clock-setup
+	sed -e 's,/target/,/,g;s,/target,/,g' \
+		debian/ubiquity/usr/lib/ubiquity/clock-setup/finish-install \
+		> debian/oem-config/usr/lib/ubiquity/clock-setup/finish-install-oem
+	chmod +x debian/oem-config/usr/lib/ubiquity/clock-setup/finish-install-oem
 	sed -e 's,/usr/share/console-setup-mini/console-setup.config,/var/lib/dpkg/info/console-setup.config,g' \
 	    -e 's,^\([[:space:]]*\)update-initramfs,\1: update-initramfs,' \
 		d-i/source/console-setup/debian/console-setup.postinst \
@@ -184,9 +189,17 @@ endif
 		debian/ubiquity/usr/lib/ubiquity/localechooser/
 	install d-i/source/tzsetup/post-base-installer.d/*tzsetup \
 		debian/ubiquity/usr/lib/ubiquity/tzsetup/post-base-installer
+	mkdir -p debian/oem-config/usr/lib/ubiquity/tzsetup
+	sed -e 's,/target/,/,g;s,/target,/,g' \
+		debian/ubiquity/usr/lib/ubiquity/tzsetup/post-base-installer \
+		> debian/oem-config/usr/lib/ubiquity/tzsetup/post-base-installer-oem
+	chmod +x debian/oem-config/usr/lib/ubiquity/tzsetup/post-base-installer-oem
 	sed -i -e 's,db_input medium tzsetup/selected,db_input high tzsetup/selected,' \
 	       -e 's,/usr/share/tzsetup/tzmap,/usr/lib/ubiquity/tzsetup/tzmap,g' \
 		debian/ubiquity/usr/lib/ubiquity/tzsetup/tzsetup
+	cp debian/ubiquity/usr/lib/ubiquity/user-setup/reserved-usernames \
+		debian/ubiquity/usr/lib/ubiquity/user-setup/reserved-usernames-oem
+	echo oem >> debian/ubiquity/usr/lib/ubiquity/user-setup/reserved-usernames-oem
 	set -e; for x in user-setup user-setup-ask user-setup-apply; do \
 		sed -e 's,/usr/lib/user-setup,/usr/lib/ubiquity/user-setup,g' \
 		    -e 's,/bin/sh,/bin/bash,g' \
@@ -194,6 +207,17 @@ endif
 			> debian/ubiquity/usr/lib/ubiquity/user-setup/$$x; \
 		chmod +x debian/ubiquity/usr/lib/ubiquity/user-setup/$$x; \
 	done
+	sed -i -e 's,db_input high user-setup/encrypt-home,db_input medium user-setup/encrypt-home,' \
+		debian/ubiquity/usr/lib/ubiquity/user-setup/user-setup-ask
+	sed -e 's,reserved-usernames,reserved-usernames-oem,g' \
+		debian/ubiquity/usr/lib/ubiquity/user-setup/user-setup-ask \
+		> debian/ubiquity/usr/lib/ubiquity/user-setup/user-setup-ask-oem
+	chmod +x debian/ubiquity/usr/lib/ubiquity/user-setup/user-setup-ask-oem
+	mkdir -p debian/oem-config/usr/lib/ubiquity/debian-installer-utils
+	sed -e 's,/target/,/,g;s,/target,/,g' \
+		d-i/source/debian-installer-utils/register-module.post-base-installer \
+		> debian/oem-config/usr/lib/ubiquity/debian-installer-utils/register-module.post-base-installer-oem
+	chmod +x debian/oem-config/usr/lib/ubiquity/debian-installer-utils/register-module.post-base-installer-oem
 ifeq ($(DEB_HOST_ARCH),armel)
 	dh_installdirs -pubiquity usr/lib/ubiquity/flash-kernel
 	install d-i/source/flash-kernel/debian/flash-kernel-installer.postinst \
@@ -221,10 +245,10 @@ endif
 
 BINARY_INDEP_OPTIONS := -i
 ifdef UBIQUITY_NO_GTK
-BINARY_INDEP_OPTIONS += -Nubiquity-frontend-gtk
+BINARY_INDEP_OPTIONS += -Nubiquity-frontend-gtk -Noem-config-gtk
 endif
 ifdef UBIQUITY_NO_KDE
-BINARY_INDEP_OPTIONS += -Nubiquity-frontend-kde
+BINARY_INDEP_OPTIONS += -Nubiquity-frontend-kde -Noem-config-kde
 endif
 
 # Build architecture-independent files here.
@@ -235,6 +259,8 @@ binary-indep: install
 	dh_installchangelogs
 	dh_installdocs
 	dh_installdebconf
+	dh_installinit -n  # oem-config
+	dh_installman
 	dh_link
 	dh_strip
 	dh_compress
@@ -256,6 +282,7 @@ binary-arch: install
 	dh_installchangelogs
 	dh_installdocs
 	dh_installdebconf
+	cp debian/lintian-override debian/oem-config/usr/share/lintian/overrides/oem-config
 	echo >> debian/ubiquity/DEBIAN/templates
 	po2debconf --podir=debian/imported-po \
 		debian/ubiquity.templates-imported \
@@ -269,7 +296,7 @@ binary-arch: install
 	fi
 	grep-dctrl -v -FTemplate base-installer/ d-i/templates \
 		>> debian/ubiquity/DEBIAN/templates
-	dh_installinit --no-start -- start 29 2 3 4 5 .
+	dh_installinit --no-start -- start 29 2 3 4 5 .  # ubiquity
 	dh_installman doc/ubiquity.8
 	dh_link
 	dh_strip

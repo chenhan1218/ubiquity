@@ -27,8 +27,26 @@ import subprocess
 import debconf
 from ubiquity.debconfcommunicator import DebconfCommunicator
 from ubiquity.misc import drop_privileges
-
+from ubiquity.components import console_setup, language, timezone, usersetup, \
+                                partman, partman_commit, \
+                                summary, install, migrationassistant
 from ubiquity import i18n
+
+# Pages that may be loaded. Interpretation is up to the frontend, but it is
+# strongly recommended to keep the page identifiers the same.
+PAGE_COMPONENTS = {
+    'LanguageOnly' : language.Language,
+    'Language' : language.Language,
+    'Location' : timezone.Timezone,
+    'KeyboardConf' : console_setup.ConsoleSetup,
+    'PartAuto' : partman.Partman,
+    'PartAdvanced' : partman.Partman,
+    'UserInfo' : usersetup.UserSetup,
+    'Network' : None,
+    'Tasks' : None,
+    'MigrationAssistant' : migrationassistant.MigrationAssistant,
+    'Ready' : summary.Summary,
+}
 
 class BaseFrontend:
     """Abstract ubiquity frontend.
@@ -76,6 +94,10 @@ class BaseFrontend:
                     del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
         except debconf.DebconfError:
             pass
+
+        self.oem_user_config = False
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+          self.oem_user_config = True
         
         try:
             self.oem_id = db.get('oem-config/id')
@@ -108,6 +130,46 @@ class BaseFrontend:
             self.allow_password_empty = db.get('user-setup/allow-password-empty') == 'true'
         except debconf.DebconfError:
             pass
+
+        if self.oem_user_config:
+            step_list_name = 'ubiquity/oem-config-steps'
+        else:
+            step_list_name = 'ubiquity/steps'
+        valid_step_list = db.metaget(step_list_name, 'choices-c')
+        valid_steps = valid_step_list.replace(',', ' ').split()
+        step_list = db.get(step_list_name)
+        steps = step_list.replace(',', ' ').split()
+        self.pagenames = []
+        self.pages = []
+        for valid_page in valid_steps:
+            if valid_page in steps:
+                if valid_page == 'MigrationAssistant' and \
+                   'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
+                    continue
+                step_name = "step%s" % valid_page
+                # Handle special frontend overrides
+                if hasattr(self, 'pages_override_remove') and \
+                   step_name in self.pages_override_remove:
+                    continue
+                self.pagenames.append(step_name)
+                page_class = PAGE_COMPONENTS[valid_page]
+                if page_class is not None and page_class not in self.pages:
+                    self.pages.append(page_class)
+        for step in steps:
+            if step not in valid_steps:
+                syslog.syslog(syslog.LOG_WARNING,
+                              "Unknown step name in %s: %s" %
+                              (step_list_name, step))
+
+        # Handle special frontend extra pages
+        if hasattr(self, 'pages_override_append'):
+            for page in self.pages_override_append:
+                self.pagenames.append(page[0])
+                if page[1]:
+                    self.pages.append(page[1])
+
+        if not self.pagenames:
+            raise ValueError, "No valid steps in %s" % step_list_name
 
         if 'SUDO_USER' in os.environ:
             os.environ['SCIM_USER'] = os.environ['SUDO_USER']

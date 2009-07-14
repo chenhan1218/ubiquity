@@ -17,10 +17,14 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import os
 from ubiquity.filteredcommand import FilteredCommand
 
 class LanguageApply(FilteredCommand):
-    def prepare(self):
-        return (['sh', '-c',
-                 '/usr/lib/ubiquity/localechooser/post-base-installer ' +
-                 '&& /usr/lib/ubiquity/localechooser/finish-install'], [])
+    def prepare(self, unfiltered=False):
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            return (['/usr/lib/ubiquity/localechooser-apply'], [])
+        else:
+            return (['sh', '-c',
+                     '/usr/lib/ubiquity/localechooser/post-base-installer ' +
+                     '&& /usr/lib/ubiquity/localechooser/finish-install'], [])
