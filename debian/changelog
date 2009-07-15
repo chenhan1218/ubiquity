@@ -1,4 +1,4 @@
-ubiquity (1.99.0) UNRELEASED; urgency=low
+ubiquity (1.99.0) karmic; urgency=low
 
   [ Michael Terry ]
   * Merge oem-config code into ubiquity.
@@ -21,7 +21,7 @@ ubiquity (1.99.0) UNRELEASED; urgency=low
   * Automatic update of included source packages: grub-installer
     1.39ubuntu1, partman-auto 87ubuntu1.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 15 Jul 2009 11:13:49 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 15 Jul 2009 15:06:57 +0100
 
 ubiquity (1.13.8) karmic; urgency=low
 
