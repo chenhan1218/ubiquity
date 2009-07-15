@@ -1,5 +1,6 @@
 ubiquity (1.99.0) UNRELEASED; urgency=low
 
+  [ Michael Terry ]
   * Merge oem-config code into ubiquity.
     - Adds several new binary packages (oem-config, oem-config-gtk,
       oem-config-kde, oem-config-debconf, oem-config-check, and
@@ -12,7 +13,11 @@ ubiquity (1.99.0) UNRELEASED; urgency=low
   * Automatic update of included source packages: debian-installer-utils
     1.70ubuntu1, user-setup 1.27ubuntu4.
 
- -- Michael Terry <michael.terry@canonical.com>  Wed, 08 Jul 2009 09:18:20 -0400
+  [ Evan Dandrea ]
+  * Remove code to account for last-good-boot in oem-config-firstboot as
+    the former has been abandoned.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 15 Jul 2009 08:50:34 +0100
 
 ubiquity (1.13.8) karmic; urgency=low
 
