@@ -16,8 +16,10 @@ ubiquity (1.99.0) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Remove code to account for last-good-boot in oem-config-firstboot as
     the former has been abandoned.
+  * Add a RELEASE marker in the desktop file to be substituted for the
+    release name and version by casper (LP: #154506).
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 15 Jul 2009 08:50:34 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 15 Jul 2009 11:13:49 +0100
 
 ubiquity (1.13.8) karmic; urgency=low
 
