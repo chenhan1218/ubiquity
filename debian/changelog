@@ -1,3 +1,9 @@
+ubiquity (1.99.1) UNRELEASED; urgency=low
+
+  * Use dh_lintian.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Jul 2009 15:37:49 +0100
+
 ubiquity (1.99.0) karmic; urgency=low
 
   [ Michael Terry ]
