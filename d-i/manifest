@@ -6,14 +6,14 @@ clock-setup 0.98ubuntu1
 console-setup 1.34ubuntu1
 debian-installer-utils 1.70ubuntu1
 flash-kernel 2.13ubuntu8
-grub-installer 1.38ubuntu1
+grub-installer 1.39ubuntu1
 hw-detect 1.72ubuntu1
 kboot-installer 0.0.1ubuntu9
 localechooser 2.12ubuntu2
 migration-assistant 0.6.4
 netcfg 1.49ubuntu1
 partconf 1.32
-partman-auto 86ubuntu1
+partman-auto 87ubuntu1
 partman-auto-loop 0ubuntu16
 partman-base 131ubuntu1
 partman-basicfilesystems 63ubuntu1
