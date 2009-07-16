@@ -8,6 +8,10 @@ ubiquity (1.99.1) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Add support for ubiquity-slideshow.
 
+  [ Mario Limonciello ]
+  * Divert the ubiquity-gtkui.desktop file when oem-config is installed as
+    oem-config now depends on ubiquity.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Jul 2009 15:37:49 +0100
 
 ubiquity (1.99.0) karmic; urgency=low
