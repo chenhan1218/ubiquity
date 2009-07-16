@@ -365,6 +365,24 @@
             <property name="position">2</property>
           </packing>
         </child>
+        <child>
+          <widget class="GtkFrame" id="slideshow_frame">
+            <property name="label_xalign">0</property>
+            <property name="shadow_type">in</property>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+              <packing>
+                <property name="type">label_item</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="position">3</property>
+          </packing>
+        </child>
       </widget>
     </child>
   </widget>

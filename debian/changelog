@@ -1,8 +1,12 @@
 ubiquity (1.99.1) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Use dh_lintian.
   * Restore autologin-disabling code from oem-config, corrected to work with
     new gdm (LP: #395861).
+
+  [ Evan Dandrea ]
+  * Add support for ubiquity-slideshow.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Jul 2009 15:37:49 +0100
 
