@@ -1,6 +1,8 @@
 ubiquity (1.99.1) UNRELEASED; urgency=low
 
   * Use dh_lintian.
+  * Restore autologin-disabling code from oem-config, corrected to work with
+    new gdm (LP: #395861).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Jul 2009 15:37:49 +0100
 
