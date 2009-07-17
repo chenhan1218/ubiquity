@@ -1,8 +1,12 @@
 ubiquity (1.99.1) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Use dh_lintian.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Jul 2009 15:37:49 +0100
+  [ Roman Shtylman ]
+  * new files for themeing kde gui 
+
+ -- Roman Shtylman <shtylman@gmail.com>  Thu, 16 Jul 2009 20:43:39 -0400
 
 ubiquity (1.99.0) karmic; urgency=low
 

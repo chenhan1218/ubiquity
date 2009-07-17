@@ -1,0 +1,101 @@
+#centralwidget {
+	background-image: url(/usr/share/ubiquity/qt/images/wallpaper.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: black;
+}
+
+#main_frame {
+	border-width: 13px;
+	border-image: url(/usr/share/ubiquity/qt/images/main_frame_border.png) 13px;
+	
+	padding: 10px;
+}
+
+#main_widget {
+	background-image: url(/usr/share/ubiquity/qt/images/circles.png);
+	background-repeat: no-repeat;
+	background-position: top left;
+	
+	background-origin: border;
+	background-clip: border;
+}
+
+#distro_name_label,
+#distro_release_label,
+#install_process_label {
+	font-family: sans-serif;
+}
+
+#distro_name_label {
+	color: #00aad4;
+	font-size: 12pt;
+}
+
+#distro_release_label {
+	color: #00ccff;
+	font-size: 12pt;
+}
+
+#install_process_label {
+	color: #006680;
+	font-size: 8pt;
+	padding-left: 1px;
+}
+
+#steps_widget {
+}
+
+#steps_widget QLabel {
+	qproperty-alignment: AlignLeft;
+	font-family: sans-serif;
+	font-size: 12pt;
+	color: #666666;
+	margin: 5px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+#steps_widget #step_dummy {
+}
+
+#stack QLabel, QRadioButton {
+	font-size: 10pt;
+	color: #4d4d4d;
+	margin: 1px;
+}
+
+#stack #welcome_heading_label, 
+#stack #timezone_heading_label,
+#stack #keyboard_heading_label,
+#stack #part_auto_heading_label,
+#stack #part_advanced_heading_label,
+#stack #userinfo_heading_label,
+#stack #reading_heading_label
+{
+	color: #0088aa;
+	font-size: 12pt;
+	qproperty-alignment: AlignCenter;
+}
+
+#content_widget {
+}
+
+#stack {
+	padding: 5px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	
+	border-width: 6px;
+	border-image: url(/usr/share/ubiquity/qt/images/content_border.png) 6px;
+}
+
+#content_frame QLabel {	
+}
+
+#tz_frame,
+#keyboard_frame 
+{
+	border-radius: 5px;
+	border: 1px solid #bac8d1;
+}
