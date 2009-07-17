@@ -60,22 +60,6 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="GtkAlignment" id="alignment26">
-                    <property name="visible">True</property>
-                    <property name="border_width">6</property>
-                    <child>
-                      <widget class="GtkHSeparator" id="hseparator10">
-                        <property name="visible">True</property>
-                      </widget>
-                    </child>
-                  </widget>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-                <child>
                   <widget class="GtkAlignment" id="alignment25">
                     <property name="visible">True</property>
                     <property name="left_padding">16</property>
@@ -163,7 +147,7 @@
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">False</property>
-                    <property name="position">2</property>
+                    <property name="position">1</property>
                   </packing>
                 </child>
               </widget>
@@ -1398,7 +1382,7 @@
             <property name="layout_style">end</property>
             <child>
               <widget class="GtkButton" id="advanced_cancelbutton">
-                <property name="label" translatable="yes">gtk-cancel</property>
+                <property name="label">gtk-cancel</property>
                 <property name="response_id">-6</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -1414,7 +1398,7 @@
             </child>
             <child>
               <widget class="GtkButton" id="advanced_okbutton">
-                <property name="label" translatable="yes">gtk-ok</property>
+                <property name="label">gtk-ok</property>
                 <property name="response_id">-5</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>

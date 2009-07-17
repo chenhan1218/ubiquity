@@ -12,7 +12,11 @@ ubiquity (1.99.1) UNRELEASED; urgency=low
   * Divert the ubiquity-gtkui.desktop file when oem-config is installed as
     oem-config now depends on ubiquity.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Jul 2009 15:37:49 +0100
+  [ Michael Terry ]
+  * GTK frontend: Remove horizontal separator at bottom, and let timezone
+    map fill its allocated space
+
+ -- Michael Terry <michael.terry@canonical.com>  Fri, 17 Jul 2009 09:12:08 -0400
 
 ubiquity (1.99.0) karmic; urgency=low
 
