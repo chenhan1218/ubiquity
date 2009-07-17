@@ -22,7 +22,7 @@ class City:
     
 class TimezoneMap(QWidget):
     def __init__(self, frontend):
-        QWidget.__init__(self, frontend.userinterface.map_frame)
+        QWidget.__init__(self, frontend.ui.map_frame)
         self.frontend = frontend
         #dictionary of zone name -> {'cindex', 'citites'}
         self.zones = {}
@@ -106,34 +106,33 @@ class TimezoneMap(QWidget):
             city.index = len(self.zones[zoneName]['cities'])
             self.zones[zoneName]['cities'].append(city)
        
-        QApplication.instance().connect(self.frontend.userinterface.timezone_zone_combo, 
-            SIGNAL("currentIndexChanged(QString)"), self.regionChanged)
-        QApplication.instance().connect(self.frontend.userinterface.timezone_city_combo, 
-            SIGNAL("currentIndexChanged(int)"), self.cityChanged)
+        ui = self.frontend.ui
+        ui.timezone_zone_combo.currentIndexChanged[str].connect(self.regionChanged)
+        ui.timezone_city_combo.currentIndexChanged[int].connect(self.cityChanged)
             
         # zone needs to be added to combo box
         keys = self.zones.keys()
         keys.sort()
         for z in keys:
-            self.zones[z]['cindex'] = self.frontend.userinterface.timezone_zone_combo.count()
-            self.frontend.userinterface.timezone_zone_combo.addItem(z)
+            self.zones[z]['cindex'] = ui.timezone_zone_combo.count()
+            ui.timezone_zone_combo.addItem(z)
        
     # called when the region(zone) combo changes
     def regionChanged(self, region):
-        self.frontend.userinterface.timezone_city_combo.clear()
+        self.frontend.ui.timezone_city_combo.clear()
         #blank entry first to prevent a city from being selected
-        self.frontend.userinterface.timezone_city_combo.addItem("")
+        self.frontend.ui.timezone_city_combo.addItem("")
         
         #add all the cities
         for c in self.zones[str(region)]['cities']:
-            self.frontend.userinterface.timezone_city_combo.addItem(c.city_name, QVariant(c))
+            self.frontend.ui.timezone_city_combo.addItem(c.city_name, QVariant(c))
             
     # called when the city combo changes
     def cityChanged(self, cityindex):
         if cityindex < 1:
             return
             
-        city = self.frontend.userinterface.timezone_city_combo.itemData(cityindex).toPyObject()
+        city = self.frontend.ui.timezone_city_combo.itemData(cityindex).toPyObject()
         self.selected_city = city
         self.repaint()
         
@@ -270,8 +269,8 @@ class TimezoneMap(QWidget):
         #this will cause the redraw we need
         if closest != None:
             cindex = self.zones[closest.zone_name]['cindex']
-            self.frontend.userinterface.timezone_zone_combo.setCurrentIndex(cindex)
-            self.frontend.userinterface.timezone_city_combo.setCurrentIndex(closest.index + 1)
+            self.frontend.ui.timezone_zone_combo.setCurrentIndex(cindex)
+            self.frontend.ui.timezone_city_combo.setCurrentIndex(closest.index + 1)
 
     # sets the timezone based on the full name (i.e 'Australia/Sydney')
     def set_timezone(self, name):
@@ -280,8 +279,8 @@ class TimezoneMap(QWidget):
     # internal set timezone based on a city
     def _set_timezone(self, city):
         cindex = self.zones[city.zone_name]['cindex']
-        self.frontend.userinterface.timezone_zone_combo.setCurrentIndex(cindex)
-        self.frontend.userinterface.timezone_city_combo.setCurrentIndex(city.index + 1)
+        self.frontend.ui.timezone_zone_combo.setCurrentIndex(cindex)
+        self.frontend.ui.timezone_city_combo.setCurrentIndex(city.index + 1)
 
     # return the full timezone string
     def get_timezone(self):

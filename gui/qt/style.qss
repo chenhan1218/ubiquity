@@ -59,19 +59,19 @@
 #steps_widget #step_dummy {
 }
 
-#stack QLabel, QRadioButton {
+#widgetStack QLabel, QRadioButton {
 	font-size: 10pt;
 	color: #4d4d4d;
 	margin: 1px;
 }
 
-#stack #welcome_heading_label, 
-#stack #timezone_heading_label,
-#stack #keyboard_heading_label,
-#stack #part_auto_heading_label,
-#stack #part_advanced_heading_label,
-#stack #userinfo_heading_label,
-#stack #reading_heading_label
+#widgetStack #welcome_heading_label, 
+#widgetStack #timezone_heading_label,
+#widgetStack #keyboard_heading_label,
+#widgetStack #part_auto_heading_label,
+#widgetStack #part_advanced_heading_label,
+#widgetStack #userinfo_heading_label,
+#widgetStack #reading_heading_label
 {
 	color: #0088aa;
 	font-size: 12pt;
@@ -81,7 +81,7 @@
 #content_widget {
 }
 
-#stack {
+#widgetStack {
 	padding: 5px;
 	padding-top: 0px;
 	padding-bottom: 0px;

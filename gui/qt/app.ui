@@ -215,9 +215,9 @@
               </widget>
              </item>
              <item row="0" column="0" colspan="5">
-              <widget class="QStackedWidget" name="stack">
+              <widget class="QStackedWidget" name="widgetStack">
                <property name="currentIndex">
-                <number>0</number>
+                <number>2</number>
                </property>
                <widget class="QWidget" name="intro_page">
                 <layout class="QGridLayout" name="gridLayout_7">
@@ -291,7 +291,7 @@
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="welcome_page">
+               <widget class="QWidget" name="stepLanguage">
                 <layout class="QGridLayout" name="gridLayout_3">
                  <item row="0" column="0" colspan="3">
                   <widget class="QLabel" name="welcome_heading_label">
@@ -424,7 +424,7 @@ This language will be the default language for the final system.</string>
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="timezone_page">
+               <widget class="QWidget" name="stepLocation">
                 <layout class="QVBoxLayout" name="verticalLayout_4">
                  <item>
                   <widget class="QLabel" name="timezone_heading_label">
@@ -473,6 +473,7 @@ This language will be the default language for the final system.</string>
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
                    </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_10"/>
                   </widget>
                  </item>
                  <item>
@@ -553,7 +554,7 @@ This language will be the default language for the final system.</string>
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="keyboard_page">
+               <widget class="QWidget" name="stepKeyboardConf">
                 <layout class="QVBoxLayout" name="verticalLayout">
                  <item>
                   <widget class="QLabel" name="keyboard_heading_label">
@@ -693,7 +694,7 @@ This language will be the default language for the final system.</string>
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="partition_page">
+               <widget class="QWidget" name="stepPartAuto">
                 <layout class="QVBoxLayout" name="verticalLayout_2">
                  <item>
                   <widget class="QLabel" name="part_auto_heading_label">
@@ -767,7 +768,7 @@ This language will be the default language for the final system.</string>
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="manual_part_page">
+               <widget class="QWidget" name="stepPartAdvanced">
                 <layout class="QVBoxLayout" name="verticalLayout_7">
                  <item>
                   <widget class="QLabel" name="part_advanced_heading_label">
@@ -888,7 +889,7 @@ This language will be the default language for the final system.</string>
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="userinfo_page">
+               <widget class="QWidget" name="stepUserInfo">
                 <layout class="QVBoxLayout" name="verticalLayout_3">
                  <item>
                   <widget class="QLabel" name="userinfo_heading_label">
@@ -1449,7 +1450,7 @@ This language will be the default language for the final system.</string>
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="summary_page">
+               <widget class="QWidget" name="stepReady">
                 <layout class="QVBoxLayout" name="verticalLayout_8">
                  <item>
                   <widget class="QLabel" name="ready_heading_label">

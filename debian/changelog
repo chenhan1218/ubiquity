@@ -5,8 +5,9 @@ ubiquity (1.99.1) UNRELEASED; urgency=low
 
   [ Roman Shtylman ]
   * new files for themeing kde gui 
+  * started work on moving over to the new theme/app.ui file
 
- -- Roman Shtylman <shtylman@gmail.com>  Thu, 16 Jul 2009 20:43:39 -0400
+ -- Roman Shtylman <shtylman@gmail.com>  Thu, 16 Jul 2009 22:51:42 -0400
 
 ubiquity (1.99.0) karmic; urgency=low
 
