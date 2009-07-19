@@ -209,12 +209,8 @@ class Wizard(BaseFrontend):
         self.autopartition_buttongroup_texts = {}
         self.autopartition_handlers = {}
         self.autopartition_extras = {}
-        self.autopartition_extra_buttongroup = {}
-        self.autopartition_extra_buttongroup_texts = {}
-
-        self.autopartition_bar_vbox = QVBoxLayout(self.ui.autopart_bar_frame)
-        self.autopartition_bar_vbox.setSpacing(0)
-        self.autopartition_bar_vbox.setMargin(0)
+        self.autopartition_extra_choices = {}
+        self.autopartition_extra_choices_texts = {}
         
         iconLoader = KIconLoader()
         warningIcon = iconLoader.loadIcon("dialog-warning", KIconLoader.Desktop)
@@ -301,16 +297,20 @@ class Wizard(BaseFrontend):
         got_intro = self.show_intro()
         self.allow_change_step(True)
 
+        # TODO finish
+
         # Declare SignalHandler
         self.ui.next.clicked.connect(self.on_next_clicked)
         self.ui.back.clicked.connect(self.on_back_clicked)
         self.ui.quit.clicked.connect(self.on_quit_clicked)
         
         self.ui.language_combobox.currentIndexChanged[str].connect(self.on_language_combobox_selection_changed)
-        
-        #self.app.connect(self.ui.keyboardlayoutview, SIGNAL("itemSelectionChanged()"), self.on_keyboard_layout_selected)
-        #self.app.connect(self.ui.keyboardvariantview, SIGNAL("itemSelectionChanged()"), self.on_keyboard_variant_selected)
 
+        #use activated instead of changed because we only want to act when the user changes the selection
+        #not when we are populating the combo box
+        self.ui.keyboard_layout_combobox.activated.connect(self.on_keyboard_layout_selected)
+        self.ui.keyboard_variant_combobox.activated.connect(self.on_keyboard_variant_selected)
+        
         #self.app.connect(self.ui.fullname, SIGNAL("textChanged(const QString &)"), self.on_fullname_changed)
         #self.app.connect(self.ui.username, SIGNAL("textChanged(const QString &)"), self.on_username_changed)
         #self.app.connect(self.ui.username, SIGNAL("textChanged(const QString &)"), self.on_username_insert_text)
@@ -348,7 +348,7 @@ class Wizard(BaseFrontend):
         else:
             first_step = self.pagenames[0]
             self.ui.steps_widget.setVisible(True)
-                
+        
         self.set_current_page(self.step_index(first_step))
         
         if got_intro:
@@ -654,24 +654,78 @@ class Wizard(BaseFrontend):
     def set_page(self, n):
         self.run_automation_error_cmd()
         self.ui.show()
+        
+        activeSS = "color: %s; " % "#666666"
+        inactiveSS = "color: %s; " % "#b3b3b3"
+        currentSS = "color: %s; " % "#0088aa"
+        
+        #self.ui.dummy_active_step.styleSheet()
+        #inactiveSS = self.ui.dummy_inactive_step.styleSheet()
+        #currentSS = self.ui.dummy_current_step.styleSheet()
+        
+        #set all the steps active
+        #each step will set its previous ones as inactive
+        #this handles the abiliy to go back
+        
+        self.ui.languageStep.setStyleSheet(activeSS)
+        self.ui.timezoneStep.setStyleSheet(activeSS)
+        self.ui.keyboardStep.setStyleSheet(activeSS)
+        self.ui.partitionStep.setStyleSheet(activeSS)
+        self.ui.userInfoStep.setStyleSheet(activeSS)
+        self.ui.summaryStep.setStyleSheet(activeSS)
+        self.ui.installStep.setStyleSheet(activeSS)
+        
         if n == 'Language':
             self.ui.steps_widget.setVisible(True)
             self.set_current_page(self.step_index("stepLanguage"))
-        elif n == 'ConsoleSetup':
-            self.set_current_page(self.step_index("stepKeyboardConf"))
+            
+            self.ui.languageStep.setStyleSheet(currentSS)
+            
         elif n == 'Timezone':
             self.set_current_page(self.step_index("stepLocation"))
+            
+            self.ui.languageStep.setStyleSheet(inactiveSS)
+            self.ui.timezoneStep.setStyleSheet(currentSS)
+            
+        elif n == 'ConsoleSetup':
+            self.set_current_page(self.step_index("stepKeyboardConf"))
+            
+            self.ui.languageStep.setStyleSheet(inactiveSS)
+            self.ui.timezoneStep.setStyleSheet(inactiveSS)
+            self.ui.keyboardStep.setStyleSheet(currentSS)
+
         elif n == 'Partman':
             # Rather than try to guess which partman page we should be on,
             # we leave that decision to set_autopartitioning_choices and
             # update_partman.
+            
+            self.ui.languageStep.setStyleSheet(inactiveSS)
+            self.ui.timezoneStep.setStyleSheet(inactiveSS)
+            self.ui.keyboardStep.setStyleSheet(inactiveSS)
+            self.ui.partitionStep.setStyleSheet(currentSS)
+            
             return
         elif n == 'UserSetup':
             self.set_current_page(self.step_index("stepUserInfo"))
+            
+            self.ui.languageStep.setStyleSheet(inactiveSS)
+            self.ui.timezoneStep.setStyleSheet(inactiveSS)
+            self.ui.keyboardStep.setStyleSheet(inactiveSS)
+            self.ui.partitionStep.setStyleSheet(inactiveSS)
+            self.ui.userInfoStep.setStyleSheet(currentSS)
+            
         elif n == 'Summary':
             self.set_current_page(self.step_index("stepReady"))
             self.ui.next.setText(self.get_string('install_button').replace('_', '&', 1))
             self.ui.next.setIcon(self.applyIcon)
+            
+            self.ui.languageStep.setStyleSheet(inactiveSS)
+            self.ui.timezoneStep.setStyleSheet(inactiveSS)
+            self.ui.keyboardStep.setStyleSheet(inactiveSS)
+            self.ui.partitionStep.setStyleSheet(inactiveSS)
+            self.ui.userInfoStep.setStyleSheet(inactiveSS)
+            self.ui.summaryStep.setStyleSheet(currentSS)
+            
         else:
             print >>sys.stderr, 'No page found for %s' % n
             return
@@ -861,7 +915,7 @@ class Wizard(BaseFrontend):
         # user tries to go forward but fails due to validation.
         if step == "stepPartAuto":
             self.ui.part_advanced_warning_message.clear()
-            self.ui.part_advanced_warning_hbox.hide()
+            self.ui.part_advanced_warning_hbox.setVisible(False)
         if step in ("stepPartAuto", "stepPartAdvanced"):
             self.ui.fullname_error_image.hide()
             self.ui.fullname_error_reason.hide()
@@ -885,6 +939,7 @@ class Wizard(BaseFrontend):
             if layout is not None:
                 self.current_layout = layout
                 self.dbfilter.change_layout(layout)
+                pass
 
     def on_keyboard_variant_selected(self):
         if isinstance(self.dbfilter, console_setup.ConsoleSetup):
@@ -1169,54 +1224,41 @@ class Wizard(BaseFrontend):
         return self.tzmap.get_timezone()
 
     def set_keyboard_choices(self, choices):
-        self.ui.keyboardlayoutview.clear()
+        self.ui.keyboard_layout_combobox.clear();
         for choice in sorted(choices):
-            QListWidgetItem(QString(unicode(choice)), self.ui.keyboardlayoutview)
+            self.ui.keyboard_layout_combobox.addItem(QString(unicode(choice)))
 
         if self.current_layout is not None:
             self.set_keyboard(self.current_layout)
 
     def set_keyboard (self, layout):
-        BaseFrontend.set_keyboard(self, layout)
-        counter = 0
-        max = self.ui.keyboardlayoutview.count()
-        while counter < max:
-            selection = self.ui.keyboardlayoutview.item(counter)
-            if unicode(selection.text()) == layout:
-                selection.setSelected(True)
-                self.ui.keyboardlayoutview.scrollToItem(selection)
-                break
-            counter += 1
+        index = self.ui.keyboard_layout_combobox.findText(QString(unicode(layout)))
+        
+        if index > -1:
+            self.ui.keyboard_layout_combobox.setCurrentIndex(index)
 
     def get_keyboard (self):
-        items = self.ui.keyboardlayoutview.selectedItems()
-        if len(items) == 1:
-            return unicode(items[0].text())
-        else:
+        if self.ui.keyboard_layout_combobox.currentIndex() < 0:
             return None
+            
+        return unicode(self.ui.keyboard_layout_combobox.currentText())
 
     def set_keyboard_variant_choices(self, choices):
-        self.ui.keyboardvariantview.clear()
+        self.ui.keyboard_variant_combobox.clear();
         for choice in sorted(choices):
-            QListWidgetItem(QString(unicode(choice)), self.ui.keyboardvariantview)
+            self.ui.keyboard_variant_combobox.addItem(QString(unicode(choice)))
 
     def set_keyboard_variant(self, variant):
-        counter = 0
-        max = self.ui.keyboardvariantview.count()
-        while counter < max:
-            selection = self.ui.keyboardvariantview.item(counter)
-            if unicode(selection.text()) == variant:
-                selection.setSelected(True)
-                self.ui.keyboardvariantview.scrollToItem(selection)
-                break
-            counter += 1
+        index = self.ui.keyboard_variant_combobox.findText(QString(unicode(variant)))
+        
+        if index > -1:
+            self.ui.keyboard_variant_combobox.setCurrentIndex(index)
 
     def get_keyboard_variant(self):
-        items = self.ui.keyboardvariantview.selectedItems()
-        if len(items) == 1:
-            return unicode(items[0].text())
-        else:
+        if self.ui.keyboard_variant_combobox.currentIndex() < 0:
             return None
+            
+        return unicode(self.ui.keyboard_variant_combobox.currentText())
 
     # provides the basic disk layout
     def set_disk_layout(self, layout):
@@ -1229,13 +1271,13 @@ class Wizard(BaseFrontend):
                                                resize_choice, manual_choice,
                                                biggest_free_choice)
 
-        children = self.ui.autopartition_frame.children()
-        for child in children:
+        # remove any previous autopartition selections
+        for child in self.ui.autopart_selection_frame.children():
             if isinstance(child, QVBoxLayout) or isinstance(child, QButtonGroup):
                 pass
             else:
-                self.autopartition_vbox.removeWidget(child)
-                child.hide()
+                self.autopart_selection_frame.removeWidget(child)
+                #child.hide()
 
         regain_privileges()
         pserv = parted_server.PartedServer()
@@ -1249,25 +1291,30 @@ class Wizard(BaseFrontend):
                 
         # p_num, p_id, p_size, p_type, p_fs, p_path, p_name
         drop_privileges()
-
-        # main frame for bars
-        bFrame = self.ui.autopart_bar_frame
-
-        # slot creator for extra options
-        def _on_extra_toggle(choice, wid1, wid2):
-            def slot(enable):
-                if wid1:
-                    wid1.setVisible(enable)
-                if wid2:
-                    wid2.setVisible(enable)
+        
+        def _on_extra_toggle(extra_bar_frames):
+            def slot(index):
+                for bf in extra_bar_frames:
+                    bf.setVisible(False)
+                    
+                extra_bar_frames[index].setVisible(True)
+                pass
             return slot
         
-        # slot creator for main choice toggling
-        def _on_choice_toggle(choice, extra_frame, bar_frame):
+        # toggle for a choice
+        def _on_choice_toggle(extra_frame, bar_frame):
             def slot(enable):
-                bar_frame.setVisible(enable)
+                self.ui.autopart_bar_frame.setVisible(False)
+                
+                if bar_frame:
+                    bar_frame.setVisible(enable)
+                    
+                    #show the main bar frame if we need to
+                    self.ui.autopart_bar_frame.setVisible(enable)
+                        
                 if extra_frame:
                     extra_frame.setEnabled(enable)
+                    
             return slot
             
         # slot for when partition is resized on the bar
@@ -1276,10 +1323,27 @@ class Wizard(BaseFrontend):
             self.resizePath = path
             self.resizeSize = size
             
+        def addBars(parent, before_bar, after_bar):
+            frame = QWidget(parent)
+            frame.setLayout(QVBoxLayout())
+            frame.layout().setSpacing(0)
+            
+            frame.layout().addWidget(QLabel(self.get_string('ubiquity/text/partition_layout_before')))
+            frame.layout().addWidget(before_bar)
+            frame.layout().addWidget(QLabel(self.get_string('ubiquity/text/partition_layout_after')))
+            frame.layout().addWidget(after_bar)
+            
+            parent.layout().addWidget(frame)
+            return frame
+        
+            
+        #track the first button to set it as the active one
         firstbutton = None
+        
         idCounter = 0
         for choice in choices:
-            button = QRadioButton(choice, self.ui.autopartition_frame)
+            button = QRadioButton(choice, self.ui.autopart_selection_frame)
+            self.ui.autopart_selection_frame.layout().addWidget(button)
             self.autopartition_buttongroup.addButton(button, idCounter)
             id = self.autopartition_buttongroup.id(button)
 
@@ -1288,40 +1352,30 @@ class Wizard(BaseFrontend):
             self.autopartition_buttongroup_texts[id] = choice
             if firstbutton is None:
                 firstbutton = button
-            self.autopartition_vbox.addWidget(button)
-
-            before_frame = None
-            after_frame = None
 
             # make a new frames for bars to make hiding/showing multiple easier
             # this allows us to hide an entire main bullet with multiple sub bullets
-            bar_frame = QFrame(bFrame)
-            bFrame.layout().addWidget(bar_frame)
-            layout = QVBoxLayout(bar_frame)
-            bar_frame.setVisible(False)
+            self.ui.autopart_bar_frame.setVisible(False)
             
-            # extra options frame
+            ## these three things are toggled by each option
+            # extra options frame for the option
             frame = None
-
+            bar_frame = QFrame(self.ui.autopart_bar_frame)
+            bar_frame.setLayout(QVBoxLayout())
+            bar_frame.layout().setSpacing(0)
+            self.ui.autopart_bar_frame.layout().addWidget(bar_frame)
+            
             # if we have more information about the choice
+            # i.e. various hard drives to install onto
             if choice in extra_options:
                 # label for the before device
                 dev = None
                 
-                frame = QFrame(self.ui.autopartition_frame)
-                frame.setEnabled(False)
-                
-                #indentation for the extra widgets
-                indent_hbox = QHBoxLayout()
-                self.autopartition_vbox.addLayout(indent_hbox)
-                indent_hbox.addSpacing(10)
-                indent_hbox.addWidget(frame)
-                
-                before_label = self.get_string('ubiquity/text/partition_layout_before')
-                after_label = self.get_string('ubiquity/text/partition_layout_after')
                 if choice == biggest_free_choice:
                     biggest_free_id = extra_options[choice]
                     dev = None
+                    
+                    #get the device so we can get more info from it
                     for disk in disks:
                         for p in disks[disk]:
                             if p[1] == biggest_free_id:
@@ -1329,20 +1383,11 @@ class Wizard(BaseFrontend):
                                 break
                         if dev:
                             break
+                            
                     if dev:
-                        before_frame = QGroupBox(before_label, bar_frame)
-                        before_frame.setLayout(QVBoxLayout())
-                        layout.addWidget(before_frame)
-                        
-                        before_bar = PartitionsBar(before_frame)
-                        before_frame.layout().addWidget(before_bar)
-                        
-                        after_frame = QGroupBox(after_label, bar_frame)
-                        after_frame.setLayout(QVBoxLayout())
-                        layout.addWidget(after_frame)
-                        
-                        after_bar = PartitionsBar(after_frame)
-                        after_frame.layout().addWidget(after_bar)
+                        #create partition bars for graphical before/after display
+                        before_bar = PartitionsBar()
+                        after_bar = PartitionsBar()
                         
                         for p in disks[dev]:
                             before_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
@@ -1350,9 +1395,10 @@ class Wizard(BaseFrontend):
                                 after_bar.addPartition('', int(p[2]), int(p[0]), 'auto', get_release_name())
                             else:
                                 after_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
-                           
-                        before_frame.setVisible(True)
-                        after_frame.setVisible(True)
+                                
+                        addBars(bar_frame, before_bar, after_bar)
+                
+                # install side by side/resize
                 elif choice == resize_choice:
                     # information about what can be resized
                     extra = extra_options[choice]
@@ -1366,24 +1412,10 @@ class Wizard(BaseFrontend):
 
                     min_size, max_size, orig_size, resize_path = extra_options[choice]
                     
-                    #TODO use find_in_os_prober to give nice name
+                    # TODO use find_in_os_prober to give nice name
                     if dev:
-                        # TODO evand 2009-04-16: i18n.
-                        before_label = "Before Resize:"
-                        after_label = "After Resize:"
-                        before_frame = QGroupBox(before_label, bar_frame)
-                        before_frame.setLayout(QVBoxLayout())
-                        layout.addWidget(before_frame)
-                        
-                        before_bar = PartitionsBar(before_frame)
-                        before_frame.layout().addWidget(before_bar)
-                        
-                        after_frame = QGroupBox(after_label, bar_frame)
-                        after_frame.setLayout(QVBoxLayout())
-                        layout.addWidget(after_frame)
-                        
-                        after_bar = PartitionsBar(after_frame)
-                        after_frame.layout().addWidget(after_bar)
+                        before_bar = PartitionsBar()
+                        after_bar = PartitionsBar()
                         
                         for p in disks[dev]:
                             before_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
@@ -1391,60 +1423,57 @@ class Wizard(BaseFrontend):
                         
                         after_bar.setResizePartition(resize_path, 
                             min_size, max_size, orig_size, get_release_name())
-                           
-                        before_frame.setVisible(True)
-                        after_frame.setVisible(True)
                         
                         self.resizePath = after_bar.resize_part.path
                         self.resizeSize = after_bar.resize_part.size
                         
-                        QApplication.instance().connect(after_bar, 
-                            SIGNAL("partitionResized(PyQt_PyObject, PyQt_PyObject)"), 
-                            partitionResized)
+                        after_bar.partitionResized.connect(partitionResized)
+                        
+                        addBars(bar_frame, before_bar, after_bar)
                     
+                #full disk install
                 elif choice != manual_choice:
-                    #list of possible full disk choices
-                    vbox = QVBoxLayout(frame)
-                    buttongroup = QButtonGroup(frame)
-                    buttongroup_texts = {}
-                    extra_firstbutton = None
+                    extra_choice_texts = {}
                     extraIdCounter = 0
+                    
+                    frame = QFrame(self.ui.autopart_selection_frame)
+                    frame.setEnabled(False)
+                    self.ui.autopart_selection_frame.layout().addWidget(frame)
+                    
+                    frame_layout = QHBoxLayout(frame)
+                    self.extra_combo = QComboBox(frame)
+                    
+                    frame_layout.addSpacing(15)
+                    frame_layout.addWidget(self.extra_combo)
+                    frame_layout.addStretch(1)
+                    
+                    extra_bar_frames = []
+                    extra_bar_frame = None
                     
                     for extra in extra_options[choice]:
                         #each extra choice needs to toggle a change in the before bar
                         #extra is just a string with a general description
                         #each extra choice needs to be a before/after bar option
                         if extra == '':
-                            disk_vbox.addSpacing(10)
                             continue
                         
-                        extra_button = QRadioButton(extra, frame)
-                        vbox.addWidget(extra_button)
+                        # add the extra disk to the combo box
+                        self.extra_combo.addItem(extra)
                         
+                        #find the device to make a partition bar out of it
                         dev = None
                         for d in self.disk_layout:
                             disk = d
                             if disk.startswith('=dev='):
                                 disk = disk[5:]
-                            if "(%s)" % disk in extra_button.text():
+                            if "(%s)" % disk in extra:
                                 dev = d
                                 break
                                 
                         #add the bars if we found the device
                         if dev:
-                            before_frame = QGroupBox(before_label, bar_frame)
-                            before_frame.setLayout(QVBoxLayout())
-                            layout.addWidget(before_frame)
-                            
-                            before_bar = PartitionsBar(before_frame)
-                            before_frame.layout().addWidget(before_bar)
-                            
-                            after_frame = QGroupBox(after_label, bar_frame)
-                            after_frame.setLayout(QVBoxLayout())
-                            layout.addWidget(after_frame)
-                            
-                            after_bar = PartitionsBar(after_frame)
-                            after_frame.layout().addWidget(after_bar)
+                            before_bar = PartitionsBar()
+                            after_bar = PartitionsBar()
                         
                             for p in disks[dev]:
                                 before_bar.addPartition(p[6], int(p[2]), p[0], p[4], p[5])
@@ -1454,32 +1483,29 @@ class Wizard(BaseFrontend):
                                 after_bar.addPartition('', before_bar.diskSize, '', 'auto', release_name)
                             else:
                                 after_bar.addPartition('', 1, '', 'auto', release_name)
-                                
-                            before_frame.setVisible(False)
-                            after_frame.setVisible(False)
+                            
+                            extra_bar_frame = addBars(bar_frame, before_bar, after_bar)
+                            extra_bar_frame.setVisible(False)
+                            
+                        extra_bar_frames.append(extra_bar_frame)
                         
-                        buttongroup.addButton(extra_button, extraIdCounter)
-                        extra_id = buttongroup.id(extra_button)
                         # Qt changes the string by adding accelerators,
                         # so keep the pristine string here to be
                         # returned to partman later.
-                        buttongroup_texts[extra_id] = extra
-                        if extra_firstbutton is None:
-                            extra_firstbutton = extra_button
+                        extra_choice_texts[extraIdCounter] = extra
+                        #if extra_firstbutton is None:
+                        #    extra_firstbutton = extra_button
                         extraIdCounter += 1
                         
-                        self.app.connect(extra_button, SIGNAL('toggled(bool)'),
-                            _on_extra_toggle(choice, before_frame, after_frame))
-                             
-                    if extra_firstbutton is not None:
-                        extra_firstbutton.setChecked(True)
-                    self.autopartition_extra_buttongroup[choice] = \
-                        buttongroup
-                    self.autopartition_extra_buttongroup_texts[choice] = \
-                        buttongroup_texts
-            
-            self.app.connect(button, SIGNAL('toggled(bool)'), 
-                _on_choice_toggle(choice, frame, bar_frame))
+                    self.extra_combo.currentIndexChanged[int].connect(_on_extra_toggle(extra_bar_frames))
+                    self.autopartition_extra_choices[choice] = extra_choice_texts
+                    
+                    #show the first item of the combo box
+                    if len(extra_bar_frames) > 0 and extra_bar_frames[0]:
+                        extra_bar_frames[0].setVisible(True)
+                    
+            bar_frame.setVisible(False)
+            button.toggled[bool].connect(_on_choice_toggle(frame, bar_frame))
 
             button.show()
             idCounter += 1
@@ -1498,11 +1524,12 @@ class Wizard(BaseFrontend):
             # resize choice should have been hidden otherwise
             assert self.resizeSize is not None
             return choice, '%d B' % self.resizeSize
-        elif (choice != self.manual_choice and
-              choice in self.autopartition_extra_buttongroup):
-            disk_id = self.autopartition_extra_buttongroup[choice].checkedId()
-            disk_texts = self.autopartition_extra_buttongroup_texts[choice]
-            return choice, unicode(disk_texts[disk_id])
+        elif (choice != self.manual_choice and 
+            self.autopartition_extra_choices.has_key(choice)):
+                
+            extra_id = self.extra_combo.currentIndex()
+            disk_texts = self.autopartition_extra_choices[choice]
+            return choice, unicode(disk_texts[extra_id])
         else:
             return choice, None
 

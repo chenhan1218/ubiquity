@@ -9,7 +9,8 @@
 	border-width: 13px;
 	border-image: url(/usr/share/ubiquity/qt/images/main_frame_border.png) 13px;
 	
-	padding: 10px;
+    padding: 0px;
+    padding-bottom: 0px;
 }
 
 #main_widget {
@@ -56,8 +57,19 @@
 	margin-right: 0px;
 }
 
-#steps_widget #step_dummy {
+/*
+#steps_widget #dummy_active_step {
+    color: #666666;
 }
+
+#steps_widget #dummy_inactive_step {
+    color: #b3b3b3;
+}
+
+#steps_widget #dummy_current_step {
+    color: #0088aa;
+}
+*/
 
 #widgetStack QLabel, QRadioButton {
 	font-size: 10pt;

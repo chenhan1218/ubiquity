@@ -26,6 +26,7 @@
 
 import sys
 
+from PyQt4 import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
@@ -53,6 +54,9 @@ class Partition:
 
 class PartitionsBar(QWidget):
     InfoColor = '#333333'
+    
+    ## signals
+    partitionResized = QtCore.pyqtSignal(['PyQt_PyObject', 'PyQt_PyObject'])
     
     """ a widget to graphically show disk partitions. """
     def __init__(self, parent = None):
@@ -327,8 +331,7 @@ class PartitionsBar(QWidget):
             assert t == self.diskSize
             
             #using PyQt object to avoid wrapping the size otherwise qt truncates to 32bit int
-            self.emit(SIGNAL("partitionResized(PyQt_PyObject, PyQt_PyObject)"), 
-                self.resize_part.path, self.resize_part.size)
+            self.partitionResized.emit(self.resize_part.path, self.resize_part.size)
             
             #finally redraw
             self.update()
