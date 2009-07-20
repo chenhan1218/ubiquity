@@ -64,19 +64,6 @@ LOCALEDIR = "/usr/share/locale"
 #currently using for testing, will remove
 UIDIR = os.path.join(PATH, 'qt')
     
-##custom clickable label for minimizing the app
-#class MinimizeIcon(QLabel):
-    #def __init__(self, parent, ui):
-        #QLabel.__init__(self, parent)
-        
-        #self.ui = ui        
-        #self.setFixedSize(14,14)
-        #self.setObjectName("minimize_label")
-        #self.setCursor(Qt.PointingHandCursor)
-        
-    #def mouseReleaseEvent(self, qMouseEvent):
-        #self.ui.showMinimized()
-    
 class UbiquityUI(QMainWindow):
 
     def __init__(self, parent = None):
@@ -222,6 +209,7 @@ class Wizard(BaseFrontend):
         self.laptop = execute("laptop-detect")
         self.partition_tree_model = None
         
+        # TODO
         #self.app.connect(self.ui.partition_list_treeview, SIGNAL("customContextMenuRequested(const QPoint&)"), self.partman_popup)
         #self.app.connect(self.ui.partition_list_treeview, SIGNAL("activated(const QModelIndex&)"), self.on_partition_list_treeview_activated)
 
@@ -234,10 +222,11 @@ class Wizard(BaseFrontend):
 
         self.customize_installer()
 
-        #release_notes_layout = QHBoxLayout(self.ui.release_notes_frame)
-        #self.release_notes_url = linkLabel(self, self.ui.release_notes_frame)
-        #self.release_notes_url.setObjectName("release_notes_url")
-        #self.release_notes_url.show()
+        release_notes_layout = QHBoxLayout(self.ui.release_notes_frame)
+        self.release_notes_url = linkLabel(self, self.ui.release_notes_frame)
+        release_notes_layout.addWidget(self.release_notes_url)
+        self.release_notes_url.setObjectName("release_notes_url")
+        self.release_notes_url.show()
 
         self.translate_widgets()
         
