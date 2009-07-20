@@ -1,14 +1,29 @@
 ubiquity (1.99.1) UNRELEASED; urgency=low
 
-  [ Colin Watson ]
-  * Use dh_lintian.
-
   [ Roman Shtylman ]
   * new files for themeing kde gui 
   * started work on moving over to the new theme/app.ui file
   * new theme is in place and a simple install can be performed
 
- -- Roman Shtylman <shtylman@gmail.com>  Sun, 19 Jul 2009 13:22:31 -0400
+  [ Colin Watson ]
+  * Use dh_lintian.
+  * Restore autologin-disabling code from oem-config, corrected to work with
+    new gdm (LP: #395861).
+
+  [ Evan Dandrea ]
+  * Add support for ubiquity-slideshow.
+
+  [ Mario Limonciello ]
+  * Divert the ubiquity-gtkui.desktop file when oem-config is installed as
+    oem-config now depends on ubiquity.
+
+  [ Michael Terry ]
+  * GTK frontend: Remove horizontal separator at bottom, and let timezone
+    map fill its allocated space
+  * noninteractive frontend: Don't tell debconf the translated name of the
+    chosen language, but rather the language code.
+
+ -- Michael Terry <michael.terry@canonical.com>  Fri, 17 Jul 2009 09:14:29 -0400
 
 ubiquity (1.99.0) karmic; urgency=low
 
