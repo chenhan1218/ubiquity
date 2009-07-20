@@ -63,12 +63,48 @@ LOCALEDIR = "/usr/share/locale"
 
 #currently using for testing, will remove
 UIDIR = os.path.join(PATH, 'qt')
-
+    
+##custom clickable label for minimizing the app
+#class MinimizeIcon(QLabel):
+    #def __init__(self, parent, ui):
+        #QLabel.__init__(self, parent)
+        
+        #self.ui = ui        
+        #self.setFixedSize(14,14)
+        #self.setObjectName("minimize_label")
+        #self.setCursor(Qt.PointingHandCursor)
+        
+    #def mouseReleaseEvent(self, qMouseEvent):
+        #self.ui.showMinimized()
+    
 class UbiquityUI(QMainWindow):
 
     def __init__(self, parent = None):
         QMainWindow.__init__(self, parent)
         uic.loadUi(os.path.join(UIDIR, "app.ui"), self)
+        
+        distro_name = "Kubuntu"
+        distro_release = ""
+        
+        ## setup the release and codename
+        fp = open("/etc/lsb-release", 'r')
+        
+        for line in fp:
+            if "DISTRIB_ID=" in line:
+                name = str.strip(line.split("=")[1], '\n')
+                if name != "Ubuntu":
+                    distro_name = name
+            elif "DISTRIB_CODENAME=" in line:
+                distro_release = str.strip(line.split("=")[1], '\n')
+                
+        fp.close()
+        
+        self.distro_name_label.setText(distro_name)
+        self.distro_release_label.setText(distro_release)
+        
+        self.minimize_button.clicked.connect(self.showMinimized)
+        
+        self.setWindowTitle("%s %s" % (distro_name, distro_release))
 
     def setWizard(self, wizardRef):
         self.wizard = wizardRef
@@ -296,9 +332,7 @@ class Wizard(BaseFrontend):
         #self.show_browser()
         got_intro = self.show_intro()
         self.allow_change_step(True)
-
-        # TODO finish
-
+        
         # Declare SignalHandler
         self.ui.next.clicked.connect(self.on_next_clicked)
         self.ui.back.clicked.connect(self.on_back_clicked)
@@ -311,13 +345,12 @@ class Wizard(BaseFrontend):
         self.ui.keyboard_layout_combobox.activated.connect(self.on_keyboard_layout_selected)
         self.ui.keyboard_variant_combobox.activated.connect(self.on_keyboard_variant_selected)
         
-        #self.app.connect(self.ui.fullname, SIGNAL("textChanged(const QString &)"), self.on_fullname_changed)
-        #self.app.connect(self.ui.username, SIGNAL("textChanged(const QString &)"), self.on_username_changed)
-        #self.app.connect(self.ui.username, SIGNAL("textChanged(const QString &)"), self.on_username_insert_text)
-        #self.app.connect(self.ui.password, SIGNAL("textChanged(const QString &)"), self.on_password_changed)
-        #self.app.connect(self.ui.verified_password, SIGNAL("textChanged(const QString &)"), self.on_verified_password_changed)
-        #self.app.connect(self.ui.hostname, SIGNAL("textChanged(const QString &)"), self.on_hostname_changed)
-        #self.app.connect(self.ui.hostname, SIGNAL("textChanged(const QString &)"), self.on_hostname_insert_text)
+        self.ui.fullname.textChanged[str].connect(self.on_fullname_changed)
+        self.ui.username.textChanged[str].connect(self.on_username_changed)
+        self.ui.password.textChanged[str].connect(self.on_password_changed)
+        self.ui.verified_password.textChanged[str].connect(self.on_verified_password_changed)
+        
+        self.ui.hostname.textChanged[str].connect(self.on_hostname_changed)
 
         #self.app.connect(self.ui.fullname, SIGNAL("selectionChanged()"), self.on_fullname_changed)
         #self.app.connect(self.ui.username, SIGNAL("selectionChanged()"), self.on_username_changed)
@@ -325,13 +358,13 @@ class Wizard(BaseFrontend):
         #self.app.connect(self.ui.verified_password, SIGNAL("selectionChanged()"), self.on_verified_password_changed)
         #self.app.connect(self.ui.hostname, SIGNAL("selectionChanged()"), self.on_hostname_changed)
         
-        #self.app.connect(self.ui.advanced_button, SIGNAL("clicked()"), self.on_advanced_button_clicked)
+        self.ui.advanced_button.clicked.connect(self.on_advanced_button_clicked)
 
-        #self.app.connect(self.ui.partition_button_new_label, SIGNAL("clicked(bool)"), self.on_partition_list_new_label_activate)
-        #self.app.connect(self.ui.partition_button_new, SIGNAL("clicked(bool)"), self.on_partition_list_new_activate)
-        #self.app.connect(self.ui.partition_button_edit, SIGNAL("clicked(bool)"),self.on_partition_list_edit_activate)
-        #self.app.connect(self.ui.partition_button_delete, SIGNAL("clicked(bool)"),self.on_partition_list_delete_activate)
-        #self.app.connect(self.ui.partition_button_undo, SIGNAL("clicked(bool)"),self.on_partition_list_undo_activate)
+        self.ui.partition_button_new_label.clicked[bool].connect(self.on_partition_list_new_label_activate)
+        self.ui.partition_button_new.clicked[bool].connect(self.on_partition_list_new_activate)
+        self.ui.partition_button_edit.clicked[bool].connect(self.on_partition_list_edit_activate)
+        self.ui.partition_button_delete.clicked[bool].connect(self.on_partition_list_delete_activate)
+        self.ui.partition_button_undo.clicked[bool].connect(self.on_partition_list_undo_activate)
 
         self.pagesindex = 0
 
@@ -395,6 +428,7 @@ class Wizard(BaseFrontend):
             # preseeded.
             if self.pagesindex == pageslen:
                 # Ready to install
+                self.ui.hide()
                 self.current_page = None
                 self.installing = True
                 self.progress_loop()
@@ -460,7 +494,7 @@ class Wizard(BaseFrontend):
         
         # init the timezone map
         self.tzmap = TimezoneMap(self)
-        self.tzmap.setObjectName("tz_frame")
+        #self.tzmap.setObjectName("tz_frame")
         self.ui.map_frame.layout().addWidget(self.tzmap)
 
         self.ui.password_debug_warning_label.setVisible(
@@ -893,12 +927,6 @@ class Wizard(BaseFrontend):
                     complete = False
         self.allow_go_forward(complete)
 
-    def on_username_insert_text(self):
-        self.username_edited = (self.ui.username.text() != '')
-
-    def on_hostname_insert_text(self):
-        self.hostname_edited = (self.ui.hostname.text() != '')
-
     def on_next_clicked(self):
         """Callback to control the installation process between steps."""
 
@@ -1055,7 +1083,7 @@ class Wizard(BaseFrontend):
             return self.language_choice_map[value][1]
         else:
             return ''
-
+    
     def on_language_combobox_selection_changed (self, language):
         if language.isNull():
             return
@@ -1443,7 +1471,7 @@ class Wizard(BaseFrontend):
                     frame_layout = QHBoxLayout(frame)
                     self.extra_combo = QComboBox(frame)
                     
-                    frame_layout.addSpacing(15)
+                    frame_layout.addSpacing(20)
                     frame_layout.addWidget(self.extra_combo)
                     frame_layout.addStretch(1)
                     
@@ -2233,6 +2261,7 @@ class Wizard(BaseFrontend):
 
     def on_username_changed(self):
         self.info_loop(self.ui.username)
+        self.username_edited = (self.ui.username.text() != '')
 
     def on_password_changed(self):
         self.info_loop(self.ui.password)
@@ -2242,6 +2271,7 @@ class Wizard(BaseFrontend):
 
     def on_hostname_changed(self):
         self.info_loop(self.ui.hostname)
+        self.hostname_edited = (self.ui.hostname.text() != '')
 
     def update_new_size_label(self, value):
         if self.new_size_value is None:

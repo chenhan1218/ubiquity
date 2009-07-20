@@ -5,6 +5,14 @@
 	background-color: black;
 }
 
+#minimize_button {
+    background-image: url(/usr/share/ubiquity/qt/images/minimize.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    border: none;
+}
+
 #main_frame {
 	border-width: 13px;
 	border-image: url(/usr/share/ubiquity/qt/images/main_frame_border.png) 13px;
@@ -86,7 +94,7 @@
 #widgetStack #reading_heading_label
 {
 	color: #0088aa;
-	font-size: 12pt;
+	font-size: 10pt;
 	qproperty-alignment: AlignCenter;
 }
 
@@ -105,7 +113,7 @@
 #content_frame QLabel {	
 }
 
-#tz_frame,
+#map_frame,
 #keyboard_frame 
 {
 	border-radius: 5px;

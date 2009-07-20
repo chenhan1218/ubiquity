@@ -142,7 +142,7 @@
              <item row="0" column="0" colspan="5">
               <widget class="QStackedWidget" name="widgetStack">
                <property name="currentIndex">
-                <number>5</number>
+                <number>7</number>
                </property>
                <widget class="QWidget" name="intro_page">
                 <layout class="QGridLayout" name="gridLayout_7">
@@ -378,27 +378,31 @@ This language will be the default language for the final system.</string>
                  <item>
                   <widget class="QFrame" name="map_frame">
                    <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                      <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
+                     <verstretch>2</verstretch>
                     </sizepolicy>
                    </property>
                    <property name="minimumSize">
                     <size>
                      <width>0</width>
-                     <height>300</height>
+                     <height>280</height>
                     </size>
                    </property>
                    <property name="maximumSize">
                     <size>
                      <width>16777215</width>
-                     <height>300</height>
+                     <height>280</height>
                     </size>
                    </property>
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
                    </property>
-                   <layout class="QVBoxLayout" name="verticalLayout_10"/>
+                   <layout class="QVBoxLayout" name="verticalLayout_10">
+                    <property name="margin">
+                     <number>2</number>
+                    </property>
+                   </layout>
                   </widget>
                  </item>
                  <item>
@@ -1506,6 +1510,34 @@ This language will be the default language for the final system.</string>
                </property>
               </spacer>
              </item>
+             <item row="0" column="3">
+              <widget class="QPushButton" name="minimize_button">
+               <property name="minimumSize">
+                <size>
+                 <width>14</width>
+                 <height>14</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>14</width>
+                 <height>14</height>
+                </size>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="toolTip">
+                <string>minimize</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="flat">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
             </layout>
            </widget>
           </item>
@@ -1629,6 +1661,33 @@ This language will be the default language for the final system.</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>language_combobox</tabstop>
+  <tabstop>oem_id_entry</tabstop>
+  <tabstop>timezone_zone_combo</tabstop>
+  <tabstop>timezone_city_combo</tabstop>
+  <tabstop>keyboard_layout_combobox</tabstop>
+  <tabstop>keyboard_variant_combobox</tabstop>
+  <tabstop>partition_list_treeview</tabstop>
+  <tabstop>partition_button_new_label</tabstop>
+  <tabstop>partition_button_new</tabstop>
+  <tabstop>partition_button_edit</tabstop>
+  <tabstop>partition_button_delete</tabstop>
+  <tabstop>partition_button_undo</tabstop>
+  <tabstop>fullname</tabstop>
+  <tabstop>username</tabstop>
+  <tabstop>password</tabstop>
+  <tabstop>verified_password</tabstop>
+  <tabstop>hostname</tabstop>
+  <tabstop>login_auto</tabstop>
+  <tabstop>login_pass</tabstop>
+  <tabstop>ready_text</tabstop>
+  <tabstop>advanced_button</tabstop>
+  <tabstop>back</tabstop>
+  <tabstop>next</tabstop>
+  <tabstop>quit</tabstop>
+  <tabstop>minimize_button</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

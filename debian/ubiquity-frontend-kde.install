@@ -5,3 +5,4 @@ ubiquity/frontend/kde_components/* usr/lib/ubiquity/ubiquity/frontend/kde_compon
 gui/qt/*.ui usr/share/ubiquity/qt
 gui/qt/style.qss usr/share/ubiquity/qt
 gui/qt/images/*.png usr/share/ubiquity/qt/images
+gui/qt/images/*.jpg usr/share/ubiquity/qt/images
