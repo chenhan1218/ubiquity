@@ -15,10 +15,11 @@ ubiquity (1.99.1) UNRELEASED; urgency=low
   [ Michael Terry ]
   * GTK frontend: Remove horizontal separator at bottom, and let timezone
     map fill its allocated space
+  * GTK frontend: Have all buttons set use_underline to True. LP: #399005
   * noninteractive frontend: Don't tell debconf the translated name of the
     chosen language, but rather the language code.
 
- -- Michael Terry <michael.terry@canonical.com>  Fri, 17 Jul 2009 09:14:29 -0400
+ -- Michael Terry <michael.terry@canonical.com>  Mon, 20 Jul 2009 09:30:37 -0400
 
 ubiquity (1.99.0) karmic; urgency=low
 
