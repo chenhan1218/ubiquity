@@ -12,6 +12,8 @@ ubiquity (1.99.1) UNRELEASED; urgency=low
     check the seen flag to see if the value returned by GET was inputted
     by the user (LP: #401919).
   * Do not try to run Migration Assistant for the KDE frontend.
+  * Automatic update of included source packages: partman-base
+    132ubuntu1, partman-target 62ubuntu1.
 
   [ Mario Limonciello ]
   * Divert the ubiquity-gtkui.desktop file when oem-config is installed as
