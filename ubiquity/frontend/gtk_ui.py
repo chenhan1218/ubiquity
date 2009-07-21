@@ -849,7 +849,6 @@ class Wizard(BaseFrontend):
         if not self.live_installer.get_focus():
             self.live_installer.child_focus(gtk.DIR_TAB_FORWARD)
         focus = self.live_installer.get_focus()
-        print self.live_installer.get_focus()
         if focus and focus.__class__ == gtk.Label:
             focus.select_region(-1, -1)
             self.next.grab_focus()
