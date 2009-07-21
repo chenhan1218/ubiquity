@@ -222,6 +222,9 @@ def install(frontend=None, query=False):
             # Noninteractive implies automatic mode.
             if f == 'noninteractive':
                 os.environ['UBIQUITY_AUTOMATIC'] = '1'
+            # Migration Assistant does not support KDE.
+            if f == 'kde_ui':
+                del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
             break
     else:
         raise AttributeError, ('No frontend available; tried %s' %

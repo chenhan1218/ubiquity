@@ -11,6 +11,7 @@ ubiquity (1.99.1) UNRELEASED; urgency=low
     question.  As an undesirable default is set for netcfg/get_hostname,
     check the seen flag to see if the value returned by GET was inputted
     by the user (LP: #401919).
+  * Do not try to run Migration Assistant for the KDE frontend.
 
   [ Mario Limonciello ]
   * Divert the ubiquity-gtkui.desktop file when oem-config is installed as
