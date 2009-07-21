@@ -1,4 +1,4 @@
-ubiquity (1.99.1) UNRELEASED; urgency=low
+ubiquity (1.99.1) karmic; urgency=low
 
   [ Colin Watson ]
   * Use dh_lintian.
@@ -26,7 +26,7 @@ ubiquity (1.99.1) UNRELEASED; urgency=low
   * noninteractive frontend: Don't tell debconf the translated name of the
     chosen language, but rather the language code.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 21 Jul 2009 11:05:47 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 21 Jul 2009 17:43:37 +0100
 
 ubiquity (1.99.0) karmic; urgency=low
 
