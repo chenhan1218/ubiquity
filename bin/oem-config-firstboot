@@ -36,7 +36,7 @@ fi
 # TODO: will this work for X-based frontends when X isn't up yet?
 FRONTEND="$(/usr/sbin/oem-config -q)"
 
-if [ ! -e '/var/log/installer']; then
+if [ ! -e '/var/log/installer' ]; then
 	mkdir -p /var/log/installer
 fi
 

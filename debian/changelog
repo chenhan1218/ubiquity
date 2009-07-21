@@ -1,3 +1,10 @@
+ubiquity (1.99.2) UNRELEASED; urgency=low
+
+  [ Mario Limonciello ]
+  * Correct a minor spacing typo in oem-config-firstboot.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 21 Jul 2009 13:30:19 -0500
+
 ubiquity (1.99.1) karmic; urgency=low
 
   [ Colin Watson ]
