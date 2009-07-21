@@ -57,7 +57,7 @@ class Wizard(BaseFrontend):
         self.encrypt_home = False
         self.mainloop = gobject.MainLoop()
 
-        dbfilter = language.Language(self, self.debconf_communicator())
+        dbfilter = language.Page(self, self.debconf_communicator())
         dbfilter.cleanup()
         dbfilter.db.shutdown()
 

@@ -27,7 +27,21 @@ from ubiquity import i18n
 from ubiquity import im_switch
 import ubiquity.tz
 
-class Timezone(FilteredCommand):
+NAME = 'timezone'
+
+class PageGtk:
+    def get_ui(self):
+        return 'stepLocation'
+
+class PageKde:
+    def get_ui(self):
+        return 'stepLocation'
+
+class PageDebconf:
+    def get_ui(self):
+        return 'stepLocation'
+
+class Page(FilteredCommand):
     def prepare(self, unfiltered=False):
         if unfiltered:
             # In unfiltered mode, localechooser is responsible for selecting

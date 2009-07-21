@@ -22,8 +22,12 @@ from ubiquity.filteredcommand import FilteredCommand
 class TasksUnfilteredOnly(Exception):
     pass
 
+class PageDebconf:
+    def get_ui(self):
+        return 'stepTasks'
+
 # Only supports unfiltered mode.
-class Tasks(FilteredCommand):
+class Page(FilteredCommand):
     def prepare(self, unfiltered=False):
         if not unfiltered:
             raise TasksFilteredOnly, \

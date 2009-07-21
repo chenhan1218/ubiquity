@@ -26,7 +26,21 @@ from ubiquity import i18n
 from ubiquity import im_switch
 from ubiquity import misc
 
-class Language(FilteredCommand):
+NAME = 'language'
+
+class PageGtk:
+    def get_ui(self):
+        return 'stepLanguage'
+
+class PageKde:
+    def get_ui(self):
+        return 'stepLanguage'
+
+class PageDebconf:
+    def get_ui(self):
+        return 'stepLanguage'
+
+class Page(FilteredCommand):
     def prepare(self, unfiltered=False):
         self.language_question = None
         self.initial_language = None

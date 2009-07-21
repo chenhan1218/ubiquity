@@ -22,8 +22,12 @@ from ubiquity.filteredcommand import FilteredCommand
 class NetworkUnfilteredOnly(Exception):
     pass
 
+class PageDebconf:
+    def get_ui(self):
+        return 'stepNetwork'
+
 # Only supports unfiltered mode.
-class Network(FilteredCommand):
+class Page(FilteredCommand):
     def prepare(self, unfiltered=False):
         if not unfiltered:
             raise NetworkFilteredOnly, \

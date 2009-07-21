@@ -390,8 +390,8 @@ class FilteredCommand(object):
         self.current_question = question
         if not self.done:
             self.succeeded = False
-            n = self.__class__.__name__
-            self.frontend.set_page(n)
+            mod = __import__(self.__module__, fromlist=['NAME'])
+            self.frontend.set_page(mod.NAME)
             self.enter_ui_loop()
         return self.succeeded
 

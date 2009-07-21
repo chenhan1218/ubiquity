@@ -83,6 +83,7 @@ class Wizard(BaseFrontend):
             steps.append_page(widget)
             add_widgets(self, gladexml)
             gladexml.signal_autoconnect(self)
+            return widget
 
         def add_widgets(self, glade):
             """Makes all widgets callable by the toplevel."""
@@ -116,7 +117,6 @@ class Wizard(BaseFrontend):
                                    'warning_dialog', 'warning_dialog_label',
                                    'cancelbutton', 'exitbutton')
         self.current_page = None
-        self.first_seen_page = None
         self.backup = None
         self.allowed_change_step = True
         self.allowed_go_backward = True
@@ -154,7 +154,7 @@ class Wizard(BaseFrontend):
         self.laptop = execute("laptop-detect")
 
         # set default language
-        dbfilter = language.Language(self, self.debconf_communicator())
+        dbfilter = language.Page(self, self.debconf_communicator())
         dbfilter.cleanup()
         dbfilter.db.shutdown()
 
@@ -173,10 +173,23 @@ class Wizard(BaseFrontend):
         self.glade = gtk.glade.XML('%s/ubiquity.glade' % GLADEDIR)
         add_widgets(self, self.glade)
 
+        self.pages = []
+        self.pagesindex = 0
+        self.pageslen = 0
         steps = self.glade.get_widget("steps")
-        add_subpage(self, steps, 'stepWelcome')
-        for page in self.pagenames:
-            add_subpage(self, steps, page)
+        for mod in self.modules:
+            if hasattr(mod.module, 'PageGtk'):
+                mod.ui_class = mod.module.PageGtk
+                mod.ui = mod.ui_class()
+                widget = mod.ui.get_ui()
+                if widget:
+                    if type(widget).__name__ == 'str':
+                        widget = add_subpage(self, steps, widget)
+                    else:
+                        steps.append_page(widget)
+                    mod.widget = widget
+                    self.pageslen += 1
+                    self.pages.append(mod)
 
         self.translate_widgets()
 
@@ -312,7 +325,6 @@ class Wizard(BaseFrontend):
         self.disable_volume_manager()
 
         # show interface
-        got_intro = self.show_intro()
         self.allow_change_step(True)
 
         # Declare SignalHandler
@@ -325,45 +337,26 @@ class Wizard(BaseFrontend):
         self.hostname_changed_id = self.hostname.connect(
             'changed', self.on_hostname_changed)
 
-        self.pagesindex = 0
-
         if 'UBIQUITY_AUTOMATIC' in os.environ:
-            got_intro = False
-            self.debconf_progress_start(0, pageslen,
+            self.debconf_progress_start(0, self.pageslen,
                 self.get_string('ubiquity/install/checking'))
             self.refresh()
 
-        # Start the interface
-        if got_intro:
-            self.pages.insert(0, None) # for page index bookkeeping
-            first_step = self.stepWelcome
-        else:
-            first_step = getattr(self, self.pagenames[0])
-        self.set_current_page(self.steps.page_num(first_step))
-        if got_intro:
-            # intro_label was the only focusable widget, but got can-focus
-            # removed, so we end up with no input focus and thus pressing
-            # Enter doesn't activate the default widget. Work around this.
-            self.next.grab_focus()
-        else:
-            # Similarly, the Quit button seems to end up with focus by
-            # default, but we'd rather a navigable widget had it.
-            if hasattr(self, 'language_treeview'):
-                self.language_treeview.grab_focus()
-            elif hasattr(self, 'language_iconview'):
-                self.language_iconview.grab_focus()
+        self.set_current_page(0)
 
-        if got_intro:
-            gtk.main()
-            self.pagesindex += 1
-
-        pageslen = len(self.pages)
-        while(self.pagesindex < pageslen):
+        while(self.pagesindex < self.pageslen):
             if self.current_page == None:
                 break
 
+            if not self.pages[self.pagesindex].filter_class:
+                # This page is just a UI page
+                self.set_page(self.pages[self.pagesindex].module.NAME)
+                self.run_main_loop()
+                self.pagesindex += 1
+                continue
+
             old_dbfilter = self.dbfilter
-            self.dbfilter = self.pages[self.pagesindex](self)
+            self.dbfilter = self.pages[self.pagesindex].filter_class(self)
 
             self.prepare_page()
 
@@ -397,7 +390,7 @@ class Wizard(BaseFrontend):
             # needed to be here for --automatic as there might not be any
             # current page in the event all of the questions have been
             # preseeded.
-            if self.pagesindex == pageslen:
+            if self.pagesindex == self.pageslen:
                 # Ready to install
                 self.live_installer.hide()
                 self.current_page = None
@@ -674,13 +667,8 @@ class Wizard(BaseFrontend):
 
         if isinstance(widget, gtk.Label):
             if name == 'step_label':
-                curstep = '?'
-                for page in self.pages:
-                    if self.dbfilter is page or (page and isinstance(self.dbfilter, page)):
-                        curstep = str(self.pages.index(page) + 1)
-                        break
-                text = text.replace('${INDEX}', curstep)
-                text = text.replace('${TOTAL}', str(len(self.pages)))
+                text = text.replace('${INDEX}', str(self.pagesindex+1))
+                text = text.replace('${TOTAL}', str(self.pageslen))
             elif name == 'welcome_text_label' and self.oem_user_config:
                 text = self.get_string('welcome_text_oem_user_label', lang)
             widget.set_text(text)
@@ -812,23 +800,6 @@ class Wizard(BaseFrontend):
             return False
 
 
-    def show_intro(self):
-        """Show some introductory text, if available."""
-
-        if self.oem_user_config:
-            return False
-
-        intro = os.path.join(PATH, 'intro.txt')
-
-        if os.path.isfile(intro):
-            intro_file = open(intro)
-            self.intro_label.set_markup(intro_file.read().rstrip('\n'))
-            intro_file.close()
-            return True
-        else:
-            return False
-
-
     def step_name(self, step_index):
         return self.steps.get_nth_page(step_index).get_name()
 
@@ -840,38 +811,50 @@ class Wizard(BaseFrontend):
         # migration-assistant.
         self.backup = False
         self.live_installer.show()
-        if n == 'Language':
+        for page in self.pages:
+            if page.module.NAME == n and page.widget:
+                cur = page.widget
+                break
+        if n == 'language':
             if hasattr(self, 'stepLanguage'):
                 cur = self.stepLanguage
             else:
                 cur = self.stepLanguageOnly
-        elif n == 'ConsoleSetup':
+        elif n == 'console_setup':
             cur = self.stepKeyboardConf
-        elif n == 'Timezone':
+        elif n == 'timezone':
             cur = self.stepLocation
-        elif n == 'Partman':
+        elif n == 'partman':
             # Rather than try to guess which partman page we should be on,
             # we leave that decision to set_autopartitioning_choices and
             # update_partman.
             return
-        elif n == 'UserSetup':
+        elif n == 'usersetup':
             cur = self.stepUserInfo
-        elif n == 'Summary':
+        elif n == 'summary':
             cur = self.stepReady
             self.next.set_label(self.get_string('install_button'))
-        elif n == 'MigrationAssistant':
+        elif n == 'migrationassistant':
             cur = self.stepMigrationAssistant
-        else:
-            print >>sys.stderr, 'No page found for %s' % n
-            return
 
         self.set_current_page(self.steps.page_num(cur))
-        if not self.first_seen_page:
-            self.first_seen_page = n
-        if self.first_seen_page == self.pages[self.pagesindex].__name__:
+        if self.pagesindex == 0:
             self.allow_go_backward(False)
         elif 'UBIQUITY_AUTOMATIC' not in os.environ:
             self.allow_go_backward(True)
+
+        # Make sure that something reasonable has the focus.  If the first
+        # focusable item is a label or a button (often, the welcome text label
+        # and the quit button), set the focus to the next button.
+        if not self.live_installer.get_focus():
+            self.live_installer.child_focus(gtk.DIR_TAB_FORWARD)
+        focus = self.live_installer.get_focus()
+        print self.live_installer.get_focus()
+        if focus and focus.__class__ == gtk.Label:
+            focus.select_region(-1, -1)
+            self.next.grab_focus()
+        if focus and focus.__class__ == gtk.Button:
+            self.next.grab_focus()
 
     def set_current_page(self, current):
         if self.steps.get_current_page() == current:
@@ -1098,14 +1081,11 @@ class Wizard(BaseFrontend):
         elif gtk.main_level() > 0:
             gtk.main_quit()
 
-        if not self.live_installer.get_focus():
-            self.live_installer.child_focus(gtk.DIR_TAB_FORWARD)
-
     def on_keyboardlayoutview_row_activated(self, treeview, path, view_column):
         self.next.activate()
 
     def on_keyboard_layout_selected(self, start_editing, *args):
-        if isinstance(self.dbfilter, console_setup.ConsoleSetup):
+        if isinstance(self.dbfilter, console_setup.Page):
             layout = self.get_keyboard()
             if layout is not None:
                 self.current_layout = layout
@@ -1116,7 +1096,7 @@ class Wizard(BaseFrontend):
         self.next.activate()
 
     def on_keyboard_variant_selected(self, start_editing, *args):
-        if isinstance(self.dbfilter, console_setup.ConsoleSetup):
+        if isinstance(self.dbfilter, console_setup.Page):
             layout = self.get_keyboard()
             variant = self.get_keyboard_variant()
             if layout is not None and variant is not None:
@@ -1128,7 +1108,7 @@ class Wizard(BaseFrontend):
         # Note that self.current_page et al have not been updated for the
         # new page yet, so we have to check self.dbfilter.
 
-        if isinstance(self.dbfilter, console_setup.ConsoleSetup):
+        if isinstance(self.dbfilter, console_setup.Page):
             self.default_keyboard_layout = None
             self.default_keyboard_variant = None
 
@@ -1232,9 +1212,6 @@ class Wizard(BaseFrontend):
             # debconffilter_done() to be called when the filter exits
         elif gtk.main_level() > 0:
             gtk.main_quit()
-
-        if not self.live_installer.get_focus():
-            self.live_installer.child_focus(gtk.DIR_TAB_FORWARD)
 
 
     def link_button_browser (self, button, uri):
@@ -1629,7 +1606,7 @@ class Wizard(BaseFrontend):
     def on_suggested_keymap_toggled (self, widget):
         if self.suggested_keymap.get_active():
             self.keyboard_layout_hbox.set_sensitive(False)
-            if isinstance(self.dbfilter, console_setup.ConsoleSetup):
+            if isinstance(self.dbfilter, console_setup.Page):
                 if (self.default_keyboard_layout is not None and
                     self.default_keyboard_variant is not None):
                     self.current_layout = self.default_keyboard_layout
@@ -2749,7 +2726,12 @@ class Wizard(BaseFrontend):
             # Go back to the partitioner and try again.
             self.slideshow_frame.hide()
             self.live_installer.show()
-            self.pagesindex = self.pages.index(partman.Partman)
+            self.pagesindex = -1
+            for page in self.pages:
+                if page.module.NAME == 'partman':
+                    self.pagesindex = self.pages.index(page)
+                    break
+            if self.pagesindex == -1: return
             self.dbfilter = partman.Partman(self)
             self.set_current_page(self.previous_partitioning_page)
             self.next.set_label("gtk-go-forward")

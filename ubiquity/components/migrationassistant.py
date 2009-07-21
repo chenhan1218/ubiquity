@@ -24,7 +24,17 @@ import debconf
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity.misc import *
 
-class MigrationAssistant(FilteredCommand):
+NAME = 'migrationassistant'
+
+class PageGtk:
+    def get_ui(self):
+        return 'stepMigrationAssistant'
+
+class PageKde:
+    def get_ui(self):
+        return 'stepMigrationAssistant'
+
+class Page(FilteredCommand):
     def prepare(self):
         self.got_a_question = False
         questions = ['^migration-assistant/partitions',

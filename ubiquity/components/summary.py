@@ -29,6 +29,16 @@ from ubiquity.casper import get_casper
 
 from ubiquity.filteredcommand import FilteredCommand
 
+NAME = 'summary'
+
+class PageGtk:
+    def get_ui(self):
+        return 'stepReady'
+
+class PageKde:
+    def get_ui(self):
+        return 'stepReady'
+
 def installing_from_disk():
     cdromfs = ''
     try:
@@ -140,7 +150,7 @@ def will_be_installed(pkg):
     except IOError:
         return True
 
-class Summary(FilteredCommand):
+class Page(FilteredCommand):
     def __init__(self, frontend):
         FilteredCommand.__init__(self, frontend)
 

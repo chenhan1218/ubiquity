@@ -175,7 +175,7 @@ class Wizard(BaseFrontend):
         self.app.connect(self.userinterface.partition_list_treeview, SIGNAL("activated(const QModelIndex&)"), self.on_partition_list_treeview_activated)
 
         # set default language
-        dbfilter = language.Language(self, self.debconf_communicator())
+        dbfilter = language.Page(self, self.debconf_communicator())
         dbfilter.cleanup()
         dbfilter.db.shutdown()
 
@@ -335,7 +335,7 @@ class Wizard(BaseFrontend):
             self.pages.insert(0, None) # for page index bookkeeping
             first_step = "stepWelcome"
         else:
-            first_step = self.pagenames[0]
+            first_step = self.pageuis[0]
                 
         self.set_current_page(self.step_index(first_step))
         

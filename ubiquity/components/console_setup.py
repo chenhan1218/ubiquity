@@ -25,7 +25,21 @@ from ubiquity.filteredcommand import FilteredCommand
 from ubiquity import keyboard_names
 from ubiquity import misc
 
-class ConsoleSetup(FilteredCommand):
+NAME = 'console_setup'
+
+class PageGtk:
+    def get_ui(self):
+        return 'stepKeyboardConf'
+
+class PageKde:
+    def get_ui(self):
+        return 'stepKeyboardConf'
+
+class PageDebconf:
+    def get_ui(self):
+        return 'stepKeyboardConf'
+
+class Page(FilteredCommand):
     def prepare(self, unfiltered=False):
         self.preseed('console-setup/ask_detect', 'false')
 

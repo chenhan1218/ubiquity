@@ -20,7 +20,21 @@
 from ubiquity.filteredcommand import FilteredCommand
 import debconf
 
-class UserSetup(FilteredCommand):
+NAME = 'usersetup'
+
+class PageGtk:
+    def get_ui(self):
+        return 'stepUserInfo'
+
+class PageKde:
+    def get_ui(self):
+        return 'stepUserInfo'
+
+class PageDebconf:
+    def get_ui(self):
+        return 'stepUserInfo'
+
+class Page(FilteredCommand):
     def prepare(self, unfiltered=False):
         if self.frontend.get_hostname() == '':
             try:

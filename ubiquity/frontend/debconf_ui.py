@@ -51,7 +51,7 @@ class Wizard(BaseFrontend):
         sys.excepthook = self.excepthook
 
         # Set default language.
-        dbfilter = language.Language(self, self.debconf_communicator())
+        dbfilter = language.Page(self, self.debconf_communicator())
         dbfilter.cleanup()
         dbfilter.db.shutdown()
 
@@ -77,7 +77,7 @@ class Wizard(BaseFrontend):
         pageslen = len(self.pages)
 
         while(self.pagesindex >= 0 and self.pagesindex < pageslen):
-            current_name = self.pagenames[self.current_page]
+            current_name = self.pageuis[self.current_page]
             step = self.pages[self.pagesindex](self)
 
             if current_name == 'stepLanguage':

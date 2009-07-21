@@ -28,6 +28,16 @@ from ubiquity.filteredcommand import FilteredCommand
 from ubiquity import parted_server
 from ubiquity.misc import *
 
+NAME = 'partman'
+
+class PageGtk:
+    def get_ui(self):
+        return 'stepPartAuto'
+
+class PageKde:
+    def get_ui(self):
+        return 'stepPartAuto'
+
 PARTITION_TYPE_PRIMARY = 0
 PARTITION_TYPE_LOGICAL = 1
 
@@ -37,7 +47,7 @@ PARTITION_PLACE_END = 1
 class PartmanOptionError(LookupError):
     pass
 
-class Partman(FilteredCommand):
+class Page(FilteredCommand):
     def __init__(self, frontend=None):
         FilteredCommand.__init__(self, frontend)
         self.some_device_desc = ''
