@@ -7,6 +7,10 @@ ubiquity (1.99.1) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Add support for ubiquity-slideshow.
+  * Debconf GET returns the default value if no value is set on a
+    question.  As an undesirable default is set for netcfg/get_hostname,
+    check the seen flag to see if the value returned by GET was inputted
+    by the user (LP: #401919).
 
   [ Mario Limonciello ]
   * Divert the ubiquity-gtkui.desktop file when oem-config is installed as
@@ -19,7 +23,7 @@ ubiquity (1.99.1) UNRELEASED; urgency=low
   * noninteractive frontend: Don't tell debconf the translated name of the
     chosen language, but rather the language code.
 
- -- Michael Terry <michael.terry@canonical.com>  Mon, 20 Jul 2009 09:30:37 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 21 Jul 2009 11:05:47 +0100
 
 ubiquity (1.99.0) karmic; urgency=low
 
