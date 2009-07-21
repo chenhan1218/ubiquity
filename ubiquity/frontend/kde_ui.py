@@ -6,6 +6,7 @@
 # Author(s):
 #   Jonathan Riddell <jriddell@ubuntu.com>
 #   Mario Limonciello <superm1@ubuntu.com>
+#   Roman Shtylman <shtylman@gmail.com>
 #
 # This file is part of Ubiquity.
 #
@@ -452,6 +453,7 @@ class Wizard(BaseFrontend):
             self.hostname_edited = True
             self.ui.login_pass.hide()
             self.ui.login_auto.hide()
+            
             # The UserSetup component takes care of preseeding passwd/user-uid.
             execute_root('apt-install', 'oem-config-kde')
         else:
@@ -467,6 +469,11 @@ class Wizard(BaseFrontend):
                 flags = flags ^ Qt.WindowCloseButtonHint
             self.ui.setWindowFlags(flags)
             self.ui.quit.hide()
+            
+            #hide some of the steps not used by oem-user-config
+            self.ui.partitionStep.hide()
+            self.ui.summaryStep.hide()
+            self.ui.installStep.hide()
         
         if not 'UBIQUITY_AUTOMATIC' in os.environ:
             self.ui.show()
