@@ -1,3 +1,10 @@
+ubiquity (1.99.3) UNRELEASED; urgency=low
+
+  * Filter out Help: from d-i's debconf templates, since Perl debconf
+    doesn't know about that yet (LP: #402969).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 22 Jul 2009 14:16:27 +0100
+
 ubiquity (1.99.2) karmic; urgency=low
 
   [ Mario Limonciello ]
