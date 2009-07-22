@@ -7,6 +7,10 @@ ubiquity (1.99.2) UNRELEASED; urgency=low
   * Fix -q behavior when X is not running, thereby fixing oem-config-firstboot
   * gtk: initialize gobject threads for webkit
 
+  [ Martin Pitt ]
+  * Automatic update of included source packages: user-setup
+    1.27ubuntu5. This fixes autologin configuration. (LP: #402707)
+
  -- Michael Terry <michael.terry@canonical.com>  Tue, 21 Jul 2009 15:37:38 -0400
 
 ubiquity (1.99.1) karmic; urgency=low
