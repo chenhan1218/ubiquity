@@ -22,7 +22,7 @@ class City:
     
 class TimezoneMap(QWidget):
     def __init__(self, frontend):
-        QWidget.__init__(self, frontend.userinterface.map_frame)
+        QWidget.__init__(self, frontend.ui.map_frame)
         self.frontend = frontend
         #dictionary of zone name -> {'cindex', 'citites'}
         self.zones = {}
@@ -106,34 +106,33 @@ class TimezoneMap(QWidget):
             city.index = len(self.zones[zoneName]['cities'])
             self.zones[zoneName]['cities'].append(city)
        
-        QApplication.instance().connect(self.frontend.userinterface.timezone_zone_combo, 
-            SIGNAL("currentIndexChanged(QString)"), self.regionChanged)
-        QApplication.instance().connect(self.frontend.userinterface.timezone_city_combo, 
-            SIGNAL("currentIndexChanged(int)"), self.cityChanged)
+        ui = self.frontend.ui
+        ui.timezone_zone_combo.currentIndexChanged[str].connect(self.regionChanged)
+        ui.timezone_city_combo.currentIndexChanged[int].connect(self.cityChanged)
             
         # zone needs to be added to combo box
         keys = self.zones.keys()
         keys.sort()
         for z in keys:
-            self.zones[z]['cindex'] = self.frontend.userinterface.timezone_zone_combo.count()
-            self.frontend.userinterface.timezone_zone_combo.addItem(z)
+            self.zones[z]['cindex'] = ui.timezone_zone_combo.count()
+            ui.timezone_zone_combo.addItem(z)
        
     # called when the region(zone) combo changes
     def regionChanged(self, region):
-        self.frontend.userinterface.timezone_city_combo.clear()
+        self.frontend.ui.timezone_city_combo.clear()
         #blank entry first to prevent a city from being selected
-        self.frontend.userinterface.timezone_city_combo.addItem("")
+        self.frontend.ui.timezone_city_combo.addItem("")
         
         #add all the cities
         for c in self.zones[str(region)]['cities']:
-            self.frontend.userinterface.timezone_city_combo.addItem(c.city_name, QVariant(c))
+            self.frontend.ui.timezone_city_combo.addItem(c.city_name, QVariant(c))
             
     # called when the city combo changes
     def cityChanged(self, cityindex):
         if cityindex < 1:
             return
             
-        city = self.frontend.userinterface.timezone_city_combo.itemData(cityindex).toPyObject()
+        city = self.frontend.ui.timezone_city_combo.itemData(cityindex).toPyObject()
         self.selected_city = city
         self.repaint()
         
@@ -166,6 +165,12 @@ class TimezoneMap(QWidget):
        
     def paintEvent(self, paintEvent):
         painter = QPainter(self)
+        painter.setRenderHint(QPainter.Antialiasing)
+        
+        path = QPainterPath()
+        path.addRoundedRect(QRectF(self.rect()), 5, 5)
+        painter.setClipPath(path)
+        
         painter.drawPixmap(self.rect(), self.pixmap)
         
         if self.selected_city != None:
@@ -175,25 +180,37 @@ class TimezoneMap(QWidget):
             if (c.pixmap):
                 painter.drawPixmap(self.rect(), c.pixmap)
             
-            painter.drawLine(cpos + QPoint(1,1), cpos - QPoint(1,1))
-            painter.drawLine(cpos + QPoint(1,-1), cpos - QPoint(1,-1))
-            #painter.drawText(cpos + QPoint(2,-2), c.city_name)
+            painter.setBrush(QColor(30, 30, 30, 200))
+            painter.setPen(Qt.white)
+            
+            #mark the location with a dot
+            painter.drawEllipse(cpos, 3, 3)
             
             # paint the time instead of the name
             try:
                 now = datetime.datetime.now(ubiquity.tz.SystemTzInfo(c.raw_zone))
                 timestring = now.strftime('%X')
                 
-                text_offset = QPoint(2,-2)
+                start = cpos + QPoint(3,-3)
+                margin = 2
             
                 # correct the text render position if text will render off widget
                 text_size = painter.fontMetrics().size(Qt.TextSingleLine, timestring)
-                if cpos.x() + text_size.width() > self.width():
-                    text_offset.setX(-text_size.width() - 2)
-                if cpos.y() - text_size.height() < 0:
-                    text_offset.setY(text_size.height() - 2)
+                text_size += QSize(margin*2, margin*2)
                 
-                painter.drawText(cpos + text_offset, timestring)
+                rect = QRect(start, start + QPoint(text_size.width(), -text_size.height()))
+                
+                #check bounds of the time display
+                if rect.top() < 0:
+                    rect.moveTop(start.y() + 3)
+                if rect.right() > self.width():
+                    rect.moveRight(start.x() - 3)
+                
+                painter.setPen(Qt.NoPen)
+                painter.drawRoundedRect(rect, 3, 3)
+                painter.setPen(Qt.white)
+                painter.drawText(rect, Qt.AlignCenter, timestring)
+                
             except ValueError:
                 # Some versions of Python have problems with clocks set
                 # before the epoch (http://python.org/sf/1646728).
@@ -270,8 +287,8 @@ class TimezoneMap(QWidget):
         #this will cause the redraw we need
         if closest != None:
             cindex = self.zones[closest.zone_name]['cindex']
-            self.frontend.userinterface.timezone_zone_combo.setCurrentIndex(cindex)
-            self.frontend.userinterface.timezone_city_combo.setCurrentIndex(closest.index + 1)
+            self.frontend.ui.timezone_zone_combo.setCurrentIndex(cindex)
+            self.frontend.ui.timezone_city_combo.setCurrentIndex(closest.index + 1)
 
     # sets the timezone based on the full name (i.e 'Australia/Sydney')
     def set_timezone(self, name):
@@ -280,8 +297,8 @@ class TimezoneMap(QWidget):
     # internal set timezone based on a city
     def _set_timezone(self, city):
         cindex = self.zones[city.zone_name]['cindex']
-        self.frontend.userinterface.timezone_zone_combo.setCurrentIndex(cindex)
-        self.frontend.userinterface.timezone_city_combo.setCurrentIndex(city.index + 1)
+        self.frontend.ui.timezone_zone_combo.setCurrentIndex(cindex)
+        self.frontend.ui.timezone_city_combo.setCurrentIndex(city.index + 1)
 
     # return the full timezone string
     def get_timezone(self):

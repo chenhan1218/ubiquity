@@ -1,7 +1,13 @@
 ubiquity (1.99.3) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Filter out Help: from d-i's debconf templates, since Perl debconf
     doesn't know about that yet (LP: #402969).
+
+  [ Roman Shtylman ]
+  * new files for themeing kde gui 
+  * started work on moving over to the new theme/app.ui file
+  * new theme is in place and a simple install can be performed
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 22 Jul 2009 14:16:27 +0100
 
