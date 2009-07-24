@@ -55,6 +55,7 @@ try:
             try:
                 builder = gtk.Builder()
                 builder.add_from_file('/usr/share/ubiquity/gtk/%s' % ui_file)
+                builder.connect_signals(self)
                 self.page = builder.get_object('page')
                 self.iconview = builder.get_object('language_iconview')
                 self.treeview = builder.get_object('language_treeview')
@@ -71,7 +72,8 @@ try:
                         raise
                     except:
                         release_notes_vbox.hide()
-            except:
+            except Exception, e:
+                print >>sys.stderr, 'Could not create language page: %s' % e
                 self.page = None
 
         def get_ui(self):
@@ -146,7 +148,7 @@ try:
                 # strip encoding; we use UTF-8 internally no matter what
                 lang = lang.split('.')[0].lower()
                 self.controller.translate(lang)
-except:
+except ImportError:
     pass
 
 class PageKde:
