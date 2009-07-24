@@ -43,8 +43,9 @@ DEBCONF_IO_ERR = 4
 DEBCONF_IO_HUP = 8
 
 class FilteredCommand(object):
-    def __init__(self, frontend, db=None):
-        self.frontend = frontend
+    def __init__(self, frontend, db=None, ui=None):
+        self.frontend = frontend # ubiquity-wide UI
+        self.ui = ui # page-specific UI
         # db does not normally need to be specified.
         self.db = db
         self.done = False
@@ -127,12 +128,10 @@ class FilteredCommand(object):
 
         self.cleanup()
 
-        self.db.shutdown()
-
         return ret
 
     def cleanup(self):
-        pass
+        self.db.shutdown()
 
     def run_command(self, auto_process=False):
         # TODO cjwatson 2006-02-25: Hack to allow _apply functions to be run

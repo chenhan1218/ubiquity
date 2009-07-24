@@ -31,10 +31,14 @@ from ubiquity.misc import *
 NAME = 'partman'
 
 class PageGtk:
+    def __init__(self, *args, **kwargs):
+        pass
     def get_ui(self):
         return 'stepPartAuto'
 
 class PageKde:
+    def __init__(self, *args, **kwargs):
+        pass
     def get_ui(self):
         return 'stepPartAuto'
 

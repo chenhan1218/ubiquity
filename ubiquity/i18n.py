@@ -21,7 +21,10 @@ import re
 import subprocess
 import codecs
 import os
-from ubiquity import misc
+import locale
+import sys
+from ubiquity.debconfcommunicator import DebconfCommunicator
+from ubiquity import misc, im_switch
 
 _supported_locales = None
 
@@ -38,6 +41,33 @@ def get_supported_locales():
     return _supported_locales
 
 
+# if 'just_country' is True, only the country is changing
+def reset_locale(just_country=False):
+    db = DebconfCommunicator('ubiquity', cloexec=True)
+    try:
+        di_locale = db.get('debian-installer/locale')
+        if di_locale not in get_supported_locales():
+            di_locale = db.get('debian-installer/fallbacklocale')
+        if di_locale == '':
+            # TODO cjwatson 2006-07-17: maybe fetch
+            # languagechooser/language-name and set a language based on
+            # that?
+            di_locale = 'en_US.UTF-8'
+        if di_locale != os.environ['LANG']:
+            os.environ['LANG'] = di_locale
+            os.environ['LANGUAGE'] = di_locale
+            try:
+                locale.setlocale(locale.LC_ALL, '')
+            except locale.Error, e:
+                print >>sys.stderr, 'locale.setlocale failed: %s (LANG=%s)' % \
+                                    (e, di_locale)
+            if not just_country:
+                misc.execute_root('fontconfig-voodoo',
+                                  '--auto', '--force', '--quiet')
+            im_switch.start_im()
+    finally:
+        db.shutdown()
+
 _strip_context_re = None
 
 def strip_context(question, string):
@@ -52,7 +82,7 @@ def strip_context(question, string):
 
 _translations = None
 
-def get_translations(languages=None, core_names=[]):
+def get_translations(languages=None, core_names=[], extra_prefixes=[]):
     """Returns a dictionary {name: {language: description}} of translatable
     strings.
 
@@ -63,7 +93,7 @@ def get_translations(languages=None, core_names=[]):
     cached version will be returned."""
 
     global _translations
-    if _translations is None or languages is not None or len(core_names) > 0:
+    if _translations is None or languages is not None or core_names or extra_prefixes:
         if languages is None:
             use_langs = None
         else:
@@ -74,6 +104,9 @@ def get_translations(languages=None, core_names=[]):
                 use_langs.add(ll_cc)
                 use_langs.add(ll)
 
+        prefixes = 'ubiquity|partman/text/undo_everything|partman/text/unusable|partman-basicfilesystems/bad_mountpoint|partman-basicfilesystems/text/specify_mountpoint|partman-basicmethods/text/format|partman-newworld/no_newworld|partman-partitioning|partman-target/no_root|partman-target/text/method|grub-installer/bootdev|popularity-contest/participate'
+        prefixes = reduce(lambda x, y: x+'|'+y, extra_prefixes, prefixes)
+
         _translations = {}
         devnull = open('/dev/null', 'w')
         # necessary?
@@ -83,7 +116,7 @@ def get_translations(languages=None, core_names=[]):
             ['debconf-copydb', 'templatedb', 'pipe',
              '--config=Name:pipe', '--config=Driver:Pipe',
              '--config=InFd:none',
-             '--pattern=^(ubiquity|partman/text/undo_everything|partman/text/unusable|partman-basicfilesystems/bad_mountpoint|partman-basicfilesystems/text/specify_mountpoint|partman-basicmethods/text/format|partman-newworld/no_newworld|partman-partitioning|partman-target/no_root|partman-target/text/method|grub-installer/bootdev|popularity-contest/participate)'],
+             '--pattern=^(%s)' % prefixes],
             stdout=subprocess.PIPE, stderr=devnull, preexec_fn=subprocess_setup)
         question = None
         descriptions = {}
@@ -168,19 +201,21 @@ string_questions = {
 
 string_extended = set('grub_device_label')
 
-def map_widget_name(name):
+def map_widget_name(prefix, name):
     """Map a widget name to its translatable template."""
+    if prefix is None:
+        prefix = 'ubiquity/text'
     if '/' in name:
         question = name
     elif name in string_questions:
         question = string_questions[name]
     else:
-        question = 'ubiquity/text/%s' % name
+        question = '%s/%s' % (prefix, name)
     return question
 
-def get_string(name, lang):
+def get_string(name, lang, prefix=None):
     """Get the translation of a single string."""
-    question = map_widget_name(name)
+    question = map_widget_name(prefix, name)
     translations = get_translations()
     if question not in translations:
         return None

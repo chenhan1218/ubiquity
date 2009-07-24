@@ -27,10 +27,14 @@ from ubiquity.misc import *
 NAME = 'migrationassistant'
 
 class PageGtk:
+    def __init__(self, *args, **kwargs):
+        pass
     def get_ui(self):
         return 'stepMigrationAssistant'
 
 class PageKde:
+    def __init__(self, *args, **kwargs):
+        pass
     def get_ui(self):
         return 'stepMigrationAssistant'
 

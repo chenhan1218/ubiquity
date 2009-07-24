@@ -30,14 +30,20 @@ import ubiquity.tz
 NAME = 'timezone'
 
 class PageGtk:
+    def __init__(self, *args, **kwargs):
+        pass
     def get_ui(self):
         return 'stepLocation'
 
 class PageKde:
+    def __init__(self, *args, **kwargs):
+        pass
     def get_ui(self):
         return 'stepLocation'
 
 class PageDebconf:
+    def __init__(self, *args, **kwargs):
+        pass
     def get_ui(self):
         return 'stepLocation'
 
@@ -102,16 +108,5 @@ class Page(FilteredCommand):
         FilteredCommand.ok_handler(self)
 
     def cleanup(self):
-        di_locale = self.db.get('debian-installer/locale')
-        if di_locale not in i18n.get_supported_locales():
-            di_locale = self.db.get('debian-installer/fallbacklocale')
-        if di_locale != self.frontend.locale:
-            self.frontend.locale = di_locale
-            os.environ['LANG'] = di_locale
-            os.environ['LANGUAGE'] = di_locale
-            try:
-                locale.setlocale(locale.LC_ALL, '')
-            except locale.Error, e:
-                self.debug('locale.setlocale failed: %s (LANG=%s)',
-                           e, di_locale)
-            im_switch.start_im()
+        FilteredCommand.cleanup(self)
+        i18n.reset_locale(just_country=True)

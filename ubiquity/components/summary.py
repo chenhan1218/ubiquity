@@ -32,10 +32,14 @@ from ubiquity.filteredcommand import FilteredCommand
 NAME = 'summary'
 
 class PageGtk:
+    def __init__(self, *args, **kwargs):
+        pass
     def get_ui(self):
         return 'stepReady'
 
 class PageKde:
+    def __init__(self, *args, **kwargs):
+        pass
     def get_ui(self):
         return 'stepReady'
 

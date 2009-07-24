@@ -16,7 +16,8 @@ pixmaps/earth.jpg usr/share/ubiquity/pixmaps
 apport/source_ubiquity.py usr/share/apport/package-hooks
 bin/ubiquity-dm usr/bin
 
-ubiquity/components/intro.py usr/lib/ubiquity/plugins.d
+# intro
+ubiquity/components/10*intro.py usr/lib/ubiquity/plugins.d
 
 # apt-setup
 d-i/source/apt-setup/apt-setup-verify usr/lib/ubiquity/apt-setup
@@ -72,7 +73,7 @@ d-i/source/localechooser/translation-check usr/lib/ubiquity/localechooser
 d-i/source/localechooser/debian/localechooser/usr/share/localechooser/languagelist.data.gz usr/lib/ubiquity/localechooser
 d-i/source/localechooser/regionmap usr/lib/ubiquity/localechooser
 d-i/source/localechooser/debian/short-tmp/shortlists usr/lib/ubiquity/localechooser
-ubiquity/components/language.py usr/lib/ubiquity/ubiquity/components
+ubiquity/components/10*language.py usr/lib/ubiquity/plugins.d
 ubiquity/components/language_apply.py usr/lib/ubiquity/ubiquity/components
 scripts/localechooser-apply usr/lib/ubiquity
 

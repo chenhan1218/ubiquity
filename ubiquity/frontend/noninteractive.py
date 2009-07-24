@@ -35,7 +35,7 @@ import signal
 
 from ubiquity import filteredcommand, i18n
 from ubiquity.misc import *
-from ubiquity.components import install, language, partman_commit
+from ubiquity.components import install, partman_commit
 import ubiquity.progressposition
 from ubiquity.frontend.base import BaseFrontend
 import debconf
@@ -57,9 +57,7 @@ class Wizard(BaseFrontend):
         self.encrypt_home = False
         self.mainloop = gobject.MainLoop()
 
-        dbfilter = language.Page(self, self.debconf_communicator())
-        dbfilter.cleanup()
-        dbfilter.db.shutdown()
+        i18n.reset_locale()
 
         if self.oem_config:
             execute_root('apt-install', 'oem-config-gtk')

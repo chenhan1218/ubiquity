@@ -30,7 +30,7 @@ import textwrap
 
 from debconf import Debconf
 
-from ubiquity.components import console_setup, language, timezone, usersetup, \
+from ubiquity.components import console_setup, timezone, usersetup, \
                                 network, tasks, \
                                 language_apply, timezone_apply, \
                                 console_setup_apply
@@ -51,9 +51,7 @@ class Wizard(BaseFrontend):
         sys.excepthook = self.excepthook
 
         # Set default language.
-        dbfilter = language.Page(self, self.debconf_communicator())
-        dbfilter.cleanup()
-        dbfilter.db.shutdown()
+        i18n.reset_locale()
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""

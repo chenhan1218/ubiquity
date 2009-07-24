@@ -28,14 +28,20 @@ from ubiquity import misc
 NAME = 'console_setup'
 
 class PageGtk:
+    def __init__(self, *args, **kwargs):
+        pass
     def get_ui(self):
         return 'stepKeyboardConf'
 
 class PageKde:
+    def __init__(self, *args, **kwargs):
+        pass
     def get_ui(self):
         return 'stepKeyboardConf'
 
 class PageDebconf:
+    def __init__(self, *args, **kwargs):
+        pass
     def get_ui(self):
         return 'stepKeyboardConf'
 
@@ -361,3 +367,4 @@ class Page(FilteredCommand):
         oldconfig.close()
         os.rename(newconfigfile, oldconfigfile)
         misc.drop_privileges()
+        FilteredCommand.cleanup(self)

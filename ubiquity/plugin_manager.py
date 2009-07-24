@@ -26,7 +26,7 @@ PLUGIN_PATH = '/usr/lib/ubiquity/plugins.d'
 
 def load_plugins():
     modules = []
-    modfiles = filter(lambda x: fnmatch.fnmatch(x,'*.py'), os.listdir(PLUGIN_PATH))
+    modfiles = sorted(filter(lambda x: fnmatch.fnmatch(x,'*.py'), os.listdir(PLUGIN_PATH)))
     sys.path.insert(0, PLUGIN_PATH)
     for modfile in modfiles:
         modname = os.path.splitext(modfile)[0]

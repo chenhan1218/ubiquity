@@ -27,7 +27,7 @@ import subprocess
 import debconf
 from ubiquity.debconfcommunicator import DebconfCommunicator
 from ubiquity.misc import drop_privileges
-from ubiquity.components import console_setup, language, timezone, usersetup, \
+from ubiquity.components import console_setup, timezone, usersetup, \
                                 partman, partman_commit, \
                                 summary, install, migrationassistant
 from ubiquity import i18n
@@ -36,8 +36,6 @@ from ubiquity import plugin_manager
 # Pages that may be loaded. Interpretation is up to the frontend, but it is
 # strongly recommended to keep the page identifiers the same.
 PAGE_COMPONENTS = {
-    'LanguageOnly' : language,
-    'Language' : language,
     'Location' : timezone,
     'KeyboardConf' : console_setup,
     'PartAuto' : partman,
@@ -70,7 +68,6 @@ class BaseFrontend:
     def __init__(self, distro):
         """Frontend initialisation."""
         self.distro = distro
-        self.locale = None
         self.dbfilter = None
         self.dbfilter_status = None
         self.current_layout = None
@@ -205,11 +202,11 @@ class BaseFrontend:
         """Main entry point."""
         self._abstract('run')
 
-    def get_string(self, name, lang=None):
+    def get_string(self, name, lang=None, prefix=None):
         """Get the string name in the given lang or a default."""
         if lang is None:
-            lang = self.locale
-        return i18n.get_string(name, lang)
+            lang = os.environ['LANG']
+        return i18n.get_string(name, lang, prefix)
 
     def watch_debconf_fd(self, from_debconf, process_input):
         """Event loop interface to debconffilter.
@@ -339,20 +336,6 @@ class BaseFrontend:
 
     # Interfaces with various components. If a given component is not used
     # then its abstract methods may safely be left unimplemented.
-
-    # ubiquity.components.language
-
-    def set_language_choices(self, choices, choice_map):
-        """Called with language choices and a map to localised names."""
-        self.language_choice_map = dict(choice_map)
-
-    def set_language(self, language):
-        """Set the current selected language."""
-        pass
-
-    def get_language(self):
-        """Get the current selected language."""
-        self._abstract('get_language')
 
     def get_oem_id(self):
         """Get a unique identifier for this batch of installations."""

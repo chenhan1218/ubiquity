@@ -50,7 +50,7 @@ import debconf
 
 from ubiquity import filteredcommand, i18n, validation, parted_server
 from ubiquity.misc import *
-from ubiquity.components import console_setup, language, timezone, usersetup, \
+from ubiquity.components import console_setup, timezone, usersetup, \
                                 partman, partman_commit, summary, install
 import ubiquity.progressposition
 from ubiquity.frontend.base import BaseFrontend
@@ -175,9 +175,7 @@ class Wizard(BaseFrontend):
         self.app.connect(self.userinterface.partition_list_treeview, SIGNAL("activated(const QModelIndex&)"), self.on_partition_list_treeview_activated)
 
         # set default language
-        dbfilter = language.Page(self, self.debconf_communicator())
-        dbfilter.cleanup()
-        dbfilter.db.shutdown()
+        i18n.reset_locale()
 
         self.debconf_callbacks = {}    # array to keep callback functions needed by debconf file descriptors
 
