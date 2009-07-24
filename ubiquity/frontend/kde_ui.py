@@ -50,7 +50,7 @@ import debconf
 
 from ubiquity import filteredcommand, i18n, validation, parted_server
 from ubiquity.misc import *
-from ubiquity.components import console_setup, timezone, usersetup, \
+from ubiquity.components import console_setup, usersetup, \
                                 partman, partman_commit, summary, install
 import ubiquity.progressposition
 from ubiquity.frontend.base import BaseFrontend

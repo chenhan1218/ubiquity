@@ -30,7 +30,7 @@ import textwrap
 
 from debconf import Debconf
 
-from ubiquity.components import console_setup, timezone, usersetup, \
+from ubiquity.components import console_setup, usersetup, \
                                 network, tasks, \
                                 language_apply, timezone_apply, \
                                 console_setup_apply

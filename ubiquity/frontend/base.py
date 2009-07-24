@@ -27,7 +27,7 @@ import subprocess
 import debconf
 from ubiquity.debconfcommunicator import DebconfCommunicator
 from ubiquity.misc import drop_privileges
-from ubiquity.components import console_setup, timezone, usersetup, \
+from ubiquity.components import console_setup, usersetup, \
                                 partman, partman_commit, \
                                 summary, install, migrationassistant
 from ubiquity import i18n
@@ -36,7 +36,6 @@ from ubiquity import plugin_manager
 # Pages that may be loaded. Interpretation is up to the frontend, but it is
 # strongly recommended to keep the page identifiers the same.
 PAGE_COMPONENTS = {
-    'Location' : timezone,
     'KeyboardConf' : console_setup,
     'PartAuto' : partman,
     'PartAdvanced' : partman,
@@ -340,16 +339,6 @@ class BaseFrontend:
     def get_oem_id(self):
         """Get a unique identifier for this batch of installations."""
         return self.oem_id
-
-    # ubiquity.components.timezone
-
-    def set_timezone(self, timezone):
-        """Set the current selected timezone."""
-        pass
-
-    def get_timezone(self):
-        """Get the current selected timezone."""
-        self._abstract('get_timezone')
 
     # ubiquity.components.console_setup
 

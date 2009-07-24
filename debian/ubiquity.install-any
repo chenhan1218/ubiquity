@@ -103,7 +103,7 @@ ubiquity/components/tasks.py usr/lib/ubiquity/ubiquity/components
 # tzsetup
 d-i/source/tzsetup/debian/tzmap usr/lib/ubiquity/tzsetup
 d-i/source/tzsetup/tzsetup usr/lib/ubiquity/tzsetup
-ubiquity/components/timezone.py usr/lib/ubiquity/ubiquity/components
+ubiquity/components/10*timezone.py usr/lib/ubiquity/plugins.d
 ubiquity/components/timezone_apply.py usr/lib/ubiquity/ubiquity/components
 scripts/tzsetup-wrapper usr/lib/ubiquity
 
