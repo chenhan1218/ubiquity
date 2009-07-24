@@ -15,7 +15,7 @@ netcfg 1.49ubuntu1
 partconf 1.32
 partman-auto 87ubuntu1
 partman-auto-loop 0ubuntu16
-partman-base 132ubuntu1
+partman-base 131ubuntu1
 partman-basicfilesystems 63ubuntu1
 partman-basicmethods 43
 partman-efi 20ubuntu1
@@ -24,7 +24,7 @@ partman-jfs 30
 partman-newworld 21
 partman-partitioning 68ubuntu1
 partman-reiserfs 45
-partman-target 62ubuntu1
+partman-target 60ubuntu1
 partman-xfs 44
 preseed 1.42ubuntu1
 silo-installer 1.16ubuntu1
