@@ -222,18 +222,21 @@ def install(frontend=None, query=False):
             # Noninteractive implies automatic mode.
             if f == 'noninteractive':
                 os.environ['UBIQUITY_AUTOMATIC'] = '1'
+            # Migration Assistant does not support KDE.
+            if f == 'kde_ui':
+                del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
             break
     else:
         raise AttributeError, ('No frontend available; tried %s' %
                                ', '.join(frontends))
     os.environ['UBIQUITY_FRONTEND'] = chosen
+    if query:
+        print >> sys.__stdout__, os.environ['UBIQUITY_FRONTEND']
+        sys.exit(0)
 
     unmount_target()
     distro = distribution().lower()
     wizard = ui.Wizard(distro)
-    if query:
-        print >> sys.__stdout__, os.environ['UBIQUITY_FRONTEND']
-        sys.exit(0)
     if os.environ['UBIQUITY_FRONTEND'] == 'debconf_ui':
         open_terminal()
         start_debconf()

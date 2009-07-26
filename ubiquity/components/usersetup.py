@@ -24,12 +24,14 @@ class UserSetup(FilteredCommand):
     def prepare(self, unfiltered=False):
         if self.frontend.get_hostname() == '':
             try:
-                hostname = self.db.get('netcfg/get_hostname')
-                domain = self.db.get('netcfg/get_domain')
-                if hostname and domain:
-                    hostname = '%s.%s' % (hostname, domain)
-                if hostname != '':
-                    self.frontend.set_hostname(hostname)
+                seen = self.db.fget('netcfg/get_hostname', 'seen') == 'true'
+                if seen:
+                    hostname = self.db.get('netcfg/get_hostname')
+                    domain = self.db.get('netcfg/get_domain')
+                    if hostname and domain:
+                        hostname = '%s.%s' % (hostname, domain)
+                    if hostname != '':
+                        self.frontend.set_hostname(hostname)
             except debconf.DebconfError:
                 pass
         if self.frontend.get_fullname() == '':
