@@ -862,3 +862,35 @@ Description: for internal use; can be preseeded
  question.
  .
  This is used when run as 'oem-config'
+
+Template: ubiquity/text/breadcrumb_language
+Type: text
+_Description: language
+
+Template: ubiquity/text/breadcrumb_timezone
+Type: text
+_Description: timezone
+
+Template: ubiquity/text/breadcrumb_keyboard
+Type: text
+_Description: keyboard
+
+Template: ubiquity/text/breadcrumb_partition
+Type: text
+_Description: disk setup
+
+Template: ubiquity/text/breadcrumb_user
+Type: text
+_Description: user info
+
+Template: ubiquity/text/breadcrumb_summary
+Type: text
+_Description: summary
+
+Template: ubiquity/text/breadcrumb_install
+Type: text
+_Description: install
+
+Template: ubiquity/text/install_process_label
+Type: text
+_Description: installation process

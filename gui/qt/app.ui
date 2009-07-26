@@ -1561,49 +1561,49 @@ This language will be the default language for the final system.</string>
               <number>0</number>
              </property>
              <item>
-              <widget class="QLabel" name="languageStep">
+              <widget class="QLabel" name="breadcrumb_language">
                <property name="text">
                 <string>welcome</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="timezoneStep">
+              <widget class="QLabel" name="breadcrumb_timezone">
                <property name="text">
                 <string>timezone</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="keyboardStep">
+              <widget class="QLabel" name="breadcrumb_keyboard">
                <property name="text">
                 <string>keyboard</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="partitionStep">
+              <widget class="QLabel" name="breadcrumb_partition">
                <property name="text">
                 <string>disk setup</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="userInfoStep">
+              <widget class="QLabel" name="breadcrumb_user">
                <property name="text">
                 <string>user info</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="summaryStep">
+              <widget class="QLabel" name="breadcrumb_summary">
                <property name="text">
                 <string>summary</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="installStep">
+              <widget class="QLabel" name="breadcrumb_install">
                <property name="text">
                 <string>installing</string>
                </property>

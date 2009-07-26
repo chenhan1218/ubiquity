@@ -685,72 +685,68 @@ class Wizard(BaseFrontend):
         inactiveSS = "color: %s; " % "#b3b3b3"
         currentSS = "%s color: %s; " % (borderCSS, "#0088aa")
         
-        #self.ui.dummy_active_step.styleSheet()
-        #inactiveSS = self.ui.dummy_inactive_step.styleSheet()
-        #currentSS = self.ui.dummy_current_step.styleSheet()
-        
         #set all the steps active
         #each step will set its previous ones as inactive
-        #this handles the abiliy to go back
+        #this handles the abiliy to go back as well as oem hidden steps
         
-        self.ui.languageStep.setStyleSheet(activeSS)
-        self.ui.timezoneStep.setStyleSheet(activeSS)
-        self.ui.keyboardStep.setStyleSheet(activeSS)
-        self.ui.partitionStep.setStyleSheet(activeSS)
-        self.ui.userInfoStep.setStyleSheet(activeSS)
-        self.ui.summaryStep.setStyleSheet(activeSS)
-        self.ui.installStep.setStyleSheet(activeSS)
+        self.ui.breadcrumb_language.setStyleSheet(activeSS)
+        self.ui.breadcrumb_timezone.setStyleSheet(activeSS)
+        self.ui.breadcrumb_keyboard.setStyleSheet(activeSS)
+        self.ui.breadcrumb_partition.setStyleSheet(activeSS)
+        self.ui.breadcrumb_user.setStyleSheet(activeSS)
+        self.ui.breadcrumb_summary.setStyleSheet(activeSS)
+        self.ui.breadcrumb_install.setStyleSheet(activeSS)
         
         if n == 'Language':
             self.ui.steps_widget.setVisible(True)
             self.set_current_page(self.step_index("stepLanguage"))
             
-            self.ui.languageStep.setStyleSheet(currentSS)
+            self.ui.breadcrumb_language.setStyleSheet(currentSS)
             
         elif n == 'Timezone':
             self.set_current_page(self.step_index("stepLocation"))
             
-            self.ui.languageStep.setStyleSheet(inactiveSS)
-            self.ui.timezoneStep.setStyleSheet(currentSS)
+            self.ui.breadcrumb_language.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_timezone.setStyleSheet(currentSS)
             
         elif n == 'ConsoleSetup':
             self.set_current_page(self.step_index("stepKeyboardConf"))
             
-            self.ui.languageStep.setStyleSheet(inactiveSS)
-            self.ui.timezoneStep.setStyleSheet(inactiveSS)
-            self.ui.keyboardStep.setStyleSheet(currentSS)
+            self.ui.breadcrumb_language.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_timezone.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_keyboard.setStyleSheet(currentSS)
 
         elif n == 'Partman':
             # Rather than try to guess which partman page we should be on,
             # we leave that decision to set_autopartitioning_choices and
             # update_partman.
             
-            self.ui.languageStep.setStyleSheet(inactiveSS)
-            self.ui.timezoneStep.setStyleSheet(inactiveSS)
-            self.ui.keyboardStep.setStyleSheet(inactiveSS)
-            self.ui.partitionStep.setStyleSheet(currentSS)
+            self.ui.breadcrumb_language.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_timezone.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_keyboard.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_partition.setStyleSheet(currentSS)
             
             return
         elif n == 'UserSetup':
             self.set_current_page(self.step_index("stepUserInfo"))
             
-            self.ui.languageStep.setStyleSheet(inactiveSS)
-            self.ui.timezoneStep.setStyleSheet(inactiveSS)
-            self.ui.keyboardStep.setStyleSheet(inactiveSS)
-            self.ui.partitionStep.setStyleSheet(inactiveSS)
-            self.ui.userInfoStep.setStyleSheet(currentSS)
+            self.ui.breadcrumb_language.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_timezone.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_keyboard.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_partition.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_user.setStyleSheet(currentSS)
             
         elif n == 'Summary':
             self.set_current_page(self.step_index("stepReady"))
             self.ui.next.setText(self.get_string('install_button').replace('_', '&', 1))
             self.ui.next.setIcon(self.applyIcon)
             
-            self.ui.languageStep.setStyleSheet(inactiveSS)
-            self.ui.timezoneStep.setStyleSheet(inactiveSS)
-            self.ui.keyboardStep.setStyleSheet(inactiveSS)
-            self.ui.partitionStep.setStyleSheet(inactiveSS)
-            self.ui.userInfoStep.setStyleSheet(inactiveSS)
-            self.ui.summaryStep.setStyleSheet(currentSS)
+            self.ui.breadcrumb_language.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_timezone.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_keyboard.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_partition.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_user.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_summary.setStyleSheet(currentSS)
             
         else:
             print >>sys.stderr, 'No page found for %s' % n
