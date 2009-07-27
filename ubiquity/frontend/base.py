@@ -46,9 +46,28 @@ PAGE_COMPONENTS = {
     'Ready' : summary,
 }
 
+class Controller:
+    def __init__(self, wizard):
+        self._wizard = wizard
+        self.prefix = None
+        self.oem_config = wizard.oem_config
+        self.oem_user_config = wizard.oem_user_config
+        self.is_language_page = False
+    def translate(self, lang=None, just_me=True, reget=False):
+        pass
+    def allow_go_forward(self, allowed):
+        pass
+    def allow_go_backward(self, allowed):
+        pass
+    def go_forward(self):
+        pass
+    def go_backward(self):
+        pass
+
 class Component:
     def __init__(self):
         self.module = None
+        self.controller = None
         self.filter_class = None
         self.ui_class = None
         self.ui = None
@@ -75,6 +94,7 @@ class BaseFrontend:
         self.summary_device = None
         self.grub_en = None
         self.popcon = None
+        self.locale = None
         self.http_proxy_host = None
         self.http_proxy_port = 8080
 
@@ -203,6 +223,8 @@ class BaseFrontend:
 
     def get_string(self, name, lang=None, prefix=None):
         """Get the string name in the given lang or a default."""
+        if lang is None:
+            lang = self.locale
         if lang is None:
             lang = os.environ['LANG']
         return i18n.get_string(name, lang, prefix)

@@ -44,6 +44,7 @@ def get_supported_locales():
 # if 'just_country' is True, only the country is changing
 def reset_locale(just_country=False):
     db = DebconfCommunicator('ubiquity', cloexec=True)
+    di_locale = None
     try:
         di_locale = db.get('debian-installer/locale')
         if di_locale not in get_supported_locales():
@@ -67,6 +68,9 @@ def reset_locale(just_country=False):
             im_switch.start_im()
     finally:
         db.shutdown()
+        if not di_locale:
+            di_locale = 'en_US.UTF-8'
+        return di_locale
 
 _strip_context_re = None
 

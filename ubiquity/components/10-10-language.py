@@ -20,12 +20,16 @@
 import os
 import re
 import locale
+import sys
+import debconf
 
 from ubiquity.plugin import Plugin
-from ubiquity import i18n
+from ubiquity import i18n, misc
 
 NAME = 'language'
 AFTER = None
+
+_release_notes_url_path = '/home/mike/port.py'#'/cdrom/.disk/release_notes_url'
 
 class PageBase:
     def set_language_choices(self, choices, choice_map):
@@ -40,122 +44,249 @@ class PageBase:
         """Get the current selected language."""
         return 'C'
 
-try:
-    import gtk, gobject
-    class PageGtk(PageBase):
-        def __init__(self, controller, *args, **kwargs):
-            self.controller = controller
-            self.controller.is_language_page = True
-            if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
-                ui_file = 'stepLanguageOnly.ui'
-                self.only = True
-            else:
-                ui_file = 'stepLanguage.ui'
-                self.only = False
-            try:
-                builder = gtk.Builder()
-                builder.add_from_file('/usr/share/ubiquity/gtk/%s' % ui_file)
-                builder.connect_signals(self)
-                self.page = builder.get_object('page')
-                self.iconview = builder.get_object('language_iconview')
-                self.treeview = builder.get_object('language_treeview')
+    def set_oem_id(self, text):
+        pass
 
-                release_notes_vbox = builder.get_object('release_notes_vbox')
-                if release_notes_vbox:
-                    try:
-                        release_notes_url = builder.get_object('release_notes_url')
-                        release_notes = open('/cdrom/.disk/release_notes_url')
-                        release_notes_url.set_uri(
-                            release_notes.read().rstrip('\n'))
-                        release_notes.close()
-                    except (KeyboardInterrupt, SystemExit):
-                        raise
-                    except:
-                        release_notes_vbox.hide()
-            except Exception, e:
-                print >>sys.stderr, 'Could not create language page: %s' % e
-                self.page = None
+    def get_oem_id(self):
+        return ''
 
-        def get_ui(self):
-            return self.page
+class PageGtk(PageBase):
+    def __init__(self, controller, *args, **kwargs):
+        self.controller = controller
+        self.controller.is_language_page = True
+        if self.controller.oem_user_config:
+            ui_file = 'stepLanguageOnly.ui'
+            self.only = True
+        else:
+            ui_file = 'stepLanguage.ui'
+            self.only = False
+        try:
+            import gtk
+            builder = gtk.Builder()
+            builder.add_from_file('/usr/share/ubiquity/gtk/%s' % ui_file)
+            builder.connect_signals(self)
+            self.page = builder.get_object('page')
+            self.iconview = builder.get_object('language_iconview')
+            self.treeview = builder.get_object('language_treeview')
+            self.oem_id_entry = builder.get_object('oem_id_entry')
 
-        def set_language_choices(self, choices, choice_map):
-            PageBase.set_language_choices(self, choices, choice_map)
-            list_store = gtk.ListStore(gobject.TYPE_STRING)
-            for choice in choices:
-                list_store.append([choice])
-            # Support both iconview and treeview
-            if self.only:
-                self.iconview.set_model(list_store)
-                self.iconview.set_text_column(0)
-            else:
-                if len(self.treeview.get_columns()) < 1:
-                    column = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=0)
-                    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
-                    self.treeview.append_column(column)
-                    selection = self.treeview.get_selection()
-                    selection.connect('changed',
-                                      self.on_language_selection_changed)
-                self.treeview.set_model(list_store)
+            if self.controller.oem_config:
+                builder.get_object('oem_id_vbox').show()
 
-        def set_language(self, language):
-            # Support both iconview and treeview
-            if self.only:
-                model = self.iconview.get_model()
-                iterator = model.iter_children(None)
-                while iterator is not None:
-                    if unicode(model.get_value(iterator, 0)) == language:
-                        path = model.get_path(iterator)
-                        self.iconview.select_path(path)
-                        self.iconview.scroll_to_path(path, True, 0.5, 0.5)
-                        break
-                    iterator = model.iter_next(iterator)
-            else:
-                model = self.treeview.get_model()
-                iterator = model.iter_children(None)
-                while iterator is not None:
-                    if unicode(model.get_value(iterator, 0)) == language:
-                        path = model.get_path(iterator)
-                        self.treeview.get_selection().select_path(path)
-                        self.treeview.scroll_to_cell(
-                            path, use_align=True, row_align=0.5)
-                        break
-                    iterator = model.iter_next(iterator)
+            release_notes_vbox = builder.get_object('release_notes_vbox')
+            if release_notes_vbox:
+                try:
+                    release_notes_url = builder.get_object('release_notes_url')
+                    release_notes = open(_release_notes_url_path)
+                    release_notes_url.set_uri(
+                        release_notes.read().rstrip('\n'))
+                    release_notes.close()
+                except (KeyboardInterrupt, SystemExit):
+                    raise
+                except:
+                    release_notes_vbox.hide()
+        except Exception, e:
+            print >>sys.stderr, 'Could not create language page: %s' % e
+            self.page = None
 
-        def get_language(self):
-            # Support both iconview and treeview
-            if self.only:
-                model = self.iconview.get_model()
-                items = self.iconview.get_selected_items()
-                if not items:
-                    return 'C'
-                iterator = model.get_iter(items[0])
-            else:
-                selection = self.treeview.get_selection()
-                (model, iterator) = selection.get_selected()
-            if iterator is None:
-                return 'C'
-            else:
-                value = unicode(model.get_value(iterator, 0))
-                return self.language_choice_map[value][1]
-
-        def on_language_activated(self, *args, **kwargs):
-            self.controller.go_forward()
-
-        def on_language_selection_changed(self, *args, **kwargs):
-            lang = self.get_language()
-            if lang:
-                # strip encoding; we use UTF-8 internally no matter what
-                lang = lang.split('.')[0].lower()
-                self.controller.translate(lang)
-except ImportError:
-    pass
-
-class PageKde:
     def get_ui(self):
-        return 'stepLanguage'
+        return self.page
+
+    def set_language_choices(self, choices, choice_map):
+        import gtk, gobject
+        PageBase.set_language_choices(self, choices, choice_map)
+        list_store = gtk.ListStore(gobject.TYPE_STRING)
+        for choice in choices:
+            list_store.append([choice])
+        # Support both iconview and treeview
+        if self.only:
+            self.iconview.set_model(list_store)
+            self.iconview.set_text_column(0)
+        else:
+            if len(self.treeview.get_columns()) < 1:
+                column = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=0)
+                column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+                self.treeview.append_column(column)
+                selection = self.treeview.get_selection()
+                selection.connect('changed',
+                                    self.on_language_selection_changed)
+            self.treeview.set_model(list_store)
+
+    def set_language(self, language):
+        # Support both iconview and treeview
+        if self.only:
+            model = self.iconview.get_model()
+            iterator = model.iter_children(None)
+            while iterator is not None:
+                if unicode(model.get_value(iterator, 0)) == language:
+                    path = model.get_path(iterator)
+                    self.iconview.select_path(path)
+                    self.iconview.scroll_to_path(path, True, 0.5, 0.5)
+                    break
+                iterator = model.iter_next(iterator)
+        else:
+            model = self.treeview.get_model()
+            iterator = model.iter_children(None)
+            while iterator is not None:
+                if unicode(model.get_value(iterator, 0)) == language:
+                    path = model.get_path(iterator)
+                    self.treeview.get_selection().select_path(path)
+                    self.treeview.scroll_to_cell(
+                        path, use_align=True, row_align=0.5)
+                    break
+                iterator = model.iter_next(iterator)
+
+    def get_language(self):
+        # Support both iconview and treeview
+        if self.only:
+            model = self.iconview.get_model()
+            items = self.iconview.get_selected_items()
+            if not items:
+                return 'C'
+            iterator = model.get_iter(items[0])
+        else:
+            selection = self.treeview.get_selection()
+            (model, iterator) = selection.get_selected()
+        if iterator is None:
+            return 'C'
+        else:
+            value = unicode(model.get_value(iterator, 0))
+            return self.language_choice_map[value][1]
+
+    def on_language_activated(self, *args, **kwargs):
+        self.controller.go_forward()
+
+    def on_language_selection_changed(self, *args, **kwargs):
+        lang = self.get_language()
+        if lang:
+            # strip encoding; we use UTF-8 internally no matter what
+            lang = lang.split('.')[0].lower()
+            self.controller.translate(lang)
+
+    def set_oem_id(self, text):
+        return self.oem_id_entry.set_text(text)
+
+    def get_oem_id(self):
+        return self.oem_id_entry.get_text()
+
+class PageKde(PageBase):
+    def __init__(self, controller, *args, **kwargs):
+        self.controller = controller
+        self.controller.is_language_page = True
+        try:
+            from PyQt4 import uic
+            from PyQt4.QtCore import SIGNAL
+            from PyQt4.QtGui import QLabel
+            self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLanguage.ui')
+            self.treeview = self.page.language_treeview
+            self.treeview.connect(self.treeview, SIGNAL("itemSelectionChanged()"), self.on_language_selection_changed)
+
+            if not self.controller.oem_config:
+                self.page.oem_id_label.hide()
+                self.page.oem_id_entry.hide()
+
+            class linkLabel(QLabel):
+                def __init__(self, wizard, parent):
+                    QLabel.__init__(self, parent)
+                    self.wizard = wizard
+
+                def mouseReleaseEvent(self, event):
+                    self.wizard.openReleaseNotes()
+
+                def setText(self, text):
+                    QLabel.setText(self, text)
+                    self.resize(self.sizeHint())
+
+            self.release_notes_url = linkLabel(self, self.page.release_notes_frame)
+            self.release_notes_url.setObjectName("release_notes_url")
+            self.release_notes_url.show()
+
+            self.release_notes_url_template = None
+            try:
+                release_notes = open(_release_notes_url_path)
+                self.release_notes_url_template = release_notes.read().rstrip('\n')
+                release_notes.close()
+            except (KeyboardInterrupt, SystemExit):
+                raise
+            except:
+                self.page.release_notes_label.hide()
+                self.page.release_notes_frame.hide()
+        except Exception, e:
+            print >>sys.stderr, 'Could not create language page: %s' % e
+            self.page = None
+
+    def get_ui(self):
+        return self.page
+
+    def openReleaseNotes(self):
+        lang = self.selected_language()
+        if lang:
+            lang = lang.split('.')[0].lower()
+            url = self.release_notes_url_template.replace('${LANG}', lang)
+            self.openURL(url)
+
+    def openURL(self, url):
+        #need to run this else kdesu can't run Konqueror
+        misc.execute('su', '-c', 'xhost +localhost', 'ubuntu')
+        misc.execute('su', '-c', 'kfmclient openURL '+url, 'ubuntu')
+
+    def set_language_choices(self, choices, choice_map):
+        from PyQt4.QtCore import QString
+        from PyQt4.QtGui import QListWidgetItem
+        PageBase.set_language_choices(self, choices, choice_map)
+        self.treeview.clear()
+        for choice in choices:
+            QListWidgetItem(QString(unicode(choice)), self.treeview)
+
+    def set_language(self, language):
+        counter = 0
+        max = self.treeview.count()
+        while counter < max:
+            selection = self.treeview.item(counter)
+            if selection is None:
+                value = "C"
+            else:
+                value = unicode(selection.text())
+            if value == language:
+                selection.setSelected(True)
+                self.treeview.scrollToItem(selection)
+                break
+            counter += 1
+
+    def get_language(self):
+        lang = self.selected_language()
+        return lang if lang else 'C'
+
+    def selected_language(self):
+        items = self.treeview.selectedItems()
+        if len(items) == 1:
+            value = unicode(items[0].text())
+            return self.language_choice_map[value][1]
+        else:
+            return None
+
+    def on_language_selection_changed(self):
+        lang = self.selected_language()
+        if lang:
+            # strip encoding; we use UTF-8 internally no matter what
+            lang = lang.split('.')[0].lower()
+
+            self.controller.translate(lang)
+
+            if self.release_notes_url_template is not None:
+                url = self.release_notes_url_template.replace('${LANG}', lang)
+                text = i18n.get_string('release_notes_url', lang)
+                self.release_notes_url.setText('<a href="%s">%s</a>' % (url, text))
+
+    def set_oem_id(self, text):
+        return self.page.oem_id_entry.setText(text)
+
+    def get_oem_id(self):
+        return self.page.oem_id_entry.text()
 
 class PageDebconf:
+    def __init__(self, *args, **kwargs):
+        pass
     def get_ui(self):
         return 'stepLanguage'
 
@@ -169,6 +300,11 @@ class Page(Plugin):
             os.unlink('/var/lib/localechooser/langlevel')
         except OSError:
             pass
+        if self.ui.controller.oem_config:
+            try:
+                self.ui.set_oem_id(self.db.get('oem-config/id'))
+            except debconf.DebconfError:
+                pass
         questions = ['localechooser/languagelist']
         environ = {'PATH': '/usr/lib/ubiquity/localechooser:' + os.environ['PATH']}
         if 'UBIQUITY_FRONTEND' in os.environ and os.environ['UBIQUITY_FRONTEND'] == "debconf_ui":
@@ -228,6 +364,8 @@ class Page(Plugin):
             if (self.initial_language is None or
                 self.initial_language != new_language):
                 self.db.reset('debian-installer/country')
+        if self.ui.controller.oem_config:
+            self.preseed('oem-config/id', self.ui.get_oem_id())
         Plugin.ok_handler(self)
 
     def cleanup(self):

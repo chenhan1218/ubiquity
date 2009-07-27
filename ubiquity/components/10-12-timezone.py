@@ -22,127 +22,144 @@ import sys
 import debconf
 
 from ubiquity.plugin import Plugin
-from ubiquity import i18n, timezone_map
+from ubiquity import i18n
 import ubiquity.tz
 
 NAME = 'timezone'
 AFTER = 'language'
 
-try:
-    import gobject, gtk
-    class PageGtk:
-        def __init__(self, *args, **kwargs):
-            try:
-                builder = gtk.Builder()
-                builder.add_from_file('/usr/share/ubiquity/gtk/stepLocation.ui')
-                builder.connect_signals(self)
-                self.page = builder.get_object('page')
-                self.region_combo = builder.get_object('timezone_zone_combo')
-                self.city_combo = builder.get_object('timezone_city_combo')
-                self.map_window = builder.get_object('timezone_map_window')
-                self.setup_page()
-            except Exception, e:
-                print >>sys.stderr, 'Could not create timezone page: %s' % e
-                self.page = None
+class PageGtk:
+    def __init__(self, *args, **kwargs):
+        try:
+            import gtk
+            builder = gtk.Builder()
+            builder.add_from_file('/usr/share/ubiquity/gtk/stepLocation.ui')
+            builder.connect_signals(self)
+            self.page = builder.get_object('page')
+            self.region_combo = builder.get_object('timezone_zone_combo')
+            self.city_combo = builder.get_object('timezone_city_combo')
+            self.map_window = builder.get_object('timezone_map_window')
+            self.setup_page()
+        except Exception, e:
+            print >>sys.stderr, 'Could not create timezone page: %s' % e
+            self.page = None
 
-        def get_ui(self):
-            return self.page
+    def get_ui(self):
+        return self.page
 
-        def set_timezone(self, timezone):
-            self.select_city(None, timezone)
+    def set_timezone(self, timezone):
+        self.select_city(None, timezone)
 
-        def get_timezone(self):
-            i = self.region_combo.get_active()
-            m = self.region_combo.get_model()
-            region = m[i][0]
+    def get_timezone(self):
+        i = self.region_combo.get_active()
+        m = self.region_combo.get_model()
+        region = m[i][0]
 
-            i = self.city_combo.get_active()
-            m = self.city_combo.get_model()
-            city = m[i][0].replace(' ', '_')
-            city = region + '/' + city
-            return city
+        i = self.city_combo.get_active()
+        m = self.city_combo.get_model()
+        city = m[i][0].replace(' ', '_')
+        city = region + '/' + city
+        return city
 
-        def select_city(self, widget, city):
-            region, city = city.replace('_', ' ').split('/', 1)
-            m = self.region_combo.get_model()
-            iterator = m.get_iter_first()
-            while iterator:
-                if m[iterator][0] == region:
-                    self.region_combo.set_active_iter(iterator)
-                    break
-                iterator = m.iter_next(iterator)
-            
-            m = self.city_combo.get_model()
-            iterator = m.get_iter_first()
-            while iterator:
-                if m[iterator][0] == city:
-                    self.city_combo.set_active_iter(iterator)
-                    break
-                iterator = m.iter_next(iterator)
+    def select_city(self, widget, city):
+        region, city = city.replace('_', ' ').split('/', 1)
+        m = self.region_combo.get_model()
+        iterator = m.get_iter_first()
+        while iterator:
+            if m[iterator][0] == region:
+                self.region_combo.set_active_iter(iterator)
+                break
+            iterator = m.iter_next(iterator)
+        
+        m = self.city_combo.get_model()
+        iterator = m.get_iter_first()
+        while iterator:
+            if m[iterator][0] == city:
+                self.city_combo.set_active_iter(iterator)
+                break
+            iterator = m.iter_next(iterator)
 
-        def setup_page(self):
-            self.tzdb = ubiquity.tz.Database()
-            self.tzmap = timezone_map.TimezoneMap(self.tzdb, '/usr/share/ubiquity/pixmaps/timezone')
-            self.tzmap.connect('city-selected', self.select_city)
-            self.map_window.add(self.tzmap)
-            self.tzmap.show()
+    def setup_page(self):
+        import gobject, gtk
+        from ubiquity import timezone_map
+        self.tzdb = ubiquity.tz.Database()
+        self.tzmap = timezone_map.TimezoneMap(self.tzdb, '/usr/share/ubiquity/pixmaps/timezone')
+        self.tzmap.connect('city-selected', self.select_city)
+        self.map_window.add(self.tzmap)
+        self.tzmap.show()
 
-            renderer = gtk.CellRendererText()
-            self.region_combo.pack_start(renderer, True)
-            self.region_combo.add_attribute(renderer, 'text', 0)
-            list_store = gtk.ListStore(gobject.TYPE_STRING)
-            self.region_combo.set_model(list_store)
+        renderer = gtk.CellRendererText()
+        self.region_combo.pack_start(renderer, True)
+        self.region_combo.add_attribute(renderer, 'text', 0)
+        list_store = gtk.ListStore(gobject.TYPE_STRING)
+        self.region_combo.set_model(list_store)
 
-            renderer = gtk.CellRendererText()
-            self.city_combo.pack_start(renderer, True)
-            self.city_combo.add_attribute(renderer, 'text', 0)
-            city_store = gtk.ListStore(gobject.TYPE_STRING)
-            self.city_combo.set_model(city_store)
+        renderer = gtk.CellRendererText()
+        self.city_combo.pack_start(renderer, True)
+        self.city_combo.add_attribute(renderer, 'text', 0)
+        city_store = gtk.ListStore(gobject.TYPE_STRING)
+        self.city_combo.set_model(city_store)
 
-            self.regions = {}
-            for location in self.tzdb.locations:
-                region, city = location.zone.replace('_', ' ').split('/', 1)
-                if region in self.regions:
-                    self.regions[region].append(city)
-                else:
-                    self.regions[region] = [city]
+        self.regions = {}
+        for location in self.tzdb.locations:
+            region, city = location.zone.replace('_', ' ').split('/', 1)
+            if region in self.regions:
+                self.regions[region].append(city)
+            else:
+                self.regions[region] = [city]
 
-            r = self.regions.keys()
-            r.sort()
-            for region in r:
-                list_store.append([region])
+        r = self.regions.keys()
+        r.sort()
+        for region in r:
+            list_store.append([region])
 
-        def on_region_combo_changed(self, *args):
-            i = self.region_combo.get_active()
-            m = self.region_combo.get_model()
-            region = m[i][0]
+    def on_region_combo_changed(self, *args):
+        i = self.region_combo.get_active()
+        m = self.region_combo.get_model()
+        region = m[i][0]
 
-            m = self.city_combo.get_model()
-            m.clear()
-            for city in self.regions[region]:
-                m.append([city])
+        m = self.city_combo.get_model()
+        m.clear()
+        for city in self.regions[region]:
+            m.append([city])
 
-        def on_city_combo_changed(self, *args):
-            i = self.region_combo.get_active()
-            m = self.region_combo.get_model()
-            region = m[i][0]
+    def on_city_combo_changed(self, *args):
+        i = self.region_combo.get_active()
+        m = self.region_combo.get_model()
+        region = m[i][0]
 
-            i = self.city_combo.get_active()
-            if i < 0:
-                # There's no selection yet.
-                return
-            m = self.city_combo.get_model()
-            city = m[i][0].replace(' ', '_')
-            city = region + '/' + city
-            self.tzmap.select_city(city)
-except ImportError:
-    pass
+        i = self.city_combo.get_active()
+        if i < 0:
+            # There's no selection yet.
+            return
+        m = self.city_combo.get_model()
+        city = m[i][0].replace(' ', '_')
+        city = region + '/' + city
+        self.tzmap.select_city(city)
 
 class PageKde:
-    def __init__(self, *args, **kwargs):
-        pass
+    def __init__(self, controller, *args, **kwargs):
+        try:
+            from PyQt4 import uic
+            from PyQt4.QtGui import QVBoxLayout
+            from ubiquity.frontend.kde_components.Timezone import TimezoneMap
+            self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLocation.ui')
+            self.tzmap = TimezoneMap(self.page)
+            map_vbox = QVBoxLayout(self.page.map_frame)
+            map_vbox.setMargin(0)
+            map_vbox.addWidget(self.tzmap)
+        except:
+            print >>sys.stderr, 'Could not create timezone page: %s' % e
+            self.page = None
+
     def get_ui(self):
-        return 'stepLocation'
+        return self.page
+
+    def set_timezone (self, timezone):
+        self.tzmap.set_timezone(timezone)
+
+    def get_timezone (self):
+        return self.tzmap.get_timezone()
 
 class PageDebconf:
     def __init__(self, *args, **kwargs):

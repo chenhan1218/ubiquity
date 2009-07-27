@@ -60,6 +60,7 @@ from ubiquity.components import console_setup, usersetup, \
                                 partman, partman_commit, \
                                 summary, install, migrationassistant
 import ubiquity.progressposition
+import ubiquity.frontend.base
 from ubiquity.frontend.base import BaseFrontend
 
 # Define global path
@@ -71,12 +72,10 @@ GLADEDIR = os.path.join(PATH, 'glade')
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
 
-class Controller:
-    def __init__(self, wizard):
-        self._wizard = wizard
-        self.prefix = None
-        self.is_language_page = False
+class Controller(ubiquity.frontend.base.Controller):
     def translate(self, lang=None, just_me=True, reget=False):
+        if lang:
+            self._wizard.locale = lang
         self._wizard.translate_pages(lang, just_me, reget)
     def allow_go_forward(self, allowed):
         self._wizard.allow_go_forward(allowed)
@@ -166,7 +165,7 @@ class Wizard(BaseFrontend):
         self.laptop = execute("laptop-detect")
 
         # set default language
-        i18n.reset_locale()
+        self.locale = i18n.reset_locale()
 
         gobject.timeout_add(30000, self.poke_screensaver)
 
@@ -381,6 +380,7 @@ class Wizard(BaseFrontend):
 
             if not self.pages[self.pagesindex].filter_class:
                 # This page is just a UI page
+                self.dbfilter = None
                 self.set_page(self.pages[self.pagesindex].module.NAME)
                 self.run_main_loop()
                 self.pagesindex += 1
@@ -481,12 +481,6 @@ class Wizard(BaseFrontend):
 
         if self.oem_config:
             self.live_installer.set_title(self.get_string('oem_config_title'))
-            self.oem_id_vbox.show()
-            try:
-                self.oem_id_entry.set_text(
-                    self.debconf_operation('get', 'oem-config/id'))
-            except debconf.DebconfError:
-                pass
             self.fullname.set_text('OEM Configuration (temporary user)')
             self.fullname.set_editable(False)
             self.fullname.set_sensitive(False)
@@ -588,7 +582,7 @@ class Wizard(BaseFrontend):
 
     def translate_widgets(self, lang=None, widgets=None, reget=True):
         if lang is None:
-            lang = os.environ['LANG']
+            lang = self.locale
         if widgets is None:
             widgets = self.all_widgets
         if lang is None:
@@ -775,7 +769,7 @@ class Wizard(BaseFrontend):
         self.backup = False
         self.live_installer.show()
         for page in self.pages:
-            if page.module.NAME == n and page.widget:
+            if page.module.NAME == n:
                 cur = page.widget
                 break
         if n == 'console_setup':
@@ -1347,11 +1341,6 @@ class Wizard(BaseFrontend):
             return True
         else:
             return False
-
-
-    def get_oem_id (self):
-        return self.oem_id_entry.get_text()
-
 
     def set_keyboard_choices(self, choices):
         layouts = gtk.ListStore(gobject.TYPE_STRING)

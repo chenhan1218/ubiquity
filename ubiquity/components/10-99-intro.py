@@ -19,6 +19,7 @@
 # along with Ubiquity.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
+import sys
 
 NAME = 'intro'
 AFTER = None
@@ -38,22 +39,35 @@ def get_intro():
     intro_file.close()
     return text
 
-try:
-    import gtk
-    class PageGtk:
-        def __init__(self, *args, **kwargs):
-            self.page = None
-            text = get_intro()
-            if text:
-                try:
-                    builder = gtk.Builder()
-                    builder.add_from_file('/usr/share/ubiquity/gtk/stepIntro.ui')
-                    builder.get_object('intro_label').set_markup(text.rstrip('\n'))
-                    self.page = builder.get_object('page')
-                except:
-                    pass
+class PageGtk:
+    def __init__(self, *args, **kwargs):
+        self.page = None
+        text = get_intro()
+        if text:
+            try:
+                import gtk
+                builder = gtk.Builder()
+                builder.add_from_file('/usr/share/ubiquity/gtk/stepIntro.ui')
+                builder.get_object('intro_label').set_markup(text.rstrip('\n'))
+                self.page = builder.get_object('page')
+            except Exception, e:
+                print >>sys.stderr, 'Could not create intro page: %s' % e
 
-        def get_ui(self):
-            return self.page
-except:
-    pass
+    def get_ui(self):
+        return self.page
+
+class PageKde:
+    def __init__(self, *args, **kwargs):
+        self.page = None
+        text = get_intro()
+        if text:
+            try:
+                from PyQt4 import uic
+                self.page = uic.loadUi('/usr/share/ubiquity/qt/stepIntro.ui')
+                self.page.introLabel.setText(text.replace('\n', '<br>'))
+            except Exception, e:
+                print >>sys.stderr, 'Could not create intro page: %s' % e
+                self.page = None
+
+    def get_ui(self):
+        return self.page
