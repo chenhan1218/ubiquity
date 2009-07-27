@@ -865,31 +865,31 @@ Description: for internal use; can be preseeded
 
 Template: ubiquity/text/breadcrumb_language
 Type: text
-_Description: language
+_Description: Language
 
 Template: ubiquity/text/breadcrumb_timezone
 Type: text
-_Description: timezone
+_Description: Timezone
 
 Template: ubiquity/text/breadcrumb_keyboard
 Type: text
-_Description: keyboard
+_Description: Keyboard
 
 Template: ubiquity/text/breadcrumb_partition
 Type: text
-_Description: disk setup
+_Description: Disk Setup
 
 Template: ubiquity/text/breadcrumb_user
 Type: text
-_Description: user info
+_Description: User Info
 
 Template: ubiquity/text/breadcrumb_summary
 Type: text
-_Description: summary
+_Description: Summary
 
 Template: ubiquity/text/breadcrumb_install
 Type: text
-_Description: install
+_Description: Install
 
 Template: ubiquity/text/install_process_label
 Type: text
