@@ -29,7 +29,7 @@ from ubiquity import i18n, misc
 NAME = 'language'
 AFTER = None
 
-_release_notes_url_path = '/home/mike/port.py'#'/cdrom/.disk/release_notes_url'
+_release_notes_url_path = '/cdrom/.disk/release_notes_url'
 
 class PageBase:
     def set_language_choices(self, choices, choice_map):
