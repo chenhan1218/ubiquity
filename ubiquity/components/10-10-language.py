@@ -288,7 +288,7 @@ class PageDebconf:
     def __init__(self, *args, **kwargs):
         pass
     def get_ui(self):
-        return 'stepLanguage'
+        return 'ubiquity/text/language_heading_label'
 
 class Page(Plugin):
     def prepare(self, unfiltered=False):

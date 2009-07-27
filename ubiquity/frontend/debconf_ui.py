@@ -28,12 +28,6 @@ import sys
 import os
 import textwrap
 
-from debconf import Debconf
-
-from ubiquity.components import usersetup, \
-                                network, tasks, \
-                                language_apply, timezone_apply, \
-                                console_setup_apply
 from ubiquity.frontend.base import BaseFrontend
 
 class Wizard(BaseFrontend):
@@ -72,28 +66,30 @@ class Wizard(BaseFrontend):
             sys.exit(1)
 
         self.pagesindex = 0
-        pageslen = len(self.pages)
+        self.pageslen = 0
+        self.pages = []
+        for mod in self.modules:
+            if hasattr(mod.module, 'PageDebconf'):
+                mod.ui_class = mod.module.PageDebconf
+                mod.controller = Controller(self)
+                mod.ui = mod.ui_class(mod.controller)
+                widget = mod.ui.get_ui()
+                if widget:
+                    mod.widget = widget
+                    self.pageslen += 1
+                    self.pages.append(mod)
 
-        while(self.pagesindex >= 0 and self.pagesindex < pageslen):
-            current_name = self.pageuis[self.current_page]
-            step = self.pages[self.pagesindex](self)
+        while(self.pagesindex >= 0 and self.pagesindex < self.pageslen):
+            step = self.pages[self.pagesindex]
 
-            if current_name == 'stepLanguage':
-                self.db.settitle('ubiquity/text/language_heading_label')
-            elif current_name == 'stepLocation':
-                self.db.settitle('ubiquity/text/timezone_heading_label')
-            elif current_name == 'stepKeyboardConf':
-                self.db.settitle('ubiquity/text/keyboard_heading_label')
-            elif current_name == 'stepUserInfo':
-                self.db.settitle('ubiquity/text/userinfo_heading_label')
-            elif current_name == 'stepNetwork':
-                self.db.settitle('ubiquity/text/network_heading_label')
-            elif current_name == 'stepTasks':
-                self.db.settitle('ubiquity/text/tasks_heading_label')
+            self.db.settitle(step.widget)
+
+            if issubclass(self.pages[self.pagesindex].filter_class, Plugin):
+                ui = self.pages[self.pagesindex].ui
             else:
-                raise ValueError, "step %s not recognised" % current_name
-
-            ret = step.run_unfiltered()
+                ui = None
+            dbfilter = self.pages[self.pagesindex].filter_class(self, ui=ui)
+            ret = dbfilter.run_unfiltered()
 
             if ret == 10:
                 self.pagesindex -= 1
@@ -101,7 +97,7 @@ class Wizard(BaseFrontend):
                 self.pagesindex += 1
 
         # TODO: handle errors
-        if self.pagesindex == pageslen:
+        if self.pagesindex == self.pageslen:
             dbfilter = install.Install(self)
             ret = dbfilter.run_command(auto_process=True)
             if ret != 0:

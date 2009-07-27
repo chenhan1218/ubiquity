@@ -38,7 +38,7 @@ class PageDebconf:
     def __init__(self, *args, **kwargs):
         pass
     def get_ui(self):
-        return 'stepUserInfo'
+        return 'ubiquity/text/userinfo_heading_label'
 
 class Page(FilteredCommand):
     def prepare(self, unfiltered=False):

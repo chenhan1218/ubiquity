@@ -80,7 +80,7 @@ scripts/localechooser-apply usr/lib/ubiquity
 # netcfg
 d-i/source/netcfg/netcfg usr/lib/ubiquity/netcfg
 scripts/netcfg-wrapper usr/lib/ubiquity
-ubiquity/components/network.py usr/lib/ubiquity/ubiquity/components
+ubiquity/components/10*network.py usr/lib/ubiquity/plugins.d
 
 # partconf
 d-i/source/partconf/debian/partconf-*/* .
@@ -98,7 +98,7 @@ ubiquity/components/partman_commit.py usr/lib/ubiquity/ubiquity/components
 d-i/source/preseed/preseed_command bin
 
 # tasksel
-ubiquity/components/tasks.py usr/lib/ubiquity/ubiquity/components
+ubiquity/components/10*tasks.py usr/lib/ubiquity/plugins.d
 
 # tzsetup
 d-i/source/tzsetup/debian/tzmap usr/lib/ubiquity/tzsetup

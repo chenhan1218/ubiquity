@@ -17,21 +17,24 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-from ubiquity.filteredcommand import FilteredCommand
+from ubiquity.plugin import Plugin
 
-class NetworkUnfilteredOnly(Exception):
+NAME = 'tasks'
+AFTER = 'network'
+
+class TasksUnfilteredOnly(Exception):
     pass
 
 class PageDebconf:
     def __init__(self, *args, **kwargs):
         pass
     def get_ui(self):
-        return 'stepNetwork'
+        return 'ubiquity/text/tasks_heading_label'
 
 # Only supports unfiltered mode.
-class Page(FilteredCommand):
+class Page(Plugin):
     def prepare(self, unfiltered=False):
         if not unfiltered:
-            raise NetworkFilteredOnly, \
-                "network component only usable with debconf frontend"
-        return ['/usr/lib/ubiquity/netcfg-wrapper']
+            raise TasksFilteredOnly, \
+                "tasks component only usable with debconf frontend"
+        return ['tasksel']
