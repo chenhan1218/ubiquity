@@ -50,7 +50,7 @@ import debconf
 from ubiquity import filteredcommand, i18n, validation, parted_server
 from ubiquity.misc import *
 from ubiquity.plugin import Plugin
-from ubiquity.components import console_setup, usersetup, \
+from ubiquity.components import usersetup, \
                                 partman, partman_commit, summary, install
 import ubiquity.progressposition
 import ubiquity.frontend.base
@@ -301,8 +301,6 @@ class Wizard(BaseFrontend):
         self.app.connect(self.userinterface.next, SIGNAL("clicked()"), self.on_next_clicked)
         self.app.connect(self.userinterface.back, SIGNAL("clicked()"), self.on_back_clicked)
         self.app.connect(self.userinterface.quit, SIGNAL("clicked()"), self.on_quit_clicked)
-        self.app.connect(self.userinterface.keyboardlayoutview, SIGNAL("itemSelectionChanged()"), self.on_keyboard_layout_selected)
-        self.app.connect(self.userinterface.keyboardvariantview, SIGNAL("itemSelectionChanged()"), self.on_keyboard_variant_selected)
 
         self.app.connect(self.userinterface.fullname, SIGNAL("textChanged(const QString &)"), self.on_fullname_changed)
         self.app.connect(self.userinterface.username, SIGNAL("textChanged(const QString &)"), self.on_username_changed)
@@ -360,7 +358,10 @@ class Wizard(BaseFrontend):
             if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                 self.allow_change_step(False)
                 self.dbfilter.start(auto_process=True)
+
+            self.pages[self.pagesindex].controller.dbfilter = self.dbfilter
             self.app.exec_()
+            self.pages[self.pagesindex].controller.dbfilter = None
 
             if self.backup or self.dbfilter_handle_status():
                 if self.installing:
@@ -628,9 +629,7 @@ class Wizard(BaseFrontend):
                 self.set_current_page(index)
                 break
             index += 1
-        if n == 'console_setup':
-            self.set_current_page(self.step_index("stepKeyboardConf"))
-        elif n == 'partman':
+        if n == 'partman':
             # Rather than try to guess which partman page we should be on,
             # we leave that decision to set_autopartitioning_choices and
             # update_partman.
@@ -842,20 +841,6 @@ class Wizard(BaseFrontend):
             # debconffilter_done() to be called when the filter exits
         else:
             self.app.exit()
-
-    def on_keyboard_layout_selected(self):
-        if isinstance(self.dbfilter, console_setup.Page):
-            layout = self.get_keyboard()
-            if layout is not None:
-                self.current_layout = layout
-                self.dbfilter.change_layout(layout)
-
-    def on_keyboard_variant_selected(self):
-        if isinstance(self.dbfilter, console_setup.Page):
-            layout = self.get_keyboard()
-            variant = self.get_keyboard_variant()
-            if layout is not None and variant is not None:
-                self.dbfilter.apply_keyboard(layout, variant)
 
     def process_step(self):
         """Process and validate the results of this step."""
@@ -1069,59 +1054,6 @@ class Wizard(BaseFrontend):
             return True
         else:
             return False
-
-    def get_oem_id (self):
-        return unicode(self.userinterface.oem_id_entry.text())
-
-    def set_keyboard_choices(self, choices):
-        self.userinterface.keyboardlayoutview.clear()
-        for choice in sorted(choices):
-            QListWidgetItem(QString(unicode(choice)), self.userinterface.keyboardlayoutview)
-
-        if self.current_layout is not None:
-            self.set_keyboard(self.current_layout)
-
-    def set_keyboard (self, layout):
-        BaseFrontend.set_keyboard(self, layout)
-        counter = 0
-        max = self.userinterface.keyboardlayoutview.count()
-        while counter < max:
-            selection = self.userinterface.keyboardlayoutview.item(counter)
-            if unicode(selection.text()) == layout:
-                selection.setSelected(True)
-                self.userinterface.keyboardlayoutview.scrollToItem(selection)
-                break
-            counter += 1
-
-    def get_keyboard (self):
-        items = self.userinterface.keyboardlayoutview.selectedItems()
-        if len(items) == 1:
-            return unicode(items[0].text())
-        else:
-            return None
-
-    def set_keyboard_variant_choices(self, choices):
-        self.userinterface.keyboardvariantview.clear()
-        for choice in sorted(choices):
-            QListWidgetItem(QString(unicode(choice)), self.userinterface.keyboardvariantview)
-
-    def set_keyboard_variant(self, variant):
-        counter = 0
-        max = self.userinterface.keyboardvariantview.count()
-        while counter < max:
-            selection = self.userinterface.keyboardvariantview.item(counter)
-            if unicode(selection.text()) == variant:
-                selection.setSelected(True)
-                self.userinterface.keyboardvariantview.scrollToItem(selection)
-                break
-            counter += 1
-
-    def get_keyboard_variant(self):
-        items = self.userinterface.keyboardvariantview.selectedItems()
-        if len(items) == 1:
-            return unicode(items[0].text())
-        else:
-            return None
 
     # provides the basic disk layout
     def set_disk_layout(self, layout):

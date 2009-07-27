@@ -27,7 +27,7 @@ import subprocess
 import debconf
 from ubiquity.debconfcommunicator import DebconfCommunicator
 from ubiquity.misc import drop_privileges
-from ubiquity.components import console_setup, usersetup, \
+from ubiquity.components import usersetup, \
                                 partman, partman_commit, \
                                 summary, install, migrationassistant
 from ubiquity import i18n
@@ -36,7 +36,6 @@ from ubiquity import plugin_manager
 # Pages that may be loaded. Interpretation is up to the frontend, but it is
 # strongly recommended to keep the page identifiers the same.
 PAGE_COMPONENTS = {
-    'KeyboardConf' : console_setup,
     'PartAuto' : partman,
     'PartAdvanced' : partman,
     'UserInfo' : usersetup,
@@ -49,6 +48,7 @@ PAGE_COMPONENTS = {
 class Controller:
     def __init__(self, wizard):
         self._wizard = wizard
+        self.dbfilter = None
         self.prefix = None
         self.oem_config = wizard.oem_config
         self.oem_user_config = wizard.oem_user_config
@@ -88,7 +88,6 @@ class BaseFrontend:
         self.distro = distro
         self.dbfilter = None
         self.dbfilter_status = None
-        self.current_layout = None
         self.resize_choice = None
         self.manual_choice = None
         self.summary_device = None
@@ -123,11 +122,6 @@ class BaseFrontend:
         self.oem_user_config = False
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
           self.oem_user_config = True
-        
-        try:
-            self.oem_id = db.get('oem-config/id')
-        except debconf.DebconfError:
-            self.oem_id = ''
 
         if self.oem_config:
             try:
@@ -357,35 +351,6 @@ class BaseFrontend:
 
     # Interfaces with various components. If a given component is not used
     # then its abstract methods may safely be left unimplemented.
-
-    def get_oem_id(self):
-        """Get a unique identifier for this batch of installations."""
-        return self.oem_id
-
-    # ubiquity.components.console_setup
-
-    def set_keyboard_choices(self, choices):
-        """Set the available keyboard layout choices."""
-        pass
-
-    def set_keyboard(self, layout):
-        """Set the current keyboard layout."""
-        self.current_layout = layout
-
-    def get_keyboard(self):
-        """Get the current keyboard layout."""
-        self._abstract('get_keyboard')
-
-    def set_keyboard_variant_choices(self, choices):
-        """Set the available keyboard variant choices."""
-        pass
-
-    def set_keyboard_variant(self, variant):
-        """Set the current keyboard variant."""
-        pass
-
-    def get_keyboard_variant(self):
-        self._abstract('get_keyboard_variant')
 
     # ubiquity.components.partman
 

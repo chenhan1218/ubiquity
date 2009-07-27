@@ -44,7 +44,7 @@ ubiquity/components/clock_setup.py usr/lib/ubiquity/ubiquity/components
 # console-setup
 compat/locale usr/lib/ubiquity/console-setup
 scripts/console-setup-apply usr/lib/ubiquity
-ubiquity/components/console_setup.py usr/lib/ubiquity/ubiquity/components
+ubiquity/components/10*console_setup.py usr/lib/ubiquity/plugins.d
 ubiquity/components/console_setup_apply.py usr/lib/ubiquity/ubiquity/components
 
 # debian-installer-utils

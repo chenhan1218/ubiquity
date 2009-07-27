@@ -56,7 +56,7 @@ from ubiquity import filteredcommand, gconftool, i18n, osextras, validation, \
                      segmented_bar, wrap_label
 from ubiquity.misc import *
 from ubiquity.plugin import Plugin
-from ubiquity.components import console_setup, usersetup, \
+from ubiquity.components import usersetup, \
                                 partman, partman_commit, \
                                 summary, install, migrationassistant
 import ubiquity.progressposition
@@ -393,14 +393,15 @@ class Wizard(BaseFrontend):
                 ui = None
             self.dbfilter = self.pages[self.pagesindex].filter_class(self, ui=ui)
 
-            self.prepare_page()
-
             # Non-debconf steps are no longer possible as the interface is now
             # driven by whether there is a question to ask.
             if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                 self.allow_change_step(False)
                 self.dbfilter.start(auto_process=True)
+
+            self.pages[self.pagesindex].controller.dbfilter = self.dbfilter
             gtk.main()
+            self.pages[self.pagesindex].controller.dbfilter = None
 
             if self.backup or self.dbfilter_handle_status():
                 if self.installing:
@@ -772,9 +773,7 @@ class Wizard(BaseFrontend):
             if page.module.NAME == n:
                 cur = page.widget
                 break
-        if n == 'console_setup':
-            cur = self.stepKeyboardConf
-        elif n == 'partman':
+        if n == 'partman':
             # Rather than try to guess which partman page we should be on,
             # we leave that decision to set_autopartitioning_choices and
             # update_partman.
@@ -1030,37 +1029,6 @@ class Wizard(BaseFrontend):
             # debconffilter_done() to be called when the filter exits
         elif gtk.main_level() > 0:
             gtk.main_quit()
-
-    def on_keyboardlayoutview_row_activated(self, treeview, path, view_column):
-        self.next.activate()
-
-    def on_keyboard_layout_selected(self, start_editing, *args):
-        if isinstance(self.dbfilter, console_setup.Page):
-            layout = self.get_keyboard()
-            if layout is not None:
-                self.current_layout = layout
-                self.dbfilter.change_layout(layout)
-
-    def on_keyboardvariantview_row_activated(self, treeview, path,
-                                             view_column):
-        self.next.activate()
-
-    def on_keyboard_variant_selected(self, start_editing, *args):
-        if isinstance(self.dbfilter, console_setup.Page):
-            layout = self.get_keyboard()
-            variant = self.get_keyboard_variant()
-            if layout is not None and variant is not None:
-                self.dbfilter.apply_keyboard(layout, variant)
-
-    def prepare_page(self):
-        """Set up the frontend in preparation for running a step."""
-
-        # Note that self.current_page et al have not been updated for the
-        # new page yet, so we have to check self.dbfilter.
-
-        if isinstance(self.dbfilter, console_setup.Page):
-            self.default_keyboard_layout = None
-            self.default_keyboard_variant = None
 
     def process_step(self):
         """Process and validate the results of this step."""
@@ -1342,116 +1310,6 @@ class Wizard(BaseFrontend):
         else:
             return False
 
-    def set_keyboard_choices(self, choices):
-        layouts = gtk.ListStore(gobject.TYPE_STRING)
-        self.keyboardlayoutview.set_model(layouts)
-        for v in sorted(choices):
-            layouts.append([v])
-
-        if len(self.keyboardlayoutview.get_columns()) < 1:
-            column = gtk.TreeViewColumn("Layout", gtk.CellRendererText(), text=0)
-            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
-            self.keyboardlayoutview.append_column(column)
-            selection = self.keyboardlayoutview.get_selection()
-            selection.connect('changed',
-                              self.on_keyboard_layout_selected)
-
-        if self.current_layout is not None:
-            self.set_keyboard(self.current_layout)
-
-    def set_keyboard (self, layout):
-        if self.default_keyboard_layout is None:
-            self.default_keyboard_layout = layout
-        BaseFrontend.set_keyboard(self, layout)
-        model = self.keyboardlayoutview.get_model()
-        if model is None:
-            return
-        iterator = model.iter_children(None)
-        while iterator is not None:
-            if unicode(model.get_value(iterator, 0)) == layout:
-                path = model.get_path(iterator)
-                self.keyboardlayoutview.get_selection().select_path(path)
-                self.keyboardlayoutview.scroll_to_cell(
-                    path, use_align=True, row_align=0.5)
-                break
-            iterator = model.iter_next(iterator)
-
-    def get_keyboard (self):
-        if self.suggested_keymap.get_active():
-            if self.default_keyboard_layout is not None:
-                return None
-            else:
-                return unicode(self.default_keyboard_layout)
-        selection = self.keyboardlayoutview.get_selection()
-        (model, iterator) = selection.get_selected()
-        if iterator is None:
-            return None
-        else:
-            return unicode(model.get_value(iterator, 0))
-
-    def set_keyboard_variant_choices(self, choices):
-        variants = gtk.ListStore(gobject.TYPE_STRING)
-        self.keyboardvariantview.set_model(variants)
-        for v in sorted(choices):
-            variants.append([v])
-
-        if len(self.keyboardvariantview.get_columns()) < 1:
-            column = gtk.TreeViewColumn("Variant", gtk.CellRendererText(), text=0)
-            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
-            self.keyboardvariantview.append_column(column)
-            selection = self.keyboardvariantview.get_selection()
-            selection.connect('changed',
-                              self.on_keyboard_variant_selected)
-
-    def set_keyboard_variant (self, variant):
-        if self.default_keyboard_variant is None:
-            self.default_keyboard_variant = variant
-        # Make sure the "suggested option" is selected, otherwise this will
-        # change every time the user selects a new keyboard in the manual
-        # choice selection boxes.
-        if self.suggested_keymap.get_active():
-            self.suggested_keymap_label.set_property('label', variant)
-            self.suggested_keymap.toggled()
-        model = self.keyboardvariantview.get_model()
-        if model is None:
-            return
-        iterator = model.iter_children(None)
-        while iterator is not None:
-            if unicode(model.get_value(iterator, 0)) == variant:
-                path = model.get_path(iterator)
-                self.keyboardvariantview.get_selection().select_path(path)
-                self.keyboardvariantview.scroll_to_cell(
-                    path, use_align=True, row_align=0.5)
-                break
-            iterator = model.iter_next(iterator)
-
-    def get_keyboard_variant (self):
-        if self.suggested_keymap.get_active():
-            if self.default_keyboard_variant is None:
-                return None
-            else:
-                return unicode(self.default_keyboard_variant)
-        selection = self.keyboardvariantview.get_selection()
-        (model, iterator) = selection.get_selected()
-        if iterator is None:
-            return None
-        else:
-            return unicode(model.get_value(iterator, 0))
-
-    def on_suggested_keymap_toggled (self, widget):
-        if self.suggested_keymap.get_active():
-            self.keyboard_layout_hbox.set_sensitive(False)
-            if isinstance(self.dbfilter, console_setup.Page):
-                if (self.default_keyboard_layout is not None and
-                    self.default_keyboard_variant is not None):
-                    self.current_layout = self.default_keyboard_layout
-                    self.dbfilter.change_layout(self.default_keyboard_layout)
-                    self.dbfilter.apply_keyboard(self.default_keyboard_layout,
-                                                 self.default_keyboard_variant)
-
-        else:
-            self.keyboard_layout_hbox.set_sensitive(True)
-        
     def set_disk_layout(self, layout):
         self.disk_layout = layout
 

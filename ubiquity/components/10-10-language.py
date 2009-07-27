@@ -282,7 +282,7 @@ class PageKde(PageBase):
         return self.page.oem_id_entry.setText(text)
 
     def get_oem_id(self):
-        return self.page.oem_id_entry.text()
+        return unicode(self.page.oem_id_entry.text())
 
 class PageDebconf:
     def __init__(self, *args, **kwargs):
