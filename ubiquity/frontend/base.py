@@ -36,11 +36,8 @@ from ubiquity import plugin_manager
 # Pages that may be loaded. Interpretation is up to the frontend, but it is
 # strongly recommended to keep the page identifiers the same.
 PAGE_COMPONENTS = {
-    'PartAuto' : partman,
-    'PartAdvanced' : partman,
+    'Partman' : partman,
     'UserInfo' : usersetup,
-    'Network' : None,
-    'Tasks' : None,
     'MigrationAssistant' : migrationassistant,
     'Ready' : summary,
 }
@@ -150,33 +147,25 @@ class BaseFrontend:
         except debconf.DebconfError:
             pass
 
+        # These step lists are the steps that aren't yet converted to plugins.
+        # We just hardcode them here, but they will eventually be dynamic.
         if self.oem_user_config:
-            step_list_name = 'ubiquity/oem-config-steps'
+            steps = ['UserInfo']
         else:
-            step_list_name = 'ubiquity/steps'
-        valid_step_list = db.metaget(step_list_name, 'choices-c')
-        valid_steps = valid_step_list.replace(',', ' ').split()
-        step_list = db.get(step_list_name)
-        steps = step_list.replace(',', ' ').split()
+            steps = ['Partman', 'UserInfo', 'MigrationAssistant', 'Ready']
         modules = []
-        for valid_page in valid_steps:
-            if valid_page in steps:
-                if valid_page == 'MigrationAssistant' and \
-                   'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
-                    continue
-                step_name = "step%s" % valid_page
-                # Handle special frontend overrides
-                if hasattr(self, 'pages_override_remove') and \
-                   step_name in self.pages_override_remove:
-                    continue
-                page_module = PAGE_COMPONENTS[valid_page]
-                if page_module is not None:
-                    modules.append(page_module)
         for step in steps:
-            if step not in valid_steps:
-                syslog.syslog(syslog.LOG_WARNING,
-                              "Unknown step name in %s: %s" %
-                              (step_list_name, step))
+            if step == 'MigrationAssistant' and \
+                'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
+                continue
+            step_name = "step%s" % step
+            # Handle special frontend overrides
+            if hasattr(self, 'pages_override_remove') and \
+                step_name in self.pages_override_remove:
+                continue
+            page_module = PAGE_COMPONENTS[step]
+            if page_module is not None:
+                modules.append(page_module)
 
         # Load plugins
         plugins = plugin_manager.load_plugins()

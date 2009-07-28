@@ -88,6 +88,8 @@ class Controller(ubiquity.frontend.base.Controller):
         self._wizard.back.activate()
 
 class Wizard(BaseFrontend):
+    PARTMAN_AUTO_PAGE = 0
+    PARTMAN_ADV_PAGE = 1
 
     def __init__(self, distro):
         def add_subpage(self, steps, name):
@@ -188,6 +190,7 @@ class Wizard(BaseFrontend):
         self.pageslen = 0
         steps = self.glade.get_widget("steps")
         for mod in self.modules:
+            print mod.module.NAME
             if hasattr(mod.module, 'PageGtk'):
                 mod.ui_class = mod.module.PageGtk
                 mod.controller = Controller(self)
@@ -418,7 +421,8 @@ class Wizard(BaseFrontend):
                 if self.backup:
                     if self.pagesindex > 0:
                         step = self.step_name(self.steps.get_current_page())
-                        if not step == 'stepPartAdvanced':
+                        if not step == 'stepPartman' or \
+                           self.stepPartman.get_current_page() != self.PARTMAN_ADV_PAGE:
                             self.pagesindex = self.pagesindex - 1
 
             while gtk.events_pending():
@@ -537,9 +541,9 @@ class Wizard(BaseFrontend):
         if 'UBIQUITY_DEBUG' in os.environ:
             self.password_debug_warning_label.show()
 
-        if hasattr(self, 'stepPartAuto'):
+        if hasattr(self, 'stepPartman'):
             self.previous_partitioning_page = \
-                self.steps.page_num(self.stepPartAuto)
+                self.steps.page_num(self.stepPartman)
 
         # set initial bottom bar status
         self.allow_go_backward(False)
@@ -753,9 +757,10 @@ class Wizard(BaseFrontend):
             self.quit_installer()
         else:
             step = self.step_name(self.steps.get_current_page())
-            if step.startswith("stepPart"):
-                print('dbfilter_handle_status stepPart')
-                self.set_current_page(self.steps.page_num(self.stepPartAuto))
+            if step == "stepPartman":
+                print('dbfilter_handle_status stepPartman')
+                self.set_current_page(self.steps.page_num(self.stepPartman))
+                self.stepPartman.set_current_page(self.PARTMAN_AUTO_PAGE)
             return False
 
 
@@ -824,7 +829,7 @@ class Wizard(BaseFrontend):
 
         self.current_page = None
 
-        lang = self.get_language()
+        lang = self.locale.split('.')[0].split('_')[0]
         slides = '/usr/share/ubiquity-slideshow/%s/index.html' % lang
         s = self.live_installer.get_screen()
         sh = s.get_height()
@@ -1010,19 +1015,15 @@ class Wizard(BaseFrontend):
 
         self.allow_change_step(False)
 
-        step = self.step_name(self.steps.get_current_page())
-
-        # Beware that 'step' is the step we're leaving, not the one we're
-        # entering. At present it's a little awkward to define actions that
-        # occur upon entering a page without unwanted side-effects when the
-        # user tries to go forward but fails due to validation.
-        if step == "stepPartAuto":
-            self.part_advanced_warning_message.set_text('')
-            self.part_advanced_warning_hbox.hide()
-        if step in ("stepPartAuto", "stepPartAdvanced"):
-            self.username_error_box.hide()
-            self.password_error_box.hide()
-            self.hostname_error_box.hide()
+        if self.pagesindex < self.pageslen - 1:
+            step = self.pages[self.pagesindex + 1].module.NAME
+            if step == 'partman':
+                self.part_advanced_warning_message.set_text('')
+                self.part_advanced_warning_hbox.hide()
+            elif step == 'usersetup':
+                self.username_error_box.hide()
+                self.password_error_box.hide()
+                self.hostname_error_box.hide()
 
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
@@ -1035,21 +1036,20 @@ class Wizard(BaseFrontend):
         """Process and validate the results of this step."""
 
         # setting actual step
-        step_num = self.steps.get_current_page()
-        page = self.pages[step_num]
-        step = self.step_name(step_num)
+        page = self.pages[self.pagesindex]
+        step = page.module.NAME
         syslog.syslog('Step_before = %s' % step)
 
-        if step.startswith("stepPart"):
-            self.previous_partitioning_page = step_num
-        # Automatic partitioning
-        elif step == "stepPartAuto":
-            self.process_autopartitioning()
-        # Advanced partitioning
-        elif step == "stepPartAdvanced":
-            self.info_loop(None)
+        if step == "partman":
+            self.previous_partitioning_page = self.pagesindex
+            # Automatic partitioning
+            if self.stepPartman.get_current_page() == self.PARTMAN_AUTO_PAGE:
+                self.process_autopartitioning()
+            # Advanced partitioning
+            elif self.stepPartman.get_current_page() == self.PARTMAN_ADV_PAGE:
+                self.info_loop(None)
         # Identification
-        elif step == "stepUserInfo":
+        elif step == "usersetup":
             self.process_identification()
 
     def process_identification (self):
@@ -1130,7 +1130,7 @@ class Wizard(BaseFrontend):
 
 
     def link_button_browser (self, button, uri):
-        lang = self.get_language()
+        lang = self.locale
         lang = lang.split('.')[0] # strip encoding
         uri = uri.replace('${LANG}', lang)
         subprocess.Popen(['sensible-browser', uri],
@@ -1451,7 +1451,8 @@ class Wizard(BaseFrontend):
         self.autopartition_choices_vbox.show_all()
 
         # make sure we're on the autopartitioning page
-        self.set_current_page(self.steps.page_num(self.stepPartAuto))
+        self.set_current_page(self.steps.page_num(self.stepPartman))
+        self.stepPartman.set_current_page(self.PARTMAN_AUTO_PAGE)
 
 
     def get_autopartition_choice (self):
@@ -1518,7 +1519,7 @@ class Wizard(BaseFrontend):
 
     def partman_column_mountpoint (self, column, cell, model, iterator):
         partition = model[iterator][1]
-        if isinstance(self.dbfilter, partman.Partman):
+        if isinstance(self.dbfilter, partman.Page):
             mountpoint = self.dbfilter.get_current_mountpoint(partition)
             if mountpoint is None:
                 mountpoint = ''
@@ -1544,7 +1545,7 @@ class Wizard(BaseFrontend):
     def partman_column_format_toggled (self, cell, path, user_data):
         if not self.allowed_change_step:
             return
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
         model = user_data
         devpart = model[path][0]
@@ -1580,7 +1581,7 @@ class Wizard(BaseFrontend):
     def partman_popup (self, widget, event):
         if not self.allowed_change_step:
             return
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
 
         model, iterator = widget.get_selection().get_selected()
@@ -1636,7 +1637,7 @@ class Wizard(BaseFrontend):
     def partman_create_dialog (self, devpart, partition):
         if not self.allowed_change_step:
             return
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
 
         self.partition_create_dialog.show_all()
@@ -1695,7 +1696,7 @@ class Wizard(BaseFrontend):
         self.partition_create_dialog.hide()
 
         if (response == gtk.RESPONSE_OK and
-            isinstance(self.dbfilter, partman.Partman)):
+            isinstance(self.dbfilter, partman.Page)):
             if partition['parted']['type'] == 'primary':
                 prilog = partman.PARTITION_TYPE_PRIMARY
             elif partition['parted']['type'] == 'logical':
@@ -1736,7 +1737,7 @@ class Wizard(BaseFrontend):
             self.partition_create_mount_combo.set_sensitive(False)
         else:
             self.partition_create_mount_combo.set_sensitive(True)
-            if isinstance(self.dbfilter, partman.Partman):
+            if isinstance(self.dbfilter, partman.Pag):
                 mount_model = self.partition_create_mount_combo.get_model()
                 if mount_model is not None:
                     fs = model[iterator][1]
@@ -1748,7 +1749,7 @@ class Wizard(BaseFrontend):
     def partman_edit_dialog (self, devpart, partition):
         if not self.allowed_change_step:
             return
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
 
         self.partition_edit_dialog.show_all()
@@ -1830,7 +1831,7 @@ class Wizard(BaseFrontend):
         self.partition_edit_dialog.hide()
 
         if (response == gtk.RESPONSE_OK and
-            isinstance(self.dbfilter, partman.Partman)):
+            isinstance(self.dbfilter, partman.Page)):
             size = None
             if current_size is not None:
                 size = str(self.partition_edit_size_spinbutton.get_value())
@@ -1880,7 +1881,7 @@ class Wizard(BaseFrontend):
         else:
             self.partition_edit_mount_combo.set_sensitive(True)
             self.partition_edit_format_checkbutton.set_sensitive(True)
-            if isinstance(self.dbfilter, partman.Partman):
+            if isinstance(self.dbfilter, partman.Page):
                 mount_model = self.partition_edit_mount_combo.get_model()
                 if mount_model is not None:
                     fs = model[iterator][0]
@@ -1905,7 +1906,7 @@ class Wizard(BaseFrontend):
             return False
 
         if event.keyval == gtk.keysyms.Delete:
-            if not isinstance(self.dbfilter, partman.Partman):
+            if not isinstance(self.dbfilter, partman.Page):
                 return False
             devpart, partition = self.partition_list_get_selection()
             for action in self.dbfilter.get_actions(devpart, partition):
@@ -1924,7 +1925,7 @@ class Wizard(BaseFrontend):
         self.partition_button_new.set_sensitive(False)
         self.partition_button_edit.set_sensitive(False)
         self.partition_button_delete.set_sensitive(False)
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
 
         model, iterator = selection.get_selected()
@@ -1971,7 +1972,7 @@ class Wizard(BaseFrontend):
                 if otherpart['dev'] == partition['dev'] and 'id' in otherpart:
                     break
             else:
-                if not isinstance(self.dbfilter, partman.Partman):
+                if not isinstance(self.dbfilter, partman.Page):
                     return
                 self.allow_change_step(False)
                 self.dbfilter.create_label(devpart)
@@ -1994,7 +1995,7 @@ class Wizard(BaseFrontend):
     def on_partition_list_new_label_activate (self, widget):
         if not self.allowed_change_step:
             return
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
         self.allow_change_step(False)
         devpart, partition = self.partition_list_get_selection()
@@ -2011,7 +2012,7 @@ class Wizard(BaseFrontend):
     def on_partition_list_delete_activate (self, widget):
         if not self.allowed_change_step:
             return
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
         self.allow_change_step(False)
         devpart, partition = self.partition_list_get_selection()
@@ -2020,7 +2021,7 @@ class Wizard(BaseFrontend):
     def on_partition_list_undo_activate (self, widget):
         if not self.allowed_change_step:
             return
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
         self.allow_change_step(False)
         self.dbfilter.undo()
@@ -2133,7 +2134,8 @@ class Wizard(BaseFrontend):
         if sel.count_selected_rows() == 0:
             sel.select_path(0)
         # make sure we're on the advanced partitioning page
-        self.set_current_page(self.steps.page_num(self.stepPartAdvanced))
+        self.set_current_page(self.steps.page_num(self.stepPartman))
+        self.stepPartman.set_current_page(self.PARTMAN_ADV_PAGE)
 
     def ma_get_choices(self):
         return self.ma_choices
@@ -2426,7 +2428,7 @@ class Wizard(BaseFrontend):
                     self.pagesindex = self.pages.index(page)
                     break
             if self.pagesindex == -1: return
-            self.dbfilter = partman.Partman(self)
+            self.dbfilter = partman.Page(self)
             self.set_current_page(self.previous_partitioning_page)
             self.next.set_label("gtk-go-forward")
             self.translate_widget(self.next)

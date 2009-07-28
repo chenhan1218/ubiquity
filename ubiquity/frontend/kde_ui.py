@@ -1465,7 +1465,7 @@ class Wizard(BaseFrontend):
     def partman_create_dialog(self, devpart, partition):
         if not self.allowed_change_step:
             return
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
 
         self.create_dialog = QDialog(self.ui)
@@ -1517,7 +1517,7 @@ class Wizard(BaseFrontend):
         response = self.create_dialog.exec_()
 
         if (response == QDialog.Accepted and
-            isinstance(self.dbfilter, partman.Partman)):
+            isinstance(self.dbfilter, partman.Page)):
             if partition['parted']['type'] == 'primary':
                 prilog = partman.PARTITION_TYPE_PRIMARY
             elif partition['parted']['type'] == 'logical':
@@ -1558,7 +1558,7 @@ class Wizard(BaseFrontend):
             self.create_dialog.partition_create_mount_combo.setEnabled(False)
         else:
             self.create_dialog.partition_create_mount_combo.setEnabled(True)
-            if isinstance(self.dbfilter, partman.Partman):
+            if isinstance(self.dbfilter, partman.Page):
                 self.create_dialog.partition_create_mount_combo.clear()
                 for mp, choice_c, choice in \
                     self.dbfilter.default_mountpoint_choices(method):
@@ -1567,7 +1567,7 @@ class Wizard(BaseFrontend):
     def partman_edit_dialog(self, devpart, partition):
         if not self.allowed_change_step:
             return
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
 
         self.edit_dialog = QDialog(self.ui)
@@ -1646,7 +1646,7 @@ class Wizard(BaseFrontend):
         response = self.edit_dialog.exec_()
 
         if (response == QDialog.Accepted and
-            isinstance(self.dbfilter, partman.Partman)):
+            isinstance(self.dbfilter, partman.Page)):
             size = None
             if current_size is not None:
                 size = str(self.edit_dialog.partition_edit_size_spinbutton.value())
@@ -1696,7 +1696,7 @@ class Wizard(BaseFrontend):
         else:
             self.edit_dialog.partition_edit_mount_combo.setEnabled(True)
             self.edit_dialog.partition_edit_format_checkbutton.setEnabled(True)
-            if isinstance(self.dbfilter, partman.Partman):
+            if isinstance(self.dbfilter, partman.Page):
                 self.edit_dialog.partition_edit_mount_combo.clear()
                 for mp, choice_c, choice in \
                     self.dbfilter.default_mountpoint_choices(method):
@@ -1707,7 +1707,7 @@ class Wizard(BaseFrontend):
         self.ui.partition_button_new.setEnabled(False)
         self.ui.partition_button_edit.setEnabled(False)
         self.ui.partition_button_delete.setEnabled(False)
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
 
         indexes = self.ui.partition_list_treeview.selectedIndexes()
@@ -1753,7 +1753,7 @@ class Wizard(BaseFrontend):
                 if otherpart['dev'] == partition['dev'] and 'id' in otherpart:
                     break
             else:
-                if not isinstance(self.dbfilter, partman.Partman):
+                if not isinstance(self.dbfilter, partman.Page):
                     return
                 self.allow_change_step(False)
                 self.dbfilter.create_label(devpart)
@@ -1773,7 +1773,7 @@ class Wizard(BaseFrontend):
 
         if not self.allowed_change_step:
             return
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
         self.allow_change_step(False)
         self.dbfilter.create_label(devpart)
@@ -1808,7 +1808,7 @@ class Wizard(BaseFrontend):
 
         if not self.allowed_change_step:
             return
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
         self.allow_change_step(False)
         self.dbfilter.delete_partition(devpart)
@@ -1816,7 +1816,7 @@ class Wizard(BaseFrontend):
     def on_partition_list_undo_activate(self, ticked):
         if not self.allowed_change_step:
             return
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
         self.allow_change_step(False)
         self.dbfilter.undo()
@@ -1824,7 +1824,7 @@ class Wizard(BaseFrontend):
     def partman_popup (self, position):
         if not self.allowed_change_step:
             return
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
 
         selected = self.ui.partition_list_treeview.selectedIndexes()
@@ -2016,8 +2016,8 @@ class Wizard(BaseFrontend):
         if self.installing and not self.installing_no_return:
             # Go back to the partitioner and try again.
             #self.live_installer.show()
-            self.pagesindex = self.pages.index(partman.Partman)
-            self.dbfilter = partman.Partman(self)
+            self.pagesindex = self.pages.index(partman.Page)
+            self.dbfilter = partman.Page(self)
             self.set_current_page(self.previous_partitioning_page)
             self.ui.next.setText(self.get_string("next").replace('_', '&', 1))
             self.ui.next.setIcon(self.forwardIcon)

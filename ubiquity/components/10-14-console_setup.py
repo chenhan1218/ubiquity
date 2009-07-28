@@ -495,6 +495,8 @@ class Page(Plugin):
         options = self.db.get('console-setup/optionscode')
         self.apply_real_keyboard(model, layout, variant, options.split(','))
 
+        Plugin.cleanup(self)
+
         if layout == '':
             return
 
@@ -582,4 +584,3 @@ class Page(Plugin):
         oldconfig.close()
         os.rename(newconfigfile, oldconfigfile)
         misc.drop_privileges()
-        Plugin.cleanup(self)
