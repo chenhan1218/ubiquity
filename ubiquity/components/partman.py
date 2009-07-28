@@ -52,13 +52,10 @@ class PartmanOptionError(LookupError):
     pass
 
 class Page(FilteredCommand):
-    def __init__(self, frontend=None):
-        FilteredCommand.__init__(self, frontend)
+    def prepare(self):
         self.some_device_desc = ''
         self.resize_desc = ''
         self.manual_desc = ''
-
-    def prepare(self):
         # If an old parted_server is still running, clean it up.
         regain_privileges()
         if os.path.exists('/var/run/parted_server.pid'):

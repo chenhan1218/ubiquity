@@ -155,9 +155,6 @@ def will_be_installed(pkg):
         return True
 
 class Page(FilteredCommand):
-    def __init__(self, frontend):
-        FilteredCommand.__init__(self, frontend)
-
     def prepare(self):
         return ('/usr/share/ubiquity/summary', ['^ubiquity/summary.*'])
 

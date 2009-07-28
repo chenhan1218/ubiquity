@@ -882,7 +882,7 @@ Description: for internal use; can be preseeded
 
 Template: ubiquity/oem-config-steps
 Type: multiselect
-Choices: UserInfo, Network, Tasks, Ready
+Choices: UserInfo, Ready
 Default: UserInfo
 Description: for internal use; can be preseeded
  List of steps to display. Steps are always displayed in the order given by
