@@ -260,6 +260,36 @@ class PageDebconf:
     def get_ui(self):
         return 'ubiquity/text/keyboard_heading_label'
 
+class PageNoninteractive:
+    def __init__(self, controller, *args, **kwargs):
+        self.controller = controller
+    def get_ui(self):
+        return None
+
+    def set_keyboard_choices(self, choices):
+        """Set the available keyboard layout choices."""
+        pass
+
+    def set_keyboard(self, layout):
+        """Set the current keyboard layout."""
+        self.current_layout = layout
+
+    def get_keyboard(self):
+        """Get the current keyboard layout."""
+        return self.current_layout
+
+    def set_keyboard_variant_choices(self, choices):
+        """Set the available keyboard variant choices."""
+        pass
+
+    def set_keyboard_variant(self, variant):
+        """Set the current keyboard variant."""
+        self.keyboard_variant = variant
+
+    def get_keyboard_variant(self):
+        #print '*** get_keyboard_variant'
+        return self.keyboard_variant
+
 class Page(Plugin):
     def prepare(self, unfiltered=False):
         self.preseed('console-setup/ask_detect', 'false')

@@ -190,7 +190,6 @@ class Wizard(BaseFrontend):
         self.pageslen = 0
         steps = self.glade.get_widget("steps")
         for mod in self.modules:
-            print mod.module.NAME
             if hasattr(mod.module, 'PageGtk'):
                 mod.ui_class = mod.module.PageGtk
                 mod.controller = Controller(self)

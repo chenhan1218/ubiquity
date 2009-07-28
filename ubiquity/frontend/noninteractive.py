@@ -36,9 +36,10 @@ import signal
 from ubiquity import filteredcommand, i18n
 from ubiquity.misc import *
 from ubiquity.components import install, partman_commit
+from ubiquity.plugin import Plugin
 import ubiquity.progressposition
+import ubiquity.frontend.base
 from ubiquity.frontend.base import BaseFrontend
-import debconf
 
 class Wizard(BaseFrontend):
 
@@ -57,6 +58,14 @@ class Wizard(BaseFrontend):
         self.encrypt_home = False
         self.mainloop = gobject.MainLoop()
 
+        self.pages = []
+        for mod in self.modules:
+            if hasattr(mod.module, 'PageNoninteractive'):
+                mod.ui_class = mod.module.PageNoninteractive
+                mod.controller = ubiquity.frontend.base.Controller(self)
+                mod.ui = mod.ui_class(mod.controller)
+                self.pages.append(mod)
+
         i18n.reset_locale()
 
         if self.oem_config:
@@ -72,7 +81,11 @@ class Wizard(BaseFrontend):
             sys.exit(1)
 
         for x in self.pages:
-            self.dbfilter = x(self)
+            if issubclass(x.filter_class, Plugin):
+                ui = x.ui
+            else:
+                ui = None
+            self.dbfilter = x.filter_class(self, ui=ui)
             self.dbfilter.start(auto_process=True)
             self.mainloop.run()
             if self.dbfilter_status:
@@ -205,57 +218,6 @@ class Wizard(BaseFrontend):
 
     # Interfaces with various components. If a given component is not used
     # then its abstract methods may safely be left unimplemented.
-
-    # ubiquity.components.language
-
-    def set_language_choices(self, choices, choice_map):
-        """Called with language choices and a map to localised names."""
-        self.language_choice_map = dict(choice_map)
-
-    def set_language(self, language):
-        """Set the current selected language."""
-        # Use the language code, not the translated name
-        self.language = self.language_choice_map[language][1]
-
-    def get_language(self):
-        """Get the current selected language."""
-        return self.language
-    
-    # ubiquity.components.timezone
-
-    def set_timezone(self, timezone):
-        """Set the current selected timezone."""
-        self.timezone = timezone
-
-    def get_timezone(self):
-        """Get the current selected timezone."""
-        return self.timezone
-
-    # ubiquity.components.console_setup
-
-    def set_keyboard_choices(self, choices):
-        """Set the available keyboard layout choices."""
-        pass
-
-    def set_keyboard(self, layout):
-        """Set the current keyboard layout."""
-        self.current_layout = layout
-
-    def get_keyboard(self):
-        """Get the current keyboard layout."""
-        return self.current_layout
-
-    def set_keyboard_variant_choices(self, choices):
-        """Set the available keyboard variant choices."""
-        pass
-
-    def set_keyboard_variant(self, variant):
-        """Set the current keyboard variant."""
-        self.keyboard_variant = variant
-
-    def get_keyboard_variant(self):
-        #print '*** get_keyboard_variant'
-        return self.keyboard_variant
 
     # ubiquity.components.partman
 

@@ -165,6 +165,20 @@ class PageDebconf:
     def get_ui(self):
         return 'ubiquity/text/timezone_heading_label'
 
+class PageNoninteractive:
+    def __init__(self, controller, *args, **kwargs):
+        self.controller = controller
+    def get_ui(self):
+        return None
+
+    def set_timezone(self, timezone):
+        """Set the current selected timezone."""
+        self.timezone = timezone
+
+    def get_timezone(self):
+        """Get the current selected timezone."""
+        return self.timezone
+
 class Page(Plugin):
     def prepare(self, unfiltered=False):
         if unfiltered:

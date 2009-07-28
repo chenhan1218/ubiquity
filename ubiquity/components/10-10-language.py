@@ -281,6 +281,25 @@ class PageDebconf:
     def get_ui(self):
         return 'ubiquity/text/language_heading_label'
 
+class PageNoninteractive:
+    def __init__(self, controller, *args, **kwargs):
+        self.controller = controller
+    def get_ui(self):
+        return None
+
+    def set_language_choices(self, choices, choice_map):
+        """Called with language choices and a map to localised names."""
+        self.language_choice_map = dict(choice_map)
+
+    def set_language(self, language):
+        """Set the current selected language."""
+        # Use the language code, not the translated name
+        self.language = self.language_choice_map[language][1]
+
+    def get_language(self):
+        """Get the current selected language."""
+        return self.language
+
 class Page(Plugin):
     def prepare(self, unfiltered=False):
         self.language_question = None
@@ -340,7 +359,7 @@ class Page(Plugin):
 
             sorted_choices = sorted(language_display_map, compare_choice)
             self.ui.set_language_choices(sorted_choices,
-                                         language_display_map)
+                                            language_display_map)
             self.ui.set_language(current_language)
         return Plugin.run(self, priority, question)
 
