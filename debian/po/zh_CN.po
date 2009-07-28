@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-07-14 09:12-0400\n"
+"POT-Creation-Date: 2009-07-28 11:27-0400\n"
 "PO-Revision-Date: 2009-04-10 15:36+0000\n"
 "Last-Translator: lhquark <lhquark@yahoo.com.cn>\n"
 "Language-Team: Simplified Chinese <debian-chinese-gb@lists.debian.org>\n"
@@ -57,7 +57,9 @@ msgstr "安装（OEM模式，仅供制造商使用）"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:9001
+#. Type: text
+#. Description
+#: ../ubiquity.templates:9001 ../ubiquity.templates:158001
 msgid "Welcome"
 msgstr "欢迎"
 
@@ -1114,6 +1116,48 @@ msgstr ""
 msgid "Applying configuration"
 msgstr ""
 
+#. Type: text
+#. Description
+#: ../ubiquity.templates:159001
+msgid "Timezone"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:160001
+#, fuzzy
+#| msgid "Keyboard layout"
+msgid "Keyboard"
+msgstr "键盘布局"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:161001
+#, fuzzy
+#| msgid "New partition"
+msgid "Partition"
+msgstr "新的分区"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:162001
+msgid "User Info"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:163001
+msgid "Summary"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:164001
+#, fuzzy
+#| msgid "Install"
+msgid "Installing"
+msgstr "安装"
+
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
@@ -1376,9 +1420,6 @@ msgstr "配置红外设备..."
 
 #~ msgid "Select your time zone from the map, or by region and city."
 #~ msgstr "在地图中选择您的时区，或通过区域及城市指定。"
-
-#~ msgid "New partition"
-#~ msgstr "新的分区"
 
 #~ msgid "Delete partition"
 #~ msgstr "删除分区"

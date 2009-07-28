@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-07-14 09:12-0400\n"
+"POT-Creation-Date: 2009-07-28 11:27-0400\n"
 "PO-Revision-Date: 2009-04-10 12:07+0000\n"
 "Last-Translator: Felipe Castro <fefcas@gmail.com>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
@@ -55,7 +55,9 @@ msgstr "Instalu (OEM maniero nur por fabrikantoj)"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:9001
+#. Type: text
+#. Description
+#: ../ubiquity.templates:9001 ../ubiquity.templates:158001
 msgid "Welcome"
 msgstr "Bonvenon"
 
@@ -1140,6 +1142,48 @@ msgstr ""
 msgid "Applying configuration"
 msgstr ""
 
+#. Type: text
+#. Description
+#: ../ubiquity.templates:159001
+msgid "Timezone"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:160001
+#, fuzzy
+#| msgid "Keyboard layout"
+msgid "Keyboard"
+msgstr "Elektu klavaran aranĝon"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:161001
+#, fuzzy
+#| msgid "New partition"
+msgid "Partition"
+msgstr "Nova subdisko"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:162001
+msgid "User Info"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:163001
+msgid "Summary"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:164001
+#, fuzzy
+#| msgid "Install"
+msgid "Installing"
+msgstr "Instalu"
+
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
@@ -1400,9 +1444,6 @@ msgstr "Agordas kromajn servojn..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Konfigurado de infraruĝaj aparatoj..."
-
-#~ msgid "New partition"
-#~ msgstr "Nova subdisko"
 
 #~ msgid "Delete partition"
 #~ msgstr "Viŝi subdiskon"

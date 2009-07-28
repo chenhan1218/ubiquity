@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-07-14 09:12-0400\n"
+"POT-Creation-Date: 2009-07-28 11:27-0400\n"
 "PO-Revision-Date: 2009-04-06 19:18+0000\n"
 "Last-Translator: Павло Славинський <pavloslav@gmail.com>\n"
 "Language-Team: uk <>\n"
@@ -57,7 +57,9 @@ msgstr "Встановлення (режим OEM, лише для виробни
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:9001
+#. Type: text
+#. Description
+#: ../ubiquity.templates:9001 ../ubiquity.templates:158001
 msgid "Welcome"
 msgstr "Ласкаво просимо"
 
@@ -1152,6 +1154,48 @@ msgstr ""
 msgid "Applying configuration"
 msgstr ""
 
+#. Type: text
+#. Description
+#: ../ubiquity.templates:159001
+msgid "Timezone"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:160001
+#, fuzzy
+#| msgid "Keyboard layout"
+msgid "Keyboard"
+msgstr "Розкладка клавіатури"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:161001
+#, fuzzy
+#| msgid "New partition"
+msgid "Partition"
+msgstr "Новий розділ"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:162001
+msgid "User Info"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:163001
+msgid "Summary"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:164001
+#, fuzzy
+#| msgid "Install"
+msgid "Installing"
+msgstr "Встановити"
+
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
@@ -1428,9 +1472,6 @@ msgstr "Налаштовуються інфрачервоні пристрої..
 
 #~ msgid "Select your time zone from the map, or by region and city."
 #~ msgstr "Виберіть ваш часовий пояс на карті, по регіону або місту"
-
-#~ msgid "New partition"
-#~ msgstr "Новий розділ"
 
 #~ msgid "Delete partition"
 #~ msgstr "Видалити розділ"

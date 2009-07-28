@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-07-14 09:12-0400\n"
+"POT-Creation-Date: 2009-07-28 11:27-0400\n"
 "PO-Revision-Date: 2009-04-10 12:10+0000\n"
 "Last-Translator: Hans Fredrik Nordhaug <hans@nordhaug.priv.no>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
@@ -55,7 +55,9 @@ msgstr "Installer (OEM modus, for maskinprodusenter)"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:9001
+#. Type: text
+#. Description
+#: ../ubiquity.templates:9001 ../ubiquity.templates:158001
 msgid "Welcome"
 msgstr "Velkommen"
 
@@ -1148,6 +1150,48 @@ msgstr ""
 msgid "Applying configuration"
 msgstr ""
 
+#. Type: text
+#. Description
+#: ../ubiquity.templates:159001
+msgid "Timezone"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:160001
+#, fuzzy
+#| msgid "Keyboard layout"
+msgid "Keyboard"
+msgstr "Tastaturutforming"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:161001
+#, fuzzy
+#| msgid "New partition"
+msgid "Partition"
+msgstr "Ny partisjon"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:162001
+msgid "User Info"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:163001
+msgid "Summary"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:164001
+#, fuzzy
+#| msgid "Install"
+msgid "Installing"
+msgstr "Installer"
+
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
@@ -1407,9 +1451,6 @@ msgstr "Konfigurerer tilleggstjenester..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Konfigurerer infrarøde enheter..."
-
-#~ msgid "New partition"
-#~ msgstr "Ny partisjon"
 
 #~ msgid "Delete partition"
 #~ msgstr "Slett partisjon"

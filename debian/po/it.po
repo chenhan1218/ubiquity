@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-07-14 09:12-0400\n"
+"POT-Creation-Date: 2009-07-28 11:27-0400\n"
 "PO-Revision-Date: 2009-04-10 12:09+0000\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
@@ -57,7 +57,9 @@ msgstr "Installa (modalità OEM, solo per assemblatori)"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:9001
+#. Type: text
+#. Description
+#: ../ubiquity.templates:9001 ../ubiquity.templates:158001
 msgid "Welcome"
 msgstr "Benvenuti"
 
@@ -1163,6 +1165,48 @@ msgstr ""
 msgid "Applying configuration"
 msgstr ""
 
+#. Type: text
+#. Description
+#: ../ubiquity.templates:159001
+msgid "Timezone"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:160001
+#, fuzzy
+#| msgid "Keyboard layout"
+msgid "Keyboard"
+msgstr "Disposizione della tastiera"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:161001
+#, fuzzy
+#| msgid "New partition"
+msgid "Partition"
+msgstr "Nuova partizione"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:162001
+msgid "User Info"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:163001
+msgid "Summary"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:164001
+#, fuzzy
+#| msgid "Install"
+msgid "Installing"
+msgstr "Installa"
+
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
@@ -1441,9 +1485,6 @@ msgstr "Configurazione dispositivo a infrarossi..."
 #~ msgstr ""
 #~ "Selezionare il proprio fuso orario dalla mappa oppure in base alla "
 #~ "regione e alla città."
-
-#~ msgid "New partition"
-#~ msgstr "Nuova partizione"
 
 #~ msgid "Delete partition"
 #~ msgstr "Elimina partizione"
