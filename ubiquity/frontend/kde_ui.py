@@ -385,26 +385,24 @@ class Wizard(BaseFrontend):
                 self.set_page(self.pages[self.pagesindex].module.NAME)
                 self.allow_change_step(True)
                 self.app.exec_()
-                self.pagesindex += 1
-                continue
-
-            self.backup = False
-            old_dbfilter = self.dbfilter
-            if issubclass(self.pages[self.pagesindex].filter_class, Plugin):
-                ui = self.pages[self.pagesindex].ui
             else:
-                ui = None
-            self.dbfilter = self.pages[self.pagesindex].filter_class(self, ui=ui)
+                self.backup = False
+                old_dbfilter = self.dbfilter
+                if issubclass(self.pages[self.pagesindex].filter_class, Plugin):
+                    ui = self.pages[self.pagesindex].ui
+                else:
+                    ui = None
+                self.dbfilter = self.pages[self.pagesindex].filter_class(self, ui=ui)
 
-            # Non-debconf steps are no longer possible as the interface is now
-            # driven by whether there is a question to ask.
-            if self.dbfilter is not None and self.dbfilter != old_dbfilter:
-                self.allow_change_step(False)
-                self.dbfilter.start(auto_process=True)
+                # Non-debconf steps are no longer possible as the interface is now
+                # driven by whether there is a question to ask.
+                if self.dbfilter is not None and self.dbfilter != old_dbfilter:
+                    self.allow_change_step(False)
+                    self.dbfilter.start(auto_process=True)
 
-            self.pages[self.pagesindex].controller.dbfilter = self.dbfilter
-            self.app.exec_()
-            self.pages[self.pagesindex].controller.dbfilter = None
+                self.pages[self.pagesindex].controller.dbfilter = self.dbfilter
+                self.app.exec_()
+                self.pages[self.pagesindex].controller.dbfilter = None
 
             if self.backup or self.dbfilter_handle_status():
                 if self.installing:

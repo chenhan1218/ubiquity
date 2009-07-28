@@ -59,7 +59,7 @@ from ubiquity.misc import *
 from ubiquity.plugin import Plugin
 from ubiquity.components import usersetup, \
                                 partman, partman_commit, \
-                                summary, install, migrationassistant
+                                install, migrationassistant
 import ubiquity.progressposition
 import ubiquity.frontend.base
 from ubiquity.frontend.base import BaseFrontend
@@ -386,25 +386,23 @@ class Wizard(BaseFrontend):
                 self.dbfilter = None
                 self.set_page(self.pages[self.pagesindex].module.NAME)
                 self.run_main_loop()
-                self.pagesindex += 1
-                continue
-
-            old_dbfilter = self.dbfilter
-            if issubclass(self.pages[self.pagesindex].filter_class, Plugin):
-                ui = self.pages[self.pagesindex].ui
             else:
-                ui = None
-            self.dbfilter = self.pages[self.pagesindex].filter_class(self, ui=ui)
+                old_dbfilter = self.dbfilter
+                if issubclass(self.pages[self.pagesindex].filter_class, Plugin):
+                    ui = self.pages[self.pagesindex].ui
+                else:
+                    ui = None
+                self.dbfilter = self.pages[self.pagesindex].filter_class(self, ui=ui)
 
-            # Non-debconf steps are no longer possible as the interface is now
-            # driven by whether there is a question to ask.
-            if self.dbfilter is not None and self.dbfilter != old_dbfilter:
-                self.allow_change_step(False)
-                self.dbfilter.start(auto_process=True)
+                # Non-debconf steps are no longer possible as the interface is now
+                # driven by whether there is a question to ask.
+                if self.dbfilter is not None and self.dbfilter != old_dbfilter:
+                    self.allow_change_step(False)
+                    self.dbfilter.start(auto_process=True)
 
-            self.pages[self.pagesindex].controller.dbfilter = self.dbfilter
-            gtk.main()
-            self.pages[self.pagesindex].controller.dbfilter = None
+                self.pages[self.pagesindex].controller.dbfilter = self.dbfilter
+                gtk.main()
+                self.pages[self.pagesindex].controller.dbfilter = None
 
             if self.backup or self.dbfilter_handle_status():
                 if self.installing:

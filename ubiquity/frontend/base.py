@@ -158,11 +158,6 @@ class BaseFrontend:
             if step == 'MigrationAssistant' and \
                 'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
                 continue
-            step_name = "step%s" % step
-            # Handle special frontend overrides
-            if hasattr(self, 'pages_override_remove') and \
-                step_name in self.pages_override_remove:
-                continue
             page_module = PAGE_COMPONENTS[step]
             if page_module is not None:
                 modules.append(page_module)
@@ -177,13 +172,6 @@ class BaseFrontend:
             if hasattr(mod, 'Page'):
                 comp.filter_class = mod.Page
             self.modules.append(comp)
-
-        # Handle special frontend extra pages
-        #if hasattr(self, 'pages_override_append'):
-        #    for page in self.pages_override_append:
-        #        self.pageuis.append(page[0])
-        #        if page[1]:
-        #            self.pages.append(page[1])
 
         if not self.modules:
             raise ValueError, "No valid steps in %s" % step_list_name

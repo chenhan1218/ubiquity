@@ -4,7 +4,8 @@ scripts/mythbuntu/* usr/share/ubiquity
 #individual python components
 #Summary generation Page
 #GTK->Final installer glue
-ubiquity/components/mythbuntu*.py usr/lib/ubiquity/ubiquity/components
+ubiquity/components/10*myth_*.py usr/lib/ubiquity/plugins.d
+ubiquity/components/mythbuntu_install.py usr/lib/ubiquity/ubiquity/components
 
 #GTK/glade
 ubiquity/frontend/mythbuntu_ui.py usr/lib/ubiquity/ubiquity/frontend
