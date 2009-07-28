@@ -32,7 +32,7 @@ class PageKde:
     def __init__(self, *args, **kwargs):
         pass
     def get_ui(self):
-        return 'stepUserInfo'
+        return ['stepUserInfo', 'ubiquity/text/step_name_usersetup']
 
 class PageDebconf:
     def __init__(self, *args, **kwargs):
@@ -44,12 +44,14 @@ class Page(FilteredCommand):
     def prepare(self, unfiltered=False):
         if self.frontend.get_hostname() == '':
             try:
-                hostname = self.db.get('netcfg/get_hostname')
-                domain = self.db.get('netcfg/get_domain')
-                if hostname and domain:
-                    hostname = '%s.%s' % (hostname, domain)
-                if hostname != '':
-                    self.frontend.set_hostname(hostname)
+                seen = self.db.fget('netcfg/get_hostname', 'seen') == 'true'
+                if seen:
+                    hostname = self.db.get('netcfg/get_hostname')
+                    domain = self.db.get('netcfg/get_domain')
+                    if hostname and domain:
+                        hostname = '%s.%s' % (hostname, domain)
+                    if hostname != '':
+                        self.frontend.set_hostname(hostname)
             except debconf.DebconfError:
                 pass
         if self.frontend.get_fullname() == '':

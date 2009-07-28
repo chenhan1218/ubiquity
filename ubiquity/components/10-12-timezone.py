@@ -145,15 +145,13 @@ class PageKde:
             from ubiquity.frontend.kde_components.Timezone import TimezoneMap
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLocation.ui')
             self.tzmap = TimezoneMap(self.page)
-            map_vbox = QVBoxLayout(self.page.map_frame)
-            map_vbox.setMargin(0)
-            map_vbox.addWidget(self.tzmap)
+            self.page.map_frame.layout().addWidget(self.tzmap)
         except:
             print >>sys.stderr, 'Could not create timezone page: %s' % e
             self.page = None
 
     def get_ui(self):
-        return self.page
+        return [self.page, 'ubiquity/text/step_name_timezone']
 
     def set_timezone (self, timezone):
         self.tzmap.set_timezone(timezone)

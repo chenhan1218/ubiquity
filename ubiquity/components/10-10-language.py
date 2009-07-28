@@ -178,8 +178,8 @@ class PageKde(PageBase):
             from PyQt4.QtCore import SIGNAL
             from PyQt4.QtGui import QLabel
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLanguage.ui')
-            self.treeview = self.page.language_treeview
-            self.treeview.connect(self.treeview, SIGNAL("itemSelectionChanged()"), self.on_language_selection_changed)
+            self.combobox = self.page.language_combobox
+            self.combobox.currentIndexChanged[str].connect(self.on_language_selection_changed)
 
             if not self.controller.oem_config:
                 self.page.oem_id_label.hide()
@@ -216,7 +216,7 @@ class PageKde(PageBase):
             self.page = None
 
     def get_ui(self):
-        return self.page
+        return [self.page, 'ubiquity/text/step_name_language']
 
     def openReleaseNotes(self):
         lang = self.selected_language()
@@ -232,38 +232,29 @@ class PageKde(PageBase):
 
     def set_language_choices(self, choices, choice_map):
         from PyQt4.QtCore import QString
-        from PyQt4.QtGui import QListWidgetItem
         PageBase.set_language_choices(self, choices, choice_map)
-        self.treeview.clear()
+        self.combobox.clear()
         for choice in choices:
-            QListWidgetItem(QString(unicode(choice)), self.treeview)
+            self.combobox.addItem(QString(unicode(choice)))
 
     def set_language(self, language):
-        counter = 0
-        max = self.treeview.count()
-        while counter < max:
-            selection = self.treeview.item(counter)
-            if selection is None:
-                value = "C"
-            else:
-                value = unicode(selection.text())
-            if value == language:
-                selection.setSelected(True)
-                self.treeview.scrollToItem(selection)
-                break
-            counter += 1
+        from PyQt4.QtCore import QString
+        index = self.combobox.findText(QString(unicode(language)))
+        if index < 0:
+            self.combobox.addItem("C")
+        else:
+            self.combobox.setCurrentIndex(index)
 
     def get_language(self):
         lang = self.selected_language()
         return lang if lang else 'C'
 
     def selected_language(self):
-        items = self.treeview.selectedItems()
-        if len(items) == 1:
-            value = unicode(items[0].text())
-            return self.language_choice_map[value][1]
-        else:
+        lang = self.combobox.currentText()
+        if lang.isNull():
             return None
+        else:
+            return self.language_choice_map[unicode(lang)][1]
 
     def on_language_selection_changed(self):
         lang = self.selected_language()

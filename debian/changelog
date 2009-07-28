@@ -1,4 +1,36 @@
-ubiquity (1.99.1) UNRELEASED; urgency=low
+ubiquity (1.99.3) UNRELEASED; urgency=low
+
+  [ Colin Watson ]
+  * Filter out Help: from d-i's debconf templates, since Perl debconf
+    doesn't know about that yet (LP: #402969).
+
+  [ Roman Shtylman ]
+  * new files for themeing kde gui 
+  * started work on moving over to the new theme/app.ui file
+  * new theme is in place and a simple install can be performed
+
+  [ root ]
+  * Automatic update of included source packages: grub-installer
+    1.40ubuntu1.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 22 Jul 2009 14:16:27 +0100
+
+ubiquity (1.99.2) karmic; urgency=low
+
+  [ Mario Limonciello ]
+  * Correct a minor spacing typo in oem-config-firstboot.
+
+  [ Michael Terry ]
+  * Fix -q behavior when X is not running, thereby fixing oem-config-firstboot
+  * gtk: initialize gobject threads for webkit
+
+  [ Martin Pitt ]
+  * Automatic update of included source packages: user-setup
+    1.27ubuntu5. This fixes autologin configuration. (LP: #402707)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 22 Jul 2009 07:28:22 +0200
+
+ubiquity (1.99.1) karmic; urgency=low
 
   [ Colin Watson ]
   * Use dh_lintian.
@@ -7,6 +39,13 @@ ubiquity (1.99.1) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Add support for ubiquity-slideshow.
+  * Debconf GET returns the default value if no value is set on a
+    question.  As an undesirable default is set for netcfg/get_hostname,
+    check the seen flag to see if the value returned by GET was inputted
+    by the user (LP: #401919).
+  * Do not try to run Migration Assistant for the KDE frontend.
+  * Automatic update of included source packages: partman-base
+    132ubuntu1, partman-target 62ubuntu1.
 
   [ Mario Limonciello ]
   * Divert the ubiquity-gtkui.desktop file when oem-config is installed as
@@ -19,7 +58,7 @@ ubiquity (1.99.1) UNRELEASED; urgency=low
   * noninteractive frontend: Don't tell debconf the translated name of the
     chosen language, but rather the language code.
 
- -- Michael Terry <michael.terry@canonical.com>  Mon, 20 Jul 2009 09:30:37 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 21 Jul 2009 17:43:37 +0100
 
 ubiquity (1.99.0) karmic; urgency=low
 

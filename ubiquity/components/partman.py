@@ -40,7 +40,7 @@ class PageKde:
     def __init__(self, *args, **kwargs):
         pass
     def get_ui(self):
-        return 'stepPartAuto'
+        return ['stepPartAuto', 'ubiquity/text/step_name_partman']
 
 PARTITION_TYPE_PRIMARY = 0
 PARTITION_TYPE_LOGICAL = 1

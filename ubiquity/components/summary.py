@@ -41,7 +41,7 @@ class PageKde:
     def __init__(self, *args, **kwargs):
         pass
     def get_ui(self):
-        return 'stepReady'
+        return ['stepReady', 'ubiquity/text/step_name_summary']
 
 def installing_from_disk():
     cdromfs = ''

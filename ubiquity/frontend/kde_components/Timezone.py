@@ -106,10 +106,8 @@ class TimezoneMap(QWidget):
             city.index = len(self.zones[zoneName]['cities'])
             self.zones[zoneName]['cities'].append(city)
        
-        QApplication.instance().connect(self.page.timezone_zone_combo, 
-            SIGNAL("currentIndexChanged(QString)"), self.regionChanged)
-        QApplication.instance().connect(self.page.timezone_city_combo, 
-            SIGNAL("currentIndexChanged(int)"), self.cityChanged)
+        self.page.timezone_zone_combo.currentIndexChanged[str].connect(self.regionChanged)
+        self.page.timezone_city_combo.currentIndexChanged[int].connect(self.cityChanged)
             
         # zone needs to be added to combo box
         keys = self.zones.keys()
@@ -166,6 +164,12 @@ class TimezoneMap(QWidget):
        
     def paintEvent(self, paintEvent):
         painter = QPainter(self)
+        painter.setRenderHint(QPainter.Antialiasing)
+        
+        path = QPainterPath()
+        path.addRoundedRect(QRectF(self.rect()), 5, 5)
+        painter.setClipPath(path)
+        
         painter.drawPixmap(self.rect(), self.pixmap)
         
         if self.selected_city != None:
@@ -175,25 +179,37 @@ class TimezoneMap(QWidget):
             if (c.pixmap):
                 painter.drawPixmap(self.rect(), c.pixmap)
             
-            painter.drawLine(cpos + QPoint(1,1), cpos - QPoint(1,1))
-            painter.drawLine(cpos + QPoint(1,-1), cpos - QPoint(1,-1))
-            #painter.drawText(cpos + QPoint(2,-2), c.city_name)
+            painter.setBrush(QColor(30, 30, 30, 200))
+            painter.setPen(Qt.white)
+            
+            #mark the location with a dot
+            painter.drawEllipse(cpos, 3, 3)
             
             # paint the time instead of the name
             try:
                 now = datetime.datetime.now(ubiquity.tz.SystemTzInfo(c.raw_zone))
                 timestring = now.strftime('%X')
                 
-                text_offset = QPoint(2,-2)
+                start = cpos + QPoint(3,-3)
+                margin = 2
             
                 # correct the text render position if text will render off widget
                 text_size = painter.fontMetrics().size(Qt.TextSingleLine, timestring)
-                if cpos.x() + text_size.width() > self.width():
-                    text_offset.setX(-text_size.width() - 2)
-                if cpos.y() - text_size.height() < 0:
-                    text_offset.setY(text_size.height() - 2)
+                text_size += QSize(margin*2, margin*2)
                 
-                painter.drawText(cpos + text_offset, timestring)
+                rect = QRect(start, start + QPoint(text_size.width(), -text_size.height()))
+                
+                #check bounds of the time display
+                if rect.top() < 0:
+                    rect.moveTop(start.y() + 3)
+                if rect.right() > self.width():
+                    rect.moveRight(start.x() - 3)
+                
+                painter.setPen(Qt.NoPen)
+                painter.drawRoundedRect(rect, 3, 3)
+                painter.setPen(Qt.white)
+                painter.drawText(rect, Qt.AlignCenter, timestring)
+                
             except ValueError:
                 # Some versions of Python have problems with clocks set
                 # before the epoch (http://python.org/sf/1646728).

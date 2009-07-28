@@ -843,6 +843,34 @@ Template: ubiquity/text/applying
 Type: text
 _Description: Applying configuration
 
+Template: ubiquity/text/step_name_language
+Type: text
+_Description: Welcome
+
+Template: ubiquity/text/step_name_timezone
+Type: text
+_Description: Timezone
+
+Template: ubiquity/text/step_name_console_setup
+Type: text
+_Description: Keyboard
+
+Template: ubiquity/text/step_name_partman
+Type: text
+_Description: Partition
+
+Template: ubiquity/text/step_name_usersetup
+Type: text
+_Description: User Info
+
+Template: ubiquity/text/step_name_summary
+Type: text
+_Description: Summary
+
+Template: ubiquity/text/step_name_install
+Type: text
+_Description: Installing
+
 Template: ubiquity/steps
 Type: multiselect
 Choices: PartAuto, PartAdvanced, UserInfo, MigrationAssistant, Ready

@@ -189,16 +189,17 @@ class PageKde:
         self.default_keyboard_variant = None
         try:
             from PyQt4 import uic
-            from PyQt4.QtCore import SIGNAL
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepKeyboardConf.ui')
-            self.page.connect(self.page.keyboardlayoutview, SIGNAL("itemSelectionChanged()"), self.on_keyboard_layout_selected)
-            self.page.connect(self.page.keyboardvariantview, SIGNAL("itemSelectionChanged()"), self.on_keyboard_variant_selected)
+            #use activated instead of changed because we only want to act when the user changes the selection
+            #not when we are populating the combo box
+            self.page.keyboard_layout_combobox.activated.connect(self.on_keyboard_layout_selected)
+            self.page.keyboard_variant_combobox.activated.connect(self.on_keyboard_variant_selected)
         except Exception, e:
             print >>sys.stderr, 'Could not create keyboard page: %s' % e
             self.page = None
 
     def get_ui(self):
-        return self.page
+        return [self.page, 'ubiquity/text/step_name_console_setup']
 
     def on_keyboard_layout_selected(self):
         layout = self.get_keyboard()
@@ -214,57 +215,44 @@ class PageKde:
 
     def set_keyboard_choices(self, choices):
         from PyQt4.QtCore import QString
-        from PyQt4.QtGui import QListWidgetItem
-        self.page.keyboardlayoutview.clear()
+        self.page.keyboard_layout_combobox.clear()
         for choice in sorted(choices):
-            QListWidgetItem(QString(unicode(choice)), self.page.keyboardlayoutview)
+            self.page.keyboard_layout_combobox.addItem(QString(unicode(choice)))
 
         if self.current_layout is not None:
             self.set_keyboard(self.current_layout)
 
     def set_keyboard (self, layout):
-        self.current_layout = layout
-        counter = 0
-        max = self.page.keyboardlayoutview.count()
-        while counter < max:
-            selection = self.page.keyboardlayoutview.item(counter)
-            if unicode(selection.text()) == layout:
-                selection.setSelected(True)
-                self.page.keyboardlayoutview.scrollToItem(selection)
-                break
-            counter += 1
+        from PyQt4.QtCore import QString
+        index = self.page.keyboard_layout_combobox.findText(QString(unicode(layout)))
+        
+        if index > -1:
+            self.page.keyboard_layout_combobox.setCurrentIndex(index)
 
     def get_keyboard(self):
-        items = self.page.keyboardlayoutview.selectedItems()
-        if len(items) == 1:
-            return unicode(items[0].text())
-        else:
+        if self.page.keyboard_layout_combobox.currentIndex() < 0:
             return None
+            
+        return unicode(self.page.keyboard_layout_combobox.currentText())
 
     def set_keyboard_variant_choices(self, choices):
         from PyQt4.QtCore import QString
-        from PyQt4.QtGui import QListWidgetItem
-        self.page.keyboardvariantview.clear()
+        self.page.keyboard_variant_combobox.clear();
         for choice in sorted(choices):
-            QListWidgetItem(QString(unicode(choice)), self.page.keyboardvariantview)
+            self.page.keyboard_variant_combobox.addItem(QString(unicode(choice)))
 
     def set_keyboard_variant(self, variant):
-        counter = 0
-        max = self.page.keyboardvariantview.count()
-        while counter < max:
-            selection = self.page.keyboardvariantview.item(counter)
-            if unicode(selection.text()) == variant:
-                selection.setSelected(True)
-                self.page.keyboardvariantview.scrollToItem(selection)
-                break
-            counter += 1
+        from PyQt4.QtCore import QString
+        index = self.page.keyboard_variant_combobox.findText(QString(unicode(variant)))
+        
+        if index > -1:
+            self.page.keyboard_variant_combobox.setCurrentIndex(index)
 
     def get_keyboard_variant(self):
-        items = self.page.keyboardvariantview.selectedItems()
-        if len(items) == 1:
-            return unicode(items[0].text())
-        else:
+        if self.page.keyboard_variant_combobox.currentIndex() < 0:
             return None
+            
+        return unicode(self.page.keyboard_variant_combobox.currentText())
 
 class PageDebconf:
     def __init__(self, *args, **kwargs):

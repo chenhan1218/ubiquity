@@ -70,4 +70,4 @@ class PageKde:
                 self.page = None
 
     def get_ui(self):
-        return self.page
+        return [self.page, '']
