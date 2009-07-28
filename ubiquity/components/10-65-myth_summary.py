@@ -24,7 +24,9 @@ import os
 
 NAME = 'myth-summary'
 AFTER = 'myth-passwords'
-HIDDEN = ['summary', 'migrationassistant']
+
+if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui':
+    HIDDEN = ['summary', 'migrationassistant']
 
 class PageGtk:
     def __init__(self, *args, **kwargs):
