@@ -199,10 +199,12 @@ class Wizard(BaseFrontend):
                     if step_label is None:
                         step_label = '------' # just a placeholder
                     if step_label:
+                        mod.step_label_question = step_label
                         mod.step_label = QLabel(self.get_string(step_label))
                         label_index = self.ui.steps_widget.layout().count() - 1
                         self.ui.steps_widget.layout().insertWidget(label_index, mod.step_label)
                     else:
+                        mod.step_label_question = None
                         mod.step_label = None # page intentionally didn't want a label (intro)
                     mod.widget = widget
                     self.pageslen += 1
@@ -241,6 +243,7 @@ class Wizard(BaseFrontend):
         self.returncode = 0
         self.partition_bars = []
         self.disk_layout = None
+        self.backup = False
 
         self.laptop = execute("laptop-detect")
         self.partition_tree_model = None
@@ -538,6 +541,8 @@ class Wizard(BaseFrontend):
                     children = self.all_children(p.widget)
                     prefix = p.controller.prefix if p.controller.prefix else 'ubiquity/text'
                     core_names.extend([prefix+'/'+c.objectName() for c in children])
+                if p.step_label_question:
+                    core_names.append(p.step_label_question)
             i18n.get_translations(languages=languages, core_names=core_names)
 
         # We always translate always-visible widgets
@@ -546,6 +551,7 @@ class Wizard(BaseFrontend):
                 widgets.append(getattr(self.ui, q))
             elif q == 'live_installer':
                 widgets.append(self.ui)
+        widgets.extend(self.all_children(self.ui.steps_widget))
 
         for w in widgets:
             self.translate_widget(w, lang)
