@@ -29,7 +29,7 @@ class PageDebconf:
     def __init__(self, *args, **kwargs):
         pass
     def get_ui(self):
-        return 'ubiquity/text/tasks_heading_label'
+        return {'title': 'ubiquity/text/tasks_heading_label'}
 
 # Only supports unfiltered mode.
 class Page(Plugin):

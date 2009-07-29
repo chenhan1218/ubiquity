@@ -63,7 +63,7 @@ class Wizard(BaseFrontend):
             if hasattr(mod.module, 'PageNoninteractive'):
                 mod.ui_class = mod.module.PageNoninteractive
                 mod.controller = ubiquity.frontend.base.Controller(self)
-                mod.ui = mod.ui_class(mod.controller)
+                mod.ui_inst = mod.ui_class(mod.controller)
                 self.pages.append(mod)
 
         i18n.reset_locale()
@@ -82,7 +82,7 @@ class Wizard(BaseFrontend):
 
         for x in self.pages:
             if issubclass(x.filter_class, Plugin):
-                ui = x.ui
+                ui = x.ui_inst
             else:
                 ui = None
             self.dbfilter = x.filter_class(self, ui=ui)

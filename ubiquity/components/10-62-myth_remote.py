@@ -30,7 +30,7 @@ class PageGtk:
         pass
     def get_ui(self):
         if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui':
-            return 'tab_remote_control'
+            return {'widgets': 'tab_remote_control'}
         else:
             return None
 

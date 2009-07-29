@@ -51,7 +51,7 @@ class PageGtk:
             self.page = None
 
     def get_ui(self):
-        return self.page
+        return {'widgets': self.page}
 
     def on_keyboardlayoutview_row_activated(self, *args):
         self.controller.go_forward()
@@ -199,7 +199,8 @@ class PageKde:
             self.page = None
 
     def get_ui(self):
-        return [self.page, 'ubiquity/text/step_name_console_setup']
+        return {'widgets': self.page,
+                'step_label': 'ubiquity/text/step_name_console_setup'}
 
     def on_keyboard_layout_selected(self):
         layout = self.get_keyboard()
@@ -258,7 +259,7 @@ class PageDebconf:
     def __init__(self, *args, **kwargs):
         pass
     def get_ui(self):
-        return 'ubiquity/text/keyboard_heading_label'
+        return {'title': 'ubiquity/text/keyboard_heading_label'}
 
 class PageNoninteractive:
     def __init__(self, controller, *args, **kwargs):

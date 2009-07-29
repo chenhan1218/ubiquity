@@ -54,7 +54,7 @@ class PageGtk:
                 print >>sys.stderr, 'Could not create intro page: %s' % e
 
     def get_ui(self):
-        return self.page
+        return {'widgets': self.page}
 
 class PageKde:
     def __init__(self, *args, **kwargs):
@@ -70,4 +70,5 @@ class PageKde:
                 self.page = None
 
     def get_ui(self):
-        return [self.page, '']
+        return {'widgets': self.page,
+                'step_label': None}

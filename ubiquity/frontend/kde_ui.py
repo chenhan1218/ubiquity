@@ -185,26 +185,17 @@ class Wizard(BaseFrontend):
             if hasattr(mod.module, 'PageKde'):
                 mod.ui_class = mod.module.PageKde
                 mod.controller = Controller(self)
-                mod.ui = mod.ui_class(mod.controller)
-                if hasattr(mod.ui, 'get_ui'):
-                    widgets = mod.ui.get_ui()
-                else:
-                    widgets = []
-                if hasattr(mod.ui, 'get_optional_ui'):
-                    optional_widgets = mod.ui.get_optional_ui()
-                else:
-                    optional_widgets = []
-                if widgets or optional_widgets:
-                    step_label = None
-                    if type(widgets).__name__ == 'list':
-                        if len(widgets) > 1:
-                            step_label = widgets[1]
-                        widgets = widgets[0]
+                mod.ui_inst = mod.ui_class(mod.controller)
+                mod.ui = mod.ui_inst.get_ui()
+                widgets = mod.ui and mod.ui.get('widgets')
+                step_label = mod.ui and mod.ui.get('step_label')
+                if widgets:
                     def fill_out(widget_list):
                         rv = []
                         if type(widget_list).__name__ != 'list':
                             widget_list = [widget_list]
                         for w in widget_list:
+                            if not w: continue
                             if type(w).__name__ != 'str':
                                 # Until we ship with no pre-built pages, insert
                                 # at 'beginning'
@@ -214,8 +205,7 @@ class Wizard(BaseFrontend):
                             rv.append(w)
                         return rv
                     mod.widgets = fill_out(widgets)
-                    mod.widgets += fill_out(optional_widgets)
-                    if step_label is None:
+                    if 'step_label' not in mod.ui:
                         step_label = '------' # just a placeholder
                     if step_label:
                         mod.step_label_question = step_label
@@ -413,7 +403,7 @@ class Wizard(BaseFrontend):
             else:
                 old_dbfilter = self.dbfilter
                 if issubclass(self.pages[self.pagesindex].filter_class, Plugin):
-                    ui = self.pages[self.pagesindex].ui
+                    ui = self.pages[self.pagesindex].ui_inst
                 else:
                     ui = None
                 self.dbfilter = self.pages[self.pagesindex].filter_class(self, ui=ui)
@@ -712,8 +702,8 @@ class Wizard(BaseFrontend):
             if page.module.NAME == n:
                 # Now ask ui class which page we want to be showing right now
                 cur = None
-                if hasattr(page.ui, 'get_current_page'):
-                    cur = page.ui.get_current_page()
+                if hasattr(page.ui_inst, 'get_current_page'):
+                    cur = page.ui_inst.get_current_page()
                     if type(cur).__name__ == 'str':
                         cur = getattr(self.ui, cur) # for not-yet-plugins
                 if not cur and page.widgets:

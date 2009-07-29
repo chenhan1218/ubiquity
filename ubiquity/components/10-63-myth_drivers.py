@@ -32,7 +32,7 @@ class PageGtk:
     def get_ui(self):
         if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui' and \
            len(get_graphics_dictionary()) > 0:
-            return 'mythbuntu_stepDrivers'
+            return {'widgets': 'mythbuntu_stepDrivers'}
         else:
             return None
 

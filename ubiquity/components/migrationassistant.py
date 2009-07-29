@@ -29,8 +29,8 @@ NAME = 'migrationassistant'
 class PageGtk:
     def __init__(self, *args, **kwargs):
         pass
-    def get_optional_ui(self):
-        return 'stepMigrationAssistant'
+    def get_ui(self):
+        return {'optional_widgets': 'stepMigrationAssistant'}
 
 class Page(FilteredCommand):
     def prepare(self):

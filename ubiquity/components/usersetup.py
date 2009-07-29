@@ -26,19 +26,20 @@ class PageGtk:
     def __init__(self, *args, **kwargs):
         pass
     def get_ui(self):
-        return 'stepUserInfo'
+        return {'widgets': 'stepUserInfo'}
 
 class PageKde:
     def __init__(self, *args, **kwargs):
         pass
     def get_ui(self):
-        return ['stepUserInfo', 'ubiquity/text/step_name_usersetup']
+        return {'widgets': 'stepUserInfo',
+                'step_label': 'ubiquity/text/step_name_usersetup'}
 
 class PageDebconf:
     def __init__(self, *args, **kwargs):
         pass
     def get_ui(self):
-        return 'ubiquity/text/userinfo_heading_label'
+        return {'title': 'ubiquity/text/userinfo_heading_label'}
 
 class Page(FilteredCommand):
     def prepare(self, unfiltered=False):

@@ -90,7 +90,7 @@ class PageGtk(PageBase):
             self.page = None
 
     def get_ui(self):
-        return self.page
+        return {'widgets': self.page}
 
     def set_language_choices(self, choices, choice_map):
         import gtk, gobject
@@ -216,7 +216,8 @@ class PageKde(PageBase):
             self.page = None
 
     def get_ui(self):
-        return [self.page, 'ubiquity/text/step_name_language']
+        return {'widgets': self.page,
+                'step_label': 'ubiquity/text/step_name_language'}
 
     def openReleaseNotes(self):
         lang = self.selected_language()
@@ -279,7 +280,7 @@ class PageDebconf:
     def __init__(self, *args, **kwargs):
         pass
     def get_ui(self):
-        return 'ubiquity/text/language_heading_label'
+        return {'title': 'ubiquity/text/language_heading_label'}
 
 class PageNoninteractive:
     def __init__(self, controller, *args, **kwargs):

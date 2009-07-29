@@ -67,9 +67,8 @@ class Component:
         self.controller = None
         self.filter_class = None
         self.ui_class = None
+        self.ui_inst = None
         self.ui = None
-        self.widgets = []
-        self.optional_widgets = []
 
 class BaseFrontend:
     """Abstract ubiquity frontend.

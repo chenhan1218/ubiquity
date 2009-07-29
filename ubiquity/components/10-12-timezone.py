@@ -45,7 +45,7 @@ class PageGtk:
             self.page = None
 
     def get_ui(self):
-        return self.page
+        return {'widgets': self.page}
 
     def set_timezone(self, timezone):
         self.select_city(None, timezone)
@@ -151,7 +151,8 @@ class PageKde:
             self.page = None
 
     def get_ui(self):
-        return [self.page, 'ubiquity/text/step_name_timezone']
+        return {'widgets': self.page,
+                'step_label': 'ubiquity/text/step_name_timezone'}
 
     def set_timezone (self, timezone):
         self.tzmap.set_timezone(timezone)
@@ -163,7 +164,7 @@ class PageDebconf:
     def __init__(self, *args, **kwargs):
         pass
     def get_ui(self):
-        return 'ubiquity/text/timezone_heading_label'
+        return {'title': 'ubiquity/text/timezone_heading_label'}
 
 class PageNoninteractive:
     def __init__(self, controller, *args, **kwargs):

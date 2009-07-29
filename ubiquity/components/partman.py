@@ -34,9 +34,8 @@ class PageGtk:
     def __init__(self, *args, **kwargs):
         self.part_page = None
     def get_ui(self):
-        return 'stepPartAuto'
-    def get_optional_ui(self):
-        return 'stepPartAdvanced'
+        return {'widgets': 'stepPartAuto',
+                'optional_widgets': 'stepPartAdvanced'}
     def get_current_page(self):
         return self.part_page
 
@@ -47,9 +46,8 @@ class PageKde:
     def __init__(self, *args, **kwargs):
         self.part_page = None
     def get_ui(self):
-        return ['stepPartAuto', 'ubiquity/text/step_name_partman']
-    def get_optional_ui(self):
-        return 'stepPartAdvanced'
+        return {'widgets': ['stepPartAuto', 'stepPartAdvanced'],
+                'step_label': 'ubiquity/text/step_name_partman'}
     def get_current_page(self):
         return self.part_page
 

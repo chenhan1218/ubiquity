@@ -30,7 +30,7 @@ class PageGtk:
         pass
     def get_ui(self):
         if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui':
-            return 'mythbuntu_stepServices'
+            return {'widgets': 'mythbuntu_stepServices'}
         else:
             return None
 
