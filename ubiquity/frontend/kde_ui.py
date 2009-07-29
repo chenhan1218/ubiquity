@@ -82,7 +82,7 @@ class UbiquityUI(QMainWindow):
                 name = str.strip(line.split("=")[1], '\n')
                 if name != "Ubuntu":
                     distro_name = name
-            elif "DISTRIB_CODENAME=" in line:
+            elif "DISTRIB_RELEASE=" in line:
                 distro_release = str.strip(line.split("=")[1], '\n')
                 
         fp.close()
@@ -155,21 +155,17 @@ class Wizard(BaseFrontend):
         # it becomes visible once the first step becomes active
         self.ui.steps_widget.setVisible(False)
         
-        #if 'UBIQUITY_ONLY' in os.environ:
         self.ui.setWindowState(self.ui.windowState() ^ Qt.WindowFullScreen)
                 
         self.ui.setWizard(self)
         #self.ui.setWindowFlags(Qt.Window | Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowMinMaxButtonsHint)
         
-        #if hasattr(Qt, 'WindowCloseButtonHint'):
-        #    self.ui.setWindowFlags(self.ui.windowFlags() | Qt.WindowCloseButtonHint)
-           
-        #center the shown window
-        #rect = QApplication.instance().desktop().availableGeometry(self.ui);
-        #self.ui.move(rect.center() - self.ui.rect().center());
-
         self.advanceddialog = QDialog(self.ui)
         uic.loadUi(os.path.join(UIDIR, "advanceddialog.ui"), self.advanceddialog)
+        
+        #hide the minimize button if in "install only" mode
+        if 'UBIQUITY_ONLY' in os.environ:
+            self.ui.minimize_button.setVisible(False)
 
         # declare attributes
         self.release_notes_url_template = None
@@ -204,7 +200,6 @@ class Wizard(BaseFrontend):
         self.installing = False
         self.installing_no_return = False
         self.returncode = 0
-        self.partition_bars = []
         self.disk_layout = None
 
         self.laptop = execute("laptop-detect")
@@ -685,76 +680,73 @@ class Wizard(BaseFrontend):
         self.run_automation_error_cmd()
         self.ui.show()
         
+        borderCSS = "border-width: 6px; border-image: url(/usr/share/ubiquity/qt/images/label_border.png) 6px;"
         activeSS = "color: %s; " % "#666666"
         inactiveSS = "color: %s; " % "#b3b3b3"
-        currentSS = "color: %s; " % "#0088aa"
-        
-        #self.ui.dummy_active_step.styleSheet()
-        #inactiveSS = self.ui.dummy_inactive_step.styleSheet()
-        #currentSS = self.ui.dummy_current_step.styleSheet()
+        currentSS = "%s color: %s; " % (borderCSS, "#0088aa")
         
         #set all the steps active
         #each step will set its previous ones as inactive
-        #this handles the abiliy to go back
+        #this handles the abiliy to go back as well as oem hidden steps
         
-        self.ui.languageStep.setStyleSheet(activeSS)
-        self.ui.timezoneStep.setStyleSheet(activeSS)
-        self.ui.keyboardStep.setStyleSheet(activeSS)
-        self.ui.partitionStep.setStyleSheet(activeSS)
-        self.ui.userInfoStep.setStyleSheet(activeSS)
-        self.ui.summaryStep.setStyleSheet(activeSS)
-        self.ui.installStep.setStyleSheet(activeSS)
+        self.ui.breadcrumb_language.setStyleSheet(activeSS)
+        self.ui.breadcrumb_timezone.setStyleSheet(activeSS)
+        self.ui.breadcrumb_keyboard.setStyleSheet(activeSS)
+        self.ui.breadcrumb_partition.setStyleSheet(activeSS)
+        self.ui.breadcrumb_user.setStyleSheet(activeSS)
+        self.ui.breadcrumb_summary.setStyleSheet(activeSS)
+        self.ui.breadcrumb_install.setStyleSheet(activeSS)
         
         if n == 'Language':
             self.ui.steps_widget.setVisible(True)
             self.set_current_page(self.step_index("stepLanguage"))
             
-            self.ui.languageStep.setStyleSheet(currentSS)
+            self.ui.breadcrumb_language.setStyleSheet(currentSS)
             
         elif n == 'Timezone':
             self.set_current_page(self.step_index("stepLocation"))
             
-            self.ui.languageStep.setStyleSheet(inactiveSS)
-            self.ui.timezoneStep.setStyleSheet(currentSS)
+            self.ui.breadcrumb_language.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_timezone.setStyleSheet(currentSS)
             
         elif n == 'ConsoleSetup':
             self.set_current_page(self.step_index("stepKeyboardConf"))
             
-            self.ui.languageStep.setStyleSheet(inactiveSS)
-            self.ui.timezoneStep.setStyleSheet(inactiveSS)
-            self.ui.keyboardStep.setStyleSheet(currentSS)
+            self.ui.breadcrumb_language.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_timezone.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_keyboard.setStyleSheet(currentSS)
 
         elif n == 'Partman':
             # Rather than try to guess which partman page we should be on,
             # we leave that decision to set_autopartitioning_choices and
             # update_partman.
             
-            self.ui.languageStep.setStyleSheet(inactiveSS)
-            self.ui.timezoneStep.setStyleSheet(inactiveSS)
-            self.ui.keyboardStep.setStyleSheet(inactiveSS)
-            self.ui.partitionStep.setStyleSheet(currentSS)
+            self.ui.breadcrumb_language.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_timezone.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_keyboard.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_partition.setStyleSheet(currentSS)
             
             return
         elif n == 'UserSetup':
             self.set_current_page(self.step_index("stepUserInfo"))
             
-            self.ui.languageStep.setStyleSheet(inactiveSS)
-            self.ui.timezoneStep.setStyleSheet(inactiveSS)
-            self.ui.keyboardStep.setStyleSheet(inactiveSS)
-            self.ui.partitionStep.setStyleSheet(inactiveSS)
-            self.ui.userInfoStep.setStyleSheet(currentSS)
+            self.ui.breadcrumb_language.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_timezone.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_keyboard.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_partition.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_user.setStyleSheet(currentSS)
             
         elif n == 'Summary':
             self.set_current_page(self.step_index("stepReady"))
             self.ui.next.setText(self.get_string('install_button').replace('_', '&', 1))
             self.ui.next.setIcon(self.applyIcon)
             
-            self.ui.languageStep.setStyleSheet(inactiveSS)
-            self.ui.timezoneStep.setStyleSheet(inactiveSS)
-            self.ui.keyboardStep.setStyleSheet(inactiveSS)
-            self.ui.partitionStep.setStyleSheet(inactiveSS)
-            self.ui.userInfoStep.setStyleSheet(inactiveSS)
-            self.ui.summaryStep.setStyleSheet(currentSS)
+            self.ui.breadcrumb_language.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_timezone.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_keyboard.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_partition.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_user.setStyleSheet(inactiveSS)
+            self.ui.breadcrumb_summary.setStyleSheet(currentSS)
             
         else:
             print >>sys.stderr, 'No page found for %s' % n
@@ -1565,29 +1557,32 @@ class Wizard(BaseFrontend):
         #throwing away the old model if there is one
         self.partition_tree_model = PartitionModel(self, self.ui.partition_list_treeview)
 
-        children = self.ui.partition_bar_frame.children()
+        children = self.ui.part_advanced_bar_frame.children()
         for child in children:
             if isinstance(child, PartitionsBar):
-                self.partition_bar_vbox.removeWidget(child)
+                self.ui.part_advanced_bar_frame.layout().removeWidget(child)
                 child.hide()
                 del child
         
-        self.partition_bars = []
         partition_bar = None
         indexCount = -1
         for item in cache_order:
             if item in disk_cache:
                 #the item is a disk
-                self.partition_tree_model.append([item, disk_cache[item]], self)
                 indexCount += 1
-                partition_bar = PartitionsBar(self.ui.partition_bar_frame)
-                self.partition_bars.append(partition_bar)
-                self.partition_bar_vbox.addWidget(partition_bar)
+                partition_bar = PartitionsBar(self.ui.part_advanced_bar_frame)
+                self.ui.part_advanced_bar_frame.layout().addWidget(partition_bar)
+                
+                #hide all the other bars at first
+                if indexCount > 0:
+                    partition_bar.setVisible(False)
+                    
+                self.partition_tree_model.append([item, disk_cache[item], partition_bar], self)
             else:
                 #the item is a partition, add it to the current bar
                 partition = partition_cache[item]
                 #add the new partition to our tree display
-                self.partition_tree_model.append([item, partition], self)
+                self.partition_tree_model.append([item, partition, partition_bar], self)
                 indexCount += 1
                 
                 #get data for bar display
@@ -1604,12 +1599,9 @@ class Wizard(BaseFrontend):
         #        self.app.connect(barSignal, SIGNAL("clicked(int)"), barSlot.raiseFrames)
         
         self.ui.partition_list_treeview.setModel(self.partition_tree_model)
-        self.app.disconnect(self.ui.partition_list_treeview.selectionModel(), 
-            SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), 
-            self.on_partition_list_treeview_selection_changed)
-        self.app.connect(self.ui.partition_list_treeview.selectionModel(), 
-            SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), 
-            self.on_partition_list_treeview_selection_changed)
+        model = self.ui.partition_list_treeview.selectionModel()
+        #model.selectionChanged.disconnect(self.on_partition_list_treeview_selection_changed)
+        model.selectionChanged.connect(self.on_partition_list_treeview_selection_changed)
 
         # make sure we're on the advanced partitioning page
         self.set_current_page(self.step_index("stepPartAdvanced"))
@@ -1869,17 +1861,24 @@ class Wizard(BaseFrontend):
         if not isinstance(self.dbfilter, partman.Partman):
             return
 
+        if deselected:
+            deIndex = deselected.indexes()[0]
+            item = deIndex.internalPointer()
+            
+            if item.itemData[2]:
+                item.itemData[2].setVisible(False)
+            
         indexes = self.ui.partition_list_treeview.selectedIndexes()
         if indexes:
             index = indexes[0]
-            for bar in self.partition_bars:
-                pass
-                #TODO show the appropriate partition bar
-                ##bar.selected(index)  ##FIXME find out row from index and call bar.selected on it
-                #bar.raiseFrames()
+            
             item = index.internalPointer()
             devpart = item.itemData[0]
             partition = item.itemData[1]
+            
+            bar = item.itemData[2]
+            if bar:
+                bar.setVisible(True)
         else:
             devpart = None
             partition = None
