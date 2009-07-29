@@ -68,7 +68,8 @@ class Component:
         self.filter_class = None
         self.ui_class = None
         self.ui = None
-        self.widget = None
+        self.widgets = []
+        self.optional_widgets = []
 
 class BaseFrontend:
     """Abstract ubiquity frontend.
@@ -223,7 +224,7 @@ class BaseFrontend:
             name = 'None'
             self.dbfilter_status = None
         else:
-            name = dbfilter.__class__.__name__
+            name = dbfilter.__module__
             if dbfilter.status:
                 self.dbfilter_status = (name, dbfilter.status)
             else:
@@ -231,7 +232,7 @@ class BaseFrontend:
         if self.dbfilter is None:
             currentname = 'None'
         else:
-            currentname = self.dbfilter.__class__.__name__
+            currentname = self.dbfilter.__module__
         syslog.syslog(syslog.LOG_DEBUG,
                       "debconffilter_done: %s (current: %s)" %
                       (name, currentname))

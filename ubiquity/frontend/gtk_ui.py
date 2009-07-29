@@ -86,10 +86,13 @@ class Controller(ubiquity.frontend.base.Controller):
         self._wizard.next.activate()
     def go_backward(self):
         self._wizard.back.activate()
+    def go_to_page(self, widget):
+        self._wizard.set_current_page(self._wizard.steps.page_num(widget))
+    def modify_page_count(self, mod):
+        self._wizard.user_pageslen += mod
+        self._wizard.translate_widget(self._wizard.step_label)
 
 class Wizard(BaseFrontend):
-    PARTMAN_AUTO_PAGE = 0
-    PARTMAN_ADV_PAGE = 1
 
     def __init__(self, distro):
         def add_subpage(self, steps, name):
@@ -164,6 +167,7 @@ class Wizard(BaseFrontend):
         self.format_warnings = {}
         self.format_warning = None
         self.format_warning_align = None
+        self.history = []
 
         self.laptop = execute("laptop-detect")
 
@@ -188,19 +192,37 @@ class Wizard(BaseFrontend):
         self.pages = []
         self.pagesindex = 0
         self.pageslen = 0
+        self.user_pageslen = 0
         steps = self.glade.get_widget("steps")
         for mod in self.modules:
             if hasattr(mod.module, 'PageGtk'):
                 mod.ui_class = mod.module.PageGtk
                 mod.controller = Controller(self)
                 mod.ui = mod.ui_class(mod.controller)
-                widget = mod.ui.get_ui()
-                if widget:
-                    if type(widget).__name__ == 'str':
-                        widget = add_subpage(self, steps, widget)
-                    else:
-                        steps.append_page(widget)
-                    mod.widget = widget
+                if hasattr(mod.ui, 'get_ui'):
+                    widgets = mod.ui.get_ui()
+                else:
+                    widgets = []
+                if hasattr(mod.ui, 'get_optional_ui'):
+                    optional_widgets = mod.ui.get_optional_ui()
+                else:
+                    optional_widgets = []
+                if widgets or optional_widgets:
+                    def fill_out(widget_list):
+                        rv = []
+                        if type(widget_list).__name__ != 'list':
+                            widget_list = [widget_list]
+                        for w in widget_list:
+                            if type(w).__name__ == 'str':
+                                w = add_subpage(self, steps, w)
+                            else:
+                                steps.append_page(w)
+                            rv.append(w)
+                        return rv
+                    mod.widgets = fill_out(widgets)
+                    mod.optional_widgets = fill_out(optional_widgets)
+                    mod.all_widgets = mod.widgets + mod.optional_widgets
+                    self.user_pageslen += len(mod.widgets)
                     self.pageslen += 1
                     self.pages.append(mod)
 
@@ -220,9 +242,9 @@ class Wizard(BaseFrontend):
 
     def translate_pages(self, lang=None, just_current=True, reget=False):
         if just_current:
-            pages = [self.pages[self.pagesindex].widget]
+            pages = self.pages[self.pagesindex].all_widgets
         else:
-            pages = [p.widget for p in self.pages]
+            pages = reduce(lambda x,y: x + y.all_widgets, self.pages, [])
         widgets = set()
         for p in pages:
             for c in self.all_children(p):
@@ -384,6 +406,7 @@ class Wizard(BaseFrontend):
             if not self.pages[self.pagesindex].filter_class:
                 # This page is just a UI page
                 self.dbfilter = None
+                self.dbfilter_status = None
                 self.set_page(self.pages[self.pagesindex].module.NAME)
                 self.run_main_loop()
             else:
@@ -416,11 +439,7 @@ class Wizard(BaseFrontend):
                         self.debconf_progress_step(1)
                         self.refresh()
                 if self.backup:
-                    if self.pagesindex > 0:
-                        step = self.step_name(self.steps.get_current_page())
-                        if not step == 'stepPartman' or \
-                           self.stepPartman.get_current_page() != self.PARTMAN_ADV_PAGE:
-                            self.pagesindex = self.pagesindex - 1
+                    self.pagesindex = self.pop_history()
 
             while gtk.events_pending():
                 gtk.main_iteration()
@@ -538,9 +557,9 @@ class Wizard(BaseFrontend):
         if 'UBIQUITY_DEBUG' in os.environ:
             self.password_debug_warning_label.show()
 
-        if hasattr(self, 'stepPartman'):
+        if hasattr(self, 'stepPartAuto'):
             self.previous_partitioning_page = \
-                self.steps.page_num(self.stepPartman)
+                self.steps.page_num(self.stepPartAuto)
 
         # set initial bottom bar status
         self.allow_go_backward(False)
@@ -602,7 +621,7 @@ class Wizard(BaseFrontend):
                 core_names.append('ubiquity/imported/%s' % stock_item)
             for p in self.pages:
                 if p.controller.is_language_page:
-                    children = self.all_children(p.widget)
+                    children = reduce(lambda x,y: x + self.all_children(y), p.all_widgets, [])
                     prefix = p.controller.prefix if p.controller.prefix else 'ubiquity/text'
                     core_names.extend([prefix+'/'+c.get_name() for c in children])
             prefixes = filter(lambda x: x, [p.controller.prefix for p in self.pages])
@@ -627,8 +646,8 @@ class Wizard(BaseFrontend):
 
         if isinstance(widget, gtk.Label):
             if name == 'step_label':
-                text = text.replace('${INDEX}', str(self.pagesindex+1))
-                text = text.replace('${TOTAL}', str(self.pageslen))
+                text = text.replace('${INDEX}', str(min(self.user_pageslen, max(1, len(self.history)))))
+                text = text.replace('${TOTAL}', str(self.user_pageslen))
             elif name == 'welcome_text_label' and self.oem_user_config:
                 text = self.get_string('welcome_text_oem_user_label', lang)
             widget.set_text(text)
@@ -754,16 +773,50 @@ class Wizard(BaseFrontend):
             self.quit_installer()
         else:
             step = self.step_name(self.steps.get_current_page())
-            if step == "stepPartman":
-                print('dbfilter_handle_status stepPartman')
-                self.set_current_page(self.steps.page_num(self.stepPartman))
-                self.stepPartman.set_current_page(self.PARTMAN_AUTO_PAGE)
+            if step.startswith("stepPart"):
+                print('dbfilter_handle_status stepPart')
+                self.set_current_page(self.steps.page_num(self.stepPartAuto))
             return False
 
 
     def step_name(self, step_index):
-        return self.steps.get_nth_page(step_index).get_name()
+        w = self.steps.get_nth_page(step_index)
+        for p in self.pages:
+            if w in p.all_widgets:
+                return p.module.NAME
+        return None
 
+    def add_history(self, page, widget):
+        history_entry = (page, widget)
+        if self.history:
+            # We may have either jumped backward or forward over pages.
+            # Correct history in that case
+            new_index = self.pages.index(page)
+            old_index = self.pages.index(self.history[-1][0])
+            # First, pop if needed
+            if new_index < old_index:
+                while self.history[-1][0] != page and len(self.history) > 1:
+                    self.pop_history()
+            # Now push fake history if needed
+            i = old_index + 1
+            while i < new_index:
+                for w in self.pages[i].widgets: # add 1 for each always-on widgets
+                    self.history.append((self.pages[i], None))
+                i += 1
+
+            if history_entry == self.history[-1]:
+                return # Don't add the page if it's a dup
+            if widget in page.optional_widgets:
+                self.user_pageslen += 1
+        self.history.append(history_entry)
+
+    def pop_history(self):
+        if len(self.history) < 2:
+            return self.pagesindex
+        old_entry = self.history.pop()
+        if old_entry[1] in old_entry[0].optional_widgets:
+            self.user_pageslen -= 1
+        return self.pages.index(self.history[-1][0])
 
     def set_page(self, n):
         self.run_automation_error_cmd()
@@ -772,24 +825,30 @@ class Wizard(BaseFrontend):
         # migration-assistant.
         self.backup = False
         self.live_installer.show()
+        cur = None
         for page in self.pages:
             if page.module.NAME == n:
-                cur = page.widget
+                # Now ask ui class which page we want to be showing right now
+                if hasattr(page.ui, 'get_current_page'):
+                    cur = page.ui.get_current_page()
+                    if type(cur).__name__ == 'str' and hasattr(self, cur):
+                        cur = getattr(self, cur) # for not-yet-plugins
+                if not cur and page.widgets:
+                    cur = page.widgets[0]
+                elif not cur and page.optional_widgets:
+                    cur = page.optional_widgets[0]
                 break
-        if n == 'partman':
-            # Rather than try to guess which partman page we should be on,
-            # we leave that decision to set_autopartitioning_choices and
-            # update_partman.
-            return
-        elif n == 'usersetup':
-            cur = self.stepUserInfo
-        elif n == 'summary':
-            cur = self.stepReady
-            self.next.set_label(self.get_string('install_button'))
-        elif n == 'migrationassistant':
-            cur = self.stepMigrationAssistant
 
-        self.set_current_page(self.steps.page_num(cur))
+        if page is self.pages[-1]:
+            self.next.set_label(self.get_string('install_button'))
+
+        num = self.steps.page_num(cur) if cur else -1
+        if num < 0:
+            print >>sys.stderr, 'Invalid page found for %s: %s' % (n, str(cur))
+            return
+
+        self.add_history(page, cur)
+        self.set_current_page(num)
         if self.pagesindex == 0:
             self.allow_go_backward(False)
         elif 'UBIQUITY_AUTOMATIC' not in os.environ:
@@ -1012,15 +1071,19 @@ class Wizard(BaseFrontend):
 
         self.allow_change_step(False)
 
-        if self.pagesindex < self.pageslen - 1:
-            step = self.pages[self.pagesindex + 1].module.NAME
-            if step == 'partman':
-                self.part_advanced_warning_message.set_text('')
-                self.part_advanced_warning_hbox.hide()
-            elif step == 'usersetup':
-                self.username_error_box.hide()
-                self.password_error_box.hide()
-                self.hostname_error_box.hide()
+        step = self.step_name(self.steps.get_current_page())
+
+        # Beware that 'step' is the step we're leaving, not the one we're
+        # entering. At present it's a little awkward to define actions that
+        # occur upon entering a page without unwanted side-effects when the
+        # user tries to go forward but fails due to validation.
+        if step == "stepPartAuto":
+            self.part_advanced_warning_message.set_text('')
+            self.part_advanced_warning_hbox.hide()
+        if step in ("stepPartAuto", "stepPartAdvanced"):
+            self.username_error_box.hide()
+            self.password_error_box.hide()
+            self.hostname_error_box.hide()
 
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
@@ -1033,20 +1096,20 @@ class Wizard(BaseFrontend):
         """Process and validate the results of this step."""
 
         # setting actual step
-        page = self.pages[self.pagesindex]
-        step = page.module.NAME
+        step_num = self.steps.get_current_page()
+        step = self.step_name(step_num)
         syslog.syslog('Step_before = %s' % step)
 
-        if step == "partman":
-            self.previous_partitioning_page = self.pagesindex
-            # Automatic partitioning
-            if self.stepPartman.get_current_page() == self.PARTMAN_AUTO_PAGE:
-                self.process_autopartitioning()
-            # Advanced partitioning
-            elif self.stepPartman.get_current_page() == self.PARTMAN_ADV_PAGE:
-                self.info_loop(None)
+        if step.startswith("stepPart"):
+            self.previous_partitioning_page = step_num
+        # Automatic partitioning
+        elif step == "stepPartAuto":
+            self.process_autopartitioning()
+        # Advanced partitioning
+        elif step == "stepPartAdvanced":
+            self.info_loop(None)
         # Identification
-        elif step == "usersetup":
+        elif step == "stepUserInfo":
             self.process_identification()
 
     def process_identification (self):
@@ -1136,18 +1199,7 @@ class Wizard(BaseFrontend):
 
     def on_steps_switch_page (self, foo, bar, current):
         self.current_page = current
-        # If we're on the language page, then we may not know the correct
-        # language yet.  But we still want to update the page number if the
-        # user hit back, so call on_language_treeview_selection_changed and if
-        # we have a language selection, the interface will be translated
-        # properly.
-        if self.step_name(current) != 'stepLanguage' and self.step_name(current) != 'stepLanguageOnly':
-            self.translate_widget(self.step_label)
-        elif hasattr(self, 'language_treeview'):
-            selection = self.language_treeview.get_selection()
-            self.on_language_treeview_selection_changed(selection)
-        elif hasattr(self, 'language_iconview'):
-            self.on_language_iconview_selection_changed(self.language_iconview)
+        self.translate_widget(self.step_label)
         syslog.syslog('switched to page %s' % self.step_name(current))
 
     def on_extra_combo_changed (self, widget):
@@ -1448,8 +1500,7 @@ class Wizard(BaseFrontend):
         self.autopartition_choices_vbox.show_all()
 
         # make sure we're on the autopartitioning page
-        self.set_current_page(self.steps.page_num(self.stepPartman))
-        self.stepPartman.set_current_page(self.PARTMAN_AUTO_PAGE)
+        self.set_current_page(self.steps.page_num(self.stepPartAuto))
 
 
     def get_autopartition_choice (self):
@@ -1734,7 +1785,7 @@ class Wizard(BaseFrontend):
             self.partition_create_mount_combo.set_sensitive(False)
         else:
             self.partition_create_mount_combo.set_sensitive(True)
-            if isinstance(self.dbfilter, partman.Pag):
+            if isinstance(self.dbfilter, partman.Page):
                 mount_model = self.partition_create_mount_combo.get_model()
                 if mount_model is not None:
                     fs = model[iterator][1]
@@ -2131,8 +2182,7 @@ class Wizard(BaseFrontend):
         if sel.count_selected_rows() == 0:
             sel.select_path(0)
         # make sure we're on the advanced partitioning page
-        self.set_current_page(self.steps.page_num(self.stepPartman))
-        self.stepPartman.set_current_page(self.PARTMAN_ADV_PAGE)
+        self.set_current_page(self.steps.page_num(self.stepPartAdvanced))
 
     def ma_get_choices(self):
         return self.ma_choices

@@ -24,7 +24,7 @@ import signal
 
 import debconf
 
-from ubiquity.filteredcommand import FilteredCommand
+from ubiquity.plugin import Plugin
 from ubiquity import parted_server
 from ubiquity.misc import *
 
@@ -32,15 +32,29 @@ NAME = 'partman'
 
 class PageGtk:
     def __init__(self, *args, **kwargs):
-        pass
+        self.part_page = None
     def get_ui(self):
-        return 'stepPartman'
+        return 'stepPartAuto'
+    def get_optional_ui(self):
+        return 'stepPartAdvanced'
+    def get_current_page(self):
+        return self.part_page
+
+    def set_part_page(self, p):
+        self.part_page = p
 
 class PageKde:
     def __init__(self, *args, **kwargs):
-        pass
+        self.part_page = None
     def get_ui(self):
-        return ['stepPartman', 'ubiquity/text/step_name_partman']
+        return ['stepPartAuto', 'ubiquity/text/step_name_partman']
+    def get_optional_ui(self):
+        rerturn 'stepPartAdvanced'
+    def get_current_page(self):
+        return self.part_page
+
+    def set_part_page(self, p):
+        self.part_page = p
 
 PARTITION_TYPE_PRIMARY = 0
 PARTITION_TYPE_LOGICAL = 1
@@ -51,7 +65,7 @@ PARTITION_PLACE_END = 1
 class PartmanOptionError(LookupError):
     pass
 
-class Page(FilteredCommand):
+class Page(Plugin):
     def prepare(self):
         self.some_device_desc = ''
         self.resize_desc = ''
@@ -347,7 +361,7 @@ class Page(FilteredCommand):
                 self.editing_partition['bad_mountpoint'] = True
         self.frontend.error_dialog(self.description(question),
                                    self.extended_description(question))
-        return FilteredCommand.error(self, priority, question)
+        return Plugin.error(self, priority, question)
 
     def run(self, priority, question):
         if self.done:
@@ -445,6 +459,7 @@ class Page(FilteredCommand):
                 biggest_free = self.split_devpart(biggest_free)[1]
             self.extra_options[self.biggest_free_desc] = biggest_free
 
+            self.ui.set_part_page('stepPartAuto')
             self.frontend.set_autopartition_choices(
                 choices, self.extra_options, self.resize_desc,
                 self.manual_desc, self.biggest_free_desc)
@@ -508,6 +523,7 @@ class Page(FilteredCommand):
                         self.building_cache = False
                         self.frontend.debconf_progress_stop()
                         self.frontend.refresh()
+                        self.ui.set_part_page('stepPartAdvanced')
                         self.frontend.update_partman(
                             self.disk_cache, self.partition_cache,
                             self.cache_order)
@@ -632,18 +648,21 @@ class Page(FilteredCommand):
                         self.building_cache = False
                         self.frontend.debconf_progress_stop()
                         self.frontend.refresh()
+                        self.ui.set_part_page('stepPartAdvanced')
                         self.frontend.update_partman(
                             self.disk_cache, self.partition_cache,
                             self.cache_order)
             elif self.creating_partition:
                 devpart = self.creating_partition['devpart']
                 if devpart in self.partition_cache:
+                    self.ui.set_part_page('stepPartAdvanced')
                     self.frontend.update_partman(
                         self.disk_cache, self.partition_cache,
                         self.cache_order)
             elif self.editing_partition:
                 devpart = self.editing_partition['devpart']
                 if devpart in self.partition_cache:
+                    self.ui.set_part_page('stepPartAdvanced')
                     self.frontend.update_partman(
                         self.disk_cache, self.partition_cache,
                         self.cache_order)
@@ -671,7 +690,7 @@ class Page(FilteredCommand):
             self.undoing = False
             self.finish_partitioning = False
 
-            FilteredCommand.run(self, priority, question)
+            Plugin.run(self, priority, question)
 
             if self.finish_partitioning or self.done:
                 if self.succeeded:
@@ -1055,7 +1074,7 @@ class Page(FilteredCommand):
             if priority == 'critical' or priority == 'high':
                 self.frontend.error_dialog(self.description(question),
                                            self.extended_description(question))
-                return FilteredCommand.error(self, priority, question)
+                return Plugin.error(self, priority, question)
             else:
                 return True
 
@@ -1089,7 +1108,7 @@ class Page(FilteredCommand):
                 self.preseed(question, 'false', seen=False)
             return True
 
-        return FilteredCommand.run(self, priority, question)
+        return Plugin.run(self, priority, question)
 
     def ok_handler(self):
         if self.current_question.endswith('automatically_partition'):

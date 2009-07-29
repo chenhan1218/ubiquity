@@ -115,6 +115,11 @@ class Controller(ubiquity.frontend.base.Controller):
         self._wizard.ui.next.click()
     def go_backward(self):
         self._wizard.ui.back.click()
+    def go_to_page(self, widget):
+        self._wizard.set_current_page(self._wizard.ui.widgetStack.indexOf(widget))
+    def modify_page_count(self, mod):
+        self._wizard.user_pageslen += mod
+        self._wizard.translate_widget(self._wizard.step_label)
 
 class Wizard(BaseFrontend):
 
@@ -209,6 +214,7 @@ class Wizard(BaseFrontend):
                     mod.widget = widget
                     self.pageslen += 1
                     self.pages.append(mod)
+        self.user_pageslen = self.pageslen
 
         # declare attributes
         self.language_questions = (
@@ -385,6 +391,7 @@ class Wizard(BaseFrontend):
             if not self.pages[self.pagesindex].filter_class:
                 # This page is just a UI page
                 self.dbfilter = None
+                self.dbfilter_status = None
                 self.set_page(self.pages[self.pagesindex].module.NAME)
                 self.allow_change_step(True)
                 self.app.exec_()
@@ -581,7 +588,7 @@ class Wizard(BaseFrontend):
         if isinstance(widget, QLabel):
             if name == 'step_label':
                 text = text.replace('${INDEX}', str(self.pagesindex+1))
-                text = text.replace('${TOTAL}', str(self.pageslen))
+                text = text.replace('${TOTAL}', str(self.user_pageslen))
             elif name == 'welcome_text_label' and self.oem_user_config:
                 text = self.get_string('welcome_text_oem_user_label', lang)
 

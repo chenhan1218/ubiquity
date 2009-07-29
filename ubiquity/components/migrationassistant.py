@@ -29,13 +29,13 @@ NAME = 'migrationassistant'
 class PageGtk:
     def __init__(self, *args, **kwargs):
         pass
-    def get_ui(self):
+    def get_optional_ui(self):
         return 'stepMigrationAssistant'
 
 class PageKde:
     def __init__(self, *args, **kwargs):
         pass
-    def get_ui(self):
+    def get_optional_ui(self):
         return 'stepMigrationAssistant'
 
 class Page(FilteredCommand):
