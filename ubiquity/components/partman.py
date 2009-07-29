@@ -49,7 +49,7 @@ class PageKde:
     def get_ui(self):
         return ['stepPartAuto', 'ubiquity/text/step_name_partman']
     def get_optional_ui(self):
-        rerturn 'stepPartAdvanced'
+        return 'stepPartAdvanced'
     def get_current_page(self):
         return self.part_page
 

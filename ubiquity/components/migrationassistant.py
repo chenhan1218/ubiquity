@@ -32,12 +32,6 @@ class PageGtk:
     def get_optional_ui(self):
         return 'stepMigrationAssistant'
 
-class PageKde:
-    def __init__(self, *args, **kwargs):
-        pass
-    def get_optional_ui(self):
-        return 'stepMigrationAssistant'
-
 class Page(FilteredCommand):
     def prepare(self):
         self.got_a_question = False

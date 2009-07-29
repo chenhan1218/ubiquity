@@ -839,7 +839,7 @@ class Wizard(BaseFrontend):
                     cur = page.optional_widgets[0]
                 break
 
-        if page is self.pages[-1]:
+        if self.pagesindex == self.pageslen - 1:
             self.next.set_label(self.get_string('install_button'))
 
         num = self.steps.page_num(cur) if cur else -1

@@ -186,21 +186,35 @@ class Wizard(BaseFrontend):
                 mod.ui_class = mod.module.PageKde
                 mod.controller = Controller(self)
                 mod.ui = mod.ui_class(mod.controller)
-                widget = mod.ui.get_ui()
-                if widget:
+                if hasattr(mod.ui, 'get_ui'):
+                    widgets = mod.ui.get_ui()
+                else:
+                    widgets = []
+                if hasattr(mod.ui, 'get_optional_ui'):
+                    optional_widgets = mod.ui.get_optional_ui()
+                else:
+                    optional_widgets = []
+                if widgets or optional_widgets:
                     step_label = None
-                    if type(widget).__name__ == 'list':
-                        if len(widget) > 1:
-                            step_label = widget[1]
-                        widget = widget[0]
-                    if type(widget).__name__ != 'str':
-                        # Until we ship with no pre-built pages, insert at 'beginning'
-                        self.ui.widgetStack.insertWidget(self.pageslen, widget)
-                    else:
-                        if hasattr(self.ui, widget):
-                            widget = getattr(self.ui, widget)
-                        else:
-                            continue
+                    if type(widgets).__name__ == 'list':
+                        if len(widgets) > 1:
+                            step_label = widgets[1]
+                        widgets = widgets[0]
+                    def fill_out(widget_list):
+                        rv = []
+                        if type(widget_list).__name__ != 'list':
+                            widget_list = [widget_list]
+                        for w in widget_list:
+                            if type(w).__name__ != 'str':
+                                # Until we ship with no pre-built pages, insert
+                                # at 'beginning'
+                                self.ui.widgetStack.insertWidget(self.pageslen, w)
+                            elif hasattr(self.ui, w):
+                                w = getattr(self.ui, w)
+                            rv.append(w)
+                        return rv
+                    mod.widgets = fill_out(widgets)
+                    mod.widgets += fill_out(optional_widgets)
                     if step_label is None:
                         step_label = '------' # just a placeholder
                     if step_label:
@@ -211,7 +225,6 @@ class Wizard(BaseFrontend):
                     else:
                         mod.step_label_question = None
                         mod.step_label = None # page intentionally didn't want a label (intro)
-                    mod.widget = widget
                     self.pageslen += 1
                     self.pages.append(mod)
         self.user_pageslen = self.pageslen
@@ -250,6 +263,7 @@ class Wizard(BaseFrontend):
         self.partition_bars = []
         self.disk_layout = None
         self.backup = False
+        self.history = []
 
         self.laptop = execute("laptop-detect")
         self.partition_tree_model = None
@@ -388,6 +402,7 @@ class Wizard(BaseFrontend):
             if self.current_page == None:
                 break
 
+            self.backup = False
             if not self.pages[self.pagesindex].filter_class:
                 # This page is just a UI page
                 self.dbfilter = None
@@ -396,7 +411,6 @@ class Wizard(BaseFrontend):
                 self.allow_change_step(True)
                 self.app.exec_()
             else:
-                self.backup = False
                 old_dbfilter = self.dbfilter
                 if issubclass(self.pages[self.pagesindex].filter_class, Plugin):
                     ui = self.pages[self.pagesindex].ui
@@ -426,10 +440,7 @@ class Wizard(BaseFrontend):
                         self.debconf_progress_step(1)
                         self.refresh()
                 if self.backup:
-                    if self.pagesindex > 0:
-                        step = self.step_name(self.get_current_page())
-                        if not step == "stepPartAdvanced": #Advanced will already have pagesindex pointing at first Paritioning page
-                            self.pagesindex = self.pagesindex - 1
+                    self.pagesindex = self.pop_history()
 
             self.app.processEvents()
 
@@ -516,9 +527,9 @@ class Wizard(BaseFrontend):
 
     def translate_pages(self, lang=None, just_current=True, reget=False):
         if just_current:
-            pages = [self.pages[self.pagesindex].widget]
+            pages = self.pages[self.pagesindex].widgets
         else:
-            pages = [p.widget for p in self.pages]
+            pages = reduce(lambda x,y: x+y.widgets, self.pages, [])
         widgets = []
         for p in pages:
             for c in self.all_children(p):
@@ -545,7 +556,7 @@ class Wizard(BaseFrontend):
                 core_names.append('ubiquity/imported/%s' % stock_item)
             for p in self.pages:
                 if p.controller.is_language_page:
-                    children = self.all_children(p.widget)
+                    children = reduce(lambda x,y: x + self.all_children(y), p.widgets, [])
                     prefix = p.controller.prefix if p.controller.prefix else 'ubiquity/text'
                     core_names.extend([prefix+'/'+c.objectName() for c in children])
                 if p.step_label_question:
@@ -696,10 +707,22 @@ class Wizard(BaseFrontend):
         #each step will set its previous ones as inactive
         #this handles the ability to go back
         
-        index = 0
         found = False
         for page in self.pages:
             if page.module.NAME == n:
+                # Now ask ui class which page we want to be showing right now
+                cur = None
+                if hasattr(page.ui, 'get_current_page'):
+                    cur = page.ui.get_current_page()
+                    if type(cur).__name__ == 'str':
+                        cur = getattr(self.ui, cur) # for not-yet-plugins
+                if not cur and page.widgets:
+                    cur = page.widgets[0]
+                if not cur:
+                    return
+
+                index = self.ui.widgetStack.indexOf(cur)
+                self.add_history(page, cur)
                 self.set_current_page(index)
                 if page.step_label:
                     page.step_label.setStyleSheet(currentSS)
@@ -712,19 +735,8 @@ class Wizard(BaseFrontend):
                     page.step_label.setStyleSheet(activeSS)
                 else:
                     page.step_label.setStyleSheet(inactiveSS)
-            index += 1
-
-        if n == 'partman':
-            # Rather than try to guess which partman page we should be on,
-            # we leave that decision to set_autopartitioning_choices and
-            # update_partman.
-            
-            return
-        elif n == 'usersetup':
-            self.set_current_page(self.step_index("stepUserInfo"))
-            
-        elif n == 'summary':
-            self.set_current_page(self.step_index("stepReady"))
+    
+        if self.pagesindex == self.pageslen - 1:
             self.ui.next.setText(self.get_string('install_button').replace('_', '&', 1))
             self.ui.next.setIcon(self.applyIcon)
             
@@ -733,6 +745,34 @@ class Wizard(BaseFrontend):
         else:
             self.allow_go_backward(True)
     
+    def add_history(self, page, widget):
+        history_entry = (page, widget)
+        if self.history:
+            # We may have either jumped backward or forward over pages.
+            # Correct history in that case
+            new_index = self.pages.index(page)
+            old_index = self.pages.index(self.history[-1][0])
+            # First, pop if needed
+            if new_index < old_index:
+                while self.history[-1][0] != page and len(self.history) > 1:
+                    self.pop_history()
+            # Now push fake history if needed
+            i = old_index + 1
+            while i < new_index:
+                for w in self.pages[i].widgets:
+                    self.history.append((self.pages[i], None))
+                i += 1
+
+            if history_entry == self.history[-1]:
+                return # Don't add the page if it's a dup
+        self.history.append(history_entry)
+
+    def pop_history(self):
+        if len(self.history) < 2:
+            return self.pagesindex
+        old_entry = self.history.pop()
+        return self.pages.index(self.history[-1][0])
+
     def set_current_page(self, current):
         widget = self.ui.widgetStack.widget(current)
         if self.ui.widgetStack.currentWidget() == widget:
@@ -1152,7 +1192,7 @@ class Wizard(BaseFrontend):
             if isinstance(child, QVBoxLayout) or isinstance(child, QButtonGroup):
                 pass
             else:
-                self.autopart_selection_frame.removeWidget(child)
+                self.ui.autopart_selection_frame.layout().removeWidget(child)
                 #child.hide()
 
         regain_privileges()
@@ -1417,10 +1457,10 @@ class Wizard(BaseFrontend):
         #throwing away the old model if there is one
         self.partition_tree_model = PartitionModel(self, self.ui.partition_list_treeview)
 
-        children = self.ui.partition_bar_frame.children()
+        children = self.ui.part_advanced_bar_frame.children()
         for child in children:
             if isinstance(child, PartitionsBar):
-                self.partition_bar_vbox.removeWidget(child)
+                self.ui.part_advanced_bar_frame.layout().removeWidget(child)
                 child.hide()
                 del child
         
@@ -1432,9 +1472,9 @@ class Wizard(BaseFrontend):
                 #the item is a disk
                 self.partition_tree_model.append([item, disk_cache[item]], self)
                 indexCount += 1
-                partition_bar = PartitionsBar(self.ui.partition_bar_frame)
+                partition_bar = PartitionsBar(self.ui.part_advanced_bar_frame)
                 self.partition_bars.append(partition_bar)
-                self.partition_bar_vbox.addWidget(partition_bar)
+                self.ui.part_advanced_bar_frame.layout().addWidget(partition_bar)
             else:
                 #the item is a partition, add it to the current bar
                 partition = partition_cache[item]
