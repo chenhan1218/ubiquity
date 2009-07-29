@@ -9,6 +9,10 @@ ubiquity (1.99.3) UNRELEASED; urgency=low
   * started work on moving over to the new theme/app.ui file
   * new theme is in place and a simple install can be performed
 
+  [ Evan Dandrea ]
+  * Automatic update of included source packages: grub-installer
+    1.40ubuntu1, user-setup 1.27ubuntu6.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 22 Jul 2009 14:16:27 +0100
 
 ubiquity (1.99.2) karmic; urgency=low
