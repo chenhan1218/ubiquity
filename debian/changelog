@@ -1,4 +1,4 @@
-ubiquity (1.99.3) UNRELEASED; urgency=low
+ubiquity (1.99.3) karmic; urgency=low
 
   [ Colin Watson ]
   * Filter out Help: from d-i's debconf templates, since Perl debconf
@@ -9,7 +9,11 @@ ubiquity (1.99.3) UNRELEASED; urgency=low
   * started work on moving over to the new theme/app.ui file
   * new theme is in place and a simple install can be performed
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 22 Jul 2009 14:16:27 +0100
+  [ Evan Dandrea ]
+  * Automatic update of included source packages: grub-installer
+    1.40ubuntu1, user-setup 1.27ubuntu6.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 29 Jul 2009 22:21:06 +0100
 
 ubiquity (1.99.2) karmic; urgency=low
 

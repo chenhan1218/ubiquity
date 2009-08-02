@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-07-14 09:12-0400\n"
+"POT-Creation-Date: 2009-07-29 22:17+0100\n"
 "PO-Revision-Date: 2009-04-12 01:05+0000\n"
 "Last-Translator: André Gondim <andregondim@ubuntu.com>\n"
 "Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
@@ -46,7 +46,9 @@ msgstr "Especificar particionamento manual (avançado)"
 #. Type: text
 #. Description
 #. This is used as a window title.
-#: ../ubiquity.templates:7001
+#. Type: text
+#. Description
+#: ../ubiquity.templates:7001 ../ubiquity.templates:166001
 msgid "Install"
 msgstr "Instalar"
 
@@ -1162,6 +1164,52 @@ msgstr ""
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:160001
+msgid "Language"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:161001
+msgid "Timezone"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:162001
+#, fuzzy
+#| msgid "Keyboard layout"
+msgid "Keyboard"
+msgstr "Selecione um layout de teclado"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:163001
+msgid "Disk Setup"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:164001
+msgid "User Info"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:165001
+msgid "Summary"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:167001
+#, fuzzy
+#| msgid "Installation Type"
+msgid "installation process"
+msgstr "Tipo de instalação"
 
 #. Type: note
 #. Description
