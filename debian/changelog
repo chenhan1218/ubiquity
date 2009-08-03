@@ -1,3 +1,10 @@
+ubiquity (1.99.4) UNRELEASED; urgency=low
+
+  * Correct erroneously inverted test for the slideshow slides.  Thanks
+    Roman Shtylman.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 04 Aug 2009 00:17:41 +0100
+
 ubiquity (1.99.3) karmic; urgency=low
 
   [ Colin Watson ]
