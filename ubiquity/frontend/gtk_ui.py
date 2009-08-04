@@ -327,6 +327,7 @@ class Wizard(BaseFrontend):
             'changed', self.on_hostname_changed)
 
         self.pagesindex = 0
+        pageslen = len(self.pages)
 
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             got_intro = False
@@ -337,6 +338,7 @@ class Wizard(BaseFrontend):
         # Start the interface
         if got_intro:
             self.pages.insert(0, None) # for page index bookkeeping
+            pageslen += 1
             first_step = self.stepWelcome
         else:
             first_step = getattr(self, self.pagenames[0])
@@ -358,7 +360,6 @@ class Wizard(BaseFrontend):
             gtk.main()
             self.pagesindex += 1
 
-        pageslen = len(self.pages)
         while(self.pagesindex < pageslen):
             if self.current_page == None:
                 break
