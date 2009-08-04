@@ -1,9 +1,15 @@
 ubiquity (1.99.4) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Correct erroneously inverted test for the slideshow slides.  Thanks
     Roman Shtylman.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 04 Aug 2009 00:17:41 +0100
+  [ Roman Shtylman ]
+  * migrated to custom progress dialog to support slideshow slides
+  * added support for slideshow
+  * fixed bug with going backwards on partition screen
+
+ -- Roman Shtylman <shtylman@gmail.com>  Mon, 03 Aug 2009 20:53:27 -0400
 
 ubiquity (1.99.3) karmic; urgency=low
 
