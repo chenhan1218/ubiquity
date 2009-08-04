@@ -898,7 +898,7 @@ class Wizard(BaseFrontend):
         sh = s.get_height()
         sw = s.get_width()
         fail = None
-        if not os.path.exists(slides):
+        if os.path.exists(slides):
             if sh >= 800 and sw >= 600:
                 try:
                     import webkit
