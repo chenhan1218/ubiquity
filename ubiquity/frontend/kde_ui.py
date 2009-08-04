@@ -46,6 +46,7 @@ from PyKDE4.kdecore import *
 from ubiquity.frontend.kde_components.Timezone import *
 from ubiquity.frontend.kde_components.PartitionBar import *
 from ubiquity.frontend.kde_components.PartitionModel import *
+from ubiquity.frontend.kde_components.ProgressDialog import *
 
 import debconf
 
@@ -146,7 +147,7 @@ class Wizard(BaseFrontend):
         self.app = KApplication()
         self.app.setStyleSheet(file(os.path.join(UIDIR, "style.qss")).read())
 
-        # put the privileges back
+        # put the privileges back to user level
         drop_privileges()
 
         self.ui = UbiquityUI()
@@ -189,7 +190,6 @@ class Wizard(BaseFrontend):
         self.allowed_go_forward = True
         self.stay_on_page = False
         self.mainLoopRunning = False
-        self.progressDialogue = None
         self.progress_position = ubiquity.progressposition.ProgressPosition()
         self.progress_cancelled = False
         self.resizePath = None
@@ -201,7 +201,8 @@ class Wizard(BaseFrontend):
         self.installing_no_return = False
         self.returncode = 0
         self.disk_layout = None
-
+        self.progressDialog = ProgressDialog(0, 0, self.ui)
+        
         self.laptop = execute("laptop-detect")
         self.partition_tree_model = None
         
@@ -775,6 +776,45 @@ class Wizard(BaseFrontend):
         syslog.syslog('progress_loop()')
 
         self.current_page = None
+        
+        lang = self.get_language()
+        slides = '/usr/share/ubiquity-slideshow/%s/index.html' % lang
+        #TODO test if screen is big enough to show slides...
+        try:
+            if os.path.exists(slides):
+                from PyQt4.QtWebKit import QWebView
+                from PyQt4.QtWebKit import QWebPage
+                
+                #we need to get root privs to open a link because 
+                #the kapplication was started that way...
+                def openLink(qUrl):
+                    os.setegid(0)
+                    os.seteuid(0)
+                
+                    QDesktopServices.openUrl(qUrl)
+                    drop_privileges()
+                
+                webView = QWebView()
+                
+                webView.linkClicked.connect(openLink)
+                
+                webView.setContextMenuPolicy(Qt.NoContextMenu)
+                webView.page().setLinkDelegationPolicy(QWebPage.DelegateExternalLinks)
+                webView.page().mainFrame().setScrollBarPolicy(Qt.Horizontal, Qt.ScrollBarAlwaysOff)
+                webView.page().mainFrame().setScrollBarPolicy(Qt.Vertical, Qt.ScrollBarAlwaysOff)
+                webView.setFixedSize(700,420);
+                
+                webView.load(QUrl(slides))
+                
+                #add the webview to the extra frame of the progress dialog
+                self.progressDialog.extraFrame.layout().addWidget(webView)
+                self.progressDialog.extraFrame.setVisible(True)
+                
+            else:
+                raise Exception('No slides present for %s.' % lang)
+            
+        except Exception as e:
+            syslog.syslog('Not displaying the slideshow: %s' % e)
 
         self.debconf_progress_start(
             0, 100, self.get_string('ubiquity/install/title'))
@@ -785,7 +825,7 @@ class Wizard(BaseFrontend):
             if dbfilter.run_command(auto_process=True) != 0:
                 while self.progress_position.depth() != 0:
                     self.debconf_progress_stop()
-                self.progressDialogue.hide()
+                self.progressDialog.hide()
                 self.return_to_partitioning()
                 return
 
@@ -819,7 +859,7 @@ class Wizard(BaseFrontend):
             self.debconf_progress_stop()
 
         # just to make sure
-        self.progressDialogue.hide()
+        self.progressDialog.hide()
 
         self.installing = False
         quitText = '<qt>%s</qt>' % self.get_string("finished_label")
@@ -1133,72 +1173,68 @@ class Wizard(BaseFrontend):
         if progress_title is None:
             progress_title = ""
         total_steps = progress_max - progress_min
-        if self.progressDialogue is None:
-            skipText = self.get_string("progress_cancel_button")
-            self.progressDialogue = QProgressDialog('', skipText, 0, total_steps, self.ui)
-            self.progressDialogue.setWindowModality(Qt.WindowModal);
-            self.cancelButton = QPushButton(skipText, self.progressDialogue)
-            self.progressDialogue.setCancelButton(self.cancelButton)
-            # This needs to be called after setCancelButton, otherwise that
-            # function will cause the button to be shown again.
-            self.cancelButton.hide()
-        elif self.progress_position.depth() == 0:
-            self.progressDialogue.setMaximum(total_steps)
+        skipText = self.get_string("progress_cancel_button")
+        self.progressDialog.setWindowModality(Qt.WindowModal);
+        self.progressDialog.setCancelText(skipText)
+        self.progressDialog.setCancellable(False)
+        self.progressDialog.setMaximum(total_steps)
+        
+        #if self.progress_position.depth() == 0:
+        #    self.progressDialog.setMaximum(total_steps)
 
         self.progress_position.start(progress_min, progress_max,
                                      progress_title)
-        self.progressDialogue.setWindowTitle(progress_title)
+        self.progressDialog.setWindowTitle(progress_title)
         self.debconf_progress_set(0)
-        self.progressDialogue.setLabel(QLabel(''))
-        self.progressDialogue.show()
+        self.progressDialog.show()
 
     def debconf_progress_set (self, progress_val):
-        self.progress_cancelled = self.progressDialogue.wasCanceled()
+        self.progress_cancelled = self.progressDialog.wasCanceled()
         if self.progress_cancelled:
             return False
         self.progress_position.set(progress_val)
         fraction = self.progress_position.fraction()
-        self.progressDialogue.setValue(
-            int(fraction * self.progressDialogue.maximum()))
+        self.progressDialog.setProgressValue(
+            int(fraction * self.progressDialog.maximum()))
         return True
 
     def debconf_progress_step (self, progress_inc):
-        self.progress_cancelled = self.progressDialogue.wasCanceled()
+        self.progress_cancelled = self.progressDialog.wasCanceled()
         if self.progress_cancelled:
             return False
         self.progress_position.step(progress_inc)
         fraction = self.progress_position.fraction()
-        self.progressDialogue.setValue(
-            int(fraction * self.progressDialogue.maximum()))
+        self.progressDialog.setProgressValue(
+            int(fraction * self.progressDialog.maximum()))
         return True
 
     def debconf_progress_info (self, progress_info):
-        self.progress_cancelled = self.progressDialogue.wasCanceled()
+        self.progress_cancelled = self.progressDialog.wasCanceled()
         if self.progress_cancelled:
             return False
-        self.progressDialogue.setLabel(QLabel(progress_info))
+        self.progressDialog.setProgressLabel(progress_info)
         return True
 
     def debconf_progress_stop (self):
         self.progress_cancelled = False
         self.progress_position.stop()
         if self.progress_position.depth() == 0:
-            self.progressDialogue.reset() # also hides dialog
+            self.progressDialog.reset() # also hides dialog
         else:
-            self.progressDialogue.setWindowTitle(self.progress_position.title())
+            self.progressDialog.setWindowTitle(self.progress_position.title())
 
     def debconf_progress_region (self, region_start, region_end):
         self.progress_position.set_region(region_start, region_end)
 
     def debconf_progress_cancellable (self, cancellable):
         if cancellable:
-            self.cancelButton.show()
+            self.progressDialog.setCancellable(True)
         else:
-            self.cancelButton.hide()
+            self.progressDialog.setCancellable(False)
             self.progress_cancelled = False
 
-    def on_progress_cancel_button_clicked (self, button):
-        self.progress_cancelled = True
+    #def on_progress_cancel_button_clicked (self, button):
+    #    self.progress_cancelled = True
 
     def debconffilter_done (self, dbfilter):
         ##FIXME in Qt 4 without this disconnect it calls watch_debconf_fd_helper_read once more causing
@@ -1292,7 +1328,7 @@ class Wizard(BaseFrontend):
             if isinstance(child, QVBoxLayout) or isinstance(child, QButtonGroup):
                 pass
             else:
-                self.autopart_selection_frame.removeWidget(child)
+                self.ui.autopart_selection_frame.layout().removeWidget(child)
                 #child.hide()
 
         regain_privileges()
