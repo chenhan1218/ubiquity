@@ -150,7 +150,6 @@ class Wizard(BaseFrontend):
         self.format_warnings = {}
         self.format_warning = None
         self.format_warning_align = None
-        self.timezone_city_combo_has_shortlist = False
 
         self.laptop = execute("laptop-detect")
 
@@ -545,7 +544,7 @@ class Wizard(BaseFrontend):
         renderer = gtk.CellRendererText()
         self.timezone_zone_combo.pack_start(renderer, True)
         self.timezone_zone_combo.add_attribute(renderer, 'text', 0)
-        zone_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
+        zone_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING)
         self.timezone_zone_combo.set_model(zone_store)
         self.timezone_zone_combo.set_row_separator_func(is_separator)
         self.timezone_zone_combo.connect('changed', self.zone_combo_selection_changed)
@@ -564,35 +563,25 @@ class Wizard(BaseFrontend):
 
         i = self.timezone_zone_combo.get_active()
         m = self.timezone_zone_combo.get_model()
-        if not i:
+        if i is None:
             return
-        region = m[i][1]
+        if m[i][1]:
+            countries = [m[i][1]]
+        else:
+            countries = self.dbfilter.get_countries_for_region(m[i][2])
 
         m = self.timezone_city_combo.get_model()
+        m.clear()
 
-        # Remove any existing shortlist
-        if self.timezone_city_combo_has_shortlist:
-            iterator = m.get_iter_first()
-            while iterator:
-                is_sep = m[iterator][0] is None
-                if not m.remove(iterator) or is_sep:
-                    break
-            self.timezone_city_combo_has_shortlist = False
+        shortlist, longlist = self.dbfilter.build_timezone_pairs(countries)
+        for pair in shortlist:
+            m.append(pair)
+        if shortlist:
+            m.append([None, None])
+        for pair in longlist:
+            m.append(pair)
 
-        pairs = self.dbfilter.build_shortlist_timezone_pairs(region)
-        if not pairs:
-            # Build our own shortlist
-            pairs = []
-            locs = self.tzdb.cc_to_locs[region]
-            for loc in locs:
-                pairs.append((loc.human_zone, loc.zone))
-
-        sep = m.prepend([None, None])
-        for pair in pairs:
-            m.insert_before(sep, pair)
-        self.timezone_city_combo_has_shortlist = True
-
-        default = self.dbfilter.get_default_for_region(region)
+        default = len(countries) == 1 and self.dbfilter.get_default_for_region(countries[0])
         if default:
             self.select_city(None, default)
         else:
@@ -608,34 +597,38 @@ class Wizard(BaseFrontend):
         zone = self.get_timezone()
         self.tzmap.select_city(zone)
 
-        # have to update region as well, in case user picked a city outside
-        # current region
-        loc = self.tzdb.get_loc(zone)
-        if not loc:
-            return
+    def select_country(self, country):
+        def country_is_in_region(country, region):
+            if not region: return False
+            return country in self.dbfilter.get_countries_for_region(region)
+
         m = self.timezone_zone_combo.get_model()
-        iterator = m.get_iter_first()
-        while iterator:
-            if m[iterator][1] == loc.country:
-                self.timezone_zone_combo.handler_block_by_func(self.zone_combo_selection_changed)
-                self.timezone_zone_combo.set_active_iter(iterator)
-                self.timezone_zone_combo.handler_unblock_by_func(self.zone_combo_selection_changed)
-                break
-            iterator = m.iter_next(iterator)
+        iterator = self.timezone_zone_combo.get_active()
+        got_country = m[iterator][1] == country or \
+                      country_is_in_region(country, m[iterator][2])
+        if not got_country:
+            iterator = m.get_iter_first()
+            while iterator:
+                if m[iterator][0] is None:
+                    break # separator
+                if m[iterator][1] == country:
+                    self.timezone_zone_combo.set_active_iter(iterator)
+                    iterator = None
+                    break
+                iterator = m.iter_next(iterator)
+            while iterator:
+                if country_is_in_region(country, m[iterator][2]):
+                    self.timezone_zone_combo.set_active_iter(iterator)
+                    iterator = None
+                    break
+                iterator = m.iter_next(iterator)
 
     def select_city(self, widget, city):
         loc = self.tzdb.get_loc(city)
         if not loc:
             return
-        region = loc.country
 
-        m = self.timezone_zone_combo.get_model()
-        iterator = m.get_iter_first()
-        while iterator:
-            if m[iterator][1] == region:
-                self.timezone_zone_combo.set_active_iter(iterator)
-                break
-            iterator = m.iter_next(iterator)
+        self.select_country(loc.country)
 
         m = self.timezone_city_combo.get_model()
         iterator = m.get_iter_first()
@@ -1149,16 +1142,10 @@ class Wizard(BaseFrontend):
         if region_pairs:
             for pair in region_pairs:
                 m.append(pair)
-            m.append([None, None])
+            m.append([None, None, None])
         region_pairs = tz.build_region_pairs()
         for pair in region_pairs:
             m.append(pair)
-
-        m = self.timezone_city_combo.get_model()
-        if not m.get_iter_first():
-            pairs = self.dbfilter.build_timezone_pairs()
-            for pair in pairs:
-                m.append(pair)
 
     def prepare_page(self):
         """Set up the frontend in preparation for running a step."""
