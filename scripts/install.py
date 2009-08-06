@@ -621,6 +621,15 @@ class Install:
             keep.add('yaboot')
             keep.add('hfsutils')
 
+        #Even adding ubiquity as a depends to oem-config-{gtk,kde}
+        #doesn't appear to force ubiquity and libdebian-installer4
+        #to copy all of their files, so this does the trick.
+        try:
+            if self.db.get('oem-config/enable') == 'true':
+                keep.add('ubiquity')
+        except (debconf.DebconfError, IOError):
+            pass
+
         difference -= self.expand_dependencies_simple(cache, keep, difference)
 
         if len(difference) == 0:
