@@ -15,6 +15,10 @@ ubiquity (1.99.4) UNRELEASED; urgency=low
     out ubiquity to be on the list of packages to keep files from. Prevents 
     issues with oem-config missing files after reboot. (LP: #409648)
 
+  [ Colin Watson ]
+  * Rename debian/po to debian/real-po and put a symlink in place, so that
+    Launchpad Translations will be able to import our translation files.
+
  -- Mario Limonciello <superm1@ubuntu.com>  Thu, 06 Aug 2009 01:14:18 -0500
 
 ubiquity (1.99.3) karmic; urgency=low
