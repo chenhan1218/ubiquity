@@ -261,6 +261,7 @@ binary-indep: install
 	dh_installdebconf
 	dh_installinit -n  # oem-config
 	dh_installman
+	dh_lintian
 	dh_link
 	dh_strip
 	dh_compress
@@ -282,7 +283,6 @@ binary-arch: install
 	dh_installchangelogs
 	dh_installdocs
 	dh_installdebconf
-	cp debian/lintian-override debian/oem-config/usr/share/lintian/overrides/oem-config
 	echo >> debian/ubiquity/DEBIAN/templates
 	po2debconf --podir=debian/imported-po \
 		debian/ubiquity.templates-imported \

@@ -1,5 +1,87 @@
-ubiquity (1.99.0) UNRELEASED; urgency=low
+ubiquity (1.99.4) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
+  * Correct erroneously inverted test for the slideshow slides.  Thanks
+    Roman Shtylman.
+
+  [ Roman Shtylman ]
+  * migrated to custom progress dialog to support slideshow slides
+  * added support for slideshow
+  * fixed bug with going backwards on partition screen
+
+  [ Mario Limonciello ]
+  * For automatic mode, don't use an unreferenced local variable.
+  * When generating the blacklist, if OEM mode is enabled, explicitly call
+    out ubiquity to be on the list of packages to keep files from. Prevents 
+    issues with oem-config missing files after reboot. (LP: #409648)
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Thu, 06 Aug 2009 01:14:18 -0500
+
+ubiquity (1.99.3) karmic; urgency=low
+
+  [ Colin Watson ]
+  * Filter out Help: from d-i's debconf templates, since Perl debconf
+    doesn't know about that yet (LP: #402969).
+
+  [ Roman Shtylman ]
+  * new files for themeing kde gui 
+  * started work on moving over to the new theme/app.ui file
+  * new theme is in place and a simple install can be performed
+
+  [ Evan Dandrea ]
+  * Automatic update of included source packages: grub-installer
+    1.40ubuntu1, user-setup 1.27ubuntu6.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 29 Jul 2009 22:21:06 +0100
+
+ubiquity (1.99.2) karmic; urgency=low
+
+  [ Mario Limonciello ]
+  * Correct a minor spacing typo in oem-config-firstboot.
+
+  [ Michael Terry ]
+  * Fix -q behavior when X is not running, thereby fixing oem-config-firstboot
+  * gtk: initialize gobject threads for webkit
+
+  [ Martin Pitt ]
+  * Automatic update of included source packages: user-setup
+    1.27ubuntu5. This fixes autologin configuration. (LP: #402707)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 22 Jul 2009 07:28:22 +0200
+
+ubiquity (1.99.1) karmic; urgency=low
+
+  [ Colin Watson ]
+  * Use dh_lintian.
+  * Restore autologin-disabling code from oem-config, corrected to work with
+    new gdm (LP: #395861).
+
+  [ Evan Dandrea ]
+  * Add support for ubiquity-slideshow.
+  * Debconf GET returns the default value if no value is set on a
+    question.  As an undesirable default is set for netcfg/get_hostname,
+    check the seen flag to see if the value returned by GET was inputted
+    by the user (LP: #401919).
+  * Do not try to run Migration Assistant for the KDE frontend.
+  * Automatic update of included source packages: partman-base
+    132ubuntu1, partman-target 62ubuntu1.
+
+  [ Mario Limonciello ]
+  * Divert the ubiquity-gtkui.desktop file when oem-config is installed as
+    oem-config now depends on ubiquity.
+
+  [ Michael Terry ]
+  * GTK frontend: Remove horizontal separator at bottom, and let timezone
+    map fill its allocated space
+  * GTK frontend: Have all buttons set use_underline to True. LP: #399005
+  * noninteractive frontend: Don't tell debconf the translated name of the
+    chosen language, but rather the language code.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 21 Jul 2009 17:43:37 +0100
+
+ubiquity (1.99.0) karmic; urgency=low
+
+  [ Michael Terry ]
   * Merge oem-config code into ubiquity.
     - Adds several new binary packages (oem-config, oem-config-gtk,
       oem-config-kde, oem-config-debconf, oem-config-check, and
@@ -12,7 +94,15 @@ ubiquity (1.99.0) UNRELEASED; urgency=low
   * Automatic update of included source packages: debian-installer-utils
     1.70ubuntu1, user-setup 1.27ubuntu4.
 
- -- Michael Terry <michael.terry@canonical.com>  Wed, 08 Jul 2009 09:18:20 -0400
+  [ Evan Dandrea ]
+  * Remove code to account for last-good-boot in oem-config-firstboot as
+    the former has been abandoned.
+  * Add a RELEASE marker in the desktop file to be substituted for the
+    release name and version by casper (LP: #154506).
+  * Automatic update of included source packages: grub-installer
+    1.39ubuntu1, partman-auto 87ubuntu1.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 15 Jul 2009 15:06:57 +0100
 
 ubiquity (1.13.8) karmic; urgency=low
 

@@ -71,7 +71,7 @@ install:
 			dpkg-deb -e "$$udeb" "udeb-control/$$name"; \
 			if [ -f "udeb-control/$$name/templates" ]; then \
 				sed -n '/./,$$p' "udeb-control/$$name/templates" | \
-					grep -iv '^indices.*:' >> templates; \
+					egrep -iv '^(indices.*|help):' >> templates; \
 				if [ "$$(tail -n1 templates)" ]; then \
 					echo >> templates; \
 				fi; \

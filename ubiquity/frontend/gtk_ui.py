@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8; Mode: Python; indent-tabs-mode: nil; tab-width: 4 -*-
 #
 # «gtk_ui» - GTK user interface
 #
@@ -48,6 +48,7 @@ import pygtk
 pygtk.require('2.0')
 import pango
 import gobject
+gobject.threads_init()
 import gtk.glade
 
 import debconf
@@ -326,6 +327,7 @@ class Wizard(BaseFrontend):
             'changed', self.on_hostname_changed)
 
         self.pagesindex = 0
+        pageslen = len(self.pages)
 
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             got_intro = False
@@ -336,6 +338,7 @@ class Wizard(BaseFrontend):
         # Start the interface
         if got_intro:
             self.pages.insert(0, None) # for page index bookkeeping
+            pageslen += 1
             first_step = self.stepWelcome
         else:
             first_step = getattr(self, self.pagenames[0])
@@ -357,7 +360,6 @@ class Wizard(BaseFrontend):
             gtk.main()
             self.pagesindex += 1
 
-        pageslen = len(self.pages)
         while(self.pagesindex < pageslen):
             if self.current_page == None:
                 break
@@ -920,6 +922,30 @@ class Wizard(BaseFrontend):
         syslog.syslog('progress_loop()')
 
         self.current_page = None
+
+        lang = self.get_language()
+        slides = '/usr/share/ubiquity-slideshow/%s/index.html' % lang
+        s = self.live_installer.get_screen()
+        sh = s.get_height()
+        sw = s.get_width()
+        fail = None
+        if os.path.exists(slides):
+            if sh >= 800 and sw >= 600:
+                try:
+                    import webkit
+                    webview = webkit.WebView()
+                    webview.open(slides)
+                    self.slideshow_frame.add(webview)
+                    webview.set_size_request(700, 420)
+                    self.slideshow_frame.show_all()
+                except ImportError:
+                    fail = 'Webkit not present.'
+            else:
+                fail = 'Display < 800x600.'
+        else:
+            fail = 'No slides present for %s.' % lang
+        if fail:
+            syslog.syslog('Not displaying the slideshow: %s' % fail)
 
         self.debconf_progress_start(
             0, 100, self.get_string('ubiquity/install/title'))
@@ -2771,6 +2797,7 @@ class Wizard(BaseFrontend):
 
         if self.installing and not self.installing_no_return:
             # Go back to the partitioner and try again.
+            self.slideshow_frame.hide()
             self.live_installer.show()
             self.pagesindex = self.pages.index(partman.Partman)
             self.dbfilter = partman.Partman(self)

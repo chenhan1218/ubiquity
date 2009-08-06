@@ -40,6 +40,17 @@ def distribution():
     proc = subprocess.Popen(['lsb_release', '-is'], stdout=subprocess.PIPE)
     return proc.communicate()[0].strip()
 
+def disable_autologin():
+    import traceback
+
+    # Reverse actions of user-setup-apply.
+    for name in ('/etc/gdm/custom.conf', '/etc/kde4/kdm/kdmrc'):
+        if os.path.exists('%s.oem' % name):
+            try:
+                os.rename('%s.oem' % name, name)
+            except OSError:
+                traceback.print_exc()
+
 def open_terminal():
     """Set up the terminal to run ubiquity's debconf frontend."""
 
@@ -211,18 +222,21 @@ def install(frontend=None, query=False):
             # Noninteractive implies automatic mode.
             if f == 'noninteractive':
                 os.environ['UBIQUITY_AUTOMATIC'] = '1'
+            # Migration Assistant does not support KDE.
+            if f == 'kde_ui':
+                del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
             break
     else:
         raise AttributeError, ('No frontend available; tried %s' %
                                ', '.join(frontends))
     os.environ['UBIQUITY_FRONTEND'] = chosen
+    if query:
+        print >> sys.__stdout__, os.environ['UBIQUITY_FRONTEND']
+        sys.exit(0)
 
     unmount_target()
     distro = distribution().lower()
     wizard = ui.Wizard(distro)
-    if query:
-        print >> sys.__stdout__, os.environ['UBIQUITY_FRONTEND']
-        sys.exit(0)
     if os.environ['UBIQUITY_FRONTEND'] == 'debconf_ui':
         open_terminal()
         start_debconf()
@@ -408,6 +422,9 @@ def main(oem_config):
         if os.path.exists(path):
             os.unlink(path)
     shutil.rmtree("/var/lib/partman", ignore_errors=True)
+
+    if oem_config and not options.query:
+        disable_autologin()
 
     if args:
         install(args[0], query=options.query)

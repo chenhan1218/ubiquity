@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8; Mode: Python; indent-tabs-mode: nil; tab-width: 4 -*-
 
 # Copyright (C) 2005 Javier Carranza and others for Guadalinex
 # Copyright (C) 2005, 2006, 2007, 2008, 2009 Canonical Ltd.
@@ -620,6 +620,15 @@ class Install:
         elif arch == 'powerpc' and subarch != 'ps3':
             keep.add('yaboot')
             keep.add('hfsutils')
+
+        #Even adding ubiquity as a depends to oem-config-{gtk,kde}
+        #doesn't appear to force ubiquity and libdebian-installer4
+        #to copy all of their files, so this does the trick.
+        try:
+            if self.db.get('oem-config/enable') == 'true':
+                keep.add('ubiquity')
+        except (debconf.DebconfError, IOError):
+            pass
 
         difference -= self.expand_dependencies_simple(cache, keep, difference)
 

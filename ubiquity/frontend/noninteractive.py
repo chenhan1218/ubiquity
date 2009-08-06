@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8; Mode: Python; indent-tabs-mode: nil; tab-width: 4 -*-
 #
 # «noninteractive» - Non-interactive user interface
 #
@@ -212,12 +212,12 @@ class Wizard(BaseFrontend):
 
     def set_language_choices(self, choices, choice_map):
         """Called with language choices and a map to localised names."""
-        # FIXME needed?
         self.language_choice_map = dict(choice_map)
 
     def set_language(self, language):
         """Set the current selected language."""
-        self.language = language
+        # Use the language code, not the translated name
+        self.language = self.language_choice_map[language][1]
 
     def get_language(self):
         """Get the current selected language."""
