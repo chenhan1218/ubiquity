@@ -15,14 +15,14 @@ netcfg 1.49ubuntu1
 partconf 1.32
 partman-auto 87ubuntu1
 partman-auto-loop 0ubuntu16
-partman-base 132ubuntu1
+partman-base 133ubuntu1
 partman-basicfilesystems 63ubuntu1
 partman-basicmethods 43
 partman-efi 20ubuntu1
 partman-ext3 58ubuntu1
 partman-jfs 30
 partman-newworld 21
-partman-partitioning 68ubuntu1
+partman-partitioning 69ubuntu1
 partman-reiserfs 45
 partman-target 62ubuntu1
 partman-xfs 44

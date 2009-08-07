@@ -14,12 +14,14 @@ ubiquity (1.99.4) UNRELEASED; urgency=low
   * When generating the blacklist, if OEM mode is enabled, explicitly call
     out ubiquity to be on the list of packages to keep files from. Prevents 
     issues with oem-config missing files after reboot. (LP: #409648)
+  * Automatic update of included source packages: partman-base
+    133ubuntu1, partman-partitioning 69ubuntu1.
 
   [ Colin Watson ]
   * Rename debian/po to debian/real-po and put a symlink in place, so that
     Launchpad Translations will be able to import our translation files.
 
- -- Mario Limonciello <superm1@ubuntu.com>  Thu, 06 Aug 2009 01:14:18 -0500
+ -- Mario Limonciello <mario_limonciello@dell.com>  Fri, 07 Aug 2009 15:59:07 -0500
 
 ubiquity (1.99.3) karmic; urgency=low
 
