@@ -1,4 +1,4 @@
-ubiquity (1.99.4) UNRELEASED; urgency=low
+ubiquity (1.99.4) karmic; urgency=low
 
   [ Evan Dandrea ]
   * Correct erroneously inverted test for the slideshow slides.  Thanks
@@ -21,7 +21,7 @@ ubiquity (1.99.4) UNRELEASED; urgency=low
   * Rename debian/po to debian/real-po and put a symlink in place, so that
     Launchpad Translations will be able to import our translation files.
 
- -- Mario Limonciello <mario_limonciello@dell.com>  Fri, 07 Aug 2009 15:59:07 -0500
+ -- Mario Limonciello <mario_limonciello@dell.com>  Fri, 07 Aug 2009 15:59:48 -0500
 
 ubiquity (1.99.3) karmic; urgency=low
 
