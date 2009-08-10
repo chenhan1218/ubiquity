@@ -20,6 +20,7 @@
 import os
 import re
 import locale
+import PyICU
 
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity import i18n
@@ -71,14 +72,29 @@ class Language(FilteredCommand):
                 i += 1
             languagelist.close()
 
-            def compare_choice(x, y):
-                result = cmp(language_display_map[x][1],
-                             language_display_map[y][1])
-                if result != 0:
-                    return result
-                return cmp(x, y)
+            try:
+                # Note that we always collate with the 'C' locale.  This is far
+                # from ideal.  But proper collation always requires a specific
+                # language for its collation rules (languages frequently have
+                # custom sorting).  This at least gives us common sorting rules,
+                # like stripping accents.
+                collator = PyICU.Collator.createInstance(PyICU.Locale('C'))
+            except:
+                collator = None
 
-            sorted_choices = sorted(language_display_map, compare_choice)
+            def compare_choice(x):
+                if language_display_map[x][1] == 'C':
+                    return None # place C first
+                if collator:
+                    try:
+                        return collator.getCollationKey(x).getByteArray()
+                    except:
+                        pass
+                # Else sort by unicode code point, which isn't ideal either,
+                # but also has the virtue of sorting like-glyphs together
+                return x
+
+            sorted_choices = sorted(language_display_map, key=compare_choice)
             self.frontend.set_language_choices(sorted_choices,
                                                language_display_map)
             self.frontend.set_language(current_language)
