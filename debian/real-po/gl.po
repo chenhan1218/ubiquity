@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-07-29 22:17+0100\n"
+"POT-Creation-Date: 2009-08-10 14:40-0400\n"
 "PO-Revision-Date: 2009-04-14 12:50+0000\n"
 "Last-Translator: Antón Méixome <meixome@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -153,15 +153,14 @@ msgstr "¿Onde está?"
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
-"the clock to the correct local time. Don't worry about finding exactly the "
-"closest city to you; just select a city in the same country and time zone."
+"the clock to the correct local time."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
-msgid "City:"
-msgstr "Cidade:"
+msgid "Zone:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1476,6 +1475,9 @@ msgstr "A configurar os servizos adicionais"
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Configurando dispositivos de infravermellos..."
+
+#~ msgid "City:"
+#~ msgstr "Cidade:"
 
 #~ msgid "Select your time zone from the map, or by region and city."
 #~ msgstr "Seleccione a zona horaria no mapa ou pola rexión e a cidade."
