@@ -1,3 +1,11 @@
+ubiquity (1.99.5) UNRELEASED; urgency=low
+
+  [ Mario Limonciello ]
+  * When performing a Mythbuntu install w/ NVIDIA graphics, don't use the xorg
+    conf from the livefs as a base as it's nonexistent now. (LP: #411221)
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Sun, 09 Aug 2009 20:57:35 -0500
+
 ubiquity (1.99.4) karmic; urgency=low
 
   [ Evan Dandrea ]

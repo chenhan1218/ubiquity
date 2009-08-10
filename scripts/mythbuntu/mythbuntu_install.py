@@ -305,7 +305,7 @@ bind-address=0.0.0.0"""
 
     def enable_nvidia(self,type,format):
         """Enables an NVIDIA graphics driver using XKit"""
-        xorg_conf=XKit.xutils.XUtils("/etc/X11/xorg.conf")
+        xorg_conf=XKit.xutils.XUtils()
 
         extra_conf_options={'NoLogo': '1',
                            'DPI': '100x100',
