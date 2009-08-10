@@ -6,8 +6,9 @@ ubiquity (1.99.5) UNRELEASED; urgency=low
 
   [ Michael Terry ]
   * Sort language list with pyicu
+  * gtk: Translate timezones with pyicu
 
- -- Michael Terry <michael.terry@canonical.com>  Mon, 10 Aug 2009 08:35:44 -0400
+ -- Michael Terry <michael.terry@canonical.com>  Mon, 10 Aug 2009 13:13:59 -0400
 
 ubiquity (1.99.4) karmic; urgency=low
 
