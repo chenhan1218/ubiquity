@@ -5,6 +5,8 @@ ubiquity (1.99.5) UNRELEASED; urgency=low
     conf from the livefs as a base as it's nonexistent now. (LP: #411221)
   * Properly process the output of apt-cache when pkgsel/language-packs is
     preseeded to ALL.
+  * Automatic update of included source packages: grub-installer
+    1.40ubuntu2, hw-detect 1.72ubuntu3.
 
   [ Michael Terry ]
   * Sort language list with pyicu
