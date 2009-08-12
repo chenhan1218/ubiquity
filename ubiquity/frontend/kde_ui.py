@@ -813,8 +813,8 @@ class Wizard(BaseFrontend):
             else:
                 raise Exception('No slides present for %s.' % lang)
             
-        except Exception as e:
-            syslog.syslog('Not displaying the slideshow: %s' % e)
+        except Exception, e:
+            syslog.syslog('Not displaying the slideshow: %s' % str(e))
 
         self.debconf_progress_start(
             0, 100, self.get_string('ubiquity/install/title'))
