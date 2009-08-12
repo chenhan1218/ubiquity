@@ -1,4 +1,4 @@
-ubiquity (1.99.6) UNRELEASED; urgency=low
+ubiquity (1.99.6) karmic; urgency=low
 
   [ Michael Terry ]
   * kde: Fix crash in timezone map when default country is US or Canada,
@@ -7,7 +7,7 @@ ubiquity (1.99.6) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * 'as' is not supported in Python 2.5.
 
- -- Michael Terry <michael.terry@canonical.com>  Wed, 12 Aug 2009 11:54:13 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 12 Aug 2009 17:13:39 +0100
 
 ubiquity (1.99.5) karmic; urgency=low
 
