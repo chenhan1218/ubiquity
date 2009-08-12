@@ -292,6 +292,11 @@ class TimezoneMap(QWidget):
 
     # sets the timezone based on the full name (i.e 'Australia/Sydney')
     def set_timezone(self, name):
+        # special cases where default is not in zone.tab
+        if name == 'Canada/Eastern':
+            name = 'America/Toronto'
+        elif name == 'US/Eastern':
+            name = 'America/New_York'
         self._set_timezone(self.cities[name])
     
     # internal set timezone based on a city

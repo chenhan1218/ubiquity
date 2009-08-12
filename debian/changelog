@@ -1,3 +1,10 @@
+ubiquity (1.99.6) UNRELEASED; urgency=low
+
+  * kde: Fix crash in timezone map when default country is US or Canada,
+    broken by recent translation support.
+
+ -- Michael Terry <michael.terry@canonical.com>  Wed, 12 Aug 2009 11:49:42 -0400
+
 ubiquity (1.99.5) karmic; urgency=low
 
   [ Mario Limonciello ]
