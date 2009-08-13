@@ -1270,6 +1270,7 @@ class Wizard(BaseFrontend):
         return unicode(self.ui.oem_id_entry.text())
 
     def set_timezone (self, timezone):
+        self.tzmap.refresh_timezones()
         self.tzmap.set_timezone(timezone)
 
     def get_timezone (self):
