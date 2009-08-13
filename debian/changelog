@@ -4,7 +4,11 @@ ubiquity (1.99.7) UNRELEASED; urgency=low
   * mythbuntu_ui:
     - Hide step_label during the last step just prior to reboot. (LP: #412823)
 
- -- Mario Limonciello <superm1@ubuntu.com>  Wed, 12 Aug 2009 22:27:30 -0500
+  [ Harald Sitter ]
+  * Install the KDE desktop file to applications/kde4/ to prevent it from showing
+    up as KDE 3 application in KRunner (happens when stored in applications/kde/)
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Thu, 13 Aug 2009 17:46:07 +0200
 
 ubiquity (1.99.6) karmic; urgency=low
 
