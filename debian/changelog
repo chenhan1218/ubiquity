@@ -1,3 +1,11 @@
+ubiquity (1.99.7) UNRELEASED; urgency=low
+
+  [ Mario Limonciello ]
+  * mythbuntu_ui:
+    - Hide step_label during the last step just prior to reboot. (LP: #412823)
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Wed, 12 Aug 2009 22:27:30 -0500
+
 ubiquity (1.99.6) karmic; urgency=low
 
   [ Michael Terry ]
