@@ -9,23 +9,14 @@ import math
 
 #contains information about a geographical timezone city
 class City:
-    def __init__(self, cName, zName, lat, lng, raw_zone):
-        self.city_name = cName
-        self.zone_name = zName
-        self.lat = lat
-        self.long = lng
-        self.pixmap = None
-        # pre-split zone text
-        self.raw_zone = raw_zone
-        #index in the cities array
-        self.index = 0
+    def __init__(self, loc, pixmap):
+        self.loc = loc
+        self.pixmap = pixmap
     
 class TimezoneMap(QWidget):
     def __init__(self, frontend):
         QWidget.__init__(self, frontend.ui.map_frame)
         self.frontend = frontend
-        #dictionary of zone name -> {'cindex', 'citites'}
-        self.zones = {}
         # currently active city
         self.selected_city = None
         #dictionary of full name (ie. 'Australia/Sydney') -> city
@@ -54,17 +45,12 @@ class TimezoneMap(QWidget):
             zonePixmaps[zone] = QPixmap('%s/timezone_%s.png' % (self.imagePath, zone));
             
         #load the timezones from database
-        tzdb = ubiquity.tz.Database()
-        for location in tzdb.locations:
+        self.tzdb = ubiquity.tz.Database()
+        for location in self.tzdb.locations:
             zone_bits = location.zone.split('/')
             
             if len(zone_bits) == 1:
                 continue
-            
-            zoneName = zone_bits[0]
-            #join the possible city names for the subregion
-            #and replace the _ for a space
-            cityName = '/'.join(zone_bits[1:]).replace('_', ' ')
             
             # zone is the hours offset from 0
             zoneHour = (location.raw_utc_offset.seconds)/3600.0 + location.raw_utc_offset.days * 24
@@ -72,14 +58,7 @@ class TimezoneMap(QWidget):
             #wrap around
             if zoneHour > 13.0:
                 zoneHour -= 24.0
-            
-            # add the zone if we don't have t already listed
-            if not self.zones.has_key(zoneName):
-                self.zones[zoneName] = {'cities' : [], 'cindex': 0}    
-            
-            #make new city
-            city = City(cityName, zoneName, location.latitude, location.longitude, location.zone)
-            
+
             #set the pixamp to show for the city
             zoneS = str(zoneHour)
             
@@ -96,45 +75,69 @@ class TimezoneMap(QWidget):
                 else:
                     #no zone...default to nothing
                     zoneS = None
-                
-            if zoneS:
-                city.pixmap = zonePixmaps[zoneS]
             
-            self.cities[location.zone] = city
+            pixmap = zoneS and zonePixmaps[zoneS]
             
-            # add the city to the zone list
-            city.index = len(self.zones[zoneName]['cities'])
-            self.zones[zoneName]['cities'].append(city)
+            #make new city
+            self.cities[location.zone] = City(location, pixmap)
        
         ui = self.frontend.ui
-        ui.timezone_zone_combo.currentIndexChanged[str].connect(self.regionChanged)
+        ui.timezone_zone_combo.currentIndexChanged[int].connect(self.regionChanged)
         ui.timezone_city_combo.currentIndexChanged[int].connect(self.cityChanged)
-            
-        # zone needs to be added to combo box
-        keys = self.zones.keys()
-        keys.sort()
-        for z in keys:
-            self.zones[z]['cindex'] = ui.timezone_zone_combo.count()
-            ui.timezone_zone_combo.addItem(z)
        
-    # called when the region(zone) combo changes
-    def regionChanged(self, region):
+    def refresh_timezones(self):
+        lang = self.frontend.locale.split('_', 1)[0]
+        shortlist = self.frontend.dbfilter.build_shortlist_region_pairs(lang)
+        longlist = self.frontend.dbfilter.build_region_pairs()
+
+        self.frontend.ui.timezone_zone_combo.clear()
+        for pair in shortlist:
+            self.frontend.ui.timezone_zone_combo.addItem(pair[0], pair[1])
+        self.frontend.ui.timezone_zone_combo.insertSeparator(self.frontend.ui.timezone_zone_combo.count())
+        for pair in longlist:
+            self.frontend.ui.timezone_zone_combo.addItem(pair[0], pair[2])
+
+    def populateCities(self, regionIndex):
         self.frontend.ui.timezone_city_combo.clear()
-        #blank entry first to prevent a city from being selected
-        self.frontend.ui.timezone_city_combo.addItem("")
-        
-        #add all the cities
-        for c in self.zones[str(region)]['cities']:
-            self.frontend.ui.timezone_city_combo.addItem(c.city_name, QVariant(c))
-            
+
+        code = str(self.frontend.ui.timezone_zone_combo.itemData(regionIndex).toPyObject())
+        countries = self.frontend.dbfilter.get_countries_for_region(code)
+        if not countries: # must have been a country code itself
+            countries = [code]
+
+        shortlist, longlist = self.frontend.dbfilter.build_timezone_pairs(countries)
+
+        for pair in shortlist:
+            self.frontend.ui.timezone_city_combo.addItem(pair[0], pair[1])
+        if shortlist:
+            self.frontend.ui.timezone_city_combo.insertSeparator(self.frontend.ui.timezone_city_combo.count())
+        for pair in longlist:
+            self.frontend.ui.timezone_city_combo.addItem(pair[0], pair[1])
+
+        return len(countries) == 1 and self.frontend.dbfilter.get_default_for_region(countries[0])
+
+    # called when the region(zone) combo changes
+    def regionChanged(self, regionIndex):
+        if self.frontend.dbfilter is None:
+            return
+
+        self.frontend.ui.timezone_city_combo.currentIndexChanged[int].disconnect(self.cityChanged)
+        default = self.populateCities(regionIndex)
+        self.frontend.ui.timezone_city_combo.currentIndexChanged[int].connect(self.cityChanged)
+
+        if default:
+            self.set_timezone(default)
+        else:
+            self.frontend.ui.timezone_city_combo.setCurrentIndex(0)
+
     # called when the city combo changes
     def cityChanged(self, cityindex):
-        if cityindex < 1:
-            return
-            
-        city = self.frontend.ui.timezone_city_combo.itemData(cityindex).toPyObject()
-        self.selected_city = city
-        self.repaint()
+        zone = str(self.frontend.ui.timezone_city_combo.itemData(cityindex).toPyObject())
+        loc = self.tzdb.get_loc(zone)
+        city = loc and self.cities[loc.zone]
+        if city:
+            self.selected_city = city
+            self.repaint()
         
     #taken from gtk side
     def longitudeToX(self, longitude):
@@ -175,7 +178,7 @@ class TimezoneMap(QWidget):
         
         if self.selected_city != None:
             c = self.selected_city
-            cpos = self.getPosition(c.lat, c.long)
+            cpos = self.getPosition(c.loc.latitude, c.loc.longitude)
             
             if (c.pixmap):
                 painter.drawPixmap(self.rect(), c.pixmap)
@@ -188,7 +191,7 @@ class TimezoneMap(QWidget):
             
             # paint the time instead of the name
             try:
-                now = datetime.datetime.now(ubiquity.tz.SystemTzInfo(c.raw_zone))
+                now = datetime.datetime.now(ubiquity.tz.SystemTzInfo(c.loc.zone))
                 timestring = now.strftime('%X')
                 
                 start = cpos + QPoint(3,-3)
@@ -274,40 +277,50 @@ class TimezoneMap(QWidget):
         # get closest city to the point clicked
         closest = None
         bestdist = 0
-        for z in self.zones.values():
-            for c in z['cities']:
-                np = pos - self.getPosition(c.lat, c.long)
-                dist = np.x() * np.x() + np.y() * np.y()
-                if (dist < bestdist or closest == None):
-                    closest = c
-                    bestdist = dist
-                    continue
+        for c in self.tzdb.locations:
+            np = pos - self.getPosition(c.latitude, c.longitude)
+            dist = np.x() * np.x() + np.y() * np.y()
+            if (dist < bestdist or closest is None):
+                closest = c
+                bestdist = dist
         
         #we need to set the combo boxes
         #this will cause the redraw we need
-        if closest != None:
-            cindex = self.zones[closest.zone_name]['cindex']
-            self.frontend.ui.timezone_zone_combo.setCurrentIndex(cindex)
-            self.frontend.ui.timezone_city_combo.setCurrentIndex(closest.index + 1)
+        if closest is not None:
+            self._set_timezone(closest)
 
     # sets the timezone based on the full name (i.e 'Australia/Sydney')
     def set_timezone(self, name):
-        # special cases where default is not in zone.tab
-        if name == 'Canada/Eastern':
-            name = 'America/Toronto'
-        elif name == 'US/Eastern':
-            name = 'America/New_York'
-        self._set_timezone(self.cities[name])
+        self._set_timezone(self.tzdb.get_loc(name), name)
     
     # internal set timezone based on a city
-    def _set_timezone(self, city):
-        cindex = self.zones[city.zone_name]['cindex']
-        self.frontend.ui.timezone_zone_combo.setCurrentIndex(cindex)
-        self.frontend.ui.timezone_city_combo.setCurrentIndex(city.index + 1)
+    def _set_timezone(self, loc, city=None):
+        self.frontend.ui.timezone_zone_combo.currentIndexChanged[int].disconnect(self.regionChanged)
+        self.frontend.ui.timezone_city_combo.currentIndexChanged[int].disconnect(self.cityChanged)
+
+        city = city or loc.zone
+
+        for i in range(self.frontend.ui.timezone_zone_combo.count()):
+            code = str(self.frontend.ui.timezone_zone_combo.itemData(i).toPyObject())
+            countries = self.frontend.dbfilter.get_countries_for_region(code)
+            if not countries: # must have been a country code itself
+                countries = [code]
+            if loc.country in countries:
+                self.frontend.ui.timezone_zone_combo.setCurrentIndex(i)
+                self.populateCities(i)
+                break
+
+        for i in range(self.frontend.ui.timezone_city_combo.count()):
+            code = str(self.frontend.ui.timezone_city_combo.itemData(i).toPyObject())
+            if city == code:
+                self.frontend.ui.timezone_city_combo.setCurrentIndex(i)
+                self.cityChanged(i)
+                break
+
+        self.frontend.ui.timezone_zone_combo.currentIndexChanged[int].connect(self.regionChanged)
+        self.frontend.ui.timezone_city_combo.currentIndexChanged[int].connect(self.cityChanged)
 
     # return the full timezone string
     def get_timezone(self):
-        if self.selected_city == None:
-            return None
-        
-        return self.selected_city.raw_zone
+        i = self.frontend.ui.timezone_city_combo.currentIndex()
+        return str(self.frontend.ui.timezone_city_combo.itemData(i).toPyObject())

@@ -135,7 +135,7 @@ class Timezone(FilteredCommand):
         except debconf.DebconfError:
             return []
 
-    # Returns [('translated short list of timezones', 'timezone')...] list
+    # Returns (shortlist, longlist)
     def build_timezone_pairs(self, country_codes):
         if len(country_codes) == 1:
             shortlist = self.build_shortlist_timezone_pairs(country_codes[0])
