@@ -90,8 +90,8 @@
                                 <property name="can_focus">True</property>
                                 <property name="can_default">True</property>
                                 <property name="receives_default">False</property>
-                                <property name="use_underline">True</property>
                                 <property name="border_width">4</property>
+                                <property name="use_underline">True</property>
                                 <property name="use_stock">True</property>
                                 <signal name="clicked" handler="on_quit_clicked"/>
                               </widget>
@@ -108,8 +108,8 @@
                                 <property name="can_focus">True</property>
                                 <property name="can_default">True</property>
                                 <property name="receives_default">False</property>
-                                <property name="use_underline">True</property>
                                 <property name="border_width">4</property>
+                                <property name="use_underline">True</property>
                                 <property name="use_stock">True</property>
                                 <signal name="clicked" handler="on_back_clicked"/>
                               </widget>
@@ -127,8 +127,8 @@
                                 <property name="can_default">True</property>
                                 <property name="has_default">True</property>
                                 <property name="receives_default">False</property>
-                                <property name="use_underline">True</property>
                                 <property name="border_width">4</property>
+                                <property name="use_underline">True</property>
                                 <property name="use_stock">True</property>
                                 <signal name="clicked" handler="on_next_clicked"/>
                               </widget>
@@ -175,6 +175,7 @@
     <property name="icon_name">gtk-dialog-warning</property>
     <property name="type_hint">dialog</property>
     <property name="gravity">center</property>
+    <property name="has_separator">False</property>
     <signal name="realize" handler="set_window_hints"/>
     <child internal-child="vbox">
       <widget class="GtkVBox" id="dialog-vbox1">
@@ -381,6 +382,7 @@
     <property name="resizable">False</property>
     <property name="window_position">center</property>
     <property name="type_hint">dialog</property>
+    <property name="has_separator">False</property>
     <signal name="realize" handler="set_window_hints"/>
     <child internal-child="vbox">
       <widget class="GtkVBox" id="dialog-vbox3">
@@ -487,6 +489,7 @@
     <property name="modal">True</property>
     <property name="window_position">center-on-parent</property>
     <property name="type_hint">dialog</property>
+    <property name="has_separator">False</property>
     <signal name="realize" handler="set_window_hints"/>
     <child internal-child="vbox">
       <widget class="GtkVBox" id="dialog-vbox4">
@@ -594,6 +597,7 @@
     <property name="modal">True</property>
     <property name="window_position">center-on-parent</property>
     <property name="type_hint">dialog</property>
+    <property name="has_separator">False</property>
     <signal name="realize" handler="set_window_hints"/>
     <child internal-child="vbox">
       <widget class="GtkVBox" id="dialog-vbox5">
@@ -904,6 +908,7 @@
     <property name="modal">True</property>
     <property name="window_position">center-on-parent</property>
     <property name="type_hint">dialog</property>
+    <property name="has_separator">False</property>
     <signal name="realize" handler="set_window_hints"/>
     <child internal-child="vbox">
       <widget class="GtkVBox" id="dialog-vbox6">
@@ -1146,6 +1151,7 @@
     <property name="window_position">center</property>
     <property name="type_hint">dialog</property>
     <property name="gravity">center</property>
+    <property name="has_separator">False</property>
     <signal name="realize" handler="set_window_hints"/>
     <child internal-child="vbox">
       <widget class="GtkVBox" id="dialog-vbox8">

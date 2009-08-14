@@ -10,8 +10,9 @@ ubiquity (1.99.7) UNRELEASED; urgency=low
 
   [ Michael Terry ]
   * kde: Enable timezone translation
+  * gtk: Remove separators from dialogs
 
- -- Michael Terry <michael.terry@canonical.com>  Fri, 14 Aug 2009 08:40:08 -0400
+ -- Michael Terry <michael.terry@canonical.com>  Fri, 14 Aug 2009 09:13:59 -0400
 
 ubiquity (1.99.6) karmic; urgency=low
 
