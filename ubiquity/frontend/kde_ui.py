@@ -117,9 +117,6 @@ class Controller(ubiquity.frontend.base.Controller):
         self._wizard.ui.back.click()
     def go_to_page(self, widget):
         self._wizard.set_current_page(self._wizard.ui.widgetStack.indexOf(widget))
-    def modify_page_count(self, mod):
-        self._wizard.user_pageslen += mod
-        self._wizard.translate_widget(self._wizard.step_label)
 
 class Wizard(BaseFrontend):
 
