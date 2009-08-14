@@ -42,7 +42,7 @@ Description: Ubuntu artwork for Ubiquity live installer
 
 Package: ubiquity-frontend-gtk
 Architecture: all
-Depends: ${misc:Depends}, ${python:Depends}, ubiquity (= ${binary:Version}), python-dbus, python-glade2, python-gtk2 (>= 2.10), iso-codes, x-window-manager
+Depends: ${misc:Depends}, ${python:Depends}, ubiquity (= ${binary:Version}), python-dbus, python-glade2, python-gtk2 (>= 2.12), iso-codes, x-window-manager
 Recommends: gnome-system-tools
 Suggests: gnome-control-center
 Conflicts: ubuntu-express-frontend-gtk, espresso-frontend-gtk
