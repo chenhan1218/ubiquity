@@ -13,6 +13,7 @@ debian/oem-config-kde
 debian/oem-config-udeb
 debian/ubiquity
 debian/ubiquity-frontend-cloner
+debian/ubiquity-frontend-debconf
 debian/ubiquity-frontend-gtk
 debian/ubiquity-frontend-kde
 debian/ubiquity-frontend-mythbuntu
