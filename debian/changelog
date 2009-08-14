@@ -4,6 +4,10 @@ ubiquity (1.99.7) UNRELEASED; urgency=low
   * mythbuntu_ui:
     - Hide step_label during the last step just prior to reboot. (LP: #412823)
 
+  [ Colin Watson ]
+  * Upgrade to debhelper v7. There's still some fairly significant ugliness
+    in our debian/rules, but this is a slight improvement.
+
  -- Mario Limonciello <superm1@ubuntu.com>  Wed, 12 Aug 2009 22:27:30 -0500
 
 ubiquity (1.99.6) karmic; urgency=low
