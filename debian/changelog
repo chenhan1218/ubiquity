@@ -5,6 +5,8 @@ ubiquity (1.99.7) UNRELEASED; urgency=low
     - Hide step_label during the last step just prior to reboot. (LP: #412823)
     - Add a GtkCellRendererText and ListStore to drivers step.  The previous
       conversion from glade->gtkbuilder appears to have not done for us.
+  * gtk:
+     - Drop logic to support glade files.
 
   [ Colin Watson ]
   * Upgrade to debhelper v7. There's still some fairly significant ugliness
