@@ -212,7 +212,7 @@ class Wizard(ParentFrontend.Wizard):
 
     def set_service(self,name,value):
         """Preseeds the status of a service"""
-        lists = [get_services_dictionary(self)]
+        lists = [get_services_dictionary(self,self.enablemysql)]
         self._preseed_list(lists,name,value)
 
     def set_driver(self,name,value):
@@ -308,7 +308,7 @@ class Wizard(ParentFrontend.Wizard):
 
     def get_services(self):
         """Returns the status of all installable services"""
-        return self._build_static_list([get_services_dictionary(self)])
+        return self._build_static_list([get_services_dictionary(self,self.enablemysql)])
 
     def get_drivers(self):
         video_drivers=get_graphics_dictionary()
