@@ -30,7 +30,11 @@ ubiquity (1.99.7) UNRELEASED; urgency=low
   * kde: fix text overflow/clipping on user info page when presented with errors
    (LP: #413127)
 
- -- Roman Shtylman <shtylman@gmail.com>  Sun, 16 Aug 2009 22:03:25 -0400
+  [ Evan Dandrea ]
+  * Use "Require my password" rather than "Require a password" for the
+    sake of clarity.  Thanks Matthew Paul Thomas.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 17 Aug 2009 14:54:57 +0100
 
 ubiquity (1.99.6) karmic; urgency=low
 

@@ -552,7 +552,7 @@
                     </child>
                     <child>
                       <object class="GtkRadioButton" id="login_pass">
-                        <property name="label" translatable="yes">Require a password to log in</property>
+                        <property name="label" translatable="yes">Require my password to log in</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
@@ -565,7 +565,7 @@
                     </child>
                     <child>
                       <object class="GtkRadioButton" id="login_encrypt">
-                        <property name="label" translatable="yes">Require a password to log in and to decrypt your home folder</property>
+                        <property name="label" translatable="yes">Require my password to log in and to decrypt my home folder</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
                         <property name="draw_indicator">True</property>
