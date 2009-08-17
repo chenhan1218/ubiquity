@@ -603,6 +603,15 @@ class SegmentedBarSlider(SegmentedBar):
             self.segments[self.resize + 1].set_size(sum - self.max_size)
             self.queue_draw()
 
+    def remove_segment(self, title):
+        SegmentedBar.remove_segment(self, title)
+        if self.resize > len(self.segments) - 1:
+            self.resize = -1
+
+    def remove_all(self):
+        SegmentedBar.remove_all(self)
+        self.resize = -1
+
     def motion_notify_event(self, widget, event):
         if event.is_hint:
             x, y, state = event.window.get_pointer()

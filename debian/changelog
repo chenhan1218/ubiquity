@@ -33,6 +33,9 @@ ubiquity (1.99.7) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Use "Require my password" rather than "Require a password" for the
     sake of clarity.  Thanks Matthew Paul Thomas.
+  * Reset the internal pointer to the segment to be resized when
+    clearing the contents of the segmented bar in the GTK frontend
+    (LP: #386982).  Thanks Eitan Isaacson!
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 17 Aug 2009 14:54:57 +0100
 
