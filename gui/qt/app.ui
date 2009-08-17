@@ -1357,7 +1357,7 @@ This language will be the default language for the final system.</string>
                        <item>
                         <widget class="QRadioButton" name="login_pass">
                          <property name="text">
-                          <string>Require a password to log in</string>
+                          <string>Require my password to log in</string>
                          </property>
                          <property name="checked">
                           <bool>true</bool>
