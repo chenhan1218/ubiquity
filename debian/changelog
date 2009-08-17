@@ -26,7 +26,11 @@ ubiquity (1.99.7) UNRELEASED; urgency=low
   * Install the KDE desktop file to applications/kde4/ to prevent it from showing
     up as KDE 3 application in KRunner (happens when stored in applications/kde/)
 
- -- Michael Terry <michael.terry@canonical.com>  Fri, 14 Aug 2009 11:17:48 -0400
+  [ Roman Shtylman ]
+  * kde: fix text overflow/clipping on user info page when presented with errors
+   (LP: #413127)
+
+ -- Roman Shtylman <shtylman@gmail.com>  Sun, 16 Aug 2009 22:03:25 -0400
 
 ubiquity (1.99.6) karmic; urgency=low
 
