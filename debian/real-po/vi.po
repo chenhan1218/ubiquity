@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-08-10 14:40-0400\n"
+"POT-Creation-Date: 2009-08-18 13:14+0100\n"
 "PO-Revision-Date: 2009-04-14 14:32+0000\n"
 "Last-Translator: zeratulbk <congtumotsach@gmail.com>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -277,13 +277,17 @@ msgstr "Đăng nhập tự động"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
-msgid "Require a password to log in"
+#, fuzzy
+#| msgid "Require a password to log in"
+msgid "Require my password to log in"
 msgstr "Yêu cầu một mật khẩu để đăng nhập"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-msgid "Require a password to log in and to decrypt your home folder"
+#, fuzzy
+#| msgid "Require a password to log in and to decrypt your home folder"
+msgid "Require my password to log in and to decrypt my home folder"
 msgstr "Yêu cầu một mật khẩu để đăng nhập và mở khóa thư mục home của bạn"
 
 #. Type: text

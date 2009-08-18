@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-08-10 14:40-0400\n"
+"POT-Creation-Date: 2009-08-18 13:14+0100\n"
 "PO-Revision-Date: 2009-04-12 09:42+0000\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
@@ -278,13 +278,17 @@ msgstr "Automatikus bejelentkezés"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
-msgid "Require a password to log in"
+#, fuzzy
+#| msgid "Require a password to log in"
+msgid "Require my password to log in"
 msgstr "Jelszókérés a bejelentkezés előtt"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-msgid "Require a password to log in and to decrypt your home folder"
+#, fuzzy
+#| msgid "Require a password to log in and to decrypt your home folder"
+msgid "Require my password to log in and to decrypt my home folder"
 msgstr ""
 "Jelszókérés a bejelentkezéshez és a saját mappa titkosításának feloldásához"
 
