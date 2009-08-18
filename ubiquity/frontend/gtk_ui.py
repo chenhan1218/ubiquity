@@ -928,7 +928,7 @@ class Wizard(BaseFrontend):
         self.current_page = None
 
         lang = self.get_language()
-        slides = '/usr/share/ubiquity-slideshow/%s/index.html' % lang
+        slides = '/usr/share/ubiquity-slideshow/slides/index.html#locale=%s' % lang
         s = self.live_installer.get_screen()
         sh = s.get_height()
         sw = s.get_width()
