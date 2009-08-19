@@ -1,9 +1,9 @@
-ubiquity (1.99.9) UNRELEASED; urgency=low
+ubiquity (1.99.9) karmic; urgency=low
 
   * Automatic update of included source packages: user-setup
     1.27ubuntu8.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 19 Aug 2009 17:42:02 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 19 Aug 2009 17:47:10 +0100
 
 ubiquity (1.99.8) karmic; urgency=low
 
