@@ -22,7 +22,7 @@ import re
 import os
 import sys
 
-from ubiquity.plugin import Plugin
+from ubiquity.plugin import *
 from ubiquity import keyboard_names
 from ubiquity import misc
 
@@ -615,3 +615,11 @@ class Page(Plugin):
         oldconfig.close()
         os.rename(newconfigfile, oldconfigfile)
         misc.drop_privileges()
+
+class Install(InstallPlugin):
+    def prepare(self, unfiltered=False):
+        return (['/usr/share/ubiquity/console-setup-apply'], [])
+
+    def install(self, target, progress):
+        progress.start('ubiquity/install/keyboard')
+        return InstallPlugin.install(target)

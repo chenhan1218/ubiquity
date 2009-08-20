@@ -199,7 +199,6 @@ class Wizard(BaseFrontend):
                 mod.ui_class = mod.module.PageGtk
                 mod.controller = Controller(self)
                 mod.ui_inst = mod.ui_class(mod.controller)
-                print mod.module.NAME
                 mod.ui = mod.ui_inst.get_ui()
                 widgets = mod.ui and mod.ui.get('widgets')
                 optional_widgets = mod.ui and mod.ui.get('optional_widgets')

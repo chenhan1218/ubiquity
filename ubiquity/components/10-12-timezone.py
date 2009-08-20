@@ -25,7 +25,7 @@ import sys
 import debconf
 import PyICU
 
-from ubiquity.plugin import Plugin
+from ubiquity.plugin import *
 from ubiquity import i18n
 import ubiquity.tz
 
@@ -563,3 +563,17 @@ class Page(Plugin):
     def cleanup(self):
         Plugin.cleanup(self)
         i18n.reset_locale(just_country=True)
+
+class Install(InstallPlugin):
+    def prepare(self, unfiltered=False):
+        tzsetup_script = '/usr/lib/ubiquity/tzsetup/post-base-installer'
+        clock_script = '/usr/share/ubiquity/clock-setup'
+
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            tzsetup_script += '-oem'
+
+        return (['sh', '-c', '%s && %s' % (tzsetup_script, clock_script)], [])
+
+    def install(self, target, progress):
+        progress.start('ubiquity/install/timezone')
+        return InstallPlugin.install(target)

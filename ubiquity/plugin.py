@@ -23,3 +23,6 @@ from ubiquity.filteredcommand import FilteredCommand
 class Plugin(FilteredCommand):
     pass
 
+class InstallPlugin(FilteredCommand):
+    def install(self, *args):
+        return self.run_command(auto_process=True)

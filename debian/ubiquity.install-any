@@ -38,14 +38,10 @@ ubiquity/components/check_kernels.py usr/lib/ubiquity/ubiquity/components
 # choose-mirror
 d-i/source/choose-mirror/choose-mirror usr/lib/ubiquity/choose-mirror
 
-# clock-setup
-ubiquity/components/clock_setup.py usr/lib/ubiquity/ubiquity/components
-
 # console-setup
 compat/locale usr/lib/ubiquity/console-setup
 scripts/console-setup-apply usr/lib/ubiquity
 ubiquity/components/10*console_setup.py usr/lib/ubiquity/plugins.d
-ubiquity/components/console_setup_apply.py usr/lib/ubiquity/ubiquity/components
 
 # debian-installer-utils
 d-i/source/debian-installer-utils/block-attr bin
@@ -74,7 +70,6 @@ d-i/source/localechooser/debian/localechooser/usr/share/localechooser/languageli
 d-i/source/localechooser/regionmap usr/lib/ubiquity/localechooser
 d-i/source/localechooser/debian/short-tmp/shortlists usr/lib/ubiquity/localechooser
 ubiquity/components/10*language.py usr/lib/ubiquity/plugins.d
-ubiquity/components/language_apply.py usr/lib/ubiquity/ubiquity/components
 scripts/localechooser-apply usr/lib/ubiquity
 
 # netcfg
@@ -104,7 +99,6 @@ ubiquity/components/10*tasks.py usr/lib/ubiquity/plugins.d
 d-i/source/tzsetup/debian/tzmap usr/lib/ubiquity/tzsetup
 d-i/source/tzsetup/tzsetup usr/lib/ubiquity/tzsetup
 ubiquity/components/10*timezone.py usr/lib/ubiquity/plugins.d
-ubiquity/components/timezone_apply.py usr/lib/ubiquity/ubiquity/components
 scripts/tzsetup-wrapper usr/lib/ubiquity
 
 # user-setup

@@ -47,10 +47,10 @@ sys.path.insert(0, '/usr/lib/ubiquity')
 
 from ubiquity import misc
 from ubiquity import osextras
+from ubiquity import plugin_manager
 from ubiquity.casper import get_casper
-from ubiquity.components import language_apply, apt_setup, timezone_apply, \
-                                clock_setup, console_setup_apply, \
-                                usersetup_apply, hw_detect, check_kernels, \
+from ubiquity.components import apt_setup, \
+                                hw_detect, check_kernels, \
                                 migrationassistant_apply
 
 def debconf_disconnect():
@@ -282,6 +282,11 @@ class Install:
         self.langpacks = []
         self.blacklist = {}
 
+        # Load plugins
+        modules = plugin_manager.load_plugins()
+        modules = plugin_manager.order_plugins(modules)
+        self.plugins = [x for x in modules if hasattr(x, 'Install')]
+
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
             self.source = None
             self.target = '/'
@@ -338,10 +343,15 @@ class Install:
         """Run the install stage: copy everything to the target system, then
         configure it as necessary."""
 
+        # Give one extra progress point for each plugin, on the assumption that
+        # they don't run long.
+        start = 0
+        end = 22 + len(self.plugins)
         if self.target != '/':
-            self.db.progress('START', 0, 100, 'ubiquity/install/title')
-        else:
-            self.db.progress('START', 75, 100, 'ubiquity/install/title')
+            end += 74
+        count = 1
+
+        self.db.progress('START', start, end, 'ubiquity/install/title')
         self.db.progress('INFO', 'ubiquity/install/mounting_source')
 
         try:
@@ -349,8 +359,9 @@ class Install:
                 self.mount_source()
 
             if self.target != '/':
-                self.db.progress('SET', 1)
-                self.db.progress('REGION', 1, 75)
+                self.db.progress('SET', count)
+                self.db.progress('REGION', count, count+74)
+                count += 74
                 try:
                     self.copy_all()
                 except EnvironmentError, e:
@@ -379,32 +390,37 @@ class Install:
                     else:
                         raise
 
-            self.db.progress('SET', 75)
-            self.db.progress('REGION', 75, 76)
-            self.db.progress('INFO', 'ubiquity/install/locales')
-            self.configure_locales()
+            self.db.progress('SET', count)
+            self.db.progress('REGION', count, count+len(self.plugins))
+            count += len(self.plugins)
+            self.configure_plugins()
 
-            self.db.progress('SET', 76)
-            self.db.progress('REGION', 76, 77)
+            self.db.progress('SET', count)
+            self.db.progress('REGION', count, count+1)
+            count += 1
             self.db.progress('INFO', 'ubiquity/install/user')
             self.configure_user()
 
-            self.db.progress('SET', 77)
-            self.db.progress('REGION', 77, 78)
+            self.db.progress('SET', count)
+            self.db.progress('REGION', count, count+1)
+            count += 1
             self.run_target_config_hooks()
 
-            self.db.progress('SET', 78)
-            self.db.progress('REGION', 78, 79)
+            self.db.progress('SET', count)
+            self.db.progress('REGION', count, count+1)
+            count += 1
             self.db.progress('INFO', 'ubiquity/install/network')
             self.configure_network()
 
-            self.db.progress('SET', 79)
-            self.db.progress('REGION', 79, 80)
+            self.db.progress('SET', count)
+            self.db.progress('REGION', count, count+1)
+            count += 1
             self.db.progress('INFO', 'ubiquity/install/apt')
             self.configure_apt()
 
-            self.db.progress('SET', 80)
-            self.db.progress('REGION', 80, 85)
+            self.db.progress('SET', count)
+            self.db.progress('REGION', count, count+5)
+            count += 5
             # Ignore failures from language pack installation.
             try:
                 self.install_language_packs()
@@ -415,27 +431,20 @@ class Install:
             except SystemError:
                 pass
 
-            self.db.progress('SET', 85)
-            self.db.progress('REGION', 85, 86)
-            self.db.progress('INFO', 'ubiquity/install/timezone')
-            self.configure_timezone()
-
-            self.db.progress('SET', 86)
-            self.db.progress('REGION', 86, 87)
-            self.db.progress('INFO', 'ubiquity/install/keyboard')
-            self.configure_keyboard()
-
-            self.db.progress('SET', 87)
-            self.db.progress('REGION', 87, 88)
+            self.db.progress('SET', count)
+            self.db.progress('REGION', count, count+1)
+            count += 1
             self.db.progress('INFO', 'ubiquity/install/migrationassistant')
             self.configure_ma()
 
-            self.db.progress('SET', 88)
-            self.db.progress('REGION', 88, 89)
+            self.db.progress('SET', count)
+            self.db.progress('REGION', count, count+1)
+            count += 1
             self.remove_unusable_kernels()
 
-            self.db.progress('SET', 89)
-            self.db.progress('REGION', 89, 93)
+            self.db.progress('SET', count)
+            self.db.progress('REGION', count, count+4)
+            count += 4
             self.db.progress('INFO', 'ubiquity/install/hardware')
             self.configure_hardware()
 
@@ -444,29 +453,32 @@ class Install:
                                       'w')
             apt_install_direct.close()
 
-            self.db.progress('SET', 93)
-            self.db.progress('REGION', 93, 94)
+            self.db.progress('SET', count)
+            self.db.progress('REGION', count, count+1)
+            count += 1
             self.db.progress('INFO', 'ubiquity/install/bootloader')
             self.configure_bootloader()
 
-            self.db.progress('SET', 94)
-            self.db.progress('REGION', 94, 95)
+            self.db.progress('SET', count)
+            self.db.progress('REGION', count, count+1)
+            count += 1
             self.db.progress('INFO', 'ubiquity/install/installing')
             self.install_extras()
 
-            self.db.progress('SET', 95)
-            self.db.progress('REGION', 95, 99)
+            self.db.progress('SET', count)
+            self.db.progress('REGION', count, count+4)
+            count += 4
             self.db.progress('INFO', 'ubiquity/install/removing')
             self.remove_extras()
 
             self.remove_broken_cdrom()
 
             self.copy_dcd()
-            self.db.progress('SET', 99)
+            self.db.progress('SET', count)
             self.db.progress('INFO', 'ubiquity/install/log_files')
             self.copy_logs()
 
-            self.db.progress('SET', 100)
+            self.db.progress('SET', end)
         finally:
             self.cleanup()
             try:
@@ -1101,17 +1113,21 @@ exit 0"""
             self.db.progress('STOP')
 
 
-    def configure_locales(self):
-        """Apply locale settings to installed system."""
-        dbfilter = language_apply.LanguageApply(None)
-        ret = dbfilter.run_command(auto_process=True)
-        if ret != 0:
-            raise InstallStepError("LanguageApply failed with code %d" % ret)
+    def configure_plugins(self):
+        """Apply plugin settings to installed system."""
+        class Progress:
+            def __init__(self, db):
+                self._db = db
+            def start(self, title):
+                syslog.syslog(syslog.LOG_WARNING, 'running: ' + title)
+                self._db.progress('INFO', title)
 
-        # fontconfig configuration needs to be adjusted based on the
-        # selected locale (from language-selector-common.postinst). Ignore
-        # errors.
-        self.chrex('fontconfig-voodoo', '--auto', '--force', '--quiet')
+        for plugin in self.plugins:
+            inst = plugin.Install(None)
+            ret = inst.install(self.target, Progress(self.db))
+            if ret:
+                raise InstallStepError("Plugin %s failed with code %s" % (plugin.NAME, ret))
+            self.db.progress('STEP', 1)
 
 
     def configure_apt(self):
@@ -1354,30 +1370,6 @@ exit 0"""
                                   os.path.join(home, homedir))
                     self.record_installed(['ecryptfs-utils'])
                     break
-
-
-    def configure_timezone(self):
-        """Set timezone on installed system."""
-
-        dbfilter = timezone_apply.TimezoneApply(None)
-        ret = dbfilter.run_command(auto_process=True)
-        if ret != 0:
-            raise InstallStepError("TimezoneApply failed with code %d" % ret)
-
-        dbfilter = clock_setup.ClockSetup(None)
-        ret = dbfilter.run_command(auto_process=True)
-        if ret != 0:
-            raise InstallStepError("ClockSetup failed with code %d" % ret)
-
-
-    def configure_keyboard(self):
-        """Set keyboard in installed system."""
-
-        dbfilter = console_setup_apply.ConsoleSetupApply(None)
-        ret = dbfilter.run_command(auto_process=True)
-        if ret != 0:
-            raise InstallStepError(
-                "ConsoleSetupApply failed with code %d" % ret)
 
 
     def configure_user(self):

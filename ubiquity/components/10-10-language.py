@@ -24,7 +24,7 @@ import sys
 import debconf
 import PyICU
 
-from ubiquity.plugin import Plugin
+from ubiquity.plugin import *
 from ubiquity import i18n, misc
 
 NAME = 'language'
@@ -400,3 +400,22 @@ class Page(Plugin):
         # Done after sub-cleanup because now the debconf lock is clear for a reset/reget
         i18n.reset_locale()
         self.ui.controller.translate(just_me=False, reget=True)
+
+class Install(InstallPlugin):
+    def prepare(self, unfiltered=False):
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            return (['/usr/lib/ubiquity/localechooser-apply'], [])
+        else:
+            return (['sh', '-c',
+                     '/usr/lib/ubiquity/localechooser/post-base-installer ' +
+                     '&& /usr/lib/ubiquity/localechooser/finish-install'], [])
+
+    def install(self, target, progress):
+        progress.start('ubiquity/install/locales')
+        rv = InstallPlugin.install(self, target)
+        if not rv:
+            # fontconfig configuration needs to be adjusted based on the
+            # selected locale (from language-selector-common.postinst). Ignore
+            # errors.
+            misc.execute('chroot', target, 'fontconfig-voodoo', '--auto', '--force', '--quiet')
+        return rv

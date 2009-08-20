@@ -62,7 +62,7 @@ def get_mod_index(modlist, name):
         index += 1
     return None
 
-def order_plugins(mods, order):
+def order_plugins(mods, order=[]):
     hidden_list = []
     for mod in mods:
         name = get_mod_string(mod, 'NAME')
