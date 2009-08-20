@@ -49,7 +49,7 @@ class PageGtk:
                 builder = gtk.Builder()
                 builder.add_from_file('/usr/share/ubiquity/gtk/stepIntro.ui')
                 builder.get_object('intro_label').set_markup(text.rstrip('\n'))
-                self.page = builder.get_object('page')
+                self.page = builder.get_object('stepWelcome')
             except Exception, e:
                 print >>sys.stderr, 'Could not create intro page: %s' % e
 
@@ -71,4 +71,4 @@ class PageKde:
 
     def get_ui(self):
         return {'widgets': self.page,
-                'step_label': None}
+                'breadcrumb': None}

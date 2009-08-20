@@ -6,32 +6,28 @@ from PyQt4.QtCore import *
 import datetime
 import ubiquity.tz
 import math
+import os
 
 #contains information about a geographical timezone city
 class City:
-    def __init__(self, cName, zName, lat, lng, raw_zone):
-        self.city_name = cName
-        self.zone_name = zName
-        self.lat = lat
-        self.long = lng
-        self.pixmap = None
-        # pre-split zone text
-        self.raw_zone = raw_zone
-        #index in the cities array
-        self.index = 0
+    def __init__(self, loc, pixmap):
+        self.loc = loc
+        self.pixmap = pixmap
     
 class TimezoneMap(QWidget):
-    def __init__(self, page):
-        QWidget.__init__(self, page.map_frame)
-        self.page = page
-        #dictionary of zone name -> {'cindex', 'citites'}
-        self.zones = {}
+
+    SIGNAL("zoneChanged(PyQt_PyObject, PyQt_PyObject)")
+
+    def __init__(self, parent):
+        QWidget.__init__(self, parent)
         # currently active city
         self.selected_city = None
+        self.selected_zone = None
         #dictionary of full name (ie. 'Australia/Sydney') -> city
         self.cities = {}
         self.setObjectName("timezone_map")
-        
+        self.SIGNAL = SIGNAL
+
         #load background pixmap
         self.imagePath = "/usr/share/ubiquity/pixmaps/timezone"
         self.pixmap = QPixmap("%s/bg.png" % self.imagePath)
@@ -54,17 +50,12 @@ class TimezoneMap(QWidget):
             zonePixmaps[zone] = QPixmap('%s/timezone_%s.png' % (self.imagePath, zone));
             
         #load the timezones from database
-        tzdb = ubiquity.tz.Database()
-        for location in tzdb.locations:
+        self.tzdb = ubiquity.tz.Database()
+        for location in self.tzdb.locations:
             zone_bits = location.zone.split('/')
             
             if len(zone_bits) == 1:
                 continue
-            
-            zoneName = zone_bits[0]
-            #join the possible city names for the subregion
-            #and replace the _ for a space
-            cityName = '/'.join(zone_bits[1:]).replace('_', ' ')
             
             # zone is the hours offset from 0
             zoneHour = (location.raw_utc_offset.seconds)/3600.0 + location.raw_utc_offset.days * 24
@@ -72,14 +63,7 @@ class TimezoneMap(QWidget):
             #wrap around
             if zoneHour > 13.0:
                 zoneHour -= 24.0
-            
-            # add the zone if we don't have t already listed
-            if not self.zones.has_key(zoneName):
-                self.zones[zoneName] = {'cities' : [], 'cindex': 0}    
-            
-            #make new city
-            city = City(cityName, zoneName, location.latitude, location.longitude, location.zone)
-            
+
             #set the pixamp to show for the city
             zoneS = str(zoneHour)
             
@@ -96,45 +80,12 @@ class TimezoneMap(QWidget):
                 else:
                     #no zone...default to nothing
                     zoneS = None
-                
-            if zoneS:
-                city.pixmap = zonePixmaps[zoneS]
             
-            self.cities[location.zone] = city
+            pixmap = zoneS and zonePixmaps[zoneS]
             
-            # add the city to the zone list
-            city.index = len(self.zones[zoneName]['cities'])
-            self.zones[zoneName]['cities'].append(city)
+            #make new city
+            self.cities[location.zone] = City(location, pixmap)
        
-        self.page.timezone_zone_combo.currentIndexChanged[str].connect(self.regionChanged)
-        self.page.timezone_city_combo.currentIndexChanged[int].connect(self.cityChanged)
-            
-        # zone needs to be added to combo box
-        keys = self.zones.keys()
-        keys.sort()
-        for z in keys:
-            self.zones[z]['cindex'] = self.page.timezone_zone_combo.count()
-            self.page.timezone_zone_combo.addItem(z)
-       
-    # called when the region(zone) combo changes
-    def regionChanged(self, region):
-        self.page.timezone_city_combo.clear()
-        #blank entry first to prevent a city from being selected
-        self.page.timezone_city_combo.addItem("")
-        
-        #add all the cities
-        for c in self.zones[str(region)]['cities']:
-            self.page.timezone_city_combo.addItem(c.city_name, QVariant(c))
-            
-    # called when the city combo changes
-    def cityChanged(self, cityindex):
-        if cityindex < 1:
-            return
-            
-        city = self.page.timezone_city_combo.itemData(cityindex).toPyObject()
-        self.selected_city = city
-        self.repaint()
-        
     #taken from gtk side
     def longitudeToX(self, longitude):
         # Miller cylindrical map projection is just the longitude as the
@@ -174,7 +125,7 @@ class TimezoneMap(QWidget):
         
         if self.selected_city != None:
             c = self.selected_city
-            cpos = self.getPosition(c.lat, c.long)
+            cpos = self.getPosition(c.loc.latitude, c.loc.longitude)
             
             if (c.pixmap):
                 painter.drawPixmap(self.rect(), c.pixmap)
@@ -187,7 +138,7 @@ class TimezoneMap(QWidget):
             
             # paint the time instead of the name
             try:
-                now = datetime.datetime.now(ubiquity.tz.SystemTzInfo(c.raw_zone))
+                now = datetime.datetime.now(ubiquity.tz.SystemTzInfo(c.loc.zone))
                 timestring = now.strftime('%X')
                 
                 start = cpos + QPoint(3,-3)
@@ -273,35 +224,31 @@ class TimezoneMap(QWidget):
         # get closest city to the point clicked
         closest = None
         bestdist = 0
-        for z in self.zones.values():
-            for c in z['cities']:
-                np = pos - self.getPosition(c.lat, c.long)
-                dist = np.x() * np.x() + np.y() * np.y()
-                if (dist < bestdist or closest == None):
-                    closest = c
-                    bestdist = dist
-                    continue
+        for c in self.tzdb.locations:
+            np = pos - self.getPosition(c.latitude, c.longitude)
+            dist = np.x() * np.x() + np.y() * np.y()
+            if (dist < bestdist or closest is None):
+                closest = c
+                bestdist = dist
         
         #we need to set the combo boxes
         #this will cause the redraw we need
-        if closest != None:
-            cindex = self.zones[closest.zone_name]['cindex']
-            self.page.timezone_zone_combo.setCurrentIndex(cindex)
-            self.page.timezone_city_combo.setCurrentIndex(closest.index + 1)
+        if closest is not None:
+            self._set_timezone(closest)
 
     # sets the timezone based on the full name (i.e 'Australia/Sydney')
     def set_timezone(self, name):
-        self._set_timezone(self.cities[name])
+        self._set_timezone(self.tzdb.get_loc(name), name)
     
     # internal set timezone based on a city
-    def _set_timezone(self, city):
-        cindex = self.zones[city.zone_name]['cindex']
-        self.page.timezone_zone_combo.setCurrentIndex(cindex)
-        self.page.timezone_city_combo.setCurrentIndex(city.index + 1)
+    def _set_timezone(self, loc, zone=None):
+        city = loc and self.cities[loc.zone]
+        if city:
+            self.selected_city = city
+            self.selected_zone = zone or loc.zone
+            self.emit(self.SIGNAL("zoneChanged"), loc, self.selected_zone)
+            self.repaint()
 
     # return the full timezone string
     def get_timezone(self):
-        if self.selected_city == None:
-            return None
-        
-        return self.selected_city.raw_zone
+        return self.selected_zone

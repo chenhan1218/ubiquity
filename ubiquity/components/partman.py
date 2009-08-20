@@ -47,7 +47,7 @@ class PageKde:
         self.part_page = None
     def get_ui(self):
         return {'widgets': ['stepPartAuto', 'stepPartAdvanced'],
-                'step_label': 'ubiquity/text/step_name_partman'}
+                'breadcrumb': 'ubiquity/text/breadcrumb_partition'}
     def get_current_page(self):
         return self.part_page
 

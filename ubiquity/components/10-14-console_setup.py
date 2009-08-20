@@ -40,7 +40,7 @@ class PageGtk:
             builder = gtk.Builder()
             builder.add_from_file('/usr/share/ubiquity/gtk/stepKeyboardConf.ui')
             builder.connect_signals(self)
-            self.page = builder.get_object('page')
+            self.page = builder.get_object('stepKeyboardConf')
             self.suggested_keymap = builder.get_object('suggested_keymap')
             self.suggested_keymap_label = builder.get_object('suggested_keymap_label')
             self.keyboard_layout_hbox = builder.get_object('keyboard_layout_hbox')
@@ -200,7 +200,7 @@ class PageKde:
 
     def get_ui(self):
         return {'widgets': self.page,
-                'step_label': 'ubiquity/text/step_name_console_setup'}
+                'breadcrumb': 'ubiquity/text/breadcrumb_keyboard'}
 
     def on_keyboard_layout_selected(self):
         layout = self.get_keyboard()

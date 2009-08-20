@@ -71,12 +71,18 @@
        <item>
         <widget class="QWidget" name="main_widget" native="true">
          <layout class="QGridLayout" name="gridLayout_4">
+          <property name="horizontalSpacing">
+           <number>0</number>
+          </property>
           <property name="margin">
            <number>0</number>
           </property>
           <item row="1" column="1">
            <widget class="QWidget" name="content_widget" native="true">
             <layout class="QGridLayout" name="gridLayout_2">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
              <item row="1" column="0" colspan="5">
               <widget class="QWidget" name="widget" native="true">
                <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -230,14 +236,13 @@
                  </item>
                  <item>
                   <widget class="QWidget" name="part_advanced_bar_frame" native="true">
-                   <layout class="QVBoxLayout" name="verticalLayout_9">
-                    <property name="spacing">
-                     <number>0</number>
-                    </property>
-                    <property name="margin">
-                     <number>0</number>
-                    </property>
-                   </layout>
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>10</height>
+                    </size>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_9"/>
                   </widget>
                  </item>
                  <item>
@@ -1073,6 +1078,16 @@
              </sizepolicy>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_5">
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="breadcrumb_install">
+               <property name="text">
+                <string>Install</string>
+               </property>
+              </widget>
+             </item>
              <item>
               <spacer name="verticalSpacer_3">
                <property name="orientation">

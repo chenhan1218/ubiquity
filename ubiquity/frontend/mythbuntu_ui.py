@@ -91,6 +91,7 @@ class Wizard(ParentFrontend.Wizard):
             self.back.hide()
             self.quit.hide()
             self.next.set_label("Finish")
+            self.step_label.set_text("")
             gtk.main()
             self.live_installer.hide()
         ParentFrontend.Wizard.run_success_cmd(self)

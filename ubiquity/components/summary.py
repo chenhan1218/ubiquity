@@ -42,7 +42,7 @@ class PageKde:
         pass
     def get_ui(self):
         return {'widgets': 'stepReady',
-                'step_label': 'ubiquity/text/step_name_summary'}
+                'breadcrumb': 'ubiquity/text/breadcrumb_summary'}
 
 def installing_from_disk():
     cdromfs = ''

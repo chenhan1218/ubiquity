@@ -31,7 +31,7 @@ my %builddeps;
 my @basebd = (
     'apt',
     'dctrl-tools',
-    'debhelper (>= 5.0.37.3ubuntu2)',
+    'debhelper (>= 7.0.1)',
     'intltool (>= 0.40.0)',
     'po-debconf (>= 1.0)',
     'python-central (>= 0.5)',

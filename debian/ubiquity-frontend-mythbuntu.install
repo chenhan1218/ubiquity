@@ -7,9 +7,9 @@ scripts/mythbuntu/* usr/share/ubiquity
 ubiquity/components/10*myth_*.py usr/lib/ubiquity/plugins.d
 ubiquity/components/mythbuntu_install.py usr/lib/ubiquity/ubiquity/components
 
-#GTK/glade
+#GTK
 ubiquity/frontend/mythbuntu_ui.py usr/lib/ubiquity/ubiquity/frontend
-gui/glade/mythbuntu*.glade usr/share/ubiquity/glade
+gui/gtk/mythbuntu*.ui usr/share/ubiquity/gtk
 
 #Desktop install file
 desktop/ubiquity-mythbuntu.desktop usr/share/applications

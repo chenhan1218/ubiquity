@@ -67,8 +67,8 @@ from ubiquity.frontend.base import BaseFrontend
 # Define global path
 PATH = '/usr/share/ubiquity'
 
-# Define glade path
-GLADEDIR = os.path.join(PATH, 'glade')
+# Define ui path
+UIDIR = os.path.join(PATH, 'gtk')
 
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
@@ -95,27 +95,41 @@ class Wizard(BaseFrontend):
         def add_subpage(self, steps, name):
             """Inserts a subpage into the notebook.  This assumes the file
             shares the same base name as the page you are looking for."""
-            gladefile = GLADEDIR + '/' + name + '.glade'
-            gladexml = gtk.glade.XML(gladefile, name)
-            widget = gladexml.get_widget(name)
-            steps.append_page(widget)
-            add_widgets(self, gladexml)
-            gladexml.signal_autoconnect(self)
+            widget = None
+            uifile = UIDIR + '/' + name + '.ui'
+            gladefile = UIDIR + '/' + name + '.glade'
+            if os.path.exists(uifile):
+                self.builder.add_from_file(uifile)
+                widget = self.builder.get_object(name)
+                steps.append_page(widget)
+            elif os.path.exists(gladefile):
+                # Support for pages in old glade format (really just mythbuntu
+                # remote control page)
+                gladexml = gtk.glade.XML(gladefile, name)
+                widget = gladexml.get_widget(name)
+                steps.append_page(widget)
+                # add and connect here, while we have the gladexml
+                for widget in gladexml.get_widget_prefix(""):
+                    add_widget(self, widget)
+                gladexml.signal_autoconnect(self)
+            else:
+                print >>sys.stderr, 'Could not find ui file %s' % name
             return widget
 
-        def add_widgets(self, glade):
-            """Makes all widgets callable by the toplevel."""
-            for widget in glade.get_widget_prefix(""):
-                self.all_widgets.add(widget)
-                setattr(self, widget.get_name(), widget)
-                # We generally want labels to be selectable so that people can
-                # easily report problems in them
-                # (https://launchpad.net/bugs/41618), but GTK+ likes to put
-                # selectable labels in the focus chain, and I can't seem to turn
-                # this off in glade and have it stick. Accordingly, make sure
-                # labels are unfocusable here.
-                if isinstance(widget, gtk.Label):
-                    widget.set_property('can-focus', False)
+        def add_widget(self, widget):
+            """Make a widget callable by the toplevel."""
+            if not isinstance(widget, gtk.Widget):
+                return
+            self.all_widgets.add(widget)
+            setattr(self, widget.get_name(), widget)
+            # We generally want labels to be selectable so that people can
+            # easily report problems in them
+            # (https://launchpad.net/bugs/41618), but GTK+ likes to put
+            # selectable labels in the focus chain, and I can't seem to turn
+            # this off in glade and have it stick. Accordingly, make sure
+            # labels are unfocusable here.
+            if isinstance(widget, gtk.Label):
+                widget.set_property('can-focus', False)
 
         BaseFrontend.__init__(self, distro)
 
@@ -165,6 +179,7 @@ class Wizard(BaseFrontend):
         self.format_warning = None
         self.format_warning_align = None
         self.history = []
+        self.builder = gtk.Builder()
 
         self.laptop = execute("laptop-detect")
 
@@ -183,14 +198,13 @@ class Wizard(BaseFrontend):
                                               'ubiquity.png')
 
         # load the main interface
-        self.glade = gtk.glade.XML('%s/ubiquity.glade' % GLADEDIR)
-        add_widgets(self, self.glade)
+        self.builder.add_from_file('%s/ubiquity.ui' % UIDIR)
 
         self.pages = []
         self.pagesindex = 0
         self.pageslen = 0
         self.user_pageslen = 0
-        steps = self.glade.get_widget("steps")
+        steps = self.builder.get_object("steps")
         for mod in self.modules:
             if hasattr(mod.module, 'PageGtk'):
                 mod.ui_class = mod.module.PageGtk
@@ -219,6 +233,10 @@ class Wizard(BaseFrontend):
                     self.user_pageslen += len(mod.widgets)
                     self.pageslen += 1
                     self.pages.append(mod)
+
+        for widget in self.builder.get_objects():
+            add_widget(self, widget)
+        self.builder.connect_signals(self)
 
         self.translate_widgets()
 
@@ -375,9 +393,6 @@ class Wizard(BaseFrontend):
 
         # show interface
         self.allow_change_step(True)
-
-        # Declare SignalHandler
-        self.glade.signal_autoconnect(self)
 
         # Some signals need to be connected by hand so that we have the
         # handler ids.
@@ -590,8 +605,7 @@ class Wizard(BaseFrontend):
 
         domain = self.distro + '-installer'
         gettext.bindtextdomain(domain, LOCALEDIR)
-        gtk.glade.bindtextdomain(domain, LOCALEDIR )
-        gtk.glade.textdomain(domain)
+        self.builder.set_translation_domain(domain)
         gettext.textdomain(domain)
         gettext.install(domain, LOCALEDIR, unicode=1)
 
@@ -646,7 +660,9 @@ class Wizard(BaseFrontend):
                 text = self.get_string('welcome_text_oem_user_label', lang)
             widget.set_text(text)
 
-            # Ideally, these attributes would be in the glade file somehow ...
+            # Ideally, these attributes would be in the ui file (and can be if
+            # we bump required gtk+ to 2.16), but as long as we support glade
+            # files, we can't make the change.
             textlen = len(text.encode("UTF-8"))
             if 'heading_label' in name:
                 attrs = pango.AttrList()
@@ -885,7 +901,7 @@ class Wizard(BaseFrontend):
         sh = s.get_height()
         sw = s.get_width()
         fail = None
-        if not os.path.exists(slides):
+        if os.path.exists(slides):
             if sh >= 800 and sw >= 600:
                 try:
                     import webkit
@@ -987,7 +1003,7 @@ class Wizard(BaseFrontend):
             execute("reboot")
 
 
-    def quit_installer(self):
+    def quit_installer(self, *args):
         """quit installer cleanly."""
 
         # exiting from application
@@ -1017,7 +1033,7 @@ class Wizard(BaseFrontend):
 
     def info_loop(self, widget):
         """check if all entries from Identification screen are filled. Callback
-        defined in glade file."""
+        defined in ui file."""
 
         if (self.username_changed_id is None or
             self.hostname_changed_id is None):

@@ -33,7 +33,7 @@ class PageKde:
         pass
     def get_ui(self):
         return {'widgets': 'stepUserInfo',
-                'step_label': 'ubiquity/text/step_name_usersetup'}
+                'breadcrumb': 'ubiquity/text/breadcrumb_user'}
 
 class PageDebconf:
     def __init__(self, *args, **kwargs):

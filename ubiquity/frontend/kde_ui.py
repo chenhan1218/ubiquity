@@ -45,6 +45,7 @@ from PyKDE4.kdecore import *
 #import all our custome kde components
 from ubiquity.frontend.kde_components.PartitionBar import *
 from ubiquity.frontend.kde_components.PartitionModel import *
+from ubiquity.frontend.kde_components.ProgressDialog import *
 
 import debconf
 
@@ -83,7 +84,7 @@ class UbiquityUI(QMainWindow):
                 name = str.strip(line.split("=")[1], '\n')
                 if name != "Ubuntu":
                     distro_name = name
-            elif "DISTRIB_CODENAME=" in line:
+            elif "DISTRIB_RELEASE=" in line:
                 distro_release = str.strip(line.split("=")[1], '\n')
                 
         fp.close()
@@ -150,7 +151,7 @@ class Wizard(BaseFrontend):
         self.app = KApplication()
         self.app.setStyleSheet(file(os.path.join(UIDIR, "style.qss")).read())
 
-        # put the privileges back
+        # put the privileges back to user level
         drop_privileges()
 
         self.ui = UbiquityUI()
@@ -159,21 +160,17 @@ class Wizard(BaseFrontend):
         # it becomes visible once the first step becomes active
         self.ui.steps_widget.setVisible(False)
         
-        #if 'UBIQUITY_ONLY' in os.environ:
         self.ui.setWindowState(self.ui.windowState() ^ Qt.WindowFullScreen)
                 
         self.ui.setWizard(self)
         #self.ui.setWindowFlags(Qt.Window | Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowMinMaxButtonsHint)
         
-        #if hasattr(Qt, 'WindowCloseButtonHint'):
-        #    self.ui.setWindowFlags(self.ui.windowFlags() | Qt.WindowCloseButtonHint)
-           
-        #center the shown window
-        #rect = QApplication.instance().desktop().availableGeometry(self.ui);
-        #self.ui.move(rect.center() - self.ui.rect().center());
-
         self.advanceddialog = QDialog(self.ui)
         uic.loadUi(os.path.join(UIDIR, "advanceddialog.ui"), self.advanceddialog)
+        
+        #hide the minimize button if in "install only" mode
+        if 'UBIQUITY_ONLY' in os.environ:
+            self.ui.minimize_button.setVisible(False)
 
         self.pages = []
         self.pagesindex = 0
@@ -185,7 +182,7 @@ class Wizard(BaseFrontend):
                 mod.ui_inst = mod.ui_class(mod.controller)
                 mod.ui = mod.ui_inst.get_ui()
                 widgets = mod.ui and mod.ui.get('widgets')
-                step_label = mod.ui and mod.ui.get('step_label')
+                breadcrumb = mod.ui and mod.ui.get('breadcrumb')
                 if widgets:
                     def fill_out(widget_list):
                         rv = []
@@ -202,16 +199,16 @@ class Wizard(BaseFrontend):
                             rv.append(w)
                         return rv
                     mod.widgets = fill_out(widgets)
-                    if 'step_label' not in mod.ui:
-                        step_label = '------' # just a placeholder
-                    if step_label:
-                        mod.step_label_question = step_label
-                        mod.step_label = QLabel(self.get_string(step_label))
-                        label_index = self.ui.steps_widget.layout().count() - 1
-                        self.ui.steps_widget.layout().insertWidget(label_index, mod.step_label)
+                    if 'breadcrumb' not in mod.ui:
+                        breadcrumb = '------' # just a placeholder
+                    if breadcrumb:
+                        mod.breadcrumb_question = breadcrumb
+                        mod.breadcrumb = QLabel(self.get_string(breadcrumb))
+                        label_index = self.ui.steps_widget.layout().count() - 2 # Room for install crumb
+                        self.ui.steps_widget.layout().insertWidget(label_index, mod.breadcrumb)
                     else:
-                        mod.step_label_question = None
-                        mod.step_label = None # page intentionally didn't want a label (intro)
+                        mod.breadcrumb_question = None
+                        mod.breadcrumb = None # page intentionally didn't want a label (intro)
                     self.pageslen += 1
                     self.pages.append(mod)
         self.user_pageslen = self.pageslen
@@ -236,7 +233,6 @@ class Wizard(BaseFrontend):
         self.allowed_go_forward = True
         self.stay_on_page = False
         self.mainLoopRunning = False
-        self.progressDialogue = None
         self.progress_position = ubiquity.progressposition.ProgressPosition()
         self.progress_cancelled = False
         self.resizePath = None
@@ -247,11 +243,11 @@ class Wizard(BaseFrontend):
         self.installing = False
         self.installing_no_return = False
         self.returncode = 0
-        self.partition_bars = []
         self.disk_layout = None
         self.backup = False
         self.history = []
-
+        self.progressDialog = ProgressDialog(0, 0, self.ui)
+        
         self.laptop = execute("laptop-detect")
         self.partition_tree_model = None
         
@@ -538,6 +534,7 @@ class Wizard(BaseFrontend):
             core_names = ['ubiquity/text/%s' % q for q in self.language_questions]
             core_names.append('ubiquity/text/oem_config_title')
             core_names.append('ubiquity/text/oem_user_config_title')
+            core_names.append('ubiquity/text/breadcrumb_install')
             for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
                                'ok', 'quit'):
                 core_names.append('ubiquity/imported/%s' % stock_item)
@@ -546,8 +543,8 @@ class Wizard(BaseFrontend):
                     children = reduce(lambda x,y: x + self.all_children(y), p.widgets, [])
                     prefix = p.controller.prefix if p.controller.prefix else 'ubiquity/text'
                     core_names.extend([prefix+'/'+c.objectName() for c in children])
-                if p.step_label_question:
-                    core_names.append(p.step_label_question)
+                if p.breadcrumb_question:
+                    core_names.append(p.breadcrumb_question)
             i18n.get_translations(languages=languages, core_names=core_names)
 
         # We always translate always-visible widgets
@@ -681,14 +678,11 @@ class Wizard(BaseFrontend):
     def set_page(self, n):
         self.run_automation_error_cmd()
         self.ui.show()
-
+        
+        borderCSS = "border-width: 6px; border-image: url(/usr/share/ubiquity/qt/images/label_border.png) 6px;"
         activeSS = "color: %s; " % "#666666"
         inactiveSS = "color: %s; " % "#b3b3b3"
-        currentSS = "color: %s; " % "#0088aa"
-        
-        #self.ui.dummy_active_step.styleSheet()
-        #inactiveSS = self.ui.dummy_inactive_step.styleSheet()
-        #currentSS = self.ui.dummy_current_step.styleSheet()
+        currentSS = "%s color: %s; " % (borderCSS, "#0088aa")
         
         #set all the steps active
         #each step will set its previous ones as inactive
@@ -707,22 +701,22 @@ class Wizard(BaseFrontend):
                     cur = page.widgets[0]
                 if not cur:
                     return
-
                 index = self.ui.widgetStack.indexOf(cur)
                 self.add_history(page, cur)
                 self.set_current_page(index)
-                if page.step_label:
-                    page.step_label.setStyleSheet(currentSS)
+                if page.breadcrumb:
+                    page.breadcrumb.setStyleSheet(currentSS)
                     self.ui.steps_widget.setVisible(True)
                 else:
                     self.ui.steps_widget.setVisible(False)
                 found = True
-            elif page.step_label:
+            elif page.breadcrumb:
                 if found:
-                    page.step_label.setStyleSheet(activeSS)
+                    page.breadcrumb.setStyleSheet(activeSS)
                 else:
-                    page.step_label.setStyleSheet(inactiveSS)
-    
+                    page.breadcrumb.setStyleSheet(inactiveSS)
+        self.ui.breadcrumb_install.setStyleSheet(activeSS)
+
         if self.pagesindex == self.pageslen - 1:
             self.ui.next.setText(self.get_string('install_button').replace('_', '&', 1))
             self.ui.next.setIcon(self.applyIcon)
@@ -776,6 +770,45 @@ class Wizard(BaseFrontend):
         syslog.syslog('progress_loop()')
 
         self.current_page = None
+        
+        lang = self.get_language()
+        slides = '/usr/share/ubiquity-slideshow/%s/index.html' % lang
+        #TODO test if screen is big enough to show slides...
+        try:
+            if os.path.exists(slides):
+                from PyQt4.QtWebKit import QWebView
+                from PyQt4.QtWebKit import QWebPage
+                
+                #we need to get root privs to open a link because 
+                #the kapplication was started that way...
+                def openLink(qUrl):
+                    os.setegid(0)
+                    os.seteuid(0)
+                
+                    QDesktopServices.openUrl(qUrl)
+                    drop_privileges()
+                
+                webView = QWebView()
+                
+                webView.linkClicked.connect(openLink)
+                
+                webView.setContextMenuPolicy(Qt.NoContextMenu)
+                webView.page().setLinkDelegationPolicy(QWebPage.DelegateExternalLinks)
+                webView.page().mainFrame().setScrollBarPolicy(Qt.Horizontal, Qt.ScrollBarAlwaysOff)
+                webView.page().mainFrame().setScrollBarPolicy(Qt.Vertical, Qt.ScrollBarAlwaysOff)
+                webView.setFixedSize(700,420);
+                
+                webView.load(QUrl(slides))
+                
+                #add the webview to the extra frame of the progress dialog
+                self.progressDialog.extraFrame.layout().addWidget(webView)
+                self.progressDialog.extraFrame.setVisible(True)
+                
+            else:
+                raise Exception('No slides present for %s.' % lang)
+            
+        except Exception, e:
+            syslog.syslog('Not displaying the slideshow: %s' % str(e))
 
         self.debconf_progress_start(
             0, 100, self.get_string('ubiquity/install/title'))
@@ -786,7 +819,7 @@ class Wizard(BaseFrontend):
             if dbfilter.run_command(auto_process=True) != 0:
                 while self.progress_position.depth() != 0:
                     self.debconf_progress_stop()
-                self.progressDialogue.hide()
+                self.progressDialog.hide()
                 self.return_to_partitioning()
                 return
 
@@ -820,7 +853,7 @@ class Wizard(BaseFrontend):
             self.debconf_progress_stop()
 
         # just to make sure
-        self.progressDialogue.hide()
+        self.progressDialog.hide()
 
         self.installing = False
         quitText = '<qt>%s</qt>' % self.get_string("finished_label")
@@ -1086,72 +1119,68 @@ class Wizard(BaseFrontend):
         if progress_title is None:
             progress_title = ""
         total_steps = progress_max - progress_min
-        if self.progressDialogue is None:
-            skipText = self.get_string("progress_cancel_button")
-            self.progressDialogue = QProgressDialog('', skipText, 0, total_steps, self.ui)
-            self.progressDialogue.setWindowModality(Qt.WindowModal);
-            self.cancelButton = QPushButton(skipText, self.progressDialogue)
-            self.progressDialogue.setCancelButton(self.cancelButton)
-            # This needs to be called after setCancelButton, otherwise that
-            # function will cause the button to be shown again.
-            self.cancelButton.hide()
-        elif self.progress_position.depth() == 0:
-            self.progressDialogue.setMaximum(total_steps)
+        skipText = self.get_string("progress_cancel_button")
+        self.progressDialog.setWindowModality(Qt.WindowModal);
+        self.progressDialog.setCancelText(skipText)
+        self.progressDialog.setCancellable(False)
+        self.progressDialog.setMaximum(total_steps)
+        
+        #if self.progress_position.depth() == 0:
+        #    self.progressDialog.setMaximum(total_steps)
 
         self.progress_position.start(progress_min, progress_max,
                                      progress_title)
-        self.progressDialogue.setWindowTitle(progress_title)
+        self.progressDialog.setWindowTitle(progress_title)
         self.debconf_progress_set(0)
-        self.progressDialogue.setLabel(QLabel(''))
-        self.progressDialogue.show()
+        self.progressDialog.show()
 
     def debconf_progress_set (self, progress_val):
-        self.progress_cancelled = self.progressDialogue.wasCanceled()
+        self.progress_cancelled = self.progressDialog.wasCanceled()
         if self.progress_cancelled:
             return False
         self.progress_position.set(progress_val)
         fraction = self.progress_position.fraction()
-        self.progressDialogue.setValue(
-            int(fraction * self.progressDialogue.maximum()))
+        self.progressDialog.setProgressValue(
+            int(fraction * self.progressDialog.maximum()))
         return True
 
     def debconf_progress_step (self, progress_inc):
-        self.progress_cancelled = self.progressDialogue.wasCanceled()
+        self.progress_cancelled = self.progressDialog.wasCanceled()
         if self.progress_cancelled:
             return False
         self.progress_position.step(progress_inc)
         fraction = self.progress_position.fraction()
-        self.progressDialogue.setValue(
-            int(fraction * self.progressDialogue.maximum()))
+        self.progressDialog.setProgressValue(
+            int(fraction * self.progressDialog.maximum()))
         return True
 
     def debconf_progress_info (self, progress_info):
-        self.progress_cancelled = self.progressDialogue.wasCanceled()
+        self.progress_cancelled = self.progressDialog.wasCanceled()
         if self.progress_cancelled:
             return False
-        self.progressDialogue.setLabel(QLabel(progress_info))
+        self.progressDialog.setProgressLabel(progress_info)
         return True
 
     def debconf_progress_stop (self):
         self.progress_cancelled = False
         self.progress_position.stop()
         if self.progress_position.depth() == 0:
-            self.progressDialogue.reset() # also hides dialog
+            self.progressDialog.reset() # also hides dialog
         else:
-            self.progressDialogue.setWindowTitle(self.progress_position.title())
+            self.progressDialog.setWindowTitle(self.progress_position.title())
 
     def debconf_progress_region (self, region_start, region_end):
         self.progress_position.set_region(region_start, region_end)
 
     def debconf_progress_cancellable (self, cancellable):
         if cancellable:
-            self.cancelButton.show()
+            self.progressDialog.setCancellable(True)
         else:
-            self.cancelButton.hide()
+            self.progressDialog.setCancellable(False)
             self.progress_cancelled = False
 
-    def on_progress_cancel_button_clicked (self, button):
-        self.progress_cancelled = True
+    #def on_progress_cancel_button_clicked (self, button):
+    #    self.progress_cancelled = True
 
     def debconffilter_done (self, dbfilter):
         ##FIXME in Qt 4 without this disconnect it calls watch_debconf_fd_helper_read once more causing
@@ -1451,22 +1480,25 @@ class Wizard(BaseFrontend):
                 child.hide()
                 del child
         
-        self.partition_bars = []
         partition_bar = None
         indexCount = -1
         for item in cache_order:
             if item in disk_cache:
                 #the item is a disk
-                self.partition_tree_model.append([item, disk_cache[item]], self)
                 indexCount += 1
                 partition_bar = PartitionsBar(self.ui.part_advanced_bar_frame)
-                self.partition_bars.append(partition_bar)
                 self.ui.part_advanced_bar_frame.layout().addWidget(partition_bar)
+                
+                #hide all the other bars at first
+                if indexCount > 0:
+                    partition_bar.setVisible(False)
+                    
+                self.partition_tree_model.append([item, disk_cache[item], partition_bar], self)
             else:
                 #the item is a partition, add it to the current bar
                 partition = partition_cache[item]
                 #add the new partition to our tree display
-                self.partition_tree_model.append([item, partition], self)
+                self.partition_tree_model.append([item, partition, partition_bar], self)
                 indexCount += 1
                 
                 #get data for bar display
@@ -1483,12 +1515,9 @@ class Wizard(BaseFrontend):
         #        self.app.connect(barSignal, SIGNAL("clicked(int)"), barSlot.raiseFrames)
         
         self.ui.partition_list_treeview.setModel(self.partition_tree_model)
-        self.app.disconnect(self.ui.partition_list_treeview.selectionModel(), 
-            SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), 
-            self.on_partition_list_treeview_selection_changed)
-        self.app.connect(self.ui.partition_list_treeview.selectionModel(), 
-            SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), 
-            self.on_partition_list_treeview_selection_changed)
+        model = self.ui.partition_list_treeview.selectionModel()
+        #model.selectionChanged.disconnect(self.on_partition_list_treeview_selection_changed)
+        model.selectionChanged.connect(self.on_partition_list_treeview_selection_changed)
 
         # make sure we're on the advanced partitioning page
         self.set_current_page(self.step_index("stepPartAdvanced"))
@@ -1748,17 +1777,24 @@ class Wizard(BaseFrontend):
         if not isinstance(self.dbfilter, partman.Page):
             return
 
+        if deselected:
+            deIndex = deselected.indexes()[0]
+            item = deIndex.internalPointer()
+            
+            if item.itemData[2]:
+                item.itemData[2].setVisible(False)
+            
         indexes = self.ui.partition_list_treeview.selectedIndexes()
         if indexes:
             index = indexes[0]
-            for bar in self.partition_bars:
-                pass
-                #TODO show the appropriate partition bar
-                ##bar.selected(index)  ##FIXME find out row from index and call bar.selected on it
-                #bar.raiseFrames()
+            
             item = index.internalPointer()
             devpart = item.itemData[0]
             partition = item.itemData[1]
+            
+            bar = item.itemData[2]
+            if bar:
+                bar.setVisible(True)
         else:
             devpart = None
             partition = None

@@ -621,6 +621,15 @@ class Install:
             keep.add('yaboot')
             keep.add('hfsutils')
 
+        #Even adding ubiquity as a depends to oem-config-{gtk,kde}
+        #doesn't appear to force ubiquity and libdebian-installer4
+        #to copy all of their files, so this does the trick.
+        try:
+            if self.db.get('oem-config/enable') == 'true':
+                keep.add('ubiquity')
+        except (debconf.DebconfError, IOError):
+            pass
+
         difference -= self.expand_dependencies_simple(cache, keep, difference)
 
         if len(difference) == 0:
@@ -1248,9 +1257,10 @@ exit 0"""
         try:
             langpack_db = self.db.get('pkgsel/language-packs')
             if langpack_db == 'ALL':
-                langpacks = subprocess.Popen(
+                apt_out = subprocess.Popen(
                     ['apt-cache', '-n', 'search', '^language-pack-[^-][^-]*$'],
-                    stdout=subprocess.PIPE).communicate()[0].split()
+                    stdout=subprocess.PIPE).communicate()[0].rstrip().split('\n')
+                langpacks = map(lambda x: x.split('-')[2].strip(), apt_out)
             else:
                 langpacks = langpack_db.replace(',', '').split()
         except debconf.DebconfError:
