@@ -1,3 +1,9 @@
+ubiquity (1.99.10) UNRELEASED; urgency=low
+
+  * gtk: Remove separators from hand-crafted dialogs
+
+ -- Michael Terry <michael.terry@canonical.com>  Thu, 20 Aug 2009 09:08:34 -0400
+
 ubiquity (1.99.9) karmic; urgency=low
 
   * Automatic update of included source packages: user-setup
