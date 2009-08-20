@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-08-14 15:02-0400\n"
+"POT-Creation-Date: 2009-08-18 13:14+0100\n"
 "PO-Revision-Date: 2009-04-13 00:34+0000\n"
 "Last-Translator: Baldur <baldurpet@gmail.com>\n"
 "Language-Team: Icelandic <debian-user-icelandic@lists.debian.org>\n"
@@ -49,7 +49,7 @@ msgstr "Ákveða deildir í höndunum (erfitt)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:164001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:166001
 msgid "Install"
 msgstr "Uppsetning"
 
@@ -282,13 +282,17 @@ msgstr "Skrá sig inn sjálfkrafa"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
-msgid "Require a password to log in"
+#, fuzzy
+#| msgid "Require a password to log in"
+msgid "Require my password to log in"
 msgstr "Krefjast lykilorðs til að skrá þig inn"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-msgid "Require a password to log in and to decrypt your home folder"
+#, fuzzy
+#| msgid "Require a password to log in and to decrypt your home folder"
+msgid "Require my password to log in and to decrypt my home folder"
 msgstr ""
 "Krefjast lykilorðs til að skrá þig inn og til að dulráða heimasvæðið þitt"
 
@@ -1161,19 +1165,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:158001
+#: ../ubiquity.templates:160001
 msgid "Language"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:159001
+#: ../ubiquity.templates:161001
 msgid "Timezone"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:162001
 #, fuzzy
 #| msgid "Keyboard layout"
 msgid "Keyboard"
@@ -1181,25 +1185,25 @@ msgstr "Lyklaborðið"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:161001
+#: ../ubiquity.templates:163001
 msgid "Disk Setup"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:162001
+#: ../ubiquity.templates:164001
 msgid "User Info"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:165001
 msgid "Summary"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:165001
+#: ../ubiquity.templates:167001
 #, fuzzy
 #| msgid "Installation Type"
 msgid "installation process"

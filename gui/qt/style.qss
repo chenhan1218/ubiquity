@@ -85,6 +85,15 @@
 	margin: 1px;
 }
 
+#widgetStack #fullname_error_reason,
+#widgetStack #username_error_reason,
+#widgetStack #password_error_reason,
+#widgetStack #hostname_error_reason
+{
+    font-size: 8pt;
+    color: #ff5555;
+}
+
 #widgetStack #welcome_heading_label, 
 #widgetStack #timezone_heading_label,
 #widgetStack #keyboard_heading_label,

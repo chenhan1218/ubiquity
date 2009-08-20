@@ -45,11 +45,11 @@ import gettext
 
 import dbus
 import pygtk
+import gtk
 pygtk.require('2.0')
 import pango
 import gobject
 gobject.threads_init()
-import gtk.glade
 
 import debconf
 
@@ -97,21 +97,10 @@ class Wizard(BaseFrontend):
             shares the same base name as the page you are looking for."""
             widget = None
             uifile = UIDIR + '/' + name + '.ui'
-            gladefile = UIDIR + '/' + name + '.glade'
             if os.path.exists(uifile):
                 self.builder.add_from_file(uifile)
                 widget = self.builder.get_object(name)
                 steps.append_page(widget)
-            elif os.path.exists(gladefile):
-                # Support for pages in old glade format (really just mythbuntu
-                # remote control page)
-                gladexml = gtk.glade.XML(gladefile, name)
-                widget = gladexml.get_widget(name)
-                steps.append_page(widget)
-                # add and connect here, while we have the gladexml
-                for widget in gladexml.get_widget_prefix(""):
-                    add_widget(self, widget)
-                gladexml.signal_autoconnect(self)
             else:
                 print >>sys.stderr, 'Could not find ui file %s' % name
             return widget
@@ -895,8 +884,8 @@ class Wizard(BaseFrontend):
 
         self.current_page = None
 
-        lang = self.locale.split('.')[0].split('_')[0]
-        slides = '/usr/share/ubiquity-slideshow/%s/index.html' % lang
+        lang = self.locale.split('_')[0]
+        slides = '/usr/share/ubiquity-slideshow/slides/index.html#locale=%s' % lang
         s = self.live_installer.get_screen()
         sh = s.get_height()
         sw = s.get_width()

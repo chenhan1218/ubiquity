@@ -148,7 +148,7 @@
              <item row="0" column="0" colspan="5">
               <widget class="QStackedWidget" name="widgetStack">
                <property name="currentIndex">
-                <number>0</number>
+                <number>6</number>
                </property>
                <widget class="QWidget" name="stepPartAuto">
                 <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -865,27 +865,7 @@
                       </property>
                      </widget>
                     </item>
-                    <item row="13" column="0">
-                     <widget class="QRadioButton" name="login_auto">
-                      <property name="text">
-                       <string>Log in Automatically</string>
-                      </property>
-                      <property name="checked">
-                       <bool>false</bool>
-                      </property>
-                     </widget>
-                    </item>
                     <item row="14" column="0">
-                     <widget class="QRadioButton" name="login_pass">
-                      <property name="text">
-                       <string>Require a password to log in</string>
-                      </property>
-                      <property name="checked">
-                       <bool>true</bool>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="15" column="0">
                      <spacer name="verticalSpacer_8">
                       <property name="orientation">
                        <enum>Qt::Vertical</enum>
@@ -897,6 +877,35 @@
                        </size>
                       </property>
                      </spacer>
+                    </item>
+                    <item row="13" column="0">
+                     <widget class="QWidget" name="widget_6" native="true">
+                      <layout class="QHBoxLayout" name="horizontalLayout">
+                       <property name="margin">
+                        <number>2</number>
+                       </property>
+                       <item>
+                        <widget class="QRadioButton" name="login_auto">
+                         <property name="text">
+                          <string>Log in Automatically</string>
+                         </property>
+                         <property name="checked">
+                          <bool>false</bool>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QRadioButton" name="login_pass">
+                         <property name="text">
+                          <string>Require my password to log in</string>
+                         </property>
+                         <property name="checked">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
                     </item>
                    </layout>
                   </widget>
@@ -1162,8 +1171,6 @@
   <tabstop>password</tabstop>
   <tabstop>verified_password</tabstop>
   <tabstop>hostname</tabstop>
-  <tabstop>login_auto</tabstop>
-  <tabstop>login_pass</tabstop>
   <tabstop>ready_text</tabstop>
   <tabstop>advanced_button</tabstop>
   <tabstop>back</tabstop>

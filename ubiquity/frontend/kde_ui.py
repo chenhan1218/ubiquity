@@ -966,7 +966,7 @@ class Wizard(BaseFrontend):
         if step == "stepPartAuto":
             self.ui.part_advanced_warning_message.clear()
             self.ui.part_advanced_warning_hbox.setVisible(False)
-        if step in ("stepPartAuto", "stepPartAdvanced"):
+        if step in ("stepPartAuto", "stepPartAdvanced", "stepUserInfo"):
             self.ui.fullname_error_image.hide()
             self.ui.fullname_error_reason.hide()
             self.ui.username_error_image.hide()

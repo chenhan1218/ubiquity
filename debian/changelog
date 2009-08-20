@@ -1,8 +1,31 @@
-ubiquity (1.99.7) UNRELEASED; urgency=low
+ubiquity (1.99.9) karmic; urgency=low
+
+  * Automatic update of included source packages: user-setup
+    1.27ubuntu8.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 19 Aug 2009 17:47:10 +0100
+
+ubiquity (1.99.8) karmic; urgency=low
+
+  * Adjust the way the locale is passed to ubiquity-slideshow-ubuntu.
+  * Depend on cryptsetup for encrypted home directory support.
+  * Automatic update of included source packages: user-setup
+    1.27ubuntu7.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 18 Aug 2009 13:15:29 +0100
+
+ubiquity (1.99.7) karmic; urgency=low
 
   [ Mario Limonciello ]
   * mythbuntu_ui:
     - Hide step_label during the last step just prior to reboot. (LP: #412823)
+    - Add a GtkCellRendererText and ListStore to drivers step.  The previous
+      conversion from glade->gtkbuilder appears to have not done for us.
+    - Link to the gtkbuilder remote file from mythbuntu-common.
+    - Fix broken MySQL service by mythbuntu-common changes.
+  * gtk:
+     - Drop logic to support glade files.
+  * Drop depends on python-glade2
 
   [ Colin Watson ]
   * Upgrade to debhelper v7. There's still some fairly significant ugliness
@@ -15,7 +38,22 @@ ubiquity (1.99.7) UNRELEASED; urgency=low
     a minimum gtk+ version bump to 2.12
   * Add menu icons for oem-config-prepare*.desktop (LP: #412832)
 
- -- Michael Terry <michael.terry@canonical.com>  Fri, 14 Aug 2009 11:17:48 -0400
+  [ Harald Sitter ]
+  * Install the KDE desktop file to applications/kde4/ to prevent it from showing
+    up as KDE 3 application in KRunner (happens when stored in applications/kde/)
+
+  [ Roman Shtylman ]
+  * kde: fix text overflow/clipping on user info page when presented with errors
+   (LP: #413127)
+
+  [ Evan Dandrea ]
+  * Use "Require my password" rather than "Require a password" for the
+    sake of clarity.  Thanks Matthew Paul Thomas.
+  * Reset the internal pointer to the segment to be resized when
+    clearing the contents of the segmented bar in the GTK frontend
+    (LP: #386982).  Thanks Eitan Isaacson!
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Tue, 18 Aug 2009 00:27:47 -0500
 
 ubiquity (1.99.6) karmic; urgency=low
 

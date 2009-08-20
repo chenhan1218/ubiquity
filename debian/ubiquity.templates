@@ -167,11 +167,11 @@ _Description: Log in automatically
 
 Template: ubiquity/text/login_pass
 Type: text
-_Description: Require a password to log in
+_Description: Require my password to log in
 
 Template: ubiquity/text/login_encrypt
 Type: text
-_Description: Require a password to log in and to decrypt your home folder
+_Description: Require my password to log in and to decrypt my home folder
 
 Template: ubiquity/text/choose_another_password
 Type: text
