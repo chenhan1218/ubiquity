@@ -1,3 +1,9 @@
+ubiquity (1.99.11) UNRELEASED; urgency=low
+
+  * Correct test for ubiquity.dirs.$DEB_HOST_ARCH.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 21 Aug 2009 11:16:44 +0100
+
 ubiquity (1.99.10) karmic; urgency=low
 
   [ Michael Terry ]
