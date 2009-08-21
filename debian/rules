@@ -101,8 +101,8 @@ install: build ubiquity/keyboard_names.py
 	dh_testroot
 	dh_prep
 	cp debian/ubiquity.dirs-any debian/ubiquity.dirs
-ifneq (,$(wildcard debian/ubiquity.dirs.$(DEB_HOST_ARCH)))
-	cat debian/ubiquity.dirs.$(DEB_HOST_ARCH) >> debian/ubiquity.dirs
+ifneq (,$(wildcard debian/ubiquity.dirs-$(DEB_HOST_ARCH)))
+	cat debian/ubiquity.dirs-$(DEB_HOST_ARCH) >> debian/ubiquity.dirs
 endif
 	dh_installdirs
 

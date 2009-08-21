@@ -1,6 +1,7 @@
 ubiquity (1.99.11) UNRELEASED; urgency=low
 
-  * Correct test for ubiquity.dirs.$DEB_HOST_ARCH.
+  * Rename ubiquity.dirs.* to ubiquity.dirs-* to avoid dh_installdirs using
+    the files as overrides.
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 21 Aug 2009 11:16:44 +0100
 
