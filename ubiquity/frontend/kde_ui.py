@@ -204,6 +204,7 @@ class Wizard(BaseFrontend):
                     if breadcrumb:
                         mod.breadcrumb_question = breadcrumb
                         mod.breadcrumb = QLabel(self.get_string(breadcrumb))
+                        mod.breadcrumb.setObjectName(mod.breadcrumb_question)
                         label_index = self.ui.steps_widget.layout().count() - 2 # Room for install crumb
                         self.ui.steps_widget.layout().insertWidget(label_index, mod.breadcrumb)
                     else:
@@ -510,16 +511,19 @@ class Wizard(BaseFrontend):
 
     def translate_pages(self, lang=None, just_current=True, reget=False):
         if just_current:
-            pages = self.pages[self.pagesindex].widgets
+            pages = [self.pages[self.pagesindex]]
         else:
-            pages = reduce(lambda x,y: x+y.widgets, self.pages, [])
+            pages = self.pages
         widgets = []
         for p in pages:
-            for c in self.all_children(p):
-                widgets.append(c)
+            prefix = p.ui.get('prefix')
+            for w in p.widgets:
+                for c in self.all_children(w):
+                    widgets.append((c, prefix))
         self.translate_widgets(lang=lang, widgets=widgets, reget=reget)
 
     # translates widget text based on the object names
+    # widgets is a list of (widget, prefix) pairs
     def translate_widgets(self, lang=None, widgets=None, reget=True):
         if lang is None:
             lang = self.locale
@@ -528,7 +532,7 @@ class Wizard(BaseFrontend):
         else:
             languages = [lang]
         if widgets is None:
-            widgets = self.all_children()
+            widgets = [(x, None) for x in self.all_children()]
 
         if reget:
             core_names = ['ubiquity/text/%s' % q for q in self.language_questions]
@@ -554,20 +558,20 @@ class Wizard(BaseFrontend):
         # We always translate always-visible widgets
         for q in self.language_questions:
             if hasattr(self.ui, q):
-                widgets.append(getattr(self.ui, q))
+                widgets.append((getattr(self.ui, q), None))
             elif q == 'live_installer':
-                widgets.append(self.ui)
-        widgets.extend(self.all_children(self.ui.steps_widget))
+                widgets.append((self.ui, None))
+        widgets.extend([(x, None) for x in self.all_children(self.ui.steps_widget)])
 
         for w in widgets:
-            self.translate_widget(w, lang)
+            self.translate_widget(w[0], lang=lang, prefix=w[1])
 
         self.ui.partition_button_undo.setText(
             self.get_string('partman/text/undo_everything').replace('_', '&', 1))
 
         self.set_layout_direction()
 
-    def translate_widget(self, widget, lang=None):
+    def translate_widget(self, widget, lang=None, prefix=None):
         if lang is None:
             lang = self.locale
         #FIXME needs translations for Next, Back and Cancel
@@ -576,10 +580,10 @@ class Wizard(BaseFrontend):
 
         name = str(widget.objectName())
         
-        text = self.get_string(name, lang)
+        text = self.get_string(name, lang, prefix)
 
         if str(name) == "UbiquityUIBase":
-            text = self.get_string("live_installer", lang)
+            text = self.get_string("live_installer", lang, prefix)
 
         if text is None:
             return
@@ -589,7 +593,7 @@ class Wizard(BaseFrontend):
                 text = text.replace('${INDEX}', str(self.pagesindex+1))
                 text = text.replace('${TOTAL}', str(self.user_pageslen))
             elif name == 'welcome_text_label' and self.oem_user_config:
-                text = self.get_string('welcome_text_oem_user_label', lang)
+                text = self.get_string('welcome_text_oem_user_label', lang, prefix)
 
             if 'heading_label' in name:
                 widget.setText("<h2>" + text + "</h2>")
@@ -606,9 +610,9 @@ class Wizard(BaseFrontend):
 
         elif isinstance(widget, QWidget) and str(name) == "UbiquityUIBase":
             if self.oem_config:
-                text = self.get_string('oem_config_title', lang)
+                text = self.get_string('oem_config_title', lang, prefix)
             elif self.oem_user_config:
-                text = self.get_string('oem_user_config_title', lang)
+                text = self.get_string('oem_user_config_title', lang, prefix)
             widget.setWindowTitle(text)
 
         else:

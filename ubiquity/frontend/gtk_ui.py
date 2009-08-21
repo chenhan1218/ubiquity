@@ -243,13 +243,15 @@ class Wizard(BaseFrontend):
 
     def translate_pages(self, lang=None, just_current=True, reget=False):
         if just_current:
-            pages = self.pages[self.pagesindex].all_widgets
+            pages = [self.pages[self.pagesindex]]
         else:
-            pages = reduce(lambda x,y: x + y.all_widgets, self.pages, [])
-        widgets = set()
+            pages = self.pages
+        widgets = []
         for p in pages:
-            for c in self.all_children(p):
-                widgets.add(c)
+            prefix = p.ui.get('prefix')
+            for w in p.all_widgets:
+                for c in self.all_children(w):
+                    widgets.append((c, prefix))
         self.translate_widgets(lang=lang, widgets=widgets, reget=reget)
 
     def excepthook(self, exctype, excvalue, exctb):
@@ -599,11 +601,12 @@ class Wizard(BaseFrontend):
         gettext.install(domain, LOCALEDIR, unicode=1)
 
 
+    # widgets is a set of (widget, prefix) pairs
     def translate_widgets(self, lang=None, widgets=None, reget=True):
         if lang is None:
             lang = self.locale
         if widgets is None:
-            widgets = self.all_widgets
+            widgets = [(x, None) for x in self.all_widgets]
         if lang is None:
             languages = []
         else:
@@ -630,10 +633,10 @@ class Wizard(BaseFrontend):
         # We always translate always-visible widgets
         for q in self.language_questions:
             if hasattr(self, q):
-                widgets.add(getattr(self, q))
+                widgets.append((getattr(self, q), None))
 
         for widget in widgets:
-            self.translate_widget(widget, lang)
+            self.translate_widget(widget[0], lang=lang, prefix=widget[1])
 
     def translate_widget(self, widget, lang=None, prefix=None):
         if isinstance(widget, gtk.Button) and widget.get_use_stock():
@@ -641,6 +644,7 @@ class Wizard(BaseFrontend):
 
         text = self.get_string(widget.get_name(), lang, prefix)
         if text is None:
+            print 'no text for', widget.get_name(), prefix
             return
         name = widget.get_name()
 
