@@ -574,6 +574,6 @@ class Install(InstallPlugin):
 
         return (['sh', '-c', '%s && %s' % (tzsetup_script, clock_script)], [])
 
-    def install(self, target, progress):
-        progress.start('ubiquity/install/timezone')
-        return InstallPlugin.install(target)
+    def install(self, target, progress, *args, **kwargs):
+        progress.info('ubiquity/install/timezone')
+        return InstallPlugin.install(target, progress, *args, **kwargs)

@@ -180,9 +180,9 @@ class Wizard(BaseFrontend):
                 mod.ui_class = mod.module.PageKde
                 mod.controller = Controller(self)
                 mod.ui_inst = mod.ui_class(mod.controller)
-                mod.ui = mod.ui_inst.get_ui()
-                widgets = mod.ui and mod.ui.get('widgets')
-                breadcrumb = mod.ui and mod.ui.get('breadcrumb')
+                mod.ui = mod.ui_inst.get_ui() or dict()
+                widgets = mod.ui.get('widgets')
+                breadcrumb = mod.ui.get('breadcrumb')
                 if widgets:
                     def fill_out(widget_list):
                         rv = []
@@ -405,7 +405,7 @@ class Wizard(BaseFrontend):
                 # driven by whether there is a question to ask.
                 if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                     self.allow_change_step(False)
-                    self.dbfilter.start(auto_process=True)
+                    QTimer.singleShot(0, lambda: self.dbfilter.start(auto_process=True))
 
                 self.pages[self.pagesindex].controller.dbfilter = self.dbfilter
                 self.app.exec_()
@@ -538,14 +538,18 @@ class Wizard(BaseFrontend):
             for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
                                'ok', 'quit'):
                 core_names.append('ubiquity/imported/%s' % stock_item)
+            prefixes = []
             for p in self.pages:
-                if p.controller.is_language_page:
+                prefix = p.ui.get('prefix')
+                if not prefix:
+                    prefix = 'ubiquity/text'
+                if p.ui.get('is_language_page'):
                     children = reduce(lambda x,y: x + self.all_children(y), p.widgets, [])
-                    prefix = p.controller.prefix if p.controller.prefix else 'ubiquity/text'
                     core_names.extend([prefix+'/'+c.objectName() for c in children])
                 if p.breadcrumb_question:
                     core_names.append(p.breadcrumb_question)
-            i18n.get_translations(languages=languages, core_names=core_names)
+                prefixes.append(prefix)
+            i18n.get_translations(languages=languages, core_names=core_names, extra_prefixes=prefixes)
 
         # We always translate always-visible widgets
         for q in self.language_questions:
@@ -1185,7 +1189,10 @@ class Wizard(BaseFrontend):
     def debconffilter_done (self, dbfilter):
         ##FIXME in Qt 4 without this disconnect it calls watch_debconf_fd_helper_read once more causing
         ## a crash after the keyboard stage.  No idea why.
-        self.socketNotifierRead.activated.disconnect(self.watch_debconf_fd_helper_read)
+        try:
+            self.socketNotifierRead.activated.disconnect(self.watch_debconf_fd_helper_read)
+        except Exception:
+            pass # May not be connected if it's a trivial dbfilter
         if BaseFrontend.debconffilter_done(self, dbfilter):
             self.app.exit()
             return True

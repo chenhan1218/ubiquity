@@ -21,8 +21,10 @@
 from ubiquity.filteredcommand import FilteredCommand
 
 class Plugin(FilteredCommand):
-    pass
+    def prepare(self, unfiltered=False):
+        # None causes dbfilter to just spin a main loop and wait for OK/Cancel
+        return None
 
-class InstallPlugin(FilteredCommand):
-    def install(self, *args):
+class InstallPlugin(Plugin):
+    def install(self, *args, **kwargs):
         return self.run_command(auto_process=True)

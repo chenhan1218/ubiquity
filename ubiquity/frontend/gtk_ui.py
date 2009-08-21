@@ -50,6 +50,7 @@ pygtk.require('2.0')
 import pango
 import gobject
 gobject.threads_init()
+import glib
 
 import debconf
 
@@ -199,9 +200,9 @@ class Wizard(BaseFrontend):
                 mod.ui_class = mod.module.PageGtk
                 mod.controller = Controller(self)
                 mod.ui_inst = mod.ui_class(mod.controller)
-                mod.ui = mod.ui_inst.get_ui()
-                widgets = mod.ui and mod.ui.get('widgets')
-                optional_widgets = mod.ui and mod.ui.get('optional_widgets')
+                mod.ui = mod.ui_inst.get_ui() or dict()
+                widgets = mod.ui.get('widgets')
+                optional_widgets = mod.ui.get('optional_widgets')
                 if widgets or optional_widgets:
                     def fill_out(widget_list):
                         rv = []
@@ -418,7 +419,7 @@ class Wizard(BaseFrontend):
                 # driven by whether there is a question to ask.
                 if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                     self.allow_change_step(False)
-                    self.dbfilter.start(auto_process=True)
+                    glib.idle_add(lambda: self.dbfilter.start(auto_process=True))
 
                 self.pages[self.pagesindex].controller.dbfilter = self.dbfilter
                 gtk.main()
@@ -615,12 +616,15 @@ class Wizard(BaseFrontend):
             for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
                                 'ok', 'quit'):
                 core_names.append('ubiquity/imported/%s' % stock_item)
+            prefixes = []
             for p in self.pages:
-                if p.controller.is_language_page:
+                prefix = p.ui.get('prefix')
+                if not prefix:
+                    prefix = 'ubiquity/text'
+                if p.ui.get('is_language_page'):
                     children = reduce(lambda x,y: x + self.all_children(y), p.all_widgets, [])
-                    prefix = p.controller.prefix if p.controller.prefix else 'ubiquity/text'
                     core_names.extend([prefix+'/'+c.get_name() for c in children])
-            prefixes = filter(lambda x: x, [p.controller.prefix for p in self.pages])
+                prefixes.append(prefix)
             i18n.get_translations(languages=languages, core_names=core_names, extra_prefixes=prefixes)
 
         # We always translate always-visible widgets
@@ -835,6 +839,7 @@ class Wizard(BaseFrontend):
                     cur = page.widgets[0]
                 elif not cur and page.optional_widgets:
                     cur = page.optional_widgets[0]
+                cur.show()
                 break
 
         if self.pagesindex == self.pageslen - 1:
@@ -998,8 +1003,7 @@ class Wizard(BaseFrontend):
         self.current_page = None
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
-        if gtk.main_level() > 0:
-            gtk.main_quit()
+        self.quit_main_loop()
 
 
     # Callbacks
@@ -1087,8 +1091,8 @@ class Wizard(BaseFrontend):
             self.dbfilter.ok_handler()
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
-        elif gtk.main_level() > 0:
-            gtk.main_quit()
+        else:
+            self.quit_main_loop()
 
     def process_step(self):
         """Process and validate the results of this step."""
@@ -1183,8 +1187,8 @@ class Wizard(BaseFrontend):
             self.dbfilter.cancel_handler()
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
-        elif gtk.main_level() > 0:
-            gtk.main_quit()
+        else:
+            self.quit_main_loop()
 
 
     def link_button_browser (self, button, uri):
@@ -1352,8 +1356,7 @@ class Wizard(BaseFrontend):
 
     def debconffilter_done (self, dbfilter):
         if BaseFrontend.debconffilter_done(self, dbfilter):
-            if gtk.main_level() > 0:
-                gtk.main_quit()
+            self.quit_main_loop()
             return True
         else:
             return False
@@ -2559,8 +2562,29 @@ class Wizard(BaseFrontend):
 
 
     # Return control to the next level up.
+    pending_quits = 0
     def quit_main_loop (self):
-        if gtk.main_level() > 0:
-            gtk.main_quit()
+        # We quit in an idle function, because successive calls to
+        # main_quit will do nothing if the main loop hasn't had time to
+        # quit.  So we stagger calls to make sure that if this function
+        # is called multiple times (nested loops), it works as expected.
+        def quit_decrement():
+            # Defensively guard against negative pending
+            self.pending_quits = max(0, self.pending_quits - 1)
+            return False
+        def idle_quit():
+            if self.pending_quits > 1:
+                gtk.quit_add(0, quit_quit)
+            if gtk.main_level() > 0:
+                gtk.main_quit()
+            return quit_decrement()
+        def quit_quit():
+            # Wait until we're actually out of this main loop
+            glib.idle_add(idle_quit)
+            return False
+
+        if self.pending_quits == 0:
+            quit_quit()
+        self.pending_quits += 1
 
 # vim:ai:et:sts=4:tw=80:sw=4:

@@ -1118,8 +1118,7 @@ exit 0"""
         class Progress:
             def __init__(self, db):
                 self._db = db
-            def start(self, title):
-                syslog.syslog(syslog.LOG_WARNING, 'running: ' + title)
+            def info(self, title):
                 self._db.progress('INFO', title)
 
         for plugin in self.plugins:

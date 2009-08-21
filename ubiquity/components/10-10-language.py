@@ -54,7 +54,6 @@ class PageBase:
 class PageGtk(PageBase):
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
-        self.controller.is_language_page = True
         if self.controller.oem_user_config:
             ui_file = 'stepLanguageOnly.ui'
             self.only = True
@@ -91,7 +90,8 @@ class PageGtk(PageBase):
             self.page = None
 
     def get_ui(self):
-        return {'widgets': self.page}
+        return {'widgets': self.page,
+                'is_language_page': True}
 
     def set_language_choices(self, choices, choice_map):
         import gtk, gobject
@@ -173,7 +173,6 @@ class PageGtk(PageBase):
 class PageKde(PageBase):
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
-        self.controller.is_language_page = True
         try:
             from PyQt4 import uic
             from PyQt4.QtCore import SIGNAL
@@ -218,7 +217,8 @@ class PageKde(PageBase):
 
     def get_ui(self):
         return {'widgets': self.page,
-                'breadcrumb': 'ubiquity/text/breadcrumb_language'}
+                'breadcrumb': 'ubiquity/text/breadcrumb_language',
+                'is_language_page': True}
 
     def openReleaseNotes(self):
         lang = self.selected_language()
@@ -410,9 +410,9 @@ class Install(InstallPlugin):
                      '/usr/lib/ubiquity/localechooser/post-base-installer ' +
                      '&& /usr/lib/ubiquity/localechooser/finish-install'], [])
 
-    def install(self, target, progress):
-        progress.start('ubiquity/install/locales')
-        rv = InstallPlugin.install(self, target)
+    def install(self, target, progress, *args, **kwargs):
+        progress.info('ubiquity/install/locales')
+        rv = InstallPlugin.install(self, target, progress, *args, **kwargs)
         if not rv:
             # fontconfig configuration needs to be adjusted based on the
             # selected locale (from language-selector-common.postinst). Ignore

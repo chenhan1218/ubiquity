@@ -46,10 +46,8 @@ class Controller:
     def __init__(self, wizard):
         self._wizard = wizard
         self.dbfilter = None
-        self.prefix = None
         self.oem_config = wizard.oem_config
         self.oem_user_config = wizard.oem_user_config
-        self.is_language_page = False
     def translate(self, lang=None, just_me=True, reget=False):
         pass
     def allow_go_forward(self, allowed):

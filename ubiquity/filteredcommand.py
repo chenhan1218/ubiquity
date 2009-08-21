@@ -51,6 +51,7 @@ class FilteredCommand(object):
         self.done = False
         self.current_question = None
         self.succeeded = False
+        self.dbfilter = None
 
     @classmethod
     def debug_enabled(self):
@@ -69,7 +70,11 @@ class FilteredCommand(object):
     def start(self, auto_process=False):
         self.status = None
         self.db = DebconfCommunicator(PACKAGE, cloexec=True)
+        self.ui_loop_level = 0
         prep = self.prepare()
+        if prep is None:
+            self.run(None, None)
+            return
         self.command = ['log-output', '-t', PACKAGE, '--pass-stdout']
         if isinstance(prep[0], types.StringTypes):
             self.command.append(prep[0])
@@ -80,8 +85,6 @@ class FilteredCommand(object):
             env = prep[2]
         else:
             env = {}
-
-        self.ui_loop_level = 0
 
         self.debug("Starting up '%s' for %s.%s", self.command,
                    self.__class__.__module__, self.__class__.__name__)
@@ -138,6 +141,8 @@ class FilteredCommand(object):
         # from within the debconffiltered Config class.
         if self.frontend is None:
             prep = self.prepare()
+            if prep is None:
+                return
             self.command = ['log-output', '-t', PACKAGE, '--pass-stdout']
             if isinstance(prep[0], types.StringTypes):
                 self.command.append(prep[0])
@@ -358,6 +363,10 @@ class FilteredCommand(object):
         self.succeeded = True
         self.done = True
         self.exit_ui_loops()
+        if self.dbfilter is None:
+            # This is really a dummy dbfilter.  Let's exit for real now
+            self.frontend.debconffilter_done(self)
+            self.cleanup()
 
     # User selected Cancel, Back, or similar. Subclasses should override
     # this to send user-entered information back to debconf (perhaps using
@@ -368,6 +377,10 @@ class FilteredCommand(object):
         self.succeeded = False
         self.done = True
         self.exit_ui_loops()
+        if self.dbfilter is None:
+            # This is really a dummy dbfilter.  Let's exit for real now
+            self.frontend.debconffilter_done(self)
+            self.cleanup()
 
     def error(self, priority, question):
         self.succeeded = False

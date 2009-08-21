@@ -620,6 +620,6 @@ class Install(InstallPlugin):
     def prepare(self, unfiltered=False):
         return (['/usr/share/ubiquity/console-setup-apply'], [])
 
-    def install(self, target, progress):
-        progress.start('ubiquity/install/keyboard')
-        return InstallPlugin.install(target)
+    def install(self, target, progress, *args, **kwargs):
+        progress.info('ubiquity/install/keyboard')
+        return InstallPlugin.install(target, progress, *args, **kwargs)
