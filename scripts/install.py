@@ -1122,7 +1122,8 @@ exit 0"""
                 self._db.progress('INFO', title)
 
         for plugin in self.plugins:
-            inst = plugin.Install(None)
+            self.db.progress('INFO', ' ') # clear info in case plugin doesn't provide one
+            inst = plugin.Install(None, db=self.db)
             ret = inst.install(self.target, Progress(self.db))
             if ret:
                 raise InstallStepError("Plugin %s failed with code %s" % (plugin.NAME, ret))
