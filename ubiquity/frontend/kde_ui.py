@@ -353,6 +353,7 @@ class Wizard(BaseFrontend):
         self.ui.partition_button_undo.clicked[bool].connect(self.on_partition_list_undo_activate)
 
         self.pagesindex = 0
+        pageslen = len(self.pages)
 
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             got_intro = False
@@ -363,6 +364,7 @@ class Wizard(BaseFrontend):
         # Start the interface
         if got_intro:
             self.pages.insert(0, None) # for page index bookkeeping
+            pageslen += 1
             first_step = "stepWelcome"
         else:
             first_step = self.pagenames[0]
@@ -374,7 +376,6 @@ class Wizard(BaseFrontend):
             self.app.exec_()
             self.pagesindex += 1
         
-        pageslen = len(self.pages)
         while(self.pagesindex < pageslen):
             if self.current_page == None:
                 break
