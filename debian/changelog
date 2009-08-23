@@ -1,3 +1,11 @@
+ubiquity (1.99.12) UNRELEASED; urgency=low
+
+  * Ensure that /usr/share/applications and /usr/share/applications/kde
+    exist in oem-config-gtk and oem-config-gtk respectively, and remove the
+    .desktop files installed there on removal (LP: #417255).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 23 Aug 2009 22:09:11 +0100
+
 ubiquity (1.99.11) karmic; urgency=low
 
   [ Evan Dandrea ]
