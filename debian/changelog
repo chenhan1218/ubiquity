@@ -1,8 +1,13 @@
 ubiquity (1.99.12) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Ensure that /usr/share/applications and /usr/share/applications/kde
     exist in oem-config-gtk and oem-config-gtk respectively, and remove the
     .desktop files installed there on removal (LP: #417255).
+
+  [ Evan Dandrea ]
+  * Automatic update of included source packages: base-installer
+    1.101ubuntu4, user-setup 1.27ubuntu9.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sun, 23 Aug 2009 22:09:11 +0100
 

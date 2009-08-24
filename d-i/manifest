@@ -1,5 +1,5 @@
 apt-setup 1:0.41ubuntu1
-base-installer 1.101ubuntu2
+base-installer 1.101ubuntu4
 bterm-unifont 1.1
 choose-mirror 2.29ubuntu1
 clock-setup 0.98ubuntu1
@@ -29,5 +29,5 @@ partman-xfs 44
 preseed 1.42ubuntu1
 silo-installer 1.16ubuntu1
 tzsetup 1:0.25ubuntu1
-user-setup 1.27ubuntu8
+user-setup 1.27ubuntu9
 yaboot-installer 1.1.15ubuntu1
