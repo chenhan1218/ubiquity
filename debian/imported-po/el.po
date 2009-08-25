@@ -1,6 +1,5 @@
-# translation of gtk+-HEAD-po-el-3920.merged.po to Greek
-# gtk+ Greek PO file
-# Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
+# Greek translation of GTK+ UI Translations
+# Copyright (C) 1999 - 2009 Free Software Foundation, Inc.
 #
 # kostas: 04Sep2003, one more update
 # nikos: 04Sep2003, review (more is needed)
@@ -30,7 +29,7 @@ msgstr ""
 "Project-Id-Version: gtk+-HEAD-po-el-3920.merged\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-19 12:33+0000\n"
-"PO-Revision-Date: 2009-04-05 02:33+0100\n"
+"PO-Revision-Date: 2009-04-22 00:51+0300\n"
 "Last-Translator: Jennie Petoumenou <epetoumenou@gmail.com>\n"
 "Language-Team: Greek <team@gnome.gr>\n"
 "MIME-Version: 1.0\n"

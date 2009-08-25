@@ -1,21 +1,22 @@
-# Swedish messages for GTK+.
-# Copyright (C) 1999-2009 Free Software Foundation, Inc.
-# Tomas Ögren <stric@ing.umu.se>, 1999.
-# Christian Rose <menthos@menthos.com>, 2000, 2001, 2002, 2003, 2004, 2005.
-# Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009.
+# Ukrainian translation of gtk+.
+# Copyright (C) 1999 Free Software Foundation, Inc.
+# Yuri Syrota <rasta@cvs.gnome.org>, 1999, 2004.
+# Maxim Dziumanenko <dziumanenko@gmail.com>, 2004-2009
 #
+# wanderlust <wanderlust@ukr.net>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-03-19 12:33+0000\n"
-"PO-Revision-Date: 2009-07-22 13:51+0100\n"
-"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
-"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"PO-Revision-Date: 2009-07-06 15:04+0300\n"
+"Last-Translator: wanderlust <wanderlust@ukr.net>\n"
+"Language-Team: ukrainian <Ukrainian <uk@li.org>>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. Type: text
 #. Description
@@ -24,7 +25,7 @@ msgstr ""
 #: ../ubiquity.templates-imported:1001
 msgctxt "Stock label"
 msgid "_Cancel"
-msgstr "_Avbryt"
+msgstr "_Скасувати"
 
 #. Type: text
 #. Description
@@ -33,7 +34,7 @@ msgstr "_Avbryt"
 #: ../ubiquity.templates-imported:2001
 msgctxt "Stock label"
 msgid "_Close"
-msgstr "S_täng"
+msgstr "_Закрити"
 
 #. Type: text
 #. Description
@@ -42,7 +43,7 @@ msgstr "S_täng"
 #: ../ubiquity.templates-imported:3001
 msgctxt "Stock label, navigation"
 msgid "_Back"
-msgstr "_Bakåt"
+msgstr "На_зад"
 
 #. Type: text
 #. Description
@@ -51,7 +52,7 @@ msgstr "_Bakåt"
 #: ../ubiquity.templates-imported:4001
 msgctxt "Stock label, navigation"
 msgid "_Forward"
-msgstr "_Framåt"
+msgstr "В_перед"
 
 #. Type: text
 #. Description
@@ -60,7 +61,7 @@ msgstr "_Framåt"
 #: ../ubiquity.templates-imported:5001
 msgctxt "Stock label"
 msgid "_OK"
-msgstr "_OK"
+msgstr "_Гаразд"
 
 #. Type: text
 #. Description
@@ -69,7 +70,7 @@ msgstr "_OK"
 #: ../ubiquity.templates-imported:6001
 msgctxt "Stock label"
 msgid "_Quit"
-msgstr "A_vsluta"
+msgstr "Ви_йти"
 
 #. Type: text
 #. Description
@@ -78,7 +79,7 @@ msgstr "A_vsluta"
 #: ../ubiquity.templates-imported:7001
 msgctxt "Stock label"
 msgid "_Yes"
-msgstr "_Ja"
+msgstr "_Так"
 
 #. Type: text
 #. Description
@@ -87,4 +88,4 @@ msgstr "_Ja"
 #: ../ubiquity.templates-imported:8001
 msgctxt "Stock label"
 msgid "_No"
-msgstr "_Nej"
+msgstr "Н_і"
