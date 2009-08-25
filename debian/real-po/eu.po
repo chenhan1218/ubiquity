@@ -20,7 +20,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "Leku libre jarrai handiena erabili"
 
 #. Type: text
 #. Description
@@ -32,13 +32,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "Batera instalatu, abioan bata edo bestea hautatu ahal izateko"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "Eskuz zehaztu partizioak (aurreratua)"
 
 #. Type: text
 #. Description
@@ -101,9 +101,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -164,7 +161,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Region:"
-msgstr ""
+msgstr "Eskualdea:"
 
 #. Type: text
 #. Description
@@ -189,13 +186,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Suggested option:"
-msgstr ""
+msgstr "Iradokitako aukera:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your own:"
-msgstr ""
+msgstr "Zurea hautatu:"
 
 #. Type: text
 #. Description
@@ -246,6 +243,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Pasahitz berdina birritan sar ezazu, idazte-akatsak ekiditeko. Pasahitz on "
+"batek hizkiak, zenbakiak eta puntuazio-ikurrak nahastuko ditu, zortzi "
+"karaktere izango ditu gutxienez, eta noizean behin aldatua izan beharko luke."
 
 #. Type: text
 #. Description
@@ -285,7 +285,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr ""
+msgstr "Beste pasahitz bat hautatu"
 
 #. Type: text
 #. Description
@@ -329,25 +329,25 @@ msgstr "Nola egin nahi dituzu partizioak?"
 #. Description
 #: ../ubiquity.templates:41001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "Ordenagailu honek ez dauka sistema eragilerik."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "Ordenagailu honek ${OS} dauka."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "Ordenagailu honek sistema eragile ugari ditu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "Non jarri nahi duzu ${RELEASE}?"
 
 #. Type: text
 #. Description
@@ -360,7 +360,7 @@ msgstr "Partizioak prestatu"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:46001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "Honek ${SYSTEMS} ezabatu eta ${RELEASE} instalatuko du."
 
 #. Type: text
 #. Description
@@ -426,19 +426,19 @@ msgstr "Utzi"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Installation Complete"
-msgstr ""
+msgstr "Instalazioa burututa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Continue Testing"
-msgstr ""
+msgstr "Probatzen jarraitu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Restart Now"
-msgstr ""
+msgstr "Orain berrabiarazi"
 
 #. Type: text
 #. Description
@@ -488,7 +488,6 @@ msgstr "Ondoren:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "Partizio-taula berria"
 
@@ -497,7 +496,6 @@ msgstr "Partizio-taula berria"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "Aurreratua..."
 
@@ -506,7 +504,6 @@ msgstr "Aurreratua..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "Erabiltzailea sortzen..."
 
@@ -688,6 +685,8 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"Instalazioa bukatu da. Ubuntu probatzen jarrai dezakezu, baina sistema "
+"berrabiarazi arte ez da aldaketa edo dokumenturik gordeko."
 
 #. Type: text
 #. Description
@@ -808,6 +807,9 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"Helburu-partizioan instalazioa burutzeko leku libre nahikoa ez egotearen "
+"ondorio da hau. Instalatzailea berriro exekutatu ezazu eta partizio handiago "
+"bat hautatu ezazu."
 
 #. Type: error
 #. Description
@@ -1034,7 +1036,7 @@ msgstr "Errorea gertatu da paketeak kentzean:"
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Zein fitxategi ez diren kopiatuko kalkulatzen..."
 
 #. Type: title
 #. Description
@@ -1110,31 +1112,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "Sistemaren konfigurazioa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "Hizkuntza hautatu/Choose language"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "Sare-konfigurazioa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "Software-hautaketa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Konfigurazioa aplikatzen"
 
 #. Type: text
 #. Description
@@ -1152,7 +1154,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "Teklatuaren diseinua"
 
@@ -1178,7 +1179,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Failed"
 msgid "installation process"
 msgstr "Instalazioak huts egin du"
 
@@ -1197,12 +1197,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Instalazio mota: ${INSTALLTYPE}\n"
+" Hizkuntza: ${LANGUAGE}\n"
+" Teklatu-diseinua: ${KEYMAP}\n"
+" Izena: ${FULLNAME}\n"
+" Erabiltzaile-izena: ${USERNAME}\n"
+" Kokalekua: ${LOCATION}\n"
+" IR urrutiko kontrola: ${REMOTE}\n"
+" IR transmisorea: ${TRANSMITTER}\n"
+" Bideo-kontrolatzailea: ${VIDEO_DRIVER}\n"
+" Zerbitzuak: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "Instalazio-mota"
 
 #. Type: text
 #. Description
@@ -1300,7 +1310,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Kontrolatzaile grafikoak"
 
 #. Type: text
 #. Description
@@ -1443,9 +1453,3 @@ msgstr "Zerbitzu gehigarriak konfiguratzen..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Gailu infragorriak konfiguratzen..."
-
-#~ msgid "New partition"
-#~ msgstr "Partizio berria"
-
-#~ msgid "Delete partition"
-#~ msgstr "Partizioa ezabatu"

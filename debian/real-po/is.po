@@ -26,7 +26,6 @@ msgstr "Nota stærsta lausa plássið"
 #. Description
 #: ../ubiquity.templates:4001
 #, fuzzy
-#| msgid "Use the entire disk"
 msgid "Erase and use the entire disk"
 msgstr "Nota allan diskinn"
 
@@ -106,9 +105,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -283,7 +279,6 @@ msgstr "Skrá sig inn sjálfkrafa"
 #. Description
 #: ../ubiquity.templates:34001
 #, fuzzy
-#| msgid "Require a password to log in"
 msgid "Require my password to log in"
 msgstr "Krefjast lykilorðs til að skrá þig inn"
 
@@ -291,7 +286,6 @@ msgstr "Krefjast lykilorðs til að skrá þig inn"
 #. Description
 #: ../ubiquity.templates:35001
 #, fuzzy
-#| msgid "Require a password to log in and to decrypt your home folder"
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr ""
 "Krefjast lykilorðs til að skrá þig inn og til að dulráða heimasvæðið þitt"
@@ -502,7 +496,6 @@ msgstr "Eftir:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "Ný deildartafla"
 
@@ -511,7 +504,6 @@ msgstr "Ný deildartafla"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "Frekari stillingar..."
 
@@ -520,7 +512,6 @@ msgstr "Frekari stillingar..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "Bý til notanda..."
 
@@ -1137,31 +1128,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "Stillingar kerfis"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "Velja tungumál"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "Netstillingar"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "Hugbúnaðarval"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Virkja stillingar"
 
 #. Type: text
 #. Description
@@ -1179,7 +1170,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "Lyklaborðið"
 
@@ -1205,7 +1195,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Type"
 msgid "installation process"
 msgstr "Tegund uppsetningar"
 
@@ -1481,15 +1470,3 @@ msgstr "Stilli viðbótar þjónustur..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Stilli innrauð tæki..."
-
-#~ msgid "City:"
-#~ msgstr "Borg:"
-
-#~ msgid "Select your time zone from the map, or by region and city."
-#~ msgstr "Veldu í hvaða tímabelti þú ert í á kortinu, eða eftir borg."
-
-#~ msgid "New partition"
-#~ msgstr "Ný sneiðing"
-
-#~ msgid "Delete partition"
-#~ msgstr "Eyða sneiðingu"

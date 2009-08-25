@@ -26,7 +26,6 @@ msgstr "Gebruik de grootste aaneengesloten vrije ruimte"
 #. Description
 #: ../ubiquity.templates:4001
 #, fuzzy
-#| msgid "Use the entire disk"
 msgid "Erase and use the entire disk"
 msgstr "Gebruik de gehele schijf"
 
@@ -104,9 +103,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -281,7 +277,6 @@ msgstr "Automatisch inloggen"
 #. Description
 #: ../ubiquity.templates:34001
 #, fuzzy
-#| msgid "Require a password to log in"
 msgid "Require my password to log in"
 msgstr "Om een wachtwoord vragen tijdens inloggen"
 
@@ -289,7 +284,6 @@ msgstr "Om een wachtwoord vragen tijdens inloggen"
 #. Description
 #: ../ubiquity.templates:35001
 #, fuzzy
-#| msgid "Require a password to log in"
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr "Om een wachtwoord vragen tijdens inloggen"
 
@@ -297,7 +291,7 @@ msgstr "Om een wachtwoord vragen tijdens inloggen"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr ""
+msgstr "Kies een nieuw wachtwoord"
 
 #. Type: text
 #. Description
@@ -373,7 +367,7 @@ msgstr "Partities voorbereiden"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:46001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "Dit verwijdert ${SYSTEMS} en installeert ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -502,7 +496,6 @@ msgstr "Na:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "Nieuwe partitietabel"
 
@@ -511,7 +504,6 @@ msgstr "Nieuwe partitietabel"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "Geavanceerd…"
 
@@ -520,7 +512,6 @@ msgstr "Geavanceerd…"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "Gebruikers worden aangemaakt..."
 
@@ -1071,7 +1062,7 @@ msgstr "Er is een fout opgetreden bij het verwijderen van pakketten:"
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Bestanden bereken om over te slaan tijdens kopiëren..."
 
 #. Type: title
 #. Description
@@ -1146,31 +1137,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "Systeemconfiguratie"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "Taal kiezen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "Netwerkconfiguratie"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "Softwarekeuze"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Configuratie toepassen"
 
 #. Type: text
 #. Description
@@ -1188,7 +1179,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "Toetsenbordindeling"
 
@@ -1214,7 +1204,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Complete"
 msgid "installation process"
 msgstr "Installatie voltooid"
 
@@ -1233,12 +1222,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Installatietype: ${INSTALLTYPE}\n"
+" Taal: ${LANGUAGE}\n"
+" Toetsenbordindeling: ${KEYMAP}\n"
+" Naam: ${FULLNAME}\n"
+" Gebruikersaccount: ${USERNAME}\n"
+" Locatie: ${LOCATION}\n"
+" IR-afstandsbediening: ${REMOTE}\n"
+" IR-transmitter: ${TRANSMITTER}\n"
+" Grafisch stuurprogramma: ${VIDEO_DRIVER}\n"
+" Diensten: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "Installatietype"
 
 #. Type: text
 #. Description
@@ -1339,7 +1338,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Grafische stuurprogramma's"
 
 #. Type: text
 #. Description
@@ -1482,15 +1481,3 @@ msgstr "Extra diensten worden geconfigureerd..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Configureren van infraroodapparaten..."
-
-#~ msgid "City:"
-#~ msgstr "Stad:"
-
-#~ msgid "Select your time zone from the map, or by region and city."
-#~ msgstr "Kies uw tijdzone met de kaart, per regio of per stad."
-
-#~ msgid "New partition"
-#~ msgstr "Nieuwe partitie"
-
-#~ msgid "Delete partition"
-#~ msgstr "Partitie verwijderen"

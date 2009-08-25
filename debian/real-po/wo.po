@@ -1053,7 +1053,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "Tannal aw lakk/Choose language"
 
 #. Type: text
 #. Description

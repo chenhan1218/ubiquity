@@ -20,7 +20,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "השתמש בשטח הפנוי הרציף הגדול ביותר"
 
 #. Type: text
 #. Description
@@ -32,13 +32,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "התקן אותם זה לצד זה, עם אפשרות בחירה בכל הפעלה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "הגדר מחיצות ידנית (מתקדם)"
 
 #. Type: text
 #. Description
@@ -98,9 +98,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -158,7 +155,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Region:"
-msgstr ""
+msgstr "אזור:"
 
 #. Type: text
 #. Description
@@ -182,13 +179,13 @@ msgstr "תוכל להקליד בתיבה זו על מנת לבחון את פרי
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Suggested option:"
-msgstr ""
+msgstr "אפשרות מומלצת:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your own:"
-msgstr ""
+msgstr "בחר את שלך:"
 
 #. Type: text
 #. Description
@@ -238,6 +235,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"יש להקליד את אותה הסיסמה פעמיים, כדי שניתן יהיה לבדוק שגיאות בהקלדה. על "
+"סיסמה טובה להכיל ערבוב של אותיות, מספרים וסימני כתב נוספים, להיות בת שמונה "
+"תווים לכל הפחות, ויש להחליפה על בסיס קבוע."
 
 #. Type: text
 #. Description
@@ -275,7 +275,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr ""
+msgstr "בחר סיסמה אחרת"
 
 #. Type: text
 #. Description
@@ -317,25 +317,25 @@ msgstr "באיזו דרך תרצו לחלק את הכונן למחיצות?"
 #. Description
 #: ../ubiquity.templates:41001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "במחשב זה לא מותקנות כלל מערכות הפעלה."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "במחשב זה מותקנת ${OS}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "במחשב זה מותקנות מספר מערכות הפעלה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "היכן ברצונך להתקין את ${RELEASE}?"
 
 #. Type: text
 #. Description
@@ -348,7 +348,7 @@ msgstr "הכנת מחיצות"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:46001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "פעולה זו תמחק את ${SYSTEMS} ותתקין את ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -414,19 +414,19 @@ msgstr "דלג"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Installation Complete"
-msgstr ""
+msgstr "ההתקנה הושלמה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Continue Testing"
-msgstr ""
+msgstr "המשך בדיקה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Restart Now"
-msgstr ""
+msgstr "הפעל מחדש כעת"
 
 #. Type: text
 #. Description
@@ -474,7 +474,6 @@ msgstr "אחרי:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "טבלת מחיצות חדשה"
 
@@ -483,7 +482,6 @@ msgstr "טבלת מחיצות חדשה"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "מתקדם..."
 
@@ -492,7 +490,6 @@ msgstr "מתקדם..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "יוצר משתמש..."
 
@@ -674,6 +671,8 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"ההתקנה הסתיימה. ניתן להמשיך ולבחון את אובונטו כעת, אך עד לאיתחול המחשב, כל "
+"השינוייםשנערכו או המסמכים שנשמרו על ידיך לא ישארו."
 
 #. Type: text
 #. Description
@@ -1026,7 +1025,7 @@ msgstr "שגיאה קרתה במהלך הסרת החבילות:"
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "מחשב קבצים כדי לדלג על ההעתקה..."
 
 #. Type: title
 #. Description
@@ -1097,31 +1096,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "תצורת מערכת"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "בחירת שפה/Choose language"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "תצורת רשת"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "בחירת תוכנה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "החלת התצורה"
 
 #. Type: text
 #. Description
@@ -1139,7 +1138,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "פריסת מקלדת"
 
@@ -1165,7 +1163,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Failed"
 msgid "installation process"
 msgstr "ההתקנה נכשלה"
 
@@ -1184,12 +1181,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" סוג התקנה: ${INSTALLTYPE}\n"
+"שפה: ${LANGUAGE}\n"
+"פריסת מקלדת: ${KEYMAP}\n"
+"שם: ${FULLNAME}\n"
+"שם משתמש: ${USERNAME}\n"
+"מיקום: ${LOCATION}\n"
+"שלט IR: ${REMOTE}\n"
+"עינית IR: ${TRANSMITTER}\n"
+"כרטיס מסך: ${VIDEO_DRIVER}\n"
+"שירותים: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "סוג התקנה"
 
 #. Type: text
 #. Description
@@ -1285,7 +1292,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "כרטיס מסך"
 
 #. Type: text
 #. Description
@@ -1423,9 +1430,3 @@ msgstr "מגדיר שירותים נוספים..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "מגדיר את התקני האינפרא-אדום..."
-
-#~ msgid "New partition"
-#~ msgstr "צור מחיצה"
-
-#~ msgid "Delete partition"
-#~ msgstr "מחק מחיצה"

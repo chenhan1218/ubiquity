@@ -20,7 +20,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "સૌથી મ્હોટી સતત મુક્ત જગ્યા વાપરો"
 
 #. Type: text
 #. Description
@@ -99,9 +99,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -159,7 +156,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Region:"
-msgstr ""
+msgstr "પ્રદેશ:"
 
 #. Type: text
 #. Description
@@ -183,13 +180,13 @@ msgstr "તમે તમારો નવો કીબોર્ડ લેઆઉ�
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Suggested option:"
-msgstr ""
+msgstr "સૂચવેલો વિકલ્પ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your own:"
-msgstr ""
+msgstr "તમે પોતે પસંદ કરો:"
 
 #. Type: text
 #. Description
@@ -240,6 +237,8 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"એકસરખો પાસવર્ડ બે વાર નાખો, જેથી ટાયપિંગ ભૂલ ચકાસી શકાય. એક સારા પાસવર્ડમાં અક્ષરો, "
+"આંકડા અને સંજ્ઞાનું મિશ્રણ, ઓછામાં ઓછા આંઠ અક્ષર લાંબો, અને સમયાંતરે બદલતો રેહતો હોવો જોઈએ."
 
 #. Type: text
 #. Description
@@ -277,7 +276,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr ""
+msgstr "બીજો પાસવર્ડ પસંદ કરો"
 
 #. Type: text
 #. Description
@@ -417,19 +416,19 @@ msgstr "છોડી દો"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Installation Complete"
-msgstr ""
+msgstr "સ્થાપના સમાપ્ત"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Continue Testing"
-msgstr ""
+msgstr "પરિક્ષણ ચાલુ રાખો"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Restart Now"
-msgstr ""
+msgstr "હમણાજ ફરીથી ચાલુ કરો"
 
 #. Type: text
 #. Description
@@ -477,7 +476,6 @@ msgstr "પછી:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "નવું વિભાગ ટેબલ"
 
@@ -486,7 +484,6 @@ msgstr "નવું વિભાગ ટેબલ"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "અદ્યતન..."
 
@@ -495,7 +492,6 @@ msgstr "અદ્યતન..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "ખાતુ બનાવાઇ રહ્યુ છે..."
 
@@ -1086,7 +1082,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "ભાષા પસંદ કરો/Choose language"
 
 #. Type: text
 #. Description
@@ -1122,7 +1118,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "કીબોર્ડ લેઆઉટ:"
 
@@ -1148,7 +1143,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Failed"
 msgid "installation process"
 msgstr "સ્થાપન નિષ્ફળ ગયું"
 
@@ -1385,12 +1379,3 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "City:"
-#~ msgstr "શહેર:"
-
-#~ msgid "New partition"
-#~ msgstr "નવો વિભાગ"
-
-#~ msgid "Delete partition"
-#~ msgstr "વિભાગ દૂર કરો"

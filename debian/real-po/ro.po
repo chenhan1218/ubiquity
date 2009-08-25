@@ -26,7 +26,6 @@ msgstr "Folosește cea mai mare spațiu liber continuu"
 #. Description
 #: ../ubiquity.templates:4001
 #, fuzzy
-#| msgid "Use the entire disk"
 msgid "Erase and use the entire disk"
 msgstr "Folosește întreg discul"
 
@@ -103,9 +102,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -279,7 +275,6 @@ msgstr "Autentificare automată"
 #. Description
 #: ../ubiquity.templates:34001
 #, fuzzy
-#| msgid "Require a password to log in"
 msgid "Require my password to log in"
 msgstr "Cere o parolă pentru autentificare"
 
@@ -287,7 +282,6 @@ msgstr "Cere o parolă pentru autentificare"
 #. Description
 #: ../ubiquity.templates:35001
 #, fuzzy
-#| msgid "Require a password to log in and to decrypt your home folder"
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr "Cere o parolă pentru autentificare și decriptarea dosarului personal"
 
@@ -497,7 +491,6 @@ msgstr "După:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "Tabel nou de partiționare"
 
@@ -506,7 +499,6 @@ msgstr "Tabel nou de partiționare"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "Avansat..."
 
@@ -515,7 +507,6 @@ msgstr "Avansat..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "Creare utilizator..."
 
@@ -1139,31 +1130,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "Configurare Sistem"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "Alegeți limba / Choose language"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "Configurare rețea"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "Selecție aplicații"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Se aplică configurările"
 
 #. Type: text
 #. Description
@@ -1181,7 +1172,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "Aranjament tastatură"
 
@@ -1207,7 +1197,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Type"
 msgid "installation process"
 msgstr "Tip instalare"
 
@@ -1487,15 +1476,3 @@ msgstr "Configurare servicii adiționale..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Se configurează dispozitivele infraroșu..."
-
-#~ msgid "City:"
-#~ msgstr "Oraș:"
-
-#~ msgid "Select your time zone from the map, or by region and city."
-#~ msgstr "Alegeți fusul orar din hartă, sau după regiune și oraș."
-
-#~ msgid "New partition"
-#~ msgstr "Partiție nouă"
-
-#~ msgid "Delete partition"
-#~ msgstr "Șterge partiție"

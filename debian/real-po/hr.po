@@ -101,9 +101,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -164,7 +161,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Region:"
-msgstr ""
+msgstr "Regija:"
 
 #. Type: text
 #. Description
@@ -437,7 +434,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Restart Now"
-msgstr ""
+msgstr "Ponovno pokreni sada"
 
 #. Type: text
 #. Description
@@ -486,7 +483,6 @@ msgstr "Nakon:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "Nova particijska tablica"
 
@@ -495,7 +491,6 @@ msgstr "Nova particijska tablica"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "Napredno..."
 
@@ -504,7 +499,6 @@ msgstr "Napredno..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "Izrađujem korisnika..."
 
@@ -1116,13 +1110,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "Postavljanje sustava"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "Izaberi jezik/Choose language"
 
 #. Type: text
 #. Description
@@ -1158,7 +1152,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "Raspored tipkovnice"
 
@@ -1184,7 +1177,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Failed"
 msgid "installation process"
 msgstr "Instalacija nije uspjela"
 
@@ -1448,9 +1440,3 @@ msgstr "Postavljanje dodatnih usluga..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Postavljanje infracrvnih uređaja..."
-
-#~ msgid "New partition"
-#~ msgstr "Nova particija"
-
-#~ msgid "Delete partition"
-#~ msgstr "Obriši particiju"

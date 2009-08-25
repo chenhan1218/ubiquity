@@ -1050,7 +1050,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "སྐད་ཡིག་གདམ་ཁ་རྐྱབས།/Choose language"
 
 #. Type: text
 #. Description

@@ -20,7 +20,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "Naudoti didžiausią ištisinę laisvą vietą"
 
 #. Type: text
 #. Description
@@ -33,12 +33,14 @@ msgstr ""
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
 msgstr ""
+"Įdiegti šalia egzistuojančios sistemos, norimą OS galėsite pasirinkti "
+"paleidimo metu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "Pasirinkti skirsnius pačiam (patyrusiems)"
 
 #. Type: text
 #. Description
@@ -101,9 +103,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -164,7 +163,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Region:"
-msgstr ""
+msgstr "Regionas:"
 
 #. Type: text
 #. Description
@@ -188,13 +187,13 @@ msgstr "Rašydami į šį laukelį galite išbandyti parinktą klaviatūros išd
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Suggested option:"
-msgstr ""
+msgstr "Siūlomas variantas:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your own:"
-msgstr ""
+msgstr "Pasirinkite kitą išdėstymą:"
 
 #. Type: text
 #. Description
@@ -247,6 +246,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Įvesite tą patį slaptažodį dukart, kad būtų galima patikrinti dėl rašymo "
+"klaidų. Saugus slaptažodis bus jei jame bus ir raidės, ir skaičiai, ir "
+"skyrybos bei kiti ženklai, viso turi būt 8 ar daugiau simbolių. Saugumui "
+"užtikrinti slaptažodį reikia periodiškai pakeisti į naują."
 
 #. Type: text
 #. Description
@@ -286,7 +289,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr ""
+msgstr "Įvesti saugesnį slaptažodį"
 
 #. Type: text
 #. Description
@@ -331,25 +334,25 @@ msgstr "Kaip norite sudalinti diską?"
 #. Description
 #: ../ubiquity.templates:41001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "Šioje laikmenoje (kompiuteryje) neaptikta jokia operacinė sistema."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "Šiame kompiuteryje yra įdiegta ${OS} operacinė sistema."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "Šiame kompiuteryje yra keletas operacinių sistemų."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "Į kurią laikmeną jūs norite įdiegti ${RELEASE}?"
 
 #. Type: text
 #. Description
@@ -363,6 +366,8 @@ msgstr "Paruošti skirsnius"
 #: ../ubiquity.templates:46001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
 msgstr ""
+"Dėmesio: šis veiksmas ištrins ${SYSTEMS} OS bei visus duomenis pasirinktoje "
+"laikmenoje ir įdiegs ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -411,13 +416,13 @@ msgstr "${INDEX} žingsnis iš ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Quit the installation?"
-msgstr ""
+msgstr "Nutraukti diegimą?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Do you really want to quit the installation now?"
-msgstr ""
+msgstr "Ar tikrai norite nutraukti diegimą dabar?"
 
 #. Type: text
 #. Description
@@ -429,19 +434,19 @@ msgstr "Praleisti"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Installation Complete"
-msgstr ""
+msgstr "Įdiegimas baigtas"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Continue Testing"
-msgstr ""
+msgstr "Tęsti darbą su „demo“ versija"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Restart Now"
-msgstr ""
+msgstr "Paleisti naują sistemą"
 
 #. Type: text
 #. Description
@@ -462,6 +467,12 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"Atsiprašome, tačiau diegimo programoje įvyo klaida ir ji nebegali tęsti. "
+"Užpildykite naują klaidos pranešimą https://launchpad.net/ubuntu/+source/"
+"ubiquity/+filebug (nerašykite komentaro prie jau esamo klaidos pranešimo) ir "
+"problema bus sprendžiama kaip galima greičiau. Kad padėtumėte suprasti, kas "
+"įvyko blogai, įtraukite žemiau rodomą informaciją į klaidos pranešimą ir "
+"prisekite failus /var/log/syslog ir /var/log/partman :"
 
 #. Type: text
 #. Description
@@ -469,7 +480,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:62001
 msgid "Before:"
-msgstr ""
+msgstr "Dabar:"
 
 #. Type: text
 #. Description
@@ -477,14 +488,13 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:63001
 msgid "After:"
-msgstr ""
+msgstr "Po įdiegimo:"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "Nauja skirsnio lentelė"
 
@@ -493,7 +503,6 @@ msgstr "Nauja skirsnio lentelė"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "Išsamiau..."
 
@@ -502,7 +511,6 @@ msgstr "Išsamiau..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "Kuriamas naudotojas..."
 
@@ -684,6 +692,9 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"Įdiegimas baigtas. Jūs galite toliau naudotis demonstracine Linux versija, "
+"tačiau visa Jūsų sukurta ar atsisiųsta informacija, dokumentai bei "
+"nustatymai nebus automatiškai išsaugoti į kompiuterio diską."
 
 #. Type: text
 #. Description
@@ -779,7 +790,7 @@ msgstr "Kopijuojami failai (liko mažiau nei viena minutė)..."
 #: ../ubiquity.templates:108001 ../ubiquity.templates:109001
 #: ../ubiquity.templates:110001
 msgid "Installation Failed"
-msgstr ""
+msgstr "Įdiegti nepavyko"
 
 #. Type: error
 #. Description
@@ -802,6 +813,9 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"Diegimo užbaigti nepavyko nes trūksta laisvos vietos pasirinktame "
+"kompiuterio disko skirsnyje. Paleiskite diegimo įrankį iš naujo ir "
+"pasirinkite didesnį disko skirsnį (ar padidinkite dabar pasirinktą)."
 
 #. Type: error
 #. Description
@@ -1079,7 +1093,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:152001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "Ar norite grįžti į diskų skirsnių tvarkymą?"
 
 #. Type: boolean
 #. Description
@@ -1105,19 +1119,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "Sistemos konfigūracija"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "Pasirinkite kalbą / Choose language"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "Tinklo nustatymai"
 
 #. Type: text
 #. Description
@@ -1147,7 +1161,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "Klaviatūros išdėstymas"
 
@@ -1173,7 +1186,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Install[ action ]"
 msgid "installation process"
 msgstr "Įdiegti"
 
@@ -1417,9 +1429,3 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "New partition"
-#~ msgstr "Naujas skirsnis"
-
-#~ msgid "Delete partition"
-#~ msgstr "Pašalinti skirsnį"

@@ -26,7 +26,6 @@ msgstr "Використати найбільший суцільний віль�
 #. Description
 #: ../ubiquity.templates:4001
 #, fuzzy
-#| msgid "Use the entire disk"
 msgid "Erase and use the entire disk"
 msgstr "Використати весь диск"
 
@@ -103,9 +102,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -275,7 +271,6 @@ msgstr "Входити автоматично"
 #. Description
 #: ../ubiquity.templates:34001
 #, fuzzy
-#| msgid "Require a password to log in"
 msgid "Require my password to log in"
 msgstr "Потрібен пароль для входу"
 
@@ -283,7 +278,6 @@ msgstr "Потрібен пароль для входу"
 #. Description
 #: ../ubiquity.templates:35001
 #, fuzzy
-#| msgid "Require a password to log in and to decrypt your home folder"
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr "Потрібен пароль, для входу та дешифрування Вашої домашньої папки"
 
@@ -366,7 +360,7 @@ msgstr "Підготування поділів"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:46001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "Це видалить ${SYSTEMS} та встановить ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -494,7 +488,6 @@ msgstr "Після:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "Нова таблиця розділів"
 
@@ -503,7 +496,6 @@ msgstr "Нова таблиця розділів"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "Додатково..."
 
@@ -512,7 +504,6 @@ msgstr "Додатково..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "Створення користувача..."
 
@@ -1131,31 +1122,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "Налаштування системи"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "Вибрати мову/Choose language"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "Налаштування мережі"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "Вибір програм"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Застосування конфігурації"
 
 #. Type: text
 #. Description
@@ -1173,7 +1164,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "Розкладка клавіатури"
 
@@ -1199,7 +1189,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Type"
 msgid "installation process"
 msgstr "Тип Встановлення"
 
@@ -1476,15 +1465,3 @@ msgstr "Налаштування додаткових сервісів..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Налаштовуються інфрачервоні пристрої..."
-
-#~ msgid "City:"
-#~ msgstr "Місто:"
-
-#~ msgid "Select your time zone from the map, or by region and city."
-#~ msgstr "Виберіть ваш часовий пояс на карті, по регіону або місту"
-
-#~ msgid "New partition"
-#~ msgstr "Новий розділ"
-
-#~ msgid "Delete partition"
-#~ msgstr "Видалити розділ"
