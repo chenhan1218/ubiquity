@@ -9,7 +9,10 @@ ubiquity (1.99.12) karmic; urgency=low
   * Automatic update of included source packages: base-installer
     1.101ubuntu4, user-setup 1.27ubuntu9.
 
- -- Evan Dandrea <evand@ubuntu.com>  Mon, 24 Aug 2009 21:25:36 +0100
+  [ Roman Shtylman ]
+  * Added support for encrypted home/swap login in kde installer 
+
+ -- Roman Shtylman <shtylman@gmail.com>  Mon, 24 Aug 2009 22:06:45 -0400
 
 ubiquity (1.99.11) karmic; urgency=low
 
