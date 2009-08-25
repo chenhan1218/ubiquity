@@ -319,6 +319,9 @@ class Wizard(BaseFrontend):
         got_intro = self.show_intro()
         self.allow_change_step(True)
         
+        # do not show the decrypt option unless user has opted to use encryptfs
+        self.ui.login_encrypt.setVisible(False)
+        
         # Declare SignalHandler
         self.ui.next.clicked.connect(self.on_next_clicked)
         self.ui.back.clicked.connect(self.on_back_clicked)
@@ -2094,11 +2097,11 @@ class Wizard(BaseFrontend):
     
     def set_encrypt_home(self, value):
         if value:
-            syslog.syslog(syslog.LOG_WARNING,
-                          "KDE frontend does not support home encryption yet")
+            self.ui.login_encrypt.setVisible(True)
+        self.ui.login_encrypt.setChecked(value)
 
     def get_encrypt_home(self):
-        return False
+        return self.ui.login_encrypt.isChecked()
 
     def username_error(self, msg):
         self.ui.username_error_reason.setText(msg)
