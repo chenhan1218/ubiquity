@@ -2,6 +2,8 @@ ubiquity (1.99.13) UNRELEASED; urgency=low
 
   * Update translations from Launchpad.
   * Upgrade to Automake 1.11.
+  * Recent versions of intltool need GETTEXT_PACKAGE. It's great that that
+    new requirement was documented nice and clearly. Oh, wait ...
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 25 Aug 2009 10:28:59 +0100
 
