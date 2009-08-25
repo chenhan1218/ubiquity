@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ubiquity\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2006-05-09 12:14+0100\n"
+"Report-Msgid-Bugs-To: Colin Watson <cjwatson@ubuntu.com>\n"
+"POT-Creation-Date: 2009-08-25 13:38+0100\n"
 "PO-Revision-Date: 2009-07-01 22:56+0000\n"
 "Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
 "Language-Team: Chinese (China) <zh_CN@li.org>\n"
@@ -17,12 +17,19 @@ msgstr ""
 "X-Launchpad-Export-Date: 2009-08-25 08:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
-#: ../desktop/ubiquity-gtkui.desktop.in.h:1
-#: ../desktop/ubiquity-kdeui.desktop.in.h:1
-msgid "Install"
-msgstr "安装"
-
+#. Do not translate the word "RELEASE".  It is used as a marker by casper.
 #: ../desktop/ubiquity-gtkui.desktop.in.h:2
 #: ../desktop/ubiquity-kdeui.desktop.in.h:2
+#, fuzzy
+msgid "Install RELEASE"
+msgstr "安装"
+
+#: ../desktop/ubiquity-gtkui.desktop.in.h:3
+#: ../desktop/ubiquity-kdeui.desktop.in.h:3
 msgid "Install this system permanently to your hard disk"
 msgstr "将这个系统永久安装在你的硬盘上"
+
+#: ../desktop/oem-config-prepare-kde.desktop.in.h:1
+#: ../desktop/oem-config-prepare-gtk.desktop.in.h:1
+msgid "Prepare for shipping to end user"
+msgstr ""
