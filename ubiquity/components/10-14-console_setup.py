@@ -622,4 +622,4 @@ class Install(InstallPlugin):
 
     def install(self, target, progress, *args, **kwargs):
         progress.info('ubiquity/install/keyboard')
-        return InstallPlugin.install(target, progress, *args, **kwargs)
+        return InstallPlugin.install(self, target, progress, *args, **kwargs)

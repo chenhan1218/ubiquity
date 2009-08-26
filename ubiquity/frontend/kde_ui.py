@@ -779,7 +779,7 @@ class Wizard(BaseFrontend):
 
         self.current_page = None
         
-        lang = self.get_language()
+        lang = self.locale.split('_')[0]
         slides = '/usr/share/ubiquity-slideshow/%s/index.html' % lang
         #TODO test if screen is big enough to show slides...
         try:

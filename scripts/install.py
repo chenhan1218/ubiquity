@@ -49,7 +49,7 @@ from ubiquity import misc
 from ubiquity import osextras
 from ubiquity import plugin_manager
 from ubiquity.casper import get_casper
-from ubiquity.components import apt_setup, \
+from ubiquity.components import apt_setup, usersetup_apply, \
                                 hw_detect, check_kernels, \
                                 migrationassistant_apply
 
