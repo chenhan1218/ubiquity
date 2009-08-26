@@ -148,7 +148,7 @@
              <item row="0" column="0" colspan="5">
               <widget class="QStackedWidget" name="widgetStack">
                <property name="currentIndex">
-                <number>6</number>
+                <number>3</number>
                </property>
                <widget class="QWidget" name="intro_page">
                 <layout class="QGridLayout" name="gridLayout_7">

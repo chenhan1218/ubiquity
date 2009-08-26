@@ -1,5 +1,6 @@
 ubiquity (1.99.13) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Update translations from Launchpad.
   * Upgrade to Automake 1.11.
   * Recent versions of intltool need GETTEXT_PACKAGE. It's great that that
@@ -8,7 +9,11 @@ ubiquity (1.99.13) UNRELEASED; urgency=low
     need some retranslation work.
   * Update imported translations from gtk+2.0 2.17.7-0ubuntu3.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 25 Aug 2009 10:28:59 +0100
+  [ Roman Shtylman ]
+  * fix for (LP: #413159). Acceptable for feature freeze, but still needs 
+   work and further review
+
+ -- Roman Shtylman <shtylman@gmail.com>  Tue, 25 Aug 2009 22:30:21 -0400
 
 ubiquity (1.99.12) karmic; urgency=low
 
