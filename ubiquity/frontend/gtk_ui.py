@@ -929,14 +929,15 @@ class Wizard(BaseFrontend):
 
         self.current_page = None
 
-        lang = self.get_language()
-        slides = '/usr/share/ubiquity-slideshow/slides/index.html#locale=%s' % lang
+        slides = '/usr/share/ubiquity-slideshow/slides/index.html'
         s = self.live_installer.get_screen()
         sh = s.get_height()
         sw = s.get_width()
         fail = None
         if os.path.exists(slides):
-            if sh >= 800 and sw >= 600:
+            lang = self.get_language()
+            slides = 'file://%s#locale=%s' % (slides, lang)
+            if sh >= 600 and sw >= 800:
                 try:
                     import webkit
                     webview = webkit.WebView()
@@ -947,7 +948,7 @@ class Wizard(BaseFrontend):
                 except ImportError:
                     fail = 'Webkit not present.'
             else:
-                fail = 'Display < 800x600.'
+                fail = 'Display < 800x600 (%sx%s).' % (sw, sh)
         else:
             fail = 'No slides present for %s.' % lang
         if fail:

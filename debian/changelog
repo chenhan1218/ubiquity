@@ -13,6 +13,9 @@ ubiquity (1.99.13) UNRELEASED; urgency=low
   * fix for (LP: #413159). Acceptable for feature freeze, but still needs 
    work and further review
 
+  [ Evan Dandrea ]
+  * Fixes to the slideshow code.
+
  -- Roman Shtylman <shtylman@gmail.com>  Tue, 25 Aug 2009 22:30:21 -0400
 
 ubiquity (1.99.12) karmic; urgency=low
