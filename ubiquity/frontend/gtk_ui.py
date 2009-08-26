@@ -644,7 +644,6 @@ class Wizard(BaseFrontend):
 
         text = self.get_string(widget.get_name(), lang, prefix)
         if text is None:
-            print 'no text for', widget.get_name(), prefix
             return
         name = widget.get_name()
 
