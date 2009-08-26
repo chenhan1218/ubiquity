@@ -26,7 +26,6 @@ msgstr "연결된 가장 큰 빈공간 사용"
 #. Description
 #: ../ubiquity.templates:4001
 #, fuzzy
-#| msgid "Use the entire disk"
 msgid "Erase and use the entire disk"
 msgstr "디스크 전체 사용"
 
@@ -102,9 +101,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -272,7 +268,6 @@ msgstr "자동으로 로그인"
 #. Description
 #: ../ubiquity.templates:34001
 #, fuzzy
-#| msgid "Require a password to log in"
 msgid "Require my password to log in"
 msgstr "로그인시 암호 요구"
 
@@ -280,7 +275,6 @@ msgstr "로그인시 암호 요구"
 #. Description
 #: ../ubiquity.templates:35001
 #, fuzzy
-#| msgid "Require a password to log in and to decrypt your home folder"
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr "처음폴터를 풀고 로그인할 암호를 요구"
 
@@ -363,7 +357,7 @@ msgstr "분할 준비"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:46001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "${SYSTEMS} 이(가) 삭제되고 ${RELEASE} 이(가) 설치될 것입니다."
 
 #. Type: text
 #. Description
@@ -489,7 +483,6 @@ msgstr "이후:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "새 분할 테이블"
 
@@ -498,7 +491,6 @@ msgstr "새 분할 테이블"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "고급..."
 
@@ -507,7 +499,6 @@ msgstr "고급..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "사용자 생성 중..."
 
@@ -1117,31 +1108,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "시스템 설정"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "언어 선택"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "네트워크 설정"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "무른모 선택"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "설정 적용중"
 
 #. Type: text
 #. Description
@@ -1159,7 +1150,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "키보드 배치"
 
@@ -1185,7 +1175,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Type"
 msgid "installation process"
 msgstr "설치 형태"
 
@@ -1456,15 +1445,3 @@ msgstr "추가 서비스 구성 중..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "적외선 장치 구성 중..."
-
-#~ msgid "City:"
-#~ msgstr "도시:"
-
-#~ msgid "Select your time zone from the map, or by region and city."
-#~ msgstr "지도나 지역, 도시명으로 지도에서 시간대 선택"
-
-#~ msgid "New partition"
-#~ msgstr "새 분할"
-
-#~ msgid "Delete partition"
-#~ msgstr "분할 삭제"

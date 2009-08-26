@@ -26,7 +26,6 @@ msgstr "Ужыць"
 #. Description
 #: ../ubiquity.templates:4001
 #, fuzzy
-#| msgid "Use the entire disk"
 msgid "Erase and use the entire disk"
 msgstr "Ужыць увесь дыск"
 
@@ -34,7 +33,7 @@ msgstr "Ужыць увесь дыск"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "Усталёўваць разам, выбіраць патрэбнае пры кожным уключэньні."
 
 #. Type: text
 #. Description
@@ -103,9 +102,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -248,6 +244,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Увядзіце такі ж самы пароль двойчы, так ён можа быць правераны на памылкі "
+"друку. Добры пароль утрымлівае сумесь літараў, лічбаў і знакаў, даўжынёй "
+"павінен быць не меньш за восем сымбаляў, і павінен рэгулярна зьмяняцца."
 
 #. Type: text
 #. Description
@@ -273,7 +272,6 @@ msgstr "Уваходзіць аўтаматычна"
 #. Description
 #: ../ubiquity.templates:34001
 #, fuzzy
-#| msgid "Require a password to log in"
 msgid "Require my password to log in"
 msgstr "Патрабаваць пароль для ўваходу"
 
@@ -281,7 +279,6 @@ msgstr "Патрабаваць пароль для ўваходу"
 #. Description
 #: ../ubiquity.templates:35001
 #, fuzzy
-#| msgid "Require a password to log in and to decrypt your home folder"
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr "Патрабаваць пароль для ўваходу й дэшыфравання хатняе дырэкторыі"
 
@@ -365,7 +362,7 @@ msgstr "Падрыхтуй партыцыі"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:46001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "Гэта выдаліць ${SYSTEMS} і усталюе ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -415,13 +412,13 @@ msgstr "Этап ${INDEX} з ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Quit the installation?"
-msgstr ""
+msgstr "Пакінуць усталёўшчык?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Do you really want to quit the installation now?"
-msgstr ""
+msgstr "Вы насамрэч жадаеце выйсьці з праграмы усталёўкі?"
 
 #. Type: text
 #. Description
@@ -433,19 +430,19 @@ msgstr "Прапусьціць"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Installation Complete"
-msgstr ""
+msgstr "Інсталяцыя скончана"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Continue Testing"
-msgstr ""
+msgstr "Працягнуць тэставаньне"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Restart Now"
-msgstr ""
+msgstr "Перазагрузіць зараз"
 
 #. Type: text
 #. Description
@@ -453,7 +450,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:59001 ../ubiquity.templates:60001
 msgid "Installer crashed"
-msgstr ""
+msgstr "Праграма усталёўкі аварыйна спынена"
 
 #. Type: text
 #. Description
@@ -466,6 +463,12 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"Прабачце, праграма усталёўкі аварыйна спынена. Калі ласка, паведамце аб "
+"памылцы на https://launchpad.net/ubuntu/+source/ubiquity/+filebug (не "
+"дадавайце інфармацыю аб памылках, на якія ўжо маецца справаздача), і "
+"распрацоўшчыкі выправяць гэтую памылку, так хутка, наколькі гэта мажліва. "
+"Каб дапамагчы распрацоўшчыкам зразумець прычыну памылкі, дадайце да вашае "
+"справаздачы, наступныя дэталі і файлы  /var/log/syslog и /var/log/partman:"
 
 #. Type: text
 #. Description
@@ -473,7 +476,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:62001
 msgid "Before:"
-msgstr ""
+msgstr "Перад:"
 
 #. Type: text
 #. Description
@@ -481,7 +484,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:63001
 msgid "After:"
-msgstr ""
+msgstr "Пасьля:"
 
 #. Type: text
 #. Description
@@ -495,7 +498,6 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "Адмысловае..."
 
@@ -504,7 +506,6 @@ msgstr "Адмысловае..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "Стварэньне карыстальніка"
 
@@ -527,7 +528,7 @@ msgstr ""
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:69001
 msgid "Device"
-msgstr ""
+msgstr "Прылада"
 
 #. Type: text
 #. Description
@@ -535,28 +536,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:70001
 msgid "Type"
-msgstr ""
+msgstr "Тып"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:71001
 msgid "Mount point"
-msgstr ""
+msgstr "Кропка мацаваньня"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:72001
 msgid "Format?"
-msgstr ""
+msgstr "Фарматаваць?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:73001
 msgid "Size"
-msgstr ""
+msgstr "Памер табуляцыі"
 
 #. Type: text
 #. Description
@@ -564,21 +565,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:74001
 msgid "Used"
-msgstr ""
+msgstr "Занята"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:75001
 msgid "free space"
-msgstr ""
+msgstr "Вольнае прасторы"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:76001
 msgid "unknown"
-msgstr ""
+msgstr "невядомa"
 
 #. Type: text
 #. Description
@@ -592,7 +593,7 @@ msgstr "Стварыць партыцыю"
 #. Description
 #: ../ubiquity.templates:78001 ../ubiquity.templates:85001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "Памер новае партыцыі ў мэгабайтах (1000000 байтаў):"
 
 #. Type: text
 #. Description
@@ -622,19 +623,19 @@ msgstr "Лагічны"
 #. Description
 #: ../ubiquity.templates:83001
 msgid "Edit partition"
-msgstr ""
+msgstr "Рэдагаваць партыцыю"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:84001
 msgid "Edit a partition"
-msgstr ""
+msgstr "Рэдагаваць партыцыю"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Адмысловыя настаўленьні"
 
 #. Type: text
 #. Description
@@ -646,37 +647,37 @@ msgstr "Загрузчык"
 #. Description
 #: ../ubiquity.templates:88001
 msgid "Install boot loader"
-msgstr ""
+msgstr "Усталяваць пачатковы ладоўшчык"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
 msgid "Popularity contest"
-msgstr ""
+msgstr "Рэйтынг папулярнасьці"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:90001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Прымаць удзел у стварэньні рэйтынгу пакункаў"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Network proxy"
-msgstr ""
+msgstr "Сеткавы проксі"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP-проксі:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Port:"
-msgstr ""
+msgstr "Порт:"
 
 #. Type: text
 #. Description
@@ -686,6 +687,8 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"Інсталяцыя скончана. Вы можаце працягнуць карыстацца Убунтай, але пасьля "
+"перазагрузкі ніякія ўнесеныя зьмены не захаваюцца."
 
 #. Type: text
 #. Description
@@ -708,6 +711,8 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
+"Усталёўка скончана, каб пачаць карыстацца новай сыстэмай, трэба "
+"перазапусьціць кампутар."
 
 #. Type: note
 #. Description
@@ -733,7 +738,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:99001
 msgid "Checking the installation..."
-msgstr ""
+msgstr "Праверка усталёўкі..."
 
 #. Type: title
 #. Description
@@ -779,7 +784,7 @@ msgstr "Капіяваньне файлаў (застаецца менш за х
 #: ../ubiquity.templates:108001 ../ubiquity.templates:109001
 #: ../ubiquity.templates:110001
 msgid "Installation Failed"
-msgstr ""
+msgstr "Інсталяцыя схібіла"
 
 #. Type: error
 #. Description
@@ -803,6 +808,8 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"У выбранай партыцыі не хапае мейсца для, каб скончыць усталёўку. Калі ласка, "
+"запусьціце усталёвачную праграму зноў і абярыце  большуйшую партыцыю."
 
 #. Type: error
 #. Description
@@ -812,6 +819,10 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
+"Даволі часта праблемай з'яўляецца сборны CD/DVD дыск альбо памылка "
+"дыскаводу. Паспрабуйце далікатна прачысьціць CD/DVD альбо запісаць дыск з "
+"меншай хуткасьцю, ці прачысьціць лінзу  CD/DVD дысководу (адпаведныя прылады "
+"можна купіць у спэцыялізаванай электроннай краме)."
 
 #. Type: error
 #. Description
@@ -821,6 +832,9 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
+"Так часта здараецца з-за сапсаванага цьвёрдага дыску. Магчыма цьвёрды дыск "
+"ужо вельмі стары і патрабуе зьмены, альбо патрэбна зьмясьціць абсталяваньне "
+"у мейсца з большай вэнтыляцыяй."
 
 #. Type: error
 #. Description
@@ -838,12 +852,18 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
+"Так часта здараецца з-за сапсаванага дыскаводу ці жорстакга дыску. Магчыма "
+"дапаможа далікатная прачыстка CD/DVD альбо запіс дыску з меншай хуткасьцю, "
+"ці прачыстка лінзы CD/DVD дысководу (адпаведныя прылады можна набыць у "
+"спэцыялізаванай электроннай краме). Магчыма жорсткі дыск ужо вельмі стары і "
+"патрабуе замены, альбо патрэбна зьмясьціць абсталяваньне у мейсца з большай "
+"вэнтыляцыяй."
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:110001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "Наступны файл не адпавядае зыходнай копіі на CD/DVD:"
 
 #. Type: text
 #. Description
@@ -921,13 +941,13 @@ msgstr "Канфігураваньне стартавай праграмы..."
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "Усталёўка дадатковых пакункаў..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "Праверка пакункаў да усталёўкі..."
 
 #. Type: text
 #. Description
@@ -975,13 +995,13 @@ msgstr "Памылка падчас выдаленьня ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "Памылка пры усталёўцы пакункаў"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:133001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "Падчас усталёўкі пакункаў адбылася памылка:"
 
 #. Type: error
 #. Description
@@ -989,7 +1009,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:133001 ../ubiquity.templates:134001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "Наступныя пакункі ў пашкоджаным стане:"
 
 #. Type: error
 #. Description
@@ -1005,24 +1025,33 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"Гэта магло здарыцца па прычыне выкарыстаньня састарэлага усталявальнага "
+"вобразу, альбо з прычыны памылкі ў некаторых пакетах, пералічаных вышэй. "
+"Больш падрабязную інфармацыю можна знайсьці ў файле /var/log/syslog. "
+"Усталёўшчык паспрабуе працягнуць працу нягледзячы на гэта, але пры гэтым "
+"пазьней працэс можа ізноў быць ня выкананы. У выніку ён будзе не ў стане "
+"ўсталяваць або выдаліць іншыя пакеты (магчыма, з улікам сябе самога) "
+"усталяванай сістэмы. Варта, першым чынам, пашукаць навейшыя вэрсыі "
+"ўсталявальнага вобразу, альбо адправіць справаздачу з памылкай вашаму "
+"пастаўшчыку."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "Памылка пры выдаленьні пакетаў"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:134001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "Падчас выдаленьня пакункаў адбылася памылка:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Падлік файлаў, якія ня трэба капіяваць..."
 
 #. Type: title
 #. Description
@@ -1072,7 +1101,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:152001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "Вярнуцца да праграмы разметкі?"
 
 #. Type: boolean
 #. Description
@@ -1081,6 +1110,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"Некаторыя створаныя падзелы занадта малыя. Пераканайцеся, што наступныя "
+"падзелы маюць неабходны мінімальны памер (у байтах):"
 
 #. Type: boolean
 #. Description
@@ -1089,36 +1120,38 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"Калі вы не вернецеся да разметкі дыскаў і не павялічыце памер гэтых "
+"падзелаў, усталёўка можа завяршыцца няўдала."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "Сістэмныя настаўленні"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "Выбраць мову/Choose language"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "Настаўленьні сеціва"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "Выбар праграм"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Ужыць наладкі"
 
 #. Type: text
 #. Description
@@ -1136,7 +1169,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "Раскладка клявіятуры"
 
@@ -1162,7 +1194,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Install[ action ]"
 msgid "installation process"
 msgstr "Інсталяваць"
 
@@ -1181,24 +1212,34 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Тып усталёўкі: ${INSTALLTYPE}\n"
+" Мова: ${LANGUAGE}\n"
+" Раскладка клявіятуры: ${KEYMAP}\n"
+" Імя: ${FULLNAME}\n"
+" Лоґін: ${USERNAME}\n"
+" Месцазнаходжаньне: ${LOCATION}\n"
+" Пульт дыстанцыйнага кіраваньня: ${REMOTE}\n"
+" Інфрачырвоны перадатчык: ${TRANSMITTER}\n"
+" Відэадрайвер: ${VIDEO_DRIVER}\n"
+" Службы: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "Тып усталёўкі"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "Тып сістэмы, якая будзе усталявана?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "Асноўны бэкэнд/фронтэнд"
 
 #. Type: text
 #. Description
@@ -1208,12 +1249,15 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"Камбінаваная бэкэнд/фронтэнд-машына - гэта звычайны тып усталёўкі для тых, "
+"хто жадае выкарыстаць MythTV для HTPC-прыладаў. Гэты тып усталёўкі "
+"прызначаны для выкарыстаньня ў якасьці кампанэнта вашага хатняга кінатэатра."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "Дадатковы бэкэнд/фронтэнд"
 
 #. Type: text
 #. Description
@@ -1222,12 +1266,15 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"Гэта наладзіць сыстэму, падобную да Першаснай ўнутранай абалонкі / Графічнай "
+"абалонкі. Тым не менш, будзе наладжана падлучэньне да ўжо існага ўнутранага "
+"інтэрфейсу ў сеціве."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
 msgid "Primary Backend"
-msgstr ""
+msgstr "Першасная ўнутраная абалонка"
 
 #. Type: text
 #. Description
@@ -1237,12 +1284,15 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"Кампутар без абалонкі карыстальніка (бэкэнд) звычайна выкарыстоўваецца як "
+"скончаная прылада, якая не патрабуе асобнай падтрымкі. Гэтая машына будзе "
+"наладжаная для працы ў якаьсці першага бэкэнд-кампутара ў сеціве."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "Другасная ўнутраная абалонка"
 
 #. Type: text
 #. Description
@@ -1251,12 +1301,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"Гэта наладзіць сыстэму, падобную да першаснай абалонкі. Тым не менш, будзе "
+"наладжана падлучэнне да ўжо існай ўнутранай абалонкі ў сеціве."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:12001
 msgid "Frontend"
-msgstr ""
+msgstr "Графічная абалонка"
 
 #. Type: text
 #. Description
@@ -1266,12 +1318,15 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"Асноўнае прызначэньне кампутара толькі з графічнай абалонкай — прымаць "
+"мультымедыйнае зьмесціва і распаўсюджваць яго. Гэтая канфігурацыя "
+"патрабуецца ў існым унутраным інтэрфэйсе ў сеціве."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Графічныя драйверы"
 
 #. Type: text
 #. Description
@@ -1282,60 +1337,66 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"Графічныя драйверы Open Source ужо ўключаны і наладжаны пад вас. Калі вы "
+"жадаеце выкарыстоўваць іншы драйвер, вы можаце зрабіць гэта тут. Майце на "
+"ўвазе, што платныя драйверы могуць быць неабходнымі для TV-выхада, альбо для "
+"эфектаў Open GL."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:16001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr ""
+msgstr "Калі вы жадаеце сканфігураваць TV-выхад, выберыце неабходную опцыю:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-msgstr ""
+msgstr "Пры ўключэньні TV-выхада неабходна таксама выбраць стандарт:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:18001
 msgid "Master Backend Info"
-msgstr ""
+msgstr "Інфармацыя па асноўнаму бэкэнду"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
+"Калі ласка, ўвядзіце інфармацыю, неабходную для таго, каб зьвязацца з вашым "
+"асноўым бэкэндам:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:20001
 msgid "MySQL Password"
-msgstr ""
+msgstr "Пароль на MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "MySQL User Name"
-msgstr ""
+msgstr "Імя карыстальніка MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:22001
 msgid "MySQL Database"
-msgstr ""
+msgstr "База дадзеных MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "MySQL Server"
-msgstr ""
+msgstr "MySQL сервер"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "Наладка кіруючых дадзеных бэкэнда"
 
 #. Type: text
 #. Description
@@ -1344,12 +1405,14 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
+"Апошні крок інсталяцыі патрабуе наладкі вашых дадзеных і канфігураваньня "
+"бэкэнда на першыя часы."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:26001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "Націсьніце для акрыцьця вэб-сайта Schedules Direct"
 
 #. Type: text
 #. Description
@@ -1359,12 +1422,16 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
+"Карыстальнікам у Паўночнай Амэрыке неабходна наладзіць уліковую картку "
+"Schedules Direct (SD). SD прадастаўляе кіруючыя дадзеные па намінальнаму "
+"кошту. Без SD Паўночнаамэрыканскія карыстальнікі могуць згубіць многія "
+"магчымасьці MythTV па наладке тэлепраграм."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "Запусьціць MythTV усталёўку"
 
 #. Type: text
 #. Description
@@ -1375,33 +1442,31 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"Пасьля наладкі крыніцы ключавых дадзены, вам будзе патрэбна запусьціць "
+"MythTV-Setup, каб выканаць першасную наладку бэкэнд-прылад. Вы мусіце "
+"наладзіць першыя чатыры секцыі і пераканацца, што вы прадставілі ключавыя "
+"дадзеныя ў трэцяй."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Configuring mythtv..."
-msgstr ""
+msgstr "Канфігураваньне MythTV..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Configuring additional drivers..."
-msgstr ""
+msgstr "Канфігураваньне дадатковых драйвераў..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Configuring additional services..."
-msgstr ""
+msgstr "Канфігураваньне дадатковых службаў..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
-msgstr ""
-
-#~ msgid "City:"
-#~ msgstr "Места:"
-
-#~ msgid "Select your time zone from the map, or by region and city."
-#~ msgstr "Вылучыце ваш часавы поя на мапе ці праз рэгіён/места."
+msgstr "Канфігураваньне інфрачырвоных прылад..."

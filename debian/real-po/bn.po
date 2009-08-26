@@ -20,7 +20,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "বৃহত্তম ধারাবাহিক মুক্ত স্থান ব্যবহার করো"
 
 #. Type: text
 #. Description
@@ -101,9 +101,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -159,7 +156,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Region:"
-msgstr ""
+msgstr "এলাকা:"
 
 #. Type: text
 #. Description
@@ -189,7 +186,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your own:"
-msgstr ""
+msgstr "নিজে নির্বাচন করুন:"
 
 #. Type: text
 #. Description
@@ -207,7 +204,7 @@ msgstr "আপনার নাম কি?"
 #. Description
 #: ../ubiquity.templates:26001
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "আপনি কি নামে লগ ইন করতে চান?"
 
 #. Type: text
 #. Description
@@ -261,7 +258,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Log in automatically"
-msgstr ""
+msgstr "সয়ংক্রিয় লগইন"
 
 #. Type: text
 #. Description
@@ -279,7 +276,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr ""
+msgstr "অন্য শব্দচাবি লিখুন"
 
 #. Type: text
 #. Description
@@ -319,19 +316,19 @@ msgstr "আপনি কিভাবে ডিস্কটি পার্টি
 #. Description
 #: ../ubiquity.templates:41001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "এই কম্পিউটারে কোন অপারেটিং সিস্টেম নেই।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "এই কম্পিউটারে ${OS} রয়েছে।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "এই কম্পিউটারে একাধিক অপারেটিং সিস্টেম রয়েছে।"
 
 #. Type: text
 #. Description
@@ -365,7 +362,7 @@ msgstr "ইনস্টলের জন্য প্রস্তুত"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Details"
-msgstr ""
+msgstr "বিস্তারিত"
 
 #. Type: text
 #. Description
@@ -378,7 +375,7 @@ msgstr "আপনার নতুন অপারেটিং সিস্টে
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Advanced..."
-msgstr ""
+msgstr "অগ্রসর..."
 
 #. Type: text
 #. Description
@@ -386,7 +383,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:51001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "ইনস্টল"
 
 #. Type: text
 #. Description
@@ -398,13 +395,13 @@ msgstr "${TOTAL} টির ${INDEX} পর্যায় সম্পন্ন"
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Quit the installation?"
-msgstr ""
+msgstr "ইনস্টল বন্ধ করা হবে?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Do you really want to quit the installation now?"
-msgstr ""
+msgstr "আপনি সত্যিই কি ইনস্টলেশন বন্ধ করতে চান?"
 
 #. Type: text
 #. Description
@@ -416,19 +413,19 @@ msgstr "এড়িয়ে যাও"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Installation Complete"
-msgstr ""
+msgstr "ইনস্টল করা শেষ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Continue Testing"
-msgstr ""
+msgstr "আরও পরীক্ষা করুন"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Restart Now"
-msgstr ""
+msgstr "রিস্টার্ট করুন"
 
 #. Type: text
 #. Description
@@ -456,7 +453,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:62001
 msgid "Before:"
-msgstr ""
+msgstr "পূর্বে:"
 
 #. Type: text
 #. Description
@@ -464,7 +461,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:63001
 msgid "After:"
-msgstr ""
+msgstr "পরে:"
 
 #. Type: text
 #. Description
@@ -485,7 +482,6 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "ব্যবহারকারী তৈরি করা হচ্ছে..."
 
@@ -508,7 +504,7 @@ msgstr ""
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:69001
 msgid "Device"
-msgstr ""
+msgstr "যন্ত্র"
 
 #. Type: text
 #. Description
@@ -516,28 +512,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:70001
 msgid "Type"
-msgstr ""
+msgstr "ধরণ"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:71001
 msgid "Mount point"
-msgstr ""
+msgstr "মাউন্ট-পয়েন্ট"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:72001
 msgid "Format?"
-msgstr ""
+msgstr "ফরম্যাট করা হবে?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:73001
 msgid "Size"
-msgstr ""
+msgstr "আকার"
 
 #. Type: text
 #. Description
@@ -545,21 +541,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:74001
 msgid "Used"
-msgstr ""
+msgstr "ব্যবহৃত"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:75001
 msgid "free space"
-msgstr ""
+msgstr "খালি জায়গা"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:76001
 msgid "unknown"
-msgstr ""
+msgstr "অজানা"
 
 #. Type: text
 #. Description
@@ -657,7 +653,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Port:"
-msgstr ""
+msgstr "পোর্ট:"
 
 #. Type: text
 #. Description
@@ -667,6 +663,8 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"ইনস্টল করা শেষ। আপনি উবুন্টু আরও পরীক্ষা করতে পারেন, তবে একবার রিস্টার্ট করার আগ "
+"পর্যন্ত নতুন ডকুমেন্ট বা অন্য কোন পরিবর্তন সংরক্ষণ করা সম্ভব নয়।"
 
 #. Type: text
 #. Description
@@ -689,6 +687,8 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
+"ইনস্টল করা শেষ। নতুন ইনস্টল করা অপারেটিং সিস্টেমটি ব্যবহার করতে চাইলে কম্পিউটার "
+"রিস্টার্ট করুন ।"
 
 #. Type: note
 #. Description
@@ -702,6 +702,13 @@ msgid ""
 " Migration Assistant:\n"
 " ${MIGRATE}"
 msgstr ""
+" ভাষা: ${LANGUAGE}\n"
+" কীবোর্ড লেআউট: ${KEYMAP}\n"
+" নাম: ${FULLNAME}\n"
+" লগইন নাম: ${USERNAME}\n"
+" এলাকা: ${LOCATION}\n"
+" মাইগ্রেশন সহকারী::\n"
+" ${MIGRATE}"
 
 #. Type: text
 #. Description
@@ -713,7 +720,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:100001
 msgid "Installing system"
-msgstr ""
+msgstr "সিস্টেম ইনস্টল করা হচ্ছে"
 
 #. Type: text
 #. Description
@@ -753,7 +760,7 @@ msgstr "ফাইল কপি করা হচ্ছে (একটি মিন
 #: ../ubiquity.templates:108001 ../ubiquity.templates:109001
 #: ../ubiquity.templates:110001
 msgid "Installation Failed"
-msgstr ""
+msgstr "ইনস্টলেশন প্রক্রিয়া ব্যর্থ হয়েছে"
 
 #. Type: error
 #. Description
@@ -822,7 +829,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:111001
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "ইনস্টালেশন লগ কপি করা হচ্ছে..."
 
 #. Type: text
 #. Description
@@ -906,7 +913,7 @@ msgstr "প্যাকেজসমূহ ইনস্টল করার জন
 #. Description
 #: ../ubiquity.templates:125001
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "অতিরিক্ত প্যাকেজ মুছে ফেলা হচ্ছে..."
 
 #. Type: text
 #. Description
@@ -918,7 +925,7 @@ msgstr "বাদ দেবার জন্য প্যাকেজ খোজ�
 #. Description
 #: ../ubiquity.templates:127001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "প্যাকেজগুলো ডাউনলোড করা হছে {$(TIME)} অবশিষ্ট আছে ..."
 
 #. Type: text
 #. Description
@@ -930,19 +937,19 @@ msgstr "প্যাকেজগুলোর তালিকা ডাউনল�
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "প্যাকেজগুলোর তালিকা ডাউনলোড করা হছে (${TIME}অবশিষ্ট আছে ) ..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:131001
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "${PACKAGE} ইনস্টল করা যাচ্ছে না"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "${PACKAGE} বাতিল করা যাচ্ছে না"
 
 #. Type: error
 #. Description
@@ -1067,25 +1074,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "ভাষা বেছে নিন"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "নেটওয়ার্ক কনফিগারেশন"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "সফটওয়্যার নির্বাচন"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "কনফিগারেশন আরোপ করা হচ্ছে"
 
 #. Type: text
 #. Description
@@ -1103,7 +1110,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "কীবোর্ড বিন্যাস (Layout)"
 
@@ -1129,7 +1135,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installing additional packages..."
 msgid "installation process"
 msgstr "অতিরিক্ত প্যাকেজসমূহ ইনস্টল করা হচ্ছে..."
 
@@ -1153,7 +1158,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "ইনস্টলেশনের ধরন"
 
 #. Type: text
 #. Description
@@ -1238,7 +1243,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "গ্রাফিক্স ড্রাইভার"
 
 #. Type: text
 #. Description
@@ -1278,25 +1283,25 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:20001
 msgid "MySQL Password"
-msgstr ""
+msgstr "মাইসিক্যুয়েল শব্দচাবি"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "MySQL User Name"
-msgstr ""
+msgstr "মাইসিক্যুয়েল ব্যবহারকারী নাম"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:22001
 msgid "MySQL Database"
-msgstr ""
+msgstr "মাইসিক্যুয়েল ডাটাবেজ"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "MySQL Server"
-msgstr ""
+msgstr "মাইসিক্যুয়েল সার্ভার"
 
 #. Type: text
 #. Description
@@ -1347,7 +1352,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Configuring mythtv..."
-msgstr ""
+msgstr "মিথটিভি কনফিগার করা হচ্ছে..."
 
 #. Type: text
 #. Description

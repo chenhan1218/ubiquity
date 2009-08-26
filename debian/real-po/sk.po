@@ -20,7 +20,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "Použiť najväčšie súvislé voľné miesto"
 
 #. Type: text
 #. Description
@@ -32,13 +32,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "Nainštalovať ich vedľa seba a pri každom spustení si medzi nimi zvolím"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "Určiť oblasti ručne (pokročilé)"
 
 #. Type: text
 #. Description
@@ -101,9 +101,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -164,7 +161,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Region:"
-msgstr ""
+msgstr "Región:"
 
 #. Type: text
 #. Description
@@ -189,13 +186,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Suggested option:"
-msgstr ""
+msgstr "Navrhovaná voľba:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your own:"
-msgstr ""
+msgstr "Zvoľte vlastné:"
 
 #. Type: text
 #. Description
@@ -246,6 +243,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Zadajte rovnaké heslo dvakrát kvôli kontrole preklepov. Dobré heslo obsahuje "
+"zmes písmen, číslic, interpunkčných znamienok, malo by mať aspoň osem znakov "
+"a malo by sa pravidelne meniť."
 
 #. Type: text
 #. Description
@@ -285,7 +285,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr ""
+msgstr "Zvoľte iné heslo"
 
 #. Type: text
 #. Description
@@ -329,25 +329,25 @@ msgstr "Ako si želáte rozdeliť disk?"
 #. Description
 #: ../ubiquity.templates:41001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "Tento počítač neobsahuje žiadne iné operačné systémy."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "Tento počítač obsahuje ${OS}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "Tento počítač obsahuje niekoľko operačných systémov."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "Kam si želáte dať ${RELEASE}?"
 
 #. Type: text
 #. Description
@@ -360,7 +360,7 @@ msgstr "Pripraviť oblasti"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:46001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "Týmto sa zmaže ${SYSTEMS} a nainštaluje ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -427,19 +427,19 @@ msgstr "Preskočiť"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Installation Complete"
-msgstr ""
+msgstr "Inštalácia je dokončená"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Continue Testing"
-msgstr ""
+msgstr "Pokračovať v testovaní"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Restart Now"
-msgstr ""
+msgstr "Reštartovať teraz"
 
 #. Type: text
 #. Description
@@ -488,7 +488,6 @@ msgstr "Po:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "Nová tabuľka oblastí"
 
@@ -497,7 +496,6 @@ msgstr "Nová tabuľka oblastí"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "Pokročilé..."
 
@@ -506,7 +504,6 @@ msgstr "Pokročilé..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "Vytvára sa používateľ..."
 
@@ -688,6 +685,9 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"Inštalácia je dokončená. Teraz môžete pokračovať v skúšaní Ubuntu, ale pokým "
+"nereštartujete počítač, nezachovajú sa žiadne zmeny, ktoré urobíte ani "
+"dokumenty, ktoré uložíte."
 
 #. Type: text
 #. Description
@@ -1049,7 +1049,7 @@ msgstr "Pri odstraňovaní balíkov sa vyskytla chyba:"
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Počítajú sa súbory na preskočenie kopírovania..."
 
 #. Type: title
 #. Description
@@ -1122,31 +1122,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "Nastavenie systému"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "Nastavenie jazyka/Choose language"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "Nastavenie siete"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "Výber softvéru"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Aplikuje sa nastavenie"
 
 #. Type: text
 #. Description
@@ -1164,7 +1164,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "Rozloženie klávesnice"
 
@@ -1190,7 +1189,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Failed"
 msgid "installation process"
 msgstr "Inštalácia zlyhala"
 
@@ -1209,12 +1207,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Typ inštalácie: ${INSTALLTYPE}\n"
+" Jazyk: ${LANGUAGE}\n"
+" Rozloženie klávesnice: ${KEYMAP}\n"
+" Meno: ${FULLNAME}\n"
+" Prihlasovacie meno: ${USERNAME}\n"
+" Umiestnenie: ${LOCATION}\n"
+" Infračervené diaľkové ovládanie: ${REMOTE}\n"
+" Infračervený vysielač: ${TRANSMITTER}\n"
+" Ovládač videa: ${VIDEO_DRIVER}\n"
+" Služby: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "Typ inštalácie"
 
 #. Type: text
 #. Description
@@ -1310,7 +1318,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Grafické ovládače"
 
 #. Type: text
 #. Description
@@ -1453,9 +1461,3 @@ msgstr "Nastavujú sa ďalšie služby..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Nastavujú sa infračervené zariadenia..."
-
-#~ msgid "New partition"
-#~ msgstr "Nová oblasť"
-
-#~ msgid "Delete partition"
-#~ msgstr "Odstrániť oblasť"

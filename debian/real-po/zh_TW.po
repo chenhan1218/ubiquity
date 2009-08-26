@@ -27,7 +27,6 @@ msgstr "使用最大的連續未使用空間"
 #. Description
 #: ../ubiquity.templates:4001
 #, fuzzy
-#| msgid "Use the entire disk"
 msgid "Erase and use the entire disk"
 msgstr "使用整個磁碟"
 
@@ -103,9 +102,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -270,7 +266,6 @@ msgstr "自動登入"
 #. Description
 #: ../ubiquity.templates:34001
 #, fuzzy
-#| msgid "Require a password to log in"
 msgid "Require my password to log in"
 msgstr "必須有密碼才能登入"
 
@@ -278,7 +273,6 @@ msgstr "必須有密碼才能登入"
 #. Description
 #: ../ubiquity.templates:35001
 #, fuzzy
-#| msgid "Require a password to log in and to decrypt your home folder"
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr "必須有密碼才能登入並且解密您的個人目錄"
 
@@ -484,7 +478,6 @@ msgstr "之後："
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "新分區表"
 
@@ -493,7 +486,6 @@ msgstr "新分區表"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "進階..."
 
@@ -502,7 +494,6 @@ msgstr "進階..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "正在建立使用者..."
 
@@ -1105,31 +1096,31 @@ msgstr "如果您不回到磁碟分割程式並增加這些分割區的大小，
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "系統組態"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "選擇語言 / Choose language"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "網路設定"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "軟體選擇"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "套件配置"
 
 #. Type: text
 #. Description
@@ -1147,7 +1138,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "選擇鍵盤排列方式"
 
@@ -1173,7 +1163,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Type"
 msgid "installation process"
 msgstr "安裝類型"
 
@@ -1436,15 +1425,3 @@ msgstr "正在設定附加的服務..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "設定紅外線裝置中..."
-
-#~ msgid "City:"
-#~ msgstr "城市："
-
-#~ msgid "Select your time zone from the map, or by region and city."
-#~ msgstr "請從地圖裡選擇您的時區，或是使用地區和城市名稱。"
-
-#~ msgid "New partition"
-#~ msgstr "新硬碟分區"
-
-#~ msgid "Delete partition"
-#~ msgstr "刪除分割區"

@@ -26,7 +26,6 @@ msgstr "Gunakan ruang kosong terbesar yang menyatu"
 #. Description
 #: ../ubiquity.templates:4001
 #, fuzzy
-#| msgid "Use the entire disk"
 msgid "Erase and use the entire disk"
 msgstr "Gunakan seluruh disk"
 
@@ -104,9 +103,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -283,7 +279,6 @@ msgstr "Masuk secara otomatis"
 #. Description
 #: ../ubiquity.templates:34001
 #, fuzzy
-#| msgid "Require a password to log in"
 msgid "Require my password to log in"
 msgstr "Membutuhkan kata sandi untuk masuk"
 
@@ -291,7 +286,6 @@ msgstr "Membutuhkan kata sandi untuk masuk"
 #. Description
 #: ../ubiquity.templates:35001
 #, fuzzy
-#| msgid "Require a password to log in and to decrypt your home folder"
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr "Membutuhkan kata sandi untuk masuk dan mendekripsi home folder anda"
 
@@ -374,7 +368,7 @@ msgstr "Mempersiapkan partisi"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:46001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "Ini akan menghapus ${SYSTEMS} dan menginstal ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -502,7 +496,6 @@ msgstr "Setelah:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "Daftar Partisi Baru"
 
@@ -511,7 +504,6 @@ msgstr "Daftar Partisi Baru"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "Lanjut..."
 
@@ -520,7 +512,6 @@ msgstr "Lanjut..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "Sedang mendaftarkan pengguna..."
 
@@ -1142,31 +1133,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "Konfigurasi Sistem"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "Pilih bahasa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "Konfigurasi jaringan"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "Pilihan perangkat lunak"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Menerapkan konfigurasi"
 
 #. Type: text
 #. Description
@@ -1184,7 +1175,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "Susunan papan ketik"
 
@@ -1210,7 +1200,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Type"
 msgid "installation process"
 msgstr "Jenis Instalasi"
 
@@ -1488,15 +1477,3 @@ msgstr "Sedang mengkonfigurasi layanan tambahan..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Mengatur peralatan infra merah"
-
-#~ msgid "City:"
-#~ msgstr "Kota"
-
-#~ msgid "Select your time zone from the map, or by region and city."
-#~ msgstr "Pilih zona waktu anda dari peta"
-
-#~ msgid "New partition"
-#~ msgstr "Partisi Baru"
-
-#~ msgid "Delete partition"
-#~ msgstr "Hapus Partisi"

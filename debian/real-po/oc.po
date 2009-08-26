@@ -23,7 +23,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "Utiliza l'espaci de disc lo mai grand possible"
 
 #. Type: text
 #. Description
@@ -35,13 +35,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "Installar los dos costejats, la causida s'efectua a cada amodament"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "Definir las particions manualament (avançat)"
 
 #. Type: text
 #. Description
@@ -104,9 +104,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -167,7 +164,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Region:"
-msgstr ""
+msgstr "Region :"
 
 #. Type: text
 #. Description
@@ -193,13 +190,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Suggested option:"
-msgstr ""
+msgstr "Opcion suggerida :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your own:"
-msgstr ""
+msgstr "Causissètz la vòstra :"
 
 #. Type: text
 #. Description
@@ -252,6 +249,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Picatz lo mot de pas dos còps per que i aja pas d'engana de picada. Un bon "
+"mot de pas conten un mescladís de letras, chifras e ponctuacions, amb un "
+"minimum de uèch caractèrs e lo devètz cambiar regularament."
 
 #. Type: text
 #. Description
@@ -291,7 +291,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr ""
+msgstr "Causissètz un mot de pas novèl"
 
 #. Type: text
 #. Description
@@ -335,25 +335,25 @@ msgstr "Cossí volètz particionar lo disc ?"
 #. Description
 #: ../ubiquity.templates:41001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "Pas cap de sistèma d'explotacion installat sul ordenador."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "${OS} es installat sul ordenador."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "Mai d'un sistème d'explotacion sul ordenador."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "Ont volètz botar ${RELEASE} ?"
 
 #. Type: text
 #. Description
@@ -366,7 +366,7 @@ msgstr "Preparar las particions"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:46001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "Aquesta accion suprimirà ${SYSTEMS} e installarà ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -433,19 +433,19 @@ msgstr "Sautar"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Installation Complete"
-msgstr ""
+msgstr "Installacion acabada"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Continue Testing"
-msgstr ""
+msgstr "Contunhar a testar"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Restart Now"
-msgstr ""
+msgstr "Tornar aviar ara"
 
 #. Type: text
 #. Description
@@ -494,7 +494,6 @@ msgstr "Aprèp :"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "Taula de particion novèla"
 
@@ -503,7 +502,6 @@ msgstr "Taula de particion novèla"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "Avançat..."
 
@@ -512,7 +510,6 @@ msgstr "Avançat..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "Creacion d'un utilizaire..."
 
@@ -694,6 +691,8 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"L'installacion es acabada. Podètz contunhar a testar Ubuntu ara, mas cap de "
+"vòstras modificacions o de vòstres documents seràn pas enregistrats."
 
 #. Type: text
 #. Description
@@ -826,6 +825,10 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
+"Aquò es sovent causat per un disc o un lector CD/DVD defectuós. Podètz "
+"ensajar de netejar lo CD/DVD, de lo gravar a velocitat redusida o de netejar "
+"la lentilha del lector CD/DVD (de kits de netejament son sovent disponibles "
+"dins de magasins d'electronica)."
 
 #. Type: error
 #. Description
@@ -835,6 +838,9 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
+"Aquò es sovent causat per un disc dur defectuós. Pòt èsser util de verificar "
+"l'edat del disc dur e d'envisajar un remplaçament eventual, o de desplaçar "
+"vòstre sistèma dins un environament mai fresc."
 
 #. Type: error
 #. Description
@@ -852,6 +858,12 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
+"Aquò es sovent causat per un disc o un lector CD/DVD defectuós o un disc dur "
+"defectuós. Podètz ensajar de netejar lo CD/DVD, de lo gravar a velocitat "
+"reducha o de netejar la lentilha del lector CD/DVD (de kits de netejament "
+"son sovent disponibles dins de magasins d'electronica). Tanben pòt èsser "
+"util de verificar l'edat del disc dur e d'envisajar un remplaçament "
+"eventual, o de desplaçar vòstre sistèma dins un environament mai fresc."
 
 #. Type: select
 #. Description
@@ -1043,7 +1055,7 @@ msgstr "I a agut una error al moment de suprimir de paquetatges :"
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Determinacion dels fichièrs de copiar pas..."
 
 #. Type: title
 #. Description
@@ -1120,31 +1132,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "Configuracion del sistèma"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "Causir la lenga"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "Configuracion de la ret"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "Seleccion de logicials"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Aplicacion de la configuracion"
 
 #. Type: text
 #. Description
@@ -1162,7 +1174,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "Disposicion del clavièr"
 
@@ -1188,7 +1199,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Failed"
 msgid "installation process"
 msgstr "L'installacion a pas capitat"
 
@@ -1207,12 +1217,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Tipe d'installacion : ${INSTALLTYPE}\n"
+"Lenga : ${LANGUAGE}\n"
+"Configuracion del clavièr : ${KEYMAP}\n"
+"Nom : ${FULLNAME}\n"
+"Identificant : ${USERNAME}\n"
+"Localizacion : ${LOCATION}\n"
+"Telecomanda Infraroja : ${REMOTE}\n"
+"Transmeteire infraroge : ${TRANSMITTER}\n"
+"Pilòts vidèo : ${VIDEO_DRIVER}\n"
+"Servicis : ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "Mena d'installacion"
 
 #. Type: text
 #. Description
@@ -1315,7 +1335,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Gestionaris de periferics audiò"
 
 #. Type: text
 #. Description
@@ -1459,9 +1479,3 @@ msgstr "Configuracion de servicis suplementaris..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Configuracion dels periferics infraroges..."
-
-#~ msgid "New partition"
-#~ msgstr "Particion novèla"
-
-#~ msgid "Delete partition"
-#~ msgstr "Suprimir la particion"
