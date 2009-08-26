@@ -24,6 +24,7 @@ import os
 
 NAME = 'myth-passwords'
 AFTER = 'myth-drivers'
+WEIGHT = 10
 
 class PageGtk:
     def __init__(self, *args, **kwargs):

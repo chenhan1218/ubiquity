@@ -26,7 +26,7 @@ PLUGIN_PATH = '/usr/lib/ubiquity/plugins.d'
 
 def load_plugins():
     modules = []
-    modfiles = sorted(filter(lambda x: fnmatch.fnmatch(x,'*.py'), os.listdir(PLUGIN_PATH)))
+    modfiles = filter(lambda x: fnmatch.fnmatch(x,'*.py'), os.listdir(PLUGIN_PATH))
     sys.path.insert(0, PLUGIN_PATH)
     for modfile in modfiles:
         modname = os.path.splitext(modfile)[0]
@@ -53,6 +53,13 @@ def get_mod_string(mod, name):
     else:
         return ''
 
+def get_mod_int(mod, name):
+    if hasattr(mod, name):
+        mod_int = getattr(mod, name)
+        return mod_int
+    else:
+        return 0
+
 def get_mod_index(modlist, name):
     index = 0
     for mod in modlist:
@@ -62,39 +69,58 @@ def get_mod_index(modlist, name):
         index += 1
     return None
 
-def order_plugins(mods, order=[]):
-    hidden_list = []
-    for mod in mods:
+def get_mod_weight(mod):
+    return get_mod_int(mod, 'WEIGHT')
+
+def determine_mod_index(after, before, order):
+    index = None
+    for modname in after:
+        if not modname:
+            return 0
+        else:
+            index = get_mod_index(order, modname)
+            if index is not None:
+                return index+1
+    if index is None:
+        for modname in before:
+            if not modname:
+                return len(order)
+            else:
+                index = get_mod_index(order, modname)
+                if index is not None:
+                    return index
+    return None
+
+# Strips one module from the 'mods' list and inserts it into 'order'
+def one_pass(mods, order, hidden_list):
+    mods_copy = [x for x in mods]
+    for mod in mods_copy:
         name = get_mod_string(mod, 'NAME')
         if not name:
+            mods.remove(mod)
             continue
         after = get_mod_list(mod, 'AFTER')
         before = get_mod_list(mod, 'BEFORE')
         hidden = get_mod_list(mod, 'HIDDEN')
         if not after and not before and hidden:
+            mods.remove(mod)
             hidden_list.extend(hidden)
-        index = None
-        for modname in after:
-            if not modname:
-                index = 0
-                break
-            else:
-                index = get_mod_index(order, modname)
-                if index is not None:
-                    index += 1
-                    break
-        if index is None:
-            for modname in before:
-                if not modname:
-                    index = len(order)
-                    break
-                else:
-                    index = get_mod_index(order, modname)
-                    if index is not None:
-                        break
+            continue
+        index = determine_mod_index(after, before, order)
         if index is not None:
+            mods.remove(mod)
             order.insert(index, mod)
             hidden_list.extend(hidden)
+            return True
+    return False
+
+def order_plugins(mods, order=[]):
+    hidden_list = []
+    # First, sort mods by weight
+    mods = sorted(mods, key=get_mod_weight)
+    # Keep making passes until we can't place any more mods into order.
+    while one_pass(mods, order, hidden_list):
+        pass
     for hidden in hidden_list:
         index = get_mod_index(order, hidden)
         if index is not None:

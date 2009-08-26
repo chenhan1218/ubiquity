@@ -19,40 +19,27 @@
 # You should have received a copy of the GNU General Public License
 # along with Ubiquity.  If not, see <http://www.gnu.org/licenses/>.
 
-from ubiquity.plugin import Plugin
+import ubiquity.components.summary
 import os
 
-NAME = 'myth-services'
-AFTER = 'myth-installtype'
+NAME = 'myth-summary'
+AFTER = 'myth-passwords'
+WEIGHT = 10
+
+if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui':
+    HIDDEN = ['summary', 'migrationassistant']
 
 class PageGtk:
     def __init__(self, *args, **kwargs):
         pass
     def get_ui(self):
         if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui':
-            return {'widgets': 'mythbuntu_stepServices'}
+            return {'widgets': 'stepReady'}
         else:
             return None
 
-class Page(Plugin):
-#we are seeding the status of each service
-
+class Page(ubiquity.components.summary.Page):
+    """This class is used for populating the Mythbuntu summary page
+       using a custom script"""
     def prepare(self):
-        services = self.frontend.get_services()
-        questions = []
-        for this_service in services:
-            answer = self.db.get('mythbuntu/' + this_service)
-            if answer != '':
-                self.frontend.set_service(this_service,answer)
-            questions.append('^mythbuntu/' + this_service)
-        return (['/usr/share/ubiquity/ask-mythbuntu','services'], questions)
-
-    def ok_handler(self):
-        services = self.frontend.get_services()
-        for this_service in services:
-            answer = services[this_service]
-            if answer is True or answer is False:
-                self.preseed_bool('mythbuntu/' + this_service, answer)
-            else:
-                self.preseed('mythbuntu/' + this_service, answer)
-        Plugin.ok_handler(self)
+        return ('/usr/share/ubiquity/mythbuntu_summary', ['^mythbuntu/summary.*'])

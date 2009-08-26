@@ -28,6 +28,7 @@ from ubiquity import misc
 
 NAME = 'console_setup'
 AFTER = 'timezone'
+WEIGHT = 10
 
 class PageGtk:
     def __init__(self, controller, *args, **kwargs):

@@ -21,6 +21,7 @@ from ubiquity.plugin import Plugin
 
 NAME = 'network'
 AFTER = 'usersetup'
+WEIGHT = 12
 
 class NetworkUnfilteredOnly(Exception):
     pass

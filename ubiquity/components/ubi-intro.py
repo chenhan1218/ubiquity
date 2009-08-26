@@ -23,6 +23,7 @@ import sys
 
 NAME = 'intro'
 AFTER = None
+WEIGHT = 100
 
 def get_intro():
     """Get some introductory text, if available."""

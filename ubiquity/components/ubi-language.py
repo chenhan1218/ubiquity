@@ -29,6 +29,7 @@ from ubiquity import i18n, misc
 
 NAME = 'language'
 AFTER = None
+WEIGHT = 10
 
 _release_notes_url_path = '/cdrom/.disk/release_notes_url'
 

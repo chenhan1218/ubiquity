@@ -20,33 +20,41 @@
 # along with Ubiquity.  If not, see <http://www.gnu.org/licenses/>.
 
 from ubiquity.plugin import Plugin
+from mythbuntu_common.dictionaries import get_graphics_dictionary
 import os
 
-NAME = 'myth-installtype'
-AFTER = 'usersetup'
+NAME = 'myth-drivers'
+AFTER = 'myth-remote'
+WEIGHT = 10
 
 class PageGtk:
     def __init__(self, *args, **kwargs):
         pass
     def get_ui(self):
-        if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui':
-            return {'widgets': 'mythbuntu_stepCustomInstallType'}
+        if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui' and \
+           len(get_graphics_dictionary()) > 0:
+            return {'widgets': 'mythbuntu_stepDrivers'}
         else:
             return None
 
 class Page(Plugin):
-#we are seeding one of the possible install types
-
     def prepare(self):
-        self.questions = ['install_type']
+        #drivers
+        drivers = self.frontend.get_drivers()
         questions = []
-        for question in self.questions:
-            answer = self.db.get('mythbuntu/' + question)
+        for this_driver in drivers:
+            answer = self.db.get('mythbuntu/' + this_driver)
             if answer != '':
-                self.frontend.set_installtype(answer)
-            questions.append('^mythbuntu/' + question)
-        return (['/usr/share/ubiquity/ask-mythbuntu','type'], questions)
+                self.frontend.set_driver(this_driver,answer)
+        questions.append('^mythbuntu/' + this_driver)
+        return (['/usr/share/ubiquity/ask-mythbuntu','drivers'], questions)
 
     def ok_handler(self):
-        self.preseed('mythbuntu/' + self.questions[0],self.frontend.get_installtype())
+        drivers = self.frontend.get_drivers()
+
+        for this_driver in drivers:
+            if drivers[this_driver] is True or drivers[this_driver] is False:
+                self.preseed_bool('mythbuntu/' + this_driver, drivers[this_driver])
+            else:
+                self.preseed('mythbuntu/' + this_driver, drivers[this_driver])
         Plugin.ok_handler(self)

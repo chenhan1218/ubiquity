@@ -24,6 +24,7 @@ import os
 
 NAME = 'myth-remote'
 AFTER = 'myth-services'
+WEIGHT = 10
 
 class PageGtk:
     def __init__(self, *args, **kwargs):

@@ -31,6 +31,7 @@ import ubiquity.tz
 
 NAME = 'timezone'
 AFTER = 'language'
+WEIGHT = 10
 
 class PageGtk:
     def __init__(self, controller, *args, **kwargs):

@@ -23,6 +23,7 @@ import os
 
 NAME = 'myth-backend-setups'
 AFTER = 'myth-summary'
+WEIGHT = 10
 
 class PageGtk:
     def __init__(self, *args, **kwargs):

@@ -21,6 +21,7 @@ from ubiquity.plugin import Plugin
 
 NAME = 'tasks'
 AFTER = 'network'
+WEIGHT = 12
 
 class TasksUnfilteredOnly(Exception):
     pass

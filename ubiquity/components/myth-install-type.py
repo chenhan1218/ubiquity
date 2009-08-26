@@ -20,40 +20,34 @@
 # along with Ubiquity.  If not, see <http://www.gnu.org/licenses/>.
 
 from ubiquity.plugin import Plugin
-from mythbuntu_common.dictionaries import get_graphics_dictionary
 import os
 
-NAME = 'myth-drivers'
-AFTER = 'myth-remote'
+NAME = 'myth-installtype'
+AFTER = 'usersetup'
+WEIGHT = 12
 
 class PageGtk:
     def __init__(self, *args, **kwargs):
         pass
     def get_ui(self):
-        if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui' and \
-           len(get_graphics_dictionary()) > 0:
-            return {'widgets': 'mythbuntu_stepDrivers'}
+        if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui':
+            return {'widgets': 'mythbuntu_stepCustomInstallType'}
         else:
             return None
 
 class Page(Plugin):
+#we are seeding one of the possible install types
+
     def prepare(self):
-        #drivers
-        drivers = self.frontend.get_drivers()
+        self.questions = ['install_type']
         questions = []
-        for this_driver in drivers:
-            answer = self.db.get('mythbuntu/' + this_driver)
+        for question in self.questions:
+            answer = self.db.get('mythbuntu/' + question)
             if answer != '':
-                self.frontend.set_driver(this_driver,answer)
-        questions.append('^mythbuntu/' + this_driver)
-        return (['/usr/share/ubiquity/ask-mythbuntu','drivers'], questions)
+                self.frontend.set_installtype(answer)
+            questions.append('^mythbuntu/' + question)
+        return (['/usr/share/ubiquity/ask-mythbuntu','type'], questions)
 
     def ok_handler(self):
-        drivers = self.frontend.get_drivers()
-
-        for this_driver in drivers:
-            if drivers[this_driver] is True or drivers[this_driver] is False:
-                self.preseed_bool('mythbuntu/' + this_driver, drivers[this_driver])
-            else:
-                self.preseed('mythbuntu/' + this_driver, drivers[this_driver])
+        self.preseed('mythbuntu/' + self.questions[0],self.frontend.get_installtype())
         Plugin.ok_handler(self)
