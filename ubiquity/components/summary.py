@@ -35,14 +35,15 @@ class PageGtk:
     def __init__(self, *args, **kwargs):
         pass
     def get_ui(self):
-        return {'widgets': 'stepReady'}
+        return {'widgets': 'stepReady', 'is_install': True}
 
 class PageKde:
     def __init__(self, *args, **kwargs):
         pass
     def get_ui(self):
         return {'widgets': 'stepReady',
-                'breadcrumb': 'ubiquity/text/breadcrumb_summary'}
+                'breadcrumb': 'ubiquity/text/breadcrumb_summary',
+                'is_install': True}
 
 def installing_from_disk():
     cdromfs = ''

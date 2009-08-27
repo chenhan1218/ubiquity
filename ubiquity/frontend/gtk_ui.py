@@ -407,8 +407,8 @@ class Wizard(BaseFrontend):
                 # This page is just a UI page
                 self.dbfilter = None
                 self.dbfilter_status = None
-                self.set_page(self.pages[self.pagesindex].module.NAME)
-                self.run_main_loop()
+                if self.set_page(self.pages[self.pagesindex].module.NAME):
+                    self.run_main_loop()
             else:
                 old_dbfilter = self.dbfilter
                 if issubclass(self.pages[self.pagesindex].filter_class, Plugin):
@@ -831,6 +831,7 @@ class Wizard(BaseFrontend):
         self.backup = False
         self.live_installer.show()
         cur = None
+        is_install = False
         for page in self.pages:
             if page.module.NAME == n:
                 # Now ask ui class which page we want to be showing right now
@@ -838,20 +839,24 @@ class Wizard(BaseFrontend):
                     cur = page.ui_inst.get_current_page()
                     if type(cur).__name__ == 'str' and hasattr(self, cur):
                         cur = getattr(self, cur) # for not-yet-plugins
-                if not cur and page.widgets:
+                elif page.widgets:
                     cur = page.widgets[0]
-                elif not cur and page.optional_widgets:
+                elif page.optional_widgets:
                     cur = page.optional_widgets[0]
-                cur.show()
-                break
+                if cur:
+                    cur.show()
+                    is_install = page.ui.get('is_install')
+                    break
+        if not cur:
+            return False
 
-        if self.pagesindex == self.pageslen - 1:
+        if is_install:
             self.next.set_label(self.get_string('install_button'))
 
-        num = self.steps.page_num(cur) if cur else -1
+        num = self.steps.page_num(cur)
         if num < 0:
             print >>sys.stderr, 'Invalid page found for %s: %s' % (n, str(cur))
-            return
+            return False
 
         self.add_history(page, cur)
         self.set_current_page(num)
@@ -872,6 +877,7 @@ class Wizard(BaseFrontend):
                 self.next.grab_focus()
             elif focus.__class__ == gtk.Button:
                 self.next.grab_focus()
+        return True
 
     def set_current_page(self, current):
         if self.steps.get_current_page() == current:

@@ -391,9 +391,9 @@ class Wizard(BaseFrontend):
                 # This page is just a UI page
                 self.dbfilter = None
                 self.dbfilter_status = None
-                self.set_page(self.pages[self.pagesindex].module.NAME)
-                self.allow_change_step(True)
-                self.app.exec_()
+                if self.set_page(self.pages[self.pagesindex].module.NAME):
+                    self.allow_change_step(True)
+                    self.app.exec_()
             else:
                 old_dbfilter = self.dbfilter
                 if issubclass(self.pages[self.pagesindex].filter_class, Plugin):
@@ -697,6 +697,7 @@ class Wizard(BaseFrontend):
         #this handles the ability to go back
         
         found = False
+        is_install = False
         for page in self.pages:
             if page.module.NAME == n:
                 # Now ask ui class which page we want to be showing right now
@@ -705,10 +706,10 @@ class Wizard(BaseFrontend):
                     cur = page.ui_inst.get_current_page()
                     if type(cur).__name__ == 'str':
                         cur = getattr(self.ui, cur) # for not-yet-plugins
-                if not cur and page.widgets:
+                elif page.widgets:
                     cur = page.widgets[0]
                 if not cur:
-                    return
+                    return False
                 index = self.ui.widgetStack.indexOf(cur)
                 self.add_history(page, cur)
                 self.set_current_page(index)
@@ -718,6 +719,7 @@ class Wizard(BaseFrontend):
                 else:
                     self.ui.steps_widget.setVisible(False)
                 found = True
+                is_install = page.ui.get('is_install')
             elif page.breadcrumb:
                 if found:
                     page.breadcrumb.setStyleSheet(activeSS)
@@ -725,7 +727,7 @@ class Wizard(BaseFrontend):
                     page.breadcrumb.setStyleSheet(inactiveSS)
         self.ui.breadcrumb_install.setStyleSheet(activeSS)
 
-        if self.pagesindex == self.pageslen - 1:
+        if is_install:
             self.ui.next.setText(self.get_string('install_button').replace('_', '&', 1))
             self.ui.next.setIcon(self.applyIcon)
             
@@ -733,6 +735,8 @@ class Wizard(BaseFrontend):
             self.allow_go_backward(False)
         else:
             self.allow_go_backward(True)
+
+        return True
     
     def add_history(self, page, widget):
         history_entry = (page, widget)

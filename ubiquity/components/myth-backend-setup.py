@@ -21,7 +21,7 @@
 
 import os
 
-NAME = 'myth-backend-setups'
+NAME = 'myth-backend-setup'
 AFTER = 'myth-summary'
 WEIGHT = 10
 
@@ -30,6 +30,8 @@ class PageGtk:
         pass
     def get_ui(self):
         if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui':
-            return {'widgets': 'mythbuntu_stepBackendSetup'}
+            return {'optional_widgets': 'mythbuntu_stepBackendSetup'}
         else:
             return None
+    def get_current_page(self):
+        return None

@@ -179,7 +179,7 @@ class Wizard(BaseFrontend):
     def set_page(self, page):
         # There's no need to do anything here as there's no interface to speak
         # of.
-        pass
+        return True
 
     # Progress bar handling.
 

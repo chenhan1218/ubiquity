@@ -85,15 +85,23 @@ class Wizard(ParentFrontend.Wizard):
     def run_success_cmd(self):
         """Runs mythbuntu post post install GUI step"""
         if not 'UBIQUITY_AUTOMATIC' in os.environ and self.get_installtype() != "Frontend":
-            self.live_installer.show()
-            self.installing = False
-            self.steps.next_page()
-            self.back.hide()
-            self.quit.hide()
-            self.next.set_label("Finish")
-            self.step_label.set_text("")
-            gtk.main()
-            self.live_installer.hide()
+            # Ideally, this next bit (showing the backend-setup page) would
+            # be fixed by re-architecting gtk_ui to run the install step after
+            # the first 'is_install' plugin and just naturally ask for the rest
+            # of the plugins afterward.
+            for page in self.pages:
+                if page.module.NAME == 'myth-backend-setup':
+                    pagenum = self.steps.page_num(page.optional_widgets[0])
+                    self.set_current_page(pagenum)
+                    self.live_installer.show()
+                    self.installing = False
+                    self.back.hide()
+                    self.quit.hide()
+                    self.next.set_label("Finish")
+                    self.step_label.set_text("")
+                    gtk.main()
+                    self.live_installer.hide()
+                    break
         ParentFrontend.Wizard.run_success_cmd(self)
 
     def set_page(self, n):
@@ -102,7 +110,7 @@ class Wizard(ParentFrontend.Wizard):
                 self.allow_go_forward(False)
         elif n == 'myth-services':
             self.vnc_option_hbox.set_sensitive(len(self.get_password()) >= 6)
-        ParentFrontend.Wizard.set_page(self,n)
+        return ParentFrontend.Wizard.set_page(self,n)
 
 ####################
 #Helper Functions  #
