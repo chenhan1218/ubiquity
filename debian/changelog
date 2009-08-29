@@ -12,6 +12,7 @@ ubiquity (1.99.13) UNRELEASED; urgency=low
   [ Roman Shtylman ]
   * fix for (LP: #413159). Acceptable for feature freeze, but still needs 
    work and further review
+  * fix for (LP: #420226)
 
   [ Evan Dandrea ]
   * Fixes to the slideshow code.
@@ -20,9 +21,9 @@ ubiquity (1.99.13) UNRELEASED; urgency=low
   * Add Venezuela timezone (UTC-4.30)
   * gtk: Start cycling through cities on the second click, not the third
   * gtk: Don't have clicks on Texas use a Mexican timezone by default
-    LP: #371509
+    LP: #371509 
 
- -- Michael Terry <michael.terry@canonical.com>  Fri, 28 Aug 2009 14:11:51 -0400
+ -- Roman Shtylman <shtylman@gmail.com>  Fri, 28 Aug 2009 20:26:16 -0400
 
 ubiquity (1.99.12) karmic; urgency=low
 
