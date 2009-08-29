@@ -1,4 +1,4 @@
-ubiquity (1.99.13) UNRELEASED; urgency=low
+ubiquity (1.99.13) karmic; urgency=low
 
   [ Colin Watson ]
   * Update translations from Launchpad.
@@ -25,7 +25,7 @@ ubiquity (1.99.13) UNRELEASED; urgency=low
   * gtk: Don't have clicks on Texas use a Mexican timezone by default
     LP: #371509 
 
- -- Roman Shtylman <shtylman@gmail.com>  Fri, 28 Aug 2009 20:26:16 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Sat, 29 Aug 2009 13:22:52 +0100
 
 ubiquity (1.99.12) karmic; urgency=low
 
