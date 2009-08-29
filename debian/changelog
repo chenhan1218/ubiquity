@@ -16,6 +16,8 @@ ubiquity (1.99.13) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Fixes to the slideshow code.
+  * Automatic update of included source packages: flash-kernel
+    2.13ubuntu9, hw-detect 1.72ubuntu4.
 
   [ Michael Terry ]
   * Add Venezuela timezone (UTC-4.30)

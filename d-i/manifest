@@ -5,9 +5,9 @@ choose-mirror 2.29ubuntu1
 clock-setup 0.98ubuntu1
 console-setup 1.34ubuntu1
 debian-installer-utils 1.70ubuntu1
-flash-kernel 2.13ubuntu8
+flash-kernel 2.13ubuntu9
 grub-installer 1.40ubuntu2
-hw-detect 1.72ubuntu3
+hw-detect 1.72ubuntu4
 kboot-installer 0.0.1ubuntu9
 localechooser 2.12ubuntu2
 migration-assistant 0.6.4
