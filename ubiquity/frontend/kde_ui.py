@@ -788,11 +788,12 @@ class Wizard(BaseFrontend):
 
         self.current_page = None
         
-        lang = self.get_language()
-        slides = '/usr/share/ubiquity-slideshow/%s/index.html' % lang
+        slides = '/usr/share/ubiquity-slideshow/slides/index.html'
         #TODO test if screen is big enough to show slides...
         try:
             if os.path.exists(slides):
+                lang = self.get_language()
+                slides = 'file://%s#locale=%s' % (slides, lang)
                 from PyQt4.QtWebKit import QWebView
                 from PyQt4.QtWebKit import QWebPage
                 

@@ -148,7 +148,7 @@
              <item row="0" column="0" colspan="5">
               <widget class="QStackedWidget" name="widgetStack">
                <property name="currentIndex">
-                <number>3</number>
+                <number>5</number>
                </property>
                <widget class="QWidget" name="intro_page">
                 <layout class="QGridLayout" name="gridLayout_7">
@@ -748,43 +748,65 @@ This language will be the default language for the final system.</string>
                      <height>10</height>
                     </size>
                    </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_6">
-                    <item>
+                   <layout class="QGridLayout" name="gridLayout_9">
+                    <item row="0" column="0">
                      <widget class="QPushButton" name="partition_button_new_label">
                       <property name="text">
                        <string>New Partition Table</string>
                       </property>
                      </widget>
                     </item>
-                    <item>
+                    <item row="0" column="1">
                      <widget class="QPushButton" name="partition_button_new">
                       <property name="text">
                        <string>New Partition</string>
                       </property>
                      </widget>
                     </item>
-                    <item>
+                    <item row="0" column="2">
                      <widget class="QPushButton" name="partition_button_edit">
                       <property name="text">
                        <string>Edit Partition</string>
                       </property>
                      </widget>
                     </item>
-                    <item>
+                    <item row="0" column="3">
                      <widget class="QPushButton" name="partition_button_delete">
                       <property name="text">
                        <string>Delete Partition</string>
                       </property>
                      </widget>
                     </item>
-                    <item>
-                     <widget class="QPushButton" name="partition_button_undo">
-                      <property name="text">
-                       <string>Undo all changes</string>
-                      </property>
+                    <item row="1" column="0" colspan="6">
+                     <widget class="QWidget" name="widget_7" native="true">
+                      <layout class="QHBoxLayout" name="horizontalLayout">
+                       <property name="margin">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QPushButton" name="partition_button_undo">
+                         <property name="text">
+                          <string>Undo all changes</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <spacer name="horizontalSpacer_8">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                      </layout>
                      </widget>
                     </item>
-                    <item>
+                    <item row="0" column="4">
                      <spacer name="horizontalSpacer_14">
                       <property name="orientation">
                        <enum>Qt::Horizontal</enum>
@@ -1680,7 +1702,6 @@ This language will be the default language for the final system.</string>
   <tabstop>partition_button_new</tabstop>
   <tabstop>partition_button_edit</tabstop>
   <tabstop>partition_button_delete</tabstop>
-  <tabstop>partition_button_undo</tabstop>
   <tabstop>fullname</tabstop>
   <tabstop>username</tabstop>
   <tabstop>password</tabstop>
