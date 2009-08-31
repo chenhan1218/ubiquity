@@ -1,3 +1,10 @@
+ubiquity (1.99.14) UNRELEASED; urgency=low
+
+  * Fix for (LP: #419142), could not reproduce so just moved the size 
+    display to the same line as % display
+
+ -- Roman Shtylman <shtylman@gmail.com>  Sun, 30 Aug 2009 22:40:42 -0400
+
 ubiquity (1.99.13) karmic; urgency=low
 
   [ Colin Watson ]
