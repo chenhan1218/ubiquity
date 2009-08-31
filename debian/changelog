@@ -1,7 +1,12 @@
 ubiquity (1.99.14) UNRELEASED; urgency=low
 
+  [ Roman Shtylman ]
   * Fix for (LP: #419142), could not reproduce so just moved the size 
     display to the same line as % display
+
+  [ Mario Limonciello ]
+  * Look for language during the progress loop even if no slides are
+    available as the error message is dependent upon it.
 
  -- Roman Shtylman <shtylman@gmail.com>  Sun, 30 Aug 2009 22:40:42 -0400
 
