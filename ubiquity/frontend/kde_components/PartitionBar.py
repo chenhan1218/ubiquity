@@ -156,8 +156,8 @@ class PartitionsBar(QWidget):
                 
                 texts = []
                 texts.append(name)
-                texts.append("%.01f%%" % (float(p.size) / self.diskSize * 100))
-                texts.append("%s" % format_size(p.size))
+                texts.append("%.01f%% (%s)" % (float(p.size) / self.diskSize * 100, format_size(p.size)))
+                #texts.append("%s" % format_size(p.size))
                 
                 nameFont = QFont("arial", 10)
                 infoFont = QFont("arial", 8)

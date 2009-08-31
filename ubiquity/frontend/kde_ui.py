@@ -348,6 +348,9 @@ class Wizard(BaseFrontend):
         #self.show_browser()
         self.allow_change_step(True)
         
+        # do not show the decrypt option unless user has opted to use encryptfs
+        self.ui.login_encrypt.setVisible(False)
+        
         # Declare SignalHandler
         self.ui.next.clicked.connect(self.on_next_clicked)
         self.ui.back.clicked.connect(self.on_back_clicked)
@@ -783,11 +786,12 @@ class Wizard(BaseFrontend):
 
         self.current_page = None
         
-        lang = self.locale.split('_')[0]
-        slides = '/usr/share/ubiquity-slideshow/%s/index.html' % lang
+        slides = '/usr/share/ubiquity-slideshow/slides/index.html'
         #TODO test if screen is big enough to show slides...
         try:
             if os.path.exists(slides):
+                lang = self.locale.split('_')[0]
+                slides = 'file://%s#locale=%s' % (slides, lang)
                 from PyQt4.QtWebKit import QWebView
                 from PyQt4.QtWebKit import QWebPage
                 
@@ -1987,11 +1991,11 @@ class Wizard(BaseFrontend):
     
     def set_encrypt_home(self, value):
         if value:
-            syslog.syslog(syslog.LOG_WARNING,
-                          "KDE frontend does not support home encryption yet")
+            self.ui.login_encrypt.setVisible(True)
+        self.ui.login_encrypt.setChecked(value)
 
     def get_encrypt_home(self):
-        return False
+        return self.ui.login_encrypt.isChecked()
 
     def username_error(self, msg):
         self.ui.username_error_reason.setText(msg)

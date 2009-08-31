@@ -20,7 +20,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "Uzu la plej grandan seninterrompan spacon"
 
 #. Type: text
 #. Description
@@ -32,13 +32,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "Instalu ilin unu apud la alia, elektonte inter ili ĉiun komenciĝon."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "Specifu diskpartojn mane (progresinte)"
 
 #. Type: text
 #. Description
@@ -101,9 +101,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -164,7 +161,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Region:"
-msgstr ""
+msgstr "Regiono:"
 
 #. Type: text
 #. Description
@@ -188,13 +185,13 @@ msgstr "Vi povas tajpi en ĉi tiun skatolon por testi vian novan klavararanĝon.
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Suggested option:"
-msgstr ""
+msgstr "Sugestita elekto:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your own:"
-msgstr ""
+msgstr "Elektu vian propran:"
 
 #. Type: text
 #. Description
@@ -245,6 +242,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Enskribu la saman pasvorton dufoje, por ke ĝi povu esti kontrolita pri "
+"tajperaroj. Bona pasvorto havu miksaĵon de literoj, nombroj kaj "
+"interpunkcio, havu almenaŭ ok signojn, kaj ŝanĝendas regulintervale."
 
 #. Type: text
 #. Description
@@ -284,7 +284,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr ""
+msgstr "Elektu alian pasvorton"
 
 #. Type: text
 #. Description
@@ -328,25 +328,25 @@ msgstr "Kiel vi volas partigi la diskon?"
 #. Description
 #: ../ubiquity.templates:41001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "Ĉi tiu komputilo havas neniujn operaciumojn sur ĝi."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "Ĉi tiu komputilo havas operaciumo ${OS} sur ĝi."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "Ĉi tiu komputilo havas plurajn operaciumojn sur ĝi."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "Kien vi volas instali ${RELEASE}?"
 
 #. Type: text
 #. Description
@@ -359,7 +359,7 @@ msgstr "Kreu subdiskojn"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:46001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "Ĉi tio forigos ${SYSTEMS} kaj instalos ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -425,19 +425,19 @@ msgstr "Preterpasi"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Installation Complete"
-msgstr ""
+msgstr "Instalado kompleta"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Continue Testing"
-msgstr ""
+msgstr "Kontinuu testi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Restart Now"
-msgstr ""
+msgstr "Rekomencu nun"
 
 #. Type: text
 #. Description
@@ -485,7 +485,6 @@ msgstr "Poste:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "Nova subdiska tabelo"
 
@@ -494,7 +493,6 @@ msgstr "Nova subdiska tabelo"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "Por progresantoj..."
 
@@ -503,7 +501,6 @@ msgstr "Por progresantoj..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "Kreanta uzanton..."
 
@@ -685,6 +682,9 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"La instalado finiĝis. Vi povas kontinui testi Ubunton nun, sed ĝis kiam vi "
+"rekomencos la komputilon, neniuj ŝanĝoj, kiujn vi faras aŭ dokumentoj, kiujn "
+"vi savas, estos konservataj."
 
 #. Type: text
 #. Description
@@ -1043,7 +1043,7 @@ msgstr "Eraro okazis dum forigo de pakoj:"
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Kalkulado de nekopiendaj dosieroj..."
 
 #. Type: title
 #. Description
@@ -1115,31 +1115,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "Sistemkonfigurado"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "Elekti lingvon/Choose language"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "Reteja agordo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "Programara elektado"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Apliki agordon"
 
 #. Type: text
 #. Description
@@ -1157,7 +1157,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "Elektu klavaran aranĝon"
 
@@ -1183,7 +1182,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Failed"
 msgid "installation process"
 msgstr "Instalado malsukcesis"
 
@@ -1202,12 +1200,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Tipo de instalo: ${INSTALLTYPE}\n"
+" Lingvo: ${LANGUAGE}\n"
+" Klavararanĝo: ${KEYMAP}\n"
+" Nomo: ${FULLNAME}\n"
+" Salutnomo: ${USERNAME}\n"
+" Loko: ${LOCATION}\n"
+" IR fora: ${REMOTE}\n"
+" IR transsendilo: ${TRANSMITTER}\n"
+" Videa pelilo: ${VIDEO_DRIVER}\n"
+" Servoj: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "Tipo de instalo"
 
 #. Type: text
 #. Description
@@ -1305,7 +1313,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Grafikaj peliloj"
 
 #. Type: text
 #. Description
@@ -1447,9 +1455,3 @@ msgstr "Agordas kromajn servojn..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Konfigurado de infraruĝaj aparatoj..."
-
-#~ msgid "New partition"
-#~ msgstr "Nova subdisko"
-
-#~ msgid "Delete partition"
-#~ msgstr "Viŝi subdiskon"

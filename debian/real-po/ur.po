@@ -1087,7 +1087,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "کیبورڈ کی ساخت"
 

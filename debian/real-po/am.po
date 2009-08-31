@@ -20,7 +20,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "መጠቀም የተገኘውን ሰፊ ባዶ ቦታ"
 
 #. Type: text
 #. Description
@@ -32,13 +32,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "መግጠም ጎን ለጎን ፤ በመምረጥ እንዲጀምር ከሁለቱ መካከል"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "መወስን ክፍልፋዩችን በእጅ (የረቀቀ)"
 
 #. Type: text
 #. Description
@@ -150,13 +150,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Region:"
-msgstr ""
+msgstr "አካባቢ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Keyboard layout"
-msgstr ""
+msgstr "የፊደል ገበታ አቀማመጥ"
 
 #. Type: text
 #. Description
@@ -174,13 +174,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Suggested option:"
-msgstr ""
+msgstr "የተጠቆመው ምርጫ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your own:"
-msgstr ""
+msgstr "የራሶትን ይምረጡ"
 
 #. Type: text
 #. Description
@@ -198,7 +198,7 @@ msgstr "ስምዎት ማነው?"
 #. Description
 #: ../ubiquity.templates:26001
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "በምን ስም መጠቀም ይፈልጋሉ ሲገቡ"
 
 #. Type: text
 #. Description
@@ -212,7 +212,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "ይምረጡ የመግቢያ ቃል የእርስዎን ደህንነት ለመጠበቅ"
 
 #. Type: text
 #. Description
@@ -248,7 +248,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Log in automatically"
-msgstr ""
+msgstr "መግባት ራስ በራሱ"
 
 #. Type: text
 #. Description
@@ -266,7 +266,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr ""
+msgstr "ይምረጡ ሌላ የመግቢያ ቃል"
 
 #. Type: text
 #. Description
@@ -472,7 +472,6 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "ተጠቃሚን በመፍጠር ላይ..."
 
@@ -1054,7 +1053,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "ቋንቋ በመምረጥ ላይ"
 
 #. Type: text
 #. Description

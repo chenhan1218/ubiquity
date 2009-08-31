@@ -20,7 +20,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "Kasuta suurimat järjestikust vaba ruumi"
 
 #. Type: text
 #. Description
@@ -32,13 +32,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "Paigalda mõlemad, igal käivitamisel valid kumba kasutada."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "Määra partitsioonid käsitsi (edasijõudnule)"
 
 #. Type: text
 #. Description
@@ -101,9 +101,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -164,7 +161,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Region:"
-msgstr ""
+msgstr "Regioon:"
 
 #. Type: text
 #. Description
@@ -188,13 +185,13 @@ msgstr "Siia kasti saad trükkida, et uut klaviatuuriasetust proovida."
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Suggested option:"
-msgstr ""
+msgstr "Soovitatav valik:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your own:"
-msgstr ""
+msgstr "Vali endale sobiv:"
 
 #. Type: text
 #. Description
@@ -246,6 +243,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Kirjavigade vältimiseks sisesta parool kaks korda. Hea parool sisaldab "
+"tähti, numbreid ja kirjavahemärke ning on vähemalt kaheksa märki pikk. "
+"Parooli on soovitatav regulaarselt muuta."
 
 #. Type: text
 #. Description
@@ -284,7 +284,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr ""
+msgstr "Vali mingi muu parool"
 
 #. Type: text
 #. Description
@@ -328,25 +328,25 @@ msgstr "Kuidas sa tahad ketast partitsioneerida?"
 #. Description
 #: ../ubiquity.templates:41001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "Sellel arvutil pole paigaldatud ühtegi operatsioonisüsteemi."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "Sellele arvutile on varem paigaldatud ${OS}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "Sellele arvutile on paigaldatud veel operatsioonisüsteeme."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "Kuhu sa tahad paigaldada ${RELEASE}?"
 
 #. Type: text
 #. Description
@@ -359,7 +359,7 @@ msgstr "Partitsioonide ettevalmistamine"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:46001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "See kustutab ${SYSTEMS} ja paigaldab ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -425,7 +425,7 @@ msgstr "Jäta vahele"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Installation Complete"
-msgstr ""
+msgstr "Paigaldus edukalt lõppenud"
 
 #. Type: text
 #. Description
@@ -437,7 +437,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Restart Now"
-msgstr ""
+msgstr "Taaskäivita kohe"
 
 #. Type: text
 #. Description
@@ -485,7 +485,6 @@ msgstr "Pärast:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "Uus partitsioonitabel"
 
@@ -494,7 +493,6 @@ msgstr "Uus partitsioonitabel"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "Laiendatud..."
 
@@ -503,7 +501,6 @@ msgstr "Laiendatud..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "Kasutaja loomine..."
 
@@ -685,6 +682,9 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"Paigaldamine on lõppenud. Sa võid jätkata Ubuntu proovimist, kuid süsteemi "
+"tehtud muudatusi ega salvestatud dokumente pole võimalik enne arvuti "
+"taaskäivitust säilitada."
 
 #. Type: text
 #. Description
@@ -847,6 +847,11 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
+"Selle põhjus on tihti vigane CD-/DVD-plaat, -lugeja või riknenud kõvaketas. "
+"Võib aidata plaadi puhastamine, plaadi kirjutamine aeglasemal kiirusel, CD-/"
+"DVD-lugeja puhastamine (puhastuskomplekte müüakse elektroonikapoodides), "
+"kontrollimine, kas kõvaketas on vana ja vajab asendamist või arvuti "
+"asetamine jahedamasse kohta."
 
 #. Type: select
 #. Description
@@ -1037,7 +1042,7 @@ msgstr "Pakkide eemaldamisel ilmnes viga:"
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Mittevajalike failide kalkuleerimine..."
 
 #. Type: title
 #. Description
@@ -1110,13 +1115,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "Süsteemi seadistus"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "Keele valimine/Choose language"
 
 #. Type: text
 #. Description
@@ -1152,7 +1157,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "Klaviatuuripaigutus"
 
@@ -1178,7 +1182,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Failed"
 msgid "installation process"
 msgstr "Paigaldamine nurjus"
 
@@ -1197,12 +1200,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Paigalduse tüüp: ${INSTALLTYPE}\n"
+" Keel: ${LANGUAGE}\n"
+" Klaviatuuripaigutus: ${KEYMAP}\n"
+" Nimi: ${FULLNAME}\n"
+" Kasutajanimi: ${USERNAME}\n"
+" Asukoht: ${LOCATION}\n"
+" Infrapuna-kaugjuhtimispult: ${REMOTE}\n"
+" Infrapunaliides (saatja): ${TRANSMITTER}\n"
+" Videodraiver: ${VIDEO_DRIVER}\n"
+" Süsteemiteenused: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "Paigalduse tüüp"
 
 #. Type: text
 #. Description
@@ -1301,7 +1314,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Graafikakaardi draiverid"
 
 #. Type: text
 #. Description
@@ -1398,7 +1411,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "Käivita MythTV seadistus"
 
 #. Type: text
 #. Description
@@ -1432,10 +1445,4 @@ msgstr "Võrgu seadistamine..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
-msgstr ""
-
-#~ msgid "New partition"
-#~ msgstr "Uus partitsioon"
-
-#~ msgid "Delete partition"
-#~ msgstr "Kustuta partitsioon"
+msgstr "Infrapunaseadmete häälestamine..."

@@ -20,7 +20,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "Uporabi največji neprekinjen nezaseden prostor"
 
 #. Type: text
 #. Description
@@ -33,12 +33,14 @@ msgstr ""
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
 msgstr ""
+"Namesti jih drugega ob drugem, tako, da bo mogoč izbor med njimi ob vsakem "
+"zagonu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "Ročno določi razdelke (napredno)"
 
 #. Type: text
 #. Description
@@ -101,9 +103,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -164,7 +163,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Region:"
-msgstr ""
+msgstr "Regija:"
 
 #. Type: text
 #. Description
@@ -188,13 +187,13 @@ msgstr "Za preizkus svoje nove postavitve, lahko tipkate v to polje."
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Suggested option:"
-msgstr ""
+msgstr "Priporočena izbira:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your own:"
-msgstr ""
+msgstr "Izberite svojega:"
 
 #. Type: text
 #. Description
@@ -245,6 +244,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Vnesite vaše geslo dvakrat, tako da se preverijo morebitne napake pri "
+"tipkanju. Dobro geslo je zmes črk, številk in ločil, dolgo naj bi bilo vsaj "
+"osem znakov in bi moralo biti zamenjano v rednih intervalih."
 
 #. Type: text
 #. Description
@@ -282,13 +284,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr ""
+msgstr "Izberite drugo geslo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Migrate documents and settings"
-msgstr ""
+msgstr "Preseli dokumente in nastavitve"
 
 #. Type: text
 #. Description
@@ -326,25 +328,25 @@ msgstr "Kako bi želeli razdeliti disk?"
 #. Description
 #: ../ubiquity.templates:41001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "Na tem računalniku ni operacijskega sistema."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "Ta računalnik ima nameščen ${OS}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "Na tem računalniku je nameščenih več operacijskih sistemov."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "Kam želite namestiti ${RELEASE}?"
 
 #. Type: text
 #. Description
@@ -357,7 +359,7 @@ msgstr "Pripravite razdelke"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:46001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "To bo izbrisalo ${SYSTEMS} in namestilo ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -405,13 +407,13 @@ msgstr "Korak ${INDEX} od ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Quit the installation?"
-msgstr ""
+msgstr "Želite prekiniti namestitev?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Do you really want to quit the installation now?"
-msgstr ""
+msgstr "Ali res želite zapustiti namestitev?"
 
 #. Type: text
 #. Description
@@ -423,19 +425,19 @@ msgstr "Preskoči"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Installation Complete"
-msgstr ""
+msgstr "Namestitev končana"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Continue Testing"
-msgstr ""
+msgstr "Nadaljuj testiranje"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Restart Now"
-msgstr ""
+msgstr "Ponovno zaženi"
 
 #. Type: text
 #. Description
@@ -484,7 +486,6 @@ msgstr "Po:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "Nova particijska tabela"
 
@@ -493,7 +494,6 @@ msgstr "Nova particijska tabela"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "Napredno..."
 
@@ -502,7 +502,6 @@ msgstr "Napredno..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "Ustvarjanje uporabnika ..."
 
@@ -684,6 +683,9 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"Namestitev je končana. S testiranjem Ubuntu-ja lahko nadaljujete, vendar se, "
+"dokler ponovno ne zaženete računalnika, vaše spremembe in dokumenti, ki jih "
+"shranite, ne bodo ohranili."
 
 #. Type: text
 #. Description
@@ -1004,7 +1006,7 @@ msgstr "Pri nameščanju paketov je prišlo do napake:"
 #. Description
 #: ../ubiquity.templates:133001 ../ubiquity.templates:134001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "Sledeči paketi vsebujejo napake:"
 
 #. Type: error
 #. Description
@@ -1044,7 +1046,7 @@ msgstr "Med odstranjevanjem programskih paketov je prišlo do napake:"
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Preračunavanje datotek za preskok kopiranja ..."
 
 #. Type: title
 #. Description
@@ -1118,31 +1120,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "Sistemske nastavitve"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "Izberite jezik"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "Nastavitve omrežja"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "Izbira programske opreme"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Nameščanje nastavitev"
 
 #. Type: text
 #. Description
@@ -1160,7 +1162,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "Postavitev tipkovnice"
 
@@ -1186,7 +1187,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Failed"
 msgid "installation process"
 msgstr "Namestitev ni uspela"
 
@@ -1205,12 +1205,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Tip namestitve: ${INSTALLTYPE}\n"
+" Jezik: ${LANGUAGE}\n"
+" Razporeditev tipk na tipkovnici: ${KEYMAP}\n"
+" Ime: ${FULLNAME}\n"
+" Uporabniško ime: ${USERNAME}\n"
+" Lokacija: ${LOCATION}\n"
+" IR daljinec: ${REMOTE}\n"
+" IR oddajnik: ${TRANSMITTER}\n"
+" Video gonilnik: ${VIDEO_DRIVER}\n"
+" Storitve: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "Tip namestitve"
 
 #. Type: text
 #. Description
@@ -1222,7 +1232,7 @@ msgstr "Kakšne vrste bo ta sistem?"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "Primarni 'Backend/Frontend'"
 
 #. Type: text
 #. Description
@@ -1232,12 +1242,15 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"Kombinacija 'Backend/Frontend' je najpogostejši način namestitve za ljudi, "
+"ki hočejo MythTV za HTPC aplikacije. Taka namestitev je namjenjena uporabi "
+"kot komponenta v domačem kinu."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "Sekundarni 'Backend/Frontend'"
 
 #. Type: text
 #. Description
@@ -1246,12 +1259,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"To bo namestilo sistem, ki je podoben primarnemu 'Backend/Frontend', vendar "
+"bo nastavljen tako, da se bo povezoval na obstoječ 'backend' preko omrežja."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
 msgid "Primary Backend"
-msgstr ""
+msgstr "Primarni 'backend'"
 
 #. Type: text
 #. Description
@@ -1261,12 +1276,15 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"'Backend' računalnik je običajno nastavljen da deluje kot samostojna naprava "
+"in ne potrebuje veliko vzdrževanja. Ta možnost je namenjena prvemu sistemu "
+"'backend' v omrežju."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "Sekundarni 'Backend'"
 
 #. Type: text
 #. Description
@@ -1275,12 +1293,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"To bo nastavilo sistem podobno kot primarni 'Backend', ampak bo nastavljen "
+"tako, da bo povezan na obstoječ 'backend' v omrežju."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:12001
 msgid "Frontend"
-msgstr ""
+msgstr "Frontend"
 
 #. Type: text
 #. Description
@@ -1290,12 +1310,14 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"Namen 'frontend' računalnika je, da sprejema multimedijske vsebine od "
+"'backend' in ga predvaja. Ta možnost potrebuje obstoječ 'backend' v omrežju."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Grafični gonilniki"
 
 #. Type: text
 #. Description
@@ -1327,13 +1349,13 @@ msgstr "Če izberete TV-out, boste morali izbrati tudi TV standard:"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:18001
 msgid "Master Backend Info"
-msgstr ""
+msgstr "Informacije o glavnem 'backendu'"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Please enter the information necessary to contact your master backend:"
-msgstr ""
+msgstr "Prosimo vpišite informacije za dostop do vašega glavnega 'backend'-a"
 
 #. Type: text
 #. Description
@@ -1363,7 +1385,7 @@ msgstr "MySQL strežnik"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "Nastavite podatke o sporedu / 'Backend'"
 
 #. Type: text
 #. Description
@@ -1372,12 +1394,14 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
+"Zadnji koraki namestitve potrebujejo podatke o sporedu in začetne nastavitve "
+"za 'backend' strežnik."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:26001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "Kliknite da odprete spletno stran 'Schedules Direct'"
 
 #. Type: text
 #. Description
@@ -1387,6 +1411,10 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
+"Uporabniki v Severni Ameriki bodo morali ustvariti uporabniški račun z "
+"'Shedules Direct' (SD). SD ponuja podatke o programu v zameno za manjše "
+"plačilo. Brez tega bodo uporabniki v Severni Ameriki izgubili mnogo funkcij "
+"MythTV za spremljanje sporeda."
 
 #. Type: text
 #. Description
@@ -1403,33 +1431,31 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"Po nastavitvi podatkov o sporedu boste morali zagnati MythTV-Setup, ki bo "
+"pripravil začetne nastavitve za 'backend'. Morali boste nastaviti prve štiri "
+"razdelke. Prepričajte se da v tretjem razdelku podate pravilne podatke o "
+"sporedu."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Configuring mythtv..."
-msgstr ""
+msgstr "Nastavljam mythtv ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Configuring additional drivers..."
-msgstr ""
+msgstr "Nastavljam dodatne gonilnike ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Configuring additional services..."
-msgstr ""
+msgstr "Nastavljam dodatne programske pakete"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Nastavljam infrardeče naprave..."
-
-#~ msgid "New partition"
-#~ msgstr "Nova particija"
-
-#~ msgid "Delete partition"
-#~ msgstr "Izbriši particijo"

@@ -26,7 +26,6 @@ msgstr "Sử dụng phần không gian trống liên tục lớn nhất"
 #. Description
 #: ../ubiquity.templates:4001
 #, fuzzy
-#| msgid "Use the entire disk"
 msgid "Erase and use the entire disk"
 msgstr "Sử dụng toàn bộ đĩa"
 
@@ -103,9 +102,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -278,7 +274,6 @@ msgstr "Đăng nhập tự động"
 #. Description
 #: ../ubiquity.templates:34001
 #, fuzzy
-#| msgid "Require a password to log in"
 msgid "Require my password to log in"
 msgstr "Yêu cầu một mật khẩu để đăng nhập"
 
@@ -286,7 +281,6 @@ msgstr "Yêu cầu một mật khẩu để đăng nhập"
 #. Description
 #: ../ubiquity.templates:35001
 #, fuzzy
-#| msgid "Require a password to log in and to decrypt your home folder"
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr "Yêu cầu một mật khẩu để đăng nhập và mở khóa thư mục home của bạn"
 
@@ -497,7 +491,6 @@ msgstr "Sau:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "Bảng phân vùng mới"
 
@@ -506,7 +499,6 @@ msgstr "Bảng phân vùng mới"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "Nâng cao..."
 
@@ -515,7 +507,6 @@ msgstr "Nâng cao..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "Đang tạo người dùng..."
 
@@ -1126,31 +1117,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "Cấu hình hệ thống"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "Chọn ngôn ngữ/Choose language"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "Cấu hình mạng"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "Lựa chọn Phần mềm"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Đang áp dụng cấu hình"
 
 #. Type: text
 #. Description
@@ -1168,7 +1159,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "Bố trí bàn phím"
 
@@ -1194,7 +1184,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Type"
 msgid "installation process"
 msgstr "Dạng Cài đặt"
 
@@ -1466,15 +1455,3 @@ msgstr "Đang cấu hình các dịch vụ tăng thêm..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Cấu hình các thiết bị hồng ngoại..."
-
-#~ msgid "City:"
-#~ msgstr "Thành phố:"
-
-#~ msgid "Select your time zone from the map, or by region and city."
-#~ msgstr "Chọn múi giờ của bạn từ bản đồ, hoặc theo khu vực và thành phố"
-
-#~ msgid "New partition"
-#~ msgstr "Tạo phân vùng mới"
-
-#~ msgid "Delete partition"
-#~ msgstr "Xoá phân vùng"

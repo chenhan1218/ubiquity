@@ -26,7 +26,6 @@ msgstr "Käytä suurinta yhtenäistä vapaata tilaa"
 #. Description
 #: ../ubiquity.templates:4001
 #, fuzzy
-#| msgid "Use the entire disk"
 msgid "Erase and use the entire disk"
 msgstr "Käytä koko levyä"
 
@@ -104,9 +103,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -277,7 +273,6 @@ msgstr "Kirjaudu sisään automaattisesti"
 #. Description
 #: ../ubiquity.templates:34001
 #, fuzzy
-#| msgid "Require a password to log in"
 msgid "Require my password to log in"
 msgstr "Vaadi salasana kirjauduttaessa"
 
@@ -285,7 +280,6 @@ msgstr "Vaadi salasana kirjauduttaessa"
 #. Description
 #: ../ubiquity.templates:35001
 #, fuzzy
-#| msgid "Require a password to log in and to decrypt your home folder"
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr "Vaadi salasana kirjauduttaessa ja kotikansion salauksen purkamiseen"
 
@@ -495,7 +489,6 @@ msgstr "Jälkeen:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "Uusi osiotaulu"
 
@@ -504,7 +497,6 @@ msgstr "Uusi osiotaulu"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "Lisäasetukset..."
 
@@ -513,7 +505,6 @@ msgstr "Lisäasetukset..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "Luodaan käyttäjää..."
 
@@ -1130,31 +1121,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "Järjestelmän asetukset"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "Kielen valinta/Choose language"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "Verkon asetukset"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "Ohjelmistovalinnat"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Toteutetaan asetuksia"
 
 #. Type: text
 #. Description
@@ -1172,7 +1163,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "Näppäimistön asettelu"
 
@@ -1198,7 +1188,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Type"
 msgid "installation process"
 msgstr "Asennustapa"
 
@@ -1473,15 +1462,3 @@ msgstr "Tehdään palveluiden asetuksia..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Määritetään infrapunalaitteita..."
-
-#~ msgid "City:"
-#~ msgstr "Kaupunki:"
-
-#~ msgid "Select your time zone from the map, or by region and city."
-#~ msgstr "Valitse aikavyöhykkeesi kartalta tai alueen ja kaupungin mukaan."
-
-#~ msgid "New partition"
-#~ msgstr "Uusi osio"
-
-#~ msgid "Delete partition"
-#~ msgstr "Poista osio"

@@ -190,7 +190,12 @@ class PageKde:
         self.default_keyboard_variant = None
         try:
             from PyQt4 import uic
+            from PyQt4.QtGui import QVBoxLayout
+            from ubiquity.frontend.kde_components.Keyboard import Keyboard
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepKeyboardConf.ui')
+            self.keyboardDisplay = Keyboard(self.page.keyboard_frame)
+            self.page.keyboard_frame.setLayout(QVBoxLayout())
+            self.page.keyboard_frame.layout().addWidget(self.keyboardDisplay)
             #use activated instead of changed because we only want to act when the user changes the selection
             #not when we are populating the combo box
             self.page.keyboard_layout_combobox.activated.connect(self.on_keyboard_layout_selected)
@@ -206,12 +211,31 @@ class PageKde:
     def on_keyboard_layout_selected(self):
         layout = self.get_keyboard()
         if layout is not None:
+            #skip updating keyboard if not using display
+            if self.keyboardDisplay:
+                ly = keyboard_names.layouts[unicode(layout)]
+                self.keyboardDisplay.setLayout(ly)
+            
+                #no variants, force update by setting none
+                #if not keyboard_names.variants.has_key(ly):
+                #    self.keyboardDisplay.setVariant(None)
+            
             self.current_layout = layout
             self.controller.dbfilter.change_layout(layout)
 
     def on_keyboard_variant_selected(self):
         layout = self.get_keyboard()
         variant = self.get_keyboard_variant()
+        
+        if self.keyboardDisplay:
+            var = None
+            ly = keyboard_names.layouts[layout]
+            if variant and keyboard_names.variants.has_key(ly):
+                variantMap = keyboard_names.variants[ly]
+                var = variantMap[unicode(variant)]
+            
+            self.keyboardDisplay.setVariant(var)
+        
         if layout is not None and variant is not None:
             self.controller.dbfilter.apply_keyboard(layout, variant)
 
@@ -230,6 +254,10 @@ class PageKde:
         
         if index > -1:
             self.page.keyboard_layout_combobox.setCurrentIndex(index)
+        
+        if self.keyboardDisplay:
+            ly = keyboard_names.layouts[unicode(layout)]
+            self.keyboardDisplay.setLayout(ly)
 
     def get_keyboard(self):
         if self.page.keyboard_layout_combobox.currentIndex() < 0:
@@ -249,7 +277,16 @@ class PageKde:
         
         if index > -1:
             self.page.keyboard_variant_combobox.setCurrentIndex(index)
-
+        
+        if self.keyboardDisplay:
+            var = None
+            layout = keyboard_names.layouts[self.get_keyboard()]
+            if variant and keyboard_names.variants.has_key(layout):
+                variantMap = keyboard_names.variants[layout]
+                var = variantMap[unicode(variant)]
+            
+            self.keyboardDisplay.setVariant(var)
+    
     def get_keyboard_variant(self):
         if self.page.keyboard_variant_combobox.currentIndex() < 0:
             return None

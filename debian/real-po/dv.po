@@ -21,7 +21,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "މެދުކެނޑުމެއްނެތި ލިބެންއޮތް އެންމެ ބޯޑު ހުސްޖާގަ ބޭނުން ކުރައްވާ"
 
 #. Type: text
 #. Description
@@ -39,7 +39,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "އިންސްޓޯލްކުރަންވީ ޕާޓިޝަން ދައްކާ (އެޑްވާސް މީހުންނަށް)"
 
 #. Type: text
 #. Description
@@ -48,7 +48,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:7001 ../ubiquity.templates:166001
 msgid "Install"
-msgstr ""
+msgstr "އިންސްޓޯލްކުރޭ"
 
 #. Type: text
 #. Description
@@ -60,7 +60,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:9001
 msgid "Welcome"
-msgstr ""
+msgstr "މަރުހަބާ"
 
 #. Type: text
 #. Description
@@ -70,6 +70,8 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"އިންސްޓޯލް ކުރަން ތައްޔާރުތޯ؟ މަދު ސުވާލުކޮޅެއްގެ ޖަވާބުލިބުމަށްފަހު، ސީޑީގައިވާ ތަކެތި މިކޮމްޕިއުޓަރަށް އިންސްޓޯލް ކުރެވޭނެއެވެ. "
+"އޭގެފަހުން ސީޑީ ނުލައްވާ މިސިސްޓަމް ބޭނުންކުރެވޭނެއެވެ."
 
 #. Type: text
 #. Description
@@ -77,7 +79,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:10001 ../ubiquity.templates:11001
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "ސުވާލުތަކަށް ޖަވާބުދޭން ނަގާނީ ކުޑަ ހިނދުޚޮޅެއް"
 
 #. Type: text
 #. Description
@@ -86,6 +88,7 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"އިންސްޓޯލުކުރުމުގެ މަރުހަލާގައި ބޭނުންކުރައްވާނެ ބަހެއް ޚިޔާރުކުރައްވާ. ޚިޔާރުކުރައްވާ ބަސް، ސިސްޓަމުގެ ޑިފޯލްޓް ބަހުގެ ގޮތުގައި ހަމަޖެހޭނެ."
 
 #. Type: text
 #. Description
@@ -117,18 +120,19 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
+"ތިބޭފުޅާއަށް އިންޓަނެޓްގެ ހިދުމަތް ލިބޭނަމަ، ކުރިމަތިވެދާނެ މައްސަލަތަކާ ބެހޭގޮތުން މައުލޫމާތު ލިބިގަތުމަށް ރިލީސް ނޯޓްސް ކިޔުއްވާށެވެ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Release Notes"
-msgstr ""
+msgstr "ރިލީސް ނޯޓް"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "Where are you?"
-msgstr ""
+msgstr "ތިހުރީ ކޮންތަނެއްގައި؟"
 
 #. Type: text
 #. Description
@@ -149,55 +153,55 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Region:"
-msgstr ""
+msgstr "ސަރަހައްދު:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Keyboard layout"
-msgstr ""
+msgstr "ކީބޯޑުގެ ލޭއައުޓް"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "ތިޔަފަރާތުން ބޭނުންކުރާ ކީބޯޑާއި އެއްމެ ވައްތަރު ލޭއައުޓްއަކީ ކޮބާ؟"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "ތިޔަ ފަރާތުގެ ކީބޯޑްގެ ލޭއައުޓް ޓެސްޓްކުރުމަށް މި ގޮޅީގައި ޓައިޕްކުރެވިދާނެ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Suggested option:"
-msgstr ""
+msgstr "ހުށަހެޅިފައިވާ ގޮތްތައް:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your own:"
-msgstr ""
+msgstr "އަމިއްލައަށް ހިޔާރުކުރޭ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Who are you?"
-msgstr ""
+msgstr "ތީކާކު؟"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "What is your name?"
-msgstr ""
+msgstr "ނަމަކީ ކޮބާ؟"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "ލޮގިން ކުރަން ބޭނުން ކުރާނީ ކޮން ނަމެއް؟"
 
 #. Type: text
 #. Description
@@ -205,13 +209,13 @@ msgstr ""
 msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
-msgstr ""
+msgstr "އެކަކަށްވުރެއް ގިނަމީހުން މިކޮމްޕިއުޓަރު ބޭނުންކުރާނެނަމަ، އިންސްޓޯލްކޮށް ނިމުމަށްފަހު އިތުރު އެކައުންޓްތައް ހެދޭނެއެވެ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "ތިޔަ ފަރާތުގެ އެކައުންޓް ސަލާމަތްތެރިކަމަށްޓަކއި ޕާސްވޯޑެއް ހިޔާރުކުރޭ"
 
 #. Type: text
 #. Description
@@ -233,7 +237,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:31001
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "މި ކޮމްޕިއުޓާ ގެ ނަމަކީ ކޮބާ؟"
 
 #. Type: text
 #. Description
@@ -241,13 +245,13 @@ msgstr ""
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr ""
+msgstr "ނެޓްވާކަށް މިކޮމްޕިއުޓަރު ފެންނަގޮތައް ހައްދަވަފިނަމަ ބޭނުންކުރެވޭނީ މިނަމެވެ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Log in automatically"
-msgstr ""
+msgstr "އަމިއްލައަށް ލޮގިންވޭ"
 
 #. Type: text
 #. Description
@@ -265,13 +269,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr ""
+msgstr "އެހެން ޕާސްވޯޑެއް ހިޔާރުކުރޭ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Migrate documents and settings"
-msgstr ""
+msgstr "ޑޮކުމެންޓްސް އާއި ސެޓިންގްސް މައިގްރޭޓްކުރަން"
 
 #. Type: text
 #. Description
@@ -293,19 +297,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:39001
 msgid "Prepare disk space"
-msgstr ""
+msgstr "ޑިސްކް ސްޕޭސް ތައްޔާރުކުރަން"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "ޑިސްކް ބަހަން ބޭނުންފުޅުވަނީ ކިހިނެތް ތޯ؟"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "މި ކޮމްޕިޔުޓަރގައި އޮޕަރޭޓީންގ ސިސްޓަމްއެއް ނެތް"
 
 #. Type: text
 #. Description
@@ -317,7 +321,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:43001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "މިކޮމްޕިއުޓަރުގައި ދެތިން އޮޕަރޭޓިންގް ސިސްޓަމް އެބަހުރި"
 
 #. Type: text
 #. Description
@@ -329,7 +333,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Prepare partitions"
-msgstr ""
+msgstr "ޕާޓިޝަންތައް ތައްޔާރުކުރޭ"
 
 #. Type: text
 #. Description
@@ -345,26 +349,26 @@ msgstr ""
 #: ../ubiquity.templates:47001 ../ubiquity.templates:98001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
-msgstr ""
+msgstr "އިންސްޓޯލް ކުރަން ތައްޔާރު"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Details"
-msgstr ""
+msgstr "ތަފްޞީލްތައް"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
+msgstr "ތިރީގައިވާ ސެޓިންތަކާއެކު މިހާރު އޮޕަރޭޑިންގް ސިސްޓަމް އިންސްޓޯލް ކުރެވޭނެ އެވެ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Advanced..."
-msgstr ""
+msgstr "އެޑްވާސް މީހުންނަށް..."
 
 #. Type: text
 #. Description
@@ -384,7 +388,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Quit the installation?"
-msgstr ""
+msgstr "އިންސްޓޯލް ކުރުން ހުއްޓާލަންވީތަ؟"
 
 #. Type: text
 #. Description
@@ -396,19 +400,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Skip"
-msgstr ""
+msgstr "ސްކިޕް"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Installation Complete"
-msgstr ""
+msgstr "އިންސްޓޯލް ވެއްޖެ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Continue Testing"
-msgstr ""
+msgstr "ޓެސްޓް ކުރުން ކުރިޔަށް ގެންދޭ"
 
 #. Type: text
 #. Description
@@ -442,7 +446,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:62001
 msgid "Before:"
-msgstr ""
+msgstr "ކުރިން:"
 
 #. Type: text
 #. Description
@@ -450,7 +454,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:63001
 msgid "After:"
-msgstr ""
+msgstr "ފަހުން:"
 
 #. Type: text
 #. Description
@@ -492,7 +496,7 @@ msgstr ""
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:69001
 msgid "Device"
-msgstr ""
+msgstr "ޑިވައިސް"
 
 #. Type: text
 #. Description
@@ -500,28 +504,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:70001
 msgid "Type"
-msgstr ""
+msgstr "ބާވަތް (ޓައިޕް)"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:71001
 msgid "Mount point"
-msgstr ""
+msgstr "މައުންޓް ޕޮއިންޓް"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:72001
 msgid "Format?"
-msgstr ""
+msgstr "ފޯމެޓް(އެއްކޮށްފޮހެލަން)؟"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:73001
 msgid "Size"
-msgstr ""
+msgstr "ބޮޑުމިން (ސައިޒް)"
 
 #. Type: text
 #. Description
@@ -529,27 +533,27 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:74001
 msgid "Used"
-msgstr ""
+msgstr "ބޭނުންކުރެވިފައިވާ"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:75001
 msgid "free space"
-msgstr ""
+msgstr "ހުސް ޖާގަ"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:76001
 msgid "unknown"
-msgstr ""
+msgstr "ނުދަންނަ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Create partition"
-msgstr ""
+msgstr "ޕާޓިޝަންއެއް އުފައްދާ"
 
 #. Type: text
 #. Description
@@ -563,61 +567,61 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Beginning"
-msgstr ""
+msgstr "ފެށޭ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
 msgid "End"
-msgstr ""
+msgstr "ނިމޭ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:81001
 msgid "Primary"
-msgstr ""
+msgstr "ޕްރައިމެރީ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:82001
 msgid "Logical"
-msgstr ""
+msgstr "ލޮޖިކަލް"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:83001
 msgid "Edit partition"
-msgstr ""
+msgstr "ޕާޓިޝަން އެޑިޓްކުރޭ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:84001
 msgid "Edit a partition"
-msgstr ""
+msgstr "ޕާޓިޝަންއެއް އެޑިޓްކުރޭ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
 msgid "Advanced Options"
-msgstr ""
+msgstr "އެޑްވާންސް ގޮތްތައް"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:87001
 msgid "Boot loader"
-msgstr ""
+msgstr "ބޫޓް ލޯޑަރ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:88001
 msgid "Install boot loader"
-msgstr ""
+msgstr "ބޫޓް ލޯޑަރ އިންސްޓޯލްކުރޭ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
 msgid "Popularity contest"
-msgstr ""
+msgstr "ޕްޕިއުލާރިޓީ ކޮންޓެސްޓް"
 
 #. Type: text
 #. Description
@@ -629,7 +633,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Network proxy"
-msgstr ""
+msgstr "ނެޓްވޯކް ޕްރޮކްސީ"
 
 #. Type: text
 #. Description
@@ -641,7 +645,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Port:"
-msgstr ""
+msgstr "ޕޯޓް:"
 
 #. Type: text
 #. Description
@@ -697,7 +701,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:100001
 msgid "Installing system"
-msgstr ""
+msgstr "ސިސްޓަމް އިންސްޓޯލްކުރަނީ"
 
 #. Type: text
 #. Description
@@ -715,7 +719,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:104001
 msgid "Copying files..."
-msgstr ""
+msgstr "ފައިލްތައް ކޮޕީކުރަނީ..."
 
 #. Type: text
 #. Description
@@ -737,7 +741,7 @@ msgstr ""
 #: ../ubiquity.templates:108001 ../ubiquity.templates:109001
 #: ../ubiquity.templates:110001
 msgid "Installation Failed"
-msgstr ""
+msgstr "އިންސްޓޯލްއެއް ނުވި"
 
 #. Type: error
 #. Description
@@ -806,7 +810,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:111001
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "އިންސްޓޮލޭސަންގެ ލޮގްފައިލުތައް ކޮޕީކުރެވެނީ..."
 
 #. Type: text
 #. Description
@@ -842,7 +846,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:117001
 msgid "Creating user..."
-msgstr ""
+msgstr "ޔޫސަރ ހަދަނީ..."
 
 #. Type: text
 #. Description
@@ -854,31 +858,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:119001
 msgid "Configuring hardware..."
-msgstr ""
+msgstr "ހާޑްވެއަރ ކޮންފިގަރ ކުރަނީ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:120001
 msgid "Configuring network..."
-msgstr ""
+msgstr "ނެޓްވޯކް ކޮންފިގަރ ކުރަނީ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:121001
 msgid "Setting computer name..."
-msgstr ""
+msgstr "ކޮމްޕިޔުޓަރގެ ނަން ސެޓުކުރަނީ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:122001
 msgid "Configuring boot loader..."
-msgstr ""
+msgstr "ބޫޓް ލޯޑަރ ކޮންފިގަރ ކުރަނީ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "އިތުރު ޕެކޭޖެތައް އިންސްޓޯލްކުރަނީ..."
 
 #. Type: text
 #. Description
@@ -908,7 +912,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:128001
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "ޕެކޭގް ލިސްޓުތައް ޑައުންލޯޑް ކުރަނީ..."
 
 #. Type: text
 #. Description
@@ -1045,7 +1049,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "ސިސްޓަމް ކޮންފިގަރޭޝަން"
 
 #. Type: text
 #. Description
@@ -1057,7 +1061,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "ނެޓްވަރކް ކޮންފިގަރޭޝަން"
 
 #. Type: text
 #. Description
@@ -1069,7 +1073,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "ކޮންފިގަރޭޝަން އެޕްލައި ކުރަނީ"
 
 #. Type: text
 #. Description

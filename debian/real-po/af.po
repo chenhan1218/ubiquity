@@ -474,7 +474,6 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "Gevorderde..."
 
@@ -483,7 +482,6 @@ msgstr "Gevorderde..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Change..."
 msgstr "Gevorderde..."
 
@@ -1072,7 +1070,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "Kies taal"
 
 #. Type: text
 #. Description
@@ -1108,7 +1106,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "Sleutelbord-uitleg"
 

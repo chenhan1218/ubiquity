@@ -26,7 +26,6 @@ msgstr "استخدم أكبر مساحة متاحة مستمرة"
 #. Description
 #: ../ubiquity.templates:4001
 #, fuzzy
-#| msgid "Use the entire disk"
 msgid "Erase and use the entire disk"
 msgstr "استخدم كامل القرص"
 
@@ -102,9 +101,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -273,7 +269,6 @@ msgstr "ولوج آلي"
 #. Description
 #: ../ubiquity.templates:34001
 #, fuzzy
-#| msgid "Require a password to log in"
 msgid "Require my password to log in"
 msgstr "اطلب كلمة سر عند الولوج"
 
@@ -281,7 +276,6 @@ msgstr "اطلب كلمة سر عند الولوج"
 #. Description
 #: ../ubiquity.templates:35001
 #, fuzzy
-#| msgid "Require a password to log in and to decrypt your home folder"
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr "اطلب كلمة سر عند للولوج إلى المجلّد المنزل وتظهيره"
 
@@ -489,7 +483,6 @@ msgstr "بعد:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "جدول تقسيم جديد"
 
@@ -498,7 +491,6 @@ msgstr "جدول تقسيم جديد"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "متقدم..."
 
@@ -507,7 +499,6 @@ msgstr "متقدم..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "ينشئ المستخدم..."
 
@@ -1114,13 +1105,13 @@ msgstr "إذا لم تعد إلى المجزّئ وتزيد مساحة هذه ا
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "إعدادات النظام"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "اختر اللغة/Choose language"
 
 #. Type: text
 #. Description
@@ -1156,7 +1147,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "تخطيط لوحة المفاتيح"
 
@@ -1182,7 +1172,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Type"
 msgid "installation process"
 msgstr "نوع التثبيث"
 
@@ -1452,15 +1441,3 @@ msgstr "يجري إعداد الخدمات الإضافية..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "ضبط إعدادات أجهزة الأشعة ما تحت الحمراء"
-
-#~ msgid "City:"
-#~ msgstr "المدينة:"
-
-#~ msgid "Select your time zone from the map, or by region and city."
-#~ msgstr "حدد منطقتك الزمنية من الخريطة او باستخدام الإقليم والمدينة"
-
-#~ msgid "New partition"
-#~ msgstr "قسم جديد"
-
-#~ msgid "Delete partition"
-#~ msgstr "احذف القسم"

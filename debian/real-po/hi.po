@@ -98,9 +98,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -479,7 +476,6 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "उन्नत..."
 
@@ -488,7 +484,6 @@ msgstr "उन्नत..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "ुउपयोक्ता बन रहा हैं..."
 
@@ -1078,7 +1073,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "भाषा चुनें / Choose language"
 
 #. Type: text
 #. Description
@@ -1114,7 +1109,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "कुंजीपट नक्षा"
 
@@ -1140,7 +1134,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Install[ action ]"
 msgid "installation process"
 msgstr "संस्थापना"
 

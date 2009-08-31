@@ -26,7 +26,6 @@ msgstr "連続する最大の空き領域を使用する"
 #. Description
 #: ../ubiquity.templates:4001
 #, fuzzy
-#| msgid "Use the entire disk"
 msgid "Erase and use the entire disk"
 msgstr "ディスク全体を使用する"
 
@@ -103,9 +102,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -281,7 +277,6 @@ msgstr "自動的にログインする"
 #. Description
 #: ../ubiquity.templates:34001
 #, fuzzy
-#| msgid "Require a password to log in"
 msgid "Require my password to log in"
 msgstr "ログイン時にパスワードを要求する"
 
@@ -289,7 +284,6 @@ msgstr "ログイン時にパスワードを要求する"
 #. Description
 #: ../ubiquity.templates:35001
 #, fuzzy
-#| msgid "Require a password to log in and to decrypt your home folder"
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr "ログイン時にパスワードを要求し、ホームフォルダの暗号化解除を行う"
 
@@ -297,7 +291,7 @@ msgstr "ログイン時にパスワードを要求し、ホームフォルダの
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr ""
+msgstr "他のパスワードを選んでください。"
 
 #. Type: text
 #. Description
@@ -501,7 +495,6 @@ msgstr "後 :"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "新規のパーティションテーブル"
 
@@ -510,7 +503,6 @@ msgstr "新規のパーティションテーブル"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "拡張..."
 
@@ -519,7 +511,6 @@ msgstr "拡張..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "クリーニング中です..."
 
@@ -1139,31 +1130,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "システム設定"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "言語の選択/Choose language"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "ネットワーク設定"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "ソフトウェアセレクション"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "設定の適用"
 
 #. Type: text
 #. Description
@@ -1181,7 +1172,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "キーボードレイアウト"
 
@@ -1207,7 +1197,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Type"
 msgid "installation process"
 msgstr "インストールタイプ"
 
@@ -1480,16 +1469,3 @@ msgstr "追加サービスの設定をしています・・・"
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "赤外線デバイスを設定しています..."
-
-#~ msgid "City:"
-#~ msgstr "都市："
-
-#~ msgid "Select your time zone from the map, or by region and city."
-#~ msgstr ""
-#~ "時刻を設定するために地図上をクリックするか、地域と都市を選択してください。"
-
-#~ msgid "New partition"
-#~ msgstr "新規のパーティション"
-
-#~ msgid "Delete partition"
-#~ msgstr "パーティションの削除"

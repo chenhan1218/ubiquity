@@ -84,7 +84,7 @@ clean:
 
 	$(MAKE) -C d-i clean
 	dh_auto_clean
-	dh_clean
+	dh_clean debian/ubiquity.install debian/ubiquity.dirs
 
 	$(MAKE) -C d-i check
 
@@ -100,6 +100,10 @@ install: build ubiquity/keyboard_names.py
 	dh_testdir
 	dh_testroot
 	dh_prep
+	cp debian/ubiquity.dirs-any debian/ubiquity.dirs
+ifneq (,$(wildcard debian/ubiquity.dirs-$(DEB_HOST_ARCH)))
+	cat debian/ubiquity.dirs-$(DEB_HOST_ARCH) >> debian/ubiquity.dirs
+endif
 	dh_installdirs
 
 	# For the meantime, nearly everything automake wants to install is

@@ -26,7 +26,6 @@ msgstr "Utiliser le plus grand espace libre disponible"
 #. Description
 #: ../ubiquity.templates:4001
 #, fuzzy
-#| msgid "Use the entire disk"
 msgid "Erase and use the entire disk"
 msgstr "Utiliser le disque entier"
 
@@ -104,9 +103,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -282,7 +278,6 @@ msgstr "Se connecter automatiquement"
 #. Description
 #: ../ubiquity.templates:34001
 #, fuzzy
-#| msgid "Require a password to log in"
 msgid "Require my password to log in"
 msgstr "Un mot de passe est requis pour se connecter"
 
@@ -290,7 +285,6 @@ msgstr "Un mot de passe est requis pour se connecter"
 #. Description
 #: ../ubiquity.templates:35001
 #, fuzzy
-#| msgid "Require a password to log in and to decrypt your home folder"
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr ""
 "Un mot de passe est requis pour se connecter et accéder à son dossier "
@@ -505,7 +499,6 @@ msgstr "Après :"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "Nouvelle table de partition"
 
@@ -514,7 +507,6 @@ msgstr "Nouvelle table de partition"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "Avancé..."
 
@@ -523,7 +515,6 @@ msgstr "Avancé..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "Création de l'utilisateur..."
 
@@ -1149,31 +1140,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "Configuration du système"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "Choisir la langue"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "Configuration du réseau"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "Sélection de logiciels"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Application de la configuration"
 
 #. Type: text
 #. Description
@@ -1191,7 +1182,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "Disposition du clavier"
 
@@ -1217,7 +1207,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Type"
 msgid "installation process"
 msgstr "Type d'installation"
 
@@ -1501,16 +1490,3 @@ msgstr "Configuration de services supplémentaires..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Configuration des périphériques infrarouges..."
-
-#~ msgid "City:"
-#~ msgstr "Ville :"
-
-#~ msgid "Select your time zone from the map, or by region and city."
-#~ msgstr ""
-#~ "Sélectionnez votre fuseau horaire depuis la carte, ou par région et ville."
-
-#~ msgid "New partition"
-#~ msgstr "Nouvelle partition"
-
-#~ msgid "Delete partition"
-#~ msgstr "Supprimer la partition"

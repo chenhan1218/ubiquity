@@ -26,7 +26,6 @@ msgstr "ប្រើ​ទំហំ​ទំនេរ​បន្ត​ធំ​
 #. Description
 #: ../ubiquity.templates:4001
 #, fuzzy
-#| msgid "Use the entire disk"
 msgid "Erase and use the entire disk"
 msgstr "ប្រើ​ថាស​ទាំង​ស្រុង"
 
@@ -102,9 +101,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -269,7 +265,6 @@ msgstr "ចូល​ក្នុង​ប្រព័ន្ធ​ដោយ​ស
 #. Description
 #: ../ubiquity.templates:34001
 #, fuzzy
-#| msgid "Require a password to log in"
 msgid "Require my password to log in"
 msgstr "តម្រូវ​ឲ្យ​មាន​ពាក្យ​សម្ងាត់​សម្រាប់​ចូល"
 
@@ -277,7 +272,6 @@ msgstr "តម្រូវ​ឲ្យ​មាន​ពាក្យ​សម្
 #. Description
 #: ../ubiquity.templates:35001
 #, fuzzy
-#| msgid "Require a password to log in"
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr "តម្រូវ​ឲ្យ​មាន​ពាក្យ​សម្ងាត់​សម្រាប់​ចូល"
 
@@ -482,7 +476,6 @@ msgstr "បន្ទាប់​ពី ៖"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "តារាង​ចែក​ភាគ​ថាស​ថ្មី"
 
@@ -491,7 +484,6 @@ msgstr "តារាង​ចែក​ភាគ​ថាស​ថ្មី"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "កម្រិត​ខ្ពស់..."
 
@@ -500,7 +492,6 @@ msgstr "កម្រិត​ខ្ពស់..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "កំពុង​បង្កើត​អ្នក​ប្រើ..."
 
@@ -1097,13 +1088,13 @@ msgstr "ប្រសិន​បើ​អ្នក​ចង់​ត្រឡប
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "ការ​កំណត់​រចនាសម្ព័ន្ធ​ប្រព័ន្ធ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "ជ្រើស​ភាសា"
 
 #. Type: text
 #. Description
@@ -1139,7 +1130,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "ប្លង់​ក្ដារ"
 
@@ -1165,7 +1155,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Complete"
 msgid "installation process"
 msgstr "ការ​ដំឡើង​ជោគជ័យ"
 
@@ -1423,15 +1412,3 @@ msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​ឧបករណ៍ infrared..."
-
-#~ msgid "City:"
-#~ msgstr "ទីក្រុង ៖"
-
-#~ msgid "Select your time zone from the map, or by region and city."
-#~ msgstr "ជ្រើស​ពេល​វេលា​តំបន់​របស់​អ្នក ពី​ផែនទី, ឬ ដោយ តំបន់ និង ទីក្រុង​។"
-
-#~ msgid "New partition"
-#~ msgstr "ចែក​ភាគ​ថាស​ថ្មី"
-
-#~ msgid "Delete partition"
-#~ msgstr "លុប​ភាគថាស"

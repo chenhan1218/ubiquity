@@ -20,7 +20,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "Bruk den største sammenhengende ledige plassen"
 
 #. Type: text
 #. Description
@@ -32,13 +32,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "Installer dem side ved side, og velg mellom dem ved hver oppstart."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "Spesifiser partisjoner manuelt (avansert)"
 
 #. Type: text
 #. Description
@@ -101,9 +101,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -164,7 +161,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Region:"
-msgstr ""
+msgstr "Område:"
 
 #. Type: text
 #. Description
@@ -188,13 +185,13 @@ msgstr "Her kan du skrive for å teste tastaturoppsettet."
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Suggested option:"
-msgstr ""
+msgstr "Foreslått valg:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your own:"
-msgstr ""
+msgstr "Velg din egen:"
 
 #. Type: text
 #. Description
@@ -245,6 +242,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Skriv inn det samme passordet to ganger slik at det kan bli sjekket for "
+"stavefeil. Et godt passord inneholder en blanding av bokstaver, tall og "
+"tegn, bør være minst åtte karakterer langt, og bør endres med jevne "
+"mellomrom."
 
 #. Type: text
 #. Description
@@ -283,7 +284,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr ""
+msgstr "Velg et annet passord"
 
 #. Type: text
 #. Description
@@ -327,25 +328,25 @@ msgstr "Hvordan vil du partisjonere disken?"
 #. Description
 #: ../ubiquity.templates:41001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "Denne datamaskinen har ingen operativsystemer."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "Denne datamaskinen har ${OS} som operativsystem."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "Denne datamaskinen inneholder flere operativsystemer."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "Hvor ønsker du å legge ${RELEASE}?"
 
 #. Type: text
 #. Description
@@ -358,7 +359,7 @@ msgstr "Klargjør partisjoner"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:46001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "Dette vil slette ${SYSTEMS} og installere ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -425,19 +426,19 @@ msgstr "Hopp over"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Installation Complete"
-msgstr ""
+msgstr "Installasjonen er fullført"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Continue Testing"
-msgstr ""
+msgstr "Fortsett testing"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Restart Now"
-msgstr ""
+msgstr "Start på nytt nå"
 
 #. Type: text
 #. Description
@@ -486,7 +487,6 @@ msgstr "Etter"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "Nytt partisjonsområde"
 
@@ -495,7 +495,6 @@ msgstr "Nytt partisjonsområde"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "Avansert …"
 
@@ -504,7 +503,6 @@ msgstr "Avansert …"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "Oppretter bruker..."
 
@@ -686,6 +684,9 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"Installasjonen er ferdig. Du kan fortsette med å teste Ubuntu slik som nå, "
+"men inntil du starter maskinen din på nytt vil verken endringer du gjør "
+"eller dokumenter du lagrer bli bevart."
 
 #. Type: text
 #. Description
@@ -1048,7 +1049,7 @@ msgstr "Det oppstod en feil under fjerning av pakker:"
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Beregner filer for å hoppe over kopiering ..."
 
 #. Type: title
 #. Description
@@ -1123,31 +1124,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "Systemkonfigurasjon"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "Velg språk/Choose language"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "Nettverksoppsett"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "Programvareutvalg"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Bruker konfigurasjonen"
 
 #. Type: text
 #. Description
@@ -1165,7 +1166,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "Tastaturutforming"
 
@@ -1191,7 +1191,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Failed"
 msgid "installation process"
 msgstr "Installasjonen feilet"
 
@@ -1210,12 +1209,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Installasjonstype: ${INSTALLTYPE}\n"
+"Språk: ${LANGUAGE}\n"
+"Tastaturoppsett: ${KEYMAP}\n"
+"Navn: ${FULLNAME}\n"
+"Påloggingsnavn: ${USERNAME}\n"
+"Plassering: ${LOCATION}\n"
+"Fjernkontroll: ${REMOTE}\n"
+"IR-mottaker: ${TRANSMITTER}\n"
+"Skjermkortdriver: ${VIDEO_DRIVER}\n"
+"Tjenester: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "Installasjonstype"
 
 #. Type: text
 #. Description
@@ -1313,7 +1322,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Skjermkortdrivere"
 
 #. Type: text
 #. Description
@@ -1454,9 +1463,3 @@ msgstr "Konfigurerer tilleggstjenester..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Konfigurerer infrarøde enheter..."
-
-#~ msgid "New partition"
-#~ msgstr "Ny partisjon"
-
-#~ msgid "Delete partition"
-#~ msgstr "Slett partisjon"

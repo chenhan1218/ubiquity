@@ -26,7 +26,6 @@ msgstr "ใช้พื้นที่ว่างต่อเนื่องท
 #. Description
 #: ../ubiquity.templates:4001
 #, fuzzy
-#| msgid "Use the entire disk"
 msgid "Erase and use the entire disk"
 msgstr "ใช้พื้นที่ของดิสก์ทั้งหมด"
 
@@ -101,9 +100,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -266,7 +262,6 @@ msgstr "ล็อกอินโดยอัตโนมัติ"
 #. Description
 #: ../ubiquity.templates:34001
 #, fuzzy
-#| msgid "Require a password to log in"
 msgid "Require my password to log in"
 msgstr "ต้องใส่รหัสเพื่อที่จะล็อกอิน"
 
@@ -274,7 +269,6 @@ msgstr "ต้องใส่รหัสเพื่อที่จะล็อ
 #. Description
 #: ../ubiquity.templates:35001
 #, fuzzy
-#| msgid "Require a password to log in and to decrypt your home folder"
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr "ต้องใส่รหัสเพื่อที่จะล็อกอินและถอดรหัส(decrypt)แฟ้มบ้านของคุณ"
 
@@ -480,7 +474,6 @@ msgstr "หลัง:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "ตารางพาร์ทิชั่นใหม่"
 
@@ -489,7 +482,6 @@ msgstr "ตารางพาร์ทิชั่นใหม่"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "ขั้นสูง..."
 
@@ -498,7 +490,6 @@ msgstr "ขั้นสูง..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "กำลังเพิ่มผู้ใช้..."
 
@@ -1103,31 +1094,31 @@ msgstr "หากคุณไม่กลับไปที่ตัวจัด
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "ปรับแต่งระบบ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "เลือกภาษา"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "ปรับแต่งระบบเครือข่าย"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "เลือกโปรแกรม"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "กำลังปรับแต่ง"
 
 #. Type: text
 #. Description
@@ -1145,7 +1136,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "ผังแป้นพิมพ์"
 
@@ -1171,7 +1161,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Type"
 msgid "installation process"
 msgstr "รุปแบบของการติดตั้ง"
 
@@ -1435,15 +1424,3 @@ msgstr "กำลังปรับแต่งservicesที่เพิ่ม�
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "ตั้งค่าอุปกรณ์อินฟราเรด..."
-
-#~ msgid "City:"
-#~ msgstr "เมือง:"
-
-#~ msgid "Select your time zone from the map, or by region and city."
-#~ msgstr "เลือกเขตเวลาของคุณจากแผนที่หรือจากภูมิภาคและเมือง"
-
-#~ msgid "New partition"
-#~ msgstr "พาร์ทิชั่นใหม่"
-
-#~ msgid "Delete partition"
-#~ msgstr "ลบพาร์ทิชั่น"

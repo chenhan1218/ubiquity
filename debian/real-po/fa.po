@@ -1053,7 +1053,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "انتخاب زبان/Choose language"
 
 #. Type: text
 #. Description
@@ -1089,7 +1089,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "چیدمان صفحه‌کلید"
 
@@ -1115,7 +1114,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Copying installation logs..."
 msgid "installation process"
 msgstr "در حال کپی‌کردن ثبتهای نصب..."
 

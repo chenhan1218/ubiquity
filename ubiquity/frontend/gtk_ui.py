@@ -377,6 +377,7 @@ class Wizard(BaseFrontend):
             dialog = gtk.MessageDialog(self.live_installer, gtk.DIALOG_MODAL,
                                        gtk.MESSAGE_ERROR, gtk.BUTTONS_CLOSE,
                                        title)
+            dialog.set_has_separator(False)
             dialog.run()
             sys.exit(1)
 
@@ -763,6 +764,7 @@ class Wizard(BaseFrontend):
                             (gtk.STOCK_QUIT, gtk.RESPONSE_CLOSE,
                              'Continue anyway', 1,
                              'Try again', 2))
+        dialog.set_has_separator(False)
         self.dbfilter_status = None
         label = gtk.Label(text)
         label.set_line_wrap(True)
@@ -895,16 +897,17 @@ class Wizard(BaseFrontend):
 
         syslog.syslog('progress_loop()')
 
-        self.current_page = None
+        self.current_page = None    
 
         lang = self.locale.split('_')[0]
-        slides = '/usr/share/ubiquity-slideshow/slides/index.html#locale=%s' % lang
+        slides = '/usr/share/ubiquity-slideshow/slides/index.html'
         s = self.live_installer.get_screen()
         sh = s.get_height()
         sw = s.get_width()
         fail = None
         if os.path.exists(slides):
-            if sh >= 800 and sw >= 600:
+            slides = 'file://%s#locale=%s' % (slides, lang)
+            if sh >= 600 and sw >= 800:
                 try:
                     import webkit
                     webview = webkit.WebView()
@@ -915,7 +918,7 @@ class Wizard(BaseFrontend):
                 except ImportError:
                     fail = 'Webkit not present.'
             else:
-                fail = 'Display < 800x600.'
+                fail = 'Display < 800x600 (%sx%s).' % (sw, sh)
         else:
             fail = 'No slides present for %s.' % lang
         if fail:
@@ -2508,6 +2511,7 @@ class Wizard(BaseFrontend):
             msg = title
         dialog = gtk.MessageDialog(transient, gtk.DIALOG_MODAL,
                                    gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
+        dialog.set_has_separator(False)
         dialog.set_title(title)
         dialog.run()
         self.allow_change_step(saved_allowed_change_step)
@@ -2541,6 +2545,7 @@ class Wizard(BaseFrontend):
             text = str(text)
             buttons.extend((text, len(buttons) / 2 + 1))
         dialog = gtk.Dialog(title, transient, gtk.DIALOG_MODAL, tuple(buttons))
+        dialog.set_has_separator(False)
         vbox = gtk.VBox()
         vbox.set_border_width(5)
         label = gtk.Label(msg)

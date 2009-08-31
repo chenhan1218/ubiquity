@@ -26,7 +26,6 @@ msgstr "Qada vala ya heri fireh û biberdewamî bi karbîne"
 #. Description
 #: ../ubiquity.templates:4001
 #, fuzzy
-#| msgid "Use the entire disk"
 msgid "Erase and use the entire disk"
 msgstr "Hemû diskê bi kar bîne"
 
@@ -104,9 +103,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 #, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -278,7 +274,6 @@ msgstr "Bixeber têkevê"
 #. Description
 #: ../ubiquity.templates:34001
 #, fuzzy
-#| msgid "Require a password to log in"
 msgid "Require my password to log in"
 msgstr "Ji bo têketinê şîfre divê"
 
@@ -286,7 +281,6 @@ msgstr "Ji bo têketinê şîfre divê"
 #. Description
 #: ../ubiquity.templates:35001
 #, fuzzy
-#| msgid "Require a password to log in and to decrypt your home folder"
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr "Ji bo vekirina danişînê û peldanka malê şîfre pêwîst e"
 
@@ -496,7 +490,6 @@ msgstr "Peyde:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 #, fuzzy
-#| msgid "New partition table"
 msgid "New Partition Table..."
 msgstr "Tabloya partîsyona ya nû"
 
@@ -505,7 +498,6 @@ msgstr "Tabloya partîsyona ya nû"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 #, fuzzy
-#| msgid "Advanced..."
 msgid "Add..."
 msgstr "Pêşketî..."
 
@@ -514,7 +506,6 @@ msgstr "Pêşketî..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 #, fuzzy
-#| msgid "Creating user..."
 msgid "Change..."
 msgstr "Bikarhêner tê afirandin..."
 
@@ -841,6 +832,9 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
+"Ev pirsgirêk bi piranî ji ber hard dîskeke bipirsgirêk rû dide. Ji bo "
+"çareserkirinê; an hard dîska xwe saxtî bike an biguherîne an jî komputerê li "
+"ciyekî hênik bixebitîne."
 
 #. Type: error
 #. Description
@@ -858,12 +852,16 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
+"Ev pirsgirêk bi piranî ji ber pirsgirêkên CD/DVD, ajokarên CD/DVD an jî "
+"dîska sabît rû dide. Ji bo çareserkirinê van tiştan biceribîne: Ajokara CD/"
+"DVD paqij bike, eger xirabe be tamîr bike an jî biguherîne an jî komputerê "
+"li ciyekî hênik bixebitîne."
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:110001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "Ev pela li jêr û çavkaniya di CD/DVD'ê de hev nagirin:"
 
 #. Type: text
 #. Description
@@ -1048,7 +1046,7 @@ msgstr "Dema ku pakêt dihatin rakirin çewtiyek derket"
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Pelên dê di kopîkirinê de bên piştguhkirin tên hesibandin..."
 
 #. Type: title
 #. Description
@@ -1096,7 +1094,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:152001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "Dixwazî vegerî dabeşkarê?"
 
 #. Type: boolean
 #. Description
@@ -1105,6 +1103,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"Kapasîteya hin dîskên te afirandine pir biçûk e. Ji kerema xwe re kapasîteya "
+"dîskên li jêrê heta vê astê bilind bike (byte):"
 
 #. Type: boolean
 #. Description
@@ -1113,18 +1113,20 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"Eger venegerî dabeşkarê û kapasîteya dîskan mezin nekî, sazkirin dê bi ser "
+"nekeve."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:153001
 msgid "System Configuration"
-msgstr ""
+msgstr "Mîhenkirina Pergalê"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr ""
+msgstr "Ziman hilbijêre/Choose language"
 
 #. Type: text
 #. Description
@@ -1160,7 +1162,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 #, fuzzy
-#| msgid "Keyboard layout"
 msgid "Keyboard"
 msgstr "Rengê klavyeyê"
 
@@ -1186,7 +1187,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 #, fuzzy
-#| msgid "Installation Type"
 msgid "installation process"
 msgstr "Cureyê Sazkirinê"
 
@@ -1433,16 +1433,3 @@ msgstr "Xizmetên pêvek tên mîhenkirin..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "City:"
-#~ msgstr "Bajar:"
-
-#~ msgid "Select your time zone from the map, or by region and city."
-#~ msgstr ""
-#~ "Dikarî demê ji nexşeya dinyayê li gorî bajar an jî herêman hilbijêrî."
-
-#~ msgid "New partition"
-#~ msgstr "Partîsyona Nû"
-
-#~ msgid "Delete partition"
-#~ msgstr "Partîsyonê jê bive"
