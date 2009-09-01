@@ -27,11 +27,9 @@ AFTER = 'myth-services'
 WEIGHT = 10
 
 class PageGtk(PluginUI):
-    def get_ui(self):
+    def __init__(self, *args, **kwargs):
         if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui':
-            return {'widgets': 'tab_remote_control'}
-        else:
-            return None
+            self.plugin_widgets = 'tab_remote_control'
 
 class Page(Plugin):
 

@@ -24,17 +24,14 @@ import debconf
 NAME = 'usersetup'
 
 class PageGtk(PluginUI):
-    def get_ui(self):
-        return {'widgets': 'stepUserInfo'}
+    plugin_widgets = 'stepUserInfo'
 
 class PageKde(PluginUI):
-    def get_ui(self):
-        return {'widgets': 'stepUserInfo',
-                'breadcrumb': 'ubiquity/text/breadcrumb_user'}
+    plugin_widgets = 'stepUserInfo'
+    plugin_breadcrumb = 'ubiquity/text/breadcrumb_user'
 
 class PageDebconf(PluginUI):
-    def get_ui(self):
-        return {'title': 'ubiquity/text/userinfo_heading_label'}
+    plugin_title = 'ubiquity/text/userinfo_heading_label'
 
 class Page(FilteredCommand):
     def prepare(self, unfiltered=False):

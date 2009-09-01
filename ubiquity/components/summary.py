@@ -33,14 +33,13 @@ from ubiquity.filteredcommand import FilteredCommand
 NAME = 'summary'
 
 class PageGtk(PluginUI):
-    def get_ui(self):
-        return {'widgets': 'stepReady', 'is_install': True}
+    plugin_is_install = True
+    plugin_widgets = 'stepReady'
 
 class PageKde(PluginUI):
-    def get_ui(self):
-        return {'widgets': 'stepReady',
-                'breadcrumb': 'ubiquity/text/breadcrumb_summary',
-                'is_install': True}
+    plugin_is_install = True
+    plugin_widgets = 'stepReady'
+    plugin_breadcrumb = 'ubiquity/text/breadcrumb_summary'
 
 def installing_from_disk():
     cdromfs = ''

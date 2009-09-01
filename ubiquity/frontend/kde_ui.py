@@ -179,10 +179,9 @@ class Wizard(BaseFrontend):
             if hasattr(mod.module, 'PageKde'):
                 mod.ui_class = mod.module.PageKde
                 mod.controller = Controller(self)
-                mod.ui_inst = mod.ui_class(mod.controller)
-                mod.ui = mod.ui_inst.get_ui() or dict()
-                widgets = mod.ui.get('widgets')
-                breadcrumb = mod.ui.get('breadcrumb')
+                mod.ui = mod.ui_class(mod.controller)
+                widgets = mod.ui.get('plugin_widgets')
+                breadcrumb = mod.ui.get('plugin_breadcrumb')
                 if widgets:
                     def fill_out(widget_list):
                         rv = []
@@ -199,7 +198,7 @@ class Wizard(BaseFrontend):
                             rv.append(w)
                         return rv
                     mod.widgets = fill_out(widgets)
-                    if 'breadcrumb' not in mod.ui:
+                    if not hasattr(mod.ui, 'plugin_breadcrumb'):
                         breadcrumb = '------' # just a placeholder
                     if breadcrumb:
                         mod.breadcrumb_question = breadcrumb
@@ -400,7 +399,7 @@ class Wizard(BaseFrontend):
             else:
                 old_dbfilter = self.dbfilter
                 if issubclass(self.pages[self.pagesindex].filter_class, Plugin):
-                    ui = self.pages[self.pagesindex].ui_inst
+                    ui = self.pages[self.pagesindex].ui
                 else:
                     ui = None
                 self.dbfilter = self.pages[self.pagesindex].filter_class(self, ui=ui)
@@ -519,7 +518,7 @@ class Wizard(BaseFrontend):
             pages = self.pages
         widgets = []
         for p in pages:
-            prefix = p.ui.get('prefix')
+            prefix = p.ui.get('plugin_prefix')
             for w in p.widgets:
                 for c in self.all_children(w):
                     widgets.append((c, prefix))
@@ -547,10 +546,10 @@ class Wizard(BaseFrontend):
                 core_names.append('ubiquity/imported/%s' % stock_item)
             prefixes = []
             for p in self.pages:
-                prefix = p.ui.get('prefix')
+                prefix = p.ui.get('plugin_prefix')
                 if not prefix:
                     prefix = 'ubiquity/text'
-                if p.ui.get('is_language_page'):
+                if p.ui.get('plugin_is_language'):
                     children = reduce(lambda x,y: x + self.all_children(y), p.widgets, [])
                     core_names.extend([prefix+'/'+c.objectName() for c in children])
                 if p.breadcrumb_question:
@@ -704,9 +703,8 @@ class Wizard(BaseFrontend):
         for page in self.pages:
             if page.module.NAME == n:
                 # Now ask ui class which page we want to be showing right now
-                cur = None
-                if hasattr(page.ui_inst, 'get_current_page'):
-                    cur = page.ui_inst.get_current_page()
+                if hasattr(page.ui, 'plugin_get_current_page'):
+                    cur = page.ui.call('plugin_get_current_page')
                     if isinstance(cur, str) and hasattr(self.ui, cur):
                         cur = getattr(self.ui, cur) # for not-yet-plugins
                 elif page.widgets:
@@ -722,7 +720,7 @@ class Wizard(BaseFrontend):
                 else:
                     self.ui.steps_widget.setVisible(False)
                 found = True
-                is_install = page.ui.get('is_install')
+                is_install = page.ui.get('plugin_is_install')
             elif page.breadcrumb:
                 if found:
                     page.breadcrumb.setStyleSheet(activeSS)

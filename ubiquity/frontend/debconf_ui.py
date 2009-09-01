@@ -72,9 +72,8 @@ class Wizard(BaseFrontend):
             if hasattr(mod.module, 'PageDebconf'):
                 mod.ui_class = mod.module.PageDebconf
                 mod.controller = Controller(self)
-                mod.ui_inst = mod.ui_class(mod.controller)
-                mod.ui = mod.ui_inst.get_ui()
-                title = mod.ui and mod.ui.get('title')
+                mod.ui = mod.ui_class(mod.controller)
+                title = mod.ui.get('plugin_title')
                 if title:
                     mod.title = title
                     self.pageslen += 1
@@ -86,7 +85,7 @@ class Wizard(BaseFrontend):
             self.db.settitle(step.title)
 
             if issubclass(self.pages[self.pagesindex].filter_class, Plugin):
-                ui = self.pages[self.pagesindex].ui_inst
+                ui = self.pages[self.pagesindex].ui
             else:
                 ui = None
             dbfilter = self.pages[self.pagesindex].filter_class(self, ui=ui)

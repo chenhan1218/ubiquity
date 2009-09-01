@@ -49,9 +49,7 @@ class PageGtk(PluginUI):
         except Exception, e:
             self.debug('Could not create keyboard page: %s', e)
             self.page = None
-
-    def get_ui(self):
-        return {'widgets': self.page}
+        self.plugin_widgets = self.page
 
     def on_keyboardlayoutview_row_activated(self, *args):
         self.controller.go_forward()
@@ -182,6 +180,8 @@ class PageGtk(PluginUI):
             self.keyboard_layout_hbox.set_sensitive(True)
 
 class PageKde(PluginUI):
+    plugin_breadcrumb = 'ubiquity/text/breadcrumb_keyboard'
+
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
         self.current_layout = None
@@ -202,10 +202,7 @@ class PageKde(PluginUI):
         except Exception, e:
             self.debug('Could not create keyboard page: %s', e)
             self.page = None
-
-    def get_ui(self):
-        return {'widgets': self.page,
-                'breadcrumb': 'ubiquity/text/breadcrumb_keyboard'}
+        self.plugin_widgets = self.page
 
     def on_keyboard_layout_selected(self):
         layout = self.get_keyboard()
@@ -293,13 +290,9 @@ class PageKde(PluginUI):
         return unicode(self.page.keyboard_variant_combobox.currentText())
 
 class PageDebconf(PluginUI):
-    def get_ui(self):
-        return {'title': 'ubiquity/text/keyboard_heading_label'}
+    plugin_title = 'ubiquity/text/keyboard_heading_label'
 
 class PageNoninteractive(PluginUI):
-    def get_ui(self):
-        return None
-
     def set_keyboard_choices(self, choices):
         """Set the available keyboard layout choices."""
         pass

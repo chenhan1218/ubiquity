@@ -31,11 +31,11 @@ if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui':
     HIDDEN = ['summary', 'migrationassistant']
 
 class PageGtk(PluginUI):
-    def get_ui(self):
+    plugin_is_install = True
+
+    def __init__(self, *args, **kwargs):
         if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui':
-            return {'widgets': 'stepReady', 'is_install': True}
-        else:
-            return None
+            self.plugin_widgets = 'stepReady'
 
 class Page(ubiquity.components.summary.Page):
     """This class is used for populating the Mythbuntu summary page

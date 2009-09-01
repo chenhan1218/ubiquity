@@ -27,11 +27,9 @@ AFTER = 'myth-summary'
 WEIGHT = 10
 
 class PageGtk(PluginUI):
-    def get_ui(self):
+    def __init__(self, *args, **kwargs):
         if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui':
-            return {'optional_widgets': 'mythbuntu_stepBackendSetup'}
-        else:
-            return None
+            self.plugin_optional_widgets = 'mythbuntu_stepBackendSetup'
 
-    def get_current_page(self):
+    def plugin_get_current_page(self):
         return None

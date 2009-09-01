@@ -27,11 +27,9 @@ AFTER = 'myth-drivers'
 WEIGHT = 10
 
 class PageGtk(PluginUI):
-    def get_ui(self):
+    def __init__(self, *args, **kwargs):
         if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui':
-            return {'widgets': 'mythbuntu_stepPasswords'}
-        else:
-            return None
+            self.plugin_widgets = 'mythbuntu_stepPasswords'
 
 class Page(Plugin):
 

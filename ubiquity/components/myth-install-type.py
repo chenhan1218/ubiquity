@@ -27,11 +27,9 @@ AFTER = 'usersetup'
 WEIGHT = 12
 
 class PageGtk(PluginUI):
-    def get_ui(self):
+    def __init__(self, *args, **kwargs):
         if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui':
-            return {'widgets': 'mythbuntu_stepCustomInstallType'}
-        else:
-            return None
+            self.plugin_widgets = 'mythbuntu_stepCustomInstallType'
 
 class Page(Plugin):
 #we are seeding one of the possible install types

@@ -27,8 +27,7 @@ class NetworkUnfilteredOnly(Exception):
     pass
 
 class PageDebconf(PluginUI):
-    def get_ui(self):
-        return {'title': 'ubiquity/text/network_heading_label'}
+    plugin_title = 'ubiquity/text/network_heading_label'
 
 # Only supports unfiltered mode.
 class Page(Plugin):

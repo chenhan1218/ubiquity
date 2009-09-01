@@ -42,7 +42,6 @@ def get_intro():
 
 class PageGtk(PluginUI):
     def __init__(self, *args, **kwargs):
-        self.page = None
         text = get_intro()
         if text:
             try:
@@ -50,26 +49,19 @@ class PageGtk(PluginUI):
                 builder = gtk.Builder()
                 builder.add_from_file('/usr/share/ubiquity/gtk/stepIntro.ui')
                 builder.get_object('intro_label').set_markup(text.rstrip('\n'))
-                self.page = builder.get_object('stepWelcome')
+                self.plugin_widgets = builder.get_object('stepWelcome')
             except Exception, e:
                 self.debug('Could not create intro page: %s', e)
 
-    def get_ui(self):
-        return {'widgets': self.page}
-
 class PageKde(PluginUI):
+    plugin_breadcrumb = None
+
     def __init__(self, *args, **kwargs):
-        self.page = None
         text = get_intro()
         if text:
             try:
                 from PyQt4 import uic
-                self.page = uic.loadUi('/usr/share/ubiquity/qt/stepIntro.ui')
-                self.page.introLabel.setText(text.replace('\n', '<br>'))
+                self.plugin_widgets = uic.loadUi('/usr/share/ubiquity/qt/stepIntro.ui')
+                self.plugin_widgets.introLabel.setText(text.replace('\n', '<br>'))
             except Exception, e:
                 self.debug('Could not create intro page: %s', e)
-                self.page = None
-
-    def get_ui(self):
-        return {'widgets': self.page,
-                'breadcrumb': None}

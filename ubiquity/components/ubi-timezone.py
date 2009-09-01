@@ -48,9 +48,7 @@ class PageGtk(PluginUI):
         except Exception, e:
             self.debug('Could not create timezone page: %s', e)
             self.page = None
-
-    def get_ui(self):
-        return {'widgets': self.page}
+        self.plugin_widgets = self.page
 
     def set_timezone(self, timezone):
         self.fill_timezone_boxes()
@@ -182,6 +180,8 @@ class PageGtk(PluginUI):
         self.tzmap.select_city(zone)
 
 class PageKde(PluginUI):
+    plugin_breadcrumb = 'ubiquity/text/breadcrumb_timezone'
+
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
         try:
@@ -199,10 +199,7 @@ class PageKde(PluginUI):
         except Exception, e:
             self.debug('Could not create timezone page: %s', e)
             self.page = None
-
-    def get_ui(self):
-        return {'widgets': self.page,
-                'breadcrumb': 'ubiquity/text/breadcrumb_timezone'}
+        self.plugin_widgets = self.page
 
     def refresh_timezones(self):
         lang = os.environ['LANG'].split('_', 1)[0]
@@ -288,13 +285,9 @@ class PageKde(PluginUI):
         return self.tzmap.get_timezone()
 
 class PageDebconf(PluginUI):
-    def get_ui(self):
-        return {'title': 'ubiquity/text/timezone_heading_label'}
+    plugin_title = 'ubiquity/text/timezone_heading_label'
 
 class PageNoninteractive(PluginUI):
-    def get_ui(self):
-        return None
-
     def set_timezone(self, timezone):
         """Set the current selected timezone."""
         self.timezone = timezone

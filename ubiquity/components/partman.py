@@ -32,10 +32,8 @@ NAME = 'partman'
 
 class PageGtk(PluginUI):
     part_page = None
-
-    def get_ui(self):
-        return {'widgets': 'stepPartAuto',
-                'optional_widgets': 'stepPartAdvanced'}
+    plugin_widgets = 'stepPartAuto'
+    plugin_optional_widgets = 'stepPartAdvanced'
 
     def get_current_page(self):
         return self.part_page
@@ -45,10 +43,8 @@ class PageGtk(PluginUI):
 
 class PageKde(PluginUI):
     part_page = None
-
-    def get_ui(self):
-        return {'widgets': ['stepPartAuto', 'stepPartAdvanced'],
-                'breadcrumb': 'ubiquity/text/breadcrumb_partition'}
+    plugin_widgets = ['stepPartAuto', 'stepPartAdvanced']
+    plugin_breadcrumb = 'ubiquity/text/breadcrumb_partition'
 
     def get_current_page(self):
         return self.part_page

@@ -52,6 +52,8 @@ class PageBase(PluginUI):
         return ''
 
 class PageGtk(PageBase):
+    plugin_is_language = True
+
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
         if self.controller.oem_user_config:
@@ -88,10 +90,7 @@ class PageGtk(PageBase):
         except Exception, e:
             self.debug('Could not create language page: %s', e)
             self.page = None
-
-    def get_ui(self):
-        return {'widgets': self.page,
-                'is_language_page': True}
+        self.plugin_widgets = self.page
 
     def set_language_choices(self, choices, choice_map):
         import gtk, gobject
@@ -171,6 +170,9 @@ class PageGtk(PageBase):
         return self.oem_id_entry.get_text()
 
 class PageKde(PageBase):
+    plugin_breadcrumb = 'ubiquity/text/breadcrumb_language'
+    plugin_is_language = True
+
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
         try:
@@ -214,11 +216,7 @@ class PageKde(PageBase):
         except Exception, e:
             self.debug('Could not create language page: %s', e)
             self.page = None
-
-    def get_ui(self):
-        return {'widgets': self.page,
-                'breadcrumb': 'ubiquity/text/breadcrumb_language',
-                'is_language_page': True}
+        self.plugin_widgets = self.page
 
     def openReleaseNotes(self):
         lang = self.selected_language()
@@ -278,13 +276,9 @@ class PageKde(PageBase):
         return unicode(self.page.oem_id_entry.text())
 
 class PageDebconf(PageBase):
-    def get_ui(self):
-        return {'title': 'ubiquity/text/language_heading_label'}
+    plugin_title = 'ubiquity/text/language_heading_label'
 
 class PageNoninteractive(PageBase):
-    def get_ui(self):
-        return None
-
     def set_language(self, language):
         """Set the current selected language."""
         # Use the language code, not the translated name

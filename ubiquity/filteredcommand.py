@@ -52,8 +52,8 @@ class UntrustedBase(object):
 
     def call(self, method, *args, **kwargs):
         '''Safely calls a member.  If it doesn't exist, returns None'''
-        if hasattr(self, attr):
-            return getattr(self, attr)(*args, **kwargs)
+        if hasattr(self, method):
+            return getattr(self, method)(*args, **kwargs)
         else:
             return None
 

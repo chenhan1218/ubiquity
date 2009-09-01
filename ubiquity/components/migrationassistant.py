@@ -28,8 +28,7 @@ from ubiquity.misc import *
 NAME = 'migrationassistant'
 
 class PageGtk(PluginUI):
-    def get_ui(self):
-        return {'optional_widgets': 'stepMigrationAssistant'}
+    plugin_optional_widgets = 'stepMigrationAssistant'
 
 class Page(FilteredCommand):
     def prepare(self):

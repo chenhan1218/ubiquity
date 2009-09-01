@@ -28,12 +28,10 @@ AFTER = 'myth-remote'
 WEIGHT = 10
 
 class PageGtk(PluginUI):
-    def get_ui(self):
+    def __init__(self, *args, **kwargs):
         if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui' and \
            len(get_graphics_dictionary()) > 0:
-            return {'widgets': 'mythbuntu_stepDrivers'}
-        else:
-            return None
+            self.plugin_widgets = 'mythbuntu_stepDrivers'
 
 class Page(Plugin):
     def prepare(self):

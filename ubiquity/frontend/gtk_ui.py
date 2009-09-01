@@ -199,10 +199,9 @@ class Wizard(BaseFrontend):
             if hasattr(mod.module, 'PageGtk'):
                 mod.ui_class = mod.module.PageGtk
                 mod.controller = Controller(self)
-                mod.ui_inst = mod.ui_class(mod.controller)
-                mod.ui = mod.ui_inst.get_ui() or dict()
-                widgets = mod.ui.get('widgets')
-                optional_widgets = mod.ui.get('optional_widgets')
+                mod.ui = mod.ui_class(mod.controller)
+                widgets = mod.ui.get('plugin_widgets')
+                optional_widgets = mod.ui.get('plugin_optional_widgets')
                 if widgets or optional_widgets:
                     def fill_out(widget_list):
                         rv = []
@@ -248,7 +247,7 @@ class Wizard(BaseFrontend):
             pages = self.pages
         widgets = []
         for p in pages:
-            prefix = p.ui.get('prefix')
+            prefix = p.ui.get('plugin_prefix')
             for w in p.all_widgets:
                 for c in self.all_children(w):
                     widgets.append((c, prefix))
@@ -413,7 +412,7 @@ class Wizard(BaseFrontend):
             else:
                 old_dbfilter = self.dbfilter
                 if issubclass(self.pages[self.pagesindex].filter_class, Plugin):
-                    ui = self.pages[self.pagesindex].ui_inst
+                    ui = self.pages[self.pagesindex].ui
                 else:
                     ui = None
                 self.dbfilter = self.pages[self.pagesindex].filter_class(self, ui=ui)
@@ -622,10 +621,10 @@ class Wizard(BaseFrontend):
                 core_names.append('ubiquity/imported/%s' % stock_item)
             prefixes = []
             for p in self.pages:
-                prefix = p.ui.get('prefix')
+                prefix = p.ui.get('plugin_prefix')
                 if not prefix:
                     prefix = 'ubiquity/text'
-                if p.ui.get('is_language_page'):
+                if p.ui.get('plugin_is_language'):
                     children = reduce(lambda x,y: x + self.all_children(y), p.all_widgets, [])
                     core_names.extend([prefix+'/'+c.get_name() for c in children])
                 prefixes.append(prefix)
@@ -837,8 +836,8 @@ class Wizard(BaseFrontend):
         for page in self.pages:
             if page.module.NAME == n:
                 # Now ask ui class which page we want to be showing right now
-                if hasattr(page.ui_inst, 'get_current_page'):
-                    cur = page.ui_inst.get_current_page()
+                if hasattr(page.ui, 'plugin_get_current_page'):
+                    cur = page.ui.call('plugin_get_current_page')
                     if isinstance(cur, str) and hasattr(self, cur):
                         cur = getattr(self, cur) # for not-yet-plugins
                 elif page.widgets:
@@ -847,7 +846,7 @@ class Wizard(BaseFrontend):
                     cur = page.optional_widgets[0]
                 if cur:
                     cur.show()
-                    is_install = page.ui.get('is_install')
+                    is_install = page.ui.get('plugin_is_install')
                     break
         if not cur:
             return False
