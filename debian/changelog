@@ -1,4 +1,4 @@
-ubiquity (1.99.15) UNRELEASED; urgency=low
+ubiquity (1.99.15) karmic; urgency=low
 
   [ Mario Limonciello ]
   * Mythbuntu frontend:
@@ -16,7 +16,7 @@ ubiquity (1.99.15) UNRELEASED; urgency=low
   * Re-enable encrypted home option; apparently all the dependencies are in
     place now.
 
- -- Mario Limonciello <superm1@ubuntu.com>  Tue, 01 Sep 2009 10:22:11 -0500
+ -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 01 Sep 2009 12:44:48 -0500
 
 ubiquity (1.99.14) karmic; urgency=low
 
