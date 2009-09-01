@@ -206,11 +206,11 @@ class Wizard(BaseFrontend):
                 if widgets or optional_widgets:
                     def fill_out(widget_list):
                         rv = []
-                        if type(widget_list).__name__ != 'list':
+                        if not isinstance(widget_list, list):
                             widget_list = [widget_list]
                         for w in widget_list:
                             if not w: continue
-                            if type(w).__name__ == 'str':
+                            if isinstance(w, str):
                                 w = add_subpage(self, steps, w)
                             else:
                                 steps.append_page(w)
@@ -839,7 +839,7 @@ class Wizard(BaseFrontend):
                 # Now ask ui class which page we want to be showing right now
                 if hasattr(page.ui_inst, 'get_current_page'):
                     cur = page.ui_inst.get_current_page()
-                    if type(cur).__name__ == 'str' and hasattr(self, cur):
+                    if isinstance(cur, str) and hasattr(self, cur):
                         cur = getattr(self, cur) # for not-yet-plugins
                 elif page.widgets:
                     cur = page.widgets[0]

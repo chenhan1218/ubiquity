@@ -23,6 +23,7 @@ import subprocess
 
 import debconf
 
+from ubiquity.plugin import *
 from ubiquity.parted_server import PartedServer
 from ubiquity.misc import *
 from ubiquity.casper import get_casper
@@ -31,15 +32,11 @@ from ubiquity.filteredcommand import FilteredCommand
 
 NAME = 'summary'
 
-class PageGtk:
-    def __init__(self, *args, **kwargs):
-        pass
+class PageGtk(PluginUI):
     def get_ui(self):
         return {'widgets': 'stepReady', 'is_install': True}
 
-class PageKde:
-    def __init__(self, *args, **kwargs):
-        pass
+class PageKde(PluginUI):
     def get_ui(self):
         return {'widgets': 'stepReady',
                 'breadcrumb': 'ubiquity/text/breadcrumb_summary',

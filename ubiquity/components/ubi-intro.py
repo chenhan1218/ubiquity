@@ -19,7 +19,7 @@
 # along with Ubiquity.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
-import sys
+from ubiquity.plugin import *
 
 NAME = 'intro'
 AFTER = None
@@ -40,7 +40,7 @@ def get_intro():
     intro_file.close()
     return text
 
-class PageGtk:
+class PageGtk(PluginUI):
     def __init__(self, *args, **kwargs):
         self.page = None
         text = get_intro()
@@ -52,12 +52,12 @@ class PageGtk:
                 builder.get_object('intro_label').set_markup(text.rstrip('\n'))
                 self.page = builder.get_object('stepWelcome')
             except Exception, e:
-                print >>sys.stderr, 'Could not create intro page: %s' % e
+                self.debug('Could not create intro page: %s', e)
 
     def get_ui(self):
         return {'widgets': self.page}
 
-class PageKde:
+class PageKde(PluginUI):
     def __init__(self, *args, **kwargs):
         self.page = None
         text = get_intro()
@@ -67,7 +67,7 @@ class PageKde:
                 self.page = uic.loadUi('/usr/share/ubiquity/qt/stepIntro.ui')
                 self.page.introLabel.setText(text.replace('\n', '<br>'))
             except Exception, e:
-                print >>sys.stderr, 'Could not create intro page: %s' % e
+                self.debug('Could not create intro page: %s', e)
                 self.page = None
 
     def get_ui(self):

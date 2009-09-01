@@ -22,7 +22,7 @@ import sys
 import os
 import fnmatch
 
-PLUGIN_PATH = '/usr/lib/ubiquity/plugins.d'
+PLUGIN_PATH = '/usr/lib/ubiquity/plugins'
 
 def load_plugins():
     modules = []
@@ -40,7 +40,7 @@ def load_plugins():
 def get_mod_list(mod, name):
     if hasattr(mod, name):
         mod_list = getattr(mod, name)
-        if type(mod_list).__name__ != 'list':
+        if not isinstance(mod_list, list):
             mod_list = [mod_list]
         return mod_list
     else:

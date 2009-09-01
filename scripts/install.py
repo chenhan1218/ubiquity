@@ -391,6 +391,18 @@ class Install:
                         raise
 
             self.db.progress('SET', count)
+            self.db.progress('REGION', count, count+1)
+            count += 1
+            self.db.progress('INFO', 'ubiquity/install/network')
+            self.configure_network()
+
+            self.db.progress('SET', count)
+            self.db.progress('REGION', count, count+1)
+            count += 1
+            self.db.progress('INFO', 'ubiquity/install/apt')
+            self.configure_apt()
+
+            self.db.progress('SET', count)
             self.db.progress('REGION', count, count+len(self.plugins))
             count += len(self.plugins)
             self.configure_plugins()
@@ -405,18 +417,6 @@ class Install:
             self.db.progress('REGION', count, count+1)
             count += 1
             self.run_target_config_hooks()
-
-            self.db.progress('SET', count)
-            self.db.progress('REGION', count, count+1)
-            count += 1
-            self.db.progress('INFO', 'ubiquity/install/network')
-            self.configure_network()
-
-            self.db.progress('SET', count)
-            self.db.progress('REGION', count, count+1)
-            count += 1
-            self.db.progress('INFO', 'ubiquity/install/apt')
-            self.configure_apt()
 
             self.db.progress('SET', count)
             self.db.progress('REGION', count, count+5)

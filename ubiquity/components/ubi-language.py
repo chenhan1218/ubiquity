@@ -20,7 +20,6 @@
 import os
 import re
 import locale
-import sys
 import debconf
 import PyICU
 
@@ -33,7 +32,7 @@ WEIGHT = 10
 
 _release_notes_url_path = '/cdrom/.disk/release_notes_url'
 
-class PageBase:
+class PageBase(PluginUI):
     def set_language_choices(self, choices, choice_map):
         """Called with language choices and a map to localised names."""
         self.language_choice_map = dict(choice_map)
@@ -87,7 +86,7 @@ class PageGtk(PageBase):
                 except:
                     release_notes_vbox.hide()
         except Exception, e:
-            print >>sys.stderr, 'Could not create language page: %s' % e
+            self.debug('Could not create language page: %s', e)
             self.page = None
 
     def get_ui(self):
@@ -213,7 +212,7 @@ class PageKde(PageBase):
                 self.page.release_notes_label.hide()
                 self.page.release_notes_frame.hide()
         except Exception, e:
-            print >>sys.stderr, 'Could not create language page: %s' % e
+            self.debug('Could not create language page: %s', e)
             self.page = None
 
     def get_ui(self):
@@ -278,21 +277,13 @@ class PageKde(PageBase):
     def get_oem_id(self):
         return unicode(self.page.oem_id_entry.text())
 
-class PageDebconf:
-    def __init__(self, *args, **kwargs):
-        pass
+class PageDebconf(PageBase):
     def get_ui(self):
         return {'title': 'ubiquity/text/language_heading_label'}
 
-class PageNoninteractive:
-    def __init__(self, controller, *args, **kwargs):
-        self.controller = controller
+class PageNoninteractive(PageBase):
     def get_ui(self):
         return None
-
-    def set_language_choices(self, choices, choice_map):
-        """Called with language choices and a map to localised names."""
-        self.language_choice_map = dict(choice_map)
 
     def set_language(self, language):
         """Set the current selected language."""

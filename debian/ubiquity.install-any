@@ -17,7 +17,7 @@ apport/source_ubiquity.py usr/share/apport/package-hooks
 bin/ubiquity-dm usr/bin
 
 # intro
-ubiquity/components/ubi-intro.py usr/lib/ubiquity/plugins.d
+ubiquity/components/ubi-intro.py usr/lib/ubiquity/plugins
 
 # apt-setup
 d-i/source/apt-setup/apt-setup-verify usr/lib/ubiquity/apt-setup
@@ -41,7 +41,7 @@ d-i/source/choose-mirror/choose-mirror usr/lib/ubiquity/choose-mirror
 # console-setup
 compat/locale usr/lib/ubiquity/console-setup
 scripts/console-setup-apply usr/lib/ubiquity
-ubiquity/components/ubi-console-setup.py usr/lib/ubiquity/plugins.d
+ubiquity/components/ubi-console-setup.py usr/lib/ubiquity/plugins
 
 # debian-installer-utils
 d-i/source/debian-installer-utils/block-attr bin
@@ -69,13 +69,13 @@ d-i/source/localechooser/translation-check usr/lib/ubiquity/localechooser
 d-i/source/localechooser/debian/localechooser/usr/share/localechooser/languagelist.data.gz usr/lib/ubiquity/localechooser
 d-i/source/localechooser/regionmap usr/lib/ubiquity/localechooser
 d-i/source/localechooser/debian/short-tmp/shortlists usr/lib/ubiquity/localechooser
-ubiquity/components/ubi-language.py usr/lib/ubiquity/plugins.d
+ubiquity/components/ubi-language.py usr/lib/ubiquity/plugins
 scripts/localechooser-apply usr/lib/ubiquity
 
 # netcfg
 d-i/source/netcfg/netcfg usr/lib/ubiquity/netcfg
 scripts/netcfg-wrapper usr/lib/ubiquity
-ubiquity/components/ubi-network.py usr/lib/ubiquity/plugins.d
+ubiquity/components/ubi-network.py usr/lib/ubiquity/plugins
 
 # partconf
 d-i/source/partconf/debian/partconf-*/* .
@@ -93,12 +93,12 @@ ubiquity/components/partman_commit.py usr/lib/ubiquity/ubiquity/components
 d-i/source/preseed/preseed_command bin
 
 # tasksel
-ubiquity/components/ubi-tasks.py usr/lib/ubiquity/plugins.d
+ubiquity/components/ubi-tasks.py usr/lib/ubiquity/plugins
 
 # tzsetup
 d-i/source/tzsetup/debian/tzmap usr/lib/ubiquity/tzsetup
 d-i/source/tzsetup/tzsetup usr/lib/ubiquity/tzsetup
-ubiquity/components/ubi-timezone.py usr/lib/ubiquity/plugins.d
+ubiquity/components/ubi-timezone.py usr/lib/ubiquity/plugins
 scripts/tzsetup-wrapper usr/lib/ubiquity
 
 # user-setup

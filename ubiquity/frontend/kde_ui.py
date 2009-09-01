@@ -186,11 +186,11 @@ class Wizard(BaseFrontend):
                 if widgets:
                     def fill_out(widget_list):
                         rv = []
-                        if type(widget_list).__name__ != 'list':
+                        if not isinstance(widget_list, list):
                             widget_list = [widget_list]
                         for w in widget_list:
                             if not w: continue
-                            if type(w).__name__ != 'str':
+                            if not isinstance(w, str):
                                 # Until we ship with no pre-built pages, insert
                                 # at 'beginning'
                                 self.ui.widgetStack.insertWidget(self.pageslen, w)
@@ -707,7 +707,7 @@ class Wizard(BaseFrontend):
                 cur = None
                 if hasattr(page.ui_inst, 'get_current_page'):
                     cur = page.ui_inst.get_current_page()
-                    if type(cur).__name__ == 'str':
+                    if isinstance(cur, str) and hasattr(self.ui, cur):
                         cur = getattr(self.ui, cur) # for not-yet-plugins
                 elif page.widgets:
                     cur = page.widgets[0]

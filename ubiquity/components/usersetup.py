@@ -17,27 +17,22 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from ubiquity.plugin import *
 from ubiquity.filteredcommand import FilteredCommand
 import debconf
 
 NAME = 'usersetup'
 
-class PageGtk:
-    def __init__(self, *args, **kwargs):
-        pass
+class PageGtk(PluginUI):
     def get_ui(self):
         return {'widgets': 'stepUserInfo'}
 
-class PageKde:
-    def __init__(self, *args, **kwargs):
-        pass
+class PageKde(PluginUI):
     def get_ui(self):
         return {'widgets': 'stepUserInfo',
                 'breadcrumb': 'ubiquity/text/breadcrumb_user'}
 
-class PageDebconf:
-    def __init__(self, *args, **kwargs):
-        pass
+class PageDebconf(PluginUI):
     def get_ui(self):
         return {'title': 'ubiquity/text/userinfo_heading_label'}
 

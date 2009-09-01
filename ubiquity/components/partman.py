@@ -24,30 +24,32 @@ import signal
 
 import debconf
 
-from ubiquity.plugin import Plugin
+from ubiquity.plugin import *
 from ubiquity import parted_server
 from ubiquity.misc import *
 
 NAME = 'partman'
 
-class PageGtk:
-    def __init__(self, *args, **kwargs):
-        self.part_page = None
+class PageGtk(PluginUI):
+    part_page = None
+
     def get_ui(self):
         return {'widgets': 'stepPartAuto',
                 'optional_widgets': 'stepPartAdvanced'}
+
     def get_current_page(self):
         return self.part_page
 
     def set_part_page(self, p):
         self.part_page = p
 
-class PageKde:
-    def __init__(self, *args, **kwargs):
-        self.part_page = None
+class PageKde(PluginUI):
+    part_page = None
+
     def get_ui(self):
         return {'widgets': ['stepPartAuto', 'stepPartAdvanced'],
                 'breadcrumb': 'ubiquity/text/breadcrumb_partition'}
+
     def get_current_page(self):
         return self.part_page
 

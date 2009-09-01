@@ -20,18 +20,18 @@
 # along with Ubiquity.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
+from ubiquity.plugin import *
 
 NAME = 'myth-backend-setup'
 AFTER = 'myth-summary'
 WEIGHT = 10
 
-class PageGtk:
-    def __init__(self, *args, **kwargs):
-        pass
+class PageGtk(PluginUI):
     def get_ui(self):
         if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui':
             return {'optional_widgets': 'mythbuntu_stepBackendSetup'}
         else:
             return None
+
     def get_current_page(self):
         return None

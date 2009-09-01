@@ -20,7 +20,6 @@
 
 import re
 import os
-import sys
 
 from ubiquity.plugin import *
 from ubiquity import keyboard_names
@@ -30,7 +29,7 @@ NAME = 'console_setup'
 AFTER = 'timezone'
 WEIGHT = 10
 
-class PageGtk:
+class PageGtk(PluginUI):
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
         self.current_layout = None
@@ -48,7 +47,7 @@ class PageGtk:
             self.keyboardlayoutview = builder.get_object('keyboardlayoutview')
             self.keyboardvariantview = builder.get_object('keyboardvariantview')
         except Exception, e:
-            print >>sys.stderr, 'Could not create keyboard page: %s' % e
+            self.debug('Could not create keyboard page: %s', e)
             self.page = None
 
     def get_ui(self):
@@ -182,7 +181,7 @@ class PageGtk:
         else:
             self.keyboard_layout_hbox.set_sensitive(True)
 
-class PageKde:
+class PageKde(PluginUI):
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
         self.current_layout = None
@@ -201,7 +200,7 @@ class PageKde:
             self.page.keyboard_layout_combobox.activated.connect(self.on_keyboard_layout_selected)
             self.page.keyboard_variant_combobox.activated.connect(self.on_keyboard_variant_selected)
         except Exception, e:
-            print >>sys.stderr, 'Could not create keyboard page: %s' % e
+            self.debug('Could not create keyboard page: %s', e)
             self.page = None
 
     def get_ui(self):
@@ -293,15 +292,11 @@ class PageKde:
             
         return unicode(self.page.keyboard_variant_combobox.currentText())
 
-class PageDebconf:
-    def __init__(self, *args, **kwargs):
-        pass
+class PageDebconf(PluginUI):
     def get_ui(self):
         return {'title': 'ubiquity/text/keyboard_heading_label'}
 
-class PageNoninteractive:
-    def __init__(self, controller, *args, **kwargs):
-        self.controller = controller
+class PageNoninteractive(PluginUI):
     def get_ui(self):
         return None
 

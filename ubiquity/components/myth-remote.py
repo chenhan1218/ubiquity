@@ -19,16 +19,14 @@
 # You should have received a copy of the GNU General Public License
 # along with Ubiquity.  If not, see <http://www.gnu.org/licenses/>.
 
-from ubiquity.plugin import Plugin
+from ubiquity.plugin import *
 import os
 
 NAME = 'myth-remote'
 AFTER = 'myth-services'
 WEIGHT = 10
 
-class PageGtk:
-    def __init__(self, *args, **kwargs):
-        pass
+class PageGtk(PluginUI):
     def get_ui(self):
         if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui':
             return {'widgets': 'tab_remote_control'}

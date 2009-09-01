@@ -17,7 +17,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-from ubiquity.plugin import Plugin
+from ubiquity.plugin import *
 
 NAME = 'network'
 AFTER = 'usersetup'
@@ -26,9 +26,7 @@ WEIGHT = 12
 class NetworkUnfilteredOnly(Exception):
     pass
 
-class PageDebconf:
-    def __init__(self, *args, **kwargs):
-        pass
+class PageDebconf(PluginUI):
     def get_ui(self):
         return {'title': 'ubiquity/text/network_heading_label'}
 

@@ -20,7 +20,6 @@
 import os
 import time
 import re
-import sys
 
 import debconf
 import PyICU
@@ -33,7 +32,7 @@ NAME = 'timezone'
 AFTER = 'language'
 WEIGHT = 10
 
-class PageGtk:
+class PageGtk(PluginUI):
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
         try:
@@ -47,7 +46,7 @@ class PageGtk:
             self.map_window = builder.get_object('timezone_map_window')
             self.setup_page()
         except Exception, e:
-            print >>sys.stderr, 'Could not create timezone page: %s' % e
+            self.debug('Could not create timezone page: %s', e)
             self.page = None
 
     def get_ui(self):
@@ -182,7 +181,7 @@ class PageGtk:
         zone = self.get_timezone()
         self.tzmap.select_city(zone)
 
-class PageKde:
+class PageKde(PluginUI):
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
         try:
@@ -198,7 +197,7 @@ class PageKde:
             self.page.timezone_zone_combo.currentIndexChanged[int].connect(self.regionChanged)
             self.page.timezone_city_combo.currentIndexChanged[int].connect(self.cityChanged)
         except Exception, e:
-            print >>sys.stderr, 'Could not create timezone page: %s' % e
+            self.debug('Could not create timezone page: %s', e)
             self.page = None
 
     def get_ui(self):
@@ -288,15 +287,11 @@ class PageKde:
     def get_timezone (self):
         return self.tzmap.get_timezone()
 
-class PageDebconf:
-    def __init__(self, *args, **kwargs):
-        pass
+class PageDebconf(PluginUI):
     def get_ui(self):
         return {'title': 'ubiquity/text/timezone_heading_label'}
 
-class PageNoninteractive:
-    def __init__(self, controller, *args, **kwargs):
-        self.controller = controller
+class PageNoninteractive(PluginUI):
     def get_ui(self):
         return None
 

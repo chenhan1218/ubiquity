@@ -19,6 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with Ubiquity.  If not, see <http://www.gnu.org/licenses/>.
 
+from ubiquity.plugin import *
 import ubiquity.components.summary
 import os
 
@@ -29,9 +30,7 @@ WEIGHT = 10
 if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui':
     HIDDEN = ['summary', 'migrationassistant']
 
-class PageGtk:
-    def __init__(self, *args, **kwargs):
-        pass
+class PageGtk(PluginUI):
     def get_ui(self):
         if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui':
             return {'widgets': 'stepReady', 'is_install': True}

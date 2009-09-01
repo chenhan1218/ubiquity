@@ -19,7 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with Ubiquity.  If not, see <http://www.gnu.org/licenses/>.
 
-from ubiquity.plugin import Plugin
+from ubiquity.plugin import *
 from mythbuntu_common.dictionaries import get_graphics_dictionary
 import os
 
@@ -27,9 +27,7 @@ NAME = 'myth-drivers'
 AFTER = 'myth-remote'
 WEIGHT = 10
 
-class PageGtk:
-    def __init__(self, *args, **kwargs):
-        pass
+class PageGtk(PluginUI):
     def get_ui(self):
         if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui' and \
            len(get_graphics_dictionary()) > 0:

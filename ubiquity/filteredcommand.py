@@ -42,16 +42,20 @@ DEBCONF_IO_OUT = 2
 DEBCONF_IO_ERR = 4
 DEBCONF_IO_HUP = 8
 
-class FilteredCommand(object):
-    def __init__(self, frontend, db=None, ui=None):
-        self.frontend = frontend # ubiquity-wide UI
-        self.ui = ui # page-specific UI
-        # db does not normally need to be specified.
-        self.db = db
-        self.done = False
-        self.current_question = None
-        self.succeeded = False
-        self.dbfilter = None
+class UntrustedBase(object):
+    def get(self, attr):
+        '''Safely gets an attribute.  If it doesn't exist, returns None'''
+        if hasattr(self, attr):
+            return getattr(self, attr)
+        else:
+            return None
+
+    def call(self, method, *args, **kwargs):
+        '''Safely calls a member.  If it doesn't exist, returns None'''
+        if hasattr(self, attr):
+            return getattr(self, attr)(*args, **kwargs)
+        else:
+            return None
 
     @classmethod
     def debug_enabled(self):
@@ -66,6 +70,17 @@ class FilteredCommand(object):
             time_str = time.ctime()[4:19]
             message = fmt % args
             print >>sys.stderr, '%s %s: %s' % (time_str, PACKAGE, message)
+
+class FilteredCommand(UntrustedBase):
+    def __init__(self, frontend, db=None, ui=None):
+        self.frontend = frontend # ubiquity-wide UI
+        self.ui = ui # page-specific UI
+        # db does not normally need to be specified.
+        self.db = db
+        self.done = False
+        self.current_question = None
+        self.succeeded = False
+        self.dbfilter = None
 
     def start(self, auto_process=False):
         self.status = None

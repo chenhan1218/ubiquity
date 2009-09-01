@@ -18,7 +18,13 @@
 # You should have received a copy of the GNU General Public License
 # along with Ubiquity.  If not, see <http://www.gnu.org/licenses/>.
 
-from ubiquity.filteredcommand import FilteredCommand
+from ubiquity.filteredcommand import FilteredCommand, UntrustedBase
+
+class PluginUI(UntrustedBase):
+    # We define an init even if empty so that arguments that we give but are
+    # not used don't cause an error.
+    def __init__(self, *args, **kwargs):
+        pass
 
 class Plugin(FilteredCommand):
     def prepare(self, unfiltered=False):

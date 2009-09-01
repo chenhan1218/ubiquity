@@ -21,14 +21,13 @@ import sys
 import os
 import debconf
 
+from ubiquity.plugin import *
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity.misc import *
 
 NAME = 'migrationassistant'
 
-class PageGtk:
-    def __init__(self, *args, **kwargs):
-        pass
+class PageGtk(PluginUI):
     def get_ui(self):
         return {'optional_widgets': 'stepMigrationAssistant'}
 
