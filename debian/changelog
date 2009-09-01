@@ -7,6 +7,10 @@ ubiquity (1.99.15) UNRELEASED; urgency=low
       (LP: #422621)
     - Reconfigure mysql-server-5.1 rather than 5.0 since 5.1 is what's
       now in main.
+  * Automatic update of included source packages: console-setup
+    1.34ubuntu2, grub-installer 1.42ubuntu1, partman-auto 87ubuntu3,
+    partman-base 133ubuntu2, partman-target 62ubuntu2, user-setup
+    1.27ubuntu10.
 
   [ Colin Watson ]
   * Re-enable encrypted home option; apparently all the dependencies are in
