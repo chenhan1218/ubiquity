@@ -1,3 +1,12 @@
+ubiquity (1.99.15) UNRELEASED; urgency=low
+
+  * Mythbuntu frontend:
+    - Fix a crash caused by two GtkCellRendererText's having the same
+      id.  A recent upload of gtk is less forgiving of this error.
+      (LP: #422621)
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Tue, 01 Sep 2009 10:22:11 -0500
+
 ubiquity (1.99.14) karmic; urgency=low
 
   [ Roman Shtylman ]
