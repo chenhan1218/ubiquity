@@ -1,3 +1,11 @@
+ubiquity (1.99.16) UNRELEASED; urgency=low
+
+  * Go back to using /var/log/oem-config.log for oem-config logging; it's
+    convenient and less confusing to have that in a separate file, rather
+    than /var/log/installer/debug.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 02 Sep 2009 10:54:57 +0100
+
 ubiquity (1.99.15) karmic; urgency=low
 
   [ Mario Limonciello ]

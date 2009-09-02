@@ -400,8 +400,11 @@ def main(oem_config):
     # we are being run without root privileges.
     if not (options.query and args and args[0] == 'noninteractive'):
         try:
-            log = os.open('/var/log/installer/debug',
-                          os.O_WRONLY | os.O_CREAT | os.O_APPEND)
+            if oem_config:
+                logfile = '/var/log/oem-config.log'
+            else:
+                logfile = '/var/log/installer/debug'
+            log = os.open(logfile, os.O_WRONLY | os.O_CREAT | os.O_APPEND)
             os.dup2(log, 2)
             os.close(log)
             sys.stderr = os.fdopen(2, 'a', 1)
