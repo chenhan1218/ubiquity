@@ -4,6 +4,8 @@ ubiquity (1.99.16) UNRELEASED; urgency=low
     convenient and less confusing to have that in a separate file, rather
     than /var/log/installer/debug.
   * Be more explicit in logs when ubiquity is being run as oem-config.
+  * Don't warn about missing (as opposed to present-but-unreadable)
+    /etc/casper.conf.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 02 Sep 2009 10:54:57 +0100
 

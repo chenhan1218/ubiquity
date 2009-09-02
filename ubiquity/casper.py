@@ -19,6 +19,8 @@
 
 # Functions to parse /etc/casper.conf.
 
+import errno
+
 _casper_config = None
 
 def get_casper(key, default=None):
@@ -37,9 +39,10 @@ def get_casper(key, default=None):
                 bits = line.split('=', 1)
                 if len(bits) > 1:
                     _casper_config[bits[0]] = bits[1].strip('"')
-        except IOError:
-            import syslog
-            syslog.syslog('Unable to read /etc/casper.conf.')
+        except IOError, e:
+            if e.errno != errno.ENOENT:
+                import syslog
+                syslog.syslog('Unable to read /etc/casper.conf.')
         finally:
             if fp is not None:
                 fp.close()
