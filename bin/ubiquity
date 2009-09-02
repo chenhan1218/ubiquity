@@ -177,6 +177,7 @@ def start_debconf():
     if 'DEBCONF_USE_CDEBCONF' not in os.environ:
         # This is rather unsatisfactory. Perhaps it would be better to
         # have a custom debconf program, a bit like dpkg-reconfigure.
+        import tempfile
         debconfrc_fd, debconfrc = tempfile.mkstemp()
         os.chmod(debconfrc, 0644)
         debconfrc_file = os.fdopen(debconfrc_fd, 'w')

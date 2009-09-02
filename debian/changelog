@@ -10,6 +10,7 @@ ubiquity (1.99.16) UNRELEASED; urgency=low
   * Fix setting of TARGET when ubiquity is running as oem-config.
   * Stop the po directory's mostlyclean target from removing ubiquity.pot.
     We want to keep this file in the source package.
+  * Import tempfile, to stop start_debconf crashing.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 02 Sep 2009 10:54:57 +0100
 
