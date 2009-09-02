@@ -6,6 +6,7 @@ ubiquity (1.99.16) UNRELEASED; urgency=low
   * Be more explicit in logs when ubiquity is being run as oem-config.
   * Don't warn about missing (as opposed to present-but-unreadable)
     /etc/casper.conf.
+  * Don't try to copy installation logs when running as oem-config.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 02 Sep 2009 10:54:57 +0100
 
