@@ -386,7 +386,10 @@ def main(oem_config):
         os.makedirs('/var/log/installer')
     syslog.openlog('ubiquity', syslog.LOG_NOWAIT | syslog.LOG_PID)
 
-    syslog.syslog("Ubiquity %s" % VERSION)
+    if oem_config:
+        syslog.syslog("Ubiquity %s (oem-config)" % VERSION)
+    else:
+        syslog.syslog("Ubiquity %s" % VERSION)
     version_file = open('/var/log/installer/version', 'w')
     print >>version_file, 'ubiquity %s' % VERSION
     version_file.close()
@@ -408,7 +411,10 @@ def main(oem_config):
             os.dup2(log, 2)
             os.close(log)
             sys.stderr = os.fdopen(2, 'a', 1)
-            print >>sys.stderr, "Ubiquity %s" % VERSION
+            if oem_config:
+                print >>sys.stderr, "Ubiquity %s (oem-config)" % VERSION
+            else:
+                print >>sys.stderr, "Ubiquity %s" % VERSION
         except (IOError, OSError), err:
             if err.errno != errno.EACCES:
                 raise
