@@ -172,7 +172,7 @@
                     <property name="model">model3</property>
                     <property name="active">1</property>
                     <child>
-                      <object class="GtkCellRendererText" id="renderer1"/>
+                      <object class="GtkCellRendererText" id="renderer_video_driver"/>
                       <attributes>
                         <attribute name="text">0</attribute>
                       </attributes>
@@ -220,7 +220,7 @@
                         <property name="active">1</property>
                         <signal name="changed" handler="toggle_tv_out"/>
                         <child>
-                          <object class="GtkCellRendererText" id="renderer1"/>
+                          <object class="GtkCellRendererText" id="renderer_tv_out_type"/>
                           <attributes>
                             <attribute name="text">0</attribute>
                           </attributes>

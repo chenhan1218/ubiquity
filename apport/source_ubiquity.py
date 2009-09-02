@@ -13,3 +13,5 @@ def add_info(report):
         report['UbiquityDm'] = ('/var/log/installer/dm',)
     if os.path.exists('/var/log/casper.log'):
         report['Casper'] = ('/var/log/casper.log',)
+    if os.path.exists('/var/log/oem-config.log'):
+        report['OemConfigLog'] = ('/var/log/oem-config.log',)

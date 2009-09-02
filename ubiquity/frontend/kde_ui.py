@@ -347,9 +347,6 @@ class Wizard(BaseFrontend):
         #self.show_browser()
         self.allow_change_step(True)
         
-        # do not show the decrypt option unless user has opted to use encryptfs
-        self.ui.login_encrypt.setVisible(False)
-        
         # Declare SignalHandler
         self.ui.next.clicked.connect(self.on_next_clicked)
         self.ui.back.clicked.connect(self.on_back_clicked)
@@ -1988,8 +1985,6 @@ class Wizard(BaseFrontend):
         return self.ui.login_auto.isChecked()
     
     def set_encrypt_home(self, value):
-        if value:
-            self.ui.login_encrypt.setVisible(True)
         self.ui.login_encrypt.setChecked(value)
 
     def get_encrypt_home(self):

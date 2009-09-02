@@ -49,7 +49,7 @@ for try in $(seq 1 $TRY); do
 	CODE=0
 	if [ "$FRONTEND" = debconf_ui ]; then
 		LANG=en_US.UTF-8 \
-		/usr/sbin/oem-config $DEBUG --only 2>>/var/log/installer/debug \
+		/usr/sbin/oem-config $DEBUG --only 2>>/var/log/oem-config.log \
 			|| CODE=$?
 	else
 		/usr/bin/ubiquity-dm vt7 :0 root \
@@ -57,7 +57,7 @@ for try in $(seq 1 $TRY); do
 	fi
 	if [ "$CODE" -eq 0 ]; then
 		# Don't run again.
-		update-rc.d -f oem-config remove >>/var/log/installer/debug 2>&1
+		update-rc.d -f oem-config remove >>/var/log/oem-config.log 2>&1
 		# Remove the temporary OEM configuration user, if possible.
 		if getent passwd oem >/dev/null; then
 			deluser --quiet --remove-home oem || true
@@ -108,7 +108,7 @@ EOF
 	bash
 
 	# Don't run again.
-	update-rc.d -f oem-config remove >>/var/log/installer/debug 2>&1
+	update-rc.d -f oem-config remove >>/var/log/oem-config.log 2>&1
 
 	reboot
 fi

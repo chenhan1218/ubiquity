@@ -152,7 +152,7 @@ class Install(ParentInstall):
             self.chrex('mount', '-t', 'proc', 'proc', '/proc')
 
             #Setup database
-            self.reconfigure('mysql-server-5.0')
+            self.reconfigure('mysql-server-5.1')
             self.reconfigure('mythtv-database')
 
             #Cleanup
@@ -367,7 +367,7 @@ bind-address=0.0.0.0"""
         if 'Slave' in self.type or self.type == 'Frontend':
             packages.add('ntp')              #causes mythtv-backend-master to go
             packages.add('mythtv-database')
-            packages.add('mysql-server-core-5.0')
+            packages.add('mysql-server-core-5.1')
         if 'Frontend' not in self.type:
             packages.add('mythtv-frontend')
         ## services that are installed by default

@@ -911,6 +911,9 @@
                          <property name="text">
                           <string>Require Password and decrypt home to login</string>
                          </property>
+                         <property name="checked">
+                          <bool>false</bool>
+                         </property>
                         </widget>
                        </item>
                        <item row="0" column="0">

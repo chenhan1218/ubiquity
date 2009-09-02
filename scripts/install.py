@@ -842,6 +842,9 @@ class Install:
     def copy_logs(self):
         """copy log files into installed system."""
 
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            return
+
         target_dir = os.path.join(self.target, 'var/log/installer')
         if not os.path.exists(target_dir):
             os.makedirs(target_dir)
