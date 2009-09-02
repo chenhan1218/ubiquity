@@ -378,6 +378,7 @@ def main(oem_config):
 
     if oem_config:
         os.environ['UBIQUITY_OEM_USER_CONFIG'] = '1'
+        global TARGET
         TARGET = ''
 
     acquire_lock()
