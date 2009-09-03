@@ -1,3 +1,10 @@
+ubiquity (1.99.17) UNRELEASED; urgency=low
+
+  * Add support for the biosgrub partman method, to be added in
+    partman-partitioning 71.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 03 Sep 2009 21:05:25 +0100
+
 ubiquity (1.99.16) karmic; urgency=low
 
   * Go back to using /var/log/oem-config.log for oem-config logging; it's

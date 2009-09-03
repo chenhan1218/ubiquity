@@ -188,6 +188,8 @@ class Partman(FilteredCommand):
                 question = 'partman-efi/text/efi'
             elif method == 'newworld':
                 question = 'partman/method_long/newworld'
+            elif method == 'biosgrub':
+                question = 'partman/method_long/biosgrub'
             if question is not None:
                 return self.description(question)
         except debconf.DebconfError:
@@ -200,7 +202,7 @@ class Partman(FilteredCommand):
         except debconf.DebconfError:
             return filesystem
 
-    def create_use_as(self):
+    def create_use_as(self, devpart):
         """Yields the possible methods that a new partition may use."""
 
         # TODO cjwatson 2006-11-01: This is a particular pain; we can't find
@@ -225,6 +227,18 @@ class Partman(FilteredCommand):
             elif method == 'efi':
                 if os.path.exists('/var/lib/partman/efi'):
                     yield (method, method, self.method_description(method))
+            elif method == 'biosgrub':
+                # TODO cjwatson 2009-09-03: Quick kludge, since only GPT
+                # supports this method at the moment. Maybe it would be
+                # better to fetch VALID_FLAGS for each partition while
+                # building the cache?
+                dev = self.split_devpart(devpart)[0]
+                if dev is not None:
+                    dev = '%s/%s' % (parted_server.devices, dev)
+                    if (dev in self.disk_cache and
+                        'label' in self.disk_cache[dev] and
+                        self.disk_cache[dev]['label'] == 'gpt'):
+                        yield (method, method, self.method_description(method))
             else:
                 yield (method, method, self.method_description(method))
 
@@ -541,9 +555,13 @@ class Partman(FilteredCommand):
                         else:
                             if rebuild_all or arg not in self.disk_cache:
                                 device = parted.readline_device_entry('device')
+                                parted.open_dialog('GET_LABEL_TYPE')
+                                label = parted.read_line()
+                                parted.close_dialog()
                                 self.disk_cache[arg] = {
                                     'dev': dev,
-                                    'device': device
+                                    'device': device,
+                                    'label': label
                                 }
 
                     if self.update_partitions is None:
