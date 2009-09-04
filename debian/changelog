@@ -1,7 +1,13 @@
 ubiquity (1.99.17) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Add support for the biosgrub partman method, to be added in
     partman-partitioning 71.
+
+  [ Mario Limonciello ]
+  * Use the usplash init script to stop usplash in the oem-config init script
+    It seems to do a better job, and prevents a black screen on boot with some
+    drivers that aren't as usplash friendly. (LP: #403021)
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 03 Sep 2009 21:05:25 +0100
 

@@ -31,14 +31,22 @@ for x in $(cat /proc/cmdline); do
 	esac
 done
 
+. /lib/lsb/init-functions
+
 case $1 in
 	start)
-		# Make the splash screen go away if necessary.
-		if type usplash_write >/dev/null 2>&1 && \
-		   [ "$TERM" = linux ]; then
-			clear >/dev/tty1
-			chvt 1
-			usplash_write QUIT || true
+		log_begin_msg "Starting OEM Config..."
+		# if usplash is running, make sure to stop it now, yes "start" kills it.
+		if pidof usplash > /dev/null; then
+			usplash=:
+			orig_console="$(fgconsole)"
+			DO_NOT_SWITCH_VT=yes /etc/init.d/usplash start
+			# We've just shut down usplash, so don't log
+			# success as it will look weird on the console.
+			log_end_msg=:
+		else
+			usplash=false
+			log_end_msg=log_end_msg
 		fi
 
 		# Reconfigure the system (starts a temporary display
