@@ -9,7 +9,6 @@
     <child>
       <object class="GtkLabel" id="intro_label">
         <property name="visible">True</property>
-        <property name="can_focus">True</property>
         <property name="use_markup">True</property>
         <property name="wrap">True</property>
         <property name="selectable">True</property>

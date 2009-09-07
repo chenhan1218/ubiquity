@@ -90,9 +90,9 @@
             <child>
               <object class="GtkComboBox" id="timezone_zone_combo">
                 <property name="visible">True</property>
+                <signal name="changed" handler="on_region_combo_changed"/>
               </object>
               <packing>
-                <property name="expand">False</property>
                 <property name="position">1</property>
               </packing>
             </child>
@@ -109,6 +109,7 @@
             <child>
               <object class="GtkComboBox" id="timezone_city_combo">
                 <property name="visible">True</property>
+                <signal name="changed" handler="on_city_combo_changed"/>
               </object>
               <packing>
                 <property name="position">3</property>

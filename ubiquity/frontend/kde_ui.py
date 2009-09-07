@@ -43,21 +43,20 @@ from PyKDE4.kdeui import *
 from PyKDE4.kdecore import *
 
 #import all our custome kde components
-from ubiquity.frontend.kde_components.Timezone import *
 from ubiquity.frontend.kde_components.PartitionBar import *
 from ubiquity.frontend.kde_components.PartitionModel import *
 from ubiquity.frontend.kde_components.ProgressDialog import *
-from ubiquity.frontend.kde_components.Keyboard import *
 
 import debconf
 
 from ubiquity import filteredcommand, i18n, validation, parted_server
 from ubiquity.misc import *
-from ubiquity.components import console_setup, language, timezone, usersetup, \
+from ubiquity.plugin import Plugin
+from ubiquity.components import usersetup, \
                                 partman, partman_commit, summary, install
 import ubiquity.progressposition
+import ubiquity.frontend.base
 from ubiquity.frontend.base import BaseFrontend
-from ubiquity import keyboard_names
 
 # Define global path
 PATH = '/usr/share/ubiquity'
@@ -104,18 +103,21 @@ class UbiquityUI(QMainWindow):
         if self.wizard.on_quit_clicked() == False:
             event.ignore()
 
-class linkLabel(QLabel):
-
-    def __init__(self, wizard, parent):
-        QLabel.__init__(self, parent)
-        self.wizard = wizard
-
-    def mouseReleaseEvent(self, event):
-        self.wizard.openReleaseNotes()
-
-    def setText(self, text):
-        QLabel.setText(self, text)
-        self.resize(self.sizeHint())
+class Controller(ubiquity.frontend.base.Controller):
+    def translate(self, lang=None, just_me=True, reget=False):
+        if lang:
+            self._wizard.locale = lang
+        self._wizard.translate_pages(lang, just_me, reget)
+    def allow_go_forward(self, allowed):
+        self._wizard.allow_go_forward(allowed)
+    def allow_go_backward(self, allowed):
+        self._wizard.allow_go_backward(allowed)
+    def go_forward(self):
+        self._wizard.ui.next.click()
+    def go_backward(self):
+        self._wizard.ui.back.click()
+    def go_to_page(self, widget):
+        self._wizard.set_current_page(self._wizard.ui.widgetStack.indexOf(widget))
 
 class Wizard(BaseFrontend):
 
@@ -170,21 +172,60 @@ class Wizard(BaseFrontend):
         if 'UBIQUITY_ONLY' in os.environ:
             self.ui.minimize_button.setVisible(False)
 
+        self.pages = []
+        self.pagesindex = 0
+        self.pageslen = 0
+        for mod in self.modules:
+            if hasattr(mod.module, 'PageKde'):
+                mod.ui_class = mod.module.PageKde
+                mod.controller = Controller(self)
+                mod.ui = mod.ui_class(mod.controller)
+                widgets = mod.ui.get('plugin_widgets')
+                breadcrumb = mod.ui.get('plugin_breadcrumb')
+                if widgets:
+                    def fill_out(widget_list):
+                        rv = []
+                        if not isinstance(widget_list, list):
+                            widget_list = [widget_list]
+                        for w in widget_list:
+                            if not w: continue
+                            if not isinstance(w, str):
+                                # Until we ship with no pre-built pages, insert
+                                # at 'beginning'
+                                self.ui.widgetStack.insertWidget(self.pageslen, w)
+                            elif hasattr(self.ui, w):
+                                w = getattr(self.ui, w)
+                            rv.append(w)
+                        return rv
+                    mod.widgets = fill_out(widgets)
+                    if not hasattr(mod.ui, 'plugin_breadcrumb'):
+                        breadcrumb = '------' # just a placeholder
+                    if breadcrumb:
+                        mod.breadcrumb_question = breadcrumb
+                        mod.breadcrumb = QLabel(self.get_string(breadcrumb))
+                        mod.breadcrumb.setObjectName(mod.breadcrumb_question)
+                        label_index = self.ui.steps_widget.layout().count() - 2 # Room for install crumb
+                        self.ui.steps_widget.layout().insertWidget(label_index, mod.breadcrumb)
+                    else:
+                        mod.breadcrumb_question = None
+                        mod.breadcrumb = None # page intentionally didn't want a label (intro)
+                    self.pageslen += 1
+                    self.pages.append(mod)
+        self.user_pageslen = self.pageslen
+
         # declare attributes
-        self.release_notes_url_template = None
         self.language_questions = (
             'live_installer',
-            'welcome_heading_label', 
-            'welcome_text_label',
-            'oem_id_label',
-            'release_notes_label',
-            'release_notes_url',
             'step_label',
             'quit', 
             'back', 
-            'next'
+            'next',
+            'warning_dialog',
+            'warning_dialog_label',
+            'cancelbutton',
+            'exitbutton'
         )
-                                   
+                             
         self.current_page = None
         self.first_seen_page = None
         self.allowed_change_step = True
@@ -203,8 +244,9 @@ class Wizard(BaseFrontend):
         self.installing_no_return = False
         self.returncode = 0
         self.disk_layout = None
+        self.backup = False
+        self.history = []
         self.progressDialog = ProgressDialog(0, 0, self.ui)
-        self.keyboardDisplay = None
         
         self.laptop = execute("laptop-detect")
         self.partition_tree_model = None
@@ -214,19 +256,11 @@ class Wizard(BaseFrontend):
         #self.app.connect(self.ui.partition_list_treeview, SIGNAL("activated(const QModelIndex&)"), self.on_partition_list_treeview_activated)
 
         # set default language
-        dbfilter = language.Language(self, self.debconf_communicator())
-        dbfilter.cleanup()
-        dbfilter.db.shutdown()
+        self.locale = i18n.reset_locale()
 
         self.debconf_callbacks = {}    # array to keep callback functions needed by debconf file descriptors
 
         self.customize_installer()
-
-        release_notes_layout = QHBoxLayout(self.ui.release_notes_frame)
-        self.release_notes_url = linkLabel(self, self.ui.release_notes_frame)
-        release_notes_layout.addWidget(self.release_notes_url)
-        self.release_notes_url.setObjectName("release_notes_url")
-        self.release_notes_url.show()
 
         self.translate_widgets()
         
@@ -256,10 +290,6 @@ class Wizard(BaseFrontend):
 
         quitIcon = KIcon("dialog-close")
         self.ui.quit.setIcon(quitIcon)
-        
-        self.ui.keyboard_frame.setLayout(QVBoxLayout())
-        self.keyboardDisplay = Keyboard(self.ui.keyboard_frame)
-        self.ui.keyboard_frame.layout().addWidget(self.keyboardDisplay)
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -299,14 +329,6 @@ class Wizard(BaseFrontend):
         print "FIXME, medianotifier unload port to KDE 4"
         #execute('dcop', 'kded', 'kded', 'loadModule', 'medianotifier')
 
-    def openReleaseNotes(self):
-        self.openURL(self.release_notes_url_template)
-
-    def openURL(self, url):
-        #need to run this else kdesu can't run Konqueror
-        execute('su', '-c', 'xhost +localhost', 'ubuntu')
-        execute('su', '-c', 'kfmclient openURL '+url, 'ubuntu')
-
     def run(self):
         """run the interface."""
 
@@ -323,20 +345,12 @@ class Wizard(BaseFrontend):
         # TODO cjwatson 2005-12-20: Disabled for now because this segfaults in
         # current dapper (https://bugzilla.ubuntu.com/show_bug.cgi?id=20338).
         #self.show_browser()
-        got_intro = self.show_intro()
         self.allow_change_step(True)
         
         # Declare SignalHandler
         self.ui.next.clicked.connect(self.on_next_clicked)
         self.ui.back.clicked.connect(self.on_back_clicked)
         self.ui.quit.clicked.connect(self.on_quit_clicked)
-        
-        self.ui.language_combobox.currentIndexChanged[str].connect(self.on_language_combobox_selection_changed)
-
-        #use activated instead of changed because we only want to act when the user changes the selection
-        #not when we are populating the combo box
-        self.ui.keyboard_layout_combobox.activated.connect(self.on_keyboard_layout_selected)
-        self.ui.keyboard_variant_combobox.activated.connect(self.on_keyboard_variant_selected)
         
         self.ui.fullname.textChanged[str].connect(self.on_fullname_changed)
         self.ui.username.textChanged[str].connect(self.on_username_changed)
@@ -350,7 +364,7 @@ class Wizard(BaseFrontend):
         #self.app.connect(self.ui.password, SIGNAL("selectionChanged()"), self.on_password_changed)
         #self.app.connect(self.ui.verified_password, SIGNAL("selectionChanged()"), self.on_verified_password_changed)
         #self.app.connect(self.ui.hostname, SIGNAL("selectionChanged()"), self.on_hostname_changed)
-        
+
         self.ui.advanced_button.clicked.connect(self.on_advanced_button_clicked)
 
         self.ui.partition_button_new_label.clicked[bool].connect(self.on_partition_list_new_label_activate)
@@ -359,44 +373,43 @@ class Wizard(BaseFrontend):
         self.ui.partition_button_delete.clicked[bool].connect(self.on_partition_list_delete_activate)
         self.ui.partition_button_undo.clicked[bool].connect(self.on_partition_list_undo_activate)
 
-        self.pagesindex = 0
-        pageslen = len(self.pages)
-
         if 'UBIQUITY_AUTOMATIC' in os.environ:
-            got_intro = False
-            self.debconf_progress_start(0, pageslen,
+            self.debconf_progress_start(0, self.pageslen,
                 self.get_string('ubiquity/install/checking'))
             self.refresh()
 
         # Start the interface
-        if got_intro:
-            self.pages.insert(0, None) # for page index bookkeeping
-            pageslen += 1
-            first_step = "stepWelcome"
-        else:
-            first_step = self.pagenames[0]
-            self.ui.steps_widget.setVisible(True)
-        
-        self.set_current_page(self.step_index(first_step))
-        
-        if got_intro:
-            self.app.exec_()
-            self.pagesindex += 1
-        
-        while(self.pagesindex < pageslen):
+        self.set_current_page(0)
+
+        while(self.pagesindex < self.pageslen):
             if self.current_page == None:
                 break
 
             self.backup = False
-            old_dbfilter = self.dbfilter
-            self.dbfilter = self.pages[self.pagesindex](self)
+            if not self.pages[self.pagesindex].filter_class:
+                # This page is just a UI page
+                self.dbfilter = None
+                self.dbfilter_status = None
+                if self.set_page(self.pages[self.pagesindex].module.NAME):
+                    self.allow_change_step(True)
+                    self.app.exec_()
+            else:
+                old_dbfilter = self.dbfilter
+                if issubclass(self.pages[self.pagesindex].filter_class, Plugin):
+                    ui = self.pages[self.pagesindex].ui
+                else:
+                    ui = None
+                self.dbfilter = self.pages[self.pagesindex].filter_class(self, ui=ui)
 
-            # Non-debconf steps are no longer possible as the interface is now
-            # driven by whether there is a question to ask.
-            if self.dbfilter is not None and self.dbfilter != old_dbfilter:
-                self.allow_change_step(False)
-                self.dbfilter.start(auto_process=True)
-            self.app.exec_()
+                # Non-debconf steps are no longer possible as the interface is now
+                # driven by whether there is a question to ask.
+                if self.dbfilter is not None and self.dbfilter != old_dbfilter:
+                    self.allow_change_step(False)
+                    QTimer.singleShot(0, lambda: self.dbfilter.start(auto_process=True))
+
+                self.pages[self.pagesindex].controller.dbfilter = self.dbfilter
+                self.app.exec_()
+                self.pages[self.pagesindex].controller.dbfilter = None
 
             if self.backup or self.dbfilter_handle_status():
                 if self.installing:
@@ -410,17 +423,14 @@ class Wizard(BaseFrontend):
                         self.debconf_progress_step(1)
                         self.refresh()
                 if self.backup:
-                    if self.pagesindex > 0:
-                        step = self.step_name(self.get_current_page())
-                        if not step == "stepPartAdvanced": #Advanced will already have pagesindex pointing at first Paritioning page
-                            self.pagesindex = self.pagesindex - 1
+                    self.pagesindex = self.pop_history()
 
             self.app.processEvents()
 
             # needed to be here for --automatic as there might not be any
             # current page in the event all of the questions have been
             # preseeded.
-            if self.pagesindex == pageslen:
+            if self.pagesindex == self.pageslen:
                 # Ready to install
                 self.ui.hide()
                 self.current_page = None
@@ -437,11 +447,6 @@ class Wizard(BaseFrontend):
         if self.oem_config:
             self.ui.setWindowTitle(
                 self.get_string('oem_config_title'))
-            try:
-                self.ui.oem_id_entry.setText(
-                    self.debconf_operation('get', 'oem-config/id'))
-            except debconf.DebconfError:
-                pass
             self.ui.fullname.setText(
                 'OEM Configuration (temporary user)')
             self.ui.fullname.setReadOnly(True)
@@ -460,9 +465,6 @@ class Wizard(BaseFrontend):
             
             # The UserSetup component takes care of preseeding passwd/user-uid.
             execute_root('apt-install', 'oem-config-kde')
-        else:
-            self.ui.oem_id_label.hide()
-            self.ui.oem_id_entry.hide()
 
         if self.oem_user_config:
             self.ui.setWindowTitle(
@@ -482,21 +484,6 @@ class Wizard(BaseFrontend):
         if not 'UBIQUITY_AUTOMATIC' in os.environ:
             self.ui.show()
 
-        try:
-            release_notes = open('/cdrom/.disk/release_notes_url')
-            self.release_notes_url_template = release_notes.read().rstrip('\n')
-            release_notes.close()
-        except (KeyboardInterrupt, SystemExit):
-            raise
-        except:
-            self.ui.release_notes_label.hide()
-            self.ui.release_notes_frame.hide()
-        
-        # init the timezone map
-        self.tzmap = TimezoneMap(self)
-        #self.tzmap.setObjectName("tz_frame")
-        self.ui.map_frame.layout().addWidget(self.tzmap)
-
         self.ui.password_debug_warning_label.setVisible(
             'UBIQUITY_DEBUG' in os.environ)
 
@@ -512,66 +499,100 @@ class Wizard(BaseFrontend):
             direction = Qt.LeftToRight
         self.app.setLayoutDirection(direction)
 
+    def all_children(self, parentWidget=None):
+        if parentWidget is None:
+            parentWidget = self.ui
+
+        def recurse(x, y):
+            return x + self.all_children(y)
+        rv = reduce(recurse, parentWidget.children(), [parentWidget])
+        return rv
+
+    def translate_pages(self, lang=None, just_current=True, reget=False):
+        if just_current:
+            pages = [self.pages[self.pagesindex]]
+        else:
+            pages = self.pages
+        widgets = []
+        for p in pages:
+            prefix = p.ui.get('plugin_prefix')
+            for w in p.widgets:
+                for c in self.all_children(w):
+                    widgets.append((c, prefix))
+        self.translate_widgets(lang=lang, widgets=widgets, reget=reget)
+
     # translates widget text based on the object names
-    def translate_widgets(self, parentWidget=None):
-        if self.locale is None:
+    # widgets is a list of (widget, prefix) pairs
+    def translate_widgets(self, lang=None, widgets=None, reget=True):
+        if lang is None:
+            lang = self.locale
+        if lang is None:
             languages = []
         else:
-            languages = [self.locale]
-        core_names = ['ubiquity/text/%s' % q for q in self.language_questions]
-        core_names.append('ubiquity/text/oem_config_title')
-        core_names.append('ubiquity/text/oem_user_config_title')
-        for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
-                           'ok', 'quit'):
-            core_names.append('ubiquity/imported/%s' % stock_item)
-        i18n.get_translations(languages=languages, core_names=core_names)
+            languages = [lang]
+        if widgets is None:
+            widgets = [(x, None) for x in self.all_children()]
 
-        self.translate_widget_children(parentWidget)
+        if reget:
+            core_names = ['ubiquity/text/%s' % q for q in self.language_questions]
+            core_names.append('ubiquity/text/oem_config_title')
+            core_names.append('ubiquity/text/oem_user_config_title')
+            core_names.append('ubiquity/text/breadcrumb_install')
+            for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
+                               'ok', 'quit'):
+                core_names.append('ubiquity/imported/%s' % stock_item)
+            prefixes = []
+            for p in self.pages:
+                prefix = p.ui.get('plugin_prefix')
+                if not prefix:
+                    prefix = 'ubiquity/text'
+                if p.ui.get('plugin_is_language'):
+                    children = reduce(lambda x,y: x + self.all_children(y), p.widgets, [])
+                    core_names.extend([prefix+'/'+c.objectName() for c in children])
+                if p.breadcrumb_question:
+                    core_names.append(p.breadcrumb_question)
+                prefixes.append(prefix)
+            i18n.get_translations(languages=languages, core_names=core_names, extra_prefixes=prefixes)
+
+        # We always translate always-visible widgets
+        for q in self.language_questions:
+            if hasattr(self.ui, q):
+                widgets.append((getattr(self.ui, q), None))
+            elif q == 'live_installer':
+                widgets.append((self.ui, None))
+        widgets.extend([(x, None) for x in self.all_children(self.ui.steps_widget)])
+
+        for w in widgets:
+            self.translate_widget(w[0], lang=lang, prefix=w[1])
 
         self.ui.partition_button_undo.setText(
             self.get_string('partman/text/undo_everything').replace('_', '&', 1))
-        if self.release_notes_url_template is not None:
-            url = self.release_notes_url_template.replace('${LANG}', self.locale.split('.')[0])
-            text = self.get_string('release_notes_url')
-            self.release_notes_url.setText('<a href="%s">%s</a>' % (url, text))
 
         self.set_layout_direction()
 
-    def translate_widget_children(self, parentWidget=None):
-        if parentWidget == None:
-            parentWidget = self.ui
-
-        self.translate_widget(parentWidget, self.locale)
-        if parentWidget.children() != None:
-            for widget in parentWidget.children():
-                self.translate_widget_children(widget)
-
-    def translate_widget(self, widget, lang):
+    def translate_widget(self, widget, lang=None, prefix=None):
+        if lang is None:
+            lang = self.locale
         #FIXME needs translations for Next, Back and Cancel
         if not isinstance(widget, QWidget):
             return
 
         name = str(widget.objectName())
         
-        text = self.get_string(name, lang)
+        text = self.get_string(name, lang, prefix)
 
         if str(name) == "UbiquityUIBase":
-            text = self.get_string("live_installer", lang)
+            text = self.get_string("live_installer", lang, prefix)
 
         if text is None:
             return
 
         if isinstance(widget, QLabel):
             if name == 'step_label':
-                curstep = '?'
-                for page in self.pages:
-                    if self.dbfilter is page or (page and isinstance(self.dbfilter, page)):
-                        curstep = str(self.pages.index(page) + 1)
-                        break
-                text = text.replace('${INDEX}', curstep)
-                text = text.replace('${TOTAL}', str(len(self.pages)))
+                text = text.replace('${INDEX}', str(self.pagesindex+1))
+                text = text.replace('${TOTAL}', str(self.user_pageslen))
             elif name == 'welcome_text_label' and self.oem_user_config:
-                text = self.get_string('welcome_text_oem_user_label', lang)
+                text = self.get_string('welcome_text_oem_user_label', lang, prefix)
 
             if 'heading_label' in name:
                 widget.setText("<h2>" + text + "</h2>")
@@ -580,11 +601,6 @@ class Wizard(BaseFrontend):
             elif ('group_label' in name or 'warning_label' in name or
                   name in ('drives_label', 'partition_method_label')):
                 widget.setText("<strong>" + text + "</strong>")
-            elif name == 'release_notes_url':
-                if self.release_notes_url_template is not None:
-                    url = self.release_notes_url_template.replace(
-                        '${LANG}', lang.split('.')[0])
-                    widget.setText('<a href="%s">%s</a>' % (url, text))
             else:
                 widget.setText(text)
                 
@@ -593,9 +609,9 @@ class Wizard(BaseFrontend):
 
         elif isinstance(widget, QWidget) and str(name) == "UbiquityUIBase":
             if self.oem_config:
-                text = self.get_string('oem_config_title', lang)
+                text = self.get_string('oem_config_title', lang, prefix)
             elif self.oem_user_config:
-                text = self.get_string('oem_user_config_title', lang)
+                text = self.get_string('oem_user_config_title', lang, prefix)
             widget.setWindowTitle(text)
 
         else:
@@ -654,25 +670,6 @@ class Wizard(BaseFrontend):
                 self.set_current_page(self.step_index("stepPartAuto"))
             return False
 
-    def show_intro(self):
-        """Show some introductory text, if available."""
-
-        if self.oem_user_config:
-            return False
-
-        intro = os.path.join(PATH, 'intro.txt')
-        
-        if os.path.isfile(intro):
-            intro_file = open(intro)
-            text = ""
-            for line in intro_file:
-                text = text + line + "<br>"
-            self.ui.introLabel.setText(text)
-            intro_file.close()
-            return True
-        else:
-            return False
-
     def step_name(self, step_index):
         if step_index < 0:
             step_index = 0
@@ -696,78 +693,77 @@ class Wizard(BaseFrontend):
         
         #set all the steps active
         #each step will set its previous ones as inactive
-        #this handles the abiliy to go back as well as oem hidden steps
+        #this handles the ability to go back
         
-        self.ui.breadcrumb_language.setStyleSheet(activeSS)
-        self.ui.breadcrumb_timezone.setStyleSheet(activeSS)
-        self.ui.breadcrumb_keyboard.setStyleSheet(activeSS)
-        self.ui.breadcrumb_partition.setStyleSheet(activeSS)
-        self.ui.breadcrumb_user.setStyleSheet(activeSS)
-        self.ui.breadcrumb_summary.setStyleSheet(activeSS)
+        found = False
+        is_install = False
+        for page in self.pages:
+            if page.module.NAME == n:
+                # Now ask ui class which page we want to be showing right now
+                if hasattr(page.ui, 'plugin_get_current_page'):
+                    cur = page.ui.call('plugin_get_current_page')
+                    if isinstance(cur, str) and hasattr(self.ui, cur):
+                        cur = getattr(self.ui, cur) # for not-yet-plugins
+                elif page.widgets:
+                    cur = page.widgets[0]
+                if not cur:
+                    return False
+                index = self.ui.widgetStack.indexOf(cur)
+                self.add_history(page, cur)
+                self.set_current_page(index)
+                if page.breadcrumb:
+                    page.breadcrumb.setStyleSheet(currentSS)
+                    self.ui.steps_widget.setVisible(True)
+                else:
+                    self.ui.steps_widget.setVisible(False)
+                found = True
+                is_install = page.ui.get('plugin_is_install')
+            elif page.breadcrumb:
+                if found:
+                    page.breadcrumb.setStyleSheet(activeSS)
+                else:
+                    page.breadcrumb.setStyleSheet(inactiveSS)
         self.ui.breadcrumb_install.setStyleSheet(activeSS)
-        
-        if n == 'Language':
-            self.ui.steps_widget.setVisible(True)
-            self.set_current_page(self.step_index("stepLanguage"))
-            
-            self.ui.breadcrumb_language.setStyleSheet(currentSS)
-            
-        elif n == 'Timezone':
-            self.set_current_page(self.step_index("stepLocation"))
-            
-            self.ui.breadcrumb_language.setStyleSheet(inactiveSS)
-            self.ui.breadcrumb_timezone.setStyleSheet(currentSS)
-            
-        elif n == 'ConsoleSetup':
-            self.set_current_page(self.step_index("stepKeyboardConf"))
-            
-            self.ui.breadcrumb_language.setStyleSheet(inactiveSS)
-            self.ui.breadcrumb_timezone.setStyleSheet(inactiveSS)
-            self.ui.breadcrumb_keyboard.setStyleSheet(currentSS)
 
-        elif n == 'Partman':
-            # Rather than try to guess which partman page we should be on,
-            # we leave that decision to set_autopartitioning_choices and
-            # update_partman.
-            
-            self.ui.breadcrumb_language.setStyleSheet(inactiveSS)
-            self.ui.breadcrumb_timezone.setStyleSheet(inactiveSS)
-            self.ui.breadcrumb_keyboard.setStyleSheet(inactiveSS)
-            self.ui.breadcrumb_partition.setStyleSheet(currentSS)
-            
-            return
-        elif n == 'UserSetup':
-            self.set_current_page(self.step_index("stepUserInfo"))
-            
-            self.ui.breadcrumb_language.setStyleSheet(inactiveSS)
-            self.ui.breadcrumb_timezone.setStyleSheet(inactiveSS)
-            self.ui.breadcrumb_keyboard.setStyleSheet(inactiveSS)
-            self.ui.breadcrumb_partition.setStyleSheet(inactiveSS)
-            self.ui.breadcrumb_user.setStyleSheet(currentSS)
-            
-        elif n == 'Summary':
-            self.set_current_page(self.step_index("stepReady"))
+        if is_install:
             self.ui.next.setText(self.get_string('install_button').replace('_', '&', 1))
             self.ui.next.setIcon(self.applyIcon)
             
-            self.ui.breadcrumb_language.setStyleSheet(inactiveSS)
-            self.ui.breadcrumb_timezone.setStyleSheet(inactiveSS)
-            self.ui.breadcrumb_keyboard.setStyleSheet(inactiveSS)
-            self.ui.breadcrumb_partition.setStyleSheet(inactiveSS)
-            self.ui.breadcrumb_user.setStyleSheet(inactiveSS)
-            self.ui.breadcrumb_summary.setStyleSheet(currentSS)
-            
-        else:
-            print >>sys.stderr, 'No page found for %s' % n
-            return
-
-        if not self.first_seen_page:
-            self.first_seen_page = n
-        if self.first_seen_page == self.pages[self.pagesindex].__name__:
+        if self.pagesindex == 0:
             self.allow_go_backward(False)
         else:
             self.allow_go_backward(True)
+
+        return True
     
+    def add_history(self, page, widget):
+        history_entry = (page, widget)
+        if self.history:
+            # We may have either jumped backward or forward over pages.
+            # Correct history in that case
+            new_index = self.pages.index(page)
+            old_index = self.pages.index(self.history[-1][0])
+            # First, pop if needed
+            if new_index < old_index:
+                while self.history[-1][0] != page and len(self.history) > 1:
+                    self.pop_history()
+            # Now push fake history if needed
+            i = old_index + 1
+            while i < new_index:
+                for w in self.pages[i].widgets:
+                    self.history.append((self.pages[i], None))
+                i += 1
+
+            if history_entry == self.history[-1]:
+                return # Don't add the page if it's a dup
+        self.history.append(history_entry)
+
+    def pop_history(self):
+        if len(self.history) < 2:
+            return self.pagesindex
+        old_entry = self.history.pop()
+        return self.pages.index(self.history[-1][0])
+
     def set_current_page(self, current):
         widget = self.ui.widgetStack.widget(current)
         if self.ui.widgetStack.currentWidget() == widget:
@@ -789,7 +785,7 @@ class Wizard(BaseFrontend):
         #TODO test if screen is big enough to show slides...
         try:
             if os.path.exists(slides):
-                lang = self.get_language()
+                lang = self.locale.split('_')[0]
                 slides = 'file://%s#locale=%s' % (slides, lang)
                 from PyQt4.QtWebKit import QWebView
                 from PyQt4.QtWebKit import QWebPage
@@ -998,41 +994,6 @@ class Wizard(BaseFrontend):
         else:
             self.app.exit()
 
-    def on_keyboard_layout_selected(self):
-        if isinstance(self.dbfilter, console_setup.ConsoleSetup):
-            layout = self.get_keyboard()
-            if layout is not None:
-                
-                #skip updating keyboard if not using display
-                if self.keyboardDisplay:
-                    ly = keyboard_names.layouts[unicode(layout)]
-                    self.keyboardDisplay.setLayout(ly)
-                
-                    #no variants, force update by setting none
-                    #if not keyboard_names.variants.has_key(ly):
-                    #    self.keyboardDisplay.setVariant(None)
-                
-                self.current_layout = layout
-                self.dbfilter.change_layout(layout)
-                pass
-
-    def on_keyboard_variant_selected(self):
-        if isinstance(self.dbfilter, console_setup.ConsoleSetup):
-            layout = self.get_keyboard()
-            variant = self.get_keyboard_variant()
-            
-            if self.keyboardDisplay:
-                var = None
-                ly = keyboard_names.layouts[layout]
-                if variant and keyboard_names.variants.has_key(ly):
-                    variantMap = keyboard_names.variants[ly]
-                    var = variantMap[unicode(variant)]
-                
-                self.keyboardDisplay.setVariant(var)
-            
-            if layout is not None and variant is not None:
-                self.dbfilter.apply_keyboard(layout, variant)
-
     def process_step(self):
         """Process and validate the results of this step."""
 
@@ -1044,9 +1005,6 @@ class Wizard(BaseFrontend):
         if step.startswith("stepPart"):
             self.previous_partitioning_page = step_num
 
-        # Language
-        elif step == "stepLanguage":
-            self.translate_widgets()
         # Automatic partitioning
         elif step == "stepPartAuto":
             self.process_autopartitioning()
@@ -1124,7 +1082,7 @@ class Wizard(BaseFrontend):
         if str(step) == "stepReady":
             self.ui.next.setText(self.get_string("next").replace('_', '&', 1))
             self.ui.next.setIcon(self.forwardIcon)
-            self.translate_widget(self.ui.next, self.locale)
+            self.translate_widget(self.ui.next)
 
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
@@ -1133,39 +1091,9 @@ class Wizard(BaseFrontend):
         else:
             self.app.exit()
 
-    def selected_language (self):
-        selection = self.ui.language_combobox.selectedItems()
-        if len(selection) == 1:
-            value = unicode(selection[0].text())
-            return self.language_choice_map[value][1]
-        else:
-            return ''
-    
-    def on_language_combobox_selection_changed (self, language):
-        if language.isNull():
-            return
-            
-        lang = self.language_choice_map[unicode(language)][1]
-        if lang:
-            # strip encoding; we use UTF-8 internally no matter what
-            lang = lang.split('.')[0].lower()
-            for widget in (
-                self.ui, 
-                self.ui.welcome_heading_label, 
-                self.ui.welcome_text_label, 
-                self.ui.oem_id_label, 
-                self.ui.release_notes_label, 
-                self.ui.release_notes_frame, 
-                self.ui.next, 
-                self.ui.back, 
-                self.ui.quit
-            ):
-                self.translate_widget(widget, lang)
-            self.set_layout_direction(lang)
-
     def on_steps_switch_page(self, newPageID):
         self.current_page = newPageID
-        #self.translate_widget(self.ui.step_label, self.locale)
+        #self.translate_widget(self.ui.step_label)
         syslog.syslog('switched to page %s' % self.step_name(newPageID))
 
     def watch_debconf_fd (self, from_debconf, process_input):
@@ -1268,93 +1196,15 @@ class Wizard(BaseFrontend):
     def debconffilter_done (self, dbfilter):
         ##FIXME in Qt 4 without this disconnect it calls watch_debconf_fd_helper_read once more causing
         ## a crash after the keyboard stage.  No idea why.
-        self.socketNotifierRead.activated.disconnect(self.watch_debconf_fd_helper_read)
+        try:
+            self.socketNotifierRead.activated.disconnect(self.watch_debconf_fd_helper_read)
+        except Exception:
+            pass # May not be connected if it's a trivial dbfilter
         if BaseFrontend.debconffilter_done(self, dbfilter):
             self.app.exit()
             return True
         else:
             return False
-
-    def set_language_choices (self, choices, choice_map):
-        BaseFrontend.set_language_choices(self, choices, choice_map)
-        self.ui.language_combobox.clear()
-        for choice in choices:
-            self.ui.language_combobox.addItem(QString(unicode(choice)))
-
-    def set_language (self, language):
-        index = self.ui.language_combobox.findText(QString(unicode(language)))
-        if index < 0:
-            self.ui.language_combobox.addItem("C")
-        else:
-            self.ui.language_combobox.setCurrentIndex(index)
-
-    def get_language (self):
-        lang = self.ui.language_combobox.currentText()
-        if not lang.isNull():
-            return self.language_choice_map[unicode(lang)][1]
-        else:
-            return 'C'
-
-    def get_oem_id (self):
-        return unicode(self.ui.oem_id_entry.text())
-
-    def set_timezone (self, timezone):
-        self.tzmap.refresh_timezones()
-        self.tzmap.set_timezone(timezone)
-
-    def get_timezone (self):
-        return self.tzmap.get_timezone()
-
-    def set_keyboard_choices(self, choices):
-        self.ui.keyboard_layout_combobox.clear();
-        for choice in sorted(choices):
-            self.ui.keyboard_layout_combobox.addItem(QString(unicode(choice)))
-
-        if self.current_layout is not None:
-            self.set_keyboard(self.current_layout)
-
-    def set_keyboard (self, layout):
-        index = self.ui.keyboard_layout_combobox.findText(QString(unicode(layout)))
-        
-        if index > -1:
-            self.ui.keyboard_layout_combobox.setCurrentIndex(index)
-            
-        if self.keyboardDisplay:
-            ly = keyboard_names.layouts[unicode(layout)]
-            self.keyboardDisplay.setLayout(ly)
-
-    def get_keyboard (self):
-        if self.ui.keyboard_layout_combobox.currentIndex() < 0:
-            return None
-            
-        return unicode(self.ui.keyboard_layout_combobox.currentText())
-
-    def set_keyboard_variant_choices(self, choices):
-        self.ui.keyboard_variant_combobox.clear();
-        for choice in sorted(choices):
-            self.ui.keyboard_variant_combobox.addItem(QString(unicode(choice)))
-
-    def set_keyboard_variant(self, variant):
-        index = self.ui.keyboard_variant_combobox.findText(QString(unicode(variant)))
-        
-        if index > -1:
-            self.ui.keyboard_variant_combobox.setCurrentIndex(index)
-            
-        if self.keyboardDisplay:
-            var = None
-            layout = keyboard_names.layouts[self.get_keyboard()]
-            if variant and keyboard_names.variants.has_key(layout):
-                variantMap = keyboard_names.variants[layout]
-                var = variantMap[unicode(variant)]
-            
-            self.keyboardDisplay.setVariant(var)
-            
-            
-    def get_keyboard_variant(self):
-        if self.ui.keyboard_variant_combobox.currentIndex() < 0:
-            return None
-            
-        return unicode(self.ui.keyboard_variant_combobox.currentText())
 
     # provides the basic disk layout
     def set_disk_layout(self, layout):
@@ -1696,7 +1546,7 @@ class Wizard(BaseFrontend):
     def partman_create_dialog(self, devpart, partition):
         if not self.allowed_change_step:
             return
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
 
         self.create_dialog = QDialog(self.ui)
@@ -1748,7 +1598,7 @@ class Wizard(BaseFrontend):
         response = self.create_dialog.exec_()
 
         if (response == QDialog.Accepted and
-            isinstance(self.dbfilter, partman.Partman)):
+            isinstance(self.dbfilter, partman.Page)):
             if partition['parted']['type'] == 'primary':
                 prilog = partman.PARTITION_TYPE_PRIMARY
             elif partition['parted']['type'] == 'logical':
@@ -1789,7 +1639,7 @@ class Wizard(BaseFrontend):
             self.create_dialog.partition_create_mount_combo.setEnabled(False)
         else:
             self.create_dialog.partition_create_mount_combo.setEnabled(True)
-            if isinstance(self.dbfilter, partman.Partman):
+            if isinstance(self.dbfilter, partman.Page):
                 self.create_dialog.partition_create_mount_combo.clear()
                 for mp, choice_c, choice in \
                     self.dbfilter.default_mountpoint_choices(method):
@@ -1798,7 +1648,7 @@ class Wizard(BaseFrontend):
     def partman_edit_dialog(self, devpart, partition):
         if not self.allowed_change_step:
             return
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
 
         self.edit_dialog = QDialog(self.ui)
@@ -1877,7 +1727,7 @@ class Wizard(BaseFrontend):
         response = self.edit_dialog.exec_()
 
         if (response == QDialog.Accepted and
-            isinstance(self.dbfilter, partman.Partman)):
+            isinstance(self.dbfilter, partman.Page)):
             size = None
             if current_size is not None:
                 size = str(self.edit_dialog.partition_edit_size_spinbutton.value())
@@ -1927,7 +1777,7 @@ class Wizard(BaseFrontend):
         else:
             self.edit_dialog.partition_edit_mount_combo.setEnabled(True)
             self.edit_dialog.partition_edit_format_checkbutton.setEnabled(True)
-            if isinstance(self.dbfilter, partman.Partman):
+            if isinstance(self.dbfilter, partman.Page):
                 self.edit_dialog.partition_edit_mount_combo.clear()
                 for mp, choice_c, choice in \
                     self.dbfilter.default_mountpoint_choices(method):
@@ -1938,7 +1788,7 @@ class Wizard(BaseFrontend):
         self.ui.partition_button_new.setEnabled(False)
         self.ui.partition_button_edit.setEnabled(False)
         self.ui.partition_button_delete.setEnabled(False)
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
 
         if deselected:
@@ -1991,7 +1841,7 @@ class Wizard(BaseFrontend):
                 if otherpart['dev'] == partition['dev'] and 'id' in otherpart:
                     break
             else:
-                if not isinstance(self.dbfilter, partman.Partman):
+                if not isinstance(self.dbfilter, partman.Page):
                     return
                 self.allow_change_step(False)
                 self.dbfilter.create_label(devpart)
@@ -2011,7 +1861,7 @@ class Wizard(BaseFrontend):
 
         if not self.allowed_change_step:
             return
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
         self.allow_change_step(False)
         self.dbfilter.create_label(devpart)
@@ -2046,7 +1896,7 @@ class Wizard(BaseFrontend):
 
         if not self.allowed_change_step:
             return
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
         self.allow_change_step(False)
         self.dbfilter.delete_partition(devpart)
@@ -2054,7 +1904,7 @@ class Wizard(BaseFrontend):
     def on_partition_list_undo_activate(self, ticked):
         if not self.allowed_change_step:
             return
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
         self.allow_change_step(False)
         self.dbfilter.undo()
@@ -2062,7 +1912,7 @@ class Wizard(BaseFrontend):
     def partman_popup (self, position):
         if not self.allowed_change_step:
             return
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.dbfilter, partman.Page):
             return
 
         selected = self.ui.partition_list_treeview.selectedIndexes()
@@ -2252,12 +2102,12 @@ class Wizard(BaseFrontend):
         if self.installing and not self.installing_no_return:
             # Go back to the partitioner and try again.
             #self.live_installer.show()
-            self.pagesindex = self.pages.index(partman.Partman)
-            self.dbfilter = partman.Partman(self)
+            self.pagesindex = self.pages.index(partman.Page)
+            self.dbfilter = partman.Page(self)
             self.set_current_page(self.previous_partitioning_page)
             self.ui.next.setText(self.get_string("next").replace('_', '&', 1))
             self.ui.next.setIcon(self.forwardIcon)
-            self.translate_widget(self.ui.next, self.locale)
+            self.translate_widget(self.ui.next)
             self.backup = True
             self.installing = False
 

@@ -17,13 +17,20 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-from ubiquity.filteredcommand import FilteredCommand
+from ubiquity.plugin import *
+
+NAME = 'network'
+AFTER = 'usersetup'
+WEIGHT = 12
 
 class NetworkUnfilteredOnly(Exception):
     pass
 
+class PageDebconf(PluginUI):
+    plugin_title = 'ubiquity/text/network_heading_label'
+
 # Only supports unfiltered mode.
-class Network(FilteredCommand):
+class Page(Plugin):
     def prepare(self, unfiltered=False):
         if not unfiltered:
             raise NetworkFilteredOnly, \

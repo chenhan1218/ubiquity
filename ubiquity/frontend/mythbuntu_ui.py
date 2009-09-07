@@ -54,30 +54,17 @@ from mythbuntu_common.mysql import MySQLHandler
 from mythbuntu_common.dictionaries import *
 
 #Mythbuntu ubiquity imports
-from ubiquity.components import mythbuntu, mythbuntu_install
+from ubiquity.components import mythbuntu_install
 
 #Ubiquity imports
 from ubiquity.misc import *
 import ubiquity.frontend.gtk_ui as ParentFrontend
 ParentFrontend.install = mythbuntu_install
-ParentFrontend.summary = mythbuntu_install
 
 class Wizard(ParentFrontend.Wizard):
 
 #Overriden Methods
     def __init__(self, distro):
-        self.pages_override_remove = ['stepMigrationAssistant', 'stepReady']
-        self.pages_override_append = []
-
-        self.pages_override_append += [("mythbuntu_stepCustomInstallType", mythbuntu.MythbuntuInstallType)]
-        self.pages_override_append += [("mythbuntu_stepServices", mythbuntu.MythbuntuServices)]
-        self.pages_override_append += [("tab_remote_control", mythbuntu.MythbuntuRemote)]
-        if len(get_graphics_dictionary()) > 0:
-            self.pages_override_append += [("mythbuntu_stepDrivers", mythbuntu.MythbuntuDrivers)]
-        self.pages_override_append += [("mythbuntu_stepPasswords", mythbuntu.MythbuntuPasswords)]
-        self.pages_override_append += [("stepReady", mythbuntu_install.Summary)]
-        self.pages_override_append += [("mythbuntu_stepBackendSetup", None)]
-
         ParentFrontend.Wizard.__init__(self,distro)
 
     def customize_installer(self):
@@ -98,38 +85,32 @@ class Wizard(ParentFrontend.Wizard):
     def run_success_cmd(self):
         """Runs mythbuntu post post install GUI step"""
         if not 'UBIQUITY_AUTOMATIC' in os.environ and self.get_installtype() != "Frontend":
-            self.live_installer.show()
-            self.installing = False
-            self.steps.next_page()
-            self.back.hide()
-            self.quit.hide()
-            self.next.set_label("Finish")
-            self.step_label.set_text("")
-            gtk.main()
-            self.live_installer.hide()
+            # Ideally, this next bit (showing the backend-setup page) would
+            # be fixed by re-architecting gtk_ui to run the install step after
+            # the first 'is_install' plugin and just naturally ask for the rest
+            # of the plugins afterward.
+            for page in self.pages:
+                if page.module.NAME == 'myth-backend-setup':
+                    pagenum = self.steps.page_num(page.optional_widgets[0])
+                    self.set_current_page(pagenum)
+                    self.live_installer.show()
+                    self.installing = False
+                    self.back.hide()
+                    self.quit.hide()
+                    self.next.set_label("Finish")
+                    self.step_label.set_text("")
+                    gtk.main()
+                    self.live_installer.hide()
+                    break
         ParentFrontend.Wizard.run_success_cmd(self)
 
     def set_page(self, n):
-        if n == 'MythbuntuRemote':
-            cur = self.tab_remote_control
-        elif n == 'MythbuntuDrivers':
-            cur = self.mythbuntu_stepDrivers
-        elif n == 'MythbuntuInstallType':
-            cur = self.mythbuntu_stepCustomInstallType
-        elif n == 'MythbuntuPasswords':
-            cur = self.mythbuntu_stepPasswords
+        if n == 'myth-passwords':
             if "Master" not in self.get_installtype():
                 self.allow_go_forward(False)
-        elif n == 'MythbuntuServices':
-            cur = self.mythbuntu_stepServices
+        elif n == 'myth-services':
             self.vnc_option_hbox.set_sensitive(len(self.get_password()) >= 6)
-        else:
-            ParentFrontend.Wizard.set_page(self,n)
-            return
-        self.run_automation_error_cmd()
-        self.backup = False
-        self.live_installer.show()
-        self.set_current_page(self.steps.page_num(cur))
+        return ParentFrontend.Wizard.set_page(self,n)
 
 ####################
 #Helper Functions  #

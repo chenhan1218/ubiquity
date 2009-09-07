@@ -9,6 +9,11 @@ ubiquity (1.99.17) UNRELEASED; urgency=low
     It seems to do a better job, and prevents a black screen on boot with some
     drivers that aren't as usplash friendly. (LP: #403021)
 
+  [ Evan Dandrea ]
+  * Merged Michael Terry's plugins branch (LP: #419989).  See
+    http://wiki.ubuntu.com/Ubiquity/Plugins for instructions on writing
+    new plugins.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 03 Sep 2009 21:05:25 +0100
 
 ubiquity (1.99.16) karmic; urgency=low

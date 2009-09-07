@@ -21,11 +21,303 @@
 import re
 import os
 
-from ubiquity.filteredcommand import FilteredCommand
+from ubiquity.plugin import *
 from ubiquity import keyboard_names
 from ubiquity import misc
 
-class ConsoleSetup(FilteredCommand):
+NAME = 'console_setup'
+AFTER = 'timezone'
+WEIGHT = 10
+
+class PageGtk(PluginUI):
+    def __init__(self, controller, *args, **kwargs):
+        self.controller = controller
+        self.current_layout = None
+        self.default_keyboard_layout = None
+        self.default_keyboard_variant = None
+        try:
+            import gtk
+            builder = gtk.Builder()
+            builder.add_from_file('/usr/share/ubiquity/gtk/stepKeyboardConf.ui')
+            builder.connect_signals(self)
+            self.page = builder.get_object('stepKeyboardConf')
+            self.suggested_keymap = builder.get_object('suggested_keymap')
+            self.suggested_keymap_label = builder.get_object('suggested_keymap_label')
+            self.keyboard_layout_hbox = builder.get_object('keyboard_layout_hbox')
+            self.keyboardlayoutview = builder.get_object('keyboardlayoutview')
+            self.keyboardvariantview = builder.get_object('keyboardvariantview')
+        except Exception, e:
+            self.debug('Could not create keyboard page: %s', e)
+            self.page = None
+        self.plugin_widgets = self.page
+
+    def on_keyboardlayoutview_row_activated(self, *args):
+        self.controller.go_forward()
+
+    def on_keyboard_layout_selected(self, *args):
+        layout = self.get_keyboard()
+        if layout is not None:
+            self.current_layout = layout
+            self.controller.dbfilter.change_layout(layout)
+
+    def on_keyboardvariantview_row_activated(self, *args):
+        self.controller.go_forward()
+
+    def on_keyboard_variant_selected(self, *args):
+        layout = self.get_keyboard()
+        variant = self.get_keyboard_variant()
+        if layout is not None and variant is not None:
+            self.controller.dbfilter.apply_keyboard(layout, variant)
+
+    def set_keyboard_choices(self, choices):
+        import gtk, gobject
+        layouts = gtk.ListStore(gobject.TYPE_STRING)
+        self.keyboardlayoutview.set_model(layouts)
+        for v in sorted(choices):
+            layouts.append([v])
+
+        if len(self.keyboardlayoutview.get_columns()) < 1:
+            column = gtk.TreeViewColumn("Layout", gtk.CellRendererText(), text=0)
+            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+            self.keyboardlayoutview.append_column(column)
+            selection = self.keyboardlayoutview.get_selection()
+            selection.connect('changed',
+                              self.on_keyboard_layout_selected)
+
+        if self.current_layout is not None:
+            self.set_keyboard(self.current_layout)
+
+    def set_keyboard(self, layout):
+        if self.default_keyboard_layout is None:
+            self.default_keyboard_layout = layout
+        self.current_layout = layout
+        model = self.keyboardlayoutview.get_model()
+        if model is None:
+            return
+        iterator = model.iter_children(None)
+        while iterator is not None:
+            if unicode(model.get_value(iterator, 0)) == layout:
+                path = model.get_path(iterator)
+                self.keyboardlayoutview.get_selection().select_path(path)
+                self.keyboardlayoutview.scroll_to_cell(
+                    path, use_align=True, row_align=0.5)
+                break
+            iterator = model.iter_next(iterator)
+
+    def get_keyboard(self):
+        if self.suggested_keymap.get_active():
+            if self.default_keyboard_layout is not None:
+                return None
+            else:
+                return unicode(self.default_keyboard_layout)
+        selection = self.keyboardlayoutview.get_selection()
+        (model, iterator) = selection.get_selected()
+        if iterator is None:
+            return None
+        else:
+            return unicode(model.get_value(iterator, 0))
+
+    def set_keyboard_variant_choices(self, choices):
+        import gtk, gobject
+        variants = gtk.ListStore(gobject.TYPE_STRING)
+        self.keyboardvariantview.set_model(variants)
+        for v in sorted(choices):
+            variants.append([v])
+
+        if len(self.keyboardvariantview.get_columns()) < 1:
+            column = gtk.TreeViewColumn("Variant", gtk.CellRendererText(), text=0)
+            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+            self.keyboardvariantview.append_column(column)
+            selection = self.keyboardvariantview.get_selection()
+            selection.connect('changed',
+                              self.on_keyboard_variant_selected)
+
+    def set_keyboard_variant(self, variant):
+        if self.default_keyboard_variant is None:
+            self.default_keyboard_variant = variant
+        # Make sure the "suggested option" is selected, otherwise this will
+        # change every time the user selects a new keyboard in the manual
+        # choice selection boxes.
+        if self.suggested_keymap.get_active():
+            self.suggested_keymap_label.set_property('label', variant)
+            self.suggested_keymap.toggled()
+        model = self.keyboardvariantview.get_model()
+        if model is None:
+            return
+        iterator = model.iter_children(None)
+        while iterator is not None:
+            if unicode(model.get_value(iterator, 0)) == variant:
+                path = model.get_path(iterator)
+                self.keyboardvariantview.get_selection().select_path(path)
+                self.keyboardvariantview.scroll_to_cell(
+                    path, use_align=True, row_align=0.5)
+                break
+            iterator = model.iter_next(iterator)
+
+    def get_keyboard_variant(self):
+        if self.suggested_keymap.get_active():
+            if self.default_keyboard_variant is None:
+                return None
+            else:
+                return unicode(self.default_keyboard_variant)
+        selection = self.keyboardvariantview.get_selection()
+        (model, iterator) = selection.get_selected()
+        if iterator is None:
+            return None
+        else:
+            return unicode(model.get_value(iterator, 0))
+
+    def on_suggested_keymap_toggled(self, widget):
+        if self.suggested_keymap.get_active():
+            self.keyboard_layout_hbox.set_sensitive(False)
+            if (self.default_keyboard_layout is not None and
+                self.default_keyboard_variant is not None):
+                self.current_layout = self.default_keyboard_layout
+                self.controller.dbfilter.change_layout(self.default_keyboard_layout)
+                self.controller.dbfilter.apply_keyboard(self.default_keyboard_layout,
+                                                        self.default_keyboard_variant)
+        else:
+            self.keyboard_layout_hbox.set_sensitive(True)
+
+class PageKde(PluginUI):
+    plugin_breadcrumb = 'ubiquity/text/breadcrumb_keyboard'
+
+    def __init__(self, controller, *args, **kwargs):
+        self.controller = controller
+        self.current_layout = None
+        self.default_keyboard_layout = None
+        self.default_keyboard_variant = None
+        try:
+            from PyQt4 import uic
+            from PyQt4.QtGui import QVBoxLayout
+            from ubiquity.frontend.kde_components.Keyboard import Keyboard
+            self.page = uic.loadUi('/usr/share/ubiquity/qt/stepKeyboardConf.ui')
+            self.keyboardDisplay = Keyboard(self.page.keyboard_frame)
+            self.page.keyboard_frame.setLayout(QVBoxLayout())
+            self.page.keyboard_frame.layout().addWidget(self.keyboardDisplay)
+            #use activated instead of changed because we only want to act when the user changes the selection
+            #not when we are populating the combo box
+            self.page.keyboard_layout_combobox.activated.connect(self.on_keyboard_layout_selected)
+            self.page.keyboard_variant_combobox.activated.connect(self.on_keyboard_variant_selected)
+        except Exception, e:
+            self.debug('Could not create keyboard page: %s', e)
+            self.page = None
+        self.plugin_widgets = self.page
+
+    def on_keyboard_layout_selected(self):
+        layout = self.get_keyboard()
+        if layout is not None:
+            #skip updating keyboard if not using display
+            if self.keyboardDisplay:
+                ly = keyboard_names.layouts[unicode(layout)]
+                self.keyboardDisplay.setLayout(ly)
+            
+                #no variants, force update by setting none
+                #if not keyboard_names.variants.has_key(ly):
+                #    self.keyboardDisplay.setVariant(None)
+            
+            self.current_layout = layout
+            self.controller.dbfilter.change_layout(layout)
+
+    def on_keyboard_variant_selected(self):
+        layout = self.get_keyboard()
+        variant = self.get_keyboard_variant()
+        
+        if self.keyboardDisplay:
+            var = None
+            ly = keyboard_names.layouts[layout]
+            if variant and keyboard_names.variants.has_key(ly):
+                variantMap = keyboard_names.variants[ly]
+                var = variantMap[unicode(variant)]
+            
+            self.keyboardDisplay.setVariant(var)
+        
+        if layout is not None and variant is not None:
+            self.controller.dbfilter.apply_keyboard(layout, variant)
+
+    def set_keyboard_choices(self, choices):
+        from PyQt4.QtCore import QString
+        self.page.keyboard_layout_combobox.clear()
+        for choice in sorted(choices):
+            self.page.keyboard_layout_combobox.addItem(QString(unicode(choice)))
+
+        if self.current_layout is not None:
+            self.set_keyboard(self.current_layout)
+
+    def set_keyboard (self, layout):
+        from PyQt4.QtCore import QString
+        index = self.page.keyboard_layout_combobox.findText(QString(unicode(layout)))
+        
+        if index > -1:
+            self.page.keyboard_layout_combobox.setCurrentIndex(index)
+        
+        if self.keyboardDisplay:
+            ly = keyboard_names.layouts[unicode(layout)]
+            self.keyboardDisplay.setLayout(ly)
+
+    def get_keyboard(self):
+        if self.page.keyboard_layout_combobox.currentIndex() < 0:
+            return None
+            
+        return unicode(self.page.keyboard_layout_combobox.currentText())
+
+    def set_keyboard_variant_choices(self, choices):
+        from PyQt4.QtCore import QString
+        self.page.keyboard_variant_combobox.clear();
+        for choice in sorted(choices):
+            self.page.keyboard_variant_combobox.addItem(QString(unicode(choice)))
+
+    def set_keyboard_variant(self, variant):
+        from PyQt4.QtCore import QString
+        index = self.page.keyboard_variant_combobox.findText(QString(unicode(variant)))
+        
+        if index > -1:
+            self.page.keyboard_variant_combobox.setCurrentIndex(index)
+        
+        if self.keyboardDisplay:
+            var = None
+            layout = keyboard_names.layouts[self.get_keyboard()]
+            if variant and keyboard_names.variants.has_key(layout):
+                variantMap = keyboard_names.variants[layout]
+                var = variantMap[unicode(variant)]
+            
+            self.keyboardDisplay.setVariant(var)
+    
+    def get_keyboard_variant(self):
+        if self.page.keyboard_variant_combobox.currentIndex() < 0:
+            return None
+            
+        return unicode(self.page.keyboard_variant_combobox.currentText())
+
+class PageDebconf(PluginUI):
+    plugin_title = 'ubiquity/text/keyboard_heading_label'
+
+class PageNoninteractive(PluginUI):
+    def set_keyboard_choices(self, choices):
+        """Set the available keyboard layout choices."""
+        pass
+
+    def set_keyboard(self, layout):
+        """Set the current keyboard layout."""
+        self.current_layout = layout
+
+    def get_keyboard(self):
+        """Get the current keyboard layout."""
+        return self.current_layout
+
+    def set_keyboard_variant_choices(self, choices):
+        """Set the available keyboard variant choices."""
+        pass
+
+    def set_keyboard_variant(self, variant):
+        """Set the current keyboard variant."""
+        self.keyboard_variant = variant
+
+    def get_keyboard_variant(self):
+        #print '*** get_keyboard_variant'
+        return self.keyboard_variant
+
+class Page(Plugin):
     def prepare(self, unfiltered=False):
         self.preseed('console-setup/ask_detect', 'false')
 
@@ -75,16 +367,16 @@ class ConsoleSetup(FilteredCommand):
             self.succeeded = True
             # TODO cjwatson 2006-09-07: no console-setup support for layout
             # choice translation yet
-            self.frontend.set_keyboard_choices(
+            self.ui.set_keyboard_choices(
                 self.choices_untranslated(question))
-            self.frontend.set_keyboard(self.db.get(question))
+            self.ui.set_keyboard(self.db.get(question))
             return True
         elif question == 'console-setup/variant':
             # TODO cjwatson 2006-10-02: no console-setup support for variant
             # choice translation yet
-            self.frontend.set_keyboard_variant_choices(
+            self.ui.set_keyboard_variant_choices(
                 self.choices_untranslated(question))
-            self.frontend.set_keyboard_variant(self.db.get(question))
+            self.ui.set_keyboard_variant(self.db.get(question))
             # console-setup preseeding is special, and needs to be checked
             # by hand. The seen flag on console-setup/layout is used
             # internally by console-setup, so we can't just force it to
@@ -93,7 +385,7 @@ class ConsoleSetup(FilteredCommand):
                 self.db.fget('console-setup/layoutcode', 'seen') == 'true'):
                 return True
             else:
-                return FilteredCommand.run(self, priority, question)
+                return Plugin.run(self, priority, question)
         elif question.startswith('console-setup/unsupported_'):
             response = self.frontend.question_dialog(
                 self.description(question),
@@ -115,10 +407,10 @@ class ConsoleSetup(FilteredCommand):
         self.exit_ui_loops()
 
     def ok_handler(self):
-        variant = self.frontend.get_keyboard_variant()
+        variant = self.ui.get_keyboard_variant()
         if variant is not None:
             self.preseed('console-setup/variant', variant)
-        return FilteredCommand.ok_handler(self)
+        return Plugin.ok_handler(self)
 
     # TODO cjwatson 2006-09-07: This is duplication from console-setup, but
     # currently difficult to avoid; we need to apply the keymap immediately
@@ -260,6 +552,8 @@ class ConsoleSetup(FilteredCommand):
         options = self.db.get('console-setup/optionscode')
         self.apply_real_keyboard(model, layout, variant, options.split(','))
 
+        Plugin.cleanup(self)
+
         if layout == '':
             return
 
@@ -347,3 +641,11 @@ class ConsoleSetup(FilteredCommand):
         oldconfig.close()
         os.rename(newconfigfile, oldconfigfile)
         misc.drop_privileges()
+
+class Install(InstallPlugin):
+    def prepare(self, unfiltered=False):
+        return (['/usr/share/ubiquity/console-setup-apply'], [])
+
+    def install(self, target, progress, *args, **kwargs):
+        progress.info('ubiquity/install/keyboard')
+        return InstallPlugin.install(self, target, progress, *args, **kwargs)

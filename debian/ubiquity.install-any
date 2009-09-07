@@ -16,6 +16,9 @@ pixmaps/earth.jpg usr/share/ubiquity/pixmaps
 apport/source_ubiquity.py usr/share/apport/package-hooks
 bin/ubiquity-dm usr/bin
 
+# intro
+ubiquity/components/ubi-intro.py usr/lib/ubiquity/plugins
+
 # apt-setup
 d-i/source/apt-setup/apt-setup-verify usr/lib/ubiquity/apt-setup
 d-i/source/apt-setup/apt-setup-signed-release usr/lib/ubiquity/apt-setup
@@ -35,14 +38,10 @@ ubiquity/components/check_kernels.py usr/lib/ubiquity/ubiquity/components
 # choose-mirror
 d-i/source/choose-mirror/choose-mirror usr/lib/ubiquity/choose-mirror
 
-# clock-setup
-ubiquity/components/clock_setup.py usr/lib/ubiquity/ubiquity/components
-
 # console-setup
 compat/locale usr/lib/ubiquity/console-setup
 scripts/console-setup-apply usr/lib/ubiquity
-ubiquity/components/console_setup.py usr/lib/ubiquity/ubiquity/components
-ubiquity/components/console_setup_apply.py usr/lib/ubiquity/ubiquity/components
+ubiquity/components/ubi-console-setup.py usr/lib/ubiquity/plugins
 
 # debian-installer-utils
 d-i/source/debian-installer-utils/block-attr bin
@@ -70,14 +69,13 @@ d-i/source/localechooser/translation-check usr/lib/ubiquity/localechooser
 d-i/source/localechooser/debian/localechooser/usr/share/localechooser/languagelist.data.gz usr/lib/ubiquity/localechooser
 d-i/source/localechooser/regionmap usr/lib/ubiquity/localechooser
 d-i/source/localechooser/debian/short-tmp/shortlists usr/lib/ubiquity/localechooser
-ubiquity/components/language.py usr/lib/ubiquity/ubiquity/components
-ubiquity/components/language_apply.py usr/lib/ubiquity/ubiquity/components
+ubiquity/components/ubi-language.py usr/lib/ubiquity/plugins
 scripts/localechooser-apply usr/lib/ubiquity
 
 # netcfg
 d-i/source/netcfg/netcfg usr/lib/ubiquity/netcfg
 scripts/netcfg-wrapper usr/lib/ubiquity
-ubiquity/components/network.py usr/lib/ubiquity/ubiquity/components
+ubiquity/components/ubi-network.py usr/lib/ubiquity/plugins
 
 # partconf
 d-i/source/partconf/debian/partconf-*/* .
@@ -95,13 +93,12 @@ ubiquity/components/partman_commit.py usr/lib/ubiquity/ubiquity/components
 d-i/source/preseed/preseed_command bin
 
 # tasksel
-ubiquity/components/tasks.py usr/lib/ubiquity/ubiquity/components
+ubiquity/components/ubi-tasks.py usr/lib/ubiquity/plugins
 
 # tzsetup
 d-i/source/tzsetup/debian/tzmap usr/lib/ubiquity/tzsetup
 d-i/source/tzsetup/tzsetup usr/lib/ubiquity/tzsetup
-ubiquity/components/timezone.py usr/lib/ubiquity/ubiquity/components
-ubiquity/components/timezone_apply.py usr/lib/ubiquity/ubiquity/components
+ubiquity/components/ubi-timezone.py usr/lib/ubiquity/plugins
 scripts/tzsetup-wrapper usr/lib/ubiquity
 
 # user-setup

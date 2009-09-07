@@ -18,13 +18,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-import ubiquity.components.summary
-class Summary(ubiquity.components.summary.Summary):
-    """This class is used for populating the Mythbuntu summary page
-       using a custom script"""
-    def prepare(self):
-        return ('/usr/share/ubiquity/mythbuntu_summary', ['^mythbuntu/summary.*'])
-
 import ubiquity.components.install
 class Install(ubiquity.components.install.Install):
     """This class calls out to the main ubiquity processing script. Control

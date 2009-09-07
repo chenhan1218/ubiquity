@@ -17,10 +17,23 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from ubiquity.plugin import *
 from ubiquity.filteredcommand import FilteredCommand
 import debconf
 
-class UserSetup(FilteredCommand):
+NAME = 'usersetup'
+
+class PageGtk(PluginUI):
+    plugin_widgets = 'stepUserInfo'
+
+class PageKde(PluginUI):
+    plugin_widgets = 'stepUserInfo'
+    plugin_breadcrumb = 'ubiquity/text/breadcrumb_user'
+
+class PageDebconf(PluginUI):
+    plugin_title = 'ubiquity/text/userinfo_heading_label'
+
+class Page(FilteredCommand):
     def prepare(self, unfiltered=False):
         if self.frontend.get_hostname() == '':
             try:

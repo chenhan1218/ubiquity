@@ -73,7 +73,6 @@ class Install(FilteredCommand):
 
         if self.frontend.oem_config:
             self.preseed('oem-config/enable', 'true')
-            self.preseed('oem-config/id', self.frontend.get_oem_id())
 
         # for clock-setup
         self.preseed('netcfg/dhcp_ntp_servers', '', seen=False)

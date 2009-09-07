@@ -6,6 +6,7 @@ from PyQt4.QtCore import *
 import datetime
 import ubiquity.tz
 import math
+import os
 
 #contains information about a geographical timezone city
 class City:
@@ -14,15 +15,19 @@ class City:
         self.pixmap = pixmap
     
 class TimezoneMap(QWidget):
-    def __init__(self, frontend):
-        QWidget.__init__(self, frontend.ui.map_frame)
-        self.frontend = frontend
+
+    SIGNAL("zoneChanged(PyQt_PyObject, PyQt_PyObject)")
+
+    def __init__(self, parent):
+        QWidget.__init__(self, parent)
         # currently active city
         self.selected_city = None
+        self.selected_zone = None
         #dictionary of full name (ie. 'Australia/Sydney') -> city
         self.cities = {}
         self.setObjectName("timezone_map")
-        
+        self.SIGNAL = SIGNAL
+
         #load background pixmap
         self.imagePath = "/usr/share/ubiquity/pixmaps/timezone"
         self.pixmap = QPixmap("%s/bg.png" % self.imagePath)
@@ -81,64 +86,6 @@ class TimezoneMap(QWidget):
             #make new city
             self.cities[location.zone] = City(location, pixmap)
        
-        ui = self.frontend.ui
-        ui.timezone_zone_combo.currentIndexChanged[int].connect(self.regionChanged)
-        ui.timezone_city_combo.currentIndexChanged[int].connect(self.cityChanged)
-       
-    def refresh_timezones(self):
-        lang = self.frontend.locale.split('_', 1)[0]
-        shortlist = self.frontend.dbfilter.build_shortlist_region_pairs(lang)
-        longlist = self.frontend.dbfilter.build_region_pairs()
-
-        self.frontend.ui.timezone_zone_combo.clear()
-        for pair in shortlist:
-            self.frontend.ui.timezone_zone_combo.addItem(pair[0], pair[1])
-        self.frontend.ui.timezone_zone_combo.insertSeparator(self.frontend.ui.timezone_zone_combo.count())
-        for pair in longlist:
-            self.frontend.ui.timezone_zone_combo.addItem(pair[0], pair[2])
-
-    def populateCities(self, regionIndex):
-        self.frontend.ui.timezone_city_combo.clear()
-
-        code = str(self.frontend.ui.timezone_zone_combo.itemData(regionIndex).toPyObject())
-        countries = self.frontend.dbfilter.get_countries_for_region(code)
-        if not countries: # must have been a country code itself
-            countries = [code]
-
-        shortlist, longlist = self.frontend.dbfilter.build_timezone_pairs(countries)
-
-        for pair in shortlist:
-            self.frontend.ui.timezone_city_combo.addItem(pair[0], pair[1])
-        if shortlist:
-            self.frontend.ui.timezone_city_combo.insertSeparator(self.frontend.ui.timezone_city_combo.count())
-        for pair in longlist:
-            self.frontend.ui.timezone_city_combo.addItem(pair[0], pair[1])
-
-        return len(countries) == 1 and self.frontend.dbfilter.get_default_for_region(countries[0])
-
-    # called when the region(zone) combo changes
-    def regionChanged(self, regionIndex):
-        if self.frontend.dbfilter is None:
-            return
-
-        self.frontend.ui.timezone_city_combo.currentIndexChanged[int].disconnect(self.cityChanged)
-        default = self.populateCities(regionIndex)
-        self.frontend.ui.timezone_city_combo.currentIndexChanged[int].connect(self.cityChanged)
-
-        if default:
-            self.set_timezone(default)
-        else:
-            self.frontend.ui.timezone_city_combo.setCurrentIndex(0)
-
-    # called when the city combo changes
-    def cityChanged(self, cityindex):
-        zone = str(self.frontend.ui.timezone_city_combo.itemData(cityindex).toPyObject())
-        loc = self.tzdb.get_loc(zone)
-        city = loc and self.cities[loc.zone]
-        if city:
-            self.selected_city = city
-            self.repaint()
-        
     #taken from gtk side
     def longitudeToX(self, longitude):
         # Miller cylindrical map projection is just the longitude as the
@@ -294,33 +241,14 @@ class TimezoneMap(QWidget):
         self._set_timezone(self.tzdb.get_loc(name), name)
     
     # internal set timezone based on a city
-    def _set_timezone(self, loc, city=None):
-        self.frontend.ui.timezone_zone_combo.currentIndexChanged[int].disconnect(self.regionChanged)
-        self.frontend.ui.timezone_city_combo.currentIndexChanged[int].disconnect(self.cityChanged)
-
-        city = city or loc.zone
-
-        for i in range(self.frontend.ui.timezone_zone_combo.count()):
-            code = str(self.frontend.ui.timezone_zone_combo.itemData(i).toPyObject())
-            countries = self.frontend.dbfilter.get_countries_for_region(code)
-            if not countries: # must have been a country code itself
-                countries = [code]
-            if loc.country in countries:
-                self.frontend.ui.timezone_zone_combo.setCurrentIndex(i)
-                self.populateCities(i)
-                break
-
-        for i in range(self.frontend.ui.timezone_city_combo.count()):
-            code = str(self.frontend.ui.timezone_city_combo.itemData(i).toPyObject())
-            if city == code:
-                self.frontend.ui.timezone_city_combo.setCurrentIndex(i)
-                self.cityChanged(i)
-                break
-
-        self.frontend.ui.timezone_zone_combo.currentIndexChanged[int].connect(self.regionChanged)
-        self.frontend.ui.timezone_city_combo.currentIndexChanged[int].connect(self.cityChanged)
+    def _set_timezone(self, loc, zone=None):
+        city = loc and self.cities[loc.zone]
+        if city:
+            self.selected_city = city
+            self.selected_zone = zone or loc.zone
+            self.emit(self.SIGNAL("zoneChanged"), loc, self.selected_zone)
+            self.repaint()
 
     # return the full timezone string
     def get_timezone(self):
-        i = self.frontend.ui.timezone_city_combo.currentIndex()
-        return str(self.frontend.ui.timezone_city_combo.itemData(i).toPyObject())
+        return self.selected_zone

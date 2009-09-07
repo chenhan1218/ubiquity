@@ -1,6 +1,6 @@
 # -*- coding: utf-8; Mode: Python; indent-tabs-mode: nil; tab-width: 4 -*-
 
-# Copyright (C) 2006, 2007 Canonical Ltd.
+# Copyright (C) 2009 Canonical Ltd.
 # Written by Colin Watson <cjwatson@ubuntu.com>.
 #
 # This program is free software; you can redistribute it and/or modify
@@ -17,8 +17,22 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-from ubiquity.filteredcommand import FilteredCommand
+from ubiquity.plugin import *
 
-class ConsoleSetupApply(FilteredCommand):
-    def prepare(self):
-        return (['/usr/share/ubiquity/console-setup-apply'], [])
+NAME = 'tasks'
+AFTER = 'network'
+WEIGHT = 12
+
+class TasksUnfilteredOnly(Exception):
+    pass
+
+class PageDebconf(PluginUI):
+    plugin_title = 'ubiquity/text/tasks_heading_label'
+
+# Only supports unfiltered mode.
+class Page(Plugin):
+    def prepare(self, unfiltered=False):
+        if not unfiltered:
+            raise TasksFilteredOnly, \
+                "tasks component only usable with debconf frontend"
+        return ['tasksel']
