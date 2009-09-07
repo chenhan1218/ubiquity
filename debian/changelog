@@ -1,4 +1,4 @@
-ubiquity (1.99.17) UNRELEASED; urgency=low
+ubiquity (1.99.17) karmic; urgency=low
 
   [ Colin Watson ]
   * Add support for the biosgrub partman method, to be added in
@@ -16,7 +16,7 @@ ubiquity (1.99.17) UNRELEASED; urgency=low
   * Automatic update of included source packages: clock-setup
     0.98ubuntu2.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 03 Sep 2009 21:05:25 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 07 Sep 2009 09:44:29 +0100
 
 ubiquity (1.99.16) karmic; urgency=low
 
