@@ -13,6 +13,8 @@ ubiquity (1.99.17) UNRELEASED; urgency=low
   * Merged Michael Terry's plugins branch (LP: #419989).  See
     http://wiki.ubuntu.com/Ubiquity/Plugins for instructions on writing
     new plugins.
+  * Automatic update of included source packages: clock-setup
+    0.98ubuntu2.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 03 Sep 2009 21:05:25 +0100
 
