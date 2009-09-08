@@ -10,7 +10,7 @@ ubiquity (1.99.18) UNRELEASED; urgency=low
     HAL pick up any keyboard changes we made.  LP: #395625
 
   [ Michael Casadevall ]
-  * Added support for dove bootloader installation to ubiquity
+  * Added support for dove bootloader installation to ubiquity (LP: #409238)
 
  -- Michael Casadevall <mcasadevall@ubuntu.com>  Tue, 08 Sep 2009 11:59:30 -0400
 
