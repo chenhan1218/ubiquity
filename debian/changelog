@@ -9,7 +9,10 @@ ubiquity (1.99.18) UNRELEASED; urgency=low
   * Add a default oem-config post-install hook that restarts HAL.  This lets
     HAL pick up any keyboard changes we made.  LP: #395625
 
- -- Michael Terry <michael.terry@canonical.com>  Tue, 08 Sep 2009 11:24:33 -0400
+  [ Michael Casadevall ]
+  * Added support for dove bootloader installation to ubiquity
+
+ -- Michael Casadevall <mcasadevall@ubuntu.com>  Tue, 08 Sep 2009 11:59:30 -0400
 
 ubiquity (1.99.17) karmic; urgency=low
 

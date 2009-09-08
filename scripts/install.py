@@ -627,7 +627,7 @@ class Install:
             keep.add('grub')
             keep.add('grub-pc')
         elif (arch == 'armel' and
-              subarch in ('imx51', 'iop32x', 'ixp4xx', 'orion5x')):
+              subarch in ('dove', 'imx51', 'iop32x', 'ixp4xx', 'orion5x')):
             keep.add('flash-kernel')
         elif arch == 'powerpc' and subarch != 'ps3':
             keep.add('yaboot')
