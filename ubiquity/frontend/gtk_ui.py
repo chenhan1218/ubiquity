@@ -1004,7 +1004,7 @@ class Wizard(BaseFrontend):
                                          '/org/gnome/SessionManager')
             manager.RequestReboot()
         else:
-            execute("reboot")
+            execute_root("reboot")
 
 
     def quit_installer(self, *args):
