@@ -1,3 +1,10 @@
+ubiquity (1.99.18) UNRELEASED; urgency=low
+
+  * Do not provide an inaccurate remaining time estimate for the file copy
+    process (LP: #199834).  Thanks rugby471!
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 08 Sep 2009 09:49:06 +0100
+
 ubiquity (1.99.17) karmic; urgency=low
 
   [ Colin Watson ]
