@@ -21,6 +21,7 @@ debian/ubiquity-guadalinex-artwork
 debian/ubiquity-guadalinex-doc
 debian/ubiquity-ubuntu-artwork
 debian/ubiquity-ubuntu-doc
+debian/ubiquity.dirs
 debian/ubiquity.install
 debian/*.debhelper*
 debian/*.substvars

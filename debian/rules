@@ -5,8 +5,6 @@
 
 export DH_OPTIONS
 
-BUILDDIR=$(CURDIR)/debian/build
-
 VERSION := $(shell dpkg-parsechangelog | awk '/^Version:/ { print $$2 }')
 EXPECTED_AC_VERSION := $(shell echo "$(VERSION)" | cut -d. -f1,2)
 AC_VERSION := $(shell grep -w '^AC_INIT' configure.ac | cut -d' ' -f2 | \
@@ -18,39 +16,6 @@ $(warning Version $(VERSION) in debian/changelog does not match $(AC_VERSION) in
 endif
 
 DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
-DEB_HOST_ARCH_CPU ?= $(shell dpkg-architecture -qDEB_HOST_ARCH_CPU 2>/dev/null)
-
-# Take account of old dpkg-architecture output.
-ifeq ($(DEB_HOST_ARCH_CPU),)
-  DEB_HOST_ARCH_CPU := $(shell dpkg-architecture -qDEB_HOST_GNU_CPU)
-  ifeq ($(DEB_HOST_ARCH_CPU),x86_64)
-    DEB_HOST_ARCH_CPU := amd64
-  endif
-  # lpia is a little weird.
-  ifeq ($(DEB_HOST_ARCH_CPU),i686)
-    DEB_HOST_ARCH_CPU := lpia
-  endif
-endif
-
-ifneq (,$(findstring :$(DEB_HOST_ARCH_CPU):,:amd64:i386:lpia:))
-  bootloader-recommends := grub-pc | grub
-else
-ifeq ($(DEB_HOST_ARCH),armel)
-  bootloader-recommends := flash-kernel
-else
-ifeq ($(DEB_HOST_ARCH),powerpc)
-  bootloader-recommends := yaboot, hfsutils
-else
-ifeq ($(DEB_HOST_ARCH),sparc)
-  bootloader-recommends := silo
-endif
-endif
-endif
-endif
-
-ifneq (,$(findstring :$(DEB_HOST_ARCH_CPU):,:alpha:amd64:i386:ia64:lpia:))
-  partman-depends := ntfsprogs
-endif
 
 console-setup-depends := console-setup (>= $(shell cd d-i/source/console-setup && dpkg-parsechangelog | awk '/Version:/ {print $$2}'))
 
@@ -69,22 +34,18 @@ build-stamp:
 	dh_auto_build
 	$(MAKE) -C d-i build
 
-	mkdir -p $(BUILDDIR)/ubuntu
-	mkdir -p $(BUILDDIR)/guadalinex
-
 	touch build-stamp
 
 clean:
 	dh_testdir
 	dh_testroot
-	rm -fr $(BUILDDIR)
 	# Sanity-check before upload.
 	find -name debian -prune -o -name \*.py -print | xargs py_compilefiles
 	find -type f \( -name \*.pyc -o -name \*.pyo \) -print0 | xargs -0r rm -f
 
 	$(MAKE) -C d-i clean
 	dh_auto_clean
-	dh_clean debian/ubiquity.install debian/ubiquity.dirs
+	dh_clean
 
 	$(MAKE) -C d-i check
 
@@ -128,6 +89,7 @@ else
 	dh_install
 endif
 endif
+	dh_di_numbers
 
 	# Bits of manual installation that can't be done by dh_install
 	
@@ -298,7 +260,7 @@ binary-arch: install
 	dh_pycentral
 	dh_installdeb
 	dh_shlibdeps
-	dh_gencontrol -- -V'console-setup-depends=$(console-setup-depends)' -V'partman-depends=$(partman-depends)' -V'bootloader-recommends=$(bootloader-recommends)' -Vmangled-version='$(MANGLED_VERSION)'
+	dh_gencontrol -- -V'console-setup-depends=$(console-setup-depends)' -Vmangled-version='$(MANGLED_VERSION)'
 	dh_md5sums
 	dh_builddeb
 

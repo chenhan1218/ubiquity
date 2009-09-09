@@ -9,6 +9,12 @@ ubiquity (1.99.18) UNRELEASED; urgency=low
   * Add a default oem-config post-install hook that restarts HAL.  This lets
     HAL pick up any keyboard changes we made.  LP: #395625
 
+  [ Colin Watson ]
+  * More packaging simplifications: move dh_clean arguments to debian/clean;
+    remove old $(BUILDDIR) cruft; move architecture-specific
+    build-dependencies to debian/control, which dpkg has supported for quite
+    a while; use dh-di for partman scripts.
+
  -- Michael Terry <michael.terry@canonical.com>  Tue, 08 Sep 2009 11:24:33 -0400
 
 ubiquity (1.99.17) karmic; urgency=low
