@@ -73,7 +73,7 @@
      <item>
       <widget class="QLabel" name="timezone_zone_label">
        <property name="text">
-        <string>Selected Region:</string>
+        <string>Region:</string>
        </property>
       </widget>
      </item>
@@ -96,7 +96,7 @@
      <item>
       <widget class="QLabel" name="timezone_city_label">
        <property name="text">
-        <string>Selected City:</string>
+        <string>Zone:</string>
        </property>
       </widget>
      </item>
