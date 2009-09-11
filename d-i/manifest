@@ -13,7 +13,7 @@ localechooser 2.12ubuntu2
 migration-assistant 0.6.4
 netcfg 1.49ubuntu1
 partconf 1.32
-partman-auto 87ubuntu3
+partman-auto 89ubuntu1
 partman-auto-loop 0ubuntu16
 partman-base 133ubuntu2
 partman-basicfilesystems 63ubuntu1
@@ -22,7 +22,7 @@ partman-efi 20ubuntu1
 partman-ext3 58ubuntu1
 partman-jfs 30
 partman-newworld 21
-partman-partitioning 69ubuntu1
+partman-partitioning 71ubuntu1
 partman-reiserfs 45
 partman-target 62ubuntu2
 partman-xfs 44

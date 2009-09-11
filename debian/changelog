@@ -6,6 +6,8 @@ ubiquity (1.99.18) UNRELEASED; urgency=low
   * Call reboot as root.  Thanks Mario Limonciello!
   * Don't let the user proceed past the timezone page until a selection has
     been made (LP 425011).
+  * Automatic update of included source packages: partman-auto
+    89ubuntu1, partman-partitioning 71ubuntu1.
 
   [ Michael Terry ]
   * Add a default oem-config post-install hook that restarts HAL.  This lets
