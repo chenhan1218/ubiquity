@@ -1,4 +1,4 @@
-ubiquity (1.99.18) UNRELEASED; urgency=low
+ubiquity (1.99.18) karmic; urgency=low
 
   [ Evan Dandrea ]
   * Do not provide an inaccurate remaining time estimate for the file copy
@@ -29,7 +29,7 @@ ubiquity (1.99.18) UNRELEASED; urgency=low
   [ Jonathan Riddell ]
   * Update path to kdesu in ubiquity-wrapper
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 11 Sep 2009 18:13:37 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 11 Sep 2009 19:26:50 +0100
 
 ubiquity (1.99.17) karmic; urgency=low
 
