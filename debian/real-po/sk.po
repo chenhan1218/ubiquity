@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-08-18 13:14+0100\n"
+"POT-Creation-Date: 2009-09-11 19:26+0100\n"
 "PO-Revision-Date: 2009-04-10 12:11+0000\n"
 "Last-Translator: helix84 <Unknown>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -45,7 +45,7 @@ msgstr "Určiť oblasti ručne (pokročilé)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:166001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:164001
 msgid "Install"
 msgstr "Inštalovať"
 
@@ -766,8 +766,10 @@ msgstr "Kopírujú sa súbory..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-msgid "Copying files (less than a minute remaining)..."
-msgstr "Prebieha kopírovanie (zostáva menej ako minúta)..."
+#, fuzzy
+#| msgid "Copying files..."
+msgid "Almost finished copying files..."
+msgstr "Kopírujú sa súbory..."
 
 #. Type: error
 #. Description
@@ -1150,44 +1152,44 @@ msgstr "Aplikuje sa nastavenie"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:158001
 msgid "Language"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:161001
+#: ../ubiquity.templates:159001
 msgid "Timezone"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:162001
+#: ../ubiquity.templates:160001
 #, fuzzy
 msgid "Keyboard"
 msgstr "Rozloženie klávesnice"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:161001
 msgid "Disk Setup"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:164001
+#: ../ubiquity.templates:162001
 msgid "User Info"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:165001
+#: ../ubiquity.templates:163001
 msgid "Summary"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:165001
 #, fuzzy
 msgid "installation process"
 msgstr "Inštalácia zlyhala"
@@ -1461,3 +1463,6 @@ msgstr "Nastavujú sa ďalšie služby..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Nastavujú sa infračervené zariadenia..."
+
+#~ msgid "Copying files (less than a minute remaining)..."
+#~ msgstr "Prebieha kopírovanie (zostáva menej ako minúta)..."

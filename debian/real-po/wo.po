@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-08-18 13:14+0100\n"
+"POT-Creation-Date: 2009-09-11 19:26+0100\n"
 "PO-Revision-Date: 2009-04-10 12:12+0000\n"
 "Last-Translator: Mouhamadou Mamoune Mbacke <Unknown>\n"
 "Language-Team: Wolof\n"
@@ -45,7 +45,7 @@ msgstr ""
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:166001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:164001
 msgid "Install"
 msgstr ""
 
@@ -722,7 +722,7 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-msgid "Copying files (less than a minute remaining)..."
+msgid "Almost finished copying files..."
 msgstr ""
 
 #. Type: error
@@ -1075,43 +1075,43 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:158001
 msgid "Language"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:161001
+#: ../ubiquity.templates:159001
 msgid "Timezone"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:162001
+#: ../ubiquity.templates:160001
 msgid "Keyboard"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:161001
 msgid "Disk Setup"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:164001
+#: ../ubiquity.templates:162001
 msgid "User Info"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:165001
+#: ../ubiquity.templates:163001
 msgid "Summary"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:165001
 msgid "installation process"
 msgstr ""
 

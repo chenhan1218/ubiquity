@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-08-18 13:14+0100\n"
+"POT-Creation-Date: 2009-09-11 19:26+0100\n"
 "PO-Revision-Date: 2009-04-10 13:14+0000\n"
 "Last-Translator: Daniel Nylander <yeager@ubuntu.com>\n"
 "Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
@@ -46,7 +46,7 @@ msgstr "Ange partitioner manuellt (avancerat)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:166001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:164001
 msgid "Install"
 msgstr "Installera"
 
@@ -772,8 +772,10 @@ msgstr "Kopierar filer..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-msgid "Copying files (less than a minute remaining)..."
-msgstr "Kopierar filer (mindre än en minut återstår)..."
+#, fuzzy
+#| msgid "Copying files..."
+msgid "Almost finished copying files..."
+msgstr "Kopierar filer..."
 
 #. Type: error
 #. Description
@@ -1159,44 +1161,44 @@ msgstr "Verkställer konfiguration"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:158001
 msgid "Language"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:161001
+#: ../ubiquity.templates:159001
 msgid "Timezone"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:162001
+#: ../ubiquity.templates:160001
 #, fuzzy
 msgid "Keyboard"
 msgstr "Tangentbordslayout"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:161001
 msgid "Disk Setup"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:164001
+#: ../ubiquity.templates:162001
 msgid "User Info"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:165001
+#: ../ubiquity.templates:163001
 msgid "Summary"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:165001
 #, fuzzy
 msgid "installation process"
 msgstr "Installationstyp"
@@ -1472,3 +1474,6 @@ msgstr "Konfigurerar ytterligare tjänster..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Konfigurerar infraröda enheter..."
+
+#~ msgid "Copying files (less than a minute remaining)..."
+#~ msgstr "Kopierar filer (mindre än en minut återstår)..."

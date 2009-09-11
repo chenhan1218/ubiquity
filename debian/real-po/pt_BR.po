@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-08-18 13:14+0100\n"
+"POT-Creation-Date: 2009-09-11 19:26+0100\n"
 "PO-Revision-Date: 2009-04-12 01:05+0000\n"
 "Last-Translator: André Gondim <andregondim@ubuntu.com>\n"
 "Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
@@ -47,7 +47,7 @@ msgstr "Especificar particionamento manual (avançado)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:166001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:164001
 msgid "Install"
 msgstr "Instalar"
 
@@ -777,8 +777,10 @@ msgstr "Copiando arquivos..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-msgid "Copying files (less than a minute remaining)..."
-msgstr "Copiando arquivos (restando menos de um minuto)..."
+#, fuzzy
+#| msgid "Copying files..."
+msgid "Almost finished copying files..."
+msgstr "Copiando arquivos..."
 
 #. Type: error
 #. Description
@@ -1165,44 +1167,44 @@ msgstr "Aplicando configuração"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:158001
 msgid "Language"
 msgstr "Idioma"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:161001
+#: ../ubiquity.templates:159001
 msgid "Timezone"
 msgstr "Fuso horário"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:162001
+#: ../ubiquity.templates:160001
 #, fuzzy
 msgid "Keyboard"
 msgstr "Selecione um layout de teclado"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:161001
 msgid "Disk Setup"
 msgstr "Configurar disco"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:164001
+#: ../ubiquity.templates:162001
 msgid "User Info"
 msgstr "Informações do usuário"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:165001
+#: ../ubiquity.templates:163001
 msgid "Summary"
 msgstr "Resumo"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:165001
 #, fuzzy
 msgid "installation process"
 msgstr "Tipo de instalação"
@@ -1479,3 +1481,6 @@ msgstr "Configurando serviços adicionais..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Configurando dispositivos infravermelhos..."
+
+#~ msgid "Copying files (less than a minute remaining)..."
+#~ msgstr "Copiando arquivos (restando menos de um minuto)..."

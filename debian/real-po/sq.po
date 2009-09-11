@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-08-18 13:14+0100\n"
+"POT-Creation-Date: 2009-09-11 19:26+0100\n"
 "PO-Revision-Date: 2009-04-10 13:07+0000\n"
 "Last-Translator: Vilson Gjeci <Unknown>\n"
 "Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
@@ -46,7 +46,7 @@ msgstr "Specifiko particionet në mënyrë manuale (e avancuar)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:166001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:164001
 msgid "Install"
 msgstr "_Instalo"
 
@@ -776,8 +776,10 @@ msgstr "Duke kopjuar skedarët..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-msgid "Copying files (less than a minute remaining)..."
-msgstr "Duke kopjuar skedarët (ngelet më pak se një minutë)..."
+#, fuzzy
+#| msgid "Copying files..."
+msgid "Almost finished copying files..."
+msgstr "Duke kopjuar skedarët..."
 
 #. Type: error
 #. Description
@@ -1156,44 +1158,44 @@ msgstr "Aplikim i konfigurimit"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:158001
 msgid "Language"
 msgstr "Gjuha"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:161001
+#: ../ubiquity.templates:159001
 msgid "Timezone"
 msgstr "Zona orare"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:162001
+#: ../ubiquity.templates:160001
 #, fuzzy
 msgid "Keyboard"
 msgstr "Zgjidh një tastierë"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:161001
 msgid "Disk Setup"
 msgstr "Instalimi i Diskut"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:164001
+#: ../ubiquity.templates:162001
 msgid "User Info"
 msgstr "Informacione Rreth Përdoruesit"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:165001
+#: ../ubiquity.templates:163001
 msgid "Summary"
 msgstr "Përmbledhja"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:165001
 #, fuzzy
 msgid "installation process"
 msgstr "Lloji i Instalimit"
@@ -1471,3 +1473,6 @@ msgstr "Duke konfiguruar shërbime shtesë..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Duke konfiguruar pajisjet infra të kuqe..."
+
+#~ msgid "Copying files (less than a minute remaining)..."
+#~ msgstr "Duke kopjuar skedarët (ngelet më pak se një minutë)..."

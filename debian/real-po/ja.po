@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-08-18 13:14+0100\n"
+"POT-Creation-Date: 2009-09-11 19:26+0100\n"
 "PO-Revision-Date: 2009-04-16 02:43+0000\n"
 "Last-Translator: William Bohn <shambler@comcast.net>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
@@ -46,7 +46,7 @@ msgstr "手動でパーティションを設定する（高度な知識が必要
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:166001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:164001
 msgid "Install"
 msgstr "インストール"
 
@@ -774,8 +774,10 @@ msgstr "ファイルをコピーしています..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-msgid "Copying files (less than a minute remaining)..."
-msgstr "ファイルをコピーしています (残り1分弱です)..."
+#, fuzzy
+#| msgid "Copying files..."
+msgid "Almost finished copying files..."
+msgstr "ファイルをコピーしています..."
 
 #. Type: error
 #. Description
@@ -1158,44 +1160,44 @@ msgstr "設定の適用"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:158001
 msgid "Language"
 msgstr "言語"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:161001
+#: ../ubiquity.templates:159001
 msgid "Timezone"
 msgstr "タイムゾーン"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:162001
+#: ../ubiquity.templates:160001
 #, fuzzy
 msgid "Keyboard"
 msgstr "キーボードレイアウト"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:161001
 msgid "Disk Setup"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:164001
+#: ../ubiquity.templates:162001
 msgid "User Info"
 msgstr "ユーザ情報"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:165001
+#: ../ubiquity.templates:163001
 msgid "Summary"
 msgstr "要約"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:165001
 #, fuzzy
 msgid "installation process"
 msgstr "インストールタイプ"
@@ -1469,3 +1471,6 @@ msgstr "追加サービスの設定をしています・・・"
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "赤外線デバイスを設定しています..."
+
+#~ msgid "Copying files (less than a minute remaining)..."
+#~ msgstr "ファイルをコピーしています (残り1分弱です)..."
