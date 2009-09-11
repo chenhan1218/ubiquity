@@ -73,8 +73,8 @@ def main():
                 kdesu = 'kdesu'
             elif osextras.find_on_path('kdesudo'):
                 kdesu = 'kdesudo'
-            elif os.path.exists('/usr/lib/kde4/bin/kdesudo'):
-                kdesu = '/usr/lib/kde4/bin/kdesudo'
+            elif os.path.exists('/usr/lib/kde4/libexec/kdesu'):
+                kdesu = '/usr/lib/kde4/libexec/kdesu'
             if kdesu:
                 toexec = [kdesu, '--nonewdcop', '--']
             else:

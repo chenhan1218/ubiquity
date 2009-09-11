@@ -24,7 +24,10 @@ ubiquity (1.99.18) UNRELEASED; urgency=low
   * Stop ubiquity-dm crashing if a process it's trying to kill doesn't exist
     (LP: #423700).
 
- -- Michael Terry <michael.terry@canonical.com>  Tue, 08 Sep 2009 11:24:33 -0400
+  [ Jonathan Riddell ]
+  * Update path to kdesu in ubiquity-wrapper
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 11 Sep 2009 18:13:37 +0100
 
 ubiquity (1.99.17) karmic; urgency=low
 
