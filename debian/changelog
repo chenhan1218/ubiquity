@@ -19,6 +19,8 @@ ubiquity (1.99.18) UNRELEASED; urgency=low
   * Fix oem-config crash if the KDE frontend is detected, due to trying to
     delete UBIQUITY_MIGRATION_ASSISTANT from the environment when it's not
     there (LP: #414854).
+  * Stop ubiquity-dm crashing if a process it's trying to kill doesn't exist
+    (LP: #423700).
 
  -- Michael Terry <michael.terry@canonical.com>  Tue, 08 Sep 2009 11:24:33 -0400
 
