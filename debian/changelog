@@ -16,6 +16,9 @@ ubiquity (1.99.18) UNRELEASED; urgency=low
     a while; use dh-di for partman scripts.
   * Update translations from Launchpad.
   * Fix method name to allow page changing in partitioner (LP: #427347).
+  * Fix oem-config crash if the KDE frontend is detected, due to trying to
+    delete UBIQUITY_MIGRATION_ASSISTANT from the environment when it's not
+    there (LP: #414854).
 
  -- Michael Terry <michael.terry@canonical.com>  Tue, 08 Sep 2009 11:24:33 -0400
 
