@@ -98,6 +98,7 @@ msgstr ""
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
+"Após responder à algumas perguntas, este computador estará pronto para uso."
 
 #. Type: text
 #. Description
@@ -152,12 +153,15 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"Selecione a sua localização, com ela o sistema poderá exibir corretamente as "
+"convenções de localização para o seu país, buscar atualizações de locais "
+"mais próximos a você e definir corretamente a sua hora local."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "Zona:"
 
 #. Type: text
 #. Description
@@ -519,14 +523,14 @@ msgstr "Criando usuário..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "Excluir"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:68001
 msgid "Revert"
-msgstr ""
+msgstr "Reverter"
 
 #. Type: text
 #. Description
@@ -1163,13 +1167,13 @@ msgstr "Aplicando configuração"
 #. Description
 #: ../ubiquity.templates:160001
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Timezone"
-msgstr ""
+msgstr "Fuso horário"
 
 #. Type: text
 #. Description
@@ -1182,19 +1186,19 @@ msgstr "Selecione um layout de teclado"
 #. Description
 #: ../ubiquity.templates:163001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Configurar disco"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:164001
 msgid "User Info"
-msgstr ""
+msgstr "Informações do usuário"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
 msgid "Summary"
-msgstr ""
+msgstr "Resumo"
 
 #. Type: text
 #. Description

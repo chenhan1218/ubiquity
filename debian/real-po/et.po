@@ -26,7 +26,7 @@ msgstr "Kasuta suurimat järjestikust vaba ruumi"
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr ""
+msgstr "Kustuta ja kasuta tervet ketast"
 
 #. Type: text
 #. Description

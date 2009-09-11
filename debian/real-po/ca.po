@@ -521,14 +521,14 @@ msgstr "S'està creant un usuari..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "Suprimeix"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:68001
 msgid "Revert"
-msgstr ""
+msgstr "Reverteix"
 
 #. Type: text
 #. Description
@@ -1165,13 +1165,13 @@ msgstr "Aplicació de la configuració"
 #. Description
 #: ../ubiquity.templates:160001
 msgid "Language"
-msgstr ""
+msgstr "Llengua"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Timezone"
-msgstr ""
+msgstr "Fus horari"
 
 #. Type: text
 #. Description
@@ -1196,7 +1196,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:165001
 msgid "Summary"
-msgstr ""
+msgstr "Resum"
 
 #. Type: text
 #. Description

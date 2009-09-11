@@ -97,7 +97,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
+msgstr "Vastattuasi muutamaan kysymykseen, tietokone on valmis käyttöön."
 
 #. Type: text
 #. Description
@@ -152,12 +152,15 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"Valitse sijaintisi, jotta järjestelmä voi käyttää asuinmaasi "
+"merkitsemistapoja, noutaa päivityksiä lähimmiltä sivustoilta ja asettaa "
+"kello oikean aikaan."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "Vyöhyke:"
 
 #. Type: text
 #. Description
@@ -513,14 +516,14 @@ msgstr "Luodaan käyttäjää..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "Poista"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:68001
 msgid "Revert"
-msgstr ""
+msgstr "Palauta"
 
 #. Type: text
 #. Description
@@ -1151,13 +1154,13 @@ msgstr "Toteutetaan asetuksia"
 #. Description
 #: ../ubiquity.templates:160001
 msgid "Language"
-msgstr ""
+msgstr "Kieli"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Timezone"
-msgstr ""
+msgstr "Aikavyöhyke"
 
 #. Type: text
 #. Description
@@ -1170,19 +1173,19 @@ msgstr "Näppäimistön asettelu"
 #. Description
 #: ../ubiquity.templates:163001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Levyasetukset"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:164001
 msgid "User Info"
-msgstr ""
+msgstr "Käyttäjätiedot"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
 msgid "Summary"
-msgstr ""
+msgstr "Yhteenveto"
 
 #. Type: text
 #. Description

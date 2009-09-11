@@ -99,6 +99,7 @@ msgstr ""
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
+"След като отговорите на няколко въпроса, компютърът ще е готов за работа."
 
 #. Type: text
 #. Description
@@ -153,12 +154,15 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"Изберете вашата държава, така че системата правилно да показва вашата "
+"държава, да избере най-близкият подходящ сървър с актуализации и да нагласи "
+"часовника правилно."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "Зона:"
 
 #. Type: text
 #. Description
@@ -521,14 +525,14 @@ msgstr "Създаване на потребител..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "Изтриване"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:68001
 msgid "Revert"
-msgstr ""
+msgstr "Връщане"
 
 #. Type: text
 #. Description
@@ -1164,13 +1168,13 @@ msgstr "Прилагане на конфигурация"
 #. Description
 #: ../ubiquity.templates:160001
 msgid "Language"
-msgstr ""
+msgstr "Език"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Timezone"
-msgstr ""
+msgstr "Часови пояс"
 
 #. Type: text
 #. Description
@@ -1183,19 +1187,19 @@ msgstr "Клавиатурна подредба"
 #. Description
 #: ../ubiquity.templates:163001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Разделяне на диск"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:164001
 msgid "User Info"
-msgstr ""
+msgstr "Информация за потребителя"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
 msgid "Summary"
-msgstr ""
+msgstr "Резюме"
 
 #. Type: text
 #. Description

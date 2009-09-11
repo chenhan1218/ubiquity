@@ -27,7 +27,7 @@ msgstr "Usar el mayor espaciu contínuu llibre"
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr ""
+msgstr "Desaniciar y usar el discu enteru"
 
 #. Type: text
 #. Description
@@ -97,6 +97,7 @@ msgstr ""
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
+"Una vegada respuendas a unes entrugues, l'ordenador tará preparáu pa usase."
 
 #. Type: text
 #. Description
@@ -105,6 +106,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
+"Por favor escueyi la llingua usada pal procesu de configuración. Esta "
+"llingua sedrá la llingua predefinía pal ordenador."
 
 #. Type: text
 #. Description
@@ -148,12 +151,15 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"Seleicione la so llocalización, d'esta miente'l sistema puede amosar les "
+"opciones más afayadices pal so país, obtener anovamientos dende sitios "
+"cercanos al suyu, y afitar el reló cola hora llocal correuta."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "Zona:"
 
 #. Type: text
 #. Description
@@ -273,13 +279,14 @@ msgstr "Entrar automáticamente"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Require my password to log in"
-msgstr ""
+msgstr "Pidir la mio contraseña p'aniciar sesión"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr ""
+"Pidir la mio contraseña p'aniciar sesión y descifrar la mio carpeta personal"
 
 #. Type: text
 #. Description
@@ -489,35 +496,35 @@ msgstr "Dempués:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 msgid "New Partition Table..."
-msgstr ""
+msgstr "Nueva tabla de Particiones..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 msgid "Add..."
-msgstr ""
+msgstr "Amestar..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 msgid "Change..."
-msgstr ""
+msgstr "Camudar..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "Desaniciar"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:68001
 msgid "Revert"
-msgstr ""
+msgstr "&Revertir"
 
 #. Type: text
 #. Description
@@ -1150,43 +1157,43 @@ msgstr "Aplicando configuración"
 #. Description
 #: ../ubiquity.templates:160001
 msgid "Language"
-msgstr ""
+msgstr "Llingua"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Timezone"
-msgstr ""
+msgstr "Estaya horaria"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:162001
 msgid "Keyboard"
-msgstr ""
+msgstr "Tecláu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:163001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Configuración Discu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:164001
 msgid "User Info"
-msgstr ""
+msgstr "Información d'usuariu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
 msgid "Summary"
-msgstr ""
+msgstr "Resume"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:167001
 msgid "installation process"
-msgstr ""
+msgstr "procesu instalación"
 
 #. Type: note
 #. Description

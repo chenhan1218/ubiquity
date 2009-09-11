@@ -98,6 +98,7 @@ msgstr ""
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
+"Na het beantwoorden van enkele vragen is deze computer klaar voor gebruiken"
 
 #. Type: text
 #. Description
@@ -152,12 +153,15 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"Kies uw locatie, zodat de computer een geschikte kalender voor uw land kan "
+"bepalen, updates kan binnenhalen van locaties in de buurt, en de klok kan "
+"instellen op de lokale tijd."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "Zone:"
 
 #. Type: text
 #. Description
@@ -520,14 +524,14 @@ msgstr "Gebruikers worden aangemaakt..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "Verwijderen"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:68001
 msgid "Revert"
-msgstr ""
+msgstr "Ongedaan maken"
 
 #. Type: text
 #. Description
@@ -1167,13 +1171,13 @@ msgstr "Configuratie toepassen"
 #. Description
 #: ../ubiquity.templates:160001
 msgid "Language"
-msgstr ""
+msgstr "Taal"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Timezone"
-msgstr ""
+msgstr "Tijdzone"
 
 #. Type: text
 #. Description
@@ -1186,19 +1190,19 @@ msgstr "Toetsenbordindeling"
 #. Description
 #: ../ubiquity.templates:163001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Schijfconfiguratie"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:164001
 msgid "User Info"
-msgstr ""
+msgstr "Gebruikersinformatie"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
 msgid "Summary"
-msgstr ""
+msgstr "Samenvatting"
 
 #. Type: text
 #. Description

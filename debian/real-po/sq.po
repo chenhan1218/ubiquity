@@ -97,6 +97,8 @@ msgstr ""
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
+"Pasi ju t'i jeni përgjigjur disa pyetjeve, ky kompjuter do jetë gati për "
+"përdorim."
 
 #. Type: text
 #. Description
@@ -151,12 +153,15 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"Zgjidhni vendndodhjen tuaj, në mënyrë që sistemi të shfaqë njësitë e duhura "
+"për vendin tuaj, të marrë përditësimet nga faqe pranë jush dhe të vendosë "
+"kohën në orën korrekte lokale."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "Zona:"
 
 #. Type: text
 #. Description
@@ -517,14 +522,14 @@ msgstr "Duke krijuar përdoruesin..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "Fshije"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:68001
 msgid "Revert"
-msgstr ""
+msgstr "Rikthe"
 
 #. Type: text
 #. Description
@@ -1153,13 +1158,13 @@ msgstr "Aplikim i konfigurimit"
 #. Description
 #: ../ubiquity.templates:160001
 msgid "Language"
-msgstr ""
+msgstr "Gjuha"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Timezone"
-msgstr ""
+msgstr "Zona orare"
 
 #. Type: text
 #. Description
@@ -1172,19 +1177,19 @@ msgstr "Zgjidh një tastierë"
 #. Description
 #: ../ubiquity.templates:163001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Instalimi i Diskut"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:164001
 msgid "User Info"
-msgstr ""
+msgstr "Informacione Rreth Përdoruesit"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
 msgid "Summary"
-msgstr ""
+msgstr "Përmbledhja"
 
 #. Type: text
 #. Description

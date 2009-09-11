@@ -517,7 +517,7 @@ msgstr "O krouiñ an arveriad-ez..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "Dilemel"
 
 #. Type: text
 #. Description
@@ -1161,7 +1161,7 @@ msgstr "Arloadur ar c'hefluniadur"
 #. Description
 #: ../ubiquity.templates:160001
 msgid "Language"
-msgstr ""
+msgstr "Yezh"
 
 #. Type: text
 #. Description
@@ -1180,13 +1180,13 @@ msgstr "Aozadur ar stokellaoueg"
 #. Description
 #: ../ubiquity.templates:163001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Kefluniadur ar gantenn"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:164001
 msgid "User Info"
-msgstr ""
+msgstr "Titouroù diwar-benn an arveriad"
 
 #. Type: text
 #. Description
