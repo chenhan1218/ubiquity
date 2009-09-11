@@ -15,6 +15,7 @@ ubiquity (1.99.18) UNRELEASED; urgency=low
     build-dependencies to debian/control, which dpkg has supported for quite
     a while; use dh-di for partman scripts.
   * Update translations from Launchpad.
+  * Fix method name to allow page changing in partitioner (LP: #427347).
 
  -- Michael Terry <michael.terry@canonical.com>  Tue, 08 Sep 2009 11:24:33 -0400
 

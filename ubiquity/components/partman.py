@@ -35,7 +35,7 @@ class PageGtk(PluginUI):
     plugin_widgets = 'stepPartAuto'
     plugin_optional_widgets = 'stepPartAdvanced'
 
-    def get_current_page(self):
+    def plugin_get_current_page(self):
         return self.part_page
 
     def set_part_page(self, p):
@@ -46,7 +46,7 @@ class PageKde(PluginUI):
     plugin_widgets = ['stepPartAuto', 'stepPartAdvanced']
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_partition'
 
-    def get_current_page(self):
+    def plugin_get_current_page(self):
         return self.part_page
 
     def set_part_page(self, p):
