@@ -1,3 +1,11 @@
+ubiquity (1.99.19) UNRELEASED; urgency=low
+
+  * make sure /target/dev is properly bind mounted and unmounted in
+    chroot_setup() and chroot_cleanup() so postinst triggers that require
+    certain devices will find them (LP: #422101)
+
+ -- Oliver Grawert <ogra@ubuntu.com>  Mon, 14 Sep 2009 14:21:55 +0200
+
 ubiquity (1.99.18) karmic; urgency=low
 
   [ Evan Dandrea ]

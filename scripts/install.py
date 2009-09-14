@@ -1047,6 +1047,7 @@ exit 0"""
             self.chrex('mount', '-t', 'proc', 'proc', '/proc')
         if not os.path.exists(os.path.join(self.target, 'sys/devices')):
             self.chrex('mount', '-t', 'sysfs', 'sysfs', '/sys')
+        misc.execute('mount', '--bind', '/dev', os.path.join(self.target, 'dev'))
 
         if x11 and 'DISPLAY' in os.environ:
             if 'SUDO_USER' in os.environ:
@@ -1079,6 +1080,7 @@ exit 0"""
             except OSError:
                 pass
 
+        self.chrex('umount', '/dev')
         self.chrex('umount', '/sys')
         self.chrex('umount', '/proc')
 
