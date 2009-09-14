@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-08-18 13:14+0100\n"
+"POT-Creation-Date: 2009-09-11 19:26+0100\n"
 "PO-Revision-Date: 2009-04-10 13:07+0000\n"
 "Last-Translator: Vilson Gjeci <Unknown>\n"
 "Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
@@ -46,7 +46,7 @@ msgstr "Specifiko particionet në mënyrë manuale (e avancuar)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:166001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:164001
 msgid "Install"
 msgstr "_Instalo"
 
@@ -97,6 +97,8 @@ msgstr ""
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
+"Pasi ju t'i jeni përgjigjur disa pyetjeve, ky kompjuter do jetë gati për "
+"përdorim."
 
 #. Type: text
 #. Description
@@ -151,12 +153,15 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"Zgjidhni vendndodhjen tuaj, në mënyrë që sistemi të shfaqë njësitë e duhura "
+"për vendin tuaj, të marrë përditësimet nga faqe pranë jush dhe të vendosë "
+"kohën në orën korrekte lokale."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "Zona:"
 
 #. Type: text
 #. Description
@@ -517,14 +522,14 @@ msgstr "Duke krijuar përdoruesin..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "Fshije"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:68001
 msgid "Revert"
-msgstr ""
+msgstr "Rikthe"
 
 #. Type: text
 #. Description
@@ -771,8 +776,10 @@ msgstr "Duke kopjuar skedarët..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-msgid "Copying files (less than a minute remaining)..."
-msgstr "Duke kopjuar skedarët (ngelet më pak se një minutë)..."
+#, fuzzy
+#| msgid "Copying files..."
+msgid "Almost finished copying files..."
+msgstr "Duke kopjuar skedarët..."
 
 #. Type: error
 #. Description
@@ -1151,44 +1158,44 @@ msgstr "Aplikim i konfigurimit"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:158001
 msgid "Language"
-msgstr ""
+msgstr "Gjuha"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:161001
+#: ../ubiquity.templates:159001
 msgid "Timezone"
-msgstr ""
+msgstr "Zona orare"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:162001
+#: ../ubiquity.templates:160001
 #, fuzzy
 msgid "Keyboard"
 msgstr "Zgjidh një tastierë"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:161001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Instalimi i Diskut"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:164001
+#: ../ubiquity.templates:162001
 msgid "User Info"
-msgstr ""
+msgstr "Informacione Rreth Përdoruesit"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:163001
+msgid "Summary"
+msgstr "Përmbledhja"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
-msgid "Summary"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:167001
 #, fuzzy
 msgid "installation process"
 msgstr "Lloji i Instalimit"
@@ -1466,3 +1473,6 @@ msgstr "Duke konfiguruar shërbime shtesë..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Duke konfiguruar pajisjet infra të kuqe..."
+
+#~ msgid "Copying files (less than a minute remaining)..."
+#~ msgstr "Duke kopjuar skedarët (ngelet më pak se një minutë)..."

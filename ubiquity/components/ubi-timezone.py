@@ -115,8 +115,10 @@ class PageGtk(PluginUI):
         while iterator:
             if m[iterator][1] == city:
                 self.city_combo.set_active_iter(iterator)
-                break
+                return
             iterator = m.iter_next(iterator)
+        # We don't have a timezone selection, so don't let the user proceed.
+        self.controller.allow_go_forward(False)
 
     def setup_page(self):
         import gobject, gtk
@@ -178,6 +180,7 @@ class PageGtk(PluginUI):
 
         zone = self.get_timezone()
         self.tzmap.select_city(zone)
+        self.controller.allow_go_forward(True)
 
 class PageKde(PluginUI):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_timezone'

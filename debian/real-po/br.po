@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-08-18 13:14+0100\n"
+"POT-Creation-Date: 2009-09-11 19:26+0100\n"
 "PO-Revision-Date: 2009-04-06 14:56+0000\n"
 "Last-Translator: Denis ARNAUD <Unknown>\n"
 "Language-Team: Breton <br@li.org>\n"
@@ -47,7 +47,7 @@ msgstr "Termenañ ar parzhadoù dre zorn (araoket)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:166001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:164001
 msgid "Install"
 msgstr "Staliañ"
 
@@ -517,7 +517,7 @@ msgstr "O krouiñ an arveriad-ez..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "Dilemel"
 
 #. Type: text
 #. Description
@@ -771,8 +771,10 @@ msgstr "O kopiañ restroù..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-msgid "Copying files (less than a minute remaining)..."
-msgstr "Oc'h eilañ ar restroù (chom a ra nebeud eget ur vunutenn)..."
+#, fuzzy
+#| msgid "Copying files..."
+msgid "Almost finished copying files..."
+msgstr "O kopiañ restroù..."
 
 #. Type: error
 #. Description
@@ -1159,44 +1161,44 @@ msgstr "Arloadur ar c'hefluniadur"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:158001
 msgid "Language"
-msgstr ""
+msgstr "Yezh"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:161001
+#: ../ubiquity.templates:159001
 msgid "Timezone"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:162001
+#: ../ubiquity.templates:160001
 #, fuzzy
 msgid "Keyboard"
 msgstr "Aozadur ar stokellaoueg"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:161001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Kefluniadur ar gantenn"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:164001
+#: ../ubiquity.templates:162001
 msgid "User Info"
-msgstr ""
+msgstr "Titouroù diwar-benn an arveriad"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:165001
+#: ../ubiquity.templates:163001
 msgid "Summary"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:165001
 #, fuzzy
 msgid "installation process"
 msgstr "Staliadur leun"
@@ -1475,3 +1477,6 @@ msgstr "O kefluniañ gwazerezhioù ouzhpenn..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "O kefluniañ trobarzhelloù isruz..."
+
+#~ msgid "Copying files (less than a minute remaining)..."
+#~ msgstr "Oc'h eilañ ar restroù (chom a ra nebeud eget ur vunutenn)..."

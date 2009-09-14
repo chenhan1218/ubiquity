@@ -1,3 +1,4 @@
+debian/ubiquity.dirs
 debian/ubiquity.install
 d-i/source/console-setup/Keyboard/MyKeyboardNames.pl
 po/.intltool-merge-cache

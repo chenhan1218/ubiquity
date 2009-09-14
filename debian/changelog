@@ -1,18 +1,41 @@
-ubiquity (1.99.18) UNRELEASED; urgency=low
+ubiquity (1.99.19) UNRELEASED; urgency=low
+
+  * Add support for installing dove bootloader (LP: #409238)
+
+ -- Michael Casadevall <mcasadevall@ubuntu.com>  Sun, 13 Sep 2009 23:59:11 -0400
+
+ubiquity (1.99.18) karmic; urgency=low
 
   [ Evan Dandrea ]
   * Do not provide an inaccurate remaining time estimate for the file copy
     process (LP: #199834).  Thanks rugby471!
   * Call reboot as root.  Thanks Mario Limonciello!
+  * Don't let the user proceed past the timezone page until a selection has
+    been made (LP 425011).
+  * Automatic update of included source packages: partman-auto
+    89ubuntu1, partman-partitioning 71ubuntu1.
 
   [ Michael Terry ]
   * Add a default oem-config post-install hook that restarts HAL.  This lets
     HAL pick up any keyboard changes we made.  LP: #395625
 
-  [ Michael Casadevall ]
-  * Added support for dove bootloader installation to ubiquity (LP: #409238)
+  [ Colin Watson ]
+  * More packaging simplifications: move dh_clean arguments to debian/clean;
+    remove old $(BUILDDIR) cruft; move architecture-specific
+    build-dependencies to debian/control, which dpkg has supported for quite
+    a while; use dh-di for partman scripts.
+  * Update translations from Launchpad.
+  * Fix method name to allow page changing in partitioner (LP: #427347).
+  * Fix oem-config crash if the KDE frontend is detected, due to trying to
+    delete UBIQUITY_MIGRATION_ASSISTANT from the environment when it's not
+    there (LP: #414854).
+  * Stop ubiquity-dm crashing if a process it's trying to kill doesn't exist
+    (LP: #423700).
 
- -- Michael Casadevall <mcasadevall@ubuntu.com>  Tue, 08 Sep 2009 11:59:30 -0400
+  [ Jonathan Riddell ]
+  * Update path to kdesu in ubiquity-wrapper
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 11 Sep 2009 19:26:50 +0100
 
 ubiquity (1.99.17) karmic; urgency=low
 

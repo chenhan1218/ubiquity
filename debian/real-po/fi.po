@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-08-18 13:14+0100\n"
+"POT-Creation-Date: 2009-09-11 19:26+0100\n"
 "PO-Revision-Date: 2009-04-11 06:29+0000\n"
 "Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
@@ -47,7 +47,7 @@ msgstr "Määritä osiot käsin (edistyneille)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:166001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:164001
 msgid "Install"
 msgstr "Asenna"
 
@@ -97,7 +97,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
+msgstr "Vastattuasi muutamaan kysymykseen, tietokone on valmis käyttöön."
 
 #. Type: text
 #. Description
@@ -152,12 +152,15 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"Valitse sijaintisi, jotta järjestelmä voi käyttää asuinmaasi "
+"merkitsemistapoja, noutaa päivityksiä lähimmiltä sivustoilta ja asettaa "
+"kello oikean aikaan."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "Vyöhyke:"
 
 #. Type: text
 #. Description
@@ -513,14 +516,14 @@ msgstr "Luodaan käyttäjää..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "Poista"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:68001
 msgid "Revert"
-msgstr ""
+msgstr "Palauta"
 
 #. Type: text
 #. Description
@@ -766,8 +769,10 @@ msgstr "Kopioidaan tiedostoja..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-msgid "Copying files (less than a minute remaining)..."
-msgstr "Kopioidaan tiedostoja (alle minuutti jäljellä)..."
+#, fuzzy
+#| msgid "Copying files..."
+msgid "Almost finished copying files..."
+msgstr "Kopioidaan tiedostoja..."
 
 #. Type: error
 #. Description
@@ -1149,44 +1154,44 @@ msgstr "Toteutetaan asetuksia"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:158001
 msgid "Language"
-msgstr ""
+msgstr "Kieli"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:161001
+#: ../ubiquity.templates:159001
 msgid "Timezone"
-msgstr ""
+msgstr "Aikavyöhyke"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:162001
+#: ../ubiquity.templates:160001
 #, fuzzy
 msgid "Keyboard"
 msgstr "Näppäimistön asettelu"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:161001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Levyasetukset"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:164001
+#: ../ubiquity.templates:162001
 msgid "User Info"
-msgstr ""
+msgstr "Käyttäjätiedot"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:163001
+msgid "Summary"
+msgstr "Yhteenveto"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
-msgid "Summary"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:167001
 #, fuzzy
 msgid "installation process"
 msgstr "Asennustapa"
@@ -1462,3 +1467,6 @@ msgstr "Tehdään palveluiden asetuksia..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Määritetään infrapunalaitteita..."
+
+#~ msgid "Copying files (less than a minute remaining)..."
+#~ msgstr "Kopioidaan tiedostoja (alle minuutti jäljellä)..."

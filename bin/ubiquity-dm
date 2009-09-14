@@ -211,14 +211,21 @@ class DM:
         greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
         ret = greeter.wait()
 
-        def sigalrm_handler(signum, frame):
-            os.kill(wm.pid, signal.SIGKILL)
-            for extra in extras:
-                os.kill(extra.pid, signal.SIGKILL)
+        def kill_if_exists(pid, signum):
+            try:
+                os.kill(pid, signum)
+            except OSError, e:
+                if e.errno != errno.ESRCH:
+                    raise
 
-        os.kill(wm.pid, signal.SIGTERM)
+        def sigalrm_handler(signum, frame):
+            kill_if_exists(wm.pid, signal.SIGKILL)
+            for extra in extras:
+                kill_if_exists(extra.pid, signal.SIGKILL)
+
+        kill_if_exists(wm.pid, signal.SIGTERM)
         for extra in extras:
-            os.kill(extra.pid, signal.SIGTERM)
+            kill_if_exists(extra.pid, signal.SIGTERM)
         if gconfd_running:
             subprocess.call(['gconftool-2', '--shutdown'],
                             stdin=null, stdout=logfile, stderr=logfile,
@@ -239,7 +246,7 @@ class DM:
                     raise
             processes -= done
         signal.alarm(0)
-        os.kill(server.pid, signal.SIGTERM)
+        kill_if_exists(server.pid, signal.SIGTERM)
         server.wait()
 
         if ret is not None and ret >= 0:

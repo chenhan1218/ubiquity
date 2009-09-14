@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-08-18 13:14+0100\n"
+"POT-Creation-Date: 2009-09-11 19:26+0100\n"
 "PO-Revision-Date: 2009-04-10 12:11+0000\n"
 "Last-Translator: Bartosz Fenski <fenio@debian.org>\n"
 "Language-Team: Polish <debian-l10n-polish@lists.debian.org>\n"
@@ -47,7 +47,7 @@ msgstr "Ręczne określanie partycji (zaawansowane)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:166001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:164001
 msgid "Install"
 msgstr "Instalacja"
 
@@ -98,6 +98,7 @@ msgstr ""
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
+"Po podaniu odpowiedzi na kilka pytań ten komputer będzie gotowy do użycia."
 
 #. Type: text
 #. Description
@@ -153,12 +154,15 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"Proszę wybrać swoje położenie, aby system mógł dobrać odpowiednie konwencje "
+"wyświetlania informacji, pobierać aktualizacje z lokalnych serwerów i "
+"ustawić poprawny czas lokalny."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "Strefa:"
 
 #. Type: text
 #. Description
@@ -516,14 +520,14 @@ msgstr "Dodawanie użytkownika..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "Usuń"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:68001
 msgid "Revert"
-msgstr ""
+msgstr "Przywróć"
 
 #. Type: text
 #. Description
@@ -770,8 +774,10 @@ msgstr "Kopiowanie plików..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-msgid "Copying files (less than a minute remaining)..."
-msgstr "Kopiowanie plików (mniej niż minuta)..."
+#, fuzzy
+#| msgid "Copying files..."
+msgid "Almost finished copying files..."
+msgstr "Kopiowanie plików..."
 
 #. Type: error
 #. Description
@@ -1149,44 +1155,44 @@ msgstr "Zastosowywanie konfiguracji"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:158001
 msgid "Language"
-msgstr ""
+msgstr "Język"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:161001
+#: ../ubiquity.templates:159001
 msgid "Timezone"
-msgstr ""
+msgstr "Strefa czasowa"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:162001
+#: ../ubiquity.templates:160001
 #, fuzzy
 msgid "Keyboard"
 msgstr "Układ klawiatury"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:161001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Ustawienia dysku"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:164001
+#: ../ubiquity.templates:162001
 msgid "User Info"
-msgstr ""
+msgstr "Informacje o użytkowniku"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:163001
+msgid "Summary"
+msgstr "Podsumowanie"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
-msgid "Summary"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:167001
 #, fuzzy
 msgid "installation process"
 msgstr "Typ Instalacji"
@@ -1467,3 +1473,6 @@ msgstr "Konfigurowanie dodatkowych usług..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Konfigurowanie urządzeń na podczerwień..."
+
+#~ msgid "Copying files (less than a minute remaining)..."
+#~ msgstr "Kopiowanie plików (mniej niż minuta)..."

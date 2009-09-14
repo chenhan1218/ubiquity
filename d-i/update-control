@@ -32,6 +32,8 @@ my @basebd = (
     'apt',
     'dctrl-tools',
     'debhelper (>= 7.0.1)',
+    'dh-di',
+    'dpkg-dev (>= 1.14.4)',
     'intltool (>= 0.40.0)',
     'po-debconf (>= 1.0)',
     'python-central (>= 0.5)',
