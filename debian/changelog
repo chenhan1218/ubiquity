@@ -1,4 +1,4 @@
-ubiquity (1.99.19) UNRELEASED; urgency=low
+ubiquity (1.99.19) karmic; urgency=low
 
   [ Oliver Grawert ]
   * make sure /target/dev is properly bind mounted and unmounted in
@@ -13,7 +13,11 @@ ubiquity (1.99.19) UNRELEASED; urgency=low
   * kde: Fix a crasher when using oem-config (don't reference step labels
     that don't exist)
 
- -- Michael Terry <michael.terry@canonical.com>  Tue, 15 Sep 2009 10:31:24 -0400
+  [ Colin Watson ]
+  * Automatic update of included source packages: flash-kernel 2.13ubuntu10,
+    grub-installer 1.43ubuntu1, partman-auto-loop 0ubuntu17.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 15 Sep 2009 23:47:02 +0100
 
 ubiquity (1.99.18) karmic; urgency=low
 
