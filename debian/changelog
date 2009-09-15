@@ -1,8 +1,12 @@
 ubiquity (1.99.19) UNRELEASED; urgency=low
 
+  [ Oliver Grawert ]
   * make sure /target/dev is properly bind mounted and unmounted in
     chroot_setup() and chroot_cleanup() so postinst triggers that require
     certain devices will find them (LP: #422101)
+
+  [ Michael Casadevall ]
+  * Add support for installing dove bootloader (LP: #409238)
 
  -- Oliver Grawert <ogra@ubuntu.com>  Mon, 14 Sep 2009 14:21:55 +0200
 

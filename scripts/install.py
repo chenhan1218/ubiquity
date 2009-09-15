@@ -627,7 +627,7 @@ class Install:
             keep.add('grub')
             keep.add('grub-pc')
         elif (arch == 'armel' and
-              subarch in ('imx51', 'iop32x', 'ixp4xx', 'orion5x')):
+              subarch in ('dove', 'imx51', 'iop32x', 'ixp4xx', 'orion5x')):
             keep.add('flash-kernel')
         elif arch == 'powerpc' and subarch != 'ps3':
             keep.add('yaboot')
@@ -1734,7 +1734,7 @@ exit 0"""
                         raise InstallStepError(
                             "GrubInstaller failed with code %d" % ret)
                 elif (arch == 'armel' and
-                      subarch in ('imx51', 'iop32x', 'ixp4xx', 'orion5x')):
+                      subarch in ('dove', 'imx51', 'iop32x', 'ixp4xx', 'orion5x')):
                     from ubiquity.components import flash_kernel
                     dbfilter = flash_kernel.FlashKernel(None)
                     ret = dbfilter.run_command(auto_process=True)
