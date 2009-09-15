@@ -49,28 +49,26 @@ def reset_locale(just_country=False):
         di_locale = db.get('debian-installer/locale')
         if di_locale not in get_supported_locales():
             di_locale = db.get('debian-installer/fallbacklocale')
-        if di_locale == '':
-            # TODO cjwatson 2006-07-17: maybe fetch
-            # languagechooser/language-name and set a language based on
-            # that?
-            di_locale = 'en_US.UTF-8'
-        if di_locale != os.environ['LANG']:
-            os.environ['LANG'] = di_locale
-            os.environ['LANGUAGE'] = di_locale
-            try:
-                locale.setlocale(locale.LC_ALL, '')
-            except locale.Error, e:
-                print >>sys.stderr, 'locale.setlocale failed: %s (LANG=%s)' % \
-                                    (e, di_locale)
-            if not just_country:
-                misc.execute_root('fontconfig-voodoo',
-                                  '--auto', '--force', '--quiet')
-            im_switch.start_im()
     finally:
         db.shutdown()
-        if not di_locale:
-            di_locale = 'en_US.UTF-8'
-        return di_locale
+    if not di_locale:
+        # TODO cjwatson 2006-07-17: maybe fetch
+        # languagechooser/language-name and set a language based on
+        # that?
+        di_locale = 'en_US.UTF-8'
+    if 'LANG' not in os.environ or di_locale != os.environ['LANG']:
+        os.environ['LANG'] = di_locale
+        os.environ['LANGUAGE'] = di_locale
+        try:
+            locale.setlocale(locale.LC_ALL, '')
+        except locale.Error, e:
+            print >>sys.stderr, 'locale.setlocale failed: %s (LANG=%s)' % \
+                                (e, di_locale)
+        if not just_country:
+            misc.execute_root('fontconfig-voodoo',
+                                '--auto', '--force', '--quiet')
+        im_switch.start_im()
+    return di_locale
 
 _strip_context_re = None
 

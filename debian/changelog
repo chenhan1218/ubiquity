@@ -8,7 +8,10 @@ ubiquity (1.99.19) UNRELEASED; urgency=low
   [ Michael Casadevall ]
   * Add support for installing dove bootloader (LP: #409238)
 
- -- Oliver Grawert <ogra@ubuntu.com>  Mon, 14 Sep 2009 14:21:55 +0200
+  [ Michael Terry ]
+  * Make sure the LANG environment variable is always set (LP: #429994)
+
+ -- Michael Terry <michael.terry@canonical.com>  Tue, 15 Sep 2009 10:20:14 -0400
 
 ubiquity (1.99.18) karmic; urgency=low
 
