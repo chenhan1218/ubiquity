@@ -475,11 +475,6 @@ class Wizard(BaseFrontend):
                 flags = flags ^ Qt.WindowCloseButtonHint
             self.ui.setWindowFlags(flags)
             self.ui.quit.hide()
-            
-            #hide some of the steps not used by oem-user-config
-            self.ui.partitionStep.hide()
-            self.ui.summaryStep.hide()
-            self.ui.installStep.hide()
         
         if not 'UBIQUITY_AUTOMATIC' in os.environ:
             self.ui.show()

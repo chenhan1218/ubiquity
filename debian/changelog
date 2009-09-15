@@ -10,8 +10,10 @@ ubiquity (1.99.19) UNRELEASED; urgency=low
 
   [ Michael Terry ]
   * Make sure the LANG environment variable is always set (LP: #429994)
+  * kde: Fix a crasher when using oem-config (don't reference step labels
+    that don't exist)
 
- -- Michael Terry <michael.terry@canonical.com>  Tue, 15 Sep 2009 10:20:14 -0400
+ -- Michael Terry <michael.terry@canonical.com>  Tue, 15 Sep 2009 10:31:24 -0400
 
 ubiquity (1.99.18) karmic; urgency=low
 
