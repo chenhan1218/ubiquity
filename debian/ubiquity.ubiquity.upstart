@@ -41,6 +41,7 @@ script
 		;;
 	esac
     done
+    [ "$ubiquity" ]
 
     if [ -r /etc/environment ]; then
 	if LANG=$(pam_getenv -l LANG); then

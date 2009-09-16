@@ -4,6 +4,8 @@ ubiquity (1.99.21) UNRELEASED; urgency=low
     Upstart job, in order that flavours whose display managers haven't yet
     converted to Upstart can still work. Take pains to ensure that only one
     of these runs.
+  * Fix ubiquity's Upstart job to actually check whether it should run
+    ubiquity (thanks, Mario Limonciello).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 16 Sep 2009 23:02:36 +0100
 
