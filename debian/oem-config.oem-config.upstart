@@ -17,6 +17,8 @@ console output
 script
     type oem-config-firstboot >/dev/null 2>&1 || exit 0
 
+    >/var/run/oem-config.upstarted
+
     debug=
     for x in $(cat /proc/cmdline); do
 	case $x in

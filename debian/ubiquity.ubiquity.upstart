@@ -16,6 +16,8 @@ task
 script
     test -x /usr/bin/ubiquity-dm || exit 0
 
+    >/var/run/ubiquity.upstarted
+
     ubiquity=
     automatic=
     debug=
