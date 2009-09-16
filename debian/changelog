@@ -1,7 +1,11 @@
 ubiquity (1.99.20) UNRELEASED; urgency=low
 
+  [ Michael Terry ]
   * kde: Fix crasher when in the advanced partition page by adding a
     missing function.  LP: #430413
+
+  [ Colin Watson ]
+  * Add Upstart jobs for ubiquity and oem-config (LP: #430607).
 
  -- Michael Terry <michael.terry@canonical.com>  Wed, 16 Sep 2009 08:33:00 -0400
 
