@@ -1,4 +1,4 @@
-ubiquity (1.99.21) UNRELEASED; urgency=low
+ubiquity (1.99.21) karmic; urgency=low
 
   * Install the init script (under a new, temporary name) as well as the
     Upstart job, in order that flavours whose display managers haven't yet
@@ -9,7 +9,7 @@ ubiquity (1.99.21) UNRELEASED; urgency=low
   * Build-depend on dh-di 3 to pick up fix affecting manual partitioning.
   * Tolerate LANG not being set yet in get_string (LP: #431048).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 16 Sep 2009 23:02:36 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 17 Sep 2009 00:35:04 +0100
 
 ubiquity (1.99.20) karmic; urgency=low
 
