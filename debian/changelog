@@ -1,4 +1,4 @@
-ubiquity (1.99.20) UNRELEASED; urgency=low
+ubiquity (1.99.20) karmic; urgency=low
 
   [ Michael Terry ]
   * kde: Fix crasher when in the advanced partition page by adding a
@@ -7,7 +7,7 @@ ubiquity (1.99.20) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Add Upstart jobs for ubiquity and oem-config (LP: #430607).
 
- -- Michael Terry <michael.terry@canonical.com>  Wed, 16 Sep 2009 08:33:00 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 16 Sep 2009 21:35:28 +0100
 
 ubiquity (1.99.19) karmic; urgency=low
 
