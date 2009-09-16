@@ -565,6 +565,10 @@ class Wizard(BaseFrontend):
 
         self.set_layout_direction()
 
+    def translate_widget_children(self, parentWidget):
+        for w in self.all_children(parentWidget):
+            self.translate_widget(w)
+
     def translate_widget(self, widget, lang=None, prefix=None):
         if lang is None:
             lang = self.locale
