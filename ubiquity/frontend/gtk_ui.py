@@ -48,6 +48,8 @@ import pygtk
 import gtk
 pygtk.require('2.0')
 import pango
+import warnings
+warnings.filterwarnings('ignore', 'error opening config file', pango.Warning)
 import gobject
 gobject.threads_init()
 import glib
