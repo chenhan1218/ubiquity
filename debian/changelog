@@ -2,8 +2,10 @@ ubiquity (1.99.22) UNRELEASED; urgency=low
 
   * gtk: Don't assume there will be a country shortlist for the selected
     language.  Fixes the lack of a default zone for Polish.  LP: #425011
+  * kde: Let back/forward/quit buttons activate when highlighted and the
+    user presses Enter.  Part of bug #46600
 
- -- Michael Terry <michael.terry@canonical.com>  Thu, 17 Sep 2009 13:56:53 -0400
+ -- Michael Terry <michael.terry@canonical.com>  Thu, 17 Sep 2009 14:28:17 -0400
 
 ubiquity (1.99.21) karmic; urgency=low
 
