@@ -1,3 +1,10 @@
+ubiquity (1.99.22) UNRELEASED; urgency=low
+
+  * gtk: Don't assume there will be a country shortlist for the selected
+    language.  Fixes the lack of a default zone for Polish.  LP: #425011
+
+ -- Michael Terry <michael.terry@canonical.com>  Thu, 17 Sep 2009 13:56:53 -0400
+
 ubiquity (1.99.21) karmic; urgency=low
 
   * Install the init script (under a new, temporary name) as well as the
