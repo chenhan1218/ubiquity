@@ -665,7 +665,7 @@ class Wizard(BaseFrontend):
             self.quit()
         else:
             step = self.step_name(self.get_current_page())
-            if str(step).startswith("stepPart"):
+            if str(step) == "partman":
                 self.set_current_page(self.step_index("stepPartAuto"))
             return False
 
@@ -735,6 +735,11 @@ class Wizard(BaseFrontend):
 
         return True
     
+    def page_name(self, step_index):
+        if step_index < 0:
+            step_index = 0
+        return str(self.ui.widgetStack(step_index).objectName())
+
     def add_history(self, page, widget):
         history_entry = (page, widget)
         if self.history:
@@ -967,7 +972,7 @@ class Wizard(BaseFrontend):
 
         self.allow_change_step(False)
 
-        step = self.step_name(self.get_current_page())
+        step = self.page_name(self.get_current_page())
 
         # Beware that 'step' is the step we're leaving, not the one we're
         # entering. At present it's a little awkward to define actions that
@@ -998,14 +1003,14 @@ class Wizard(BaseFrontend):
 
         # setting actual step
         step_num = self.get_current_page()
-        step = self.step_name(step_num)
+        step = self.page_name(step_num)
         syslog.syslog('Step_before = %s' % step)
 
         if step.startswith("stepPart"):
             self.previous_partitioning_page = step_num
 
         # Automatic partitioning
-        elif step == "stepPartAuto":
+        if step == "stepPartAuto":
             self.process_autopartitioning()
         # Identification
         elif step == "stepUserInfo":
@@ -1072,7 +1077,7 @@ class Wizard(BaseFrontend):
 
         changed_page = False
 
-        if str(step) == "stepReady":
+        if str(step) == "summary":
             self.ui.next.setText(self.get_string("next").replace('_', '&', 1))
             self.ui.next.setIcon(self.forwardIcon)
             self.translate_widget(self.ui.next)
