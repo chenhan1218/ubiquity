@@ -781,7 +781,7 @@ class Wizard(BaseFrontend):
             self.quit_installer()
         else:
             step = self.step_name(self.steps.get_current_page())
-            if step.startswith("stepPart"):
+            if step == "partman":
                 print('dbfilter_handle_status stepPart')
                 self.set_current_page(self.steps.page_num(self.stepPartAuto))
             return False
@@ -793,6 +793,9 @@ class Wizard(BaseFrontend):
             if w in p.all_widgets:
                 return p.module.NAME
         return None
+
+    def page_name(self, step_index):
+        return self.steps.get_nth_page(step_index).get_name()
 
     def add_history(self, page, widget):
         history_entry = (page, widget)
@@ -1086,7 +1089,7 @@ class Wizard(BaseFrontend):
 
         self.allow_change_step(False)
 
-        step = self.step_name(self.steps.get_current_page())
+        step = self.page_name(self.steps.get_current_page())
 
         # Beware that 'step' is the step we're leaving, not the one we're
         # entering. At present it's a little awkward to define actions that
@@ -1112,13 +1115,13 @@ class Wizard(BaseFrontend):
 
         # setting actual step
         step_num = self.steps.get_current_page()
-        step = self.step_name(step_num)
+        step = self.page_name(step_num)
         syslog.syslog('Step_before = %s' % step)
 
         if step.startswith("stepPart"):
             self.previous_partitioning_page = step_num
         # Automatic partitioning
-        elif step == "stepPartAuto":
+        if step == "stepPartAuto":
             self.process_autopartitioning()
         # Advanced partitioning
         elif step == "stepPartAdvanced":
@@ -1192,7 +1195,7 @@ class Wizard(BaseFrontend):
         # Setting actual step
         step = self.step_name(self.steps.get_current_page())
 
-        if step == "stepReady":
+        if step == "summary":
             self.next.set_label("gtk-go-forward")
             self.translate_widget(self.next)
 

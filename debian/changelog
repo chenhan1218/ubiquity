@@ -8,6 +8,10 @@ ubiquity (1.99.22) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Suppress Pango warning about not being able to open /root/.pangorc.
+  * Use the page name instead of the new step name when considering both
+    partitioning pages.
+  * Fix broken conditional statement that prevented
+    process_autopartitioning and info_loop from being called.
 
  -- Michael Terry <michael.terry@canonical.com>  Thu, 17 Sep 2009 14:28:17 -0400
 
