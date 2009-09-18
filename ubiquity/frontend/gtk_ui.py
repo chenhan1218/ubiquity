@@ -1123,9 +1123,6 @@ class Wizard(BaseFrontend):
         # Automatic partitioning
         if step == "stepPartAuto":
             self.process_autopartitioning()
-        # Advanced partitioning
-        elif step == "stepPartAdvanced":
-            self.info_loop(None)
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()
@@ -1216,6 +1213,10 @@ class Wizard(BaseFrontend):
 
 
     def on_steps_switch_page (self, foo, bar, current):
+        if self.step_name(current) == 'usersetup':
+            # Disable the forward button if nothing has been entered on the
+            # usersetup page yet.
+            self.info_loop(None)
         self.current_page = current
         self.translate_widget(self.step_label)
         syslog.syslog('switched to page %s' % self.step_name(current))

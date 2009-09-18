@@ -12,6 +12,9 @@ ubiquity (1.99.22) UNRELEASED; urgency=low
     partitioning pages.
   * Fix broken conditional statement that prevented
     process_autopartitioning and info_loop from being called.
+  * Disable the forward button for the usersetup page when coming from
+    both the automatic and manual partitioning pages, rather than just
+    the latter.
 
  -- Michael Terry <michael.terry@canonical.com>  Thu, 17 Sep 2009 14:28:17 -0400
 

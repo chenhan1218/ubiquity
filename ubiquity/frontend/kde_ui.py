@@ -1007,12 +1007,6 @@ class Wizard(BaseFrontend):
         # Automatic partitioning
         elif step == "stepPartAuto":
             self.process_autopartitioning()
-        # Advanced partitioning
-        elif step == "stepPartAdvanced":
-            ##if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:  #FIXME for migration-assistant
-            self.info_loop(None)
-            #else:
-            #    self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()
@@ -1091,6 +1085,8 @@ class Wizard(BaseFrontend):
             self.app.exit()
 
     def on_steps_switch_page(self, newPageID):
+        if self.step_name(newPageID) == 'usersetup':
+            self.info_loop(None)
         self.current_page = newPageID
         #self.translate_widget(self.ui.step_label)
         syslog.syslog('switched to page %s' % self.step_name(newPageID))
