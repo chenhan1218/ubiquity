@@ -193,7 +193,7 @@ class BaseFrontend:
         """Get the string name in the given lang or a default."""
         if lang is None:
             lang = self.locale
-        if lang is None:
+        if lang is None and 'LANG' in os.environ:
             lang = os.environ['LANG']
         return i18n.get_string(name, lang, prefix)
 

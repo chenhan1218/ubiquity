@@ -89,17 +89,10 @@ class PageGtk(PluginUI):
         if not got_country:
             iterator = m.get_iter_first()
             while iterator:
-                if m[iterator][0] is None:
-                    break # separator
-                if m[iterator][1] == country:
+                if m[iterator][0] is not None and \
+                   m[iterator][1] == country or \
+                   country_is_in_region(country, m[iterator][2]):
                     self.region_combo.set_active_iter(iterator)
-                    iterator = None
-                    break
-                iterator = m.iter_next(iterator)
-            while iterator:
-                if country_is_in_region(country, m[iterator][2]):
-                    self.region_combo.set_active_iter(iterator)
-                    iterator = None
                     break
                 iterator = m.iter_next(iterator)
 

@@ -214,7 +214,9 @@ binary-indep: install
 	dh_installchangelogs
 	dh_installdocs
 	dh_installdebconf
-	dh_installinit -n  # oem-config
+	# oem-config
+	dh_installinit -n --name=oem-config
+	dh_installinit -n --name=oem-config-noupstart
 	dh_installman
 	dh_lintian
 	dh_link
@@ -251,7 +253,9 @@ binary-arch: install
 	fi
 	grep-dctrl -v -FTemplate base-installer/ d-i/templates \
 		>> debian/ubiquity/DEBIAN/templates
-	dh_installinit --no-start -- start 29 2 3 4 5 .  # ubiquity
+	# ubiquity
+	dh_installinit --no-start --name=ubiquity
+	dh_installinit --no-start --name=ubiquity-noupstart -- start 29 2 3 4 5 .
 	dh_installman
 	dh_link
 	dh_strip

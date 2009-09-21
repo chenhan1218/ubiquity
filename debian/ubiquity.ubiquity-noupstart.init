@@ -21,6 +21,8 @@ NAME=ubiquity
 
 test -x /usr/bin/ubiquity-dm || exit 0
 
+test -e /var/run/ubiquity.upstarted && exit 0
+
 ubiquity=
 automatic=
 debug=
