@@ -918,6 +918,8 @@ class Wizard(BaseFrontend):
                     webview.open(slides)
                     self.slideshow_frame.add(webview)
                     webview.set_size_request(700, 420)
+                    webview.connect('new-window-policy-decision-requested',
+                                    on_slideshow_link_clicked)
                     self.slideshow_frame.show_all()
                 except ImportError:
                     fail = 'Webkit not present.'
@@ -1023,6 +1025,7 @@ class Wizard(BaseFrontend):
 
 
     # Callbacks
+
     def on_quit_clicked(self, widget):
         self.warning_dialog.show()
         response = self.warning_dialog.run()
@@ -1203,6 +1206,13 @@ class Wizard(BaseFrontend):
         else:
             self.quit_main_loop()
 
+
+    def on_slideshow_link_clicked(self, view, frame, req, action, decision):
+        uri = req.get_uri()
+        decision.ignore()
+        subprocess.Popen(['sensible-browser', uri],
+                         close_fds=True, preexec_fn=drop_all_privileges)
+        return True
 
     def link_button_browser (self, button, uri):
         lang = self.locale
