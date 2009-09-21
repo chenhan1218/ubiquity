@@ -129,10 +129,11 @@
 	border: 1px solid #bac8d1;
 }
 
-#keyboard_display QPushButton
+#keyboard_frame QPushButton
 {
     border: 1px solid #bac8d1;
     background-color: #e4ecf2;
     border-radius: 3px;
     font-size: 8pt;
+    padding: 5px;
 }

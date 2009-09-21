@@ -16,7 +16,11 @@ ubiquity (1.99.22) UNRELEASED; urgency=low
     both the automatic and manual partitioning pages, rather than just
     the latter.
 
- -- Michael Terry <michael.terry@canonical.com>  Thu, 17 Sep 2009 14:28:17 -0400
+  [ Roman Shtylman ]
+  * Fixed vertical spacer on keyboard page
+  * Removed underline from keyboard buttons
+
+ -- Roman Shtylman <shtylman@gmail.com>  Mon, 21 Sep 2009 00:28:57 -0400
 
 ubiquity (1.99.21) karmic; urgency=low
 
