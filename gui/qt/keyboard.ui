@@ -50,8 +50,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -69,8 +78,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -88,8 +106,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -107,8 +134,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -126,8 +162,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -145,8 +190,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -164,8 +218,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -183,8 +246,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -202,8 +274,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -221,8 +302,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -240,8 +330,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -259,8 +358,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -278,8 +386,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -297,8 +414,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -348,8 +474,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -367,8 +502,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -386,8 +530,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -405,8 +558,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -424,8 +586,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -443,8 +614,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -462,8 +642,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -481,8 +670,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -500,8 +698,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -519,8 +726,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -538,8 +754,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -557,8 +782,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -576,8 +810,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -595,8 +838,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -646,8 +898,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -665,8 +926,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -684,8 +954,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -703,8 +982,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -722,8 +1010,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -741,8 +1038,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -760,8 +1066,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -779,8 +1094,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -798,8 +1122,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -817,8 +1150,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -836,8 +1178,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -855,8 +1206,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -874,8 +1234,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -925,8 +1294,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -944,8 +1322,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -963,8 +1350,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -982,8 +1378,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -1001,8 +1406,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -1020,8 +1434,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -1039,8 +1462,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -1058,8 +1490,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -1077,8 +1518,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -1096,8 +1546,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -1115,8 +1574,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -1134,8 +1602,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -1185,8 +1662,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -1204,8 +1690,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -1223,8 +1718,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -1248,8 +1752,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -1267,8 +1780,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string>Alt</string>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -1286,8 +1808,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -1305,8 +1836,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -1324,8 +1864,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
+        <property name="accessibleDescription">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string>Ctrl</string>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
