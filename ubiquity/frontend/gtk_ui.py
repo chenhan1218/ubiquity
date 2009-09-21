@@ -919,7 +919,7 @@ class Wizard(BaseFrontend):
                     self.slideshow_frame.add(webview)
                     webview.set_size_request(700, 420)
                     webview.connect('new-window-policy-decision-requested',
-                                    on_slideshow_link_clicked)
+                                    self.on_slideshow_link_clicked)
                     self.slideshow_frame.show_all()
                 except ImportError:
                     fail = 'Webkit not present.'
