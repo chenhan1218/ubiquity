@@ -24,12 +24,7 @@ class Keyboard(QWidget):
         #load the ui
         uic.loadUi(os.path.join(uidir, "keyboard.ui"), self)
         
-    def setLayout(self, layout):
-        self.layout = layout
-        
-    def setVariant(self, variant):
-        self.variant = variant
-        self.loadCodes()
+        self.keys=[]
         
         for row in self.children():
             for key in row.children():
@@ -37,13 +32,31 @@ class Keyboard(QWidget):
                     index = "0%s" % key.objectName()
                     if "0x00" in index:
                         continue
-                    key.setText(self.plain_text(int(index, 16)))
+                    keys.append((key, int(index, 16)))
+        
+    def setLayout(self, layout):
+        self.layout = layout
+        
+    def setVariant(self, variant):
+        self.variant = variant
+        self.loadCodes()
+        
+        for k in keys:
+            k[0].setText = self.plain_text(k[1])
+        
+        #for row in self.children():
+            #for key in row.children():
+                #if type(key) == QPushButton:
+                    #index = "0%s" % key.objectName()
+                    #if "0x00" in index:
+                        #continue
+                    #key.setText(self.plain_text(int(index, 16)))
         
     #given a keyboard index? scancode?
     #return the unicode character
     def plain_text(self, index):
         
-        if index == 0xe:
+        if index == 0xe: #backspace
             return "<"
         elif index == 0x2a or index == 0x36:
             return "Shift"

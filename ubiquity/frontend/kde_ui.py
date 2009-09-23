@@ -738,7 +738,7 @@ class Wizard(BaseFrontend):
     def page_name(self, step_index):
         if step_index < 0:
             step_index = 0
-        return str(self.ui.widgetStack(step_index).objectName())
+        return str(self.ui.widgetStack.widget(step_index).objectName())
 
     def add_history(self, page, widget):
         history_entry = (page, widget)
