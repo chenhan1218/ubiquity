@@ -1721,6 +1721,7 @@ exit 0"""
         install_bootloader = self.db.get('ubiquity/install_bootloader')
         if install_bootloader == "true":
             misc.execute('mount', '--bind', '/proc', self.target + '/proc')
+            misc.execute('mount', '--bind', '/sys', self.target + '/sys')
             misc.execute('mount', '--bind', '/dev', self.target + '/dev')
 
             arch, subarch = self.archdetect()
@@ -1761,6 +1762,7 @@ exit 0"""
                 raise InstallStepError("No bootloader installer found")
 
             misc.execute('umount', '-f', self.target + '/proc')
+            misc.execute('umount', '-f', self.target + '/sys')
             misc.execute('umount', '-f', self.target + '/dev')
 
 
