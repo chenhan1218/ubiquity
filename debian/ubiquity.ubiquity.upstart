@@ -12,6 +12,7 @@ start on (starting gdm
 	  or starting xdm)
 
 task
+normal exit 0 1
 
 script
     test -x /usr/bin/ubiquity-dm || exit 0
@@ -62,4 +63,5 @@ script
 	    exec ubiquity noninteractive
 	fi
     fi
+    exit 0
 end script

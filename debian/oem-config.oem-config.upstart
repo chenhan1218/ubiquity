@@ -11,6 +11,7 @@ start on (starting gdm
 	  or starting xdm)
 
 task
+normal exit 0 1
 
 console output
 
