@@ -26,6 +26,8 @@ ubiquity (1.99.22) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Mount /sys while running grub-installer, since os-prober needs to look
     in /sys/block (LP: #430141).
+  * Install new dmi-available-memory program from base-installer
+    1.101ubuntu5.
 
  -- Roman Shtylman <shtylman@gmail.com>  Tue, 22 Sep 2009 21:08:34 -0400
 
