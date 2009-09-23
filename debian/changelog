@@ -21,8 +21,9 @@ ubiquity (1.99.22) UNRELEASED; urgency=low
   [ Roman Shtylman ]
   * Fixed vertical spacer on keyboard page
   * Removed underline from keyboard buttons
+  * Added ability to view shifted keys on keyboard display 
 
- -- Roman Shtylman <shtylman@gmail.com>  Mon, 21 Sep 2009 00:28:57 -0400
+ -- Roman Shtylman <shtylman@gmail.com>  Tue, 22 Sep 2009 21:08:34 -0400
 
 ubiquity (1.99.21) karmic; urgency=low
 

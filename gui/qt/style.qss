@@ -137,3 +137,9 @@
     font-size: 8pt;
     padding: 5px;
 }
+
+#keyboard_frame #x36, 
+#keyboard_frame #x2a
+{
+    border: 1px solid #85a8d1;
+}
