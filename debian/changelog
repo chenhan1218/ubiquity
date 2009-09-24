@@ -17,6 +17,9 @@ ubiquity (1.99.22) UNRELEASED; urgency=low
     the latter.
   * Open a browser window when links are clicked on in the slideshow
     (LP: #432145).
+  * Automatic update of included source packages: base-installer
+    1.102ubuntu1, flash-kernel 2.13ubuntu11, grub-installer 1.43ubuntu3,
+    partman-partitioning 72ubuntu1.
 
   [ Roman Shtylman ]
   * Fixed vertical spacer on keyboard page
