@@ -1,4 +1,4 @@
-ubiquity (1.99.22) UNRELEASED; urgency=low
+ubiquity (1.99.22) karmic; urgency=low
 
   [ Michael Terry ]
   * gtk: Don't assume there will be a country shortlist for the selected
@@ -33,7 +33,7 @@ ubiquity (1.99.22) UNRELEASED; urgency=low
     1.101ubuntu5.
   * Don't respawn Upstart jobs on exit status 1.
 
- -- Roman Shtylman <shtylman@gmail.com>  Tue, 22 Sep 2009 21:08:34 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 24 Sep 2009 09:40:12 -0700
 
 ubiquity (1.99.21) karmic; urgency=low
 
