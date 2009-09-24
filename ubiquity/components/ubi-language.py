@@ -279,6 +279,9 @@ class PageDebconf(PageBase):
     plugin_title = 'ubiquity/text/language_heading_label'
 
 class PageNoninteractive(PageBase):
+    def __init__(self, controller, *args, **kwargs):
+        self.controller = controller
+
     def set_language(self, language):
         """Set the current selected language."""
         # Use the language code, not the translated name

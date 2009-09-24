@@ -1,3 +1,10 @@
+ubiquity (1.99.23) UNRELEASED; urgency=low
+
+  * Add missing definition of self.controller for the noninteractive
+    page in the language plugin.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 24 Sep 2009 12:15:07 -0700
+
 ubiquity (1.99.22) karmic; urgency=low
 
   [ Michael Terry ]
