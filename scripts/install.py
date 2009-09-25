@@ -644,11 +644,12 @@ class Install:
 
         difference -= self.expand_dependencies_simple(cache, keep, difference)
 
-        if len(difference) == 0:
-            del cache
-            self.blacklist = {}
-            return
- 
+        # Consider only packages that don't have a prerm, and which can
+        # therefore have their files removed without any preliminary work.
+        difference = set(filter(
+            lambda x: not os.path.exists('/var/lib/dpkg/info/%s.prerm' % x),
+            difference))
+
         confirmed_remove = set()
         for pkg in sorted(difference):
             if pkg in confirmed_remove:
@@ -663,9 +664,12 @@ class Install:
                     cachedpkg = self.get_cache_pkg(cache, removedpkg)
                     cachedpkg.markKeep()
         difference = confirmed_remove
-        difference = set(filter(
-            lambda x: not os.path.exists('/var/lib/dpkg/info/%s.prerm' % x),
-            difference))
+
+        if len(difference) == 0:
+            del cache
+            self.blacklist = {}
+            return
+ 
         cmd = ['dpkg', '-L']
         cmd.extend(difference)
         subp = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
