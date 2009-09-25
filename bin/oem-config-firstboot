@@ -57,6 +57,7 @@ for try in $(seq 1 $TRY); do
 	fi
 	if [ "$CODE" -eq 0 ]; then
 		# Don't run again.
+		rm -f /var/lib/oem-config/run
 		update-rc.d -f oem-config remove >>/var/log/oem-config.log 2>&1
 		# Remove the temporary OEM configuration user, if possible.
 		if getent passwd oem >/dev/null; then

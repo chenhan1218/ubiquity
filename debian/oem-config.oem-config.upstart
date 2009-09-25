@@ -16,6 +16,7 @@ normal exit 0 1
 console output
 
 script
+    [ -f /var/lib/oem-config/run ]
     type oem-config-firstboot >/dev/null 2>&1 || exit 0
 
     >/var/run/oem-config.upstarted
