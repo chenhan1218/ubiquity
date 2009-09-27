@@ -112,18 +112,12 @@ endif
 		install -m644 d-i/source/base-installer/kernel/$(DEB_HOST_ARCH).sh \
 			debian/ubiquity/usr/lib/ubiquity/base-installer/kernel.sh; \
 	fi
-	# tzsetup is called by clock-setup now, but we handle tzsetup earlier.
-	sed 's,^tzsetup,,' \
-		d-i/source/clock-setup/debian/clock-setup.postinst \
-		> debian/ubiquity/usr/lib/ubiquity/clock-setup/clock-setup
-	chmod +x debian/ubiquity/usr/lib/ubiquity/clock-setup/clock-setup
-	install d-i/source/clock-setup/finish-install.d/10clock-setup \
-		debian/ubiquity/usr/lib/ubiquity/clock-setup/finish-install
+	install d-i/source/clock-setup/debian/clock-setup.postinst \
+		debian/ubiquity/usr/lib/ubiquity/clock-setup/clock-setup
+	sed -e '/^rcsfile=/ { s/.*/exit 0/; q }' \
+		d-i/source/clock-setup/finish-install.d/10clock-setup \
+		> debian/ubiquity/usr/lib/ubiquity/clock-setup/finish-install
 	chmod +x debian/ubiquity/usr/lib/ubiquity/clock-setup/finish-install
-	sed -e 's,/target/,/,g;s,/target,/,g' \
-		debian/ubiquity/usr/lib/ubiquity/clock-setup/finish-install \
-		> debian/oem-config/usr/lib/ubiquity/clock-setup/finish-install-oem
-	chmod +x debian/oem-config/usr/lib/ubiquity/clock-setup/finish-install-oem
 	sed -e 's,/usr/share/console-setup-mini/console-setup.config,/var/lib/dpkg/info/console-setup.config,g' \
 	    -e 's,^\([[:space:]]*\)update-initramfs,\1: update-initramfs,' \
 		d-i/source/console-setup/debian/console-setup.postinst \

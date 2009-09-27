@@ -3,9 +3,4 @@
 . /usr/share/debconf/confmodule
 
 /usr/lib/ubiquity/clock-setup/clock-setup
-
-if [ -n "$UBIQUITY_OEM_USER_CONFIG" ]; then
-    /usr/lib/ubiquity/clock-setup/finish-install-oem
-else
-    /usr/lib/ubiquity/clock-setup/finish-install
-fi
+/usr/lib/ubiquity/clock-setup/finish-install

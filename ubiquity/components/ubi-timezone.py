@@ -294,12 +294,14 @@ class PageNoninteractive(PluginUI):
 
 class Page(Plugin):
     def prepare(self, unfiltered=False):
+        clock_script = '/usr/share/ubiquity/clock-setup'
+        env = {'PATH': '/usr/share/ubiquity:' + os.environ['PATH']}
+
         if unfiltered:
             # In unfiltered mode, localechooser is responsible for selecting
-            # the country, so there's no need to repeat the job here. As a
-            # result, plain tzsetup rather than the wrapper that calls both
-            # tzsetup and localechooser will be sufficient.
-            return (['/usr/lib/ubiquity/tzsetup/tzsetup'])
+            # the country, so there's no need to repeat the job here.
+            env['TZSETUP_NO_LOCALECHOOSER'] = '1'
+            return ([clock_script], ['PROGRESS'], env)
 
         self.timezones = []
         self.regions = {}
@@ -321,8 +323,8 @@ class Page(Plugin):
             except debconf.DebconfError:
                 pass
         self.preseed('tzsetup/selected', 'false')
-        questions = ['^time/zone$']
-        return (['/usr/share/ubiquity/tzsetup-wrapper'], questions)
+        questions = ['^time/zone$', 'PROGRESS']
+        return ([clock_script], questions, env)
 
     def run(self, priority, question):
         if question == 'time/zone':
@@ -552,7 +554,7 @@ class Page(Plugin):
 class Install(InstallPlugin):
     def prepare(self, unfiltered=False):
         tzsetup_script = '/usr/lib/ubiquity/tzsetup/post-base-installer'
-        clock_script = '/usr/share/ubiquity/clock-setup'
+        clock_script = '/usr/share/ubiquity/clock-setup-apply'
 
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
             tzsetup_script += '-oem'

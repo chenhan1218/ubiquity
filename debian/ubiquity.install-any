@@ -95,7 +95,6 @@ ubiquity/components/ubi-tasks.py usr/lib/ubiquity/plugins
 d-i/source/tzsetup/debian/tzmap usr/lib/ubiquity/tzsetup
 d-i/source/tzsetup/tzsetup usr/lib/ubiquity/tzsetup
 ubiquity/components/ubi-timezone.py usr/lib/ubiquity/plugins
-scripts/tzsetup-wrapper usr/lib/ubiquity
 
 # user-setup
 d-i/source/user-setup/functions.sh usr/lib/ubiquity/user-setup
