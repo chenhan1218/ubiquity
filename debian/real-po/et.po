@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-02-09 09:06+0000\n"
+"PO-Revision-Date: 2009-09-17 17:28+0000\n"
 "Last-Translator: Laur Mõtus <vprints@gmail.com>\n"
 "Language-Team: Eesti <linuxiabi@hot.ee>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-12 11:41+0000\n"
+"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -96,16 +96,16 @@ msgstr ""
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
+"Kohe kui oled vastanud mõnele küsimusele on see arvuti kasutamiseks valmis."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Palun vali paigaldamise keel. Sellest saab paigaldatud süsteemi vaikimisi "
+"Palun vali seadistamise keel. Sellest saab paigaldatud süsteemi vaikimisi "
 "keel."
 
 #. Type: text
@@ -155,7 +155,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "Ajavöönd:"
 
 #. Type: text
 #. Description
@@ -272,13 +272,13 @@ msgstr "Automaatselt sisselogimine"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Require my password to log in"
-msgstr ""
+msgstr "Parooli küsimine sisselogimiseks"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr ""
+msgstr "Parooli küsimine sisselogimiseks ja kodukataloogi lahtikrüptimiseks"
 
 #. Type: text
 #. Description
@@ -431,7 +431,7 @@ msgstr "Paigaldus edukalt lõppenud"
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Continue Testing"
-msgstr ""
+msgstr "Jätka proovimist"
 
 #. Type: text
 #. Description
@@ -484,39 +484,36 @@ msgstr "Pärast:"
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
-#, fuzzy
 msgid "New Partition Table..."
-msgstr "Uus partitsioonitabel"
+msgstr "Uus partitsioonitabel..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
-#, fuzzy
 msgid "Add..."
-msgstr "Laiendatud..."
+msgstr "Lisa..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
-#, fuzzy
 msgid "Change..."
-msgstr "Kasutaja loomine..."
+msgstr "Muuda..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "Kustuta"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:68001
 msgid "Revert"
-msgstr ""
+msgstr "Lähtesta"
 
 #. Type: text
 #. Description
@@ -763,10 +760,8 @@ msgstr "Failide kopeerimine..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Copying files..."
 msgid "Almost finished copying files..."
-msgstr "Failide kopeerimine..."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -937,43 +932,43 @@ msgstr "Alglaaduri seadistamine..."
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Installing additional packages..."
-msgstr "Lisapakkide paigaldamine..."
+msgstr "Lisapakettide paigaldamine..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124001
 msgid "Checking for packages to install..."
-msgstr "Kontrollitakse, kas on pakke mida paigaldada..."
+msgstr "Kontrollitakse, kas on pakette mida paigaldada..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:125001
 msgid "Removing extra packages..."
-msgstr "Lisapakkide eemaldamine..."
+msgstr "Lisapakettide eemaldamine..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:126001
 msgid "Checking for packages to remove..."
-msgstr "Kontrollitakse, kas on pakke mida eemaldada..."
+msgstr "Kontrollitakse, kas on pakette mida eemaldada..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:127001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Pakkide laadimine (${TIME} jäänud)..."
+msgstr "Pakettide laadimine (${TIME} jäänud)..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:128001
 msgid "Downloading package lists..."
-msgstr "Pakkide nimekirja laadimine..."
+msgstr "Pakettide nimekirja laadimine..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Pakkide nimekirja laadimine (${TIME} jäänud)..."
+msgstr "Pakettide nimekirja laadimine (${TIME} jäänud)..."
 
 #. Type: error
 #. Description
@@ -991,13 +986,13 @@ msgstr "Viga ${PACKAGE} eemaldamisel"
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Error while installing packages"
-msgstr "Pakkide paigaldamisel ilmnes viga"
+msgstr "Pakettide paigaldamisel ilmnes viga"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:133001
 msgid "An error occurred while installing packages:"
-msgstr "Pakkide paigaldamisel ilmnes viga"
+msgstr "Pakettide paigaldamisel ilmnes viga:"
 
 #. Type: error
 #. Description
@@ -1005,7 +1000,7 @@ msgstr "Pakkide paigaldamisel ilmnes viga"
 #. Description
 #: ../ubiquity.templates:133001 ../ubiquity.templates:134001
 msgid "The following packages are in a broken state:"
-msgstr "Vigaseks osutusid järgmised pakid:"
+msgstr "Vigaseks osutusid järgmised paketid:"
 
 #. Type: error
 #. Description
@@ -1032,13 +1027,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Error while removing packages"
-msgstr "Pakkide eemaldamisel ilmnes viga"
+msgstr "Pakettide eemaldamisel ilmnes viga"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:134001
 msgid "An error occurred while removing packages:"
-msgstr "Pakkide eemaldamisel ilmnes viga:"
+msgstr "Pakettide eemaldamisel ilmnes viga:"
 
 #. Type: text
 #. Description
@@ -1050,13 +1045,13 @@ msgstr "Mittevajalike failide kalkuleerimine..."
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Installing language packs"
-msgstr "Keelepakkide paigaldamine"
+msgstr "Keelepakettide paigaldamine"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:139001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Laadin keelpakke (jäänud ${TIME})..."
+msgstr "Laadin keelpakette (jäänud ${TIME})..."
 
 #. Type: boolean
 #. Description
@@ -1129,63 +1124,61 @@ msgstr "Keele valimine/Choose language"
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "Võrguseadistus"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "Tarkvara valik"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Seadistuste rakendamine"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:158001
 msgid "Language"
-msgstr ""
+msgstr "Keel"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Timezone"
-msgstr ""
+msgstr "Ajavöönd"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
-#, fuzzy
 msgid "Keyboard"
-msgstr "Klaviatuuripaigutus"
+msgstr "Klaviatuur"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Kettaseadistus"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:162001
 msgid "User Info"
-msgstr ""
+msgstr "Kasutaja info"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:163001
 msgid "Summary"
-msgstr ""
+msgstr "Kokkuvõte"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
-#, fuzzy
 msgid "installation process"
-msgstr "Paigaldamine nurjus"
+msgstr "paigaldusprotsess"
 
 #. Type: note
 #. Description
@@ -1429,7 +1422,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Configuring mythtv..."
-msgstr "Seadistan..."
+msgstr "MYTHTV seadistamine..."
 
 #. Type: text
 #. Description
@@ -1448,6 +1441,3 @@ msgstr "Võrgu seadistamine..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Infrapunaseadmete häälestamine..."
-
-#~ msgid "Copying files (less than a minute remaining)..."
-#~ msgstr "Failide kopeerimine (vähem kui minut on jäänud)..."

@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-04-12 01:05+0000\n"
-"Last-Translator: André Gondim <andregondim@ubuntu.com>\n"
+"PO-Revision-Date: 2009-09-16 16:47+0000\n"
+"Last-Translator: Tiago Hillebrandt <tiagoscd@yahoo.com.br>\n"
 "Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
 "org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-12 11:41+0000\n"
+"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -26,15 +26,14 @@ msgstr "Utilizar o maior espaço livre contínuo"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
-#, fuzzy
 msgid "Erase and use the entire disk"
-msgstr "Usar o disco inteiro"
+msgstr "Apagar e usar o disco inteiro"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr "Instalá-los lado a lado, escolhendo entre eles a cada inicialização."
+msgstr "Instalá-los lado a lado, escolhendo entre eles a cada inicialização"
 
 #. Type: text
 #. Description
@@ -61,7 +60,7 @@ msgstr "Instalação (Modo OEM, apenas para fabricantes)"
 #. Description
 #: ../ubiquity.templates:9001
 msgid "Welcome"
-msgstr "Bem Vindo"
+msgstr "Bem-vindo"
 
 #. Type: text
 #. Description
@@ -103,13 +102,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Por favor escolha o idioma usado para o processo de instalação. Este idioma "
-"será o idioma padrão para o sistema final."
+"Por favor escolha o idioma usado para o processo de configuração. Este será "
+"o idioma padrão para este computador."
 
 #. Type: text
 #. Description
@@ -131,7 +129,7 @@ msgid ""
 "problems that may affect you."
 msgstr ""
 "Se você tem acesso a internet, leia as notas de lançamento para informações "
-"sobre os problemas que podem afeta-lo."
+"sobre os problemas que podem afetá-lo."
 
 #. Type: text
 #. Description
@@ -167,7 +165,7 @@ msgstr "Zona:"
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Region:"
-msgstr "Região"
+msgstr "Região:"
 
 #. Type: text
 #. Description
@@ -192,7 +190,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Suggested option:"
-msgstr "Opção sugerida"
+msgstr "Opção sugerida:"
 
 #. Type: text
 #. Description
@@ -226,7 +224,7 @@ msgid ""
 "accounts after installation."
 msgstr ""
 "Se mais de uma pessoa for usar este computador, você pode criar múltiplas "
-"contas depois da instalação."
+"contas após a instalação."
 
 #. Type: text
 #. Description
@@ -267,7 +265,7 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
-"Este nome será usado se você fizer este computador visível para outros em "
+"Este nome será usado se você tornar este computador visível para outros em "
 "uma rede."
 
 #. Type: text
@@ -279,16 +277,15 @@ msgstr "Iniciar sessão automaticamente"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
-#, fuzzy
 msgid "Require my password to log in"
-msgstr "Pedir uma senha para entrar"
+msgstr "Solicitar minha senha para entrar"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr "Pedir uma senha para entrar e desencriptar seu diretório pessoal"
+msgstr ""
+"Solicitar minha senha para entrar e para descriptografar a pasta pessoal"
 
 #. Type: text
 #. Description
@@ -370,7 +367,7 @@ msgstr "Preparar partições"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:46001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr "Isto será apagará ${SYSTEMS} e instala ${RELEASE}."
+msgstr "Isto irá apagar ${SYSTEMS} e instalar ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -498,25 +495,22 @@ msgstr "Depois:"
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
-#, fuzzy
 msgid "New Partition Table..."
-msgstr "Nova tabela de partição"
+msgstr "Nova tabela de partição..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
-#, fuzzy
 msgid "Add..."
-msgstr "Avançado..."
+msgstr "Adicionar..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
-#, fuzzy
 msgid "Change..."
-msgstr "Criando usuário..."
+msgstr "Alterar..."
 
 #. Type: text
 #. Description
@@ -644,19 +638,19 @@ msgstr "Editar uma partição"
 #. Description
 #: ../ubiquity.templates:86001
 msgid "Advanced Options"
-msgstr "Opções Avançadas"
+msgstr "Opções avançadas"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:87001
 msgid "Boot loader"
-msgstr "Carregador de boot"
+msgstr "Gerenciador de inicialização"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:88001
 msgid "Install boot loader"
-msgstr "Instalar o gerenciador de boot"
+msgstr "Instalar o gerenciador de inicialização"
 
 #. Type: text
 #. Description
@@ -777,10 +771,8 @@ msgstr "Copiando arquivos..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Copying files..."
 msgid "Almost finished copying files..."
-msgstr "Copiando arquivos..."
+msgstr "Quase terminando de copiar os arquivos..."
 
 #. Type: error
 #. Description
@@ -895,7 +887,7 @@ msgstr "Configurando sistema alvo..."
 #. Description
 #: ../ubiquity.templates:113001
 msgid "Configuring system locales..."
-msgstr "Configurando os locales do sistema..."
+msgstr "Configurando as localidades do sistema..."
 
 #. Type: text
 #. Description
@@ -991,7 +983,7 @@ msgstr "Fazendo download da lista de pacotes..."
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Fazendo download da lista de pacotes (${TIME} restantes)..."
+msgstr "Baixando lista de pacotes (${TIME} restantes)..."
 
 #. Type: error
 #. Description
@@ -1076,7 +1068,7 @@ msgstr "Instalando pacotes de idioma"
 #. Description
 #: ../ubiquity.templates:139001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Fazendo download do pacote de linguagens (${TIME} restantes)..."
+msgstr "Baixando pacote de idiomas (${TIME} restantes)..."
 
 #. Type: boolean
 #. Description
@@ -1107,13 +1099,14 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:146001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr "Você quer que o instalador tente desmontar estas partições novamente?"
+msgstr ""
+"Você deseja que o instalador tente desmontar estas partições novamente?"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:152001
 msgid "Do you want to return to the partitioner?"
-msgstr "Você quer retornar para a partição?"
+msgstr "Você quer retornar para o particionador?"
 
 #. Type: boolean
 #. Description
@@ -1180,9 +1173,8 @@ msgstr "Fuso horário"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
-#, fuzzy
 msgid "Keyboard"
-msgstr "Selecione um layout de teclado"
+msgstr "Teclado"
 
 #. Type: text
 #. Description
@@ -1205,9 +1197,8 @@ msgstr "Resumo"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
-#, fuzzy
 msgid "installation process"
-msgstr "Tipo de instalação"
+msgstr "processo de instalação"
 
 #. Type: note
 #. Description
@@ -1396,7 +1387,7 @@ msgstr "Usuário do MySQL"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:22001
 msgid "MySQL Database"
-msgstr "Banco de Dados MySQL"
+msgstr "Banco de dados MySQL"
 
 #. Type: text
 #. Description
@@ -1408,7 +1399,7 @@ msgstr "Servidor MySQL"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Configure Guide Data / Backend"
-msgstr "Configurar Guia de Dados / Backend"
+msgstr "Configurar guia de dados / Backend"
 
 #. Type: text
 #. Description
@@ -1434,15 +1425,15 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
-"Usuário no Norte dos Estados Unidos irão precisar configurar uma conta com "
-"Schedules Direct. SD prover um guia de dados para uma taxa nominal. Sem SD, "
-"Usuários do Norte dos Estados Unidos podem perder programas no MythTV."
+"Usuários da América do Norte precisarão configurar uma conta com Schedules "
+"Direct. SD fornece um guia de dados para uma taxa nominal. Sem ele, usuários "
+"norte-americanos podem perder recursos de agendamento no MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Launch MythTV Setup"
-msgstr "Lançar Configuração da MythTV"
+msgstr "Executar a configuração do MythTV"
 
 #. Type: text
 #. Description
@@ -1481,6 +1472,3 @@ msgstr "Configurando serviços adicionais..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Configurando dispositivos infravermelhos..."
-
-#~ msgid "Copying files (less than a minute remaining)..."
-#~ msgstr "Copiando arquivos (restando menos de um minuto)..."

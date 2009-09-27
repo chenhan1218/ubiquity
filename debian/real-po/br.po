@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-04-06 14:56+0000\n"
-"Last-Translator: Denis ARNAUD <Unknown>\n"
+"PO-Revision-Date: 2009-09-16 14:28+0000\n"
+"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
 "Language-Team: Breton <br@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-12 11:40+0000\n"
+"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -26,9 +26,8 @@ msgstr "Implij an egor diac'hub brasañ da vak"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
-#, fuzzy
 msgid "Erase and use the entire disk"
-msgstr "Implij tout ar bladenn galet"
+msgstr "Diverkañ hag arverañ ar gantenn a-bezh"
 
 #. Type: text
 #. Description
@@ -102,13 +101,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Dibabit ho yezh a vo implijet evit ar staliadur mar plij. Ar yezh-se a vo an "
-"hini dre ziouer evit ar reizhiad dibenn."
 
 #. Type: text
 #. Description
@@ -142,7 +138,7 @@ msgstr "Notennoù an handelv"
 #. Description
 #: ../ubiquity.templates:15001
 msgid "Where are you?"
-msgstr "Pelec'h emaoc'h?"
+msgstr "Pelec'h emaoc'h o chom ?"
 
 #. Type: text
 #. Description
@@ -169,13 +165,13 @@ msgstr "Rannvro:"
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Keyboard layout"
-msgstr "Aozadur ar stokellaoueg"
+msgstr "Aozadur ar c'hlavier"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Peseurt aozadur a zo tostoc'h eus ho stokellaoueg ?"
+msgstr "Peseurt aozadur a zo tostoc'h ouzh ho klavier ?"
 
 #. Type: text
 #. Description
@@ -183,7 +179,7 @@ msgstr "Peseurt aozadur a zo tostoc'h eus ho stokellaoueg ?"
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
 "Gallout a rit bizskrivañ un dra bennak e-barzh ar voest-se evit prouadiñ "
-"aozadur nevez ho stokellaoueg."
+"aozadur nevez ho klavier."
 
 #. Type: text
 #. Description
@@ -213,7 +209,7 @@ msgstr "Pe anv ho peus ?"
 #. Description
 #: ../ubiquity.templates:26001
 msgid "What name do you want to use to log in?"
-msgstr "Peseurt anv a fell deoc'h implij evit lugañ 'barzh ?"
+msgstr "Peseurt anv a fell deoc'h ober gantañ evit en em gennaskañ ?"
 
 #. Type: text
 #. Description
@@ -222,14 +218,14 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Ma vo muioc'h eget un den oc'h implij an urzhiataer-mañ, e c'helloc'h krouiñ "
-"meur a gont all war-lerc'h ar staliañ."
+"Mar bez muioc'h eget un den oc'h ober gant an urzhiataer-mañ, e c'hellot "
+"krouiñ meur a gont all war-lerc'h ar staliañ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Choose a password to keep your account safe."
-msgstr "Dibabit ur ger-kuzh evit mirout ho kont asur."
+msgstr "Dibabit ur ger-tremen evit mirout ho kont asur."
 
 #. Type: text
 #. Description
@@ -263,28 +259,26 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
-"Implijet e vo an anv-mañ ma lakait an urzhiataer da vezañ hewel d'ar re all "
-"war ur genrouedad."
+"Graet e vo gant an anv-mañ mar bez lakaet an urzhiataer da vezañ hewel evit "
+"ar re all war ur genrouedad."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Log in automatically"
-msgstr "en em kennaskañ emgefre"
+msgstr "En em gennaskañ emgefre"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
-#, fuzzy
 msgid "Require my password to log in"
-msgstr "Ret eo lakaat ur ger tremen"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr "Ret eo lakaat ur ger tremen"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -296,7 +290,7 @@ msgstr "Dibab ur ger-tremen all"
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Migrate documents and settings"
-msgstr "Ezporzhiañ dielloù ha dibarzhioù"
+msgstr "Ezporzhiañ teulioù hag arventennoù"
 
 #. Type: text
 #. Description
@@ -305,8 +299,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Diuzit ur gont ho peus c'hoant da enporzhiañ. Dielloù hag arventennoù evit "
-"ar c'hontoù-se a vo hegerz goude ar staliadur."
+"Diuzit ur gont ho peus c'hoant da enporzhiañ. An teulioù hag an arventennoù "
+"evit ar c'hontoù-se a vo hegerz goude ar staliadur."
 
 #. Type: text
 #. Description
@@ -322,13 +316,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:39001
 msgid "Prepare disk space"
-msgstr "O prientiñ egor ar bladenn"
+msgstr "Prientiñ egor ar gantenn"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "How do you want to partition the disk?"
-msgstr "Penaos e fell deoc'h rannañ ar bladenn?"
+msgstr "Penaos e fell deoc'h parzhañ ar gantenn ?"
 
 #. Type: text
 #. Description
@@ -346,7 +340,7 @@ msgstr "Staliet eo ${OS} war an urzhiataer."
 #. Description
 #: ../ubiquity.templates:43001
 msgid "This computer has several operating systems on it."
-msgstr "Staliet ez eus bet meur a reizhiad korvoiñ war an urzhiater."
+msgstr "Staliet eo meur a reizhiad korvoiñ war an urzhiater."
 
 #. Type: text
 #. Description
@@ -358,7 +352,7 @@ msgstr "Pelec'h e fell deoc'h lakaat ${RELEASE}?"
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Prepare partitions"
-msgstr "O prientiñ rannoù"
+msgstr "Prientiñ parzhadoù"
 
 #. Type: text
 #. Description
@@ -394,7 +388,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Advanced..."
-msgstr "Barek ..."
+msgstr "Kempleshoc'h..."
 
 #. Type: text
 #. Description
@@ -420,7 +414,7 @@ msgstr "Kuitaat ar staliadur?"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Do you really want to quit the installation now?"
-msgstr "Sur oc'h e fell deoc'h kuitaat ar staliadur bremañ?"
+msgstr "Sur oc'h e fell deoc'h kuitaat ar staliadur bremañ ?"
 
 #. Type: text
 #. Description
@@ -432,13 +426,13 @@ msgstr "Tremen e-biou"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Installation Complete"
-msgstr "Staliadur leun"
+msgstr "Staliadur echu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Continue Testing"
-msgstr "O kenderc'hel testa"
+msgstr "O kenderc'hel an amprouiñ"
 
 #. Type: text
 #. Description
@@ -452,7 +446,7 @@ msgstr "Adloc'hañ diouzhtu"
 #. Description
 #: ../ubiquity.templates:59001 ../ubiquity.templates:60001
 msgid "Installer crashed"
-msgstr "Sac'het eo ar benveg staliañ"
+msgstr "Sac'het eo ar meziant staliañ"
 
 #. Type: text
 #. Description
@@ -478,7 +472,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:62001
 msgid "Before:"
-msgstr "A-raok:"
+msgstr "A-raok :"
 
 #. Type: text
 #. Description
@@ -486,31 +480,28 @@ msgstr "A-raok:"
 #. automatic partitioning.
 #: ../ubiquity.templates:63001
 msgid "After:"
-msgstr "War-lerc'h:"
+msgstr "War-lerc'h :"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
-#, fuzzy
 msgid "New Partition Table..."
-msgstr "Rann nevez"
+msgstr "Taolenn ar parzhadoù nevez..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
-#, fuzzy
 msgid "Add..."
-msgstr "Barek ..."
+msgstr "Ouzhpennañ..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
-#, fuzzy
 msgid "Change..."
-msgstr "O krouiñ an arveriad-ez..."
+msgstr "Kemmañ ..."
 
 #. Type: text
 #. Description
@@ -539,7 +530,7 @@ msgstr "Trobarzhell"
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:70001
 msgid "Type"
-msgstr "Seurt"
+msgstr "Rizh"
 
 #. Type: text
 #. Description
@@ -553,7 +544,7 @@ msgstr "Poent savadenn"
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:72001
 msgid "Format?"
-msgstr "Furmad?"
+msgstr "Mentrezh ?"
 
 #. Type: text
 #. Description
@@ -568,7 +559,7 @@ msgstr "Ment"
 #. this partition is used by data.
 #: ../ubiquity.templates:74001
 msgid "Used"
-msgstr "Implijet"
+msgstr "Arveret"
 
 #. Type: text
 #. Description
@@ -588,7 +579,7 @@ msgstr "dianav"
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Create partition"
-msgstr "Krouiñ ur rann"
+msgstr "Krouiñ ur parzhad"
 
 #. Type: text
 #. Description
@@ -614,7 +605,7 @@ msgstr "Dibenn"
 #. Description
 #: ../ubiquity.templates:81001
 msgid "Primary"
-msgstr "Kentañ"
+msgstr "Kentidik"
 
 #. Type: text
 #. Description
@@ -626,31 +617,31 @@ msgstr "Poellek"
 #. Description
 #: ../ubiquity.templates:83001
 msgid "Edit partition"
-msgstr "Aozañ ar rann"
+msgstr "Kemmañ ar parzhad"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:84001
 msgid "Edit a partition"
-msgstr "Aozañ ur rann"
+msgstr "Kemmañ ur parzhad"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
 msgid "Advanced Options"
-msgstr "Dibaboù barrek"
+msgstr "Dibarzhioù kempleshoc'h"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:87001
 msgid "Boot loader"
-msgstr "Karger loc'hadur"
+msgstr "Karger loc'hañ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:88001
 msgid "Install boot loader"
-msgstr "Staliañ karger loc'hadur"
+msgstr "Staliañ ar c'harger loc'hañ"
 
 #. Type: text
 #. Description
@@ -668,13 +659,13 @@ msgstr "Kemer perzh er studiadenn eus arver ar pakad"
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Network proxy"
-msgstr "Servijer proksi"
+msgstr "Proksi ar rouedad"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
 msgid "HTTP proxy:"
-msgstr "Proksi HTTP:"
+msgstr "Proksi HTTP :"
 
 #. Type: text
 #. Description
@@ -706,7 +697,7 @@ msgstr "Distreiñ"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:96001
 msgid "Continue"
-msgstr "War-raok"
+msgstr "Kenderc'hel"
 
 #. Type: text
 #. Description
@@ -715,7 +706,7 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Echu eo ar staliadur. Ret eo deoc'h adloc'hañ an urzhiataer evit implijout "
+"Echu eo ar staliadur. Ret eo deoc'h adloc'hañ an urzhiataer evit ober gant "
 "ar staliadur nevez."
 
 #. Type: note
@@ -733,48 +724,46 @@ msgstr ""
 " Yezh: ${LANGUAGE}\n"
 "Rizh klavier : ${KEYMAP}\n"
 "Anv: ${FULLNAME}\n"
-"Anv arveriad: ${USERNAME}\n"
-"Lec'hiadur: ${LOCATION}\n"
-"Skoazeller ezporzhiañ:\n"
+"Anv arveriad : ${USERNAME}\n"
+"Lec'hiadur : ${LOCATION}\n"
+"Skoazeller enporzhiañ :\n"
 " ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:99001
 msgid "Checking the installation..."
-msgstr "O gwiriañ staliadur..."
+msgstr "O wiriañ ar staliadur..."
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:100001
 msgid "Installing system"
-msgstr "O staliañ ar sistem"
+msgstr "O staliañ ar reizhiad"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Finding the distribution to copy..."
-msgstr "O klask an dasparzh da gopiañ..."
+msgstr "O klask an dasparzhadenn da eilañ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:103001
 msgid "Scanning files..."
-msgstr "O skannañ restroù..."
+msgstr "O c'hwilervañ ar restroù..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:104001
 msgid "Copying files..."
-msgstr "O kopiañ restroù..."
+msgstr "Oc'h eilañ ar restroù..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Copying files..."
 msgid "Almost finished copying files..."
-msgstr "O kopiañ restroù..."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -790,7 +779,7 @@ msgstr "O kopiañ restroù..."
 #: ../ubiquity.templates:108001 ../ubiquity.templates:109001
 #: ../ubiquity.templates:110001
 msgid "Installation Failed"
-msgstr "N'eo ket deuet a-benn ar staliadur"
+msgstr "C'hwitet en deus ar staliadur"
 
 #. Type: error
 #. Description
@@ -877,7 +866,7 @@ msgstr "Ar restr da heul ne glot ket gant eilad he zarzh war ar CD/DVD :"
 #. Description
 #: ../ubiquity.templates:111001
 msgid "Copying installation logs..."
-msgstr "O kopiañ deizlevr ar staliadur..."
+msgstr "Oc'h eilañ deizlevr ar staliadur..."
 
 #. Type: text
 #. Description
@@ -889,7 +878,7 @@ msgstr "O kefluniañ ar reizhiad arvoned..."
 #. Description
 #: ../ubiquity.templates:113001
 msgid "Configuring system locales..."
-msgstr "O kefluniañ ar yezhoù sistem..."
+msgstr "O kefluniañ yezhoù ar reizhiad..."
 
 #. Type: text
 #. Description
@@ -907,7 +896,7 @@ msgstr "O kefluniañ gwerzhid-eur..."
 #. Description
 #: ../ubiquity.templates:116001
 msgid "Configuring keyboard..."
-msgstr "O kefluniañ an touchennaoueg..."
+msgstr "O kefluniañ ar c'havier..."
 
 #. Type: text
 #. Description
@@ -919,7 +908,7 @@ msgstr "O krouiñ an arveriad-ez..."
 #. Description
 #: ../ubiquity.templates:118001
 msgid "Importing documents and settings..."
-msgstr "Oc'h enporzhiañ dielloù ha dibarzhioù..."
+msgstr "Oc'h enporzhiañ teulioù hag arventennoù..."
 
 #. Type: text
 #. Description
@@ -955,7 +944,7 @@ msgstr "O staliañ pakadoù ouzhpenn..."
 #. Description
 #: ../ubiquity.templates:124001
 msgid "Checking for packages to install..."
-msgstr "O gwiriañ pakadoù da staliañ..."
+msgstr "O wiriañ ar pakadoù da staliañ..."
 
 #. Type: text
 #. Description
@@ -997,7 +986,7 @@ msgstr "Fazi o staliañ ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Error removing ${PACKAGE}"
-msgstr "Fazi o lemel ${PACKAGE}"
+msgstr "Fazi o tilemel ${PACKAGE}"
 
 #. Type: error
 #. Description
@@ -1009,7 +998,7 @@ msgstr "Fazi o staliañ pakadoù"
 #. Description
 #: ../ubiquity.templates:133001
 msgid "An error occurred while installing packages:"
-msgstr "Bet eo bet ur fazi o staliañ pakadoù:"
+msgstr "Bet ez eus bet ur fazi e-pad ma oa o staliañ ar pakadoù:"
 
 #. Type: error
 #. Description
@@ -1046,13 +1035,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Error while removing packages"
-msgstr "Fazi o tistaliañ pakadoù"
+msgstr "Fazi o tilemel ar pakadoù"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:134001
 msgid "An error occurred while removing packages:"
-msgstr "Bet eo bet ur fazi o tistaliañ pakadoù:"
+msgstr "Bet ez eus bet ur fazi e-pad ma oa o tilemel ar pakadoù :"
 
 #. Type: text
 #. Description
@@ -1174,9 +1163,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
-#, fuzzy
 msgid "Keyboard"
-msgstr "Aozadur ar stokellaoueg"
+msgstr "Klavier"
 
 #. Type: text
 #. Description
@@ -1199,9 +1187,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
-#, fuzzy
 msgid "installation process"
-msgstr "Staliadur leun"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -1379,13 +1366,13 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:20001
 msgid "MySQL Password"
-msgstr "Ger tremen MySQL"
+msgstr "Ger-tremen MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "MySQL User Name"
-msgstr "Anv implijour MySQL"
+msgstr "Anv arveriad MySQL"
 
 #. Type: text
 #. Description
@@ -1397,7 +1384,7 @@ msgstr "Stlennvon MySQL"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "MySQL Server"
-msgstr "Servijer MySQL"
+msgstr "Dafariad MySQL"
 
 #. Type: text
 #. Description
@@ -1477,6 +1464,3 @@ msgstr "O kefluniañ gwazerezhioù ouzhpenn..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "O kefluniañ trobarzhelloù isruz..."
-
-#~ msgid "Copying files (less than a minute remaining)..."
-#~ msgstr "Oc'h eilañ ar restroù (chom a ra nebeud eget ur vunutenn)..."

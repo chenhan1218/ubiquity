@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-04-10 12:11+0000\n"
-"Last-Translator: Yuri Kozlov <kozlov.y@gmail.com>\n"
+"PO-Revision-Date: 2009-09-25 17:02+0000\n"
+"Last-Translator: Sergei Sedov <Unknown>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-12 11:45+0000\n"
+"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -25,9 +25,8 @@ msgstr "Использовать наибольшее непрерывное с�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
-#, fuzzy
 msgid "Erase and use the entire disk"
-msgstr "Использовать весь диск"
+msgstr "Стереть и использовать весь диск"
 
 #. Type: text
 #. Description
@@ -97,17 +96,18 @@ msgstr ""
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
+"После того, как вы ответите на несколько вопросов, этот компьютер будет "
+"готов к использованию."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Пожалуйста, выберите язык для процесса установки. Этот же язык будет "
-"задействован в системе в качестве основного языка."
+"Пожалуйста, выберите язык используемый для процесса конфигурации. Этот язык "
+"будет установлен языком по умолчанию для этого компьютера."
 
 #. Type: text
 #. Description
@@ -152,12 +152,15 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"Выберите ваше местоположение для того, чтобы система могла верно отображать "
+"единицы измерения для вашей страны, получать обновления с ближайших к вам "
+"серверов и отображать время в вашем часовом поясе."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "Зона:"
 
 #. Type: text
 #. Description
@@ -271,16 +274,15 @@ msgstr "Войти автоматически"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
-#, fuzzy
 msgid "Require my password to log in"
-msgstr "Для входа требуется пароль"
+msgstr "Требуется мой пароль для входа"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr "Необходим пароль для входа и шифрования домашнего каталога"
+msgstr ""
+"Требуется мой пароль для входа и открытия зашифрованного домашнего каталога"
 
 #. Type: text
 #. Description
@@ -488,39 +490,36 @@ msgstr "После:"
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
-#, fuzzy
 msgid "New Partition Table..."
-msgstr "Новая таблица разделов"
+msgstr "Новая таблица разделов..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
-#, fuzzy
 msgid "Add..."
-msgstr "Дополнительно..."
+msgstr "Добавить..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
-#, fuzzy
 msgid "Change..."
-msgstr "Создание пользователя..."
+msgstr "Изменить..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:68001
 msgid "Revert"
-msgstr ""
+msgstr "Вернуть"
 
 #. Type: text
 #. Description
@@ -766,10 +765,8 @@ msgstr "Копирование файлов..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Copying files..."
 msgid "Almost finished copying files..."
-msgstr "Копирование файлов..."
+msgstr "Почти закончил копирование файлов..."
 
 #. Type: error
 #. Description
@@ -1156,45 +1153,43 @@ msgstr "Применить настройки"
 #. Description
 #: ../ubiquity.templates:158001
 msgid "Language"
-msgstr ""
+msgstr "Язык"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Timezone"
-msgstr ""
+msgstr "Часовой пояс"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
-#, fuzzy
 msgid "Keyboard"
-msgstr "Раскладка клавиатуры"
+msgstr "Клавиатура"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Установка диска"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:162001
 msgid "User Info"
-msgstr ""
+msgstr "Сведения о пользователе"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:163001
 msgid "Summary"
-msgstr ""
+msgstr "Сводная информация"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
-#, fuzzy
 msgid "installation process"
-msgstr "Тип установки"
+msgstr "процесс установки"
 
 #. Type: note
 #. Description
@@ -1470,6 +1465,3 @@ msgstr "Настройка дополнительных служб..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Настройка инфракрасных устройств..."
-
-#~ msgid "Copying files (less than a minute remaining)..."
-#~ msgstr "Копирование файлов (осталось меньше минуты)..."

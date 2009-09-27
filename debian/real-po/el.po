@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-04-10 11:20+0000\n"
-"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
+"PO-Revision-Date: 2009-09-19 09:51+0000\n"
+"Last-Translator: Thanos Lefteris <alefteris@gmail.com>\n"
 "Language-Team: <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-12 11:44+0000\n"
+"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -25,9 +25,8 @@ msgstr "Χρήση του μεγαλύτερου συνεχούς ελεύθερ
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
-#, fuzzy
 msgid "Erase and use the entire disk"
-msgstr "Χρήση ολόκληρου του δίσκου"
+msgstr "Διαγραφή και χρήση ολόκληρου του δίσκου"
 
 #. Type: text
 #. Description
@@ -98,11 +97,11 @@ msgstr ""
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
+"Μόλις απαντήσετε μερικές ερωτήσεις, ο υπολογιστής θα είναι έτοιμος για χρήση."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -143,7 +142,7 @@ msgstr "Σημειώσεις έκδοσης"
 #. Description
 #: ../ubiquity.templates:15001
 msgid "Where are you?"
-msgstr "Από που είστε;"
+msgstr "Που βρίσκεστε;"
 
 #. Type: text
 #. Description
@@ -153,12 +152,15 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"Επιλέξτε την τοποθεσία σας, ώστε το σύστημα να χρησιμοποιήσει τα κατάλληλα "
+"πρότυπα εμφάνισης για την χώρα σας, να κάνει λήψη των ενημερώσεων από "
+"κοντινές σε εσάς ιστοσελίδες και να ρυθμίσει το ρολόι στην σωστή τοπική ώρα."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "Ζώνη ώρας:"
 
 #. Type: text
 #. Description
@@ -176,7 +178,7 @@ msgstr "Διάταξη πληκτρολογίου"
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Ποία διάταξη είναι παρόμοια με το πληκτρολόγιο σας;"
+msgstr "Ποια διάταξη είναι παρόμοια με το πληκτρολόγιό σας;"
 
 #. Type: text
 #. Description
@@ -196,7 +198,7 @@ msgstr "Προτεινόμενη επιλογή:"
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your own:"
-msgstr "Επιλέξτε το δικό σας:"
+msgstr "Επιλέξτε μόνοι σας:"
 
 #. Type: text
 #. Description
@@ -208,13 +210,13 @@ msgstr "Ποιος είστε;"
 #. Description
 #: ../ubiquity.templates:25001
 msgid "What is your name?"
-msgstr "Ποιο είναι το όνομα σας;"
+msgstr "Ποιο είναι το όνομά σας;"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "What name do you want to use to log in?"
-msgstr "Τι όνομα θέλετε να χρησιμοποιήσετε για την είσοδο στο σύστημα;"
+msgstr "Τι όνομα χρήστη θέλετε να χρησιμοποιήσετε για την είσοδο στο σύστημα;"
 
 #. Type: text
 #. Description
@@ -223,8 +225,9 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Αν χρησιμοποιούν παραπάνω από ένας αυτό τον υπολογιστή, τότε μπορείτε να "
-"εγκαταστήσετε πολλαπλούς λογαριασμούς χρηστών μετά τη εγκατάσταση."
+"Αν αυτόν τον υπολογιστή θα χρησιμοποιεί παραπάνω από ένα άτομο, τότε "
+"μπορείτε να δημιουργήσετε πολλαπλούς λογαριασμούς χρηστών μετά την "
+"εγκατάσταση."
 
 #. Type: text
 #. Description
@@ -250,8 +253,8 @@ msgid ""
 "intervals."
 msgstr ""
 "Πληκτρολογήστε τον ίδιο κωδικό δύο φορές, ώστε να γίνει έλεγχος για σφάλματα "
-"πληκτρολόγησης. Ένας καλός κωδικός θα περιελάμβανε ανάμεικτα γράμματα, "
-"αριθμούς και σύμβολα, θα έπρεπε να είναι τουλάχιστον 8 χαρακτήρες σε μέγεθος "
+"πληκτρολόγησης. Ένας καλός κωδικός περιλαμβάνει ανάμεικτα γράμματα, αριθμούς "
+"και σύμβολα, θα πρέπει να είναι τουλάχιστον οκτώ (8) χαρακτήρες σε μέγεθος "
 "και να τον αλλάζετε σε τακτά χρονικά διαστήματα."
 
 #. Type: text
@@ -279,24 +282,21 @@ msgstr "Αυτόματη είσοδος χρήστη"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
-#, fuzzy
 msgid "Require my password to log in"
-msgstr "Απαιτείται κωδικός για την είσοδο στο σύστημα"
+msgstr "Απαίτηση του κωδικού μου για την είσοδο στο σύστημα"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr ""
-"Απαιτείται κωδικός για την είσοδο και την αποκρυπτογράφηση του προσωπικού "
-"φακέλου"
+"Απαίτηση κωδικού για την είσοδο και αποκρυπτογράφηση προσωπικού φακέλου"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr "Επιλέξτε διαφορετικό συνθηματικό"
+msgstr "Επιλέξτε διαφορετικό κωδικό"
 
 #. Type: text
 #. Description
@@ -372,8 +372,7 @@ msgstr "Προετοιμασία τμημάτων"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:46001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
-"Αυτό θα διαγράψει το/τα ${SYSTEMS} και θα εγκαταστήσει την έκδοση ${RELEASE}."
+msgstr "Αυτό θα διαγράψει το/τα ${SYSTEMS} και θα εγκαταστήσει το ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -502,39 +501,36 @@ msgstr "Μετά:"
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
-#, fuzzy
 msgid "New Partition Table..."
-msgstr "Νέος πίνακας διαμερισμάτων"
+msgstr "Νέος πίνακας κατατμήσεων..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
-#, fuzzy
 msgid "Add..."
-msgstr "Προχωρημένα..."
+msgstr "Προσθήκη..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
-#, fuzzy
 msgid "Change..."
-msgstr "Δημιουργία χρήστη..."
+msgstr "Τροποποίηση..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "Διαγραφή"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:68001
 msgid "Revert"
-msgstr ""
+msgstr "Επαναφορά"
 
 #. Type: text
 #. Description
@@ -785,10 +781,8 @@ msgstr "Αντιγραφή αρχείων..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Copying files..."
 msgid "Almost finished copying files..."
-msgstr "Αντιγραφή αρχείων..."
+msgstr "Η αντιγραφή των αρχείων σχεδόν τελείωσε..."
 
 #. Type: error
 #. Description
@@ -1179,45 +1173,43 @@ msgstr "Εφαρμογή ρυθμίσεων"
 #. Description
 #: ../ubiquity.templates:158001
 msgid "Language"
-msgstr ""
+msgstr "Γλώσσα"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Timezone"
-msgstr ""
+msgstr "Ζώνη ώρας"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
-#, fuzzy
 msgid "Keyboard"
-msgstr "Διάταξη πληκτρολογίου"
+msgstr "Πληκτρολόγιο"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Ρύθμιση δίσκου"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:162001
 msgid "User Info"
-msgstr ""
+msgstr "Πληροφορίες χρήστη"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:163001
 msgid "Summary"
-msgstr ""
+msgstr "Σύνοψη"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
-#, fuzzy
 msgid "installation process"
-msgstr "Είδος εγκατάστασης"
+msgstr "διαδικασία εγκατάστασης"
 
 #. Type: note
 #. Description
@@ -1498,6 +1490,3 @@ msgstr "Ρύθμιση επιπρόσθετων υπηρεσιών..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Ρυθμίζει συσκευές υπερύθρων"
-
-#~ msgid "Copying files (less than a minute remaining)..."
-#~ msgstr "Αντιγραφή αρχείων (απομένει λιγότερο από ένα λεπτό)..."

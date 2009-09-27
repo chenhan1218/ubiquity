@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-04-10 12:54+0000\n"
-"Last-Translator: Hasan Yılmaz <iletisim@hasanyilmaz.net>\n"
+"PO-Revision-Date: 2009-09-23 08:29+0000\n"
+"Last-Translator: Efe Çiftci <efeciftci@gmail.com>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-12 11:40+0000\n"
+"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -25,9 +25,8 @@ msgstr "En büyük kesintisiz boş alanı kullan"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
-#, fuzzy
 msgid "Erase and use the entire disk"
-msgstr "Bütün diski kullan"
+msgstr "Diskin tümünü temizle ve kullan"
 
 #. Type: text
 #. Description
@@ -97,17 +96,17 @@ msgstr ""
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
+"Bu bilgisayar, siz birkaç soru cevapladıktan sonra kullanıma hazır olacak."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Lütfen kurulum işlemi için kullanılacak dili seçin. Bu, sisteminiz için "
-"varsayılan dil olacaktır."
+"Yapılandırma işlemi için kullanılacan olan dili seçin. Bu dil, bu "
+"bilgisayarda kullanılacak olan öntanımlı dil olacak."
 
 #. Type: text
 #. Description
@@ -151,12 +150,15 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"Sistemin ülkeniz için doğru ayarları kullanması, size yakın sitelerden "
+"güncellemeleri alması ve saati doğru yerel saate göre ayarlaması için "
+"bulunduğunuz bölgeyi seçin."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "Alan:"
 
 #. Type: text
 #. Description
@@ -273,17 +275,14 @@ msgstr "Otomatik giriş yap"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
-#, fuzzy
 msgid "Require my password to log in"
-msgstr "Oturum açmak için bir parola gerekli"
+msgstr "Giriş yapmak için parola iste"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr ""
-"Oturum açmak ve ev dizininizin şifresini çözmek için bir parola gerekli"
+msgstr "Giriş yapmak ve ev klasörümün şifresini çözmek için parola iste"
 
 #. Type: text
 #. Description
@@ -492,39 +491,36 @@ msgstr "Sonra:"
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
-#, fuzzy
 msgid "New Partition Table..."
-msgstr "Yeni disk bölümü tablosu"
+msgstr "Yeni Disk Bölümü Tablosu..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
-#, fuzzy
 msgid "Add..."
-msgstr "Gelişmiş..."
+msgstr "Ekle..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
-#, fuzzy
 msgid "Change..."
-msgstr "Kullanıcı yaratılıyor..."
+msgstr "Değiştir..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "Sil"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:68001
 msgid "Revert"
-msgstr ""
+msgstr "Geri al"
 
 #. Type: text
 #. Description
@@ -771,10 +767,8 @@ msgstr "Dosyalar kopyalanıyor..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Copying files..."
 msgid "Almost finished copying files..."
-msgstr "Dosyalar kopyalanıyor..."
+msgstr "Dosyaların kopyalanması neredeyse bitti..."
 
 #. Type: error
 #. Description
@@ -1158,45 +1152,43 @@ msgstr "Yapılandırma uygulanıyor"
 #. Description
 #: ../ubiquity.templates:158001
 msgid "Language"
-msgstr ""
+msgstr "Dil"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Timezone"
-msgstr ""
+msgstr "Saat Dilimi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
-#, fuzzy
 msgid "Keyboard"
-msgstr "Klavye düzeni"
+msgstr "Klavye"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Disk Yapılandırması"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:162001
 msgid "User Info"
-msgstr ""
+msgstr "Kullanıcı Bilgisi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:163001
 msgid "Summary"
-msgstr ""
+msgstr "Özet"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
-#, fuzzy
 msgid "installation process"
-msgstr "Kurulum Türü"
+msgstr "kurulum süreci"
 
 #. Type: note
 #. Description
@@ -1468,6 +1460,3 @@ msgstr "Ek servisler yapılandırılıyor..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Kızılötesi cihazları yapılandırıyor..."
-
-#~ msgid "Copying files (less than a minute remaining)..."
-#~ msgstr "Dosyalar kopyalanıyor (bir dakikadan daha az kaldı)..."

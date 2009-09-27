@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-04-07 03:59+0000\n"
-"Last-Translator: Seongho Choo <somebody@kangwon.ac.kr>\n"
+"PO-Revision-Date: 2009-09-05 19:31+0000\n"
+"Last-Translator: Seongho Choo <Unknown>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-12 11:40+0000\n"
+"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -25,9 +25,8 @@ msgstr "연결된 가장 큰 빈공간 사용"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
-#, fuzzy
 msgid "Erase and use the entire disk"
-msgstr "디스크 전체 사용"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -100,13 +99,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"설치 과정에서 사용할 언어를 고르세요. 이 언어는 최종 시스템의 기본 언어가 됩"
-"니다."
 
 #. Type: text
 #. Description
@@ -267,16 +263,14 @@ msgstr "자동으로 로그인"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
-#, fuzzy
 msgid "Require my password to log in"
-msgstr "로그인시 암호 요구"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr "처음폴터를 풀고 로그인할 암호를 요구"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -482,25 +476,22 @@ msgstr "이후:"
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
-#, fuzzy
 msgid "New Partition Table..."
-msgstr "새 분할 테이블"
+msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
-#, fuzzy
 msgid "Add..."
-msgstr "고급..."
+msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
-#, fuzzy
 msgid "Change..."
-msgstr "사용자 생성 중..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -759,10 +750,8 @@ msgstr "파일 복사 중..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Copying files..."
 msgid "Almost finished copying files..."
-msgstr "파일 복사 중..."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1151,9 +1140,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
-#, fuzzy
 msgid "Keyboard"
-msgstr "키보드 배치"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1176,9 +1164,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
-#, fuzzy
 msgid "installation process"
-msgstr "설치 형태"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -1447,6 +1434,3 @@ msgstr "추가 서비스 구성 중..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "적외선 장치 구성 중..."
-
-#~ msgid "Copying files (less than a minute remaining)..."
-#~ msgstr "파일 복사 중 (1분 이하로 남음) ..."

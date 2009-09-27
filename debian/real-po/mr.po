@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-04-10 12:10+0000\n"
-"Last-Translator: Sampada <Unknown>\n"
+"PO-Revision-Date: 2009-09-05 19:32+0000\n"
+"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
 "Language-Team: Marathi, janabhaaratii, C-DAC, Mumbai, India "
 "<janabhaaratii@cdacmumbai.in>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-12 11:45+0000\n"
+"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -101,13 +101,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"कृपया, स्थापना प्रक्रियेसाठी वापरली जाणारी भाषा निवडा. ही भाषा अंतिम संगणक प्रणालीची "
-"'आपसूक' भाषा असेल."
 
 #. Type: text
 #. Description
@@ -728,10 +725,8 @@ msgstr "धारण्यांची नक्कल करत आहे"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Copying files..."
 msgid "Almost finished copying files..."
-msgstr "धारण्यांची नक्कल करत आहे"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1096,9 +1091,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
-#, fuzzy
 msgid "Keyboard"
-msgstr "कळपट्टी प्रकार"
+msgstr ""
 
 #. Type: text
 #. Description

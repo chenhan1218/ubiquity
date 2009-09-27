@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-04-11 06:29+0000\n"
-"Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
+"PO-Revision-Date: 2009-09-21 14:28+0000\n"
+"Last-Translator: Timo Jyrinki <timo-jyrinki@ubuntu.com>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-12 11:45+0000\n"
+"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -25,9 +25,8 @@ msgstr "Käytä suurinta yhtenäistä vapaata tilaa"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
-#, fuzzy
 msgid "Erase and use the entire disk"
-msgstr "Käytä koko levyä"
+msgstr "Tyhjennä ja käytä koko levyä"
 
 #. Type: text
 #. Description
@@ -102,13 +101,12 @@ msgstr "Vastattuasi muutamaan kysymykseen, tietokone on valmis käyttöön."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Valitse kieli, jota käytetään asennuksen aikana. Tämä kieli on oletuskieli "
-"myös asennetussa järjestelmässä."
+"Valitse kieli, jota käytetään asetusten tekoon. Kieli tulee valituksi tämän "
+"tietokoneen oletuskieleksi."
 
 #. Type: text
 #. Description
@@ -153,8 +151,8 @@ msgid ""
 "the clock to the correct local time."
 msgstr ""
 "Valitse sijaintisi, jotta järjestelmä voi käyttää asuinmaasi "
-"merkitsemistapoja, noutaa päivityksiä lähimmiltä sivustoilta ja asettaa "
-"kello oikean aikaan."
+"merkitsemistapoja, noutaa päivityksiä lähimmiltä sivustoilta sekä asettaa "
+"kellon oikeaan aikaan."
 
 #. Type: text
 #. Description
@@ -275,16 +273,15 @@ msgstr "Kirjaudu sisään automaattisesti"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
-#, fuzzy
 msgid "Require my password to log in"
-msgstr "Vaadi salasana kirjauduttaessa"
+msgstr "Vaadi salasana sisäänkirjautumiseen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr "Vaadi salasana kirjauduttaessa ja kotikansion salauksen purkamiseen"
+msgstr ""
+"Vaadi salasana sisäänkirjautumiseen ja kotikansion salauksen purkamiseen"
 
 #. Type: text
 #. Description
@@ -491,25 +488,22 @@ msgstr "Jälkeen:"
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
-#, fuzzy
 msgid "New Partition Table..."
-msgstr "Uusi osiotaulu"
+msgstr "Uusi osiotaulu..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
-#, fuzzy
 msgid "Add..."
-msgstr "Lisäasetukset..."
+msgstr "Lisää..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
-#, fuzzy
 msgid "Change..."
-msgstr "Luodaan käyttäjää..."
+msgstr "Muuta..."
 
 #. Type: text
 #. Description
@@ -769,10 +763,8 @@ msgstr "Kopioidaan tiedostoja..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Copying files..."
 msgid "Almost finished copying files..."
-msgstr "Kopioidaan tiedostoja..."
+msgstr "Tiedostojen kopiointi lähes valmis..."
 
 #. Type: error
 #. Description
@@ -1167,9 +1159,8 @@ msgstr "Aikavyöhyke"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
-#, fuzzy
 msgid "Keyboard"
-msgstr "Näppäimistön asettelu"
+msgstr "Näppäimistö"
 
 #. Type: text
 #. Description
@@ -1192,9 +1183,8 @@ msgstr "Yhteenveto"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
-#, fuzzy
 msgid "installation process"
-msgstr "Asennustapa"
+msgstr "asennuksen edistyminen"
 
 #. Type: note
 #. Description
@@ -1467,6 +1457,3 @@ msgstr "Tehdään palveluiden asetuksia..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Määritetään infrapunalaitteita..."
-
-#~ msgid "Copying files (less than a minute remaining)..."
-#~ msgstr "Kopioidaan tiedostoja (alle minuutti jäljellä)..."

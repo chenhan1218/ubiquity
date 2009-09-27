@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-04-10 12:11+0000\n"
+"PO-Revision-Date: 2009-09-05 19:33+0000\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: Punjabi/Panjabi <punjabi-users@lists.sf.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-12 11:45+0000\n"
+"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -100,13 +100,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"ਕਿਰਪਾ ਕਰਕੇ ੲਿੰਸਟਾਲੇਸ਼ਨ ਦੇ ਦੌਰ ਲੲੀ ਵਰਤੀ ਜਾਣ ਵਾਲੀ ਭਾਸ਼ਾ ਚੁਣੋਂ । ੲਿਹ ਭਾਸ਼ਾ ਅੰਤਲੇ ਸਿਸਟਮ ਦੀ ਮੁੱਢ "
-"ਭਾਸ਼ਾ ਹੋਵੇਗੀ।"
 
 #. Type: text
 #. Description
@@ -1363,6 +1360,3 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Copying files (less than a minute remaining)..."
-#~ msgstr "ਫਾੲੀਲਾਂ ਕਾਪੀ ਕੀਤੀਅਾਂ ਜਾ ਰਹੀਅਾਂ ਹਨ (ੲਿਕ ਮਿਨਟ ਤੋਂ ਘਟ ਬਾਕੀ)..."

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-04-16 07:16+0000\n"
+"PO-Revision-Date: 2009-09-21 12:56+0000\n"
 "Last-Translator: Bruno Patri <bruno.patri@gmail.com>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-16 12:09+0000\n"
+"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -25,9 +25,8 @@ msgstr "Utiliser le plus grand espace libre disponible"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
-#, fuzzy
 msgid "Erase and use the entire disk"
-msgstr "Utiliser le disque entier"
+msgstr "Tout effacer et utiliser le disque entier"
 
 #. Type: text
 #. Description
@@ -104,13 +103,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Choisissez la langue à utiliser pour l'installation. Cette langue sera celle "
-"par défaut du système après l'installation."
+"Veuillez choisir la langue utilisée pendant la phase de configuration. Cette "
+"langue sera la langue par défaut pour ce système."
 
 #. Type: text
 #. Description
@@ -220,7 +218,7 @@ msgstr "Quel est votre nom ?"
 #. Description
 #: ../ubiquity.templates:26001
 msgid "What name do you want to use to log in?"
-msgstr "Quel nom d'utilisateur voulez-vous utiliser pour vous identifier ?"
+msgstr "Quel nom voulez-vous utiliser pour ouvrir votre session ?"
 
 #. Type: text
 #. Description
@@ -283,18 +281,16 @@ msgstr "Se connecter automatiquement"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
-#, fuzzy
 msgid "Require my password to log in"
-msgstr "Un mot de passe est requis pour se connecter"
+msgstr "Mon mot de passe est requis pour ouvrir une session"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr ""
-"Un mot de passe est requis pour se connecter et accéder à son dossier "
-"personnel chiffré"
+"Mon mot de passe est requis pour ouvrir une session et déchiffrer mon "
+"dossier peronnel"
 
 #. Type: text
 #. Description
@@ -504,25 +500,22 @@ msgstr "Après :"
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
-#, fuzzy
 msgid "New Partition Table..."
-msgstr "Nouvelle table de partition"
+msgstr "Nouvelle table de partition…"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
-#, fuzzy
 msgid "Add..."
-msgstr "Avancé..."
+msgstr "Ajouter..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
-#, fuzzy
 msgid "Change..."
-msgstr "Création de l'utilisateur..."
+msgstr "Modifier..."
 
 #. Type: text
 #. Description
@@ -746,7 +739,7 @@ msgstr ""
 " Disposition du clavier : ${KEYMAP}\n"
 " Nom : ${FULLNAME}\n"
 " Nom d'utilisateur : ${USERNAME}\n"
-" Emplacement : ${LOCATION}\n"
+" Fuseau horaire : ${LOCATION}\n"
 " Assistant de migration :\n"
 " ${MIGRATE}"
 
@@ -783,10 +776,8 @@ msgstr "Copie des fichiers..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Copying files..."
 msgid "Almost finished copying files..."
-msgstr "Copie des fichiers..."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1189,9 +1180,8 @@ msgstr "Fuseau horaire"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
-#, fuzzy
 msgid "Keyboard"
-msgstr "Disposition du clavier"
+msgstr "Clavier"
 
 #. Type: text
 #. Description
@@ -1214,9 +1204,8 @@ msgstr "Récapitulatif"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
-#, fuzzy
 msgid "installation process"
-msgstr "Type d'installation"
+msgstr "Phase d'installation"
 
 #. Type: note
 #. Description
@@ -1498,6 +1487,3 @@ msgstr "Configuration de services supplémentaires..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Configuration des périphériques infrarouges..."
-
-#~ msgid "Copying files (less than a minute remaining)..."
-#~ msgstr "Copie des fichiers en cours (moins d'une minute restante)..."

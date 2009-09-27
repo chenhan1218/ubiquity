@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-04-10 11:19+0000\n"
-"Last-Translator: Mahay Alam Khan <Unknown>\n"
+"PO-Revision-Date: 2009-09-05 19:31+0000\n"
+"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
 "Language-Team: Bangla <core@BengaLinux.Org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-12 11:44+0000\n"
+"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -100,13 +100,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"দয়া করে ইনস্টল করা কালীন সময়ের ভাষা নির্বাচন করুন । এই ভাষাই চুড়ান্ত সিস্টেমের "
-"স্বাভাবিক ভাষা হবে ।"
 
 #. Type: text
 #. Description
@@ -481,9 +478,8 @@ msgstr ""
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
-#, fuzzy
 msgid "Change..."
-msgstr "ব্যবহারকারী তৈরি করা হচ্ছে..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -743,10 +739,8 @@ msgstr "ফাইলসমূহ কপি করা হচ্ছে..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Copying files..."
 msgid "Almost finished copying files..."
-msgstr "ফাইলসমূহ কপি করা হচ্ছে..."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1111,9 +1105,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
-#, fuzzy
 msgid "Keyboard"
-msgstr "কীবোর্ড বিন্যাস (Layout)"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1136,9 +1129,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
-#, fuzzy
 msgid "installation process"
-msgstr "অতিরিক্ত প্যাকেজসমূহ ইনস্টল করা হচ্ছে..."
+msgstr ""
 
 #. Type: note
 #. Description
@@ -1373,6 +1365,3 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Copying files (less than a minute remaining)..."
-#~ msgstr "ফাইল কপি করা হচ্ছে (একটি মিনিটের চেয়ে কম সময় অবশিষ্ট)..."

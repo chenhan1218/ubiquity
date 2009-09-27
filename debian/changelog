@@ -4,6 +4,7 @@ ubiquity (1.99.24) UNRELEASED; urgency=low
     possible, and not reset after partitioning; and the timezone and
     hardware clock configuration are now changed in the live filesystem root
     as well as in /target (LP: #431786).
+  * Update translations from Launchpad.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 26 Sep 2009 10:44:44 +0100
 

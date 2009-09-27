@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-04-10 12:11+0000\n"
-"Last-Translator: Bartosz Fenski <fenio@debian.org>\n"
+"PO-Revision-Date: 2009-09-16 20:08+0000\n"
+"Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <debian-l10n-polish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-12 11:45+0000\n"
+"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -25,9 +25,8 @@ msgstr "Użycie największej ciągłej wolnej przestrzeni"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
-#, fuzzy
 msgid "Erase and use the entire disk"
-msgstr "Użycie całego dysku"
+msgstr "Usunięcie zawartości i użycie całego dysku"
 
 #. Type: text
 #. Description
@@ -71,9 +70,9 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Rozpocząć proces instalacji? Po odpowiedzeniu na kilka pytań, zawartość "
-"Desktop CD będzie mogła zostać zainstalowana na tym komputerze, aby można "
-"było uruchomić system z pełną wydajnością, bez płyty CD."
+"Po odpowiedzeniu na kilka pytań zawartość tej płyty CD będzie można "
+"zainstalować na komputerze, aby można było uruchomić system z pełną "
+"wydajnością, bez konieczności korzystania z płyty CD."
 
 #. Type: text
 #. Description
@@ -103,13 +102,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Proszę wybrać język procesu instalacji. Wybrany język będzie także domyślnym "
-"językiem zainstalowanego systemu."
+"Proszę wybrać język do użycia w procesie konfiguracji. Ten język zostanie "
+"użyty jako domyślny dla tego komputera."
 
 #. Type: text
 #. Description
@@ -119,10 +117,10 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"Przeprowadzana jest instalacja w trybie producenta systemu. Wprowadź "
-"unikalną nazwę dla tej paczki systemów. Ta nazwa zostanie zapisana na "
-"zainstalowanym systemie i będzie wykorzystywana przy zgłaszaniu raportów o "
-"błędach."
+"Przeprowadzana jest instalacja w trybie producenta systemu. Proszę "
+"wprowadzić unikalną nazwę dla tego zestawu systemów. Ta nazwa zostanie "
+"zapisana na zainstalowanym systemie i będzie wykorzystywana przy zgłaszaniu "
+"raportów o błędach."
 
 #. Type: text
 #. Description
@@ -131,8 +129,9 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
-"Jeśli jest dostęp do internetu, można zapoznać się z informacjami o wydaniu, "
-"aby dowiedzieć się o problemach, które mogą wystąpić na tym komputerze."
+"Jeśli jest dostęp do internetu, to można zapoznać się z informacjami o "
+"wydaniu, aby dowiedzieć się o problemach, które mogą wystąpić na tym "
+"komputerze."
 
 #. Type: text
 #. Description
@@ -144,7 +143,7 @@ msgstr "Informacje o wydaniu"
 #. Description
 #: ../ubiquity.templates:15001
 msgid "Where are you?"
-msgstr "Gdzie jesteś?"
+msgstr "Położenie użytkownika"
 
 #. Type: text
 #. Description
@@ -180,13 +179,14 @@ msgstr "Układ klawiatury"
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Który układ najbardziej przypomina twoją klawiaturę?"
+msgstr "Który układ najbardziej przypomina klawiaturę użytkownika?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "Można pisać w tym oknie, aby przetestować nowy układ klawiatury."
+msgstr ""
+"Można pisać w tym polu tekstowym, aby przetestować nowy układ klawiatury."
 
 #. Type: text
 #. Description
@@ -204,19 +204,19 @@ msgstr "Własny wybór:"
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Who are you?"
-msgstr "Kim jesteś?"
+msgstr "Tożsamość użytkownika"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "What is your name?"
-msgstr "Jak się nazywasz?"
+msgstr "Imię i nazwisko użytkownika"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "What name do you want to use to log in?"
-msgstr "Jaka nazwa ma być używana podczas logowania?"
+msgstr "Jaka nazwa ma być używana podczas logowania się?"
 
 #. Type: text
 #. Description
@@ -225,8 +225,8 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Jeśli komputer będzie używany przez wiele osób, można dodać kolejne konta po "
-"zakończeniu instalacji."
+"Jeśli komputer będzie używany przez wiele osób, to będzie można dodać "
+"kolejne konta po ukończeniu instalacji."
 
 #. Type: text
 #. Description
@@ -238,7 +238,8 @@ msgstr "Należy ustawić hasło, aby konto było bezpieczne."
 #. Description
 #: ../ubiquity.templates:29001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "Uruchomiono w trybie debugowania. Nie korzystaj z wartościowego hasła!"
+msgstr ""
+"Uruchomiono w trybie debugowania. Proszę nie używać wartościowego hasła!"
 
 #. Type: text
 #. Description
@@ -272,21 +273,19 @@ msgstr "Nazwa zostanie użyta, jeśli komputer będzie widoczny w sieci."
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Log in automatically"
-msgstr "Zaloguj automatycznie"
+msgstr "Automatyczne logowanie"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
-#, fuzzy
 msgid "Require my password to log in"
-msgstr "Wymaganie hasła do zalogowania się"
+msgstr "Wymaganie hasła do zalogowania"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr "Wymaganie hasła do zalogowania się i odszyfrowania katalogu domowego"
+msgstr "Wymaganie hasła do zalogowania i odszyfrowania katalogu domowego"
 
 #. Type: text
 #. Description
@@ -411,19 +410,19 @@ msgstr "Zainstaluj"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr "Krok ${INDEX} z ${TOTAL}"
+msgstr "Etap ${INDEX} z ${TOTAL}"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Quit the installation?"
-msgstr "Zamknąć instalacje?"
+msgstr "Zakończyć instalację?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Do you really want to quit the installation now?"
-msgstr "Czy chcesz zamknąć instalacje teraz?"
+msgstr "Na pewno zakończyć proces instalacji?"
 
 #. Type: text
 #. Description
@@ -495,25 +494,22 @@ msgstr "Po:"
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
-#, fuzzy
 msgid "New Partition Table..."
-msgstr "Nowa tablica partycji"
+msgstr "Nowa tablica partycji..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
-#, fuzzy
 msgid "Add..."
-msgstr "Zaawansowane..."
+msgstr "Dodaj..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
-#, fuzzy
 msgid "Change..."
-msgstr "Dodawanie użytkownika..."
+msgstr "Zmień..."
 
 #. Type: text
 #. Description
@@ -542,7 +538,7 @@ msgstr "Urządzenie"
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:70001
 msgid "Type"
-msgstr "Rodzaj"
+msgstr "Typ"
 
 #. Type: text
 #. Description
@@ -556,7 +552,7 @@ msgstr "Punkt montowania"
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:72001
 msgid "Format?"
-msgstr "Formatować?"
+msgstr "Sformatować?"
 
 #. Type: text
 #. Description
@@ -591,7 +587,7 @@ msgstr "nieznane"
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Create partition"
-msgstr "Utwórz patrycję"
+msgstr "Utwórz partycję"
 
 #. Type: text
 #. Description
@@ -629,7 +625,7 @@ msgstr "Logiczna"
 #. Description
 #: ../ubiquity.templates:83001
 msgid "Edit partition"
-msgstr "Modyfikuj partycję"
+msgstr "Modyfikowanie partycji"
 
 #. Type: text
 #. Description
@@ -653,7 +649,7 @@ msgstr "Program rozruchowy"
 #. Description
 #: ../ubiquity.templates:88001
 msgid "Install boot loader"
-msgstr "Zainstaluj program rozruchowy"
+msgstr "Instalacja programu rozruchowego"
 
 #. Type: text
 #. Description
@@ -718,7 +714,7 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Instalacja zakończona. Konieczne jest ponowne uruchomienie komputera, aby "
+"Instalacja ukończona. Konieczne jest ponowne uruchomienie komputera, aby "
 "skorzystać z nowej instalacji."
 
 #. Type: note
@@ -751,7 +747,7 @@ msgstr "Sprawdzanie instalacji..."
 #. Description
 #: ../ubiquity.templates:100001
 msgid "Installing system"
-msgstr "Instalacja systemu"
+msgstr "Instalowanie systemu"
 
 #. Type: text
 #. Description
@@ -774,10 +770,8 @@ msgstr "Kopiowanie plików..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Copying files..."
 msgid "Almost finished copying files..."
-msgstr "Kopiowanie plików..."
+msgstr "Prawie ukończono kopiowanie plików..."
 
 #. Type: error
 #. Description
@@ -899,7 +893,7 @@ msgstr "Konfigurowanie apt..."
 #. Description
 #: ../ubiquity.templates:115001
 msgid "Configuring time zone..."
-msgstr "Konfigurowanie strefy czasu..."
+msgstr "Konfigurowanie strefy czasowej..."
 
 #. Type: text
 #. Description
@@ -989,13 +983,13 @@ msgstr "Pobieranie list pakietów (pozostało ${TIME})..."
 #. Description
 #: ../ubiquity.templates:131001
 msgid "Error installing ${PACKAGE}"
-msgstr "Błąd przy instalowaniu ${PACKAGE}"
+msgstr "Błąd podczas instalowania ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Error removing ${PACKAGE}"
-msgstr "Błąd przy usuwaniu ${PACKAGE}"
+msgstr "Błąd podczas usuwania ${PACKAGE}"
 
 #. Type: error
 #. Description
@@ -1015,7 +1009,7 @@ msgstr "Wystąpił błąd podczas instalowania pakietów:"
 #. Description
 #: ../ubiquity.templates:133001 ../ubiquity.templates:134001
 msgid "The following packages are in a broken state:"
-msgstr "Poniższe pakiety są w stanie uszkodzenia:"
+msgstr "Poniższe pakiety są uszkodzone:"
 
 #. Type: error
 #. Description
@@ -1066,7 +1060,7 @@ msgstr "Instalowanie pakietów językowych"
 #. Description
 #: ../ubiquity.templates:139001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Pobieranie pakietów z tłumaczeniami (pozostało ${TIME})..."
+msgstr "Pobieranie pakietów językowych (pozost. ${TIME})..."
 
 #. Type: boolean
 #. Description
@@ -1081,27 +1075,28 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"Instalator musi wykonać zmiany w tablicach partycji, ale nie może, ponieważ "
-"partycje na następujących punktach montowania nie mogły zostać odmontowane:"
+"Instalator musi dokonać zmian w tablicach partycji, ale nie jest to możliwe, "
+"ponieważ partycje na następujących punktach montowania nie mogły zostać "
+"odmontowane:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:146001
 msgid "Please close any applications using these mount points."
 msgstr ""
-"Proszę zamknąć wszystkie aplikacje korzystające z tych punktów montowania."
+"Proszę zamknąć wszystkie programy korzystające z tych punktów montowania."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:146001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr "Czy instalator ma ponownie spróbować odmontować te partycje?"
+msgstr "Spróbować odmontować te partycje ponownie?"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:152001
 msgid "Do you want to return to the partitioner?"
-msgstr "Czy powrócić do programu partycjonującego?"
+msgstr "Powrócić do programu partycjonującego?"
 
 #. Type: boolean
 #. Description
@@ -1110,8 +1105,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
-"Niektóre utworzone przez ciebie partycje są zbyt małe. Utwórz partycje o "
-"rozmiarach co najmniej takich jak podano poniżej (w bajtach):"
+"Niektóre partycje utworzone przez użytkownika są zbyt małe. Proszę utworzyć "
+"partycje o rozmiarach co najmniej takich jak podano poniżej (w bajtach):"
 
 #. Type: boolean
 #. Description
@@ -1120,8 +1115,7 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
-"Jeżeli nie powrócisz do programu partycjonującego, aby zwiększyć rozmiar "
-"tych partycji, instalacja może się nie powieść."
+"Jeśli partycje nie zostaną powiększone, to instalacja może się nie powieść."
 
 #. Type: text
 #. Description
@@ -1168,9 +1162,8 @@ msgstr "Strefa czasowa"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
-#, fuzzy
 msgid "Keyboard"
-msgstr "Układ klawiatury"
+msgstr "Klawiatura"
 
 #. Type: text
 #. Description
@@ -1193,9 +1186,8 @@ msgstr "Podsumowanie"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
-#, fuzzy
 msgid "installation process"
-msgstr "Typ Instalacji"
+msgstr "proces instalacji"
 
 #. Type: note
 #. Description
@@ -1217,7 +1209,7 @@ msgstr ""
 " Układ klawiatury: ${KEYMAP}\n"
 " Imię i nazwisko: ${FULLNAME}\n"
 " Nazwa użytkownika: ${USERNAME}\n"
-" Lokacja: ${LOCATION}\n"
+" Położenie: ${LOCATION}\n"
 " Pilot IR: ${REMOTE}\n"
 " Nadajnik IR: ${TRANSMITTER}\n"
 " Sterownik karty graficznej: ${VIDEO_DRIVER}\n"
@@ -1233,7 +1225,7 @@ msgstr "Typ Instalacji"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "What type of system will this be?"
-msgstr "Jaki rodzaj systemu będzie używany?"
+msgstr "Jaki typ systemu będzie używany?"
 
 #. Type: text
 #. Description
@@ -1338,7 +1330,7 @@ msgid ""
 "Output or OpenGL effects."
 msgstr ""
 "Otwarty sterownik grafiki jest już skonfigurowany i używany w systemie. "
-"Gdyby zaistniała potrzeba jego zmiany, można uczynić to tutaj. Proszę "
+"Gdyby zaistniała potrzeba jego zmiany, to można uczynić to tutaj. Proszę "
 "zwrócić uwagę, iż sterownik własnościowy może być konieczny, aby skorzystać "
 "z wyjścia telewizyjnego oraz efektów OpenGL."
 
@@ -1347,14 +1339,14 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:16001
 msgid "If you would like to configure TV-out, choose an option here:"
 msgstr ""
-"Jeśli należy skonfigurować wyjście TV-out, można wybrać odpowiednią opcję:"
+"Jeśli należy skonfigurować wyjście TV-out, to można wybrać odpowiednią opcję:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 msgstr ""
-"W przypadku chęci włączenia wyjścia TV, należy wybrać także standard TV:"
+"W przypadku chęci włączenia wyjścia TV należy wybrać także standard TV:"
 
 #. Type: text
 #. Description
@@ -1425,9 +1417,9 @@ msgid ""
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
 "Użytkownicy w Ameryce Północnej będą potrzebowali skonfigurować konto przy "
-"użyciu Schedules Direct (SD). SD dostarcza danych potrzebnych za nominalną "
-"opłatą. Bez SD północnoamerykańscy użytkownicy mogą utracić wiele funkcji "
-"planowania w MythTV."
+"użyciu Schedules Direct (SD). SD dostarcza program TV za nominalną opłatą. "
+"Bez SD północnoamerykańscy użytkownicy mogą utracić wiele funkcji planowania "
+"w MythTV."
 
 #. Type: text
 #. Description
@@ -1473,6 +1465,3 @@ msgstr "Konfigurowanie dodatkowych usług..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Konfigurowanie urządzeń na podczerwień..."
-
-#~ msgid "Copying files (less than a minute remaining)..."
-#~ msgstr "Kopiowanie plików (mniej niż minuta)..."

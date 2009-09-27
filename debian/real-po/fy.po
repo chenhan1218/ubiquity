@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2008-11-05 02:02+0000\n"
+"PO-Revision-Date: 2009-08-25 14:29+0000\n"
 "Last-Translator: Peter Hoogsteen <p.hoogsteen@chello.nl>\n"
 "Language-Team: Frisian <fy@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-12 11:42+0000\n"
+"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -101,13 +101,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Asjebleaf kies de taal dy't brukt wurde moat foar de ynstallaasje procedure. "
-"Dizze taal wurd ek de standert taal foar it úteinlike systeem."
 
 #. Type: text
 #. Description
@@ -486,25 +483,22 @@ msgstr "Nei:"
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
-#, fuzzy
 msgid "New Partition Table..."
-msgstr "Nije partitie tabel"
+msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
-#, fuzzy
 msgid "Add..."
-msgstr "Avansearre..."
+msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
-#, fuzzy
 msgid "Change..."
-msgstr "Avansearre..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -762,10 +756,8 @@ msgstr "Kopyeart bestânnen..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Copying files..."
 msgid "Almost finished copying files..."
-msgstr "Kopyeart bestânnen..."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1147,9 +1139,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
-#, fuzzy
 msgid "Keyboard"
-msgstr "Kaaiplanke yndieling"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1172,9 +1163,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
-#, fuzzy
 msgid "installation process"
-msgstr "Ynstallaasje Mislearre"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -1409,6 +1399,3 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr ""
-
-#~ msgid "Copying files (less than a minute remaining)..."
-#~ msgstr "Kopyeart bestânnen (minder dan in minuut oer)..."

@@ -1,20 +1,20 @@
-# Asturian translation for debian-installer
-# Copyright (c) 2007 Rosetta Contributors and Canonical Ltd 2007
-# This file is distributed under the same license as the debian-installer package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2007.
+# Asturian translation for ubiquity
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the ubiquity package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer\n"
+"Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-07-16 20:58+0000\n"
-"Last-Translator: Astur <malditoastur@gmail.com>\n"
+"PO-Revision-Date: 2009-09-04 11:02+0000\n"
+"Last-Translator: Iñigo Varela <malditoastur@gmail.com>\n"
 "Language-Team: Asturian <ast@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-08-25 08:49+0000\n"
+"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -223,20 +223,20 @@ msgid ""
 "accounts after installation."
 msgstr ""
 "Si esti equipu va a usase por más d'una persona, tendrá de configurar delles "
-"cuentes dempués de l'instalación."
+"cuentes dempués de la instalación."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Choose a password to keep your account safe."
-msgstr "Escueya una contraseña pa caltener la so cuenta segura."
+msgstr "Escueyi una contraseña pa caltener la to cuenta segura."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
-"Ta executando'l sistema en mou de depuración. Nun use una contraseña "
+"Tas executando'l sistema en mou de depuración. Nun uses una contraseña "
 "valoratible."
 
 #. Type: text
@@ -248,10 +248,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
-"Introduza la mesma contraseña dos vegaes, d'esti mou pueden comprobase los "
+"Inxerte la mesma contraseña dos vegaes, d'esti mou pueden comprobase los "
 "errores de tecléu. Una bona contraseña contién un entemezu de lletres, "
-"númberos y signos, tien de ser a lo menos d'ocho carauteres de llonxitú, y "
-"ha de camudase a intervalos regulares."
+"númberos y signos, tien de tener a lo menos d'ocho carauteres de llonxitú, y "
+"hai de camudala a intervalos regulares."
 
 #. Type: text
 #. Description
@@ -292,7 +292,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr "Escueye otra clave"
+msgstr "Escueyi otra clave"
 
 #. Type: text
 #. Description
@@ -317,7 +317,7 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"Si nun deseya importar nenguna cuenta, nun esbille res ya empobine a la "
+"Si nun quies importar denguna cuenta, nun esbille res ya empobina a la "
 "siguiente páxina."
 
 #. Type: text
@@ -410,7 +410,7 @@ msgstr "Instalar"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr "Etapa ${INDEX} de ${TOTAL}"
+msgstr "Pasu ${INDEX} de ${TOTAL}"
 
 #. Type: title
 #. Description
@@ -531,7 +531,7 @@ msgstr "&Revertir"
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:69001
 msgid "Device"
-msgstr "Dispositivu"
+msgstr "Preséu"
 
 #. Type: text
 #. Description
@@ -539,7 +539,7 @@ msgstr "Dispositivu"
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:70001
 msgid "Type"
-msgstr "Tipu"
+msgstr "Triba"
 
 #. Type: text
 #. Description
@@ -706,7 +706,7 @@ msgstr "Atrás"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:96001
 msgid "Continue"
-msgstr "Continuar"
+msgstr "Siguir"
 
 #. Type: text
 #. Description
@@ -742,7 +742,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:99001
 msgid "Checking the installation..."
-msgstr "Comprobando l'instalación..."
+msgstr "Comprobando la instalación..."
 
 #. Type: title
 #. Description
@@ -771,10 +771,8 @@ msgstr "Copiando ficheros..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Copying files..."
 msgid "Almost finished copying files..."
-msgstr "Copiando ficheros..."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -874,7 +872,7 @@ msgstr "El siguiente ficheru nun concasa cola copia orixinal nel CD/DVD:"
 #. Description
 #: ../ubiquity.templates:111001
 msgid "Copying installation logs..."
-msgstr "Copiando rexistros de l'instalación..."
+msgstr "Copiando rexistros de la instalación..."
 
 #. Type: text
 #. Description
@@ -952,7 +950,7 @@ msgstr "Instalar paquetes adicionales..."
 #. Description
 #: ../ubiquity.templates:124001
 msgid "Checking for packages to install..."
-msgstr "Comprebando los paquetes a instalar..."
+msgstr "Comprobando los paquetes a instalar..."
 
 #. Type: text
 #. Description
@@ -964,7 +962,7 @@ msgstr "Desinstalando los paquetes estra..."
 #. Description
 #: ../ubiquity.templates:126001
 msgid "Checking for packages to remove..."
-msgstr "Comprebando los paquetes a esaniciar..."
+msgstr "Comprobando los paquetes a desaniciar..."
 
 #. Type: text
 #. Description
@@ -994,13 +992,13 @@ msgstr "Fallu instalando ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Error removing ${PACKAGE}"
-msgstr "Erru desinstalando ${PACKAGE}"
+msgstr "Fallu desinstalando ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Error while installing packages"
-msgstr "Erru al instalar paquetes"
+msgstr "Fallu al instalar paquetes"
 
 #. Type: error
 #. Description
@@ -1135,7 +1133,7 @@ msgstr "Configuración Sistema"
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Choose language"
-msgstr "Escueya llingua"
+msgstr "Escueyi la llingua"
 
 #. Type: text
 #. Description
@@ -1390,7 +1388,7 @@ msgstr "Base de datos MySQL"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "MySQL Server"
-msgstr "Servidor MySQL"
+msgstr "Sirvidor MySQL"
 
 #. Type: text
 #. Description
@@ -1405,7 +1403,7 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
-"Los pasos finales de l'instalación requieren configurar los sos datos de "
+"Los pasos finales de la instalación requieren configurar los sos datos de "
 "guía, asina como'l backend per primer vegada."
 
 #. Type: text
@@ -1470,6 +1468,3 @@ msgstr "Configurando servicios adicionales..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Configurando los preseos infrabermeyos..."
-
-#~ msgid "Copying files (less than a minute remaining)..."
-#~ msgstr "Copiando ficheros (falta menos d'un minutu)..."

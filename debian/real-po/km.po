@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-04-10 12:09+0000\n"
+"PO-Revision-Date: 2009-09-05 19:30+0000\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-12 11:45+0000\n"
+"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -25,9 +25,8 @@ msgstr "ប្រើ​ទំហំ​ទំនេរ​បន្ត​ធំ​
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
-#, fuzzy
 msgid "Erase and use the entire disk"
-msgstr "ប្រើ​ថាស​ទាំង​ស្រុង"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -100,13 +99,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"សូម​ជ្រើស​រើស​ភាសា​ដែល​ប្រើ​ក្នុង​ដំណើរ​ការ​ដំឡើង ។ ចុង​ក្រោយ​ភាសា​នេះ​នឹង​ប្រើ​ជា​ភាសា​លំនាំ​ដើម​សម្រាប់ប្រព័ន្ធ "
-"។"
 
 #. Type: text
 #. Description
@@ -264,16 +260,14 @@ msgstr "ចូល​ក្នុង​ប្រព័ន្ធ​ដោយ​ស
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
-#, fuzzy
 msgid "Require my password to log in"
-msgstr "តម្រូវ​ឲ្យ​មាន​ពាក្យ​សម្ងាត់​សម្រាប់​ចូល"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr "តម្រូវ​ឲ្យ​មាន​ពាក្យ​សម្ងាត់​សម្រាប់​ចូល"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -475,25 +469,22 @@ msgstr "បន្ទាប់​ពី ៖"
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
-#, fuzzy
 msgid "New Partition Table..."
-msgstr "តារាង​ចែក​ភាគ​ថាស​ថ្មី"
+msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
-#, fuzzy
 msgid "Add..."
-msgstr "កម្រិត​ខ្ពស់..."
+msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
-#, fuzzy
 msgid "Change..."
-msgstr "កំពុង​បង្កើត​អ្នក​ប្រើ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -751,10 +742,8 @@ msgstr "កំពុង​ចម្លង​ឯកសារ..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Copying files..."
 msgid "Almost finished copying files..."
-msgstr "កំពុង​ចម្លង​ឯកសារ..."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1131,9 +1120,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
-#, fuzzy
 msgid "Keyboard"
-msgstr "ប្លង់​ក្ដារ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1156,9 +1144,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
-#, fuzzy
 msgid "installation process"
-msgstr "ការ​ដំឡើង​ជោគជ័យ"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -1414,6 +1401,3 @@ msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​ឧបករណ៍ infrared..."
-
-#~ msgid "Copying files (less than a minute remaining)..."
-#~ msgstr "កំពុង​ចម្លង​ឯកសារ (នៅ​សល់​តិច​ជា​ង​មួយ​នាទី)"

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-04-10 12:09+0000\n"
-"Last-Translator: Arief S Fitrianto <Unknown>\n"
+"PO-Revision-Date: 2009-09-05 19:29+0000\n"
+"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
 "Language-Team: Bahasa Indonesia <debian-l10n-id@gurame.fisika.ui.ac.id>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-04-12 11:45+0000\n"
+"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -25,9 +25,8 @@ msgstr "Gunakan ruang kosong terbesar yang menyatu"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
-#, fuzzy
 msgid "Erase and use the entire disk"
-msgstr "Gunakan seluruh disk"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -102,13 +101,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Silakan memilih bahasa yang digunakan untuk proses instalasi. Bahasa ini "
-"akan menjadi bahasa pilihan untuk sistem akhir nanti."
 
 #. Type: text
 #. Description
@@ -278,16 +274,14 @@ msgstr "Masuk secara otomatis"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
-#, fuzzy
 msgid "Require my password to log in"
-msgstr "Membutuhkan kata sandi untuk masuk"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr "Membutuhkan kata sandi untuk masuk dan mendekripsi home folder anda"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -495,25 +489,22 @@ msgstr "Setelah:"
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
-#, fuzzy
 msgid "New Partition Table..."
-msgstr "Daftar Partisi Baru"
+msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
-#, fuzzy
 msgid "Add..."
-msgstr "Lanjut..."
+msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
-#, fuzzy
 msgid "Change..."
-msgstr "Sedang mendaftarkan pengguna..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -774,10 +765,8 @@ msgstr "Sedang menyalin berkas..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
-#, fuzzy
-#| msgid "Copying files..."
 msgid "Almost finished copying files..."
-msgstr "Sedang menyalin berkas..."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1176,9 +1165,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
-#, fuzzy
 msgid "Keyboard"
-msgstr "Susunan papan ketik"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1201,9 +1189,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
-#, fuzzy
 msgid "installation process"
-msgstr "Jenis Instalasi"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -1479,6 +1466,3 @@ msgstr "Sedang mengkonfigurasi layanan tambahan..."
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
 msgstr "Mengatur peralatan infra merah"
-
-#~ msgid "Copying files (less than a minute remaining)..."
-#~ msgstr "Menyalin berkas (kurang dari satu menit lagi)..."
