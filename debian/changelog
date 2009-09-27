@@ -1,4 +1,4 @@
-ubiquity (1.99.24) UNRELEASED; urgency=low
+ubiquity (1.99.24) karmic; urgency=low
 
   * Reorganise clock handling. The system wall clock is now set as early as
     possible, and not reset after partitioning; and the timezone and
@@ -6,7 +6,7 @@ ubiquity (1.99.24) UNRELEASED; urgency=low
     as well as in /target (LP: #431786).
   * Update translations from Launchpad.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Sat, 26 Sep 2009 10:44:44 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 27 Sep 2009 17:50:22 +0100
 
 ubiquity (1.99.23) karmic; urgency=low
 
