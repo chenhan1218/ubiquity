@@ -2753,8 +2753,10 @@ class Page(plugin.Plugin):
         self.exit_ui_loops()
 
     def exit_ui_loops(self):
-        if self.install_bootloader and not 'UBIQUITY_AUTOMATIC' in os.environ:
-            self.preseed('grub-installer/bootdev', self.ui.get_grub_choice())
+        if self.install_bootloader:
+            bootloader_seen = self.db.fget('grub-installer/bootdev', 'seen')
+            if bootloader_seen == 'false' or not 'UBIQUITY_AUTOMATIC' in os.environ:
+                self.preseed('grub-installer/bootdev', self.ui.get_grub_choice())
 
         plugin.Plugin.exit_ui_loops(self)
 
