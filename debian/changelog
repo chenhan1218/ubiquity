@@ -2,6 +2,8 @@ ubiquity (1.99.25) UNRELEASED; urgency=low
 
   * d-i/get-sources: Clear Dir::Etc::sourceparts, so that any local
     /etc/apt/sources.list.d/ isn't used.
+  * Cope with the possibility that /etc/init.d/usplash may not exist, in
+    anticipation of usplash switching to Upstart jobs.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 28 Sep 2009 10:22:23 +0100
 

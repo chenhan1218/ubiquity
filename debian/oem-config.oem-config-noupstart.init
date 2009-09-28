@@ -41,7 +41,7 @@ case $1 in
 	start)
 		log_begin_msg "Starting OEM Config..."
 		# if usplash is running, make sure to stop it now, yes "start" kills it.
-		if pidof usplash > /dev/null; then
+		if pidof usplash > /dev/null && [ -x /etc/init.d/usplash ]; then
 			usplash=:
 			orig_console="$(fgconsole)"
 			DO_NOT_SWITCH_VT=yes /etc/init.d/usplash start
