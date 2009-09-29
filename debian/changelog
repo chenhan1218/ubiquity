@@ -1,9 +1,9 @@
-ubiquity (1.99.27) UNRELEASED; urgency=low
+ubiquity (1.99.27) karmic; urgency=low
 
   * Emit starting-dm in the ubiquity and oem-config upstart jobs.
     Thanks Colin Watson!
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 29 Sep 2009 15:46:38 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 29 Sep 2009 16:05:31 +0100
 
 ubiquity (1.99.26) karmic; urgency=low
 
