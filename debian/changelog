@@ -1,3 +1,10 @@
+ubiquity (1.99.28) UNRELEASED; urgency=low
+
+  * Automatic update of included source packages: partman-auto-loop
+    0ubuntu18.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 29 Sep 2009 22:14:34 +0100
+
 ubiquity (1.99.27) karmic; urgency=low
 
   * Emit starting-dm in the ubiquity and oem-config upstart jobs.
