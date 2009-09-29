@@ -10,6 +10,8 @@ start on (starting gdm
 	  or starting kdm
 	  or starting xdm)
 
+emits starting-dm
+
 task
 normal exit 0 1
 
@@ -29,6 +31,8 @@ script
 		;;
 	esac
     done
+
+    initctl emit starting-dm DM=oem-config-dm
 
     exec oem-config-firstboot $debug
 end script

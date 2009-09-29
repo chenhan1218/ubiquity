@@ -14,6 +14,8 @@ start on (starting gdm
 task
 normal exit 0 1
 
+emits starting-dm
+
 script
     test -x /usr/bin/ubiquity-dm || exit 0
 
@@ -52,6 +54,8 @@ script
 	    export LANGUAGE
 	fi
     fi
+
+    initctl emit starting-dm DM=ubiquity-dm
 
     # turn off console blanking for install process
     setterm -blank 0
