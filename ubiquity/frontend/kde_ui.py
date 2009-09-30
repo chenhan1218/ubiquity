@@ -2102,7 +2102,12 @@ class Wizard(BaseFrontend):
         if self.installing and not self.installing_no_return:
             # Go back to the partitioner and try again.
             #self.live_installer.show()
-            self.pagesindex = self.pages.index(partman.Page)
+            self.pagesindex = -1
+            for page in self.pages:
+                if page.module.NAME == 'partman':
+                    self.pagesindex = self.pages.index(page)
+                    break
+            if self.pagesindex == -1: return
             self.dbfilter = partman.Page(self)
             self.set_current_page(self.previous_partitioning_page)
             self.ui.next.setText(self.get_string("next").replace('_', '&', 1))
