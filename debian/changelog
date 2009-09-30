@@ -1,6 +1,9 @@
 ubiquity (1.99.29) UNRELEASED; urgency=low
 
   * Use a separate PROGRESS REGION for each install plugin (LP: #438979).
+  * GTK frontend:
+    - When switching language, translate other top-level widgets (dialogs)
+      and their children, as well as the main notebook pages.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 30 Sep 2009 15:17:22 +0100
 

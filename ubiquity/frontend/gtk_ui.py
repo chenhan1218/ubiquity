@@ -224,8 +224,11 @@ class Wizard(BaseFrontend):
                     self.pageslen += 1
                     self.pages.append(mod)
 
+        self.toplevels = set()
         for widget in self.builder.get_objects():
             add_widget(self, widget)
+            if isinstance(widget, gtk.Window):
+                self.toplevels.add(widget)
         self.builder.connect_signals(self)
 
         self.translate_widgets()
@@ -253,6 +256,11 @@ class Wizard(BaseFrontend):
             for w in p.all_widgets:
                 for c in self.all_children(w):
                     widgets.append((c, prefix))
+        if not just_current:
+            for toplevel in self.toplevels:
+                if toplevel.name != 'live_installer':
+                    for c in self.all_children(toplevel):
+                        widgets.append((c, None))
         self.translate_widgets(lang=lang, widgets=widgets, reget=reget)
 
     def excepthook(self, exctype, excvalue, exctb):
