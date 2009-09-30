@@ -402,10 +402,8 @@ class Install:
             self.db.progress('INFO', 'ubiquity/install/apt')
             self.configure_apt()
 
-            self.db.progress('SET', count)
-            self.db.progress('REGION', count, count+len(self.plugins))
+            self.configure_plugins(count)
             count += len(self.plugins)
-            self.configure_plugins()
 
             self.db.progress('SET', count)
             self.db.progress('REGION', count, count+1)
@@ -1122,7 +1120,7 @@ exit 0"""
             self.db.progress('STOP')
 
 
-    def configure_plugins(self):
+    def configure_plugins(self, count):
         """Apply plugin settings to installed system."""
         class Progress:
             def __init__(self, db):
@@ -1131,12 +1129,14 @@ exit 0"""
                 self._db.progress('INFO', title)
 
         for plugin in self.plugins:
+            self.db.progress('SET', count)
+            self.db.progress('REGION', count, count+1)
+            count += 1
             self.db.progress('INFO', ' ') # clear info in case plugin doesn't provide one
             inst = plugin.Install(None, db=self.db)
             ret = inst.install(self.target, Progress(self.db))
             if ret:
                 raise InstallStepError("Plugin %s failed with code %s" % (plugin.NAME, ret))
-            self.db.progress('STEP', 1)
 
 
     def configure_apt(self):

@@ -1,3 +1,9 @@
+ubiquity (1.99.29) UNRELEASED; urgency=low
+
+  * Use a separate PROGRESS REGION for each install plugin (LP: #438979).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 30 Sep 2009 15:17:22 +0100
+
 ubiquity (1.99.28) karmic; urgency=low
 
   * Automatic update of included source packages: partman-auto-loop
