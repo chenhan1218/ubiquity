@@ -1045,6 +1045,18 @@ exit 0"""
         f.close()
         os.chmod(start_stop_daemon, 0755)
 
+        initctl = os.path.join(self.target, 'sbin/initctl')
+        if os.path.exists(initctl):
+            os.rename(initctl, '%s.REAL' % initctl)
+            f = open(initctl, 'w')
+            print >>f, """\
+#!/bin/sh
+echo 1>&2
+echo 'Warning: Fake initctl called, doing nothing.' 1>&2
+exit 0"""
+            f.close()
+            os.chmod(initctl, 0755)
+
         if not os.path.exists(os.path.join(self.target, 'proc/cmdline')):
             self.chrex('mount', '-t', 'proc', 'proc', '/proc')
         if not os.path.exists(os.path.join(self.target, 'sys/devices')):
@@ -1085,6 +1097,10 @@ exit 0"""
         self.chrex('umount', '/dev')
         self.chrex('umount', '/sys')
         self.chrex('umount', '/proc')
+
+        initctl = os.path.join(self.target, 'sbin/initctl')
+        if os.path.exists('%s.REAL' % initctl):
+            os.rename('%s.REAL' % initctl, initctl)
 
         start_stop_daemon = os.path.join(self.target, 'sbin/start-stop-daemon')
         if os.path.exists('%s.REAL' % start_stop_daemon):
