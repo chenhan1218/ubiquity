@@ -4,7 +4,7 @@ ubiquity (1.99.29) UNRELEASED; urgency=low
   * Use a separate PROGRESS REGION for each install plugin (LP: #438979).
   * GTK frontend:
     - When switching language, translate other top-level widgets (dialogs)
-      and their children, as well as the main notebook pages.
+      and their children, as well as the main notebook pages (LP: #441622).
   * Install a dummy initctl similar to the dummy start-stop-daemon while
     doing anything that might install or remove packages in the target
     system, so that attempts to control Upstart jobs won't do anything.
