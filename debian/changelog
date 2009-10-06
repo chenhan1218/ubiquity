@@ -17,6 +17,9 @@ ubiquity (1.99.29) UNRELEASED; urgency=low
   * Update imported translations from gtk+2.0 2.18.1-1ubuntu1 (adds Asturian
     and Bengali).
   * Update translations from Launchpad.
+  * Automatic update of included source packages: apt-setup 1:0.41ubuntu2,
+    console-setup 1.34ubuntu4, flash-kernel 2.13ubuntu12, grub-installer
+    1.43ubuntu5, partman-partitioning 72ubuntu2, partman-target 64ubuntu2.
 
   [ Evan Dandrea ]
   * Port fix for return_to_partitioning from the GTK+ frontend to the
