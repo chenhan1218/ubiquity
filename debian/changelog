@@ -17,6 +17,8 @@ ubiquity (1.99.29) UNRELEASED; urgency=low
     KDE frontend (LP: #439184).
   * Explicitly depend on reiserfsprogs so that we don't have to add it
     to every live seed (LP: #431976).
+  * Write /cdrom/.disk/info to /var/log/installer/media-info
+    (LP: #364649).
 
   [ Roman Shtylman ]
   * Limit width of side breadcumbs in kde for long translation text. 

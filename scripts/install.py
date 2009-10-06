@@ -861,6 +861,14 @@ class Install:
                     syslog.syslog(syslog.LOG_ERR,
                                   'Failed to copy installation log file')
                 os.chmod(target_log_file, stat.S_IRUSR | stat.S_IWUSR)
+        media_info = '/cdrom/.disk/info'
+        if os.path.isfile(media_info):
+            try:
+                shutil.copy(media_info,
+                    os.path.join(self.target, 'var/log/installer/media-info'))
+            except (IOError, OSError):
+                pass
+                
         try:
             status = open(os.path.join(self.target, 'var/lib/dpkg/status'))
             status_gz = gzip.open(os.path.join(target_dir,
