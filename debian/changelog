@@ -11,6 +11,9 @@ ubiquity (1.99.29) UNRELEASED; urgency=low
   * Stop Upstart jobs when switching to runlevel 0 or 6, which I think fixes
     repeated respawns on shutdown (LP: #432140).
   * Save /var/log/installer/debug to the target system if it exists.
+  * In the auto-resize bar, use the preferred partition size requested by
+    partman-auto/partman-partitioning, rather than hardcoding the maximum
+    size or making up our own (LP: #421407).
 
   [ Evan Dandrea ]
   * Port fix for return_to_partitioning from the GTK+ frontend to the

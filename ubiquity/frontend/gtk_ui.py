@@ -149,7 +149,7 @@ class Wizard(BaseFrontend):
         self.autopartition_extras = {}
         self.resize_min_size = None
         self.resize_max_size = None
-        self.resize_orig_size = None
+        self.resize_pref_size = None
         self.resize_path = ''
         self.new_size_scale = None
         self.ma_choices = []
@@ -1473,9 +1473,9 @@ class Wizard(BaseFrontend):
 
         if resize_choice in choices:
             self.resize_min_size, self.resize_max_size, \
-                self.resize_orig_size, self.resize_path = \
+                self.resize_pref_size, self.resize_path = \
                     extra_options[resize_choice]
-            self.action_bar.set_part_size(self.resize_orig_size)
+            self.action_bar.set_part_size(self.resize_pref_size)
             self.action_bar.set_min(self.resize_min_size)
             self.action_bar.set_max(self.resize_max_size)
         if biggest_free_choice in choices:

@@ -599,8 +599,8 @@ class SegmentedBarSlider(SegmentedBar):
         # matter if the min_size is set after the segments are added.
         if self.resize != -1 and len(self.segments) > self.resize + 1:
             sum = self.segments[self.resize].size + self.segments[self.resize + 1].size
-            self.segments[self.resize].set_size(self.max_size)
-            self.segments[self.resize + 1].set_size(sum - self.max_size)
+            self.segments[self.resize].set_size(self.part_size)
+            self.segments[self.resize + 1].set_size(sum - self.part_size)
             self.queue_draw()
 
     def remove_segment(self, title):

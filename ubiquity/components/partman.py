@@ -332,14 +332,16 @@ class Page(Plugin):
                 partition = self.partition_cache[state[1]]
                 if key == 'RAWMINSIZE':
                     partition['resize_min_size'] = int(value)
+                elif key == 'RAWPREFSIZE':
+                    partition['resize_pref_size'] = int(value)
                 elif key == 'RAWMAXSIZE':
                     partition['resize_max_size'] = int(value)
             if key == 'RAWMINSIZE':
                 self.resize_min_size = int(value)
+            elif key == 'RAWPREFSIZE':
+                self.resize_pref_size = int(value)
             elif key == 'RAWMAXSIZE':
                 self.resize_max_size = int(value)
-            elif key == 'ORISIZE':
-                self.resize_orig_size = int(value)
             elif key == 'PATH':
                 self.resize_path = value
 
@@ -965,7 +967,7 @@ class Page(Plugin):
                 if self.auto_state is not None:
                     self.extra_options[self.auto_state[1]] = \
                         (self.resize_min_size, self.resize_max_size,
-                            self.resize_orig_size, self.resize_path)
+                            self.resize_pref_size, self.resize_path)
                     # Back up to autopartitioning question.
                     self.succeeded = False
                     return False

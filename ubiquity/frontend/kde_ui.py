@@ -1358,7 +1358,7 @@ class Wizard(BaseFrontend):
                             dev = d
                             break
 
-                    min_size, max_size, orig_size, resize_path = extra_options[choice]
+                    min_size, max_size, pref_size, resize_path = extra_options[choice]
                     
                     # TODO use find_in_os_prober to give nice name
                     if dev:
@@ -1370,7 +1370,7 @@ class Wizard(BaseFrontend):
                             after_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
                         
                         after_bar.setResizePartition(resize_path, 
-                            min_size, max_size, orig_size, get_release_name())
+                            min_size, max_size, pref_size, get_release_name())
                         
                         self.resizePath = after_bar.resize_part.path
                         self.resizeSize = after_bar.resize_part.size
