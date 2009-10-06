@@ -10,6 +10,7 @@ ubiquity (1.99.29) UNRELEASED; urgency=low
     system, so that attempts to control Upstart jobs won't do anything.
   * Stop Upstart jobs when switching to runlevel 0 or 6, which I think fixes
     repeated respawns on shutdown (LP: #432140).
+  * Save /var/log/installer/debug to the target system if it exists.
 
   [ Evan Dandrea ]
   * Port fix for return_to_partitioning from the GTK+ frontend to the
