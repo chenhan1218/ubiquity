@@ -46,6 +46,7 @@ from PyKDE4.kdecore import *
 from ubiquity.frontend.kde_components.PartitionBar import *
 from ubiquity.frontend.kde_components.PartitionModel import *
 from ubiquity.frontend.kde_components.ProgressDialog import *
+from ubiquity.frontend.kde_components.SqueezeLabel import *
 
 import debconf
 
@@ -202,7 +203,8 @@ class Wizard(BaseFrontend):
                         breadcrumb = '------' # just a placeholder
                     if breadcrumb:
                         mod.breadcrumb_question = breadcrumb
-                        mod.breadcrumb = QLabel(self.get_string(breadcrumb))
+                        mod.breadcrumb = SqueezeLabel()
+                        mod.breadcrumb.setText(self.get_string(breadcrumb))
                         mod.breadcrumb.setObjectName(mod.breadcrumb_question)
                         label_index = self.ui.steps_widget.layout().count() - 2 # Room for install crumb
                         self.ui.steps_widget.layout().insertWidget(label_index, mod.breadcrumb)
