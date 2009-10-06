@@ -14,6 +14,8 @@ ubiquity (1.99.29) UNRELEASED; urgency=low
   * In the auto-resize bar, use the preferred partition size requested by
     partman-auto/partman-partitioning, rather than hardcoding the maximum
     size or making up our own (LP: #421407).
+  * Update imported translations from gtk+2.0 2.18.1-1ubuntu1 (adds Asturian
+    and Bengali).
 
   [ Evan Dandrea ]
   * Port fix for return_to_partitioning from the GTK+ frontend to the
