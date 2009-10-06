@@ -8,6 +8,8 @@ ubiquity (1.99.29) UNRELEASED; urgency=low
   * Install a dummy initctl similar to the dummy start-stop-daemon while
     doing anything that might install or remove packages in the target
     system, so that attempts to control Upstart jobs won't do anything.
+  * Stop Upstart jobs when switching to runlevel 0 or 6, which I think fixes
+    repeated respawns on shutdown (LP: #432140).
 
   [ Evan Dandrea ]
   * Port fix for return_to_partitioning from the GTK+ frontend to the
