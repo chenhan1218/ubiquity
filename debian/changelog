@@ -15,7 +15,11 @@ ubiquity (1.99.29) UNRELEASED; urgency=low
   * Explicitly depend on reiserfsprogs so that we don't have to add it
     to every live seed (LP: #431976).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 30 Sep 2009 15:17:22 +0100
+  [ Roman Shtylman ]
+  * Limit width of side breadcumbs in kde for long translation text. 
+    Using elided text where needed (LP: #438918)
+
+ -- Roman Shtylman <shtylman@gmail.com>  Mon, 05 Oct 2009 23:58:57 -0400
 
 ubiquity (1.99.28) karmic; urgency=low
 
