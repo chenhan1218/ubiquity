@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-09-16 16:47+0000\n"
+"PO-Revision-Date: 2009-09-28 19:18+0000\n"
 "Last-Translator: Tiago Hillebrandt <tiagoscd@yahoo.com.br>\n"
 "Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
 "org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
+"X-Launchpad-Export-Date: 2009-10-06 17:24+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -97,7 +97,7 @@ msgstr ""
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
-"Após responder à algumas perguntas, este computador estará pronto para uso."
+"Após responder a algumas perguntas, este computador estará pronto para uso."
 
 #. Type: text
 #. Description
@@ -135,13 +135,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Release Notes"
-msgstr "Notas da versão"
+msgstr "Notas de lançamento"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "Where are you?"
-msgstr "Qual sua localidade?"
+msgstr "Onde você está?"
 
 #. Type: text
 #. Description
@@ -177,7 +177,7 @@ msgstr "Selecione um layout de teclado"
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Qual modelo é mais similar ao seu teclado?"
+msgstr "Qual layout é mais similar ao seu teclado?"
 
 #. Type: text
 #. Description
@@ -223,8 +223,8 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Se mais de uma pessoa for usar este computador, você pode criar múltiplas "
-"contas após a instalação."
+"Se mais de uma pessoa usar este computador, você pode criar múltiplas contas "
+"após a instalação."
 
 #. Type: text
 #. Description
@@ -367,7 +367,7 @@ msgstr "Preparar partições"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:46001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr "Isto irá apagar ${SYSTEMS} e instalar ${RELEASE}."
+msgstr "Isto irá excluir ${SYSTEMS} e instalar ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -435,7 +435,7 @@ msgstr "Ignorar"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Installation Complete"
-msgstr "Instalação completa"
+msgstr "Instalação concluída"
 
 #. Type: text
 #. Description
@@ -455,7 +455,7 @@ msgstr "Reiniciar agora"
 #. Description
 #: ../ubiquity.templates:59001 ../ubiquity.templates:60001
 msgid "Installer crashed"
-msgstr "Ocorreu um erro no processo de instalação"
+msgstr "A instalação falhou"
 
 #. Type: text
 #. Description
@@ -690,8 +690,8 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Instalação terminou. Você pode continuar a testar o Ubuntu agora, mas até "
-"que você reinicie o computador, qualquer mudança que você tenha feito ou "
+"A instalação foi concluída. Você pode continuar a testar o Ubuntu agora, mas "
+"até que você reinicie o computador, qualquer mudança que você tenha feito ou "
 "documentos que tenha salvo não serão preservados."
 
 #. Type: text
@@ -715,8 +715,8 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Instalação completa. Você precisa reiniciar o computador para usar a nova "
-"instalação."
+"A instalação foi concluída. Você precisa reiniciar o computador para usar a "
+"nova instalação."
 
 #. Type: note
 #. Description
@@ -824,10 +824,10 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Isto é comumente devido a um disco ou drive de CD/DVD defeituoso. Limpar o "
-"CD/DVD, queimar o CD/DVD em velocidade menor, ou limpar as lentes do CD/DVD "
-"pode ajudar (kits de limpeza são encontrados facilmente em lojas de "
-"informática)."
+"Isto é comumente devido a um disco ou unidade de CD/DVD defeituoso. Limpar o "
+"CD/DVD, queimar o CD/DVD em velocidade menor, ou limpar as lentes da unidade "
+"de CD/DVD pode ajudar (kits de limpeza são encontrados facilmente em lojas "
+"de informática)."
 
 #. Type: error
 #. Description
@@ -838,8 +838,8 @@ msgid ""
 "cooler environment."
 msgstr ""
 "Isto acontece geralmente devido a uma falha no disco rígido. Talvez ajude "
-"verificar se o disco é velho e precisa ser trocado, ou mover o sistema a um "
-"ambiente mais fresco."
+"verificar se o disco é velho e precisa ser trocado, ou mover o sistema para "
+"um ambiente mais fresco."
 
 #. Type: error
 #. Description
@@ -857,19 +857,17 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Isto acontece geralmente devido a uma falha no CD/DVD (disco ou drive), ou "
+"Isto acontece geralmente devido a uma falha no CD/DVD (disco ou unidade), ou "
 "uma falha no disco rígido. Talvez ajude limpar o CD/DVD, gravar o CD/DVD em "
-"velocidade mais baixa, limpar as lentes do drive (kits de limpeza podem ser "
-"encontrados em lojas de eletrônicos), verificar se o HD é antigo e precisa "
-"ser trocado ou mover o sistema para um ambiente mais fresco."
+"velocidade mais baixa, limpar as lentes da unidade (kits de limpeza podem "
+"ser encontrados em lojas de eletrônicos), verificar se o HD é antigo e "
+"precisa ser trocado ou mover o sistema para um ambiente mais fresco."
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:110001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
-"O seguinte arquivo não corresponde com sua cópia original na mídia de "
-"instalação:"
+msgstr "O seguinte arquivo não corresponde a sua cópia original no CD/DVD:"
 
 #. Type: text
 #. Description
@@ -971,13 +969,13 @@ msgstr "Verificando por pacotes a serem removidos..."
 #. Description
 #: ../ubiquity.templates:127001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Fazendo download de pacotes (${TIME} restantes)..."
+msgstr "Baixando pacotes (${TIME} restantes)..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:128001
 msgid "Downloading package lists..."
-msgstr "Fazendo download da lista de pacotes..."
+msgstr "Baixando listas de pacotes..."
 
 #. Type: text
 #. Description
@@ -1092,8 +1090,7 @@ msgstr ""
 #: ../ubiquity.templates:146001
 msgid "Please close any applications using these mount points."
 msgstr ""
-"Por favor, feche quaisquer aplicações que estejam usando estes pontos de "
-"montagem."
+"Por favor, feche os aplicativos que estejam usando estes pontos de montagem."
 
 #. Type: boolean
 #. Description
@@ -1180,7 +1177,7 @@ msgstr "Teclado"
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Disk Setup"
-msgstr "Configurar disco"
+msgstr "Configuração de disco"
 
 #. Type: text
 #. Description
@@ -1242,7 +1239,7 @@ msgstr "Qual tipo esse sistema será?"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Primary Backend w/ Frontend"
-msgstr "Backend w/ Frontend primário"
+msgstr "Intraestrutura w/ Interface primário"
 
 #. Type: text
 #. Description
@@ -1252,15 +1249,15 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
-"Uma máquina combo de backend/frontend é a configuração mais comumpara "
-"pessoas que desejam usar o MythTV para aplicações HTPC. Este tipo de "
-"instalação é destinado para usar como um componente do seu home theatre."
+"Uma máquina combo de infraestrutura/interface é a configuração mais comum "
+"para pessoas que desejam usar o MythTV para aplicativos HTPC. Este tipo de "
+"instalação é destinado para uso como um componente do seu home theatre."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
 msgid "Secondary Backend w/ Frontend"
-msgstr "Backend w/ Frontend secundário"
+msgstr "Infraestrutura w/ Interface secundário"
 
 #. Type: text
 #. Description
@@ -1269,14 +1266,15 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
-"Isto irá configurar um sistema similar a um Backend w/ Frontend Primário, "
-"porém será configurado para conectar a um backend existente na rede."
+"Isto irá configurar um sistema similar a uma Intraestrutura w/ Interface "
+"Primário, porém será configurado para conectar a uma infraestrutura  "
+"existente na rede."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
 msgid "Primary Backend"
-msgstr "Backend Primário"
+msgstr "Infraestrutura Primário"
 
 #. Type: text
 #. Description
@@ -1286,15 +1284,16 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
-"Uma máquina apenas como backend é geralmente projetada para funcionar como "
-"um dispositivo dedicado, necessitando de muito pouca manutenção. Isto é "
-"feito com o intuito de ser instalado como o primeiro backend em uma rede."
+"Uma máquina apenas como infraestrutura é geralmente projetada para funcionar "
+"como um dispositivo dedicado, necessitando de muito pouca manutenção. Isto é "
+"feito com o intuito de ser instalado como o primeira infraestrutura em uma "
+"rede."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "Secondary Backend"
-msgstr "Backend secundário"
+msgstr "Infraestrutura secundária"
 
 #. Type: text
 #. Description
@@ -1303,8 +1302,8 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
-"Isto irá configurar um sistema similar a um Backend Primário, porém será "
-"configurado para conectar a um backend existente na rede."
+"Isto irá configurar um sistema similar a uma Infraestrutura Primária, porém "
+"será configurado para conectar a uma infraestrutura existente na rede."
 
 #. Type: text
 #. Description
@@ -1320,9 +1319,9 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
-"Uma máquina apenas com frontend tem como função principal receber conteúdo "
-"de um backend e distribuí-lo. Esta configuração requer um backend existente "
-"na rede."
+"Uma máquina apenas com interface tem como função principal receber conteúdo "
+"de uma infraestrutura e distribuí-lo. Esta configuração requer uma "
+"infraestrutura existente na rede."
 
 #. Type: text
 #. Description
@@ -1340,7 +1339,7 @@ msgid ""
 "Output or OpenGL effects."
 msgstr ""
 "Um driver de vídeo open source já está habilitado e configurado para a sua "
-"instalação. Se você quiser usar outro driver de video, voce pode faze-lo "
+"instalação. Se você quiser usar outro driver de video, você pode fazê-lo "
 "aqui. Perceba que drivers de vídeos proprietários podem ser necessários para "
 "a Saída para TV ou para os efeitos OpenGL."
 
@@ -1356,20 +1355,21 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 msgstr ""
-"Se ativar a saída para TV, você precisará também escolher um padrão de TV:"
+"Se habilitar a saída para TV, você precisará também escolher um padrão de TV:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:18001
 msgid "Master Backend Info"
-msgstr "Backend Mestre Info"
+msgstr "Infraestrutura Mestre Info"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
-"Por favor entre com a informação necessário para contatar seu backend mestre."
+"Por favor entre com a informação necessária para contatar sua infraestrutura "
+"mestre."
 
 #. Type: text
 #. Description
@@ -1399,7 +1399,7 @@ msgstr "Servidor MySQL"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Configure Guide Data / Backend"
-msgstr "Configurar guia de dados / Backend"
+msgstr "Configurar dados do guia / Infraestrutura"
 
 #. Type: text
 #. Description
@@ -1409,7 +1409,7 @@ msgid ""
 "configuring the backend for the first time."
 msgstr ""
 "Os passos finais da instalação requerem configurar seus dados do guia e "
-"configurar o backend pela primeira vez."
+"configurar a infraestrutura pela primeira vez."
 
 #. Type: text
 #. Description
@@ -1444,10 +1444,10 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
-"Depois de setar o seu código de dados no guia. Você irá precisar rodar o "
-"MythTV-Setup para rodar o configurador backend pela primeira vez. Você irá "
-"precisar para configurar nas primeiras quatro sessões, sendo certo fornecer "
-"seus dados da guia durante o terceiro."
+"Depois de configurar a sua fonte de dados no guia. Você precisará rodar o "
+"MythTV-Setup para rodar o configurador infraestrutura pela primeira vez. "
+"Você precisará para configurar nas primeiras quatro sessões, sendo certo "
+"fornecer seus dados do guia durante o terceiro."
 
 #. Type: text
 #. Description

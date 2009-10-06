@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-09-05 19:30+0000\n"
-"Last-Translator: Lior Kaplan <kaplan@debian.org>\n"
+"PO-Revision-Date: 2009-10-05 10:15+0000\n"
+"Last-Translator: Eyal Levin <eyalev@gmail.com>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
+"X-Launchpad-Export-Date: 2009-10-06 17:24+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -26,7 +26,7 @@ msgstr "השתמש בשטח הפנוי הרציף הגדול ביותר"
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr ""
+msgstr "מחק והשתמש בדיסק כולו"
 
 #. Type: text
 #. Description
@@ -92,7 +92,7 @@ msgstr "בחר שפה לשימוש בתוכנית ההתקנה. שפה זו תש
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
+msgstr "מרגע שתענה על מספר שאלות, המחשב יהיה מוכן לשימוש."
 
 #. Type: text
 #. Description
@@ -101,6 +101,7 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
+"יש לבחור את השפה הרצויה לתהליך ההגדרות. שפה זו תהיה שפת ברירת המחדל במחשב."
 
 #. Type: text
 #. Description
@@ -143,12 +144,14 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"בחר את מיקומך, כך שהמערכת תוכל להשתמש בתצוגות המתאימות לארצך, תמשוך עדכונים "
+"מאתרים קרובים, ותגדיר את השעון לזמן המקומי המדויק."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "איזור:"
 
 #. Type: text
 #. Description
@@ -262,13 +265,13 @@ msgstr "התחבר אוטומטית"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Require my password to log in"
-msgstr ""
+msgstr "בקש את סיסמתי כדי להתחבר"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr ""
+msgstr "בקש את סיסמתי כדי להתחבר וכדי לפענח את תיקיית הבית שלי"
 
 #. Type: text
 #. Description
@@ -473,35 +476,35 @@ msgstr "אחרי:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 msgid "New Partition Table..."
-msgstr ""
+msgstr "טבלת מחיצות חדשה"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 msgid "Add..."
-msgstr ""
+msgstr "הוספה..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 msgid "Change..."
-msgstr ""
+msgstr "שינוי..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "מחיקה"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:68001
 msgid "Revert"
-msgstr ""
+msgstr "שיחזור"
 
 #. Type: text
 #. Description
@@ -746,7 +749,7 @@ msgstr "מעתיק קבצים..."
 #. Description
 #: ../ubiquity.templates:105001
 msgid "Almost finished copying files..."
-msgstr ""
+msgstr "כמעט הסתיימה העתקת הקבצים..."
 
 #. Type: error
 #. Description
@@ -1122,43 +1125,43 @@ msgstr "החלת התצורה"
 #. Description
 #: ../ubiquity.templates:158001
 msgid "Language"
-msgstr ""
+msgstr "שפה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Timezone"
-msgstr ""
+msgstr "איזור זמן"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
 msgid "Keyboard"
-msgstr ""
+msgstr "מקלדת"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Disk Setup"
-msgstr ""
+msgstr "הגדרת דיסק"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:162001
 msgid "User Info"
-msgstr ""
+msgstr "פרטי משתמש"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:163001
 msgid "Summary"
-msgstr ""
+msgstr "תקציר"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
 msgid "installation process"
-msgstr ""
+msgstr "תהליך התקנה"
 
 #. Type: note
 #. Description

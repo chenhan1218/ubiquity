@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-09-04 11:02+0000\n"
+"PO-Revision-Date: 2009-10-06 06:48+0000\n"
 "Last-Translator: Iñigo Varela <malditoastur@gmail.com>\n"
 "Language-Team: Asturian <ast@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
+"X-Launchpad-Export-Date: 2009-10-06 17:24+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -524,7 +524,7 @@ msgstr "Desaniciar"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:68001
 msgid "Revert"
-msgstr "&Revertir"
+msgstr "Revertir"
 
 #. Type: text
 #. Description
@@ -772,7 +772,7 @@ msgstr "Copiando ficheros..."
 #. Description
 #: ../ubiquity.templates:105001
 msgid "Almost finished copying files..."
-msgstr ""
+msgstr "A piques de finar cola copia de ficheros..."
 
 #. Type: error
 #. Description

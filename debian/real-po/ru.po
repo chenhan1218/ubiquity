@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-09-25 17:02+0000\n"
-"Last-Translator: Sergei Sedov <Unknown>\n"
+"PO-Revision-Date: 2009-10-06 03:42+0000\n"
+"Last-Translator: Артём Попов <artfwo@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
+"X-Launchpad-Export-Date: 2009-10-06 17:24+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -190,13 +190,13 @@ msgstr "Вы можете писать в этом поле чтобы пров�
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Suggested option:"
-msgstr "Предлагаемые опции:"
+msgstr "Предлагаемая раскладка:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your own:"
-msgstr "Выбрать свой:"
+msgstr "Выбрать свою:"
 
 #. Type: text
 #. Description
@@ -385,7 +385,8 @@ msgstr "Подробности"
 #: ../ubiquity.templates:49001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr "Ваша новая операционная система установлена со следующими настройками:"
+msgstr ""
+"Ваша новая операционная система будет установлена со следующими параметрами:"
 
 #. Type: text
 #. Description

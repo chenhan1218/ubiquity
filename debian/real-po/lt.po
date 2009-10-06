@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-09-05 19:33+0000\n"
-"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
+"PO-Revision-Date: 2009-09-30 14:06+0000\n"
+"Last-Translator: Aurimas Fišeras <Unknown>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
+"X-Launchpad-Export-Date: 2009-10-06 17:24+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -26,7 +26,7 @@ msgstr "Naudoti didžiausią ištisinę laisvą vietą"
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr ""
+msgstr "Išvalyti ir naudoti visą diską"
 
 #. Type: text
 #. Description
@@ -97,7 +97,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
+msgstr "Kompiuteris bus paruoštas darbui kai atsakysite į keletą klausimų."
 
 #. Type: text
 #. Description
@@ -274,7 +274,7 @@ msgstr "Neprašyti slaptažodžio įjungiant sistemą"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Require my password to log in"
-msgstr ""
+msgstr "Reikalauti mano slaptažodžio prisijungiant"
 
 #. Type: text
 #. Description
@@ -492,28 +492,28 @@ msgstr "Po įdiegimo:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 msgid "New Partition Table..."
-msgstr ""
+msgstr "Nauja skaidinių lentelė..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 msgid "Add..."
-msgstr ""
+msgstr "Pridėti..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 msgid "Change..."
-msgstr ""
+msgstr "Keisti…"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "Šalinti"
 
 #. Type: text
 #. Description
@@ -1131,7 +1131,7 @@ msgstr "Tinklo nustatymai"
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "Programinės įrangos parinkimas"
 
 #. Type: text
 #. Description
@@ -1143,19 +1143,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:158001
 msgid "Language"
-msgstr ""
+msgstr "Kalba"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Timezone"
-msgstr ""
+msgstr "Laiko juosta"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
 msgid "Keyboard"
-msgstr ""
+msgstr "Klaviatūra"
 
 #. Type: text
 #. Description
@@ -1167,19 +1167,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 msgid "User Info"
-msgstr ""
+msgstr "Naudotojo duomenys"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:163001
 msgid "Summary"
-msgstr ""
+msgstr "Santrauka"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
 msgid "installation process"
-msgstr ""
+msgstr "diegimo procesas"
 
 #. Type: note
 #. Description
@@ -1201,7 +1201,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "Diegimo tipas"
 
 #. Type: text
 #. Description
@@ -1420,4 +1420,4 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
-msgstr ""
+msgstr "Konfigūruojami IR įrenginiai..."

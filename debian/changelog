@@ -16,6 +16,7 @@ ubiquity (1.99.29) UNRELEASED; urgency=low
     size or making up our own (LP: #421407).
   * Update imported translations from gtk+2.0 2.18.1-1ubuntu1 (adds Asturian
     and Bengali).
+  * Update translations from Launchpad.
 
   [ Evan Dandrea ]
   * Port fix for return_to_partitioning from the GTK+ frontend to the

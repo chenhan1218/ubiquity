@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-09-05 19:33+0000\n"
-"Last-Translator: zeratulbk <congtumotsach@gmail.com>\n"
+"PO-Revision-Date: 2009-10-02 11:30+0000\n"
+"Last-Translator: Lê Quốc Tuấn <mr.lequoctuan@gmail.com>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-09-27 15:20+0000\n"
+"X-Launchpad-Export-Date: 2009-10-06 17:24+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -26,7 +26,7 @@ msgstr "Sử dụng phần không gian trống liên tục lớn nhất"
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr ""
+msgstr "Xóa và dùng toàn bộ ổ cứng"
 
 #. Type: text
 #. Description
@@ -96,6 +96,7 @@ msgstr ""
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
+"Sau khi trả lời xong một vài câu hỏi, máy tính này sẽ sẵn sàng sử dụng."
 
 #. Type: text
 #. Description
@@ -147,12 +148,15 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"Vui lòng chọn địa điểm để làm căn cứ cho hệ thống chọn những thông số mặc "
+"định cho quốc gia, những kho phần mềm gần nhất, và đặt giờ địa phương chính "
+"xác."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "Vùng:"
 
 #. Type: text
 #. Description
@@ -270,13 +274,13 @@ msgstr "Đăng nhập tự động"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Require my password to log in"
-msgstr ""
+msgstr "Yêu cầu mật khẩu để đăng nhập"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr ""
+msgstr "Yêu cầu mật khẩu để đăng nhập và giải mã thư mục nhà của tôi"
 
 #. Type: text
 #. Description
@@ -485,28 +489,28 @@ msgstr "Sau:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 msgid "New Partition Table..."
-msgstr ""
+msgstr "Bảng phân vàng mới..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 msgid "Add..."
-msgstr ""
+msgstr "Thêm..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 msgid "Change..."
-msgstr ""
+msgstr "Đổi..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "Xóa"
 
 #. Type: text
 #. Description
@@ -761,7 +765,7 @@ msgstr "Đang sao chép các tệp..."
 #. Description
 #: ../ubiquity.templates:105001
 msgid "Almost finished copying files..."
-msgstr ""
+msgstr "Sắp hoàn thành chép tệp..."
 
 #. Type: error
 #. Description
@@ -1138,19 +1142,19 @@ msgstr "Đang áp dụng cấu hình"
 #. Description
 #: ../ubiquity.templates:158001
 msgid "Language"
-msgstr ""
+msgstr "Ngôn ngữ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Timezone"
-msgstr ""
+msgstr "Múi giờ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
 msgid "Keyboard"
-msgstr ""
+msgstr "Bàn phím"
 
 #. Type: text
 #. Description
@@ -1162,19 +1166,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 msgid "User Info"
-msgstr ""
+msgstr "Thông tin người dùng"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:163001
 msgid "Summary"
-msgstr ""
+msgstr "Tóm tắt"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
 msgid "installation process"
-msgstr ""
+msgstr "Quá trình cài đặt"
 
 #. Type: note
 #. Description
