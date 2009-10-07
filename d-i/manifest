@@ -4,7 +4,7 @@ bterm-unifont 1.1
 choose-mirror 2.29ubuntu1
 clock-setup 0.98ubuntu2
 console-setup 1.34ubuntu4
-debian-installer-utils 1.70ubuntu1
+debian-installer-utils 1.70ubuntu2
 flash-kernel 2.13ubuntu12
 grub-installer 1.43ubuntu5
 hw-detect 1.72ubuntu4
@@ -24,7 +24,7 @@ partman-jfs 30
 partman-newworld 21
 partman-partitioning 72ubuntu2
 partman-reiserfs 45
-partman-target 64ubuntu2
+partman-target 64ubuntu3
 partman-xfs 44
 preseed 1.42ubuntu1
 silo-installer 1.16ubuntu1

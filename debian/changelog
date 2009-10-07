@@ -1,7 +1,12 @@
 ubiquity (1.99.31) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Handle DATA commands in debconffilter.  Support PROGRESS in the apt-
     setup component (LP: #445385).
+
+  [ Colin Watson ]
+  * Automatic update of included source packages: debian-installer-utils
+    1.70ubuntu2, partman-target 64ubuntu3.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 07 Oct 2009 17:31:05 +0100
 
