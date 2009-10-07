@@ -1,4 +1,4 @@
-ubiquity (1.99.31) UNRELEASED; urgency=low
+ubiquity (1.99.31) karmic; urgency=low
 
   [ Evan Dandrea ]
   * Handle DATA commands in debconffilter.  Support PROGRESS in the apt-
@@ -8,7 +8,7 @@ ubiquity (1.99.31) UNRELEASED; urgency=low
   * Automatic update of included source packages: debian-installer-utils
     1.70ubuntu2, partman-target 64ubuntu3.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 07 Oct 2009 17:31:05 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 07 Oct 2009 22:49:30 +0100
 
 ubiquity (1.99.30) karmic; urgency=low
 
