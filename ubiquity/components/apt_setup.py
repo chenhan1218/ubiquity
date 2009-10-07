@@ -62,4 +62,4 @@ class AptSetup(FilteredCommand):
                 if no_proxy:
                     env['no_proxy'] = no_proxy
 
-        return (['/usr/share/ubiquity/apt-setup'], [], env)
+        return (['/usr/share/ubiquity/apt-setup'], ['PROGRESS'], env)

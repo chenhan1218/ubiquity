@@ -59,6 +59,7 @@ valid_commands = {
     'BEGINBLOCK': 0,
     'CAPB': None,
     'CLEAR': 0,
+    'DATA': 3,
     'ENDBLOCK': 0,
     'FGET': 2,
     'FSET': 3,
@@ -289,6 +290,10 @@ class DebconfFilter:
             for widget in self.find_widgets([question], 'set'):
                 self.debug('filter', 'widget found for', question)
                 widget.set(question, value)
+
+        if command == 'DATA':
+            self.reply(0, 'OK', log=True)
+            return True
 
         if command == 'SUBST' and len(params) >= 3:
             (question, key) = params[0:2]

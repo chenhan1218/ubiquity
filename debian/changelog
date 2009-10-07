@@ -1,3 +1,10 @@
+ubiquity (1.99.31) UNRELEASED; urgency=low
+
+  * Handle DATA commands in debconffilter.  Support PROGRESS in the apt-
+    setup component (LP: #445385).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 07 Oct 2009 17:31:05 +0100
+
 ubiquity (1.99.30) karmic; urgency=low
 
   * Automatic update of included source packages: partman-base 133ubuntu3,
