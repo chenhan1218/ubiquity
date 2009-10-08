@@ -31,8 +31,13 @@ def get_intro():
        'UBIQUITY_AUTOMATIC' in os.environ:
         return None
 
-    intro = '/usr/share/ubiquity/intro.txt'
-    if not os.path.isfile(intro):
+    intro = None
+    introFiles = ['/usr/share/ubiquity/intro.txt', '/usr/share/ubiquity/kubuntu-netbook-intro.txt']
+    for file in introFiles:
+        if os.path.isfile(file):
+            intro = file
+            break
+    if intro is None:
         return None
 
     intro_file = open(intro)

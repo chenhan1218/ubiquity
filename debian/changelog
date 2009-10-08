@@ -1,3 +1,10 @@
+ubiquity (1.99.32) karmic; urgency=low
+
+  * ubi-intro.py: detect kubuntu-netbook-intro.txt if it exists and use
+    that as warning for Kubuntu Netbook Edition
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 08 Oct 2009 17:06:15 +0100
+
 ubiquity (1.99.31) karmic; urgency=low
 
   [ Evan Dandrea ]
