@@ -1,4 +1,4 @@
-ubiquity (1.99.33) UNRELEASED; urgency=low
+ubiquity (2.0.0) UNRELEASED; urgency=low
 
   * Install kernel headers to match the kernel (#413135).
 
