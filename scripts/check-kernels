@@ -21,9 +21,12 @@ kernels="$(dpkg-query -f '${status} ${package}\n' -W linux-image-\* | \
 		grep '^install ok installed ' | cut -d' ' -f4 | xargs)"
 
 flavour="$(arch_get_kernel_flavour || true)"
+compatible=
 incompatible=
 for kernel in $kernels; do
-	if ! arch_check_usable_kernel "$kernel" "$flavour"; then
+	if arch_check_usable_kernel "$kernel" "$flavour"; then
+		compatible="${compatible:+$compatible }$kernel"
+	else
 		if [ "${kernel%-$UNAME_R}" != "$kernel" ]; then
 			echo 'Would try to remove running kernel;' \
 			     'bailing out for sanity' >&2
@@ -33,13 +36,21 @@ for kernel in $kernels; do
 	fi
 done
 
-if [ "$kernels" = "$incompatible" ]; then
+kernel_to_headers () {
+	echo "$1" | sed 's/linux\(-image\|\)/linux-headers/'
+}
+
+if [ -z "$compatible" ]; then
 	# We must be wrong. After all, we got this far ...
 	echo 'No usable kernel found; assuming foreign package naming' >&2
 else
 	mkdir -p /var/lib/ubiquity
+	for kernel in $compatible; do
+		apt-install "$kernel" "$(kernel_to_headers "$kernel")"
+	done
 	for kernel in $incompatible; do
 		echo "$kernel" >> /var/lib/ubiquity/remove-kernels
+		kernel_to_headers "$kernel" >>/var/lib/ubiquity/remove-kernels
 	done
 fi
 

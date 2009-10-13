@@ -1,3 +1,9 @@
+ubiquity (1.99.33) UNRELEASED; urgency=low
+
+  * Install kernel headers to match the kernel (#413135).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 14 Oct 2009 00:04:17 +0100
+
 ubiquity (1.99.32) karmic; urgency=low
 
   * ubi-intro.py: detect kubuntu-netbook-intro.txt if it exists and use
