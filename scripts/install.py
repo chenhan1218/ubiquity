@@ -1345,7 +1345,13 @@ exit 0"""
             for pattern in lppatterns:
                 to_install.append(pattern.replace('$LL', lp))
             # More extensive language support packages.
-            to_install.append('language-support-%s' % lp)
+            if osextras.find_on_path('check-language-support'):
+                check_lang = subprocess.Popen(
+                    ['check-language-support', '-l', lp],
+                    stdout=subprocess.PIPE)
+                to_install.extend(check_lang.communicate()[0].strip().split())
+            else:
+                to_install.append('language-support-%s' % lp)
 
         # Filter the list of language packs to include only language packs
         # that exist in the live filesystem's apt cache, so that we can tell

@@ -7,6 +7,8 @@ ubiquity (2.0.0) UNRELEASED; urgency=low
   * If dmraid devices are active, then create
     /var/lib/disk-detect/activate_dmraid so that partman will exclude slave
     devices, and ensure that dmraid is installed in the target (LP: #90235).
+  * Use check-language-support if available to select language support
+    packages (LP: #434173).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 14 Oct 2009 00:04:17 +0100
 
