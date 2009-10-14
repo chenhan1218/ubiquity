@@ -1,6 +1,6 @@
 ubiquity (2.0.0) UNRELEASED; urgency=low
 
-  * Install kernel headers to match the kernel (#413135).
+  * Install kernel headers to match the kernel (LP: #413135).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 14 Oct 2009 00:04:17 +0100
 
