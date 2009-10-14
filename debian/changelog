@@ -1,6 +1,9 @@
 ubiquity (2.0.0) UNRELEASED; urgency=low
 
   * Install kernel headers to match the kernel (LP: #413135).
+  * Recommend dmraid to ensure consistent behaviour across Ubuntu flavours
+    (it was already present on the Ubuntu desktop CD, but e.g. not on
+    Kubuntu).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 14 Oct 2009 00:04:17 +0100
 
