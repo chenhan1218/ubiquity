@@ -1,5 +1,6 @@
 ubiquity (2.0.0) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Bump to a stable version number series for Ubuntu 9.10.
 
     The main reason for the version bump was because we incorporated
@@ -26,14 +27,11 @@ ubiquity (2.0.0) UNRELEASED; urgency=low
   * Automatic update of included source packages: base-installer
     1.102ubuntu2, hw-detect 1.72ubuntu5.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 14 Oct 2009 00:04:17 +0100
-
-ubiquity (1.99.32) karmic; urgency=low
-
+  [ Jonathan Riddell ]
   * ubi-intro.py: detect kubuntu-netbook-intro.txt if it exists and use
     that as warning for Kubuntu Netbook Edition
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 08 Oct 2009 17:06:15 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 14 Oct 2009 00:04:17 +0100
 
 ubiquity (1.99.31) karmic; urgency=low
 
