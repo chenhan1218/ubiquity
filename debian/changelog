@@ -1,5 +1,18 @@
 ubiquity (2.0.0) UNRELEASED; urgency=low
 
+  * Bump to a stable version number series for Ubuntu 9.10.
+
+    The main reason for the version bump was because we incorporated
+    oem-config and needed to jump past its version numbers, but really
+    Ubiquity 2.0.0 is quite different from Ubiquity 1.0.0 despite most of
+    the changes being gradual and incremental. 3.5 years and nearly 5000
+    lines of changelog entries later, we have several active developers,
+    lots more translations, apport integration, a new partitioner,
+    migration-assistant, automation, Mythbuntu and noninteractive frontends,
+    Wubi, reinstallation without reformatting, a new timezone map,
+    accessibility, many UI improvements, a slideshow, plugin support, and
+    much more. Here's to version 3!
+
   * Install kernel headers to match the kernel (LP: #413135).
   * Recommend dmraid to ensure consistent behaviour across Ubuntu flavours
     (it was already present on the Ubuntu desktop CD, but e.g. not on
