@@ -7,38 +7,38 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-09-05 19:30+0000\n"
-"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
+"PO-Revision-Date: 2009-10-14 05:00+0000\n"
+"Last-Translator: jmb_kz <Unknown>\n"
 "Language-Team: Kazakh\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-06 17:24+0000\n"
+"X-Launchpad-Export-Date: 2009-10-14 21:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "Ең ұзақ (үлкен) бос орынды қолдану."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr ""
+msgstr "Дискінің бәрін жойып, толығымен қолдану"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "Оларды толығымен орнатып, әрбір жүктелгенде жуктелінетінін таңдайсыз"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "Дискінің бөлімдерің өзінше көрсету (кеңейтілген)"
 
 #. Type: text
 #. Description
@@ -95,6 +95,8 @@ msgstr ""
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
+"Бірнеше сұрақтарға жауап бергеннен кейін, бұл дербес компьютер жұмысқа дайын "
+"болады."
 
 #. Type: text
 #. Description
@@ -103,6 +105,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
+"Конфигурацияны жасау кезіндегі қолданылатын тілді таңдаңыз. Таңдалған тіл "
+"жүйенің қалыпты тілі ретінде қолданылатын болады."
 
 #. Type: text
 #. Description
@@ -146,18 +150,21 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"Өзіңіздің орналасуыңызды көрсетіңіз, соның көмегімен жүйе сіздің еліңіздің "
+"өлшем бірліктерін, жүйенің жаңартуларын сізге ең жақын серверлерден "
+"жүктеулерді жасайды және де сағат белдеуін дұрыс анықтайды."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "Зона:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Region:"
-msgstr ""
+msgstr "Аймақ:"
 
 #. Type: text
 #. Description
@@ -181,13 +188,13 @@ msgstr "Пернетақтаның сәйкестігін тексеру үші�
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Suggested option:"
-msgstr ""
+msgstr "Қосымша мүмкіндіктер:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your own:"
-msgstr ""
+msgstr "Өзіңіздікін таңдаңыз:"
 
 #. Type: text
 #. Description
@@ -238,6 +245,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Қателікті байқау үшін, құпия сөзді екі рет енгізіңіз. Қауіпсіз құпия сөздің "
+"ұзындығы сегіз символдан кем емес және құрылымында әріптер, сандар, тыныс "
+"белгілер болуы қажет, және де ол әрбір белгіленген уақыт өткен сайын ол "
+"өзгертілуі қажет."
 
 #. Type: text
 #. Description
@@ -263,19 +274,19 @@ msgstr "Автоматты түрде кіру"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Require my password to log in"
-msgstr ""
+msgstr "Жүйеге кіну үшін құпия сөзін сұрау"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr ""
+msgstr "Жүйеге кіру үшін және шифрленген үй бумасын ашу үшін құпия сөзін сұрау"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr ""
+msgstr "Басқа құпия сөзді таңдаңыз"
 
 #. Type: text
 #. Description
@@ -317,25 +328,25 @@ msgstr "Дискті қалай бөлгенді қалайсыз?"
 #. Description
 #: ../ubiquity.templates:41001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "Бұл компьютерде ешқандай операциялық жүйелер орнатылмаған."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "Бұл компьютерде ${OS} операциялық жүйе орнатылған."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "Бұл компьютерде бірнеше операциялық жүйелер орнатылған."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "${RELEASE}-ды қайда орнатқыңыз келеді?"
 
 #. Type: text
 #. Description
@@ -348,7 +359,7 @@ msgstr "Бөлімдерді дайындау"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:46001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "Бұл әрекет ${SYSTEMS}-ді жойып, ${RELEASE}-ды орнатады."
 
 #. Type: text
 #. Description
@@ -414,19 +425,19 @@ msgstr "Өткізіп жіберу"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Installation Complete"
-msgstr ""
+msgstr "Орнатылым аяқталды"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Continue Testing"
-msgstr ""
+msgstr "Тестілеуді жалғастыру"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Restart Now"
-msgstr ""
+msgstr "Дәл қазір қайта жүктелу"
 
 #. Type: text
 #. Description
@@ -475,35 +486,35 @@ msgstr "Кейін:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 msgid "New Partition Table..."
-msgstr ""
+msgstr "Жаңа Бөлімшелер Кестесі"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 msgid "Add..."
-msgstr ""
+msgstr "Қосу..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 msgid "Change..."
-msgstr ""
+msgstr "Өзгерту..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "Жою"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:68001
 msgid "Revert"
-msgstr ""
+msgstr "Қайтару"
 
 #. Type: text
 #. Description
@@ -669,6 +680,9 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"Орнатылым аяқталды. Сіз Ubuntu-мен әрі қарай осы сессияда жұмыс істей "
+"аласыз, бірақ қайта жүктеуге жіберген кезде жасалған әрекеттер және құжаттар "
+"жойылады."
 
 #. Type: text
 #. Description
@@ -748,7 +762,7 @@ msgstr "Файлдарды көшіру"
 #. Description
 #: ../ubiquity.templates:105001
 msgid "Almost finished copying files..."
-msgstr ""
+msgstr "Файлдардық көшіру үрдісі дерлік бітіп та қалды..."
 
 #. Type: error
 #. Description
@@ -1026,7 +1040,7 @@ msgstr "Дестелер жою кезінде қате кетті:"
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Қарастырылмайтын файлдарды есептеп жатырмын..."
 
 #. Type: title
 #. Description
@@ -1110,61 +1124,61 @@ msgstr "Тіл таңдау / Choose language"
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "Желілік конфигурация"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "Бағдарламалар таңдау"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Конфигурацияны қабылдау"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:158001
 msgid "Language"
-msgstr ""
+msgstr "Тіл"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Timezone"
-msgstr ""
+msgstr "Сағат белдеуі"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
 msgid "Keyboard"
-msgstr ""
+msgstr "Пернетақта"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Дискімен жұмыс"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:162001
 msgid "User Info"
-msgstr ""
+msgstr "Пайдаланушы туралы мәлімет"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:163001
 msgid "Summary"
-msgstr ""
+msgstr "Жинақталған ақпарат"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
 msgid "installation process"
-msgstr ""
+msgstr "орнатылымның үрдісі"
 
 #. Type: note
 #. Description
@@ -1181,12 +1195,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Орнатылым түрі: ${INSTALLTYPE}\n"
+"Тіл: ${LANGUAGE}\n"
+"Пернетақта тілі: ${KEYMAP}\n"
+"Ат: ${FULLNAME}\n"
+"Логин: ${USERNAME}\n"
+"Орналыстырылған жер: ${LOCATION}\n"
+"Қашықталған Басқару Пульті: ${REMOTE}\n"
+"Инфра-Қызыл передатчик: ${TRANSMITTER}\n"
+"Видеодрайвер: ${VIDEO_DRIVER}\n"
+"Қызметтер: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "Орнатылым түрі"
 
 #. Type: text
 #. Description
@@ -1282,7 +1306,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Видеодрайверлер"
 
 #. Type: text
 #. Description

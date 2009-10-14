@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-09-30 14:06+0000\n"
+"PO-Revision-Date: 2009-10-10 10:36+0000\n"
 "Last-Translator: Aurimas Fišeras <Unknown>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-06 17:24+0000\n"
+"X-Launchpad-Export-Date: 2009-10-14 21:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -106,6 +106,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
+"Prašome pasirinkti kalbą, kuri bus naudojama konfigūravimo metu. Ši kalba "
+"bus numatytoji kalba šiame kompiuteryje."
 
 #. Type: text
 #. Description
@@ -149,12 +151,15 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"Pasirinkite savo gyvenamąją vietovę, kad sistema galėtų naudoti šalyje "
+"įprastą vaizdavimą, parsiųsti atnaujinimus iš artimų tinklaviečių ir "
+"nustatytų teisingą sistemos laiką."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "Zona:"
 
 #. Type: text
 #. Description
@@ -281,6 +286,7 @@ msgstr "Reikalauti mano slaptažodžio prisijungiant"
 #: ../ubiquity.templates:35001
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr ""
+"Reikalauti slaptažodžio prisijungiant ir iššifruojant mano pradžios katalogą"
 
 #. Type: text
 #. Description
@@ -379,7 +385,7 @@ msgstr "Paruošta įdiegti"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Details"
-msgstr ""
+msgstr "Išsamiau"
 
 #. Type: text
 #. Description
@@ -520,7 +526,7 @@ msgstr "Šalinti"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:68001
 msgid "Revert"
-msgstr ""
+msgstr "S&ugrįžti"
 
 #. Type: text
 #. Description
@@ -768,7 +774,7 @@ msgstr "Kopijuojami failai..."
 #. Description
 #: ../ubiquity.templates:105001
 msgid "Almost finished copying files..."
-msgstr ""
+msgstr "Failų kopijavimas beveik baigtas..."
 
 #. Type: error
 #. Description
@@ -819,6 +825,10 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
+"Ši klaida dažniausiai įvyksta dėl sugadinto CD/DVD disko ar diskų įtaiso. "
+"Pamėginkite nuvalyti CD/DVD arba įrašyti CD/DVD mažesniu greičiu, ar "
+"nuvalyti CD/DVD įrenginio lęšį (valymo rinkinį galite gauti elektronikos "
+"parduotuvėse)."
 
 #. Type: error
 #. Description
@@ -828,6 +838,9 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
+"Ši klaida dažniausiai įvyksta dėl sugedusio standžiojo disko. Patikrinkite "
+"ar diskas nėra senas ir nereikia jo pakeisti, taip pat galite pabandyti "
+"perkelti kompiuterį į vėsesnę vietą."
 
 #. Type: error
 #. Description
@@ -845,6 +858,12 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
+"Ši klaida dažniausiai įvyksta dėl sugedusio (pvz., subraižyto) CD/DVD disko "
+"ar įrenginio arba standžiojo disko. Pamėginkite nuvalyti CD/DVD arba įrašyti "
+"CD/DVD mažesniu greičiu, ar nuvalyti CD/DVD įrenginio lęšį (valymo rinkinį "
+"galite gauti elektronikos parduotuvėse). Taipogi patikrinkite ar standusis "
+"diskas nėra sugedęs, gal jį reikia pakeisti? Taip pat galite pabandyti "
+"perkelti kompiuterį į vėsesnę vietą."
 
 #. Type: select
 #. Description
@@ -1036,7 +1055,7 @@ msgstr "Įvyko klaida šalinant paketus:"
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Skaičiuojami failai, kurių nereikia kopijuoti..."
 
 #. Type: title
 #. Description
@@ -1137,7 +1156,7 @@ msgstr "Programinės įrangos parinkimas"
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Pritaikoma konfigūracija"
 
 #. Type: text
 #. Description
@@ -1161,7 +1180,7 @@ msgstr "Klaviatūra"
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Disko konfigūracija"
 
 #. Type: text
 #. Description
@@ -1196,6 +1215,16 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Įdiegimo tipas: ${INSTALLTYPE}\n"
+" Kalba: ${LANGUAGE}\n"
+" Klaviatūra: ${KEYMAP}\n"
+" Vardas: ${FULLNAME}\n"
+" Prisijungimo vardas: ${USERNAME}\n"
+" Vieta: ${LOCATION}\n"
+" IR pultelis: ${REMOTE}\n"
+" IR siųstuvas: ${TRANSMITTER}\n"
+" Vaizdo tvarkyklė: ${VIDEO_DRIVER}\n"
+" Tarnybos: ${SERVICES}"
 
 #. Type: text
 #. Description
@@ -1286,7 +1315,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Grafikos tvarkyklė"
 
 #. Type: text
 #. Description
@@ -1402,19 +1431,19 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Configuring mythtv..."
-msgstr ""
+msgstr "Konfigūruojamas mythtv..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Configuring additional drivers..."
-msgstr ""
+msgstr "Konfigūruojamos papildomos tvarkyklės..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Configuring additional services..."
-msgstr ""
+msgstr "Konfigūruojamos papildomos tarnybos..."
 
 #. Type: text
 #. Description

@@ -9,6 +9,7 @@ ubiquity (2.0.0) UNRELEASED; urgency=low
     devices, and ensure that dmraid is installed in the target (LP: #90235).
   * Use check-language-support if available to select language support
     packages (LP: #434173).
+  * Update translations from Launchpad.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 14 Oct 2009 00:04:17 +0100
 

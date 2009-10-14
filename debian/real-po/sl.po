@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-10-06 13:28+0000\n"
+"PO-Revision-Date: 2009-10-10 12:25+0000\n"
 "Last-Translator: Bernard Banko <Unknown>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-06 17:24+0000\n"
+"X-Launchpad-Export-Date: 2009-10-14 21:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -212,7 +212,7 @@ msgstr "Kako vam je ime?"
 #. Description
 #: ../ubiquity.templates:26001
 msgid "What name do you want to use to log in?"
-msgstr "Katero ime želite uporabljati za prijavo?"
+msgstr "Katero ime želite uporabljati pri prijavi?"
 
 #. Type: text
 #. Description
@@ -246,9 +246,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
-"Svoje geslo vnesite dvakrat, da ne bi prišlo do morebitnih tipkarskih napak. "
-"Dobro geslo naj bo sestavljeno iz mešanice črk, številk in ločil, dolgo naj "
-"bo vsaj osem znakov in naj se redno menja."
+"Svoje geslo vnesite dvakrat, da ne bi prišlo do morebitnih napak pri "
+"tipkanju. Dobro geslo naj bo sestavljeno iz mešanice črk, številk in ločil, "
+"dolgo naj bo vsaj osem znakov in naj se redno menja."
 
 #. Type: text
 #. Description
@@ -263,7 +263,7 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
-"Ime bo uporabljeno, če boste hoteli, naj bo računalnik viden drugim v "
+"Ime bo uporabljeno, če boste hoteli, da računalnik vidijo tudi drugi v "
 "omrežju."
 
 #. Type: text
@@ -288,7 +288,7 @@ msgstr "Moje geslo zahtevaj za prijavo in za odšifriranje moje domače mape"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr "Izberite drugo geslo"
+msgstr "Določiti hočem drugo geslo"
 
 #. Type: text
 #. Description
@@ -326,7 +326,7 @@ msgstr "Pripravi prostor na disku"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "How do you want to partition the disk?"
-msgstr "Kako bi želeli razdeliti disk?"
+msgstr "Kako želite razdeliti disk?"
 
 #. Type: text
 #. Description
@@ -372,7 +372,7 @@ msgstr "To bo izbrisalo ${SYSTEMS} in namestilo ${RELEASE}."
 #: ../ubiquity.templates:47001 ../ubiquity.templates:98001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
-msgstr "Vse pripravljeno za namestitev"
+msgstr "Namestitev pripravljena"
 
 #. Type: text
 #. Description
@@ -417,7 +417,7 @@ msgstr "Želite prekiniti namestitev?"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Do you really want to quit the installation now?"
-msgstr "Ali res sedaj želite zapustiti namestitev?"
+msgstr "Ali res želite zapustiti namestitev sedaj?"
 
 #. Type: text
 #. Description
@@ -656,7 +656,7 @@ msgstr "Raziskava priljubljenosti"
 #. Description
 #: ../ubiquity.templates:90001
 msgid "Participate in the package usage survey"
-msgstr "Sodelujte v raziskavi o uporabi paketov"
+msgstr "Sodeluj v raziskavi o uporabi paketov"
 
 #. Type: text
 #. Description
@@ -709,8 +709,8 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Namestitev je zaključena. Da bi lahko uporabili novo nameščeni sistem, "
-"morate znova zagnati računalnik."
+"Namestitev je končana. Da bi lahko uporabili novo nameščeni sistem, morate "
+"znova zagnati računalnik."
 
 #. Type: note
 #. Description
@@ -748,7 +748,7 @@ msgstr "Nameščanje sistema"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Finding the distribution to copy..."
-msgstr "Iskanje distribucije za kopiranje ..."
+msgstr "Iskanje distribucije, ki jo je treba kopirati ..."
 
 #. Type: text
 #. Description
@@ -766,7 +766,7 @@ msgstr "Kopiranje datotek ..."
 #. Description
 #: ../ubiquity.templates:105001
 msgid "Almost finished copying files..."
-msgstr "Kopiranje datotek skoraj končano..."
+msgstr "Kopiranje datotek skoraj končano ..."
 
 #. Type: error
 #. Description
@@ -796,7 +796,7 @@ msgstr "Namestitev ni uspela"
 #: ../ubiquity.templates:108001 ../ubiquity.templates:109001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
-"Namestitveni program je naletel na napako pri kopiranju datotek na trdi disk"
+"Namestitveni program je naletel na napako pri kopiranju datotek na trdi disk."
 
 #. Type: error
 #. Description
@@ -806,9 +806,9 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"Vzrok za neuspelo namestitev na ciljni razdelek je v nezadostni količini "
-"diskovnega prostora. Prosimo, da ponovno zaženete namestitev in pri tem "
-"izberete večji razdelek diska, na katerega boste nameščali."
+"Do tega je prišlo zaradi nezadostnega prostora na ciljnem razdelku, tako da "
+"namestitveni program ni mogel v celoti opraviti svojega dela. Ponovno "
+"zaženite namestitveni program in za cilj namestitve izberite večji razdelek."
 
 #. Type: error
 #. Description
@@ -818,10 +818,10 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Ponavadi je razlog v okvarjeni CD/DVD plošči ali enoti. Pomaga lahko, če "
-"očistite CD/DVD, da zapišete CD/DVD pri nižji hitrosti ali da očistite lečo "
-"CD/DVD enote (čistilni paketi so ponavadi dostopni pri dobavitelju "
-"elektronike)."
+"Ponavadi pride do tega zaradi okvare na plošči ali enoti CD/DVD. Morda bo "
+"pomagalo, če očistite CD/DVD, znova zapišete CD/DVD pri nižji hitrosti ali "
+"če očistite lečo v enoti CD/DVD (čistilni paketi so ponavadi dostopni pri "
+"prodajalcih elektronike)."
 
 #. Type: error
 #. Description
@@ -831,9 +831,9 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Ponavadi je razlog v okvari trdega diska. Pomaga lahko, če preverite ali je "
-"trdi disk starejše izdelave in ali ga je morda potrebno zamenjati, ali pa je "
-"potrebno prestaviti celoten sistem v hladnejše okolje."
+"Ponavadi pride do tega zaradi okvare trdega diska. Morda bo pomagalo, če "
+"preverite ali je trdi disk starejše izdelave in ga je zato treba zamenjati, "
+"ali pa če prestavite celotni računalnik v hladnejše okolje."
 
 #. Type: error
 #. Description
@@ -851,18 +851,18 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Ponavadi je razlog v okvarjeni CD/DVD plošči ali enoti ali v okvari trdega "
-"diska. Pomaga lahko, če očistite CD/DVD, da zapišete CD/DVD pri nižji "
-"hitrosti ali da očistite lečo CD/DVD enote (čistilni paketi so ponavadi "
-"dostopni pri dobavitelju elektronike), ali pa je potrebno preveriti ali je "
-"trdi disk starejše izdelave in ali ga je morda potrebno zamenjati, ali pa je "
-"potrebno prestaviti celoten sistem v hladnejše okolje."
+"Ponavadi pride do tega zaradi okvare na plošči ali enoti CD/DVD ali zaradi "
+"okvarjenega trdega diska. Morda bo pomagalo, če očistite CD/DVD, znova "
+"zapišete CD/DVD pri nižji hitrosti ali če očistite lečo v enoti CD/DVD "
+"(čistilni paketi so ponavadi dostopni pri prodajalcih elektronike). "
+"Preverite, če je trdi disk starejše izdelave in ga je zato treba zamenjati, "
+"ali če je treba celotni računalnik prestaviti v hladnejše okolje."
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:110001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr "Sledeča datoteka se ne ujema s svojo izvorni kopijo na CD/DVD-ju:"
+msgstr "Navedena datoteka se ne ujema s svojim izvirnikom na CD/DVD-ju:"
 
 #. Type: text
 #. Description
@@ -940,13 +940,13 @@ msgstr "Nastavljanje zagonskega nalagalnika ..."
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Installing additional packages..."
-msgstr "Nameščam dodatne programske pakete..."
+msgstr "Nameščanje dodatnih paketov ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124001
 msgid "Checking for packages to install..."
-msgstr "Preverjam programske pakete za namestitev..."
+msgstr "Preverjanje paketov, ki jih je treba namestiti ..."
 
 #. Type: text
 #. Description
@@ -958,7 +958,7 @@ msgstr "Odstranjevanje odvečnih paketov ..."
 #. Description
 #: ../ubiquity.templates:126001
 msgid "Checking for packages to remove..."
-msgstr "Iskanje paketov za odstranitev ..."
+msgstr "Iskanje paketov, ki jih je treba odstraniti ..."
 
 #. Type: text
 #. Description
@@ -1000,7 +1000,7 @@ msgstr "Napaka pri nameščanju paketov"
 #. Description
 #: ../ubiquity.templates:133001
 msgid "An error occurred while installing packages:"
-msgstr "Pri nameščanju paketov je prišlo do napake:"
+msgstr "Prišlo je do napake pri nameščanju paketov:"
 
 #. Type: error
 #. Description
@@ -1008,7 +1008,7 @@ msgstr "Pri nameščanju paketov je prišlo do napake:"
 #. Description
 #: ../ubiquity.templates:133001 ../ubiquity.templates:134001
 msgid "The following packages are in a broken state:"
-msgstr "Sledeči paketi vsebujejo napake:"
+msgstr "Naslednji paketi vsebujejo napake:"
 
 #. Type: error
 #. Description
@@ -1024,19 +1024,19 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
-"To je verjetno posledica uporabe stare namestivene slike, ali posledica "
-"napake v spodaj navedenih paketih. Več informacij najdete v /var/log/syslog. "
-"Namestitev se bo neglede na to nadaljevala, vendar obstaja možnost da v "
-"nasledni točki spodleti in nebo več mogoče namestiti ali odstraniti drugih "
-"paketov ( možnost vključitve vase) z namečenega sistema. Prosimo da "
-"preverite če imate zadnjo različico namestitvene slike, ali pa nam sporocite "
-"napako."
+"Morda je do tega prišlo zaradi uporabe stare namestitvene slike ali napake v "
+"katerem izmed navedenih paketov. Več informacij boste našli v /var/log/"
+"syslog. Ne glede na to se bo namestitev nadaljevala, čeprav lahko spodleti "
+"tudi kasneje, ne da bi se namestili ali odstranili predvideni programi "
+"(vključno z namestitvenim) v nameščenem sistemu. Najprej preverite, če "
+"obstajajo novejše različice vašega namestitvenega programa, v nasprotnem "
+"primeru pa napako javite svojemu dobavitelju namestitvene slike."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Error while removing packages"
-msgstr "Napaka med odstranjevanjem programskih paketov"
+msgstr "Napaka pri odstranjevanju paketov"
 
 #. Type: error
 #. Description
@@ -1048,7 +1048,7 @@ msgstr "Med odstranjevanjem programskih paketov je prišlo do napake:"
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Calculating files to skip copying..."
-msgstr "Preračunavanje datotek za preskok kopiranja ..."
+msgstr "Preračunavanje, katerih datotek ni treba kopirati ..."
 
 #. Type: title
 #. Description
@@ -1066,7 +1066,7 @@ msgstr "Prenašanje jezikovnih paketov (preostaja ${TIME}) ..."
 #. Description
 #: ../ubiquity.templates:146001
 msgid "Failed to unmount partitions"
-msgstr "Ni bilo mogoče odklopiti razdelkov"
+msgstr "Razdelkov ni bilo mogoče odklopiti"
 
 #. Type: boolean
 #. Description
@@ -1075,28 +1075,27 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"Inštalacijski program mora izvršiti spremembe na particijskih tabelah, "
-"vendar tega ne more storiti, ker particije na sledečih vklopnih točkah ne "
-"morejo biti vklopljene:"
+"Namestitveni program bi moral zapisati spremembe tabel razdelkov, vendar to "
+"ni bilo možno, ker ni bilo možno odklopiti razdelkov z naslednjih priklopnih "
+"točk:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:146001
 msgid "Please close any applications using these mount points."
-msgstr ""
-"Zaprite prosim vse programe, ki bi lahko uporabljali te priklopne točke."
+msgstr "Zaprite vse programe, ki uporabljajo te priklopne točke."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:146001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr "Ali želite, da poskusi namestilnik ponovno odklopiti te razdelke?"
+msgstr "Ali naj namestitveni program ponovno skuša odklopiti te razdelke?"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:152001
 msgid "Do you want to return to the partitioner?"
-msgstr "Ali se želite vrniti na particioniranje diska?"
+msgstr "Ali se želite vrniti na razdeljevanje diska?"
 
 #. Type: boolean
 #. Description
@@ -1105,8 +1104,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
-"Nekatere particije, ki ste jih ustvarili so premajhne. Prosimo, da "
-"spremenite te particije vsaj tolikšne velikosti (v bajtih):"
+"Nekateri razdelki, ki ste jih ustvarili, so premajhni. Naslednji razdelki "
+"naj bodo veliki vsaj toliko (v bajtih):"
 
 #. Type: boolean
 #. Description
@@ -1115,8 +1114,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
-"Namestitev utegne spodleteti, če ne greste nazaj na particioniranje diska in "
-"spremenite velikosti teh particij."
+"Če se ne vrnete na razdeljevanje diska in tam ne spremenite velikosti teh "
+"razdelkov, bo namestitev morda spodletela."
 
 #. Type: text
 #. Description
@@ -1146,7 +1145,7 @@ msgstr "Izbira programske opreme"
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr "Nameščanje nastavitev"
+msgstr "Uveljavitev nastavitev"
 
 #. Type: text
 #. Description
@@ -1188,7 +1187,7 @@ msgstr "Povzetek"
 #. Description
 #: ../ubiquity.templates:165001
 msgid "installation process"
-msgstr "namestitveni proces"
+msgstr "postopek namestitve"
 
 #. Type: note
 #. Description
@@ -1220,7 +1219,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr "Tip namestitve"
+msgstr "Vrsta namestitve"
 
 #. Type: text
 #. Description
@@ -1232,7 +1231,7 @@ msgstr "Kakšne vrste bo ta sistem?"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Primary Backend w/ Frontend"
-msgstr "Primarni 'Backend/Frontend'"
+msgstr "Primarni zaledno-čelni"
 
 #. Type: text
 #. Description
@@ -1242,15 +1241,15 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
-"Kombinacija 'Backend/Frontend' je najpogostejši način namestitve za ljudi, "
-"ki hočejo MythTV za HTPC aplikacije. Taka namestitev je namjenjena uporabi "
-"kot komponenta v domačem kinu."
+"Kombinacija zaledne in čelne namestitve je najpogostejša pri ljudeh, ki "
+"hočejo uporabljati MythTV kot HTPC. Takšna namestitev je namenjena uporabi v "
+"komponentah domačega kina."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
 msgid "Secondary Backend w/ Frontend"
-msgstr "Sekundarni 'Backend/Frontend'"
+msgstr "Sekundarni zaledno-čelni"
 
 #. Type: text
 #. Description
@@ -1259,14 +1258,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
-"To bo namestilo sistem, ki je podoben primarnemu 'Backend/Frontend', vendar "
-"bo nastavljen tako, da se bo povezoval na obstoječ 'backend' preko omrežja."
+"To bo namestilo sistem, podoben primarnemu zaledno-čelnemu, s to razliko, da "
+"bo nastavljen tako, da se bo preko omrežja povezoval na obstoječe zaledje."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
 msgid "Primary Backend"
-msgstr "Primarni 'backend'"
+msgstr "Primarni zaledni"
 
 #. Type: text
 #. Description
@@ -1276,15 +1275,15 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
-"'Backend' računalnik je običajno nastavljen da deluje kot samostojna naprava "
-"in ne potrebuje veliko vzdrževanja. Ta možnost je namenjena prvemu sistemu "
-"'backend' v omrežju."
+"Zaledni računalnik je tipično nastavljen tako, da deluje v ozadju in ne "
+"potrebuje veliko vzdrževanja. Ta možnost je namenjena prvemu zalednemu "
+"sistemu v omrežju."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "Secondary Backend"
-msgstr "Sekundarni 'Backend'"
+msgstr "Sekundarni zaledni"
 
 #. Type: text
 #. Description
@@ -1293,14 +1292,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
-"To bo nastavilo sistem podobno kot primarni 'Backend', ampak bo nastavljen "
-"tako, da bo povezan na obstoječ 'backend' v omrežju."
+"To bo nastavilo sistem, podoben primarnemu zalednemu, s to razliko, da bo "
+"nastavljen tako, da se bo povezoval na obstoječe zaledje v omrežju."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:12001
 msgid "Frontend"
-msgstr "Frontend"
+msgstr "Čelni"
 
 #. Type: text
 #. Description
@@ -1310,8 +1309,9 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
-"Namen 'frontend' računalnika je, da sprejema multimedijske vsebine od "
-"'backend' in ga predvaja. Ta možnost potrebuje obstoječ 'backend' v omrežju."
+"Glavna naloga izključno čelnega računalnika je sprejemanje in posredovanje "
+"multimedijskih vsebin iz zaledja. Ta možnost zahteva obstoječ zaledni sistem "
+"v omrežju."
 
 #. Type: text
 #. Description
@@ -1328,64 +1328,64 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
-"Odprto kodni grafični gonilniki so že vključeni in nastavljeni za "
-"namestitev. Če želite uporabiti druge grafične gonilnike, to lahko storite "
-"tukaj. Opozorilo: Za pravilno delovanje TV izhoda ali OpenGL učinkov, so "
-"grafični gonilniki ključni."
+"Odprtokodni grafični gonilnik je že omogočen in nastavljen za vaš sistem. Če "
+"želite uporabiti druge grafične gonilnike, to lahko storite tukaj. Vedeti je "
+"treba, da so lastniški grafični gonilniki morda nujni za pravilno delovanje "
+"TV izhoda ali učinkov OpenGL."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:16001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr "Če bi radi nastavili TV-out, izberite opcijo tukaj:"
+msgstr "Če bi radi nastavili TV izhod, izberite nekaj izmed naslednjega:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-msgstr "Če izberete TV-out, boste morali izbrati tudi TV standard:"
+msgstr "Če boste omogočili TV izhod, boste morali izbrati tudi TV standard:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:18001
 msgid "Master Backend Info"
-msgstr "Informacije o glavnem 'backendu'"
+msgstr "Podatki o glavnem zalednem sistemu"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Please enter the information necessary to contact your master backend:"
-msgstr "Prosimo vpišite informacije za dostop do vašega glavnega 'backend'-a"
+msgstr "Vpišite podatke za dostop do vašega glavnega zalednega sistema"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:20001
 msgid "MySQL Password"
-msgstr "MySQL geslo"
+msgstr "Geslo MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "MySQL User Name"
-msgstr "MySQL uporabniško ime"
+msgstr "Uporabniško ime MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:22001
 msgid "MySQL Database"
-msgstr "MySQL podatkovna baza"
+msgstr "Podatkovna baza MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "MySQL Server"
-msgstr "MySQL strežnik"
+msgstr "Strežnik MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Configure Guide Data / Backend"
-msgstr "Nastavite podatke o sporedu / 'Backend'"
+msgstr "Nastavite podatke o sporedu - zaledje"
 
 #. Type: text
 #. Description
@@ -1394,14 +1394,14 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
-"Zadnji koraki namestitve potrebujejo podatke o sporedu in začetne nastavitve "
-"za 'backend' strežnik."
+"Za zadnji del namestitve so potrebni podatki o sporedih in začetna "
+"nastavitev zalednega sistema."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:26001
 msgid "Click to open the Schedules Direct website"
-msgstr "Kliknite da odprete spletno stran 'Schedules Direct'"
+msgstr "Kliknite za spletno stran 'Schedules Direct'"
 
 #. Type: text
 #. Description
@@ -1411,16 +1411,16 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
-"Uporabniki v Severni Ameriki bodo morali ustvariti uporabniški račun z "
-"'Shedules Direct' (SD). SD ponuja podatke o programu v zameno za manjše "
-"plačilo. Brez tega bodo uporabniki v Severni Ameriki izgubili mnogo funkcij "
-"MythTV za spremljanje sporeda."
+"Uporabniki v Severni Ameriki bodo morali ustvariti uporabniški račun pri "
+"'Shedules Direct' (SD). SD nudi sporede za manjše plačilo. Brez tega bodo "
+"uporabniki v Severni Ameriki izgubili mnogo funkcij MythTV za spremljanje "
+"sporeda."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Launch MythTV Setup"
-msgstr "Zaženi MythTV nastavitve"
+msgstr "Zaženi nastavitev MythTV"
 
 #. Type: text
 #. Description
@@ -1431,31 +1431,31 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
-"Po nastavitvi podatkov o sporedu boste morali zagnati MythTV-Setup, ki bo "
-"pripravil začetne nastavitve za 'backend'. Morali boste nastaviti prve štiri "
-"razdelke. Prepričajte se da v tretjem razdelku podate pravilne podatke o "
+"Po nastavitvi podatkov o sporedu boste morali zagnati nastavitev MythTV, ki "
+"bo pripravila začetne nastavitve zaledja. Morali boste nastaviti prve štiri "
+"razdelke, pri tem pa boste morali v tretjem razdelku podati podatke o "
 "sporedu."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Configuring mythtv..."
-msgstr "Nastavljam mythtv ..."
+msgstr "Nastavljanje MythTV ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Configuring additional drivers..."
-msgstr "Nastavljam dodatne gonilnike ..."
+msgstr "Nastavljanje dodatnih gonilnikov ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Configuring additional services..."
-msgstr "Nastavljam dodatne programske pakete"
+msgstr "Nastavljanje dodatnih storitev ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
-msgstr "Nastavljam infrardeče naprave..."
+msgstr "Nastavljanje infrardečih naprav ..."

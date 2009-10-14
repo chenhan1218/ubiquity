@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-09-05 19:28+0000\n"
-"Last-Translator: Kamil Páral <kamil.paral@gmail.com>\n"
+"PO-Revision-Date: 2009-10-08 17:35+0000\n"
+"Last-Translator: Adrian Guniš <andygun696@gmail.com>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-06 17:24+0000\n"
+"X-Launchpad-Export-Date: 2009-10-14 21:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -26,7 +26,7 @@ msgstr "Použít největší souvislé volné místo"
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr ""
+msgstr "Smazat a použít celý disk"
 
 #. Type: text
 #. Description
@@ -96,6 +96,7 @@ msgstr ""
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
+"Jakmile odpovíte na pár otázek, bude tento počítač připraven k použití."
 
 #. Type: text
 #. Description
@@ -104,6 +105,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
+"Vyberte prosím jazyk, v jakém chcete provést nastavování. Zvolený jazyk bude "
+"zároveň i výchozím jazykem pro tento počítač."
 
 #. Type: text
 #. Description
@@ -152,7 +155,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "Pásmo"
 
 #. Type: text
 #. Description
@@ -268,19 +271,19 @@ msgstr "Přihlašovat se automaticky"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Require my password to log in"
-msgstr ""
+msgstr "Požadovat mé heslo pro přihlášení"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr ""
+msgstr "Požadovat mé heslo pro přihlášení a rozšifrování mé domovské složky"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr ""
+msgstr "Zvolte jiné heslo"
 
 #. Type: text
 #. Description
@@ -355,7 +358,7 @@ msgstr "Připravit oblasti"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:46001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "Tímto odstraníte ${SYSTEMS} a nainstalujete ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -483,35 +486,35 @@ msgstr "Po:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 msgid "New Partition Table..."
-msgstr ""
+msgstr "Nová tabulka oblastí..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 msgid "Add..."
-msgstr ""
+msgstr "Přidat..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 msgid "Change..."
-msgstr ""
+msgstr "Změnit..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "Smazat"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:68001
 msgid "Revert"
-msgstr ""
+msgstr "Vrátit zpět"
 
 #. Type: text
 #. Description
@@ -759,7 +762,7 @@ msgstr "Kopírují se soubory..."
 #. Description
 #: ../ubiquity.templates:105001
 msgid "Almost finished copying files..."
-msgstr ""
+msgstr "Kopírování souborů téměř dokončeno..."
 
 #. Type: error
 #. Description
@@ -893,13 +896,13 @@ msgstr "Nastavuje se klávesnice..."
 #. Description
 #: ../ubiquity.templates:117001
 msgid "Creating user..."
-msgstr "Vytvářím uživatele..."
+msgstr "Vytváří se uživatel..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:118001
 msgid "Importing documents and settings..."
-msgstr "Importuji dokumenty a nastavení..."
+msgstr "Importují se dokumenty a nastavení..."
 
 #. Type: text
 #. Description
@@ -929,13 +932,13 @@ msgstr "Nastavuje se zavaděč..."
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Installing additional packages..."
-msgstr "Instaluji dodatečné balíky..."
+msgstr "Instalují se dodatečné balíky..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124001
 msgid "Checking for packages to install..."
-msgstr "Kontroluji balíky určené k instalaci..."
+msgstr "Kontrolují se balíky určené k instalaci..."
 
 #. Type: text
 #. Description
@@ -953,19 +956,19 @@ msgstr "Kontrolují se balíky, které se odstraní..."
 #. Description
 #: ../ubiquity.templates:127001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Stahuji balíky (zbývá ${TIME})..."
+msgstr "Stahují se balíky (zbývá ${TIME})..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:128001
 msgid "Downloading package lists..."
-msgstr "Stahuji seznamy balíků"
+msgstr "Stahují se seznamy balíků"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Stahuji seznam balíků (zbývá ${TIME})..."
+msgstr "Stahují se seznamy balíků (zbývá ${TIME})..."
 
 #. Type: error
 #. Description
@@ -1121,61 +1124,61 @@ msgstr "Vybrat jazyk/Choose language"
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "Síťová konfigurace"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "Výběr softwaru"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Aplikuje se konfigurace"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:158001
 msgid "Language"
-msgstr ""
+msgstr "Jazyk"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Timezone"
-msgstr ""
+msgstr "Časové pásmo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
 msgid "Keyboard"
-msgstr ""
+msgstr "Klávesnice"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Nastavení disku"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:162001
 msgid "User Info"
-msgstr ""
+msgstr "Informace o uživateli"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:163001
 msgid "Summary"
-msgstr ""
+msgstr "Shrnutí"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
 msgid "installation process"
-msgstr ""
+msgstr "instalační proces"
 
 #. Type: note
 #. Description
@@ -1292,7 +1295,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Ovladače grafické karty"
 
 #. Type: text
 #. Description
@@ -1303,18 +1306,22 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"Ovladač grafické karty s otevřeným zdrojovým kódem je již povolen a nastaven "
+"pro vaši instalaci. Pokud byste chtěli použít jiný grafický ovladač, můžete "
+"to udělat zde. Mějte na vědomí, že proprietární grafické ovladače mohou být "
+"nezbytné pro TV výstup nebo OpenGL efekty."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:16001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr ""
+msgstr "Pro nastavení TV výstupu vyberte jednu z možností:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-msgstr ""
+msgstr "Je-li povolen TV výstup, je třeba zvolit také TV normu:"
 
 #. Type: text
 #. Description
@@ -1370,7 +1377,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:26001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "Kliknutím otevřete webovou stránku Schedules Direct"
 
 #. Type: text
 #. Description
@@ -1385,7 +1392,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "Spustit nastavení MythTV"
 
 #. Type: text
 #. Description
@@ -1419,4 +1426,4 @@ msgstr "Nastavuji dodatečné služby..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
-msgstr ""
+msgstr "Nastavování infračervených zařízení..."

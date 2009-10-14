@@ -7,38 +7,38 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-09-05 19:31+0000\n"
-"Last-Translator: Seongho Choo <Unknown>\n"
+"PO-Revision-Date: 2009-10-12 04:03+0000\n"
+"Last-Translator: Bugbear5 <Unknown>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-06 17:24+0000\n"
+"X-Launchpad-Export-Date: 2009-10-14 21:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr "연결된 가장 큰 빈공간 사용"
+msgstr "가장 큰 연속된 공간 사용"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr ""
+msgstr "이전 파티션을 삭제하고 디스크전체를 사용"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr "나란히 설치, 각 시작마다 선택하기"
+msgstr "나란히 설치하고, 시작할 때 선택하기"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr "수동으로 분할 지정(고급)"
+msgstr "수동으로 파티션 조정(고급)"
 
 #. Type: text
 #. Description
@@ -59,7 +59,7 @@ msgstr "설치 (OEM 모드, 제조사 전용)"
 #. Description
 #: ../ubiquity.templates:9001
 msgid "Welcome"
-msgstr "환영"
+msgstr "환영합니다"
 
 #. Type: text
 #. Description
@@ -69,8 +69,8 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"설치할 준비가 되었습니까? 몇 가지의 질문에 대답하면 라이브 CD의 내용이 컴퓨터"
-"에 설치되어 시스템을 CD없이 빠르게 사용하실 수 있습니다."
+"설치할 준비가 되었습니까? 몇가지 질문에 답 해주시면, 라이브 CD의 내용이 컴퓨"
+"터에 설치되어 시스템을 CD 없이 빠른 속도로 사용하실 수 있습니다."
 
 #. Type: text
 #. Description
@@ -78,7 +78,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:10001 ../ubiquity.templates:11001
 msgid "Answering the questions should only take a few minutes."
-msgstr "대답하는데 몇 분이면 충분합니다."
+msgstr "질문에 답하는 시간은 잠깐이면 충분합니다."
 
 #. Type: text
 #. Description
@@ -87,14 +87,14 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
-"설치 과정에서 사용할 언어를 고르세요. 이 언어는 최종 시스템의 기본 언어가 됩"
-"니다."
+"설치 과정에서 사용될 언어를 선택하십시오. 이 언어는 설치 완료 후 시스템의 기"
+"본 언어가 될 것입니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
+msgstr "몇가지 질문에만 답해주시면, 곧바로 컴퓨터를 사용하실 수 있습니다."
 
 #. Type: text
 #. Description
@@ -103,6 +103,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
+"설정에 사용할 언어를 선택하십시오. 선택하신 언어는 이 컴퓨터의 기본언어가 됩"
+"니다."
 
 #. Type: text
 #. Description
@@ -112,9 +114,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"시스템 제조사 모드에서 설치 중입니다. 시스템의 일괄처리를 위한 고유의 이름을 "
-"입력해 주십시오. 이 이름은 설치된 시스템에 저장될 것이고, 버그 리포트에 사용"
-"될 수 있습니다."
+"시스템 제조사 모드에서 설치 중입니다. 시스템의 일괄처리르 위한 고유 이름을 입"
+"력해 주십시오. 이 이름은 설치된 시스템에 저장되고, 버그 리포트에 도움을 주기"
+"위해 사용될 수 있습니다."
 
 #. Type: text
 #. Description
@@ -123,8 +125,8 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
-"인터넷을 사용할 수 있다면, 여러분에게 영향을 줄 수 있는 문제에 대해서 릴리즈 "
-"정보를 참고하세요."
+"만약 인터넷이 연결되어있다면, 영향을 미칠 수 있는 문제의 정보를 얻기 위해 릴"
+"리즈 정보를 참고해주십시오."
 
 #. Type: text
 #. Description
@@ -136,7 +138,7 @@ msgstr "릴리즈 정보"
 #. Description
 #: ../ubiquity.templates:15001
 msgid "Where are you?"
-msgstr "어디에 있습니까?"
+msgstr "어디에 살고 계신가요?"
 
 #. Type: text
 #. Description
@@ -146,12 +148,14 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"지역을 선택하십시오. 컴퓨터는 자동으로 그 지역에 알맞는 화면구성으로 바뀌고, "
+"가까운 곳에서 업데이트를 받고, 시간대를 조정할 것입니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "시간대:"
 
 #. Type: text
 #. Description
@@ -181,13 +185,13 @@ msgstr "새 키보드 배치를 시험해 보려면 아래 상자에 입력해 �
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Suggested option:"
-msgstr "제안된 선택:"
+msgstr "기본 키보드 배치:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your own:"
-msgstr "원하는것 선택:"
+msgstr "키보드 배치 선택:"
 
 #. Type: text
 #. Description
@@ -199,13 +203,13 @@ msgstr "당신은 누구십니까?"
 #. Description
 #: ../ubiquity.templates:25001
 msgid "What is your name?"
-msgstr "이름이 무엇입니까?"
+msgstr "사용자 이름은 무엇입니까?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "What name do you want to use to log in?"
-msgstr "로그인 시 어떤 이름을 사용하시겠습니까?"
+msgstr "로그인 시 사용할 계정 이름은 무엇입니까?"
 
 #. Type: text
 #. Description
@@ -214,7 +218,8 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"이 컴퓨터를 여러 사람이 쓰게 될 경우, 설치 후에 다수 계정을 설정할 있습니다."
+"여러 사람이 이 컴퓨터를 사용하는 경우, 설치 후에 여러 계정을 설정할 수 있습니"
+"다."
 
 #. Type: text
 #. Description
@@ -226,7 +231,7 @@ msgstr "계정을 안전하게 보호할 암호를 선택하세요."
 #. Description
 #: ../ubiquity.templates:29001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "디버깅 모드를 사용하고 있습니다. 유용한 암호를 사용하지 마세요!"
+msgstr "디버깅 모드에서 실행 중입니다. 귀중한 암호는 사용하지 마십시오!"
 
 #. Type: text
 #. Description
@@ -237,8 +242,8 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
-"입력오류를 검사하기 위해 같은 비밀번호를 2번 입력하세요. 기호와 숫자, 문자가 "
-"석여있고, 8자이상이 좋은 비밀번호이며, 자주 변경해야 합니다."
+"오타를 검사하기 위해 암호를 두번 입력해주십시오. 좋은 암호는 여덟 글자 이상"
+"의 문자와 기호, 숫자 등이 섞인 주기적으로 변경해주는 암호입니다."
 
 #. Type: text
 #. Description
@@ -252,7 +257,9 @@ msgstr "컴퓨터의 이름은 무엇입니까?"
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr "이 이름은 컴퓨터가 네트워크에서 다른 컴퓨터에 보여질 때 사용됩니다."
+msgstr ""
+"이 이름은 컴퓨터를 네트워크에서 다른 컴퓨터에 보이도록 설정했을 때 사용됩니"
+"다."
 
 #. Type: text
 #. Description
@@ -264,13 +271,14 @@ msgstr "자동으로 로그인"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Require my password to log in"
-msgstr ""
+msgstr "로그인 할 때 암호 입력 필요"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr ""
+"로그인할때 암호를 입력하고, 암호화된 개인 폴더에도 접근할 수 있게 합니다."
 
 #. Type: text
 #. Description
@@ -282,7 +290,7 @@ msgstr "다른 암호를 선택"
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Migrate documents and settings"
-msgstr "문서와 설정을 옮겨옴"
+msgstr "문서와 설정 가져오기"
 
 #. Type: text
 #. Description
@@ -291,8 +299,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"가져올 계정을 선택하십시오. 이 계정들의 문서와 설정들은 설치가 완료된 뒤에 확"
-"인할 수 있습니다."
+"가져오기 할 계정을 선택하십시오. 이 계정의 문서와 설정은 설치 완료 후 사용 가"
+"능합니다."
 
 #. Type: text
 #. Description
@@ -301,8 +309,8 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"어떠한 계정도 가져오고 싶지 않으시다면, 아무것도 선택하지 마시고 다음 페이지"
-"로 이동하세요."
+"만약 어떤 계정도 가져오고 싶지 않으시다면, 없음을 선택하신 다음 다음 페이지"
+"로 이동하십시오."
 
 #. Type: text
 #. Description
@@ -314,7 +322,7 @@ msgstr "디스크 공간을 준비"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "How do you want to partition the disk?"
-msgstr "어떻게 디스크 분할을 하길 원하십니까?"
+msgstr "디스크의 파티션을 어떻게 설정하시겠습니까?"
 
 #. Type: text
 #. Description
@@ -344,7 +352,7 @@ msgstr "${RELEASE}를 어디에 저장할까요?"
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Prepare partitions"
-msgstr "분할 준비"
+msgstr "파티션 준비"
 
 #. Type: text
 #. Description
@@ -423,7 +431,7 @@ msgstr "설치 완료"
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Continue Testing"
-msgstr "검사 진행"
+msgstr "테스트 계속하기"
 
 #. Type: text
 #. Description
@@ -437,7 +445,7 @@ msgstr "지금 다시 시작"
 #. Description
 #: ../ubiquity.templates:59001 ../ubiquity.templates:60001
 msgid "Installer crashed"
-msgstr "설치기 충돌"
+msgstr "인스톨러 다운"
 
 #. Type: text
 #. Description
@@ -450,11 +458,11 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
-"죄송합니다. 인스톨러에서 충돌이 일어났습니다. https://launchpad.net/ubuntu/"
-"+source/ubiquity/+filebug 에 새로운 버그 리포트를 제출해 주십시오. (알려진 버"
-"그에 대한 내용은 첨부하지 마십시오.) 개발자들이 해당 버그를 가능한한 빨리 처"
-"리할 것입니다. 개발자들이 버그에 대해 더 잘 알 수 있도록 다음의 내용들을 포함"
-"하여 주시고, /var/log/syslog와 /var/log/partman 을 첨부하여 주십시오."
+"죄송합니다. 인스톨러가 다운 되었습니다. https://launchpad.net/ubuntu/+source/"
+"ubiquity/+filebug 에 새로운 버그 리포트를 제출해 주시면 (이미 존재하는 버그"
+"에 대한 내용은 첨부하지 마십시오.) 개발자들이 가능한 빨리 문제를 해결할 것입"
+"니다. 개발자들이 문제를 잘 파악할 수 있도록 다음의 내용을 버그 리포트에 포함"
+"해주시고, /var/log/syslog와 /var/log/partman 을 첨부하여 주십시오."
 
 #. Type: text
 #. Description
@@ -477,35 +485,35 @@ msgstr "이후:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 msgid "New Partition Table..."
-msgstr ""
+msgstr "새 파티션 만들기..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 msgid "Add..."
-msgstr ""
+msgstr "추가..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 msgid "Change..."
-msgstr ""
+msgstr "변경..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "삭제"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:68001
 msgid "Revert"
-msgstr ""
+msgstr "되돌리기"
 
 #. Type: text
 #. Description
@@ -527,7 +535,7 @@ msgstr "타입"
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:71001
 msgid "Mount point"
-msgstr "장착 지점"
+msgstr "마운트 위치"
 
 #. Type: text
 #. Description
@@ -549,7 +557,7 @@ msgstr "용량"
 #. this partition is used by data.
 #: ../ubiquity.templates:74001
 msgid "Used"
-msgstr "사용됨"
+msgstr "사용 중"
 
 #. Type: text
 #. Description
@@ -569,7 +577,7 @@ msgstr "알 수 없음"
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Create partition"
-msgstr "분할 생성"
+msgstr "파티션 만들기"
 
 #. Type: text
 #. Description
@@ -577,7 +585,7 @@ msgstr "분할 생성"
 #. Description
 #: ../ubiquity.templates:78001 ../ubiquity.templates:85001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr "새 분할 크기 (MB)"
+msgstr "새 파티션 크기 (MB)"
 
 #. Type: text
 #. Description
@@ -607,13 +615,13 @@ msgstr "논리 파티션"
 #. Description
 #: ../ubiquity.templates:83001
 msgid "Edit partition"
-msgstr "분할 편집"
+msgstr "파티션 편집"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:84001
 msgid "Edit a partition"
-msgstr "분할 편집"
+msgstr "파티션 편집"
 
 #. Type: text
 #. Description
@@ -637,7 +645,7 @@ msgstr "부트 로더 설치"
 #. Description
 #: ../ubiquity.templates:89001
 msgid "Popularity contest"
-msgstr "인기도 컨테스트"
+msgstr "인기도 설문"
 
 #. Type: text
 #. Description
@@ -671,8 +679,8 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"설치가 완료되었습니다.  지금부터 컴퓨터를 다시 시작하기 전까지 우분투 시험을 "
-"계속할 수 있으며, 변경한 사항이나 저장한 문서들은 보존되지 않습니다."
+"설치가 완료되었습니다. 다시 시작하기 전에 우분투를 계속 테스트 해볼 수 있습니"
+"다. 변경한 사항이나 저장한 문서들은 보존되지 않습니다."
 
 #. Type: text
 #. Description
@@ -751,7 +759,7 @@ msgstr "파일 복사 중..."
 #. Description
 #: ../ubiquity.templates:105001
 msgid "Almost finished copying files..."
-msgstr ""
+msgstr "파일 복사가 거의 완료되었습니다."
 
 #. Type: error
 #. Description
@@ -780,7 +788,7 @@ msgstr "설치 실패"
 #: ../ubiquity.templates:106001 ../ubiquity.templates:107001
 #: ../ubiquity.templates:108001 ../ubiquity.templates:109001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr "파일을 하드 디스크로 복사 중에 설치 관리자가 오류를 발견했습니다."
+msgstr "파일을 하드 디스크로 복사 하는 중에 인스톨러가 오류를 발견했습니다."
 
 #. Type: error
 #. Description
@@ -790,8 +798,8 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"대상 분할에 설치를 완료하기 위한 디스크 용량이 적당하지 않기 때문입니다.  설"
-"치 관리자를 다시 실행시키고 더 큰 분할을 선택하시기 바랍니다."
+"대상 파티션에 설치를 마치기 위한 디스크 공간이 부족합니다. 설치 프로그램을 다"
+"시 실행시키고, 더 큰 파티션을 선택하십시오."
 
 #. Type: error
 #. Description
@@ -801,9 +809,9 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"잘못된 CD/DVD 디스크나 드라이브 때문에 종종 일어납니다.  CD/DVD를 깨끗하게 하"
-"거나, CD/DVD를 더 느린 속도로 굽거나, CD/DVD 드라이브 렌즈를 청소하는 게 (크"
-"리닝 키트는 보통 전자제품 판매점에서 구할 수 있음) 도움이 될 수 있습니다."
+"이 문제는 잘못된 CD/DVD 디스크나 드라이브 때문에 종종 발생합니다. CD/DVD 닦"
+"기,  CD/DVD 저속 굽기, CD/DVD 드라이브 렌즈 닦기 (크리닝 키트는 보통 전자제"
+"품 판매채에 있음) 같은 것들이 도움이 될 수 있습니다."
 
 #. Type: error
 #. Description
@@ -813,9 +821,9 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"이것은 가끔 하드 디스크의 문제로 발생합니다. 하드 디스크가 오래되었고 교체가 "
-"필요한지 점검하시거나, 시스템을 더 시원한 곳으로 옮기는 것이 도움이 될 수도 "
-"있습니다."
+"이 문제는 종종 하드 디스크의 문제 때문에 발생합니다. 하드 디스크가 오래되어 "
+"교체가 필요한지 확인하기, 시스템을 시원한 환경으로 옮기는 것들이 도움이 될 "
+"수 있습니다."
 
 #. Type: error
 #. Description
@@ -833,11 +841,10 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"잘못된 CD/DVD 디스크나 드라이브, 또는 하드 디스크 때문에 종종 일어납니다.  "
-"CD/DVD를 깨끗하게 하거나, CD/DVD를 더 느린 속도로 굽거나, CD/DVD 드라이브 렌"
-"즈를 청소하거나 (크리닝 키트는 보통 전자제품 판매점에서 구할 수 있음), 하드 "
-"디스크가 오래되었고 교체가 필요한지 확인하거나,  시스템을 더 시원한 곳으로 옮"
-"기는 것이 도움이 될 수 있습니다."
+"이 문제는 잘못된 CD/DVD 디스크나 드라이브 또는 하드 디스크 때문에 종종 발생합"
+"니다.  CD/DVD 닦기,  CD/DVD 저속 굽기, CD/DVD 드라이브 렌즈 닦기 (크리닝 키트"
+"는 보통 전자제품 판매채에 있음), 하드디스크가 오래되어 교체가 필요한지 확인하"
+"기, 시스템을 시원한 환경으로 옮기는 것들이 도움이 될 수 있습니다."
 
 #. Type: select
 #. Description
@@ -989,7 +996,7 @@ msgstr "패키지 설치 중 오류 발생:"
 #. Description
 #: ../ubiquity.templates:133001 ../ubiquity.templates:134001
 msgid "The following packages are in a broken state:"
-msgstr "다음 패키지들은 깨진 상태:"
+msgstr "다음 패키지들은 손상 되었음"
 
 #. Type: error
 #. Description
@@ -1005,11 +1012,12 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
-"이것은 예전의 설치 이미지나 위에 표시된 패키지들 중 하나의 버그일 수 있습니"
-"다. 자세한 세부 사항은 /var/log/syslog에서 볼 수 있습니다. 설치 프로그램은 계"
-"속할 것이지만, 실패할 수 있으며, 설치된 시스템에서 다른 패키지를 설치하거나 "
-"제거할 수 없을 수도 있습니다. 새로운 버전의 설치 이미지를 사용하거나, 배포자"
-"에게 이 문제를 보고할 수 있습니다."
+"이 문제는 오래된 인스톨러 이미지를 사용하였거나 위에 표시된 패키지들의 버그 "
+"때문일 수 있습니다. 더 자세한 내용은 /var/log/syslog에서 확인하실 수 있습니"
+"다. 설치 과정은 계속 진행되지만, 이후 다른 지점에서 실패할 수 있고, 그렇게되"
+"면 시스템에서 설치 프로그램을 포함하여 다른 패키지를 설치하거나 제거할 수 없"
+"습니다. 먼저 설치 이미지의 새로운 버전이 있는지를 살펴보십시오. 그렇지 않으"
+"면 배포자에게 문제 보고 할 수 없을 것입니다."
 
 #. Type: error
 #. Description
@@ -1045,7 +1053,7 @@ msgstr "언어 팩 다운로드 중 (${TIME} 남음)..."
 #. Description
 #: ../ubiquity.templates:146001
 msgid "Failed to unmount partitions"
-msgstr "분할의 장착 해제 실패"
+msgstr "파티션의 마운트 해제 실패"
 
 #. Type: boolean
 #. Description
@@ -1054,26 +1062,26 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"설치 관리자는 변경 내용을 분할 테이블에 적용시켜야 하지만, 다음 장착 지점을 "
-"장착 해제할 수 없기 때문에 할 수 없었음:"
+"인스톨러가 파티션 테이블에 변화를 적용시키려 했지만, 다음 마운트 위치를 마운"
+"트 해제할 수 없어서 할 수 없었습니다:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:146001
 msgid "Please close any applications using these mount points."
-msgstr "이 마운트 지점을 사용하는 응용 프로그램을 닫아주세요."
+msgstr "이 마운트 위치를 사용하는 모든 응용프로그램을 종료해주십시오."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:146001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr "다시 설치 관리자가 이 분할의 장착 해제를 시도해 보게 할까요?"
+msgstr "인스톨러가 다시 이 파티션을 마운트 해제하도록 할까요?"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:152001
 msgid "Do you want to return to the partitioner?"
-msgstr "분할 프로그램으로 돌아가시겠습니까?"
+msgstr "파티션 프로그램으로 돌아가시겠습니까?"
 
 #. Type: boolean
 #. Description
@@ -1082,8 +1090,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
-"만든 분할 중 몇 개는 크기가 너무 작습니다.  다음 분할을 최소한 이 크기 (바이"
-"트 단위) 로 만들어주세요:"
+"만든 파티션 중 몇 개는 크기가 너무 작습니다. 다음 파티션을 최소한 이 크기 (바"
+"이트 단위) 로 만들어주세요:"
 
 #. Type: boolean
 #. Description
@@ -1092,8 +1100,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
-"분할 프로그램으로 돌아가지 않고 분할 크기를 늘리지 않는다면 설치는 실패할 것"
-"입니다."
+"파티션 프로그램으로 돌아가지 않고 파티션 크기를 늘리지 않는다면 설치는 실패"
+"할 것입니다."
 
 #. Type: text
 #. Description
@@ -1117,7 +1125,7 @@ msgstr "네트워크 설정"
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr "무른모 선택"
+msgstr "소프트웨어 선택"
 
 #. Type: text
 #. Description
@@ -1129,43 +1137,43 @@ msgstr "설정 적용중"
 #. Description
 #: ../ubiquity.templates:158001
 msgid "Language"
-msgstr ""
+msgstr "언어"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Timezone"
-msgstr ""
+msgstr "시간대"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
 msgid "Keyboard"
-msgstr ""
+msgstr "키보드"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Disk Setup"
-msgstr ""
+msgstr "디스크 설정"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:162001
 msgid "User Info"
-msgstr ""
+msgstr "사용자 정보"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:163001
 msgid "Summary"
-msgstr ""
+msgstr "요약"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
 msgid "installation process"
-msgstr ""
+msgstr "설치 과정"
 
 #. Type: note
 #. Description
@@ -1293,7 +1301,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr "시각적 드라이버"
+msgstr "그래픽 드라이버"
 
 #. Type: text
 #. Description
@@ -1304,10 +1312,9 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
-"설치를 위한 오픈 소스 그래픽 드라이버가 이미 구성 및 사용하도록 되어 있습니"
-"다.  다른 그래픽 드라이버를 사용하려면 여기서 바꿀 수 있습니다.  TV 출력이나 "
-"OpenGL 효과를 사용하려면 특정(제조업체 제공 등) 그래픽 드라이버가 필요할 수 "
-"있습니다."
+"오픈 소스 그래픽 드라이버가 이미 활성화되었습니다. 다른 그래픽 드라이버를 사"
+"용하기 원한다면, 여기서 바꿀 수 있습니다. TV 출력이나 OpenGL 효과를 사용하기 "
+"위해서는 독점적 드라이버가 필요할 수도 있습니다."
 
 #. Type: text
 #. Description
@@ -1319,7 +1326,7 @@ msgstr "TV 출력을 설정하시려면 여기서 옵션을 고르십시오:"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-msgstr "TV 출력을 사용하려면 TV 표준도 선택해야 합니다."
+msgstr "TV 출력을 활성화하려면 TV 표준을 선택해야 합니다."
 
 #. Type: text
 #. Description
@@ -1388,9 +1395,9 @@ msgid ""
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
 "북미 지역의 사용자들은 Schedules Direct (SD)의 계정을 설정할 필요가 있을 것입"
-"니다. SD는 아주 적은 금액으로 가이드 데이터를 제공합니다. SD를 설정하지 않는"
-"다면 북미 지역의 사용자들은 MythTV의 예약 기능 중 많은 부분을 이용할 수 없게 "
-"됩니다."
+"니다. SD는 명목상의 요금으로 가이드 데이터를 제공합니다. SD를 사용하지 않는다"
+"면 북미 지역의 사용자들은 MythTV의 예약 기능 중 많은 부분을 이용할 수 없게 됩"
+"니다."
 
 #. Type: text
 #. Description

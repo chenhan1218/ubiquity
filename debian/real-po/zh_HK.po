@@ -8,26 +8,26 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-09-05 19:32+0000\n"
-"Last-Translator: Roy Chan <roy.chan@linux.org.hk>\n"
+"PO-Revision-Date: 2009-10-14 21:03+0000\n"
+"Last-Translator: samuel-hk <sjacs1339@gmail.com>\n"
 "Language-Team: Chinese (Hong Kong) <zh_HK@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-06 17:24+0000\n"
+"X-Launchpad-Export-Date: 2009-10-14 21:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "使用最大的連續未使用空間"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr ""
+msgstr "清除所有資料，使用整個硬碟"
 
 #. Type: text
 #. Description
@@ -39,7 +39,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "手動分配(進階選項)"
 
 #. Type: text
 #. Description
@@ -95,7 +95,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
+msgstr "只需要回答幾條問題，就可使用此電腦"
 
 #. Type: text
 #. Description
@@ -103,7 +103,7 @@ msgstr ""
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
-msgstr ""
+msgstr "請選擇安裝時用的語言。此將會成為這電腦的預設語言。"
 
 #. Type: text
 #. Description
@@ -144,18 +144,20 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"選擇你所在的地區,以便配置合適的地區顯示選項,並自動選擇最接近的更新網域及正確"
+"調較本地時間"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "分區:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Region:"
-msgstr ""
+msgstr "地區:"
 
 #. Type: text
 #. Description
@@ -179,13 +181,13 @@ msgstr "您可以在此處測試您新選擇的鍵盤排列方式。"
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Suggested option:"
-msgstr ""
+msgstr "建議選項"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your own:"
-msgstr ""
+msgstr "自行選擇："
 
 #. Type: text
 #. Description
@@ -253,13 +255,13 @@ msgstr "如果您設定讓別人能在網路上看到這台電腦，將會是這
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Log in automatically"
-msgstr ""
+msgstr "自動登入"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Require my password to log in"
-msgstr ""
+msgstr "需要密碼以登入"
 
 #. Type: text
 #. Description
@@ -271,13 +273,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr ""
+msgstr "更換密碼"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Migrate documents and settings"
-msgstr ""
+msgstr "移動文件與設定"
 
 #. Type: text
 #. Description
@@ -311,25 +313,25 @@ msgstr "您想要如何分割磁碟？"
 #. Description
 #: ../ubiquity.templates:41001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "這台電腦上並無作業系統。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "電腦上有 ${OS} 個作業系統。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "這電腦上有數個作業系統。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "您想把 ${RELEASE} 放在哪裡？"
 
 #. Type: text
 #. Description
@@ -342,7 +344,7 @@ msgstr "預備分割區"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:46001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "如此將會刪除 ${SYSTEMS} 並安裝 ${RELEASE}。"
 
 #. Type: text
 #. Description
@@ -357,7 +359,7 @@ msgstr "已預備好要安裝"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Details"
-msgstr ""
+msgstr "詳細資料"
 
 #. Type: text
 #. Description
@@ -390,13 +392,13 @@ msgstr "步驟 ${INDEX}  (共 ${TOTAL} 個)"
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Quit the installation?"
-msgstr ""
+msgstr "離開安裝程式？"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Do you really want to quit the installation now?"
-msgstr ""
+msgstr "您確定要現在離開安裝程式？"
 
 #. Type: text
 #. Description
@@ -408,19 +410,19 @@ msgstr "略過"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Installation Complete"
-msgstr ""
+msgstr "安裝完成"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Continue Testing"
-msgstr ""
+msgstr "繼續測試"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Restart Now"
-msgstr ""
+msgstr "現在重啟"
 
 #. Type: text
 #. Description
@@ -454,7 +456,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:62001
 msgid "Before:"
-msgstr ""
+msgstr "之前："
 
 #. Type: text
 #. Description
@@ -462,49 +464,49 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:63001
 msgid "After:"
-msgstr ""
+msgstr "之後："
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 msgid "New Partition Table..."
-msgstr ""
+msgstr "新分割表..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:65001
 msgid "Add..."
-msgstr ""
+msgstr "新增..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:66001
 msgid "Change..."
-msgstr ""
+msgstr "更改..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:67001
 msgid "Delete"
-msgstr ""
+msgstr "刪除"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:68001
 msgid "Revert"
-msgstr ""
+msgstr "還原"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:69001
 msgid "Device"
-msgstr ""
+msgstr "裝置"
 
 #. Type: text
 #. Description
@@ -512,28 +514,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:70001
 msgid "Type"
-msgstr ""
+msgstr "類型"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:71001
 msgid "Mount point"
-msgstr ""
+msgstr "掛載點"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:72001
 msgid "Format?"
-msgstr ""
+msgstr "格式化？"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:73001
 msgid "Size"
-msgstr ""
+msgstr "大小"
 
 #. Type: text
 #. Description
@@ -541,21 +543,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:74001
 msgid "Used"
-msgstr ""
+msgstr "已使用"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:75001
 msgid "free space"
-msgstr ""
+msgstr "可用空間"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:76001
 msgid "unknown"
-msgstr ""
+msgstr "不明"
 
 #. Type: text
 #. Description
@@ -663,6 +665,7 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"完成安裝。您現可試用 Ubuntu，但在重新開機之前，電腦並不會儲存各項修改及檔案。"
 
 #. Type: text
 #. Description
@@ -742,7 +745,7 @@ msgstr "複製檔案中..."
 #. Description
 #: ../ubiquity.templates:105001
 msgid "Almost finished copying files..."
-msgstr ""
+msgstr "快將完成複製檔案..."
 
 #. Type: error
 #. Description
@@ -758,7 +761,7 @@ msgstr ""
 #: ../ubiquity.templates:108001 ../ubiquity.templates:109001
 #: ../ubiquity.templates:110001
 msgid "Installation Failed"
-msgstr ""
+msgstr "安裝失敗"
 
 #. Type: error
 #. Description
@@ -780,7 +783,7 @@ msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
-msgstr ""
+msgstr "安裝的分區過小，無法完成。請選擇較大的分區，並重新安裝"
 
 #. Type: error
 #. Description
@@ -1004,7 +1007,7 @@ msgstr "移除套件時發生錯誤"
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "正在計算可以跳過而不用複製的檔案..."
 
 #. Type: title
 #. Description
@@ -1084,37 +1087,37 @@ msgstr "選擇語言"
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Network configuration"
-msgstr ""
+msgstr "網絡設定"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Software selection"
-msgstr ""
+msgstr "選擇軟體"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr ""
+msgstr "套用設定"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:158001
 msgid "Language"
-msgstr ""
+msgstr "語言"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Timezone"
-msgstr ""
+msgstr "時區"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
 msgid "Keyboard"
-msgstr ""
+msgstr "鍵盤"
 
 #. Type: text
 #. Description
@@ -1126,19 +1129,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:162001
 msgid "User Info"
-msgstr ""
+msgstr "用戶資料"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:163001
 msgid "Summary"
-msgstr ""
+msgstr "摘要"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
 msgid "installation process"
-msgstr ""
+msgstr "安裝進度"
 
 #. Type: note
 #. Description
@@ -1160,7 +1163,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "安裝類型"
 
 #. Type: text
 #. Description
@@ -1253,7 +1256,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "顯示卡驅動程式"
 
 #. Type: text
 #. Description
