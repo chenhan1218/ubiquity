@@ -122,8 +122,10 @@ class Page(Plugin):
                      'type:boolean',
                      'ERROR',
                      'PROGRESS']
-        return ('/bin/partman', questions,
-                {'PARTMAN_NO_COMMIT': '1', 'PARTMAN_SNOOP': '1'})
+        # TODO: It would be neater to use a wrapper script.
+        return (['sh', '-c',
+                 '/usr/share/ubiquity/activate-dmraid && /bin/partman'],
+                questions, {'PARTMAN_NO_COMMIT': '1', 'PARTMAN_SNOOP': '1'})
 
     def snoop(self):
         """Read the partman snoop file hack, returning a list of tuples
