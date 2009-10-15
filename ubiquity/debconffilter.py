@@ -394,6 +394,15 @@ class DebconfFilter:
         if command == 'STOP':
             return True
 
+        if command == 'X_LOADTEMPLATEFILE' and len(params) >= 1:
+            # The template file we've been asked to load might actually be
+            # in the /target chroot rather than in the root filesystem. If
+            # so, rewrite the command.
+            if params[0].startswith('/'):
+                target_template = os.path.join('/target', params[0][1:])
+                if os.path.exists(target_template):
+                    params[0] = target_template
+
         try:
             if not self.escaping:
                 params = map(misc.debconf_escape, params)

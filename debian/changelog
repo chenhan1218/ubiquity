@@ -1,8 +1,13 @@
 ubiquity (2.0.1) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Check to see whether X crashed or ubiquity crashed before attempting
     to bail into the noninteractive frontend from only-ubiquity mode
     (LP: #444901).
+
+  [ Colin Watson ]
+  * Rewrite X_LOADTEMPLATEFILE commands in case they refer to template files
+    in the /target chroot (LP: #452118).
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 15 Oct 2009 14:36:54 +0100
 
