@@ -75,8 +75,7 @@ class Wizard(ParentFrontend.Wizard):
         self.login_encrypt.set_sensitive(False)
 
         #we aren't allowed to remove lirc right now
-        self.remote_control_support.set_active(True)
-        self.remote_control_support.set_sensitive(False)
+        self.remote_control_support.hide()
 
         #Prepopulate some dynamic pages
         self.populate_lirc()
