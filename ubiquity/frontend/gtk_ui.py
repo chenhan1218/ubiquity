@@ -1512,12 +1512,21 @@ class Wizard(BaseFrontend):
                     a.hide()
                     self.format_warning_align = a
                     label = gtk.Label()
+                    label.set_line_wrap(True)
+                    def wrap_fix(widget, allocation):
+                        # FIXME evand 2009-10-19: This is horrendous, but it's
+                        # all we have until the extended layout branch of GTK+
+                        # gets merged (bgo #101968).  The major side effect is
+                        # that you cannot shrink the window, even after you've
+                        # grown it.
+                        widget.set_size_request(allocation.width, -1)
+                    label.connect('size-allocate', wrap_fix)
                     self.format_warning = label
                     hbox = gtk.HBox(spacing=6)
                     img = gtk.Image()
                     img.set_from_icon_name('gtk-dialog-warning', gtk.ICON_SIZE_BUTTON)
                     hbox.pack_start(img, expand=False, fill=False)
-                    hbox.pack_start(label, expand=False, fill=False)
+                    hbox.pack_start(label, expand=True, fill=True)
                     a.add(hbox)
                     vbox.add(a)
                     

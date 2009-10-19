@@ -4,6 +4,8 @@ ubiquity (2.0.1) UNRELEASED; urgency=low
   * Check to see whether X crashed or ubiquity crashed before attempting
     to bail into the noninteractive frontend from only-ubiquity mode
     (LP: #444901).
+  * Wrap the format warning label while working around GTK+ label layout
+    problems (LP: #364617).
 
   [ Colin Watson ]
   * Rewrite X_LOADTEMPLATEFILE commands in case they refer to template files
