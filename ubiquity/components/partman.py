@@ -115,6 +115,7 @@ class Page(Plugin):
                      '^partman-partitioning/new_partition_(size|type|place)$',
                      '^partman-target/choose_method$',
                      '^partman-basicfilesystems/(fat_mountpoint|mountpoint|mountpoint_manual)$',
+                     '^partman-uboot/mountpoint$',
                      '^partman/exception_handler$',
                      '^partman/exception_handler_note$',
                      '^partman/unmount_active$',
@@ -1022,7 +1023,8 @@ class Page(Plugin):
                 raise AssertionError, "Arrived at %s unexpectedly" % question
 
         elif question in ('partman-basicfilesystems/mountpoint',
-                          'partman-basicfilesystems/fat_mountpoint'):
+                          'partman-basicfilesystems/fat_mountpoint',
+                          'partman-uboot/mountpoint'):
             if self.building_cache:
                 state = self.__state[-1]
                 assert state[0] == 'partman/active_partition'
