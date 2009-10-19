@@ -275,7 +275,7 @@ class Page(Plugin):
 
         if fs in ('fat16', 'fat32', 'ntfs'):
             question = 'partman-basicfilesystems/fat_mountpoint'
-        elif fs in ('uboot'):
+        elif fs == 'uboot':
             question = 'partman-uboot/mountpoint' 
         else:
             question = 'partman-basicfilesystems/mountpoint'
