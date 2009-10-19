@@ -20,7 +20,10 @@ ubiquity (2.0.1) UNRELEASED; urgency=low
   [ Roman Shtylman ]
   * Fixed India timezone map (LP: #453009) 
 
- -- Roman Shtylman <shtylman@gmail.com>  Sun, 18 Oct 2009 20:51:15 -0400
+  [ Michael Casadevall ]
+  * Added support for partman-uboot in ubiquity (LP: #455713)
+
+ -- Michael Casadevall <mcasadevall@daybreak.cofederation.dynalias.com>  Mon, 19 Oct 2009 16:08:54 -0400
 
 ubiquity (2.0.0) karmic; urgency=low
 

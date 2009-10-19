@@ -1631,7 +1631,7 @@ class Wizard(BaseFrontend):
         if not hasattr(self, 'create_use_method_names'):
             return
         known_filesystems = ('ext4', 'ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
-                             'fat16', 'fat32', 'ntfs')
+                             'fat16', 'fat32', 'ntfs', 'uboot')
         text = unicode(self.create_dialog.partition_create_use_combo.currentText())
         if text not in self.create_use_method_names:
             return
