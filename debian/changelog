@@ -12,7 +12,10 @@ ubiquity (2.0.1) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Mythbuntu: Don't allow "removing" LIRC as it's not supported with install.
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 15 Oct 2009 14:36:54 +0100
+  [ Roman Shtylman ]
+  * Fixed India timezone map (LP: #453009) 
+
+ -- Roman Shtylman <shtylman@gmail.com>  Sun, 18 Oct 2009 20:51:15 -0400
 
 ubiquity (2.0.0) karmic; urgency=low
 
