@@ -10,6 +10,7 @@ ubiquity (2.0.1) UNRELEASED; urgency=low
     in the /target chroot (LP: #452118).
   * Install -generic-pae kernels if necessary; this requires some custom
     hacks since -generic-pae isn't in the live filesystem (LP: #413135).
+  * Don't do kernel installation/removal in oem-config.
 
   [ Mario Limonciello ]
   * Mythbuntu: Don't allow "removing" LIRC as it's not supported with install.

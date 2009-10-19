@@ -2075,6 +2075,9 @@ exit 0"""
         """Remove unusable kernels; keeping them may cause us to be unable
         to boot."""
 
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            return
+
         self.db.progress('START', 0, 5, 'ubiquity/install/title')
 
         self.db.progress('INFO', 'ubiquity/install/find_removables')
