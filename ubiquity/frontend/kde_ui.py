@@ -1767,7 +1767,7 @@ class Wizard(BaseFrontend):
         # point makes no sense. TODO cjwatson 2007-01-31: Unfortunately we
         # have to hardcode the list of known filesystems here.
         known_filesystems = ('ext4', 'ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
-                             'fat16', 'fat32', 'ntfs')
+                             'fat16', 'fat32', 'ntfs', 'uboot')
         text = unicode(self.edit_dialog.partition_edit_use_combo.currentText())
         if text not in self.edit_use_method_names:
             return
