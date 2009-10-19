@@ -2083,6 +2083,19 @@ exit 0"""
         dbfilter = check_kernels.CheckKernels(None)
         dbfilter.run_command(auto_process=True)
 
+        install_kernels = set()
+        if os.path.exists("/var/lib/ubiquity/install-kernels"):
+            install_kernels_file = open("/var/lib/ubiquity/install-kernels")
+            for line in install_kernels_file:
+                kernel = line.strip()
+                install_kernels.add(kernel)
+                # If we decided to actively install a particular kernel like
+                # this, it's probably because we prefer it to the default
+                # one, so we'd better update kernel_version to match.
+                if kernel.startswith('linux-image-2.'):
+                    self.kernel_version = kernel[12:]
+            install_kernels_file.close()
+
         remove_kernels = set()
         if os.path.exists("/var/lib/ubiquity/remove-kernels"):
             remove_kernels_file = open("/var/lib/ubiquity/remove-kernels")
@@ -2090,14 +2103,22 @@ exit 0"""
                 remove_kernels.add(line.strip())
             remove_kernels_file.close()
 
-        if len(remove_kernels) == 0:
+        if len(install_kernels) == 0 and len(remove_kernels) == 0:
             self.db.progress('STOP')
             return
 
+        # TODO cjwatson 2009-10-19: These regions are rather crude and
+        # should be improved.
         self.db.progress('SET', 1)
-        self.db.progress('REGION', 1, 5)
+        self.db.progress('REGION', 1, 2)
+        if install_kernels:
+            self.do_install(install_kernels)
+
+        self.db.progress('SET', 2)
+        self.db.progress('REGION', 2, 5)
         try:
-            self.do_remove(remove_kernels, recursive=True)
+            if remove_kernels:
+                self.do_remove(remove_kernels, recursive=True)
         except:
             self.db.progress('STOP')
             raise

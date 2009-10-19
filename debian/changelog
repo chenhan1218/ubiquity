@@ -8,6 +8,8 @@ ubiquity (2.0.1) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Rewrite X_LOADTEMPLATEFILE commands in case they refer to template files
     in the /target chroot (LP: #452118).
+  * Install -generic-pae kernels if necessary; this requires some custom
+    hacks since -generic-pae isn't in the live filesystem (LP: #413135).
 
   [ Mario Limonciello ]
   * Mythbuntu: Don't allow "removing" LIRC as it's not supported with install.
