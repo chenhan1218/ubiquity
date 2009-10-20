@@ -2,6 +2,14 @@
 # Check that the root filesystem is large enough to hold /rofs.
 . /lib/partman/lib/base.sh
 
+db_get partman-auto/method
+if [ "$RET" = loop ]; then
+	# Wubi does some of its own checks which help defend against this,
+	# and the delay imposed by this check looks particularly weird in
+	# Wubi.
+	exit 0
+fi
+
 # Fudge factors
 rootfudge=200000000 # 200MB
 bootmultfudge=3

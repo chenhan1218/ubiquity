@@ -13,6 +13,11 @@ ubiquity (2.0.1) UNRELEASED; urgency=low
   * Install -generic-pae kernels if necessary; this requires some custom
     hacks since -generic-pae isn't in the live filesystem (LP: #413135).
   * Don't do kernel installation/removal in oem-config.
+  * Skip partition_too_small check during Wubi installs, as Wubi does some
+    of its own checks and the delay imposed by this check looks particularly
+    weird in Wubi. This may or may not be the cause of apparent hangs
+    towards the end of partitioning, but I suspect that it will at least get
+    rid of some conflated reports and make testing quicker.
 
   [ Mario Limonciello ]
   * Mythbuntu: Don't allow "removing" LIRC as it's not supported with install.
