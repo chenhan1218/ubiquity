@@ -1,4 +1,4 @@
-ubiquity (2.0.2) UNRELEASED; urgency=low
+ubiquity (2.0.2) karmic; urgency=low
 
   [ Evan Dandrea ]
   * Properly set the size of the partition to be created upon resizing
@@ -10,7 +10,7 @@ ubiquity (2.0.2) UNRELEASED; urgency=low
   * KDE frontend: Fix incorrect error message when the slideshow doesn't
     exist.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 20 Oct 2009 12:04:04 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 20 Oct 2009 16:09:07 +0100
 
 ubiquity (2.0.1) karmic; urgency=low
 
