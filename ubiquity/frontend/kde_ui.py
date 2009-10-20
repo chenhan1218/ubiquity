@@ -464,6 +464,7 @@ class Wizard(BaseFrontend):
             self.hostname_edited = True
             self.ui.login_pass.hide()
             self.ui.login_auto.hide()
+            self.ui.login_encrypt.hide()
             
             # The UserSetup component takes care of preseeding passwd/user-uid.
             execute_root('apt-install', 'oem-config-kde')

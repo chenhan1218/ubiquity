@@ -2,6 +2,8 @@ ubiquity (2.0.2) UNRELEASED; urgency=low
 
   * Properly set the size of the partition to be created upon resizing
     in the KDE frontend (LP: #455580).
+  * Hide the encrypt home radio button in the KDE frontend when in oem-config
+    mode (LP: #455479).
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 20 Oct 2009 12:04:04 +0100
 
