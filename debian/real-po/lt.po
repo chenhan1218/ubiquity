@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-10-10 10:36+0000\n"
-"Last-Translator: Aurimas Fišeras <Unknown>\n"
+"PO-Revision-Date: 2009-10-19 06:15+0000\n"
+"Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-14 21:44+0000\n"
+"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -498,7 +498,7 @@ msgstr "Po įdiegimo:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 msgid "New Partition Table..."
-msgstr "Nauja skaidinių lentelė..."
+msgstr "Nauja skirsnių lentelė..."
 
 #. Type: text
 #. Description
@@ -664,7 +664,7 @@ msgstr "Populiarumo varžybos"
 #. Description
 #: ../ubiquity.templates:90001
 msgid "Participate in the package usage survey"
-msgstr "Dalyvauti paketų vartojimo apžvalgoje"
+msgstr "Dalyvauti paketų naudojimo apžvalgoje"
 
 #. Type: text
 #. Description
@@ -1116,7 +1116,7 @@ msgid ""
 "partitions at least this large (in bytes):"
 msgstr ""
 "Kai kurie jūsų sukurti skirsniai yra per maži. Prašome padaryti šiuos "
-"skirsnius ne mažesnius nei ( baitais ):"
+"skirsnius ne mažesnius nei (baitais):"
 
 #. Type: boolean
 #. Description
@@ -1186,7 +1186,7 @@ msgstr "Disko konfigūracija"
 #. Description
 #: ../ubiquity.templates:162001
 msgid "User Info"
-msgstr "Naudotojo duomenys"
+msgstr "Informacija apie naudotoją"
 
 #. Type: text
 #. Description

@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-10-14 21:03+0000\n"
-"Last-Translator: samuel-hk <sjacs1339@gmail.com>\n"
+"PO-Revision-Date: 2009-10-15 15:26+0000\n"
+"Last-Translator: Meissa Heka <aayjaychan@yahoo.com.hk>\n"
 "Language-Team: Chinese (Hong Kong) <zh_HK@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-14 21:44+0000\n"
+"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -33,7 +33,7 @@ msgstr "清除所有資料，使用整個硬碟"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "並列安裝，每次開機時選擇"
 
 #. Type: text
 #. Description
@@ -236,6 +236,7 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"再填密碼，以防打錯。好密碼應俱具文字、數字與符號，最少八位，並定時更改。"
 
 #. Type: text
 #. Description
@@ -267,7 +268,7 @@ msgstr "需要密碼以登入"
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr ""
+msgstr "需要密碼方能登入及解密家目錄"
 
 #. Type: text
 #. Description
@@ -793,6 +794,8 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
+"有此問題，多數因為 CD/DVD 碟或機有事。清理或以低速度燒錄 CD/DVD、清理 CD/DVD "
+"光碟機的雷射針頭可能解決到（通常電子產品供應商皆提供清潔套件）。"
 
 #. Type: error
 #. Description
@@ -802,6 +805,8 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
+"此問題多由問題硬碟引致。檢查硬碟是否太舊而需要更換，或是移動系統到更涼快的環"
+"境可能解決到。"
 
 #. Type: error
 #. Description
@@ -819,6 +824,9 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
+"有此問題，多數因為 CD/DVD 碟或機有事，或是硬碟有問題。清理或以低速度燒錄 CD/"
+"DVD、清理 CD/DVD 光碟機的雷射針頭、檢查硬碟是否太舊而需要更換、移動系統到更涼"
+"快的環境可能解決到（通常電子產品供應商皆提供清潔套件）。"
 
 #. Type: select
 #. Description
@@ -1123,7 +1131,7 @@ msgstr "鍵盤"
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Disk Setup"
-msgstr ""
+msgstr "磁碟設定"
 
 #. Type: text
 #. Description
@@ -1158,6 +1166,16 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" 安裝類型: ${INSTALLTYPE}\n"
+"語言: ${LANGUAGE}\n"
+"鍵盤配置: ${KEYMAP}\n"
+"名稱: ${FULLNAME}\n"
+"登入名稱: ${USERNAME}\n"
+"地點: ${LOCATION}\n"
+"紅外線搖控: ${REMOTE}\n"
+"紅外線傳輸器: ${TRANSMITTER}\n"
+"顯示卡驅動程式: ${VIDEO_DRIVER}\n"
+"服務: ${SERVICES}"
 
 #. Type: text
 #. Description

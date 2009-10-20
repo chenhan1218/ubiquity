@@ -18,6 +18,7 @@ ubiquity (2.0.1) UNRELEASED; urgency=low
     weird in Wubi. This may or may not be the cause of apparent hangs
     towards the end of partitioning, but I suspect that it will at least get
     rid of some conflated reports and make testing quicker.
+  * Update translations from Launchpad.
 
   [ Mario Limonciello ]
   * Mythbuntu: Don't allow "removing" LIRC as it's not supported with install.

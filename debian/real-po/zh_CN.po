@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-10-07 17:32+0000\n"
-"Last-Translator: Tao Wei <weitao1979@gmail.com>\n"
+"PO-Revision-Date: 2009-10-16 10:35+0000\n"
+"Last-Translator: Aron Xu <happyaron.xu@gmail.com>\n"
 "Language-Team: Simplified Chinese <debian-chinese-gb@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-14 21:44+0000\n"
+"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -38,7 +38,7 @@ msgstr "分别安装它们，在启动时从中选择"
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr "手动指定分区（高级）"
+msgstr "手动指定分区(高级)"
 
 #. Type: text
 #. Description
@@ -53,7 +53,7 @@ msgstr "安装"
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "安装（OEM 模式，仅供制造商使用）"
+msgstr "安装(OEM 模式，仅供制造商使用)"
 
 #. Type: text
 #. Description
@@ -69,8 +69,8 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"准备安装了吗？在回答几个问题之后，Live CD 的内容就可以安装到计算机上，您就可"
-"以全速运行系统，而不再需要这张 CD 了。"
+"准备好进行安装了吗？在回答几个问题之后，Live CD 的内容就可以安装到计算机上，"
+"您就可以全速运行系统而不再需要这张 CD 了。"
 
 #. Type: text
 #. Description
@@ -100,7 +100,7 @@ msgstr "在回答一些问题以后，这台电脑就可以使用了。"
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
-msgstr "请选择配置阶段中所使用的语言，这个语言将会成为这台计算机的默认语言。"
+msgstr "请选择配置阶段中所使用的语言，该语言将会成为这台计算机的默认语言。"
 
 #. Type: text
 #. Description
@@ -120,13 +120,13 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
-"如果您能够连接到互联网，请阅读发行说明，其中包含可能会影响到您的问题的信息。"
+"如果您能够连接到互联网，请阅读发行注记，其中包含可能会影响到您的问题的信息。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Release Notes"
-msgstr "发行说明"
+msgstr "发行注记"
 
 #. Type: text
 #. Description
@@ -155,19 +155,19 @@ msgstr "区域："
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Region:"
-msgstr "区域："
+msgstr "地区："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Keyboard layout"
-msgstr "选择键盘布局"
+msgstr "键盘布局"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Which layout is most similar to your keyboard?"
-msgstr "您最喜欢的键盘布局?"
+msgstr "最适合您的键盘布局？"
 
 #. Type: text
 #. Description
@@ -191,7 +191,7 @@ msgstr "选择您的："
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Who are you?"
-msgstr "你是谁？"
+msgstr "您是谁？"
 
 #. Type: text
 #. Description
@@ -235,7 +235,7 @@ msgid ""
 "intervals."
 msgstr ""
 "输入两次相同的密码，以避免输入错误。好的密码应该混合字母、数字和标点，长度至"
-"少8位，并且需要定期更换。"
+"少 8 位，并且需要定期更换。"
 
 #. Type: text
 #. Description
@@ -249,7 +249,7 @@ msgstr "这台计算机的名称是什么？"
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr "如果您让网络上的其他人看到这台计算机，那么这个名称将被使用。"
+msgstr "如果您让网络上的其他人看到这台计算机，那么将使用这个名称。"
 
 #. Type: text
 #. Description
@@ -261,13 +261,13 @@ msgstr "自动登录"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Require my password to log in"
-msgstr "需要密码来登录"
+msgstr "登录时需要密码"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr "需要密码来登录并且加密我的主文件夹"
+msgstr "登录时需要密码并且加密我的主目录"
 
 #. Type: text
 #. Description
@@ -307,7 +307,7 @@ msgstr "准备硬盘空间"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "How do you want to partition the disk?"
-msgstr "您希望怎么分区？"
+msgstr "您希望如何对硬盘分区？"
 
 #. Type: text
 #. Description
@@ -319,7 +319,7 @@ msgstr "这台计算机没有安装操作系统。"
 #. Description
 #: ../ubiquity.templates:42001
 msgid "This computer has ${OS} on it."
-msgstr "这台计算机安装了 ${OS} 操作系统。"
+msgstr "这台计算机已安装了 ${OS} 操作系统。"
 
 #. Type: text
 #. Description
@@ -359,7 +359,7 @@ msgstr "准备开始安装"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Details"
-msgstr "详细信息"
+msgstr "详情"
 
 #. Type: text
 #. Description
@@ -386,7 +386,7 @@ msgstr "安装"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr "第 ${INDEX} 步（共 ${TOTAL} 步）"
+msgstr "第 ${INDEX} 步(共 ${TOTAL} 步)"
 
 #. Type: title
 #. Description
@@ -443,10 +443,10 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
-"十分抱歉，安装程序已崩溃。请前往 https://launchpad.net/ubuntu/+source/"
-"ubiquity/+filebug 提交一个新的错误报告（请不要附加到现有的bug上），开发者会尽"
-"快处理这个问题。为了让开发者更好的明白问题所在，请将下列信息包含在报告中，并"
-"且将 /var/log/syslog 和 /var/log/partman 作为附件上传："
+"对不起，安装程序已崩溃。请前往 https://launchpad.net/ubuntu/+source/ubiquity/"
+"+filebug?no-redirect 提交一个新的错误报告(请不要附加到已有的 bug 上)，开发者"
+"会尽快处理这个问题。为了让开发者更好的明白问题所在，请将下列信息包含在报告"
+"中，并且将 /var/log/syslog 和 /var/log/partman 作为附件上传："
 
 #. Type: text
 #. Description
@@ -469,7 +469,7 @@ msgstr "之后："
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:64001
 msgid "New Partition Table..."
-msgstr "新分区表..."
+msgstr "新建分区表..."
 
 #. Type: text
 #. Description
@@ -548,7 +548,7 @@ msgstr "已用"
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:75001
 msgid "free space"
-msgstr "空闲空间"
+msgstr "空闲"
 
 #. Type: text
 #. Description
@@ -575,7 +575,7 @@ msgstr "新建分区容量(MB)："
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Beginning"
-msgstr "起始处"
+msgstr "起始"
 
 #. Type: text
 #. Description
@@ -663,8 +663,8 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"安装已经完成。您现在可以继续测试Ubuntu，但是重启以前您所做的任何更改以及保存"
-"的任何文档都不会保留。"
+"安装已经完成。您可以继续测试 Ubuntu，但是重启前任何您做的更改以及保存的文档都"
+"不会保留。"
 
 #. Type: text
 #. Description
@@ -742,7 +742,7 @@ msgstr "正在复制文件..."
 #. Description
 #: ../ubiquity.templates:105001
 msgid "Almost finished copying files..."
-msgstr "复制文件即将完毕..."
+msgstr "正在完成文件复制..."
 
 #. Type: error
 #. Description
@@ -781,8 +781,8 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"这是因为目标分区上没有足够磁盘空间供安装使用。请重新运行安装程序并选择一个更"
-"大的分区来安装。"
+"目标分区上没有足够磁盘空间供安装使用。请重新运行安装程序并选择一个更大的分区"
+"进行安装。"
 
 #. Type: error
 #. Description
@@ -792,7 +792,7 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"这常归咎于错误的 CD/DVD 盘片或者驱动器。也许清洁盘片，用低速来刻录 CD/DVD，或"
+"这常归咎于错误的 CD/DVD 盘片或者驱动器。也许清洁盘片、用低速来刻录 CD/DVD 或"
 "者清洁 CD/DVD 驱动器的镜头会有帮助(清洁工具通常可以从电子供应商那里得到)。"
 
 #. Type: error
@@ -823,9 +823,9 @@ msgid ""
 "replacement, or to move the system to a cooler environment."
 msgstr ""
 "这通常是由于 CD/DVD 盘片或驱动器有问题，或是硬盘错误造成的。以下措施可能有助"
-"于解决问题：清洁盘片，低速刻录，或者清洁 CD/DVD 驱动器镜头(清洁工具通常可在电"
-"子设备供应商处获得)，检查硬盘是否太旧而需要更换，或者把硬盘放置到散热良好的环"
-"境中。"
+"于解决问题：清洁盘片、低速刻录或者清洁 CD/DVD 驱动器镜头(清洁工具通常可在电子"
+"设备供应商处获得)、检查硬盘是否太旧而需要更换或者把硬盘放置到散热良好的环境"
+"中。"
 
 #. Type: select
 #. Description
@@ -855,7 +855,7 @@ msgstr "正在配置区域设置..."
 #. Description
 #: ../ubiquity.templates:114001
 msgid "Configuring apt..."
-msgstr "正在配置 apt..."
+msgstr "正在配置 APT..."
 
 #. Type: text
 #. Description
@@ -927,13 +927,13 @@ msgstr "正在删除额外的软件包..."
 #. Description
 #: ../ubiquity.templates:126001
 msgid "Checking for packages to remove..."
-msgstr "正在检测要删除的软件包..."
+msgstr "正在检查要删除的软件包…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:127001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "正在下载软件包（剩余时间 ${TIME}）..."
+msgstr "正在下载软件包(剩余时间 ${TIME})..."
 
 #. Type: text
 #. Description
@@ -945,7 +945,7 @@ msgstr "正在下载软件包列表..."
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "正在下载软件包列表（剩余时间 ${TIME}）..."
+msgstr "正在下载软件包列表(剩余时间 ${TIME})..."
 
 #. Type: error
 #. Description
@@ -957,7 +957,7 @@ msgstr "安装 ${PACKAGE} 时出错"
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Error removing ${PACKAGE}"
-msgstr "删除 ${PACKAGE} 时发生错误"
+msgstr "删除 ${PACKAGE} 时出错"
 
 #. Type: error
 #. Description
@@ -977,7 +977,7 @@ msgstr "安装软件包时发生了一个错误："
 #. Description
 #: ../ubiquity.templates:133001 ../ubiquity.templates:134001
 msgid "The following packages are in a broken state:"
-msgstr "下列软件包已经损坏："
+msgstr "下列软件包已损坏："
 
 #. Type: error
 #. Description
@@ -994,10 +994,10 @@ msgid ""
 "distributor."
 msgstr ""
 "这个错误可能是由于您使用了一个旧的安装镜像所造成，也可能是由上面所列出的某些"
-"包中的错误所造成。您可以在“/var/log/syslog”中发现更多的细节。安装程序将继续运"
+"包中的错误所造成。您可以在“/var/log/syslog”中找到更多细节。安装程序将继续运"
 "行，但有可能会安装失败，而且会造成您无法在已经安装的系统中安装或删除其他的包"
-"（可能包括这个程序自身）。您最好用一个新版本的安装镜像，或把这个问题报告给程"
-"序的发布者。"
+"(可能包括这个程序自身)。建议使用一个新版本的安装镜像，或把这个问题报告给程序"
+"的发布者。"
 
 #. Type: error
 #. Description
@@ -1027,7 +1027,7 @@ msgstr "正在安装语言包"
 #. Description
 #: ../ubiquity.templates:139001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "正在下载语言包（剩余时间 ${TIME}）..."
+msgstr "正在下载语言包(剩余 ${TIME})..."
 
 #. Type: boolean
 #. Description
@@ -1041,7 +1041,7 @@ msgstr "卸载分区失败"
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
-msgstr "安装程序需要更改分区表，但未能实现，因为以下挂载点上的分区不能被卸载："
+msgstr "安装程序需要更改分区表，但未能实现，因为不能卸载以下挂载点上的分区："
 
 #. Type: boolean
 #. Description
@@ -1067,7 +1067,7 @@ msgstr "您希望返回到分区工具吗？"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
-msgstr "您建立的一些分区太小。请确保以下分区最少拥有这么大（字节）："
+msgstr "您建立的一些分区太小。请确保以下分区最少拥有的字节数："
 
 #. Type: boolean
 #. Description
@@ -1105,7 +1105,7 @@ msgstr "软件选择"
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Applying configuration"
-msgstr "应用设置"
+msgstr "正在应用设置"
 
 #. Type: text
 #. Description
@@ -1167,7 +1167,7 @@ msgstr ""
 " 安装类型：${INSTALLTYPE}\n"
 " 语言：${LANGUAGE}\n"
 " 键盘布局：${KEYMAP}\n"
-" 姓名：${FULLNAME}\n"
+" 全名：${FULLNAME}\n"
 " 登录名：${USERNAME}\n"
 " 地点：${LOCATION}\n"
 " 红外遥控器：${REMOTE}\n"
@@ -1201,7 +1201,7 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
-"对于需要用于 HPTC 应用的 MythTV 的人群，一个后端／前端复合机是最常见的安装方"
+"对于需要用于 HPTC 应用的 MythTV 的人群，一个后端/前端复合机是最常见的安装方"
 "案。该安装类型旨在作为您的家庭影院中的一个组件使用。"
 
 #. Type: text
@@ -1234,7 +1234,7 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
-"一个纯后端机是典型仿家电功能的设计；只需要很少的维护。其会被以网络内首个后端"
+"一个纯后端机是典型仿家电功能的设计，只需要很少的维护。其会被以网络内首个后端"
 "的形式被安装。"
 
 #. Type: text
@@ -1339,7 +1339,7 @@ msgstr "MySQL 服务器"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Configure Guide Data / Backend"
-msgstr "配置收视信息／后端"
+msgstr "配置收视信息/后端"
 
 #. Type: text
 #. Description
@@ -1363,8 +1363,8 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
-"北美用户将需要设置一个迅捷预定帐户（SD）。这个账户提供收视信息，只收取象征性"
-"的费用。没有这个账户，北美用户可能会失去很多 MythTV 的预定功能。"
+"北美用户将需要设置一个迅捷预定帐户(SD)。该账户提供收视信息，只收取象征性的费"
+"用。没有这个账户北美用户可能会失去很多 MythTV 的预定功能。"
 
 #. Type: text
 #. Description

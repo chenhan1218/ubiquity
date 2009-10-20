@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-09-28 19:19+0000\n"
-"Last-Translator: William Bohn <willbohn@gmail.com>\n"
+"PO-Revision-Date: 2009-10-16 17:33+0000\n"
+"Last-Translator: Shushi Kurose <md81bird@hitaki.net>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-14 21:44+0000\n"
+"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -69,9 +69,9 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"インストールの準備はよろしいですか？ いくつかの質問に答えると、ライブCDの中身"
-"がコンピュータにインストールされます。インストールすれば、CDを使うことなく高"
-"速にシステムを動作させることができます。"
+"インストールの準備はよろしいですか？いくつかの質問に答えると、ライブCDの中身"
+"がコンピュータにインストールされます。インストール後は、CDを使うことなく高速"
+"にシステムを動作させることができます。"
 
 #. Type: text
 #. Description
@@ -96,6 +96,8 @@ msgstr ""
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
+"いくつかの質問に答えるだけで、このコンピュータをすぐに利用することができま"
+"す。"
 
 #. Type: text
 #. Description
@@ -104,6 +106,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
+"設定作業で利用する言語を選択してください。この言語はこのコンピュータのデフォ"
+"ルトの言語として設定されます。"
 
 #. Type: text
 #. Description
@@ -147,6 +151,9 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"現在地を選択してください。現在地を選択すると、国ごとの慣習に合わせた適切な表"
+"示をしたり、近くのサイトからアップデートを取得したり、時計を正確な現地時間に"
+"合わせることができます。"
 
 #. Type: text
 #. Description
@@ -273,19 +280,19 @@ msgstr "自動的にログインする"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Require my password to log in"
-msgstr ""
+msgstr "ログイン時にパスワードを要求する"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr "ログインと自分のhomeディレクトリを暗号化するためにパスワードを要求する"
+msgstr "ログイン時およびホーム・フォルダの復号化時にパスワードを要求する"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose another password"
-msgstr "他のパスワードを選んでください。"
+msgstr "他のパスワードを選ぶ"
 
 #. Type: text
 #. Description
@@ -766,7 +773,7 @@ msgstr "ファイルをコピーしています..."
 #. Description
 #: ../ubiquity.templates:105001
 msgid "Almost finished copying files..."
-msgstr ""
+msgstr "ファイルのコピーはまもなく完了します..."
 
 #. Type: error
 #. Description
@@ -1169,7 +1176,7 @@ msgstr "キーボード"
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Disk Setup"
-msgstr ""
+msgstr "ディスクのセットアップ"
 
 #. Type: text
 #. Description
@@ -1187,7 +1194,7 @@ msgstr "要約"
 #. Description
 #: ../ubiquity.templates:165001
 msgid "installation process"
-msgstr ""
+msgstr "インストール処理"
 
 #. Type: note
 #. Description

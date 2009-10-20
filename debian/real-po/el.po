@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2009-09-11 19:26+0100\n"
-"PO-Revision-Date: 2009-09-29 18:59+0000\n"
+"PO-Revision-Date: 2009-10-19 19:55+0000\n"
 "Last-Translator: Thanos Lefteris <alefteris@gmail.com>\n"
 "Language-Team: <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-14 21:44+0000\n"
+"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -365,7 +365,7 @@ msgstr "Που θα θέλετε να εγκαταστήσετε το ${RELEASE}
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Prepare partitions"
-msgstr "Προετοιμασία τμημάτων"
+msgstr "Προετοιμασία κατατμήσεων"
 
 #. Type: text
 #. Description
@@ -428,7 +428,7 @@ msgstr "Τερματισμός της εγκατάστασης;"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Do you really want to quit the installation now?"
-msgstr "Θέλετε πραγματικά να σταματήσετε την εγκατάσταση;"
+msgstr "Θέλετε πραγματικά να εγκαταλείψετε την εγκατάσταση;"
 
 #. Type: text
 #. Description
@@ -654,13 +654,13 @@ msgstr "Προχωρημένες Επιλογές"
 #. Description
 #: ../ubiquity.templates:87001
 msgid "Boot loader"
-msgstr "Boot loader"
+msgstr "Διαχειριστής εκκίνησης"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:88001
 msgid "Install boot loader"
-msgstr "Εγκατάσταση boot loader"
+msgstr "Εγκατάσταση διαχειριστή εκκίνησης"
 
 #. Type: text
 #. Description
@@ -672,7 +672,7 @@ msgstr "Διαγωνισμός δημοφιλίας"
 #. Description
 #: ../ubiquity.templates:90001
 msgid "Participate in the package usage survey"
-msgstr "Συμμετέχετε στην έρευνα για τη χρήση των πακέτων εφαρμογών"
+msgstr "Συμμετοχή στην έρευνα χρήσης των εφαρμογών"
 
 #. Type: text
 #. Description
@@ -684,7 +684,7 @@ msgstr "Διακομιστής μεσολάβησης (proxy)"
 #. Description
 #: ../ubiquity.templates:92001
 msgid "HTTP proxy:"
-msgstr "Διακομιστής μεσολάβησης HTTP"
+msgstr "Διαμεσολαβητής HTTP:"
 
 #. Type: text
 #. Description
@@ -951,7 +951,7 @@ msgstr "Ρύθμιση ονόματος συστήματος...."
 #. Description
 #: ../ubiquity.templates:122001
 msgid "Configuring boot loader..."
-msgstr "Ρύθμιση boot loader..."
+msgstr "Ρύθμιση διαχειριστή εκκίνησης..."
 
 #. Type: text
 #. Description
@@ -1083,7 +1083,7 @@ msgstr "Λήψη πακέτων γλωσσικής υποστήριξης (${TIM
 #. Description
 #: ../ubiquity.templates:146001
 msgid "Failed to unmount partitions"
-msgstr "Σφάλμα κατά την αποπροσάρτηση των τμημάτων"
+msgstr "Σφάλμα κατά την αποπροσάρτηση των κατατμήσεων"
 
 #. Type: boolean
 #. Description
