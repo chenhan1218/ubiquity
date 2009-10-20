@@ -19,6 +19,9 @@ ubiquity (2.0.1) UNRELEASED; urgency=low
     towards the end of partitioning, but I suspect that it will at least get
     rid of some conflated reports and make testing quicker.
   * Update translations from Launchpad.
+  * Automatic update of included source packages: clock-setup 0.98ubuntu3,
+    flash-kernel 2.13ubuntu13, grub-installer 1.43ubuntu6, partman-auto
+    89ubuntu2, partman-target 64ubuntu4.
 
   [ Mario Limonciello ]
   * Mythbuntu: Don't allow "removing" LIRC as it's not supported with install.
