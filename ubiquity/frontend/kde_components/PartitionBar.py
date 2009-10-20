@@ -260,8 +260,8 @@ class PartitionsBar(QWidget):
         if not part:
             return
         
-        new_size = prefsize
-        part.size = new_size
+        new_size = part.size - prefsize
+        part.size = prefsize
         part.minsize = minsize
         part.maxsize = maxsize
         part.prefsize = prefsize
@@ -269,7 +269,7 @@ class PartitionsBar(QWidget):
         
         if part.next == None or part.next.index != -1:
             #if our resize partition is at the end or the next one is not free space
-            p = Partition(prefsize - new_size, 0, 'auto', 'Kubuntu')
+            p = Partition(new_size, 0, 'auto', 'Kubuntu')
             p.next = part.next
             part.next = p
             
@@ -278,7 +278,7 @@ class PartitionsBar(QWidget):
         else:
             #we had a next partition that was free space, use that
             #set the size of the next partition accordingly
-            part.next.size += prefsize - part.size
+            part.next.size += new_size
         
         # need mouse tracking to be able to change the cursor
         self.setMouseTracking(True)
