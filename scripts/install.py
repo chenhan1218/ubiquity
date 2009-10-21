@@ -1347,7 +1347,7 @@ exit 0"""
             # More extensive language support packages.
             if osextras.find_on_path('check-language-support'):
                 check_lang = subprocess.Popen(
-                    ['check-language-support', '-l', lp],
+                    ['check-language-support', '-l', lp, '--show-installed'],
                     stdout=subprocess.PIPE)
                 to_install.extend(check_lang.communicate()[0].strip().split())
             else:

@@ -1,3 +1,12 @@
+ubiquity (2.0.3) UNRELEASED; urgency=low
+
+  * Use new check-language-support --show-installed option added in
+    language-selector 0.4.16, so that we can arrange to keep language
+    support packages installed that are already present in the live
+    filesystem.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 21 Oct 2009 02:59:11 +0100
+
 ubiquity (2.0.2) karmic; urgency=low
 
   [ Evan Dandrea ]
