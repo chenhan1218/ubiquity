@@ -9,6 +9,11 @@ ubiquity (2.0.3) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Pass the debug parameters to ubiquity even if running in noninteractive
     mode.
+  * Don't provide the old init scripts, even under a temporary name anymore.
+    - It appears that there is a race condition that can exist between when
+      the upstart'ified version and the initscript version start that may cause
+      only-ubiquity and automatic-ubiquity to (poorly) fail. (LP: #457858)    
+    - All login managers in use (gdm and kdm) have converted to upstart now.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 21 Oct 2009 02:59:11 +0100
 
