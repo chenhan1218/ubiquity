@@ -1,9 +1,15 @@
 ubiquity (2.0.4) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Do not install the live CD kernel in the target system when using
     PAE (LP: #413135).
   * Properly set the kernel version in the main install process when
     using PAE so that symlinks get created for the kernel and initramfs.
+
+  [ Colin Watson ]
+  * Change apport hook to prefer syslog, partman, and casper.log from
+    /var/log/installer/ if they exist there, to support bug-filing after
+    installation.
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 23 Oct 2009 14:58:30 +0100
 

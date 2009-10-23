@@ -2,16 +2,19 @@
 
 import os.path
 
+def add_installation_log(ident, name):
+    if os.path.exists('/var/log/installer/%s' % name):
+        report[ident] = ('/var/log/installer/%s' % name,)
+    elif os.path.exists('/var/log/%s' % name):
+        report[ident] = ('/var/log/%s' % name,)
+
 def add_info(report):
-    if os.path.exists('/var/log/syslog'):
-        report['UbiquitySyslog'] = ('/var/log/syslog',)
-    if os.path.exists('/var/log/partman'):
-        report['UbiquityPartman'] = ('/var/log/partman',)
+    add_installation_log('UbiquitySyslog', 'syslog')
+    add_installation_log('UbiquityPartman', 'partman')
     if os.path.exists('/var/log/installer/debug'):
         report['UbiquityDebug'] = ('/var/log/installer/debug',)
     if os.path.exists('/var/log/installer/dm'):
         report['UbiquityDm'] = ('/var/log/installer/dm',)
-    if os.path.exists('/var/log/casper.log'):
-        report['Casper'] = ('/var/log/casper.log',)
+    add_installation_log('Casper', 'casper.log')
     if os.path.exists('/var/log/oem-config.log'):
         report['OemConfigLog'] = ('/var/log/oem-config.log',)
