@@ -54,7 +54,7 @@ case $preferred_kernels in
 	;;
 esac
 
-if [ -z "$compatible" ]; then
+if [ -z "$compatible" ] && [ -z "$install_new" ]; then
 	for kernel in $kernels; do
 		if arch_check_usable_kernel "$kernel" "$flavour"; then
 			compatible="${compatible:+$compatible }$kernel"

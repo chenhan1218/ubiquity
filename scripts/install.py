@@ -2070,6 +2070,20 @@ exit 0"""
 
         self.db.progress('STOP')
 
+    def traverse_for_kernel(self, cache, pkg):
+        kern = cache[pkg]
+        pkc = cache._depcache.GetCandidateVer(kern._pkg)
+        if pkc.DependsList.has_key('Depends'):
+            dependencies = pkc.DependsList['Depends']
+        else:
+            # Didn't find.
+            return None
+        for dep in dependencies:
+            name = dep[0].TargetPkg.Name
+            if name.startswith('linux-image-2.'):
+                return name
+            elif name.startswith('linux-'):
+                return self.traverse_for_kernel(cache, name)
 
     def remove_unusable_kernels(self):
         """Remove unusable kernels; keeping them may cause us to be unable
@@ -2097,6 +2111,12 @@ exit 0"""
                 # one, so we'd better update kernel_version to match.
                 if kernel.startswith('linux-image-2.'):
                     self.kernel_version = kernel[12:]
+                elif kernel.startswith('linux-generic-'):
+                    # Traverse dependencies to find the real kernel image.
+                    cache = Cache()
+                    kernel = self.traverse_for_kernel(cache, kernel)
+                    if kernel:
+                        self.kernel_version = kernel[12:]
             install_kernels_file.close()
 
         remove_kernels = set()

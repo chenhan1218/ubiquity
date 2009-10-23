@@ -1,3 +1,12 @@
+ubiquity (2.0.4) UNRELEASED; urgency=low
+
+  * Do not install the live CD kernel in the target system when using
+    PAE (LP: #413135).
+  * Properly set the kernel version in the main install process when
+    using PAE so that symlinks get created for the kernel and initramfs.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 23 Oct 2009 14:58:30 +0100
+
 ubiquity (2.0.3) karmic; urgency=low
 
   [ Colin Watson ]
