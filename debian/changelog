@@ -10,6 +10,8 @@ ubiquity (2.0.4) UNRELEASED; urgency=low
   * Change apport hook to prefer syslog, partman, and casper.log from
     /var/log/installer/ if they exist there, to support bug-filing after
     installation.
+  * Don't set the "incomplete language support" note if only gimp-help-* is
+    missing, since it's far too big to fit on CDs (LP: #452516).
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 23 Oct 2009 14:58:30 +0100
 

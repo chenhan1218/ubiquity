@@ -1374,6 +1374,10 @@ exit 0"""
         cache = Cache()
         incomplete = False
         for pkg in self.langpacks:
+            if pkg.startswith('gimp-help-'):
+                # gimp-help-common is far too big to fit on CDs, so don't
+                # worry about it.
+                continue
             cachedpkg = self.get_cache_pkg(cache, pkg)
             if cachedpkg is None or not cachedpkg.isInstalled:
                 incomplete = True
