@@ -13,7 +13,10 @@ ubiquity (2.0.4) UNRELEASED; urgency=low
   * Don't set the "incomplete language support" note if only gimp-help-* is
     missing, since it's far too big to fit on CDs (LP: #452516).
   * Make use of check-language-support -a if pkgsel/language-packs is ALL,
-    since that's orders of magnitude faster (see LP #458333).
+    since that's orders of magnitude faster (LP: #458333).
+  * Keep language-support-$LL installed if it happens to be in the live
+    filesystem, since there's no point spending time removing it; but don't
+    install it if it isn't in the live filesystem (LP: #458333).
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 23 Oct 2009 14:58:30 +0100
 

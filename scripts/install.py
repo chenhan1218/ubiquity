@@ -1336,7 +1336,10 @@ exit 0"""
         except debconf.DebconfError:
             return
 
+        cache = Cache()
+
         to_install = []
+        checker = osextras.find_on_path('check-language-support')
         for lp in langpacks:
             # Basic language packs, required to get localisation working at
             # all. We install these almost unconditionally; if you want to
@@ -1349,14 +1352,22 @@ exit 0"""
             # More extensive language support packages.
             # If pkgsel/language-packs is ALL, then speed things up by
             # calling check-language-support just once.
-            if (not all_langpacks and
-                osextras.find_on_path('check-language-support')):
+            if not all_langpacks and checker:
                 check_lang = subprocess.Popen(
                     ['check-language-support', '-l', lp, '--show-installed'],
                     stdout=subprocess.PIPE)
                 to_install.extend(check_lang.communicate()[0].strip().split())
             else:
                 to_install.append('language-support-%s' % lp)
+            if checker:
+                # Keep language-support-$LL installed if it happens to be in
+                # the live filesystem, since there's no point spending time
+                # removing it; but don't install it if it isn't in the live
+                # filesystem.
+                toplevel = 'language-support-%s' % lp
+                toplevel_pkg = self.get_cache_pkg(cache, toplevel)
+                if toplevel_pkg and toplevel_pkg.isInstalled:
+                    to_install.append(toplevel)
         if all_langpacks and osextras.find_on_path('check-language-support'):
             check_lang = subprocess.Popen(
                 ['check-language-support', '-a', '--show-installed'],
@@ -1367,9 +1378,9 @@ exit 0"""
         # that exist in the live filesystem's apt cache, so that we can tell
         # the difference between "no such language pack" and "language pack
         # not retrievable given apt configuration in /target" later on.
-        cache = Cache()
         to_install = [lp for lp in to_install
                          if self.get_cache_pkg(cache, lp) is not None]
+
         del cache
 
         self.record_installed(to_install)
