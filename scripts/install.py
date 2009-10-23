@@ -1304,6 +1304,7 @@ exit 0"""
             pass
 
         langpacks = []
+        all_langpacks = False
         try:
             langpack_db = self.db.get('pkgsel/language-packs')
             if langpack_db == 'ALL':
@@ -1311,6 +1312,7 @@ exit 0"""
                     ['apt-cache', '-n', 'search', '^language-pack-[^-][^-]*$'],
                     stdout=subprocess.PIPE).communicate()[0].rstrip().split('\n')
                 langpacks = map(lambda x: x.split('-')[2].strip(), apt_out)
+                all_langpacks = True
             else:
                 langpacks = langpack_db.replace(',', '').split()
         except debconf.DebconfError:
@@ -1345,13 +1347,21 @@ exit 0"""
             for pattern in lppatterns:
                 to_install.append(pattern.replace('$LL', lp))
             # More extensive language support packages.
-            if osextras.find_on_path('check-language-support'):
+            # If pkgsel/language-packs is ALL, then speed things up by
+            # calling check-language-support just once.
+            if (not all_langpacks and
+                osextras.find_on_path('check-language-support')):
                 check_lang = subprocess.Popen(
                     ['check-language-support', '-l', lp, '--show-installed'],
                     stdout=subprocess.PIPE)
                 to_install.extend(check_lang.communicate()[0].strip().split())
             else:
                 to_install.append('language-support-%s' % lp)
+        if all_langpacks and osextras.find_on_path('check-language-support'):
+            check_lang = subprocess.Popen(
+                ['check-language-support', '-a', '--show-installed'],
+                stdout=subprocess.PIPE)
+            to_install.extend(check_lang.communicate()[0].strip().split())
 
         # Filter the list of language packs to include only language packs
         # that exist in the live filesystem's apt cache, so that we can tell
