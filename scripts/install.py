@@ -279,6 +279,7 @@ class Install:
             '/cdrom', get_casper('LIVE_MEDIA_PATH', 'casper').lstrip('/'))
         self.kernel_version = platform.release()
         self.db = debconf.Debconf()
+        self.languages = []
         self.langpacks = []
         self.blacklist = {}
 
@@ -1329,6 +1330,7 @@ exit 0"""
         if not langpacks:
             langpack_db = self.db.get('debian-installer/locale')
             langpacks = [langpack_db.split('_')[0]]
+        self.languages = langpacks
         syslog.syslog('keeping language packs for: %s' % ' '.join(langpacks))
 
         try:
@@ -1391,6 +1393,9 @@ exit 0"""
             return
 
         self.do_install(self.langpacks)
+
+        if len(self.languages) == 1 and self.languages[0] in ('C', 'en'):
+            return # always complete enough
 
         cache = Cache()
         incomplete = False

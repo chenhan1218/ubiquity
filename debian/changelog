@@ -14,6 +14,9 @@ ubiquity (2.0.4) UNRELEASED; urgency=low
     installation.
   * Don't set the "incomplete language support" note if only gimp-help-* is
     missing, since it's far too big to fit on CDs (LP: #452516).
+  * Furthermore, always consider English as "complete enough". The packages
+    that are missing from an installation from the Ubuntu desktop CD are not
+    critical for a reasonable user experience.
   * Make use of check-language-support -a if pkgsel/language-packs is ALL,
     since that's orders of magnitude faster (LP: #458333).
   * Keep language-support-$LL installed if it happens to be in the live
