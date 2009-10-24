@@ -7,6 +7,8 @@ ubiquity (2.0.4) UNRELEASED; urgency=low
     using PAE so that symlinks get created for the kernel and initramfs.
   * Automatic update of included source packages: partman-base
     133ubuntu4.
+  * Automatic update of included source packages: grub-installer
+    1.43ubuntu8, partman-basicmethods 43ubuntu1.
 
   [ Colin Watson ]
   * Change apport hook to prefer syslog, partman, and casper.log from
