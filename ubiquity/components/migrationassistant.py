@@ -30,6 +30,9 @@ NAME = 'migrationassistant'
 class PageGtk(PluginUI):
     plugin_optional_widgets = 'stepMigrationAssistant'
 
+class PageNoninteractive(PluginUI):
+    pass
+
 class Page(FilteredCommand):
     def prepare(self):
         self.got_a_question = False

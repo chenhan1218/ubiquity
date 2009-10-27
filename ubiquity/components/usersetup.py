@@ -33,6 +33,9 @@ class PageKde(PluginUI):
 class PageDebconf(PluginUI):
     plugin_title = 'ubiquity/text/userinfo_heading_label'
 
+class PageNoninteractive(PluginUI):
+    pass
+
 class Page(FilteredCommand):
     def prepare(self, unfiltered=False):
         if self.frontend.get_hostname() == '':
