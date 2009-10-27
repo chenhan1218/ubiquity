@@ -109,6 +109,7 @@ EOF
 	bash
 
 	# Don't run again.
+	rm -f /var/lib/oem-config/run
 	update-rc.d -f oem-config remove >>/var/log/oem-config.log 2>&1
 
 	reboot
