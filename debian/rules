@@ -141,8 +141,8 @@ endif
 	done
 	sed 's/\\\$${!TAB}/ /g' \
 		debian/ubiquity/usr/lib/ubiquity/localechooser/localechooser \
-		> debian/ubiquity/usr/lib/ubiquity/localechooser/localechooser-oem
-	chmod +x debian/ubiquity/usr/lib/ubiquity/localechooser/localechooser-oem
+		> debian/ubiquity/usr/lib/ubiquity/localechooser/localechooser-debconf
+	chmod +x debian/ubiquity/usr/lib/ubiquity/localechooser/localechooser-debconf
 	install d-i/source/localechooser/finish-install \
 		debian/ubiquity/usr/lib/ubiquity/localechooser/
 	install d-i/source/tzsetup/post-base-installer.d/*tzsetup \

@@ -311,8 +311,9 @@ class Page(Plugin):
                 pass
 
         localechooser_script = '/usr/lib/ubiquity/localechooser/localechooser'
-        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
-            localechooser_script += '-oem'
+        if ('UBIQUITY_FRONTEND' in os.environ and
+            os.environ['UBIQUITY_FRONTEND'] == 'debconf_ui'):
+            localechooser_script += '-debconf'
 
         questions = ['localechooser/languagelist']
         environ = {'PATH': '/usr/lib/ubiquity/localechooser:' + os.environ['PATH']}
