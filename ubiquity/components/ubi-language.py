@@ -309,14 +309,18 @@ class Page(Plugin):
                 self.ui.set_oem_id(self.db.get('oem-config/id'))
             except debconf.DebconfError:
                 pass
+
+        localechooser_script = '/usr/lib/ubiquity/localechooser/localechooser'
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            localechooser_script += '-oem'
+
         questions = ['localechooser/languagelist']
         environ = {'PATH': '/usr/lib/ubiquity/localechooser:' + os.environ['PATH']}
         if 'UBIQUITY_FRONTEND' in os.environ and os.environ['UBIQUITY_FRONTEND'] == "debconf_ui":
           environ['TERM_FRAMEBUFFER'] = '1'
         else:
           environ['OVERRIDE_SHOW_ALL_LANGUAGES'] = '1'
-        return (['/usr/lib/ubiquity/localechooser/localechooser'], questions,
-                environ)
+        return (localechooser_script, questions, environ)
 
     def run(self, priority, question):
         if question == 'localechooser/languagelist':
