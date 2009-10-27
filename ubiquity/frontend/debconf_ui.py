@@ -28,7 +28,9 @@ import sys
 import os
 import textwrap
 
-from ubiquity.frontend.base import BaseFrontend
+from ubiquity.frontend.base import BaseFrontend, Controller
+from ubiquity.plugin import Plugin
+from ubiquity import i18n
 
 class Wizard(BaseFrontend):
     def __init__(self, distro):

@@ -10,6 +10,8 @@ ubiquity (2.0.5) UNRELEASED; urgency=low
   * Fix debconf frontend:
     - Start oem-config on stopping rc, as well as when starting display
       managers.
+    - Add some missing imports (ubiquity.frontend.base.Controller,
+      ubiquity.plugin.Plugin, ubiquity.i18n).
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 27 Oct 2009 10:16:58 +0000
 
