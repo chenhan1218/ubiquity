@@ -278,6 +278,9 @@ class PageKde(PageBase):
 class PageDebconf(PageBase):
     plugin_title = 'ubiquity/text/language_heading_label'
 
+    def __init__(self, controller, *args, **kwargs):
+        self.controller = controller
+
 class PageNoninteractive(PageBase):
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
