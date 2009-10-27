@@ -8,6 +8,8 @@ ubiquity (2.0.5) UNRELEASED; urgency=low
   * Fix broken reference in the apport hook (LP: #461757).
   * Add noninteractive pages for user-setup and migrationassistant as
     well.
+  * Automatic update of included source packages: user-setup
+    1.27ubuntu11.
 
   [ Colin Watson ]
   * Run partman in the noninteractive frontend (otherwise we try to install
