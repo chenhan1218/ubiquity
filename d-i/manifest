@@ -17,14 +17,14 @@ partman-auto 89ubuntu2
 partman-auto-loop 0ubuntu18
 partman-base 133ubuntu4
 partman-basicfilesystems 63ubuntu2
-partman-basicmethods 43ubuntu1
+partman-basicmethods 43ubuntu2
 partman-efi 20ubuntu1
 partman-ext3 58ubuntu1
 partman-jfs 30
 partman-newworld 21
 partman-partitioning 72ubuntu2
 partman-reiserfs 45
-partman-target 64ubuntu4
+partman-target 64ubuntu5
 partman-uboot 2.1
 partman-xfs 44
 preseed 1.42ubuntu1
