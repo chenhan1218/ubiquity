@@ -46,6 +46,9 @@ class Wizard(BaseFrontend):
     def __init__(self, distro):
         BaseFrontend.__init__(self, distro)
 
+        self.console = open('/dev/console', 'w')
+        if not self.console:
+            self.console = sys.stdout # better than crashing
         self.installing = False
         self.progress_position = ubiquity.progressposition.ProgressPosition()
         self.fullname = ''
@@ -76,7 +79,7 @@ class Wizard(BaseFrontend):
         # Is this even needed anymore now that Ubiquity elevates its
         # privileges?
         if os.getuid() != 0:
-            print 'This installer must be run with administrative ' \
+            print >>self.console, 'This installer must be run with administrative ' \
                 'privileges, and cannot continue without them.'
             sys.exit(1)
 
@@ -99,7 +102,7 @@ class Wizard(BaseFrontend):
 
         dbfilter = partman_commit.PartmanCommit(self)
         if dbfilter.run_command(auto_process=True) != 0:
-            print '\nUnable to commit the partition table, exiting.'
+            print >>self.console, '\nUnable to commit the partition table, exiting.'
             return
         
         dbfilter = install.Install(self)
@@ -120,7 +123,7 @@ class Wizard(BaseFrontend):
                                      (ret, realtb))
         else:
             self.run_success_cmd()
-            print 'Installation complete.'
+            print >>self.console, 'Installation complete.'
             if self.get_reboot():
                 execute("reboot")
 
@@ -191,7 +194,7 @@ class Wizard(BaseFrontend):
     def debconf_progress_set(self, progress_val):
         """Set the current progress bar's position to progress_val."""
         self.progress_val = progress_val
-        print '%d%%: %s' % (self.progress_val, self.progress_info)
+        print >>self.console, '%d%%: %s' % (self.progress_val, self.progress_info)
         return True
 
     def debconf_progress_step(self, progress_inc):
@@ -201,7 +204,7 @@ class Wizard(BaseFrontend):
     def debconf_progress_info(self, progress_info):
         """Set the current progress bar's message to progress_info."""
         self.progress_info = progress_info
-        print '%d%%: %s' % (self.progress_val, self.progress_info)
+        print >>self.console, '%d%%: %s' % (self.progress_val, self.progress_info)
         return True
 
     def debconf_progress_stop(self):
@@ -233,13 +236,13 @@ class Wizard(BaseFrontend):
 
     def get_autopartition_choice(self):
         """Get the selected autopartitioning choice."""
-        #print '*** get_autopartition_choice'
+        #print >>self.console, '*** get_autopartition_choice'
 
     # ubiquity.components.partman_commit
 
     def return_to_partitioning(self):
         """Return to partitioning following a commit error."""
-        print '\nCommit failed on partitioning.  Exiting.'
+        print >>self.console, '\nCommit failed on partitioning.  Exiting.'
         sys.exit(1)
 
     # ubiquity.components.migrationassistant
@@ -258,11 +261,11 @@ class Wizard(BaseFrontend):
 
     def ma_user_error(self, error, user):
         """The selected migration-assistant username was bad."""
-        print '\nError: %s: %s' % (user, error)
+        print >>self.console, '\nError: %s: %s' % (user, error)
 
     def ma_password_error(self, error, user):
         """The selected migration-assistant password was bad."""
-        print '\nError: %s: %s' % (user, error)
+        print >>self.console, '\nError: %s: %s' % (user, error)
 
     # ubiquity.components.usersetup
 
@@ -308,12 +311,12 @@ class Wizard(BaseFrontend):
 
     def username_error(self, msg):
         """The selected username was bad."""
-        print '\nusername error: %s' % msg
+        print >>self.console, '\nusername error: %s' % msg
         self.username = raw_input('Username: ')
 
     def password_error(self, msg):
         """The selected password was bad."""
-        print '\nBad password: %s' % msg
+        print >>self.console, '\nBad password: %s' % msg
         self.password = getpass.getpass('Password: ')
         self.verifiedpassword = getpass.getpass('Password again: ')
 
@@ -361,7 +364,7 @@ class Wizard(BaseFrontend):
 
     def error_dialog(self, title, msg, fatal=True):
         """Display an error message dialog."""
-        print '\n%s: %s' % (title, msg)
+        print >>self.console, '\n%s: %s' % (title, msg)
 
     def question_dialog(self, title, msg, options, use_templates=True):
         """Ask a question."""

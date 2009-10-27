@@ -10,6 +10,9 @@ ubiquity (2.0.5) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Run partman in the noninteractive frontend (otherwise we try to install
     to the live CD root!).
+  * Explicitly print noninteractive output to the console (as the Python
+    debconf module redirects sys.stdout to sys.stderr which ends up in
+    /var/log/installer/debug).
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 27 Oct 2009 10:16:58 +0000
 
