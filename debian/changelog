@@ -12,6 +12,8 @@ ubiquity (2.0.5) UNRELEASED; urgency=low
       managers.
     - Add some missing imports (ubiquity.frontend.base.Controller,
       ubiquity.plugin.Plugin, ubiquity.i18n).
+    - If there's a containing debconf frontend, talk to it rather than using
+      debconf-communicator.
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 27 Oct 2009 10:16:58 +0000
 
