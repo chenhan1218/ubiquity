@@ -4,6 +4,7 @@ ubiquity (2.0.5) UNRELEASED; urgency=low
     Thanks Colin Watson (LP: #461377).
   * Really don't run oem-config again.  Thanks Colin Watson
     (LP: #461546).
+  * Fix broken reference in the apport hook (LP: #461757).
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 27 Oct 2009 10:16:58 +0000
 
