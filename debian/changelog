@@ -17,6 +17,7 @@ ubiquity (2.0.5) UNRELEASED; urgency=low
     - Set a controller in the language plugin.
     - Use spaces rather than ${!TAB} in localechooser in OEM mode, since
       debconf doesn't support the latter yet.
+    - Don't handle user-setup preseeding for the debconf frontend.
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 27 Oct 2009 10:16:58 +0000
 
