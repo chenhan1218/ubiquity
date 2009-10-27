@@ -1,9 +1,15 @@
 ubiquity (2.0.5) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Do not fail if linux-generic-pae is not in the package cache.
     Thanks Colin Watson (LP: #461377).
   * Really don't run oem-config again.  Thanks Colin Watson
     (LP: #461546).
+
+  [ Colin Watson ]
+  * Fix debconf frontend:
+    - Start oem-config on stopping rc, as well as when starting display
+      managers.
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 27 Oct 2009 10:16:58 +0000
 
