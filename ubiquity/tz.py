@@ -80,7 +80,7 @@ class SystemTzInfo(datetime.tzinfo):
         finally:
             self._restore_tz(tzbackup)
 
-    def dst(self, unused_dt):
+    def dst(self, dt):
         tzbackup = self._select_tz()
         try:
             if time.daylight == 0:
@@ -98,7 +98,7 @@ class SystemTzInfo(datetime.tzinfo):
         finally:
             self._restore_tz(tzbackup)
 
-    def tzname(self, dt):
+    def tzname(self, unused_dt):
         return self.tz
 
     def tzname_letters(self, dt):
