@@ -77,7 +77,7 @@ def reset_locale(just_country=False, db=None):
 
 _strip_context_re = None
 
-def strip_context(question, string):
+def strip_context(unused_question, string):
     # po-debconf context
     global _strip_context_re
     if _strip_context_re is None:

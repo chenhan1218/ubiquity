@@ -226,7 +226,6 @@ class TimezoneMap(gtk.Widget):
         height = self.background.get_height()
         width = self.background.get_width()
 
-        only_draw_selected = True
         loc = self.selected and self.tzdb.get_loc(self.selected)
         if loc:
             pointx = convert_longitude_to_x(loc.longitude, width)

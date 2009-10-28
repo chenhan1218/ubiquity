@@ -72,7 +72,7 @@ class SystemTzInfo(datetime.tzinfo):
         finally:
             self._restore_tz(tzbackup)
 
-    def rawutcoffset(self, dt):
+    def rawutcoffset(self, unused_dt):
         tzbackup = self._select_tz()
         try:
             dstminutes = -time.timezone / 60
@@ -80,7 +80,7 @@ class SystemTzInfo(datetime.tzinfo):
         finally:
             self._restore_tz(tzbackup)
 
-    def dst(self, dt):
+    def dst(self, unused_dt):
         tzbackup = self._select_tz()
         try:
             if time.daylight == 0:
@@ -181,7 +181,7 @@ class Location(object):
             tz_file = file(os.path.join('/usr/share/zoneinfo', self.zone) ,'rb')
             self.md5sum = md5.md5(tz_file.read()).digest()
             tz_file.close()
-        except IOError, e:
+        except IOError:
             self.md5sum = None
 
         try:
@@ -236,7 +236,7 @@ class _Database(object):
                     if md5sum == loc.md5sum:
                         self.tz_to_loc[tz] = loc
                         return loc
-            except IOError, e:
+            except IOError:
                 pass
 
             # If not found, oh well, just warn and move on.
