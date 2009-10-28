@@ -58,13 +58,13 @@ class UntrustedBase(object):
             return None
 
     @classmethod
-    def debug_enabled(self):
+    def debug_enabled(cls):
         return ('UBIQUITY_DEBUG_CORE' in os.environ and
                 os.environ['UBIQUITY_DEBUG_CORE'] == '1')
 
     @classmethod
-    def debug(self, fmt, *args):
-        if self.debug_enabled():
+    def debug(cls, fmt, *args):
+        if cls.debug_enabled():
             import time
             # bizarre time formatting code per syslogd
             time_str = time.ctime()[4:19]
@@ -457,7 +457,3 @@ class FilteredCommand(UntrustedBase):
                         progress_region_start, progress_region_end):
         self.frontend.debconf_progress_region(progress_region_start,
                                               progress_region_end)
-
-if __name__ == '__main__':
-    fc = FilteredCommand()
-    fc.run(sys.argv[1])

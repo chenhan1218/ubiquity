@@ -1,0 +1,3 @@
+level = 'Deprecated'
+unusedNames = [ '_', 'empty', 'unused', 'dummy', 'dummypkg', ]
+blacklist = [ 'Tkinter', 'wxPython', 'gtk', 'GTK', 'GDK', 'apt', ]

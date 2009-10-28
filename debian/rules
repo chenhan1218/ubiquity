@@ -36,12 +36,17 @@ build-stamp:
 
 	touch build-stamp
 
-clean:
-	dh_testdir
-	dh_testroot
+check:
 	# Sanity-check before upload.
 	find -name debian -prune -o -name \*.py -print | xargs py_compilefiles
 	find -type f \( -name \*.pyc -o -name \*.pyo \) -print0 | xargs -0r rm -f
+
+pychecker:
+	find -name debian -prune -o -name \*.py -print | xargs pychecker
+
+clean: check
+	dh_testdir
+	dh_testroot
 
 	$(MAKE) -C d-i clean
 	dh_auto_clean

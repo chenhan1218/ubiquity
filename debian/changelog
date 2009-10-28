@@ -1,8 +1,13 @@
 ubiquity (2.1.0) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Run X with -nolisten tcp (LP: #462394).
   * Make sure we never try to install onto the live filesystem.
   * Only print the filenames being blacklisted if in debug mode.
+
+  [ Colin Watson ]
+  * Add a debian/rules target to run pychecker. I've fixed several warnings,
+    but there are still several left so this is not yet enabled by default.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 28 Oct 2009 10:57:17 +0000
 
