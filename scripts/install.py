@@ -1601,7 +1601,7 @@ exit 0"""
                 pass
             self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
                        '--quiet', '--remove', '/usr/sbin/update-initramfs')
-            self.chrex('update-initramfs', '-c', '-k', os.uname()[2])
+            self.chrex('update-initramfs', '-c', '-k', self.kernel_version)
             self.chroot_cleanup(x11=True)
 
         # Fix up kernel symlinks now that the initrd exists. Depending on
@@ -2133,6 +2133,8 @@ exit 0"""
         dbfilter.run_command(auto_process=True)
 
         install_kernels = set()
+        new_kernel_pkg = None
+        new_kernel_version = None
         if os.path.exists("/var/lib/ubiquity/install-kernels"):
             install_kernels_file = open("/var/lib/ubiquity/install-kernels")
             for line in install_kernels_file:
@@ -2142,13 +2144,15 @@ exit 0"""
                 # this, it's probably because we prefer it to the default
                 # one, so we'd better update kernel_version to match.
                 if kernel.startswith('linux-image-2.'):
-                    self.kernel_version = kernel[12:]
+                    new_kernel_pkg = kernel
+                    new_kernel_version = kernel[12:]
                 elif kernel.startswith('linux-generic-'):
                     # Traverse dependencies to find the real kernel image.
                     cache = Cache()
                     kernel = self.traverse_for_kernel(cache, kernel)
                     if kernel:
-                        self.kernel_version = kernel[12:]
+                        new_kernel_pkg = kernel
+                        new_kernel_version = kernel[12:]
             install_kernels_file.close()
 
         remove_kernels = set()
@@ -2168,6 +2172,16 @@ exit 0"""
         self.db.progress('REGION', 1, 2)
         if install_kernels:
             self.do_install(install_kernels)
+            if new_kernel_pkg:
+                cache = Cache()
+                cached_pkg = self.get_cache_pkg(cache, new_kernel_pkg)
+                if cached_pkg is not None and cached_pkg.isInstalled:
+                    self.kernel_version = new_kernel_version
+                else:
+                    remove_kernels = []
+                del cache
+            else:
+                remove_kernels = []
 
         self.db.progress('SET', 2)
         self.db.progress('REGION', 2, 5)
