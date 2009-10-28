@@ -27,7 +27,8 @@ NAME = 'myth-summary'
 AFTER = 'myth-passwords'
 WEIGHT = 10
 
-if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui':
+if ('UBIQUITY_FRONTEND' in os.environ and
+    os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui'):
     HIDDEN = ['summary', 'migrationassistant']
 
 class PageGtk(PluginUI):
