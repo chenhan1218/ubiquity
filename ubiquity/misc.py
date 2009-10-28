@@ -51,7 +51,7 @@ def find_in_os_prober(device):
             syslog.syslog(syslog.LOG_ERR, line)
     finally:
         drop_privileges()
-    return ''
+    return unicode('')
 find_in_os_prober.oslist = {}
 find_in_os_prober.called = False
 
