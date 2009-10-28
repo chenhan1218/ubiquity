@@ -6,7 +6,6 @@ from PyQt4.QtCore import *
 import datetime
 import ubiquity.tz
 import math
-import os
 
 #contains information about a geographical timezone city
 class City:

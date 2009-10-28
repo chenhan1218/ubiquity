@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import subprocess
-import re
-import PyQt4
 import os
 
 from PyQt4 import QtCore
