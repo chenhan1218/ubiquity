@@ -8,6 +8,17 @@ ubiquity (2.1.0) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Add a debian/rules target to run pychecker. I've fixed several warnings,
     but there are still several left so this is not yet enabled by default.
+  * Fix debconf frontend:
+    - Start oem-config on stopping rc, as well as when starting display
+      managers.
+    - Add some missing imports (ubiquity.frontend.base.Controller,
+      ubiquity.plugin.Plugin, ubiquity.i18n).
+    - If there's a containing debconf frontend, talk to it rather than using
+      debconf-communicator.
+    - Set a controller in the language plugin.
+    - Use spaces rather than ${!TAB} in localechooser when using the debconf
+      frontend, since debconf doesn't support the latter yet.
+    - Don't handle user-setup preseeding for the debconf frontend.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 28 Oct 2009 10:57:17 +0000
 

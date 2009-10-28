@@ -278,6 +278,9 @@ class PageKde(PageBase):
 class PageDebconf(PageBase):
     plugin_title = 'ubiquity/text/language_heading_label'
 
+    def __init__(self, controller, *args, **kwargs):
+        self.controller = controller
+
 class PageNoninteractive(PageBase):
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
@@ -306,14 +309,19 @@ class Page(Plugin):
                 self.ui.set_oem_id(self.db.get('oem-config/id'))
             except debconf.DebconfError:
                 pass
+
+        localechooser_script = '/usr/lib/ubiquity/localechooser/localechooser'
+        if ('UBIQUITY_FRONTEND' in os.environ and
+            os.environ['UBIQUITY_FRONTEND'] == 'debconf_ui'):
+            localechooser_script += '-debconf'
+
         questions = ['localechooser/languagelist']
         environ = {'PATH': '/usr/lib/ubiquity/localechooser:' + os.environ['PATH']}
         if 'UBIQUITY_FRONTEND' in os.environ and os.environ['UBIQUITY_FRONTEND'] == "debconf_ui":
           environ['TERM_FRAMEBUFFER'] = '1'
         else:
           environ['OVERRIDE_SHOW_ALL_LANGUAGES'] = '1'
-        return (['/usr/lib/ubiquity/localechooser/localechooser'], questions,
-                environ)
+        return (localechooser_script, questions, environ)
 
     def run(self, priority, question):
         if question == 'localechooser/languagelist':
@@ -387,7 +395,7 @@ class Page(Plugin):
     def cleanup(self):
         Plugin.cleanup(self)
         # Done after sub-cleanup because now the debconf lock is clear for a reset/reget
-        i18n.reset_locale()
+        i18n.reset_locale(db=self.db)
         self.ui.controller.translate(just_me=False, reget=True)
 
 class Install(InstallPlugin):

@@ -17,6 +17,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import os
+
 from ubiquity.plugin import *
 from ubiquity.filteredcommand import FilteredCommand
 import debconf
@@ -38,42 +40,44 @@ class PageNoninteractive(PluginUI):
 
 class Page(FilteredCommand):
     def prepare(self, unfiltered=False):
-        if self.frontend.get_hostname() == '':
+        if ('UBIQUITY_FRONTEND' not in os.environ or
+            os.environ['UBIQUITY_FRONTEND'] != 'debconf_ui'):
+            if self.frontend.get_hostname() == '':
+                try:
+                    seen = self.db.fget('netcfg/get_hostname', 'seen') == 'true'
+                    if seen:
+                        hostname = self.db.get('netcfg/get_hostname')
+                        domain = self.db.get('netcfg/get_domain')
+                        if hostname and domain:
+                            hostname = '%s.%s' % (hostname, domain)
+                        if hostname != '':
+                            self.frontend.set_hostname(hostname)
+                except debconf.DebconfError:
+                    pass
+            if self.frontend.get_fullname() == '':
+                try:
+                    fullname = self.db.get('passwd/user-fullname')
+                    if fullname != '':
+                        self.frontend.set_fullname(fullname)
+                except debconf.DebconfError:
+                    pass
+            if self.frontend.get_username() == '':
+                try:
+                    username = self.db.get('passwd/username')
+                    if username != '':
+                        self.frontend.set_username(username)
+                except debconf.DebconfError:
+                    pass
             try:
-                seen = self.db.fget('netcfg/get_hostname', 'seen') == 'true'
-                if seen:
-                    hostname = self.db.get('netcfg/get_hostname')
-                    domain = self.db.get('netcfg/get_domain')
-                    if hostname and domain:
-                        hostname = '%s.%s' % (hostname, domain)
-                    if hostname != '':
-                        self.frontend.set_hostname(hostname)
+                auto_login = self.db.get('passwd/auto-login')
+                self.frontend.set_auto_login(auto_login == 'true')
             except debconf.DebconfError:
                 pass
-        if self.frontend.get_fullname() == '':
             try:
-                fullname = self.db.get('passwd/user-fullname')
-                if fullname != '':
-                    self.frontend.set_fullname(fullname)
+                encrypt_home = self.db.get('user-setup/encrypt-home')
+                self.frontend.set_encrypt_home(encrypt_home == 'true')
             except debconf.DebconfError:
                 pass
-        if self.frontend.get_username() == '':
-            try:
-                username = self.db.get('passwd/username')
-                if username != '':
-                    self.frontend.set_username(username)
-            except debconf.DebconfError:
-                pass
-        try:
-            auto_login = self.db.get('passwd/auto-login')
-            self.frontend.set_auto_login(auto_login == 'true')
-        except debconf.DebconfError:
-            pass
-        try:
-            encrypt_home = self.db.get('user-setup/encrypt-home')
-            self.frontend.set_encrypt_home(encrypt_home == 'true')
-        except debconf.DebconfError:
-            pass
 
         # We intentionally don't listen to passwd/auto-login or
         # user-setup/encrypt-home because we don't want those alone to force
