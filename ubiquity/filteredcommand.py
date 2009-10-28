@@ -24,7 +24,6 @@ import types
 import signal
 import subprocess
 import re
-import syslog
 
 import debconf
 from ubiquity.debconfcommunicator import DebconfCommunicator
@@ -81,6 +80,11 @@ class FilteredCommand(UntrustedBase):
         self.current_question = None
         self.succeeded = False
         self.dbfilter = None
+
+    def prepare(self, *args, **kwargs):
+        raise NotImplementedError("%s.%s does not implement prepare (args=%s, kwargs=%s)" %
+                                  (self.__class__.__module__,
+                                   self.__class__.__name__, args, kwargs))
 
     def start(self, auto_process=False):
         self.status = None
@@ -397,7 +401,7 @@ class FilteredCommand(UntrustedBase):
             self.frontend.debconffilter_done(self)
             self.cleanup()
 
-    def error(self, priority, question):
+    def error(self, unused_priority, unused_question):
         self.succeeded = False
         self.done = False
         return True
@@ -408,7 +412,7 @@ class FilteredCommand(UntrustedBase):
 
     # TODO: Make the steps references in the individual components, rather than
     # having to define the relationship here?
-    def run(self, priority, question):
+    def run(self, unused_priority, question):
         if not self.frontend.installing:
             # Make sure any started progress bars are stopped.
             if hasattr(self.frontend, 'progress_position'):
@@ -430,17 +434,17 @@ class FilteredCommand(UntrustedBase):
             progress_min, progress_max, self.description(progress_title))
         self.frontend.refresh()
 
-    def progress_set(self, progress_title, progress_val):
+    def progress_set(self, unused_progress_title, progress_val):
         ret = self.frontend.debconf_progress_set(progress_val)
         self.frontend.refresh()
         return ret
 
-    def progress_step(self, progress_title, progress_inc):
+    def progress_step(self, unused_progress_title, progress_inc):
         ret = self.frontend.debconf_progress_step(progress_inc)
         self.frontend.refresh()
         return ret
 
-    def progress_info(self, progress_title, progress_info):
+    def progress_info(self, unused_progress_title, progress_info):
         try:
             ret = self.frontend.debconf_progress_info(
                 self.description(progress_info))
@@ -450,11 +454,11 @@ class FilteredCommand(UntrustedBase):
             # ignore unknown info templates
             return True
 
-    def progress_stop(self, progress_title):
+    def progress_stop(self, unused_progress_title):
         self.frontend.debconf_progress_stop()
         self.frontend.refresh()
 
-    def progress_region(self, progress_title,
+    def progress_region(self, unused_progress_title,
                         progress_region_start, progress_region_end):
         self.frontend.debconf_progress_region(progress_region_start,
                                               progress_region_end)
