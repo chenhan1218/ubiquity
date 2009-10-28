@@ -8,7 +8,10 @@ done)
 
 cleanup () {
 	find bin -name \*.py -type l | xargs -r rm -f
+	find -type f \( -name \*.pyc -o -name \*.pyo \) -print0 | xargs -0r rm -f
 }
 trap cleanup EXIT HUP INT QUIT TERM
 
-find -name debian -prune -o -name \*.py -print | xargs pychecker
+find -name debian -prune -o -name \*.py -print | sort | xargs pychecker
+
+exit 0
