@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+#
 # Original authors:
 #   Alex Graveley
 #   Christian Hammond <chipx86@chipx86.com>
