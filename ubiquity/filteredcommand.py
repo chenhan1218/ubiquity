@@ -411,8 +411,9 @@ class FilteredCommand(UntrustedBase):
     def run(self, priority, question):
         if not self.frontend.installing:
             # Make sure any started progress bars are stopped.
-            while self.frontend.progress_position.depth() != 0:
-                self.frontend.debconf_progress_stop()
+            if hasattr(self.frontend, 'progress_position'):
+                while self.frontend.progress_position.depth() != 0:
+                    self.frontend.debconf_progress_stop()
 
         self.current_question = question
         if not self.done:

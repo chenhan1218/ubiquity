@@ -145,9 +145,6 @@ class Wizard(BaseFrontend):
                     raise RuntimeError, ("Install failed with exit code %s; see "
                                          "/var/log/syslog" % ret)
 
-            while self.progress_position.depth() != 0:
-                self.debconf_progress_stop()
-
             return 0
         else:
             return 10
