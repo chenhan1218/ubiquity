@@ -81,11 +81,6 @@ class FilteredCommand(UntrustedBase):
         self.succeeded = False
         self.dbfilter = None
 
-    def prepare(self, *args, **kwargs):
-        raise NotImplementedError("%s.%s does not implement prepare (args=%s, kwargs=%s)" %
-                                  (self.__class__.__module__,
-                                   self.__class__.__name__, args, kwargs))
-
     def start(self, auto_process=False):
         self.status = None
         self.db = DebconfCommunicator(PACKAGE, cloexec=True)
