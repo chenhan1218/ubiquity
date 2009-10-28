@@ -12,7 +12,8 @@ ubiquity (2.1.0) UNRELEASED; urgency=low
     - Start oem-config on stopping rc, as well as when starting display
       managers.
     - Add some missing imports (ubiquity.frontend.base.Controller,
-      ubiquity.plugin.Plugin, ubiquity.i18n).
+      ubiquity.plugin.Plugin, ubiquity.i18n, signal,
+      ubiquity.components.install).
     - If there's a containing debconf frontend, talk to it rather than using
       debconf-communicator.
     - Set a controller in the language plugin.

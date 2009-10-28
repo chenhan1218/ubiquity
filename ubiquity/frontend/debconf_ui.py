@@ -27,12 +27,14 @@
 import sys
 import os
 import textwrap
+import signal
 
 import debconf
 
 from ubiquity.frontend.base import BaseFrontend, Controller
 from ubiquity.plugin import Plugin
 from ubiquity import i18n
+from ubiquity.components import install
 
 class PersistentDebconfCommunicator(debconf.Debconf):
     def shutdown(self):
