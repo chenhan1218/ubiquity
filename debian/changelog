@@ -1,4 +1,4 @@
-ubiquity (2.0.8) UNRELEASED; urgency=low
+ubiquity (2.1.0) UNRELEASED; urgency=low
 
   * Run X with -nolisten tcp (LP: #462394).
   * Make sure we never try to install onto the live filesystem.
