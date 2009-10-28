@@ -293,6 +293,8 @@ class Install:
             self.target = '/'
             return
 
+        assert os.path.ismount(self.target), 'Failed to mount the target.'
+
         self.select_language_packs()
         self.select_ecryptfs()
         use_restricted = True
@@ -733,6 +735,7 @@ class Install:
         times = [(time_start, copied_size)]
         long_enough = False
         time_last_update = time_start
+        debug = 'UBIQUITY_DEBUG' in os.environ
         if self.db.get('ubiquity/install/md5_check') == 'false':
             md5_check = False
         else:
@@ -762,7 +765,8 @@ class Install:
                 os.mknod(targetpath, stat.S_IFSOCK | mode)
             elif stat.S_ISREG(st.st_mode):
                 if '/%s' % path in self.blacklist:
-                    syslog.syslog('Not copying %s' % path)
+                    if debug:
+                        syslog.syslog('Not copying %s' % path)
                     continue
                 if os.path.exists(targetpath):
                     os.unlink(targetpath)

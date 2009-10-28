@@ -1,6 +1,8 @@
 ubiquity (2.0.8) UNRELEASED; urgency=low
 
   * Run X with -nolisten tcp (LP: #462394).
+  * Make sure we never try to install onto the live filesystem.
+  * Only print the filenames being blacklisted if in debug mode.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 28 Oct 2009 10:57:17 +0000
 
