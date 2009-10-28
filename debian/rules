@@ -42,7 +42,7 @@ check:
 	find -type f \( -name \*.pyc -o -name \*.pyo \) -print0 | xargs -0r rm -f
 
 pychecker:
-	find -name debian -prune -o -name \*.py -print | xargs pychecker
+	./run-pychecker
 
 clean: check
 	dh_testdir

@@ -1,0 +1,14 @@
+#! /bin/sh
+set -e
+
+(cd bin && for x in *; do
+	grep -q '#!.*python' "$x" || continue
+	ln -s "$x" "$(echo "$x" | sed 's/-/_/g').py"
+done)
+
+cleanup () {
+	find bin -name \*.py -type l | xargs -r rm -f
+}
+trap cleanup EXIT HUP INT QUIT TERM
+
+find -name debian -prune -o -name \*.py -print | xargs pychecker
