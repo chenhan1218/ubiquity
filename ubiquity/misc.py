@@ -70,7 +70,7 @@ def get_release_name():
             if fp:
                 fp.close()
         if not get_release_name.release_name:
-            release_name = 'Ubuntu'
+            get_release_name.release_name = 'Ubuntu'
     return get_release_name.release_name
 get_release_name.release_name = ''
 
