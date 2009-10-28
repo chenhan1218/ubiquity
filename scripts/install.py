@@ -2101,7 +2101,7 @@ exit 0"""
         self.db.progress('STOP')
 
     def traverse_for_kernel(self, cache, pkg):
-        kern = self.get_cache_pkg(pkg)
+        kern = self.get_cache_pkg(cache, pkg)
         if kern is None:
             return None
         pkc = cache._depcache.GetCandidateVer(kern._pkg)
