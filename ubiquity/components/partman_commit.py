@@ -36,7 +36,7 @@ class PartmanCommit(FilteredCommand):
         return ('/bin/partman-commit', questions,
                 {'PARTMAN_ALREADY_CHECKED': '1'})
 
-    def error(self, priority, question):
+    def error(self, unused_priority, question):
         self.frontend.error_dialog(self.description(question),
                                    self.extended_description(question))
         self.succeeded = False

@@ -96,7 +96,7 @@ class PageGtk(PluginUI):
                     break
                 iterator = m.iter_next(iterator)
 
-    def select_city(self, widget, city):
+    def select_city(self, unused_widget, city):
         loc = self.tzdb.get_loc(city)
         if not loc:
             return
@@ -182,7 +182,6 @@ class PageKde(PluginUI):
         self.controller = controller
         try:
             from PyQt4 import uic
-            from PyQt4.QtGui import QVBoxLayout
             from PyQt4.QtCore import SIGNAL
             from ubiquity.frontend.kde_components.Timezone import TimezoneMap
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLocation.ui')
@@ -375,7 +374,7 @@ class Page(Plugin):
         names, codes = zip(*continents.items())
         codes = [c.replace(' ', '_') for c in codes]
         
-        nones = [None for key in continents]
+        nones = [None for _ in continents]
         pairs = zip(names, nones, codes)
         pairs.sort(key=self.collation_key)
         return pairs
@@ -390,7 +389,7 @@ class Page(Plugin):
                     del shortlist[pair[0]]
                     break
             names, codes = zip(*shortlist.items())
-            nones = [None for key in names]
+            nones = [None for _ in names]
             shortlist = zip(names, codes, nones)
             shortlist.sort(key=self.collation_key)
             return shortlist
@@ -436,7 +435,7 @@ class Page(Plugin):
             shortlist = shortlist.items()
             shortlist.sort(key=self.collation_key)
             return shortlist
-        except debconf.DebconfError, e:
+        except debconf.DebconfError:
             return []
 
     def get_country_name(self, country):
@@ -522,9 +521,6 @@ class Page(Plugin):
     def build_longlist_timezone_pairs_by_continent(self, continent):
         if 'LANG' not in os.environ:
             return [] # ?
-        locale = os.environ['LANG'].rsplit('.', 1)[0]
-        tz_format = PyICU.SimpleDateFormat('VVVV', PyICU.Locale(locale))
-        now = time.time()*1000
         rv = []
         try:
             regions = self.choices_untranslated('localechooser/countrylist/%s' % continent)

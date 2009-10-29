@@ -32,7 +32,6 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import gobject
-import pygtk
 import gtk
 import pango
 
