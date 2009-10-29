@@ -1,4 +1,4 @@
 limit = 1000
-unusedNames = [ '_', 'empty', 'unused', 'dummy', 'dummypkg', ]
+unusedNames = [ '_', 'empty', 'unused', 'dummy', 'dummypkg', 'args', 'kwargs', ]
 blacklist = [ 'subprocess', 'Tkinter', 'wxPython', 'gtk', 'GTK', 'GDK', 'apt', 'debconf', ]
 maxLocals = 50 # arguably scripts/install.py:copy_all should be fixed ...
