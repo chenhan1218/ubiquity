@@ -8,6 +8,11 @@ ubiquity (2.1.0) UNRELEASED; urgency=low
     (LP: #298974).
   * Mark the "Installation Complete" window as always on top
     (LP: #462178).
+  * Fixes from Pychecker for the KDE frontend (kde_ui):
+    - Don't import datetime or math.  The timezone code is in a separate
+      module now.
+    - Remove some unused variables.
+    - Don't assign to a variable that's going to be immediately discarded.
 
   [ Colin Watson ]
   * Add a debian/rules target to run pychecker. I've fixed several warnings,

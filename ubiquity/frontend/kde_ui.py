@@ -26,9 +26,7 @@
 
 import sys
 import os
-import datetime
 import subprocess
-import math
 import traceback
 import syslog
 import atexit
@@ -101,7 +99,7 @@ class UbiquityUI(QMainWindow):
         self.wizard = wizardRef
 
     def closeEvent(self, event):
-        if self.wizard.on_quit_clicked() == False:
+        if not self.wizard.on_quit_clicked():
             event.ignore()
 
 class Controller(ubiquity.frontend.base.Controller):
@@ -337,8 +335,7 @@ class Wizard(BaseFrontend):
         if os.getuid() != 0:
             title = ('This installer must be run with administrative '
                      'privileges, and cannot continue without them.')
-            result = QMessageBox.critical(self.ui, "Must be root",
-                                          title)
+            QMessageBox.critical(self.ui, "Must be root", title)
             sys.exit(1)
 
         self.disable_volume_manager()
@@ -768,7 +765,7 @@ class Wizard(BaseFrontend):
     def pop_history(self):
         if len(self.history) < 2:
             return self.pagesindex
-        old_entry = self.history.pop()
+        self.history.pop()
         return self.pages.index(self.history[-1][0])
 
     def set_current_page(self, current):
@@ -1024,7 +1021,6 @@ class Wizard(BaseFrontend):
         """Processing identification step tasks."""
 
         error_msg = []
-        error = 0
 
         # Validation stuff
 
@@ -1078,8 +1074,6 @@ class Wizard(BaseFrontend):
         # Setting actual step
         step = self.step_name(self.get_current_page())
         self.ui.setCursor(QCursor(Qt.WaitCursor))
-
-        changed_page = False
 
         if str(step) == "summary":
             self.ui.next.setText(self.get_string("next").replace('_', '&', 1))
