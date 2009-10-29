@@ -47,7 +47,7 @@ class Color:
         self.a = a
 
 class CairoCorners:
-    none = 0
+    no_corners = 0
     top_left = 1
     top_right = 2
     bottom_left = 4
@@ -175,12 +175,12 @@ class CairoExtensions:
 
     @staticmethod
     def rounded_rectangle(cr, x, y, w, h, r, corners=CairoCorners.all, top_bottom_falls_through=False):
-        if top_bottom_falls_through and corners == CairoCorners.none:
+        if top_bottom_falls_through and corners == CairoCorners.no_corners:
             cr.move_to(x, y - r)
             cr.line_to(x, y + h + r)
             cr.move_to(x + w, y - r)
             cr.line_to(x + w, y + h + r)
-        elif r < 0.0001 or corners == CairoCorners.none:
+        elif r < 0.0001 or corners == CairoCorners.no_corners:
             cr.rectangle(x, y, w, h)
 
         if (corners & (CairoCorners.top_left | CairoCorners.top_right)) == 0 and top_bottom_falls_through:
@@ -341,7 +341,7 @@ class SegmentedBar(gtk.Widget):
                 last = last + percent
                 grad.add_color_stop_rgb(last, segment.color.r, segment.color.g, segment.color.b)
 
-        CairoExtensions.rounded_rectangle(cr, 0, 0, w, h, r, corners=CairoCorners.none)
+        CairoExtensions.rounded_rectangle(cr, 0, 0, w, h, r, corners=CairoCorners.no_corners)
         cr.set_source(grad)
         cr.fill_preserve()
 
@@ -387,7 +387,7 @@ class SegmentedBar(gtk.Widget):
             cr.stroke()
             x = x + seg_w
 
-        CairoExtensions.rounded_rectangle(cr, 0.5, 0.5, w - 1, h - 1, r, corners=CairoCorners.none)
+        CairoExtensions.rounded_rectangle(cr, 0.5, 0.5, w - 1, h - 1, r, corners=CairoCorners.no_corners)
         cr.set_source(stroke)
         cr.stroke()
         
