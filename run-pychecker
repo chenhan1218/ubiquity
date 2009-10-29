@@ -12,6 +12,9 @@ cleanup () {
 }
 trap cleanup EXIT HUP INT QUIT TERM
 
-find -name debian -prune -o -name \*.py -print | sort | xargs pychecker
+ret=0
+for x in $(find -name debian -prune -o -name \*.py -printf '%P\n' | sort); do
+	pychecker "$x" | grep "^$x:" && ret=1
+done
 
-exit 0
+exit $ret
