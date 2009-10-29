@@ -4,6 +4,8 @@ ubiquity (2.1.0) UNRELEASED; urgency=low
   * Run X with -nolisten tcp (LP: #462394).
   * Make sure we never try to install onto the live filesystem.
   * Only print the filenames being blacklisted if in debug mode.
+  * Provide human readable sizes in the partitions-too-small warning
+    (LP: #298974).
 
   [ Colin Watson ]
   * Add a debian/rules target to run pychecker. I've fixed several warnings,
