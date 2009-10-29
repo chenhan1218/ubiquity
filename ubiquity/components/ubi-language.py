@@ -175,7 +175,6 @@ class PageKde(PageBase):
         self.controller = controller
         try:
             from PyQt4 import uic
-            from PyQt4.QtCore import SIGNAL
             from PyQt4.QtGui import QLabel
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLanguage.ui')
             self.combobox = self.page.language_combobox
