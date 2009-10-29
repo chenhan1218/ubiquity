@@ -250,15 +250,6 @@ class SegmentedBar(gtk.Widget):
         self.segments.append(self.Segment(title, size, color, show_in_bar))
         self.queue_draw()
 
-    def remove_segment(self, title):
-        '''Remove a segment.  Not present in the original SegmentedBar.'''
-        for segment in self.segments:
-            if segment.title == title:
-                self.segments.remove(segment)
-                self.disk_size -= size
-                self.queue_draw()
-                break
-    
     def remove_all(self):
         self.segments = []
         self.disk_size = 0
@@ -601,11 +592,6 @@ class SegmentedBarSlider(SegmentedBar):
             self.segments[self.resize].set_size(self.part_size)
             self.segments[self.resize + 1].set_size(total - self.part_size)
             self.queue_draw()
-
-    def remove_segment(self, title):
-        SegmentedBar.remove_segment(self, title)
-        if self.resize > len(self.segments) - 1:
-            self.resize = -1
 
     def remove_all(self):
         SegmentedBar.remove_all(self)
