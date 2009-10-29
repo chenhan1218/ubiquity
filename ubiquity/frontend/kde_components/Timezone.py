@@ -112,7 +112,7 @@ class TimezoneMap(QWidget):
         y = y * (self.height() * 1.2)
         return y
        
-    def paintEvent(self, paintEvent):
+    def paintEvent(self, unused_paintEvent):
         painter = QPainter(self)
         painter.setRenderHint(QPainter.Antialiasing)
         
@@ -192,7 +192,6 @@ class TimezoneMap(QWidget):
         
         #percent of entire possible range
         topPer = topLat/180.0
-        totalPer = (topLat - bottomLat)/180.0
         
         # get the y in rectangular coordinates
         y = 1.25 * math.log(math.tan(math.pi/4.0 + 0.4 * math.radians(la)))
