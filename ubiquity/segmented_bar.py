@@ -31,7 +31,6 @@
 #
 
 import gobject
-from gtk import gdk
 import gtk
 import math
 import cairo
@@ -274,14 +273,14 @@ class SegmentedBar(gtk.Widget):
 
     def do_realize(self):
         self.set_flags(self.flags() | gtk.REALIZED)
-        self.window = gdk.Window(
+        self.window = gtk.gdk.Window(
             self.get_parent_window(),
             width=self.allocation.width,
             height=self.allocation.height,
-            window_type=gdk.WINDOW_CHILD,
-            wclass=gdk.INPUT_OUTPUT,
+            window_type=gtk.gdk.WINDOW_CHILD,
+            wclass=gtk.gdk.INPUT_OUTPUT,
             event_mask=self.get_events() |
-                        gdk.EXPOSURE_MASK)
+                        gtk.gdk.EXPOSURE_MASK)
         self.window.set_user_data(self)
         self.style.attach(self.window)
         self.style.set_background(self.window, gtk.STATE_NORMAL)
@@ -363,7 +362,7 @@ class SegmentedBar(gtk.Widget):
         cr.set_source(grad)
         cr.fill()
 
-    def make_segment_gradient(self, h, color, diag=False):
+    def make_segment_gradient(self, h, color, unused_diag=False):
         grad = cairo.LinearGradient(0, 0, 0, h)
         c = CairoExtensions.color_shade(color, 1.1)
         grad.add_color_stop_rgba(0.0, c.r, c.g, c.b, c.a)
@@ -451,7 +450,7 @@ class SegmentedBar(gtk.Widget):
         return pattern
 
     def do_expose_event(self, event):
-        if not isinstance(event.window, gdk.Window):
+        if not isinstance(event.window, gtk.gdk.Window):
             # FIXME evand 2008-07-19: This will fail as Widget.do_expose_event
             # is a virtual function.  Why do we even need to do this anyway?
             # Are we not guaranteed that the event has a parent window?
@@ -598,9 +597,9 @@ class SegmentedBarSlider(SegmentedBar):
         # FIXME: Should be done in some sort of expose event, so it doesn't
         # matter if the min_size is set after the segments are added.
         if self.resize != -1 and len(self.segments) > self.resize + 1:
-            sum = self.segments[self.resize].size + self.segments[self.resize + 1].size
+            total = self.segments[self.resize].size + self.segments[self.resize + 1].size
             self.segments[self.resize].set_size(self.part_size)
-            self.segments[self.resize + 1].set_size(sum - self.part_size)
+            self.segments[self.resize + 1].set_size(total - self.part_size)
             self.queue_draw()
 
     def remove_segment(self, title):
@@ -612,7 +611,7 @@ class SegmentedBarSlider(SegmentedBar):
         SegmentedBar.remove_all(self)
         self.resize = -1
 
-    def motion_notify_event(self, widget, event):
+    def motion_notify_event(self, unused_widget, event):
         if event.is_hint:
             x, y, state = event.window.get_pointer()
         else:
@@ -628,8 +627,8 @@ class SegmentedBarSlider(SegmentedBar):
         while i < self.resize:
             resize_part_start += self.segments[i].size
             i += 1
-        sum = self.segments[self.resize].size + \
-              self.segments[self.resize + 1].size
+        total = self.segments[self.resize].size + \
+                self.segments[self.resize + 1].size
         b = x / float(self.allocation.width - self.h_padding)
         
         # The minimum size the old partition can be.
@@ -638,7 +637,7 @@ class SegmentedBarSlider(SegmentedBar):
                 float(self.disk_size))
             if b < a:
                 self.segments[self.resize].set_size(self.min_size)
-                self.segments[self.resize + 1].set_size(sum - self.min_size)
+                self.segments[self.resize + 1].set_size(total - self.min_size)
                 self.queue_draw()
                 return
         else:
@@ -651,7 +650,7 @@ class SegmentedBarSlider(SegmentedBar):
                 float(self.disk_size))
             if b > a:
                 self.segments[self.resize].set_size(self.max_size)
-                self.segments[self.resize + 1].set_size(sum - self.max_size)
+                self.segments[self.resize + 1].set_size(total - self.max_size)
                 self.queue_draw()
                 return
         else:
@@ -660,7 +659,7 @@ class SegmentedBarSlider(SegmentedBar):
 
         s = (b - (resize_part_start / float(self.disk_size))) * self.disk_size
         self.segments[self.resize].set_size(s)
-        self.segments[self.resize + 1].set_size(sum - s)
+        self.segments[self.resize + 1].set_size(total - s)
 
         self.queue_draw()
 
@@ -678,18 +677,18 @@ class SegmentedBarSlider(SegmentedBar):
 
     def do_realize(self):
         self.set_flags(self.flags() | gtk.REALIZED)
-        self.window = gdk.Window(
+        self.window = gtk.gdk.Window(
             self.get_parent_window(),
             width=self.allocation.width,
             height=self.allocation.height,
-            window_type=gdk.WINDOW_CHILD,
-            wclass=gdk.INPUT_OUTPUT,
+            window_type=gtk.gdk.WINDOW_CHILD,
+            wclass=gtk.gdk.INPUT_OUTPUT,
             event_mask=self.get_events() |
-                        gdk.EXPOSURE_MASK |
-                        gdk.BUTTON1_MOTION_MASK |
-                        gdk.BUTTON_PRESS_MASK |
-                        gdk.POINTER_MOTION_MASK |
-                        gdk.POINTER_MOTION_HINT_MASK)
+                        gtk.gdk.EXPOSURE_MASK |
+                        gtk.gdk.BUTTON1_MOTION_MASK |
+                        gtk.gdk.BUTTON_PRESS_MASK |
+                        gtk.gdk.POINTER_MOTION_MASK |
+                        gtk.gdk.POINTER_MOTION_HINT_MASK)
         self.window.set_user_data(self)
         self.style.attach(self.window)
         self.style.set_background(self.window, gtk.STATE_NORMAL)
