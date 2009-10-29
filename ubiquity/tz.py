@@ -21,7 +21,7 @@ import os
 import datetime
 import time
 import xml.dom.minidom
-import md5 # should be hashlib once we depend on >=2.5
+import hashlib
 import sys
 
 
@@ -179,7 +179,7 @@ class Location(object):
         # Grab md5sum of the timezone file for later comparison
         try:
             tz_file = file(os.path.join('/usr/share/zoneinfo', self.zone) ,'rb')
-            self.md5sum = md5.md5(tz_file.read()).digest()
+            self.md5sum = hashlib.md5(tz_file.read()).digest()
             tz_file.close()
         except IOError:
             self.md5sum = None
@@ -229,7 +229,7 @@ class _Database(object):
         except:
             try:
                 tz_file = file(os.path.join('/usr/share/zoneinfo', tz) ,'rb')
-                md5sum = md5.md5(tz_file.read()).digest()
+                md5sum = hashlib.md5(tz_file.read()).digest()
                 tz_file.close()
 
                 for loc in self.locations:
