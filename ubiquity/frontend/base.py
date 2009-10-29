@@ -33,6 +33,9 @@ from ubiquity.components import usersetup, \
 from ubiquity import i18n
 from ubiquity import plugin_manager
 
+# Lots of intentionally unused arguments here (abstract methods).
+__pychecker__ = 'no-argsused'
+
 # Pages that may be loaded. Interpretation is up to the frontend, but it is
 # strongly recommended to keep the page identifiers the same.
 PAGE_COMPONENTS = {
