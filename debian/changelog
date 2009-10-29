@@ -6,6 +6,8 @@ ubiquity (2.1.0) UNRELEASED; urgency=low
   * Only print the filenames being blacklisted if in debug mode.
   * Provide human readable sizes in the partitions-too-small warning
     (LP: #298974).
+  * Mark the "Installation Complete" window as always on top
+    (LP: #462178).
 
   [ Colin Watson ]
   * Add a debian/rules target to run pychecker. I've fixed several warnings,

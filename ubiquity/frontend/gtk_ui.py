@@ -995,6 +995,7 @@ class Wizard(BaseFrontend):
                 txt = self.get_string('ubiquity/finished_restart_only')
                 self.finished_label.set_label(txt)
                 self.quit_button.hide()
+            self.finished_dialog.set_keep_above(True)
             self.finished_dialog.run()
         elif self.get_reboot():
             self.reboot()

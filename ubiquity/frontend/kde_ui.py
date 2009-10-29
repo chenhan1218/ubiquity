@@ -891,6 +891,7 @@ class Wizard(BaseFrontend):
             messageBox.addButton(rebootButtonText, QMessageBox.AcceptRole)
             if not 'UBIQUITY_ONLY' in os.environ:
                 messageBox.addButton(quitButtonText, QMessageBox.RejectRole)
+            messageBox.setWindowFlags(messageBox.windowFlags() | Qt.WindowStaysOnTopHint)
             quitAnswer = messageBox.exec_()
 
             if quitAnswer == 0:
