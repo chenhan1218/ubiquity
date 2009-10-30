@@ -33,6 +33,7 @@ ubiquity (2.1.0) UNRELEASED; urgency=low
     - Fix exception names in ubi-network and ubi-tasks.
   * Require Python 2.5, so we can now use hashlib rather than md5 and avoid
     a slew of warnings.
+  * Add an intro message noting that we're alpha again.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 28 Oct 2009 10:57:17 +0000
 
