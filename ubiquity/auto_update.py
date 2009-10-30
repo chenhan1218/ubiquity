@@ -41,8 +41,7 @@ class CacheProgressDebconfProgressAdapter(apt.progress.OpProgress):
 
     def update(self, percent):
         self.parent.debconf_progress_set(percent)
-        while gtk.events_pending():
-            gtk.main_iteration()
+        self.parent.refresh()
 
 class FetchProgressDebconfProgressAdapter(apt.progress.FetchProgress):
     def __init__(self, parent):
