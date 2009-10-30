@@ -54,10 +54,9 @@ gobject.threads_init()
 import glib
 
 import debconf
-import apt, apt_pkg
 
 from ubiquity import filteredcommand, gconftool, i18n, osextras, validation, \
-                     segmented_bar, wrap_label
+                     segmented_bar, wrap_label, auto_update
 from ubiquity.misc import *
 from ubiquity.plugin import Plugin
 from ubiquity.components import usersetup, \
@@ -79,73 +78,6 @@ UIDIR = os.path.join(PATH, 'gtk')
 
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
-
-MAGIC_MARKER = "/var/run/ubiquity.updated"
-UBIQUITY_PKGS = ["ubiquity",
-                 "ubiquity-casper",
-                 "ubiquity-frontend-debconf",
-                 "ubiquity-frontend-gtk",
-                 "ubiquity-frontend-kde",
-                 "ubiquity-frontend-mythbuntu",
-                 "ubiquity-ubuntu-artwork"]
-
-class CacheProgressDebconfProgressAdapter(apt.progress.OpProgress):
-    def __init__(self, parent):
-        self.parent = parent
-        self.parent.debconf_progress_start(
-            0, 100, self.get_string('reading_package_information'))
-
-    def update(self, percent):
-        self.parent.debconf_progress_set(percent)
-        while gtk.events_pending():
-            gtk.main_iteration()
-
-class FetchProgressDebconfProgressAdapter(apt.progress.FetchProgress):
-    def __init__(self, parent):
-        apt.progress.FetchProgress.__init__(self)
-        self.parent = parent
-
-    def pulse(self):
-        apt.progress.FetchProgress.pulse(self)
-        if self.currentCPS > 0:
-            info = self.get_string('apt_progress_cps')
-            info = info.replace('${SPEED}', apt_pkg.SizeToStr(self.currentCPS))
-        else:
-            info = self.get_string('apt_progress')
-        info = info.replace('${INDEX}', self.currentItems + 1)
-        info = info.replace('${TOTAL}', self.totalItems)
-        self.parent.debconf_progress_info(info)
-        self.parent.debconf_progress_set(self.percent)
-        while gtk.events_pending():
-            gtk.main_iteration()
-        return True
-
-    def stop(self):
-        self.parent.debconf_progress_stop()
-
-    def start(self):
-        self.parent.debconf_progress_start(
-            0, 100, self.get_string('updating_package_information'))
-
-class InstallProgressDebconfProgressAdapter(apt.progress.InstallProgress):
-    def __init__(self, parent):
-        apt.progress.InstallProgress.__init__(self)
-        self.parent = parent
-
-    def statusChange(self, pkg, percent, status):
-        self.parent.debconf_progress_set(percent)
-
-    def startUpdate(self):
-        self.parent.debconf_progress_start(
-            0, 100, 'installing_update')
-
-    def finishUpdate(self):
-        self.parent.debconf_progress_stop()
-
-    def updateInterface(self):
-        apt.progress.InstallProgress.updateInterface(self)
-        while gtk.events_pending():
-            gtk.main_iteration()
 
 class Controller(ubiquity.frontend.base.Controller):
     def translate(self, lang=None, just_me=True, reget=False):
@@ -782,49 +714,10 @@ class Wizard(BaseFrontend):
             widget.set_title(text)
 
 
-    def check_for_updates(self, cache):
-        """ helper that runs a apt-get update and returns the espresso
-            packages  that can be upgraded """
-        fetchprogress = FetchProgressDebconfProgressAdapter(self)
-        try:
-            cache.update(fetchprogress)
-            cache = apt.Cache(CacheProgressDebconfProgressAdapter(self))
-        except IOError, e:
-            print "ERROR: cache.update() returned: '%s'" % e
-            return []
-        return filter(
-            lambda pkg: cache.has_key(pkg) and cache[pkg].isUpgradable,
-            UBIQUITY_PKGS)
-
     def on_update_this_installer(self, widget):
-        self.live_installer.set_sensitive(False)
-        self.debconf_progress_start(
-            0, 3, self.get_string('checking_for_installer_updates'))
-        # check if we have updates
-        cache = apt.Cache(CacheProgressDebconfProgressAdapter(self))
-        updates = self.check_for_updates(cache)
-        if not updates:
-            # no updates
+        if not auto_update.update(self):
+            # no updates, so don't check again
             widget.set_sensitive(False)
-            self.debconf_progress_stop()
-            self.live_installer.set_sensitive(True)
-            return
-        # install the updates
-        map(lambda pkg: cache[pkg].markInstall(), updates)
-        try:
-            res = cache.commit(FetchProgressDebconfProgressAdapter(self),
-                               InstallProgressDebconfProgressAdapter(self))
-        except (SystemError, IOError), e:
-            print "ERROR installing the update: '%s'" % e
-            self.debconf_progress_stop()
-            self.live_installer.set_sensitive(True)
-            return
-
-        # all went well, write marker and restart self
-        # FIXME: we probably want some sort of in-between-restart-splash
-        #        or at least a dialog here
-        open(MAGIC_MARKER, "w").write("1")
-        os.execl(sys.argv[0])
 
 
     def allow_change_step(self, allowed):
