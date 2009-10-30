@@ -22,7 +22,7 @@ import debconf
 import PyICU
 
 from ubiquity.plugin import *
-from ubiquity import i18n, misc
+from ubiquity import i18n, misc, auto_update
 
 NAME = 'language'
 AFTER = None
@@ -72,6 +72,10 @@ class PageGtk(PageBase):
 
             if self.controller.oem_config:
                 builder.get_object('oem_id_vbox').show()
+                update_this_installer = builder.get_object(
+                    'update_this_installer')
+                if update_this_installer:
+                    update_this_installer.hide()
 
             release_notes_vbox = builder.get_object('release_notes_vbox')
             if release_notes_vbox:
@@ -167,6 +171,11 @@ class PageGtk(PageBase):
     def get_oem_id(self):
         return self.oem_id_entry.get_text()
 
+    def on_update_this_installer(self, widget):
+        if not auto_update.update(self):
+            # no updates, so don't check again
+            widget.set_sensitive(False)
+
 class PageKde(PageBase):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_language'
     plugin_is_language = True
@@ -180,9 +189,15 @@ class PageKde(PageBase):
             self.combobox = self.page.language_combobox
             self.combobox.currentIndexChanged[str].connect(self.on_language_selection_changed)
 
-            if not self.controller.oem_config:
+            if self.controller.oem_config:
+                if 'update_this_installer' in self.page:
+                    self.page.update_this_installer.hide()
+            else:
                 self.page.oem_id_label.hide()
                 self.page.oem_id_entry.hide()
+                if 'update_this_installer' in self.page:
+                    self.page.update_this_installer.clicked.connect(
+                        self.on_update_this_installer)
 
             class linkLabel(QLabel):
                 def __init__(self, wizard, parent):
@@ -271,6 +286,11 @@ class PageKde(PageBase):
 
     def get_oem_id(self):
         return unicode(self.page.oem_id_entry.text())
+
+    def on_update_this_installer(self):
+        if not auto_update.update(self):
+            # no updates, so don't check again
+            self.page.update_this_installer.setEnabled(False)
 
 class PageDebconf(PageBase):
     plugin_title = 'ubiquity/text/language_heading_label'

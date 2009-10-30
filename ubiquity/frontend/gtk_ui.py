@@ -56,7 +56,7 @@ import glib
 import debconf
 
 from ubiquity import filteredcommand, gconftool, i18n, osextras, validation, \
-                     segmented_bar, wrap_label, auto_update
+                     segmented_bar, wrap_label
 from ubiquity.misc import *
 from ubiquity.plugin import Plugin
 from ubiquity.components import usersetup, \
@@ -712,12 +712,6 @@ class Wizard(BaseFrontend):
                 elif self.oem_user_config:
                     text = self.get_string('oem_user_config_title', lang)
             widget.set_title(text)
-
-
-    def on_update_this_installer(self, widget):
-        if not auto_update.update(self):
-            # no updates, so don't check again
-            widget.set_sensitive(False)
 
 
     def allow_change_step(self, allowed):
