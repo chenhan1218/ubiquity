@@ -81,8 +81,13 @@ UIDIR = os.path.join(PATH, 'gtk')
 LOCALEDIR = "/usr/share/locale"
 
 MAGIC_MARKER = "/var/run/ubiquity.updated"
-UBIQUITY_PKGS = ["ubiquity", "ubiquity-casper", "ubiquity-frontend-gtk",
-                 "ubiquity-frontend-kde", "ubiquity-ubuntu-artwork"]
+UBIQUITY_PKGS = ["ubiquity",
+                 "ubiquity-casper",
+                 "ubiquity-frontend-debconf",
+                 "ubiquity-frontend-gtk",
+                 "ubiquity-frontend-kde",
+                 "ubiquity-frontend-mythbuntu",
+                 "ubiquity-ubuntu-artwork"]
 
 class CacheProgressDebconfProgressAdapter(apt.progress.OpProgress):
     def __init__(self, parent):
