@@ -80,14 +80,16 @@ UIDIR = os.path.join(PATH, 'gtk')
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
 
-MAGIC_MARKER="/var/run/ubiquity.updated"
-ESPRESSO_PKGS = ["ubiquity","ubiquity-casper","ubiquity-frontend-gtk"
-                 "ubiquity-frontend-kde","ubiquity-ubuntu-artwork" ]
+MAGIC_MARKER = "/var/run/ubiquity.updated"
+UBIQUITY_PKGS = ["ubiquity", "ubiquity-casper", "ubiquity-frontend-gtk",
+                 "ubiquity-frontend-kde", "ubiquity-ubuntu-artwork"]
 
 class CacheProgressDebconfProgressAdapter(apt.progress.OpProgress):
     def __init__(self, parent):
         self.parent = parent
-        self.parent.progress_title.set_markup("<big><b>%s</b></big>"%_("Reading package information"))
+        self.parent.progress_title.set_markup(
+            "<big><b>%s</b></big>" % _("Reading package information"))
+
     def update(self, percent):
         self.parent.progress_bar.set_fraction(percent/100.0)
         while gtk.events_pending():
@@ -97,19 +99,28 @@ class FetchProgressDebconfProgressAdapter(apt.progress.FetchProgress):
     def __init__(self, parent):
         apt.progress.FetchProgress.__init__(self)
         self.parent = parent
-        self.parent.progress_title.set_markup("<big><b>%s</b></big>"%_("Updating package information"))
+        self.parent.progress_title.set_markup(
+            "<big><b>%s</b></big>" % _("Updating package information"))
+
     def pulse(self):
         apt.progress.FetchProgress.pulse(self)
         if self.currentCPS > 0:
-            self.parent.progress_info.set_text(_("File %s of %s at %s/s" % (self.currentItems+1,self.totalItems,apt_pkg.SizeToStr(self.currentCPS))))
+            self.parent.progress_info.set_text(
+                _("File %s of %s at %s/s" %
+                  (self.currentItems + 1, self.totalItems,
+                   apt_pkg.SizeToStr(self.currentCPS))))
         else:
-            self.parent.progress_info.set_text(_("File %s of %s" % (self.currentItems+1,self.totalItems)))
-        self.parent.progress_bar.set_fraction(self.percent/100.0)
+            self.parent.progress_info.set_text(
+                _("File %s of %s" %
+                  (self.currentItems + 1, self.totalItems)))
+        self.parent.progress_bar.set_fraction(self.percent / 100.0)
         while gtk.events_pending():
             gtk.main_iteration()
         return True
+
     def stop(self):
         self.parent.debconf_progress_window.hide()
+
     def start(self):
         self.parent.progress_bar.set_fraction(0.0)
         self.parent.debconf_progress_window.show()
@@ -118,15 +129,20 @@ class InstallProgressDebconfProgressAdapter(apt.progress.InstallProgress):
     def __init__(self, parent):
         apt.progress.InstallProgress.__init__(self)
         self.parent = parent
-        self.parent.progress_title.set_markup("<big><b>%s</b></big>"%_("Installing update"))
+        self.parent.progress_title.set_markup(
+            "<big><b>%s</b></big>" % _("Installing update"))
+
     def statusChange(self, pkg, percent, status):
-        self.parent.progress_bar.set_fraction(percent/100.0)
+        self.parent.progress_bar.set_fraction(percent / 100.0)
+
     def startUpdate(self):
         self.parent.progress_info.set_text("")
         self.parent.progress_bar.set_fraction(0.0)
         self.parent.debconf_progress_window.show()
+
     def finishUpdate(self):
         self.parent.debconf_progress_window.hide()
+
     def updateInterface(self):
         apt.progress.InstallProgress.updateInterface(self)
         while gtk.events_pending():
@@ -777,7 +793,9 @@ class Wizard(BaseFrontend):
         except IOError, e:
             print "ERROR: cache.update() returned: '%s'" % e
             return []
-        return filter(lambda pkg: cache.has_key(pkg) and cache[pkg].isUpgradable, ESPRESSO_PKGS)
+        return filter(
+            lambda pkg: cache.has_key(pkg) and cache[pkg].isUpgradable,
+            UBIQUITY_PKGS)
 
     def on_update_this_installer(self, widget):
         self.live_installer.set_sensitive(False)
@@ -786,7 +804,7 @@ class Wizard(BaseFrontend):
         # check if we have updates
         cache = apt.Cache(CacheProgressDebconfProgressAdapter(self))
         updates = self.check_for_updates(cache)
-        if len(updates) == 0:
+        if not updates:
             # no updates
             widget.set_sensitive(False)
             self.live_installer.set_sensitive(True)
@@ -804,7 +822,7 @@ class Wizard(BaseFrontend):
         # all went well, write marker and restart self
         # FIXME: we probably want some sort of in-between-restart-splash
         #        or at least a dialog here
-        open(MAGIC_MARKER,"w").write("1")
+        open(MAGIC_MARKER, "w").write("1")
         os.execl(sys.argv[0])
 
 
