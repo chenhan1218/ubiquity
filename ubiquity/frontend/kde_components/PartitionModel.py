@@ -224,7 +224,7 @@ class TreeItem:
         partition = self.itemData[1]
         return 'method' in partition and 'can_activate_format' in partition
 
-    def partman_column_format_toggled(self, value):
+    def partman_column_format_toggled(self, unused_value):
         if not self.ubiquity.allowed_change_step:
             return
         if not isinstance(self.ubiquity.dbfilter, partman.Page):

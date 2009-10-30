@@ -31,7 +31,7 @@ WEIGHT = 10
 _release_notes_url_path = '/cdrom/.disk/release_notes_url'
 
 class PageBase(PluginUI):
-    def set_language_choices(self, choices, choice_map):
+    def set_language_choices(self, unused_choices, choice_map):
         """Called with language choices and a map to localised names."""
         self.language_choice_map = dict(choice_map)
 
