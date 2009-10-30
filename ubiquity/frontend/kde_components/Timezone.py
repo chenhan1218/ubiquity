@@ -212,13 +212,8 @@ class TimezoneMap(QWidget):
         return QPoint(int(x), int(y))
         
     def mouseReleaseEvent(self, mouseEvent):
-        selected_zone = -1
-        
         pos = mouseEvent.pos()
-        #rescale mouse coords to have proper x/y position on unscaled image
-        x = int(pos.x() * self.pixmap.width()/self.width())
-        y = int(pos.y() * self.pixmap.height()/self.height())
-        
+
         # get closest city to the point clicked
         closest = None
         bestdist = 0
