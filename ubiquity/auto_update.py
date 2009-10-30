@@ -108,7 +108,7 @@ def update(frontend):
         0, 3, frontend.get_string('checking_for_installer_updates'))
     # check if we have updates
     cache = apt.Cache(CacheProgressDebconfProgressAdapter(frontend))
-    updates = check_for_updates(cache)
+    updates = check_for_updates(frontend, cache)
     if not updates:
         frontend.debconf_progress_stop()
         return False
