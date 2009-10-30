@@ -417,7 +417,7 @@ class FilteredCommand(UntrustedBase):
         self.current_question = question
         if not self.done:
             self.succeeded = False
-            mod = __import__(self.__module__, fromlist=['NAME'])
+            mod = __import__(self.__module__, globals(), locals(), ['NAME'])
             self.frontend.set_page(mod.NAME)
             self.enter_ui_loop()
         return self.succeeded
