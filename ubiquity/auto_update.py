@@ -19,6 +19,7 @@
 # Update the installer from the network.
 
 import sys
+import os
 
 import apt
 import apt_pkg
@@ -128,3 +129,6 @@ def update(frontend):
     open(MAGIC_MARKER, "w").write("1")
     os.execl(sys.argv[0])
     return False
+
+def already_updated():
+    return os.path.exists(MAGIC_MARKER)

@@ -72,6 +72,8 @@ class PageGtk(PageBase):
 
             if self.controller.oem_config:
                 builder.get_object('oem_id_vbox').show()
+
+            if self.controller.oem_config or auto_update.already_updated():
                 update_this_installer = builder.get_object(
                     'update_this_installer')
                 if update_this_installer:
@@ -189,13 +191,14 @@ class PageKde(PageBase):
             self.combobox = self.page.language_combobox
             self.combobox.currentIndexChanged[str].connect(self.on_language_selection_changed)
 
-            if self.controller.oem_config:
-                if 'update_this_installer' in self.page:
-                    self.page.update_this_installer.hide()
-            else:
+            if not self.controller.oem_config:
                 self.page.oem_id_label.hide()
                 self.page.oem_id_entry.hide()
-                if 'update_this_installer' in self.page:
+
+            if 'update_this_installer' in self.page:
+                if self.controller.oem_config or auto_update.already_updated():
+                    self.page.update_this_installer.hide()
+                else:
                     self.page.update_this_installer.clicked.connect(
                         self.on_update_this_installer)
 
