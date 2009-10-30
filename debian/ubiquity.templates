@@ -872,3 +872,27 @@ _Description: Install
 Template: ubiquity/text/install_process_label
 Type: text
 _Description: installation process
+
+Template: ubiquity/text/checking_for_installer_updates
+Type: text
+_Description: Checking for installer updates
+
+Template: ubiquity/text/reading_package_information
+Type: text
+_Description: Reading package information
+
+Template: ubiquity/text/updating_package_information
+Type: text
+_Description: Updating package information
+
+Template: ubiquity/text/apt_progress_cps
+Type: text
+_Description: File ${INDEX} of ${TOTAL} at ${SPEED}/s
+
+Template: ubiquity/text/apt_progress
+Type: text
+_Description: File ${INDEX} of ${TOTAL}
+
+Template: ubiquity/text/installing_update
+Type: text
+_Description: Installing update

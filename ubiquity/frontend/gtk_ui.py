@@ -87,11 +87,11 @@ UBIQUITY_PKGS = ["ubiquity", "ubiquity-casper", "ubiquity-frontend-gtk",
 class CacheProgressDebconfProgressAdapter(apt.progress.OpProgress):
     def __init__(self, parent):
         self.parent = parent
-        self.parent.progress_title.set_markup(
-            "<big><b>%s</b></big>" % _("Reading package information"))
+        self.parent.debconf_progress_start(
+            0, 100, self.get_string('reading_package_information'))
 
     def update(self, percent):
-        self.parent.progress_bar.set_fraction(percent/100.0)
+        self.parent.debconf_progress_set(percent)
         while gtk.events_pending():
             gtk.main_iteration()
 
@@ -99,49 +99,43 @@ class FetchProgressDebconfProgressAdapter(apt.progress.FetchProgress):
     def __init__(self, parent):
         apt.progress.FetchProgress.__init__(self)
         self.parent = parent
-        self.parent.progress_title.set_markup(
-            "<big><b>%s</b></big>" % _("Updating package information"))
 
     def pulse(self):
         apt.progress.FetchProgress.pulse(self)
         if self.currentCPS > 0:
-            self.parent.progress_info.set_text(
-                _("File %s of %s at %s/s" %
-                  (self.currentItems + 1, self.totalItems,
-                   apt_pkg.SizeToStr(self.currentCPS))))
+            info = self.get_string('apt_progress_cps')
+            info = info.replace('${SPEED}', apt_pkg.SizeToStr(self.currentCPS))
         else:
-            self.parent.progress_info.set_text(
-                _("File %s of %s" %
-                  (self.currentItems + 1, self.totalItems)))
-        self.parent.progress_bar.set_fraction(self.percent / 100.0)
+            info = self.get_string('apt_progress')
+        info = info.replace('${INDEX}', self.currentItems + 1)
+        info = info.replace('${TOTAL}', self.totalItems)
+        self.parent.debconf_progress_info(info)
+        self.parent.debconf_progress_set(self.percent)
         while gtk.events_pending():
             gtk.main_iteration()
         return True
 
     def stop(self):
-        self.parent.debconf_progress_window.hide()
+        self.parent.debconf_progress_stop()
 
     def start(self):
-        self.parent.progress_bar.set_fraction(0.0)
-        self.parent.debconf_progress_window.show()
+        self.parent.debconf_progress_start(
+            0, 100, self.get_string('updating_package_information'))
 
 class InstallProgressDebconfProgressAdapter(apt.progress.InstallProgress):
     def __init__(self, parent):
         apt.progress.InstallProgress.__init__(self)
         self.parent = parent
-        self.parent.progress_title.set_markup(
-            "<big><b>%s</b></big>" % _("Installing update"))
 
     def statusChange(self, pkg, percent, status):
-        self.parent.progress_bar.set_fraction(percent / 100.0)
+        self.parent.debconf_progress_set(percent)
 
     def startUpdate(self):
-        self.parent.progress_info.set_text("")
-        self.parent.progress_bar.set_fraction(0.0)
-        self.parent.debconf_progress_window.show()
+        self.parent.debconf_progress_start(
+            0, 100, 'installing_update')
 
     def finishUpdate(self):
-        self.parent.debconf_progress_window.hide()
+        self.parent.debconf_progress_stop()
 
     def updateInterface(self):
         apt.progress.InstallProgress.updateInterface(self)
@@ -799,14 +793,15 @@ class Wizard(BaseFrontend):
 
     def on_update_this_installer(self, widget):
         self.live_installer.set_sensitive(False)
-        self.debconf_progress_window.set_transient_for(self.live_installer)
-        self.debconf_progress_window.set_title(_("Checking for updates"))
+        self.debconf_progress_start(
+            0, 3, self.get_string('checking_for_installer_updates'))
         # check if we have updates
         cache = apt.Cache(CacheProgressDebconfProgressAdapter(self))
         updates = self.check_for_updates(cache)
         if not updates:
             # no updates
             widget.set_sensitive(False)
+            self.debconf_progress_stop()
             self.live_installer.set_sensitive(True)
             return
         # install the updates
@@ -816,6 +811,7 @@ class Wizard(BaseFrontend):
                                InstallProgressDebconfProgressAdapter(self))
         except (SystemError, IOError), e:
             print "ERROR installing the update: '%s'" % e
+            self.debconf_progress_stop()
             self.live_installer.set_sensitive(True)
             return
 
