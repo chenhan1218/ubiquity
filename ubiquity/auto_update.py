@@ -74,7 +74,7 @@ class InstallProgressDebconfProgressAdapter(apt.progress.InstallProgress):
         apt.progress.InstallProgress.__init__(self)
         self.parent = parent
 
-    def statusChange(self, pkg, percent, status):
+    def statusChange(self, unused_pkg, percent, unused_status):
         self.parent.debconf_progress_set(percent)
 
     def startUpdate(self):
@@ -115,8 +115,8 @@ def update(frontend):
     # install the updates
     map(lambda pkg: cache[pkg].markInstall(), updates)
     try:
-        res = cache.commit(FetchProgressDebconfProgressAdapter(frontend),
-                           InstallProgressDebconfProgressAdapter(frontend))
+        cache.commit(FetchProgressDebconfProgressAdapter(frontend),
+                     InstallProgressDebconfProgressAdapter(frontend))
     except (SystemError, IOError), e:
         print "ERROR installing the update: '%s'" % e
         frontend.debconf_progress_stop()
