@@ -39,7 +39,6 @@ import syslog
 import atexit
 import signal
 import xml.sax.saxutils
-
 import gettext
 
 import dbus
