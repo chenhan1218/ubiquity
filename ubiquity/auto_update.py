@@ -126,7 +126,7 @@ def update(frontend):
     # FIXME: we probably want some sort of in-between-restart-splash
     #        or at least a dialog here
     open(MAGIC_MARKER, "w").write("1")
-    os.execl(sys.argv[0])
+    os.execv(sys.argv[0], sys.argv)
     return False
 
 def already_updated():
