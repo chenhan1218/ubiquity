@@ -26,6 +26,11 @@ import subprocess
 from ubiquity import osextras
 from ubiquity import misc
 
+# I think it's clearer to keep our 'set' method, and it doesn't cause a
+# builtin-shadowing problem in practice unless you use 'from
+# ubiquity.gconftool import set' (so don't do that).
+__pychecker__ = 'no-shadowbuiltin'
+
 _cached_gconftool_exists = None
 def _gconftool_exists():
     global _cached_gconftool_exists
