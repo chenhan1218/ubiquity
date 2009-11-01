@@ -34,59 +34,59 @@ UBIQUITY_PKGS = ["ubiquity",
                  "ubiquity-ubuntu-artwork"]
 
 class CacheProgressDebconfProgressAdapter(apt.progress.OpProgress):
-    def __init__(self, parent):
-        self.parent = parent
-        self.parent.debconf_progress_start(
-            0, 100, self.parent.get_string('reading_package_information'))
+    def __init__(self, frontend):
+        self.frontend = frontend
+        self.frontend.debconf_progress_start(
+            0, 100, self.frontend.get_string('reading_package_information'))
 
     def update(self, percent):
-        self.parent.debconf_progress_set(percent)
-        self.parent.refresh()
+        self.frontend.debconf_progress_set(percent)
+        self.frontend.refresh()
 
 class FetchProgressDebconfProgressAdapter(apt.progress.FetchProgress):
-    def __init__(self, parent):
+    def __init__(self, frontend):
         apt.progress.FetchProgress.__init__(self)
-        self.parent = parent
+        self.frontend = frontend
 
     def pulse(self):
         apt.progress.FetchProgress.pulse(self)
         if self.currentCPS > 0:
-            info = self.parent.get_string('apt_progress_cps')
+            info = self.frontend.get_string('apt_progress_cps')
             info = info.replace('${SPEED}', apt_pkg.SizeToStr(self.currentCPS))
         else:
-            info = self.parent.get_string('apt_progress')
+            info = self.frontend.get_string('apt_progress')
         info = info.replace('${INDEX}', self.currentItems + 1)
         info = info.replace('${TOTAL}', self.totalItems)
-        self.parent.debconf_progress_info(info)
-        self.parent.debconf_progress_set(self.percent)
-        self.parent.refresh()
+        self.frontend.debconf_progress_info(info)
+        self.frontend.debconf_progress_set(self.percent)
+        self.frontend.refresh()
         return True
 
     def stop(self):
-        self.parent.debconf_progress_stop()
+        self.frontend.debconf_progress_stop()
 
     def start(self):
-        self.parent.debconf_progress_start(
-            0, 100, self.parent.get_string('updating_package_information'))
+        self.frontend.debconf_progress_start(
+            0, 100, self.frontend.get_string('updating_package_information'))
 
 class InstallProgressDebconfProgressAdapter(apt.progress.InstallProgress):
-    def __init__(self, parent):
+    def __init__(self, frontend):
         apt.progress.InstallProgress.__init__(self)
-        self.parent = parent
+        self.frontend = frontend
 
     def statusChange(self, unused_pkg, percent, unused_status):
-        self.parent.debconf_progress_set(percent)
+        self.frontend.debconf_progress_set(percent)
 
     def startUpdate(self):
-        self.parent.debconf_progress_start(
-            0, 100, self.parent.get_string('installing_update'))
+        self.frontend.debconf_progress_start(
+            0, 100, self.frontend.get_string('installing_update'))
 
     def finishUpdate(self):
-        self.parent.debconf_progress_stop()
+        self.frontend.debconf_progress_stop()
 
     def updateInterface(self):
         apt.progress.InstallProgress.updateInterface(self)
-        self.parent.refresh()
+        self.frontend.refresh()
 
 def check_for_updates(frontend, cache):
     """Helper that runs a apt-get update and returns the ubiquity packages
