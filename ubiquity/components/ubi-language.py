@@ -174,7 +174,7 @@ class PageGtk(PageBase):
         return self.oem_id_entry.get_text()
 
     def on_update_this_installer(self, widget):
-        if not auto_update.update(self):
+        if not auto_update.update(self.controller._wizard):
             # no updates, so don't check again
             widget.set_sensitive(False)
 
@@ -291,7 +291,7 @@ class PageKde(PageBase):
         return unicode(self.page.oem_id_entry.text())
 
     def on_update_this_installer(self):
-        if not auto_update.update(self):
+        if not auto_update.update(self.controller._wizard):
             # no updates, so don't check again
             self.page.update_this_installer.setEnabled(False)
 
