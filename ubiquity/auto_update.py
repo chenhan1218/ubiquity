@@ -24,6 +24,8 @@ import os
 import apt
 import apt_pkg
 
+from ubiquity import misc
+
 MAGIC_MARKER = "/var/run/ubiquity.updated"
 UBIQUITY_PKGS = ["ubiquity",
                  "ubiquity-casper",
@@ -111,32 +113,36 @@ def check_for_updates(frontend, cache):
         UBIQUITY_PKGS)
 
 def update(frontend):
-    frontend.debconf_progress_start(
-        0, 3, frontend.get_string('checking_for_installer_updates'))
-    # check if we have updates
-    cache_progress = CacheProgressDebconfProgressAdapter(frontend)
-    cache = apt.Cache(cache_progress)
-    cache_progress.really_done()
-    updates = check_for_updates(frontend, cache)
-    if not updates:
-        frontend.debconf_progress_stop()
-        return False
-    # install the updates
-    map(lambda pkg: cache[pkg].markInstall(), updates)
+    misc.regain_privileges()
     try:
-        cache.commit(FetchProgressDebconfProgressAdapter(frontend),
-                     InstallProgressDebconfProgressAdapter(frontend))
-    except (SystemError, IOError), e:
-        print "ERROR installing the update: '%s'" % e
-        frontend.debconf_progress_stop()
-        return True
+        frontend.debconf_progress_start(
+            0, 3, frontend.get_string('checking_for_installer_updates'))
+        # check if we have updates
+        cache_progress = CacheProgressDebconfProgressAdapter(frontend)
+        cache = apt.Cache(cache_progress)
+        cache_progress.really_done()
+        updates = check_for_updates(frontend, cache)
+        if not updates:
+            frontend.debconf_progress_stop()
+            return False
+        # install the updates
+        map(lambda pkg: cache[pkg].markInstall(), updates)
+        try:
+            cache.commit(FetchProgressDebconfProgressAdapter(frontend),
+                         InstallProgressDebconfProgressAdapter(frontend))
+        except (SystemError, IOError), e:
+            print "ERROR installing the update: '%s'" % e
+            frontend.debconf_progress_stop()
+            return True
 
-    # all went well, write marker and restart self
-    # FIXME: we probably want some sort of in-between-restart-splash
-    #        or at least a dialog here
-    open(MAGIC_MARKER, "w").write("1")
-    os.execv(sys.argv[0], sys.argv)
-    return False
+        # all went well, write marker and restart self
+        # FIXME: we probably want some sort of in-between-restart-splash
+        #        or at least a dialog here
+        open(MAGIC_MARKER, "w").write("1")
+        os.execv(sys.argv[0], sys.argv)
+        return False
+    finally:
+        misc.drop_privileges()
 
 def already_updated():
     return os.path.exists(MAGIC_MARKER)
