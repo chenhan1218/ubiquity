@@ -62,8 +62,8 @@ class FetchProgressDebconfProgressAdapter(apt.progress.FetchProgress):
             info = info.replace('${SPEED}', apt_pkg.SizeToStr(self.currentCPS))
         else:
             info = self.frontend.get_string('apt_progress')
-        info = info.replace('${INDEX}', self.currentItems + 1)
-        info = info.replace('${TOTAL}', self.totalItems)
+        info = info.replace('${INDEX}', str(self.currentItems + 1))
+        info = info.replace('${TOTAL}', str(self.totalItems))
         self.frontend.debconf_progress_info(info)
         self.frontend.debconf_progress_set(self.percent)
         self.frontend.refresh()
