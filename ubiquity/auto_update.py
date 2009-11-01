@@ -43,6 +43,11 @@ class CacheProgressDebconfProgressAdapter(apt.progress.OpProgress):
         self.frontend.debconf_progress_set(percent)
         self.frontend.refresh()
 
+    def really_done(self):
+        # Unfortunately the process of opening a Cache calls done() twice,
+        # so we have to take care of this manually.
+        self.frontend.debconf_progress_stop()
+
 class FetchProgressDebconfProgressAdapter(apt.progress.FetchProgress):
     def __init__(self, frontend):
         apt.progress.FetchProgress.__init__(self)
@@ -95,7 +100,9 @@ def check_for_updates(frontend, cache):
     fetchprogress = FetchProgressDebconfProgressAdapter(frontend)
     try:
         cache.update(fetchprogress)
-        cache = apt.Cache(CacheProgressDebconfProgressAdapter(frontend))
+        cache_progress = CacheProgressDebconfProgressAdapter(frontend)
+        cache = apt.Cache(cache_progress)
+        cache_progress.really_done()
     except IOError, e:
         print "ERROR: cache.update() returned: '%s'" % e
         return []
@@ -107,7 +114,9 @@ def update(frontend):
     frontend.debconf_progress_start(
         0, 3, frontend.get_string('checking_for_installer_updates'))
     # check if we have updates
-    cache = apt.Cache(CacheProgressDebconfProgressAdapter(frontend))
+    cache_progress = CacheProgressDebconfProgressAdapter(frontend)
+    cache = apt.Cache(cache_progress)
+    cache_progress.really_done()
     updates = check_for_updates(frontend, cache)
     if not updates:
         frontend.debconf_progress_stop()
