@@ -15,6 +15,8 @@ ubiquity (2.1.0) UNRELEASED; urgency=low
     - Don't assign to a variable that's going to be immediately discarded.
   * Signal to GTK+ when using a right-to-left language, so that it
     composes the interface from right to left (LP: #222845).
+  * Signal to the slideshow when the installer is using a right-to-left
+    language (LP: #446989).
 
   [ Colin Watson ]
   * Add a debian/rules target to run pychecker. I've fixed several warnings,
