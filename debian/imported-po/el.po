@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+-HEAD-po-el-3920.merged\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-03-19 12:33+0000\n"
+"POT-Creation-Date: 2009-11-04 12:53+0000\n"
 "PO-Revision-Date: 2009-09-11 19:26+0200\n"
 "Last-Translator: Kostas Papadimas <pkst@gnome.org>\n"
 "Language-Team: Greek <team@gnome.gr>\n"
@@ -109,3 +109,11 @@ msgstr "_Ναι"
 msgctxt "Stock label"
 msgid "_No"
 msgstr "Ό_χι"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../ubiquity.templates-imported:9001
+msgid "default:LTR"
+msgstr "default:LTR"

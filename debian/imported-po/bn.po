@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GTK+\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-03-19 12:33+0000\n"
+"POT-Creation-Date: 2009-11-04 12:53+0000\n"
 "PO-Revision-Date: 2009-08-19 11:04+0700\n"
 "Last-Translator: Maruf Ovee <maruf@ankur.org.bd>\n"
 "Language-Team: Bengali <ankur-bd-l10n@googlegroups.com>\n"
@@ -92,3 +92,11 @@ msgstr "হ্যাঁ (_Y)"
 msgctxt "Stock label"
 msgid "_No"
 msgstr "না (_N)"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../ubiquity.templates-imported:9001
+msgid "default:LTR"
+msgstr "default:LTR"

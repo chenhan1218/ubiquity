@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+.master\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-03-19 12:33+0000\n"
+"POT-Creation-Date: 2009-11-04 12:53+0000\n"
 "PO-Revision-Date: 2009-05-17 17:31+0400\n"
 "Last-Translator: Lebedev Roman <roman@lebedev.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -98,3 +98,11 @@ msgstr "_Да"
 msgctxt "Stock label"
 msgid "_No"
 msgstr "_Нет"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../ubiquity.templates-imported:9001
+msgid "default:LTR"
+msgstr "default:LTR"

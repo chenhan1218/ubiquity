@@ -628,6 +628,7 @@ class Wizard(BaseFrontend):
             core_names = ['ubiquity/text/%s' % q for q in self.language_questions]
             core_names.append('ubiquity/text/oem_config_title')
             core_names.append('ubiquity/text/oem_user_config_title')
+            core_names.append('ubiquity/imported/default-ltr')
             for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
                                 'ok', 'quit'):
                 core_names.append('ubiquity/imported/%s' % stock_item)
