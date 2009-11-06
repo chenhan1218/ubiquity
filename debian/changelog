@@ -17,6 +17,8 @@ ubiquity (2.1.0) UNRELEASED; urgency=low
     composes the interface from right to left (LP: #222845).
   * Signal to the slideshow when the installer is using a right-to-left
     language (LP: #446989).
+  * Set SUDO_UID and SUDO_GID in ubiquity-dm so ubiquity knows what user
+    to drop privileges to (LP: #422254).
 
   [ Colin Watson ]
   * Add a debian/rules target to run pychecker. I've fixed several warnings,
