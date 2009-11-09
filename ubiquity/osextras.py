@@ -34,8 +34,8 @@ def _resolve_link_root(root, path):
         # Resolve where the link points to
         resolved = os.readlink(fullpath)
         if not os.path.isabs(resolved):
-            dir = os.path.dirname(path)
-            path = os.path.normpath(os.path.join(dir, resolved))
+            dirname = os.path.dirname(path)
+            path = os.path.normpath(os.path.join(dirname, resolved))
         else:
             path = os.path.normpath(resolved)
         fullpath = os.path.join(root, path[1:])

@@ -79,7 +79,7 @@ class DM:
         signal.signal(signal.SIGTTIN, signal.SIG_IGN)
         signal.signal(signal.SIGTTOU, signal.SIG_IGN)
 
-        servercommand = ['X', '-br', '-ac', '-noreset', self.vt, self.display]
+        servercommand = ['X', '-br', '-ac', '-noreset', '-nolisten', 'tcp', self.vt, self.display]
         if self.frontend == 'mythbuntu_ui':
             servercommand.append('-dpi')
             servercommand.append('100')
@@ -88,6 +88,9 @@ class DM:
 
         os.environ['DISPLAY'] = self.display
         os.environ['HOME'] = self.homedir
+        # Give ubiquity a UID and GID that it can drop privileges to.
+        os.environ['SUDO_UID'] = str(self.uid)
+        os.environ['SUDO_GID'] = str(self.gid)
 
         # Really we should select on a pipe or something, but it's not worth
         # the effort for now.

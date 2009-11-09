@@ -814,7 +814,7 @@ Type: boolean
 #flag:translate!:3
 _Description: Do you want to return to the partitioner?
  Some of the partitions you created are too small.  Please make the following
- partitions at least this large (in bytes):
+ partitions at least this large:
  .
  ${PARTITIONS}
  .

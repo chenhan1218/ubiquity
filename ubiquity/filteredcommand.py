@@ -24,7 +24,6 @@ import types
 import signal
 import subprocess
 import re
-import syslog
 
 import debconf
 from ubiquity.debconfcommunicator import DebconfCommunicator
@@ -58,13 +57,13 @@ class UntrustedBase(object):
             return None
 
     @classmethod
-    def debug_enabled(self):
+    def debug_enabled(cls):
         return ('UBIQUITY_DEBUG_CORE' in os.environ and
                 os.environ['UBIQUITY_DEBUG_CORE'] == '1')
 
     @classmethod
-    def debug(self, fmt, *args):
-        if self.debug_enabled():
+    def debug(cls, fmt, *args):
+        if cls.debug_enabled():
             import time
             # bizarre time formatting code per syslogd
             time_str = time.ctime()[4:19]
@@ -150,6 +149,7 @@ class FilteredCommand(UntrustedBase):
 
     def cleanup(self):
         self.db.shutdown()
+        self.db = None
 
     def run_command(self, auto_process=False):
         # TODO cjwatson 2006-02-25: Hack to allow _apply functions to be run
@@ -397,7 +397,7 @@ class FilteredCommand(UntrustedBase):
             self.frontend.debconffilter_done(self)
             self.cleanup()
 
-    def error(self, priority, question):
+    def error(self, unused_priority, unused_question):
         self.succeeded = False
         self.done = False
         return True
@@ -408,16 +408,17 @@ class FilteredCommand(UntrustedBase):
 
     # TODO: Make the steps references in the individual components, rather than
     # having to define the relationship here?
-    def run(self, priority, question):
+    def run(self, unused_priority, question):
         if not self.frontend.installing:
             # Make sure any started progress bars are stopped.
-            while self.frontend.progress_position.depth() != 0:
-                self.frontend.debconf_progress_stop()
+            if hasattr(self.frontend, 'progress_position'):
+                while self.frontend.progress_position.depth() != 0:
+                    self.frontend.debconf_progress_stop()
 
         self.current_question = question
         if not self.done:
             self.succeeded = False
-            mod = __import__(self.__module__, fromlist=['NAME'])
+            mod = __import__(self.__module__, globals(), locals(), ['NAME'])
             self.frontend.set_page(mod.NAME)
             self.enter_ui_loop()
         return self.succeeded
@@ -429,17 +430,17 @@ class FilteredCommand(UntrustedBase):
             progress_min, progress_max, self.description(progress_title))
         self.frontend.refresh()
 
-    def progress_set(self, progress_title, progress_val):
+    def progress_set(self, unused_progress_title, progress_val):
         ret = self.frontend.debconf_progress_set(progress_val)
         self.frontend.refresh()
         return ret
 
-    def progress_step(self, progress_title, progress_inc):
+    def progress_step(self, unused_progress_title, progress_inc):
         ret = self.frontend.debconf_progress_step(progress_inc)
         self.frontend.refresh()
         return ret
 
-    def progress_info(self, progress_title, progress_info):
+    def progress_info(self, unused_progress_title, progress_info):
         try:
             ret = self.frontend.debconf_progress_info(
                 self.description(progress_info))
@@ -449,15 +450,11 @@ class FilteredCommand(UntrustedBase):
             # ignore unknown info templates
             return True
 
-    def progress_stop(self, progress_title):
+    def progress_stop(self, unused_progress_title):
         self.frontend.debconf_progress_stop()
         self.frontend.refresh()
 
-    def progress_region(self, progress_title,
+    def progress_region(self, unused_progress_title,
                         progress_region_start, progress_region_end):
         self.frontend.debconf_progress_region(progress_region_start,
                                               progress_region_end)
-
-if __name__ == '__main__':
-    fc = FilteredCommand()
-    fc.run(sys.argv[1])

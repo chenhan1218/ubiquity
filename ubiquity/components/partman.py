@@ -440,7 +440,6 @@ class Page(Plugin):
             for disk in parted.disks():
                 parted.select_disk(disk)
                 ret = []
-                total = 0
                 for partition in parted.partitions():
                     size = int(partition[2])
                     if partition[4] == 'free':

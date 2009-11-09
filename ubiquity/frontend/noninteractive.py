@@ -366,6 +366,7 @@ class Wizard(BaseFrontend):
         """Display an error message dialog."""
         print >>self.console, '\n%s: %s' % (title, msg)
 
-    def question_dialog(self, title, msg, options, use_templates=True):
+    def question_dialog(self, unused_title, unused_msg, unused_options,
+                        use_templates=True):
         """Ask a question."""
         self._abstract('question_dialog')

@@ -17,6 +17,8 @@ endif
 
 DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 
+INTRO_MESSAGE := 1
+
 console-setup-depends := console-setup (>= $(shell cd d-i/source/console-setup && dpkg-parsechangelog | awk '/Version:/ {print $$2}'))
 
 update:
@@ -36,12 +38,17 @@ build-stamp:
 
 	touch build-stamp
 
-clean:
-	dh_testdir
-	dh_testroot
+check:
 	# Sanity-check before upload.
 	find -name debian -prune -o -name \*.py -print | xargs py_compilefiles
 	find -type f \( -name \*.pyc -o -name \*.pyo \) -print0 | xargs -0r rm -f
+
+pychecker:
+	./run-pychecker
+
+clean: check
+	dh_testdir
+	dh_testroot
 
 	$(MAKE) -C d-i clean
 	dh_auto_clean
@@ -139,6 +146,10 @@ endif
 			> debian/ubiquity/usr/lib/ubiquity/localechooser/$$x; \
 		chmod +x debian/ubiquity/usr/lib/ubiquity/localechooser/$$x; \
 	done
+	sed 's/\\\$${!TAB}/ /g' \
+		debian/ubiquity/usr/lib/ubiquity/localechooser/localechooser \
+		> debian/ubiquity/usr/lib/ubiquity/localechooser/localechooser-debconf
+	chmod +x debian/ubiquity/usr/lib/ubiquity/localechooser/localechooser-debconf
 	install d-i/source/localechooser/finish-install \
 		debian/ubiquity/usr/lib/ubiquity/localechooser/
 	install d-i/source/tzsetup/post-base-installer.d/*tzsetup \
@@ -183,6 +194,10 @@ endif
 ifeq ($(DEB_HOST_ARCH),sparc)
 	install d-i/source/silo-installer/debian/silo-installer.postinst \
 		debian/ubiquity/usr/lib/ubiquity/silo-installer/silo-installer
+endif
+ifdef INTRO_MESSAGE
+	install -m644 debian/intro-alpha.txt \
+		debian/ubiquity/usr/share/ubiquity/intro.txt
 endif
 
 	set -e; for size in 16 22 32 48 64 128; do \

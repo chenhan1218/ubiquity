@@ -1,3 +1,48 @@
+ubiquity (2.1.0) UNRELEASED; urgency=low
+
+  [ Evan Dandrea ]
+  * Run X with -nolisten tcp (LP: #462394).
+  * Make sure we never try to install onto the live filesystem.
+  * Only print the filenames being blacklisted if in debug mode.
+  * Provide human readable sizes in the partitions-too-small warning
+    (LP: #298974).
+  * Mark the "Installation Complete" window as always on top
+    (LP: #462178).
+  * Fixes from Pychecker for the KDE frontend (kde_ui):
+    - Don't import datetime or math.  The timezone code is in a separate
+      module now.
+    - Remove some unused variables.
+    - Don't assign to a variable that's going to be immediately discarded.
+  * Signal to GTK+ when using a right-to-left language, so that it
+    composes the interface from right to left (LP: #222845).
+  * Signal to the slideshow when the installer is using a right-to-left
+    language (LP: #446989).
+  * Set SUDO_UID and SUDO_GID in ubiquity-dm so ubiquity knows what user
+    to drop privileges to (LP: #422254).
+
+  [ Colin Watson ]
+  * Add a debian/rules target to run pychecker. I've fixed several warnings,
+    but there are still several left so this is not yet enabled by default.
+  * Fix debconf frontend:
+    - Start oem-config on stopping rc, as well as when starting display
+      managers.
+    - Add some missing imports (ubiquity.frontend.base.Controller,
+      ubiquity.plugin.Plugin, ubiquity.i18n, signal,
+      ubiquity.components.install).
+    - If there's a containing debconf frontend, talk to it rather than using
+      debconf-communicator.
+    - Set a controller in the language plugin.
+    - Use spaces rather than ${!TAB} in localechooser when using the debconf
+      frontend, since debconf doesn't support the latter yet.
+    - Don't handle user-setup preseeding for the debconf frontend.
+    - Remove unused progress_position handling.
+    - Fix exception names in ubi-network and ubi-tasks.
+  * Require Python 2.5, so we can now use hashlib rather than md5 and avoid
+    a slew of warnings.
+  * Add an intro message noting that we're alpha again.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 28 Oct 2009 10:57:17 +0000
+
 ubiquity (2.0.8) karmic-updates; urgency=low
 
   * Don't remove the boot kernel if we failed to install -generic-pae

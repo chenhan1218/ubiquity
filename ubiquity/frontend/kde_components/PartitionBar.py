@@ -283,12 +283,6 @@ class PartitionsBar(QWidget):
         # need mouse tracking to be able to change the cursor
         self.setMouseTracking(True)
     
-    # @return the new size of the resize partition if set (in bytes)
-    def resizePartSize():
-        # fail if no resize_part, we don't want to accidentally return 0
-        assert self.resize_part != None, "No resize partition defined"
-        return self.resize_part.size
-                
     def mousePressEvent(self, qMouseEvent):
         if self.resize_part:
             # if pressed on bar

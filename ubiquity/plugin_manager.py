@@ -114,7 +114,9 @@ def one_pass(mods, order, hidden_list):
             return True
     return False
 
-def order_plugins(mods, order=[]):
+def order_plugins(mods, order=None):
+    if order is None:
+        order = []
     hidden_list = []
     # First, sort mods by weight
     mods = sorted(mods, key=get_mod_weight)

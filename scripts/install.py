@@ -135,7 +135,7 @@ class DebconfInstallProgress(InstallProgress):
             self.db.input('critical', self.error_template)
             self.db.go()
 
-    def statusChange(self, pkg, percent, status):
+    def statusChange(self, dummypkg, percent, status):
         self.percent = percent
         self.status = status
         self.db.progress('SET', int(percent))
@@ -292,6 +292,8 @@ class Install:
             self.source = None
             self.target = '/'
             return
+
+        assert os.path.ismount(self.target), 'Failed to mount the target.'
 
         self.select_language_packs()
         self.select_ecryptfs()
@@ -692,9 +694,7 @@ class Install:
         # Obviously doing os.walk() twice is inefficient, but I'd rather not
         # suck the list into ubiquity's memory, and I'm guessing that the
         # kernel's dentry cache will avoid most of the slowness anyway.
-        walklen = 0
-        for entry in os.walk(self.source):
-            walklen += 1
+        walklen = sum(1 for _ in os.walk(self.source))
         walkpos = 0
         walkprogress = 0
 
@@ -733,6 +733,7 @@ class Install:
         times = [(time_start, copied_size)]
         long_enough = False
         time_last_update = time_start
+        debug = 'UBIQUITY_DEBUG' in os.environ
         if self.db.get('ubiquity/install/md5_check') == 'false':
             md5_check = False
         else:
@@ -762,7 +763,8 @@ class Install:
                 os.mknod(targetpath, stat.S_IFSOCK | mode)
             elif stat.S_ISREG(st.st_mode):
                 if '/%s' % path in self.blacklist:
-                    syslog.syslog('Not copying %s' % path)
+                    if debug:
+                        syslog.syslog('Not copying %s' % path)
                     continue
                 if os.path.exists(targetpath):
                     os.unlink(targetpath)
@@ -1753,7 +1755,6 @@ exit 0"""
 
             for i in range(len(interfaces)):
                 dup = False
-                with_arp = False
 
                 if_name = if_names[interfaces[i]]
                 if if_name is None or if_name[0] != ARPHRD_ETHER:

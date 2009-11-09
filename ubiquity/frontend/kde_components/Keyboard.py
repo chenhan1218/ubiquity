@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import subprocess
-import re
-import PyQt4
 import os
 
 from PyQt4 import QtCore
@@ -88,7 +86,6 @@ class Keyboard(QWidget):
         code = full
         
         if (0xf000 & full):
-            type = (full >> 8) & 0xff
             code = full & 0xff
             
         return unichr(code)
@@ -114,7 +111,6 @@ class Keyboard(QWidget):
         code = full
         
         if (0xf000 & full):
-            type = (full >> 8) & 0xff
             code = full & 0xff
             
         return unichr(code)

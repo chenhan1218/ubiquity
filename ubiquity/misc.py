@@ -51,7 +51,7 @@ def find_in_os_prober(device):
             syslog.syslog(syslog.LOG_ERR, line)
     finally:
         drop_privileges()
-    return ''
+    return unicode('')
 find_in_os_prober.oslist = {}
 find_in_os_prober.called = False
 
@@ -70,7 +70,7 @@ def get_release_name():
             if fp:
                 fp.close()
         if not get_release_name.release_name:
-            release_name = 'Ubuntu'
+            get_release_name.release_name = 'Ubuntu'
     return get_release_name.release_name
 get_release_name.release_name = ''
 

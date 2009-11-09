@@ -18,8 +18,6 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 import os
-import re
-import locale
 import debconf
 import PyICU
 
@@ -33,7 +31,7 @@ WEIGHT = 10
 _release_notes_url_path = '/cdrom/.disk/release_notes_url'
 
 class PageBase(PluginUI):
-    def set_language_choices(self, choices, choice_map):
+    def set_language_choices(self, unused_choices, choice_map):
         """Called with language choices and a map to localised names."""
         self.language_choice_map = dict(choice_map)
 
@@ -162,6 +160,12 @@ class PageGtk(PageBase):
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
             self.controller.translate(lang)
+            import gtk
+            ltr = i18n.get_string('default-ltr', lang, 'ubiquity/imported')
+            if ltr == 'default:RTL':
+                gtk.widget_set_default_direction(gtk.TEXT_DIR_RTL)
+            else:
+                gtk.widget_set_default_direction(gtk.TEXT_DIR_LTR)
 
     def set_oem_id(self, text):
         return self.oem_id_entry.set_text(text)
@@ -177,7 +181,6 @@ class PageKde(PageBase):
         self.controller = controller
         try:
             from PyQt4 import uic
-            from PyQt4.QtCore import SIGNAL
             from PyQt4.QtGui import QLabel
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLanguage.ui')
             self.combobox = self.page.language_combobox
@@ -278,6 +281,9 @@ class PageKde(PageBase):
 class PageDebconf(PageBase):
     plugin_title = 'ubiquity/text/language_heading_label'
 
+    def __init__(self, controller, *args, **kwargs):
+        self.controller = controller
+
 class PageNoninteractive(PageBase):
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
@@ -306,14 +312,19 @@ class Page(Plugin):
                 self.ui.set_oem_id(self.db.get('oem-config/id'))
             except debconf.DebconfError:
                 pass
+
+        localechooser_script = '/usr/lib/ubiquity/localechooser/localechooser'
+        if ('UBIQUITY_FRONTEND' in os.environ and
+            os.environ['UBIQUITY_FRONTEND'] == 'debconf_ui'):
+            localechooser_script += '-debconf'
+
         questions = ['localechooser/languagelist']
         environ = {'PATH': '/usr/lib/ubiquity/localechooser:' + os.environ['PATH']}
         if 'UBIQUITY_FRONTEND' in os.environ and os.environ['UBIQUITY_FRONTEND'] == "debconf_ui":
           environ['TERM_FRAMEBUFFER'] = '1'
         else:
           environ['OVERRIDE_SHOW_ALL_LANGUAGES'] = '1'
-        return (['/usr/lib/ubiquity/localechooser/localechooser'], questions,
-                environ)
+        return (localechooser_script, questions, environ)
 
     def run(self, priority, question):
         if question == 'localechooser/languagelist':
@@ -387,7 +398,7 @@ class Page(Plugin):
     def cleanup(self):
         Plugin.cleanup(self)
         # Done after sub-cleanup because now the debconf lock is clear for a reset/reget
-        i18n.reset_locale()
+        i18n.reset_locale(db=self.db)
         self.ui.controller.translate(just_me=False, reget=True)
 
 class Install(InstallPlugin):

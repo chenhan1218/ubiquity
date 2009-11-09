@@ -45,3 +45,9 @@ Type: text
 # Translations for this template are imported from GTK. Please keep them in
 # sync.
 _Description: _No
+
+Template: ubiquity/imported/default-ltr
+Type: text
+# Translations for this template are imported from GTK. Please keep them in
+# sync.
+_Description: default:LTR

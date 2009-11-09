@@ -42,15 +42,20 @@ def get_supported_locales():
 
 
 # if 'just_country' is True, only the country is changing
-def reset_locale(just_country=False):
-    db = DebconfCommunicator('ubiquity', cloexec=True)
+def reset_locale(just_country=False, db=None):
+    if db is None:
+        db = DebconfCommunicator('ubiquity', cloexec=True)
+        shutdown_db = True
+    else:
+        shutdown_db = False
     di_locale = None
     try:
         di_locale = db.get('debian-installer/locale')
         if di_locale not in get_supported_locales():
             di_locale = db.get('debian-installer/fallbacklocale')
     finally:
-        db.shutdown()
+        if shutdown_db:
+            db.shutdown()
     if not di_locale:
         # TODO cjwatson 2006-07-17: maybe fetch
         # languagechooser/language-name and set a language based on
@@ -72,7 +77,7 @@ def reset_locale(just_country=False):
 
 _strip_context_re = None
 
-def strip_context(question, string):
+def strip_context(unused_question, string):
     # po-debconf context
     global _strip_context_re
     if _strip_context_re is None:

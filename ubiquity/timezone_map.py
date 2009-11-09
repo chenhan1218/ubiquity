@@ -23,7 +23,6 @@ import math
 import cairo
 import gtk
 import glib
-from gtk import gdk
 import gobject
 import os
 import datetime
@@ -184,15 +183,15 @@ class TimezoneMap(gtk.Widget):
 
     def do_realize(self):
         self.set_flags(self.flags() | gtk.REALIZED)
-        self.window = gdk.Window(
+        self.window = gtk.gdk.Window(
             self.get_parent_window(),
             width=self.allocation.width,
             height=self.allocation.height,
-            window_type=gdk.WINDOW_CHILD,
-            wclass=gdk.INPUT_OUTPUT,
+            window_type=gtk.gdk.WINDOW_CHILD,
+            wclass=gtk.gdk.INPUT_OUTPUT,
             event_mask=self.get_events() |
-                        gdk.EXPOSURE_MASK |
-                        gdk.BUTTON_PRESS_MASK)
+                        gtk.gdk.EXPOSURE_MASK |
+                        gtk.gdk.BUTTON_PRESS_MASK)
         self.window.set_user_data(self)
         self.style.attach(self.window)
         self.style.set_background(self.window, gtk.STATE_NORMAL)
@@ -200,7 +199,7 @@ class TimezoneMap(gtk.Widget):
         cursor = gtk.gdk.Cursor(gtk.gdk.HAND2)
         self.window.set_cursor(cursor)
 
-    def do_expose_event(self, event):
+    def do_expose_event(self, unused_event):
         cr = self.window.cairo_create()
         cr.set_source_pixbuf(self.background, 0, 0)
         cr.paint()
@@ -226,7 +225,6 @@ class TimezoneMap(gtk.Widget):
         height = self.background.get_height()
         width = self.background.get_width()
 
-        only_draw_selected = True
         loc = self.selected and self.tzdb.get_loc(self.selected)
         if loc:
             pointx = convert_longitude_to_x(loc.longitude, width)
@@ -265,11 +263,11 @@ class TimezoneMap(gtk.Widget):
         self.queue_draw()
         return True
     
-    def mapped(self, widget, event):
+    def mapped(self, unused_widget, unused_event):
         if self.update_timeout is None:
             self.update_timeout = gobject.timeout_add(1000, self.timeout)
 
-    def unmapped(self, widget, event):
+    def unmapped(self, unused_widget, unused_event):
         if self.update_timeout is not None:
             gobject.source_remove(self.update_timeout)
             self.update_timeout = None
@@ -301,7 +299,7 @@ class TimezoneMap(gtk.Widget):
             print 'Mouse click outside of the map.'
         return None
 
-    def button_press(self, widget, event):
+    def button_press(self, unused_widget, event):
         x = int(event.x)
         y = int(event.y)
         

@@ -6,7 +6,6 @@ from PyQt4.QtCore import *
 import datetime
 import ubiquity.tz
 import math
-import os
 
 #contains information about a geographical timezone city
 class City:
@@ -113,7 +112,7 @@ class TimezoneMap(QWidget):
         y = y * (self.height() * 1.2)
         return y
        
-    def paintEvent(self, paintEvent):
+    def paintEvent(self, unused_paintEvent):
         painter = QPainter(self)
         painter.setRenderHint(QPainter.Antialiasing)
         
@@ -193,7 +192,6 @@ class TimezoneMap(QWidget):
         
         #percent of entire possible range
         topPer = topLat/180.0
-        totalPer = (topLat - bottomLat)/180.0
         
         # get the y in rectangular coordinates
         y = 1.25 * math.log(math.tan(math.pi/4.0 + 0.4 * math.radians(la)))
@@ -214,13 +212,8 @@ class TimezoneMap(QWidget):
         return QPoint(int(x), int(y))
         
     def mouseReleaseEvent(self, mouseEvent):
-        selected_zone = -1
-        
         pos = mouseEvent.pos()
-        #rescale mouse coords to have proper x/y position on unscaled image
-        x = int(pos.x() * self.pixmap.width()/self.width())
-        y = int(pos.y() * self.pixmap.height()/self.height())
-        
+
         # get closest city to the point clicked
         closest = None
         bestdist = 0
