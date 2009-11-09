@@ -1679,6 +1679,9 @@ exit 0"""
         Unfortunately, at present we have to duplicate a fair bit of netcfg
         here, because it's hard to drive netcfg in a way that won't try to
         bring interfaces up and down."""
+        
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            return
 
         # TODO cjwatson 2006-03-30: just call netcfg instead of doing all
         # this; requires a netcfg binary that doesn't bring interfaces up
