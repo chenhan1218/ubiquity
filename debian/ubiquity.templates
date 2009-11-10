@@ -753,6 +753,12 @@ Description: Patterns for language packs to install
  language-pack-$LL is required, and is always installed (by localechooser).
  You do not need to list it here.
 
+Template: pkgsel/ignore-incomplete-language-support
+Type: boolean
+Default: false
+Description: for internal use; can be preseeded
+ Do not warn the end user if the language packs could not be installed.
+
 Template: ubiquity/keep-installed
 Type: string
 Description: for internal use; can be preseeded
