@@ -1462,8 +1462,8 @@ exit 0"""
             dbfilter = migrationassistant_apply.MigrationAssistantApply(None)
             ret = dbfilter.run_command(auto_process=True)
             if ret != 0:
-                raise InstallStepError("MigrationAssistantApply failed with code %d" % ret)
-
+                self.db.input('critical', 'ubiquity/install/broken_migration')
+                self.db.go()
 
     def get_resume_partition(self):
         biggest_size = 0

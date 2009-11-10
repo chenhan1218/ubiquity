@@ -20,6 +20,8 @@ ubiquity (2.1.0) UNRELEASED; urgency=low
   * Set SUDO_UID and SUDO_GID in ubiquity-dm so ubiquity knows what user
     to drop privileges to (LP: #422254).
   * Do not try to configure networking in oem-config (LP: #471498).
+  * Make migration-assistant import failures non-fatal to the overall
+    install.
 
   [ Colin Watson ]
   * Add a debian/rules target to run pychecker. I've fixed several warnings,
