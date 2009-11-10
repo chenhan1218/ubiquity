@@ -1399,6 +1399,9 @@ exit 0"""
         if len(self.languages) == 1 and self.languages[0] in ('C', 'en'):
             return # always complete enough
 
+        if self.db.get('pkgsel/ignore-incomplete-language-support'):
+            return
+
         cache = Cache()
         incomplete = False
         for pkg in self.langpacks:

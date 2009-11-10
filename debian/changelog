@@ -22,6 +22,8 @@ ubiquity (2.1.0) UNRELEASED; urgency=low
   * Do not try to configure networking in oem-config (LP: #471498).
   * Make migration-assistant import failures non-fatal to the overall
     install.
+  * pkgsel now provides a debconf question to avoid warning the end user
+    when the language packs could not be installed (LP: #471553).
 
   [ Colin Watson ]
   * Add a debian/rules target to run pychecker. I've fixed several warnings,
