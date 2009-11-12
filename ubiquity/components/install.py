@@ -80,6 +80,7 @@ class Install(FilteredCommand):
         questions = ['^.*/apt-install-failed$',
                      'migration-assistant/failed-unmount',
                      'ubiquity/install/copying_error/md5',
+                     'ubiquity/install/new-bootdev',
                      'CAPB',
                      'ERROR',
                      'PROGRESS']
@@ -131,6 +132,11 @@ class Install(FilteredCommand):
                 self.preseed(question, 'retry')
             elif response == 'Skip':
                 self.preseed(question, 'skip')
+            return True
+        elif question == 'ubiquity/install/new-bootdev':
+            current_device = self.db.get(question)
+            response = self.frontend.bootloader_dialog(current_device)
+            self.preseed(question, response)
             return True
 
         return FilteredCommand.run(self, priority, question)

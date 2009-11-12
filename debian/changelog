@@ -26,6 +26,8 @@ ubiquity (2.1.0) UNRELEASED; urgency=low
     when the language packs could not be installed (LP: #471553).
   * Make sure a device exists as part of the grub target device
     validation.
+  * Allow the user to retry grub installation with a different device on
+    failure.
 
   [ Colin Watson ]
   * Add a debian/rules target to run pychecker. I've fixed several warnings,

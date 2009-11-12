@@ -257,6 +257,41 @@ Template: ubiquity/text/warning_dialog_label
 Type: text
 _Description: Do you really want to quit the installation now?
 
+Template: ubiquity/text/bootloader_fail_dialog
+Type: text
+_Description: Bootloader install failed
+
+Template: ubiquity/text/bootloader_fail_title
+Type: text
+_Description:
+ Sorry, an error occurred and it was not possible to install the bootloader at
+ the specified location.
+
+Template: ubiquity/text/grub_new_device
+Type: text
+_Description: Choose a different device to install the bootloader on:
+
+Template: ubiquity/text/grub_no_new_device
+Type: text
+_Description: Continue without a bootloader.
+
+Template: ubiquity/text/skip_label
+Type: text
+_Description:
+ You will need to manually install a bootloader in order to start ${RELEASE}.
+
+Template: ubiquity/text/grub_fail_option
+Type: text
+_Description: Cancel the installation.
+
+Template: ubiquity/text/abort_label
+Type: text
+_Description: This may leave your computer unable to boot.
+
+Template: ubiquity/text/bootloader_fail_proceed
+Type: text
+_Description: How would you like to proceed?
+
 Template: ubiquity/text/progress_cancel_button
 Type: text
 _Description: Skip
@@ -728,6 +763,10 @@ Template: ubiquity/install/generate-blacklist
 Type: boolean
 Default: true
 Description: set true to generate a list of files to skip copying.
+
+Template: ubiquity/install/new-bootdev
+Type: string
+Description: for internal use; new boot device to try.
 
 Template: ubiquity/install/blacklist
 Type: text

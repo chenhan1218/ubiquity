@@ -1801,11 +1801,26 @@ exit 0"""
             try:
                 if arch in ('amd64', 'i386', 'lpia'):
                     from ubiquity.components import grubinstaller
-                    dbfilter = grubinstaller.GrubInstaller(None)
-                    ret = dbfilter.run_command(auto_process=True)
-                    if ret != 0:
-                        raise InstallStepError(
-                            "GrubInstaller failed with code %d" % ret)
+                    while 1:
+                        dbfilter = grubinstaller.GrubInstaller(None)
+                        ret = dbfilter.run_command(auto_process=True)
+                        if ret != 0:
+                            old_bootdev = self.db.get('grub-installer/bootdev')
+                            bootdev = 'ubiquity/install/new-bootdev'
+                            self.db.fset(bootdev, 'seen', 'false')
+                            self.db.set(bootdev, old_bootdev)
+                            self.db.input('critical', bootdev)
+                            self.db.go()
+                            response = self.db.get(bootdev)
+                            if response == 'skip':
+                                break
+                            if not response:
+                                raise InstallStepError(
+                                    "GrubInstaller failed with code %d" % ret)
+                            else:
+                                self.db.set('grub-installer/bootdev', response)
+                        else:
+                            break
                 elif (arch == 'armel' and
                       subarch in ('dove', 'imx51', 'iop32x', 'ixp4xx', 'orion5x')):
                     from ubiquity.components import flash_kernel
