@@ -24,6 +24,8 @@ ubiquity (2.1.0) UNRELEASED; urgency=low
     install.
   * pkgsel now provides a debconf question to avoid warning the end user
     when the language packs could not be installed (LP: #471553).
+  * Make sure a device exists as part of the grub target device
+    validation.
 
   [ Colin Watson ]
   * Add a debian/rules target to run pychecker. I've fixed several warnings,
