@@ -1,4 +1,4 @@
-ubiquity (2.1.0) UNRELEASED; urgency=low
+ubiquity (2.1.0) lucid; urgency=low
 
   [ Evan Dandrea ]
   * Run X with -nolisten tcp (LP: #462394).
@@ -55,7 +55,7 @@ ubiquity (2.1.0) UNRELEASED; urgency=low
     a slew of warnings.
   * Add an intro message noting that we're alpha again.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 28 Oct 2009 10:57:17 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 13 Nov 2009 10:41:42 +0000
 
 ubiquity (2.0.8) karmic-updates; urgency=low
 
