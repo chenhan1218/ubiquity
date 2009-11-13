@@ -28,6 +28,11 @@ ubiquity (2.1.0) UNRELEASED; urgency=low
     validation.
   * Allow the user to retry grub installation with a different device on
     failure.
+  * Automatic update of included source packages: apt-setup
+    1:0.42ubuntu1, choose-mirror 2.29ubuntu2, clock-setup 0.100ubuntu1,
+    debian-installer-utils 1.71ubuntu1, grub-installer 1.47ubuntu1, hw-
+    detect 1.73ubuntu1, netcfg 1.51ubuntu1, partman-base 135ubuntu1,
+    tzsetup 1:0.26ubuntu1, user-setup 1.28ubuntu1.
 
   [ Colin Watson ]
   * Add a debian/rules target to run pychecker. I've fixed several warnings,
