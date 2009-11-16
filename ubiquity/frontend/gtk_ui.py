@@ -174,6 +174,7 @@ class Wizard(BaseFrontend):
         self.format_warning_align = None
         self.history = []
         self.builder = gtk.Builder()
+        self.grub_options = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
 
         self.laptop = execute("laptop-detect")
 
@@ -404,6 +405,12 @@ class Wizard(BaseFrontend):
         self.hostname_changed_id = self.hostname.connect(
             'changed', self.on_hostname_changed)
 
+        # Auto-connecting signals with additional parameters does not work.
+        self.grub_new_device_entry.connect('changed', self.grub_verify_loop,
+            self.grub_fail_okbutton)
+        self.grub_device_entry.connect('changed', self.grub_verify_loop,
+            self.advanced_okbutton)
+
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             self.debconf_progress_start(0, self.pageslen,
                 self.get_string('ubiquity/install/checking'))
@@ -572,6 +579,17 @@ class Wizard(BaseFrontend):
         if hasattr(self, 'stepPartAuto'):
             self.previous_partitioning_page = \
                 self.steps.page_num(self.stepPartAuto)
+        
+        for grub_entry in (self.grub_device_entry, self.grub_new_device_entry):
+            grub_entry.clear()
+            renderer = gtk.CellRendererText()
+            grub_entry.pack_start(renderer, True)
+            grub_entry.add_attribute(renderer, 'text', 0)
+            renderer = gtk.CellRendererText()
+            grub_entry.pack_start(renderer, True)
+            grub_entry.add_attribute(renderer, 'text', 1)
+            grub_entry.set_model(self.grub_options)
+            grub_entry.set_text_column(0)
 
         # set initial bottom bar status
         self.allow_go_backward(False)
@@ -628,6 +646,7 @@ class Wizard(BaseFrontend):
             core_names = ['ubiquity/text/%s' % q for q in self.language_questions]
             core_names.append('ubiquity/text/oem_config_title')
             core_names.append('ubiquity/text/oem_user_config_title')
+            core_names.append('ubiquity/imported/default-ltr')
             for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
                                 'ok', 'quit'):
                 core_names.append('ubiquity/imported/%s' % stock_item)
@@ -922,6 +941,9 @@ class Wizard(BaseFrontend):
         if os.path.exists(slides):
             slides = 'file://%s#locale=%s' % (slides, lang)
             if sh >= 600 and sw >= 800:
+                ltr = i18n.get_string('default-ltr', lang, 'ubiquity/imported')
+                if ltr == 'default:RTL':
+                    slides += '#rtl'
                 try:
                     import webkit
                     webview = webkit.WebView()
@@ -1116,6 +1138,11 @@ class Wizard(BaseFrontend):
             self.username_error_box.hide()
             self.password_error_box.hide()
             self.hostname_error_box.hide()
+            
+            options = grub_options()
+            self.grub_options.clear()
+            for opt in options:
+                self.grub_options.append(opt)
 
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
@@ -2422,26 +2449,12 @@ class Wizard(BaseFrontend):
         ready_buffer.set_text(text)
         self.ready_text.set_buffer(ready_buffer)
 
-    def set_grub_combo (self, options):
-        self.grub_device_entry.clear()
-        l = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
-        renderer = gtk.CellRendererText()
-        self.grub_device_entry.pack_start(renderer, True)
-        self.grub_device_entry.add_attribute(renderer, 'text', 0)
-        renderer = gtk.CellRendererText()
-        self.grub_device_entry.pack_start(renderer, True)
-        self.grub_device_entry.add_attribute(renderer, 'text', 1)
-        for opt in options:
-            l.append(opt)
-        self.grub_device_entry.set_model(l)
-        self.grub_device_entry.set_text_column(0)
-
-    def grub_verify_loop(self, widget):
+    def grub_verify_loop(self, widget, okbutton):
         if widget is not None:
             if validation.check_grub_device(widget.child.get_text()):
-                self.advanced_okbutton.set_sensitive(True)
+                okbutton.set_sensitive(True)
             else:
-                self.advanced_okbutton.set_sensitive(False)
+                okbutton.set_sensitive(False)
 
     def on_advanced_button_clicked (self, unused_button):
         display = False
@@ -2554,6 +2567,38 @@ class Wizard(BaseFrontend):
         if fatal:
             self.return_to_partitioning()
 
+    def toggle_grub_fail (self, unused_widget):
+        if self.grub_no_new_device.get_active():
+            self.no_grub_warn.show()
+            self.grub_new_device_entry.set_sensitive(False)
+            self.abort_warn.hide()
+        elif self.grub_fail_option.get_active():
+            self.abort_warn.show()
+            self.no_grub_warn.hide()
+            self.grub_new_device_entry.set_sensitive(False)
+        else:
+            self.abort_warn.hide()
+            self.no_grub_warn.hide()
+            self.grub_new_device_entry.set_sensitive(True)
+
+    def bootloader_dialog (self, current_device):
+        l = self.skip_label.get_label()
+        l = l.replace('${RELEASE}', get_release_name())
+        self.skip_label.set_label(l)
+        self.grub_new_device_entry.child.set_text(current_device)
+        self.grub_new_device_entry.child.grab_focus()
+        response = self.bootloader_fail_dialog.run()
+        self.bootloader_fail_dialog.hide()
+        if response == gtk.RESPONSE_OK:
+            if self.grub_new_device.get_active():
+                return self.grub_new_device_entry.child.get_text()
+            elif self.grub_no_new_device.get_active():
+                return 'skip'
+            else:
+                return ''
+        else:
+            return ''
+        
     def question_dialog (self, title, msg, options, use_templates=True):
         self.run_automation_error_cmd()
         # TODO cjwatson 2009-04-16: We need to call allow_change_step here

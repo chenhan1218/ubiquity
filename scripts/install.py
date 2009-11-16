@@ -1369,6 +1369,9 @@ exit 0"""
         if len(self.languages) == 1 and self.languages[0] in ('C', 'en'):
             return # always complete enough
 
+        if self.db.get('pkgsel/ignore-incomplete-language-support'):
+            return
+
         cache = Cache()
         incomplete = False
         for pkg in self.langpacks:
@@ -1432,8 +1435,8 @@ exit 0"""
             dbfilter = migrationassistant_apply.MigrationAssistantApply(None)
             ret = dbfilter.run_command(auto_process=True)
             if ret != 0:
-                raise InstallStepError("MigrationAssistantApply failed with code %d" % ret)
-
+                self.db.input('critical', 'ubiquity/install/broken_migration')
+                self.db.go()
 
     def get_resume_partition(self):
         biggest_size = 0
@@ -1573,7 +1576,7 @@ exit 0"""
                 pass
             self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
                        '--quiet', '--remove', '/usr/sbin/update-initramfs')
-            self.chrex('update-initramfs', '-c', '-k', os.uname()[2])
+            self.chrex('update-initramfs', '-c', '-k', self.kernel_version)
             self.chroot_cleanup(x11=True)
 
         # Fix up kernel symlinks now that the initrd exists. Depending on
@@ -1649,6 +1652,9 @@ exit 0"""
         Unfortunately, at present we have to duplicate a fair bit of netcfg
         here, because it's hard to drive netcfg in a way that won't try to
         bring interfaces up and down."""
+        
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            return
 
         # TODO cjwatson 2006-03-30: just call netcfg instead of doing all
         # this; requires a netcfg binary that doesn't bring interfaces up
@@ -1765,11 +1771,26 @@ exit 0"""
             try:
                 if arch in ('amd64', 'i386', 'lpia'):
                     from ubiquity.components import grubinstaller
-                    dbfilter = grubinstaller.GrubInstaller(None)
-                    ret = dbfilter.run_command(auto_process=True)
-                    if ret != 0:
-                        raise InstallStepError(
-                            "GrubInstaller failed with code %d" % ret)
+                    while 1:
+                        dbfilter = grubinstaller.GrubInstaller(None)
+                        ret = dbfilter.run_command(auto_process=True)
+                        if ret != 0:
+                            old_bootdev = self.db.get('grub-installer/bootdev')
+                            bootdev = 'ubiquity/install/new-bootdev'
+                            self.db.fset(bootdev, 'seen', 'false')
+                            self.db.set(bootdev, old_bootdev)
+                            self.db.input('critical', bootdev)
+                            self.db.go()
+                            response = self.db.get(bootdev)
+                            if response == 'skip':
+                                break
+                            if not response:
+                                raise InstallStepError(
+                                    "GrubInstaller failed with code %d" % ret)
+                            else:
+                                self.db.set('grub-installer/bootdev', response)
+                        else:
+                            break
                 elif (arch == 'armel' and
                       subarch in ('dove', 'imx51', 'iop32x', 'ixp4xx', 'orion5x')):
                     from ubiquity.components import flash_kernel
@@ -2104,6 +2125,8 @@ exit 0"""
         dbfilter.run_command(auto_process=True)
 
         install_kernels = set()
+        new_kernel_pkg = None
+        new_kernel_version = None
         if os.path.exists("/var/lib/ubiquity/install-kernels"):
             install_kernels_file = open("/var/lib/ubiquity/install-kernels")
             for line in install_kernels_file:
@@ -2113,13 +2136,15 @@ exit 0"""
                 # this, it's probably because we prefer it to the default
                 # one, so we'd better update kernel_version to match.
                 if kernel.startswith('linux-image-2.'):
-                    self.kernel_version = kernel[12:]
+                    new_kernel_pkg = kernel
+                    new_kernel_version = kernel[12:]
                 elif kernel.startswith('linux-generic-'):
                     # Traverse dependencies to find the real kernel image.
                     cache = Cache()
                     kernel = self.traverse_for_kernel(cache, kernel)
                     if kernel:
-                        self.kernel_version = kernel[12:]
+                        new_kernel_pkg = kernel
+                        new_kernel_version = kernel[12:]
             install_kernels_file.close()
 
         remove_kernels = set()
@@ -2139,6 +2164,16 @@ exit 0"""
         self.db.progress('REGION', 1, 2)
         if install_kernels:
             self.do_install(install_kernels)
+            if new_kernel_pkg:
+                cache = Cache()
+                cached_pkg = self.get_cache_pkg(cache, new_kernel_pkg)
+                if cached_pkg is not None and cached_pkg.isInstalled:
+                    self.kernel_version = new_kernel_version
+                else:
+                    remove_kernels = []
+                del cache
+            else:
+                remove_kernels = []
 
         self.db.progress('SET', 2)
         self.db.progress('REGION', 2, 5)

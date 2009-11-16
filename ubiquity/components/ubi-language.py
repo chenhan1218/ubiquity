@@ -166,6 +166,12 @@ class PageGtk(PageBase):
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
             self.controller.translate(lang)
+            import gtk
+            ltr = i18n.get_string('default-ltr', lang, 'ubiquity/imported')
+            if ltr == 'default:RTL':
+                gtk.widget_set_default_direction(gtk.TEXT_DIR_RTL)
+            else:
+                gtk.widget_set_default_direction(gtk.TEXT_DIR_LTR)
 
     def set_oem_id(self, text):
         return self.oem_id_entry.set_text(text)

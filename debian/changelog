@@ -1,4 +1,14 @@
-ubiquity (2.1.0) UNRELEASED; urgency=low
+ubiquity (2.1.1) UNRELEASED; urgency=low
+
+  * Add a button to the language page to upgrade the installer on the fly,
+    based on work by Michael Vogt several years ago (LP: #55505).
+  * GTK frontend:
+    - Only set the debconf progress window's transience and type hint when
+      it isn't already being shown.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 16 Nov 2009 11:40:29 -0600
+
+ubiquity (2.1.0) lucid; urgency=low
 
   [ Evan Dandrea ]
   * Run X with -nolisten tcp (LP: #462394).
@@ -13,6 +23,26 @@ ubiquity (2.1.0) UNRELEASED; urgency=low
       module now.
     - Remove some unused variables.
     - Don't assign to a variable that's going to be immediately discarded.
+  * Signal to GTK+ when using a right-to-left language, so that it
+    composes the interface from right to left (LP: #222845).
+  * Signal to the slideshow when the installer is using a right-to-left
+    language (LP: #446989).
+  * Set SUDO_UID and SUDO_GID in ubiquity-dm so ubiquity knows what user
+    to drop privileges to (LP: #422254).
+  * Do not try to configure networking in oem-config (LP: #471498).
+  * Make migration-assistant import failures non-fatal to the overall
+    install.
+  * pkgsel now provides a debconf question to avoid warning the end user
+    when the language packs could not be installed (LP: #471553).
+  * Make sure a device exists as part of the grub target device
+    validation.
+  * Allow the user to retry grub installation with a different device on
+    failure.
+  * Automatic update of included source packages: apt-setup
+    1:0.42ubuntu1, choose-mirror 2.29ubuntu2, clock-setup 0.100ubuntu1,
+    debian-installer-utils 1.71ubuntu1, grub-installer 1.47ubuntu1, hw-
+    detect 1.73ubuntu1, netcfg 1.51ubuntu1, partman-base 135ubuntu1,
+    tzsetup 1:0.26ubuntu1, user-setup 1.28ubuntu1.
 
   [ Colin Watson ]
   * Add a debian/rules target to run pychecker. I've fixed several warnings,
@@ -34,13 +64,15 @@ ubiquity (2.1.0) UNRELEASED; urgency=low
   * Require Python 2.5, so we can now use hashlib rather than md5 and avoid
     a slew of warnings.
   * Add an intro message noting that we're alpha again.
-  * Add a button to the language page to upgrade the installer on the fly,
-    based on work by Michael Vogt several years ago (LP: #55505).
-  * GTK frontend:
-    - Only set the debconf progress window's transience and type hint when
-      it isn't already being shown.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 28 Oct 2009 10:57:17 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 13 Nov 2009 10:41:42 +0000
+
+ubiquity (2.0.8) karmic-updates; urgency=low
+
+  * Don't remove the boot kernel if we failed to install -generic-pae
+    (LP: #462692).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 28 Oct 2009 18:53:21 +0000
 
 ubiquity (2.0.7) karmic-updates; urgency=low
 

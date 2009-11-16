@@ -257,6 +257,41 @@ Template: ubiquity/text/warning_dialog_label
 Type: text
 _Description: Do you really want to quit the installation now?
 
+Template: ubiquity/text/bootloader_fail_dialog
+Type: text
+_Description: Bootloader install failed
+
+Template: ubiquity/text/bootloader_fail_title
+Type: text
+_Description:
+ Sorry, an error occurred and it was not possible to install the bootloader at
+ the specified location.
+
+Template: ubiquity/text/grub_new_device
+Type: text
+_Description: Choose a different device to install the bootloader on:
+
+Template: ubiquity/text/grub_no_new_device
+Type: text
+_Description: Continue without a bootloader.
+
+Template: ubiquity/text/skip_label
+Type: text
+_Description:
+ You will need to manually install a bootloader in order to start ${RELEASE}.
+
+Template: ubiquity/text/grub_fail_option
+Type: text
+_Description: Cancel the installation.
+
+Template: ubiquity/text/abort_label
+Type: text
+_Description: This may leave your computer unable to boot.
+
+Template: ubiquity/text/bootloader_fail_proceed
+Type: text
+_Description: How would you like to proceed?
+
 Template: ubiquity/text/progress_cancel_button
 Type: text
 _Description: Skip
@@ -711,6 +746,14 @@ _Description: Error while removing packages
  look for newer versions of your installer image, or failing that report the
  problem to your distributor.
 
+Template: ubiquity/install/broken_migration
+Type: error
+_Description: Error migrating documents and settings
+ An error occurred while migrating data.  More details may be found in
+ /var/log/syslog.  The installation will continue, but some or all of the
+ documents and settings you requested may not have been transferred to the
+ installed system.
+
 Template: ubiquity/install/md5_check
 Type: boolean
 Default: true
@@ -720,6 +763,10 @@ Template: ubiquity/install/generate-blacklist
 Type: boolean
 Default: true
 Description: set true to generate a list of files to skip copying.
+
+Template: ubiquity/install/new-bootdev
+Type: string
+Description: for internal use; new boot device to try.
 
 Template: ubiquity/install/blacklist
 Type: text
@@ -744,6 +791,12 @@ Description: Patterns for language packs to install
  .
  language-pack-$LL is required, and is always installed (by localechooser).
  You do not need to list it here.
+
+Template: pkgsel/ignore-incomplete-language-support
+Type: boolean
+Default: false
+Description: for internal use; can be preseeded
+ Do not warn the end user if the language packs could not be installed.
 
 Template: ubiquity/keep-installed
 Type: string

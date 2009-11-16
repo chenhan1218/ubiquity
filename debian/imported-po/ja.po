@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+ master\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-03-19 12:33+0000\n"
-"PO-Revision-Date: 2009-09-06 18:01+0900\n"
+"POT-Creation-Date: 2009-11-04 12:53+0000\n"
+"PO-Revision-Date: 2009-10-03 18:34+0900\n"
 "Last-Translator: Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -92,3 +92,11 @@ msgstr "はい(_Y)"
 msgctxt "Stock label"
 msgid "_No"
 msgstr "いいえ(_N)"
+
+#. Type: text
+#. Description
+#. Translations for this template are imported from GTK. Please keep them in
+#. sync.
+#: ../ubiquity.templates-imported:9001
+msgid "default:LTR"
+msgstr "default:LTR"

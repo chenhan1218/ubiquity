@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-09-11 19:26+0100\n"
+"POT-Creation-Date: 2009-11-13 10:40+0000\n"
 "PO-Revision-Date: 2009-09-05 19:31+0000\n"
 "Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
 "Language-Team: Bangla <core@BengaLinux.Org>\n"
@@ -45,7 +45,7 @@ msgstr ""
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:164001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:175001
 msgid "Install"
 msgstr "ইনস্টল করো"
 
@@ -350,7 +350,7 @@ msgstr ""
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:47001 ../ubiquity.templates:98001
+#: ../ubiquity.templates:47001 ../ubiquity.templates:106001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
 msgstr "ইনস্টলের জন্য প্রস্তুত"
@@ -403,24 +403,79 @@ msgstr "আপনি সত্যিই কি ইনস্টলেশন ব�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
+msgid "Bootloader install failed"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:56001
+msgid ""
+"Sorry, an error occurred and it was not possible to install the bootloader "
+"at the specified location."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:57001
+msgid "Choose a different device to install the bootloader on:"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:58001
+#, fuzzy
+#| msgid "Configuring boot loader..."
+msgid "Continue without a bootloader."
+msgstr "বুট লোডার কনফিগার করা হচ্ছে..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:59001
+msgid ""
+"You will need to manually install a bootloader in order to start ${RELEASE}."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:60001
+#, fuzzy
+#| msgid "Quit the installation?"
+msgid "Cancel the installation."
+msgstr "ইনস্টল বন্ধ করা হবে?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:61001
+msgid "This may leave your computer unable to boot."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:62001
+msgid "How would you like to proceed?"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:63001
 msgid "Skip"
 msgstr "এড়িয়ে যাও"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:64001
 msgid "Installation Complete"
 msgstr "ইনস্টল করা শেষ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:65001
 msgid "Continue Testing"
 msgstr "আরও পরীক্ষা করুন"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:66001
 msgid "Restart Now"
 msgstr "রিস্টার্ট করুন"
 
@@ -428,13 +483,13 @@ msgstr "রিস্টার্ট করুন"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:59001 ../ubiquity.templates:60001
+#: ../ubiquity.templates:67001 ../ubiquity.templates:68001
 msgid "Installer crashed"
 msgstr "ইনস্টলার ক্র্যাশ করেছে"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:69001
 msgid ""
 "We're sorry; the installer crashed. Please file a new bug report at https://"
 "launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
@@ -448,7 +503,7 @@ msgstr ""
 #. Description
 #. Displayed next to a graphical bar depicting the state of the disk before
 #. automatic partitioning.
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:70001
 msgid "Before:"
 msgstr "পূর্বে:"
 
@@ -456,49 +511,49 @@ msgstr "পূর্বে:"
 #. Description
 #. Displayed next to a graphical bar depicting the state of the disk after
 #. automatic partitioning.
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:71001
 msgid "After:"
 msgstr "পরে:"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:72001
 msgid "New Partition Table..."
 msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:73001
 msgid "Add..."
 msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:74001
 msgid "Change..."
 msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:75001
 msgid "Delete"
 msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:76001
 msgid "Revert"
 msgstr ""
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:77001
 msgid "Device"
 msgstr "যন্ত্র"
 
@@ -506,28 +561,28 @@ msgstr "যন্ত্র"
 #. Description
 #. A column heading in the partitioner. Indicates how the partition is to be
 #. used (ext2, swap, etc.).
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:78001
 msgid "Type"
 msgstr "ধরণ"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:79001
 msgid "Mount point"
 msgstr "মাউন্ট-পয়েন্ট"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:80001
 msgid "Format?"
 msgstr "ফরম্যাট করা হবে?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:81001
 msgid "Size"
 msgstr "আকার"
 
@@ -535,27 +590,27 @@ msgstr "আকার"
 #. Description
 #. A column heading in the partitioner. Indicates how much of the space on
 #. this partition is used by data.
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:82001
 msgid "Used"
 msgstr "ব্যবহৃত"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:83001
 msgid "free space"
 msgstr "খালি জায়গা"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:84001
 msgid "unknown"
 msgstr "অজানা"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:85001
 msgid "Create partition"
 msgstr "পার্টিশন তৈরি করুন"
 
@@ -563,97 +618,97 @@ msgstr "পার্টিশন তৈরি করুন"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:78001 ../ubiquity.templates:85001
+#: ../ubiquity.templates:86001 ../ubiquity.templates:93001
 msgid "New partition size in megabytes (1000000 bytes):"
 msgstr "নতুন পার্টিশনের আয়তন মেগাবাইটে (১০০০০০০ বাইটস)"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:87001
 msgid "Beginning"
 msgstr "শুরু"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:88001
 msgid "End"
 msgstr "শেষ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:89001
 msgid "Primary"
 msgstr "প্রাইমারি"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:90001
 msgid "Logical"
 msgstr "লজিকাল"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:91001
 msgid "Edit partition"
 msgstr "পার্টিশন সম্পাদন করুন"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:92001
 msgid "Edit a partition"
 msgstr "একটি পার্টিশন সম্পাদন করুন"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:94001
 msgid "Advanced Options"
 msgstr "অগ্রসর বৈশিষ্ট্যাবলী"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:95001
 msgid "Boot loader"
 msgstr "বুট লোডার"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:96001
 msgid "Install boot loader"
 msgstr "বুট লোডার ইনস্টল করুন"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:97001
 msgid "Popularity contest"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:98001
 msgid "Participate in the package usage survey"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:99001
 msgid "Network proxy"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:100001
 msgid "HTTP proxy:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:101001
 msgid "Port:"
 msgstr "পোর্ট:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:102001
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
@@ -665,20 +720,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:103001
 msgid "Go Back"
 msgstr "পেছনে যাও"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:104001
 msgid "Continue"
 msgstr "এগিয়ে যাও"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:97001
+#: ../ubiquity.templates:105001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
@@ -688,7 +743,7 @@ msgstr ""
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:98001
+#: ../ubiquity.templates:106001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -708,37 +763,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:99001
+#: ../ubiquity.templates:107001
 msgid "Checking the installation..."
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:108001
 msgid "Installing system"
 msgstr "সিস্টেম ইনস্টল করা হচ্ছে"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:109001
 msgid "Finding the distribution to copy..."
 msgstr "কপি করবার জন্য ডিস্ট্রিবিউসন খোঁজা হচ্ছে ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:103001
+#: ../ubiquity.templates:111001
 msgid "Scanning files..."
 msgstr "ফাইলসমূহ পরীক্ষা করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:104001
+#: ../ubiquity.templates:112001
 msgid "Copying files..."
 msgstr "ফাইলসমূহ কপি করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:105001
+#: ../ubiquity.templates:113001
 msgid "Almost finished copying files..."
 msgstr ""
 
@@ -752,9 +807,9 @@ msgstr ""
 #. Description
 #. Type: select
 #. Description
-#: ../ubiquity.templates:106001 ../ubiquity.templates:107001
-#: ../ubiquity.templates:108001 ../ubiquity.templates:109001
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:114001 ../ubiquity.templates:115001
+#: ../ubiquity.templates:116001 ../ubiquity.templates:117001
+#: ../ubiquity.templates:118001
 msgid "Installation Failed"
 msgstr "ইনস্টলেশন প্রক্রিয়া ব্যর্থ হয়েছে"
 
@@ -766,14 +821,14 @@ msgstr "ইনস্টলেশন প্রক্রিয়া ব্যর্�
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:106001 ../ubiquity.templates:107001
-#: ../ubiquity.templates:108001 ../ubiquity.templates:109001
+#: ../ubiquity.templates:114001 ../ubiquity.templates:115001
+#: ../ubiquity.templates:116001 ../ubiquity.templates:117001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr "ফাইলগুলো হার্ড ডিস্কে কপি করার সময় ইনস্টলার একটি ত্রুটির মুখোমুখি হয়েছে:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:106001
+#: ../ubiquity.templates:114001
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
@@ -782,7 +837,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:107001
+#: ../ubiquity.templates:115001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -791,7 +846,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:116001
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -806,7 +861,7 @@ msgstr ""
 #. Description
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
-#: ../ubiquity.templates:109001 ../ubiquity.templates:110001
+#: ../ubiquity.templates:117001 ../ubiquity.templates:118001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -817,145 +872,145 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:118001
 msgid "The following file did not match its source copy on the CD/DVD:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:111001
+#: ../ubiquity.templates:119001
 msgid "Copying installation logs..."
 msgstr "ইনস্টালেশন লগ কপি করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:112001
+#: ../ubiquity.templates:120001
 msgid "Configuring target system..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:113001
+#: ../ubiquity.templates:121001
 msgid "Configuring system locales..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:114001
+#: ../ubiquity.templates:122001
 msgid "Configuring apt..."
 msgstr "এপিটি(apt) কনফিগার করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:115001
+#: ../ubiquity.templates:123001
 msgid "Configuring time zone..."
 msgstr "সময় অঞ্চল কনফিগার করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:116001
+#: ../ubiquity.templates:124001
 msgid "Configuring keyboard..."
 msgstr "কীবোর্ড কনফিগার করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:117001
+#: ../ubiquity.templates:125001
 msgid "Creating user..."
 msgstr "ব্যবহারকারী তৈরি করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:118001
+#: ../ubiquity.templates:126001
 msgid "Importing documents and settings..."
 msgstr "ডকুমেন্টস ও বৈশিষ্ট্যসমূহ আমদানি করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:119001
+#: ../ubiquity.templates:127001
 msgid "Configuring hardware..."
 msgstr "হার্ডওয়্যার কনফিগার করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:120001
+#: ../ubiquity.templates:128001
 msgid "Configuring network..."
 msgstr "নেটওয়ার্ক কনফিগার করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:121001
+#: ../ubiquity.templates:129001
 msgid "Setting computer name..."
 msgstr "কম্পিউটারের নামকরন করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:122001
+#: ../ubiquity.templates:130001
 msgid "Configuring boot loader..."
 msgstr "বুট লোডার কনফিগার করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:123001
+#: ../ubiquity.templates:131001
 msgid "Installing additional packages..."
 msgstr "অতিরিক্ত প্যাকেজসমূহ ইনস্টল করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:124001
+#: ../ubiquity.templates:132001
 msgid "Checking for packages to install..."
 msgstr "প্যাকেজসমূহ ইনস্টল করার জন্য পরীক্ষা করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:125001
+#: ../ubiquity.templates:133001
 msgid "Removing extra packages..."
 msgstr "অতিরিক্ত প্যাকেজ মুছে ফেলা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:126001
+#: ../ubiquity.templates:134001
 msgid "Checking for packages to remove..."
 msgstr "বাদ দেবার জন্য প্যাকেজ খোজা হছে ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:127001
+#: ../ubiquity.templates:135001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "প্যাকেজগুলো ডাউনলোড করা হছে {$(TIME)} অবশিষ্ট আছে ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:136001
 msgid "Downloading package lists..."
 msgstr "প্যাকেজগুলোর তালিকা ডাউনলোড করা হছে ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:129001
+#: ../ubiquity.templates:137001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "প্যাকেজগুলোর তালিকা ডাউনলোড করা হছে (${TIME}অবশিষ্ট আছে ) ..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:131001
+#: ../ubiquity.templates:139001
 msgid "Error installing ${PACKAGE}"
 msgstr "${PACKAGE} ইনস্টল করা যাচ্ছে না"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:132001
+#: ../ubiquity.templates:140001
 msgid "Error removing ${PACKAGE}"
 msgstr "${PACKAGE} বাতিল করা যাচ্ছে না"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:133001
+#: ../ubiquity.templates:141001
 msgid "Error while installing packages"
 msgstr "প্যাকেজসমূহ ইনস্টলের সময় সমস্যা দেখা দিয়েছে"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:133001
+#: ../ubiquity.templates:141001
 msgid "An error occurred while installing packages:"
 msgstr "প্যাকেজসমূহ ইনস্টলের সময় একটি সমস্যা হয়েছে"
 
@@ -963,7 +1018,7 @@ msgstr "প্যাকেজসমূহ ইনস্টলের সময় এ
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:133001 ../ubiquity.templates:134001
+#: ../ubiquity.templates:141001 ../ubiquity.templates:142001
 msgid "The following packages are in a broken state:"
 msgstr ""
 
@@ -971,7 +1026,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:133001 ../ubiquity.templates:134001
+#: ../ubiquity.templates:141001 ../ubiquity.templates:142001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -984,43 +1039,61 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:142001
 msgid "Error while removing packages"
 msgstr "প্যাকেজসমূহ অপসারণের সময় সমস্যা দেখা দিয়েছে"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:142001
 msgid "An error occurred while removing packages:"
 msgstr "প্যাকেজসমূহ অপসারণের সময় একটি সমস্যা হয়েছে"
 
+#. Type: error
+#. Description
+#: ../ubiquity.templates:143001
+#, fuzzy
+#| msgid "Importing documents and settings..."
+msgid "Error migrating documents and settings"
+msgstr "ডকুমেন্টস ও বৈশিষ্ট্যসমূহ আমদানি করা হচ্ছে..."
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:143001
+msgid ""
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
+"documents and settings you requested may not have been transferred to the "
+"installed system."
+msgstr ""
+
 #. Type: text
 #. Description
-#: ../ubiquity.templates:137001
+#: ../ubiquity.templates:147001
 msgid "Calculating files to skip copying..."
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:138001
+#: ../ubiquity.templates:148001
 msgid "Installing language packs"
 msgstr "ভাষার প্যাকেজ ইনস্টল করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:139001
+#: ../ubiquity.templates:149001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "ভাষা ভিত্তিক প্যাকেজগুলো ডাউনলোড করা হছে{${TIME}অবশিষ্ট আছে } ..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:146001
+#: ../ubiquity.templates:157001
 msgid "Failed to unmount partitions"
 msgstr "পার্টিশন আনমাউন্ট করতে ব্যর্থ"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:146001
+#: ../ubiquity.templates:157001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -1028,33 +1101,33 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:146001
+#: ../ubiquity.templates:157001
 msgid "Please close any applications using these mount points."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:146001
+#: ../ubiquity.templates:157001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:152001
+#: ../ubiquity.templates:163001
 msgid "Do you want to return to the partitioner?"
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:152001
+#: ../ubiquity.templates:163001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
-"partitions at least this large (in bytes):"
+"partitions at least this large:"
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:152001
+#: ../ubiquity.templates:163001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1062,73 +1135,73 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:153001
+#: ../ubiquity.templates:164001
 msgid "System Configuration"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:154001
+#: ../ubiquity.templates:165001
 msgid "Choose language"
 msgstr "ভাষা বেছে নিন"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:155001
+#: ../ubiquity.templates:166001
 msgid "Network configuration"
 msgstr "নেটওয়ার্ক কনফিগারেশন"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:156001
+#: ../ubiquity.templates:167001
 msgid "Software selection"
 msgstr "সফটওয়্যার নির্বাচন"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:157001
+#: ../ubiquity.templates:168001
 msgid "Applying configuration"
 msgstr "কনফিগারেশন আরোপ করা হচ্ছে"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:158001
+#: ../ubiquity.templates:169001
 msgid "Language"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:159001
+#: ../ubiquity.templates:170001
 msgid "Timezone"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:171001
 msgid "Keyboard"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:161001
+#: ../ubiquity.templates:172001
 msgid "Disk Setup"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:162001
+#: ../ubiquity.templates:173001
 msgid "User Info"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:174001
 msgid "Summary"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:165001
+#: ../ubiquity.templates:176001
 msgid "installation process"
 msgstr ""
 

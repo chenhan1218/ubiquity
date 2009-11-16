@@ -149,6 +149,7 @@ class FilteredCommand(UntrustedBase):
 
     def cleanup(self):
         self.db.shutdown()
+        self.db = None
 
     def run_command(self, auto_process=False):
         # TODO cjwatson 2006-02-25: Hack to allow _apply functions to be run
