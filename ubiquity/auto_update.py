@@ -20,6 +20,7 @@
 
 import sys
 import os
+import syslog
 
 import apt
 import apt_pkg
@@ -131,7 +132,17 @@ def update(frontend):
             cache.commit(FetchProgressDebconfProgressAdapter(frontend),
                          InstallProgressDebconfProgressAdapter(frontend))
         except (SystemError, IOError), e:
-            print "ERROR installing the update: '%s'" % e
+            syslog.syslog(syslog.LOG_ERR,
+                          "Error installing the update: '%s'" % e)
+            title = frontend.get_string('error_updating_installer')
+            if frontend.locale is None:
+                extended_locale = 'extended:c'
+            else:
+                extended_locale = 'extended:%s' % frontend.locale
+            msg = frontend.get_string('error_updating_installer',
+                                      extended_locale)
+            msg = msg.replace('${ERROR}', str(e))
+            frontend.error_dialog(title, msg)
             frontend.debconf_progress_stop()
             return True
 
