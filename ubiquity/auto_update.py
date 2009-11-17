@@ -28,13 +28,15 @@ import apt_pkg
 from ubiquity import misc
 
 MAGIC_MARKER = "/var/run/ubiquity.updated"
-UBIQUITY_PKGS = ["ubiquity",
-                 "ubiquity-casper",
+# Make sure that ubiquity is last, otherwise apt may try to install another
+# frontend.
+UBIQUITY_PKGS = ["ubiquity-casper",
                  "ubiquity-frontend-debconf",
                  "ubiquity-frontend-gtk",
                  "ubiquity-frontend-kde",
                  "ubiquity-frontend-mythbuntu",
-                 "ubiquity-ubuntu-artwork"]
+                 "ubiquity-ubuntu-artwork",
+                 "ubiquity"]
 
 class CacheProgressDebconfProgressAdapter(apt.progress.OpProgress):
     def __init__(self, frontend):
