@@ -22,11 +22,10 @@
 import sys
 import os
 import syslog
-import subprocess
 
 import debconf
 from ubiquity.debconfcommunicator import DebconfCommunicator
-from ubiquity.misc import drop_privileges
+from ubiquity.misc import drop_privileges, execute_root
 from ubiquity.components import usersetup, \
                                 partman, partman_commit, \
                                 summary, install, migrationassistant
@@ -524,12 +523,12 @@ class BaseFrontend:
     
     def run_automation_error_cmd(self):
         if self.automation_error_cmd != '':
-            subprocess.call(['sh', '-c', self.automation_error_cmd])
+            execute_root(['sh', '-c', self.automation_error_cmd])
 
     def run_error_cmd(self):
         if self.error_cmd != '':
-            subprocess.call(['sh', '-c', self.error_cmd])
+            execute_root(['sh', '-c', self.error_cmd])
     
     def run_success_cmd(self):
         if self.success_cmd != '':
-            subprocess.call(['sh', '-c', self.success_cmd])
+            execute_root(['sh', '-c', self.success_cmd])
