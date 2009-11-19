@@ -688,8 +688,9 @@ class Install:
         self.db.progress('START', 0, 100, 'ubiquity/install/title')
         self.db.progress('INFO', 'ubiquity/install/copying')
 
-        assert os.path.exists('/cdrom/casper/filesystem.size'), "Missing filesystem.size."
-        with open('/cdrom/casper/filesystem.size') as total_size_fp:
+        fs_size = os.path.join(self.casper_path, 'filesystem.size')
+        assert os.path.exists(fs_size), "Missing filesystem.size."
+        with open(fs_size) as total_size_fp:
             total_size = int(total_size_fp.readline())
 
         # Progress bar handling:
