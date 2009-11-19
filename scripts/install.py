@@ -685,38 +685,12 @@ class Install:
         stage. It clones live filesystem into a local partition in the
         selected hard disk."""
 
-        files = []
-        total_size = 0
-
         self.db.progress('START', 0, 100, 'ubiquity/install/title')
-        self.db.progress('INFO', 'ubiquity/install/scanning')
-
-        # Obviously doing os.walk() twice is inefficient, but I'd rather not
-        # suck the list into ubiquity's memory, and I'm guessing that the
-        # kernel's dentry cache will avoid most of the slowness anyway.
-        walklen = sum(1 for _ in os.walk(self.source))
-        walkpos = 0
-        walkprogress = 0
-
-        for dirpath, dirnames, filenames in os.walk(self.source):
-            walkpos += 1
-            if int(float(walkpos) / walklen * 10) != walkprogress:
-                walkprogress = int(float(walkpos) / walklen * 10)
-                self.db.progress('SET', walkprogress)
-
-            sourcepath = dirpath[len(self.source) + 1:]
-
-            for name in dirnames + filenames:
-                relpath = os.path.join(sourcepath, name)
-                fqpath = os.path.join(dirpath, name)
-                # /etc/fstab was legitimately created by partman, and
-                # shouldn't be copied again.
-                if relpath != "etc/fstab":
-                    total_size += os.lstat(fqpath).st_size
-                    files.append(relpath)
-
-        self.db.progress('SET', 10)
         self.db.progress('INFO', 'ubiquity/install/copying')
+
+        assert os.path.exists('/cdrom/casper/filesystem.size'), "Missing filesystem.size."
+        with open('/cdrom/casper/filesystem.size') as total_size_fp:
+            total_size = int(total_size_fp.readline())
 
         # Progress bar handling:
         # We sample progress every half-second (assuming time.time() gives
@@ -740,67 +714,74 @@ class Install:
             md5_check = True
         
         old_umask = os.umask(0)
-        for path in files:
-            sourcepath = os.path.join(self.source, path)
-            targetpath = os.path.join(self.target, path)
-            st = os.lstat(sourcepath)
-            mode = stat.S_IMODE(st.st_mode)
-            if stat.S_ISLNK(st.st_mode):
-                if os.path.lexists(targetpath):
-                    os.unlink(targetpath)
-                linkto = os.readlink(sourcepath)
-                os.symlink(linkto, targetpath)
-            elif stat.S_ISDIR(st.st_mode):
-                if not os.path.isdir(targetpath):
-                    os.mkdir(targetpath, mode)
-            elif stat.S_ISCHR(st.st_mode):
-                os.mknod(targetpath, stat.S_IFCHR | mode, st.st_rdev)
-            elif stat.S_ISBLK(st.st_mode):
-                os.mknod(targetpath, stat.S_IFBLK | mode, st.st_rdev)
-            elif stat.S_ISFIFO(st.st_mode):
-                os.mknod(targetpath, stat.S_IFIFO | mode)
-            elif stat.S_ISSOCK(st.st_mode):
-                os.mknod(targetpath, stat.S_IFSOCK | mode)
-            elif stat.S_ISREG(st.st_mode):
-                if '/%s' % path in self.blacklist:
-                    if debug:
-                        syslog.syslog('Not copying %s' % path)
+        for dirpath, dirnames, filenames in os.walk(self.source):
+            sp = dirpath[len(self.source) + 1:]
+            for name in dirnames + filenames:
+                relpath = os.path.join(sp, name)
+                # /etc/fstab was legitimately created by partman, and
+                # shouldn't be copied again.
+                if relpath == "etc/fstab":
                     continue
-                if os.path.exists(targetpath):
-                    os.unlink(targetpath)
-                self.copy_file(sourcepath, targetpath, md5_check)
+                sourcepath = os.path.join(self.source, relpath)
+                targetpath = os.path.join(self.target, relpath)
+                st = os.lstat(sourcepath)
+                mode = stat.S_IMODE(st.st_mode)
+                if stat.S_ISLNK(st.st_mode):
+                    if os.path.lexists(targetpath):
+                        os.unlink(targetpath)
+                    linkto = os.readlink(sourcepath)
+                    os.symlink(linkto, targetpath)
+                elif stat.S_ISDIR(st.st_mode):
+                    if not os.path.isdir(targetpath):
+                        os.mkdir(targetpath, mode)
+                elif stat.S_ISCHR(st.st_mode):
+                    os.mknod(targetpath, stat.S_IFCHR | mode, st.st_rdev)
+                elif stat.S_ISBLK(st.st_mode):
+                    os.mknod(targetpath, stat.S_IFBLK | mode, st.st_rdev)
+                elif stat.S_ISFIFO(st.st_mode):
+                    os.mknod(targetpath, stat.S_IFIFO | mode)
+                elif stat.S_ISSOCK(st.st_mode):
+                    os.mknod(targetpath, stat.S_IFSOCK | mode)
+                elif stat.S_ISREG(st.st_mode):
+                    if '/%s' % relpath in self.blacklist:
+                        if debug:
+                            syslog.syslog('Not copying %s' % relpath)
+                        continue
+                    if os.path.exists(targetpath):
+                        os.unlink(targetpath)
+                    self.copy_file(sourcepath, targetpath, md5_check)
 
-            copied_size += st.st_size
-            os.lchown(targetpath, st.st_uid, st.st_gid)
-            if not stat.S_ISLNK(st.st_mode):
-                os.chmod(targetpath, mode)
-            if stat.S_ISDIR(st.st_mode):
-                directory_times.append((targetpath, st.st_atime, st.st_mtime))
-            # os.utime() sets timestamp of target, not link
-            elif not stat.S_ISLNK(st.st_mode):
-                os.utime(targetpath, (st.st_atime, st.st_mtime))
+                copied_size += st.st_size
+                os.lchown(targetpath, st.st_uid, st.st_gid)
+                if not stat.S_ISLNK(st.st_mode):
+                    os.chmod(targetpath, mode)
+                if stat.S_ISDIR(st.st_mode):
+                    directory_times.append((targetpath, st.st_atime, st.st_mtime))
+                # os.utime() sets timestamp of target, not link
+                elif not stat.S_ISLNK(st.st_mode):
+                    os.utime(targetpath, (st.st_atime, st.st_mtime))
 
-            if int((copied_size * 90) / total_size) != copy_progress:
-                copy_progress = int((copied_size * 90) / total_size)
-                self.db.progress('SET', 10 + copy_progress)
+                if int((copied_size * 90) / total_size) != copy_progress:
+                    copy_progress = int((copied_size * 90) / total_size)
+                    self.db.progress('SET', 10 + copy_progress)
 
-            time_now = time.time()
-            if (time_now - times[-1][0]) >= 0.5:
-                times.append((time_now, copied_size))
-                if not long_enough and time_now - times[0][0] >= 10:
-                    long_enough = True
-                if long_enough and time_now - time_last_update >= 2:
-                    time_last_update = time_now
-                    while (time_now - times[0][0] > 60 and
-                           time_now - times[1][0] >= 60):
-                        times.pop(0)
-                    speed = ((times[-1][1] - times[0][1]) /
-                             (times[-1][0] - times[0][0]))
-                    if speed != 0:
-                        time_remaining = int((total_size - copied_size) / speed)
-                        if time_remaining < 60:
-                            self.db.progress(
-                                'INFO', 'ubiquity/install/copying_minute')
+                time_now = time.time()
+                if (time_now - times[-1][0]) >= 0.5:
+                    times.append((time_now, copied_size))
+                    if not long_enough and time_now - times[0][0] >= 10:
+                        long_enough = True
+                    if long_enough and time_now - time_last_update >= 2:
+                        time_last_update = time_now
+                        while (time_now - times[0][0] > 60 and
+                               time_now - times[1][0] >= 60):
+                            times.pop(0)
+                        speed = ((times[-1][1] - times[0][1]) /
+                                 (times[-1][0] - times[0][0]))
+                        if speed != 0:
+                            time_remaining = int((total_size - copied_size) / speed)
+                            if time_remaining < 60:
+                                self.db.progress(
+                                    'INFO', 'ubiquity/install/copying_minute')
 
         # Apply timestamps to all directories now that the items within them
         # have been copied.
