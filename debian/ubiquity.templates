@@ -925,3 +925,7 @@ _Description: Install
 Template: ubiquity/text/install_process_label
 Type: text
 _Description: installation process
+
+Template: ubiquity/install/success_command
+Type: text
+_Description: Reticulating splines...

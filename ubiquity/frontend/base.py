@@ -531,4 +531,6 @@ class BaseFrontend:
     
     def run_success_cmd(self):
         if self.success_cmd != '':
+            self.debconf_progress_info(
+                self.get_string('ubiquity/install/success_command'))
             execute_root(['sh', '-c', self.success_cmd])
