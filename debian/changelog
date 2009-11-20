@@ -6,6 +6,8 @@ ubiquity (2.1.1) UNRELEASED; urgency=low
   * Include a progress message for ubiquity/success_command.
   * Do not use the preseeded install progress message as the install
     window title.  Use a more understandable string.
+  * Check the syntax of any shell scripts in the source tree as part of
+    debian/rules check.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 18 Nov 2009 15:17:37 -0600
 
