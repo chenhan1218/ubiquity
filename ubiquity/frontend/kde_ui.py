@@ -375,6 +375,8 @@ class Wizard(BaseFrontend):
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             self.debconf_progress_start(0, self.pageslen,
                 self.get_string('ubiquity/install/checking'))
+            self.debconf_progress_window.set_title(
+                self.get_string('ubiquity/install/title'))
             self.refresh()
 
         # Start the interface

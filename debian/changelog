@@ -4,6 +4,8 @@ ubiquity (2.1.1) UNRELEASED; urgency=low
   * Use /cdrom/casper/filesystem.size instead of calculating the size of
     /rofs on each run.
   * Include a progress message for ubiquity/success_command.
+  * Do not use the preseeded install progress message as the install
+    window title.  Use a more understandable string.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 18 Nov 2009 15:17:37 -0600
 

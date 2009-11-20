@@ -512,7 +512,7 @@ _Description: Ready to install
 
 Template: ubiquity/install/checking
 Type: text
-_Description: Checking the installation...
+_Description: Verifying the installation configuration...
 
 Template: ubiquity/install/title
 Type: title
