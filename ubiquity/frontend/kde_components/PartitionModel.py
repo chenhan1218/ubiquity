@@ -237,7 +237,7 @@ class TreeItem:
         if 'id' not in partition or 'method' not in partition:
             return
         self.ubiquity.allow_change_step(False)
-        self.ubiquity.dbfilter.edit_partition(devpart, format='dummy')
+        self.ubiquity.dbfilter.edit_partition(devpart, fmt='dummy')
 
     def partman_column_size(self):
         partition = self.itemData[1]

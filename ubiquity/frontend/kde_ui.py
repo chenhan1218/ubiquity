@@ -1735,7 +1735,7 @@ class Wizard(BaseFrontend):
             method_description = unicode(self.edit_dialog.partition_edit_use_combo.currentText())
             method = self.edit_use_method_names[method_description]
 
-            format = self.edit_dialog.partition_edit_format_checkbutton.isChecked()
+            fmt = self.edit_dialog.partition_edit_format_checkbutton.isChecked()
 
             mountpoint = unicode(self.edit_dialog.partition_edit_mount_combo.currentText())
 
@@ -1744,17 +1744,17 @@ class Wizard(BaseFrontend):
                 size = None
             if method == current_method:
                 method = None
-            if format == current_format:
-                format = None
+            if fmt == current_format:
+                fmt = None
             if mountpoint == current_mountpoint:
                 mountpoint = None
 
-            if (size is not None or method is not None or format is not None or
+            if (size is not None or method is not None or fmt is not None or
                 mountpoint is not None):
                 self.allow_change_step(False)
                 edits = {'size': size, 'method': method,
                          'mountpoint': mountpoint}
-                if format is not None:
+                if fmt is not None:
                     edits['format'] = 'dummy'
                 self.dbfilter.edit_partition(devpart, **edits)
 
