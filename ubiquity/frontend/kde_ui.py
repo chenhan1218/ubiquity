@@ -2200,13 +2200,4 @@ class Wizard(BaseFrontend):
     def on_hostname_changed(self):
         self.info_loop(self.ui.hostname)
         self.hostname_edited = (self.ui.hostname.text() != '')
-
-    def quit(self):
-        """quit installer cleanly."""
-
-        # exiting from application
-        self.current_page = None
-        if self.dbfilter is not None:
-            self.dbfilter.cancel_handler()
-        self.app.exit()
 		
