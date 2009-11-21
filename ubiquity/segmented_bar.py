@@ -353,7 +353,7 @@ class SegmentedBar(gtk.Widget):
         cr.set_source(grad)
         cr.fill()
 
-    def make_segment_gradient(self, h, color, diag=False):
+    def make_segment_gradient(self, h, color):
         grad = cairo.LinearGradient(0, 0, 0, h)
         c = CairoExtensions.color_shade(color, 1.1)
         grad.add_color_stop_rgba(0.0, c.r, c.g, c.b, c.a)

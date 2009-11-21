@@ -756,7 +756,7 @@ class Wizard(BaseFrontend):
             # Now push fake history if needed
             i = old_index + 1
             while i < new_index:
-                for w in self.pages[i].widgets:
+                for _ in self.pages[i].widgets:
                     self.history.append((self.pages[i], None))
                 i += 1
 
@@ -1625,7 +1625,7 @@ class Wizard(BaseFrontend):
                 str(self.create_dialog.partition_create_size_spinbutton.value()),
                 prilog, place, method, mountpoint)
 
-    def on_partition_create_use_combo_changed (self, combobox):
+    def on_partition_create_use_combo_changed (self, *args):
         if not hasattr(self, 'create_use_method_names'):
             return
         known_filesystems = ('ext4', 'ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
@@ -1758,7 +1758,7 @@ class Wizard(BaseFrontend):
                     edits['format'] = 'dummy'
                 self.dbfilter.edit_partition(devpart, **edits)
 
-    def on_partition_edit_use_combo_changed(self, combobox):
+    def on_partition_edit_use_combo_changed(self, *args):
         if not hasattr(self, 'edit_use_method_names'):
             return
         # If the selected method isn't a filesystem, then selecting a mount
@@ -1783,7 +1783,7 @@ class Wizard(BaseFrontend):
                     self.dbfilter.default_mountpoint_choices(method):
                     self.edit_dialog.partition_edit_mount_combo.addItem(mp)
 
-    def on_partition_list_treeview_selection_changed(self, selected, deselected):
+    def on_partition_list_treeview_selection_changed(self, unused, deselected):
         self.ui.partition_button_new_label.setEnabled(False)
         self.ui.partition_button_new.setEnabled(False)
         self.ui.partition_button_edit.setEnabled(False)
@@ -1851,7 +1851,7 @@ class Wizard(BaseFrontend):
         else:
             self.partman_edit_dialog(devpart, partition)
 
-    def on_partition_list_new_label_activate(self, ticked):
+    def on_partition_list_new_label_activate(self, *args):
         selected = self.ui.partition_list_treeview.selectedIndexes()
         if not selected:
             return
@@ -1866,7 +1866,7 @@ class Wizard(BaseFrontend):
         self.allow_change_step(False)
         self.dbfilter.create_label(devpart)
 
-    def on_partition_list_new_activate(self, ticked):
+    def on_partition_list_new_activate(self, *args):
         selected = self.ui.partition_list_treeview.selectedIndexes()
         if not selected:
             return
@@ -1876,7 +1876,7 @@ class Wizard(BaseFrontend):
         partition = item.itemData[1]
         self.partman_create_dialog(devpart, partition)
 
-    def on_partition_list_edit_activate(self, ticked):
+    def on_partition_list_edit_activate(self, *args):
         selected = self.ui.partition_list_treeview.selectedIndexes()
         if not selected:
             return
@@ -1886,7 +1886,7 @@ class Wizard(BaseFrontend):
         partition = item.itemData[1]
         self.partman_edit_dialog(devpart, partition)
 
-    def on_partition_list_delete_activate(self, ticked):
+    def on_partition_list_delete_activate(self, *args):
         selected = self.ui.partition_list_treeview.selectedIndexes()
         if not selected:
             return
@@ -1901,7 +1901,7 @@ class Wizard(BaseFrontend):
         self.allow_change_step(False)
         self.dbfilter.delete_partition(devpart)
 
-    def on_partition_list_undo_activate(self, ticked):
+    def on_partition_list_undo_activate(self, *args):
         if not self.allowed_change_step:
             return
         if not isinstance(self.dbfilter, partman.Page):

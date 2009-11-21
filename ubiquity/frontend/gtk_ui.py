@@ -710,7 +710,7 @@ class Wizard(BaseFrontend):
         elif isinstance(widget, gtk.Button):
             # TODO evand 2007-06-26: LP #122141 causes a crash unless we keep a
             # reference to the button image.
-            tempref = widget.get_image()
+            unused = widget.get_image()
 
             question = i18n.map_widget_name(prefix, widget.get_name())
             widget.set_label(text)
