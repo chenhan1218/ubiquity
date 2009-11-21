@@ -33,9 +33,9 @@ def get_intro():
 
     intro = None
     introFiles = ['/usr/share/ubiquity/intro.txt', '/usr/share/ubiquity/kubuntu-netbook-intro.txt']
-    for file in introFiles:
+    for f in introFiles:
         if os.path.isfile(file):
-            intro = file
+            intro = f
             break
     if intro is None:
         return None
