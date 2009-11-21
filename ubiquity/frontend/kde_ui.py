@@ -2201,16 +2201,6 @@ class Wizard(BaseFrontend):
         self.info_loop(self.ui.hostname)
         self.hostname_edited = (self.ui.hostname.text() != '')
 
-    def update_new_size_label(self, value):
-        if self.new_size_value is None:
-            return
-        if self.resize_max_size is not None:
-            size = value * self.resize_max_size / 100
-            text = '%d%% (%s)' % (value, format_size(size))
-        else:
-            text = '%d%%' % value
-        self.new_size_value.setText(text)
-
     def quit(self):
         """quit installer cleanly."""
 
