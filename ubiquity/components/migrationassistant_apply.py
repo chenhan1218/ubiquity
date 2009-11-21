@@ -25,4 +25,4 @@ class MigrationAssistantApply(FilteredCommand):
 
     def error(self, priority, question):
         self.frontend.error_dialog(self.description(question))
-        return super(MigrationAssistantApply, self).error(priority, question)
+        return FilteredCommand.error(self, priority, question)
