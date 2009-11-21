@@ -132,13 +132,13 @@ class Wizard(BaseFrontend):
         version     = "1.0"
         description = ki18n ("Live CD Installer for Kubuntu")
         rights      = KAboutData.License_GPL
-        copyright   = ki18n ("(c) 2006 Canonical Ltd")
+        copy        = ki18n ("(c) 2006 Canonical Ltd")
         text        = ki18n ("none")
         homePage    = "http://wiki.kubuntu.org/KubuntuUbiquity"
         bugEmail    = "jriddell@ubuntu.com"
         
         about = KAboutData (appName, catalog, programName, version, description,
-                            rights, copyright, text, homePage, bugEmail)
+                            rights, copy, text, homePage, bugEmail)
         about.addAuthor(ki18n("Jonathan Riddell"), KLocalizedString() ,"jriddell@ubuntu.com")
         about.addAuthor(ki18n("Roman Shtylman"), KLocalizedString() ,"shtylman@gmail.com")
         KCmdLineArgs.init([""],about)
