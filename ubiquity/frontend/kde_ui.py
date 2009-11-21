@@ -1291,11 +1291,11 @@ class Wizard(BaseFrontend):
             button = QRadioButton(choice, self.ui.autopart_selection_frame)
             self.ui.autopart_selection_frame.layout().addWidget(button)
             self.autopartition_buttongroup.addButton(button, idCounter)
-            id = self.autopartition_buttongroup.id(button)
+            ident = self.autopartition_buttongroup.id(button)
 
             #Qt changes the string by adding accelerators,
             #so keep pristine string here as is returned later to partman
-            self.autopartition_buttongroup_texts[id] = choice
+            self.autopartition_buttongroup_texts[ident] = choice
             if firstbutton is None:
                 firstbutton = button
 
@@ -1463,8 +1463,8 @@ class Wizard(BaseFrontend):
         self.set_current_page(self.step_index("stepPartAuto"))
 
     def get_autopartition_choice (self):
-        id = self.autopartition_buttongroup.checkedId()
-        choice = unicode(self.autopartition_buttongroup_texts[id])
+        ident = self.autopartition_buttongroup.checkedId()
+        choice = unicode(self.autopartition_buttongroup_texts[ident])
 
         if choice == self.resize_choice:
             # resize choice should have been hidden otherwise
