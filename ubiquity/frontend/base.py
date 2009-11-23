@@ -523,14 +523,14 @@ class BaseFrontend:
     
     def run_automation_error_cmd(self):
         if self.automation_error_cmd != '':
-            execute_root(['sh', '-c', self.automation_error_cmd])
+            execute_root('sh', '-c', self.automation_error_cmd)
 
     def run_error_cmd(self):
         if self.error_cmd != '':
-            execute_root(['sh', '-c', self.error_cmd])
+            execute_root('sh', '-c', self.error_cmd)
     
     def run_success_cmd(self):
         if self.success_cmd != '':
             self.debconf_progress_info(
                 self.get_string('ubiquity/install/success_command'))
-            execute_root(['sh', '-c', self.success_cmd])
+            execute_root('sh', '-c', self.success_cmd)

@@ -1,5 +1,6 @@
 ubiquity (2.1.1) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Run success_cmd, error_cmd, and automation_error_cmd as root.
   * Use /cdrom/casper/filesystem.size instead of calculating the size of
     /rofs on each run.
@@ -8,6 +9,11 @@ ubiquity (2.1.1) UNRELEASED; urgency=low
     window title.  Use a more understandable string.
   * Check the syntax of any shell scripts in the source tree as part of
     debian/rules check.
+
+  [ Mario Limonciello ]
+  * When calling execute_root, don't pass a list because everything
+    passed is translated into a tupple.  Passing a list causes subprocess to
+    fail when invoked.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 18 Nov 2009 15:17:37 -0600
 
