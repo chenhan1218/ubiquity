@@ -129,7 +129,12 @@ def update(frontend):
             frontend.debconf_progress_stop()
             return False
         # install the updates
-        map(lambda pkg: cache[pkg].markInstall(), updates)
+        fixer = apt.ProblemResolver(cache)
+        for pkg in updates:
+            cache[pkg].markInstall(autoFix=False)
+            fixer.clear(cache[pkg])
+            fixer.protect(cache[pkg])
+        fixer.resolve()
         try:
             cache.commit(FetchProgressDebconfProgressAdapter(frontend),
                          InstallProgressDebconfProgressAdapter(frontend))
