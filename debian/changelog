@@ -21,6 +21,8 @@ ubiquity (2.1.1) UNRELEASED; urgency=low
   * GTK frontend:
     - Only set the debconf progress window's transience and type hint when
       it isn't already being shown.
+  * Automatic update of included source packages: debian-installer-utils
+    1.72ubuntu1.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 18 Nov 2009 15:17:37 -0600
 
