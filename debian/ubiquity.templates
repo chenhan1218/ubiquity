@@ -956,6 +956,7 @@ _Description: Installing update
 
 Template: ubiquity/text/error_updating_installer
 Type: text
+#flag:translate!:3
 _Description: Error updating installer
  The installer encountered an error while trying to update itself:
  .
