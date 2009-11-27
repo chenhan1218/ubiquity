@@ -1,3 +1,9 @@
+ubiquity (2.1.2) UNRELEASED; urgency=low
+
+  * Adjust for path changes in debian-installer-utils 1.72.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 27 Nov 2009 20:28:20 +0000
+
 ubiquity (2.1.1) lucid; urgency=low
 
   [ Evan Dandrea ]

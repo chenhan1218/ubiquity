@@ -181,8 +181,10 @@ endif
 		debian/ubiquity/usr/lib/ubiquity/user-setup/user-setup-ask \
 		> debian/ubiquity/usr/lib/ubiquity/user-setup/user-setup-ask-oem
 	chmod +x debian/ubiquity/usr/lib/ubiquity/user-setup/user-setup-ask-oem
+	install d-i/source/debian-installer-utils/post-base-installer.d/10register-module \
+		debian/ubiquity/usr/lib/ubiquity/debian-installer-utils/register-module.post-base-installer
 	sed -e 's,/target/,/,g;s,/target,/,g' \
-		d-i/source/debian-installer-utils/register-module.post-base-installer \
+		d-i/source/debian-installer-utils/post-base-installer.d/10register-module \
 		> debian/oem-config/usr/lib/ubiquity/debian-installer-utils/register-module.post-base-installer-oem
 	chmod +x debian/oem-config/usr/lib/ubiquity/debian-installer-utils/register-module.post-base-installer-oem
 ifeq ($(DEB_HOST_ARCH),armel)
