@@ -98,23 +98,6 @@ class InstallProgressDebconfProgressAdapter(apt.progress.InstallProgress):
         apt.progress.InstallProgress.updateInterface(self)
         self.frontend.refresh()
 
-def check_for_updates(frontend, cache):
-    """Helper that runs a apt-get update and returns the ubiquity packages
-    that can be upgraded."""
-
-    fetchprogress = FetchProgressDebconfProgressAdapter(frontend)
-    try:
-        cache.update(fetchprogress)
-        cache_progress = CacheProgressDebconfProgressAdapter(frontend)
-        cache = apt.Cache(cache_progress)
-        cache_progress.really_done()
-    except IOError, e:
-        print "ERROR: cache.update() returned: '%s'" % e
-        return []
-    return filter(
-        lambda pkg: cache.has_key(pkg) and cache[pkg].isUpgradable,
-        UBIQUITY_PKGS)
-
 def update(frontend):
     misc.regain_privileges()
     try:
@@ -124,7 +107,20 @@ def update(frontend):
         cache_progress = CacheProgressDebconfProgressAdapter(frontend)
         cache = apt.Cache(cache_progress)
         cache_progress.really_done()
-        updates = check_for_updates(frontend, cache)
+
+        fetchprogress = FetchProgressDebconfProgressAdapter(frontend)
+        try:
+            cache.update(fetchprogress)
+            cache_progress = CacheProgressDebconfProgressAdapter(frontend)
+            cache = apt.Cache(cache_progress)
+            cache_progress.really_done()
+            updates = filter(
+                lambda pkg: cache.has_key(pkg) and cache[pkg].isUpgradable,
+                UBIQUITY_PKGS)
+        except IOError, e:
+            print "ERROR: cache.update() returned: '%s'" % e
+            updates = []
+
         if not updates:
             frontend.debconf_progress_stop()
             return False
