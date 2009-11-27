@@ -1,4 +1,4 @@
-ubiquity (2.1.1) UNRELEASED; urgency=low
+ubiquity (2.1.1) lucid; urgency=low
 
   [ Evan Dandrea ]
   * Run success_cmd, error_cmd, and automation_error_cmd as root.
@@ -24,7 +24,7 @@ ubiquity (2.1.1) UNRELEASED; urgency=low
   * Automatic update of included source packages: debian-installer-utils
     1.72ubuntu1.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 18 Nov 2009 15:17:37 -0600
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 27 Nov 2009 20:02:26 +0000
 
 ubiquity (2.1.0) lucid; urgency=low
 
