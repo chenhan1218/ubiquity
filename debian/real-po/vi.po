@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-11-13 10:40+0000\n"
+"POT-Creation-Date: 2009-11-27 20:01+0000\n"
 "PO-Revision-Date: 2009-10-07 17:32+0000\n"
 "Last-Translator: Lê Quốc Tuấn <mr.lequoctuan@gmail.com>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -789,7 +789,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:107001
-msgid "Checking the installation..."
+#, fuzzy
+#| msgid "Checking the installation..."
+msgid "Verifying the installation configuration..."
 msgstr "Đang kiểm tra cài đặt..."
 
 #. Type: title
@@ -1256,6 +1258,64 @@ msgstr "Tóm tắt"
 #: ../ubiquity.templates:176001
 msgid "installation process"
 msgstr "Quá trình cài đặt"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:178001
+#, fuzzy
+#| msgid "Checking the installation..."
+msgid "Checking for installer updates"
+msgstr "Đang kiểm tra cài đặt..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:179001
+msgid "Reading package information"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:180001
+msgid "Updating package information"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:181001
+#, fuzzy
+#| msgid "Step ${INDEX} of ${TOTAL}"
+msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
+msgstr "Bước thứ ${INDEX} của tổng số ${TOTAL}"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:182001
+#, fuzzy
+#| msgid "Step ${INDEX} of ${TOTAL}"
+msgid "File ${INDEX} of ${TOTAL}"
+msgstr "Bước thứ ${INDEX} của tổng số ${TOTAL}"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:183001
+#, fuzzy
+#| msgid "Installing system"
+msgid "Installing update"
+msgstr "Đang cài đặt hệ thống"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:184001
+msgid "Error updating installer"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:184001
+#, fuzzy
+#| msgid "The installer encountered an error copying files to the hard disk:"
+msgid "The installer encountered an error while trying to update itself:"
+msgstr "Chương trình cài đặt gặp một lỗi khi chép các tập tin vào đĩa cứng:"
 
 #. Type: note
 #. Description

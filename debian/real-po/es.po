@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-11-13 10:40+0000\n"
+"POT-Creation-Date: 2009-11-27 20:01+0000\n"
 "PO-Revision-Date: 2009-10-15 10:09+0000\n"
 "Last-Translator: Paco Molinero <paco@byasl.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -795,7 +795,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:107001
-msgid "Checking the installation..."
+#, fuzzy
+#| msgid "Checking the installation..."
+msgid "Verifying the installation configuration..."
 msgstr "Comprobando la instalación..."
 
 #. Type: title
@@ -1270,6 +1272,64 @@ msgstr "Sumario"
 #: ../ubiquity.templates:176001
 msgid "installation process"
 msgstr "proceso de instalación"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:178001
+#, fuzzy
+#| msgid "Checking the installation..."
+msgid "Checking for installer updates"
+msgstr "Comprobando la instalación..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:179001
+msgid "Reading package information"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:180001
+msgid "Updating package information"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:181001
+#, fuzzy
+#| msgid "Step ${INDEX} of ${TOTAL}"
+msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
+msgstr "Paso ${INDEX} de ${TOTAL}"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:182001
+#, fuzzy
+#| msgid "Step ${INDEX} of ${TOTAL}"
+msgid "File ${INDEX} of ${TOTAL}"
+msgstr "Paso ${INDEX} de ${TOTAL}"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:183001
+#, fuzzy
+#| msgid "Installing system"
+msgid "Installing update"
+msgstr "Instalando el sistema"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:184001
+msgid "Error updating installer"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:184001
+#, fuzzy
+#| msgid "The installer encountered an error copying files to the hard disk:"
+msgid "The installer encountered an error while trying to update itself:"
+msgstr "El instalador encontró un error al copiar los archivos al disco duro:"
 
 #. Type: note
 #. Description

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-11-13 10:40+0000\n"
+"POT-Creation-Date: 2009-11-27 20:01+0000\n"
 "PO-Revision-Date: 2009-10-07 17:28+0000\n"
 "Last-Translator: Mikel Pascual Aldabaldetreku <mikel.paskual@gmail.com>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
@@ -792,7 +792,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:107001
-msgid "Checking the installation..."
+#, fuzzy
+#| msgid "Checking the installation..."
+msgid "Verifying the installation configuration..."
 msgstr "Instalazioa egiaztatzen..."
 
 #. Type: title
@@ -1271,6 +1273,66 @@ msgstr "Laburpena"
 #: ../ubiquity.templates:176001
 msgid "installation process"
 msgstr "instalazio-prozesua"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:178001
+#, fuzzy
+#| msgid "Checking the installation..."
+msgid "Checking for installer updates"
+msgstr "Instalazioa egiaztatzen..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:179001
+msgid "Reading package information"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:180001
+msgid "Updating package information"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:181001
+#, fuzzy
+#| msgid "Step ${INDEX} of ${TOTAL}"
+msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
+msgstr "${INDEX} / ${TOTAL} urratsa"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:182001
+#, fuzzy
+#| msgid "Step ${INDEX} of ${TOTAL}"
+msgid "File ${INDEX} of ${TOTAL}"
+msgstr "${INDEX} / ${TOTAL} urratsa"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:183001
+#, fuzzy
+#| msgid "Installing system"
+msgid "Installing update"
+msgstr "Sistema instalatzen"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:184001
+msgid "Error updating installer"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:184001
+#, fuzzy
+#| msgid "The installer encountered an error copying files to the hard disk:"
+msgid "The installer encountered an error while trying to update itself:"
+msgstr ""
+"Instalatzaileak errore bat aurkitu du fitxategiak disko gogorrera "
+"kopiatzerakoan:"
 
 #. Type: note
 #. Description

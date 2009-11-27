@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-11-13 10:40+0000\n"
+"POT-Creation-Date: 2009-11-27 20:01+0000\n"
 "PO-Revision-Date: 2009-09-05 19:30+0000\n"
 "Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
 "Language-Team: <fa@li.org>\n"
@@ -745,8 +745,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:107001
-msgid "Checking the installation..."
-msgstr ""
+#, fuzzy
+#| msgid "Copying installation logs..."
+msgid "Verifying the installation configuration..."
+msgstr "در حال کپی‌کردن ثبتهای نصب..."
 
 #. Type: title
 #. Description
@@ -1182,6 +1184,60 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:176001
 msgid "installation process"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:178001
+msgid "Checking for installer updates"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:179001
+msgid "Reading package information"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:180001
+msgid "Updating package information"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:181001
+#, fuzzy
+#| msgid "Step ${INDEX} of ${TOTAL}"
+msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
+msgstr "گام ${INDEX} از ${TOTAL}"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:182001
+#, fuzzy
+#| msgid "Step ${INDEX} of ${TOTAL}"
+msgid "File ${INDEX} of ${TOTAL}"
+msgstr "گام ${INDEX} از ${TOTAL}"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:183001
+#, fuzzy
+#| msgid "Installing system"
+msgid "Installing update"
+msgstr "در حال نصب کردن سیستم"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:184001
+msgid "Error updating installer"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:184001
+msgid "The installer encountered an error while trying to update itself:"
 msgstr ""
 
 #. Type: note

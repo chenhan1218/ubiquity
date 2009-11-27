@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-11-13 10:40+0000\n"
+"POT-Creation-Date: 2009-11-27 20:01+0000\n"
 "PO-Revision-Date: 2009-09-05 19:30+0000\n"
 "Last-Translator: Eric Pareja <xenos@upm.edu.ph>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
@@ -752,7 +752,7 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:107001
-msgid "Checking the installation..."
+msgid "Verifying the installation configuration..."
 msgstr ""
 
 #. Type: title
@@ -1189,6 +1189,58 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:176001
 msgid "installation process"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:178001
+msgid "Checking for installer updates"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:179001
+msgid "Reading package information"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:180001
+msgid "Updating package information"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:181001
+#, fuzzy
+#| msgid "Step ${INDEX} of ${TOTAL}"
+msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
+msgstr "Hakbang bilang ${INDEX} ng ${TOTAL}"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:182001
+#, fuzzy
+#| msgid "Step ${INDEX} of ${TOTAL}"
+msgid "File ${INDEX} of ${TOTAL}"
+msgstr "Hakbang bilang ${INDEX} ng ${TOTAL}"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:183001
+msgid "Installing update"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:184001
+msgid "Error updating installer"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:184001
+msgid "The installer encountered an error while trying to update itself:"
 msgstr ""
 
 #. Type: note

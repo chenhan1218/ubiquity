@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-11-13 10:40+0000\n"
+"POT-Creation-Date: 2009-11-27 20:01+0000\n"
 "PO-Revision-Date: 2009-09-05 19:32+0000\n"
 "Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
 "Language-Team: Gujarati <team@utkarsh.org>\n"
@@ -768,7 +768,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:107001
-msgid "Checking the installation..."
+#, fuzzy
+#| msgid "Checking the installation..."
+msgid "Verifying the installation configuration..."
 msgstr "સ્થાપન ચકાસી રહ્યા છીએ..."
 
 #. Type: title
@@ -1210,6 +1212,64 @@ msgstr ""
 #: ../ubiquity.templates:176001
 msgid "installation process"
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:178001
+#, fuzzy
+#| msgid "Checking the installation..."
+msgid "Checking for installer updates"
+msgstr "સ્થાપન ચકાસી રહ્યા છીએ..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:179001
+msgid "Reading package information"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:180001
+msgid "Updating package information"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:181001
+#, fuzzy
+#| msgid "Step ${INDEX} of ${TOTAL}"
+msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
+msgstr "પગથિયું ${INDEX} (${TOTAL} પૈકી)"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:182001
+#, fuzzy
+#| msgid "Step ${INDEX} of ${TOTAL}"
+msgid "File ${INDEX} of ${TOTAL}"
+msgstr "પગથિયું ${INDEX} (${TOTAL} પૈકી)"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:183001
+#, fuzzy
+#| msgid "Installing system"
+msgid "Installing update"
+msgstr "પાયાની સિસ્ટમની સ્થાપના થઇ રહી છે"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:184001
+msgid "Error updating installer"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:184001
+#, fuzzy
+#| msgid "The installer encountered an error copying files to the hard disk:"
+msgid "The installer encountered an error while trying to update itself:"
+msgstr "સ્થાપકને ફાઇલોની હાર્ડ-ડિસ્ક પર નકલ કરવામાં નિષ્ફળતા સાંપડી છેઃ"
 
 #. Type: note
 #. Description

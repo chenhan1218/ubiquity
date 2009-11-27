@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-11-13 10:40+0000\n"
+"POT-Creation-Date: 2009-11-27 20:01+0000\n"
 "PO-Revision-Date: 2009-09-05 19:33+0000\n"
 "Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
 "Language-Team: Hindi <debian-in-workers@lists.alioth.debian.org>\n"
@@ -756,8 +756,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:107001
-msgid "Checking the installation..."
-msgstr ""
+#, fuzzy
+#| msgid "Copying installation logs..."
+msgid "Verifying the installation configuration..."
+msgstr "संस्थापना के लॉग का नकल कीया जा रही है..."
 
 #. Type: title
 #. Description
@@ -1204,6 +1206,64 @@ msgstr ""
 #: ../ubiquity.templates:176001
 msgid "installation process"
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:178001
+#, fuzzy
+#| msgid "Checking for packages to install..."
+msgid "Checking for installer updates"
+msgstr "संस्थापना के लिए संकुलों की जांच की जा रही है...."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:179001
+msgid "Reading package information"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:180001
+msgid "Updating package information"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:181001
+#, fuzzy
+#| msgid "Step ${INDEX} of ${TOTAL}"
+msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
+msgstr "कुल ${TOTAL} में का ${INDEX} कदम"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:182001
+#, fuzzy
+#| msgid "Step ${INDEX} of ${TOTAL}"
+msgid "File ${INDEX} of ${TOTAL}"
+msgstr "कुल ${TOTAL} में का ${INDEX} कदम"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:183001
+#, fuzzy
+#| msgid "Installing language packs"
+msgid "Installing update"
+msgstr "भाषा पेटी संस्थापित किया जा रह है..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:184001
+msgid "Error updating installer"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:184001
+#, fuzzy
+#| msgid "The installer encountered an error copying files to the hard disk:"
+msgid "The installer encountered an error while trying to update itself:"
+msgstr "हार्ड डिस्क पर फाईल का नकल त्रुटि के कारण से नहीं हो पाया:"
 
 #. Type: note
 #. Description
