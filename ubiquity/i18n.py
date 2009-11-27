@@ -172,7 +172,8 @@ def get_translations(languages=None, core_names=[], extra_prefixes=[]):
                     # TODO cjwatson 2006-09-04: a bit of a hack to get the
                     # description and extended description separately ...
                     if question in ('grub-installer/bootdev',
-                                    'partman-newworld/no_newworld'):
+                                    'partman-newworld/no_newworld',
+                                    'ubiquity/text/error_updating_installer'):
                         descriptions["extended:%s" % lang] = \
                             value.replace('\\n', '\n')
 

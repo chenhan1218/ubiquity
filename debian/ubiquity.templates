@@ -929,3 +929,34 @@ _Description: installation process
 Template: ubiquity/install/success_command
 Type: text
 _Description: Reticulating splines...
+
+Template: ubiquity/text/checking_for_installer_updates
+Type: text
+_Description: Checking for installer updates
+
+Template: ubiquity/text/reading_package_information
+Type: text
+_Description: Reading package information
+
+Template: ubiquity/text/updating_package_information
+Type: text
+_Description: Updating package information
+
+Template: ubiquity/text/apt_progress_cps
+Type: text
+_Description: File ${INDEX} of ${TOTAL} at ${SPEED}/s
+
+Template: ubiquity/text/apt_progress
+Type: text
+_Description: File ${INDEX} of ${TOTAL}
+
+Template: ubiquity/text/installing_update
+Type: text
+_Description: Installing update
+
+Template: ubiquity/text/error_updating_installer
+Type: text
+_Description: Error updating installer
+ The installer encountered an error while trying to update itself:
+ .
+ ${ERROR}

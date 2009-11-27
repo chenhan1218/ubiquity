@@ -143,6 +143,16 @@ This language will be the default language for the final system.</string>
    <item row="8" column="0">
     <widget class="QWidget" name="release_notes_frame" native="true"/>
    </item>
+   <item row="9" column="0">
+    <widget class="QPushButton" name="update_this_installer">
+     <property name="text">
+      <string>Update this installer</string>
+     </property>
+     <property name="autoDefault">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <resources/>

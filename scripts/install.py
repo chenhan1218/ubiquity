@@ -142,36 +142,6 @@ class DebconfInstallProgress(InstallProgress):
         self.db.subst(self.info, 'DESCRIPTION', status)
         self.db.progress('INFO', self.info)
 
-    def updateInterface(self):
-        # TODO cjwatson 2006-02-28: InstallProgress.updateInterface doesn't
-        # give us a handy way to spot when percentages/statuses change and
-        # aren't pmerror/pmconffile, so we have to reimplement it here.
-        if self.statusfd is None:
-            return False
-        try:
-            while not self.read.endswith("\n"):
-                r = os.read(self.statusfd.fileno(),1)
-                if not r:
-                    return False
-                self.read += r
-        except OSError, (err,errstr):
-            print errstr
-        if self.read.endswith("\n"):
-            s = self.read
-            (status, pkg, percent, status_str) = s.split(":", 3)
-            if status == "pmerror":
-                self.error(pkg, status_str)
-            elif status == "pmconffile":
-                # we get a string like this:
-                # 'current-conffile' 'new-conffile' useredited distedited
-                match = re.compile("\s*\'(.*)\'\s*\'(.*)\'.*").match(status_str)
-                if match:
-                    self.conffile(match.group(1), match.group(2))
-            else:
-                self.statusChange(pkg, float(percent), status_str.strip())
-            self.read = ""
-        return True
-
     def run(self, pm):
         # Create a subprocess to deal with turning apt status messages into
         # debconf protocol messages.

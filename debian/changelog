@@ -15,6 +15,13 @@ ubiquity (2.1.1) UNRELEASED; urgency=low
     passed is translated into a tupple.  Passing a list causes subprocess to
     fail when invoked.
 
+  [ Colin Watson ]
+  * Add a button to the language page to upgrade the installer on the fly,
+    based on work by Michael Vogt several years ago (LP: #55505).
+  * GTK frontend:
+    - Only set the debconf progress window's transience and type hint when
+      it isn't already being shown.
+
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 18 Nov 2009 15:17:37 -0600
 
 ubiquity (2.1.0) lucid; urgency=low
