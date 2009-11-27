@@ -26,6 +26,8 @@ import apt
 import apt_pkg
 
 from ubiquity import misc
+from ubiquity.debconfcommunicator import DebconfCommunicator
+from ubiquity import filteredcommand
 
 MAGIC_MARKER = "/var/run/ubiquity.updated"
 # Make sure that ubiquity is last, otherwise apt may try to install another
@@ -99,6 +101,14 @@ class InstallProgressDebconfProgressAdapter(apt.progress.InstallProgress):
         self.frontend.refresh()
 
 def update(frontend):
+    if frontend.dbfilter is not None and frontend.dbfilter.db is not None:
+        # Shut down debconf-communicator while upgrading, otherwise we'll
+        # have locking problems.
+        frontend.dbfilter.db.shutdown()
+        frontend.dbfilter.db = None
+        stopped_debconf = True
+    else:
+        stopped_debconf = False
     misc.regain_privileges()
     try:
         frontend.debconf_progress_start(
@@ -157,6 +167,9 @@ def update(frontend):
         return False
     finally:
         misc.drop_privileges()
+        if stopped_debconf:
+            frontend.dbfilter.db = DebconfCommunicator(filteredcommand.PACKAGE,
+                                                       cloexec=True)
 
 def already_updated():
     return os.path.exists(MAGIC_MARKER)
