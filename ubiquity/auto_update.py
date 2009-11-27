@@ -142,6 +142,10 @@ def update(frontend):
             fixer.protect(cache[pkg])
         fixer.resolve()
         try:
+            # dpkg will talk to stdout. We'd rather have this in the debug
+            # log file.
+            old_stdout = os.dup(1)
+            os.dup2(2, 1)
             cache.commit(FetchProgressDebconfProgressAdapter(frontend),
                          InstallProgressDebconfProgressAdapter(frontend))
         except (SystemError, IOError), e:
@@ -158,6 +162,9 @@ def update(frontend):
             frontend.error_dialog(title, msg)
             frontend.debconf_progress_stop()
             return True
+        finally:
+            os.dup2(old_stdout, 1)
+            os.close(old_stdout)
 
         # all went well, write marker and restart self
         # FIXME: we probably want some sort of in-between-restart-splash
