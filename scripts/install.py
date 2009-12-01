@@ -1081,6 +1081,9 @@ exit 0"""
         casper to hook into us and repeat bits of its configuration in the
         target system."""
 
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            return # These were already ran once during install
+
         hookdir = '/usr/lib/ubiquity/target-config'
 
         if os.path.isdir(hookdir):

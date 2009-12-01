@@ -1,6 +1,12 @@
 ubiquity (2.1.3) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Additional code cleanup from pycheck findings.
+
+  [ Mario Limonciello ]
+  * Don't run run_target_config_hooks for OEM config mode.  It's
+    already ran during actual installation and can cause problems
+    during the OEM config run. (LP: #473241)
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 01 Dec 2009 09:45:56 +0000
 
