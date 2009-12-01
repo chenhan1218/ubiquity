@@ -129,16 +129,16 @@ class Wizard(BaseFrontend):
         appName     = "kubuntu-ubiquity"
         catalog     = ""
         programName = ki18n ("Installer")
-        version     = "1.0"
+        ver         = "1.0"
         description = ki18n ("Live CD Installer for Kubuntu")
-        license     = KAboutData.License_GPL
-        copyright   = ki18n ("(c) 2006 Canonical Ltd")
+        rights      = KAboutData.License_GPL
+        copy        = ki18n ("(c) 2006 Canonical Ltd")
         text        = ki18n ("none")
         homePage    = "http://wiki.kubuntu.org/KubuntuUbiquity"
         bugEmail    = "jriddell@ubuntu.com"
         
-        about = KAboutData (appName, catalog, programName, version, description,
-                            license, copyright, text, homePage, bugEmail)
+        about = KAboutData (appName, catalog, programName, ver, description,
+                            rights, copy, text, homePage, bugEmail)
         about.addAuthor(ki18n("Jonathan Riddell"), KLocalizedString() ,"jriddell@ubuntu.com")
         about.addAuthor(ki18n("Roman Shtylman"), KLocalizedString() ,"shtylman@gmail.com")
         KCmdLineArgs.init([""],about)
@@ -756,7 +756,7 @@ class Wizard(BaseFrontend):
             # Now push fake history if needed
             i = old_index + 1
             while i < new_index:
-                for w in self.pages[i].widgets:
+                for _ in self.pages[i].widgets:
                     self.history.append((self.pages[i], None))
                 i += 1
 
@@ -1291,11 +1291,11 @@ class Wizard(BaseFrontend):
             button = QRadioButton(choice, self.ui.autopart_selection_frame)
             self.ui.autopart_selection_frame.layout().addWidget(button)
             self.autopartition_buttongroup.addButton(button, idCounter)
-            id = self.autopartition_buttongroup.id(button)
+            ident = self.autopartition_buttongroup.id(button)
 
             #Qt changes the string by adding accelerators,
             #so keep pristine string here as is returned later to partman
-            self.autopartition_buttongroup_texts[id] = choice
+            self.autopartition_buttongroup_texts[ident] = choice
             if firstbutton is None:
                 firstbutton = button
 
@@ -1463,8 +1463,8 @@ class Wizard(BaseFrontend):
         self.set_current_page(self.step_index("stepPartAuto"))
 
     def get_autopartition_choice (self):
-        id = self.autopartition_buttongroup.checkedId()
-        choice = unicode(self.autopartition_buttongroup_texts[id])
+        ident = self.autopartition_buttongroup.checkedId()
+        choice = unicode(self.autopartition_buttongroup_texts[ident])
 
         if choice == self.resize_choice:
             # resize choice should have been hidden otherwise
@@ -1625,7 +1625,7 @@ class Wizard(BaseFrontend):
                 str(self.create_dialog.partition_create_size_spinbutton.value()),
                 prilog, place, method, mountpoint)
 
-    def on_partition_create_use_combo_changed (self, combobox):
+    def on_partition_create_use_combo_changed (self, *args):
         if not hasattr(self, 'create_use_method_names'):
             return
         known_filesystems = ('ext4', 'ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
@@ -1735,7 +1735,7 @@ class Wizard(BaseFrontend):
             method_description = unicode(self.edit_dialog.partition_edit_use_combo.currentText())
             method = self.edit_use_method_names[method_description]
 
-            format = self.edit_dialog.partition_edit_format_checkbutton.isChecked()
+            fmt = self.edit_dialog.partition_edit_format_checkbutton.isChecked()
 
             mountpoint = unicode(self.edit_dialog.partition_edit_mount_combo.currentText())
 
@@ -1744,21 +1744,21 @@ class Wizard(BaseFrontend):
                 size = None
             if method == current_method:
                 method = None
-            if format == current_format:
-                format = None
+            if fmt == current_format:
+                fmt = None
             if mountpoint == current_mountpoint:
                 mountpoint = None
 
-            if (size is not None or method is not None or format is not None or
+            if (size is not None or method is not None or fmt is not None or
                 mountpoint is not None):
                 self.allow_change_step(False)
                 edits = {'size': size, 'method': method,
                          'mountpoint': mountpoint}
-                if format is not None:
+                if fmt is not None:
                     edits['format'] = 'dummy'
                 self.dbfilter.edit_partition(devpart, **edits)
 
-    def on_partition_edit_use_combo_changed(self, combobox):
+    def on_partition_edit_use_combo_changed(self, *args):
         if not hasattr(self, 'edit_use_method_names'):
             return
         # If the selected method isn't a filesystem, then selecting a mount
@@ -1783,7 +1783,7 @@ class Wizard(BaseFrontend):
                     self.dbfilter.default_mountpoint_choices(method):
                     self.edit_dialog.partition_edit_mount_combo.addItem(mp)
 
-    def on_partition_list_treeview_selection_changed(self, selected, deselected):
+    def on_partition_list_treeview_selection_changed(self, unused, deselected):
         self.ui.partition_button_new_label.setEnabled(False)
         self.ui.partition_button_new.setEnabled(False)
         self.ui.partition_button_edit.setEnabled(False)
@@ -1851,7 +1851,7 @@ class Wizard(BaseFrontend):
         else:
             self.partman_edit_dialog(devpart, partition)
 
-    def on_partition_list_new_label_activate(self, ticked):
+    def on_partition_list_new_label_activate(self, *args):
         selected = self.ui.partition_list_treeview.selectedIndexes()
         if not selected:
             return
@@ -1866,7 +1866,7 @@ class Wizard(BaseFrontend):
         self.allow_change_step(False)
         self.dbfilter.create_label(devpart)
 
-    def on_partition_list_new_activate(self, ticked):
+    def on_partition_list_new_activate(self, *args):
         selected = self.ui.partition_list_treeview.selectedIndexes()
         if not selected:
             return
@@ -1876,7 +1876,7 @@ class Wizard(BaseFrontend):
         partition = item.itemData[1]
         self.partman_create_dialog(devpart, partition)
 
-    def on_partition_list_edit_activate(self, ticked):
+    def on_partition_list_edit_activate(self, *args):
         selected = self.ui.partition_list_treeview.selectedIndexes()
         if not selected:
             return
@@ -1886,7 +1886,7 @@ class Wizard(BaseFrontend):
         partition = item.itemData[1]
         self.partman_edit_dialog(devpart, partition)
 
-    def on_partition_list_delete_activate(self, ticked):
+    def on_partition_list_delete_activate(self, *args):
         selected = self.ui.partition_list_treeview.selectedIndexes()
         if not selected:
             return
@@ -1901,7 +1901,7 @@ class Wizard(BaseFrontend):
         self.allow_change_step(False)
         self.dbfilter.delete_partition(devpart)
 
-    def on_partition_list_undo_activate(self, ticked):
+    def on_partition_list_undo_activate(self, *args):
         if not self.allowed_change_step:
             return
         if not isinstance(self.dbfilter, partman.Page):
@@ -2200,23 +2200,4 @@ class Wizard(BaseFrontend):
     def on_hostname_changed(self):
         self.info_loop(self.ui.hostname)
         self.hostname_edited = (self.ui.hostname.text() != '')
-
-    def update_new_size_label(self, value):
-        if self.new_size_value is None:
-            return
-        if self.resize_max_size is not None:
-            size = value * self.resize_max_size / 100
-            text = '%d%% (%s)' % (value, format_size(size))
-        else:
-            text = '%d%%' % value
-        self.new_size_value.setText(text)
-
-    def quit(self):
-        """quit installer cleanly."""
-
-        # exiting from application
-        self.current_page = None
-        if self.dbfilter is not None:
-            self.dbfilter.cancel_handler()
-        self.app.exit()
 		

@@ -57,7 +57,7 @@ class UntrustedBase(object):
             return None
 
     @classmethod
-    def debug_enabled(cls):
+    def debug_enabled(*args):
         return ('UBIQUITY_DEBUG_CORE' in os.environ and
                 os.environ['UBIQUITY_DEBUG_CORE'] == '1')
 

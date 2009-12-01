@@ -710,7 +710,7 @@ class Wizard(BaseFrontend):
         elif isinstance(widget, gtk.Button):
             # TODO evand 2007-06-26: LP #122141 causes a crash unless we keep a
             # reference to the button image.
-            tempref = widget.get_image()
+            unused = widget.get_image()
 
             question = i18n.map_widget_name(prefix, widget.get_name())
             widget.set_label(text)
@@ -1680,7 +1680,7 @@ class Wizard(BaseFrontend):
         if 'id' not in partition or 'method' not in partition:
             return
         self.allow_change_step(False)
-        self.dbfilter.edit_partition(devpart, format='dummy')
+        self.dbfilter.edit_partition(devpart, fmt='dummy')
 
     def partman_column_size (self, unused_column, cell, model, iterator):
         partition = model[iterator][1]
@@ -1970,7 +1970,7 @@ class Wizard(BaseFrontend):
                 model = self.partition_edit_use_combo.get_model()
                 method = model.get_value(method_iter, 0)
 
-            format = self.partition_edit_format_checkbutton.get_active()
+            fmt = self.partition_edit_format_checkbutton.get_active()
 
             mountpoint = self.partition_edit_mount_combo.child.get_text()
 
@@ -1979,17 +1979,17 @@ class Wizard(BaseFrontend):
                 size = None
             if method == current_method:
                 method = None
-            if format == current_format:
-                format = None
+            if fmt == current_format:
+                fmt = None
             if mountpoint == current_mountpoint:
                 mountpoint = None
 
-            if (size is not None or method is not None or format is not None or
+            if (size is not None or method is not None or fmt is not None or
                 mountpoint is not None):
                 self.allow_change_step(False)
                 edits = {'size': size, 'method': method,
                          'mountpoint': mountpoint}
-                if format is not None:
+                if fmt is not None:
                     edits['format'] = 'dummy'
                 self.dbfilter.edit_partition(devpart, **edits)
 

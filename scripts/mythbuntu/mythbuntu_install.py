@@ -293,17 +293,17 @@ bind-address=0.0.0.0"""
         self.lirc.create_lircrc(self.target + "/etc/lirc/lircd.conf",False)
         os.system('chown ' + str(self.uid) + ':' + str(self.gid) + ' -R ' + home + '/.lirc*')
 
-    def enable_amd(self,type,format):
+    def enable_amd(self, type, fmt):
         if type == 'Composite Video Output':
-            self.chrex('/usr/bin/aticonfig','--tvs VIDEO', '--tvf ' + format)
+            self.chrex('/usr/bin/aticonfig','--tvs VIDEO', '--tvf ' + fmt)
         elif type == 'S-Video Video Output':
-            self.chrex('/usr/bin/aticonfig','--tvs VIDEO', '--tvf ' + format)
+            self.chrex('/usr/bin/aticonfig','--tvs VIDEO', '--tvf ' + fmt)
         elif type == 'Component Video Output':
-            self.chrex('/usr/bin/aticonfig','--tvs YUV', '--tvf ' + format)
+            self.chrex('/usr/bin/aticonfig','--tvs YUV', '--tvf ' + fmt)
         else:
             self.chrex('/usr/bin/aticonfig')
 
-    def enable_nvidia(self,type,format):
+    def enable_nvidia(self, type, fmt):
         """Enables an NVIDIA graphics driver using XKit"""
         xorg_conf=XKit.xutils.XUtils()
 
@@ -314,15 +314,15 @@ bind-address=0.0.0.0"""
         if type == 'Composite Video Output':
             extra_conf_options["ConnectedMonitor"]="TV"
             extra_conf_options["TVOutFormat"]="COMPOSITE"
-            extra_conf_options["TVStandard"]=format
+            extra_conf_options["TVStandard"]=fmt
         elif type == 'S-Video Video Output':
             extra_conf_options["ConnectedMonitor"]="TV"
             extra_conf_options["TVOutFormat"]="SVIDEO"
-            extra_conf_options["TVStandard"]=format
+            extra_conf_options["TVStandard"]=fmt
         elif type == 'Component Video Output':
             extra_conf_options["ConnectedMonitor"]="TV"
             extra_conf_options["TVOutFormat"]="COMPONENT"
-            extra_conf_options["TVStandard"]=format
+            extra_conf_options["TVStandard"]=fmt
 
         #Set up device section
         relevant_devices = []

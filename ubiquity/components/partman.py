@@ -1176,14 +1176,14 @@ class Page(Plugin):
         self.exit_ui_loops()
 
     def edit_partition(self, devpart, size=None,
-                       method=None, mountpoint=None, format=None):
+                       method=None, mountpoint=None, fmt=None):
         assert self.current_question == 'partman/choose_partition'
         self.editing_partition = {
             'devpart': devpart,
             'size': size,
             'method': method,
             'mountpoint': mountpoint,
-            'format': format
+            'format': fmt
         }
         self.exit_ui_loops()
 
