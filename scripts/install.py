@@ -1082,7 +1082,7 @@ exit 0"""
         target system."""
 
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
-            return # These were already ran once during install
+            return # These were already run once during install
 
         hookdir = '/usr/lib/ubiquity/target-config'
 
