@@ -8,6 +8,10 @@ ubiquity (2.1.3) UNRELEASED; urgency=low
     already run during actual installation and can cause problems
     during the OEM config run. (LP: #473241)
 
+  [ Colin Watson ]
+  * Pass DATA command through debconffilter rather than swallowing it,
+    restoring useful progress information (LP: #445385).
+
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 01 Dec 2009 09:45:56 +0000
 
 ubiquity (2.1.2) lucid; urgency=low

@@ -291,10 +291,6 @@ class DebconfFilter:
                 self.debug('filter', 'widget found for', question)
                 widget.set(question, value)
 
-        if command == 'DATA':
-            self.reply(0, 'OK', log=True)
-            return True
-
         if command == 'SUBST' and len(params) >= 3:
             (question, key) = params[0:2]
             value = ' '.join(params[2:])
