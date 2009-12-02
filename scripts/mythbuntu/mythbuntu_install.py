@@ -308,8 +308,7 @@ bind-address=0.0.0.0"""
         xorg_conf=XKit.xutils.XUtils()
 
         extra_conf_options={'NoLogo': '1',
-                           'DPI': '100x100',
-                           'UseEvents': '1'}
+                           'DPI': '100x100'}
 
         if type == 'Composite Video Output':
             extra_conf_options["ConnectedMonitor"]="TV"
