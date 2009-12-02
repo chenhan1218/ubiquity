@@ -223,7 +223,8 @@ class Wizard(BaseFrontend):
             'warning_dialog',
             'warning_dialog_label',
             'cancelbutton',
-            'exitbutton'
+            'exitbutton',
+            'install_process_label'
         )
                              
         self.current_page = None

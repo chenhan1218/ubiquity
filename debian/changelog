@@ -11,6 +11,10 @@ ubiquity (2.1.3) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Pass DATA command through debconffilter rather than swallowing it,
     restoring useful progress information (LP: #445385).
+  * Fix KDE frontend translation issues (LP: #478006):
+    - Retranslate install_process_label when the language changes.
+    - Make "Layout:", "Variant:", and "Below is an image of your current
+      layout:" translatable.
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 01 Dec 2009 09:45:56 +0000
 

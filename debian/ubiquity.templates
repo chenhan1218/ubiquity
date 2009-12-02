@@ -117,6 +117,18 @@ Template: ubiquity/text/manual_keymap
 Type: text
 _Description: Choose your own:
 
+Template: ubiquity/text/keyboard_layout_label
+Type: text
+_Description: Layout:
+
+Template: ubiquity/text/keyboard_variant_label
+Type: text
+_Description: Variant:
+
+Template: ubiquity/text/keyboard_image_label
+Type: text
+_Description: Below is an image of your current layout:
+
 Template: ubiquity/text/userinfo_heading_label
 Type: text
 _Description: Who are you?
