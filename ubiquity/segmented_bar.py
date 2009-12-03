@@ -402,7 +402,7 @@ class SegmentedBar(gtk.Widget):
         for segment in self.segments:
             cr.set_line_width(1)
             cr.rectangle(x + 0.5, 2 + 0.5, self.segment_box_size - 1, self.segment_box_size - 1)
-            grad = self.make_segment_gradient(self.segment_box_size, segment.color, True)
+            grad = self.make_segment_gradient(self.segment_box_size, segment.color)
             cr.set_source(grad)
             cr.fill_preserve()
             cr.set_source_rgba(box_stroke_color.r, box_stroke_color.g, box_stroke_color.b, box_stroke_color.a)
