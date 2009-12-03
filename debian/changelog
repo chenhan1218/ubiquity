@@ -17,6 +17,8 @@ ubiquity (2.1.3) UNRELEASED; urgency=low
     - Make "Layout:", "Variant:", and "Below is an image of your current
       layout:" translatable.
   * Fix inconsistent return types in partman.Page.snoop.
+  * Automatic update of included source packages: base-installer
+    1.103ubuntu1.
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 01 Dec 2009 09:45:56 +0000
 
