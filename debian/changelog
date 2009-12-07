@@ -11,6 +11,9 @@ ubiquity (2.1.4) UNRELEASED; urgency=low
       (LP: #493139)
     - Also trigger an udev change event for key devices, so that the changed
       keyboard settings also apply to an udevified X.org server.
+  * scripts/ubi-restart-hal: Rename to scripts/ubi-reload-keyboard to state
+    the intent, not the means (since it now primarily applies to udev).
+    Adjust debian/oem-config.install accordingly.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Fri, 04 Dec 2009 03:08:12 -0600
 
