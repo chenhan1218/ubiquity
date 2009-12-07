@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>968</width>
-    <height>697</height>
+    <width>809</width>
+    <height>638</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -112,19 +112,9 @@
                  </spacer>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="back">
+                 <widget class="QPushButton" name="quit">
                   <property name="text">
-                   <string>Back</string>
-                  </property>
-                  <property name="autoDefault">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="next">
-                  <property name="text">
-                   <string>Next</string>
+                   <string>Quit</string>
                   </property>
                   <property name="autoDefault">
                    <bool>true</bool>
@@ -148,9 +138,19 @@
                  </spacer>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="quit">
+                 <widget class="QPushButton" name="back">
                   <property name="text">
-                   <string>Quit</string>
+                   <string>Back</string>
+                  </property>
+                  <property name="autoDefault">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="next">
+                  <property name="text">
+                   <string>Next</string>
                   </property>
                   <property name="autoDefault">
                    <bool>true</bool>
@@ -163,7 +163,7 @@
              <item row="0" column="0" colspan="5">
               <widget class="QStackedWidget" name="widgetStack">
                <property name="currentIndex">
-                <number>0</number>
+                <number>2</number>
                </property>
                <widget class="QWidget" name="stepPartAuto">
                 <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -959,60 +959,6 @@
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="stepReady">
-                <layout class="QVBoxLayout" name="verticalLayout_8">
-                 <item>
-                  <widget class="QLabel" name="ready_heading_label">
-                   <property name="text">
-                    <string>Ready to Install</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="Line" name="line_12">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="ready_description_label">
-                   <property name="text">
-                    <string>Your new operating system will now be installed with the following settings:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QTextEdit" name="ready_text"/>
-                 </item>
-                 <item>
-                  <widget class="QWidget" name="widget_5" native="true">
-                   <layout class="QHBoxLayout" name="horizontalLayout_7">
-                    <item>
-                     <spacer name="horizontalSpacer_15">
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>40</width>
-                        <height>20</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="advanced_button">
-                      <property name="text">
-                       <string>Advanced</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
               </widget>
              </item>
             </layout>
@@ -1205,7 +1151,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>968</width>
+     <width>809</width>
      <height>21</height>
     </rect>
    </property>
@@ -1230,11 +1176,8 @@
   <tabstop>password</tabstop>
   <tabstop>verified_password</tabstop>
   <tabstop>hostname</tabstop>
-  <tabstop>ready_text</tabstop>
-  <tabstop>advanced_button</tabstop>
   <tabstop>back</tabstop>
   <tabstop>next</tabstop>
-  <tabstop>quit</tabstop>
   <tabstop>minimize_button</tabstop>
  </tabstops>
  <resources/>

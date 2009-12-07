@@ -164,9 +164,6 @@ class Wizard(BaseFrontend):
         self.ui.setWizard(self)
         #self.ui.setWindowFlags(Qt.Window | Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowMinMaxButtonsHint)
         
-        self.advanceddialog = QDialog(self.ui)
-        uic.loadUi(os.path.join(UIDIR, "advanceddialog.ui"), self.advanceddialog)
-        
         #hide the minimize button if in "install only" mode
         if 'UBIQUITY_ONLY' in os.environ:
             self.ui.minimize_button.setVisible(False)
@@ -359,14 +356,6 @@ class Wizard(BaseFrontend):
         
         self.ui.hostname.textChanged[str].connect(self.on_hostname_changed)
 
-        #self.app.connect(self.ui.fullname, SIGNAL("selectionChanged()"), self.on_fullname_changed)
-        #self.app.connect(self.ui.username, SIGNAL("selectionChanged()"), self.on_username_changed)
-        #self.app.connect(self.ui.password, SIGNAL("selectionChanged()"), self.on_password_changed)
-        #self.app.connect(self.ui.verified_password, SIGNAL("selectionChanged()"), self.on_verified_password_changed)
-        #self.app.connect(self.ui.hostname, SIGNAL("selectionChanged()"), self.on_hostname_changed)
-
-        self.ui.advanced_button.clicked.connect(self.on_advanced_button_clicked)
-
         self.ui.partition_button_new_label.clicked[bool].connect(self.on_partition_list_new_label_activate)
         self.ui.partition_button_new.clicked[bool].connect(self.on_partition_list_new_activate)
         self.ui.partition_button_edit.clicked[bool].connect(self.on_partition_list_edit_activate)
@@ -401,6 +390,7 @@ class Wizard(BaseFrontend):
                     ui = self.pages[self.pagesindex].ui
                 else:
                     ui = None
+                    
                 self.dbfilter = self.pages[self.pagesindex].filter_class(self, ui=ui)
 
                 # Non-debconf steps are no longer possible as the interface is now
@@ -2006,95 +1996,6 @@ class Wizard(BaseFrontend):
 
     def set_hostname (self, value):
         self.ui.hostname.setText(value)
-
-    def set_summary_text (self, text):
-        i = text.find("\n")
-        while i != -1:
-            text = text[:i] + "<br>" + text[i+1:]
-            i = text.find("\n")
-        self.ui.ready_text.setText(text)
-
-    ## called to set all possible install locations for grub
-    def set_grub_combo(self, options):
-        ''' options gives us a possible list of install locations for the boot loader '''
-        self.advanceddialog.grub_device_entry.clear()
-        ''' options is from summary.py grub_options() '''
-        for opt in options:
-           self.advanceddialog.grub_device_entry.addItem(opt[0]);
-
-    def on_advanced_button_clicked (self):
-        self.translate_widget_children(self.advanceddialog)
-        self.app.connect(self.advanceddialog.grub_enable, SIGNAL("stateChanged(int)"), self.toggle_grub)
-        self.app.connect(self.advanceddialog.proxy_host_entry, SIGNAL("textChanged(const QString &)"), self.enable_proxy_spinbutton)
-        display = False
-        grub_en = self.get_grub()
-        summary_device = self.get_summary_device()
-        if grub_en is not None:
-            self.advanceddialog.grub_enable.show()
-            self.advanceddialog.grub_enable.setChecked(grub_en)
-        else:
-            self.advanceddialog.grub_enable.hide()
-            summary_device = None
-        if summary_device is not None:
-            display = True
-            self.advanceddialog.bootloader_group_label.show()
-            self.advanceddialog.grub_device_label.show()
-            self.advanceddialog.grub_device_entry.show()
-            
-            # if the combo box does not yet have the target install device, add it
-            # select current device
-            target = summary.find_grub_target()
-            index = self.advanceddialog.grub_device_entry.findText(target)
-            if (index == -1):
-                self.advanceddialog.grub_device_entry.addItem(target)
-                index = self.advanceddialog.grub_device_entry.count() - 1
-            
-            # select the target device
-            self.advanceddialog.grub_device_entry.setCurrentIndex(index)
-            
-            self.advanceddialog.grub_device_entry.setEnabled(grub_en)
-            self.advanceddialog.grub_device_label.setEnabled(grub_en)
-        else:
-            self.advanceddialog.bootloader_group_label.hide()
-            self.advanceddialog.grub_device_label.hide()
-            self.advanceddialog.grub_device_entry.hide()
-        if self.popcon is not None:
-            display = True
-            self.advanceddialog.popcon_group_label.show()
-            self.advanceddialog.popcon_checkbutton.show()
-            self.advanceddialog.popcon_checkbutton.setChecked(self.popcon)
-        else:
-            self.advanceddialog.popcon_group_label.hide()
-            self.advanceddialog.popcon_checkbutton.hide()
-
-        display = True
-        if self.http_proxy_host:
-            self.advanceddialog.proxy_port_spinbutton.setEnabled(True)
-            self.advanceddialog.proxy_host_entry.setText(unicode(self.http_proxy_host))
-        else:
-            self.advanceddialog.proxy_port_spinbutton.setEnabled(False)
-        self.advanceddialog.proxy_port_spinbutton.setValue(self.http_proxy_port)
-
-        if not display:
-            return
-
-        response = self.advanceddialog.exec_()
-        if response == QDialog.Accepted:
-            if summary_device is not None:
-                self.set_summary_device(
-                    unicode(self.advanceddialog.grub_device_entry.currentText()))
-            self.set_popcon(self.advanceddialog.popcon_checkbutton.isChecked())
-            self.set_grub(self.advanceddialog.grub_enable.isChecked())
-            self.set_proxy_host(unicode(self.advanceddialog.proxy_host_entry.text()))
-            self.set_proxy_port(self.advanceddialog.proxy_port_spinbutton.value())
-
-    def enable_proxy_spinbutton(self):
-        self.advanceddialog.proxy_port_spinbutton.setEnabled(self.advanceddialog.proxy_host_entry.text() != '')
-
-    def toggle_grub(self):
-        grub_en = self.advanceddialog.grub_enable.isChecked()
-        self.advanceddialog.grub_device_entry.setEnabled(grub_en)
-        self.advanceddialog.grub_device_label.setEnabled(grub_en)
 
     def return_to_partitioning (self):
         """If the install progress bar is up but still at the partitioning
