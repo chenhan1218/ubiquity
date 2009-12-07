@@ -1,7 +1,16 @@
 ubiquity (2.1.4) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
   * Correct a variable that didn't get changed from pychecker
     cleanup in the intro plugin.
+
+  [ Martin Pitt ]
+  * scripts/ubi-restart-hal:
+    - Restart hal the upstart way.
+    - Do not fail if hal does not exist, and drop hal dependency. 
+      (LP: #493139)
+    - Also trigger an udev change event for key devices, so that the changed
+      keyboard settings also apply to an udevified X.org server.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Fri, 04 Dec 2009 03:08:12 -0600
 
