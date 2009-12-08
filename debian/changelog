@@ -2,7 +2,7 @@ ubiquity (2.1.4) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Correct a variable that didn't get changed from pychecker
-    cleanup in the intro plugin.
+    cleanup in the intro plugin (LP: #492873).
 
   [ Martin Pitt ]
   * scripts/ubi-restart-hal:
