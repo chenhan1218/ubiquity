@@ -1,2 +1,2 @@
 bin/oem-config-* usr/sbin
-scripts/ubi-restart-hal /usr/lib/oem-config/post-install
+scripts/ubi-reload-keyboard /usr/lib/oem-config/post-install
