@@ -1,3 +1,10 @@
+ubiquity (2.1.5) UNRELEASED; urgency=low
+
+  * Mythbuntu: Don't start MySQL using the upstart scripts since they don't
+    work in a chroot. (LP: #494830)
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Thu, 10 Dec 2009 03:01:46 -0600
+
 ubiquity (2.1.4) lucid; urgency=low
 
   [ Mario Limonciello ]

@@ -27,6 +27,7 @@ import syslog
 import debconf
 import shutil
 import XKit.xutils
+import subprocess
 
 import string
 
@@ -149,15 +150,15 @@ class Install(ParentInstall):
         #only reconfigure database if appropriate
         if 'Master' in self.type:
             #Prepare
-            self.chrex('mount', '-t', 'proc', 'proc', '/proc')
 
             #Setup database
             self.reconfigure('mysql-server-5.1')
+            proc=subprocess.Popen(['chroot',self.target,'mysqld'])
             self.reconfigure('mythtv-database')
 
             #Cleanup
-            self.chrex('invoke-rc.d','mysql','stop')
-            self.chrex('umount', '/proc')
+            self.chrex('mysqladmin','--defaults-file=/etc/mysql/debian.cnf','shutdown')
+            proc.communicate()
 
             #Mythweb
             self.set_debconf('mythweb/enable', 'true')
