@@ -10,6 +10,7 @@ ubiquity (2.1.5) UNRELEASED; urgency=low
   * Remove hack forcing the use of sudo with the KDE frontend, as it no
     longer appears to be necessary and things break if we don't use kdesudo
     (LP: #494997).
+  * Handle transitioning away from plymouth in ubiquity-dm.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Thu, 10 Dec 2009 03:01:46 -0600
 
