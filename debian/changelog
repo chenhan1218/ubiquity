@@ -1,7 +1,12 @@
 ubiquity (2.1.5) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
   * Mythbuntu: Don't start MySQL using the upstart scripts since they don't
     work in a chroot. (LP: #494830)
+
+  [ Colin Watson ]
+  * Update two more edit_partition calls to account for renamed format ->
+    fmt argument (LP: #494608).
 
  -- Mario Limonciello <superm1@ubuntu.com>  Thu, 10 Dec 2009 03:01:46 -0600
 

@@ -1756,7 +1756,7 @@ class Wizard(BaseFrontend):
                 edits = {'size': size, 'method': method,
                          'mountpoint': mountpoint}
                 if fmt is not None:
-                    edits['format'] = 'dummy'
+                    edits['fmt'] = 'dummy'
                 self.dbfilter.edit_partition(devpart, **edits)
 
     def on_partition_edit_use_combo_changed(self, *args):
