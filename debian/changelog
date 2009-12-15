@@ -17,6 +17,8 @@ ubiquity (2.1.5) UNRELEASED; urgency=low
   * Gather basic information from parted_server using the PARTITIONS command
     (all partitions on a disk at once), which is slightly faster than
     PARTITION_INFO (one partition at a time).
+  * Initialise automation_error_cmd, error_cmd, and success_cmd to '' rather
+    than None, since that's what's checked by the functions that use them.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Thu, 10 Dec 2009 03:01:46 -0600
 

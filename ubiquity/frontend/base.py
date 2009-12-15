@@ -129,9 +129,9 @@ class BaseFrontend:
         # set commands
         # Note that this will never work if the database is locked, so you
         # cannot trap that particular error using failure_command.
-        self.automation_error_cmd = None
-        self.error_cmd = None
-        self.success_cmd = None
+        self.automation_error_cmd = ''
+        self.error_cmd = ''
+        self.success_cmd = ''
         try:
             self.automation_error_cmd = db.get(
                 'ubiquity/automation_failure_command')
