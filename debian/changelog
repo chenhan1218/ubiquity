@@ -12,6 +12,8 @@ ubiquity (2.1.5) UNRELEASED; urgency=low
     (LP: #494997).
   * Make ubiquity.parted_server's logging to /var/log/partman more
     distinctive.
+  * Set sensible permissions on /var/log/installer/debug, not os.open's
+    default of 0755.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Thu, 10 Dec 2009 03:01:46 -0600
 
