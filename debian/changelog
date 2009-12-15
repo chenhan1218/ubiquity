@@ -14,6 +14,9 @@ ubiquity (2.1.5) UNRELEASED; urgency=low
     distinctive.
   * Set sensible permissions on /var/log/installer/debug, not os.open's
     default of 0755.
+  * Gather basic information from parted_server using the PARTITIONS command
+    (all partitions on a disk at once), which is slightly faster than
+    PARTITION_INFO (one partition at a time).
 
  -- Mario Limonciello <superm1@ubuntu.com>  Thu, 10 Dec 2009 03:01:46 -0600
 

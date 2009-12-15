@@ -617,12 +617,20 @@ class Page(Plugin):
 
                     # Get basic information from parted_server for each
                     # partition being updated.
+                    partition_info_cache = {}
                     for devpart in self.update_partitions:
                         dev, part_id = self.split_devpart(devpart)
                         if not dev:
                             continue
-                        parted.select_disk(dev)
-                        info = parted.partition_info(part_id)
+                        if dev not in partition_info_cache:
+                            parted.select_disk(dev)
+                            partition_info_cache[dev] = {}
+                            for partition in parted.partitions():
+                                partition_info_cache[dev][partition[1]] = \
+                                    partition
+                        if part_id not in partition_info_cache[dev]:
+                            continue
+                        info = partition_info_cache[dev][part_id]
                         self.partition_cache[devpart]['parted'] = {
                             'num': info[0],
                             'id': info[1],
