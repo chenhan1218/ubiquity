@@ -21,6 +21,8 @@ ubiquity (2.1.5) UNRELEASED; urgency=low
     than None, since that's what's checked by the functions that use them.
   * Unlink /var/lib/localechooser/langlevel even if unlinking
     /var/lib/localechooser/preseeded fails.
+  * Regain privileges to unlink /var/lib/localechooser/preseeded and
+    /var/lib/localechooser/langlevel.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Thu, 10 Dec 2009 03:01:46 -0600
 
