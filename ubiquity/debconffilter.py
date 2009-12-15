@@ -99,8 +99,15 @@ class DebconfFilter:
         self.towrite = ''
         self.towritepos = 0
 
-    def debug(self, key, *args):
+    def debug_enabled(self, key):
+        if key == 'filter' and os.environ.get('UBIQUITY_DEBUG_CORE') == '1':
+            return True
         if self.debug_re is not None and self.debug_re.search(key):
+            return True
+        return False
+
+    def debug(self, key, *args):
+        if self.debug_enabled(key):
             import time
             # bizarre time formatting code per syslogd
             time_str = time.ctime()[4:19]
