@@ -19,6 +19,8 @@ ubiquity (2.1.5) UNRELEASED; urgency=low
     PARTITION_INFO (one partition at a time).
   * Initialise automation_error_cmd, error_cmd, and success_cmd to '' rather
     than None, since that's what's checked by the functions that use them.
+  * Unlink /var/lib/localechooser/langlevel even if unlinking
+    /var/lib/localechooser/preseeded fails.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Thu, 10 Dec 2009 03:01:46 -0600
 

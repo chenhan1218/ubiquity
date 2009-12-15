@@ -327,6 +327,9 @@ class Page(Plugin):
         self.db.fset('localechooser/languagelist', 'seen', 'false')
         try:
             os.unlink('/var/lib/localechooser/preseeded')
+        except OSError:
+            pass
+        try:
             os.unlink('/var/lib/localechooser/langlevel')
         except OSError:
             pass
