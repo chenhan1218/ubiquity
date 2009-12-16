@@ -1,4 +1,4 @@
-ubiquity (2.1.5) UNRELEASED; urgency=low
+ubiquity (2.1.5) lucid; urgency=low
 
   [ Mario Limonciello ]
   * Mythbuntu: Don't start MySQL using the upstart scripts since they don't
@@ -29,7 +29,7 @@ ubiquity (2.1.5) UNRELEASED; urgency=low
   * Automatic update of included source packages: console-setup 1.34ubuntu5,
     partman-base 135ubuntu2.
 
- -- Mario Limonciello <superm1@ubuntu.com>  Thu, 10 Dec 2009 03:01:46 -0600
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 16 Dec 2009 00:31:12 +0000
 
 ubiquity (2.1.4) lucid; urgency=low
 
