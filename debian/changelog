@@ -26,6 +26,8 @@ ubiquity (2.1.5) UNRELEASED; urgency=low
   * Enable debconffilter debugging if UBIQUITY_DEBUG_CORE=1, so that we can
     set DEBCONF_DEBUG=developer rather than DEBCONF_DEBUG=developer|filter
     which cdebconf doesn't understand.
+  * Automatic update of included source packages: console-setup 1.34ubuntu5,
+    partman-base 135ubuntu2.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Thu, 10 Dec 2009 03:01:46 -0600
 
