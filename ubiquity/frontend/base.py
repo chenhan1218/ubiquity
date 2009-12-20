@@ -534,3 +534,24 @@ class BaseFrontend:
             self.debconf_progress_info(
                 self.get_string('ubiquity/install/success_command'))
             execute_root('sh', '-c', self.success_cmd)
+    
+    def slideshow_get_available_locale(slideshow_dir,locale):
+        #returns the ideal locale for the given slideshow, based on the
+        #given locale, or 'c' if an ideal one is not available.
+        #For example, with locale=en_CA, this returns en if en_CA is not
+        #available. If en is not available this would return c.
+        
+        slides_dir = '%s/slides' % slideshow_dir
+        locale_choice = 'c'
+        
+        if os.path.exists('%s/loc.%s' % (slides_dir,locale)):
+            locale_choice = locale
+        else:
+            ll_cc = locale.split('.')[0]
+            ll = ll_cc.split('_')[0]
+            if os.path.exists('%s/loc.%s' % (slides_dir,ll_cc)):
+                locale_choice = ll_cc
+            elif os.path.exists('%s/loc.%s' % (slides_dir,ll)):
+                locale_choice = ll
+        
+        return locale_choice
