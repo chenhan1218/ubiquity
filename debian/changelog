@@ -1,3 +1,11 @@
+ubiquity (2.1.6) UNRELEASED; urgency=low
+
+  * Tell partman not to recalculate choices for choose_partition or
+    active_partition while we're going back and forward building the cache.
+    Requires partman-base 135ubuntu3.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 21 Dec 2009 16:57:49 +0000
+
 ubiquity (2.1.5) lucid; urgency=low
 
   [ Mario Limonciello ]

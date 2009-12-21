@@ -87,6 +87,7 @@ class Page(Plugin):
         # Force autopartitioning to be re-run.
         shutil.rmtree('/var/lib/partman', ignore_errors=True)
         drop_privileges()
+        self.thaw_choices('active_partition')
 
         self.autopartition_question = None
         self.auto_state = None
@@ -384,6 +385,25 @@ class Page(Plugin):
                                    self.extended_description(question))
         return Plugin.error(self, priority, question)
 
+    def freeze_choices(self, menu):
+        """Stop recalculating choices for a given menu. This is used to
+        improve performance while rebuilding the cache. Be careful not to
+        use preseed_as_c or similar while choices are frozen, as the current
+        set of choices may not be valid; you must cache whatever you need
+        before calling this method."""
+        regain_privileges()
+        open('/lib/partman/%s/no_show_choices' % menu, 'w').close
+        drop_privileges()
+
+    def thaw_choices(self, menu):
+        """Reverse the effects of freeze_choices."""
+        regain_privileges()
+        try:
+            os.unlink('/lib/partman/%s/no_show_choices' % menu)
+        except OSError:
+            pass
+        drop_privileges()
+
     def run(self, priority, question):
         if self.done:
             # user answered confirmation question or backed up
@@ -538,6 +558,7 @@ class Page(Plugin):
                     else:
                         # Finished building the cache.
                         self.debug('Partman: Finished building cache')
+                        self.thaw_choices('choose_partition')
                         self.__state.pop()
                         self.update_partitions = None
                         self.building_cache = False
@@ -672,10 +693,12 @@ class Page(Plugin):
                         self.__state.append([question, devpart, None])
                         self.preseed(question, partition['display'],
                                      seen=False)
+                        self.freeze_choices('choose_partition')
                         return True
                     else:
                         self.debug('Partman: Finished building cache '
                                    '(no partitions to update)')
+                        self.thaw_choices('choose_partition')
                         self.update_partitions = None
                         self.building_cache = False
                         self.frontend.debconf_progress_stop()
@@ -844,11 +867,12 @@ class Page(Plugin):
                     if state[2] < len(partition['active_partition_build']):
                         # Move on to the next item.
                         visit = partition['active_partition_build']
-                        self.preseed_as_c(question, visit[state[2]][2], seen=False)
+                        self.preseed(question, visit[state[2]][2], seen=False)
                         return True
                     else:
                         # Finished building the cache for this submenu; go
                         # back to the previous one.
+                        self.thaw_choices('active_partition')
                         try:
                             del partition['active_partition_build']
                         except KeyError:
@@ -874,19 +898,23 @@ class Page(Plugin):
                 visit = []
                 for (script, arg, option) in menu_options:
                     if arg in ('method', 'mountpoint'):
-                        visit.append((script, arg, option))
+                        visit.append((script, arg,
+                                      self.translate_to_c(question, option)))
                     elif arg == 'format':
                         partition['can_activate_format'] = True
                     elif arg == 'resize':
-                        visit.append((script, arg, option))
+                        visit.append((script, arg,
+                                      self.translate_to_c(question, option)))
                         partition['can_resize'] = True
                 if visit:
                     partition['active_partition_build'] = visit
                     self.__state.append([question, state[1], 0])
-                    self.preseed_as_c(question, visit[0][2], seen=False)
+                    self.preseed(question, visit[0][2], seen=False)
+                    self.freeze_choices('active_partition')
                     return True
                 else:
                     # Back up to the previous menu.
+                    self.thaw_choices('active_partition')
                     return False
 
             elif self.creating_partition or self.editing_partition:
