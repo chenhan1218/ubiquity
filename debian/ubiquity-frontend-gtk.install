@@ -1,3 +1,4 @@
+ubiquity/frontend/gtk_components/* usr/lib/ubiquity/ubiquity/frontend/gtk_components
 desktop/ubiquity-gtkui.desktop usr/share/applications
 ubiquity/frontend/gtk_ui.py usr/lib/ubiquity/ubiquity/frontend
 gui/gtk/step*.ui usr/share/ubiquity/gtk
