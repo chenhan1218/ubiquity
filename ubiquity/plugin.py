@@ -30,6 +30,11 @@ class Plugin(FilteredCommand):
     def prepare(self, unfiltered=False):
         # None causes dbfilter to just spin a main loop and wait for OK/Cancel
         return None
+        
+    def activeUi(self):
+        if self.ui:
+            return self.ui        
+        return self.frontend
 
 class InstallPlugin(Plugin):
     def install(self, *args, **kwargs):

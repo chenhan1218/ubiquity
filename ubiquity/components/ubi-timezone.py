@@ -182,13 +182,12 @@ class PageKde(PluginUI):
         self.controller = controller
         try:
             from PyQt4 import uic
-            from PyQt4.QtCore import SIGNAL
             from ubiquity.frontend.kde_components.Timezone import TimezoneMap
+            
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLocation.ui')
             self.tzmap = TimezoneMap(self.page.map_frame)
             self.page.map_frame.layout().addWidget(self.tzmap)
-            self.SIGNAL = SIGNAL
-            self.tzmap.connect(self.tzmap, self.SIGNAL("zoneChanged"), self.mapZoneChanged)
+            self.tzmap.zoneChanged.connect(self.mapZoneChanged)
             self.page.timezone_zone_combo.currentIndexChanged[int].connect(self.regionChanged)
             self.page.timezone_city_combo.currentIndexChanged[int].connect(self.cityChanged)
         except Exception, e:
@@ -244,9 +243,9 @@ class PageKde(PluginUI):
     # called when the city combo changes
     def cityChanged(self, cityindex):
         zone = str(self.page.timezone_city_combo.itemData(cityindex).toPyObject())
-        self.tzmap.disconnect(self.tzmap, self.SIGNAL("zoneChanged"), self.mapZoneChanged)
+        self.tzmap.zoneChanged.disconnect(self.mapZoneChanged)
         self.tzmap.set_timezone(zone)
-        self.tzmap.connect(self.tzmap, self.SIGNAL("zoneChanged"), self.mapZoneChanged)
+        self.tzmap.zoneChanged.connect(self.mapZoneChanged)
 
     def mapZoneChanged(self, loc, zone):
         self.page.timezone_zone_combo.currentIndexChanged[int].disconnect(self.regionChanged)

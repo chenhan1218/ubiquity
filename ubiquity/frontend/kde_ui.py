@@ -41,8 +41,6 @@ from PyKDE4.kdeui import *
 from PyKDE4.kdecore import *
 
 #import all our custome kde components
-from ubiquity.frontend.kde_components.PartitionBar import *
-from ubiquity.frontend.kde_components.PartitionModel import *
 from ubiquity.frontend.kde_components.ProgressDialog import *
 from ubiquity.frontend.kde_components.SqueezeLabel import *
 
@@ -116,7 +114,7 @@ class Controller(ubiquity.frontend.base.Controller):
     def go_backward(self):
         self._wizard.ui.back.click()
     def go_to_page(self, widget):
-        self._wizard.set_current_page(self._wizard.ui.widgetStack.indexOf(widget))
+        self._wizard.set_current_page(self._wizard.stackLayout.indexOf(widget))
 
 class Wizard(BaseFrontend):
 
@@ -126,28 +124,29 @@ class Wizard(BaseFrontend):
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
 
-        appName     = "kubuntu-ubiquity"
-        catalog     = ""
-        programName = ki18n ("Installer")
-        ver         = "1.0"
-        description = ki18n ("Live CD Installer for Kubuntu")
-        rights      = KAboutData.License_GPL
-        copy        = ki18n ("(c) 2006 Canonical Ltd")
-        text        = ki18n ("none")
-        homePage    = "http://wiki.kubuntu.org/KubuntuUbiquity"
-        bugEmail    = "jriddell@ubuntu.com"
+        #appName     = "kubuntu-ubiquity"
+        #catalog     = ""
+        #programName = ki18n ("Installer")
+        #ver         = "1.0"
+        #description = ki18n ("Live CD Installer for Kubuntu")
+        #rights      = KAboutData.License_GPL
+        #copy        = ki18n ("(c) 2006 Canonical Ltd")
+        #text        = ki18n ("none")
+        #homePage    = "http://wiki.kubuntu.org/KubuntuUbiquity"
+        #bugEmail    = "jriddell@ubuntu.com"
         
-        about = KAboutData (appName, catalog, programName, ver, description,
-                            rights, copy, text, homePage, bugEmail)
-        about.addAuthor(ki18n("Jonathan Riddell"), KLocalizedString() ,"jriddell@ubuntu.com")
-        about.addAuthor(ki18n("Roman Shtylman"), KLocalizedString() ,"shtylman@gmail.com")
-        KCmdLineArgs.init([""],about)
+        #about = KAboutData (appName, catalog, programName, ver, description,
+                            #rights, copy, text, homePage, bugEmail)
+        #about.addAuthor(ki18n("Jonathan Riddell"), KLocalizedString() ,"jriddell@ubuntu.com")
+        #about.addAuthor(ki18n("Roman Shtylman"), KLocalizedString() ,"shtylman@gmail.com")
+        #KCmdLineArgs.init([""],about)
         
         #undo the drop, this is needed to play nice with kde
         os.setegid(0)
         os.seteuid(0)
         
-        self.app = KApplication()
+        #self.app = KApplication()
+        self.app = QApplication(sys.argv)
         self.app.setStyleSheet(file(os.path.join(UIDIR, "style.qss")).read())
 
         # put the privileges back to user level
@@ -167,6 +166,8 @@ class Wizard(BaseFrontend):
         #hide the minimize button if in "install only" mode
         if 'UBIQUITY_ONLY' in os.environ:
             self.ui.minimize_button.setVisible(False)
+            
+        self.stackLayout = QStackedLayout(self.ui.widgetStack)
 
         self.pages = []
         self.pagesindex = 0
@@ -188,7 +189,7 @@ class Wizard(BaseFrontend):
                             if not isinstance(w, str):
                                 # Until we ship with no pre-built pages, insert
                                 # at 'beginning'
-                                self.ui.widgetStack.insertWidget(self.pageslen, w)
+                                self.stackLayout.insertWidget(self.pageslen, w)
                             elif hasattr(self.ui, w):
                                 w = getattr(self.ui, w)
                             rv.append(w)
@@ -233,49 +234,49 @@ class Wizard(BaseFrontend):
         self.mainLoopRunning = False
         self.progress_position = ubiquity.progressposition.ProgressPosition()
         self.progress_cancelled = False
-        self.resizePath = None
-        self.resizeSize = None
-        self.username_edited = False
-        self.hostname_edited = False
         self.previous_partitioning_page = self.step_index("stepPartAuto")
         self.installing = False
         self.installing_no_return = False
         self.returncode = 0
-        self.disk_layout = None
         self.backup = False
         self.history = []
         self.progressDialog = ProgressDialog(0, 0, self.ui)
         
         self.laptop = execute("laptop-detect")
-        self.partition_tree_model = None
-        
-        # TODO
-        #self.app.connect(self.ui.partition_list_treeview, SIGNAL("customContextMenuRequested(const QPoint&)"), self.partman_popup)
-        #self.app.connect(self.ui.partition_list_treeview, SIGNAL("activated(const QModelIndex&)"), self.on_partition_list_treeview_activated)
 
         # set default language
         self.locale = i18n.reset_locale()
 
         self.debconf_callbacks = {}    # array to keep callback functions needed by debconf file descriptors
+        
+        self.ui.setWindowIcon(KIcon("ubiquity"))
+        self.allow_go_backward(False)
+            
+        # The UserSetup component takes care of preseeding passwd/user-uid.
+        execute_root('apt-install', 'oem-config-kde')
 
-        self.customize_installer()
+        if self.oem_config:
+            self.page.setWindowTitle(self.get_string('oem_config_title'))
+
+        if self.oem_user_config:
+            self.ui.setWindowTitle(self.get_string('oem_user_config_title'))
+            self.ui.setWindowIcon(KIcon("preferences-system"))
+            flags = self.ui.windowFlags() ^ Qt.WindowMinMaxButtonsHint
+            if hasattr(Qt, 'WindowCloseButtonHint'):
+                flags = flags ^ Qt.WindowCloseButtonHint
+            self.ui.setWindowFlags(flags)
+            self.ui.quit.hide()
+        
+        if not 'UBIQUITY_AUTOMATIC' in os.environ:
+            self.ui.show()
 
         self.translate_widgets()
         
-        self.autopartition_buttongroup = QButtonGroup(self.ui.autopart_selection_frame)
-        self.autopartition_buttongroup_texts = {}
-        self.autopartition_handlers = {}
-        self.autopartition_extras = {}
-        self.autopartition_extra_choices = {}
-        self.autopartition_extra_choices_texts = {}
-        
         iconLoader = KIconLoader()
         warningIcon = iconLoader.loadIcon("dialog-warning", KIconLoader.Desktop)
-        self.ui.part_advanced_warning_image.setPixmap(warningIcon)
-        self.ui.fullname_error_image.setPixmap(warningIcon)
-        self.ui.username_error_image.setPixmap(warningIcon)
-        self.ui.password_error_image.setPixmap(warningIcon)
-        self.ui.hostname_error_image.setPixmap(warningIcon)
+        
+        # TODO move to plugin
+        #self.ui.part_advanced_warning_image.setPixmap(warningIcon)
 
         self.forwardIcon = KIcon("go-next")
         self.ui.next.setIcon(self.forwardIcon)
@@ -348,19 +349,6 @@ class Wizard(BaseFrontend):
         self.ui.next.clicked.connect(self.on_next_clicked)
         self.ui.back.clicked.connect(self.on_back_clicked)
         self.ui.quit.clicked.connect(self.on_quit_clicked)
-        
-        self.ui.fullname.textChanged[str].connect(self.on_fullname_changed)
-        self.ui.username.textChanged[str].connect(self.on_username_changed)
-        self.ui.password.textChanged[str].connect(self.on_password_changed)
-        self.ui.verified_password.textChanged[str].connect(self.on_verified_password_changed)
-        
-        self.ui.hostname.textChanged[str].connect(self.on_hostname_changed)
-
-        self.ui.partition_button_new_label.clicked[bool].connect(self.on_partition_list_new_label_activate)
-        self.ui.partition_button_new.clicked[bool].connect(self.on_partition_list_new_activate)
-        self.ui.partition_button_edit.clicked[bool].connect(self.on_partition_list_edit_activate)
-        self.ui.partition_button_delete.clicked[bool].connect(self.on_partition_list_delete_activate)
-        self.ui.partition_button_undo.clicked[bool].connect(self.on_partition_list_undo_activate)
 
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             self.debconf_progress_start(0, self.pageslen,
@@ -428,52 +416,8 @@ class Wizard(BaseFrontend):
                 self.current_page = None
                 self.installing = True
                 self.progress_loop()
+                
         return self.returncode
-
-    def customize_installer(self):
-        """Initial UI setup."""
-        
-        self.ui.setWindowIcon(KIcon("ubiquity"))
-        self.allow_go_backward(False)
-
-        if self.oem_config:
-            self.ui.setWindowTitle(
-                self.get_string('oem_config_title'))
-            self.ui.fullname.setText(
-                'OEM Configuration (temporary user)')
-            self.ui.fullname.setReadOnly(True)
-            self.ui.fullname.setEnabled(False)
-            self.ui.username.setText('oem')
-            self.ui.username.setReadOnly(True)
-            self.ui.username.setEnabled(False)
-            self.username_edited = True
-            if self.laptop:
-                self.ui.hostname.setText('oem-laptop')
-            else:
-                self.ui.hostname.setText('oem-desktop')
-            self.hostname_edited = True
-            self.ui.login_pass.hide()
-            self.ui.login_auto.hide()
-            self.ui.login_encrypt.hide()
-            
-            # The UserSetup component takes care of preseeding passwd/user-uid.
-            execute_root('apt-install', 'oem-config-kde')
-
-        if self.oem_user_config:
-            self.ui.setWindowTitle(
-                self.get_string('oem_user_config_title'))
-            self.ui.setWindowIcon(KIcon("preferences-system"))
-            flags = self.ui.windowFlags() ^ Qt.WindowMinMaxButtonsHint
-            if hasattr(Qt, 'WindowCloseButtonHint'):
-                flags = flags ^ Qt.WindowCloseButtonHint
-            self.ui.setWindowFlags(flags)
-            self.ui.quit.hide()
-        
-        if not 'UBIQUITY_AUTOMATIC' in os.environ:
-            self.ui.show()
-
-        self.ui.password_debug_warning_label.setVisible(
-            'UBIQUITY_DEBUG' in os.environ)
 
     def set_layout_direction(self, lang=None):
         if not lang:
@@ -552,9 +496,6 @@ class Wizard(BaseFrontend):
 
         for w in widgets:
             self.translate_widget(w[0], lang=lang, prefix=w[1])
-
-        self.ui.partition_button_undo.setText(
-            self.get_string('partman/text/undo_everything').replace('_', '&', 1))
 
         self.set_layout_direction()
 
@@ -665,12 +606,12 @@ class Wizard(BaseFrontend):
     def step_name(self, step_index):
         if step_index < 0:
             step_index = 0
-        return str(self.ui.widgetStack.widget(step_index).objectName())
+        return str(self.stackLayout.widget(step_index).objectName())
 
     def step_index(self, step_name):
         if hasattr(self.ui, step_name):
           step = getattr(self.ui, step_name)
-          return self.ui.widgetStack.indexOf(step)
+          return self.stackLayout.indexOf(step)
         else:
           return 0
 
@@ -700,7 +641,7 @@ class Wizard(BaseFrontend):
                     cur = page.widgets[0]
                 if not cur:
                     return False
-                index = self.ui.widgetStack.indexOf(cur)
+                index = self.stackLayout.indexOf(cur)
                 self.add_history(page, cur)
                 self.set_current_page(index)
                 if page.breadcrumb:
@@ -731,7 +672,7 @@ class Wizard(BaseFrontend):
     def page_name(self, step_index):
         if step_index < 0:
             step_index = 0
-        return str(self.ui.widgetStack.widget(step_index).objectName())
+        return str(self.stackLayout.widget(step_index).objectName())
 
     def add_history(self, page, widget):
         history_entry = (page, widget)
@@ -762,18 +703,17 @@ class Wizard(BaseFrontend):
         return self.pages.index(self.history[-1][0])
 
     def set_current_page(self, current):
-        widget = self.ui.widgetStack.widget(current)
-        if self.ui.widgetStack.currentWidget() == widget:
+        widget = self.stackLayout.widget(current)
+        if self.stackLayout.currentWidget() == widget:
             # self.ui.widgetStack.raiseWidget() will do nothing.
             # Update state ourselves.
             self.on_steps_switch_page(current)
         else:
-            self.ui.widgetStack.setCurrentWidget(widget)
+            self.stackLayout.setCurrentWidget(widget)
             self.on_steps_switch_page(current)
 
+    """prepare, copy and config the system in the core install process."""
     def progress_loop(self):
-        """prepare, copy and config the system in the core install process."""
-
         syslog.syslog('progress_loop()')
 
         self.current_page = None
@@ -889,15 +829,13 @@ class Wizard(BaseFrontend):
         elif self.get_reboot():
             self.reboot()
 
+    """reboot the system after installing process."""
     def reboot(self, *args):
-        """reboot the system after installing process."""
-
         self.returncode = 10
         self.quit()
 
+    """Callback for main program to actually reboot the machine."""
     def do_reboot(self):
-        """Callback for main program to actually reboot the machine."""
-
         if 'DESKTOP_SESSION' in os.environ:
             execute('qdbus', 'org.kde.ksmserver', '/KSMServer', 'org.kde.KSMServerInterface.logout',
                     # ShutdownConfirmNo, ShutdownTypeReboot,
@@ -906,13 +844,12 @@ class Wizard(BaseFrontend):
         else:
             execute('reboot')
 
+    """quit installer cleanly."""
     def quit(self):
-        """quit installer cleanly."""
-
-        # exiting from application
         self.current_page = None
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
+            
         self.app.exit()
 
     def on_quit_clicked(self):
@@ -927,64 +864,13 @@ class Wizard(BaseFrontend):
         else:
             return False
 
-    def info_loop(self, widget):
-        """check if all entries from Identification screen are filled."""
-
-        if (widget is not None and widget.objectName() == 'fullname' and
-            not self.username_edited):
-            self.ui.username.blockSignals(True)
-            new_username = unicode(widget.text()).split(' ')[0]
-            new_username = new_username.encode('ascii', 'ascii_transliterate')
-            new_username = new_username.lower()
-            self.ui.username.setText(new_username)
-            self.ui.username.blockSignals(False)
-        elif (widget is not None and widget.objectName() == 'username' and
-              not self.hostname_edited):
-            if self.laptop:
-                hostname_suffix = '-laptop'
-            else:
-                hostname_suffix = '-desktop'
-            self.ui.hostname.blockSignals(True)
-            self.ui.hostname.setText(unicode(widget.text()).strip() + hostname_suffix)
-            self.ui.hostname.blockSignals(False)
-
-        complete = True
-        for name in ('username', 'hostname'):
-            if getattr(self.ui, name).text() == '':
-                complete = False
-        if not self.allow_password_empty:
-            for name in ('password', 'verified_password'):
-                if getattr(self.ui, name).text() == '':
-                    complete = False
-        self.allow_go_forward(complete)
-
+    """Callback to control the installation process between steps."""
     def on_next_clicked(self):
-        """Callback to control the installation process between steps."""
-
         if not self.allowed_change_step or not self.allowed_go_forward:
             return
 
         self.allow_change_step(False)
-
-        step = self.page_name(self.get_current_page())
-
-        # Beware that 'step' is the step we're leaving, not the one we're
-        # entering. At present it's a little awkward to define actions that
-        # occur upon entering a page without unwanted side-effects when the
-        # user tries to go forward but fails due to validation.
-        if step == "stepPartAuto":
-            self.ui.part_advanced_warning_message.clear()
-            self.ui.part_advanced_warning_hbox.setVisible(False)
-        if step in ("stepPartAuto", "stepPartAdvanced", "stepUserInfo"):
-            self.ui.fullname_error_image.hide()
-            self.ui.fullname_error_reason.hide()
-            self.ui.username_error_image.hide()
-            self.ui.username_error_reason.hide()
-            self.ui.password_error_image.hide()
-            self.ui.password_error_reason.hide()
-            self.ui.hostname_error_image.hide()
-            self.ui.hostname_error_reason.hide()
-
+        
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
             # expect recursive main loops to be exited and
@@ -992,8 +878,8 @@ class Wizard(BaseFrontend):
         else:
             self.app.exit()
 
+    """Process and validate the results of this step."""
     def process_step(self):
-        """Process and validate the results of this step."""
 
         # setting actual step
         step_num = self.get_current_page()
@@ -1006,54 +892,21 @@ class Wizard(BaseFrontend):
         # Automatic partitioning
         if step == "stepPartAuto":
             self.process_autopartitioning()
-        # Identification
-        elif step == "stepUserInfo":
-            self.process_identification()
 
-    def process_identification (self):
-        """Processing identification step tasks."""
-
-        error_msg = []
-
-        # Validation stuff
-
-        # checking hostname entry
-        hostname = self.ui.hostname.text()
-        for result in validation.check_hostname(unicode(hostname)):
-            if result == validation.HOSTNAME_LENGTH:
-                error_msg.append("The hostname must be between 1 and 63 characters long.")
-            elif result == validation.HOSTNAME_BADCHAR:
-                error_msg.append("The hostname may only contain letters, digits, hyphens, and dots.")
-            elif result == validation.HOSTNAME_BADHYPHEN:
-                error_msg.append("The hostname may not start or end with a hyphen.")
-            elif result == validation.HOSTNAME_BADDOTS:
-                error_msg.append('The hostname may not start or end with a dot, or contain the sequence "..".')
-
-        # showing warning message is error is set
-        if len(error_msg) != 0:
-            self.ui.hostname_error_reason.setText("\n".join(error_msg))
-            self.ui.hostname_error_reason.show()
-            self.ui.hostname_error_image.show()
-            self.stay_on_page = True
-        else:
-            self.stay_on_page = False
-
+    """Processing automatic partitioning step tasks."""
     def process_autopartitioning(self):
-        """Processing automatic partitioning step tasks."""
-
         self.app.processEvents()
 
         # For safety, if we somehow ended up improperly initialised
         # then go to manual partitioning.
-        #choice = self.get_autopartition_choice()[0]
-        #if self.manual_choice is None or choice == self.manual_choice:
-        #    self.set_current_page(self.step_index("stepPartAdvanced"))
-        #else:
-        #    self.set_current_page(self.step_index("stepUserInfo"))
+        choice = self.get_autopartition_choice()[0]
+        if self.manual_choice is None or choice == self.manual_choice:
+            self.set_current_page(self.step_index("stepPartAdvanced"))
+        else:
+            self.set_current_page(self.step_index("stepUserInfo"))
 
+    """Callback to set previous screen."""
     def on_back_clicked(self):
-        """Callback to set previous screen."""
-
         if not self.allowed_change_step:
             return
 
@@ -1090,13 +943,13 @@ class Wizard(BaseFrontend):
     def watch_debconf_fd (self, from_debconf, process_input):
         self.debconf_fd_counter = 0
         self.socketNotifierRead = QSocketNotifier(from_debconf, QSocketNotifier.Read, self.app)
-        self.app.connect(self.socketNotifierRead, SIGNAL("activated(int)"), self.watch_debconf_fd_helper_read)
+        self.socketNotifierRead.activated[int].connect(self.watch_debconf_fd_helper_read)
 
         self.socketNotifierWrite = QSocketNotifier(from_debconf, QSocketNotifier.Write, self.app)
-        self.app.connect(self.socketNotifierWrite, SIGNAL("activated(int)"), self.watch_debconf_fd_helper_write)
+        self.socketNotifierWrite.activated[int].connect(self.watch_debconf_fd_helper_write)
 
         self.socketNotifierException = QSocketNotifier(from_debconf, QSocketNotifier.Exception, self.app)
-        self.app.connect(self.socketNotifierException, SIGNAL("activated(int)"), self.watch_debconf_fd_helper_exception)
+        self.socketNotifierException.activated[int].connect(self.watch_debconf_fd_helper_exception)
 
         self.debconf_callbacks[from_debconf] = process_input
         self.current_debconf_fd = from_debconf
@@ -1197,805 +1050,9 @@ class Wizard(BaseFrontend):
         else:
             return False
 
-    # provides the basic disk layout
-    def set_disk_layout(self, layout):
-        self.disk_layout = layout
-
-    def set_autopartition_choices (self, choices, extra_options,
-                                   resize_choice, manual_choice,
-                                   biggest_free_choice):
-        BaseFrontend.set_autopartition_choices(self, choices, extra_options,
-                                               resize_choice, manual_choice,
-                                               biggest_free_choice)
-
-        # remove any previous autopartition selections
-        for child in self.ui.autopart_selection_frame.children():
-            if isinstance(child, QVBoxLayout) or isinstance(child, QButtonGroup):
-                pass
-            else:
-                self.ui.autopart_selection_frame.layout().removeWidget(child)
-                #child.hide()
-
-        regain_privileges()
-        pserv = parted_server.PartedServer()
-        
-        disks = {} #dictionary dev -> list of partitions
-        for disk in pserv.disks():
-            d = disks[disk] = []
-            pserv.select_disk(disk)
-            for partition in pserv.partitions():
-                d.append(partition)
-                
-        # p_num, p_id, p_size, p_type, p_fs, p_path, p_name
-        drop_privileges()
-        
-        def _on_extra_toggle(extra_bar_frames):
-            def slot(index):
-                for bf in extra_bar_frames:
-                    bf.setVisible(False)
-                    
-                extra_bar_frames[index].setVisible(True)
-                pass
-            return slot
-        
-        # toggle for a choice
-        def _on_choice_toggle(extra_frame, bar_frame):
-            def slot(enable):
-                self.ui.autopart_bar_frame.setVisible(False)
-                
-                if bar_frame:
-                    bar_frame.setVisible(enable)
-                    
-                    #show the main bar frame if we need to
-                    self.ui.autopart_bar_frame.setVisible(enable)
-                        
-                if extra_frame:
-                    extra_frame.setEnabled(enable)
-                    
-            return slot
-            
-        # slot for when partition is resized on the bar
-        def partitionResized(path, size):
-            print path, size
-            self.resizePath = path
-            self.resizeSize = size
-            
-        def addBars(parent, before_bar, after_bar):
-            frame = QWidget(parent)
-            frame.setLayout(QVBoxLayout())
-            frame.layout().setSpacing(0)
-            
-            frame.layout().addWidget(QLabel(self.get_string('ubiquity/text/partition_layout_before')))
-            frame.layout().addWidget(before_bar)
-            frame.layout().addWidget(QLabel(self.get_string('ubiquity/text/partition_layout_after')))
-            frame.layout().addWidget(after_bar)
-            
-            parent.layout().addWidget(frame)
-            return frame
-        
-            
-        #track the first button to set it as the active one
-        firstbutton = None
-        
-        idCounter = 0
-        for choice in choices:
-            button = QRadioButton(choice, self.ui.autopart_selection_frame)
-            self.ui.autopart_selection_frame.layout().addWidget(button)
-            self.autopartition_buttongroup.addButton(button, idCounter)
-            ident = self.autopartition_buttongroup.id(button)
-
-            #Qt changes the string by adding accelerators,
-            #so keep pristine string here as is returned later to partman
-            self.autopartition_buttongroup_texts[ident] = choice
-            if firstbutton is None:
-                firstbutton = button
-
-            # make a new frames for bars to make hiding/showing multiple easier
-            # this allows us to hide an entire main bullet with multiple sub bullets
-            self.ui.autopart_bar_frame.setVisible(False)
-            
-            ## these three things are toggled by each option
-            # extra options frame for the option
-            frame = None
-            bar_frame = QFrame(self.ui.autopart_bar_frame)
-            bar_frame.setLayout(QVBoxLayout())
-            bar_frame.layout().setSpacing(0)
-            self.ui.autopart_bar_frame.layout().addWidget(bar_frame)
-            
-            # if we have more information about the choice
-            # i.e. various hard drives to install onto
-            if choice in extra_options:
-                # label for the before device
-                dev = None
-                
-                if choice == biggest_free_choice:
-                    biggest_free_id = extra_options[choice]
-                    dev = None
-                    
-                    #get the device so we can get more info from it
-                    for disk in disks:
-                        for p in disks[disk]:
-                            if p[1] == biggest_free_id:
-                                dev = disk
-                                break
-                        if dev:
-                            break
-                            
-                    if dev:
-                        #create partition bars for graphical before/after display
-                        before_bar = PartitionsBar()
-                        after_bar = PartitionsBar()
-                        
-                        for p in disks[dev]:
-                            before_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
-                            if p[1] == biggest_free_id:
-                                after_bar.addPartition('', int(p[2]), int(p[0]), 'auto', get_release_name())
-                            else:
-                                after_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
-                                
-                        addBars(bar_frame, before_bar, after_bar)
-                
-                # install side by side/resize
-                elif choice == resize_choice:
-                    # information about what can be resized
-                    extra = extra_options[choice]
-                    for d in self.disk_layout:
-                        disk = d
-                        if disk.startswith('=dev='):
-                            disk = disk[5:]
-                        if "%s" % disk in extra[3]:
-                            dev = d
-                            break
-
-                    min_size, max_size, pref_size, resize_path = extra_options[choice]
-                    
-                    # TODO use find_in_os_prober to give nice name
-                    if dev:
-                        before_bar = PartitionsBar()
-                        after_bar = PartitionsBar()
-                        
-                        for p in disks[dev]:
-                            before_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
-                            after_bar.addPartition(p[6], int(p[2]), int(p[0]), p[4], p[5])
-                        
-                        after_bar.setResizePartition(resize_path, 
-                            min_size, max_size, pref_size, get_release_name())
-                        
-                        self.resizePath = after_bar.resize_part.path
-                        self.resizeSize = after_bar.resize_part.size
-                        
-                        after_bar.partitionResized.connect(partitionResized)
-                        
-                        addBars(bar_frame, before_bar, after_bar)
-                    
-                #full disk install
-                elif choice != manual_choice:
-                    extra_choice_texts = {}
-                    extraIdCounter = 0
-                    
-                    frame = QFrame(self.ui.autopart_selection_frame)
-                    frame.setEnabled(False)
-                    self.ui.autopart_selection_frame.layout().addWidget(frame)
-                    
-                    frame_layout = QHBoxLayout(frame)
-                    self.extra_combo = QComboBox(frame)
-                    
-                    frame_layout.addSpacing(20)
-                    frame_layout.addWidget(self.extra_combo)
-                    frame_layout.addStretch(1)
-                    
-                    extra_bar_frames = []
-                    extra_bar_frame = None
-                    
-                    for extra in extra_options[choice]:
-                        #each extra choice needs to toggle a change in the before bar
-                        #extra is just a string with a general description
-                        #each extra choice needs to be a before/after bar option
-                        if extra == '':
-                            continue
-                        
-                        # add the extra disk to the combo box
-                        self.extra_combo.addItem(extra)
-                        
-                        #find the device to make a partition bar out of it
-                        dev = None
-                        for d in self.disk_layout:
-                            disk = d
-                            if disk.startswith('=dev='):
-                                disk = disk[5:]
-                            if "(%s)" % disk in extra:
-                                dev = d
-                                break
-                                
-                        #add the bars if we found the device
-                        if dev:
-                            before_bar = PartitionsBar()
-                            after_bar = PartitionsBar()
-                        
-                            for p in disks[dev]:
-                                before_bar.addPartition(p[6], int(p[2]), p[0], p[4], p[5])
-                                
-                            release_name = get_release_name()
-                            if before_bar.diskSize > 0:
-                                after_bar.addPartition('', before_bar.diskSize, '', 'auto', release_name)
-                            else:
-                                after_bar.addPartition('', 1, '', 'auto', release_name)
-                            
-                            extra_bar_frame = addBars(bar_frame, before_bar, after_bar)
-                            extra_bar_frame.setVisible(False)
-                            
-                        extra_bar_frames.append(extra_bar_frame)
-                        
-                        # Qt changes the string by adding accelerators,
-                        # so keep the pristine string here to be
-                        # returned to partman later.
-                        extra_choice_texts[extraIdCounter] = extra
-                        #if extra_firstbutton is None:
-                        #    extra_firstbutton = extra_button
-                        extraIdCounter += 1
-                        
-                    self.extra_combo.currentIndexChanged[int].connect(_on_extra_toggle(extra_bar_frames))
-                    self.autopartition_extra_choices[choice] = extra_choice_texts
-                    
-                    #show the first item of the combo box
-                    if len(extra_bar_frames) > 0 and extra_bar_frames[0]:
-                        extra_bar_frames[0].setVisible(True)
-                    
-            bar_frame.setVisible(False)
-            button.toggled[bool].connect(_on_choice_toggle(frame, bar_frame))
-
-            button.show()
-            idCounter += 1
-            
-        if firstbutton is not None:
-            firstbutton.setChecked(True)
-
-        # make sure we're on the autopartitioning page
-        self.set_current_page(self.step_index("stepPartAuto"))
-
-    def get_autopartition_choice (self):
-        ident = self.autopartition_buttongroup.checkedId()
-        choice = unicode(self.autopartition_buttongroup_texts[ident])
-
-        if choice == self.resize_choice:
-            # resize choice should have been hidden otherwise
-            assert self.resizeSize is not None
-            return choice, '%d B' % self.resizeSize
-        elif (choice != self.manual_choice and 
-            self.autopartition_extra_choices.has_key(choice)):
-                
-            extra_id = self.extra_combo.currentIndex()
-            disk_texts = self.autopartition_extra_choices[choice]
-            return choice, unicode(disk_texts[extra_id])
-        else:
-            return choice, None
-
     def installation_medium_mounted (self, message):
         self.ui.part_advanced_warning_message.setText(message)
         self.ui.part_advanced_warning_hbox.show()
-
-    def update_partman (self, disk_cache, partition_cache, cache_order):
-        #throwing away the old model if there is one
-        self.partition_tree_model = PartitionModel(self, self.ui.partition_list_treeview)
-
-        children = self.ui.part_advanced_bar_frame.children()
-        for child in children:
-            if isinstance(child, PartitionsBar):
-                self.ui.part_advanced_bar_frame.layout().removeWidget(child)
-                child.hide()
-                del child
-        
-        partition_bar = None
-        indexCount = -1
-        for item in cache_order:
-            if item in disk_cache:
-                #the item is a disk
-                indexCount += 1
-                partition_bar = PartitionsBar(self.ui.part_advanced_bar_frame)
-                self.ui.part_advanced_bar_frame.layout().addWidget(partition_bar)
-                
-                #hide all the other bars at first
-                if indexCount > 0:
-                    partition_bar.setVisible(False)
-                    
-                self.partition_tree_model.append([item, disk_cache[item], partition_bar], self)
-            else:
-                #the item is a partition, add it to the current bar
-                partition = partition_cache[item]
-                #add the new partition to our tree display
-                self.partition_tree_model.append([item, partition, partition_bar], self)
-                indexCount += 1
-                
-                #get data for bar display
-                size = int(partition['parted']['size'])
-                fs = partition['parted']['fs']
-                path = partition['parted']['path'].replace("/dev/","")
-                if fs == "free":
-                    path = fs
-                partition_bar.addPartition('name', size, indexCount, fs, path)
-                
-        #for barSignal in self.partition_bars:
-        #    self.app.connect(barSignal, SIGNAL("clicked(int)"), self.partitionClicked)
-        #    for barSlot in self.partition_bars:
-        #        self.app.connect(barSignal, SIGNAL("clicked(int)"), barSlot.raiseFrames)
-        
-        self.ui.partition_list_treeview.setModel(self.partition_tree_model)
-        model = self.ui.partition_list_treeview.selectionModel()
-        #model.selectionChanged.disconnect(self.on_partition_list_treeview_selection_changed)
-        model.selectionChanged.connect(self.on_partition_list_treeview_selection_changed)
-
-        # make sure we're on the advanced partitioning page
-        self.set_current_page(self.step_index("stepPartAdvanced"))
-
-    def partitionClicked(self, indexCounter):
-        """ a partition in a partition bar has been clicked, select correct entry in list view """
-        index = self.partition_tree_model.index(indexCounter,2)
-        flags = self.ui.partition_list_treeview.selectionCommand(index)
-        rect = self.ui.partition_list_treeview.visualRect(index)
-        self.ui.partition_list_treeview.setSelection(rect, flags)
-
-    def partman_create_dialog(self, devpart, partition):
-        if not self.allowed_change_step:
-            return
-        if not isinstance(self.dbfilter, partman.Page):
-            return
-
-        self.create_dialog = QDialog(self.ui)
-        uic.loadUi("%s/partition_create_dialog.ui" % UIDIR, self.create_dialog)
-        self.app.connect(self.create_dialog.partition_create_use_combo, SIGNAL("currentIndexChanged(int)"), self.on_partition_create_use_combo_changed)
-        self.translate_widget_children(self.create_dialog)
-
-        # TODO cjwatson 2006-11-01: Because partman doesn't use a question
-        # group for these, we have to figure out in advance whether each
-        # question is going to be asked.
-
-        if partition['parted']['type'] == 'pri/log':
-            # Is there already a primary partition?
-            for child in self.partition_tree_model.children():
-                data = child.itemData
-                otherpart = data[1]
-                if (otherpart['dev'] == partition['dev'] and
-                    'id' in otherpart and
-                    otherpart['parted']['type'] == 'primary'):
-                    self.create_dialog.partition_create_type_logical.setChecked(True)
-                    break
-            else:
-                self.create_dialog.partition_create_type_primary.setChecked(True)
-        else:
-            self.create_dialog.partition_create_type_label.hide()
-            self.create_dialog.partition_create_type_widget.hide()
-        # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
-        # partman expects.
-        max_size_mb = int(partition['parted']['size']) / 1000000
-        self.create_dialog.partition_create_size_spinbutton.setMaximum(max_size_mb)
-        self.create_dialog.partition_create_size_spinbutton.setValue(max_size_mb)
-
-        self.create_dialog.partition_create_place_beginning.setChecked(True)
-
-        self.create_use_method_names = {}
-        for method, name, description in self.dbfilter.create_use_as(devpart):
-            self.create_use_method_names[description] = name
-            self.create_dialog.partition_create_use_combo.addItem(description)
-        if self.create_dialog.partition_create_use_combo.count() == 0:
-            self.create_dialog.partition_create_use_combo.setEnabled(False)
-
-        self.create_dialog.partition_create_mount_combo.clear()
-        for mp, choice_c, choice in self.dbfilter.default_mountpoint_choices():
-            ##FIXME gtk frontend has a nifty way of showing the user readable
-            ##'choice' text in the drop down, but only selecting the 'mp' text
-            self.create_dialog.partition_create_mount_combo.addItem(mp)
-        self.create_dialog.partition_create_mount_combo.clearEditText()
-
-        response = self.create_dialog.exec_()
-
-        if (response == QDialog.Accepted and
-            isinstance(self.dbfilter, partman.Page)):
-            if partition['parted']['type'] == 'primary':
-                prilog = partman.PARTITION_TYPE_PRIMARY
-            elif partition['parted']['type'] == 'logical':
-                prilog = partman.PARTITION_TYPE_LOGICAL
-            elif partition['parted']['type'] == 'pri/log':
-                if self.create_dialog.partition_create_type_primary.isChecked():
-                    prilog = partman.PARTITION_TYPE_PRIMARY
-                else:
-                    prilog = partman.PARTITION_TYPE_LOGICAL
-
-            if self.create_dialog.partition_create_place_beginning.isChecked():
-                place = partman.PARTITION_PLACE_BEGINNING
-            else:
-                place = partman.PARTITION_PLACE_END
-
-            method_description = unicode(self.create_dialog.partition_create_use_combo.currentText())
-            method = self.create_use_method_names[method_description]
-
-            mountpoint = unicode(self.create_dialog.partition_create_mount_combo.currentText())
-
-            self.allow_change_step(False)
-            self.dbfilter.create_partition(
-                devpart,
-                str(self.create_dialog.partition_create_size_spinbutton.value()),
-                prilog, place, method, mountpoint)
-
-    def on_partition_create_use_combo_changed (self, *args):
-        if not hasattr(self, 'create_use_method_names'):
-            return
-        known_filesystems = ('ext4', 'ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
-                             'fat16', 'fat32', 'ntfs', 'uboot')
-        text = unicode(self.create_dialog.partition_create_use_combo.currentText())
-        if text not in self.create_use_method_names:
-            return
-        method = self.create_use_method_names[text]
-        if method not in known_filesystems:
-            self.create_dialog.partition_create_mount_combo.clearEditText()
-            self.create_dialog.partition_create_mount_combo.setEnabled(False)
-        else:
-            self.create_dialog.partition_create_mount_combo.setEnabled(True)
-            if isinstance(self.dbfilter, partman.Page):
-                self.create_dialog.partition_create_mount_combo.clear()
-                for mp, choice_c, choice in \
-                    self.dbfilter.default_mountpoint_choices(method):
-                    self.create_dialog.partition_create_mount_combo.addItem(mp)
-
-    def partman_edit_dialog(self, devpart, partition):
-        if not self.allowed_change_step:
-            return
-        if not isinstance(self.dbfilter, partman.Page):
-            return
-
-        self.edit_dialog = QDialog(self.ui)
-        uic.loadUi("%s/partition_edit_dialog.ui" % UIDIR, self.edit_dialog)
-        self.app.connect(self.edit_dialog.partition_edit_use_combo, SIGNAL("currentIndexChanged(int)"), self.on_partition_edit_use_combo_changed)
-        self.translate_widget_children(self.edit_dialog)
-
-        current_size = None
-        if ('can_resize' not in partition or not partition['can_resize'] or
-            'resize_min_size' not in partition or
-            'resize_max_size' not in partition):
-            self.edit_dialog.partition_edit_size_label.hide()
-            self.edit_dialog.partition_edit_size_spinbutton.hide()
-        else:
-            # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
-            # partman expects.
-            min_size_mb = int(partition['resize_min_size']) / 1000000
-            cur_size_mb = int(partition['parted']['size']) / 1000000
-            max_size_mb = int(partition['resize_max_size']) / 1000000
-            # Bad things happen if the current size is out of bounds.
-            min_size_mb = min(min_size_mb, cur_size_mb)
-            max_size_mb = max(cur_size_mb, max_size_mb)
-            self.edit_dialog.partition_edit_size_spinbutton.setMinimum(min_size_mb)
-            self.edit_dialog.partition_edit_size_spinbutton.setMaximum(max_size_mb)
-            self.edit_dialog.partition_edit_size_spinbutton.setSingleStep(1)
-            self.edit_dialog.partition_edit_size_spinbutton.setValue(cur_size_mb)
-
-            current_size = str(self.edit_dialog.partition_edit_size_spinbutton.value())
-
-        self.edit_use_method_names = {}
-        method_descriptions = {}
-        self.edit_dialog.partition_edit_use_combo.clear()
-        for script, arg, option in partition['method_choices']:
-            self.edit_use_method_names[option] = arg
-            method_descriptions[arg] = option
-            self.edit_dialog.partition_edit_use_combo.addItem(option)
-        current_method = self.dbfilter.get_current_method(partition)
-        if current_method and current_method in method_descriptions:
-            current_method_description = method_descriptions[current_method]
-            index = self.edit_dialog.partition_edit_use_combo.findText(current_method_description)
-            self.edit_dialog.partition_edit_use_combo.setCurrentIndex(index)
-
-        if 'id' not in partition:
-            self.edit_dialog.partition_edit_format_label.hide()
-            self.edit_dialog.partition_edit_format_checkbutton.hide()
-            current_format = False
-        elif 'method' in partition:
-            self.edit_dialog.partition_edit_format_label.show()
-            self.edit_dialog.partition_edit_format_checkbutton.show()
-            self.edit_dialog.partition_edit_format_checkbutton.setEnabled(
-                'can_activate_format' in partition)
-            current_format = (partition['method'] == 'format')
-        else:
-            self.edit_dialog.partition_edit_format_label.show()
-            self.edit_dialog.partition_edit_format_checkbutton.show()
-            self.edit_dialog.partition_edit_format_checkbutton.setEnabled(False)
-            current_format = False
-        self.edit_dialog.partition_edit_format_checkbutton.setChecked(
-            current_format)
-
-        self.edit_dialog.partition_edit_mount_combo.clear()
-        if 'mountpoint_choices' in partition:
-            for mp, choice_c, choice in partition['mountpoint_choices']:
-                ##FIXME gtk frontend has a nifty way of showing the user readable
-                ##'choice' text in the drop down, but only selecting the 'mp' text
-                self.edit_dialog.partition_edit_mount_combo.addItem(mp)
-        current_mountpoint = self.dbfilter.get_current_mountpoint(partition)
-        if current_mountpoint is not None:
-            index = self.edit_dialog.partition_edit_mount_combo.findText(current_method)
-            if index != -1:
-                self.edit_dialog.partition_edit_mount_combo.setCurrentIndex(index)
-            else:
-                self.edit_dialog.partition_edit_mount_combo.addItem(current_mountpoint)
-                self.edit_dialog.partition_edit_mount_combo.setCurrentIndex(self.edit_dialog.partition_edit_mount_combo.count() - 1)
-
-        response = self.edit_dialog.exec_()
-
-        if (response == QDialog.Accepted and
-            isinstance(self.dbfilter, partman.Page)):
-            size = None
-            if current_size is not None:
-                size = str(self.edit_dialog.partition_edit_size_spinbutton.value())
-
-            method_description = unicode(self.edit_dialog.partition_edit_use_combo.currentText())
-            method = self.edit_use_method_names[method_description]
-
-            fmt = self.edit_dialog.partition_edit_format_checkbutton.isChecked()
-
-            mountpoint = unicode(self.edit_dialog.partition_edit_mount_combo.currentText())
-
-            if (current_size is not None and size is not None and
-                current_size == size):
-                size = None
-            if method == current_method:
-                method = None
-            if fmt == current_format:
-                fmt = None
-            if mountpoint == current_mountpoint:
-                mountpoint = None
-
-            if (size is not None or method is not None or fmt is not None or
-                mountpoint is not None):
-                self.allow_change_step(False)
-                edits = {'size': size, 'method': method,
-                         'mountpoint': mountpoint}
-                if fmt is not None:
-                    edits['format'] = 'dummy'
-                self.dbfilter.edit_partition(devpart, **edits)
-
-    def on_partition_edit_use_combo_changed(self, *args):
-        if not hasattr(self, 'edit_use_method_names'):
-            return
-        # If the selected method isn't a filesystem, then selecting a mount
-        # point makes no sense. TODO cjwatson 2007-01-31: Unfortunately we
-        # have to hardcode the list of known filesystems here.
-        known_filesystems = ('ext4', 'ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
-                             'fat16', 'fat32', 'ntfs', 'uboot')
-        text = unicode(self.edit_dialog.partition_edit_use_combo.currentText())
-        if text not in self.edit_use_method_names:
-            return
-        method = self.edit_use_method_names[text]
-        if method not in known_filesystems:
-            self.edit_dialog.partition_edit_mount_combo.clearEditText()
-            self.edit_dialog.partition_edit_mount_combo.setEnabled(False)
-            self.edit_dialog.partition_edit_format_checkbutton.setEnabled(False)
-        else:
-            self.edit_dialog.partition_edit_mount_combo.setEnabled(True)
-            self.edit_dialog.partition_edit_format_checkbutton.setEnabled(True)
-            if isinstance(self.dbfilter, partman.Page):
-                self.edit_dialog.partition_edit_mount_combo.clear()
-                for mp, choice_c, choice in \
-                    self.dbfilter.default_mountpoint_choices(method):
-                    self.edit_dialog.partition_edit_mount_combo.addItem(mp)
-
-    def on_partition_list_treeview_selection_changed(self, unused, deselected):
-        self.ui.partition_button_new_label.setEnabled(False)
-        self.ui.partition_button_new.setEnabled(False)
-        self.ui.partition_button_edit.setEnabled(False)
-        self.ui.partition_button_delete.setEnabled(False)
-        if not isinstance(self.dbfilter, partman.Page):
-            return
-
-        if deselected:
-            deIndex = deselected.indexes()[0]
-            item = deIndex.internalPointer()
-            
-            if item.itemData[2]:
-                item.itemData[2].setVisible(False)
-            
-        indexes = self.ui.partition_list_treeview.selectedIndexes()
-        if indexes:
-            index = indexes[0]
-            
-            item = index.internalPointer()
-            devpart = item.itemData[0]
-            partition = item.itemData[1]
-            
-            bar = item.itemData[2]
-            if bar:
-                bar.setVisible(True)
-        else:
-            devpart = None
-            partition = None
-
-        for action in self.dbfilter.get_actions(devpart, partition):
-            if action == 'new_label':
-                self.ui.partition_button_new_label.setEnabled(True)
-            elif action == 'new':
-                self.ui.partition_button_new.setEnabled(True)
-            elif action == 'edit':
-                self.ui.partition_button_edit.setEnabled(True)
-            elif action == 'delete':
-                self.ui.partition_button_delete.setEnabled(True)
-        self.ui.partition_button_undo.setEnabled(True)
-
-    def on_partition_list_treeview_activated(self, index):
-        if not self.allowed_change_step:
-            return
-        item = index.internalPointer()
-        devpart = item.itemData[0]
-        partition = item.itemData[1]
-
-        if 'id' not in partition:
-            # Are there already partitions on this disk? If so, don't allow
-            # activating the row to offer to create a new partition table,
-            # to avoid mishaps.
-            for child in self.partition_tree_model.children():
-                data = child.itemData
-                otherpart = data[1]
-                if otherpart['dev'] == partition['dev'] and 'id' in otherpart:
-                    break
-            else:
-                if not isinstance(self.dbfilter, partman.Page):
-                    return
-                self.allow_change_step(False)
-                self.dbfilter.create_label(devpart)
-        elif partition['parted']['fs'] == 'free':
-            if 'can_new' in partition and partition['can_new']:
-                self.partman_create_dialog(devpart, partition)
-        else:
-            self.partman_edit_dialog(devpart, partition)
-
-    def on_partition_list_new_label_activate(self, *args):
-        selected = self.ui.partition_list_treeview.selectedIndexes()
-        if not selected:
-            return
-        index = selected[0]
-        item = index.internalPointer()
-        devpart = item.itemData[0]
-
-        if not self.allowed_change_step:
-            return
-        if not isinstance(self.dbfilter, partman.Page):
-            return
-        self.allow_change_step(False)
-        self.dbfilter.create_label(devpart)
-
-    def on_partition_list_new_activate(self, *args):
-        selected = self.ui.partition_list_treeview.selectedIndexes()
-        if not selected:
-            return
-        index = selected[0]
-        item = index.internalPointer()
-        devpart = item.itemData[0]
-        partition = item.itemData[1]
-        self.partman_create_dialog(devpart, partition)
-
-    def on_partition_list_edit_activate(self, *args):
-        selected = self.ui.partition_list_treeview.selectedIndexes()
-        if not selected:
-            return
-        index = selected[0]
-        item = index.internalPointer()
-        devpart = item.itemData[0]
-        partition = item.itemData[1]
-        self.partman_edit_dialog(devpart, partition)
-
-    def on_partition_list_delete_activate(self, *args):
-        selected = self.ui.partition_list_treeview.selectedIndexes()
-        if not selected:
-            return
-        index = selected[0]
-        item = index.internalPointer()
-        devpart = item.itemData[0]
-
-        if not self.allowed_change_step:
-            return
-        if not isinstance(self.dbfilter, partman.Page):
-            return
-        self.allow_change_step(False)
-        self.dbfilter.delete_partition(devpart)
-
-    def on_partition_list_undo_activate(self, *args):
-        if not self.allowed_change_step:
-            return
-        if not isinstance(self.dbfilter, partman.Page):
-            return
-        self.allow_change_step(False)
-        self.dbfilter.undo()
-
-    def partman_popup (self, position):
-        if not self.allowed_change_step:
-            return
-        if not isinstance(self.dbfilter, partman.Page):
-            return
-
-        selected = self.ui.partition_list_treeview.selectedIndexes()
-        if selected:
-            index = selected[0]
-            item = index.internalPointer()
-            devpart = item.itemData[0]
-            partition = item.itemData[1]
-        else:
-            devpart = None
-            partition = None
-
-        #partition_list_menu = gtk.Menu()
-        partition_list_menu = QMenu(self.ui)
-        for action in self.dbfilter.get_actions(devpart, partition):
-            if action == 'new_label':
-                new_label_item = partition_list_menu.addAction(
-                    self.get_string('partition_button_new_label'))
-                self.app.connect(new_label_item, SIGNAL("triggered(bool)"),
-                                 self.on_partition_list_new_label_activate)
-            elif action == 'new':
-                new_item = partition_list_menu.addAction(
-                    self.get_string('partition_button_new'))
-                self.app.connect(new_item, SIGNAL("triggered(bool)"),
-                                 self.on_partition_list_new_activate)
-            elif action == 'edit':
-                edit_item = partition_list_menu.addAction(
-                    self.get_string('partition_button_edit'))
-                self.app.connect(edit_item, SIGNAL("triggered(bool)"),
-                                 self.on_partition_list_edit_activate)
-            elif action == 'delete':
-                delete_item = partition_list_menu.addAction(
-                    self.get_string('partition_button_delete'))
-                self.app.connect(delete_item, SIGNAL("triggered(bool)"),
-                                 self.on_partition_list_delete_activate)
-        if partition_list_menu.children():
-            partition_list_menu.addSeparator()
-        undo_item = partition_list_menu.addAction(
-            self.get_string('partman/text/undo_everything'))
-        self.app.connect(undo_item, SIGNAL("triggered(bool)"),
-                         self.on_partition_list_undo_activate)
-
-        partition_list_menu.exec_(QCursor.pos())
-
-    def set_fullname(self, value):
-        self.ui.fullname.setText(unicode(value, "UTF-8"))
-
-    def get_fullname(self):
-        return unicode(self.ui.fullname.text())
-
-    def set_username(self, value):
-        self.ui.username.setText(unicode(value, "UTF-8"))
-
-    def get_username(self):
-        return unicode(self.ui.username.text())
-
-    def get_password(self):
-        return unicode(self.ui.password.text())
-
-    def get_verified_password(self):
-        return unicode(self.ui.verified_password.text())
-
-    def select_password(self):
-        self.ui.password.selectAll()
-
-    def set_auto_login(self, value):
-        return self.ui.login_auto.setChecked(value)
-
-    def get_auto_login(self):
-        return self.ui.login_auto.isChecked()
-    
-    def set_encrypt_home(self, value):
-        self.ui.login_encrypt.setChecked(value)
-
-    def get_encrypt_home(self):
-        return self.ui.login_encrypt.isChecked()
-
-    def username_error(self, msg):
-        self.ui.username_error_reason.setText(msg)
-        self.ui.username_error_image.show()
-        self.ui.username_error_reason.show()
-
-    def password_error(self, msg):
-        self.ui.password_error_reason.setText(msg)
-        self.ui.password_error_image.show()
-        self.ui.password_error_reason.show()
-
-    def get_hostname (self):
-        return unicode(self.ui.hostname.text())
-
-    def set_hostname (self, value):
-        self.ui.hostname.setText(value)
 
     def return_to_partitioning (self):
         """If the install progress bar is up but still at the partitioning
@@ -2072,7 +1129,6 @@ class Wizard(BaseFrontend):
     # Run the UI's main loop until it returns control to us.
     def run_main_loop (self):
         self.allow_change_step(True)
-        #self.app.exec_()   ##FIXME Qt 4 won't allow nested main loops, here it just returns directly
         self.mainLoopRunning = True
         while self.mainLoopRunning:    # nasty, but works OK
             self.app.processEvents()
@@ -2084,22 +1140,4 @@ class Wizard(BaseFrontend):
 
     # returns the current wizard page
     def get_current_page(self):
-      return self.ui.widgetStack.indexOf(self.ui.widgetStack.currentWidget())
-
-    def on_fullname_changed(self):
-        self.info_loop(self.ui.fullname)
-
-    def on_username_changed(self):
-        self.info_loop(self.ui.username)
-        self.username_edited = (self.ui.username.text() != '')
-
-    def on_password_changed(self):
-        self.info_loop(self.ui.password)
-
-    def on_verified_password_changed(self):
-        self.info_loop(self.ui.verified_password)
-
-    def on_hostname_changed(self):
-        self.info_loop(self.ui.hostname)
-        self.hostname_edited = (self.ui.hostname.text() != '')
-		
+      return self.stackLayout.indexOf(self.stackLayout.currentWidget())

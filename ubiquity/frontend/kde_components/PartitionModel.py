@@ -7,19 +7,30 @@ from PyQt4.QtCore import *
 
 from ubiquity.misc import *
 from ubiquity.components import partman, partman_commit
+from ubiquity import i18n
+
+"""Get the string name in the given lang or a default."""
+def get_string(name, lang=None, prefix=None):
+    if lang is None and 'LANG' in os.environ:
+        lang = os.environ['LANG']
+    return i18n.get_string(name, lang, prefix)
 
 # describes the display for the manual partition view widget
 class PartitionModel(QAbstractItemModel):
     def __init__(self, ubiquity, parent=None):
         QAbstractItemModel.__init__(self, parent)
-
+        
+        self.rootItem = None
+        self.clear()
+        
+    def clear(self):
         rootData = []
-        rootData.append(QVariant(ubiquity.get_string('partition_column_device')))
-        rootData.append(QVariant(ubiquity.get_string('partition_column_type')))
-        rootData.append(QVariant(ubiquity.get_string('partition_column_mountpoint')))
-        rootData.append(QVariant(ubiquity.get_string('partition_column_format')))
-        rootData.append(QVariant(ubiquity.get_string('partition_column_size')))
-        rootData.append(QVariant(ubiquity.get_string('partition_column_used')))
+        rootData.append(QVariant(get_string('partition_column_device')))
+        rootData.append(QVariant(get_string('partition_column_type')))
+        rootData.append(QVariant(get_string('partition_column_mountpoint')))
+        rootData.append(QVariant(get_string('partition_column_format')))
+        rootData.append(QVariant(get_string('partition_column_size')))
+        rootData.append(QVariant(get_string('partition_column_used')))
         self.rootItem = TreeItem(rootData)
 
     def append(self, data, ubiquity):
@@ -108,11 +119,11 @@ class PartitionModel(QAbstractItemModel):
         return self.rootItem.children()
 
 class TreeItem:
-    def __init__(self, data, ubiquity=None, parent=None):
+    def __init__(self, data, dbfilter=None, parent=None):
         self.parentItem = parent
         self.itemData = data
         self.childItems = []
-        self.ubiquity = ubiquity
+        self.dbfilter = dbfilter
 
     def appendChild(self, item):
         self.childItems.append(item)
@@ -190,8 +201,8 @@ class TreeItem:
 
     def partman_column_mountpoint(self):
         partition = self.itemData[1]
-        if isinstance(self.ubiquity.dbfilter, partman.Page):
-            mountpoint = self.ubiquity.dbfilter.get_current_mountpoint(partition)
+        if isinstance(self.dbfilter, partman.Page):
+            mountpoint = self.dbfilter.get_current_mountpoint(partition)
             if mountpoint is None:
                 mountpoint = ''
         else:
@@ -202,22 +213,13 @@ class TreeItem:
         partition = self.itemData[1]
         if 'id' not in partition:
             return ''
-            #cell.set_property('visible', False)
-            #cell.set_property('active', False)
-            #cell.set_property('activatable', False)
         elif 'method' in partition:
             if partition['method'] == 'format':
                 return Qt.Checked
             else:
                 return Qt.Unchecked
-            #cell.set_property('visible', True)
-            #cell.set_property('active', partition['method'] == 'format')
-            #cell.set_property('activatable', 'can_activate_format' in partition)
         else:
             return Qt.Unchecked  ##FIXME should be enabled(False)
-            #cell.set_property('visible', True)
-            #cell.set_property('active', False)
-            #cell.set_property('activatable', False)
 
     def formatEnabled(self):
         """is the format tickbox enabled"""
