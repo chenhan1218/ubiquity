@@ -79,8 +79,6 @@ def main():
                 toexec = [kdesu, '--nonewdcop', '--']
             else:
                 toexec = ['sudo', '-E']
-            #temporarily force sudo until we work out why kdesudo stops it passing partitioning stage
-            toexec = ['sudo', '-E']
         else:
             toexec = ['sudo', '-E']
 

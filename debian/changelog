@@ -1,9 +1,66 @@
-ubiquity (2.1.4) UNRELEASED; urgency=low
+ubiquity (2.1.6) UNRELEASED; urgency=low
 
+  * Tell partman not to recalculate choices for choose_partition or
+    active_partition while we're going back and forward building the cache.
+    Requires partman-base 135ubuntu3.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 21 Dec 2009 16:57:49 +0000
+
+ubiquity (2.1.5) lucid; urgency=low
+
+  [ Mario Limonciello ]
+  * Mythbuntu: Don't start MySQL using the upstart scripts since they don't
+    work in a chroot. (LP: #494830)
+
+  [ Colin Watson ]
+  * Update two more edit_partition calls to account for renamed format ->
+    fmt argument (LP: #494608).
+  * Remove hack forcing the use of sudo with the KDE frontend, as it no
+    longer appears to be necessary and things break if we don't use kdesudo
+    (LP: #494997).
+  * Make ubiquity.parted_server's logging to /var/log/partman more
+    distinctive.
+  * Set sensible permissions on /var/log/installer/debug, not os.open's
+    default of 0755.
+  * Gather basic information from parted_server using the PARTITIONS command
+    (all partitions on a disk at once), which is slightly faster than
+    PARTITION_INFO (one partition at a time).
+  * Initialise automation_error_cmd, error_cmd, and success_cmd to '' rather
+    than None, since that's what's checked by the functions that use them.
+  * Unlink /var/lib/localechooser/langlevel even if unlinking
+    /var/lib/localechooser/preseeded fails.
+  * Regain privileges to unlink /var/lib/localechooser/preseeded and
+    /var/lib/localechooser/langlevel.
+  * Enable debconffilter debugging if UBIQUITY_DEBUG_CORE=1, so that we can
+    set DEBCONF_DEBUG=developer rather than DEBCONF_DEBUG=developer|filter
+    which cdebconf doesn't understand.
+  * Automatic update of included source packages: console-setup 1.34ubuntu5,
+    partman-base 135ubuntu2.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 16 Dec 2009 00:31:12 +0000
+
+ubiquity (2.1.4) lucid; urgency=low
+
+  [ Mario Limonciello ]
   * Correct a variable that didn't get changed from pychecker
-    cleanup in the intro plugin.
+    cleanup in the intro plugin (LP: #492873).
 
- -- Mario Limonciello <superm1@ubuntu.com>  Fri, 04 Dec 2009 03:08:12 -0600
+  [ Martin Pitt ]
+  * scripts/ubi-restart-hal:
+    - Restart hal the upstart way.
+    - Do not fail if hal does not exist, and drop hal dependency. 
+      (LP: #493139)
+    - Also trigger an udev change event for key devices, so that the changed
+      keyboard settings also apply to an udevified X.org server.
+  * scripts/ubi-restart-hal: Rename to scripts/ubi-reload-keyboard to state
+    the intent, not the means (since it now primarily applies to udev).
+    Adjust debian/oem-config.install accordingly.
+
+  [ Colin Watson ]
+  * Automatic update of included source packages: base-installer
+    1.103ubuntu2, preseed 1.43.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 08 Dec 2009 11:58:27 +0000
 
 ubiquity (2.1.3) lucid; urgency=low
 
