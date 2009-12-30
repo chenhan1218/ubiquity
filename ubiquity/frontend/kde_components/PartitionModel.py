@@ -178,11 +178,11 @@ class TreeItem:
         elif partition['parted']['fs'] != 'free':
             return '  %s' % partition['parted']['path']
         elif partition['parted']['type'] == 'unusable':
-            return '  %s' % self.ubiquity.get_string('partman/text/unusable')
+            return '  %s' % get_string('partman/text/unusable')
         else:
             # partman uses "FREE SPACE" which feels a bit too SHOUTY for
             # this interface.
-            return '  %s' % self.ubiquity.get_string('partition_free_space')
+            return '  %s' % get_string('partition_free_space')
 
     def partman_column_type(self):
         partition = self.itemData[1]
@@ -220,17 +220,13 @@ class TreeItem:
                 return Qt.Unchecked
         else:
             return Qt.Unchecked  ##FIXME should be enabled(False)
-
+    
     def formatEnabled(self):
         """is the format tickbox enabled"""
         partition = self.itemData[1]
         return 'method' in partition and 'can_activate_format' in partition
 
     def partman_column_format_toggled(self, unused_value):
-        if not self.ubiquity.allowed_change_step:
-            return
-        if not isinstance(self.ubiquity.dbfilter, partman.Page):
-            return
         #model = user_data
         #devpart = model[path][0]
         #partition = model[path][1]
@@ -256,7 +252,7 @@ class TreeItem:
         if 'id' not in partition or partition['parted']['fs'] == 'free':
             return ''
         elif 'resize_min_size' not in partition:
-            return self.ubiquity.get_string('partition_used_unknown')
+            return get_string('partition_used_unknown')
         else:
             # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
             # partman expects.

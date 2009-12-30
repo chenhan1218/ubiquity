@@ -64,7 +64,7 @@ LOCALEDIR = "/usr/share/locale"
 #currently using for testing, will remove
 UIDIR = os.path.join(PATH, 'qt')
     
-class UbiquityUI(QMainWindow):
+class UbiquityUI(KMainWindow):
 
     def __init__(self, parent = None):
         QMainWindow.__init__(self, parent)
@@ -124,29 +124,28 @@ class Wizard(BaseFrontend):
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
 
-        #appName     = "kubuntu-ubiquity"
-        #catalog     = ""
-        #programName = ki18n ("Installer")
-        #ver         = "1.0"
-        #description = ki18n ("Live CD Installer for Kubuntu")
-        #rights      = KAboutData.License_GPL
-        #copy        = ki18n ("(c) 2006 Canonical Ltd")
-        #text        = ki18n ("none")
-        #homePage    = "http://wiki.kubuntu.org/KubuntuUbiquity"
-        #bugEmail    = "jriddell@ubuntu.com"
+        appName     = "kubuntu-ubiquity"
+        catalog     = ""
+        programName = ki18n ("Installer")
+        ver         = "1.0"
+        description = ki18n ("Live CD Installer for Kubuntu")
+        rights      = KAboutData.License_GPL
+        copy        = ki18n ("(c) 2006 Canonical Ltd")
+        text        = ki18n ("none")
+        homePage    = "http://wiki.kubuntu.org/KubuntuUbiquity"
+        bugEmail    = "jriddell@ubuntu.com"
         
-        #about = KAboutData (appName, catalog, programName, ver, description,
-                            #rights, copy, text, homePage, bugEmail)
-        #about.addAuthor(ki18n("Jonathan Riddell"), KLocalizedString() ,"jriddell@ubuntu.com")
-        #about.addAuthor(ki18n("Roman Shtylman"), KLocalizedString() ,"shtylman@gmail.com")
-        #KCmdLineArgs.init([""],about)
+        about = KAboutData (appName, catalog, programName, ver, description,
+                            rights, copy, text, homePage, bugEmail)
+        about.addAuthor(ki18n("Jonathan Riddell"), KLocalizedString() ,"jriddell@ubuntu.com")
+        about.addAuthor(ki18n("Roman Shtylman"), KLocalizedString() ,"shtylman@gmail.com")
+        KCmdLineArgs.init([""],about)
         
         #undo the drop, this is needed to play nice with kde
         os.setegid(0)
         os.seteuid(0)
         
-        #self.app = KApplication()
-        self.app = QApplication(sys.argv)
+        self.app = KApplication()
         self.app.setStyleSheet(file(os.path.join(UIDIR, "style.qss")).read())
 
         # put the privileges back to user level

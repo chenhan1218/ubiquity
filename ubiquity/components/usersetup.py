@@ -19,6 +19,7 @@
 
 import os
 
+from ubiquity import validation
 from ubiquity.misc import execute
 from ubiquity.plugin import *
 from ubiquity.filteredcommand import FilteredCommand
@@ -83,12 +84,19 @@ class PageBase(PluginUI):
     """The selected password was bad."""
     def password_error(self, msg):
         pass
+        
+    """ The hostname had an error """
+    def hostname_error(self, msg):
+        pass
 
     """Get the selected hostname."""
     def get_hostname(self):
         pass
         
     def set_hostname(self, hostname):
+        pass
+        
+    def clear_errors(self):
         pass
 
 class PageGtk(PluginUI):
@@ -103,8 +111,7 @@ class PageKde(PageBase):
         
         from PyQt4 import uic
         from PyQt4.QtGui import QDialog
-        from PyKDE4.kdeui import *
-        from PyKDE4.kdecore import *
+        from PyKDE4.kdeui import KIconLoader
         
         self.plugin_widgets = uic.loadUi('/usr/share/ubiquity/qt/stepUserSetup.ui')
         self.page = self.plugin_widgets
@@ -116,7 +123,7 @@ class PageKde(PageBase):
         self.oem_user_config = self.controller.oem_user_config
         
         if self.controller.oem_config:
-            self.page.setWindowTitle(self.get_string('oem_config_title'))
+            #self.page.setWindowTitle(self.get_string('oem_config_title'))
             self.page.fullname.setText('OEM Configuration (temporary user)')
             self.page.fullname.setReadOnly(True)
             self.page.fullname.setEnabled(False)
@@ -141,55 +148,15 @@ class PageKde(PageBase):
         self.page.password_error_image.setPixmap(warningIcon)
         self.page.hostname_error_image.setPixmap(warningIcon)
         
+        self.clear_errors()
+        
         self.page.fullname.textChanged[str].connect(self.on_fullname_changed)
         self.page.username.textChanged[str].connect(self.on_username_changed)
-        self.page.password.textChanged[str].connect(self.on_password_changed)
-        self.page.verified_password.textChanged[str].connect(self.on_verified_password_changed)
         self.page.hostname.textChanged[str].connect(self.on_hostname_changed)
+        #self.page.password.textChanged[str].connect(self.on_password_changed)
+        #self.page.verified_password.textChanged[str].connect(self.on_verified_password_changed)
         
-        self.page.password_debug_warning_label.setVisible('UBIQUITY_DEBUG' in os.environ)
-    
-    # TODO handle validation
-    #def info_loop(self, widget):
-        #"""check if all entries from Identification screen are filled."""
-        #if widget is None:
-            #return
-        
-        
-        #complete = True
-        #for name in ('username', 'hostname'):
-            #if getattr(self.ui, name).text() == '':
-                #complete = False
-        #if not self.allow_password_empty:
-            #for name in ('password', 'verified_password'):
-                #if getattr(self.ui, name).text() == '':
-                    #complete = False
-    
-    # TODO validation
-    #error_msg = []
-
-        ## Validation stuff
-
-        ## checking hostname entry
-        #hostname = self.ui.hostname.text()
-        #for result in validation.check_hostname(unicode(hostname)):
-            #if result == validation.HOSTNAME_LENGTH:
-                #error_msg.append("The hostname must be between 1 and 63 characters long.")
-            #elif result == validation.HOSTNAME_BADCHAR:
-                #error_msg.append("The hostname may only contain letters, digits, hyphens, and dots.")
-            #elif result == validation.HOSTNAME_BADHYPHEN:
-                #error_msg.append("The hostname may not start or end with a hyphen.")
-            #elif result == validation.HOSTNAME_BADDOTS:
-                #error_msg.append('The hostname may not start or end with a dot, or contain the sequence "..".')
-
-        ## showing warning message is error is set
-        #if len(error_msg) != 0:
-            #self.ui.hostname_error_reason.setText("\n".join(error_msg))
-            #self.ui.hostname_error_reason.show()
-            #self.ui.hostname_error_image.show()
-            #self.stay_on_page = True
-        #else:
-            #self.stay_on_page = False
+        self.page.password_debug_warning_label.setVisible('UBIQUITY_DEBUG' in os.environ)                    
     
     def on_fullname_changed(self):
         #if the user did not manually enter a username
@@ -215,17 +182,12 @@ class PageKde(PageBase):
         self.username_edited = (self.page.username.text() != '')
 
     def on_password_changed(self):
-        #self.info_loop(self.ui.password)
-        # TODO validate
         pass
 
     def on_verified_password_changed(self):
-        #self.info_loop(self.ui.verified_password)
-        # TODO validate
         pass
 
     def on_hostname_changed(self):
-        #self.info_loop(self.ui.hostname)
         self.hostname_edited = (self.page.hostname.text() != '')
         
     def set_fullname(self, value):
@@ -270,12 +232,27 @@ class PageKde(PageBase):
         self.page.password_error_reason.setText(msg)
         self.page.password_error_image.show()
         self.page.password_error_reason.show()
+        
+    def hostname_error(self, msg):
+        self.page.hostname_error_reason.setText(msg)
+        self.page.hostname_error_image.show()
+        self.page.hostname_error_reason.show();
 
     def get_hostname (self):
         return unicode(self.page.hostname.text())
 
     def set_hostname (self, value):
         self.page.hostname.setText(value)
+        
+    def clear_errors(self):
+        self.page.fullname_error_image.hide()
+        self.page.username_error_image.hide()
+        self.page.password_error_image.hide()
+        self.page.hostname_error_image.hide()
+        
+        self.page.username_error_reason.hide()
+        self.page.password_error_reason.hide()
+        self.page.hostname_error_reason.hide()
 
 class PageDebconf(PluginUI):
     plugin_title = 'ubiquity/text/userinfo_heading_label'
@@ -382,6 +359,8 @@ class Page(Plugin):
         if self.ui:
             frontend = self.ui
     
+        frontend.clear_errors()
+    
         fullname = frontend.get_fullname()
         username = frontend.get_username().strip()
         password = frontend.get_password()
@@ -402,6 +381,24 @@ class Page(Plugin):
         self.preseed_bool('user-setup/encrypt-home', encrypt_home)
         
         hostname = frontend.get_hostname()
+        
+        # check if the hostname had errors
+        results = validation.check_hostname(unicode(hostname))
+        if len(results) > 0:
+            result = results[0]
+            if result == validation.HOSTNAME_LENGTH:
+                frontend.hostname_error("The hostname must be between 1 and 63 characters long.")
+            elif result == validation.HOSTNAME_BADCHAR:
+                frontend.hostname_error("The hostname may only contain letters, digits, hyphens, and dots.")
+            elif result == validation.HOSTNAME_BADHYPHEN:
+                frontend.hostname_error("The hostname may not start or end with a hyphen.")
+            elif result == validation.HOSTNAME_BADDOTS:
+                frontend.hostname_error('The hostname may not start or end with a dot, or contain the sequence "..".')
+            
+            self.done = False
+            self.enter_ui_loop()
+            return
+        
         if hostname is not None and hostname != '':
             hd = hostname.split('.', 1)
             self.preseed('netcfg/get_hostname', hd[0])
@@ -416,7 +413,7 @@ class Page(Plugin):
         frontend = self.frontend
         if self.ui:
             frontend = self.ui
-            
+        
         if question.startswith('passwd/username-'):
             frontend.username_error(self.extended_description(question))
         elif question.startswith('user-setup/password-'):
