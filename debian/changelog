@@ -1,4 +1,4 @@
-ubiquity (2.1.6) UNRELEASED; urgency=low
+ubiquity (2.1.6) lucid; urgency=low
 
   [ Colin Watson ]
   * Tell partman not to recalculate choices for choose_partition or
@@ -11,7 +11,7 @@ ubiquity (2.1.6) UNRELEASED; urgency=low
   * Automatic update of included source packages: console-setup
     1.34ubuntu6, partman-base 135ubuntu3.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 21 Dec 2009 16:57:49 +0000
+ -- Mario Limonciello <superm1@ubuntu.com>  Thu, 31 Dec 2009 01:21:41 -0600
 
 ubiquity (2.1.5) lucid; urgency=low
 
