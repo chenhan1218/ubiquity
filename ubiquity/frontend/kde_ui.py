@@ -288,6 +288,9 @@ class Wizard(BaseFrontend):
 
         quitIcon = KIcon("dialog-close")
         self.ui.quit.setIcon(quitIcon)
+        
+        self.ui.progressBar.hide()
+        self.ui.progressCancel.hide()
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -974,19 +977,28 @@ class Wizard(BaseFrontend):
             progress_title = ""
         total_steps = progress_max - progress_min
         skipText = self.get_string("progress_cancel_button")
-        self.progressDialog.setWindowModality(Qt.WindowModal);
-        self.progressDialog.setCancelText(skipText)
-        self.progressDialog.setCancellable(False)
-        self.progressDialog.setMaximum(total_steps)
         
-        #if self.progress_position.depth() == 0:
-        #    self.progressDialog.setMaximum(total_steps)
-
+        self.ui.progressCancel.setText(skipText)
+        
+        #self.progressDialog.setWindowModality(Qt.WindowModal);
+        #self.progressDialog.setCancelText(skipText)
+        #self.progressDialog.setCancellable(False)
+        #self.progressDialog.setMaximum(total_steps)
+        #self.progressDialog.setWindowTitle(progress_title)
+        #self.progressDialog.show()
+        
+        # TODO cancel button
+        
+        self.ui.progressBar.setMaximum(total_steps)
+        self.ui.progressBar.show()
+        
+        self.ui.content_widget.setEnabled(False)
+        
         self.progress_position.start(progress_min, progress_max,
                                      progress_title)
-        self.progressDialog.setWindowTitle(progress_title)
+        
         self.debconf_progress_set(0)
-        self.progressDialog.show()
+        
 
     def debconf_progress_set (self, progress_val):
         self.progress_cancelled = self.progressDialog.wasCanceled()
@@ -994,8 +1006,12 @@ class Wizard(BaseFrontend):
             return False
         self.progress_position.set(progress_val)
         fraction = self.progress_position.fraction()
-        self.progressDialog.setProgressValue(
-            int(fraction * self.progressDialog.maximum()))
+        
+        #self.progressDialog.setProgressValue(
+        #    int(fraction * self.progressDialog.maximum()))
+            
+        self.ui.progressBar.setValue(int(fraction * self.ui.progressBar.maximum()))
+        
         return True
 
     def debconf_progress_step (self, progress_inc):
@@ -1004,33 +1020,45 @@ class Wizard(BaseFrontend):
             return False
         self.progress_position.step(progress_inc)
         fraction = self.progress_position.fraction()
-        self.progressDialog.setProgressValue(
-            int(fraction * self.progressDialog.maximum()))
+        
+        #self.progressDialog.setProgressValue(
+        #    int(fraction * self.progressDialog.maximum()))
+        
+        self.ui.progressBar.setValue(int(fraction * self.ui.progressBar.maximum()))
+        
         return True
 
     def debconf_progress_info (self, progress_info):
         self.progress_cancelled = self.progressDialog.wasCanceled()
         if self.progress_cancelled:
             return False
-        self.progressDialog.setProgressLabel(progress_info)
+        
+        #self.progressDialog.setProgressLabel(progress_info)
+        self.ui.progressBar.setFormat(progress_info + " %p%")
+        
         return True
 
     def debconf_progress_stop (self):
         self.progress_cancelled = False
         self.progress_position.stop()
-        if self.progress_position.depth() == 0:
-            self.progressDialog.reset() # also hides dialog
-        else:
-            self.progressDialog.setWindowTitle(self.progress_position.title())
+        #if self.progress_position.depth() == 0:
+        #    self.progressDialog.reset() # also hides dialog
+        #else:
+        #    self.progressDialog.setWindowTitle(self.progress_position.title())
+        
+        self.ui.content_widget.setEnabled(True)
+        self.ui.progressBar.hide()
 
     def debconf_progress_region (self, region_start, region_end):
         self.progress_position.set_region(region_start, region_end)
 
     def debconf_progress_cancellable (self, cancellable):
         if cancellable:
-            self.progressDialog.setCancellable(True)
+            #self.progressDialog.setCancellable(True)
+            self.ui.progressCancel.show()
         else:
-            self.progressDialog.setCancellable(False)
+            self.ui.progressCancel.hide()
+            #self.progressDialog.setCancellable(False)
             self.progress_cancelled = False
 
     #def on_progress_cancel_button_clicked (self, button):
