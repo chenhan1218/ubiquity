@@ -443,8 +443,15 @@ class Install:
             self.remove_extras()
 
             self.remove_broken_cdrom()
-
+            try:
+                self.copy_network_config()
+            except Exception, e:
+                syslog.syslog('Could not copy network config: %s' % str(e))
+                self.db.input('critical', 'ubiquity/install/broken_network_copy')
+                self.db.go()
+                
             self.copy_dcd()
+
             self.db.progress('SET', count)
             self.db.progress('INFO', 'ubiquity/install/log_files')
             self.copy_logs()
@@ -1346,6 +1353,7 @@ exit 0"""
         self.langpacks = to_install
 
     def install_language_packs(self):
+
         if not self.langpacks:
             return
 
@@ -2334,6 +2342,115 @@ exit 0"""
         finally:
             if fp:
                 fp.close()
+            
+    def copy_tree(self, source, target, uid, gid):
+        # Mostly stolen from copy_all.
+        directory_times = []
+        s = '/'
+        for p in target.split(os.sep)[1:]:
+            s = os.path.join(s, p)
+            if not os.path.exists(s):
+                os.mkdir(s)
+                os.lchown(s, uid, gid)
+        for dirpath, dirnames, filenames in os.walk(source):
+            sp = dirpath[len(source) + 1:]
+            for name in dirnames + filenames:
+                relpath = os.path.join(sp, name)
+                sourcepath = os.path.join(source, relpath)
+                targetpath = os.path.join(target, relpath)
+                st = os.lstat(sourcepath)
+                mode = stat.S_IMODE(st.st_mode)
+                if stat.S_ISLNK(st.st_mode):
+                    if os.path.lexists(targetpath):
+                        os.unlink(targetpath)
+                    linkto = os.readlink(sourcepath)
+                    os.symlink(linkto, targetpath)
+                elif stat.S_ISDIR(st.st_mode):
+                    if not os.path.isdir(targetpath):
+                        os.mkdir(targetpath, mode)
+                elif stat.S_ISCHR(st.st_mode):
+                    os.mknod(targetpath, stat.S_IFCHR | mode, st.st_rdev)
+                elif stat.S_ISBLK(st.st_mode):
+                    os.mknod(targetpath, stat.S_IFBLK | mode, st.st_rdev)
+                elif stat.S_ISFIFO(st.st_mode):
+                    os.mknod(targetpath, stat.S_IFIFO | mode)
+                elif stat.S_ISSOCK(st.st_mode):
+                    os.mknod(targetpath, stat.S_IFSOCK | mode)
+                elif stat.S_ISREG(st.st_mode):
+                    if os.path.exists(targetpath):
+                        os.unlink(targetpath)
+                    self.copy_file(sourcepath, targetpath, True)
+
+                os.lchown(targetpath, uid, gid)
+                if not stat.S_ISLNK(st.st_mode):
+                    os.chmod(targetpath, mode)
+                if stat.S_ISDIR(st.st_mode):
+                    directory_times.append((targetpath, st.st_atime, st.st_mtime))
+                # os.utime() sets timestamp of target, not link
+                elif not stat.S_ISLNK(st.st_mode):
+                    os.utime(targetpath, (st.st_atime, st.st_mtime))
+        
+        # Apply timestamps to all directories now that the items within them
+        # have been copied.
+        for dirtime in directory_times:
+            (directory, atime, mtime) = dirtime
+            try:
+                os.utime(directory, (atime, mtime))
+            except OSError:
+                # I have no idea why I've been getting lots of bug reports
+                # about this failing, but I really don't care. Ignore it.
+                pass
+
+    def copy_network_config(self):
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            return
+
+        casper_user = os.path.expanduser('~%s' % os.environ['SUDO_USER'])
+        target_user = self.db.get('passwd/username')
+
+        # GTK
+        # FIXME evand 2009-12-11: We assume /home here, but determine it below.
+        target_keyrings = os.path.join(self.target, 'home', target_user,
+                                       '.gnome2/keyrings')
+
+        # Sanity checks.  We don't want to do anything if a network
+        # configuration already exists, which will be the case if the user
+        # selected to install without formatting.
+        if os.path.exists(target_keyrings):
+            return
+        config_source = 'xml:readwrite:$HOME/.gconf'
+        subp = subprocess.Popen(['chroot', self.target, 'sudo', '-i', '-n',
+            '-u', target_user, '--', 'gconftool-2', '--direct',
+            '--config-source', config_source, '--dir-exists',
+            '/system/networking'], close_fds=True)
+        subp.communicate()
+        if subp.returncode == 0:
+            return
+        
+        from ubiquity import gconftool
+        if gconftool.dump('/system/networking', os.path.join(self.target,
+                          'tmp/live-network-config')):
+            # Ick.
+            subprocess.call(['log-output', '-t', 'ubiquity', 'chroot',
+                self.target, 'sudo', '-i', '-n', '-u', target_user, '--',
+                'gconftool-2', '--direct', '--config-source', config_source,
+                '--load', '/tmp/live-network-config'], close_fds=True)
+            os.remove('/target/tmp/live-network-config')
+            source_keyrings = os.path.join(casper_user, '.gnome2/keyrings')
+            if os.path.exists(source_keyrings):
+                # We could just figure out what $HOME is and stat it as an
+                # alternative.
+                uid = subprocess.Popen(['chroot', self.target, 'sudo', '-u',
+                    target_user, '--', 'id', '-u'],
+                    stdout=subprocess.PIPE).communicate()[0].strip('\n')
+                gid = subprocess.Popen(['chroot', self.target, 'sudo', '-u',
+                    target_user, '--', 'id', '-g'],
+                    stdout=subprocess.PIPE).communicate()[0].strip('\n')
+                uid = int(uid)
+                gid = int(gid)
+                self.copy_tree(source_keyrings, target_keyrings, uid, gid)
+        
+        # KDE TODO
             
     def cleanup(self):
         """Miscellaneous cleanup tasks."""
