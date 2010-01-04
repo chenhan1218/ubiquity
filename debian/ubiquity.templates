@@ -766,6 +766,13 @@ _Description: Error migrating documents and settings
  documents and settings you requested may not have been transferred to the
  installed system.
 
+Template: ubiquity/install/broken_network_copy
+Type: error
+_Description: Error copying network configuration
+ An error occurred while copying the network settings.  The installation will
+ continue, but the network configuration will have to be set up again in the
+ installed system.
+
 Template: ubiquity/install/md5_check
 Type: boolean
 Default: true
