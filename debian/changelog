@@ -3,6 +3,8 @@ ubiquity (2.1.7) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Mythbuntu: Reconfigure mythbuntu-default-settings to ensure that the
     DefaultSession is set.
+  * Only run hal-lock if hald is actually running due to changes in
+    hal 0.5.14-0ubuntu2.
 
   [ Evan Dandrea ]
   * Copy any network configuration set up by the user of the live CD to
