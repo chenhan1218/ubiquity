@@ -1,4 +1,4 @@
-ubiquity (2.1.7) UNRELEASED; urgency=low
+ubiquity (2.1.7) lucid; urgency=low
 
   [ Mario Limonciello ]
   * Mythbuntu: Reconfigure mythbuntu-default-settings to ensure that the
@@ -15,7 +15,7 @@ ubiquity (2.1.7) UNRELEASED; urgency=low
   * Copy any network configuration set up by the user of the live CD to
     the installed system.
 
- -- Mario Limonciello <superm1@ubuntu.com>  Sun, 03 Jan 2010 21:16:54 -0600
+ -- Mario Limonciello <superm1@ubuntu.com>  Wed, 06 Jan 2010 03:37:13 -0600
 
 ubiquity (2.1.6) lucid; urgency=low
 
