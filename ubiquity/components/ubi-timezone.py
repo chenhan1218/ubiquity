@@ -125,18 +125,75 @@ class PageGtk(PluginUI):
         def is_separator(m, i):
             return m[i][0] is None
 
+        self.timeout_id = 0
+
+        # Don't hit on_entry_changed for every key press.
+        def queue_entry_changed(e, widget):
+            self.controller.allow_go_forward(False)
+            if self.timeout_id:
+                gobject.source_remove(self.timeout_id)
+            self.timeout_id = gobject.timeout_add(300, on_entry_changed, e, widget)
+
+        def on_entry_changed(e, widget):
+            text = e.get_text().lower()
+            if not text:
+                self.controller.allow_go_forward(False)
+                return
+            m = widget.get_model()
+            iterator = m.get_iter_first()
+            while iterator:
+                country = m.get_value(iterator,0)
+                if country is not None and text == country.lower():
+                    widget.set_active_iter(iterator)
+                    self.controller.allow_go_forward(True)
+                    return
+                iterator = m.iter_next(iterator)
+            self.controller.allow_go_forward(False)
+
         renderer = gtk.CellRendererText()
         self.region_combo.pack_start(renderer, True)
-        self.region_combo.add_attribute(renderer, 'text', 0)
+        self.region_combo.set_text_column(0)
         list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING)
         self.region_combo.set_model(list_store)
         self.region_combo.set_row_separator_func(is_separator)
 
+        completion = gtk.EntryCompletion()
+        entry = self.region_combo.child
+        entry.connect('changed', queue_entry_changed, self.region_combo)
+        entry.set_completion(completion)
+        completion.set_model(list_store)
+        completion.set_text_column(0)
+        completion.set_inline_completion(True)
+        completion.set_inline_selection(True)
+
         renderer = gtk.CellRendererText()
         self.city_combo.pack_start(renderer, True)
-        self.city_combo.add_attribute(renderer, 'text', 0)
+        self.city_combo.set_text_column(0)
         city_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
         self.city_combo.set_model(city_store)
+        
+        completion = gtk.EntryCompletion()
+        entry = self.city_combo.child
+        entry.set_completion(completion)
+        entry.connect('changed', queue_entry_changed, self.city_combo)
+        completion.set_model(city_store)
+        completion.set_text_column(0)
+        completion.set_inline_completion(True)
+        completion.set_inline_selection(True)
+
+        def match_func(completion, key, iter):
+            m = completion.get_model()
+            text = m.get_value(iter, 0)
+            if not text:
+                return False
+            text = text.lower()
+            key = key.lower()
+            if text.startswith(key) or text.find('(' + key) != -1:
+                return True
+            else:
+                return False
+
+        completion.set_match_func(match_func)
 
     def on_region_combo_changed(self, *args):
         i = self.region_combo.get_active()
