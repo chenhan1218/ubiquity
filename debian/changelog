@@ -5,6 +5,9 @@ ubiquity (2.1.7) UNRELEASED; urgency=low
     DefaultSession is set.
   * Only run hal-lock if hald is actually running due to changes in
     hal 0.5.14-0ubuntu2.
+  * Widget names are no longer stored in the widget's internal name, but
+    rather in the object data.  Sync this information back to the widget's
+    internal name. (LP: #503710)
 
   [ Evan Dandrea ]
   * Copy any network configuration set up by the user of the live CD to
