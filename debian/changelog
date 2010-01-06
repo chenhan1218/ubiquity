@@ -8,6 +8,8 @@ ubiquity (2.1.7) UNRELEASED; urgency=low
   * Widget names are no longer stored in the widget's internal name, but
     rather in the object data.  Sync this information back to the widget's
     internal name. (LP: #503710)
+  * Automatic update of included source packages: grub-installer
+    1.49ubuntu1.
 
   [ Evan Dandrea ]
   * Copy any network configuration set up by the user of the live CD to
