@@ -143,10 +143,12 @@ class PageGtk(PluginUI):
             iterator = m.get_iter_first()
             while iterator:
                 country = m.get_value(iterator,0)
-                if country is not None and text == country.lower():
-                    widget.set_active_iter(iterator)
-                    self.controller.allow_go_forward(True)
-                    return
+                if country is not None:
+                    country = country.lower()
+                    if text == country or country.find('(%s)' % text) != -1:
+                        widget.set_active_iter(iterator)
+                        self.controller.allow_go_forward(True)
+                        return
                 iterator = m.iter_next(iterator)
             self.controller.allow_go_forward(False)
 
