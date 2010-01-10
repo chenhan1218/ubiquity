@@ -186,9 +186,22 @@ class Page(Plugin):
 
     def preseed_script(self, question, menu_options,
                        want_script, want_arg=None):
-        (script, arg, option) = self.must_find_one_script(
-            question, menu_options, want_script, want_arg)
-        self.preseed(question, '%s__________%s' % (script, arg), seen=False)
+        if want_arg is None:
+            # Simple case; we don't need to distinguish by argument, so just
+            # preseeding the name of the script will do. Note that this
+            # doesn't work for questions using old_debconf_select (i.e. not
+            # using Choices-C), but that's deprecated and there don't seem
+            # to be any instances of it in at least the set of partman
+            # components currently used by ubiquity.
+            self.preseed(question, want_script, seen=False)
+        else:
+            # Complex case; we need to distinguish by argument. This relies
+            # on freeze_choices not having been in effect when the current
+            # menu was generated.
+            (script, arg, option) = self.must_find_one_script(
+                question, menu_options, want_script, want_arg)
+            self.preseed(question, '%s__________%s' % (script, arg),
+                         seen=False)
 
     def split_devpart(self, devpart):
         dev, part_id = devpart.split('//', 1)
