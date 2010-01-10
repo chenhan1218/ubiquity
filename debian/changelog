@@ -1,4 +1,4 @@
-ubiquity (2.1.8) UNRELEASED; urgency=low
+ubiquity (2.1.8) lucid; urgency=low
 
   [ Evan Dandrea ]
   * On the timezone page, replace the GTK Comboboxes with ComboboxEntrys and
@@ -8,7 +8,7 @@ ubiquity (2.1.8) UNRELEASED; urgency=low
   * Cope with frozen choices when preseeding partman to select a particular
     script (LP: #505197).
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 06 Jan 2010 18:08:47 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 10 Jan 2010 23:04:44 +0000
 
 ubiquity (2.1.7) lucid; urgency=low
 
