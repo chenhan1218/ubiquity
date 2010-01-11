@@ -1,9 +1,9 @@
-ubiquity (2.1.9) UNRELEASED; urgency=low
+ubiquity (2.1.9) lucid; urgency=low
 
   * Generate an apparmor cache to speed up boot time.
   * Handle SUDO_USER not being set in copy_network_config.
 
- -- Evan Dandrea <evand@ubuntu.com>  Sun, 10 Jan 2010 23:32:02 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 11 Jan 2010 17:15:07 +0000
 
 ubiquity (2.1.8) lucid; urgency=low
 
