@@ -2477,8 +2477,8 @@ exit 0"""
                    'securityfs', '/sys/kernel/security')
         self.chrex('/etc/init.d/apparmor', 'recache')
         self.chrex('umount', '/proc')
-        self.chrex('umount', '/sys')
         self.chrex('umount', '/sys/kernel/security')
+        self.chrex('umount', '/sys')
 
     def cleanup(self):
         """Miscellaneous cleanup tasks."""
