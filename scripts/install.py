@@ -2415,7 +2415,10 @@ exit 0"""
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
             return
 
-        casper_user = os.path.expanduser('~%s' % os.environ['SUDO_USER'])
+        if 'SUDO_USER' in os.environ:
+            casper_user = os.path.expanduser('~%s' % os.environ['SUDO_USER'])
+        else:
+            casper_user = os.path.expanduser('~')
         target_user = self.db.get('passwd/username')
 
         # GTK
