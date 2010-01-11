@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-12-02 17:23+0000\n"
+"POT-Creation-Date: 2010-01-11 17:12+0000\n"
 "PO-Revision-Date: 2009-10-15 09:58+0000\n"
 "Last-Translator: Rui Moreira <rui.f.moreira@gmail.com>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
@@ -45,7 +45,7 @@ msgstr "Especificar partições manualmente (avançado)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:178001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:179001
 msgid "Install"
 msgstr "Instalar"
 
@@ -1143,33 +1143,50 @@ msgid ""
 "installed system."
 msgstr ""
 
+#. Type: error
+#. Description
+#: ../ubiquity.templates:147001
+#, fuzzy
+#| msgid "Network configuration"
+msgid "Error copying network configuration"
+msgstr "Configuração de rede"
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:147001
+msgid ""
+"An error occurred while copying the network settings.  The installation will "
+"continue, but the network configuration will have to be set up again in the "
+"installed system."
+msgstr ""
+
 #. Type: text
 #. Description
-#: ../ubiquity.templates:150001
+#: ../ubiquity.templates:151001
 msgid "Calculating files to skip copying..."
 msgstr "A calcular ficheiros que podem ser ignorados..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:151001
+#: ../ubiquity.templates:152001
 msgid "Installing language packs"
 msgstr "A instalar pacotes de idioma"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:152001
+#: ../ubiquity.templates:153001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "A descarregar pacotes de idioma (${TIME} restantes)..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:161001
 msgid "Failed to unmount partitions"
 msgstr "Não foi possível desmontar as partições"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:161001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -1179,26 +1196,26 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:161001
 msgid "Please close any applications using these mount points."
 msgstr ""
 "Por favor feche todas as aplicações que está a usar nas suas partições."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:161001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "Você deseja que o instalador tente desmontar as partições novamente?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:166001
+#: ../ubiquity.templates:167001
 msgid "Do you want to return to the partitioner?"
 msgstr "Deseja regressar ao particionador?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:166001
+#: ../ubiquity.templates:167001
 #, fuzzy
 #| msgid ""
 #| "Some of the partitions you created are too small.  Please make the "
@@ -1212,7 +1229,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:166001
+#: ../ubiquity.templates:167001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1222,79 +1239,79 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:168001
 msgid "System Configuration"
 msgstr "Configuração do Sistema"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:168001
+#: ../ubiquity.templates:169001
 msgid "Choose language"
 msgstr "Escolher idioma/Choose language"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:169001
+#: ../ubiquity.templates:170001
 msgid "Network configuration"
 msgstr "Configuração de rede"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:170001
+#: ../ubiquity.templates:171001
 msgid "Software selection"
 msgstr "Selecção de software"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:171001
+#: ../ubiquity.templates:172001
 msgid "Applying configuration"
 msgstr "A aplicar configuração"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:172001
+#: ../ubiquity.templates:173001
 msgid "Language"
 msgstr "Idioma"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:173001
+#: ../ubiquity.templates:174001
 msgid "Timezone"
 msgstr "Fuso horário"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:175001
 msgid "Keyboard"
 msgstr "Teclado"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001
+#: ../ubiquity.templates:176001
 msgid "Disk Setup"
 msgstr "Configuração do disco"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:176001
+#: ../ubiquity.templates:177001
 msgid "User Info"
 msgstr "Informações do Utilizador"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:177001
+#: ../ubiquity.templates:178001
 msgid "Summary"
 msgstr "Sumário"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:179001
+#: ../ubiquity.templates:180001
 msgid "installation process"
 msgstr "Processo de instalação"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:181001
+#: ../ubiquity.templates:182001
 #, fuzzy
 #| msgid "Checking the installation..."
 msgid "Checking for installer updates"
@@ -1302,19 +1319,19 @@ msgstr "A verificar a instalação..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:183001
 msgid "Reading package information"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:184001
 msgid "Updating package information"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:185001
 #, fuzzy
 #| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
@@ -1322,7 +1339,7 @@ msgstr "Passo ${INDEX} de ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:186001
 #, fuzzy
 #| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
@@ -1330,7 +1347,7 @@ msgstr "Passo ${INDEX} de ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:186001
+#: ../ubiquity.templates:187001
 #, fuzzy
 #| msgid "Installing system"
 msgid "Installing update"
@@ -1338,13 +1355,13 @@ msgstr "A instalar o sistema"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:188001
 msgid "Error updating installer"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:188001
 #, fuzzy
 #| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"

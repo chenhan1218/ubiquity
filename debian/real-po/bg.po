@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2009-12-02 17:23+0000\n"
+"POT-Creation-Date: 2010-01-11 17:12+0000\n"
 "PO-Revision-Date: 2009-10-07 17:30+0000\n"
 "Last-Translator: Krasimir Chonov <mk2616@abv.bg>\n"
 "Language-Team: American English <>\n"
@@ -47,7 +47,7 @@ msgstr "Задаване на дялове ръчно (за напреднали
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:178001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:179001
 msgid "Install"
 msgstr "Инсталиране"
 
@@ -1142,33 +1142,50 @@ msgid ""
 "installed system."
 msgstr ""
 
+#. Type: error
+#. Description
+#: ../ubiquity.templates:147001
+#, fuzzy
+#| msgid "Network configuration"
+msgid "Error copying network configuration"
+msgstr "Конфигуриране на мрежа"
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:147001
+msgid ""
+"An error occurred while copying the network settings.  The installation will "
+"continue, but the network configuration will have to be set up again in the "
+"installed system."
+msgstr ""
+
 #. Type: text
 #. Description
-#: ../ubiquity.templates:150001
+#: ../ubiquity.templates:151001
 msgid "Calculating files to skip copying..."
 msgstr "Изчисляване на файлове, които да не се копират..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:151001
+#: ../ubiquity.templates:152001
 msgid "Installing language packs"
 msgstr "Инсталиране на езиковите пакети"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:152001
+#: ../ubiquity.templates:153001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Изтегляне на езиковите пакети (остават ${TIME})..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:161001
 msgid "Failed to unmount partitions"
 msgstr "Грешка при демонтирането на дялове"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:161001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -1179,7 +1196,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:161001
 msgid "Please close any applications using these mount points."
 msgstr ""
 "Моля, затворете всички приложения, които може да ползват тези точки за "
@@ -1187,20 +1204,20 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:161001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Желаете ли инсталаторът да направи повторен опит да отмонтира тези дялове?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:166001
+#: ../ubiquity.templates:167001
 msgid "Do you want to return to the partitioner?"
 msgstr "Искате ли да се върнете в програмата за редактиране на дялове?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:166001
+#: ../ubiquity.templates:167001
 #, fuzzy
 #| msgid ""
 #| "Some of the partitions you created are too small.  Please make the "
@@ -1214,7 +1231,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:166001
+#: ../ubiquity.templates:167001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1224,79 +1241,79 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:168001
 msgid "System Configuration"
 msgstr "Системна настройка"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:168001
+#: ../ubiquity.templates:169001
 msgid "Choose language"
 msgstr "Избор на език/Choose language"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:169001
+#: ../ubiquity.templates:170001
 msgid "Network configuration"
 msgstr "Конфигуриране на мрежа"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:170001
+#: ../ubiquity.templates:171001
 msgid "Software selection"
 msgstr "Избор на софтуер"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:171001
+#: ../ubiquity.templates:172001
 msgid "Applying configuration"
 msgstr "Прилагане на конфигурация"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:172001
+#: ../ubiquity.templates:173001
 msgid "Language"
 msgstr "Език"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:173001
+#: ../ubiquity.templates:174001
 msgid "Timezone"
 msgstr "Часови пояс"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:175001
 msgid "Keyboard"
 msgstr "Клавиатура"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001
+#: ../ubiquity.templates:176001
 msgid "Disk Setup"
 msgstr "Разделяне на диск"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:176001
+#: ../ubiquity.templates:177001
 msgid "User Info"
 msgstr "Информация за потребителя"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:177001
+#: ../ubiquity.templates:178001
 msgid "Summary"
 msgstr "Резюме"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:179001
+#: ../ubiquity.templates:180001
 msgid "installation process"
 msgstr "инсталационен процес"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:181001
+#: ../ubiquity.templates:182001
 #, fuzzy
 #| msgid "Checking the installation..."
 msgid "Checking for installer updates"
@@ -1304,19 +1321,19 @@ msgstr "Проверка на инсталацията..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:183001
 msgid "Reading package information"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:184001
 msgid "Updating package information"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:185001
 #, fuzzy
 #| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
@@ -1324,7 +1341,7 @@ msgstr "Стъпка ${INDEX} от ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:186001
 #, fuzzy
 #| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
@@ -1332,7 +1349,7 @@ msgstr "Стъпка ${INDEX} от ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:186001
+#: ../ubiquity.templates:187001
 #, fuzzy
 #| msgid "Installing system"
 msgid "Installing update"
@@ -1340,13 +1357,13 @@ msgstr "Инсталиране на системата"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:188001
 msgid "Error updating installer"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:188001
 #, fuzzy
 #| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
