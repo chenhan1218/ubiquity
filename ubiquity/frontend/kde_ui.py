@@ -788,12 +788,15 @@ class Wizard(BaseFrontend):
 
         self.current_page = None
         
-        slides = '/usr/share/ubiquity-slideshow/slides/index.html'
+        slides = '/usr/share/ubiquity-slideshow-kubuntu/slides/index.html'
         #TODO test if screen is big enough to show slides...
         try:
             lang = self.locale.split('_')[0]
             if os.path.exists(slides):
-                slides = 'file://%s#locale=%s' % (slides, lang)
+                slides = 'file://%s#?locale=%s' % (slides, lang)
+                ltr = i18n.get_string('default-ltr', lang, 'ubiquity/imported')
+                if ltr == 'default:RTL':
+                    slides += '?rtl'
                 from PyQt4.QtWebKit import QWebView
                 from PyQt4.QtWebKit import QWebPage
                 
