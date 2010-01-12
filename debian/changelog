@@ -6,6 +6,8 @@ ubiquity (2.1.10) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Use new URL format introduced by the latest ubiquity-slideshow.
   * Support RTL text in the Kubuntu slideshow.
+  * Bring the KDE frontend slideshow handling into line with GTK
+    frontend.
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 12 Jan 2010 08:30:42 +0000
 

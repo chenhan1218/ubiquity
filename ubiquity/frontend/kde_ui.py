@@ -788,48 +788,52 @@ class Wizard(BaseFrontend):
 
         self.current_page = None
         
+        lang = self.locale.split('_')[0]
         slides = '/usr/share/ubiquity-slideshow-kubuntu/slides/index.html'
-        #TODO test if screen is big enough to show slides...
-        try:
-            lang = self.locale.split('_')[0]
-            if os.path.exists(slides):
-                slides = 'file://%s#?locale=%s' % (slides, lang)
+        s = self.app.desktop().availableGeometry()
+        fail = None
+        if os.path.exists(slides):
+            slides = 'file://%s#?locale=%s' % (slides, lang)
+            if s.height >= 600 and s.width >= 800:
                 ltr = i18n.get_string('default-ltr', lang, 'ubiquity/imported')
                 if ltr == 'default:RTL':
                     slides += '?rtl'
-                from PyQt4.QtWebKit import QWebView
-                from PyQt4.QtWebKit import QWebPage
-                
-                #we need to get root privs to open a link because 
-                #the kapplication was started that way...
-                def openLink(qUrl):
-                    os.setegid(0)
-                    os.seteuid(0)
-                
-                    QDesktopServices.openUrl(qUrl)
-                    drop_privileges()
-                
-                webView = QWebView()
-                
-                webView.linkClicked.connect(openLink)
-                
-                webView.setContextMenuPolicy(Qt.NoContextMenu)
-                webView.page().setLinkDelegationPolicy(QWebPage.DelegateExternalLinks)
-                webView.page().mainFrame().setScrollBarPolicy(Qt.Horizontal, Qt.ScrollBarAlwaysOff)
-                webView.page().mainFrame().setScrollBarPolicy(Qt.Vertical, Qt.ScrollBarAlwaysOff)
-                webView.setFixedSize(700,420);
-                
-                webView.load(QUrl(slides))
-                
-                #add the webview to the extra frame of the progress dialog
-                self.progressDialog.extraFrame.layout().addWidget(webView)
-                self.progressDialog.extraFrame.setVisible(True)
-                
+                try:
+                    from PyQt4.QtWebKit import QWebView
+                    from PyQt4.QtWebKit import QWebPage
+                    
+                    #we need to get root privs to open a link because 
+                    #the kapplication was started that way...
+                    def openLink(qUrl):
+                        os.setegid(0)
+                        os.seteuid(0)
+                    
+                        QDesktopServices.openUrl(qUrl)
+                        drop_privileges()
+                    
+                    webView = QWebView()
+                    
+                    webView.linkClicked.connect(openLink)
+                    
+                    webView.setContextMenuPolicy(Qt.NoContextMenu)
+                    webView.page().setLinkDelegationPolicy(QWebPage.DelegateExternalLinks)
+                    webView.page().mainFrame().setScrollBarPolicy(Qt.Horizontal, Qt.ScrollBarAlwaysOff)
+                    webView.page().mainFrame().setScrollBarPolicy(Qt.Vertical, Qt.ScrollBarAlwaysOff)
+                    webView.setFixedSize(700,420);
+                    
+                    webView.load(QUrl(slides))
+                    
+                    #add the webview to the extra frame of the progress dialog
+                    self.progressDialog.extraFrame.layout().addWidget(webView)
+                    self.progressDialog.extraFrame.setVisible(True)
+                except ImportError:
+                    fail = 'Webkit not present.'
             else:
-                raise Exception('No slides present for %s.' % lang)
-            
-        except Exception, e:
-            syslog.syslog('Not displaying the slideshow: %s' % str(e))
+                fail = 'Display < 800x600 (%sx%s).' % (s.width, s.height)
+        else:
+            fail = 'No slides present for %s.' % lang
+        if fail:
+            syslog.syslog('Not displaying the slideshow: %s' % fail)
 
         self.debconf_progress_start(
             0, 100, self.get_string('ubiquity/install/title'))
