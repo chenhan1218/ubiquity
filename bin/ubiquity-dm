@@ -61,6 +61,19 @@ class DM:
     def sigusr1_handler(self, signum, frame):
         self.server_started = True
 
+    def active_vt(self):
+        import fcntl
+        import array
+
+        console = os.open('/dev/tty0', os.O_RDONLY | os.O_NOCTTY)
+        try:
+            VT_GETSTATE = 0x5603
+            vt_stat = array.array('H', [0, 0, 0])
+            fcntl.ioctl(console, VT_GETSTATE, vt_stat)
+            return vt_stat[0]
+        finally:
+            os.close(console)
+
     def drop_privileges(self):
         os.setgroups(self.groups)
         os.setgid(self.gid)
@@ -79,7 +92,18 @@ class DM:
         signal.signal(signal.SIGTTIN, signal.SIG_IGN)
         signal.signal(signal.SIGTTOU, signal.SIG_IGN)
 
-        servercommand = ['X', '-br', '-ac', '-noreset', '-nolisten', 'tcp', self.vt, self.display]
+        servercommand = ['X', '-br', '-ac', '-noreset', '-nolisten', 'tcp']
+
+        try:
+            plymouth_running = subprocess.call(['plymouth', '--ping']) == 0
+        except OSError:
+            plymouth_running = False
+        if plymouth_running:
+            subprocess.call(['plymouth', 'deactivate'])
+            self.vt = 'vt%d' % self.active_vt()
+            servercommand.append('-nr')
+
+        servercommand.extend([self.vt, self.display])
         if self.frontend == 'mythbuntu_ui':
             servercommand.append('-dpi')
             servercommand.append('100')
@@ -98,11 +122,17 @@ class DM:
         while not self.server_started:
             status = server.poll()
             if type(status) is int and status != 0:
+                if plymouth_running:
+                    subprocess.call(['plymouth', 'quit'])
                 raise XStartupError, "X server exited with return code " + str(status)
             if timeout == 0:
+                if plymouth_running:
+                    subprocess.call(['plymouth', 'quit'])
                 raise XStartupError, "X server failed to start after 60 seconds"
             time.sleep(1)
             timeout -= 1
+        if plymouth_running:
+            subprocess.call(['plymouth', 'quit', '--retain-splash'])
 
         # Session bus, apparently needed by most interfaces now
         if ('DBUS_SESSION_BUS_ADDRESS' not in os.environ and
