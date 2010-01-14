@@ -65,7 +65,7 @@ for try in $(seq 1 $TRY); do
 		fi
 		RET="$(echo GET oem-config/remove | debconf-communicate)"
 		if [ "${RET#* }" = true ]; then
-			apt-get -y purge oem-config >>/var/log/oem-config.log 2>&1
+			apt-get -y purge ubiquity >>/var/log/oem-config.log 2>&1
 		fi
 		exit 0
 	elif [ "$CODE" -eq 10 ]; then
@@ -116,7 +116,7 @@ EOF
 	rm -f /var/lib/oem-config/run
 	RET="$(echo GET oem-config/remove | debconf-communicate)"
 	if [ "${RET#* }" = true ]; then
-		apt-get -y purge oem-config >>/var/log/oem-config.log 2>&1
+		apt-get -y purge ubiquity >>/var/log/oem-config.log 2>&1
 	fi
 
 	reboot
