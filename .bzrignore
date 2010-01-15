@@ -5,6 +5,7 @@ tailor.state.journal
 ./build-stamp
 debian/build
 debian/files
+debian/kbdnames.gz
 debian/oem-config
 debian/oem-config-check
 debian/oem-config-debconf
