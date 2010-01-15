@@ -1,8 +1,12 @@
 ubiquity (2.1.11) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Remove ubiquity on successful completion of oem-config (LP: #210779).
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 13 Jan 2010 16:46:29 +0000
+  [ Didier Roche ]
+  * Rebuild needed to take 1.28ubuntu2 user-setup-apply version (LP: #507121)
+
+ -- Didier Roche <didrocks@ubuntu.com>  Fri, 15 Jan 2010 12:04:38 +0100
 
 ubiquity (2.1.10) lucid; urgency=low
 
