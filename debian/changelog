@@ -6,6 +6,9 @@ ubiquity (2.1.11) UNRELEASED; urgency=low
   [ Didier Roche ]
   * Rebuild needed to take 1.28ubuntu2 user-setup-apply version (LP: #507121)
 
+  [ Colin Watson ]
+  * Log calls to partman's freeze_choices and thaw_choices.
+
  -- Didier Roche <didrocks@ubuntu.com>  Fri, 15 Jan 2010 12:04:38 +0100
 
 ubiquity (2.1.10) lucid; urgency=low

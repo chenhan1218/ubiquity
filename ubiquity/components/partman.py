@@ -404,12 +404,14 @@ class Page(Plugin):
         use preseed_as_c or similar while choices are frozen, as the current
         set of choices may not be valid; you must cache whatever you need
         before calling this method."""
+        self.debug('Partman: Freezing choices for %s', menu)
         regain_privileges()
         open('/lib/partman/%s/no_show_choices' % menu, 'w').close
         drop_privileges()
 
     def thaw_choices(self, menu):
         """Reverse the effects of freeze_choices."""
+        self.debug('Partman: Thawing choices for %s', menu)
         regain_privileges()
         try:
             os.unlink('/lib/partman/%s/no_show_choices' % menu)
