@@ -505,17 +505,25 @@ class Page(Plugin):
 
     def apply_keyboard(self, layout, variant):
         model = self.db.get('console-setup/modelcode')
+        # Roughly taken from console-setup's config.proto:
+        l = self.db.get('debian-installer/locale').rsplit('.', 1)[0]
+        if l not in keyboard_names.lang:
+            self.debug("Untranslated layout '%s'" % l)
+            l = l.rsplit('_', 1)[0]
+        if l not in keyboard_names.lang:
+            self.debug("Untranslated layout '%s'" % l)
+            l = 'C'
 
-        if layout not in keyboard_names.layouts:
+        if layout not in keyboard_names.lang[l]['layouts']:
             self.debug("Unknown keyboard layout '%s'" % layout)
             return
-        layout = keyboard_names.layouts[layout]
+        layout = keyboard_names.lang[l]['layouts'][layout]
 
-        if layout not in keyboard_names.variants:
+        if layout not in keyboard_names.lang[l]['variants']:
             self.debug("No known variants for layout '%s'" % layout)
             variant = ''
-        elif variant in keyboard_names.variants[layout]:
-            variant = keyboard_names.variants[layout][variant]
+        elif variant in keyboard_names.lang[l]['variants'][layout]:
+            variant = keyboard_names.lang[l]['variants'][layout][variant]
         else:
             self.debug("Unknown keyboard variant '%s' for layout '%s'" %
                        (variant, layout))
