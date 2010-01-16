@@ -12,6 +12,8 @@ ubiquity (2.1.11) UNRELEASED; urgency=low
     choices for partman/choose_partition immediately *before* going back to
     it at the end of building the cache, rather than just after it's
     displayed when thawing choices has no immediate effect (LP: #506585).
+  * Automatic update of included source packages: partman-base 135ubuntu4,
+    user-setup 1.28ubuntu2.
 
  -- Didier Roche <didrocks@ubuntu.com>  Fri, 15 Jan 2010 12:04:38 +0100
 

@@ -15,7 +15,7 @@ netcfg 1.51ubuntu1
 partconf 1.32
 partman-auto 89ubuntu2
 partman-auto-loop 0ubuntu18
-partman-base 135ubuntu3
+partman-base 135ubuntu4
 partman-basicfilesystems 63ubuntu2
 partman-basicmethods 43ubuntu2
 partman-efi 20ubuntu1
@@ -30,5 +30,5 @@ partman-xfs 44
 preseed 1.43
 silo-installer 1.16ubuntu1
 tzsetup 1:0.26ubuntu1
-user-setup 1.28ubuntu1
+user-setup 1.28ubuntu2
 yaboot-installer 1.1.15ubuntu1
