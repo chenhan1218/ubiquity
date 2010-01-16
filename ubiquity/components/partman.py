@@ -186,22 +186,9 @@ class Page(Plugin):
 
     def preseed_script(self, question, menu_options,
                        want_script, want_arg=None):
-        if want_arg is None:
-            # Simple case; we don't need to distinguish by argument, so just
-            # preseeding the name of the script will do. Note that this
-            # doesn't work for questions using old_debconf_select (i.e. not
-            # using Choices-C), but that's deprecated and there don't seem
-            # to be any instances of it in at least the set of partman
-            # components currently used by ubiquity.
-            self.preseed(question, want_script, seen=False)
-        else:
-            # Complex case; we need to distinguish by argument. This relies
-            # on freeze_choices not having been in effect when the current
-            # menu was generated.
-            (script, arg, option) = self.must_find_one_script(
-                question, menu_options, want_script, want_arg)
-            self.preseed(question, '%s__________%s' % (script, arg),
-                         seen=False)
+        (script, arg, option) = self.must_find_one_script(
+            question, menu_options, want_script, want_arg)
+        self.preseed(question, '%s__________%s' % (script, arg), seen=False)
 
     def split_devpart(self, devpart):
         dev, part_id = devpart.split('//', 1)
@@ -418,6 +405,19 @@ class Page(Plugin):
         except OSError:
             pass
         drop_privileges()
+
+    def maybe_thaw_choose_partition(self):
+        # partman/choose_partition is special; it's the main control point
+        # for building the partition cache.  If we're freezing choices (a
+        # performance optimisation) while building the cache, we need to
+        # make sure that we thaw them just before the last time we return to
+        # choose_partition.  Otherwise, the first manual operation after
+        # that may fail because we don't have enough information to preseed
+        # choose_partition properly.
+        if self.__state[-1][0] == 'partman/choose_partition':
+            if not [p for p in self.update_partitions
+                      if p in self.partition_cache]:
+                self.thaw_choices('choose_partition')
 
     def run(self, priority, question):
         if self.done:
@@ -830,6 +830,7 @@ class Page(Plugin):
                 if self.find_script(menu_options, 'new'):
                     can_new = True
                 partition['can_new'] = can_new
+                self.maybe_thaw_choose_partition()
                 # Back up to the previous menu.
                 return False
             elif self.creating_partition:
@@ -893,6 +894,7 @@ class Page(Plugin):
                         except KeyError:
                             pass
                         self.__state.pop()
+                        self.maybe_thaw_choose_partition()
                         return False
 
                 assert state[0] == 'partman/choose_partition'

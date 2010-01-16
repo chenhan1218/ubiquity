@@ -8,6 +8,10 @@ ubiquity (2.1.11) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Log calls to partman's freeze_choices and thaw_choices.
+  * Revert frozen choices change from 2.1.8.  Instead, arrange to thaw
+    choices for partman/choose_partition immediately *before* going back to
+    it at the end of building the cache, rather than just after it's
+    displayed when thawing choices has no immediate effect (LP: #506585).
 
  -- Didier Roche <didrocks@ubuntu.com>  Fri, 15 Jan 2010 12:04:38 +0100
 
