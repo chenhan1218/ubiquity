@@ -78,6 +78,27 @@ UIDIR = os.path.join(PATH, 'gtk')
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
 
+def wrap_fix(w, allocation):
+    # Until the extended layout branch of GTK+ gets merged (bgo #101968).
+    layout = w.get_layout()
+    old_width, old_height = layout.get_size()
+    if old_width / pango.SCALE == allocation.width:
+        return
+    layout.set_width(allocation.width * pango.SCALE)
+    unused, height = layout.get_size()
+    if old_height != height:
+        w.set_size_request(-1, height / pango.SCALE)
+
+def process_labels(w):
+    if isinstance(w, gtk.Container):
+        children = w.get_children()
+        for c in children:
+            process_labels(c)
+    elif isinstance(w, gtk.Label):
+        if w.get_line_wrap():
+            w.connect_after('size-allocate', wrap_fix)
+        w.set_property('can-focus', False)
+
 class Controller(ubiquity.frontend.base.Controller):
     def translate(self, lang=None, just_me=True, reget=False):
         if lang:
@@ -224,6 +245,8 @@ class Wizard(BaseFrontend):
                     mod.widgets = fill_out(widgets)
                     mod.optional_widgets = fill_out(optional_widgets)
                     mod.all_widgets = mod.widgets + mod.optional_widgets
+                    for w in mod.all_widgets:
+                        process_labels(w)
                     self.user_pageslen += len(mod.widgets)
                     self.pageslen += 1
                     self.pages.append(mod)
@@ -1546,21 +1569,15 @@ class Wizard(BaseFrontend):
                     a.hide()
                     self.format_warning_align = a
                     label = gtk.Label()
+                    label.set_alignment(0, 0)
                     label.set_line_wrap(True)
-                    def wrap_fix(widget, allocation):
-                        # FIXME evand 2009-10-19: This is horrendous, but it's
-                        # all we have until the extended layout branch of GTK+
-                        # gets merged (bgo #101968).  The major side effect is
-                        # that you cannot shrink the window, even after you've
-                        # grown it.
-                        widget.set_size_request(allocation.width, -1)
-                    label.connect('size-allocate', wrap_fix)
+                    process_labels(label)
                     self.format_warning = label
                     hbox = gtk.HBox(spacing=6)
                     img = gtk.Image()
                     img.set_from_icon_name('gtk-dialog-warning', gtk.ICON_SIZE_BUTTON)
                     hbox.pack_start(img, expand=False, fill=False)
-                    hbox.pack_start(label, expand=True, fill=True)
+                    hbox.pack_start(label)
                     a.add(hbox)
                     vbox.add(a)
                     

@@ -6,6 +6,9 @@ ubiquity (2.1.12) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Allow the user to set a hostname in oem-config.
+  * Finally, finally, finally successfully work around GTK+ not
+    supporting height-for-width in labels.
+  * Remove labels created by plugins from the focus chain.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 16 Jan 2010 01:27:31 +0000
 
