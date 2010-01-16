@@ -1635,9 +1635,6 @@ exit 0"""
         here, because it's hard to drive netcfg in a way that won't try to
         bring interfaces up and down."""
         
-        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
-            return
-
         # TODO cjwatson 2006-03-30: just call netcfg instead of doing all
         # this; requires a netcfg binary that doesn't bring interfaces up
         # and down
@@ -1658,10 +1655,6 @@ exit 0"""
         if hostname == '':
             hostname = 'ubuntu'
 
-        fp = open(os.path.join(self.target, 'etc/hostname'), 'w')
-        print >>fp, hostname
-        fp.close()
-
         hosts = open(os.path.join(self.target, 'etc/hosts'), 'w')
         print >>hosts, "127.0.0.1\tlocalhost"
         if domain:
@@ -1679,6 +1672,13 @@ exit 0"""
             ff02::2 ip6-allrouters
             ff02::3 ip6-allhosts""")
         hosts.close()
+        
+        # Network Manager's ifupdown plugin has an inotify watch on
+        # /etc/hostname, which can trigger a race condition if /etc/hostname is
+        # written and immediately followed with /etc/hosts.
+        fp = open(os.path.join(self.target, 'etc/hostname'), 'w')
+        print >>fp, hostname
+        fp.close()
 
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
             os.system("hostname %s" % hostname)

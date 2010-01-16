@@ -545,7 +545,6 @@ class Wizard(BaseFrontend):
             self.live_installer.set_icon_name("preferences-system")
             self.live_installer.window.set_functions(gtk.gdk.FUNC_RESIZE | gtk.gdk.FUNC_MOVE)
             self.quit.hide()
-            self.hostname_vbox.hide()
 
         if not 'UBIQUITY_AUTOMATIC' in os.environ:
             self.live_installer.show()

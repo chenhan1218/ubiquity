@@ -1,7 +1,11 @@
 ubiquity (2.1.12) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Add osextras.unlink_force, equivalent to 'rm -f', to save on tedious
     exception handling.
+
+  [ Evan Dandrea ]
+  * Allow the user to set a hostname in oem-config.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 16 Jan 2010 01:27:31 +0000
 
