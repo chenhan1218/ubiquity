@@ -27,6 +27,7 @@ import debconf
 from ubiquity.plugin import *
 from ubiquity import parted_server
 from ubiquity.misc import *
+from ubiquity import osextras
 
 NAME = 'partman'
 
@@ -79,10 +80,7 @@ class Page(Plugin):
                 os.kill(pid, signal.SIGTERM)
             except Exception:
                 pass
-            try:
-                os.unlink('/var/run/parted_server.pid')
-            except OSError:
-                pass
+            osextras.unlink_force('/var/run/parted_server.pid')
 
         # Force autopartitioning to be re-run.
         shutil.rmtree('/var/lib/partman', ignore_errors=True)
@@ -400,10 +398,7 @@ class Page(Plugin):
         """Reverse the effects of freeze_choices."""
         self.debug('Partman: Thawing choices for %s', menu)
         regain_privileges()
-        try:
-            os.unlink('/lib/partman/%s/no_show_choices' % menu)
-        except OSError:
-            pass
+        osextras.unlink_force('/lib/partman/%s/no_show_choices' % menu)
         drop_privileges()
 
     def maybe_thaw_choose_partition(self):

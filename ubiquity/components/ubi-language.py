@@ -22,7 +22,10 @@ import debconf
 import PyICU
 
 from ubiquity.plugin import *
-from ubiquity import i18n, misc, auto_update
+from ubiquity import i18n
+from ubiquity import misc
+from ubiquity import auto_update
+from ubiquity import osextras
 
 NAME = 'language'
 AFTER = None
@@ -326,14 +329,8 @@ class Page(Plugin):
         self.initial_language = None
         self.db.fset('localechooser/languagelist', 'seen', 'false')
         misc.regain_privileges()
-        try:
-            os.unlink('/var/lib/localechooser/preseeded')
-        except OSError:
-            pass
-        try:
-            os.unlink('/var/lib/localechooser/langlevel')
-        except OSError:
-            pass
+        osextras.unlink_force('/var/lib/localechooser/preseeded')
+        osextras.unlink_force('/var/lib/localechooser/langlevel')
         misc.drop_privileges()
         if self.ui.controller.oem_config:
             try:

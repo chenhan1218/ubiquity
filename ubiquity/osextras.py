@@ -96,3 +96,11 @@ def find_on_path(command):
         if os.path.isfile(filename) and os.access(filename, os.X_OK):
             return True
     return False
+
+
+def unlink_force(path):
+    """Unlink path, without worrying about whether it exists."""
+    try:
+        os.unlink(path)
+    except OSError:
+        pass

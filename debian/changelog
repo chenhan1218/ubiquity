@@ -1,3 +1,10 @@
+ubiquity (2.1.12) UNRELEASED; urgency=low
+
+  * Add osextras.unlink_force, equivalent to 'rm -f', to save on tedious
+    exception handling.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat, 16 Jan 2010 01:27:31 +0000
+
 ubiquity (2.1.11) lucid; urgency=low
 
   [ Evan Dandrea ]

@@ -33,6 +33,7 @@ import string
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
+from ubiquity import osextras
 from install import Install as ParentInstall
 from install import InstallStepError
 from ubiquity.components import mythbuntu_install
@@ -283,10 +284,7 @@ bind-address=0.0.0.0"""
         try:
             self.reconfigure('lirc')
         finally:
-            try:
-                os.unlink('/target/sbin/udevd')
-            except OSError:
-                pass
+            osextras.unlink_force('/target/sbin/udevd')
             self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
                        '--quiet', '--remove', '/sbin/udevd')
         self.chroot_cleanup()
@@ -386,8 +384,7 @@ bind-address=0.0.0.0"""
 if __name__ == '__main__':
     if not os.path.exists('/var/lib/ubiquity'):
         os.makedirs('/var/lib/ubiquity')
-    if os.path.exists('/var/lib/ubiquity/install.trace'):
-        os.unlink('/var/lib/ubiquity/install.trace')
+    osextras.unlink_force('/var/lib/ubiquity/install.trace')
 
     install = Install()
     sys.excepthook = install.excepthook

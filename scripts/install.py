@@ -735,8 +735,7 @@ class Install:
                         if debug:
                             syslog.syslog('Not copying %s' % relpath)
                         continue
-                    if os.path.exists(targetpath):
-                        os.unlink(targetpath)
+                    osextras.unlink_force(targetpath)
                     self.copy_file(sourcepath, targetpath, md5_check)
 
                 copied_size += st.st_size
@@ -790,8 +789,7 @@ class Install:
             prefix = os.path.basename(kernel).split('-', 1)[0]
             release = os.uname()[2]
             target_kernel = os.path.join(bootdir, '%s-%s' % (prefix, release))
-            if os.path.exists(target_kernel):
-                os.unlink(target_kernel)
+            osextras.unlink_force(target_kernel)
             self.copy_file(kernel, target_kernel, md5_check)
             os.lchown(target_kernel, 0, 0)
             os.chmod(target_kernel, 0644)
@@ -1070,10 +1068,8 @@ exit 0"""
                 os.rmdir(os.path.join(self.target, 'tmp/.X11-unix'))
             except OSError:
                 pass
-            try:
-                os.unlink(os.path.join(self.target, 'root/.Xauthority'))
-            except OSError:
-                pass
+            osextras.unlink_force(os.path.join(self.target,
+                                               'root/.Xauthority'))
 
         self.chrex('umount', '/dev')
         self.chrex('umount', '/sys')
@@ -1087,10 +1083,10 @@ exit 0"""
         if os.path.exists('%s.REAL' % start_stop_daemon):
             os.rename('%s.REAL' % start_stop_daemon, start_stop_daemon)
         else:
-            os.unlink(start_stop_daemon)
+            osextras.unlink_force(start_stop_daemon)
 
         policy_rc_d = os.path.join(self.target, 'usr/sbin/policy-rc.d')
-        os.unlink(policy_rc_d)
+        osextras.unlink_force(policy_rc_d)
 
 
     def run_target_config_hooks(self):
@@ -1508,30 +1504,22 @@ exit 0"""
                 print >>configfile, "RESUME=%s" % resume
                 configfile.close()
 
-        try:
-            os.unlink(os.path.join(self.target, 'etc/usplash.conf'))
-        except OSError:
-            pass
+        osextras.unlink_force(os.path.join(self.target, 'etc/usplash.conf'))
         try:
             modes = self.db.get('xserver-xorg/config/display/modes')
             self.set_debconf('xserver-xorg/config/display/modes', modes)
         except debconf.DebconfError:
             pass
 
-        try:
-            os.unlink(os.path.join(self.target, 'etc/popularity-contest.conf'))
-        except OSError:
-            pass
+        osextras.unlink_force(os.path.join(self.target,
+                                           'etc/popularity-contest.conf'))
         try:
             participate = self.db.get('popularity-contest/participate')
             self.set_debconf('popularity-contest/participate', participate)
         except debconf.DebconfError:
             pass
 
-        try:
-            os.unlink(os.path.join(self.target, 'etc/papersize'))
-        except OSError:
-            pass
+        osextras.unlink_force(os.path.join(self.target, 'etc/papersize'))
         subprocess.call(['log-output', '-t', 'ubiquity', 'chroot', self.target,
                          'ucf', '--purge', '/etc/papersize'],
                         preexec_fn=debconf_disconnect, close_fds=True)
@@ -1540,16 +1528,10 @@ exit 0"""
         except debconf.DebconfError:
             pass
 
-        try:
-            os.unlink(os.path.join(self.target,
-                      'etc/ssl/certs/ssl-cert-snakeoil.pem'))
-        except OSError:
-            pass
-        try:
-            os.unlink(os.path.join(self.target,
-                      'etc/ssl/private/ssl-cert-snakeoil.key'))
-        except OSError:
-            pass
+        osextras.unlink_force(os.path.join(
+            self.target, 'etc/ssl/certs/ssl-cert-snakeoil.pem'))
+        osextras.unlink_force(os.path.join(
+            self.target, 'etc/ssl/private/ssl-cert-snakeoil.key'))
 
         self.chroot_setup(x11=True)
         self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
@@ -1572,11 +1554,8 @@ exit 0"""
             for package in packages:
                 self.reconfigure(package)
         finally:
-            try:
-                os.unlink(os.path.join(self.target,
-                          'usr/sbin/update-initramfs'))
-            except OSError:
-                pass
+            osextras.unlink_force(os.path.join(self.target,
+                                               'usr/sbin/update-initramfs'))
             self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
                        '--quiet', '--remove', '/usr/sbin/update-initramfs')
             self.chrex('update-initramfs', '-c', '-k', self.kernel_version)
@@ -2387,8 +2366,7 @@ exit 0"""
                 elif stat.S_ISSOCK(st.st_mode):
                     os.mknod(targetpath, stat.S_IFSOCK | mode)
                 elif stat.S_ISREG(st.st_mode):
-                    if os.path.exists(targetpath):
-                        os.unlink(targetpath)
+                    osextras.unlink_force(targetpath)
                     self.copy_file(sourcepath, targetpath, True)
 
                 os.lchown(targetpath, uid, gid)
@@ -2492,11 +2470,8 @@ exit 0"""
 
         for apt_conf in ('00NoMountCDROM', '00IgnoreTimeConflict',
                          '00AllowUnauthenticated'):
-            try:
-                os.unlink(os.path.join(
-                    self.target, 'etc/apt/apt.conf.d', apt_conf))
-            except:
-                pass
+            osextras.unlink_force(os.path.join(
+                self.target, 'etc/apt/apt.conf.d', apt_conf))
 
         if self.source == '/var/lib/ubiquity/source':
             self.umount_source()
@@ -2558,8 +2533,7 @@ exit 0"""
 if __name__ == '__main__':
     if not os.path.exists('/var/lib/ubiquity'):
         os.makedirs('/var/lib/ubiquity')
-    if os.path.exists('/var/lib/ubiquity/install.trace'):
-        os.unlink('/var/lib/ubiquity/install.trace')
+    osextras.unlink_force('/var/lib/ubiquity/install.trace')
 
     install = Install()
     sys.excepthook = install.excepthook

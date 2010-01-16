@@ -24,6 +24,7 @@ import os
 from ubiquity.plugin import *
 from ubiquity import keyboard_names
 from ubiquity import misc
+from ubiquity import osextras
 
 NAME = 'console_setup'
 AFTER = 'timezone'
@@ -326,18 +327,12 @@ class Page(Plugin):
         # save the old file for interest's sake, but it's not a big deal if
         # we can't.
         misc.regain_privileges()
-        try:
-            os.unlink('/etc/default/console-setup.pre-ubiquity')
-        except OSError:
-            pass
+        osextras.unlink_force('/etc/default/console-setup.pre-ubiquity')
         try:
             os.rename('/etc/default/console-setup',
                       '/etc/default/console-setup.pre-ubiquity')
         except OSError:
-            try:
-                os.unlink('/etc/default/console-setup')
-            except OSError:
-                pass
+            osextras.unlink_force('/etc/default/console-setup')
         misc.drop_privileges()
         # Make sure debconf doesn't do anything with crazy "preseeded"
         # answers to these questions. If you want to preseed these, use the

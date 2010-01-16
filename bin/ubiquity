@@ -28,6 +28,7 @@ sys.path.insert(0, '/usr/lib/ubiquity')
 
 from ubiquity import misc
 from ubiquity import im_switch
+from ubiquity import osextras
 
 VERSION = '@VERSION@'
 TARGET = '/target'
@@ -166,10 +167,7 @@ def start_debconf():
         # debconf already started, so just clean up the configuration file
         # if any (debconf has already read it by now).
         if 'DEBCONF_SYSTEMRC' in os.environ:
-            try:
-                os.unlink(os.environ['DEBCONF_SYSTEMRC'])
-            except OSError:
-                pass
+            osextras.unlink_force(os.environ['DEBCONF_SYSTEMRC'])
         return
 
     print >>sys.stderr, "debconf_ui selected; starting debconf frontend"
@@ -283,10 +281,7 @@ def prepend_path(directory):
 
 def release_lock():
     global lock
-    try:
-        os.unlink(LOCKFILE)
-    except OSError:
-        pass
+    osextras.unlink_force(LOCKFILE)
     if lock is not None:
         lock.close()
         lock = None
@@ -431,9 +426,7 @@ def main(oem_config):
 
     # Clean up old state.
     for name in ('apt-installed', 'apt-install-direct', 'remove-kernels'):
-        path = os.path.join('/var/lib/ubiquity', name)
-        if os.path.exists(path):
-            os.unlink(path)
+        osextras.unlink_force(os.path.join('/var/lib/ubiquity', name))
     shutil.rmtree("/var/lib/partman", ignore_errors=True)
 
     if oem_config and not options.query:
