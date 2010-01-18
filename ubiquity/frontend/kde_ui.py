@@ -40,7 +40,7 @@ from PyQt4 import uic
 from PyKDE4.kdeui import *
 from PyKDE4.kdecore import *
 
-#import all our custome kde components
+#import all our custom kde components
 from ubiquity.frontend.kde_components.PartitionBar import *
 from ubiquity.frontend.kde_components.PartitionModel import *
 from ubiquity.frontend.kde_components.ProgressDialog import *
