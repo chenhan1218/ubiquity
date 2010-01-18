@@ -106,15 +106,14 @@ def get_translations(languages=None, core_names=[], extra_prefixes=[]):
 
         _translations = {}
         devnull = open('/dev/null', 'w')
-        # necessary?
-        def subprocess_setup():
-            misc.regain_privileges()
         db = subprocess.Popen(
             ['debconf-copydb', 'templatedb', 'pipe',
              '--config=Name:pipe', '--config=Driver:Pipe',
              '--config=InFd:none',
              '--pattern=^(%s)' % prefixes],
-            stdout=subprocess.PIPE, stderr=devnull, preexec_fn=subprocess_setup)
+            stdout=subprocess.PIPE, stderr=devnull,
+            # necessary?
+            preexec_fn=misc.regain_privileges)
         question = None
         descriptions = {}
         fieldsplitter = re.compile(r':\s*')
