@@ -792,21 +792,10 @@ class Wizard(BaseFrontend):
 
     def allow_go_backward(self, allowed):
         self.back.set_sensitive(allowed and self.allowed_change_step)
-        # Work around http://bugzilla.gnome.org/show_bug.cgi?id=56070
-        if (self.back.get_property('visible') and
-            allowed and self.allowed_change_step):
-            self.back.hide()
-            self.back.show()
         self.allowed_go_backward = allowed
 
     def allow_go_forward(self, allowed):
         self.next.set_sensitive(allowed and self.allowed_change_step)
-        # Work around http://bugzilla.gnome.org/show_bug.cgi?id=56070
-        if (self.next.get_property('visible') and
-            allowed and self.allowed_change_step):
-            self.next.hide()
-            self.next.show()
-            self.next.grab_default()
         self.allowed_go_forward = allowed
 
 

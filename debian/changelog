@@ -22,6 +22,8 @@ ubiquity (2.1.12) UNRELEASED; urgency=low
   * Remove labels created by plugins from the focus chain.
   * Don't try to generate an apparmor cache in oem-config.
   * Slightly better exception printing in scripts/install.py
+  * GNOME Bug #56070 (can't click button twice) has long since been
+    closed.  Remove hack.
 
   [ Mario Limonciello ]
   * Drop old hack for reconfiguring mythbuntu-default-settings since
