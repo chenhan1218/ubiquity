@@ -347,10 +347,6 @@ class Wizard(BaseFrontend):
 
         self.disable_volume_manager()
 
-        # show interface
-        # TODO cjwatson 2005-12-20: Disabled for now because this segfaults in
-        # current dapper (https://bugzilla.ubuntu.com/show_bug.cgi?id=20338).
-        #self.show_browser()
         self.allow_change_step(True)
         
         # Declare SignalHandler
