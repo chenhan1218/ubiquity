@@ -10,6 +10,10 @@ ubiquity (2.1.12) UNRELEASED; urgency=low
     supporting height-for-width in labels.
   * Remove labels created by plugins from the focus chain.
 
+  [ Mario Limonciello ]
+  * Drop old hack for reconfiguring mythbuntu-default-settings since
+    this is fixed in user-setup now.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 16 Jan 2010 01:27:31 +0000
 
 ubiquity (2.1.11) lucid; urgency=low

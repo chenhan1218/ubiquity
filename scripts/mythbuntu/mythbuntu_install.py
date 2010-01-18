@@ -128,9 +128,6 @@ class Install(ParentInstall):
                 #on a live disk, this will appear a broken link, but it works
                 pass
 
-        #DefaultSession (it's not set by user-setup-apply)
-        self.reconfigure('mythbuntu-default-settings')
-
         #group membership
         self.chrex('adduser', self.user, 'mythtv')
         self.chrex('adduser', self.user, 'video')
