@@ -9,6 +9,7 @@ ubiquity (2.1.12) UNRELEASED; urgency=low
     - Check plugin builders as well when adding widgets (setting their
       names, making them callable by the toplevel, etc.).  This fixes
       translations of the language, timezone, and keyboard pages.
+  * Fix immediate retranslation when changing language.
 
   [ Evan Dandrea ]
   * Allow the user to set a hostname in oem-config.

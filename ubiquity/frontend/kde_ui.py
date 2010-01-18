@@ -268,7 +268,8 @@ class Wizard(BaseFrontend):
 
         self.customize_installer()
 
-        self.translate_widgets()
+        self.stop_debconf()
+        self.translate_widgets(reget=True)
         
         self.autopartition_buttongroup = QButtonGroup(self.ui.autopart_selection_frame)
         self.autopartition_buttongroup_texts = {}

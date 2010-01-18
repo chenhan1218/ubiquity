@@ -268,7 +268,8 @@ class Wizard(BaseFrontend):
                     self.toplevels.add(widget)
         self.builder.connect_signals(self)
 
-        self.translate_widgets()
+        self.stop_debconf()
+        self.translate_widgets(reget=True)
 
         self.customize_installer()
 
