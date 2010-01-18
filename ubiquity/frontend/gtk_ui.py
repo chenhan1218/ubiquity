@@ -102,18 +102,24 @@ def process_labels(w):
 class Controller(ubiquity.frontend.base.Controller):
     def add_builder(self, builder):
         self._wizard.builders.append(builder)
+
     def translate(self, lang=None, just_me=True, reget=False):
         if lang:
             self._wizard.locale = lang
         self._wizard.translate_pages(lang, just_me, reget)
+
     def allow_go_forward(self, allowed):
         self._wizard.allow_go_forward(allowed)
+
     def allow_go_backward(self, allowed):
         self._wizard.allow_go_backward(allowed)
+
     def go_forward(self):
         self._wizard.next.activate()
+
     def go_backward(self):
         self._wizard.back.activate()
+
     def go_to_page(self, widget):
         self._wizard.set_current_page(self._wizard.steps.page_num(widget))
 

@@ -107,14 +107,19 @@ class Controller(ubiquity.frontend.base.Controller):
         if lang:
             self._wizard.locale = lang
         self._wizard.translate_pages(lang, just_me, reget)
+
     def allow_go_forward(self, allowed):
         self._wizard.allow_go_forward(allowed)
+
     def allow_go_backward(self, allowed):
         self._wizard.allow_go_backward(allowed)
+
     def go_forward(self):
         self._wizard.ui.next.click()
+
     def go_backward(self):
         self._wizard.ui.back.click()
+
     def go_to_page(self, widget):
         self._wizard.set_current_page(self._wizard.ui.widgetStack.indexOf(widget))
 
