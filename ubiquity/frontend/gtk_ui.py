@@ -100,6 +100,8 @@ def process_labels(w):
         w.set_property('can-focus', False)
 
 class Controller(ubiquity.frontend.base.Controller):
+    def add_builder(self, builder):
+        self._wizard.builders.append(builder)
     def translate(self, lang=None, just_me=True, reget=False):
         if lang:
             self._wizard.locale = lang
@@ -217,6 +219,7 @@ class Wizard(BaseFrontend):
         # load the main interface
         self.builder.add_from_file('%s/ubiquity.ui' % UIDIR)
 
+        self.builders = [self.builder]
         self.pages = []
         self.pagesindex = 0
         self.pageslen = 0
@@ -252,10 +255,11 @@ class Wizard(BaseFrontend):
                     self.pages.append(mod)
 
         self.toplevels = set()
-        for widget in self.builder.get_objects():
-            add_widget(self, widget)
-            if isinstance(widget, gtk.Window):
-                self.toplevels.add(widget)
+        for builder in self.builders:
+            for widget in builder.get_objects():
+                add_widget(self, widget)
+                if isinstance(widget, gtk.Window):
+                    self.toplevels.add(widget)
         self.builder.connect_signals(self)
 
         self.translate_widgets()

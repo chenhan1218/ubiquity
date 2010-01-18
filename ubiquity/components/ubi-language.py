@@ -68,6 +68,7 @@ class PageGtk(PageBase):
             builder = gtk.Builder()
             builder.add_from_file('/usr/share/ubiquity/gtk/%s' % ui_file)
             builder.connect_signals(self)
+            self.controller.add_builder(builder)
             self.page = builder.get_object('stepLanguage')
             self.iconview = builder.get_object('language_iconview')
             self.treeview = builder.get_object('language_treeview')

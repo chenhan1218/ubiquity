@@ -5,6 +5,10 @@ ubiquity (2.1.12) UNRELEASED; urgency=low
     exception handling.
   * Only restart debconf-communicator when changing language, not every time
     we switch page.  This speeds up page transitions quite a bit.
+  * GTK frontend:
+    - Check plugin builders as well when adding widgets (setting their
+      names, making them callable by the toplevel, etc.).  This fixes
+      translations of the language, timezone, and keyboard pages.
 
   [ Evan Dandrea ]
   * Allow the user to set a hostname in oem-config.

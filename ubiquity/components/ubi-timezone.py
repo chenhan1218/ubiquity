@@ -38,6 +38,7 @@ class PageGtk(PluginUI):
         try:
             import gtk
             builder = gtk.Builder()
+            self.controller.add_builder(builder)
             builder.add_from_file('/usr/share/ubiquity/gtk/stepLocation.ui')
             builder.connect_signals(self)
             self.page = builder.get_object('stepLocation')
