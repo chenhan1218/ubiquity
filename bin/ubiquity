@@ -241,6 +241,7 @@ def install(frontend=None, query=False):
         open_terminal()
         start_debconf()
     ret = wizard.run()
+    wizard.stop_debconf()
     copy_debconf()
     unmount_target()
     if ret == 10:

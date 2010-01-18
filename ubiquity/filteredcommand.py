@@ -83,7 +83,10 @@ class FilteredCommand(UntrustedBase):
 
     def start(self, auto_process=False):
         self.status = None
-        self.db = DebconfCommunicator(PACKAGE, cloexec=True)
+        if not self.db:
+            assert self.frontend is not None
+            self.frontend.start_debconf()
+            self.db = self.frontend.db
         self.ui_loop_level = 0
         prep = self.prepare()
         if prep is None:
@@ -148,8 +151,7 @@ class FilteredCommand(UntrustedBase):
         return ret
 
     def cleanup(self):
-        self.db.shutdown()
-        self.db = None
+        pass
 
     def run_command(self, auto_process=False):
         # TODO cjwatson 2006-02-25: Hack to allow _apply functions to be run

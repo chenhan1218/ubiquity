@@ -3,6 +3,8 @@ ubiquity (2.1.12) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Add osextras.unlink_force, equivalent to 'rm -f', to save on tedious
     exception handling.
+  * Only restart debconf-communicator when changing language, not every time
+    we switch page.  This speeds up page transitions quite a bit.
 
   [ Evan Dandrea ]
   * Allow the user to set a hostname in oem-config.

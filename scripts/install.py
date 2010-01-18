@@ -1421,7 +1421,7 @@ exit 0"""
         into the installed system. Default user from live system is
         deleted and skel for this new user is copied to $HOME."""
 
-        dbfilter = usersetup_apply.UserSetupApply(None)
+        dbfilter = usersetup_apply.UserSetupApply(None, self.db)
         ret = dbfilter.run_command(auto_process=True)
         if ret != 0:
             raise InstallStepError("UserSetupApply failed with code %d" % ret)
@@ -1431,7 +1431,8 @@ exit 0"""
         systems."""
 
         if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
-            dbfilter = migrationassistant_apply.MigrationAssistantApply(None)
+            dbfilter = migrationassistant_apply.MigrationAssistantApply(
+                None, self.db)
             ret = dbfilter.run_command(auto_process=True)
             if ret != 0:
                 self.db.input('critical', 'ubiquity/install/broken_migration')
@@ -1754,7 +1755,7 @@ exit 0"""
                 if arch in ('amd64', 'i386', 'lpia'):
                     from ubiquity.components import grubinstaller
                     while 1:
-                        dbfilter = grubinstaller.GrubInstaller(None)
+                        dbfilter = grubinstaller.GrubInstaller(None, self.db)
                         ret = dbfilter.run_command(auto_process=True)
                         if ret != 0:
                             old_bootdev = self.db.get('grub-installer/bootdev')
@@ -1776,21 +1777,21 @@ exit 0"""
                 elif (arch == 'armel' and
                       subarch in ('dove', 'imx51', 'iop32x', 'ixp4xx', 'orion5x')):
                     from ubiquity.components import flash_kernel
-                    dbfilter = flash_kernel.FlashKernel(None)
+                    dbfilter = flash_kernel.FlashKernel(None, self.db)
                     ret = dbfilter.run_command(auto_process=True)
                     if ret != 0:
                         raise InstallStepError(
                             "FlashKernel failed with code %d" % ret)
                 elif arch == 'powerpc' and subarch == 'ps3':
                     from ubiquity.components import kbootinstaller
-                    dbfilter = kbootinstaller.KbootInstaller(None)
+                    dbfilter = kbootinstaller.KbootInstaller(None, self.db)
                     ret = dbfilter.run_command(auto_process=True)
                     if ret != 0:
                         raise InstallStepError(
                             "KbootInstaller failed with code %d" % ret)
                 elif arch == 'powerpc':
                     from ubiquity.components import yabootinstaller
-                    dbfilter = yabootinstaller.YabootInstaller(None)
+                    dbfilter = yabootinstaller.YabootInstaller(None, self.db)
                     ret = dbfilter.run_command(auto_process=True)
                     if ret != 0:
                         raise InstallStepError(
@@ -2103,7 +2104,7 @@ exit 0"""
         self.db.progress('INFO', 'ubiquity/install/find_removables')
 
         # Check for kernel packages to remove.
-        dbfilter = check_kernels.CheckKernels(None)
+        dbfilter = check_kernels.CheckKernels(None, self.db)
         dbfilter.run_command(auto_process=True)
 
         install_kernels = set()

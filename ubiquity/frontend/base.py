@@ -82,6 +82,7 @@ class BaseFrontend:
     def __init__(self, distro):
         """Frontend initialisation."""
         self.distro = distro
+        self.db = None
         self.dbfilter = None
         self.dbfilter_status = None
         self.resize_choice = None
@@ -97,14 +98,11 @@ class BaseFrontend:
         # thus talk to a11y applications running as a regular user.
         drop_privileges()
 
-        # Use a single private debconf-communicate instance for several
-        # queries we need to make at startup. While this is less convenient
-        # than using debconf_operation, it's significantly faster.
-        db = self.debconf_communicator()
+        self.start_debconf()
 
         self.oem_config = False
         try:
-            if db.get('oem-config/enable') == 'true':
+            if self.db.get('oem-config/enable') == 'true':
                 self.oem_config = True
                 # It seems unlikely that anyone will need
                 # migration-assistant in the OEM installation process. If it
@@ -121,8 +119,8 @@ class BaseFrontend:
 
         if self.oem_config:
             try:
-                db.set('passwd/auto-login', 'true')
-                db.set('passwd/auto-login-backup', 'oem')
+                self.db.set('passwd/auto-login', 'true')
+                self.db.set('passwd/auto-login-backup', 'oem')
             except debconf.DebconfError:
                 pass
 
@@ -133,16 +131,16 @@ class BaseFrontend:
         self.error_cmd = ''
         self.success_cmd = ''
         try:
-            self.automation_error_cmd = db.get(
+            self.automation_error_cmd = self.db.get(
                 'ubiquity/automation_failure_command')
-            self.error_cmd = db.get('ubiquity/failure_command')
-            self.success_cmd = db.get('ubiquity/success_command')
+            self.error_cmd = self.db.get('ubiquity/failure_command')
+            self.success_cmd = self.db.get('ubiquity/success_command')
         except debconf.DebconfError:
             pass
 
         self.allow_password_empty = False
         try:
-            self.allow_password_empty = db.get('user-setup/allow-password-empty') == 'true'
+            self.allow_password_empty = self.db.get('user-setup/allow-password-empty') == 'true'
         except debconf.DebconfError:
             pass
 
@@ -179,8 +177,6 @@ class BaseFrontend:
             os.environ['SCIM_USER'] = os.environ['SUDO_USER']
             os.environ['SCIM_HOME'] = os.path.expanduser(
                 '~%s' % os.environ['SUDO_USER'])
-
-        db.shutdown()
 
     def _abstract(self, method):
         raise NotImplementedError("%s.%s does not implement %s" %
@@ -282,17 +278,25 @@ class BaseFrontend:
     # Debconf interaction. We cannot talk to debconf normally here, as
     # running a normal frontend would interfere with pretending to be a
     # frontend for components, but we can start up a debconf-communicate
-    # instance on demand for single queries.
+    # instance on demand.
 
     def debconf_communicator(self):
         return DebconfCommunicator('ubiquity', cloexec=True)
 
+    def start_debconf(self):
+        """Start debconf-communicator if it isn't already running."""
+        if self.db is None:
+            self.db = self.debconf_communicator()
+
+    def stop_debconf(self):
+        """Stop debconf-communicator if it's running."""
+        if self.db is not None:
+            self.db.shutdown()
+            self.db = None
+
     def debconf_operation(self, command, *params):
-        db = self.debconf_communicator()
-        try:
-            return getattr(db, command)(*params)
-        finally:
-            db.shutdown()
+        self.start_debconf()
+        return getattr(self.db, command)(*params)
 
     # Progress bar handling.
 

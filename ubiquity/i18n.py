@@ -42,20 +42,10 @@ def get_supported_locales():
 
 
 # if 'just_country' is True, only the country is changing
-def reset_locale(just_country=False, db=None):
-    if db is None:
-        db = DebconfCommunicator('ubiquity', cloexec=True)
-        shutdown_db = True
-    else:
-        shutdown_db = False
-    di_locale = None
-    try:
-        di_locale = db.get('debian-installer/locale')
-        if di_locale not in get_supported_locales():
-            di_locale = db.get('debian-installer/fallbacklocale')
-    finally:
-        if shutdown_db:
-            db.shutdown()
+def reset_locale(frontend, just_country=False):
+    di_locale = frontend.db.get('debian-installer/locale')
+    if di_locale not in get_supported_locales():
+        di_locale = frontend.db.get('debian-installer/fallbacklocale')
     if not di_locale:
         # TODO cjwatson 2006-07-17: maybe fetch
         # languagechooser/language-name and set a language based on

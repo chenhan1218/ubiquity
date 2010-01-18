@@ -257,7 +257,7 @@ class Wizard(BaseFrontend):
         #self.app.connect(self.ui.partition_list_treeview, SIGNAL("activated(const QModelIndex&)"), self.on_partition_list_treeview_activated)
 
         # set default language
-        self.locale = i18n.reset_locale()
+        self.locale = i18n.reset_locale(self)
 
         self.debconf_callbacks = {}    # array to keep callback functions needed by debconf file descriptors
 
@@ -401,6 +401,7 @@ class Wizard(BaseFrontend):
                     ui = self.pages[self.pagesindex].ui
                 else:
                     ui = None
+                self.start_debconf()
                 self.dbfilter = self.pages[self.pagesindex].filter_class(self, ui=ui)
 
                 # Non-debconf steps are no longer possible as the interface is now
@@ -840,6 +841,7 @@ class Wizard(BaseFrontend):
         self.debconf_progress_region(0, 15)
 
         if not self.oem_user_config:
+            self.start_debconf()
             dbfilter = partman_commit.PartmanCommit(self)
             if dbfilter.run_command(auto_process=True) != 0:
                 while self.progress_position.depth() != 0:
@@ -853,6 +855,7 @@ class Wizard(BaseFrontend):
 
         self.debconf_progress_region(15, 100)
 
+        self.start_debconf()
         dbfilter = install.Install(self)
         ret = dbfilter.run_command(auto_process=True)
         if ret != 0:
@@ -2116,6 +2119,7 @@ class Wizard(BaseFrontend):
                     self.pagesindex = self.pages.index(page)
                     break
             if self.pagesindex == -1: return
+            self.start_debconf()
             self.dbfilter = partman.Page(self)
             self.set_current_page(self.previous_partitioning_page)
             self.ui.next.setText(self.get_string("next").replace('_', '&', 1))

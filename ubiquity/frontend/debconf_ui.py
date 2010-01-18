@@ -44,19 +44,18 @@ class Wizard(BaseFrontend):
     def __init__(self, distro):
         BaseFrontend.__init__(self, distro)
 
-        db = self.debconf_communicator()
         if self.oem_user_config:
-            db.info('ubiquity/text/oem_user_config_title')
+            self.db.info('ubiquity/text/oem_user_config_title')
         else:
-            db.info('ubiquity/text/live_installer')
+            self.db.info('ubiquity/text/live_installer')
 
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
 
         # Set default language.
-        i18n.reset_locale(db=db)
+        i18n.reset_locale(self)
 
-        db.shutdown()
+        self.stop_debconf()
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -81,6 +80,10 @@ class Wizard(BaseFrontend):
         else:
             # This needs to be instantiated afresh each time, as normal.
             return BaseFrontend.debconf_communicator(self)
+
+    def stop_debconf(self):
+        if 'DEBIAN_HAS_FRONTEND' not in os.environ:
+            BaseFrontend.stop_debconf(self)
 
     def run(self):
         if os.getuid() != 0:

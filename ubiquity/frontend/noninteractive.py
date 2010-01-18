@@ -69,7 +69,7 @@ class Wizard(BaseFrontend):
                 mod.ui = mod.ui_class(mod.controller)
                 self.pages.append(mod)
 
-        i18n.reset_locale()
+        i18n.reset_locale(self)
 
         if self.oem_config:
             execute_root('apt-install', 'oem-config-gtk')
@@ -88,6 +88,7 @@ class Wizard(BaseFrontend):
                 ui = x.ui
             else:
                 ui = None
+            self.start_debconf()
             self.dbfilter = x.filter_class(self, ui=ui)
             self.dbfilter.start(auto_process=True)
             self.mainloop.run()
@@ -100,11 +101,13 @@ class Wizard(BaseFrontend):
     def progress_loop(self):
         """prepare, copy and config the system in the core install process."""
 
+        self.start_debconf()
         dbfilter = partman_commit.PartmanCommit(self)
         if dbfilter.run_command(auto_process=True) != 0:
             print >>self.console, '\nUnable to commit the partition table, exiting.'
             return
-        
+
+        self.start_debconf()
         dbfilter = install.Install(self)
         ret = dbfilter.run_command(auto_process=True)
         if ret != 0:

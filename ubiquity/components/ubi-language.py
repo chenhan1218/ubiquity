@@ -422,8 +422,8 @@ class Page(Plugin):
 
     def cleanup(self):
         Plugin.cleanup(self)
-        # Done after sub-cleanup because now the debconf lock is clear for a reset/reget
-        i18n.reset_locale(db=self.db)
+        i18n.reset_locale(self.frontend)
+        self.frontend.stop_debconf()
         self.ui.controller.translate(just_me=False, reget=True)
 
 class Install(InstallPlugin):
