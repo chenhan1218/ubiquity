@@ -1872,15 +1872,15 @@ exit 0"""
                     installprogress.finishUpdate()
                     self.db.progress('STOP')
                     return
-            except IOError, e:
-                for line in str(e).split('\n'):
+            except IOError:
+                for line in traceback.format_exc().split('\n'):
                     syslog.syslog(syslog.LOG_ERR, line)
                 fetchprogress.stop()
                 installprogress.finishUpdate()
                 self.db.progress('STOP')
                 return
             except SystemError, e:
-                for line in str(e).split('\n'):
+                for line in traceback.format_exc().split('\n'):
                     syslog.syslog(syslog.LOG_ERR, line)
                 commit_error = str(e)
         finally:
@@ -2052,7 +2052,7 @@ exit 0"""
                     self.db.progress('STOP')
                     return
             except SystemError, e:
-                for line in str(e).split('\n'):
+                for line in traceback.format_exc().split('\n'):
                     syslog.syslog(syslog.LOG_ERR, line)
                 commit_error = str(e)
         finally:
@@ -2327,8 +2327,9 @@ exit 0"""
             fp.writelines(ret)
         except Exception, e:
             syslog.syslog(syslog.LOG_ERR, 'Exception during installation:')
-            syslog.syslog(syslog.LOG_ERR,
-                'Unable to process /etc/fstab: ' + str(e))
+            syslog.syslog(syslog.LOG_ERR, 'Unable to process /etc/fstab:')
+            for line in traceback.format_exc().split('\n'):
+                syslog.syslog(syslog.LOG_ERR, line)
         finally:
             if fp:
                 fp.close()
@@ -2447,6 +2448,9 @@ exit 0"""
     def recache_apparmor(self):
         """Generate an apparmor cache in /etc/apparmor.d/cache to speed up boot
         time."""
+
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            return
         if not os.path.exists(os.path.join(self.target, 'etc/init.d/apparmor')):
             syslog.syslog('Apparmor is not installed, so not generating cache.')
             return
