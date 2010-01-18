@@ -168,8 +168,11 @@ def format_size(size):
         factor = 1024 * 1024 * 1024 * 1024
     return '%.1f %s' % (float(size) / factor, unit)
 
+_dropped_privileges = 0
+
 def drop_all_privileges():
     # gconf needs both the UID and effective UID set.
+    global _dropped_privileges
     if 'SUDO_GID' in os.environ:
         gid = int(os.environ['SUDO_GID'])
         os.setregid(gid, gid)
@@ -177,18 +180,27 @@ def drop_all_privileges():
         uid = int(os.environ['SUDO_UID'])
         os.setreuid(uid, uid)
         os.environ['HOME'] = pwd.getpwuid(uid).pw_dir
+    _dropped_privileges = None
 
 def drop_privileges():
-    if 'SUDO_GID' in os.environ:
-        gid = int(os.environ['SUDO_GID'])
-        os.setegid(gid)
-    if 'SUDO_UID' in os.environ:
-        uid = int(os.environ['SUDO_UID'])
-        os.seteuid(uid)
+    global _dropped_privileges
+    assert _dropped_privileges is not None
+    if _dropped_privileges == 0:
+        if 'SUDO_GID' in os.environ:
+            gid = int(os.environ['SUDO_GID'])
+            os.setegid(gid)
+        if 'SUDO_UID' in os.environ:
+            uid = int(os.environ['SUDO_UID'])
+            os.seteuid(uid)
+    _dropped_privileges += 1
 
 def regain_privileges():
-    os.seteuid(0)
-    os.setegid(0)
+    global _dropped_privileges
+    assert _dropped_privileges is not None
+    _dropped_privileges -= 1
+    if _dropped_privileges == 0:
+        os.seteuid(0)
+        os.setegid(0)
 
 def debconf_escape(text):
     escaped = text.replace('\\', '\\\\').replace('\n', '\\n')

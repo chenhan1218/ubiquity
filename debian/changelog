@@ -10,6 +10,10 @@ ubiquity (2.1.12) UNRELEASED; urgency=low
       names, making them callable by the toplevel, etc.).  This fixes
       translations of the language, timezone, and keyboard pages.
   * Fix immediate retranslation when changing language.
+  * Add a semaphore to misc.regain_privileges and misc.drop_privileges, so
+    that a drop/regain pair always returns to the previous state.
+    misc.drop_all_privileges is now more clearly one-way, enforced by an
+    assertion.
 
   [ Evan Dandrea ]
   * Allow the user to set a hostname in oem-config.
