@@ -147,11 +147,10 @@ class Wizard(BaseFrontend):
         about.addAuthor(ki18n("Jonathan Riddell"), KLocalizedString() ,"jriddell@ubuntu.com")
         about.addAuthor(ki18n("Roman Shtylman"), KLocalizedString() ,"shtylman@gmail.com")
         KCmdLineArgs.init([""],about)
-        
-        #undo the drop, this is needed to play nice with kde
-        os.setegid(0)
-        os.seteuid(0)
-        
+
+        # this is needed to play nice with kde
+        regain_privileges()
+
         self.app = KApplication()
         self.app.setStyleSheet(file(os.path.join(UIDIR, "style.qss")).read())
 
@@ -808,9 +807,7 @@ class Wizard(BaseFrontend):
                     #we need to get root privs to open a link because 
                     #the kapplication was started that way...
                     def openLink(qUrl):
-                        os.setegid(0)
-                        os.seteuid(0)
-                    
+                        regain_privileges()
                         QDesktopServices.openUrl(qUrl)
                         drop_privileges()
                     
