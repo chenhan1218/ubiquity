@@ -375,6 +375,10 @@ Type: text
 # An action, displayed on a button or as a menu item.
 _Description: Revert
 
+Template: ubiquity/text/part_advanced_recalculating_label
+Type: text
+_Description: Recalculating partitions...
+
 Template: ubiquity/text/partition_column_device
 Type: text
 # A column heading in the partitioner.
