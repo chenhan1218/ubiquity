@@ -126,6 +126,66 @@ def grub_options():
     return l
 
 @raise_privileges
+def grub_default():
+    """Return the default GRUB installation target."""
+
+    # Much of this is intentionally duplicated from grub-installer, so that
+    # we can show the user what device GRUB will be installed to before
+    # grub-installer is run.  Pursuant to that, we intentionally run this in
+    # the installer root as /target might not yet be available.
+
+    subp = subprocess.Popen(['grub-mkdevicemap', '--no-floppy', '-m', '-'],
+                            stdout=subprocess.PIPE)
+    devices = subp.communicate()[0].splitlines()
+    target = None
+    if devices:
+        try:
+            target = devices[0].split('\t')[1]
+        except IndexError:
+            pass
+    # last resort
+    if target is None:
+        target = '(hd0)'
+
+    cdsrc = ''
+    cdfs = ''
+    with contextlib.closing(open('/proc/mounts')) as fp:
+        for line in fp:
+            line = line.split()
+            if line[1] == '/cdrom':
+                cdsrc = line[0]
+                cdfs = line[2]
+                break
+    if (cdsrc == target or target == '(hd0)') and cdfs and cdfs != 'iso9660':
+        # Installing from removable media other than a CD.  Make sure that
+        # we don't accidentally install GRUB to it.
+        try:
+            boot = ''
+            root = ''
+            p = PartedServer()
+            for disk in p.disks():
+                p.select_disk(disk)
+                for part in p.partitions():
+                    part = part[1]
+                    if p.has_part_entry(part, 'mountpoint'):
+                        mp = p.readline_part_entry(part, 'mountpoint')
+                        if mp == '/boot':
+                            boot = disk.replace('=', '/')
+                        elif mp == '/':
+                            root = disk.replace('=', '/')
+            if boot or root:
+                if boot:
+                    target = boot
+                else:
+                    target = root
+                return re.sub(r'(/dev/(cciss|ida)/c[0-9]d[0-9]|/dev/[a-z]+).*',
+                              r'\1', target)
+        except Exception, e:
+            syslog.syslog('Exception in grub_default: ' + str(e))
+
+    return target
+
+@raise_privileges
 def find_in_os_prober(device):
     '''Look for the device name in the output of os-prober.
        Returns the friendly name of the device, or the empty string on error.'''

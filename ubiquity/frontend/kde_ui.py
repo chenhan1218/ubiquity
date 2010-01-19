@@ -2046,7 +2046,7 @@ class Wizard(BaseFrontend):
             
             # if the combo box does not yet have the target install device, add it
             # select current device
-            target = summary.find_grub_target()
+            target = grub_default()
             index = self.advanceddialog.grub_device_entry.findText(target)
             if (index == -1):
                 self.advanceddialog.grub_device_entry.addItem(target)

@@ -22,6 +22,12 @@ ubiquity (2.1.12) UNRELEASED; urgency=low
   * When attempting to upgrade the installer, only stop debconf-communicator
     once we've determined that we actually have something to upgrade.
   * Require Python 2.6, for the 'with' statement.
+  * Move default GRUB target calculation to ubiquity.misc, which is a better
+    location for common code than ubiquity.components.summary.  Try to avoid
+    using (hd0) as the target (prefer the first device from grub-mkdevicemap
+    output if possible), and, when installing from a non-CD medium, only
+    reset the default boot device if we would otherwise end up installing
+    GRUB to the installation medium.
 
   [ Evan Dandrea ]
   * Allow the user to set a hostname in oem-config.

@@ -22,6 +22,7 @@
 import os
 
 from ubiquity.filteredcommand import FilteredCommand
+from ubiquity import misc
 
 class Install(FilteredCommand):
     def prepare(self):
@@ -37,7 +38,7 @@ class Install(FilteredCommand):
             if not (automatic_mode and bootdevice != ''):
                 bootdev = self.frontend.get_summary_device()
                 if bootdev is None or bootdev == '':
-                    bootdev = '(hd0)'
+                    bootdev = misc.grub_default()
                 self.preseed('grub-installer/bootdev', bootdev)
             if not (automatic_mode and with_other_os != ''):
                 self.preseed('grub-installer/with_other_os', 'false')

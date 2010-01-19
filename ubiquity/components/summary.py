@@ -24,7 +24,6 @@ import subprocess
 import debconf
 
 from ubiquity.plugin import *
-from ubiquity.parted_server import PartedServer
 from ubiquity.misc import *
 from ubiquity.casper import get_casper
 
@@ -40,52 +39,6 @@ class PageKde(PluginUI):
     plugin_is_install = True
     plugin_widgets = 'stepReady'
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_summary'
-
-def installing_from_disk():
-    cdromfs = ''
-    try:
-        fp = open('/proc/mounts')
-        for line in fp:
-            line = line.split()
-            if line[1] == '/cdrom':
-                cdromfs = line[2]
-                break
-    finally:
-        if fp:
-            fp.close()
-    if cdromfs == 'iso9660' or not cdromfs:
-        return False
-    else:
-        return True
-
-@raise_privileges
-def find_grub_target():
-    # This needs to be somewhat duplicated from grub-installer here because we
-    # need to be able to show the user what device GRUB will be installed to
-    # well before grub-installer is run.
-    try:
-        boot = ''
-        root = ''
-        p = PartedServer()
-        for disk in p.disks():
-            p.select_disk(disk)
-            for part in p.partitions():
-                part = part[1]
-                if p.has_part_entry(part, 'mountpoint'):
-                    mp = p.readline_part_entry(part, 'mountpoint')
-                    if mp == '/boot':
-                        boot = disk.replace('=', '/')
-                    elif mp == '/':
-                        root = disk.replace('=', '/')
-        if boot:
-            return boot
-        elif root:
-            return root
-        return '(hd0)'
-    except Exception, e:
-        import syslog
-        syslog.syslog('Exception in find_grub_target: ' + str(e))
-        return '(hd0)'
 
 def will_be_installed(pkg):
     try:
@@ -124,12 +77,7 @@ class Page(FilteredCommand):
                 self.frontend.set_grub(None)
 
             if os.access('/usr/share/grub-installer/grub-installer', os.X_OK):
-                # TODO cjwatson 2006-09-04: a bit inelegant, and possibly
-                # Ubuntu-specific?
-                if installing_from_disk():
-                    self.frontend.set_summary_device(find_grub_target())
-                else:
-                    self.frontend.set_summary_device('(hd0)')
+                self.frontend.set_summary_device(grub_default())
             else:
                 self.frontend.set_summary_device(None)
 
