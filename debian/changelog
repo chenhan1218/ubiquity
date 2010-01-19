@@ -21,7 +21,8 @@ ubiquity (2.1.12) UNRELEASED; urgency=low
     try/finally logic to make it less likely that we'll end up at the wrong
     privilege level by mistake.
   * When attempting to upgrade the installer, only stop debconf-communicator
-    once we've determined that we actually have something to upgrade.
+    once we've determined that we actually have something to upgrade
+    (LP: #495175).
   * Require Python 2.6, for the 'with' statement.
   * Move default GRUB target calculation to ubiquity.misc, which is a better
     location for common code than ubiquity.components.summary.  Try to avoid
