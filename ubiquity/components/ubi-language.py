@@ -329,10 +329,9 @@ class Page(Plugin):
         self.language_question = None
         self.initial_language = None
         self.db.fset('localechooser/languagelist', 'seen', 'false')
-        misc.regain_privileges()
-        osextras.unlink_force('/var/lib/localechooser/preseeded')
-        osextras.unlink_force('/var/lib/localechooser/langlevel')
-        misc.drop_privileges()
+        with misc.raised_privileges():
+            osextras.unlink_force('/var/lib/localechooser/preseeded')
+            osextras.unlink_force('/var/lib/localechooser/langlevel')
         if self.ui.controller.oem_config:
             try:
                 self.ui.set_oem_id(self.db.get('oem-config/id'))

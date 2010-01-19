@@ -58,6 +58,7 @@ def installing_from_disk():
     else:
         return True
 
+@raise_privileges
 def find_grub_target():
     # This needs to be somewhat duplicated from grub-installer here because we
     # need to be able to show the user what device GRUB will be installed to
@@ -65,7 +66,6 @@ def find_grub_target():
     try:
         boot = ''
         root = ''
-        regain_privileges()
         p = PartedServer()
         for disk in p.disks():
             p.select_disk(disk)
@@ -77,14 +77,12 @@ def find_grub_target():
                         boot = disk.replace('=', '/')
                     elif mp == '/':
                         root = disk.replace('=', '/')
-        drop_privileges()
         if boot:
             return boot
         elif root:
             return root
         return '(hd0)'
     except Exception, e:
-        drop_privileges()
         import syslog
         syslog.syslog('Exception in find_grub_target: ' + str(e))
         return '(hd0)'

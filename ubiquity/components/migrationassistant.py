@@ -125,24 +125,23 @@ class Page(FilteredCommand):
     def filter_parts(self):
         question = 'migration-assistant/partitions'
         from ubiquity.parted_server import PartedServer
-        regain_privileges()
-        parted = PartedServer()
+        with raised_privileges():
+            parted = PartedServer()
 
-        parts = []
-        for disk in parted.disks():
-            parted.select_disk(disk)
-            for partition in parted.partitions():
-                # We check to see if the partition is scheduled to be
-                # formatted and if not add it to the list of post-commit
-                # available partitions.
-                filename = '/var/lib/partman/devices/%s/%s/format' % \
-                    (disk, partition[1])
-                if os.path.exists(filename):
-                    syslog.syslog('filtering out %s as it is to be formatted.' % partition[5])
-                else:
-                    parts.append(partition[5])
+            parts = []
+            for disk in parted.disks():
+                parted.select_disk(disk)
+                for partition in parted.partitions():
+                    # We check to see if the partition is scheduled to be
+                    # formatted and if not add it to the list of post-commit
+                    # available partitions.
+                    filename = '/var/lib/partman/devices/%s/%s/format' % \
+                        (disk, partition[1])
+                    if os.path.exists(filename):
+                        syslog.syslog('filtering out %s as it is to be formatted.' % partition[5])
+                    else:
+                        parts.append(partition[5])
 
-        drop_privileges()
         ret = []
         for choice in self.choices(question):
             if choice[choice.rfind('(')+1:choice.rfind(')')] in parts:

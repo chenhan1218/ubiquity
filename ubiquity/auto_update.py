@@ -100,6 +100,7 @@ class InstallProgressDebconfProgressAdapter(apt.progress.InstallProgress):
         apt.progress.InstallProgress.updateInterface(self)
         self.frontend.refresh()
 
+@misc.raise_privileges
 def update(frontend):
     if frontend.dbfilter is not None and frontend.dbfilter.db is not None:
         # Shut down debconf-communicator while upgrading, otherwise we'll
@@ -109,7 +110,6 @@ def update(frontend):
         stopped_debconf = True
     else:
         stopped_debconf = False
-    misc.regain_privileges()
     try:
         frontend.debconf_progress_start(
             0, 3, frontend.get_string('checking_for_installer_updates'))
@@ -173,7 +173,6 @@ def update(frontend):
         os.execv(sys.argv[0], sys.argv)
         return False
     finally:
-        misc.drop_privileges()
         if stopped_debconf:
             frontend.dbfilter.db = DebconfCommunicator(filteredcommand.PACKAGE,
                                                        cloexec=True)

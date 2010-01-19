@@ -222,10 +222,10 @@ class FilteredCommand(UntrustedBase):
             # non-Python subprocesses, which need SIGPIPE set to the default
             # action.
             signal.signal(signal.SIGPIPE, signal.SIG_DFL)
+            # Regain root.
+            misc.regain_privileges()
 
-        misc.regain_privileges()
         ret = subprocess.call(self.command, preexec_fn=subprocess_setup)
-        misc.drop_privileges()
         if ret != 0:
             # TODO: error message if ret != 10
             self.debug("%s exited with code %d", self.command, ret)

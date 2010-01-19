@@ -71,20 +71,20 @@ class Page(Plugin):
         self.some_device_desc = ''
         self.resize_desc = ''
         self.manual_desc = ''
-        # If an old parted_server is still running, clean it up.
-        regain_privileges()
-        if os.path.exists('/var/run/parted_server.pid'):
-            try:
-                pidline = open('/var/run/parted_server.pid').readline().strip()
-                pid = int(pidline)
-                os.kill(pid, signal.SIGTERM)
-            except Exception:
-                pass
-            osextras.unlink_force('/var/run/parted_server.pid')
+        with raised_privileges():
+            # If an old parted_server is still running, clean it up.
+            if os.path.exists('/var/run/parted_server.pid'):
+                try:
+                    pidline = open('/var/run/parted_server.pid').readline()
+                    pidline = pidline.strip()
+                    pid = int(pidline)
+                    os.kill(pid, signal.SIGTERM)
+                except Exception:
+                    pass
+                osextras.unlink_force('/var/run/parted_server.pid')
 
-        # Force autopartitioning to be re-run.
-        shutil.rmtree('/var/lib/partman', ignore_errors=True)
-        drop_privileges()
+            # Force autopartitioning to be re-run.
+            shutil.rmtree('/var/lib/partman', ignore_errors=True)
         self.thaw_choices('active_partition')
 
         self.autopartition_question = None
@@ -383,6 +383,7 @@ class Page(Plugin):
                                    self.extended_description(question))
         return Plugin.error(self, priority, question)
 
+    @raise_privileges
     def freeze_choices(self, menu):
         """Stop recalculating choices for a given menu. This is used to
         improve performance while rebuilding the cache. Be careful not to
@@ -390,16 +391,13 @@ class Page(Plugin):
         set of choices may not be valid; you must cache whatever you need
         before calling this method."""
         self.debug('Partman: Freezing choices for %s', menu)
-        regain_privileges()
         open('/lib/partman/%s/no_show_choices' % menu, 'w').close
-        drop_privileges()
 
+    @raise_privileges
     def thaw_choices(self, menu):
         """Reverse the effects of freeze_choices."""
         self.debug('Partman: Thawing choices for %s', menu)
-        regain_privileges()
         osextras.unlink_force('/lib/partman/%s/no_show_choices' % menu)
-        drop_privileges()
 
     def maybe_thaw_choose_partition(self):
         # partman/choose_partition is special; it's the main control point
@@ -462,25 +460,25 @@ class Page(Plugin):
                     del choices[choices.index(self.resize_desc)]
                 except ValueError:
                     pass
-            regain_privileges()
-            # {'/dev/sda' : ('/dev/sda1', 24973242, '32256-2352430079'), ...
-            # TODO evand 2009-04-16: We should really use named tuples here.
-            parted = parted_server.PartedServer()
-            layout = {}
-            for disk in parted.disks():
-                parted.select_disk(disk)
-                ret = []
-                for partition in parted.partitions():
-                    size = int(partition[2])
-                    if partition[4] == 'free':
-                        dev = 'free'
-                    else:
-                        dev = partition[5]
-                    ret.append((dev, size, partition[1]))
-                layout[disk] = ret
+            with raised_privileges():
+                # {'/dev/sda' : ('/dev/sda1', 24973242, '32256-2352430079'), ...
+                # TODO evand 2009-04-16: We should really use named tuples
+                # here.
+                parted = parted_server.PartedServer()
+                layout = {}
+                for disk in parted.disks():
+                    parted.select_disk(disk)
+                    ret = []
+                    for partition in parted.partitions():
+                        size = int(partition[2])
+                        if partition[4] == 'free':
+                            dev = 'free'
+                        else:
+                            dev = partition[5]
+                        ret.append((dev, size, partition[1]))
+                    layout[disk] = ret
 
-            self.frontend.set_disk_layout(layout)
-            drop_privileges()
+                self.frontend.set_disk_layout(layout)
             
             # Set up translation mappings to avoid debian-installer
             # specific text ('Guided -').
@@ -893,20 +891,21 @@ class Page(Plugin):
                         return False
 
                 assert state[0] == 'partman/choose_partition'
-                regain_privileges()
-                parted = parted_server.PartedServer()
 
-                parted.select_disk(partition['dev'])
-                for entry in ('method',
-                              'filesystem', 'detected_filesystem',
-                              'acting_filesystem',
-                              'existing', 'formatable',
-                              'mountpoint'):
-                    if parted.has_part_entry(partition['id'], entry):
-                        partition[entry] = \
-                            parted.readline_part_entry(partition['id'], entry)
+                with raised_privileges():
+                    parted = parted_server.PartedServer()
 
-                drop_privileges()
+                    parted.select_disk(partition['dev'])
+                    for entry in ('method',
+                                  'filesystem', 'detected_filesystem',
+                                  'acting_filesystem',
+                                  'existing', 'formatable',
+                                  'mountpoint'):
+                        if parted.has_part_entry(partition['id'], entry):
+                            partition[entry] = \
+                                parted.readline_part_entry(partition['id'],
+                                                           entry)
+
                 visit = []
                 for (script, arg, option) in menu_options:
                     if arg in ('method', 'mountpoint'):

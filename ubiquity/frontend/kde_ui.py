@@ -148,14 +148,10 @@ class Wizard(BaseFrontend):
         about.addAuthor(ki18n("Roman Shtylman"), KLocalizedString() ,"shtylman@gmail.com")
         KCmdLineArgs.init([""],about)
 
-        # this is needed to play nice with kde
-        regain_privileges()
-
-        self.app = KApplication()
-        self.app.setStyleSheet(file(os.path.join(UIDIR, "style.qss")).read())
-
-        # put the privileges back to user level
-        drop_privileges()
+        # raised privileges are needed to play nice with KDE
+        with raised_privileges():
+            self.app = KApplication()
+            self.app.setStyleSheet(file(os.path.join(UIDIR, "style.qss")).read())
 
         self.ui = UbiquityUI()
         
@@ -806,10 +802,9 @@ class Wizard(BaseFrontend):
                     
                     #we need to get root privs to open a link because 
                     #the kapplication was started that way...
+                    @raise_privileges
                     def openLink(qUrl):
-                        regain_privileges()
                         QDesktopServices.openUrl(qUrl)
-                        drop_privileges()
                     
                     webView = QWebView()
                     
@@ -1235,19 +1230,18 @@ class Wizard(BaseFrontend):
                 self.ui.autopart_selection_frame.layout().removeWidget(child)
                 #child.hide()
 
-        regain_privileges()
-        pserv = parted_server.PartedServer()
-        
-        disks = {} #dictionary dev -> list of partitions
-        for disk in pserv.disks():
-            d = disks[disk] = []
-            pserv.select_disk(disk)
-            for partition in pserv.partitions():
-                d.append(partition)
-                
-        # p_num, p_id, p_size, p_type, p_fs, p_path, p_name
-        drop_privileges()
-        
+        with raised_privileges():
+            pserv = parted_server.PartedServer()
+
+            disks = {} #dictionary dev -> list of partitions
+            for disk in pserv.disks():
+                d = disks[disk] = []
+                pserv.select_disk(disk)
+                for partition in pserv.partitions():
+                    d.append(partition)
+
+            # p_num, p_id, p_size, p_type, p_fs, p_path, p_name
+
         def _on_extra_toggle(extra_bar_frames):
             def slot(index):
                 for bf in extra_bar_frames:

@@ -14,6 +14,11 @@ ubiquity (2.1.12) UNRELEASED; urgency=low
     that a drop/regain pair always returns to the previous state.
     misc.drop_all_privileges is now more clearly one-way, enforced by an
     assertion.
+  * Add a context manager (raised_privileges) and a function decorator
+    (raise_privileges) that are equivalent to a
+    regain_privileges/drop_privileges pair, but that wrap up the required
+    try/finally logic to make it less likely that we'll end up at the wrong
+    privilege level by mistake.
 
   [ Evan Dandrea ]
   * Allow the user to set a hostname in oem-config.
