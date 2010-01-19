@@ -4,7 +4,8 @@ ubiquity (2.1.12) UNRELEASED; urgency=low
   * Add osextras.unlink_force, equivalent to 'rm -f', to save on tedious
     exception handling.
   * Only restart debconf-communicator when changing language, not every time
-    we switch page.  This speeds up page transitions quite a bit.
+    we switch page.  This speeds up page transitions quite a bit, and should
+    incidentally fix LP: #508725 as well.
   * GTK frontend:
     - Check plugin builders as well when adding widgets (setting their
       names, making them callable by the toplevel, etc.).  This fixes
