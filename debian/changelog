@@ -19,6 +19,8 @@ ubiquity (2.1.12) UNRELEASED; urgency=low
     regain_privileges/drop_privileges pair, but that wrap up the required
     try/finally logic to make it less likely that we'll end up at the wrong
     privilege level by mistake.
+  * When attempting to upgrade the installer, only stop debconf-communicator
+    once we've determined that we actually have something to upgrade.
 
   [ Evan Dandrea ]
   * Allow the user to set a hostname in oem-config.

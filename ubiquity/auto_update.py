@@ -26,8 +26,6 @@ import apt
 import apt_pkg
 
 from ubiquity import misc
-from ubiquity.debconfcommunicator import DebconfCommunicator
-from ubiquity import filteredcommand
 
 MAGIC_MARKER = "/var/run/ubiquity.updated"
 # Make sure that ubiquity is last, otherwise apt may try to install another
@@ -102,38 +100,39 @@ class InstallProgressDebconfProgressAdapter(apt.progress.InstallProgress):
 
 @misc.raise_privileges
 def update(frontend):
+    frontend.debconf_progress_start(
+        0, 3, frontend.get_string('checking_for_installer_updates'))
+    # check if we have updates
+    cache_progress = CacheProgressDebconfProgressAdapter(frontend)
+    cache = apt.Cache(cache_progress)
+    cache_progress.really_done()
+
+    fetchprogress = FetchProgressDebconfProgressAdapter(frontend)
+    try:
+        cache.update(fetchprogress)
+        cache_progress = CacheProgressDebconfProgressAdapter(frontend)
+        cache = apt.Cache(cache_progress)
+        cache_progress.really_done()
+        updates = filter(
+            lambda pkg: cache.has_key(pkg) and cache[pkg].isUpgradable,
+            UBIQUITY_PKGS)
+    except IOError, e:
+        print "ERROR: cache.update() returned: '%s'" % e
+        updates = []
+
+    if not updates:
+        frontend.debconf_progress_stop()
+        return False
+
+    # We have something to upgrade.  Shut down debconf-communicator for
+    # the duration, otherwise we'll have locking problems.
     if frontend.dbfilter is not None and frontend.dbfilter.db is not None:
-        # Shut down debconf-communicator while upgrading, otherwise we'll
-        # have locking problems.
-        frontend.dbfilter.db.shutdown()
+        frontend.stop_debconf()
         frontend.dbfilter.db = None
         stopped_debconf = True
     else:
         stopped_debconf = False
     try:
-        frontend.debconf_progress_start(
-            0, 3, frontend.get_string('checking_for_installer_updates'))
-        # check if we have updates
-        cache_progress = CacheProgressDebconfProgressAdapter(frontend)
-        cache = apt.Cache(cache_progress)
-        cache_progress.really_done()
-
-        fetchprogress = FetchProgressDebconfProgressAdapter(frontend)
-        try:
-            cache.update(fetchprogress)
-            cache_progress = CacheProgressDebconfProgressAdapter(frontend)
-            cache = apt.Cache(cache_progress)
-            cache_progress.really_done()
-            updates = filter(
-                lambda pkg: cache.has_key(pkg) and cache[pkg].isUpgradable,
-                UBIQUITY_PKGS)
-        except IOError, e:
-            print "ERROR: cache.update() returned: '%s'" % e
-            updates = []
-
-        if not updates:
-            frontend.debconf_progress_stop()
-            return False
         # install the updates
         fixer = apt.ProblemResolver(cache)
         for pkg in updates:
@@ -174,8 +173,8 @@ def update(frontend):
         return False
     finally:
         if stopped_debconf:
-            frontend.dbfilter.db = DebconfCommunicator(filteredcommand.PACKAGE,
-                                                       cloexec=True)
+            frontend.start_debconf()
+            frontend.dbfilter.db = frontend.db
 
 def already_updated():
     return os.path.exists(MAGIC_MARKER)
