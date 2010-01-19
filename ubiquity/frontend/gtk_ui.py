@@ -778,16 +778,6 @@ class Wizard(BaseFrontend):
             self.live_installer.window.set_cursor(cursor)
         self.back.set_sensitive(allowed and self.allowed_go_backward)
         self.next.set_sensitive(allowed and self.allowed_go_forward)
-        # Work around http://bugzilla.gnome.org/show_bug.cgi?id=56070
-        if (self.back.get_property('visible') and
-            allowed and self.allowed_go_backward):
-            self.back.hide()
-            self.back.show()
-        if (self.next.get_property('visible') and
-            allowed and self.allowed_go_forward):
-            self.next.hide()
-            self.next.show()
-            self.next.grab_default()
         self.allowed_change_step = allowed
 
     def allow_go_backward(self, allowed):
