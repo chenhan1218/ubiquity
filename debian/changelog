@@ -49,6 +49,9 @@ ubiquity (2.1.12) UNRELEASED; urgency=low
   * Drop old hack for copying ^xserver-xorg onto the target system.  No
     longer necessary as thse variables don't exist in current installs.
 
+  [ Dylan McCall ]
+  * Use slideshow for language variants if available (LP: #476269).
+
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 16 Jan 2010 01:27:31 +0000
 
 ubiquity (2.1.11) lucid; urgency=low

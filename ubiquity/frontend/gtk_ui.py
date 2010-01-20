@@ -946,20 +946,25 @@ class Wizard(BaseFrontend):
 
         syslog.syslog('progress_loop()')
 
-        self.current_page = None    
-
-        lang = self.locale.split('_')[0]
-        slides = '/usr/share/ubiquity-slideshow/slides/index.html'
+        self.current_page = None
+        
+        slideshow_dir = '/usr/share/ubiquity-slideshow'
+        slideshow_locale = slideshow_get_available_locale(slideshow_dir,self.locale)
+        slideshow_main = slideshow_dir + '/slides/index.html'
+        
         s = self.live_installer.get_screen()
         sh = s.get_height()
         sw = s.get_width()
         fail = None
-        if os.path.exists(slides):
-            slides = 'file://%s#?locale=%s' % (slides, lang)
+       
+        if os.path.exists(slideshow_main):
             if sh >= 600 and sw >= 800:
-                ltr = i18n.get_string('default-ltr', lang, 'ubiquity/imported')
-                if ltr == 'default:RTL':
-                    slides += '?rtl'
+                slides = 'file://' + slideshow_main
+                if slideshow_locale != 'c': #slideshow will use default automatically
+                    slides += '#?locale=' + slideshow_locale
+                    ltr = i18n.get_string('default-ltr', slideshow_locale, 'ubiquity/imported')
+                    if ltr == 'default:RTL':
+                        slides += '?rtl'
                 try:
                     import webkit
                     webview = webkit.WebView()
@@ -974,7 +979,7 @@ class Wizard(BaseFrontend):
             else:
                 fail = 'Display < 800x600 (%sx%s).' % (sw, sh)
         else:
-            fail = 'No slides present for %s.' % lang
+            fail = 'No slides present for %s.' % slideshow_dir
         if fail:
             syslog.syslog('Not displaying the slideshow: %s' % fail)
 
