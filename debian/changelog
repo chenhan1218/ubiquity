@@ -44,6 +44,8 @@ ubiquity (2.1.12) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Drop old hack for reconfiguring mythbuntu-default-settings since
     this is fixed in user-setup now.
+  * Drop old hack for copying ^xserver-xorg onto the target system.  No
+    longer necessary as thse variables don't exist in current installs.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 16 Jan 2010 01:27:31 +0000
 
