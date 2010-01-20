@@ -947,16 +947,16 @@ class Wizard(BaseFrontend):
         syslog.syslog('progress_loop()')
 
         self.current_page = None
-        
+
         slideshow_dir = '/usr/share/ubiquity-slideshow'
-        slideshow_locale = slideshow_get_available_locale(slideshow_dir,self.locale)
+        slideshow_locale = slideshow_get_available_locale(slideshow_dir, self.locale)
         slideshow_main = slideshow_dir + '/slides/index.html'
-        
+
         s = self.live_installer.get_screen()
         sh = s.get_height()
         sw = s.get_width()
         fail = None
-       
+
         if os.path.exists(slideshow_main):
             if sh >= 600 and sw >= 800:
                 slides = 'file://' + slideshow_main
