@@ -57,6 +57,7 @@ clean: check
 	$(MAKE) -C d-i clean
 	dh_auto_clean
 	dh_clean
+	rm -f debian/kbdnames.gz
 
 	$(MAKE) -C d-i check
 
@@ -64,11 +65,16 @@ d-i/source/console-setup/Keyboard/MyKeyboardNames.pl:
 	$(MAKE) -C d-i/source/console-setup/Keyboard MyKeyboardNames.pl \
 		xkbdir=/usr/share/X11/xkb
 
+debian/kbdnames.gz: d-i/source/console-setup/Keyboard/MyKeyboardNames.pl
+	( cd d-i/source/console-setup/Keyboard \
+	&& ./kbdnames-maker MyKeyboardNames.pl \
+	| grep -v '^C[*]' | grep -v '[*]model[*]' | sort | gzip -9 ) >$@
+
 ubiquity/keyboard_names.py: d-i/source/console-setup/Keyboard/MyKeyboardNames.pl
 	d-i/make-keyboard-names $< > $@
 
 install: DH_OPTIONS=
-install: build ubiquity/keyboard_names.py
+install: build ubiquity/keyboard_names.py debian/kbdnames.gz
 	dh_testdir
 	dh_testroot
 	dh_prep
