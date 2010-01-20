@@ -42,6 +42,8 @@ ubiquity (2.1.12) UNRELEASED; urgency=low
   * Slightly better exception printing in scripts/install.py
   * GNOME Bug #56070 (can't click button twice) has long since been
     closed.  Remove hack.
+  * Automatic update of included source packages: localechooser
+    2.12ubuntu3, user-setup 1.28ubuntu3.
 
   [ Mario Limonciello ]
   * Drop old hack for reconfiguring mythbuntu-default-settings since
