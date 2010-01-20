@@ -2,7 +2,7 @@
 #
 # Copyright (C) 2006, 2007, 2009 Canonical Ltd.
 # Written by Colin Watson <cjwatson@ubuntu.com>.
-# Copyright (C) 2007 Mario Limonciello
+# Copyright (C) 2007-2010 Mario Limonciello
 #
 # This file is part of Ubiquity.
 #
@@ -21,32 +21,97 @@
 
 from ubiquity.plugin import *
 from mythbuntu_common.dictionaries import get_graphics_dictionary
+from mythbuntu_common.installer import *
 import os
 
 NAME = 'myth-drivers'
 AFTER = 'myth-remote'
 WEIGHT = 10
 
-class PageGtk(PluginUI):
-    def __init__(self, *args, **kwargs):
-        if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui' and \
-           len(get_graphics_dictionary()) > 0:
-            self.plugin_widgets = 'mythbuntu_stepDrivers'
+class PageGtk(MythPageGtk):
+    def __init__(self, controller, *args, **kwargs):
+        if len(get_graphics_dictionary()) > 0:
+            self.ui_file = 'mythbuntu_stepDrivers'
+            MythPageGtk.__init__(self, controller, *args, **kwargs)
+            self.populate_video()
+
+    def populate_video(self):
+        """Finds the currently active video driver"""
+        dictionary=get_graphics_dictionary()
+        if len(dictionary) > 0:
+            for driver in dictionary:
+                self.video_driver.append_text(driver)
+            self.video_driver.append_text("Open Source Driver")
+            self.video_driver.set_active(len(dictionary))
+            self.tvoutstandard.set_active(0)
+            self.tvouttype.set_active(0)
+
+    def toggle_tv_out (self,widget):
+        """Called when the tv-out type is toggled"""
+        if (self.tvouttype.get_active() == 0):
+            self.tvoutstandard.set_active(0)
+        elif ((self.tvouttype.get_active() == 1 or self.tvouttype.get_active() == 2) and (self.tvoutstandard.get_active() == 0 or self.tvoutstandard.get_active() >= 11 )):
+            self.tvoutstandard.set_active(10)
+        elif self.tvouttype.get_active() == 3:
+            self.tvoutstandard.set_active(11)
+
+    def toggle_tv_standard(self,widget):
+        """Called when the tv standard is toggled"""
+        if (self.tvoutstandard.get_active() >= 11):
+            self.tvouttype.set_active(3)
+        elif (self.tvoutstandard.get_active() < 11 and self.tvoutstandard.get_active() > 0 and self.tvouttype.get_active() == 0):
+            self.tvouttype.set_active(1)
+        elif (self.tvoutstandard.get_active() < 11 and self.tvouttype.get_active() ==3):
+            self.tvouttype.set_active(1)
+        elif (self.tvoutstandard.get_active() == 0):
+            self.tvouttype.set_active(0)
+
+    def video_changed (self,widget):
+        """Called whenever the modify video driver option is toggled or its kids"""
+        drivers=get_graphics_dictionary()
+        if (widget is not None and widget.get_name() == 'video_driver'):
+            self.controller.allow_go_forward(True)
+            type = widget.get_active()
+            if (type < len(drivers)):
+                self.tvout_vbox.set_sensitive(True)
+            else:
+                self.tvout_vbox.set_sensitive(False)
+                self.tvoutstandard.set_active(0)
+                self.tvouttype.set_active(0)
+
+
+    def set_driver(self,name,value):
+        """Preseeds the status of a driver"""
+        lists = [{'video_driver': self.video_driver,
+                  'tvout': self.tvouttype,
+                  'tvstandard': self.tvoutstandard}]
+        preseed_list(lists,name,value)
+
+    def get_drivers(self):
+        video_drivers=get_graphics_dictionary()
+        active_video_driver=self.video_driver.get_active_text()
+        for item in video_drivers:
+            if (active_video_driver == item):
+                active_video_driver=video_drivers[item]
+                break
+        return build_static_list([{'video_driver': active_video_driver,
+                                         'tvout': self.tvouttype,
+                                         'tvstandard': self.tvoutstandard}])
 
 class Page(Plugin):
     def prepare(self):
         #drivers
-        drivers = self.frontend.get_drivers()
+        drivers = self.ui.get_drivers()
         questions = []
         for this_driver in drivers:
             answer = self.db.get('mythbuntu/' + this_driver)
             if answer != '':
-                self.frontend.set_driver(this_driver,answer)
+                self.ui.set_driver(this_driver,answer)
         questions.append('^mythbuntu/' + this_driver)
         return (['/usr/share/ubiquity/ask-mythbuntu','drivers'], questions)
 
     def ok_handler(self):
-        drivers = self.frontend.get_drivers()
+        drivers = self.ui.get_drivers()
 
         for this_driver in drivers:
             if drivers[this_driver] is True or drivers[this_driver] is False:

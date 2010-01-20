@@ -2,7 +2,7 @@
 #
 # Copyright (C) 2006, 2007, 2009 Canonical Ltd.
 # Written by Colin Watson <cjwatson@ubuntu.com>.
-# Copyright (C) 2007 Mario Limonciello
+# Copyright (C) 2007-2010 Mario Limonciello
 #
 # This file is part of Ubiquity.
 #
@@ -21,15 +21,26 @@
 
 import os
 from ubiquity.plugin import *
+from ubiquity.misc import execute_root
+from mythbuntu_common.installer import MythPageGtk
 
 NAME = 'myth-backend-setup'
 AFTER = 'myth-summary'
 WEIGHT = 10
 
-class PageGtk(PluginUI):
-    def __init__(self, *args, **kwargs):
-        if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui':
-            self.plugin_optional_widgets = 'mythbuntu_stepBackendSetup'
+class PageGtk(MythPageGtk):
+    def __init__(self, controller, *args, **kwargs):
+        self.ui_file='mythbuntu_stepBackendSetup'
+        MythPageGtk.__init__(self,controller, *args, **kwargs)
+        self.plugin_optional_widgets = self.plugin_widgets
+        self.plugin_widgets = None
 
     def plugin_get_current_page(self):
         return None
+
+    def do_mythtv_setup(self,widget):
+        """Spawn MythTV-Setup binary."""
+        self.controller.toggle_top_level()
+        execute_root("/usr/share/ubiquity/mythbuntu-setup")
+        self.controller.toggle_top_level()
+
