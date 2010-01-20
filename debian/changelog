@@ -46,6 +46,7 @@ ubiquity (2.1.12) UNRELEASED; urgency=low
     this is fixed in user-setup now.
   * Add a new top function to the Controller to allow toggling the
     visibility of the live installer from a plugin.
+  * Drop extraneous handlers from Mythbuntu pages.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 16 Jan 2010 01:27:31 +0000
 
