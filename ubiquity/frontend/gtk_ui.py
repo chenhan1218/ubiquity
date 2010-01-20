@@ -123,6 +123,13 @@ class Controller(ubiquity.frontend.base.Controller):
     def go_to_page(self, widget):
         self._wizard.set_current_page(self._wizard.steps.page_num(widget))
 
+    def toggle_top_level(self):
+        if self._wizard.live_installer.get_property('visible'):
+            self._wizard.live_installer.hide()
+        else:
+            self._wizard.live_installer.show()
+        self._wizard.refresh()
+
 class Wizard(BaseFrontend):
 
     def __init__(self, distro):
@@ -596,7 +603,7 @@ class Wizard(BaseFrontend):
             sw.child.set_shadow_type(gtk.SHADOW_NONE)
             sw.show_all()
             self.action_bar_eb.add(sw)
-        
+
         if hasattr(self, 'before_bar_eb'):
             self.before_bar = segmented_bar.SegmentedBar()
             self.before_bar.h_padding = self.before_bar.bar_height / 2
@@ -616,7 +623,7 @@ class Wizard(BaseFrontend):
         if hasattr(self, 'stepPartAuto'):
             self.previous_partitioning_page = \
                 self.steps.page_num(self.stepPartAuto)
-        
+
         for grub_entry in (self.grub_device_entry, self.grub_new_device_entry):
             grub_entry.clear()
             renderer = gtk.CellRendererText()
@@ -749,11 +756,11 @@ class Wizard(BaseFrontend):
 
             question = i18n.map_widget_name(prefix, widget.get_name())
             widget.set_label(text)
-            
+
             # Workaround for radio button labels disappearing on second
             # translate when not visible. LP: #353090
             widget.realize()
-            
+
             if question.startswith('ubiquity/imported/'):
                 stock_id = question[18:]
                 widget.set_use_stock(False)
@@ -946,7 +953,7 @@ class Wizard(BaseFrontend):
 
         syslog.syslog('progress_loop()')
 
-        self.current_page = None    
+        self.current_page = None
 
         lang = self.locale.split('_')[0]
         slides = '/usr/share/ubiquity-slideshow/slides/index.html'
@@ -1156,7 +1163,7 @@ class Wizard(BaseFrontend):
             self.username_error_box.hide()
             self.password_error_box.hide()
             self.hostname_error_box.hide()
-            
+
             options = grub_options()
             self.grub_options.clear()
             for opt in options:
@@ -1533,7 +1540,7 @@ class Wizard(BaseFrontend):
 
         for child in self.autopartition_choices_vbox.get_children():
             self.autopartition_choices_vbox.remove(child)
-        
+
         text = self.get_string('ubiquity/text/part_auto_choices_label')
         text = text.replace('${RELEASE}', get_release_name())
         self.part_auto_choices_label.set_text(text)
@@ -1573,7 +1580,7 @@ class Wizard(BaseFrontend):
                     hbox.pack_start(label)
                     a.add(hbox)
                     vbox.add(a)
-                    
+
                     self.setup_format_warnings(extra_options[choice])
                     extra_combo.connect('changed', self.on_extra_combo_changed)
                     extra_combo.set_active(0)
@@ -2611,7 +2618,7 @@ class Wizard(BaseFrontend):
                 return ''
         else:
             return ''
-        
+
     def question_dialog (self, title, msg, options, use_templates=True):
         self.run_automation_error_cmd()
         # TODO cjwatson 2009-04-16: We need to call allow_change_step here
