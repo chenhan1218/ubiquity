@@ -30,6 +30,8 @@ ubiquity (2.1.12) UNRELEASED; urgency=low
     output if possible), and, when installing from a non-CD medium, only
     reset the default boot device if we would otherwise end up installing
     GRUB to the installation medium.
+  * Initialise FilteredCommand.ui_loop_level earlier, just in case
+    (LP: #484452).
 
   [ Evan Dandrea ]
   * Allow the user to set a hostname in oem-config.

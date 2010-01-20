@@ -80,6 +80,7 @@ class FilteredCommand(UntrustedBase):
         self.current_question = None
         self.succeeded = False
         self.dbfilter = None
+        self.ui_loop_level = 0
 
     def start(self, auto_process=False):
         self.status = None
