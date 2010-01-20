@@ -30,7 +30,7 @@ from ubiquity import misc
 from ubiquity import im_switch
 from ubiquity import osextras
 
-VERSION = '2.1.12'
+VERSION = '@VERSION@'
 TARGET = '/target'
 LOCKFILE = '/var/lock/ubiquity'
 lock = None
