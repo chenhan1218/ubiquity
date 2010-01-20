@@ -1,4 +1,4 @@
-ubiquity (2.1.12) UNRELEASED; urgency=low
+ubiquity (2.1.12) lucid; urgency=low
 
   [ Colin Watson ]
   * Add osextras.unlink_force, equivalent to 'rm -f', to save on tedious
@@ -58,7 +58,7 @@ ubiquity (2.1.12) UNRELEASED; urgency=low
   * Reset contents of timezone combo boxes every time the timezone page is
     entered (LP: #461104).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Sat, 16 Jan 2010 01:27:31 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 20 Jan 2010 15:35:08 +0000
 
 ubiquity (2.1.11) lucid; urgency=low
 
