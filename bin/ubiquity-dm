@@ -84,8 +84,12 @@ class DM:
 
     def run(self, *program):
         null = open('/dev/null', 'w')
-        if not os.path.exists('/var/log/installer'):
+        try:
             os.makedirs('/var/log/installer')
+        except OSError:
+            # be happy if someone already created the path
+            if e.errno != errno.EEXIST:
+                raise
         logfile = open('/var/log/installer/dm', 'w')
 
         signal.signal(signal.SIGUSR1, self.sigusr1_handler)

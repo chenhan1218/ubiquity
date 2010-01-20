@@ -379,8 +379,12 @@ def main(oem_config):
 
     acquire_lock()
 
-    if not os.path.exists('/var/log/installer'):
+    try:
         os.makedirs('/var/log/installer')
+    except OSError:
+        # be happy if someone already created the path
+        if e.errno != errno.EEXIST:
+            raise
     syslog.openlog('ubiquity', syslog.LOG_NOWAIT | syslog.LOG_PID)
 
     if oem_config:
