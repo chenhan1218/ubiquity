@@ -5,7 +5,8 @@ ubiquity (2.1.13) UNRELEASED; urgency=low
     /var/log/installer (LP: #458806).
 
   [ Evan Dandrea ]
-  * Support the new translated keyboard names in console-setup.
+  * Support the new translated keyboard names in console-setup
+    (LP: #127528).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 20 Jan 2010 17:44:10 +0000
 
