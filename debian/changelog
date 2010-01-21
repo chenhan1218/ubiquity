@@ -10,6 +10,7 @@ ubiquity (2.1.13) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Remove another reference to a long dead xserver-xorg debconf question.
+  * Don't try reconfiguring LRM, it's been superceded by DKMS based packages.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 20 Jan 2010 17:44:10 +0000
 

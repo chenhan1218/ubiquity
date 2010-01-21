@@ -1538,7 +1538,6 @@ exit 0"""
             pass
 
         packages = ['linux-image-' + self.kernel_version,
-                    'linux-restricted-modules-' + self.kernel_version,
                     'usplash',
                     'splashy',
                     'popularity-contest',
