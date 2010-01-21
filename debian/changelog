@@ -9,6 +9,8 @@ ubiquity (2.1.13) UNRELEASED; urgency=low
     (LP: #127528).
 
   [ Mario Limonciello ]
+  * Remove another reference to a long dead xserver-xorg debconf question.
+  * Don't try reconfiguring LRM, it's been superceded by DKMS based packages.
   * Add a new top function to the Controller to allow toggling the
     visibility of the live installer from a plugin.
   * Expose extra functions get and substitute to plugins via it's
