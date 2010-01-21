@@ -2318,7 +2318,7 @@ exit 0"""
             fp.close()
             fp = open(fstab, 'w')
             fp.writelines(ret)
-        except Exception, e:
+        except Exception:
             syslog.syslog(syslog.LOG_ERR, 'Exception during installation:')
             syslog.syslog(syslog.LOG_ERR, 'Unable to process /etc/fstab:')
             for line in traceback.format_exc().split('\n'):
