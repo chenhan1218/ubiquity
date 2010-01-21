@@ -28,6 +28,7 @@ import debconf
 import shutil
 import XKit.xutils
 import subprocess
+from ubiquity import install_misc
 
 import string
 
@@ -62,9 +63,9 @@ class Install(ParentInstall):
 
         #Before beginning, set the initial root sql pass to the user pass
         self.passwd=self.db.get('passwd/user-password')
-        self.set_debconf('mythtv/mysql_admin_password',self.passwd)
-        self.set_debconf('mysql-server/root_password',self.passwd)
-        self.set_debconf('mysql-server/root_password_again',self.passwd)
+        install_misc.set_debconf(self.target, 'mythtv/mysql_admin_password',self.passwd)
+        install_misc.set_debconf(self.target, 'mysql-server/root_password',self.passwd)
+        install_misc.set_debconf(self.target, 'mysql-server/root_password_again',self.passwd)
 
         #Regular ubuntu user configuration
         ParentInstall.configure_user(self)
@@ -129,8 +130,8 @@ class Install(ParentInstall):
                 pass
 
         #group membership
-        self.chrex('adduser', self.user, 'mythtv')
-        self.chrex('adduser', self.user, 'video')
+        install_misc.chrex(self.target,('adduser', self.user, 'mythtv')
+        install_misc.chrex(self.target,('adduser', self.user, 'video')
 
     def configure_ma(self):
         """Overrides module assistant configuration method.  Mythbuntu doesn't
@@ -142,30 +143,30 @@ class Install(ParentInstall):
         for question in ('mythtv/mysql_mythtv_user','mythtv/mysql_mythtv_password',\
                          'mythtv/mysql_mythtv_dbname','mythtv/mysql_host'):
             answer=self.db.get(question)
-            self.set_debconf(question,answer)
+            install_misc.set_debconf(self.target, question,answer)
 
         #Setup mysql.txt nicely
         os.remove(self.target + '/etc/mythtv/mysql.txt')
-        self.reconfigure('mythtv-common')
+        install_misc.reconfigure(self.target, 'mythtv-common')
 
         #only reconfigure database if appropriate
         if 'Master' in self.type:
             #Prepare
 
             #Setup database
-            self.reconfigure('mysql-server-5.1')
+            install_misc.reconfigure(self.target, 'mysql-server-5.1')
             proc=subprocess.Popen(['chroot',self.target,'mysqld'])
-            self.reconfigure('mythtv-database')
+            install_misc.reconfigure(self.target, 'mythtv-database')
 
             #Cleanup
-            self.chrex('mysqladmin','--defaults-file=/etc/mysql/debian.cnf','shutdown')
+            install_misc.chrex(self.target,('mysqladmin','--defaults-file=/etc/mysql/debian.cnf','shutdown')
             proc.communicate()
 
             #Mythweb
-            self.set_debconf('mythweb/enable', 'true')
-            self.set_debconf('mythweb/username', self.user)
-            self.set_debconf('mythweb/password', self.passwd)
-            self.reconfigure('mythweb')
+            install_misc.set_debconf(self.target, 'mythweb/enable')
+            install_misc.set_debconf(self.target, 'mythweb/username')
+            install_misc.set_debconf(self.target, 'mythweb/password')
+            install_misc.reconfigure(self.target, 'mythweb')
 
     def install_extras(self):
         """Overrides main install_extras function to add in Mythbuntu
@@ -187,14 +188,14 @@ class Install(ParentInstall):
         if to_remove != []:
             self.do_remove(to_remove)
         #Mark new items
-        self.record_installed(to_install)
+        install_misc.record_installed(to_install)
 
         #Actually install extras
         ParentInstall.install_extras(self)
 
         #Run depmod if we might be using a DKMS enabled driver
         if video_driver != "Open Source Driver":
-            self.chrex('/sbin/depmod','-a')
+            install_misc.chrex(self.target,('/sbin/depmod','-a')
 
     def configure_hardware(self):
         """Overrides parent function to add in hooks for configuring
@@ -219,7 +220,7 @@ class Install(ParentInstall):
         if self.db.get('mythbuntu/openssh-server') == 'true':
             for file in ['ssh_host_dsa_key','ssh_host_dsa_key.pub','ssh_host_rsa_key','ssh_host_rsa_key.pub']:
                 os.remove(self.target + '/etc/ssh/' + file)
-            self.reconfigure('openssh-server')
+            install_misc.reconfigure(self.target, 'openssh-server')
         if self.db.get('mythbuntu/mysql-server') == 'true':
             f=open(self.target + '/etc/mysql/conf.d/mythtv.cnf','w')
             print >>f, """\
@@ -246,8 +247,8 @@ bind-address=0.0.0.0"""
         """Configures the remote & transmitter per user choices"""
         #configure lircd for remote and transmitter
         ir_device={"modules":"","driver":"","device":"","lircd_conf":"","remote":"","transmitter":""}
-        self.chroot_setup()
-        self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
+        install_misc.chroot_setup(self.target)
+        install_misc.chrex(self.target,('dpkg-divert', '--package', 'ubiquity', '--rename',
                    '--quiet', '--add', '/sbin/udevd')
         try:
             os.symlink('/bin/true', '/target/sbin/udevd')
@@ -256,7 +257,7 @@ bind-address=0.0.0.0"""
 
         try:
             ir_device["remote"] = self.db.get('lirc/remote')
-            self.set_debconf('lirc/remote',ir_device["remote"])
+            install_misc.set_debconf('lirc/remote',ir_device["remote"], self.target)
             ir_device["modules"] = ""
             ir_device["driver"] = ""
             ir_device["device"] = ""
@@ -267,7 +268,7 @@ bind-address=0.0.0.0"""
 
         try:
             ir_device["transmitter"] = self.db.get('lirc/transmitter')
-            self.set_debconf('lirc/transmitter',ir_device["transmitter"])
+            install_misc.set_debconf('lirc/transmitter',ir_device["transmitter"], self.target)
             ir_device["modules"] = ""
             ir_device["driver"] = ""
             ir_device["device"] = ""
@@ -279,12 +280,12 @@ bind-address=0.0.0.0"""
         self.lirc.write_hardware_conf(self.target + '/etc/lirc/hardware.conf')
 
         try:
-            self.reconfigure('lirc')
+            install_misc.reconfigure(self.target, 'lirc')
         finally:
             osextras.unlink_force('/target/sbin/udevd')
-            self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
+            install_misc.chrex(self.target,('dpkg-divert', '--package', 'ubiquity', '--rename',
                        '--quiet', '--remove', '/sbin/udevd')
-        self.chroot_cleanup()
+        install_misc.chroot_cleanup(self.target)()
 
         #configure lircrc
         home = '/target/home/' + self.db.get('passwd/username')
@@ -294,13 +295,13 @@ bind-address=0.0.0.0"""
 
     def enable_amd(self, type, fmt):
         if type == 'Composite Video Output':
-            self.chrex('/usr/bin/aticonfig','--tvs VIDEO', '--tvf ' + fmt)
+            install_misc.chrex(self.target,('/usr/bin/aticonfig','--tvs VIDEO', '--tvf ' + fmt)
         elif type == 'S-Video Video Output':
-            self.chrex('/usr/bin/aticonfig','--tvs VIDEO', '--tvf ' + fmt)
+            install_misc.chrex(self.target,('/usr/bin/aticonfig','--tvs VIDEO', '--tvf ' + fmt)
         elif type == 'Component Video Output':
-            self.chrex('/usr/bin/aticonfig','--tvs YUV', '--tvf ' + fmt)
+            install_misc.chrex(self.target,('/usr/bin/aticonfig','--tvs YUV', '--tvf ' + fmt)
         else:
-            self.chrex('/usr/bin/aticonfig')
+            install_misc.chrex(self.target,('/usr/bin/aticonfig')
 
     def enable_nvidia(self, type, fmt):
         """Enables an NVIDIA graphics driver using XKit"""
