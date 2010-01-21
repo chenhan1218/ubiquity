@@ -7,6 +7,7 @@ ubiquity (2.1.13) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Support the new translated keyboard names in console-setup
     (LP: #127528).
+  * Provide an option to determine the keymap from a decision tree.
 
   [ Mario Limonciello ]
   * Remove another reference to a long dead xserver-xorg debconf question.
