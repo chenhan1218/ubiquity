@@ -792,17 +792,21 @@ class Wizard(BaseFrontend):
         syslog.syslog('progress_loop()')
 
         self.current_page = None
-        
-        lang = self.locale.split('_')[0]
-        slides = '/usr/share/ubiquity-slideshow-kubuntu/slides/index.html'
+
+        slideshow_dir = '/usr/share/ubiquity-slideshow-kubuntu'
+        slideshow_locale = slideshow_get_available_locale(slideshow_dir, self.locale)
+        slideshow_main = slideshow_dir + '/slides/index.html'
+
         s = self.app.desktop().availableGeometry()
         fail = None
-        if os.path.exists(slides):
-            slides = 'file://%s#?locale=%s' % (slides, lang)
+        if os.path.exists(slideshow_main):
             if s.height >= 600 and s.width >= 800:
-                ltr = i18n.get_string('default-ltr', lang, 'ubiquity/imported')
-                if ltr == 'default:RTL':
-                    slides += '?rtl'
+                slides = 'file://' + slideshow_main
+                if slideshow_locale != 'c': #slideshow will use default automatically
+                    slides += '#?locale=' + slideshow_locale
+                    ltr = i18n.get_string('default-ltr', slideshow_locale, 'ubiquity/imported')
+                    if ltr == 'default:RTL':
+                        slides += '?rtl'
                 try:
                     from PyQt4.QtWebKit import QWebView
                     from PyQt4.QtWebKit import QWebPage
@@ -833,7 +837,7 @@ class Wizard(BaseFrontend):
             else:
                 fail = 'Display < 800x600 (%sx%s).' % (s.width, s.height)
         else:
-            fail = 'No slides present for %s.' % lang
+            fail = 'No slides present for %s.' % slideshow_dir
         if fail:
             syslog.syslog('Not displaying the slideshow: %s' % fail)
 

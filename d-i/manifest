@@ -9,7 +9,7 @@ flash-kernel 2.13ubuntu13
 grub-installer 1.49ubuntu1
 hw-detect 1.73ubuntu1
 kboot-installer 0.0.1ubuntu9
-localechooser 2.12ubuntu2
+localechooser 2.12ubuntu3
 migration-assistant 0.6.4
 netcfg 1.51ubuntu1
 partconf 1.32
@@ -30,5 +30,5 @@ partman-xfs 44
 preseed 1.43
 silo-installer 1.16ubuntu1
 tzsetup 1:0.26ubuntu1
-user-setup 1.28ubuntu2
+user-setup 1.28ubuntu3
 yaboot-installer 1.1.15ubuntu1

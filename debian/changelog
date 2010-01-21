@@ -1,4 +1,22 @@
-ubiquity (2.1.12) UNRELEASED; urgency=low
+ubiquity (2.1.13) UNRELEASED; urgency=low
+
+  [ Colin Watson ]
+  * Don't crash if something races with ubiquity or ubiquity-dm to create
+    /var/log/installer (LP: #458806).
+
+  [ Evan Dandrea ]
+  * Support the new translated keyboard names in console-setup
+    (LP: #127528).
+
+  [ Mario Limonciello ]
+  * Add a new top function to the Controller to allow toggling the
+    visibility of the live installer from a plugin.
+  * Drop extraneous handlers from Mythbuntu pages.
+  * Move all handlers from mythbuntu_ui directly into plugins themselves.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 20 Jan 2010 17:44:10 +0000
+
+ubiquity (2.1.12) lucid; urgency=low
 
   [ Colin Watson ]
   * Add osextras.unlink_force, equivalent to 'rm -f', to save on tedious
@@ -30,6 +48,8 @@ ubiquity (2.1.12) UNRELEASED; urgency=low
     output if possible), and, when installing from a non-CD medium, only
     reset the default boot device if we would otherwise end up installing
     GRUB to the installation medium.
+  * Initialise FilteredCommand.ui_loop_level earlier, just in case
+    (LP: #484452).
 
   [ Evan Dandrea ]
   * Allow the user to set a hostname in oem-config.
@@ -40,16 +60,23 @@ ubiquity (2.1.12) UNRELEASED; urgency=low
   * Slightly better exception printing in scripts/install.py
   * GNOME Bug #56070 (can't click button twice) has long since been
     closed.  Remove hack.
+  * Automatic update of included source packages: localechooser
+    2.12ubuntu3, user-setup 1.28ubuntu3.
 
   [ Mario Limonciello ]
   * Drop old hack for reconfiguring mythbuntu-default-settings since
     this is fixed in user-setup now.
-  * Add a new top function to the Controller to allow toggling the
-    visibility of the live installer from a plugin.
-  * Drop extraneous handlers from Mythbuntu pages.
-  * Move all handlers from mythbuntu_ui directly into plugins themselves.
+  * Drop old hack for copying ^xserver-xorg onto the target system.  No
+    longer necessary as thse variables don't exist in current installs.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Sat, 16 Jan 2010 01:27:31 +0000
+  [ Dylan McCall ]
+  * Use slideshow for language variants if available (LP: #476269).
+
+  [ Michael Terry ]
+  * Reset contents of timezone combo boxes every time the timezone page is
+    entered (LP: #461104).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 20 Jan 2010 15:35:08 +0000
 
 ubiquity (2.1.11) lucid; urgency=low
 
