@@ -2015,7 +2015,7 @@ class Install:
         self.db.progress('REGION', 2, 5)
         try:
             if remove_kernels:
-                self.do_remove(remove_kernels, recursive=True)
+                install_misc.record_removed(remove_kernels, recursive=True)
         except:
             self.db.progress('STOP')
             raise
@@ -2149,11 +2149,15 @@ class Install:
                     difference.add(pkg)
             del cache
 
+        install_misc.record_removed(difference)
+
         # Don't worry about failures removing packages; it will be easier
         # for the user to sort them out with a graphical package manager (or
         # whatever) after installation than it will be to try to deal with
         # them automatically here.
-        self.do_remove(difference)
+        (regular, recursive) = install_misc.query_recorded_removed()
+        self.do_remove(regular)
+        self.do_remove(recursive, recursive=True)
 
     def remove_broken_cdrom(self):
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:

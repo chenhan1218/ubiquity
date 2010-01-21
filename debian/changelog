@@ -20,6 +20,8 @@ ubiquity (2.1.13) UNRELEASED; urgency=low
   * Move some functions from the install.py script into a new file,
     install_misc.  The intention here is that they can then be used more
     directly by ubiquity plugins.
+  * Add a new method for package removals to install_misc to allow
+    plugins to mark packages to be removed later in remove_extras.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 20 Jan 2010 17:44:10 +0000
 

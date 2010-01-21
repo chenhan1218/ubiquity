@@ -201,4 +201,30 @@ def query_recorded_installed():
         record_file.close()
     return apt_installed
 
+def record_removed(pkgs, recursive=False):
+    """Record which packages we've like removed later"""
+
+    record_file = "/var/lib/ubiquity/apt-removed"
+    if not os.path.exists(os.path.dirname(record_file)):
+        os.makedirs(os.path.dirname(record_file))
+    record = open(record_file, "a")
+
+    for pkg in pkgs:
+        print >>record, pkg, str(recursive).lower()
+
+    record.close()
+
+def query_recorded_removed():
+    apt_removed = set()
+    apt_removed_recursive = set()
+    if os.path.exists("/var/lib/ubiquity/apt-removed"):
+        record_file = open("/var/lib/ubiquity/apt-removed")
+        for line in record_file:
+            if misc.create_bool(line.split()[1]):
+                apt_removed_recursive.add(line.split()[0])
+            else:
+                apt_removed.add(line.split()[0])
+        record_file.close()
+    return (apt_removed, apt_removed_recursive)
+
 # vim:ai:et:sts=4:tw=80:sw=4:

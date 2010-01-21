@@ -353,10 +353,7 @@ bind-address=0.0.0.0"""
     def remove_extras(self):
         """Try to remove packages that are installed on the live CD but not on
         the installed system."""
-        #First remove normal live-desktop packages
-        ParentInstall.remove_extras(self)
-
-        #now take care of mythbuntu specifics
+        #First mark the mythbuntu specifics
         packages=set()
         ## system role
         if 'Backend' not in self.type:
@@ -377,7 +374,11 @@ bind-address=0.0.0.0"""
         if len(packages) >= 0:
             #recursively remove to make sure we get plugins and services that
             #aren't necessary anymore
-            self.do_remove(packages,True)
+            install_misc.record_removed(packages,True)
+
+        #Now mark regular packages and do the actual removal
+        ParentInstall.remove_extras(self)
+
 
 if __name__ == '__main__':
     if not os.path.exists('/var/lib/ubiquity'):
