@@ -10,6 +10,8 @@ ubiquity (2.1.13) UNRELEASED; urgency=low
   * Provide an option to determine the keymap from a decision tree.
   * Add missing parameter to exception in bin/ubiquity.
   * slideshow_get_available_locale is an instance method.
+  * The frontend always has a db attribute, per r3665, so revise the check in
+    debconf_communicator.  Thanks Colin Watson.
 
   [ Mario Limonciello ]
   * Remove another reference to a long dead xserver-xorg debconf question.
