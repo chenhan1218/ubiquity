@@ -8,6 +8,9 @@ ubiquity (2.1.13) UNRELEASED; urgency=low
   * Support the new translated keyboard names in console-setup
     (LP: #127528).
 
+  [ Mario Limonciello ]
+  * Remove another reference to a long dead xserver-xorg debconf question.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 20 Jan 2010 17:44:10 +0000
 
 ubiquity (2.1.12) lucid; urgency=low

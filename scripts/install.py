@@ -1506,12 +1506,6 @@ exit 0"""
                 configfile.close()
 
         osextras.unlink_force(os.path.join(self.target, 'etc/usplash.conf'))
-        try:
-            modes = self.db.get('xserver-xorg/config/display/modes')
-            self.set_debconf('xserver-xorg/config/display/modes', modes)
-        except debconf.DebconfError:
-            pass
-
         osextras.unlink_force(os.path.join(self.target,
                                            'etc/popularity-contest.conf'))
         try:
