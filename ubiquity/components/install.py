@@ -25,7 +25,7 @@ from ubiquity.filteredcommand import FilteredCommand
 from ubiquity import misc
 
 class Install(FilteredCommand):
-    def prepare(self):
+    def prepare(self, unfiltered=False):
         automatic_mode = 'UBIQUITY_AUTOMATIC' in os.environ
 
         if os.access('/usr/share/grub-installer/grub-installer', os.X_OK):
