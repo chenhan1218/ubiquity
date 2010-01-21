@@ -11,6 +11,8 @@ ubiquity (2.1.13) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Add a new top function to the Controller to allow toggling the
     visibility of the live installer from a plugin.
+  * Expose extra functions get and substitute to plugins via it's
+    second argument (currently called Progress).
   * Drop extraneous handlers from Mythbuntu pages.
   * Move all handlers from mythbuntu_ui directly into plugins themselves.
 

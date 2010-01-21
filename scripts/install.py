@@ -1123,6 +1123,10 @@ exit 0"""
                 self._db = db
             def info(self, title):
                 self._db.progress('INFO', title)
+            def get(self, question):
+                return self._db.get(question)
+            def substitute(self, template, substr, data):
+                self._db.subst(template, substr, data)
 
         for plugin in self.plugins:
             self.db.progress('SET', count)
