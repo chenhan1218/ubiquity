@@ -8,6 +8,8 @@ ubiquity (2.1.13) UNRELEASED; urgency=low
   * Support the new translated keyboard names in console-setup
     (LP: #127528).
   * Provide an option to determine the keymap from a decision tree.
+  * Add missing parameter to exception in bin/ubiquity.
+  * slideshow_get_available_locale is an instance method.
 
   [ Mario Limonciello ]
   * Remove another reference to a long dead xserver-xorg debconf question.

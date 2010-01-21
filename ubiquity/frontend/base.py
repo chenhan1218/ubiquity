@@ -539,7 +539,7 @@ class BaseFrontend:
                 self.get_string('ubiquity/install/success_command'))
             execute_root('sh', '-c', self.success_cmd)
     
-    def slideshow_get_available_locale(slideshow_dir, locale):
+    def slideshow_get_available_locale(self, slideshow_dir, locale):
         # Returns the ideal locale for the given slideshow, based on the
         # given locale, or 'c' if an ideal one is not available.
         # For example, with locale=en_CA, this returns en if en_CA is not
