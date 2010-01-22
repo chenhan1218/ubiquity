@@ -1408,7 +1408,7 @@ class Install:
             self.target, 'etc/ssl/private/ssl-cert-snakeoil.key'))
 
         self.chroot_setup(x11=True)
-        install_misc.chrex(self.target,('dpkg-divert', '--package', 'ubiquity', '--rename',
+        install_misc.chrex(self.target,'dpkg-divert', '--package', 'ubiquity', '--rename',
                    '--quiet', '--add', '/usr/sbin/update-initramfs')
         try:
             os.symlink('/bin/true', os.path.join(self.target,
@@ -1429,10 +1429,10 @@ class Install:
         finally:
             osextras.unlink_force(os.path.join(self.target,
                                                'usr/sbin/update-initramfs'))
-            install_misc.chrex(self.target,('dpkg-divert', '--package', 'ubiquity', '--rename',
+            install_misc.chrex(self.target,'dpkg-divert', '--package', 'ubiquity', '--rename',
                        '--quiet', '--remove', '/usr/sbin/update-initramfs')
-            install_misc.chrex(self.target,('update-initramfs', '-c', '-k', self.kernel_version)
-            install_misc.chroot_cleanup(self.target)(x11=True)
+            install_misc.chrex(self.target,'update-initramfs', '-c', '-k', self.kernel_version)
+            install_misc.chroot_cleanup(self.target, x11=True)
 
         # Fix up kernel symlinks now that the initrd exists. Depending on
         # the architecture, these may be in / or in /boot.
@@ -2066,10 +2066,10 @@ class Install:
                         if os.path.exists(os.path.join(self.target,
                                                        desktop_file)):
                             desktop_base = os.path.basename(desktop_file)
-                            install_misc.chrex(self.target,('install', '-d',
+                            install_misc.chrex(self.target,'install', '-d',
                                        '-o', 'oem', '-g', 'oem',
                                        '/home/oem/Desktop')
-                            install_misc.chrex(self.target,('install', '-o', 'oem', '-g', 'oem',
+                            install_misc.chrex(self.target,'install', '-o', 'oem', '-g', 'oem',
                                        '/%s' % desktop_file,
                                        '/home/oem/Desktop/%s' % desktop_base)
                             break
@@ -2311,14 +2311,14 @@ class Install:
         if not os.path.exists(os.path.join(self.target, 'etc/init.d/apparmor')):
             syslog.syslog('Apparmor is not installed, so not generating cache.')
             return
-        install_misc.chrex(self.target,('mount', '-t', 'proc', 'proc', '/proc')
-        install_misc.chrex(self.target,('mount', '-t', 'sysfs', 'sysfs', '/sys')
-        install_misc.chrex(self.target,('mount', '-t', 'securityfs',
+        install_misc.chrex(self.target,'mount', '-t', 'proc', 'proc', '/proc')
+        install_misc.chrex(self.target,'mount', '-t', 'sysfs', 'sysfs', '/sys')
+        install_misc.chrex(self.target,'mount', '-t', 'securityfs',
                    'securityfs', '/sys/kernel/security')
-        install_misc.chrex(self.target,('/etc/init.d/apparmor', 'recache')
-        install_misc.chrex(self.target,('umount', '/proc')
-        install_misc.chrex(self.target,('umount', '/sys/kernel/security')
-        install_misc.chrex(self.target,('umount', '/sys')
+        install_misc.chrex(self.target,'/etc/init.d/apparmor', 'recache')
+        install_misc.chrex(self.target,'umount', '/proc')
+        install_misc.chrex(self.target,'umount', '/sys/kernel/security')
+        install_misc.chrex(self.target,'umount', '/sys')
 
     def cleanup(self):
         """Miscellaneous cleanup tasks."""
