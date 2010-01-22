@@ -86,7 +86,7 @@ class DM:
         null = open('/dev/null', 'w')
         try:
             os.makedirs('/var/log/installer')
-        except OSError:
+        except OSError, e:
             # be happy if someone already created the path
             if e.errno != errno.EEXIST:
                 raise
