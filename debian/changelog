@@ -13,6 +13,8 @@ ubiquity (2.1.13) UNRELEASED; urgency=low
   * The frontend always has a db attribute, per r3665, so revise the check in
     debconf_communicator.  Thanks Colin Watson.
   * Add missing function argument to Install's prepare.
+  * Automatic update of included source packages: console-setup
+    1.34ubuntu7, grub-installer 1.49ubuntu2, partman-uboot 3.
 
   [ Mario Limonciello ]
   * Remove another reference to a long dead xserver-xorg debconf question.
