@@ -428,7 +428,7 @@ def main(oem_config):
             os.environ['UBIQUITY_DEBUG_CORE'] = '1'
 
     # Clean up old state.
-    for name in ('apt-installed', 'apt-install-direct', 'remove-kernels'):
+    for name in ('apt-installed', 'apt-install-direct', 'remove-kernels', 'apt-removed'):
         osextras.unlink_force(os.path.join('/var/lib/ubiquity', name))
     shutil.rmtree("/var/lib/partman", ignore_errors=True)
 
