@@ -1348,7 +1348,7 @@ class Install:
             if ret != 0:
                 raise InstallStepError("HwDetect failed with code %d" % ret)
         finally:
-            install_misc.chroot_cleanup(self.target)()
+            install_misc.chroot_cleanup(self.target)
 
         self.db.progress('INFO', 'ubiquity/install/hardware')
 
@@ -1389,7 +1389,7 @@ class Install:
                                            'etc/popularity-contest.conf'))
         try:
             participate = self.db.get('popularity-contest/participate')
-            set_debconf(self.target, 'popularity-contest/participate', participate, self.db)
+            install_misc.set_debconf(self.target, 'popularity-contest/participate', participate, self.db)
         except debconf.DebconfError:
             pass
 
@@ -1398,7 +1398,7 @@ class Install:
                          'ucf', '--purge', '/etc/papersize'],
                         preexec_fn=install_misc.debconf_disconnect, close_fds=True)
         try:
-            set_debconf(self.target, 'libpaper/defaultpaper', '', self.db)
+            install_misc.set_debconf(self.target, 'libpaper/defaultpaper', '', self.db)
         except debconf.DebconfError:
             pass
 
@@ -1407,7 +1407,7 @@ class Install:
         osextras.unlink_force(os.path.join(
             self.target, 'etc/ssl/private/ssl-cert-snakeoil.key'))
 
-        self.chroot_setup(x11=True)
+        install_misc.chroot_setup(self.target, x11=True)
         install_misc.chrex(self.target,'dpkg-divert', '--package', 'ubiquity', '--rename',
                    '--quiet', '--add', '/usr/sbin/update-initramfs')
         try:
@@ -1737,7 +1737,7 @@ class Install:
                     syslog.syslog(syslog.LOG_ERR, line)
                 commit_error = str(e)
         finally:
-            install_misc.chroot_cleanup(self.target)()
+            install_misc.chroot_cleanup(self.target)
         self.db.progress('SET', 10)
 
         cache.open(None)
@@ -1909,7 +1909,7 @@ class Install:
                     syslog.syslog(syslog.LOG_ERR, line)
                 commit_error = str(e)
         finally:
-            install_misc.chroot_cleanup(self.target)()
+            install_misc.chroot_cleanup(self.target)
         self.db.progress('SET', 5)
 
         cache.open(None)
@@ -2078,11 +2078,11 @@ class Install:
                 # This mimics the behavior in 01oem-config-udeb.
                 di_locale = self.db.get('debian-installer/locale')
                 if di_locale:
-                    set_debconf(self.target, 'debian-installer/locale', di_locale, self.db)
+                    install_misc.set_debconf(self.target, 'debian-installer/locale', di_locale, self.db)
                 #in an automated install, this key needs to carry over
                 installable_lang = self.db.get('ubiquity/only-show-installable-languages')
                 if installable_lang:
-                    set_debconf(self.target, 'ubiquity/only-show-installable-languages', self.db)
+                    install_misc.set_debconf(self.target, 'ubiquity/only-show-installable-languages', self.db)
         except debconf.DebconfError:
             pass
 
