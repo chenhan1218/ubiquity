@@ -1,3 +1,11 @@
+ubiquity (2.1.15) UNRELEASED; urgency=low
+
+  * Add a new template, ubiquity/only-show-installable-languages for modifying
+    the behavior of what languages to offer on an invokation based upon
+    what's installed or "available" to install according to an apt cache.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Fri, 22 Jan 2010 18:08:44 -0600
+
 ubiquity (2.1.14) lucid; urgency=low
 
   * Add missing build dependency on keymapper.

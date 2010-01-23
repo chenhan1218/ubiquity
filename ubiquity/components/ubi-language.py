@@ -359,6 +359,12 @@ class Page(Plugin):
             current_language_index = self.value_index(question)
             current_language = "English"
 
+
+            only_installable = misc.create_bool(self.db.get('ubiquity/only-show-installable-languages'))
+            if only_installable:
+                from apt.cache import Cache
+                cache = Cache()
+
             import gzip
             languagelist = gzip.open('/usr/lib/ubiquity/localechooser/languagelist.data.gz')
             language_display_map = {}
@@ -371,11 +377,33 @@ class Page(Plugin):
                 if code in ('dz', 'km'):
                     i += 1
                     continue
+
+                if only_installable and code != 'C':
+                    pkg_name = 'language-pack-%s' % code
+                    #special case these
+                    if pkg_name.endswith('_CN'):
+                        pkg_name = 'language-pack-zh-hans'
+                    elif pkg_name.endswith('_TW'):
+                        pkg_name = 'language-pack-zh-hant'
+                    elif pkg_name.endswith('_NO'):
+                        pkg_name = pkg_name.split('_NO')[0]
+                    elif pkg_name.endswith('_BR'):
+                        pkg_name = pkg_name.split('_BR')[0]
+                    try:
+                        pkg = cache[pkg_name]
+                        if not (pkg.installed or pkg.candidate):
+                            continue
+                    except KeyError:
+                        continue
+
                 language_display_map[trans] = (name, code)
                 if i == current_language_index:
                     current_language = trans
                 i += 1
             languagelist.close()
+
+            if only_installable:
+                del cache
 
             try:
                 # Note that we always collate with the 'C' locale.  This is far

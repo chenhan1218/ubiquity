@@ -2219,6 +2219,11 @@ exit 0"""
                 di_locale = self.db.get('debian-installer/locale')
                 if di_locale:
                     self.set_debconf('debian-installer/locale', di_locale)
+
+		#in an automated install, this key needs to carry over
+                installable_lang = self.db.get('ubiquity/only-show-installable-languages')
+                if installable_lang:
+                    self.set_debconf('ubiquity/only-show-installable-languages')
         except debconf.DebconfError:
             pass
 
