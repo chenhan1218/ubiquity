@@ -3,6 +3,17 @@ ubiquity (2.1.15) UNRELEASED; urgency=low
   * Add a new template, ubiquity/only-show-installable-languages for modifying
     the behavior of what languages to offer on an invokation based upon
     what's installed or "available" to install according to an apt cache.
+  * Expose extra functions get and substitute to plugins via it's
+    second argument (currently called Progress).
+  * Drop extraneous handlers from Mythbuntu pages.
+  * Move all handlers from mythbuntu_ui directly into plugins themselves.
+  * Move some functions from the install.py script into a new file,
+    install_misc.  The intention here is that they can then be used more
+    directly by ubiquity plugins.
+  * Add a new method for package removals to install_misc to allow
+    plugins to mark packages to be removed later in remove_extras.
+  * Modify the Mythbuntu services plugin to not even offer VNC if a short
+    pw. (LP: #469312)
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Fri, 22 Jan 2010 18:08:44 -0600
 
@@ -35,15 +46,6 @@ ubiquity (2.1.13) lucid; urgency=low
   * Don't try reconfiguring LRM, it's been superceded by DKMS based packages.
   * Add a new top function to the Controller to allow toggling the
     visibility of the live installer from a plugin.
-  * Expose extra functions get and substitute to plugins via it's
-    second argument (currently called Progress).
-  * Drop extraneous handlers from Mythbuntu pages.
-  * Move all handlers from mythbuntu_ui directly into plugins themselves.
-  * Move some functions from the install.py script into a new file,
-    install_misc.  The intention here is that they can then be used more
-    directly by ubiquity plugins.
-  * Add a new method for package removals to install_misc to allow
-    plugins to mark packages to be removed later in remove_extras.
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 22 Jan 2010 09:24:12 +0000
 
