@@ -25,6 +25,7 @@ import subprocess
 import os
 import debconf
 from ubiquity import misc
+from ubiquity import osextras
 
 def debconf_disconnect():
     """Disconnect from debconf. This is only to be used as a subprocess
@@ -36,7 +37,7 @@ def debconf_disconnect():
         # Probably not a good idea to use this in /target too ...
         del os.environ['DEBCONF_USE_CDEBCONF']
 
-def reconfigure_preexec(self):
+def reconfigure_preexec():
     debconf_disconnect()
     os.environ['XAUTHORITY'] = '/root/.Xauthority'
 
@@ -47,7 +48,7 @@ def reconfigure(target, package):
                      'dpkg-reconfigure', '-fnoninteractive', package],
                     preexec_fn=reconfigure_preexec, close_fds=True)
 
-def chrex(self, target, *args):
+def chrex(target, *args):
     """executes commands on chroot system (provided by *args)."""
     return misc.execute('chroot', target, *args)
 
@@ -89,7 +90,7 @@ def get_all_interfaces():
     ifs_file.close()
     return ifs
 
-def chroot_setup(self, target, x11=False):
+def chroot_setup(target, x11=False):
     """Set up /target for safe package management operations."""
     if target == '/':
         return
@@ -147,7 +148,7 @@ exit 0"""
         misc.execute('mount', '--bind', '/tmp/.X11-unix',
                      os.path.join(target, 'tmp/.X11-unix'))
 
-def chroot_cleanup(self, target, x11=False):
+def chroot_cleanup(target, x11=False):
     """Undo the work done by chroot_setup."""
     if target == '/':
         return
@@ -157,13 +158,13 @@ def chroot_cleanup(self, target, x11=False):
         try:
             os.rmdir(os.path.join(target, 'tmp/.X11-unix'))
         except OSError:
-            pass
+            passo
         osextras.unlink_force(os.path.join(target,
                                            'root/.Xauthority'))
 
-    chrex(self.target,'umount', '/dev')
-    chrex(self.target,'umount', '/sys')
-    chrex(self.target,'umount', '/proc')
+    chrex(target,'umount', '/dev')
+    chrex(target,'umount', '/sys')
+    chrex(target,'umount', '/proc')
 
     initctl = os.path.join(target, 'sbin/initctl')
     if os.path.exists('%s.REAL' % initctl):
@@ -175,7 +176,7 @@ def chroot_cleanup(self, target, x11=False):
     else:
         osextras.unlink_force(start_stop_daemon)
 
-    policy_rc_d = os.path.join(self.target, 'usr/sbin/policy-rc.d')
+    policy_rc_d = os.path.join(target, 'usr/sbin/policy-rc.d')
     osextras.unlink_force(policy_rc_d)
 
 def record_installed(pkgs):
