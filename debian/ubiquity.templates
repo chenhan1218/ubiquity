@@ -825,6 +825,14 @@ Description: for internal use; can be preseeded
  language packs that are staying installed. Listing packages here that are
  not in the live filesystem has no effect.
 
+Template: ubiquity/only-show-installable-languages
+Type: boolean
+Default: false
+Description: for internal use; can be preseeded
+ If the environment that you are running ubiquity or oem-config in doesn't
+ have internet access, then packages that are not currently available in
+ the apt cache (or livefs) won't be offered if this key is set true.
+
 Template: ubiquity/partman-made-changes
 Type: boolean
 Default: true

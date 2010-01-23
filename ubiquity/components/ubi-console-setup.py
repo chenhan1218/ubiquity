@@ -36,6 +36,8 @@ class PageGtk(PluginUI):
         self.current_layout = None
         self.default_keyboard_layout = None
         self.default_keyboard_variant = None
+        self.calculate_variant = None
+        self.calculate_layout = None
         try:
             import gtk
             builder = gtk.Builder()
@@ -48,10 +50,46 @@ class PageGtk(PluginUI):
             self.keyboard_layout_hbox = builder.get_object('keyboard_layout_hbox')
             self.keyboardlayoutview = builder.get_object('keyboardlayoutview')
             self.keyboardvariantview = builder.get_object('keyboardvariantview')
+            self.calculate_keymap = builder.get_object('calculate_keymap')
+            self.calculate_keymap_label = builder.get_object('calculate_keymap_label')
+            self.calculate_keymap_button = builder.get_object('calculate_keymap_button')
+            self.calculate_keymap_button.connect('clicked', self.calculate_clicked)
+            self.manual_keymap = builder.get_object('manual_keymap')
         except Exception, e:
             self.debug('Could not create keyboard page: %s', e)
             self.page = None
         self.plugin_widgets = self.page
+
+    def calculate_result(self, w, keymap):
+        l = self.controller.dbfilter.get_locale()
+        keymap = keymap.split(':')
+        if len(keymap) == 1:
+            keymap.append('')
+        layout = keyboard_names.lang[l]['layouts_rev'][keymap[0]]
+        # Temporary workaround until I fix variants_rev
+        v = keyboard_names.lang[l]['variants'][keymap[0]]
+        idx = v.values().index(keymap[1])
+        variant = v.keys()[idx]
+        self.calculate_keymap_label.set_label(variant)
+        self.calculate_variant = variant
+        self.calculate_layout = layout
+        self.controller.dbfilter.apply_keyboard(layout, variant)
+        self.controller.allow_go_forward(True)
+
+        # Necessary to clean up references so self.query is garbage collected.
+        self.query.destroy()
+        self.query = None
+
+    def calculate_closed(self, *args):
+        self.query.destroy()
+        self.query = None
+
+    def calculate_clicked(self, *args):
+        from ubiquity.frontend.gtk_components.keyboard_query import KeyboardQuery
+        self.query = KeyboardQuery()
+        self.query.connect('layout_result', self.calculate_result)
+        self.query.connect('delete-event', self.calculate_closed)
+        self.query.run()
 
     def on_keyboardlayoutview_row_activated(self, *args):
         self.controller.go_forward()
@@ -162,6 +200,11 @@ class PageGtk(PluginUI):
                 return None
             else:
                 return unicode(self.default_keyboard_variant)
+        elif self.calculate_keymap.get_active():
+            if self.calculate_variant is None:
+                return None
+            else:
+                return unicode(self.calculate_variant)
         selection = self.keyboardvariantview.get_selection()
         (model, iterator) = selection.get_selected()
         if iterator is None:
@@ -169,17 +212,27 @@ class PageGtk(PluginUI):
         else:
             return unicode(model.get_value(iterator, 0))
 
-    def on_suggested_keymap_toggled(self, widget):
-        if self.suggested_keymap.get_active():
-            self.keyboard_layout_hbox.set_sensitive(False)
+    def on_keymap_toggled(self, widget):
+        self.controller.allow_go_forward(True)
+        self.calculate_keymap_button.set_sensitive(False)
+        self.keyboard_layout_hbox.set_sensitive(False)
+
+        if self.calculate_keymap.get_active():
+            self.calculate_keymap_button.set_sensitive(True)
+            if self.calculate_variant:
+                self.controller.dbfilter.apply_keyboard(self.calculate_layout,
+                                                        self.calculate_variant)
+            else:
+                self.controller.allow_go_forward(False)
+        elif self.manual_keymap.get_active():
+            self.keyboard_layout_hbox.set_sensitive(True)
+        elif self.suggested_keymap.get_active():
             if (self.default_keyboard_layout is not None and
                 self.default_keyboard_variant is not None):
                 self.current_layout = self.default_keyboard_layout
                 self.controller.dbfilter.change_layout(self.default_keyboard_layout)
                 self.controller.dbfilter.apply_keyboard(self.default_keyboard_layout,
                                                         self.default_keyboard_variant)
-        else:
-            self.keyboard_layout_hbox.set_sensitive(True)
 
 class PageKde(PluginUI):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_keyboard'
@@ -320,7 +373,6 @@ class PageNoninteractive(PluginUI):
         self.keyboard_variant = variant
 
     def get_keyboard_variant(self):
-        #print '*** get_keyboard_variant'
         return self.keyboard_variant
 
 class Page(Plugin):

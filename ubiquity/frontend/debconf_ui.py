@@ -69,13 +69,11 @@ class Wizard(BaseFrontend):
         self.previous_excepthook(exctype, excvalue, exctb)
 
     def debconf_communicator(self):
-        if hasattr(self, 'db'):
-            return self.db
-
         if 'DEBIAN_HAS_FRONTEND' in os.environ:
             # We may only instantiate Debconf once, as it fiddles with
             # sys.stdout. See LP #24727.
-            self.db = PersistentDebconfCommunicator()
+            if self.db is None:
+                self.db = PersistentDebconfCommunicator()
             return self.db
         else:
             # This needs to be instantiated afresh each time, as normal.

@@ -2074,11 +2074,15 @@ class Install:
                                        '/home/oem/Desktop/%s' % desktop_base)
                             break
 
-		# Carry the locale setting over to the installed system.
-		# This mimics the behavior in 01oem-config-udeb.
+                # Carry the locale setting over to the installed system.
+                # This mimics the behavior in 01oem-config-udeb.
                 di_locale = self.db.get('debian-installer/locale')
                 if di_locale:
                     set_debconf(self.target, 'debian-installer/locale', di_locale, self.db)
+                #in an automated install, this key needs to carry over
+                installable_lang = self.db.get('ubiquity/only-show-installable-languages')
+                if installable_lang:
+                    set_debconf(self.target, 'ubiquity/only-show-installable-languages', self.db)
         except debconf.DebconfError:
             pass
 
@@ -2182,7 +2186,7 @@ class Install:
             fp.close()
             fp = open(fstab, 'w')
             fp.writelines(ret)
-        except Exception, e:
+        except Exception:
             syslog.syslog(syslog.LOG_ERR, 'Exception during installation:')
             syslog.syslog(syslog.LOG_ERR, 'Unable to process /etc/fstab:')
             for line in traceback.format_exc().split('\n'):

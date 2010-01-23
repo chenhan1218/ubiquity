@@ -1,4 +1,18 @@
-ubiquity (2.1.13) UNRELEASED; urgency=low
+ubiquity (2.1.15) UNRELEASED; urgency=low
+
+  * Add a new template, ubiquity/only-show-installable-languages for modifying
+    the behavior of what languages to offer on an invokation based upon
+    what's installed or "available" to install according to an apt cache.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Fri, 22 Jan 2010 18:08:44 -0600
+
+ubiquity (2.1.14) lucid; urgency=low
+
+  * Add missing build dependency on keymapper.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 22 Jan 2010 10:17:54 +0000
+
+ubiquity (2.1.13) lucid; urgency=low
 
   [ Colin Watson ]
   * Don't crash if something races with ubiquity or ubiquity-dm to create
@@ -7,6 +21,14 @@ ubiquity (2.1.13) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Support the new translated keyboard names in console-setup
     (LP: #127528).
+  * Provide an option to determine the keymap from a decision tree.
+  * Add missing parameter to exception in bin/ubiquity.
+  * slideshow_get_available_locale is an instance method (LP: #510710).
+  * The frontend always has a db attribute, per r3665, so revise the check in
+    debconf_communicator.  Thanks Colin Watson.
+  * Add missing function argument to Install's prepare.
+  * Automatic update of included source packages: console-setup
+    1.34ubuntu7, grub-installer 1.49ubuntu2, partman-uboot 3.
 
   [ Mario Limonciello ]
   * Remove another reference to a long dead xserver-xorg debconf question.
@@ -23,7 +45,7 @@ ubiquity (2.1.13) UNRELEASED; urgency=low
   * Add a new method for package removals to install_misc to allow
     plugins to mark packages to be removed later in remove_extras.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 20 Jan 2010 17:44:10 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 22 Jan 2010 09:24:12 +0000
 
 ubiquity (2.1.12) lucid; urgency=low
 

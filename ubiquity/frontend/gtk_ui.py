@@ -956,7 +956,7 @@ class Wizard(BaseFrontend):
         self.current_page = None
 
         slideshow_dir = '/usr/share/ubiquity-slideshow'
-        slideshow_locale = slideshow_get_available_locale(slideshow_dir, self.locale)
+        slideshow_locale = self.slideshow_get_available_locale(slideshow_dir, self.locale)
         slideshow_main = slideshow_dir + '/slides/index.html'
 
         s = self.live_installer.get_screen()
