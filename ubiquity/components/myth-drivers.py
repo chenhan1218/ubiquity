@@ -22,6 +22,8 @@
 from ubiquity.plugin import *
 from mythbuntu_common.dictionaries import get_graphics_dictionary
 from mythbuntu_common.installer import *
+from ubiquity import install_misc
+import XKit.xutils
 import os
 
 NAME = 'myth-drivers'
@@ -119,3 +121,102 @@ class Page(Plugin):
             else:
                 self.preseed('mythbuntu/' + this_driver, drivers[this_driver])
         Plugin.ok_handler(self)
+
+class Install(InstallPlugin):
+
+    def enable_nvidia(self, type, fmt):
+        """Enables an NVIDIA graphics driver using XKit"""
+        xorg_conf=XKit.xutils.XUtils()
+
+        extra_conf_options={'NoLogo': '1',
+                           'DPI': '100x100'}
+
+        if type == 'Composite Video Output':
+            extra_conf_options["ConnectedMonitor"]="TV"
+            extra_conf_options["TVOutFormat"]="COMPOSITE"
+            extra_conf_options["TVStandard"]=fmt
+        elif type == 'S-Video Video Output':
+            extra_conf_options["ConnectedMonitor"]="TV"
+            extra_conf_options["TVOutFormat"]="SVIDEO"
+            extra_conf_options["TVStandard"]=fmt
+        elif type == 'Component Video Output':
+            extra_conf_options["ConnectedMonitor"]="TV"
+            extra_conf_options["TVOutFormat"]="COMPONENT"
+            extra_conf_options["TVStandard"]=fmt
+
+        #Set up device section
+        relevant_devices = []
+        if len(xorg_conf.globaldict['Device']) == 0:
+            device = xorg_conf.makeSection('Device', identifier='Default Device')
+            relevant_devices.append(device)
+            xorg_conf.setDriver('Device', 'nvidia', device)
+        else:
+            devices = xorg_conf.getDevicesInUse()
+            if len(devices) > 0:
+                relevant_devices = devices
+            else:
+                relevant_devices = xorg_conf.globaldict['Device'].keys()
+            for device in relevant_devices:
+                xorg_conf.setDriver('Device', 'nvidia', device)
+
+        for device_section in relevant_devices:
+            for k, v in extra_conf_options.iteritems():
+                xorg_conf.addOption('Device', k, v, optiontype='Option', position=device_section)
+
+        #Set up screen section
+        if len(xorg_conf.globaldict['Screen']) == 0:
+            screen = xorg_conf.makeSection('Screen', identifier='Default Screen')
+
+        xorg_conf.addOption('Screen', 'DefaultDepth', '24', position=0, prefix='')
+
+        xorg_conf.writeFile(self.target + "/etc/X11/xorg.conf")
+
+    def enable_amd(self):
+        """Enables an AMD graphics driver using XKit"""
+        xorg_conf=XKit.xutils.XUtils()
+
+        #Set up device section
+        relevant_devices = []
+        if len(xorg_conf.globaldict['Device']) == 0:
+            device = xorg_conf.makeSection('Device', identifier='Default Device')
+            relevant_devices.append(device)
+            xorg_conf.setDriver('Device', 'fglrx', device)
+        else:
+            devices = xorg_conf.getDevicesInUse()
+            if len(devices) > 0:
+                relevant_devices = devices
+            else:
+                relevant_devices = xorg_conf.globaldict['Device'].keys()
+            for device in relevant_devices:
+                xorg_conf.setDriver('Device', 'fglrx', device)
+
+        #Set up screen section
+        if len(xorg_conf.globaldict['Screen']) == 0:
+            screen = xorg_conf.makeSection('Screen', identifier='Default Screen')
+
+        xorg_conf.addOption('Screen', 'DefaultDepth', '24', position=0, prefix='')
+
+        xorg_conf.writeFile(self.target + "/etc/X11/xorg.conf")
+
+    def install(self, target, progress, *args, **kwargs):
+        progress.info('ubiquity/install/drivers')
+        self.target = target
+        to_install = []
+        video_driver = progress.get('mythbuntu/video_driver')
+        if video_driver != "Open Source Driver":
+            #Install driver
+            to_install.append(video_driver)
+
+            #Build tvout/tvstandard
+            out = progress.get('mythbuntu/tvout')
+            standard = progress.get('mythbuntu/tvstandard')
+            #Enabling xorg.conf stuff
+            if 'nvidia' in video_driver:
+                self.enable_nvidia(out,standard)
+            else:
+                self.enable_amd()
+
+        #Mark new items
+        install_misc.record_installed(to_install)
+
+        return InstallPlugin.install(self, target, progress, *args, **kwargs)

@@ -22,7 +22,12 @@
 from ubiquity.plugin import *
 from mythbuntu_common.installer import *
 from mythbuntu_common.dictionaries import get_services_dictionary
+from mythbuntu_common.vnc import VNCHandler
+from ubiquity import install_misc
+from ubiquity import misc
+
 import os
+import shutil
 
 NAME = 'myth-services'
 AFTER = 'myth-installtype'
@@ -97,4 +102,43 @@ class Page(Plugin):
                 self.preseed('mythbuntu/' + this_service, answer)
         Plugin.ok_handler(self)
 
+class Install(InstallPlugin):
+    def install(self, target, progress, *args, **kwargs):
+        to_install = []
+
+        progress.info('ubiquity/install/services')
+
+        if misc.create_bool(progress.get('mythbuntu/samba')):
+            shutil.copy('/usr/share/mythbuntu/examples/smb.conf.dist', target + '/etc/samba/smb.conf')
+
+        if misc.create_bool(progress.get('mythbuntu/nfs-kernel-server')):
+            shutil.copy('/usr/share/mythbuntu/examples/exports.dist', target + '/etc/exports')
+            to_install.append('nfs-kernel-server')
+            to_install.append('portmap')
+
+        if misc.create_bool(progress.get('mythbuntu/openssh-server')):
+            for file in ['ssh_host_dsa_key','ssh_host_dsa_key.pub','ssh_host_rsa_key','ssh_host_rsa_key.pub']:
+                os.remove(target + '/etc/ssh/' + file)
+            install_misc.reconfigure(target, 'openssh-server')
+
+        if misc.create_bool(progress.get('mythbuntu/mysql-server')):
+            f=open(target + '/etc/mysql/conf.d/mythtv.cnf','w')
+            print >>f, """\
+[mysqld]
+bind-address=0.0.0.0"""
+            f.close()
+
+        if misc.create_bool(progress.get('mythbuntu/x11vnc')):
+            vnc=VNCHandler()
+            vnc.create_password(progress.get('passwd/user-password'))
+            directory = target + '/home/' + progress.get('passwd/username') + '/.vnc'
+            if not os.path.exists(directory):
+                os.makedirs(directory)
+            shutil.move('/root/.vnc/passwd', directory + '/passwd')
+            to_install.append('x11vnc')
+
+        #Mark new items
+        install_misc.record_installed(to_install)
+
+        return InstallPlugin.install(self, target, progress, *args, **kwargs)
 

@@ -14,6 +14,8 @@ ubiquity (2.1.15) UNRELEASED; urgency=low
     plugins to mark packages to be removed later in remove_extras.
   * Modify the Mythbuntu services plugin to not even offer VNC if a short
     pw. (LP: #469312)
+  * Convert most of the functions from mythbuntu_install.py into plugin
+    type Install methods.
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Fri, 22 Jan 2010 18:08:44 -0600
 

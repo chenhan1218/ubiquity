@@ -21,10 +21,13 @@
 
 from ubiquity.plugin import *
 from mythbuntu_common.installer import MythPageGtk
+from ubiquity import install_misc
+from ubiquity import misc
 import os
+import subprocess
 
 NAME = 'myth-installtype'
-AFTER = 'usersetup'
+AFTER = ['usersetup', None]
 WEIGHT = 12
 
 class PageGtk(MythPageGtk):
@@ -76,3 +79,68 @@ class Page(Plugin):
     def ok_handler(self):
         self.preseed('mythbuntu/' + self.questions[0],self.ui.get_installtype())
         Plugin.ok_handler(self)
+
+class Install(InstallPlugin):
+    def process_package_removals(self):
+        packages=set()
+        ## system role
+        if 'Backend' not in self.type:
+            packages.add('libnet-upnp-perl') #causes mythtv-backend to be removed
+            packages.add('php5-common')      #causes mythweb to be removed
+            packages.add('libaprutil1')      #causes apache2 to be removed
+        if 'Slave' in self.type or self.type == 'Frontend':
+            packages.add('ntp')              #causes mythtv-backend-master to go
+            packages.add('mythtv-database')
+            packages.add('mysql-server-core-5.1')
+        if 'Frontend' not in self.type:
+            packages.add('mythtv-frontend')
+        ## services that are installed by default
+        for service in ['samba','openssh-server']:
+            if not misc.create_bool(self.db.get('mythbuntu/' + service)):
+                packages.add(service)
+        if len(packages) >= 0:
+            #recursively remove to make sure we get plugins and services that
+            #aren't necessary anymore
+            install_misc.record_removed(packages,True)
+
+    def setup_common(self):
+        #All types
+        for question in ('mythtv/mysql_mythtv_user','mythtv/mysql_mythtv_password',\
+                         'mythtv/mysql_mythtv_dbname','mythtv/mysql_host'):
+            answer = self.progress.get(question)
+            install_misc.set_debconf(self.target, question,answer)
+
+        os.remove(self.target + '/etc/mythtv/mysql.txt')
+        install_misc.reconfigure(self.target, 'mythtv-common')
+
+    def setup_master_backend(self):
+        if 'Master' in self.type:
+            #Setup database
+            install_misc.reconfigure(self.target, 'mysql-server-5.1')
+            proc=subprocess.Popen(['chroot',self.target,'mysqld'])
+            install_misc.reconfigure(self.target, 'mythtv-database')
+
+            #Cleanup
+            install_misc.chrex(self.target,'mysqladmin','--defaults-file=/etc/mysql/debian.cnf','shutdown')
+            proc.communicate()
+
+            #Mythweb
+            passwd = self.progress.get('passwd/user-password')
+            user = self.progress.get('passwd/username')
+            install_misc.set_debconf(self.target, 'mythweb/enable', 'true')
+            install_misc.set_debconf(self.target, 'mythweb/username', user)
+            install_misc.set_debconf(self.target, 'mythweb/password', passwd)
+            install_misc.reconfigure(self.target, 'mythweb')
+
+    def install(self, target, progress, *args, **kwargs):
+        self.target = target
+        self.progress = progress
+
+        self.progress.info('ubiquity/install/mythbuntu')
+        self.type = self.progress.get('mythbuntu/install_type')
+
+        self.setup_common()
+        self.setup_master_backend()
+        self.process_package_removals()
+
+        return InstallPlugin.install(self, target, progress, *args, **kwargs)

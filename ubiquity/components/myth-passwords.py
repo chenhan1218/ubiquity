@@ -20,10 +20,12 @@
 # along with Ubiquity.  If not, see <http://www.gnu.org/licenses/>.
 
 import string
+import debconf
 import subprocess
 from ubiquity.plugin import *
 from mythbuntu_common.installer import *
 from mythbuntu_common.mysql import MySQLHandler
+from ubiquity import install_misc
 import os
 
 NAME = 'myth-passwords'
@@ -116,3 +118,54 @@ class Page(Plugin):
             del os.environ['UBIQUITY_AUTOMATIC']
 
         Plugin.cleanup(self)
+
+class Install(InstallPlugin):
+    def install(self, target, progress, *args, **kwargs):
+        passwd = progress.get('passwd/user-password')
+        user = progress.get('passwd/username')
+        type = progress.get('mythbuntu/install_type')
+
+        #Before beginning, set the initial root sql pass to the user pass
+        for key in [ 'mythtv/mysql_admin_password',
+                     'mysql-server/root_password',
+                     'mysql-server/root_password_again' ]:
+            install_misc.set_debconf(target, key, passwd)
+
+
+        #Create a .mythtv directory
+        home_mythtv_dir = target + '/home/' + user + '/.mythtv'
+        if not os.path.isdir(home_mythtv_dir):
+            #in case someone made a symlink or file for the directory
+            if os.path.islink(home_mythtv_dir) or os.path.exists(home_mythtv_dir):
+                os.remove(home_mythtv_dir)
+            os.makedirs(home_mythtv_dir)
+
+        #Remove mysql.txt from home directory if it's there, then make one
+        sql_txt= home_mythtv_dir + '/mysql.txt'
+        if os.path.islink(sql_txt) or os.path.exists(sql_txt):
+            os.remove(sql_txt)
+        try:
+            os.symlink('/etc/mythtv/mysql.txt', sql_txt)
+        except OSError:
+            #on a live disk there is a chance this was a broken link
+            #depending on what the user did in the livefs
+            pass
+
+        #mythtv.desktop autostart
+        if 'Frontend' in type:
+            config_dir = target + '/home/' + user + '/.config'
+            autostart_dir =  config_dir + '/autostart'
+            autostart_link = autostart_dir + '/mythtv.desktop'
+            if not os.path.isdir(config_dir):
+                os.makedirs(config_dir)
+            if not os.path.isdir(autostart_dir):
+                os.makedirs(autostart_dir)
+            elif os.path.islink(autostart_link) or os.path.exists(autostart_link):
+                os.remove(autostart_link)
+            try:
+                os.symlink('/usr/share/applications/mythtv.desktop',autostart_link)
+            except OSError:
+                #on a live disk, this will appear a broken link, but it works
+                pass
+
+        return InstallPlugin.install(self, target, progress, *args, **kwargs)

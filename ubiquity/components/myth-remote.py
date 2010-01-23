@@ -20,9 +20,13 @@
 # along with Ubiquity.  If not, see <http://www.gnu.org/licenses/>.
 
 from ubiquity.plugin import *
+from ubiquity import osextras
 from mythbuntu_common.installer import *
 from mythbuntu_common.lirc import LircHandler
+from ubiquity import install_misc
 import os
+import debconf
+
 
 NAME = 'myth-remote'
 AFTER = 'myth-services'
@@ -39,12 +43,12 @@ class PageGtk(MythPageGtk):
         """Fills the lirc pages with the appropriate data"""
         self.remote_count = 0
         self.transmitter_count = 0
-        self.lirc=LircHandler()
-        for item in self.lirc.get_possible_devices("remote"):
+        lirchandler=LircHandler()
+        for item in lirchandler.get_possible_devices("remote"):
             if "Custom" not in item and "Blaster" not in item:
                 self.remote_list.append_text(item)
                 self.remote_count = self.remote_count + 1
-        for item in self.lirc.get_possible_devices("transmitter"):
+        for item in lirchandler.get_possible_devices("transmitter"):
             if "Custom" not in item:
                 self.transmitter_list.append_text(item)
                 self.transmitter_count = self.transmitter_count + 1
@@ -126,3 +130,60 @@ class Page(Plugin):
             device = self.ui.get_lirc(question)
             self.preseed('lirc/' + question,device[question])
         Plugin.ok_handler(self)
+
+class Install(InstallPlugin):
+    def install(self, target, progress, *args, **kwargs):
+        progress.info('ubiquity/install/ir')
+
+        lirchandler = LircHandler()
+
+        #configure lircd for remote and transmitter
+        ir_device = {"modules":"","driver":"","device":"","lircd_conf":"","remote":"","transmitter":""}
+        install_misc.chroot_setup(target)
+        install_misc.chrex(target,'dpkg-divert', '--package', 'ubiquity', '--rename',
+                   '--quiet', '--add', '/sbin/udevd')
+        try:
+            os.symlink('/bin/true', '/target/sbin/udevd')
+        except OSError:
+            pass
+
+        try:
+            ir_device["remote"] = progress.get('lirc/remote')
+            install_misc.set_debconf(target, 'lirc/remote',ir_device["remote"])
+            ir_device["modules"] = ""
+            ir_device["driver"] = ""
+            ir_device["device"] = ""
+            ir_device["lircd_conf"] = ""
+            lirchandler.set_device(ir_device,"remote")
+        except debconf.DebconfError:
+            pass
+
+        try:
+            ir_device["transmitter"] = progress.get('lirc/transmitter')
+            install_misc.set_debconf(target, 'lirc/transmitter',ir_device["transmitter"])
+            ir_device["modules"] = ""
+            ir_device["driver"] = ""
+            ir_device["device"] = ""
+            ir_device["lircd_conf"] = ""
+            lirchandler.set_device(ir_device,"transmitter")
+        except debconf.DebconfError:
+            pass
+
+        lirchandler.write_hardware_conf(target + '/etc/lirc/hardware.conf')
+
+        try:
+            install_misc.reconfigure(target, 'lirc')
+        finally:
+            osextras.unlink_force('/target/sbin/udevd')
+            install_misc.chrex(target,'dpkg-divert', '--package', 'ubiquity', '--rename',
+                       '--quiet', '--remove', '/sbin/udevd')
+        install_misc.chroot_cleanup(target)
+
+        #configure lircrc
+        home = '/target/home/' + progress.get('passwd/username')
+        os.putenv('HOME',home)
+        if not os.path.isdir(home):
+            os.makedirs(home)
+        lirchandler.create_lircrc(os.path.join(target,"etc/lirc/lircd.conf"),False)
+
+        return InstallPlugin.install(self, target, progress, *args, **kwargs)

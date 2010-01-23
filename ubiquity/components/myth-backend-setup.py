@@ -19,8 +19,6 @@
 # You should have received a copy of the GNU General Public License
 # along with Ubiquity.  If not, see <http://www.gnu.org/licenses/>.
 
-import os
-from ubiquity.plugin import *
 from ubiquity.misc import execute_root
 from mythbuntu_common.installer import MythPageGtk
 
