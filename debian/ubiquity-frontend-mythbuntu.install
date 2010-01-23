@@ -1,6 +1,9 @@
 #install scripts
 scripts/mythbuntu/* usr/share/ubiquity
 
+#target config
+scripts/mythbuntu/60mythbuntu_user usr/lib/ubiquity/target-config
+
 #individual python components
 #Summary generation Page
 #GTK->Final installer glue
