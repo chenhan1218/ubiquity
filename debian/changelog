@@ -1,8 +1,12 @@
 ubiquity (2.1.15) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
   * Add a new template, ubiquity/only-show-installable-languages for modifying
     the behavior of what languages to offer on an invokation based upon
     what's installed or "available" to install according to an apt cache.
+
+  [ Evan Dandrea ]
+  * Support getting the timezone from a geoip server (LP: #229884).
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Fri, 22 Jan 2010 18:08:44 -0600
 

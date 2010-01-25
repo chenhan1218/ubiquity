@@ -380,11 +380,14 @@ class Page(Plugin):
             except debconf.DebconfError:
                 pass
         self.preseed('tzsetup/selected', 'false')
-        questions = ['^time/zone$', 'PROGRESS']
+        questions = ['^time/zone$', '^tzsetup/detected$', 'PROGRESS']
         return ([clock_script], questions, env)
 
     def run(self, priority, question):
-        if question == 'time/zone':
+        if question == 'tzsetup/detected':
+            zone = self.db.get('time/zone')
+            self.ui.set_timezone(zone)
+        elif question == 'time/zone':
             if self.multiple:
                 # Work around a debconf bug: REGISTER does not appear to
                 # give a newly-registered question the same default as the
