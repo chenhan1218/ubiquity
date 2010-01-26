@@ -27,19 +27,7 @@ from install import Install as ParentInstall
 from ubiquity import install_misc
 from ubiquity import osextras
 
-
-class Install(ParentInstall):
-
-    def install_extras(self):
-        """Overrides main install_extras function to add in Mythbuntu
-           drivers and services, and then call the parent function"""
-        #Actually install extras
-        ParentInstall.install_extras(self)
-
-        #Run depmod if we might be using a DKMS enabled driver
-        video_driver = self.db.get('mythbuntu/video_driver')
-        if video_driver != "Open Source Driver":
-            install_misc.chrex(self.target,'/sbin/depmod','-a')
+Install = ParentInstall.Install
 
 if __name__ == '__main__':
     if not os.path.exists('/var/lib/ubiquity'):
