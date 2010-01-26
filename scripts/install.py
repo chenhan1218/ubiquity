@@ -1145,6 +1145,12 @@ class Install:
 
     def select_language_packs(self):
         try:
+            master_disable = self.db.get('pkgsel/install-language-support')
+            if master_disable != '' and not misc.create_bool(master_disable):
+                return
+        except debconf.DebconfError:
+            pass
+        try:
             keep_packages = self.db.get('ubiquity/keep-installed')
             keep_packages = keep_packages.replace(',', '').split()
             syslog.syslog('keeping packages due to preseeding: %s' %

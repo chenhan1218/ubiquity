@@ -16,6 +16,8 @@ ubiquity (2.1.15) UNRELEASED; urgency=low
     pw. (LP: #469312)
   * Convert most of the functions from mythbuntu_install.py into plugin
     type Install methods.
+  * Support using pkgsel/install-language-support preseeded to false to
+    ignore installation of language packs (just like alternates).
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Fri, 22 Jan 2010 18:08:44 -0600
 

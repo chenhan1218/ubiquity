@@ -30,15 +30,6 @@ from ubiquity import osextras
 
 class Install(ParentInstall):
 
-    def __init__(self):
-        """Initializes the Mythbuntu installer extra objects"""
-
-        #Configure Parent cclass First so we can override things
-        ParentInstall.__init__(self)
-
-        #This forces install_langpacks to do Nothing
-        self.langpacks={}
-
     def install_extras(self):
         """Overrides main install_extras function to add in Mythbuntu
            drivers and services, and then call the parent function"""
