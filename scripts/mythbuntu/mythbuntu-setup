@@ -38,6 +38,6 @@ fi
 
 #Stop MySQL if we started it
 if [ -f $ROOT/etc/mysql/debian.cnf ]; then
-    $log unmount /var/run/mysqld
+    $log umount $ROOT/var/run/mysqld
     $log $chroot $ROOT mysqladmin --defaults-file=/etc/mysql/debian.cnf shutdown
 fi
