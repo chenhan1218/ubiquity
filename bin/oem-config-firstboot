@@ -32,6 +32,12 @@ if type fontconfig-voodoo >/dev/null 2>&1; then
 			|| true
 	fi
 fi
+# Run a command just before starting oem-config.
+RET="$(echo GET oem-config/early_command | debconf-communicate)"
+if [ "${RET%% *}" = 0 ]; then
+	command="${RET#* }"
+	log-output sh -c "$command" || true
+fi
 
 # TODO: will this work for X-based frontends when X isn't up yet?
 FRONTEND="$(/usr/sbin/oem-config -q)"

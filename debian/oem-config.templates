@@ -1,0 +1,10 @@
+Template: oem-config/remove
+Type: boolean
+Default: true
+Description: for internal use; can be preseeded
+ Remove oem-config on successful completion
+
+Template: oem-config/early_command
+Type: string
+Description: for internal use; can be preseeded
+ Run a command just before oem-config starts.

@@ -7,6 +7,10 @@ ubiquity (2.1.15) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Support getting the timezone from a geoip server (LP: #229884).
+  * Move oem-config runtime debconf questions into the oem-config
+    package.
+  * Add oem-config/early_command (run a command just before oem-config
+    starts).
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Fri, 22 Jan 2010 18:08:44 -0600
 
