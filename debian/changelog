@@ -18,6 +18,8 @@ ubiquity (2.1.15) UNRELEASED; urgency=low
     type Install methods.
   * Support using pkgsel/install-language-support preseeded to false to
     ignore installation of language packs (just like alternates).
+  * Drop mythbuntu_ui and all references to it.  The (former) Mythbuntu 
+    frontend is now fully pluggable into ubiquity's gtk_ui on it's own.
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Fri, 22 Jan 2010 18:08:44 -0600
 

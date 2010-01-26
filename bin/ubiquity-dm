@@ -45,7 +45,7 @@ class DM:
         # this lets us find out which window manager etc. to launch. Be
         # careful that importing this here will cause the underlying library
         # to try to talk to the X server, which won't go well.
-        frontend_names = ['mythbuntu_ui', 'gtk_ui', 'kde_ui']
+        frontend_names = ['gtk_ui', 'kde_ui']
         self.frontend = None
         for f in frontend_names:
             try:
@@ -108,9 +108,6 @@ class DM:
             servercommand.append('-nr')
 
         servercommand.extend([self.vt, self.display])
-        if self.frontend == 'mythbuntu_ui':
-            servercommand.append('-dpi')
-            servercommand.append('100')
 
         server = subprocess.Popen(servercommand, stdin=null, stdout=logfile, stderr=logfile, preexec_fn=self.server_preexec)
 
@@ -154,7 +151,7 @@ class DM:
             dbus_subp.wait()
 
         gconfd_running = False
-        if ((self.frontend == 'gtk_ui' or self.frontend == 'mythbuntu_ui') and
+        if (self.frontend == 'gtk_ui' and
             osextras.find_on_path('gconftool-2')):
             subprocess.call(['gconftool-2', '--spawn'],
                             stdin=null, stdout=logfile, stderr=logfile,
@@ -162,7 +159,7 @@ class DM:
             gconfd_running = True
 
         extras = []
-        if self.frontend == 'gtk_ui' or self.frontend == 'mythbuntu_ui':
+        if self.frontend == 'gtk_ui':
             gconf_dir = ('xml:readwrite:%s' %
                 os.path.expanduser('~%s/.gconf' %
                 self.username))
@@ -206,7 +203,7 @@ class DM:
                 gtk.gdk.flush()
             fp.close()
 
-        if self.frontend in ('gtk_ui', 'mythbuntu_ui'):
+        if self.frontend == 'gtk_ui':
             if gconfd_running and osextras.find_on_path('metacity'):
                 wm = subprocess.Popen(['metacity', '--sm-disable'],
                     stdin=null, stdout=logfile, stderr=logfile,
@@ -301,7 +298,7 @@ try:
 except XStartupError:
     sys.exit(1)
 proc = None
-if dm.frontend == 'gtk_ui' or dm.frontend == 'mythbuntu_ui':
+if dm.frontend == 'gtk_ui':
     proc = ['/etc/init.d/gdm', 'start']
 elif dm.frontend == 'kde_ui':
     proc = ['/etc/init.d/kdm', 'start']
