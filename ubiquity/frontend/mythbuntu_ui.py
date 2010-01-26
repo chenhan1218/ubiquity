@@ -38,24 +38,8 @@
 # with Ubiquity; if not, write to the Free Software Foundation, Inc., 51
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-import gtk
-import os
 #Mythbuntu ubiquity imports
 from ubiquity.components import mythbuntu_install
-
-#Ubiquity imports
 import ubiquity.frontend.gtk_ui as ParentFrontend
 ParentFrontend.install = mythbuntu_install
-
-class Wizard(ParentFrontend.Wizard):
-
-#Overriden Methods
-    def customize_installer(self):
-        """Initial UI setup."""
-        #Default to auto login, but don't make it mandatory
-        #This requires disabling encrypted FS
-        self.set_auto_login(True)
-        self.login_encrypt.set_sensitive(False)
-        self.backup=False
-
-        ParentFrontend.Wizard.customize_installer(self)
+Wizard = ParentFrontend.Wizard
