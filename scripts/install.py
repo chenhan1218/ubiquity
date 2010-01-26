@@ -2264,7 +2264,8 @@ exit 0"""
                 #in an automated install, this key needs to carry over
                 installable_lang = self.db.get('ubiquity/only-show-installable-languages')
                 if installable_lang:
-                    self.set_debconf('ubiquity/only-show-installable-languages')
+                    self.set_debconf('ubiquity/only-show-installable-languages',
+                                     installable_lang)
         except debconf.DebconfError:
             pass
 
