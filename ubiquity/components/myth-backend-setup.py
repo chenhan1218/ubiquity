@@ -21,6 +21,8 @@
 
 from ubiquity.misc import execute_root
 from mythbuntu_common.installer import MythPageGtk
+from ubiquity.plugin import *
+import os
 
 NAME = 'myth-backend-setup'
 AFTER = 'myth-summary'
@@ -30,15 +32,14 @@ class PageGtk(MythPageGtk):
     def __init__(self, controller, *args, **kwargs):
         self.ui_file='mythbuntu_stepBackendSetup'
         MythPageGtk.__init__(self,controller, *args, **kwargs)
-        self.plugin_optional_widgets = self.plugin_widgets
-        self.plugin_widgets = None
 
     def plugin_get_current_page(self):
-        return None
+        if not os.path.exists('/target/usr/bin/mythtv-setup'):
+            self.controller.go_forward()
+        return self.plugin_widgets
 
     def do_mythtv_setup(self,widget):
         """Spawn MythTV-Setup binary."""
         self.controller.toggle_top_level()
         execute_root("/usr/share/ubiquity/mythbuntu-setup")
         self.controller.toggle_top_level()
-
