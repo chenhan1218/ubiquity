@@ -8,3 +8,10 @@ Template: oem-config/early_command
 Type: string
 Description: for internal use; can be preseeded
  Run a command just before oem-config starts.
+
+Template: oem-config/extra_packages
+Type: string
+Description: for internal use; can be preseeded
+ Comma/space-separated list of extra packages to install
+ as part of user configuration
+

@@ -434,7 +434,11 @@ class Install:
             self.db.progress('REGION', count, count+1)
             count += 1
             self.db.progress('INFO', 'ubiquity/install/installing')
-            self.install_extras()
+
+            if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+                self.install_oem_extras()
+            else:
+                self.install_extras()
 
             self.db.progress('SET', count)
             self.db.progress('REGION', count, count+4)
@@ -1815,6 +1819,14 @@ exit 0"""
                 break
         return brokenpkgs
 
+    def warn_broken_packages(self, pkgs, err):
+        pkgs = ', '.join(pkgs)
+        syslog.syslog('broken packages after installation: %s' % pkgs)
+        self.db.subst('ubiquity/install/broken_install', 'ERROR', err)
+        self.db.subst('ubiquity/install/broken_install', 'PACKAGES', pkgs)
+        self.db.input('critical', 'ubiquity/install/broken_install')
+        self.db.go()
+
     def do_install(self, to_install):
         if self.langpacks:
             self.db.progress('START', 0, 10, 'ubiquity/langpacks/title')
@@ -1885,14 +1897,7 @@ exit 0"""
             if commit_error is None:
                 commit_error = ''
             brokenpkgs = self.broken_packages(cache)
-            syslog.syslog('broken packages after installation: '
-                          '%s' % ', '.join(brokenpkgs))
-            self.db.subst('ubiquity/install/broken_install', 'ERROR',
-                          commit_error)
-            self.db.subst('ubiquity/install/broken_install', 'PACKAGES',
-                          ', '.join(brokenpkgs))
-            self.db.input('critical', 'ubiquity/install/broken_install')
-            self.db.go()
+            self.warn_broken_packages(brokenpkgs, commit_error)
 
         self.db.progress('STOP')
 
@@ -2163,12 +2168,48 @@ exit 0"""
         self.db.progress('STOP')
 
 
+    def install_oem_extras(self):
+        """Try to install additional packages requested by the distributor"""
+
+        extra_packages = self.db.get('oem-config/extra_packages')
+        if extra_packages:
+            extra_packages = extra_packages.replace(',', ' ').split()
+        else:
+            return
+        save_replace = None
+        save_override = None
+        try:
+            if 'DEBCONF_DB_REPLACE' in os.environ:
+                save_replace = os.environ['DEBCONF_DB_REPLACE']
+            if 'DEBCONF_DB_OVERRIDE' in os.environ:
+                save_override = os.environ['DEBCONF_DB_OVERRIDE']
+            os.environ['DEBCONF_DB_REPLACE'] = 'configdb'
+            os.environ['DEBCONF_DB_OVERRIDE'] = 'Pipe{infd:none outfd:none}'
+            # We don't support asking questions on behalf of packages specified
+            # here yet, as we don't support asking arbitrary questions in
+            # components/install.py yet.  This is complicated not only by the
+            # present lack of dialogs for string and multiselect, but also
+            # because we don't have any way of discerning between questions
+            # asked by this module and questions asked by packages being
+            # installed.
+            cmd = ['debconf-apt-progress', '--', 'apt-get', '-y', 'install']
+            cmd += extra_packages
+            try:
+                subprocess.check_call(cmd)
+            except subprocess.CalledProcessError, e:
+                if e.returncode != 30:
+                    cache = Cache()
+                    brokenpkgs = self.broken_packages(cache)
+                    self.warn_broken_packages(brokenpkgs, str(e))
+        finally:
+            if save_replace:
+                os.environ['DEBCONF_DB_REPLACE'] = save_replace
+            if save_override:
+                os.environ['DEBCONF_DB_OVERRIDE'] = save_override
+
     def install_extras(self):
         """Try to install additional packages requested by installer
         components."""
-
-        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
-            return
 
         # We only ever install these packages from the CD.
         sources_list = os.path.join(self.target, 'etc/apt/sources.list')
