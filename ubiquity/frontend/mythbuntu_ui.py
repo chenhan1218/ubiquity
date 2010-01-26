@@ -59,33 +59,3 @@ class Wizard(ParentFrontend.Wizard):
         self.backup=False
 
         ParentFrontend.Wizard.customize_installer(self)
-
-    def run_success_cmd(self):
-        """Runs mythbuntu post post install GUI step"""
-        if not 'UBIQUITY_AUTOMATIC' in os.environ:
-            # Ideally, this next bit (showing the backend-setup page) would
-            # be fixed by re-architecting gtk_ui to run the install step after
-            # the first 'is_install' plugin and just naturally ask for the rest
-            # of the plugins afterward.
-            backend_page = None
-            type = None
-            for page in self.pages:
-                if page.module.NAME == 'myth-installtype':
-                    type = page.ui.get_installtype()
-                    if type == "Frontend":
-                        break
-                elif page.module.NAME == 'myth-backend-setup':
-                    backend_page = page
-                if backend_page and type:
-                    pagenum = self.steps.page_num(page.optional_widgets[0])
-                    self.set_current_page(pagenum)
-                    self.live_installer.show()
-                    self.installing = False
-                    self.back.hide()
-                    self.quit.hide()
-                    self.next.set_label("Finish")
-                    self.step_label.set_text("")
-                    gtk.main()
-                    self.live_installer.hide()
-                    break
-        ParentFrontend.Wizard.run_success_cmd(self)
