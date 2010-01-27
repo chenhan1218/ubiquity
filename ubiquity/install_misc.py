@@ -162,9 +162,9 @@ def chroot_cleanup(target, x11=False):
         osextras.unlink_force(os.path.join(target,
                                            'root/.Xauthority'))
 
-    chrex(target,'umount', '/dev')
     chrex(target,'umount', '/sys')
     chrex(target,'umount', '/proc')
+    misc.execute('umount', os.path.join(target,'/dev'))
 
     initctl = os.path.join(target, 'sbin/initctl')
     if os.path.exists('%s.REAL' % initctl):
