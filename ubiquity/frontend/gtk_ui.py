@@ -463,6 +463,8 @@ class Wizard(BaseFrontend):
         self.set_current_page(0)
 
         while(self.pagesindex < len(self.pages)):
+            if self.current_page is None:
+                return self.returncode
 
             if not self.pages[self.pagesindex].filter_class:
                 # This page is just a UI page
@@ -960,7 +962,6 @@ class Wizard(BaseFrontend):
         syslog.syslog('progress_loop()')
 
         self.live_installer.hide()
-        self.current_page = None
 
         slideshow_dir = '/usr/share/ubiquity-slideshow'
         slideshow_locale = self.slideshow_get_available_locale(slideshow_dir, self.locale)
@@ -1095,7 +1096,6 @@ class Wizard(BaseFrontend):
         response = self.warning_dialog.run()
         self.warning_dialog.hide()
         if response == gtk.RESPONSE_CLOSE:
-            self.current_page = None
             self.quit_installer()
             return False
         else:
