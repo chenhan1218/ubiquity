@@ -123,6 +123,13 @@ class Controller(ubiquity.frontend.base.Controller):
     def go_to_page(self, widget):
         self._wizard.set_current_page(self._wizard.steps.page_num(widget))
 
+    def toggle_top_level(self):
+        if self._wizard.live_installer.get_property('visible'):
+            self._wizard.live_installer.hide()
+        else:
+            self._wizard.live_installer.show()
+        self._wizard.refresh()
+
 class Wizard(BaseFrontend):
 
     def __init__(self, distro):
@@ -455,9 +462,7 @@ class Wizard(BaseFrontend):
 
         self.set_current_page(0)
 
-        while(self.pagesindex < self.pageslen):
-            if self.current_page == None:
-                break
+        while(self.pagesindex < len(self.pages)):
 
             if not self.pages[self.pagesindex].filter_class:
                 # This page is just a UI page
@@ -485,9 +490,11 @@ class Wizard(BaseFrontend):
                 self.pages[self.pagesindex].controller.dbfilter = None
 
             if self.backup or self.dbfilter_handle_status():
-                if self.installing:
-                    self.progress_loop()
-                elif self.current_page is not None and not self.backup:
+                #TODO: superm1, Jan 2010 is there some kind of way that we are entering this normally?
+                #if self.installing:
+                #    self.progress_loop()
+                #elif
+                if self.current_page is not None and not self.backup:
                     self.process_step()
                     if not self.stay_on_page:
                         self.pagesindex = self.pagesindex + 1
@@ -498,18 +505,23 @@ class Wizard(BaseFrontend):
                 if self.backup:
                     self.pagesindex = self.pop_history()
 
+
             while gtk.events_pending():
                 gtk.main_iteration()
 
-            # needed to be here for --automatic as there might not be any
-            # current page in the event all of the questions have been
-            # preseeded.
-            if self.pagesindex == self.pageslen:
-                # Ready to install
-                self.live_installer.hide()
-                self.current_page = None
-                self.installing = True
-                self.progress_loop()
+        if self.oem_user_config:
+            self.quit_installer()
+        elif not self.get_reboot_seen():
+            self.live_installer.hide()
+            if 'UBIQUITY_ONLY' in os.environ:
+                txt = self.get_string('ubiquity/finished_restart_only')
+                self.finished_label.set_label(txt)
+                self.quit_button.hide()
+            self.finished_dialog.set_keep_above(True)
+            self.finished_dialog.run()
+        elif self.get_reboot():
+            self.reboot()
+
         return self.returncode
 
 
@@ -943,9 +955,11 @@ class Wizard(BaseFrontend):
 
     def progress_loop(self):
         """prepare, copy and config the system in the core install process."""
+        self.installing = True
 
         syslog.syslog('progress_loop()')
 
+        self.live_installer.hide()
         self.current_page = None
 
         slideshow_dir = '/usr/share/ubiquity-slideshow'
@@ -1030,21 +1044,15 @@ class Wizard(BaseFrontend):
         # just to make sure
         self.debconf_progress_window.hide()
 
-        self.installing = False
-
         self.run_success_cmd()
-        if self.oem_user_config:
-            self.quit_installer()
-        elif not self.get_reboot_seen():
-            if 'UBIQUITY_ONLY' in os.environ:
-                txt = self.get_string('ubiquity/finished_restart_only')
-                self.finished_label.set_label(txt)
-                self.quit_button.hide()
-            self.finished_dialog.set_keep_above(True)
-            self.finished_dialog.run()
-        elif self.get_reboot():
-            self.reboot()
 
+        #in case there are extra pages
+        self.back.hide()
+        self.quit.hide()
+        self.next.set_label("gtk-go-forward")
+        self.translate_widget(self.next)
+
+        self.installing = False
 
     def reboot(self, *args):
         """reboot the system after installing process."""
@@ -1190,6 +1198,10 @@ class Wizard(BaseFrontend):
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()
+
+        # Ready to install
+        elif self.pages[self.pagesindex].ui.get('plugin_is_install'):
+            self.progress_loop()
 
     def process_identification (self):
         """Processing identification step tasks."""

@@ -123,6 +123,13 @@ class Controller(ubiquity.frontend.base.Controller):
     def go_to_page(self, widget):
         self._wizard.set_current_page(self._wizard.ui.widgetStack.indexOf(widget))
 
+    def toggle_top_level(self):
+        if self._wizard.ui.isVisible():
+            self._wizard.ui.hide()
+        else:
+            self._wizard.ui.show()
+        self._wizard.refresh()
+
 class Wizard(BaseFrontend):
 
     def __init__(self, distro):

@@ -205,11 +205,11 @@ def install(frontend=None, query=False):
     '''install(frontend=None) -> none
     
     Get the type of frontend to use and load the module for that.
-    If frontend is None, defaults to the first of mythbuntu_ui, 
+    If frontend is None, defaults to the first of 
     gtk_ui, kde_ui, and debconf_ui that exists.
     '''
     if frontend is None:
-        frontends = ['mythbuntu_ui', 'gtk_ui', 'kde_ui', 'debconf_ui']
+        frontends = ['gtk_ui', 'kde_ui', 'debconf_ui']
     else:
         frontends = [frontend]
     chosen = None
@@ -428,7 +428,7 @@ def main(oem_config):
             os.environ['UBIQUITY_DEBUG_CORE'] = '1'
 
     # Clean up old state.
-    for name in ('apt-installed', 'apt-install-direct', 'remove-kernels'):
+    for name in ('apt-installed', 'apt-install-direct', 'remove-kernels', 'apt-removed'):
         osextras.unlink_force(os.path.join('/var/lib/ubiquity', name))
     shutil.rmtree("/var/lib/partman", ignore_errors=True)
 

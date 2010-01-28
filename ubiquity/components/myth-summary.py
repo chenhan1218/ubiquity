@@ -27,16 +27,13 @@ NAME = 'myth-summary'
 AFTER = 'myth-passwords'
 WEIGHT = 10
 
-if ('UBIQUITY_FRONTEND' in os.environ and
-    os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui'):
-    HIDDEN = ['summary', 'migrationassistant']
+HIDDEN = ['summary', 'migrationassistant']
 
 class PageGtk(PluginUI):
     plugin_is_install = True
 
     def __init__(self, *args, **kwargs):
-        if os.environ['UBIQUITY_FRONTEND'] == 'mythbuntu_ui':
-            self.plugin_widgets = 'stepReady'
+        self.plugin_widgets = 'stepReady'
 
 class Page(ubiquity.components.summary.Page):
     """This class is used for populating the Mythbuntu summary page

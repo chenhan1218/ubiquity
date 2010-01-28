@@ -60,6 +60,8 @@ class Controller:
         pass
     def go_backward(self):
         pass
+    def toggle_top_level(self):
+        pass
 
 class Component:
     def __init__(self):
@@ -251,7 +253,7 @@ class BaseFrontend:
     def post_mortem(self, exctype, excvalue, exctb):
         """Drop into the debugger if possible."""
         self.run_error_cmd()
-        
+
         # Did the user request this?
         if 'UBIQUITY_DEBUG_PDB' not in os.environ:
             return
@@ -269,7 +271,7 @@ class BaseFrontend:
         import pdb
         pdb.post_mortem(exctb)
         sys.exit(1)
-    
+
     def set_page(self, page):
         """A question has been asked.  Set the interface to the appropriate
         page given the component, page."""
@@ -524,7 +526,7 @@ class BaseFrontend:
     def question_dialog(self, title, msg, options, use_templates=True):
         """Ask a question."""
         self._abstract('question_dialog')
-    
+
     def run_automation_error_cmd(self):
         if self.automation_error_cmd != '':
             execute_root('sh', '-c', self.automation_error_cmd)
@@ -532,7 +534,7 @@ class BaseFrontend:
     def run_error_cmd(self):
         if self.error_cmd != '':
             execute_root('sh', '-c', self.error_cmd)
-    
+
     def run_success_cmd(self):
         if self.success_cmd != '':
             self.debconf_progress_info(

@@ -111,7 +111,6 @@ endif
 	# Bits of manual installation that can't be done by dh_install
 	
 	# Get rid of duplicate mythbuntu scripts and move some mythbuntu stuff around
-	mv debian/ubiquity-frontend-mythbuntu/usr/share/applications/ubiquity-mythbuntu.desktop debian/ubiquity-frontend-mythbuntu/usr/share/applications/ubiquity-gtkui.desktop
 	mv debian/ubiquity-frontend-mythbuntu/usr/share/pixmaps/ubiquity-mythbuntu.png debian/ubiquity-frontend-mythbuntu/usr/share/pixmaps/ubiquity.png
 	rm -rf debian/ubiquity/usr/share/ubiquity/mythbuntu
 
