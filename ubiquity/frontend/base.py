@@ -448,51 +448,6 @@ class BaseFrontend:
         """Get the selected hostname."""
         self._abstract('get_hostname')
 
-    # ubiquity.components.summary
-
-    def set_summary_text(self, text):
-        """Set text to be displayed in the installation summary."""
-        pass
-
-    def set_summary_device(self, device):
-        """Set the GRUB device. A hack until we have something better."""
-        self.summary_device = device
-
-    def set_grub(self, enable):
-        """Sets whether we will be installing GRUB."""
-        self.grub_en = enable
-
-    # called from ubiquity.components.install
-    def get_grub(self):
-        """Returns whether we will be installing GRUB."""
-        return self.grub_en
-
-    # called from ubiquity.components.install
-    def get_summary_device(self):
-        """Get the selected GRUB device."""
-        return self.summary_device
-
-    def set_popcon(self, participate):
-        """Set whether to participate in popularity-contest."""
-        self.popcon = participate
-
-    def set_proxy_host(self, host):
-        """Set the HTTP proxy host."""
-        self.http_proxy_host = host
-
-    def set_proxy_port(self, port):
-        """Set the HTTP proxy port."""
-        self.http_proxy_port = port
-
-    # called from ubiquity.components.install
-    def get_proxy(self):
-        """Get the selected HTTP proxy."""
-        if self.http_proxy_host:
-            return 'http://%s:%s/' % (self.http_proxy_host,
-                                      self.http_proxy_port)
-        else:
-            return None
-
     def set_reboot(self, reboot):
         """Set whether to reboot automatically when the install completes."""
         self.reboot_after_install = reboot
@@ -511,11 +466,6 @@ class BaseFrontend:
             return False
         else:
             return True
-
-    # called from ubiquity.components.install
-    def get_popcon(self):
-        """Get whether to participate in popularity-contest."""
-        return self.popcon
 
     # General facilities for components.
 

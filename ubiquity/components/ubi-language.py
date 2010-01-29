@@ -200,17 +200,16 @@ class PageKde(PageBase):
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLanguage.ui')
             self.combobox = self.page.language_combobox
             self.combobox.currentIndexChanged[str].connect(self.on_language_selection_changed)
-
+            
             if not self.controller.oem_config:
                 self.page.oem_id_label.hide()
                 self.page.oem_id_entry.hide()
-
-            if 'update_this_installer' in self.page:
-                if self.controller.oem_config or auto_update.already_updated():
-                    self.page.update_this_installer.hide()
-                else:
-                    self.page.update_this_installer.clicked.connect(
-                        self.on_update_this_installer)
+            
+            if self.controller.oem_config or auto_update.already_updated():
+                self.page.update_this_installer.hide()
+            else:
+                self.page.update_this_installer.clicked.connect(
+                    self.on_update_this_installer)
 
             class linkLabel(QLabel):
                 def __init__(self, wizard, parent):
@@ -238,6 +237,7 @@ class PageKde(PageBase):
             except:
                 self.page.release_notes_label.hide()
                 self.page.release_notes_frame.hide()
+                
         except Exception, e:
             self.debug('Could not create language page: %s', e)
             self.page = None

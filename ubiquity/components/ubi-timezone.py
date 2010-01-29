@@ -240,18 +240,19 @@ class PageKde(PluginUI):
         self.controller = controller
         try:
             from PyQt4 import uic
-            from PyQt4.QtCore import SIGNAL
             from ubiquity.frontend.kde_components.Timezone import TimezoneMap
+            
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLocation.ui')
             self.tzmap = TimezoneMap(self.page.map_frame)
             self.page.map_frame.layout().addWidget(self.tzmap)
-            self.SIGNAL = SIGNAL
-            self.tzmap.connect(self.tzmap, self.SIGNAL("zoneChanged"), self.mapZoneChanged)
+            
+            self.tzmap.zoneChanged.connect(self.mapZoneChanged)
             self.page.timezone_zone_combo.currentIndexChanged[int].connect(self.regionChanged)
             self.page.timezone_city_combo.currentIndexChanged[int].connect(self.cityChanged)
         except Exception, e:
             self.debug('Could not create timezone page: %s', e)
             self.page = None
+            
         self.plugin_widgets = self.page
 
     def refresh_timezones(self):
@@ -290,9 +291,11 @@ class PageKde(PluginUI):
         if self.controller.dbfilter is None:
             return
 
-        self.page.timezone_city_combo.currentIndexChanged[int].disconnect(self.cityChanged)
+        self.page.timezone_city_combo.blockSignals(True)
+        #self.page.timezone_city_combo.currentIndexChanged[int].disconnect(self.cityChanged)
         default = self.populateCities(regionIndex)
-        self.page.timezone_city_combo.currentIndexChanged[int].connect(self.cityChanged)
+        self.page.timezone_city_combo.blockSignals(False)
+        #self.page.timezone_city_combo.currentIndexChanged[int].connect(self.cityChanged)
 
         if default:
             self.tzmap.set_timezone(default)
@@ -302,13 +305,13 @@ class PageKde(PluginUI):
     # called when the city combo changes
     def cityChanged(self, cityindex):
         zone = str(self.page.timezone_city_combo.itemData(cityindex).toPyObject())
-        self.tzmap.disconnect(self.tzmap, self.SIGNAL("zoneChanged"), self.mapZoneChanged)
+        self.tzmap.zoneChanged.disconnect(self.mapZoneChanged)
         self.tzmap.set_timezone(zone)
-        self.tzmap.connect(self.tzmap, self.SIGNAL("zoneChanged"), self.mapZoneChanged)
+        self.tzmap.zoneChanged.connect(self.mapZoneChanged)
 
     def mapZoneChanged(self, loc, zone):
-        self.page.timezone_zone_combo.currentIndexChanged[int].disconnect(self.regionChanged)
-        self.page.timezone_city_combo.currentIndexChanged[int].disconnect(self.cityChanged)
+        self.page.timezone_zone_combo.blockSignals(True)
+        self.page.timezone_city_combo.blockSignals(True)
 
         for i in range(self.page.timezone_zone_combo.count()):
             code = str(self.page.timezone_zone_combo.itemData(i).toPyObject())
@@ -327,8 +330,8 @@ class PageKde(PluginUI):
                 self.cityChanged(i)
                 break
 
-        self.page.timezone_zone_combo.currentIndexChanged[int].connect(self.regionChanged)
-        self.page.timezone_city_combo.currentIndexChanged[int].connect(self.cityChanged)
+        self.page.timezone_zone_combo.blockSignals(False)
+        self.page.timezone_city_combo.blockSignals(False)
 
     def set_timezone (self, timezone):
         self.refresh_timezones()

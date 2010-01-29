@@ -31,6 +31,37 @@ from ubiquity import osextras
 
 NAME = 'partman'
 
+class PageBase(PluginUI):
+    def __init__(self):
+        PluginUI.__init__(self)
+        self.resize_choice = None
+        self.manual_choice = None
+        self.biggest_free_choice = None
+        pass
+        
+    def set_disk_layout(self, layout):
+        pass
+
+    """Set available autopartitioning choices."""
+    def set_autopartition_choices(self, choices, extra_options,
+                                  resize_choice, manual_choice,
+                                  biggest_free_choice):    
+        self.resize_choice = resize_choice
+        self.manual_choice = manual_choice
+        self.biggest_free_choice = biggest_free_choice
+
+    """Get the selected autopartitioning choice."""
+    def get_autopartition_choice(self):
+        pass
+
+    """Note that the installation medium is mounted."""
+    def installation_medium_mounted(self, message):
+        pass
+
+    """Update the manual partitioner display."""
+    def update_partman(self, disk_cache, partition_cache, cache_order):
+        pass
+
 class PageGtk(PluginUI):
     part_page = None
     plugin_widgets = 'stepPartAuto'
@@ -42,16 +73,59 @@ class PageGtk(PluginUI):
     def set_part_page(self, p):
         self.part_page = p
 
-class PageKde(PluginUI):
-    part_page = None
-    plugin_widgets = ['stepPartAuto', 'stepPartAdvanced']
+class PageKde(PageBase):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_partition'
+    
+    def __init__(self, controller, *args, **kwargs):
+        PageBase.__init__(self)
+        self.controller = controller
+        
+        from ubiquity.frontend.kde_components.PartAuto import PartAuto
+        from ubiquity.frontend.kde_components.PartMan import PartMan
+        from PyQt4.QtGui import *
+        
+        self.partAuto = PartAuto()
+        self.part_page = self.partAuto
+        self.partMan = PartMan(self.controller)
+        
+        self.plugin_widgets = [self.partAuto, self.partMan]
+        self.page = self.plugin_widgets
+
+    # provides the basic disk layout
+    def set_disk_layout(self, layout):
+        self.disk_layout = layout
+        self.partAuto.setDiskLayout(layout)
+
+    def set_autopartition_choices (self, choices, extra_options,
+                                   resize_choice, manual_choice,
+                                   biggest_free_choice):
+        PageBase.set_autopartition_choices(self, choices, extra_options,
+                                               resize_choice, manual_choice,
+                                               biggest_free_choice)
+                                               
+        self.partAuto.setupChoices(choices, extra_options,
+                                   resize_choice, manual_choice,
+                                   biggest_free_choice)
+                                   
+        self.set_part_page("stepPartAuto")
+
+    def get_autopartition_choice (self):
+        return self.partAuto.getChoice()
+            
+    def update_partman (self, disk_cache, partition_cache, cache_order):
+        self.partMan.update(disk_cache, partition_cache, cache_order)
+        # make sure we're on the advanced partitioning page
+        self.set_part_page("stepPartAdvanced")
 
     def plugin_get_current_page(self):
+        print self.part_page
         return self.part_page
 
     def set_part_page(self, p):
-        self.part_page = p
+        if p == "stepPartAuto":
+            self.part_page = self.partAuto
+        elif p == "stepPartAdvanced":
+            self.part_page = self.partMan
 
 class PageNoninteractive(PluginUI):
     def set_part_page(self, p):
@@ -416,6 +490,8 @@ class Page(Plugin):
         if self.done:
             # user answered confirmation question or backed up
             return self.succeeded
+            
+        ui = self.activeUi()
 
         self.current_question = question
         options = self.snoop()
@@ -477,8 +553,7 @@ class Page(Plugin):
                             dev = partition[5]
                         ret.append((dev, size, partition[1]))
                     layout[disk] = ret
-
-                self.frontend.set_disk_layout(layout)
+            ui.set_disk_layout(layout)
             
             # Set up translation mappings to avoid debian-installer
             # specific text ('Guided -').
@@ -508,7 +583,7 @@ class Page(Plugin):
             self.extra_options[self.biggest_free_desc] = biggest_free
 
             self.ui.set_part_page('stepPartAuto')
-            self.frontend.set_autopartition_choices(
+            ui.set_autopartition_choices(
                 choices, self.extra_options, self.resize_desc,
                 self.manual_desc, self.biggest_free_desc)
 
@@ -573,7 +648,7 @@ class Page(Plugin):
                         self.frontend.debconf_progress_stop()
                         self.frontend.refresh()
                         self.ui.set_part_page('stepPartAdvanced')
-                        self.frontend.update_partman(
+                        ui.update_partman(
                             self.disk_cache, self.partition_cache,
                             self.cache_order)
                 else:
@@ -712,21 +787,21 @@ class Page(Plugin):
                         self.frontend.debconf_progress_stop()
                         self.frontend.refresh()
                         self.ui.set_part_page('stepPartAdvanced')
-                        self.frontend.update_partman(
+                        ui.update_partman(
                             self.disk_cache, self.partition_cache,
                             self.cache_order)
             elif self.creating_partition:
                 devpart = self.creating_partition['devpart']
                 if devpart in self.partition_cache:
                     self.ui.set_part_page('stepPartAdvanced')
-                    self.frontend.update_partman(
+                    ui.update_partman(
                         self.disk_cache, self.partition_cache,
                         self.cache_order)
             elif self.editing_partition:
                 devpart = self.editing_partition['devpart']
                 if devpart in self.partition_cache:
                     self.ui.set_part_page('stepPartAdvanced')
-                    self.frontend.update_partman(
+                    ui.update_partman(
                         self.disk_cache, self.partition_cache,
                         self.cache_order)
             elif self.deleting_partition:
@@ -1183,9 +1258,10 @@ class Page(Plugin):
         return Plugin.run(self, priority, question)
 
     def ok_handler(self):
+        ui = self.activeUi()
         if self.current_question.endswith('automatically_partition'):
             (autopartition_choice, self.extra_choice) = \
-                self.frontend.get_autopartition_choice()
+                ui.get_autopartition_choice()
             if autopartition_choice in self.translation_mappings:
                 autopartition_choice = \
                     self.translation_mappings[autopartition_choice]
