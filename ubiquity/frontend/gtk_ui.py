@@ -1207,7 +1207,7 @@ class Wizard(BaseFrontend):
             self.process_identification()
 
         # Ready to install
-        elif self.pages[self.pagesindex].ui.get('plugin_is_install'):
+        if self.pages[self.pagesindex].ui.get('plugin_is_install'):
             self.progress_loop()
 
     def process_identification (self):

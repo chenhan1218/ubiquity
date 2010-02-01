@@ -9,6 +9,8 @@ ubiquity (2.1.16) UNRELEASED; urgency=low
     orientation to be in a single column on small displays.
   * If no plugins declare themselves as plugin_is_install (such as the
     case in oem-config mode), then assume the last one is the install plugin.
+  * Allow pages that are declared plugin_is_install to process other steps
+    in process_step in addition to the install behaviors.
 
   [ Evan Dandrea ]
   * Add oem-config/repository and oem-config/key, which respectively
