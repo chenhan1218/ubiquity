@@ -2189,8 +2189,6 @@ exit 0"""
             os.environ['DEBCONF_DB_REPLACE'] = 'configdb'
             os.environ['DEBCONF_DB_OVERRIDE'] = 'Pipe{infd:none outfd:none}'
 
-            # FIXME What if they don't have a network connection, or don't want
-            # one?
             extra_pool = self.db.get('oem-config/repository')
             extra_key = self.db.get('oem-config/key')
             if extra_pool:
