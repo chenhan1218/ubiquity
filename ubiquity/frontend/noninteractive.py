@@ -51,14 +51,8 @@ class Wizard(BaseFrontend):
             self.console = sys.stdout # better than crashing
         self.installing = False
         self.progress_position = ubiquity.progressposition.ProgressPosition()
-        self.fullname = ''
-        self.username = ''
-        self.password = ''
-        self.verifiedpassword = ''
         self.progress_val = 0
         self.progress_info = ''
-        self.auto_login = False
-        self.encrypt_home = False
         self.mainloop = gobject.MainLoop()
 
         self.pages = []
@@ -269,67 +263,6 @@ class Wizard(BaseFrontend):
     def ma_password_error(self, error, user):
         """The selected migration-assistant password was bad."""
         print >>self.console, '\nError: %s: %s' % (user, error)
-
-    # ubiquity.components.usersetup
-
-    def set_fullname(self, value):
-        """Set the user's full name."""
-        self.fullname = value
-
-    def get_fullname(self):
-        """Get the user's full name."""
-        if self.oem_config:
-            return 'OEM Configuration (temporary user)'
-        return self.fullname
-
-    def set_username(self, value):
-        """Set the user's Unix user name."""
-        self.username = value
-
-    def get_username(self):
-        """Get the user's Unix user name."""
-        if self.oem_config:
-            return 'oem'
-        return self.username
-
-    def get_password(self):
-        """Get the user's password."""
-        return self.dbfilter.db.get('passwd/user-password') #self.password
-
-    def get_verified_password(self):
-        """Get the user's password confirmation."""
-        return self.dbfilter.db.get('passwd/user-password-again') #self.verifiedpassword
-
-    def set_auto_login(self, value):
-        self.auto_login = value
-
-    def get_auto_login(self):
-        return self.auto_login
-    
-    def set_encrypt_home(self, value):
-        self.encrypt_home = value
-
-    def get_encrypt_home(self):
-        return self.encrypt_home
-
-    def username_error(self, msg):
-        """The selected username was bad."""
-        print >>self.console, '\nusername error: %s' % msg
-        self.username = raw_input('Username: ')
-
-    def password_error(self, msg):
-        """The selected password was bad."""
-        print >>self.console, '\nBad password: %s' % msg
-        self.password = getpass.getpass('Password: ')
-        self.verifiedpassword = getpass.getpass('Password again: ')
-
-    # typically part of the usersetup UI but actually called from
-    # ubiquity.components.install
-    def get_hostname(self):
-        """Get the selected hostname."""
-        #We set a default in install.py in case it isn't preseeded
-        #but when we preseed, we are looking for None anyhow.
-        return None
 
     # ubiquity.components.summary
 

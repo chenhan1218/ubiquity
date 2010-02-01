@@ -50,10 +50,8 @@ from ubiquity import install_misc
 from ubiquity import osextras
 from ubiquity import plugin_manager
 from ubiquity.casper import get_casper
-from ubiquity.components import apt_setup, usersetup_apply, \
-                                hw_detect, check_kernels, \
+from ubiquity.components import apt_setup, hw_detect, check_kernels, \
                                 migrationassistant_apply
-
 
 class DebconfFetchProgress(FetchProgress):
     """An object that reports apt's fetching progress using debconf."""
@@ -369,12 +367,6 @@ class Install:
 
             self.configure_plugins(count)
             count += len(self.plugins)
-
-            self.db.progress('SET', count)
-            self.db.progress('REGION', count, count+1)
-            count += 1
-            self.db.progress('INFO', 'ubiquity/install/user')
-            self.configure_user()
 
             self.db.progress('SET', count)
             self.db.progress('REGION', count, count+1)
@@ -1303,17 +1295,6 @@ class Install:
                                   os.path.join(home, homedir))
                     install_misc.record_installed(['ecryptfs-utils'])
                     break
-
-
-    def configure_user(self):
-        """create the user selected along the installation process
-        into the installed system. Default user from live system is
-        deleted and skel for this new user is copied to $HOME."""
-
-        dbfilter = usersetup_apply.UserSetupApply(None, self.db)
-        ret = dbfilter.run_command(auto_process=True)
-        if ret != 0:
-            raise InstallStepError("UserSetupApply failed with code %d" % ret)
 
     def configure_ma(self):
         """import documents, settings, and users from previous operating

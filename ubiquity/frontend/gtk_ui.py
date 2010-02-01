@@ -58,8 +58,7 @@ from ubiquity import filteredcommand, gconftool, i18n, osextras, validation, \
                      segmented_bar, wrap_label
 from ubiquity.misc import *
 from ubiquity.plugin import Plugin
-from ubiquity.components import usersetup, \
-                                partman, partman_commit, \
+from ubiquity.components import partman, partman_commit, \
                                 install, migrationassistant
 import ubiquity.progressposition
 import ubiquity.frontend.base
@@ -192,11 +191,6 @@ class Wizard(BaseFrontend):
         self.resize_path = ''
         self.new_size_scale = None
         self.ma_choices = []
-        self.username_combo = None
-        self.username_changed_id = None
-        self.hostname_changed_id = None
-        self.username_edited = False
-        self.hostname_edited = False
         self.installing = False
         self.installing_no_return = False
         self.returncode = 0
@@ -440,13 +434,6 @@ class Wizard(BaseFrontend):
         # show interface
         self.allow_change_step(True)
 
-        # Some signals need to be connected by hand so that we have the
-        # handler ids.
-        self.username_changed_id = self.username.connect(
-            'changed', self.on_username_changed)
-        self.hostname_changed_id = self.hostname.connect(
-            'changed', self.on_hostname_changed)
-
         # Auto-connecting signals with additional parameters does not work.
         self.grub_new_device_entry.connect('changed', self.grub_verify_loop,
             self.grub_fail_okbutton)
@@ -574,21 +561,6 @@ class Wizard(BaseFrontend):
 
         if self.oem_config:
             self.live_installer.set_title(self.get_string('oem_config_title'))
-            self.fullname.set_text('OEM Configuration (temporary user)')
-            self.fullname.set_editable(False)
-            self.fullname.set_sensitive(False)
-            self.username.set_text('oem')
-            self.username.set_editable(False)
-            self.username.set_sensitive(False)
-            self.username_edited = True
-            if self.laptop:
-                self.hostname.set_text('oem-laptop')
-            else:
-                self.hostname.set_text('oem-desktop')
-            self.hostname_edited = True
-            self.login_vbox.hide()
-            # The UserSetup component takes care of preseeding passwd/user-uid.
-            execute_root('apt-install', 'oem-config-gtk')
         elif self.oem_user_config:
             self.live_installer.set_title(self.get_string('oem_user_config_title'))
             self.live_installer.set_icon_name("preferences-system")
@@ -623,9 +595,6 @@ class Wizard(BaseFrontend):
 
         self.partition_create_mount_combo.child.set_activates_default(True)
         self.partition_edit_mount_combo.child.set_activates_default(True)
-
-        if 'UBIQUITY_DEBUG' in os.environ:
-            self.password_debug_warning_label.show()
 
         if hasattr(self, 'stepPartAuto'):
             self.previous_partitioning_page = \
@@ -1018,6 +987,8 @@ class Wizard(BaseFrontend):
         self.debconf_progress_region(15, 100)
 
         self.start_debconf()
+        # TODO: Make a plugin.  Where do we handle disabling the back and next
+        # buttons though?
         dbfilter = install.Install(self)
         ret = dbfilter.run_command(auto_process=True)
         if ret != 0:
@@ -1106,48 +1077,6 @@ class Wizard(BaseFrontend):
         return self.on_quit_clicked(widget)
 
 
-    def info_loop(self, widget):
-        """check if all entries from Identification screen are filled. Callback
-        defined in ui file."""
-
-        if (self.username_changed_id is None or
-            self.hostname_changed_id is None):
-            return
-
-        if (widget is not None and widget.get_name() == 'fullname' and
-            not self.username_edited):
-            self.username.handler_block(self.username_changed_id)
-            new_username = widget.get_text().split(' ')[0]
-            new_username = new_username.encode('ascii', 'ascii_transliterate')
-            new_username = new_username.lower()
-            self.username.set_text(new_username)
-            self.username.handler_unblock(self.username_changed_id)
-        elif (widget is not None and widget.get_name() == 'username' and
-              not self.hostname_edited):
-            if self.laptop:
-                hostname_suffix = '-laptop'
-            else:
-                hostname_suffix = '-desktop'
-            self.hostname.handler_block(self.hostname_changed_id)
-            self.hostname.set_text(widget.get_text().strip() + hostname_suffix)
-            self.hostname.handler_unblock(self.hostname_changed_id)
-
-        complete = True
-        for name in ('username', 'hostname'):
-            if getattr(self, name).get_text() == '':
-                complete = False
-        if not self.allow_password_empty:
-            for name in ('password', 'verified_password'):
-                if getattr(self, name).get_text() == '':
-                    complete = False
-        self.allow_go_forward(complete)
-
-    def on_username_changed(self, widget):
-        self.username_edited = (widget.get_text() != '')
-
-    def on_hostname_changed(self, widget):
-        self.hostname_edited = (widget.get_text() != '')
-
     def on_next_clicked(self, unused_widget):
         """Callback to control the installation process between steps."""
 
@@ -1166,10 +1095,6 @@ class Wizard(BaseFrontend):
             self.part_advanced_warning_message.set_text('')
             self.part_advanced_warning_hbox.hide()
         if step in ("stepPartAuto", "stepPartAdvanced"):
-            self.username_error_box.hide()
-            self.password_error_box.hide()
-            self.hostname_error_box.hide()
-
             options = grub_options()
             self.grub_options.clear()
             for opt in options:
@@ -1296,10 +1221,6 @@ class Wizard(BaseFrontend):
 
 
     def on_steps_switch_page (self, unused_notebook, unused_page, current):
-        if self.step_name(current) == 'usersetup':
-            # Disable the forward button if nothing has been entered on the
-            # usersetup page yet.
-            self.info_loop(None)
         self.current_page = current
         self.translate_widget(self.step_label)
         syslog.syslog('switched to page %s' % self.step_name(current))
@@ -2418,57 +2339,6 @@ class Wizard(BaseFrontend):
 
         # Save the list so we can preserve state.
         self.ma_choices = choices
-
-    def set_fullname(self, value):
-        self.fullname.set_text(value)
-
-    def get_fullname(self):
-        return self.fullname.get_text()
-
-    def set_username(self, value):
-        self.username.set_text(value)
-
-    def get_username(self):
-        return self.username.get_text()
-
-    def get_password(self):
-        return self.password.get_text()
-
-    def get_verified_password(self):
-        return self.verified_password.get_text()
-
-    def select_password(self):
-        # LP: 344402, the password should be selected if we just said "go back"
-        # to the weak password entry.
-        if self.password.get_text_length():
-            self.password.select_region(0, -1)
-            self.password.grab_focus()
-
-    def set_auto_login(self, value):
-        self.login_auto.set_active(value)
-
-    def get_auto_login(self):
-        return self.login_auto.get_active()
-
-    def set_encrypt_home(self, value):
-        self.login_encrypt.set_active(value)
-
-    def get_encrypt_home(self):
-        return self.login_encrypt.get_active()
-
-    def username_error(self, msg):
-        self.username_error_reason.set_text(msg)
-        self.username_error_box.show()
-
-    def password_error(self, msg):
-        self.password_error_reason.set_text(msg)
-        self.password_error_box.show()
-
-    def get_hostname (self):
-        return self.hostname.get_text()
-
-    def set_hostname(self, value):
-        self.hostname.set_text(value)
 
     def set_summary_text (self, text):
         for child in self.ready_text.get_children():

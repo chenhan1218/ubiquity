@@ -26,8 +26,7 @@ import syslog
 import debconf
 from ubiquity.debconfcommunicator import DebconfCommunicator
 from ubiquity.misc import drop_privileges, execute_root
-from ubiquity.components import usersetup, \
-                                partman, partman_commit, \
+from ubiquity.components import partman, partman_commit, \
                                 summary, install, migrationassistant
 from ubiquity import i18n
 from ubiquity import plugin_manager
@@ -39,7 +38,6 @@ __pychecker__ = 'no-argsused'
 # strongly recommended to keep the page identifiers the same.
 PAGE_COMPONENTS = {
     'Partman' : partman,
-    'UserInfo' : usersetup,
     'MigrationAssistant' : migrationassistant,
     'Ready' : summary,
 }
@@ -140,18 +138,10 @@ class BaseFrontend:
         except debconf.DebconfError:
             pass
 
-        self.allow_password_empty = False
-        try:
-            self.allow_password_empty = self.db.get('user-setup/allow-password-empty') == 'true'
-        except debconf.DebconfError:
-            pass
-
         # These step lists are the steps that aren't yet converted to plugins.
         # We just hardcode them here, but they will eventually be dynamic.
-        if self.oem_user_config:
-            steps = ['UserInfo']
-        else:
-            steps = ['Partman', 'UserInfo', 'MigrationAssistant', 'Ready']
+        if not self.oem_user_config:
+            steps = ['Partman', 'MigrationAssistant', 'Ready']
         modules = []
         for step in steps:
             if step == 'MigrationAssistant' and \
@@ -387,66 +377,6 @@ class BaseFrontend:
     def ma_password_error(self, error, user):
         """The selected migration-assistant password was bad."""
         self._abstract('ma_password_error')
-
-    # ubiquity.components.usersetup
-
-    def set_fullname(self, value):
-        """Set the user's full name."""
-        pass
-
-    def get_fullname(self):
-        """Get the user's full name."""
-        self._abstract('get_fullname')
-
-    def set_username(self, value):
-        """Set the user's Unix user name."""
-        pass
-
-    def get_username(self):
-        """Get the user's Unix user name."""
-        self._abstract('get_username')
-
-    def get_password(self):
-        """Get the user's password."""
-        self._abstract('get_password')
-
-    def get_verified_password(self):
-        """Get the user's password confirmation."""
-        self._abstract('get_password')
-
-    def select_password(self):
-        """Select the text in the first password entry widget."""
-        self._abstract('select_password')
-
-    def set_auto_login(self, value):
-        """Set whether the user should be automatically logged in."""
-        self._abstract('set_auto_login')
-
-    def get_auto_login(self):
-        """Returns true if the user should be automatically logged in."""
-        self._abstract('get_auto_login')
-
-    def set_encrypt_home(self, value):
-        """Set whether the home directory should be encrypted."""
-        self._abstract('set_encrypt_home')
-
-    def get_encrypt_home(self):
-        """Returns true if the home directory should be encrypted."""
-        self._abstract('get_encrypt_home')
-
-    def username_error(self, msg):
-        """The selected username was bad."""
-        self._abstract('username_error')
-
-    def password_error(self, msg):
-        """The selected password was bad."""
-        self._abstract('password_error')
-
-    # typically part of the usersetup UI but actually called from
-    # ubiquity.components.install
-    def get_hostname(self):
-        """Get the selected hostname."""
-        self._abstract('get_hostname')
 
     def set_reboot(self, reboot):
         """Set whether to reboot automatically when the install completes."""

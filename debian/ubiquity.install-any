@@ -100,8 +100,7 @@ ubiquity/components/ubi-timezone.py usr/lib/ubiquity/plugins
 # user-setup
 d-i/source/user-setup/functions.sh usr/lib/ubiquity/user-setup
 d-i/source/user-setup/reserved-usernames usr/lib/ubiquity/user-setup
-ubiquity/components/usersetup.py usr/lib/ubiquity/ubiquity/components
-ubiquity/components/usersetup_apply.py usr/lib/ubiquity/ubiquity/components
+ubiquity/components/ubi-usersetup.py usr/lib/ubiquity/plugins
 
 # migration-assistant
 d-i/source/migration-assistant/ma-script-utils usr/share/migration-assistant
