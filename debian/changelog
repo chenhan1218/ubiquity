@@ -7,6 +7,8 @@ ubiquity (2.1.16) UNRELEASED; urgency=low
   * Try to dynamically detect the number of columns we'll need for
     stepLanguageOnly.  When showing < 15 languages, this fixes the
     orientation to be in a single column on small displays.
+  * If no plugins declare themselves as plugin_is_install (such as the
+    case in oem-config mode), then assume the last one is the install plugin.
 
   [ Evan Dandrea ]
   * Add oem-config/repository and oem-config/key, which respectively
