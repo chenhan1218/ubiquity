@@ -110,6 +110,9 @@ class PageGtk(PageBase):
         if self.only:
             self.iconview.set_model(list_store)
             self.iconview.set_text_column(0)
+            lang_per_column = self.iconview.get_allocation().height / 40
+            columns = round(len(choices) / float(lang_per_column))
+            self.iconview.set_columns(columns)
         else:
             if len(self.treeview.get_columns()) < 1:
                 column = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=0)

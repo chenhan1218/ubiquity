@@ -4,6 +4,9 @@ ubiquity (2.1.16) UNRELEASED; urgency=low
   * Don't fail to run oem-config if oem-config/early_command isn't set.
   * Copy oem-config/early_command from the installation preseed onto the
     installed system.
+  * Try to dynamically detect the number of columns we'll need for
+    stepLanguageOnly.  When showing < 15 languages, this fixes the
+    orientation to be in a single column on small displays.
 
   [ Evan Dandrea ]
   * Add oem-config/repository and oem-config/key, which respectively
