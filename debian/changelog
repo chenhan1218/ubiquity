@@ -22,6 +22,8 @@ ubiquity (2.1.15) UNRELEASED; urgency=low
   * Drop mythbuntu_ui and all references to it.  The (former) Mythbuntu 
     frontend is now fully pluggable into ubiquity's gtk_ui on it's own.
   * Fix unmount command in chroot_cleanup to actually release /target/dev.
+  * In the KDE frontend for ubi-language, use findChildren to find widgets
+    because QWidget itself is not iterable.
 
   [ Evan Dandrea ]
   * Support getting the timezone from a geoip server (LP: #229884).

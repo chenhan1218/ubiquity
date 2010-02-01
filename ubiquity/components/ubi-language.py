@@ -196,7 +196,7 @@ class PageKde(PageBase):
         self.controller = controller
         try:
             from PyQt4 import uic
-            from PyQt4.QtGui import QLabel
+            from PyQt4.QtGui import QLabel, QWidget
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLanguage.ui')
             self.combobox = self.page.language_combobox
             self.combobox.currentIndexChanged[str].connect(self.on_language_selection_changed)
@@ -205,7 +205,7 @@ class PageKde(PageBase):
                 self.page.oem_id_label.hide()
                 self.page.oem_id_entry.hide()
 
-            if 'update_this_installer' in self.page:
+            if self.page.findChildren(QWidget,'update_this_installer'):
                 if self.controller.oem_config or auto_update.already_updated():
                     self.page.update_this_installer.hide()
                 else:
