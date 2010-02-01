@@ -9,6 +9,7 @@ ubiquity (2.1.16) UNRELEASED; urgency=low
   * Add oem-config/repository and oem-config/key, which respectively
     specify an additional repository to install packages from and a
     public key that the packages are signed with.
+  * Copy all oem-config/* templates to the installed system.
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Mon, 01 Feb 2010 12:10:47 -0600
 
