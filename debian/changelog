@@ -1,8 +1,14 @@
 ubiquity (2.1.16) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
   * Don't fail to run oem-config if oem-config/early_command isn't set.
   * Copy oem-config/early_command from the installation preseed onto the
     installed system.
+
+  [ Evan Dandrea ]
+  * Add oem-config/repository and oem-config/key, which respectively
+    specify an additional repository to install packages from and a
+    public key that the packages are signed with.
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Mon, 01 Feb 2010 12:10:47 -0600
 

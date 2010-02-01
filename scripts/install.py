@@ -2042,8 +2042,11 @@ class Install:
             extra_packages = extra_packages.replace(',', ' ').split()
         else:
             return
+        
         save_replace = None
         save_override = None
+        custom = '/etc/apt/sources.list.d/oem-config.list'
+        apt_update = ['debconf-apt-progress', '--', 'apt-get', 'update']
         try:
             if 'DEBCONF_DB_REPLACE' in os.environ:
                 save_replace = os.environ['DEBCONF_DB_REPLACE']
@@ -2051,6 +2054,19 @@ class Install:
                 save_override = os.environ['DEBCONF_DB_OVERRIDE']
             os.environ['DEBCONF_DB_REPLACE'] = 'configdb'
             os.environ['DEBCONF_DB_OVERRIDE'] = 'Pipe{infd:none outfd:none}'
+
+            extra_pool = self.db.get('oem-config/repository')
+            extra_key = self.db.get('oem-config/key')
+            if extra_pool:
+                with open(custom, 'w') as f:
+                    print >>f, extra_pool
+            if extra_key and os.path.exists(extra_key):
+                trusted_db = '/etc/apt/trusted.gpg'
+                if os.path.exists(trusted_db):
+                    shutil.copy(trusted_db, trusted_db + '.oem-config')
+                subprocess.call(['apt-key', 'add', extra_key])
+            if extra_pool:
+                subprocess.call(apt_update)
             # We don't support asking questions on behalf of packages specified
             # here yet, as we don't support asking arbitrary questions in
             # components/install.py yet.  This is complicated not only by the
@@ -2068,6 +2084,11 @@ class Install:
                     brokenpkgs = self.broken_packages(cache)
                     self.warn_broken_packages(brokenpkgs, str(e))
         finally:
+            if os.path.exists(trusted_db + '.oem-config'):
+                shutil.copy(trusted_db + '.oem-config', trusted_db)
+            if os.path.exists(custom):
+                os.unlink(custom)
+                subprocess.call(apt_update)
             if save_replace:
                 os.environ['DEBCONF_DB_REPLACE'] = save_replace
             if save_override:

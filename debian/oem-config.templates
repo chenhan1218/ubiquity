@@ -15,3 +15,14 @@ Description: for internal use; can be preseeded
  Comma/space-separated list of extra packages to install
  as part of user configuration
 
+Template: oem-config/repository
+Type: string
+Description: for internal use; can be preseeded
+ Line to enter into sources.list for the duration of
+ oem-config/extra_packages
+
+Template: oem-config/key
+Type: string
+Description: for internal use; can be preseeded
+ Path of a public key that packages in oem-config/repository
+ are signed with.
