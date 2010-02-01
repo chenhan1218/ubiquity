@@ -1,4 +1,4 @@
-ubiquity (2.1.15) UNRELEASED; urgency=low
+ubiquity (2.1.15) lucid; urgency=low
 
   [ Mario Limonciello ]
   * Add a new template, ubiquity/only-show-installable-languages for modifying
@@ -40,7 +40,7 @@ ubiquity (2.1.15) UNRELEASED; urgency=low
   * Support installing additional packages at runtime in oem-config, as
     specified by oem-config/extra_packages.
 
- -- Mario Limonciello <mario_limonciello@dell.com>  Fri, 22 Jan 2010 18:08:44 -0600
+ -- Mario Limonciello <superm1@ubuntu.com>  Sun, 31 Jan 2010 23:44:44 -0600
 
 ubiquity (2.1.14) lucid; urgency=low
 
