@@ -2037,10 +2037,13 @@ class Install:
     def install_oem_extras(self):
         """Try to install additional packages requested by the distributor"""
 
-        extra_packages = self.db.get('oem-config/extra_packages')
-        if extra_packages:
-            extra_packages = extra_packages.replace(',', ' ').split()
-        else:
+        try:
+            extra_packages = self.db.get('oem-config/extra_packages')
+            if extra_packages:
+                extra_packages = extra_packages.replace(',', ' ').split()
+            else:
+                return
+        except debconf.DebconfError:
             return
         
         save_replace = None

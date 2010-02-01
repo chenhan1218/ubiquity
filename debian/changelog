@@ -11,6 +11,7 @@ ubiquity (2.1.16) UNRELEASED; urgency=low
     case in oem-config mode), then assume the last one is the install plugin.
   * Allow pages that are declared plugin_is_install to process other steps
     in process_step in addition to the install behaviors.
+  * Add a try/except guard around the fetch of oem-config/extra_packages.
 
   [ Evan Dandrea ]
   * Add oem-config/repository and oem-config/key, which respectively
