@@ -24,6 +24,9 @@ ubiquity (2.1.15) UNRELEASED; urgency=low
   * Fix unmount command in chroot_cleanup to actually release /target/dev.
   * In the KDE frontend for ubi-language, use findChildren to find widgets
     because QWidget itself is not iterable.
+  * In the KDE frontend, don't try to set the text on the breadcrumbs early
+    as translations don't appear ready yet.  The widgets will still load,
+    and translate when the langauge is changed. (LP: #511947)
 
   [ Evan Dandrea ]
   * Support getting the timezone from a geoip server (LP: #229884).
