@@ -2126,6 +2126,10 @@ class Install:
                 di_locale = self.db.get('debian-installer/locale')
                 if di_locale:
                     install_misc.set_debconf(self.target, 'debian-installer/locale', di_locale, self.db)
+                # Allow the early command set to be used in oem-config to be set in the installation preseed
+                early = self.db.get('oem-config/early_command')
+                if early:
+                    install_misc.set_debconf(self.target, 'oem-config/early_command', early, self.db)
                 #in an automated install, this key needs to carry over
                 installable_lang = self.db.get('ubiquity/only-show-installable-languages')
                 if installable_lang:

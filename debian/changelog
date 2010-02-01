@@ -1,6 +1,8 @@
 ubiquity (2.1.16) UNRELEASED; urgency=low
 
   * Don't fail to run oem-config if oem-config/early_command isn't set.
+  * Copy oem-config/early_command from the installation preseed onto the
+    installed system.
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Mon, 01 Feb 2010 12:10:47 -0600
 
