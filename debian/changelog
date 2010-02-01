@@ -27,6 +27,9 @@ ubiquity (2.1.15) UNRELEASED; urgency=low
   * In the KDE frontend, don't try to set the text on the breadcrumbs early
     as translations don't appear ready yet.  The widgets will still load,
     and translate when the langauge is changed. (LP: #511947)
+  * Automatic update of included source packages: console-setup
+    1.34ubuntu8, debian-installer-utils 1.72ubuntu2, tzsetup
+    1:0.26ubuntu4.
 
   [ Evan Dandrea ]
   * Support getting the timezone from a geoip server (LP: #229884).
