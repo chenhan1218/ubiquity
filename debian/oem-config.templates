@@ -9,6 +9,11 @@ Type: string
 Description: for internal use; can be preseeded
  Run a command just before oem-config starts.
 
+Template: oem-config/late_command
+Type: string
+Description: for internal use; can be preseeded
+ Run a command after oem-config completes.
+
 Template: oem-config/extra_packages
 Type: string
 Description: for internal use; can be preseeded

@@ -69,6 +69,12 @@ for try in $(seq 1 $TRY); do
 		if getent passwd oem >/dev/null; then
 			deluser --quiet --remove-home oem || true
 		fi
+		# Cleanup from anything the early command prepared
+		RET="$(echo GET oem-config/late_command | debconf-communicate)" || true
+		if [ "${RET%% *}" = 0 ]; then
+			command="${RET#* }"
+			log-output sh -c "$command" || true
+		fi
 		RET="$(echo GET oem-config/remove | debconf-communicate)"
 		if [ "${RET#* }" = true ]; then
 			apt-get -y purge ubiquity >>/var/log/oem-config.log 2>&1
