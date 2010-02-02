@@ -49,8 +49,7 @@ import debconf
 from ubiquity import filteredcommand, i18n, validation, parted_server
 from ubiquity.misc import *
 from ubiquity.plugin import Plugin
-from ubiquity.components import usersetup, \
-                                partman, partman_commit, summary, install
+from ubiquity.components import partman, partman_commit, summary, install
 import ubiquity.progressposition
 import ubiquity.frontend.base
 from ubiquity.frontend.base import BaseFrontend
@@ -257,14 +256,10 @@ class Wizard(BaseFrontend):
         
         self.ui.setWindowIcon(KIcon("ubiquity"))
         self.allow_go_backward(False)
-            
-        # The UserSetup component takes care of preseeding passwd/user-uid.
-        execute_root('apt-install', 'oem-config-kde')
 
         if self.oem_config:
             self.page.setWindowTitle(self.get_string('oem_config_title'))
-
-        if self.oem_user_config:
+        elif self.oem_user_config:
             self.ui.setWindowTitle(self.get_string('oem_user_config_title'))
             self.ui.setWindowIcon(KIcon("preferences-system"))
             flags = self.ui.windowFlags() ^ Qt.WindowMinMaxButtonsHint
@@ -950,8 +945,6 @@ class Wizard(BaseFrontend):
             self.app.exit()
 
     def on_steps_switch_page(self, newPageID):
-        if self.step_name(newPageID) == 'usersetup':
-            self.info_loop(None)
         self.current_page = newPageID
         #self.translate_widget(self.ui.step_label)
         syslog.syslog('switched to page %s' % self.step_name(newPageID))
