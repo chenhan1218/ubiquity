@@ -2058,8 +2058,15 @@ class Install:
             os.environ['DEBCONF_DB_REPLACE'] = 'configdb'
             os.environ['DEBCONF_DB_OVERRIDE'] = 'Pipe{infd:none outfd:none}'
 
-            extra_pool = self.db.get('oem-config/repository')
-            extra_key = self.db.get('oem-config/key')
+            try:
+                extra_pool = self.db.get('oem-config/repository')
+            except debconf.DebconfError:
+                extra_pool = ''
+            try:
+                extra_key = self.db.get('oem-config/key')
+            except debconf.DebconfError:
+                extra_key = ''
+
             if extra_pool:
                 with open(custom, 'w') as f:
                     print >>f, extra_pool
