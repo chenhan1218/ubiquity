@@ -438,7 +438,6 @@ class Install:
             self.db.progress('INFO', 'ubiquity/install/removing')
             self.remove_extras()
 
-            self.remove_broken_cdrom()
             try:
                 self.copy_network_config()
             except:
@@ -2244,38 +2243,6 @@ class Install:
         (regular, recursive) = install_misc.query_recorded_removed()
         self.do_remove(regular)
         self.do_remove(recursive, recursive=True)
-
-    def remove_broken_cdrom(self):
-        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
-            return
-        fstab = os.path.join(self.target, 'etc/fstab')
-        ret = []
-        try:
-            fp = open(fstab)
-            for line in fp:
-                l = line.split()
-                if len(l) > 2:
-                    if l[1].startswith('/cdrom') or l[1].startswith('/media/cdrom'):
-                        try:
-                            fstype = subprocess.Popen(
-                                ['block-attr', '--type', l[0]],
-                                stdout=subprocess.PIPE).communicate()[0].rstrip('\n')
-                            if fstype != 'iso9660' and fstype != 'udf':
-                                continue
-                        except OSError:
-                            pass
-                ret.append(line)
-            fp.close()
-            fp = open(fstab, 'w')
-            fp.writelines(ret)
-        except Exception:
-            syslog.syslog(syslog.LOG_ERR, 'Exception during installation:')
-            syslog.syslog(syslog.LOG_ERR, 'Unable to process /etc/fstab:')
-            for line in traceback.format_exc().split('\n'):
-                syslog.syslog(syslog.LOG_ERR, line)
-        finally:
-            if fp:
-                fp.close()
 
     def copy_tree(self, source, target, uid, gid):
         # Mostly stolen from copy_all.

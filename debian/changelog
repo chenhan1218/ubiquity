@@ -23,6 +23,11 @@ ubiquity (2.1.16) UNRELEASED; urgency=low
   * Add an additional package (oem-config-remaster) to remaster an
     Ubuntu ISO with additional packages and oem-config preseed data.
 
+  [ Colin Watson ]
+  * Drop code to remove broken CD-ROM entries from /etc/fstab after install;
+    partman-target 64ubuntu6 no longer writes removable device entries to
+    /etc/fstab.
+
  -- Mario Limonciello <mario_limonciello@dell.com>  Mon, 01 Feb 2010 12:10:47 -0600
 
 ubiquity (2.1.15) lucid; urgency=low
