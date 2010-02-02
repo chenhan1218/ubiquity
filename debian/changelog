@@ -18,6 +18,8 @@ ubiquity (2.1.16) UNRELEASED; urgency=low
     specify an additional repository to install packages from and a
     public key that the packages are signed with.
   * Copy all oem-config/* templates to the installed system.
+  * Add an additional package (oem-config-remaster) to remaster an
+    Ubuntu ISO with additional packages and oem-config preseed data.
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Mon, 01 Feb 2010 12:10:47 -0600
 
