@@ -15,6 +15,8 @@ ubiquity (2.1.16) UNRELEASED; urgency=low
   * Add oem-config/late-command for cleaning up any preparation that was
     done via oem-config/early-command for the oem-config run.
   * Make the Mythbuntu backend setup plugin's GTK widget fit better.
+  * Automatic update of included source packages: apt-setup
+    1:0.42ubuntu2, partman-target 64ubuntu6.
 
   [ Evan Dandrea ]
   * Add oem-config/repository and oem-config/key, which respectively
