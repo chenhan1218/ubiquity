@@ -1,4 +1,4 @@
-ubiquity (2.1.16) UNRELEASED; urgency=low
+ubiquity (2.1.16) lucid; urgency=low
 
   [ Mario Limonciello ]
   * Don't fail to run oem-config if oem-config/early_command isn't set.
@@ -31,7 +31,7 @@ ubiquity (2.1.16) UNRELEASED; urgency=low
     partman-target 64ubuntu6 no longer writes removable device entries to
     /etc/fstab.
 
- -- Mario Limonciello <mario_limonciello@dell.com>  Mon, 01 Feb 2010 12:10:47 -0600
+ -- Mario Limonciello <superm1@ubuntu.com>  Wed, 03 Feb 2010 00:11:50 -0600
 
 ubiquity (2.1.15) lucid; urgency=low
 
