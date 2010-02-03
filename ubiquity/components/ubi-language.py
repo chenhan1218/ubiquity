@@ -110,6 +110,9 @@ class PageGtk(PageBase):
         if self.only:
             self.iconview.set_model(list_store)
             self.iconview.set_text_column(0)
+            lang_per_column = self.iconview.get_allocation().height / 40
+            columns = int(round(len(choices) / float(lang_per_column)))
+            self.iconview.set_columns(columns)
         else:
             if len(self.treeview.get_columns()) < 1:
                 column = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=0)
@@ -196,7 +199,7 @@ class PageKde(PageBase):
         self.controller = controller
         try:
             from PyQt4 import uic
-            from PyQt4.QtGui import QLabel
+            from PyQt4.QtGui import QLabel, QWidget
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLanguage.ui')
             self.combobox = self.page.language_combobox
             self.combobox.currentIndexChanged[str].connect(self.on_language_selection_changed)
@@ -204,12 +207,13 @@ class PageKde(PageBase):
             if not self.controller.oem_config:
                 self.page.oem_id_label.hide()
                 self.page.oem_id_entry.hide()
-            
-            if self.controller.oem_config or auto_update.already_updated():
-                self.page.update_this_installer.hide()
-            else:
-                self.page.update_this_installer.clicked.connect(
-                    self.on_update_this_installer)
+
+            if self.page.findChildren(QWidget,'update_this_installer'):
+                if self.controller.oem_config or auto_update.already_updated():
+                    self.page.update_this_installer.hide()
+                else:
+                    self.page.update_this_installer.clicked.connect(
+                        self.on_update_this_installer)
 
             class linkLabel(QLabel):
                 def __init__(self, wizard, parent):

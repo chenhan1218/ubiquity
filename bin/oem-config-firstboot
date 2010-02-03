@@ -33,7 +33,7 @@ if type fontconfig-voodoo >/dev/null 2>&1; then
 	fi
 fi
 # Run a command just before starting oem-config.
-RET="$(echo GET oem-config/early_command | debconf-communicate)"
+RET="$(echo GET oem-config/early_command | debconf-communicate)" || true
 if [ "${RET%% *}" = 0 ]; then
 	command="${RET#* }"
 	log-output sh -c "$command" || true
@@ -68,6 +68,12 @@ for try in $(seq 1 $TRY); do
 		# Remove the temporary OEM configuration user, if possible.
 		if getent passwd oem >/dev/null; then
 			deluser --quiet --remove-home oem || true
+		fi
+		# Cleanup from anything the early command prepared
+		RET="$(echo GET oem-config/late_command | debconf-communicate)" || true
+		if [ "${RET%% *}" = 0 ]; then
+			command="${RET#* }"
+			log-output sh -c "$command" || true
 		fi
 		RET="$(echo GET oem-config/remove | debconf-communicate)"
 		if [ "${RET#* }" = true ]; then

@@ -232,6 +232,7 @@ class Wizard(BaseFrontend):
         self.pageslen = 0
         self.user_pageslen = 0
         steps = self.builder.get_object("steps")
+        found_install = False
         for mod in self.modules:
             if hasattr(mod.module, 'PageGtk'):
                 mod.ui_class = mod.module.PageGtk
@@ -239,6 +240,8 @@ class Wizard(BaseFrontend):
                 mod.ui = mod.ui_class(mod.controller)
                 widgets = mod.ui.get('plugin_widgets')
                 optional_widgets = mod.ui.get('plugin_optional_widgets')
+                if not found_install:
+                    found_install = mod.ui.get('plugin_is_install')
                 if widgets or optional_widgets:
                     def fill_out(widget_list):
                         rv = []
@@ -260,6 +263,10 @@ class Wizard(BaseFrontend):
                     self.user_pageslen += len(mod.widgets)
                     self.pageslen += 1
                     self.pages.append(mod)
+
+        #If no plugins declare they are install, then we'll say the last one is
+        if not found_install:
+            self.pages[self.pageslen - 1].ui.plugin_is_install = True
 
         self.toplevels = set()
         for builder in self.builders:
@@ -1125,7 +1132,7 @@ class Wizard(BaseFrontend):
             self.process_identification()
 
         # Ready to install
-        elif self.pages[self.pagesindex].ui.get('plugin_is_install'):
+        if self.pages[self.pagesindex].ui.get('plugin_is_install'):
             self.progress_loop()
 
     def process_identification (self):

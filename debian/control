@@ -149,3 +149,10 @@ Architecture: all
 Depends: oem-config-check, cdebconf-udeb
 XB-Installer-Menu-Item: 2800
 Description: Prepare for OEM configuration
+
+Package: oem-config-remaster
+Architecture: all
+Depends: genisoimage, gnupg, apt-utils
+Description: Remaster a CD with additional oem-config functionality
+ This script remasters a CD with additional packages and optional oem-config
+ preseed data.

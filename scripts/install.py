@@ -430,7 +430,6 @@ class Install:
             self.db.progress('INFO', 'ubiquity/install/removing')
             self.remove_extras()
 
-            self.remove_broken_cdrom()
             try:
                 self.copy_network_config()
             except:
@@ -2018,13 +2017,19 @@ class Install:
     def install_oem_extras(self):
         """Try to install additional packages requested by the distributor"""
 
-        extra_packages = self.db.get('oem-config/extra_packages')
-        if extra_packages:
-            extra_packages = extra_packages.replace(',', ' ').split()
-        else:
+        try:
+            extra_packages = self.db.get('oem-config/extra_packages')
+            if extra_packages:
+                extra_packages = extra_packages.replace(',', ' ').split()
+            else:
+                return
+        except debconf.DebconfError:
             return
+        
         save_replace = None
         save_override = None
+        custom = '/etc/apt/sources.list.d/oem-config.list'
+        apt_update = ['debconf-apt-progress', '--', 'apt-get', 'update']
         try:
             if 'DEBCONF_DB_REPLACE' in os.environ:
                 save_replace = os.environ['DEBCONF_DB_REPLACE']
@@ -2032,6 +2037,26 @@ class Install:
                 save_override = os.environ['DEBCONF_DB_OVERRIDE']
             os.environ['DEBCONF_DB_REPLACE'] = 'configdb'
             os.environ['DEBCONF_DB_OVERRIDE'] = 'Pipe{infd:none outfd:none}'
+
+            try:
+                extra_pool = self.db.get('oem-config/repository')
+            except debconf.DebconfError:
+                extra_pool = ''
+            try:
+                extra_key = self.db.get('oem-config/key')
+            except debconf.DebconfError:
+                extra_key = ''
+
+            if extra_pool:
+                with open(custom, 'w') as f:
+                    print >>f, extra_pool
+            if extra_key and os.path.exists(extra_key):
+                trusted_db = '/etc/apt/trusted.gpg'
+                if os.path.exists(trusted_db):
+                    shutil.copy(trusted_db, trusted_db + '.oem-config')
+                subprocess.call(['apt-key', 'add', extra_key])
+            if extra_pool:
+                subprocess.call(apt_update)
             # We don't support asking questions on behalf of packages specified
             # here yet, as we don't support asking arbitrary questions in
             # components/install.py yet.  This is complicated not only by the
@@ -2049,6 +2074,11 @@ class Install:
                     brokenpkgs = self.broken_packages(cache)
                     self.warn_broken_packages(brokenpkgs, str(e))
         finally:
+            if os.path.exists(trusted_db + '.oem-config'):
+                shutil.copy(trusted_db + '.oem-config', trusted_db)
+            if os.path.exists(custom):
+                os.unlink(custom)
+                subprocess.call(apt_update)
             if save_replace:
                 os.environ['DEBCONF_DB_REPLACE'] = save_replace
             if save_override:
@@ -2107,6 +2137,8 @@ class Install:
                 di_locale = self.db.get('debian-installer/locale')
                 if di_locale:
                     install_misc.set_debconf(self.target, 'debian-installer/locale', di_locale, self.db)
+                # Copy oem-config preseeded data to the install system.
+                self.copy_debconf('oem-config')
                 #in an automated install, this key needs to carry over
                 installable_lang = self.db.get('ubiquity/only-show-installable-languages')
                 if installable_lang:
@@ -2192,38 +2224,6 @@ class Install:
         (regular, recursive) = install_misc.query_recorded_removed()
         self.do_remove(regular)
         self.do_remove(recursive, recursive=True)
-
-    def remove_broken_cdrom(self):
-        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
-            return
-        fstab = os.path.join(self.target, 'etc/fstab')
-        ret = []
-        try:
-            fp = open(fstab)
-            for line in fp:
-                l = line.split()
-                if len(l) > 2:
-                    if l[1].startswith('/cdrom') or l[1].startswith('/media/cdrom'):
-                        try:
-                            fstype = subprocess.Popen(
-                                ['block-attr', '--type', l[0]],
-                                stdout=subprocess.PIPE).communicate()[0].rstrip('\n')
-                            if fstype != 'iso9660' and fstype != 'udf':
-                                continue
-                        except OSError:
-                            pass
-                ret.append(line)
-            fp.close()
-            fp = open(fstab, 'w')
-            fp.writelines(ret)
-        except Exception:
-            syslog.syslog(syslog.LOG_ERR, 'Exception during installation:')
-            syslog.syslog(syslog.LOG_ERR, 'Unable to process /etc/fstab:')
-            for line in traceback.format_exc().split('\n'):
-                syslog.syslog(syslog.LOG_ERR, line)
-        finally:
-            if fp:
-                fp.close()
 
     def copy_tree(self, source, target, uid, gid):
         # Mostly stolen from copy_all.

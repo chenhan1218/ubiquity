@@ -1,4 +1,39 @@
-ubiquity (2.1.15) UNRELEASED; urgency=low
+ubiquity (2.1.16) lucid; urgency=low
+
+  [ Mario Limonciello ]
+  * Don't fail to run oem-config if oem-config/early_command isn't set.
+  * Copy oem-config/early_command from the installation preseed onto the
+    installed system.
+  * Try to dynamically detect the number of columns we'll need for
+    stepLanguageOnly.  When showing < 15 languages, this fixes the
+    orientation to be in a single column on small displays.
+  * If no plugins declare themselves as plugin_is_install (such as the
+    case in oem-config mode), then assume the last one is the install plugin.
+  * Allow pages that are declared plugin_is_install to process other steps
+    in process_step in addition to the install behaviors.
+  * Add a try/except guard around the fetch of oem-config/extra_packages.
+  * Add oem-config/late-command for cleaning up any preparation that was
+    done via oem-config/early-command for the oem-config run.
+  * Make the Mythbuntu backend setup plugin's GTK widget fit better.
+  * Automatic update of included source packages: apt-setup
+    1:0.42ubuntu2, partman-target 64ubuntu6.
+
+  [ Evan Dandrea ]
+  * Add oem-config/repository and oem-config/key, which respectively
+    specify an additional repository to install packages from and a
+    public key that the packages are signed with.
+  * Copy all oem-config/* templates to the installed system.
+  * Add an additional package (oem-config-remaster) to remaster an
+    Ubuntu ISO with additional packages and oem-config preseed data.
+
+  [ Colin Watson ]
+  * Drop code to remove broken CD-ROM entries from /etc/fstab after install;
+    partman-target 64ubuntu6 no longer writes removable device entries to
+    /etc/fstab.
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Wed, 03 Feb 2010 00:11:50 -0600
+
+ubiquity (2.1.15) lucid; urgency=low
 
   [ Mario Limonciello ]
   * Add a new template, ubiquity/only-show-installable-languages for modifying
@@ -22,6 +57,14 @@ ubiquity (2.1.15) UNRELEASED; urgency=low
   * Drop mythbuntu_ui and all references to it.  The (former) Mythbuntu 
     frontend is now fully pluggable into ubiquity's gtk_ui on it's own.
   * Fix unmount command in chroot_cleanup to actually release /target/dev.
+  * In the KDE frontend for ubi-language, use findChildren to find widgets
+    because QWidget itself is not iterable.
+  * In the KDE frontend, don't try to set the text on the breadcrumbs early
+    as translations don't appear ready yet.  The widgets will still load,
+    and translate when the langauge is changed. (LP: #511947)
+  * Automatic update of included source packages: console-setup
+    1.34ubuntu8, debian-installer-utils 1.72ubuntu2, tzsetup
+    1:0.26ubuntu4.
 
   [ Evan Dandrea ]
   * Support getting the timezone from a geoip server (LP: #229884).
@@ -32,7 +75,7 @@ ubiquity (2.1.15) UNRELEASED; urgency=low
   * Support installing additional packages at runtime in oem-config, as
     specified by oem-config/extra_packages.
 
- -- Mario Limonciello <mario_limonciello@dell.com>  Fri, 22 Jan 2010 18:08:44 -0600
+ -- Mario Limonciello <superm1@ubuntu.com>  Sun, 31 Jan 2010 23:44:44 -0600
 
 ubiquity (2.1.14) lucid; urgency=low
 

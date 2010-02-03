@@ -1,2 +1,3 @@
-bin/oem-config-* usr/sbin
+bin/oem-config-firstboot usr/sbin
+bin/oem-config-prepare usr/sbin
 scripts/ubi-reload-keyboard /usr/lib/oem-config/post-install
