@@ -14,6 +14,7 @@ ubiquity (2.1.16) UNRELEASED; urgency=low
   * Add a try/except guard around the fetch of oem-config/extra_packages.
   * Add oem-config/late-command for cleaning up any preparation that was
     done via oem-config/early-command for the oem-config run.
+  * Make the Mythbuntu backend setup plugin's GTK widget fit better.
 
   [ Evan Dandrea ]
   * Add oem-config/repository and oem-config/key, which respectively
