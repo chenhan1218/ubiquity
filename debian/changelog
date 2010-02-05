@@ -1,7 +1,12 @@
 ubiquity (2.1.17) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
   * debian/oem-config.postinst:
     - Source debconf to ensure templates are populated in debconf.
+
+  [ Evan Dandrea ]
+  * Use a GtkSpinner instead of a separate progress window when on the
+    manual partitioning page.
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 03 Feb 2010 18:25:36 -0600
 
