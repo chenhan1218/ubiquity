@@ -29,7 +29,6 @@ import os
 from ubiquity import validation
 from ubiquity.misc import execute
 from ubiquity.plugin import *
-from ubiquity.filteredcommand import FilteredCommand
 import debconf
 
 NAME = 'usersetup'
@@ -586,7 +585,7 @@ class Page(Plugin):
         # We need to call info_loop as we switch to the page so the next button
         # gets disabled.
         self.ui.info_loop(None)
-        return FilteredCommand.run(self, priority, question)
+        return Plugin.run(self, priority, question)
 
     def ok_handler(self):
         self.ui.clear_errors()
@@ -640,7 +639,7 @@ class Page(Plugin):
             else:
                 self.preseed('netcfg/get_domain', '')
 
-        FilteredCommand.ok_handler(self)
+        Plugin.ok_handler(self)
 
     def error(self, priority, question):
         if question.startswith('passwd/username-'):
@@ -650,7 +649,7 @@ class Page(Plugin):
         else:
             self.ui.error_dialog(self.description(question),
                                        self.extended_description(question))
-        return FilteredCommand.error(self, priority, question)
+        return Plugin.error(self, priority, question)
 
 class Install(InstallPlugin):
     def prepare(self, unfiltered=False):
@@ -664,7 +663,7 @@ class Install(InstallPlugin):
     def error(self, priority, question):
         self.ui.error_dialog(self.description(question),
                              self.extended_description(question))
-        return FilteredCommand.error(self, priority, question)
+        return InstallPlugin.error(self, priority, question)
     
     def install(self, target, progress, *args, **kwargs):
         progress.info('ubiquity/install/user')
