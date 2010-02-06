@@ -67,86 +67,89 @@ class PageBase(PluginUI):
 class PageGtk(PageBase):
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
-        import gtk
-        from ubiquity import segmented_bar
-        builder = gtk.Builder()
-        self.controller.add_builder(builder)
-        builder.add_from_file('/usr/share/ubiquity/gtk/stepPartAuto.ui')
-        builder.add_from_file('/usr/share/ubiquity/gtk/stepPartAdvanced.ui')
-        builder.connect_signals(self)
-        self.page = builder.get_object('stepPartAuto')
-        self.page_advanced = builder.get_object('stepPartAdvanced')
-        self.autopartition_choices_vbox = builder.get_object('autopartition_choices_vbox')
-        self.part_auto_choices_label = builder.get_object('part_auto_choices_label')
-        self.action_bar_eb = builder.get_object('action_bar_eb')
-        self.before_bar_eb = builder.get_object('before_bar_eb')
-        self.partition_create_mount_combo = builder.get_object('partition_create_mount_combo')
-        self.partition_edit_mount_combo = builder.get_object('partition_edit_mount_combo')
-        self.partition_create_dialog = builder.get_object('partition_create_dialog')
-        self.partition_list_treeview = builder.get_object('partition_list_treeview')
-        self.partition_create_type_label = builder.get_object('partition_create_type_label')
-        self.partition_create_type_primary = builder.get_object('partition_create_type_primary')
-        self.partition_create_type_logical = builder.get_object('partition_create_type_logical')
-        self.partition_create_size_spinbutton = builder.get_object('partition_create_size_spinbutton')
-        self.partition_create_place_beginning = builder.get_object('partition_create_place_beginning')
-        self.partition_create_use_combo = builder.get_object('partition_create_use_combo')
-        self.partition_edit_dialog = builder.get_object('partition_edit_dialog')
-        self.partition_edit_size_label = builder.get_object('partition_edit_size_label')
-        self.partition_edit_size_spinbutton = builder.get_object('partition_edit_size_spinbutton')
-        self.partition_edit_use_combo = builder.get_object('partition_edit_use_combo')
-        self.partition_edit_format_label = builder.get_object('partition_edit_format_label')
-        self.partition_edit_format_checkbutton = builder.get_object('partition_edit_format_checkbutton')
-        self.partition_button_new_label = builder.get_object('partition_button_new_label')
-        self.partition_button_new = builder.get_object('partition_button_new')
-        self.partition_button_edit = builder.get_object('partition_button_edit')
-        self.partition_button_delete = builder.get_object('partition_button_delete')
-        self.partition_button_undo = builder.get_object('partition_button_undo')
-        self.part_advanced_vbox = builder.get_object('part_advanced_vbox')
-        self.part_advanced_warning_message = builder.get_object('part_advanced_warning_message')
-        self.part_advanced_warning_hbox = builder.get_object('part_advanced_warning_hbox')
-        self.part_auto_comment_label = builder.get_object('part_auto_comment_label')
+        try:
+            import gtk
+            from ubiquity import segmented_bar
+            builder = gtk.Builder()
+            self.controller.add_builder(builder)
+            builder.add_from_file('/usr/share/ubiquity/gtk/stepPartAuto.ui')
+            builder.add_from_file('/usr/share/ubiquity/gtk/stepPartAdvanced.ui')
+            builder.connect_signals(self)
+            self.page = builder.get_object('stepPartAuto')
+            self.page_advanced = builder.get_object('stepPartAdvanced')
+            self.autopartition_choices_vbox = builder.get_object('autopartition_choices_vbox')
+            self.part_auto_choices_label = builder.get_object('part_auto_choices_label')
+            self.action_bar_eb = builder.get_object('action_bar_eb')
+            self.before_bar_eb = builder.get_object('before_bar_eb')
+            self.partition_create_mount_combo = builder.get_object('partition_create_mount_combo')
+            self.partition_edit_mount_combo = builder.get_object('partition_edit_mount_combo')
+            self.partition_create_dialog = builder.get_object('partition_create_dialog')
+            self.partition_list_treeview = builder.get_object('partition_list_treeview')
+            self.partition_create_type_label = builder.get_object('partition_create_type_label')
+            self.partition_create_type_primary = builder.get_object('partition_create_type_primary')
+            self.partition_create_type_logical = builder.get_object('partition_create_type_logical')
+            self.partition_create_size_spinbutton = builder.get_object('partition_create_size_spinbutton')
+            self.partition_create_place_beginning = builder.get_object('partition_create_place_beginning')
+            self.partition_create_use_combo = builder.get_object('partition_create_use_combo')
+            self.partition_edit_dialog = builder.get_object('partition_edit_dialog')
+            self.partition_edit_size_label = builder.get_object('partition_edit_size_label')
+            self.partition_edit_size_spinbutton = builder.get_object('partition_edit_size_spinbutton')
+            self.partition_edit_use_combo = builder.get_object('partition_edit_use_combo')
+            self.partition_edit_format_label = builder.get_object('partition_edit_format_label')
+            self.partition_edit_format_checkbutton = builder.get_object('partition_edit_format_checkbutton')
+            self.partition_button_new_label = builder.get_object('partition_button_new_label')
+            self.partition_button_new = builder.get_object('partition_button_new')
+            self.partition_button_edit = builder.get_object('partition_button_edit')
+            self.partition_button_delete = builder.get_object('partition_button_delete')
+            self.partition_button_undo = builder.get_object('partition_button_undo')
+            self.part_advanced_vbox = builder.get_object('part_advanced_vbox')
+            self.part_advanced_warning_message = builder.get_object('part_advanced_warning_message')
+            self.part_advanced_warning_hbox = builder.get_object('part_advanced_warning_hbox')
+            self.part_auto_comment_label = builder.get_object('part_auto_comment_label')
 
-        self.partition_bars = {}
-        self.segmented_bar_vbox = None
-        self.format_warnings = {}
-        self.format_warning = None
-        self.format_warning_align = None
-        self.autopartition_extras = {}
-        self.resize_min_size = None
-        self.resize_max_size = None
-        self.resize_pref_size = None
-        self.resize_path = ''
-        self.new_size_scale = None
-        # FIXME: Grab this from the GTK theme.
-        self.release_color = 'D07316'
-        self.auto_colors = ['3465a4', '73d216', 'f57900']
-        self.dev_colors = {}
-        
-        self.partition_create_mount_combo.child.set_activates_default(True)
-        self.partition_edit_mount_combo.child.set_activates_default(True)
+            self.partition_bars = {}
+            self.segmented_bar_vbox = None
+            self.format_warnings = {}
+            self.format_warning = None
+            self.format_warning_align = None
+            self.autopartition_extras = {}
+            self.resize_min_size = None
+            self.resize_max_size = None
+            self.resize_pref_size = None
+            self.resize_path = ''
+            self.new_size_scale = None
+            # FIXME: Grab this from the GTK theme.
+            self.release_color = 'D07316'
+            self.auto_colors = ['3465a4', '73d216', 'f57900']
+            self.dev_colors = {}
+            
+            self.partition_create_mount_combo.child.set_activates_default(True)
+            self.partition_edit_mount_combo.child.set_activates_default(True)
 
-        self.action_bar = segmented_bar.SegmentedBarSlider()
-        self.action_bar.h_padding = self.action_bar.bar_height / 2
-        sw = gtk.ScrolledWindow()
-        sw.add_with_viewport(self.action_bar)
-        sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_NEVER)
-        sw.child.set_shadow_type(gtk.SHADOW_NONE)
-        sw.show_all()
-        self.action_bar_eb.add(sw)
+            self.action_bar = segmented_bar.SegmentedBarSlider()
+            self.action_bar.h_padding = self.action_bar.bar_height / 2
+            sw = gtk.ScrolledWindow()
+            sw.add_with_viewport(self.action_bar)
+            sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_NEVER)
+            sw.child.set_shadow_type(gtk.SHADOW_NONE)
+            sw.show_all()
+            self.action_bar_eb.add(sw)
 
-        self.before_bar = segmented_bar.SegmentedBar()
-        self.before_bar.h_padding = self.before_bar.bar_height / 2
-        sw = gtk.ScrolledWindow()
-        sw.add_with_viewport(self.before_bar)
-        sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_NEVER)
-        sw.child.set_shadow_type(gtk.SHADOW_NONE)
-        sw.show_all()
-        self.before_bar_eb.add(sw)
+            self.before_bar = segmented_bar.SegmentedBar()
+            self.before_bar.h_padding = self.before_bar.bar_height / 2
+            sw = gtk.ScrolledWindow()
+            sw.add_with_viewport(self.before_bar)
+            sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_NEVER)
+            sw.child.set_shadow_type(gtk.SHADOW_NONE)
+            sw.show_all()
+            self.before_bar_eb.add(sw)
 
-        
+            self.plugin_optional_widgets = self.page_advanced
+            self.current_page = self.page
+        except Exception, e:
+            self.debug('Could not create language page: %s', e)
+            self.page = None
         self.plugin_widgets = self.page
-        self.plugin_optional_widgets = self.page_advanced
-        self.current_page = self.page
 
     def plugin_get_current_page(self):
         return self.current_page
