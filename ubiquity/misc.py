@@ -82,47 +82,52 @@ def grub_options():
     """ Generates a list of suitable targets for grub-installer
         @return empty list or a list of ['/dev/sda1','Ubuntu Hardy 8.04'] """
     l = []
-    oslist = {}
-    subp = subprocess.Popen(['os-prober'], stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE)
-    result = subp.communicate()[0].splitlines()
-    for res in result:
-        res = res.split(':')
-        oslist[res[0]] = res[1]
-    p = PartedServer()
-    for disk in p.disks():
-        p.select_disk(disk)
-        dev = ''
-        mod = ''
-        size = ''
-        try:
-            fp = open(p.device_entry('model'))
-            mod = fp.readline()
-            fp.close()
-            fp = open(p.device_entry('device'))
-            dev = fp.readline()
-            fp.close()
-            fp = open(p.device_entry('size'))
-            size = fp.readline()
-            fp.close()
-        finally:
-            if fp:
+    try:
+        oslist = {}
+        subp = subprocess.Popen(['os-prober'], stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE)
+        result = subp.communicate()[0].splitlines()
+        for res in result:
+            res = res.split(':')
+            oslist[res[0]] = res[1]
+        p = PartedServer()
+        for disk in p.disks():
+            p.select_disk(disk)
+            dev = ''
+            mod = ''
+            size = ''
+            try:
+                fp = open(p.device_entry('model'))
+                mod = fp.readline()
                 fp.close()
-        if dev and mod:
-            if size.isdigit():
-                size = format_size(int(size))
-                l.append([dev, '%s (%s)' % (mod, size)])
-            else:
-                l.append([dev, mod])
-        for part in p.partitions():
-            ostype = ''
-            if part[4] == 'linux-swap':
-                continue
-            if os.path.exists(p.part_entry(part[1], 'format')):
-                pass
-            elif part[5] in oslist.keys():
-                ostype = oslist[part[5]]
-            l.append([part[5], ostype])
+                fp = open(p.device_entry('device'))
+                dev = fp.readline()
+                fp.close()
+                fp = open(p.device_entry('size'))
+                size = fp.readline()
+                fp.close()
+            finally:
+                if fp:
+                    fp.close()
+            if dev and mod:
+                if size.isdigit():
+                    size = format_size(int(size))
+                    l.append([dev, '%s (%s)' % (mod, size)])
+                else:
+                    l.append([dev, mod])
+            for part in p.partitions():
+                ostype = ''
+                if part[4] == 'linux-swap':
+                    continue
+                if os.path.exists(p.part_entry(part[1], 'format')):
+                    pass
+                elif part[5] in oslist.keys():
+                    ostype = oslist[part[5]]
+                l.append([part[5], ostype])
+    except:
+        import traceback
+        for line in traceback.format_exc().split('\n'):
+            syslog.syslog(syslog.LOG_ERR, line)
     return l
 
 @raise_privileges
@@ -180,8 +185,10 @@ def grub_default():
                     target = root
                 return re.sub(r'(/dev/(cciss|ida)/c[0-9]d[0-9]|/dev/[a-z]+).*',
                               r'\1', target)
-        except Exception, e:
-            syslog.syslog('Exception in grub_default: ' + str(e))
+        except Exception:
+            import traceback
+            for line in traceback.format_exc().split('\n'):
+                syslog.syslog(syslog.LOG_ERR, line)
 
     return target
 

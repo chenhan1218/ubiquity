@@ -1,6 +1,6 @@
 ubiquity/*.py usr/lib/ubiquity/ubiquity
 ubiquity/components/__init__.py usr/lib/ubiquity/ubiquity/components
-ubiquity/components/summary.py usr/lib/ubiquity/ubiquity/components
+ubiquity/components/ubi-summary.py usr/lib/ubiquity/plugins
 ubiquity/components/install.py usr/lib/ubiquity/ubiquity/components
 ubiquity/frontend/__init__.py usr/lib/ubiquity/ubiquity/frontend
 ubiquity/frontend/base.py usr/lib/ubiquity/ubiquity/frontend
@@ -83,8 +83,7 @@ d-i/source/partconf/debian/partconf-*/* .
 
 # partman
 d-i/source/partman-*/debian/partman-*/* .
-ubiquity/components/partman.py usr/lib/ubiquity/ubiquity/components
-ubiquity/components/partman_commit.py usr/lib/ubiquity/ubiquity/components
+ubiquity/components/ubi-partman.py usr/lib/ubiquity/plugins
 
 # preseed
 d-i/source/preseed/preseed_command bin

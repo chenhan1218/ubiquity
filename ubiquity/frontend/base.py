@@ -26,8 +26,7 @@ import syslog
 import debconf
 from ubiquity.debconfcommunicator import DebconfCommunicator
 from ubiquity.misc import drop_privileges, execute_root
-from ubiquity.components import partman, partman_commit, \
-                                summary, install, migrationassistant
+from ubiquity.components import install, migrationassistant
 from ubiquity import i18n
 from ubiquity import plugin_manager
 
@@ -37,9 +36,7 @@ __pychecker__ = 'no-argsused'
 # Pages that may be loaded. Interpretation is up to the frontend, but it is
 # strongly recommended to keep the page identifiers the same.
 PAGE_COMPONENTS = {
-    'Partman' : partman,
     'MigrationAssistant' : migrationassistant,
-    'Ready' : summary,
 }
 
 class Controller:
@@ -87,12 +84,8 @@ class BaseFrontend:
         self.dbfilter_status = None
         self.resize_choice = None
         self.manual_choice = None
-        self.summary_device = None
-        self.grub_en = None
         self.popcon = None
         self.locale = None
-        self.http_proxy_host = None
-        self.http_proxy_port = 8080
 
         # Drop privileges so we can run the frontend as a regular user, and
         # thus talk to a11y applications running as a regular user.
@@ -141,7 +134,7 @@ class BaseFrontend:
         # These step lists are the steps that aren't yet converted to plugins.
         # We just hardcode them here, but they will eventually be dynamic.
         if not self.oem_user_config:
-            steps = ['Partman', 'MigrationAssistant', 'Ready']
+            steps = ['MigrationAssistant']
         modules = []
         for step in steps:
             if step == 'MigrationAssistant' and \
@@ -323,42 +316,6 @@ class BaseFrontend:
 
     # Interfaces with various components. If a given component is not used
     # then its abstract methods may safely be left unimplemented.
-
-    # ubiquity.components.partman
-
-    def set_disk_layout(self, layout):
-        pass
-
-    def set_autopartition_choices(self, choices, extra_options,
-                                  resize_choice, manual_choice,
-                                  biggest_free_choice):
-        """Set available autopartitioning choices."""
-        self.resize_choice = resize_choice
-        self.manual_choice = manual_choice
-        self.biggest_free_choice = biggest_free_choice
-
-    def get_autopartition_choice(self):
-        """Get the selected autopartitioning choice."""
-        self._abstract('get_autopartition_choice')
-
-    def installation_medium_mounted(self, message):
-        """Note that the installation medium is mounted."""
-        # not flagged as abstract because some frontends may not be able to
-        # present this sensibly, for example if they only implement
-        # autopartitioning
-        pass
-
-    def update_partman(self, disk_cache, partition_cache, cache_order):
-        """Update the manual partitioner display."""
-        # not flagged as abstract because some frontends may only implement
-        # autopartitioning
-        pass
-
-    # ubiquity.components.partman_commit
-
-    def return_to_partitioning(self):
-        """Return to partitioning following a commit error."""
-        self._abstract('return_to_partitioning')
 
     # ubiquity.components.migrationassistant
 
