@@ -427,6 +427,13 @@ def main(oem_config):
         if options.automatic:
             os.environ['UBIQUITY_DEBUG_CORE'] = '1'
 
+    # Initialise cdebconf if necessary, to work around
+    # http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=451130.
+    if options.cdebconf:
+        for package in ('ubiquity', 'console-setup'):
+            subprocess.call(['debconf-loadtemplate', package,
+                             '/var/lib/dpkg/info/%s.templates' % package])
+
     # Clean up old state.
     for name in ('apt-installed', 'apt-install-direct', 'remove-kernels', 'apt-removed'):
         osextras.unlink_force(os.path.join('/var/lib/ubiquity', name))

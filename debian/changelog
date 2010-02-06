@@ -8,6 +8,10 @@ ubiquity (2.1.17) UNRELEASED; urgency=low
   * Use a GtkSpinner instead of a separate progress window when on the
     manual partitioning page.
 
+  [ Colin Watson ]
+  * In cdebconf mode, initialise the templates database if necessary as a
+    workaround for cdebconf's packaging not doing this itself.
+
  -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 03 Feb 2010 18:25:36 -0600
 
 ubiquity (2.1.16) lucid; urgency=low
