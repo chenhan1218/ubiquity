@@ -626,7 +626,7 @@ class Page(Plugin):
             
         # showing warning message is error is set
         if len(error_msg) != 0:
-            self.hostname_error("\n".join(error_msg))
+            self.ui.hostname_error("\n".join(error_msg))
             self.done = False
             self.enter_ui_loop()
             return

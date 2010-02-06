@@ -1091,40 +1091,10 @@ class Wizard(BaseFrontend):
 
         if step.startswith("stepPart"):
             self.previous_partitioning_page = step_num
-        # Identification
-        elif step == "stepUserInfo":
-            self.process_identification()
-
+        
         # Ready to install
         if self.pages[self.pagesindex].ui.get('plugin_is_install'):
             self.progress_loop()
-
-    def process_identification (self):
-        """Processing identification step tasks."""
-
-        error_msg = []
-
-        # Validation stuff
-
-        # checking hostname entry
-        hostname = self.hostname.get_property('text')
-        for result in validation.check_hostname(hostname):
-            if result == validation.HOSTNAME_LENGTH:
-                error_msg.append("The hostname must be between 1 and 63 characters long.")
-            elif result == validation.HOSTNAME_BADCHAR:
-                error_msg.append("The hostname may only contain letters, digits, hyphens, and dots.")
-            elif result == validation.HOSTNAME_BADHYPHEN:
-                error_msg.append("The hostname may not start or end with a hyphen.")
-            elif result == validation.HOSTNAME_BADDOTS:
-                error_msg.append('The hostname may not start or end with a dot, or contain the sequence "..".')
-
-        # showing warning message is error is set
-        if len(error_msg) != 0:
-            self.hostname_error_reason.set_text("\n".join(error_msg))
-            self.hostname_error_box.show()
-            self.stay_on_page = True
-        else:
-            self.stay_on_page = False
 
     def on_back_clicked(self, unused_widget):
         """Callback to set previous screen."""
