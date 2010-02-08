@@ -5,6 +5,7 @@ ubiquity (2.1.17) UNRELEASED; urgency=low
     - Source debconf to ensure templates are populated in debconf.
   * Drop update-rc.d calls from oem-config scripts as it's only supported
     via upstart now.
+  * misc: return True/False from execute_root rather than None.
 
   [ Evan Dandrea ]
   * Use a GtkSpinner instead of a separate progress window when on the

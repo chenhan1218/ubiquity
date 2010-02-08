@@ -258,7 +258,7 @@ def execute(*args):
 
 @raise_privileges
 def execute_root(*args):
-    execute(*args)
+    return execute(*args)
 
 def format_size(size):
     """Format a partition size."""
