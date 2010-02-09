@@ -533,7 +533,7 @@ class PageGtk(PageBase):
         partition_list_menu.popup(None, None, None, button, time)
 
     def partman_create_dialog (self, devpart, partition):
-        import gtk
+        import gtk, gobject
         if not self.controller.allowed_change_step():
             return
         if not isinstance(self.controller.dbfilter, Page):
@@ -597,19 +597,19 @@ class PageGtk(PageBase):
         if (response == gtk.RESPONSE_OK and
             isinstance(self.controller.dbfilter, Page)):
             if partition['parted']['type'] == 'primary':
-                prilog = partman.PARTITION_TYPE_PRIMARY
+                prilog = PARTITION_TYPE_PRIMARY
             elif partition['parted']['type'] == 'logical':
-                prilog = partman.PARTITION_TYPE_LOGICAL
+                prilog = PARTITION_TYPE_LOGICAL
             elif partition['parted']['type'] == 'pri/log':
                 if self.partition_create_type_primary.get_active():
-                    prilog = partman.PARTITION_TYPE_PRIMARY
+                    prilog = PARTITION_TYPE_PRIMARY
                 else:
-                    prilog = partman.PARTITION_TYPE_LOGICAL
+                    prilog = PARTITION_TYPE_LOGICAL
 
             if self.partition_create_place_beginning.get_active():
-                place = partman.PARTITION_PLACE_BEGINNING
+                place = PARTITION_PLACE_BEGINNING
             else:
-                place = partman.PARTITION_PLACE_END
+                place = PARTITION_PLACE_END
 
             method_iter = self.partition_create_use_combo.get_active_iter()
             if method_iter is None:
