@@ -14,6 +14,7 @@ ubiquity (2.1.17) UNRELEASED; urgency=low
   [ Colin Watson ]
   * In cdebconf mode, initialise the templates database if necessary as a
     workaround for cdebconf's packaging not doing this itself.
+  * Don't issue PROGRESS REGION command under debconf_ui (LP: #519398).
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 03 Feb 2010 18:25:36 -0600
 
