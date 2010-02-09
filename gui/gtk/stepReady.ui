@@ -2,6 +2,12 @@
 <interface>
   <requires lib="gtk+" version="2.16"/>
   <!-- interface-naming-policy toplevel-contextual -->
+  <object class="GtkAdjustment" id="adjustment3">
+    <property name="value">8080</property>
+    <property name="upper">65535</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
   <object class="GtkVBox" id="stepReady">
     <property name="visible">True</property>
     <property name="border_width">6</property>
