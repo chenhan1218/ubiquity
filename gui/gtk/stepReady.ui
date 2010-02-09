@@ -120,7 +120,6 @@
     <property name="type_hint">dialog</property>
     <property name="gravity">center</property>
     <property name="has_separator">False</property>
-    <signal name="realize" handler="set_window_hints"/>
     <child internal-child="vbox">
       <object class="GtkVBox" id="dialog-vbox8">
         <property name="visible">True</property>
