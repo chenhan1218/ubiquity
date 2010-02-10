@@ -15,6 +15,9 @@ ubiquity (2.1.17) UNRELEASED; urgency=low
   * In cdebconf mode, initialise the templates database if necessary as a
     workaround for cdebconf's packaging not doing this itself.
   * Don't issue PROGRESS REGION command under debconf_ui (LP: #519398).
+  * KDE frontend:
+    - Don't add partition bar frames for devices we can't find for whatever
+      reason (LP: #485450).
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 03 Feb 2010 18:25:36 -0600
 

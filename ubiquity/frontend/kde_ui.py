@@ -1447,7 +1447,8 @@ class Wizard(BaseFrontend):
                             extra_bar_frame = addBars(bar_frame, before_bar, after_bar)
                             extra_bar_frame.setVisible(False)
                             
-                        extra_bar_frames.append(extra_bar_frame)
+                        if extra_bar_frame is not None:
+                            extra_bar_frames.append(extra_bar_frame)
                         
                         # Qt changes the string by adding accelerators,
                         # so keep the pristine string here to be
