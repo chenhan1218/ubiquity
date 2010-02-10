@@ -18,6 +18,8 @@ ubiquity (2.1.17) UNRELEASED; urgency=low
   * KDE frontend:
     - Don't add partition bar frames for devices we can't find for whatever
       reason (LP: #485450).
+  * Pass model, layout, variant, and options to rewrite_xorg_conf
+    (LP: #514646).
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 03 Feb 2010 18:25:36 -0600
 

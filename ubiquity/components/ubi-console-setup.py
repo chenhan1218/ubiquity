@@ -605,7 +605,7 @@ class Page(Plugin):
         misc.execute("setxkbmap", *args)
 
     @misc.raise_privileges
-    def rewrite_xorg_conf(self):
+    def rewrite_xorg_conf(self, model, layout, variant, options):
         oldconfigfile = '/etc/X11/xorg.conf'
         newconfigfile = '/etc/X11/xorg.conf.new'
         try:
@@ -707,7 +707,7 @@ class Page(Plugin):
         if layout == '':
             return
 
-        self.rewrite_xorg_conf()
+        self.rewrite_xorg_conf(model, layout, variant, options)
 
 class Install(InstallPlugin):
     def prepare(self, unfiltered=False):
