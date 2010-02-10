@@ -269,7 +269,7 @@ class PageKde(PluginUI):
                 self.keyboardDisplay.setLayout(ly)
             
                 #no variants, force update by setting none
-                #if not keyboard_names.variants.has_key(ly):
+                #if not keyboard_names.lang[l]['variants'].has_key(ly):
                 #    self.keyboardDisplay.setVariant(None)
             
             self.current_layout = layout
@@ -283,7 +283,7 @@ class PageKde(PluginUI):
             var = None
             l = self.controller.dbfilter.get_locale()
             ly = keyboard_names.lang[l]['layouts'][layout]
-            if variant and keyboard_names.variants.has_key(ly):
+            if variant and keyboard_names.lang[l]['variants'].has_key(ly):
                 variantMap = keyboard_names.lang[l]['variants'][ly]
                 var = variantMap[unicode(variant)]
             
