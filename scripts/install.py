@@ -1128,6 +1128,15 @@ class Install:
                 assert cache._depcache.BrokenCount == 0
 
 
+    def locale_to_language_pack(self, locale):
+        lang = locale.split('_')[0]
+        if lang == 'zh_CN':
+            return 'zh-hans'
+        elif lang == 'zh_TW':
+            return 'zh-hant'
+        else:
+            return lang
+
     def select_language_packs(self):
         try:
             master_disable = self.db.get('pkgsel/install-language-support')
@@ -1163,13 +1172,13 @@ class Install:
                 langpack_db = self.db.get('localechooser/supported-locales')
                 langpack_set = set()
                 for locale in langpack_db.replace(',', '').split():
-                    langpack_set.add(locale.split('_')[0])
+                    langpack_set.add(self.locale_to_language_pack(locale))
                 langpacks = sorted(langpack_set)
             except debconf.DebconfError:
                 pass
         if not langpacks:
             langpack_db = self.db.get('debian-installer/locale')
-            langpacks = [langpack_db.split('_')[0]]
+            langpacks = [self.locale_to_language_pack(langpack_db)]
         self.languages = langpacks
         syslog.syslog('keeping language packs for: %s' % ' '.join(langpacks))
 

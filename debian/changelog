@@ -20,6 +20,8 @@ ubiquity (2.1.17) UNRELEASED; urgency=low
       reason (LP: #485450).
   * Pass model, layout, variant, and options to rewrite_xorg_conf
     (LP: #514646).
+  * Install zh-hans language packs for zh_CN, and zh-hant language packs for
+    zh_TW (LP: #517621).
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 03 Feb 2010 18:25:36 -0600
 
