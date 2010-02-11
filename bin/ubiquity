@@ -252,7 +252,7 @@ def copy_debconf():
     if not TARGET:
         return
     targetdb = TARGET + '/var/cache/debconf/config.dat'
-    for q in ('^console-setup/'):
+    for q in ('^console-setup/',):
         misc.execute('debconf-copydb', 'configdb', 'targetdb', '-p', q,
                      '--config=Name:targetdb', '--config=Driver:File',
                      '--config=Filename:%s' % targetdb)
@@ -426,6 +426,13 @@ def main(oem_config):
     if 'UBIQUITY_DEBUG_CORE' not in os.environ:
         if options.automatic:
             os.environ['UBIQUITY_DEBUG_CORE'] = '1'
+
+    # Initialise cdebconf if necessary, to work around
+    # http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=451130.
+    if options.cdebconf:
+        for package in ('ubiquity', 'console-setup'):
+            subprocess.call(['debconf-loadtemplate', package,
+                             '/var/lib/dpkg/info/%s.templates' % package])
 
     # Clean up old state.
     for name in ('apt-installed', 'apt-install-direct', 'remove-kernels', 'apt-removed'):

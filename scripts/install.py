@@ -302,6 +302,15 @@ class Install:
 
         sys.exit(1)
 
+    def progress_region(self, start, end):
+        if os.environ['UBIQUITY_FRONTEND'] != 'debconf_ui':
+            self.db.progress('REGION', start, end)
+
+    def next_region(size=1):
+        self.db.progress('SET', self.count)
+        self.progress_region(self.count, self.count + size)
+        self.count += size
+
     def run(self):
         """Run the install stage: copy everything to the target system, then
         configure it as necessary."""
@@ -312,7 +321,7 @@ class Install:
         end = 22 + len(self.plugins)
         if self.target != '/':
             end += 74
-        count = 1
+        self.count = 1
 
         self.db.progress('START', start, end, 'ubiquity/install/title')
         self.db.progress('INFO', 'ubiquity/install/mounting_source')
@@ -322,9 +331,7 @@ class Install:
                 self.mount_source()
 
             if self.target != '/':
-                self.db.progress('SET', count)
-                self.db.progress('REGION', count, count+74)
-                count += 74
+                self.next_region(size=74)
                 try:
                     self.copy_all()
                 except EnvironmentError, e:
@@ -353,29 +360,20 @@ class Install:
                     else:
                         raise
 
-            self.db.progress('SET', count)
-            self.db.progress('REGION', count, count+1)
-            count += 1
+            self.next_region()
             self.db.progress('INFO', 'ubiquity/install/network')
             self.configure_network()
 
-            self.db.progress('SET', count)
-            self.db.progress('REGION', count, count+1)
-            count += 1
+            self.next_region()
             self.db.progress('INFO', 'ubiquity/install/apt')
             self.configure_apt()
 
-            self.configure_plugins(count)
-            count += len(self.plugins)
-
-            self.db.progress('SET', count)
-            self.db.progress('REGION', count, count+1)
-            count += 1
+            self.configure_plugins()
+            
+            self.next_region()
             self.run_target_config_hooks()
 
-            self.db.progress('SET', count)
-            self.db.progress('REGION', count, count+5)
-            count += 5
+            self.next_region(size=5)
             # Ignore failures from language pack installation.
             try:
                 self.install_language_packs()
@@ -386,14 +384,10 @@ class Install:
             except SystemError:
                 pass
 
-            self.db.progress('SET', count)
-            self.db.progress('REGION', count, count+1)
-            count += 1
+            self.next_region()
             self.remove_unusable_kernels()
 
-            self.db.progress('SET', count)
-            self.db.progress('REGION', count, count+4)
-            count += 4
+            self.next_region(size=4)
             self.db.progress('INFO', 'ubiquity/install/hardware')
             self.configure_hardware()
 
@@ -402,15 +396,11 @@ class Install:
                                       'w')
             apt_install_direct.close()
 
-            self.db.progress('SET', count)
-            self.db.progress('REGION', count, count+1)
-            count += 1
+            self.next_region()
             self.db.progress('INFO', 'ubiquity/install/bootloader')
             self.configure_bootloader()
 
-            self.db.progress('SET', count)
-            self.db.progress('REGION', count, count+1)
-            count += 1
+            self.next_region()
             self.db.progress('INFO', 'ubiquity/install/installing')
 
             if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
@@ -418,9 +408,7 @@ class Install:
             else:
                 self.install_extras()
 
-            self.db.progress('SET', count)
-            self.db.progress('REGION', count, count+4)
-            count += 4
+            self.next_region(size=4)
             self.db.progress('INFO', 'ubiquity/install/removing')
             self.remove_extras()
 
@@ -443,7 +431,7 @@ class Install:
 
             self.copy_dcd()
 
-            self.db.progress('SET', count)
+            self.db.progress('SET', self.count)
             self.db.progress('INFO', 'ubiquity/install/log_files')
             self.copy_logs()
 
@@ -1006,7 +994,7 @@ class Install:
             self.db.progress('STOP')
 
 
-    def configure_plugins(self, count):
+    def configure_plugins(self):
         """Apply plugin settings to installed system."""
         class Progress:
             def __init__(self, db):
@@ -1022,9 +1010,7 @@ class Install:
             if plugin.NAME == 'migrationassistant' and \
                 'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
                     continue
-            self.db.progress('SET', count)
-            self.db.progress('REGION', count, count+1)
-            count += 1
+            self.next_region()
             self.db.progress('INFO', ' ') # clear info in case plugin doesn't provide one
             inst = plugin.Install(None, db=self.db)
             ret = inst.install(self.target, Progress(self.db))
@@ -1138,6 +1124,15 @@ class Install:
                 assert cache._depcache.BrokenCount == 0
 
 
+    def locale_to_language_pack(self, locale):
+        lang = locale.split('_')[0]
+        if lang == 'zh_CN':
+            return 'zh-hans'
+        elif lang == 'zh_TW':
+            return 'zh-hant'
+        else:
+            return lang
+
     def select_language_packs(self):
         try:
             master_disable = self.db.get('pkgsel/install-language-support')
@@ -1173,13 +1168,13 @@ class Install:
                 langpack_db = self.db.get('localechooser/supported-locales')
                 langpack_set = set()
                 for locale in langpack_db.replace(',', '').split():
-                    langpack_set.add(locale.split('_')[0])
+                    langpack_set.add(self.locale_to_language_pack(locale))
                 langpacks = sorted(langpack_set)
             except debconf.DebconfError:
                 pass
         if not langpacks:
             langpack_db = self.db.get('debian-installer/locale')
-            langpacks = [langpack_db.split('_')[0]]
+            langpacks = [self.locale_to_language_pack(langpack_db)]
         self.languages = langpacks
         syslog.syslog('keeping language packs for: %s' % ' '.join(langpacks))
 
@@ -1668,7 +1663,7 @@ class Install:
             self.db.progress('START', 0, 10, 'ubiquity/install/title')
         self.db.progress('INFO', 'ubiquity/install/find_installables')
 
-        self.db.progress('REGION', 0, 1)
+        self.progress_region(0, 1)
         fetchprogress = DebconfFetchProgress(
             self.db, 'ubiquity/install/title',
             'ubiquity/install/apt_indices_starting',
@@ -1686,7 +1681,7 @@ class Install:
             self.mark_install(cache, pkg)
 
         self.db.progress('SET', 1)
-        self.db.progress('REGION', 1, 10)
+        self.progress_region(1, 10)
         if self.langpacks:
             fetchprogress = DebconfFetchProgress(
                 self.db, 'ubiquity/langpacks/title', None,
@@ -1867,7 +1862,7 @@ class Install:
         self.get_remove_list(cache, to_remove, recursive)
 
         self.db.progress('SET', 1)
-        self.db.progress('REGION', 1, 5)
+        self.progress_region(1, 5)
         fetchprogress = DebconfFetchProgress(
             self.db, 'ubiquity/install/title', None,
             'ubiquity/install/fetch_remove')
@@ -1976,7 +1971,7 @@ class Install:
         # TODO cjwatson 2009-10-19: These regions are rather crude and
         # should be improved.
         self.db.progress('SET', 1)
-        self.db.progress('REGION', 1, 2)
+        self.progress_region(1, 2)
         if install_kernels:
             self.do_install(install_kernels)
             if new_kernel_pkg:
@@ -1991,7 +1986,7 @@ class Install:
                 remove_kernels = []
 
         self.db.progress('SET', 2)
-        self.db.progress('REGION', 2, 5)
+        self.progress_region(2, 5)
         try:
             if remove_kernels:
                 install_misc.record_removed(remove_kernels, recursive=True)

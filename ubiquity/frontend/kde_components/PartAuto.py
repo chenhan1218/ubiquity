@@ -212,7 +212,8 @@ class PartAuto(QWidget):
                             if len(self.extra_bar_frames) > 0:
                                 extra_bar_frame.setVisible(False)
                                 
-                        self.extra_bar_frames.append(extra_bar_frame)
+                        if extra_bar_frames is not None:
+                            self.extra_bar_frames.append(extra_bar_frame)
                         
                         # Qt changes the string by adding accelerators,
                         # so keep the pristine string here to be

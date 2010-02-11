@@ -1147,6 +1147,11 @@ class Wizard(BaseFrontend):
         return callback(source, debconf_condition)
 
     def debconf_progress_start (self, progress_min, progress_max, progress_title):
+        if self.current_page == self.steps.page_num(self.stepPartAdvanced):
+            self.partition_list_buttonbox.set_sensitive(False)
+            self.part_advanced_recalculating_box.show()
+            self.part_advanced_recalculating_spinner.start()
+            return
         if self.progress_position.depth() == 0:
             if self.current_page is not None:
                 self.debconf_progress_window.set_transient_for(
@@ -1198,6 +1203,11 @@ class Wizard(BaseFrontend):
         return True
 
     def debconf_progress_stop (self):
+        if self.current_page == self.steps.page_num(self.stepPartAdvanced):
+            self.partition_list_buttonbox.set_sensitive(True)
+            self.part_advanced_recalculating_spinner.stop()
+            self.part_advanced_recalculating_box.hide()
+            return
         self.progress_cancelled = False
         self.progress_position.stop()
         if self.progress_position.depth() == 0:

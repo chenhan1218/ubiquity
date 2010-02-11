@@ -1,3 +1,36 @@
+ubiquity (2.1.17) UNRELEASED; urgency=low
+
+  [ Mario Limonciello ]
+  * debian/oem-config.postinst:
+    - Source debconf to ensure templates are populated in debconf.
+  * Drop update-rc.d calls from oem-config scripts as it's only supported
+    via upstart now.
+  * misc: return True/False from execute_root rather than None.
+
+  [ Evan Dandrea ]
+  * Use a GtkSpinner instead of a separate progress window when on the
+    manual partitioning page.
+
+  [ Colin Watson ]
+  * In cdebconf mode, initialise the templates database if necessary as a
+    workaround for cdebconf's packaging not doing this itself.
+  * Don't issue PROGRESS REGION command under debconf_ui (LP: #519398).
+  * KDE frontend:
+    - Don't add partition bar frames for devices we can't find for whatever
+      reason (LP: #485450).
+  * Pass model, layout, variant, and options to rewrite_xorg_conf
+    (LP: #514646).
+  * Install zh-hans language packs for zh_CN, and zh-hant language packs for
+    zh_TW (LP: #517621).
+  * Fix crash on keyboard variant selection (LP: #512953).
+  * Enable cancellation of NTP syncing.
+  * Correct tuple syntax in copy_debconf, thereby fixing copying of
+    console-setup's debconf questions.
+  * Fix unmount of /target/dev harder; second and subsequent arguments to
+    os.path.join need to not start with a slash.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 03 Feb 2010 18:25:36 -0600
+
 ubiquity (2.1.16) lucid; urgency=low
 
   [ Mario Limonciello ]

@@ -130,9 +130,9 @@ exit 0"""
         os.chmod(initctl, 0755)
 
     if not os.path.exists(os.path.join(target, 'proc/cmdline')):
-        chrex(target,'mount', '-t', 'proc', 'proc', '/proc')
+        chrex(target, 'mount', '-t', 'proc', 'proc', '/proc')
     if not os.path.exists(os.path.join(target, 'sys/devices')):
-        chrex(target,'mount', '-t', 'sysfs', 'sysfs', '/sys')
+        chrex(target, 'mount', '-t', 'sysfs', 'sysfs', '/sys')
     misc.execute('mount', '--bind', '/dev', os.path.join(target, 'dev'))
 
     if x11 and 'DISPLAY' in os.environ:
@@ -164,9 +164,9 @@ def chroot_cleanup(target, x11=False):
         osextras.unlink_force(os.path.join(target,
                                            'root/.Xauthority'))
 
-    chrex(target,'umount', '/sys')
-    chrex(target,'umount', '/proc')
-    misc.execute('umount', os.path.join(target,'/dev'))
+    chrex(target, 'umount', '/sys')
+    chrex(target, 'umount', '/proc')
+    misc.execute('umount', os.path.join(target, 'dev'))
 
     initctl = os.path.join(target, 'sbin/initctl')
     if os.path.exists('%s.REAL' % initctl):
