@@ -358,7 +358,7 @@ class Page(Plugin):
             # In unfiltered mode, localechooser is responsible for selecting
             # the country, so there's no need to repeat the job here.
             env['TZSETUP_NO_LOCALECHOOSER'] = '1'
-            return ([clock_script], ['PROGRESS'], env)
+            return ([clock_script], ['CAPB', 'PROGRESS'], env)
 
         self.timezones = []
         self.regions = {}
@@ -380,8 +380,12 @@ class Page(Plugin):
             except debconf.DebconfError:
                 pass
         self.preseed('tzsetup/selected', 'false')
-        questions = ['^time/zone$', '^tzsetup/detected$', 'PROGRESS']
+        questions = ['^time/zone$', '^tzsetup/detected$', 'CAPB', 'PROGRESS']
         return ([clock_script], questions, env)
+
+    def capb(self, capabilities):
+        self.frontend.debconf_progress_cancellable(
+            'progresscancel' in capabilities)
 
     def run(self, priority, question):
         if question == 'tzsetup/detected':

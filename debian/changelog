@@ -23,6 +23,7 @@ ubiquity (2.1.17) UNRELEASED; urgency=low
   * Install zh-hans language packs for zh_CN, and zh-hant language packs for
     zh_TW (LP: #517621).
   * Fix crash on keyboard variant selection (LP: #512953).
+  * Enable cancellation of NTP syncing.
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 03 Feb 2010 18:25:36 -0600
 
