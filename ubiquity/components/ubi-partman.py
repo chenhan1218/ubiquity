@@ -297,6 +297,8 @@ class PageGtk(PageBase):
             firstbutton.set_active(True)
             self.on_autopartition_toggled(firstbutton, extra_combo)
         self.autopartition_choices_vbox.show_all()
+        if extra_combo:
+            self.on_extra_combo_changed(extra_combo)
 
         # make sure we're on the autopartitioning page
         self.current_page = self.page
