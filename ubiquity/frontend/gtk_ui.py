@@ -1051,6 +1051,8 @@ class Wizard(BaseFrontend):
             self.part_advanced_warning_message.set_text('')
             self.part_advanced_warning_hbox.hide()
         if step in ("stepPartAuto", "stepPartAdvanced"):
+            # TODO Ideally this should be done in the base frontend or the
+            # partitioning component itself.
             options = grub_options()
             self.grub_options.clear()
             for opt in options:

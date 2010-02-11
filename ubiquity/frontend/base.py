@@ -39,11 +39,26 @@ class Controller:
         self.dbfilter = None
         self.oem_config = wizard.oem_config
         self.oem_user_config = wizard.oem_user_config
+    
+        # For summary and install.
+        self.grub_options = wizard.grub_options
+        self.get_grub = wizard.get_grub
+        self.get_summary_device = wizard.get_summary_device
+        self.get_popcon = wizard.get_popcon
+        self.set_popcon = wizard.set_popcon
+        self.set_proxy_host = wizard.set_proxy_host
+        self.set_proxy_port = wizard.set_proxy_port
+        self.get_proxy = wizard.get_proxy
+
     def translate(self, lang=None, just_me=True, reget=False):
         pass
     def allow_go_forward(self, allowed):
         pass
     def allow_go_backward(self, allowed):
+        pass
+    def allow_change_step(self, allowed):
+        pass
+    def allowed_change_step(self):
         pass
     def go_forward(self):
         pass

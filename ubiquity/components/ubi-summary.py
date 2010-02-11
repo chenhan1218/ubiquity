@@ -50,6 +50,7 @@ class PageGtk(PageBase):
     
     def __init__(self, controller, *args, **kwargs):
         PageBase.__init__(self)
+        self.controller = controller
         
         import gtk
         builder = gtk.Builder()
@@ -81,10 +82,7 @@ class PageGtk(PageBase):
         renderer = gtk.CellRendererText()
         self.grub_device_entry.pack_start(renderer, True)
         self.grub_device_entry.add_attribute(renderer, 'text', 1)
-        # FIXME: The grub_options list should only be generated once, after
-        # partitioning is run.  Ideally this should be done in the base
-        # frontend or the partitioning component itself.
-        self.grub_device_entry.set_model(controller._wizard.grub_options)
+        self.grub_device_entry.set_model(self.controller.grub_options)
     
     def set_summary_text(self, text):
         import gtk
@@ -105,8 +103,8 @@ class PageGtk(PageBase):
     def on_advanced_button_clicked(self, unused_button):
         import gtk
         display = False
-        grub_en = self.frontend.get_grub()
-        summary_device = self.frontend.get_summary_device()
+        grub_en = self.controller.get_grub()
+        summary_device = self.controller.get_summary_device()
 
         if grub_en is not None:
             display = True
@@ -152,10 +150,10 @@ class PageGtk(PageBase):
         if response == gtk.RESPONSE_OK:
             if summary_device is not None:
                 self.set_summary_device(self.grub_device_entry.child.get_text())
-            self.frontend.set_popcon(self.popcon_checkbutton.get_active())
-            self.frontend.set_grub(self.grub_enable.get_active())
-            self.frontend.set_proxy_host(self.proxy_host_entry.get_text())
-            self.frontend.set_proxy_port(self.proxy_port_spinbutton.get_value_as_int())
+            self.controller.set_popcon(self.popcon_checkbutton.get_active())
+            self.controller.set_grub(self.grub_enable.get_active())
+            self.controller.set_proxy_host(self.proxy_host_entry.get_text())
+            self.controller.set_proxy_port(self.proxy_port_spinbutton.get_value_as_int())
         return True
 
     def toggle_grub(self, widget):
@@ -213,8 +211,8 @@ class PageKde(PageBase):
     def on_advanced_button_clicked(self):
         
         display = False
-        grub_en = self.frontend.get_grub()
-        summary_device = self.frontend.get_summary_device()
+        grub_en = self.controller.get_grub()
+        summary_device = self.controller.get_summary_device()
         
         if grub_en:
             self.advanceddialog.grub_enable.show()
@@ -271,12 +269,12 @@ class PageKde(PageBase):
         from PyQt4.QtGui import QDialog
         if response == QDialog.Accepted:
             if summary_device is not None:
-                self.frontend.set_summary_device(
+                self.controller.set_summary_device(
                     unicode(self.advanceddialog.grub_device_entry.currentText()))
-            self.frontend.set_popcon(self.advanceddialog.popcon_checkbutton.isChecked())
-            self.frontend.set_grub(self.advanceddialog.grub_enable.isChecked())
-            self.frontend.set_proxy_host(unicode(self.advanceddialog.proxy_host_entry.text()))
-            self.frontend.set_proxy_port(self.advanceddialog.proxy_port_spinbutton.value())
+            self.controller.set_popcon(self.advanceddialog.popcon_checkbutton.isChecked())
+            self.controller.set_grub(self.advanceddialog.grub_enable.isChecked())
+            self.controller.set_proxy_host(unicode(self.advanceddialog.proxy_host_entry.text()))
+            self.controller.set_proxy_port(self.advanceddialog.proxy_port_spinbutton.value())
 
 def will_be_installed(pkg):
     try:
