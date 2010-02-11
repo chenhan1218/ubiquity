@@ -22,18 +22,181 @@ import os
 import debconf
 
 from ubiquity.plugin import *
-from ubiquity.filteredcommand import FilteredCommand
 from ubiquity.misc import *
 
 NAME = 'migrationassistant'
+AFTER = 'partman'
+WEIGHT = 10
 
-class PageGtk(PluginUI):
-    plugin_optional_widgets = 'stepMigrationAssistant'
+class PageBase(PluginUI):
+    def ma_set_choices(self, choices):
+        """Set the available migration-assistant choices."""
+        pass
 
-class PageNoninteractive(PluginUI):
+    def ma_get_choices(self):
+        """Get the selected migration-assistant choices."""
+        raise NotImplementedError('ma_get_choices')
+
+    def ma_user_error(self, error, user):
+        """The selected migration-assistant username was bad."""
+        raise NotImplementedError('ma_user_error')
+
+    def ma_password_error(self, error, user):
+        """The selected migration-assistant password was bad."""
+        raise NotImplementedError('ma_password_error')
+
+class PageGtk(PageBase):
+    def __init__(self, controller, *args, **kwargs):
+        self.controller = controller
+        self.ma_choices = []
+        try:
+            import gtk
+            builder = gtk.Builder()
+            self.controller.add_builder(builder)
+            builder.add_from_file('/usr/share/ubiquity/gtk/stepMigrationAssistant.ui')
+            builder.connect_signals(self)
+            self.page = builder.get_object('stepMigrationAssistant')
+            self.matreeview = builder.get_object('matreeview')
+        except Exception, e:
+            self.debug('Could not create keyboard page: %s', e)
+            self.page = None
+        self.plugin_widgets = self.page
+    
+    def ma_get_choices(self):
+        return self.ma_choices
+
+    def ma_cb_toggle(self, cell, path, model=None):
+        iterator = model.get_iter(path)
+        checked = not cell.get_active()
+        model.set_value(iterator, 0, checked)
+
+        # We're on a user checkbox.
+        if model.iter_children(iterator):
+            if not cell.get_active():
+                model.get_value(iterator, 1)['selected'] = True
+            else:
+                model.get_value(iterator, 1)['selected'] = False
+            parent = iterator
+            iterator = model.iter_children(iterator)
+            items = []
+            while iterator:
+                model.set_value(iterator, 0, checked)
+                if checked:
+                    items.append(model.get_value(iterator, 1))
+                iterator = model.iter_next(iterator)
+            model.get_value(parent, 1)['items'] = items
+
+        # We're on an item checkbox.
+        else:
+            parent = model.iter_parent(iterator)
+            if not model.get_value(parent, 0):
+                model.set_value(parent, 0, True)
+                model.get_value(parent, 1)['selected'] = True
+
+            item = model.get_value(iterator, 1)
+            items = model.get_value(parent, 1)['items']
+            if checked:
+                items.append(item)
+            else:
+                items.remove(item)
+
+    def ma_set_choices(self, choices):
+        import gtk
+
+        def cell_data_func(unused_column, cell, model, iterator):
+            val = model.get_value(iterator, 1)
+            if model.iter_children(iterator):
+                # Windows XP...
+                text = '%s  <small><i>%s (%s)</i></small>' % \
+                       (val['user'], val['os'], val['part'])
+            else:
+                # Gaim, Yahoo, etc
+                text = model.get_value(iterator, 1)
+
+            try:
+                cell.set_property("markup", unicode(text))
+            except:
+                cell.set_property("text", '%s  %s (%s)' % \
+                    (val['user'], val['os'], val['part']))
+        # Showing the interface for the second time.
+        if self.matreeview.get_model():
+            for col in self.matreeview.get_columns():
+                self.matreeview.remove_column(col)
+
+        # For the previous selected item.
+        self.ma_previous_selection = None
+
+        # TODO evand 2007-01-11 I'm on the fence as to whether or not skipping
+        # the page would be better than showing the user this error.
+        if not choices:
+            # TODO cjwatson 2009-04-01: i18n
+            msg = 'There were no users or operating systems suitable for ' \
+                  'importing from.'
+            liststore = gtk.ListStore(str)
+            liststore.append([msg])
+            self.matreeview.set_model(liststore)
+            column = gtk.TreeViewColumn('item', gtk.CellRendererText(), text=0)
+            self.matreeview.append_column(column)
+        else:
+            treestore = gtk.TreeStore(bool, object)
+
+            # We save the choices list so we can preserve state, should the user
+            # decide to move back through the interface.  We cannot just put the
+            # old list back as the options could conceivably change.  For
+            # example, the user moves back to the partitioning page, removes a
+            # partition, and moves forward to the migration-assistant page.
+
+            # TODO evand 2007-12-04: simplify.
+            for choice in choices:
+                kept = False
+                for old_choice in self.ma_choices:
+                    if (old_choice['user'] == choice['user']) and \
+                    (old_choice['part'] == choice['part']):
+                        piter = treestore.append(None, \
+                            [old_choice['selected'], choice])
+                        choice['selected'] = old_choice['selected']
+                        new_items = []
+                        for item in choice['items']:
+                            if item in old_choice['items']:
+                                treestore.append(piter, [True, item])
+                                new_items.append(item)
+                            else:
+                                treestore.append(piter, [False, item])
+                        choice['items'] = new_items
+                        kept = True
+                        break
+                if not kept:
+                    piter = treestore.append(None, [False, choice])
+                    for item in choice['items']:
+                        treestore.append(piter, [False, item])
+                    choice['items'] = []
+
+            self.matreeview.set_model(treestore)
+
+            renderer = gtk.CellRendererToggle()
+            renderer.connect('toggled', self.ma_cb_toggle, treestore)
+            column = gtk.TreeViewColumn('boolean', renderer, active=0)
+            column.set_clickable(True)
+            column.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            self.matreeview.append_column(column)
+
+            renderer = gtk.CellRendererText()
+            column = gtk.TreeViewColumn('item', renderer)
+            column.set_cell_data_func(renderer, cell_data_func)
+            self.matreeview.append_column(column)
+
+            self.matreeview.set_search_column(1)
+
+        self.matreeview.show_all()
+
+        # Save the list so we can preserve state.
+        self.ma_choices = choices
+
+
+class PageNoninteractive(PageBase):
     pass
 
-class Page(FilteredCommand):
+class Page(Plugin):
     def prepare(self):
         self.got_a_question = False
         questions = ['^migration-assistant/partitions',
@@ -75,7 +238,7 @@ class Page(FilteredCommand):
             if not self.got_a_question:
                 return self.succeeded
             else:
-                return FilteredCommand.run(self, priority, question)
+                return Plugin.run(self, priority, question)
 
         elif question.endswith('user'):
             username = self.db.get('passwd/username')
@@ -95,10 +258,10 @@ class Page(FilteredCommand):
     def error(self, priority, question):
         self.frontend.error_dialog(self.description(question),
                                    self.extended_description(question))
-        return FilteredCommand.error(self, priority, question)
+        return Plugin.error(self, priority, question)
     
     def ok_handler(self):
-        choices = self.frontend.ma_get_choices()
+        choices = self.ui.ma_get_choices()
         username = self.db.get('passwd/username')
         users = {}
 
@@ -120,7 +283,7 @@ class Page(FilteredCommand):
             self.db.register('migration-assistant/users', question)
             self.preseed(question, ', '.join(users[p]))
 
-        FilteredCommand.ok_handler(self)
+        return Plugin.ok_handler(self)
 
     def filter_parts(self):
         question = 'migration-assistant/partitions'
@@ -194,6 +357,19 @@ class Page(FilteredCommand):
                 self.db.set('migration-assistant/partitions', '')
                 tree = []
 
-        self.frontend.ma_set_choices(tree)
+        self.ui.ma_set_choices(tree)
+
+class Install(InstallPlugin):
+    def prepare(self):
+        return (['/usr/lib/ubiquity/migration-assistant/ma-apply',
+                 '/usr/lib/ubiquity/migration-assistant'], [])
+    
+    def install(self, target, progress, *args, **kwargs):
+        progress.info('ubiquity/install/migrationassistant')
+        return InstallPlugin.install(self, target, progress, *args, **kwargs)
+    
+    def error(self, priority, question):
+        self.frontend.error_dialog(self.description(question))
+        return InstallPlugin.error(self, priority, question)
 
 # vim:ai:et:sts=4:tw=80:sw=4:

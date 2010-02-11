@@ -109,5 +109,4 @@ d-i/source/migration-assistant/ma-apply usr/lib/ubiquity/migration-assistant
 d-i/source/migration-assistant/ma-search-users usr/lib/ubiquity/migration-assistant
 d-i/source/migration-assistant/ma-search-items usr/lib/ubiquity/migration-assistant
 d-i/source/migration-assistant/ma-import usr/lib/ubiquity/migration-assistant
-ubiquity/components/migrationassistant.py usr/lib/ubiquity/ubiquity/components
-ubiquity/components/migrationassistant_apply.py usr/lib/ubiquity/ubiquity/components
+ubiquity/components/ubi-migrationassistant.py usr/lib/ubiquity/plugins

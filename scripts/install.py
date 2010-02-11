@@ -389,12 +389,6 @@ class Install:
             self.db.progress('SET', count)
             self.db.progress('REGION', count, count+1)
             count += 1
-            self.db.progress('INFO', 'ubiquity/install/migrationassistant')
-            self.configure_ma()
-
-            self.db.progress('SET', count)
-            self.db.progress('REGION', count, count+1)
-            count += 1
             self.remove_unusable_kernels()
 
             self.db.progress('SET', count)
@@ -1025,6 +1019,9 @@ class Install:
                 self._db.subst(template, substr, data)
 
         for plugin in self.plugins:
+            if plugin.NAME == 'migrationassistant' and \
+                'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
+                    continue
             self.db.progress('SET', count)
             self.db.progress('REGION', count, count+1)
             count += 1
@@ -1032,8 +1029,11 @@ class Install:
             inst = plugin.Install(None, db=self.db)
             ret = inst.install(self.target, Progress(self.db))
             if ret:
-                raise InstallStepError("Plugin %s failed with code %s" % (plugin.NAME, ret))
-
+                if plugin.NAME == 'migrationassistant':
+                    self.db.input('critical', 'ubiquity/install/broken_migration')
+                    self.db.go()
+                else:
+                    raise InstallStepError("Plugin %s failed with code %s" % (plugin.NAME, ret))
 
     def configure_apt(self):
         """Configure /etc/apt/sources.list."""
@@ -1294,18 +1294,6 @@ class Install:
                                   os.path.join(home, homedir))
                     install_misc.record_installed(['ecryptfs-utils'])
                     break
-
-    def configure_ma(self):
-        """import documents, settings, and users from previous operating
-        systems."""
-
-        if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
-            dbfilter = migrationassistant_apply.MigrationAssistantApply(
-                None, self.db)
-            ret = dbfilter.run_command(auto_process=True)
-            if ret != 0:
-                self.db.input('critical', 'ubiquity/install/broken_migration')
-                self.db.go()
 
     def get_resume_partition(self):
         biggest_size = 0

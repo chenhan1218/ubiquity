@@ -58,7 +58,7 @@ from ubiquity import filteredcommand, gconftool, i18n, osextras, validation, \
                      wrap_label
 from ubiquity.misc import *
 from ubiquity.plugin import Plugin
-from ubiquity.components import install, migrationassistant, partman_commit
+from ubiquity.components import install, partman_commit
 import ubiquity.progressposition
 import ubiquity.frontend.base
 from ubiquity.frontend.base import BaseFrontend
@@ -192,7 +192,6 @@ class Wizard(BaseFrontend):
         self.progress_cancelled = False
         self.default_keyboard_layout = None
         self.default_keyboard_variant = None
-        self.ma_choices = []
         self.installing = False
         self.installing_no_return = False
         self.returncode = 0
@@ -274,7 +273,6 @@ class Wizard(BaseFrontend):
 
         self.customize_installer()
 
-
     def all_children(self, parent):
         if isinstance(parent, gtk.Container):
             def recurse(x, y):
@@ -328,7 +326,6 @@ class Wizard(BaseFrontend):
             self.crash_dialog.hide()
 
             sys.exit(1)
-
 
     def thunar_set_volmanrc (self, fields):
         previous = {}
@@ -414,7 +411,6 @@ class Wizard(BaseFrontend):
 
         if self.thunar_previous:
             self.thunar_set_volmanrc(self.thunar_previous)
-
 
     def run(self):
         """run the interface."""
@@ -511,7 +507,6 @@ class Wizard(BaseFrontend):
 
         return self.returncode
 
-
     def win_size_req(self, widget, req):
         s = widget.get_screen()
         m = s.get_monitor_geometry(0)
@@ -607,13 +602,11 @@ class Wizard(BaseFrontend):
                                    gobject.SPAWN_STDERR_TO_DEV_NULL))
         return True
 
-
     def set_window_hints(self, widget):
         if 'UBIQUITY_ONLY' in os.environ:
             # Disable minimise button.
             widget.window.set_functions(
                 gtk.gdk.FUNC_RESIZE | gtk.gdk.FUNC_MOVE)
-
 
     def set_locales(self):
         """internationalization config. Use only once."""
@@ -623,7 +616,6 @@ class Wizard(BaseFrontend):
         self.builder.set_translation_domain(domain)
         gettext.textdomain(domain)
         gettext.install(domain, LOCALEDIR, unicode=1)
-
 
     # widgets is a set of (widget, prefix) pairs
     def translate_widgets(self, lang=None, widgets=None, reget=True):
@@ -725,7 +717,6 @@ class Wizard(BaseFrontend):
                     text = self.get_string('oem_user_config_title', lang)
             widget.set_title(text)
 
-
     def allow_change_step(self, allowed):
         if allowed:
             cursor = None
@@ -744,7 +735,6 @@ class Wizard(BaseFrontend):
     def allow_go_forward(self, allowed):
         self.next.set_sensitive(allowed and self.allowed_change_step)
         self.allowed_go_forward = allowed
-
 
     def dbfilter_handle_status(self):
         """If a dbfilter crashed, ask the user if they want to continue anyway.
@@ -787,7 +777,6 @@ class Wizard(BaseFrontend):
                 print('dbfilter_handle_status stepPart')
                 self.set_current_page(self.steps.page_num(self.stepPartAuto))
             return False
-
 
     def step_name(self, step_index):
         w = self.steps.get_nth_page(step_index)
@@ -1006,7 +995,6 @@ class Wizard(BaseFrontend):
         self.returncode = 10
         self.quit_installer()
 
-
     def do_reboot(self):
         """Callback for main program to actually reboot the machine."""
 
@@ -1023,7 +1011,6 @@ class Wizard(BaseFrontend):
         else:
             execute_root("reboot")
 
-
     def quit_installer(self, *args):
         """quit installer cleanly."""
 
@@ -1032,7 +1019,6 @@ class Wizard(BaseFrontend):
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
         self.quit_main_loop()
-
 
     # Callbacks
 
@@ -1046,10 +1032,8 @@ class Wizard(BaseFrontend):
         else:
             return True # stop processing
 
-
     def on_live_installer_delete_event(self, widget, unused_event):
         return self.on_quit_clicked(widget)
-
 
     def on_next_clicked(self, unused_widget):
         """Callback to control the installation process between steps."""
@@ -1123,7 +1107,6 @@ class Wizard(BaseFrontend):
         else:
             self.quit_main_loop()
 
-
     def on_slideshow_link_clicked(self, unused_view, unused_frame, req,
                                   unused_action, decision):
         uri = req.get_uri()
@@ -1138,7 +1121,6 @@ class Wizard(BaseFrontend):
         uri = uri.replace('${LANG}', lang)
         subprocess.Popen(['sensible-browser', uri],
                          close_fds=True, preexec_fn=drop_all_privileges)
-
 
     def on_steps_switch_page (self, unused_notebook, unused_page, current):
         self.current_page = current
@@ -1246,135 +1228,6 @@ class Wizard(BaseFrontend):
             return True
         else:
             return False
-
-    def ma_get_choices(self):
-        return self.ma_choices
-
-    def ma_cb_toggle(self, cell, path, model=None):
-        iterator = model.get_iter(path)
-        checked = not cell.get_active()
-        model.set_value(iterator, 0, checked)
-
-        # We're on a user checkbox.
-        if model.iter_children(iterator):
-            if not cell.get_active():
-                model.get_value(iterator, 1)['selected'] = True
-            else:
-                model.get_value(iterator, 1)['selected'] = False
-            parent = iterator
-            iterator = model.iter_children(iterator)
-            items = []
-            while iterator:
-                model.set_value(iterator, 0, checked)
-                if checked:
-                    items.append(model.get_value(iterator, 1))
-                iterator = model.iter_next(iterator)
-            model.get_value(parent, 1)['items'] = items
-
-        # We're on an item checkbox.
-        else:
-            parent = model.iter_parent(iterator)
-            if not model.get_value(parent, 0):
-                model.set_value(parent, 0, True)
-                model.get_value(parent, 1)['selected'] = True
-
-            item = model.get_value(iterator, 1)
-            items = model.get_value(parent, 1)['items']
-            if checked:
-                items.append(item)
-            else:
-                items.remove(item)
-
-    def ma_set_choices(self, choices):
-
-        def cell_data_func(unused_column, cell, model, iterator):
-            val = model.get_value(iterator, 1)
-            if model.iter_children(iterator):
-                # Windows XP...
-                text = '%s  <small><i>%s (%s)</i></small>' % \
-                       (val['user'], val['os'], val['part'])
-            else:
-                # Gaim, Yahoo, etc
-                text = model.get_value(iterator, 1)
-
-            try:
-                cell.set_property("markup", unicode(text))
-            except:
-                cell.set_property("text", '%s  %s (%s)' % \
-                    (val['user'], val['os'], val['part']))
-        # Showing the interface for the second time.
-        if self.matreeview.get_model():
-            for col in self.matreeview.get_columns():
-                self.matreeview.remove_column(col)
-
-        # For the previous selected item.
-        self.ma_previous_selection = None
-
-        # TODO evand 2007-01-11 I'm on the fence as to whether or not skipping
-        # the page would be better than showing the user this error.
-        if not choices:
-            # TODO cjwatson 2009-04-01: i18n
-            msg = 'There were no users or operating systems suitable for ' \
-                  'importing from.'
-            liststore = gtk.ListStore(str)
-            liststore.append([msg])
-            self.matreeview.set_model(liststore)
-            column = gtk.TreeViewColumn('item', gtk.CellRendererText(), text=0)
-            self.matreeview.append_column(column)
-        else:
-            treestore = gtk.TreeStore(bool, object)
-
-            # We save the choices list so we can preserve state, should the user
-            # decide to move back through the interface.  We cannot just put the
-            # old list back as the options could conceivably change.  For
-            # example, the user moves back to the partitioning page, removes a
-            # partition, and moves forward to the migration-assistant page.
-
-            # TODO evand 2007-12-04: simplify.
-            for choice in choices:
-                kept = False
-                for old_choice in self.ma_choices:
-                    if (old_choice['user'] == choice['user']) and \
-                    (old_choice['part'] == choice['part']):
-                        piter = treestore.append(None, \
-                            [old_choice['selected'], choice])
-                        choice['selected'] = old_choice['selected']
-                        new_items = []
-                        for item in choice['items']:
-                            if item in old_choice['items']:
-                                treestore.append(piter, [True, item])
-                                new_items.append(item)
-                            else:
-                                treestore.append(piter, [False, item])
-                        choice['items'] = new_items
-                        kept = True
-                        break
-                if not kept:
-                    piter = treestore.append(None, [False, choice])
-                    for item in choice['items']:
-                        treestore.append(piter, [False, item])
-                    choice['items'] = []
-
-            self.matreeview.set_model(treestore)
-
-            renderer = gtk.CellRendererToggle()
-            renderer.connect('toggled', self.ma_cb_toggle, treestore)
-            column = gtk.TreeViewColumn('boolean', renderer, active=0)
-            column.set_clickable(True)
-            column.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
-            self.matreeview.append_column(column)
-
-            renderer = gtk.CellRendererText()
-            column = gtk.TreeViewColumn('item', renderer)
-            column.set_cell_data_func(renderer, cell_data_func)
-            self.matreeview.append_column(column)
-
-            self.matreeview.set_search_column(1)
-
-        self.matreeview.show_all()
-
-        # Save the list so we can preserve state.
-        self.ma_choices = choices
 
     def grub_verify_loop(self, widget, okbutton):
         if widget is not None:
@@ -1506,17 +1359,14 @@ class Wizard(BaseFrontend):
         else:
             return options[response - 1]
 
-
     def refresh (self):
         while gtk.events_pending():
             gtk.main_iteration()
-
 
     # Run the UI's main loop until it returns control to us.
     def run_main_loop (self):
         self.allow_change_step(True)
         gtk.main()
-
 
     # Return control to the next level up.
     pending_quits = 0

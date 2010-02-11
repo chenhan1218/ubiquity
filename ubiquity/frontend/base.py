@@ -26,18 +26,12 @@ import syslog
 import debconf
 from ubiquity.debconfcommunicator import DebconfCommunicator
 from ubiquity.misc import drop_privileges, execute_root
-from ubiquity.components import install, migrationassistant
+from ubiquity.components import install
 from ubiquity import i18n
 from ubiquity import plugin_manager
 
 # Lots of intentionally unused arguments here (abstract methods).
 __pychecker__ = 'no-argsused'
-
-# Pages that may be loaded. Interpretation is up to the frontend, but it is
-# strongly recommended to keep the page identifiers the same.
-PAGE_COMPONENTS = {
-    'MigrationAssistant' : migrationassistant,
-}
 
 class Controller:
     def __init__(self, wizard):
@@ -131,24 +125,14 @@ class BaseFrontend:
         except debconf.DebconfError:
             pass
 
-        # These step lists are the steps that aren't yet converted to plugins.
-        # We just hardcode them here, but they will eventually be dynamic.
-        if not self.oem_user_config:
-            steps = ['MigrationAssistant']
-        modules = []
-        for step in steps:
-            if step == 'MigrationAssistant' and \
-                'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
-                continue
-            page_module = PAGE_COMPONENTS[step]
-            if page_module is not None:
-                modules.append(page_module)
-
         # Load plugins
         plugins = plugin_manager.load_plugins()
-        modules = plugin_manager.order_plugins(plugins, modules)
+        modules = plugin_manager.order_plugins(plugins)
         self.modules = []
         for mod in modules:
+            if mod.NAME == 'migrationassistant' and \
+                'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
+                continue
             comp = Component()
             comp.module = mod
             if hasattr(mod, 'Page'):
@@ -316,24 +300,6 @@ class BaseFrontend:
 
     # Interfaces with various components. If a given component is not used
     # then its abstract methods may safely be left unimplemented.
-
-    # ubiquity.components.migrationassistant
-
-    def ma_set_choices(self, choices):
-        """Set the available migration-assistant choices."""
-        pass
-
-    def ma_get_choices(self):
-        """Get the selected migration-assistant choices."""
-        self._abstract('ma_get_choices')
-
-    def ma_user_error(self, error, user):
-        """The selected migration-assistant username was bad."""
-        self._abstract('ma_user_error')
-
-    def ma_password_error(self, error, user):
-        """The selected migration-assistant password was bad."""
-        self._abstract('ma_password_error')
 
     def set_reboot(self, reboot):
         """Set whether to reboot automatically when the install completes."""
