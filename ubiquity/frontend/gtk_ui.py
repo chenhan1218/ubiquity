@@ -98,6 +98,10 @@ def process_labels(w):
         w.set_property('can-focus', False)
 
 class Controller(ubiquity.frontend.base.Controller):
+    def __init__(self, wizard):
+        ubiquity.frontend.base.Controller.__init__(self, wizard)
+        self.grub_options = wizard.grub_options
+
     def add_builder(self, builder):
         self._wizard.builders.append(builder)
 

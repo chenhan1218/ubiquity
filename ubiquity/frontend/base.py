@@ -41,7 +41,6 @@ class Controller:
         self.oem_user_config = wizard.oem_user_config
     
         # For summary and install.
-        self.grub_options = wizard.grub_options
         self.get_grub = wizard.get_grub
         self.get_summary_device = wizard.get_summary_device
         self.get_popcon = wizard.get_popcon
