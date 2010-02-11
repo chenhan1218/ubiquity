@@ -308,7 +308,7 @@ class Install:
         if os.environ['UBIQUITY_FRONTEND'] != 'debconf_ui':
             self.db.progress('REGION', start, end)
 
-    def next_region(size=1):
+    def next_region(self, size=1):
         self.db.progress('SET', self.count)
         self.progress_region(self.count, self.count + size)
         self.count += size
