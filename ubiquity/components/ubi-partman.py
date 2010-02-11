@@ -1456,8 +1456,6 @@ class Page(Plugin):
             # user answered confirmation question or backed up
             return self.succeeded
             
-        ui = self.activeUi()
-
         self.current_question = question
         options = self.snoop()
         menu_options = self.snoop_menu(options)
@@ -1518,7 +1516,7 @@ class Page(Plugin):
                             dev = partition[5]
                         ret.append((dev, size, partition[1]))
                     layout[disk] = ret
-            ui.set_disk_layout(layout)
+            self.ui.set_disk_layout(layout)
             
             # Set up translation mappings to avoid debian-installer
             # specific text ('Guided -').
@@ -1547,7 +1545,7 @@ class Page(Plugin):
                 biggest_free = self.split_devpart(biggest_free)[1]
             self.extra_options[self.biggest_free_desc] = biggest_free
 
-            ui.set_autopartition_choices(
+            self.ui.set_autopartition_choices(
                 choices, self.extra_options, self.resize_desc,
                 self.manual_desc, self.biggest_free_desc)
 
@@ -1612,7 +1610,7 @@ class Page(Plugin):
                         self.frontend.debconf_progress_stop()
                         self.frontend.refresh()
                         self.ui.current_page = self.ui.page_advanced
-                        ui.update_partman(
+                        self.ui.update_partman(
                             self.disk_cache, self.partition_cache,
                             self.cache_order)
                 else:
@@ -1751,21 +1749,21 @@ class Page(Plugin):
                         self.frontend.debconf_progress_stop()
                         self.frontend.refresh()
                         self.ui.current_page = self.ui.page_advanced
-                        ui.update_partman(
+                        self.ui.update_partman(
                             self.disk_cache, self.partition_cache,
                             self.cache_order)
             elif self.creating_partition:
                 devpart = self.creating_partition['devpart']
                 if devpart in self.partition_cache:
                     self.ui.current_page = self.ui.page_advanced
-                    ui.update_partman(
+                    self.ui.update_partman(
                         self.disk_cache, self.partition_cache,
                         self.cache_order)
             elif self.editing_partition:
                 devpart = self.editing_partition['devpart']
                 if devpart in self.partition_cache:
                     self.ui.current_page = self.ui.page_advanced
-                    ui.update_partman(
+                    self.ui.update_partman(
                         self.disk_cache, self.partition_cache,
                         self.cache_order)
             elif self.deleting_partition:
@@ -2222,10 +2220,9 @@ class Page(Plugin):
         return Plugin.run(self, priority, question)
 
     def ok_handler(self):
-        ui = self.activeUi()
         if self.current_question.endswith('automatically_partition'):
             (autopartition_choice, self.extra_choice) = \
-                ui.get_autopartition_choice()
+                self.ui.get_autopartition_choice()
             if autopartition_choice in self.translation_mappings:
                 autopartition_choice = \
                     self.translation_mappings[autopartition_choice]
