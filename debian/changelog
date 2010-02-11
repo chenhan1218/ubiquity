@@ -24,6 +24,8 @@ ubiquity (2.1.17) UNRELEASED; urgency=low
     zh_TW (LP: #517621).
   * Fix crash on keyboard variant selection (LP: #512953).
   * Enable cancellation of NTP syncing.
+  * Correct tuple syntax in copy_debconf, thereby fixing copying of
+    console-setup's debconf questions.
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 03 Feb 2010 18:25:36 -0600
 
