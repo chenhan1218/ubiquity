@@ -50,8 +50,7 @@ from ubiquity import install_misc
 from ubiquity import osextras
 from ubiquity import plugin_manager
 from ubiquity.casper import get_casper
-from ubiquity.components import apt_setup, hw_detect, check_kernels, \
-                                migrationassistant_apply
+from ubiquity.components import apt_setup, hw_detect, check_kernels
 
 class DebconfFetchProgress(FetchProgress):
     """An object that reports apt's fetching progress using debconf."""
@@ -306,7 +305,7 @@ class Install:
         if os.environ['UBIQUITY_FRONTEND'] != 'debconf_ui':
             self.db.progress('REGION', start, end)
 
-    def next_region(size=1):
+    def next_region(self, size=1):
         self.db.progress('SET', self.count)
         self.progress_region(self.count, self.count + size)
         self.count += size

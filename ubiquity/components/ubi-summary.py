@@ -44,40 +44,6 @@ class PageBase(PluginUI):
     def set_summary_text(self):
         pass
     
-    def set_summary_device(self, device):
-        """Set the GRUB device. A hack until we have something better."""
-        self.summary_device = device
-        
-    def get_summary_device(self):
-        """Get the selected GRUB device."""
-        return self.summary_device
-        
-    def get_proxy(self):
-        """Get the selected HTTP proxy."""
-        if self.http_proxy_host:
-            return 'http://%s:%s/' % (self.http_proxy_host,
-                                      self.http_proxy_port)
-        else:
-            return None
-        
-    def set_grub(self, enable):
-        self.grub_en = enable
-        
-    def get_grub(self):
-        return self.grub_en
-        
-    def set_popcon(self, participate):
-        """Set whether to participate in popularity-contest."""
-        self.popcon = participate
-
-    def set_proxy_host(self, host):
-        """Set the HTTP proxy host."""
-        self.http_proxy_host = host
-
-    def set_proxy_port(self, port):    
-        """Set the HTTP proxy port."""
-        self.http_proxy_port = port
-
 class PageGtk(PageBase):
     plugin_is_install = True
     plugin_widgets = 'stepReady'
@@ -139,8 +105,8 @@ class PageGtk(PageBase):
     def on_advanced_button_clicked(self, unused_button):
         import gtk
         display = False
-        grub_en = self.get_grub()
-        summary_device = self.get_summary_device()
+        grub_en = self.frontend.get_grub()
+        summary_device = self.frontend.get_summary_device()
 
         if grub_en is not None:
             display = True
@@ -186,10 +152,10 @@ class PageGtk(PageBase):
         if response == gtk.RESPONSE_OK:
             if summary_device is not None:
                 self.set_summary_device(self.grub_device_entry.child.get_text())
-            self.set_popcon(self.popcon_checkbutton.get_active())
-            self.set_grub(self.grub_enable.get_active())
-            self.set_proxy_host(self.proxy_host_entry.get_text())
-            self.set_proxy_port(self.proxy_port_spinbutton.get_value_as_int())
+            self.frontend.set_popcon(self.popcon_checkbutton.get_active())
+            self.frontend.set_grub(self.grub_enable.get_active())
+            self.frontend.set_proxy_host(self.proxy_host_entry.get_text())
+            self.frontend.set_proxy_port(self.proxy_port_spinbutton.get_value_as_int())
         return True
 
     def toggle_grub(self, widget):
@@ -247,8 +213,8 @@ class PageKde(PageBase):
     def on_advanced_button_clicked(self):
         
         display = False
-        grub_en = self.get_grub()
-        summary_device = self.get_summary_device()
+        grub_en = self.frontend.get_grub()
+        summary_device = self.frontend.get_summary_device()
         
         if grub_en:
             self.advanceddialog.grub_enable.show()
@@ -305,12 +271,12 @@ class PageKde(PageBase):
         from PyQt4.QtGui import QDialog
         if response == QDialog.Accepted:
             if summary_device is not None:
-                self.set_summary_device(
+                self.frontend.set_summary_device(
                     unicode(self.advanceddialog.grub_device_entry.currentText()))
-            self.set_popcon(self.advanceddialog.popcon_checkbutton.isChecked())
-            self.set_grub(self.advanceddialog.grub_enable.isChecked())
-            self.set_proxy_host(unicode(self.advanceddialog.proxy_host_entry.text()))
-            self.set_proxy_port(self.advanceddialog.proxy_port_spinbutton.value())
+            self.frontend.set_popcon(self.advanceddialog.popcon_checkbutton.isChecked())
+            self.frontend.set_grub(self.advanceddialog.grub_enable.isChecked())
+            self.frontend.set_proxy_host(unicode(self.advanceddialog.proxy_host_entry.text()))
+            self.frontend.set_proxy_port(self.advanceddialog.proxy_port_spinbutton.value())
 
 def will_be_installed(pkg):
     try:
@@ -344,23 +310,23 @@ class Page(Plugin):
 
             try:
                 install_bootloader = self.db.get('ubiquity/install_bootloader')
-                self.ui.set_grub(install_bootloader == 'true')
+                self.frontend.set_grub(install_bootloader == 'true')
             except debconf.DebconfError:
-                self.ui.set_grub(None)
+                self.frontend.set_grub(None)
 
             if os.access('/usr/share/grub-installer/grub-installer', os.X_OK):
-                self.ui.set_summary_device(grub_default())
+                self.frontend.set_summary_device(grub_default())
             else:
-                self.ui.set_summary_device(None)
+                self.frontend.set_summary_device(None)
 
             if will_be_installed('popularity-contest'):
                 try:
                     participate = self.db.get('popularity-contest/participate')
-                    self.ui.set_popcon(participate == 'true')
+                    self.frontend.set_popcon(participate == 'true')
                 except debconf.DebconfError:
-                    self.ui.set_popcon(None)
+                    self.frontend.set_popcon(None)
             else:
-                self.ui.set_popcon(None)
+                self.frontend.set_popcon(None)
 
             # This component exists only to gather some information and then
             # get out of the way.

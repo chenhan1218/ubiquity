@@ -950,8 +950,6 @@ class Wizard(BaseFrontend):
         self.debconf_progress_region(15, 100)
 
         self.start_debconf()
-        # TODO: Make a plugin.  Where do we handle disabling the back and next
-        # buttons though?
         dbfilter = install.Install(self)
         ret = dbfilter.run_command(auto_process=True)
         if ret != 0:

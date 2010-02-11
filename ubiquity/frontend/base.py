@@ -78,8 +78,12 @@ class BaseFrontend:
         self.dbfilter_status = None
         self.resize_choice = None
         self.manual_choice = None
+        self.summary_device = None
+        self.grub_en = None
         self.popcon = None
         self.locale = None
+        self.http_proxy_host = None
+        self.http_proxy_port = 8080
 
         # Drop privileges so we can run the frontend as a regular user, and
         # thus talk to a11y applications running as a regular user.
@@ -300,6 +304,49 @@ class BaseFrontend:
 
     # Interfaces with various components. If a given component is not used
     # then its abstract methods may safely be left unimplemented.
+
+    # ubiquity.components.summary
+
+    def set_summary_device(self, device):
+        """Set the GRUB device. A hack until we have something better."""
+        self.summary_device = device
+
+    def set_grub(self, enable):
+        """Sets whether we will be installing GRUB."""
+        self.grub_en = enable
+
+    # called from ubiquity.components.install
+    def get_grub(self):
+        """Returns whether we will be installing GRUB."""
+        return self.grub_en
+
+    def get_summary_device(self):
+        """Get the selected GRUB device."""
+        return self.summary_device
+
+    def get_popcon(self):
+        return self.popcon
+
+    def set_popcon(self, participate):
+        """Set whether to participate in popularity-contest."""
+        self.popcon = participate
+
+    def set_proxy_host(self, host):
+        """Set the HTTP proxy host."""
+        self.http_proxy_host = host
+
+    def set_proxy_port(self, port):
+        """Set the HTTP proxy port."""
+        self.http_proxy_port = port
+
+    # called from ubiquity.components.install
+    def get_proxy(self):
+        """Get the selected HTTP proxy."""
+        if self.http_proxy_host:
+            return 'http://%s:%s/' % (self.http_proxy_host,
+                                      self.http_proxy_port)
+        else:
+            return None
 
     def set_reboot(self, reboot):
         """Set whether to reboot automatically when the install completes."""
