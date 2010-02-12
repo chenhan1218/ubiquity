@@ -31,6 +31,11 @@ ubiquity (2.1.17) UNRELEASED; urgency=low
   * Automatically fall back to vesa if normal X startup fails.  This is a
     reduced emulation of bullet-proof-X; using the standard implementation
     is currently tricky.
+  * Automatic update of included source packages: base-installer
+    1.103ubuntu3, console-setup 1.34ubuntu9, debian-installer-utils
+    1.72ubuntu3, grub-installer 1.49ubuntu4, hw-detect 1.73ubuntu2,
+    partman-auto 89ubuntu3, partman-basicfilesystems 63ubuntu3,
+    partman-partitioning 72ubuntu3, tzsetup 1:0.26ubuntu5.
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 03 Feb 2010 18:25:36 -0600
 
