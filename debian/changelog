@@ -1,4 +1,4 @@
-ubiquity (2.1.17) UNRELEASED; urgency=low
+ubiquity (2.1.17) lucid; urgency=low
 
   [ Mario Limonciello ]
   * debian/oem-config.postinst:
@@ -42,7 +42,7 @@ ubiquity (2.1.17) UNRELEASED; urgency=low
     partman-auto 89ubuntu3, partman-basicfilesystems 63ubuntu3,
     partman-partitioning 72ubuntu3, tzsetup 1:0.26ubuntu5.
 
- -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 03 Feb 2010 18:25:36 -0600
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 12 Feb 2010 21:07:51 +0000
 
 ubiquity (2.1.16) lucid; urgency=low
 
