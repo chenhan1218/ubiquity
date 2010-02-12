@@ -52,8 +52,9 @@ def fixed_size_allocate(widget, allocation):
 def window_size_allocate(widget, allocation):
     global image, button1, button2
 
-    pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(
-        options.filename, allocation.width, allocation.height)
+    orig_pixbuf = gtk.gdk.pixbuf_new_from_file(options.filename)
+    pixbuf = orig_pixbuf.scale_simple(allocation.width, allocation.height,
+                                      gtk.gdk.INTERP_BILINEAR)
 
     if image is None:
         image = gtk.image_new_from_pixbuf(pixbuf)
@@ -71,6 +72,10 @@ def window_size_allocate(widget, allocation):
         button2.connect('map', button_mapped)
         fixed.put(button2, 0, 0)
         button2.show()
+    else:
+        if (image.allocation.width != allocation.width or
+            image.allocation.height != allocation.height):
+            image.set_from_pixbuf(pixbuf)
 
 def main():
     global options, svg, window, fixed
@@ -100,8 +105,7 @@ def main():
     fixed.connect('size-allocate', fixed_size_allocate)
     window.connect('delete-event', gtk.main_quit)
 
-    # window.fullscreen()
-    window.set_size_request(1280, 1024)
+    window.fullscreen()
 
     window.show_all()
 
