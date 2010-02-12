@@ -229,10 +229,10 @@ class PageKde(PageBase):
             
             # if the combo box does not yet have the target install device, add it
             # select current device
-            target = find_grub_target()
-            index = self.advanceddialog.grub_device_entry.findText(target)
+            summary_device = self.controller.get_summary_device()
+            index = self.advanceddialog.grub_device_entry.findText(summary_device)
             if (index == -1):
-                self.advanceddialog.grub_device_entry.addItem(target)
+                self.advanceddialog.grub_device_entry.addItem(summary_device)
                 index = self.advanceddialog.grub_device_entry.count() - 1
             
             # select the target device
