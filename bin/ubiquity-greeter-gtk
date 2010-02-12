@@ -43,7 +43,7 @@ def button1_clicked(button):
 
 def button2_clicked(button):
     global return_value
-    return_value = 2
+    return_value = 0
     gtk.main_quit()
 
 def fixed_size_allocate(widget, allocation):
