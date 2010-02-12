@@ -109,31 +109,71 @@ class DM:
 
         servercommand.extend([self.vt, self.display])
 
-        server = subprocess.Popen(servercommand, stdin=null, stdout=logfile, stderr=logfile, preexec_fn=self.server_preexec)
+        for attempt in ('main', 'failsafe'):
+            command = list(servercommand)
+            if attempt == 'failsafe':
+                # TODO cjwatson 2010-02-11: This is a bodge.  The
+                # duplication is nasty, but fortunately bullet-proof X
+                # actually turns out not to be very complicated nowadays.
+                # Most of the complexity is in the fallback session, which I
+                # haven't attempted to integrate here, so you won't get
+                # things like interactive reconfiguration.  I believe Evan
+                # is working on doing that, but is blocked on a couple of
+                # Upstart bugs; once all that's resolved, we should back
+                # this out.
+                xorg_conf_failsafe = '/etc/X11/xorg.conf.failsafe'
+                command.extend(['-config', xorg_conf_failsafe])
+                command.extend(['-logfile', '/var/log/Xorg.failsafe.log'])
+
+                if not os.path.exists(xorg_conf_failsafe):
+                    xorg_conf_failsafe_file = open(xorg_conf_failsafe, 'w')
+                    print >>xorg_conf_failsafe_file, '''\
+Section "Device"
+	Identifier	"Configured Video Device"
+	Driver		"vesa"
+EndSection
+
+Section "Monitor"
+	Identifier	"Configured Monitor"
+EndSection
+
+Section "Screen"
+	Identifier	"Default Screen"
+	Monitor		"Configured Monitor"
+	Device		"Configured Video Device"
+EndSection
+'''
+                    xorg_conf_failsafe_file.close()
+
+            server = subprocess.Popen(command, stdin=null, stdout=logfile, stderr=logfile, preexec_fn=self.server_preexec)
+
+            # Really we should select on a pipe or something, but it's not
+            # worth the effort for now.
+            try:
+                timeout = 60
+                while not self.server_started:
+                    status = server.poll()
+                    if type(status) is int and status != 0:
+                        if plymouth_running:
+                            subprocess.call(['plymouth', 'quit'])
+                        raise XStartupError, "X server exited with return code " + str(status)
+                    if timeout == 0:
+                        if plymouth_running:
+                            subprocess.call(['plymouth', 'quit'])
+                        raise XStartupError, "X server failed to start after 60 seconds"
+                    time.sleep(1)
+                    timeout -= 1
+                if plymouth_running:
+                    subprocess.call(['plymouth', 'quit', '--retain-splash'])
+            except XStartupError:
+                if attempt == 'failsafe':
+                    raise
 
         os.environ['DISPLAY'] = self.display
         os.environ['HOME'] = self.homedir
         # Give ubiquity a UID and GID that it can drop privileges to.
         os.environ['SUDO_UID'] = str(self.uid)
         os.environ['SUDO_GID'] = str(self.gid)
-
-        # Really we should select on a pipe or something, but it's not worth
-        # the effort for now.
-        timeout = 60
-        while not self.server_started:
-            status = server.poll()
-            if type(status) is int and status != 0:
-                if plymouth_running:
-                    subprocess.call(['plymouth', 'quit'])
-                raise XStartupError, "X server exited with return code " + str(status)
-            if timeout == 0:
-                if plymouth_running:
-                    subprocess.call(['plymouth', 'quit'])
-                raise XStartupError, "X server failed to start after 60 seconds"
-            time.sleep(1)
-            timeout -= 1
-        if plymouth_running:
-            subprocess.call(['plymouth', 'quit', '--retain-splash'])
 
         # Session bus, apparently needed by most interfaces now
         if ('DBUS_SESSION_BUS_ADDRESS' not in os.environ and

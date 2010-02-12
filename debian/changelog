@@ -28,6 +28,9 @@ ubiquity (2.1.17) UNRELEASED; urgency=low
     console-setup's debconf questions.
   * Fix unmount of /target/dev harder; second and subsequent arguments to
     os.path.join need to not start with a slash.
+  * Automatically fall back to vesa if normal X startup fails.  This is a
+    reduced emulation of bullet-proof-X; using the standard implementation
+    is currently tricky.
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 03 Feb 2010 18:25:36 -0600
 
