@@ -61,7 +61,7 @@ def window_size_allocate(widget, allocation):
         image.show()
         fixed.put(image, 0, 0)
 
-        button1 = gtk.Button(label="Try Ubuntu")
+        button1 = gtk.Button(label="Try Ubuntu without installing")
         button1.connect('clicked', button1_clicked)
         button1.connect('map', button_mapped)
         fixed.put(button1, 0, 0)
