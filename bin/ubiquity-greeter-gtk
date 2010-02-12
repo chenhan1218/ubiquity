@@ -78,7 +78,7 @@ def main():
     usage = '%prog [options]'
     parser = optparse.OptionParser(usage=usage)
     parser.set_defaults(
-        filename="test.svg",
+        filename="pixmaps/greeter-test.svg",
         button1_height=0.5,
         button2_height=0.5)
     parser.add_option('-f', '--filename', help='Filename for SVG image')
