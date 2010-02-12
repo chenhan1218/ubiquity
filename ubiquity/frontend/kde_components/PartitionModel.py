@@ -6,7 +6,6 @@ from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 
 from ubiquity.misc import *
-from ubiquity.components import partman, partman_commit
 from ubiquity import i18n
 
 """Get the string name in the given lang or a default."""
@@ -201,7 +200,8 @@ class TreeItem:
 
     def partman_column_mountpoint(self):
         partition = self.itemData[1]
-        if isinstance(self.dbfilter, partman.Page):
+        #if isinstance(self.dbfilter, partman.Page):
+        if self.dbfilter.NAME == 'partman':
             mountpoint = self.dbfilter.get_current_mountpoint(partition)
             if mountpoint is None:
                 mountpoint = ''

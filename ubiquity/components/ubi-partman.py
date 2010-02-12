@@ -418,7 +418,7 @@ class PageGtk(PageBase):
 
     def partman_column_mountpoint (self, unused_column, cell, model, iterator):
         partition = model[iterator][1]
-        if isinstance(self.controller.dbfilter, Page):
+        if self.controller.dbfilter.NAME == 'partman':
             mountpoint = self.controller.dbfilter.get_current_mountpoint(partition)
             if mountpoint is None:
                 mountpoint = ''
@@ -444,7 +444,7 @@ class PageGtk(PageBase):
     def partman_column_format_toggled (self, unused_cell, path, user_data):
         if not self.controller.allowed_change_step():
             return
-        if not isinstance(self.controller.dbfilter, Page):
+        if self.controller.dbfilter.NAME != 'partman':
             return
         model = user_data
         devpart = model[path][0]
@@ -481,7 +481,7 @@ class PageGtk(PageBase):
         import gtk
         if not self.controller.allowed_change_step():
             return
-        if not isinstance(self.controller.dbfilter, Page):
+        if self.controller.dbfilter.NAME != 'partman':
             return
 
         model, iterator = widget.get_selection().get_selected()
@@ -538,7 +538,7 @@ class PageGtk(PageBase):
         import gtk, gobject
         if not self.controller.allowed_change_step():
             return
-        if not isinstance(self.controller.dbfilter, Page):
+        if self.controller.dbfilter.NAME != 'partman':
             return
 
         self.partition_create_dialog.show_all()
@@ -597,7 +597,7 @@ class PageGtk(PageBase):
         self.partition_create_dialog.hide()
 
         if (response == gtk.RESPONSE_OK and
-            isinstance(self.controller.dbfilter, Page)):
+            self.controller.dbfilter.NAME == 'partman'):
             if partition['parted']['type'] == 'primary':
                 prilog = PARTITION_TYPE_PRIMARY
             elif partition['parted']['type'] == 'logical':
@@ -638,7 +638,7 @@ class PageGtk(PageBase):
             self.partition_create_mount_combo.set_sensitive(False)
         else:
             self.partition_create_mount_combo.set_sensitive(True)
-            if isinstance(self.controller.dbfilter, Page):
+            if self.controller.dbfilter.NAME == 'partman':
                 mount_model = self.partition_create_mount_combo.get_model()
                 if mount_model is not None:
                     fs = model[iterator][1]
@@ -651,7 +651,7 @@ class PageGtk(PageBase):
         import gtk, gobject
         if not self.controller.allowed_change_step():
             return
-        if not isinstance(self.controller.dbfilter, Page):
+        if self.controller.dbfilter.NAME != 'partman':
             return
 
         self.partition_edit_dialog.show_all()
@@ -733,7 +733,7 @@ class PageGtk(PageBase):
         self.partition_edit_dialog.hide()
 
         if (response == gtk.RESPONSE_OK and
-            isinstance(self.controller.dbfilter, Page)):
+            self.controller.dbfilter.NAME == 'partman'):
             size = None
             if current_size is not None:
                 size = str(self.partition_edit_size_spinbutton.get_value())
@@ -783,7 +783,7 @@ class PageGtk(PageBase):
         else:
             self.partition_edit_mount_combo.set_sensitive(True)
             self.partition_edit_format_checkbutton.set_sensitive(True)
-            if isinstance(self.controller.dbfilter, Page):
+            if self.controller.dbfilter.NAME == 'partman':
                 mount_model = self.partition_edit_mount_combo.get_model()
                 if mount_model is not None:
                     fs = model[iterator][0]
@@ -810,7 +810,7 @@ class PageGtk(PageBase):
             return False
 
         if event.keyval == gtk.keysyms.Delete:
-            if not isinstance(self.controller.dbfilter, Page):
+            if self.controller.dbfilter.NAME != 'partman':
                 return False
             devpart, partition = self.partition_list_get_selection()
             for action in self.controller.dbfilter.get_actions(devpart, partition):
@@ -829,7 +829,7 @@ class PageGtk(PageBase):
         self.partition_button_new.set_sensitive(False)
         self.partition_button_edit.set_sensitive(False)
         self.partition_button_delete.set_sensitive(False)
-        if not isinstance(self.controller.dbfilter, Page):
+        if self.controller.dbfilter.NAME != 'partman':
             return
 
         model, iterator = selection.get_selected()
@@ -876,7 +876,7 @@ class PageGtk(PageBase):
                 if otherpart['dev'] == partition['dev'] and 'id' in otherpart:
                     break
             else:
-                if not isinstance(self.controller.dbfilter, Page):
+                if self.controller.dbfilter.NAME != 'partman':
                     return
                 self.controller.allow_change_step(False)
                 self.controller.dbfilter.create_label(devpart)
@@ -899,7 +899,7 @@ class PageGtk(PageBase):
     def on_partition_list_new_label_activate (self, unused_widget):
         if not self.controller.allowed_change_step():
             return
-        if not isinstance(self.controller.dbfilter, Page):
+        if self.controller.dbfilter.NAME != 'partman':
             return
         self.controller.allow_change_step(False)
         devpart, partition = self.partition_list_get_selection()
@@ -916,7 +916,7 @@ class PageGtk(PageBase):
     def on_partition_list_delete_activate (self, unused_widget):
         if not self.controller.allowed_change_step():
             return
-        if not isinstance(self.controller.dbfilter, Page):
+        if self.controller.dbfilter.NAME != 'partman':
             return
         self.controller.allow_change_step(False)
         devpart, partition = self.partition_list_get_selection()
@@ -925,7 +925,7 @@ class PageGtk(PageBase):
     def on_partition_list_undo_activate (self, unused_widget):
         if not self.controller.allowed_change_step():
             return
-        if not isinstance(self.controller.dbfilter, Page):
+        if self.controller.dbfilter.NAME != 'partman':
             return
         self.controller.allow_change_step(False)
         self.controller.dbfilter.undo()
@@ -1055,14 +1055,15 @@ class PageKde(PageBase):
         
         from ubiquity.frontend.kde_components.PartAuto import PartAuto
         from ubiquity.frontend.kde_components.PartMan import PartMan
-        from PyQt4.QtGui import *
         
         self.partAuto = PartAuto()
         self.part_page = self.partAuto
         self.partMan = PartMan(self.controller)
         
-        self.plugin_widgets = [self.partAuto, self.partMan]
-        self.page = self.plugin_widgets
+        self.page = self.partAuto
+        self.page_advanced = self.partMan
+        self.plugin_widgets = self.page
+        self.plugin_optional_widgets = self.page_advanced
 
     # provides the basic disk layout
     def set_disk_layout(self, layout):

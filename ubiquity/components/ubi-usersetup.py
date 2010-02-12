@@ -104,7 +104,11 @@ class PageBase(PluginUI):
         raise NotImplementedError('set_hostname')
         
     def clear_errors(self):
-        raise NotImplementedError('clear_errors')
+        pass
+
+    def info_loop(self, *args):
+        """Verify user input."""
+        pass
     
     def set_allow_password_empty(self, empty):
         self.allow_password_empty = empty
