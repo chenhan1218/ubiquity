@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-01-11 17:12+0000\n"
-"PO-Revision-Date: 2009-10-06 06:48+0000\n"
+"PO-Revision-Date: 2010-02-05 20:27+0000\n"
 "Last-Translator: Iñigo Varela <malditoastur@gmail.com>\n"
 "Language-Team: Asturian <ast@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -201,19 +201,19 @@ msgstr "Escoyer la de so:"
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Layout:"
-msgstr ""
+msgstr "Distribución:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Variant:"
-msgstr ""
+msgstr "Variante:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Below is an image of your current layout:"
-msgstr ""
+msgstr "Abaxo amuésase una imaxe de la distribución actual:"
 
 #. Type: text
 #. Description
@@ -446,7 +446,7 @@ msgstr "¿Daveres deseya colar de la instalación agora?"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Bootloader install failed"
-msgstr ""
+msgstr "La instalación del xestor d'arranque falló"
 
 #. Type: text
 #. Description
@@ -455,20 +455,20 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
+"Sentímoslo, asocedió un fallu y nun foi dable instalar el xestor d'arranque "
+"nel allugamientu especificáu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Choose a different device to install the bootloader on:"
-msgstr ""
+msgstr "Esbilla un preséu distintu pa instalar el xestor d'arranque en:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "Configurando'l xestor d'arranque..."
+msgstr "Continuar ensin xestor d'arranque."
 
 #. Type: text
 #. Description
@@ -476,26 +476,25 @@ msgstr "Configurando'l xestor d'arranque..."
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
+"Necesitarás instalar manualmente un xestor d'arranque p'aniciar ${RELEASE}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "Comprobando la instalación..."
+msgstr "Encaboxar la instalación."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "Esto puede facer que l'equipu nun arranque."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "¿Cómo-y prestaría siguir?"
 
 #. Type: text
 #. Description
@@ -814,10 +813,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "Comprobando la instalación..."
+msgstr "Verificando la configuración de la instalación..."
 
 #. Type: title
 #. Description
@@ -1126,10 +1123,8 @@ msgstr "Hebo un fallu al desinstalar los paquetes"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Migrar documentos y configuraciones"
+msgstr "Fallu migrando documentos y configuraciones"
 
 #. Type: error
 #. Description
@@ -1140,14 +1135,16 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"Asocedió un fallu durante la migración de datos. Pueden alcontrase más "
+"detalles en /var/log/syslog. La instalación continuará, pero dalgunos o "
+"tolos documentos y les configuraciones que solicitó nun se tresfirieron al "
+"sistema instaláu."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "Configuración de rede"
+msgstr "Fallu al copiar la configuración de la rede"
 
 #. Type: error
 #. Description
@@ -1157,6 +1154,9 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"Asocedió un fallu al copiar la configuración de rede. La instalación "
+"continuará, pero la configuración de la rede va tener que crease otra vuelta "
+"nel sistema instaláu."
 
 #. Type: text
 #. Description
@@ -1216,16 +1216,12 @@ msgstr "¿Deseya tornar al programa de particionáu?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Dalgunes de les particiones que crió son enforma pequeñes. Por favor, defina "
-"les siguientes particiones con, a lo menos, esti tamañu (en bytes):"
+"Dalgunes de les particiones que creaste son enforma pequeñes. Fai les "
+"particiones polo menos de tamañu:"
 
 #. Type: boolean
 #. Description
@@ -1312,60 +1308,50 @@ msgstr "procesu instalación"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "Comprobando la instalación..."
+msgstr "Comprobando pa instalar anovamientos"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Reading package information"
-msgstr ""
+msgstr "Lleendo información de paquete"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Updating package information"
-msgstr ""
+msgstr "Anovando la información del paquete"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Pasu ${INDEX} de ${TOTAL}"
+msgstr "Ficheru ${INDEX} de ${TOTAL} a ${SPEED}/s"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "Pasu ${INDEX} de ${TOTAL}"
+msgstr "Ficheru ${INDEX} de ${TOTAL}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Instalando'l sistema"
+msgstr "Instalando anovamientu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
 msgid "Error updating installer"
-msgstr ""
+msgstr "Fallu anovando l'instalador"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "L'instalador alcontró un fallu al copiar los ficheros al discu duru:"
+msgstr "L'instalador alcontró un fallu al intentar anovase:"
 
 #. Type: note
 #. Description

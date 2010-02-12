@@ -13,20 +13,20 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:00+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr "Искористи највећи континуалан простор"
+msgstr "Искористи највећи комад континуалног простора"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr ""
+msgstr "Избриши ово па искористи цели диск."
 
 #. Type: text
 #. Description
@@ -91,13 +91,14 @@ msgid ""
 "will be the default language for the final system."
 msgstr ""
 "Молим одаберите језик који ће користити инсталацијски поступак. Овај ће "
-"језик такођер бити и уобичајени језик за спреман систем."
+"језик такође бити и подразумевани језик за коначни систем."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
+"Чим одговорите на пар питања, овај рачунар ће бити спреман за употребу."
 
 #. Type: text
 #. Description
@@ -106,6 +107,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
+"Молимо изаберите који ћете језик користити за процес конфигурације. Овај "
+"језик је ће постати подразумевани језик за овај рачунар."
 
 #. Type: text
 #. Description
@@ -149,12 +152,15 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"Изаберите своју локацију, да би систем могао да користи одговарајуће ознаке"
+"(за дужину, за новац, и сл.), узимао надоградње са интернет страница близу "
+"вас, и подесио часовник на исправно локално време."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "Зона:"
 
 #. Type: text
 #. Description
@@ -287,13 +293,15 @@ msgstr "Аутоматско пријављивање"
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Require my password to log in"
-msgstr ""
+msgstr "Захтевај да се унесе моја лозинка да би се пријавио"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr ""
+"Захтевај да се унесе моја лозинка да би се пријавио и да би се декриптовао "
+"моја корисничка фасцикла."
 
 #. Type: text
 #. Description
@@ -453,10 +461,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "Подешавање boot управитеља..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -468,10 +474,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "Провера инсталације..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -556,35 +560,35 @@ msgstr "После:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:75001
 msgid "New Partition Table..."
-msgstr ""
+msgstr "Нова Табела Партиција"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:76001
 msgid "Add..."
-msgstr ""
+msgstr "Додај..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:77001
 msgid "Change..."
-msgstr ""
+msgstr "Izmeni..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:78001
 msgid "Delete"
-msgstr ""
+msgstr "Избриши"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:79001
 msgid "Revert"
-msgstr ""
+msgstr "Поврати"
 
 #. Type: text
 #. Description
@@ -728,13 +732,13 @@ msgstr "Учествујте у анкети коришћења пакета"
 #. Description
 #: ../ubiquity.templates:102001
 msgid "Network proxy"
-msgstr ""
+msgstr "Мрежни прокси(посредник)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:103001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP прокси(посредник)"
 
 #. Type: text
 #. Description
@@ -801,10 +805,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "Провера инсталације..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -834,7 +836,7 @@ msgstr "Копирам датотеке..."
 #. Description
 #: ../ubiquity.templates:116001
 msgid "Almost finished copying files..."
-msgstr ""
+msgstr "Убрзо завршавам копирање датотека..."
 
 #. Type: error
 #. Description
@@ -1113,10 +1115,8 @@ msgstr "Дошло је до грешке приликом уклањања па
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Преузети документа и подешавања"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1131,10 +1131,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "Подешавање мреже"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1202,16 +1200,10 @@ msgstr "Да ли желите да се вратите у партиционе�
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Неке партиције које сте креирали су премале. Молим, повећајте партиције "
-"барем до ове величине (у бајтовима)"
 
 #. Type: boolean
 #. Description
@@ -1227,7 +1219,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:168001
 msgid "System Configuration"
-msgstr ""
+msgstr "Подешавање система"
 
 #. Type: text
 #. Description
@@ -1257,51 +1249,49 @@ msgstr "Примењујем подешавање"
 #. Description
 #: ../ubiquity.templates:173001
 msgid "Language"
-msgstr ""
+msgstr "Језик"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:174001
 msgid "Timezone"
-msgstr ""
+msgstr "Временска зона"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:175001
 msgid "Keyboard"
-msgstr ""
+msgstr "Тастатура"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:176001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Подешавање диска"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:177001
 msgid "User Info"
-msgstr ""
+msgstr "Подаци о кориснику"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:178001
 msgid "Summary"
-msgstr ""
+msgstr "Сажетак"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:180001
 msgid "installation process"
-msgstr ""
+msgstr "процес инсталције"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "Провера инсталације..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1318,26 +1308,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Корак ${INDEX} од ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "Корак ${INDEX} од ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Инсталирам систем"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1348,10 +1332,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "Инсталер је наишао на грешку током копирања датотека на хард диск."
+msgstr ""
 
 #. Type: note
 #. Description
@@ -1368,12 +1350,22 @@ msgid ""
 " Video Driver: ${VIDEO_DRIVER}\n"
 " Services: ${SERVICES}"
 msgstr ""
+" Начин инсталације: ${INSTALLTYPE}\n"
+" Језик: ${LANGUAGE}\n"
+" Распоред тастатуре: ${KEYMAP}\n"
+" Име: ${FULLNAME}\n"
+" Корисничко име: ${USERNAME}\n"
+" Локација: ${LOCATION}\n"
+" ИЦ управљач: ${REMOTE}\n"
+" ИЦ одашиљач: ${TRANSMITTER}\n"
+" Управљачки програм за видео: ${VIDEO_DRIVER}\n"
+" Сервиси: ${SERVICES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "Installation Type"
-msgstr ""
+msgstr "Врста инсталације"
 
 #. Type: text
 #. Description
@@ -1471,7 +1463,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr ""
+msgstr "Драјвери(управљачки програми) за графику(слику)"
 
 #. Type: text
 #. Description
@@ -1482,6 +1474,10 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"Графички драјвер отвореног кода је већ омогућен и конфигурисан за вашу "
+"инсталацију. Ако желите да користите други драјвер, можете то учинити овде. "
+"Напомена да су власнички драјвери можда потребни за ТВ излаз или  OpenGL "
+"ефекте."
 
 #. Type: text
 #. Description
@@ -1499,7 +1495,7 @@ msgstr "Ако укључите ТВ излаз, требате одабрати
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:18001
 msgid "Master Backend Info"
-msgstr ""
+msgstr "Информације о главном позадинском серверу"
 
 #. Type: text
 #. Description
@@ -1536,7 +1532,7 @@ msgstr "MySQL сервер"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "Конфигуриши ТВ водич / позадински сервер"
 
 #. Type: text
 #. Description
@@ -1545,12 +1541,14 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
+"За последње кораке инсталацију је потребно по први пут подесити Ваш ТВ водич "
+"и позадински сервер."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:26001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "Кликни да отвориш заказани дирктни вебсајт"
 
 #. Type: text
 #. Description
@@ -1560,6 +1558,10 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
+"Korisnici u Severnoj Americi će trebati za postavljanje računa s prilozima "
+"Direct (SD). SD vodič pruža podatke za nazivni nadoknadu. Bez SD, Severno "
+"američki  korisnici mogu izgubiti mnoge od mogućnosti raspoređivanja u "
+"MythTV."
 
 #. Type: text
 #. Description
@@ -1576,6 +1578,10 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"Након што сте подесили извор Вашег ТВ водича, треба да покренете MythTV-"
+"Setup да би сте по први пут конфигурисали позадински сервер. Треба да "
+"конфигуришете прве четири секције, при чему се подаци о ТВ водичу дају у "
+"трећој."
 
 #. Type: text
 #. Description

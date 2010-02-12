@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:00+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -105,6 +105,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
+"Vui lòng chọn ngôn ngữ sẽ dùng trong quá trình cấu hình lại. Ngôn ngữ đó sẽ "
+"là ngôn ngữ mặc định dùng trên máy tính này."
 
 #. Type: text
 #. Description
@@ -459,10 +461,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "Đang cấu hình bộ nạp khởi động..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -474,10 +474,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "Đang kiểm tra cài đặt..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -590,7 +588,7 @@ msgstr "Xóa"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:79001
 msgid "Revert"
-msgstr ""
+msgstr "Trở lại"
 
 #. Type: text
 #. Description
@@ -807,10 +805,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "Đang kiểm tra cài đặt..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1114,10 +1110,8 @@ msgstr "Có lỗi xẩy ra trong khi đang gỡ bỏ các gói:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Chuyển các tài liệu và thiết lập"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1132,10 +1126,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "Cấu hình mạng"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1201,16 +1193,10 @@ msgstr "Bạn có muốn quay lại trình phân vùng đĩa?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Một vài phân vùng bạn đã tạo quá nhỏ. Vui lòng thay đổi các phân vùng dưới "
-"đây sao cho độ lớn ít nhất là (tính theo byte):"
 
 #. Type: boolean
 #. Description
@@ -1274,7 +1260,7 @@ msgstr "Bàn phím"
 #. Description
 #: ../ubiquity.templates:176001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Thiết lập đĩa"
 
 #. Type: text
 #. Description
@@ -1297,10 +1283,8 @@ msgstr "Quá trình cài đặt"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "Đang kiểm tra cài đặt..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1317,26 +1301,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Bước thứ ${INDEX} của tổng số ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "Bước thứ ${INDEX} của tổng số ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Đang cài đặt hệ thống"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1347,10 +1325,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "Chương trình cài đặt gặp một lỗi khi chép các tập tin vào đĩa cứng:"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -1596,6 +1572,10 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"Sau khi thiết lập tài liệu hướng dẫn nguồn dữ liệu của bạn, bạn sẽ cần phải "
+"khởi động MythTV-Setup để chạy các cấu hình phụ trợ cho lần đầu tiên. Bạn sẽ "
+"cần phải cấu hình bốn phần đầu tiên, được bảo đảm cung cấp dữ liệu hướng dẫn "
+"của bạn trong thứ ba."
 
 #. Type: text
 #. Description

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-01-11 17:12+0000\n"
-"PO-Revision-Date: 2009-09-28 19:17+0000\n"
+"PO-Revision-Date: 2010-02-05 14:30+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -202,19 +202,19 @@ msgstr "Zgjidhni tuajin:"
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Layout:"
-msgstr ""
+msgstr "Dalja:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Variant:"
-msgstr ""
+msgstr "Varianti:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Below is an image of your current layout:"
-msgstr ""
+msgstr "Poshtë është një imazh i daljes suaj të momentit:"
 
 #. Type: text
 #. Description
@@ -446,7 +446,7 @@ msgstr "Me të vërtetë doni ta lini instalimin tani?"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Bootloader install failed"
-msgstr ""
+msgstr "Instalimi i Bootloader dështoi"
 
 #. Type: text
 #. Description
@@ -455,20 +455,20 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
+"Na vjen keq, ndodhi një gabim dhe nuk ishte i mundur instalimi i bootloader "
+"në vendndodhjen e specifikuar."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Choose a different device to install the bootloader on:"
-msgstr ""
+msgstr "Zgjidhni një pajisje tjetër në të cilën të instaloni bootloader:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "Duke konfiguruar Boot loader..."
+msgstr "Vazhdo pa bootloader."
 
 #. Type: text
 #. Description
@@ -476,26 +476,26 @@ msgstr "Duke konfiguruar Boot loader..."
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
+"Juve do t'iu duhet të instaloni bootloader në mënyrë manuale për të nisur "
+"${RELEASE}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "Duke kontrolluar instalimin"
+msgstr "Anullo instalimin."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "Kjo mund ta lërë kompjuterin tuaj të paaftë për tu rinisur."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "Si do të dëshironit të vazhdonit?"
 
 #. Type: text
 #. Description
@@ -813,10 +813,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "Duke kontrolluar instalimin"
+msgstr "Duke verifikuar konfigurimin e instalimit..."
 
 #. Type: title
 #. Description
@@ -1124,10 +1122,8 @@ msgstr "Një gabim ndodhi në heqjen e paketave:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Migro dokumentat dhe preferencat"
+msgstr "Gabim në migrimin e dokumenteve dhe parametrave"
 
 #. Type: error
 #. Description
@@ -1138,14 +1134,16 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"Ndodhi një gabim gjatë migrimit të të dhënave. Më tepër detaje mund të "
+"gjenden në /var/log/syslog. Instalimi do të vazhdojë, por disa ose të gjithë "
+"dokumentet dhe parametrat që ju kërkuat mund të mos transferohen në sistemin "
+"e instaluar."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "Konfigurimi i rrjetit"
+msgstr "Gabim në kopjimin e konfigurimit të rrjetit"
 
 #. Type: error
 #. Description
@@ -1155,6 +1153,9 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"Ndodhi një gabim gjatë kopjimit të parametrave të rrjetit. Instalimi do të "
+"vazhdojë, por konfigurimi i rrjetit duhet të rivendoset në sistemin e "
+"instaluar."
 
 #. Type: text
 #. Description
@@ -1211,16 +1212,12 @@ msgstr "Doni të ktheheni tek particionuesi?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Disa nga particionet që ju keni krijuar janë shumë të vogla. Ju lutemi "
-"bëjini particionet që vijojnë të paktën me këtë madhësi (në bajt):"
+"Disa nga particionet që ju krijuat janë shumë të vogla. Ju lutemi bëjini "
+"particionet që vijojnë të paktën kaq:"
 
 #. Type: boolean
 #. Description
@@ -1307,60 +1304,52 @@ msgstr "proçesi i instalimit"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "Duke kontrolluar instalimin"
+msgstr "Duke kërkuar për përditësime të instaluesit"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Reading package information"
-msgstr ""
+msgstr "Duke lexuar informacionin e paketave"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Updating package information"
-msgstr ""
+msgstr "Duke përditësuar informacionin e paketave"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Hap ${INDEX} i ${TOTAL}"
+msgstr "Skedari ${INDEX} nga ${TOTAL} me ${SPEED}/s"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "Hap ${INDEX} i ${TOTAL}"
+msgstr "Skedari ${INDEX} nga ${TOTAL}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Duke instaluar sistemin"
+msgstr "Duke instaluar përditësimin"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
 msgid "Error updating installer"
-msgstr ""
+msgstr "Gabim në përdiësimin e instaluesit"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "Instaluesi hasi në një gabim duke kopjuar skedarët në Hard Disk:"
+msgstr ""
+"Instaluesi hasi në një gabim ndërkohë që po përpiqej të përditësonte "
+"vetveten:"
 
 #. Type: note
 #. Description

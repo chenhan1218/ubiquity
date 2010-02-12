@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-01-11 17:12+0000\n"
-"PO-Revision-Date: 2009-10-07 17:30+0000\n"
-"Last-Translator: Sergio Gavrylov <sergiovana@bigmir.net>\n"
+"PO-Revision-Date: 2010-02-09 19:45+0000\n"
+"Last-Translator: Андрій Роговець <andrew.rogovets@gmail.com>\n"
 "Language-Team: uk <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -201,19 +201,19 @@ msgstr "Вибрати власний:"
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Layout:"
-msgstr ""
+msgstr "Розкладка:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Variant:"
-msgstr ""
+msgstr "Варіант:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Below is an image of your current layout:"
-msgstr ""
+msgstr "Нижче - зображення вашої поточної розкладки:"
 
 #. Type: text
 #. Description
@@ -443,7 +443,7 @@ msgstr "Ви дійсно хочете вийти з програми устан
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Bootloader install failed"
-msgstr ""
+msgstr "Встановлення завантажувача закінчилось невдало"
 
 #. Type: text
 #. Description
@@ -452,20 +452,20 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
+"Вибачте, виникла помилка і було неможливо встановити завантажувач у "
+"вказаному місці."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Choose a different device to install the bootloader on:"
-msgstr ""
+msgstr "Оберіть інший пристрій для встановлення на нього завантажувача:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "Налаштування завантажувача..."
+msgstr "Продовжити без завантажувача."
 
 #. Type: text
 #. Description
@@ -473,26 +473,26 @@ msgstr "Налаштування завантажувача..."
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
+"Вам необхідно вручну встановити завантажувач для того, щоб запустити "
+"${RELEASE}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "Перевірка встановлення..."
+msgstr "Скасувати встановлення."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "Це може привести до неможливості завантажувати Ваш комп'ютер."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "Яким чином ви бажаєте продовжувати?"
 
 #. Type: text
 #. Description
@@ -811,10 +811,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "Перевірка встановлення..."
+msgstr "Перевірка конфігурації встановлення..."
 
 #. Type: title
 #. Description
@@ -1122,10 +1120,8 @@ msgstr "Помилка під час видалення пакунків:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Перенести документи та налаштування"
+msgstr "Помилка при перенесенні документів та налаштувань"
 
 #. Type: error
 #. Description
@@ -1136,14 +1132,16 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"При перенесенні даних виникла помилка. Більше відомостей можна одержати у /"
+"var/log/syslog. Встановлення буде продовжено, але деякі чи всі документи та "
+"налаштування, які Ви обрали, можливо, не будуть перенесені на встановлену "
+"систему."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "Налаштування мережі"
+msgstr "Помилка при копіюванні конфігурації мережі"
 
 #. Type: error
 #. Description
@@ -1153,6 +1151,9 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"При копіюванні мережевих налаштувань виникла помилка. Встановлення буде "
+"продовжено, але після його завершення буде необхідно встановити налаштування "
+"мережі знову."
 
 #. Type: text
 #. Description
@@ -1213,16 +1214,12 @@ msgstr "Ви хочете повернутись до програми розм�
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Деякі зі створених розділів замалі. Будь ласка зробіть наступні розділи "
-"принаймні такого розміру (в байтах):"
+"Деякі з розділів, які ви створили - занадто малого розміру. Будь ласка, "
+"зробіть наступні розділи принаймні такими за розміром:"
 
 #. Type: boolean
 #. Description
@@ -1309,60 +1306,50 @@ msgstr "процес установки"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "Перевірка встановлення..."
+msgstr "Перевірка встановлювача на наявність оновлень"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Reading package information"
-msgstr ""
+msgstr "Зчитування інформації про пакунок"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Updating package information"
-msgstr ""
+msgstr "Оновлення інформації про пакунок"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Крок ${INDEX} з ${TOTAL}"
+msgstr "Файл ${INDEX} розміром ${TOTAL} на швидкості ${SPEED}/s"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "Крок ${INDEX} з ${TOTAL}"
+msgstr "Файл ${INDEX} розміром ${TOTAL}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Встановлення системи"
+msgstr "Встановлення оновлень"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
 msgid "Error updating installer"
-msgstr ""
+msgstr "Помилка при оновленні встановлювача"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "Програма установки виявила помилку копіювання файлів на жорсткий диск:"
+msgstr "Встановлювач виявив помилку при спробі оновити себе:"
 
 #. Type: note
 #. Description

@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -444,10 +444,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "बूट लोडर कॉन्फ़िगर किया जा रहा है..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -459,10 +457,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Cancel the installation."
-msgstr "संस्थापना के लॉग का नकल कीया जा रही है..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -774,10 +770,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Verifying the installation configuration..."
-msgstr "संस्थापना के लॉग का नकल कीया जा रही है..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1070,10 +1064,8 @@ msgstr "संकुलों की विस्थापना मे एक �
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Importing documents and settings..."
 msgid "Error migrating documents and settings"
-msgstr "दस्तावेजों एवं अनुकुलनो का आयतन किया जा रहा है।"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1243,10 +1235,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking for packages to install..."
 msgid "Checking for installer updates"
-msgstr "संस्थापना के लिए संकुलों की जांच की जा रही है...."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1263,26 +1253,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "कुल ${TOTAL} में का ${INDEX} कदम"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "कुल ${TOTAL} में का ${INDEX} कदम"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing language packs"
 msgid "Installing update"
-msgstr "भाषा पेटी संस्थापित किया जा रह है..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1293,10 +1277,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "हार्ड डिस्क पर फाईल का नकल त्रुटि के कारण से नहीं हो पाया:"
+msgstr ""
 
 #. Type: note
 #. Description

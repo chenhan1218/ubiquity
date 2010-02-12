@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-01-11 17:12+0000\n"
-"PO-Revision-Date: 2009-10-15 09:59+0000\n"
-"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
+"PO-Revision-Date: 2010-02-11 13:34+0000\n"
+"Last-Translator: jmb_kz <jmb_kz@mail.ru>\n"
 "Language-Team: Kazakh\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -170,19 +170,19 @@ msgstr "Аймақ:"
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Keyboard layout"
-msgstr "Пернетақта сәйкестігі"
+msgstr "Пернетақта тілі"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Перенетақта сәйкестігін таңдаңыз"
+msgstr "Перенетақта тілдің қайсысы ең сәйкес болып келеді?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "Пернетақтаның сәйкестігін тексеру үшін мына жолға жазып көріңіз."
+msgstr "Пернетақтаның тілін тексеру үшін мына жолға жазып көріңіз."
 
 #. Type: text
 #. Description
@@ -200,7 +200,7 @@ msgstr "Өзіңіздікін таңдаңыз:"
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Layout:"
-msgstr ""
+msgstr "Тілі (пернетақтаның):"
 
 #. Type: text
 #. Description
@@ -437,7 +437,7 @@ msgstr "Орнату бағдарламасынан шығуды таңдайс�
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Bootloader install failed"
-msgstr ""
+msgstr "Жүктегіш орнату мүмкін емес"
 
 #. Type: text
 #. Description
@@ -451,42 +451,38 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Choose a different device to install the bootloader on:"
-msgstr ""
+msgstr "Жүктегіш орнатылатын басқа құрылғыны көрсетіңіз:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "Жүктеушіні баптау..."
+msgstr "Жүктегіш орнатпай жалғастыру."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr ""
+msgstr "${RELEASE} жүктеу үшін, жүктегішті өзіңіз орнатуыңызға мәжбүр боласыз."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "Орнату дестесін тексеру..."
+msgstr "Орнатылымды болдырмау."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "Осы әрекет кесірінен, сіздің компьютеріңіз мүлдем жүктелінбеуі мүмкін."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "Қалай жалғастырмын дейсіз?"
 
 #. Type: text
 #. Description
@@ -794,7 +790,7 @@ msgid ""
 " ${MIGRATE}"
 msgstr ""
 " Тіл: ${LANGUAGE}\n"
-" Пернетақта сәйкестігі: ${KEYMAP}\n"
+" Пернетақта тілі: ${KEYMAP}\n"
 " Аты: ${FULLNAME}\n"
 " Пайдаланушы аты: ${USERNAME}\n"
 " Орналасуы: ${LOCATION}\n"
@@ -804,10 +800,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "Орнату дестесін тексеру..."
+msgstr "Орнатылым баптауларын тексеру..."
 
 #. Type: title
 #. Description
@@ -1114,10 +1108,8 @@ msgstr "Дестелер жою кезінде қате кетті:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Құжаттар мен баптауларды көшіру"
+msgstr "Құжаттар мен баптаулар көшіру қатесі"
 
 #. Type: error
 #. Description
@@ -1132,10 +1124,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "Желілік конфигурация"
+msgstr "Желілік баптаулардың көшіру қатесі"
 
 #. Type: error
 #. Description
@@ -1145,6 +1135,9 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"Желілік баптаулардың көшіру кезінде қате туындады. Орнатылым ары қарай "
+"жалғасатын болады, бірақ желілік баптаулар орнатылған жүйеде қайтадан "
+"көрсетуіңіз қажет."
 
 #. Type: text
 #. Description
@@ -1201,16 +1194,12 @@ msgstr "Бөлшектеу бағдарламасына оралуды қала�
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Сіз жасаған бөлімдердің көлемі тым аз. Төмендегі бөлімдердің көлемі, "
-"минималды көлемнен (байтпен) артық екендігіне көз жеткізіңіз:"
+"Сіз жасаған бөлімдердің кейбіреулердің көлемі тым аз. Төмендегі бөлімдердің "
+"көлемі, минималды көлемінен артық екендігіне көз жеткізіңіз:"
 
 #. Type: boolean
 #. Description
@@ -1297,60 +1286,50 @@ msgstr "орнатылымның үрдісі"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "Орнату дестесін тексеру..."
+msgstr "Орнату бағдарламасының жаңартуларды іздеу"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Reading package information"
-msgstr ""
+msgstr "Пакет туралы ақпаратты оқу"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Updating package information"
-msgstr ""
+msgstr "Пакет туралы ақпарат жаңарту"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "${TOTAL} қадамның ${INDEX}"
+msgstr "${SPEED}/с жылдамдығымен ${TOTAL} ішінен ${INDEX} файл"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "${TOTAL} қадамның ${INDEX}"
+msgstr "${TOTAL} ішінен ${INDEX} файл"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Жүйе орнатылуда"
+msgstr "Жаңартулар орнатылуда"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
 msgid "Error updating installer"
-msgstr ""
+msgstr "Орнатылым бағдарламасын жаңарту қатесі"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "Файлдарды қатқыл дискке көшіру кезінде қате кетті:"
+msgstr "Орнатылым бағдарламасын өз-өзін жаңарту кезінде қате туындады:"
 
 #. Type: note
 #. Description
@@ -1368,15 +1347,15 @@ msgid ""
 " Services: ${SERVICES}"
 msgstr ""
 " Орнатылым түрі: ${INSTALLTYPE}\n"
-"Тіл: ${LANGUAGE}\n"
-"Пернетақта тілі: ${KEYMAP}\n"
-"Ат: ${FULLNAME}\n"
-"Логин: ${USERNAME}\n"
-"Орналыстырылған жер: ${LOCATION}\n"
-"Қашықталған Басқару Пульті: ${REMOTE}\n"
-"Инфра-Қызыл передатчик: ${TRANSMITTER}\n"
-"Видеодрайвер: ${VIDEO_DRIVER}\n"
-"Қызметтер: ${SERVICES}"
+" Тіл: ${LANGUAGE}\n"
+" Пернетақта тілі: ${KEYMAP}\n"
+" Ат: ${FULLNAME}\n"
+" Логин: ${USERNAME}\n"
+" Орналыстырылған жер: ${LOCATION}\n"
+" Қашықталған Басқару Пульті: ${REMOTE}\n"
+" Инфра-Қызыл передатчик: ${TRANSMITTER}\n"
+" Видеодрайвер: ${VIDEO_DRIVER}\n"
+" Қызметтер: ${SERVICES}"
 
 #. Type: text
 #. Description

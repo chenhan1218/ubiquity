@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -454,10 +454,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "Boot loader tê sazkirin..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -469,10 +467,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "Sazkirin tê kontrolkirin"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -800,10 +796,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "Sazkirin tê kontrolkirin"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1111,10 +1105,8 @@ msgstr "Dema ku pakêt dihatin rakirin çewtiyek derket"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Belge û mîhengan têxê"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1129,10 +1121,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "Mîhengkirina torê"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1200,16 +1190,10 @@ msgstr "Dixwazî vegerî dabeşkarê?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Kapasîteya hin dîskên te afirandine pir biçûk e. Ji kerema xwe re kapasîteya "
-"dîskên li jêrê heta vê astê bilind bike (byte):"
 
 #. Type: boolean
 #. Description
@@ -1296,10 +1280,8 @@ msgstr "pêvajoya sazkirinê"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "Sazkirin tê kontrolkirin"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1316,26 +1298,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Gav ${INDEX} / ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "Gav ${INDEX} / ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Pergal tê sazkirin"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1346,11 +1322,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
 msgstr ""
-"Dema ku pel li hard dîskê dihatin kopîkirin sazkar rastî çewtiyekê hat:"
 
 #. Type: note
 #. Description

@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -459,10 +459,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "સ્થાપન ચકાસી રહ્યા છીએ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -786,10 +784,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "સ્થાપન ચકાસી રહ્યા છીએ..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1078,10 +1074,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "ડોક્યુમેન્ટ અને સંયોજનો સ્થાનાંતરિત કરો"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1249,10 +1243,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "સ્થાપન ચકાસી રહ્યા છીએ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1269,26 +1261,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "પગથિયું ${INDEX} (${TOTAL} પૈકી)"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "પગથિયું ${INDEX} (${TOTAL} પૈકી)"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "પાયાની સિસ્ટમની સ્થાપના થઇ રહી છે"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1299,10 +1285,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "સ્થાપકને ફાઇલોની હાર્ડ-ડિસ્ક પર નકલ કરવામાં નિષ્ફળતા સાંપડી છેઃ"
+msgstr ""
 
 #. Type: note
 #. Description

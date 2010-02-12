@@ -10,13 +10,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-01-11 17:12+0000\n"
-"PO-Revision-Date: 2009-10-15 10:09+0000\n"
-"Last-Translator: Yannig MARCHEGAY (Kokoyaya) <yannig@marchegay.org>\n"
+"PO-Revision-Date: 2010-02-11 11:28+0000\n"
+"Last-Translator: Cédric VALMARY <cvalmary@yahoo.fr>\n"
 "Language-Team: Occitan (post 1500) <ubuntu-l10n-oci@lists.ubuntu.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -62,7 +62,7 @@ msgstr "Installar (mòde OEM, sonque pels fabricants)"
 #. Description
 #: ../ubiquity.templates:9001
 msgid "Welcome"
-msgstr "Planvenguda"
+msgstr "Benvenguda"
 
 #. Type: text
 #. Description
@@ -72,9 +72,9 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"I sètz per installar ? Quant auretz respondut a qualques questions, poiretz "
-"installar lo contengut del Live CD sus l'ordenador per que poscatz utilizar "
-"lo sistèma amb velocitat plena e sens lo CD."
+"Sètz prèst per installar ? Quant auretz respondut a qualques questions, "
+"poiretz installar lo contengut del Live CD sus l'ordenador per que poscatz "
+"utilizar lo sistèma amb velocitat plena e sens lo CD."
 
 #. Type: text
 #. Description
@@ -99,6 +99,8 @@ msgstr ""
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
+"Aprèp aver respondut a qualques questions, vòstre ordenador serà prèst a "
+"èsser utilizat."
 
 #. Type: text
 #. Description
@@ -107,6 +109,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
+"Causissètz la lenga utilizada pendent la fasa de configuracion. Aquesta "
+"lenga serà la lenga per defaut per aqueste sistèma."
 
 #. Type: text
 #. Description
@@ -117,8 +121,8 @@ msgid ""
 "and can be used to help with bug reports."
 msgstr ""
 "Efectuatz l'installacion en mòde revendeire informatic. Picatz un nom unic "
-"per aqueste lòt de sistèmas. Aqueste nom serà salvagardat sul sistèma "
-"installat e poirà èsser utilizat pels rapòrts d'anomalias."
+"per aqueste lòt de sistèmas. Aqueste nom serà salvat sul sistèma installat e "
+"poirà èsser utilizat pels rapòrts d'anomalias."
 
 #. Type: text
 #. Description
@@ -150,6 +154,10 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"Causissètz vòstre luòc de residéncia per que lo sistèma utiliza las "
+"convencions d'afichatge (ora, simbòl monetari, etc.) adeqüatas per vòstre "
+"país, recupèra las mesas a jorn suls miralhs locals e règla corrèctament lo "
+"relòtge sus l'ora locala."
 
 #. Type: text
 #. Description
@@ -161,7 +169,7 @@ msgstr "Zòna :"
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Region:"
-msgstr "Region :"
+msgstr "Region :"
 
 #. Type: text
 #. Description
@@ -173,14 +181,14 @@ msgstr "Disposicion del clavièr"
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Que disposicion sembla mai al vòstre clavièr ?"
+msgstr "Quina disposicion se sembla mai a la de vòstre clavièr ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
-"Podètz picar dins la zòna de tèxt per testar la disposicion novèla del "
+"Podètz picar dins la zòna de tèxte per testar la disposicion novèla del "
 "clavièr."
 
 #. Type: text
@@ -199,19 +207,19 @@ msgstr "Causissètz la vòstra :"
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Layout:"
-msgstr ""
+msgstr "Disposicion :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Variant:"
-msgstr ""
+msgstr "Varianta :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Below is an image of your current layout:"
-msgstr ""
+msgstr "Çaijós un apercebut de la disposicion actuala :"
 
 #. Type: text
 #. Description
@@ -264,15 +272,15 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
-"Picatz lo mot de pas dos còps per que i aja pas d'engana de picada. Un bon "
-"mot de pas conten un mescladís de letras, chifras e ponctuacions, amb un "
-"minimum de uèch caractèrs e lo devètz cambiar regularament."
+"Picatz lo senhal dos còps per que i aja pas d'engana de picada. Un bon "
+"senhal conten un mescladís de letras, chifras e ponctuacions, amb un minimum "
+"de uèch caractèrs e lo vos cal cambiar regularament."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "What is the name of this computer?"
-msgstr "Qual es lo nom d'aqueste ordenador ?"
+msgstr "Quel est le nom de cet ordinateur ?"
 
 #. Type: text
 #. Description
@@ -281,38 +289,39 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
-"Aqueste nom serà utilizat se volètz permetre a d'autres utilizaires de veire "
+"Aqueste nom será utiisat se volètz permetre a autres usuaris veire "
 "l'ordenador dins una ret."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Log in automatically"
-msgstr "Se connectar automaticament"
+msgstr "Ouvrir la session automatiquement"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Require my password to log in"
-msgstr ""
+msgstr "Demander mon mot de passe pour ouvrir une session"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr ""
+"Demandar mon senhal per dobrir una sesilha e deschifrar mon dorsièr personal"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "Choose another password"
-msgstr "Causissètz un mot de pas novèl"
+msgstr "Choisissez un autre mot de passe"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Migrate documents and settings"
-msgstr "Migracion de documents e de paramètres"
+msgstr "Transferir de documents e de paramètres"
 
 #. Type: text
 #. Description
@@ -331,7 +340,7 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"Se desiratz pas importar de comptes d'utilizaire, seleccionatz pas res e "
+"Se desiratz pas importar de comptes d'utilizaire, seleccionetz pas res e "
 "anatz sus la pagina seguenta."
 
 #. Type: text
@@ -362,7 +371,7 @@ msgstr "${OS} es installat sul ordenador."
 #. Description
 #: ../ubiquity.templates:46001
 msgid "This computer has several operating systems on it."
-msgstr "Mai d'un sistème d'explotacion sul ordenador."
+msgstr "Mai d'un sistèma operatiu sus l'ordenador."
 
 #. Type: text
 #. Description
@@ -403,8 +412,7 @@ msgstr "Detalhs"
 #: ../ubiquity.templates:52001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
-"Anam installar vòstre sistèma d'espleitacion amb los paramètres seguents :"
+msgstr "Anam installar vòstre sistèma operatiu amb los paramètres seguents :"
 
 #. Type: text
 #. Description
@@ -430,19 +438,19 @@ msgstr "Etapa ${INDEX} sus ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Quit the installation?"
-msgstr "Sortir de l'installacion ?"
+msgstr "Quitar l'installacion ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Do you really want to quit the installation now?"
-msgstr "Volètz vertadièrament sortir de l'installacion ara ?"
+msgstr "Sètz segur que volètz sortir de l'installacion ara ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Bootloader install failed"
-msgstr ""
+msgstr "Fracàs de l'installacion del cargador d'amorsatge"
 
 #. Type: text
 #. Description
@@ -451,20 +459,20 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
+"O planhèm, una error s'es producha, es pas estat possible d'installar lo "
+"cargador d'amorsatge a l'emplaçament indicat."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Choose a different device to install the bootloader on:"
-msgstr ""
+msgstr "Causir un autre periferic sul qual installar lo cargador d'amorsatge :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "Configuracion del gestionari d'aviada..."
+msgstr "Contunhar sens cargador d'amorsatge."
 
 #. Type: text
 #. Description
@@ -472,32 +480,32 @@ msgstr "Configuracion del gestionari d'aviada..."
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
+"Vos caldrà installar manualament un cargador d'amorsatge per poder aviar  "
+"${RELEASE}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "Verificacion de l'installacion..."
+msgstr "Anullar l'installacion."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "Aquò poiriá empachar vòstre ordenador d'aviar."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "Cossí volètz procedir ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Skip"
-msgstr "Sautar"
+msgstr "Ignorar"
 
 #. Type: title
 #. Description
@@ -515,7 +523,7 @@ msgstr "Contunhar a testar"
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Restart Now"
-msgstr "Tornar aviar ara"
+msgstr "Tornar amodar ara"
 
 #. Type: text
 #. Description
@@ -536,11 +544,11 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
-"O planhèm, l'installaire a rencontrat una error. Senhalatz aqueste bòg sus "
+"O planhèm, l'installador a rencontrat una error. Senhalatz aqueste bug sus "
 "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (ajustetz pas vòstras "
-"entresenhas a un bòg existent) e un desvolopaire s'ocuparà del problèma lo "
+"entresenhas a un bug existent) e un desvolopaire s'ocuparà del problèma lo "
 "mai lèu possible. Per ajudar lo desvolopaire a compréner lo problèma, "
-"incluissetz las entresenhas seguentas dins vòstre rapòrt e ligatz los "
+"incluissètz las entresenhas seguentas dins vòstre rapòrt e ligatz los "
 "fichièrs /var/log/syslog e /var/log/partma :"
 
 #. Type: text
@@ -564,7 +572,7 @@ msgstr "Aprèp :"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:75001
 msgid "New Partition Table..."
-msgstr ""
+msgstr "Taula de particion novèla…"
 
 #. Type: text
 #. Description
@@ -676,7 +684,7 @@ msgstr "Començament"
 #. Description
 #: ../ubiquity.templates:91001
 msgid "End"
-msgstr "Fin"
+msgstr "Acabar"
 
 #. Type: text
 #. Description
@@ -730,7 +738,7 @@ msgstr "Concors de popularitat"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Participate in the package usage survey"
-msgstr "Concors de popularitat"
+msgstr "Participatz a las estatisticas d'utilizacion dels paquets"
 
 #. Type: text
 #. Description
@@ -758,7 +766,7 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"L'installacion es acabada. Podètz contunhar a testar Ubuntu ara, mas cap de "
+"L'installacion es acabada. Podètz contunhar de testar Ubuntu ara, mas cap de "
 "vòstras modificacions o de vòstres documents seràn pas enregistrats."
 
 #. Type: text
@@ -802,16 +810,14 @@ msgstr ""
 " Nom : ${FULLNAME}\n"
 " Nom de connexion : ${USERNAME}\n"
 " Emplaçament : ${LOCATION}\n"
-" Assistant de migracion :\n"
+" Assistent de migracion :\n"
 " ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "Verificacion de l'installacion..."
+msgstr "Verificacion de la configuracion de l'installacion…"
 
 #. Type: title
 #. Description
@@ -841,7 +847,7 @@ msgstr "Còpia dels fichièrs..."
 #. Description
 #: ../ubiquity.templates:116001
 msgid "Almost finished copying files..."
-msgstr ""
+msgstr "Còpia dels fichièrs gaireben acabada…"
 
 #. Type: error
 #. Description
@@ -857,7 +863,7 @@ msgstr ""
 #: ../ubiquity.templates:119001 ../ubiquity.templates:120001
 #: ../ubiquity.templates:121001
 msgid "Installation Failed"
-msgstr "L'installacion a pas capitat"
+msgstr "L'installacion a fracassat"
 
 #. Type: error
 #. Description
@@ -882,8 +888,8 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"Lo problèma es que l'espaci disc es pas sufisent per que l'installacion se "
-"pòsca acabar sus la particion cibla. Tornatz aviar l'installaire e "
+"Lo problèma es que l'espaci de disc es pas sufisent per que l'installacion "
+"se pòsca acabar sus la particion cibla. Tornatz aviar l'installador e "
 "seleccionatz una particion d'installacion pus bèla."
 
 #. Type: error
@@ -895,7 +901,7 @@ msgid ""
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
 "Aquò es sovent causat per un disc o un lector CD/DVD defectuós. Podètz "
-"ensajar de netejar lo CD/DVD, de lo gravar a velocitat redusida o de netejar "
+"ensajar de netejar lo CD/DVD, de lo gravar a velocitat reducha o de netejar "
 "la lentilha del lector CD/DVD (de kits de netejament son sovent disponibles "
 "dins de magasins d'electronica)."
 
@@ -938,13 +944,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:121001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr "Lo fichièr seguent correspon pas a sa còpia originala sul CD/DVD :"
+msgstr "Lo fichièr seguent correspond pas a sa còpia originala sul CD/DVD :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:122001
 msgid "Copying installation logs..."
-msgstr "Còpia dels fichièrs jornal de l'installacion..."
+msgstr "Còpia dels jornals de l'installacion..."
 
 #. Type: text
 #. Description
@@ -1016,43 +1022,43 @@ msgstr "Configuracion del gestionari d'aviada..."
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Installing additional packages..."
-msgstr "Installacion de paquetatges suplementaris..."
+msgstr "Installacion dels paquets addicionals..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:135001
 msgid "Checking for packages to install..."
-msgstr "Verificacion dels paquetatges d'installar..."
+msgstr "Verificacion dels paquets d'installar..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:136001
 msgid "Removing extra packages..."
-msgstr "Supression dels paquetatges suplementaris..."
+msgstr "Supression dels paquets suplementaris..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Checking for packages to remove..."
-msgstr "Verificacion dels paquetatges de suprimir..."
+msgstr "Verificacion dels paquets de suprimir..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Telecargament dels paquetatges (demòra ${TIME})..."
+msgstr "Telecargament dels paquets (demòra ${TIME})..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:139001
 msgid "Downloading package lists..."
-msgstr "Telecargament de las tièras de paquetatges"
+msgstr "Telecargament de las listas de paquets"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:140001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Telecargament de las tièras de paquetatges (resta ${TIME})..."
+msgstr "Telecargament de las listas de paquets (resta ${TIME})..."
 
 #. Type: error
 #. Description
@@ -1070,13 +1076,13 @@ msgstr "Error al moment de suprimir ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:144001
 msgid "Error while installing packages"
-msgstr "Error al moment d'installar de paquetatges"
+msgstr "Error al moment d'installar de paquets"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:144001
 msgid "An error occurred while installing packages:"
-msgstr "I a agut una error al moment d'installar de paquetatges :"
+msgstr "I a agut una error al moment d'installar de paquets :"
 
 #. Type: error
 #. Description
@@ -1084,7 +1090,7 @@ msgstr "I a agut una error al moment d'installar de paquetatges :"
 #. Description
 #: ../ubiquity.templates:144001 ../ubiquity.templates:145001
 msgid "The following packages are in a broken state:"
-msgstr "Los paquetatges seguents son corromputs :"
+msgstr "Los paquets seguents son corromputs :"
 
 #. Type: error
 #. Description
@@ -1100,33 +1106,31 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
-"Aquò pòt èsser degut a l'utilizacion d'un imatge ancian de l'installaire, o "
-"alara a un bòg dins d'unes paquets listats çaijós. De detalhs mai amples se "
-"pòdon trobar dins /var/log/syslog. L'installaire va ensajar de perseguir "
+"Aquò pòt èsser degut a l'utilizacion d'un imatge ancian de l'installador, o "
+"alara a un bug dins d'unes paquets listats çaijós. De detalhs mai amples se "
+"pòdon trobar dins /var/log/syslog. L'installador va ensajar de contunhar "
 "malgrat tot, mas pòt fracassar a una etapa ulteriora, e poirà pas installar "
-"o suprimir d'autres paquets (i compres ele-meteis probablament) del sistèma "
+"o suprimir d'autres paquets (i comprés el meteis probablament) del sistèma "
 "installat. Deuriatz, d'en primièr, cercar de versions novèlas de l'imatge de "
-"l'installaire, o se s'escai, senhalar aqueste problèma a vòstre revendeire."
+"l'installador, o se s'escai, senhalar aqueste problèma a vòstre revendeire."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:145001
 msgid "Error while removing packages"
-msgstr "Error al moment de desinstallar de paquetatges"
+msgstr "Error al moment de desinstallar de paquets"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:145001
 msgid "An error occurred while removing packages:"
-msgstr "I a agut una error al moment de suprimir de paquetatges :"
+msgstr "I a agut una error al moment de suprimir de paquets :"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Migracion de documents e de paramètres"
+msgstr "Error al moment de la migracion dels documents e paramètres"
 
 #. Type: error
 #. Description
@@ -1137,14 +1141,16 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"Una error s'es producha al moment de la migracion de las donadas. Trobaretz "
+"mai d'entresenhas dins /var/log/syslog. L'installacion va contunhar, mas tot "
+"o partida dels documents e paramètres an pas pogut èsser transferit sul "
+"sistèma installat."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "Configuracion de la ret"
+msgstr "Error al moment de la còpia de la configuracion de la ret"
 
 #. Type: error
 #. Description
@@ -1154,6 +1160,9 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"Una error s'es producha al moment de la còpia de la configuracion de la ret. "
+"L'installacion va contunhar, mas caldrà tornar configurar la ret sul sistèma "
+"installat."
 
 #. Type: text
 #. Description
@@ -1165,13 +1174,13 @@ msgstr "Determinacion dels fichièrs de copiar pas..."
 #. Description
 #: ../ubiquity.templates:152001
 msgid "Installing language packs"
-msgstr "Installacion dels paquetatges de lenga"
+msgstr "Installacion dels paquets de lenga"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:153001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Telecargament dels paquetatges de lenga (demòran ${TIME})..."
+msgstr "Telecargament dels paquets de lenga (demòran ${TIME})..."
 
 #. Type: boolean
 #. Description
@@ -1187,7 +1196,7 @@ msgid ""
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
 "Lo programa d'installacion a besonh de modificar las taulas de particion, "
-"mas o pòt pas far perque los punches de montatge seguents se pòdon pas "
+"mas o pòt pas far perque los punts de montatge seguents se pòdon pas "
 "desmontar :"
 
 #. Type: boolean
@@ -1195,8 +1204,7 @@ msgstr ""
 #: ../ubiquity.templates:161001
 msgid "Please close any applications using these mount points."
 msgstr ""
-"Se vos plai, tampatz las aplicacions qu'utilizan aquestes punches de "
-"montatge."
+"Se vos plai, tampatz las aplicacions qu'utilizan aquestes punts de montatge."
 
 #. Type: boolean
 #. Description
@@ -1215,16 +1223,12 @@ msgstr "Volètz tornar a l'esplech de particionament ?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"D'unas particions qu'avètz creadas son tròp pichonas. Balhatz a las "
-"particions seguentas una talha minimum (en octets) de :"
+"D'unas de las particions qu'avètz creadas son tròp pichonas. Fasètz en sòrta "
+"que las particions seguentas ajan al mens aquesta talha :"
 
 #. Type: boolean
 #. Description
@@ -1288,13 +1292,13 @@ msgstr "Clavièr"
 #. Description
 #: ../ubiquity.templates:176001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Particion del disc dur"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:177001
 msgid "User Info"
-msgstr ""
+msgstr "Informacions sus l'utilizaire"
 
 #. Type: text
 #. Description
@@ -1306,67 +1310,55 @@ msgstr "Resumit"
 #. Description
 #: ../ubiquity.templates:180001
 msgid "installation process"
-msgstr ""
+msgstr "Fasa d'installacion"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "Verificacion de l'installacion..."
+msgstr "Recèrca de mesas a jorn de l'installador"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Reading package information"
-msgstr ""
+msgstr "Lectura de las informacions suls paquets"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Updating package information"
-msgstr ""
+msgstr "Mesa a jorn de las informacions del paquet"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Etapa ${INDEX} sus ${TOTAL}"
+msgstr "Fichièr  ${INDEX} sus  ${TOTAL} a ${SPEED}/s"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "Etapa ${INDEX} sus ${TOTAL}"
+msgstr "Fichièr  ${INDEX} sus  ${TOTAL}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Installacion del sistèma"
+msgstr "Installacion de la mesa a jorn"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
 msgid "Error updating installer"
-msgstr ""
+msgstr "Error al moment de la mesa a jorn de l'installador"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr ""
-"Lo programa d'installacion a rencontrat una error al moment de copiar de "
-"fichièrs sul disc dur :"
+msgstr "L'installador a rencontrat una error en ensajant de se metre a jorn :"
 
 #. Type: note
 #. Description
@@ -1482,7 +1474,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:12001
 msgid "Frontend"
-msgstr "Maquina servent unicament d'interfàcia"
+msgstr "Maquina que servís unicament d'interfàcia"
 
 #. Type: text
 #. Description
@@ -1501,7 +1493,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr "Gestionaris de periferics audiò"
+msgstr "Gestionaris de periferics àudio"
 
 #. Type: text
 #. Description
@@ -1587,7 +1579,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:26001
 msgid "Click to open the Schedules Direct website"
-msgstr "Clicatz per dobrir lo sit web « Schedules Direct »"
+msgstr "Clicatz per dobrir lo site web « Schedules Direct »"
 
 #. Type: text
 #. Description
@@ -1617,10 +1609,10 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
-"Aprèp aver configurat vòstra font de donada pels programas TV, anatz dever "
+"Aprèp aver configurat vòstra font de donada pels programas TV, vos va caler "
 "amodar MythTV-Setup per una primièra execucion de la configuracion del motor "
-"de tractament. Deuretz configurar las quatre primièras seccions, asseguratz-"
-"vos de provesir las donadas pels programas dins la tresena."
+"de tractament. Vos caldrà configurar las quatre primièras seccions, "
+"asseguratz-vos de provesir las donadas pels programas dins la tresena."
 
 #. Type: text
 #. Description

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-01-11 17:12+0000\n"
-"PO-Revision-Date: 2009-10-15 09:59+0000\n"
-"Last-Translator: Iryna Nikanchuk <defragbrain@gmail.com>\n"
+"PO-Revision-Date: 2010-02-05 10:33+0000\n"
+"Last-Translator: Mikola Tsekhan <mail@tsekhan.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -26,7 +26,7 @@ msgstr "Ужыць"
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr ""
+msgstr "Сьцерці ўсё і выкарыстаць дыск цалкам"
 
 #. Type: text
 #. Description
@@ -96,6 +96,8 @@ msgstr ""
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
+"Пасьля таго, як вы адкажаце на некалькі пытаньняў, гэты кампутар будзе "
+"гатовы да выкарыстаньня."
 
 #. Type: text
 #. Description
@@ -104,6 +106,9 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
+"Калі ласка, абярыце мову якая будзе выкарыстоўвацца для працэсу "
+"канфігурацыі. Гэта мова будзе ўсталявана мовай па змоўчаньні для гэтага "
+"кампутара."
 
 #. Type: text
 #. Description
@@ -147,12 +152,16 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"Калі ласка, пазначце ваша месцазнаходжаньне для таго, каб сістэма магла "
+"дакладна адлюстроўваць адзінкі вымярэньня для вашай краіны, атрымліваць "
+"абнаўленьні з бліжэйшых да вас сэрвераў і адлюстроўваць час у вашым "
+"гадзінным поясе."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "Зона:"
 
 #. Type: text
 #. Description
@@ -195,19 +204,19 @@ msgstr "Ваш выбар:"
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Layout:"
-msgstr ""
+msgstr "Падзел:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Variant:"
-msgstr ""
+msgstr "Варыянт:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Below is an image of your current layout:"
-msgstr ""
+msgstr "Ніжэй прыводзіцца выява бягучага падзелу:"
 
 #. Type: text
 #. Description
@@ -286,13 +295,14 @@ msgstr "Уваходзіць аўтаматычна"
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Require my password to log in"
-msgstr ""
+msgstr "Патрабуецца мой пароль для ўвахода"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr ""
+"Патрабуецца мой пароль для ўвахода і адкрыцьця зашыфраванай хатняй тэчкі"
 
 #. Type: text
 #. Description
@@ -436,7 +446,7 @@ msgstr "Вы насамрэч жадаеце выйсьці з праграмы 
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Bootloader install failed"
-msgstr ""
+msgstr "Інсталяцыя загрузчыка схібіла"
 
 #. Type: text
 #. Description
@@ -455,10 +465,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "Канфігураваньне стартавай праграмы..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -470,10 +478,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "Праверка усталёўкі..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -558,7 +564,7 @@ msgstr "Пасьля:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:75001
 msgid "New Partition Table..."
-msgstr ""
+msgstr "Новая табліца партыцыяў..."
 
 #. Type: text
 #. Description
@@ -586,7 +592,7 @@ msgstr "Выдаліць"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:79001
 msgid "Revert"
-msgstr ""
+msgstr "Адкаціць"
 
 #. Type: text
 #. Description
@@ -802,10 +808,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "Праверка усталёўкі..."
+msgstr "Праверка канфігурацыі ўсталёўкі..."
 
 #. Type: title
 #. Description
@@ -835,7 +839,7 @@ msgstr "Капіяваньне файлаў..."
 #. Description
 #: ../ubiquity.templates:116001
 msgid "Almost finished copying files..."
-msgstr ""
+msgstr "Капіяваньне файлаў амаль скончылася..."
 
 #. Type: error
 #. Description
@@ -1117,10 +1121,8 @@ msgstr "Падчас выдаленьня пакункаў адбылася па
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Міграцыя дакументаў і настаўленняў"
+msgstr "Памылка міграцыі дакумэнтаў і наладак"
 
 #. Type: error
 #. Description
@@ -1135,10 +1137,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "Настаўленьні сеціва"
+msgstr "Памылка капіяваньня канфігурацыі сеткі"
 
 #. Type: error
 #. Description
@@ -1208,16 +1208,10 @@ msgstr "Вярнуцца да праграмы разметкі?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Некаторыя створаныя падзелы занадта малыя. Пераканайцеся, што наступныя "
-"падзелы маюць неабходны мінімальны памер (у байтах):"
 
 #. Type: boolean
 #. Description
@@ -1281,7 +1275,7 @@ msgstr "Клявіятура"
 #. Description
 #: ../ubiquity.templates:176001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Усталёўка дыска"
 
 #. Type: text
 #. Description
@@ -1299,66 +1293,55 @@ msgstr "Рэзюмэ"
 #. Description
 #: ../ubiquity.templates:180001
 msgid "installation process"
-msgstr ""
+msgstr "працэс усталёўкі"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "Праверка усталёўкі..."
+msgstr "Праверка абнаўленьняў усталёўшчыка"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Reading package information"
-msgstr ""
+msgstr "Чытаньне інфармацыі аб пакетах"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Updating package information"
-msgstr ""
+msgstr "Абнаўленьне інфармацыі аб пакетах"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Этап ${INDEX} з ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "Этап ${INDEX} з ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Ўсталёўка сыстэмы"
+msgstr "Усталёўка абнаўленьня"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
 msgid "Error updating installer"
-msgstr ""
+msgstr "Памылка абнаўленьня ўсталёўшчыка"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
 msgstr ""
-"Інсталятар сутыкнуўся з памылкамі падчас капіяваньня файлаў на цьвёрды дыск:"
 
 #. Type: note
 #. Description

@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-01-11 17:12+0000\n"
-"PO-Revision-Date: 2009-10-07 17:31+0000\n"
-"Last-Translator: Tiago Hillebrandt <tiagoscd@yahoo.com.br>\n"
+"PO-Revision-Date: 2010-02-06 21:35+0000\n"
+"Last-Translator: André Gondim <andregondim@ubuntu.com>\n"
 "Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
 "org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -202,19 +202,19 @@ msgstr "Escolha o seu próprio:"
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Layout:"
-msgstr ""
+msgstr "Leiaute:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Variant:"
-msgstr ""
+msgstr "Variante:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Below is an image of your current layout:"
-msgstr ""
+msgstr "Abaixo está uma imagem do seu leiaute atual:"
 
 #. Type: text
 #. Description
@@ -447,7 +447,7 @@ msgstr "Você deseja realmente sair da instalação agora?"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Bootloader install failed"
-msgstr ""
+msgstr "Falha na instalação do gerenciador de inicialização"
 
 #. Type: text
 #. Description
@@ -456,20 +456,21 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
+"Desculpe, mas ocorreu um erro e não foi possível instalar o gerenciador de "
+"inicialização no local especificado."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Choose a different device to install the bootloader on:"
 msgstr ""
+"Escolha outro dispositivo para instalar o gerenciador de inicialização:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "Configurando o gerenciador de inicialização..."
+msgstr "Continuar sem um gerenciador de inicialização."
 
 #. Type: text
 #. Description
@@ -477,26 +478,26 @@ msgstr "Configurando o gerenciador de inicialização..."
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
+"Você precisará instalar um gerenciador de inicialização manualmente para "
+"iniciar o ${RELEASE}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "Verificando a instalação..."
+msgstr "Cancelar a instalação."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "Isto pode deixar seu computador incapaz de inicializar."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "Como você gostaria de prosseguir?"
 
 #. Type: text
 #. Description
@@ -814,10 +815,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "Verificando a instalação..."
+msgstr "Verificando a configuração da instalação..."
 
 #. Type: title
 #. Description
@@ -1128,10 +1127,8 @@ msgstr "Um erro ocorreu ao remover os pacotes:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Migrar documentos e configurações"
+msgstr "Erro ao migrar os documentos e configurações"
 
 #. Type: error
 #. Description
@@ -1142,14 +1139,16 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"Um erro aconteceu ao migrar os dados. Maiores detalhes podem ser encontrados "
+"em /var/log/syslog. A instalação irá continuar, mas alguns ou todos os "
+"documentos e configurações que você solicitou podem não ter sido "
+"transferidos para o sistema instalado."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "Configuração de rede"
+msgstr "Erro ao copiar a configuração de rede"
 
 #. Type: error
 #. Description
@@ -1159,6 +1158,9 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"Um erro aconteceu ao copiar as configurações de rede. A instalação irá "
+"continuar, mas a configuração de rede terá de ser definida novamente no "
+"sistema instalado."
 
 #. Type: text
 #. Description
@@ -1218,16 +1220,10 @@ msgstr "Você quer retornar para o particionador?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Algumas das partições que você criou são pequenas demais. Por favor, faça as "
-"seguintes partições terem no mínimo este tamanho (em bytes):"
 
 #. Type: boolean
 #. Description
@@ -1314,61 +1310,50 @@ msgstr "processo de instalação"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "Verificando a instalação..."
+msgstr "Verificando por atualizações do instalador"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Reading package information"
-msgstr ""
+msgstr "Lendo informações do pacote"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Updating package information"
-msgstr ""
+msgstr "Atualizando informações do pacote"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Passo ${INDEX} de ${TOTAL}"
+msgstr "Arquivo ${INDEX} de ${TOTAL} à ${SPEED}/s"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "Passo ${INDEX} de ${TOTAL}"
+msgstr "Arquivo ${INDEX} de ${TOTAL}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Instalando o sistema"
+msgstr "Instalando atualização"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
 msgid "Error updating installer"
-msgstr ""
+msgstr "Falha ao atualizar o instalador"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr ""
-"O instalador encontrou um erro na cópia dos arquivos para o disco rígido:"
+msgstr "O instalador encontrou um erro ao tentar se atualizar:"
 
 #. Type: note
 #. Description

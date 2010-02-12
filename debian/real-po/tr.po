@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-01-11 17:12+0000\n"
-"PO-Revision-Date: 2009-09-28 19:16+0000\n"
-"Last-Translator: Efe Çiftci <efeciftci@gmail.com>\n"
+"PO-Revision-Date: 2010-02-09 08:31+0000\n"
+"Last-Translator: Yiğit Ateş <yigitates52@gmail.com>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -200,19 +200,19 @@ msgstr "Kendinizinkini seçin:"
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Layout:"
-msgstr ""
+msgstr "Yerleşim:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Variant:"
-msgstr ""
+msgstr "Değişik biçim:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Below is an image of your current layout:"
-msgstr ""
+msgstr "Aşağıdaki geçerli yerleşimin bir görüntüsüdür:"
 
 #. Type: text
 #. Description
@@ -443,7 +443,7 @@ msgstr "Yükleme işleminden gerçekten vazgeçmek istiyor musunuz?"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Bootloader install failed"
-msgstr ""
+msgstr "Önyükleyici kurulumu başarısız oldu"
 
 #. Type: text
 #. Description
@@ -451,48 +451,44 @@ msgstr ""
 msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
-msgstr ""
+msgstr "Üzgünüz, bir hata oluştu ve belirtilen konumda önyükleyici kurulamadı."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Choose a different device to install the bootloader on:"
-msgstr ""
+msgstr "Önyükleyiciyi kurmak için farklı bir aygıt seçin:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "Açılış yükleyicisi yapılandırılıyor..."
+msgstr "Önyükleyici olmadan devam edin."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr ""
+msgstr "${RELEASE}'i başlatmak için elle bir önyükleyici kurmanız gerekiyor."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "Yükleme Doğrulanıyor..."
+msgstr "Kurulumu iptal et."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "Bu bilgisayarınızın açılmamasına sebep olabilir."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "Nasıl ilerlemek istiyorsunuz?"
 
 #. Type: text
 #. Description
@@ -810,10 +806,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "Yükleme Doğrulanıyor..."
+msgstr "Kurulum yapılandırması doğrulanıyor..."
 
 #. Type: title
 #. Description
@@ -1122,10 +1116,8 @@ msgstr "Paketler kaldırılırken bir hata oluştu:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Belgeleri ve ayarları aktar"
+msgstr "Belge ve ayarların taşınması hatası"
 
 #. Type: error
 #. Description
@@ -1136,14 +1128,15 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"Veri tşınırken bir hata meydana geldi. Daha fazla detay /var/log/syslog "
+"içerisinde bulunabilir. Kurulum devam edecek; fakat size gereken belge ve "
+"ayarların bazıları ya da tümü yerleşik sisteme yüklenmemiş olabilir."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "Ağ yapılandırması"
+msgstr "Ağ yapılandırması kopyalama hatası"
 
 #. Type: error
 #. Description
@@ -1153,6 +1146,8 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"Ağ ayarlarını kopyalarken bir hata meydana geldi. Kurulum devam edecek; "
+"fakat ağ yapılandırmasının yerleşik sistemde tekrar kurulması gerekecektir."
 
 #. Type: text
 #. Description
@@ -1211,16 +1206,12 @@ msgstr "Bölücüye geri dönmek istiyor musun?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Sizin oluşturduğunuz disk bölümlerinin bazılarının kapasitesi çok kücük. "
-"Lütfen aşağıdaki disk bölümlerinin kapasitesini en az bu kadar ata (bayt):"
+"Oluşturduğunuz bölümlerden bazıları çok küçük. Lütfen aşağıdaki bölümleri en "
+"az bu büyüklükte yapın:"
 
 #. Type: boolean
 #. Description
@@ -1307,60 +1298,50 @@ msgstr "kurulum süreci"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "Yükleme Doğrulanıyor..."
+msgstr "Yükleyici için güncellemeler kontrol ediliyor"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Reading package information"
-msgstr ""
+msgstr "Paket bilgisi okunuyor"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Updating package information"
-msgstr ""
+msgstr "Paket bilgisi güncelleniyor"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Adım ${INDEX} / ${TOTAL}"
+msgstr "Dosya ${DİZİN} of ${TOTAL} at ${HIZ}/s"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "Adım ${INDEX} / ${TOTAL}"
+msgstr "Dosya ${DİZİN} ${TOPLAM}'ın"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Sistem kuruluyor"
+msgstr "Güncelleme kuruluyor"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
 msgid "Error updating installer"
-msgstr ""
+msgstr "Yükleyici güncelleme hatası"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "Kurulum, dosyaları sabit diske kopyalarken bir hatayla karşılaştı:"
+msgstr "Yükleyici kendini güncellerken bir hatayla karşılaştı:"
 
 #. Type: note
 #. Description
