@@ -18,6 +18,7 @@ import pwd
 from ubiquity import osextras
 from ubiquity.casper import get_casper
 
+options = None
 background = '/usr/share/backgrounds/warty-final-ubuntu.png'
 
 class XStartupError(EnvironmentError):
@@ -284,7 +285,7 @@ EndSection
                 stderr=logfile, preexec_fn=self.drop_privileges)
 
         pre_ret = 0
-        if (self.frontend == 'gtk_ui' and
+        if (options.choose and self.frontend == 'gtk_ui' and
             osextras.find_on_path('ubiquity-greeter-gtk')):
             pre_greeter = subprocess.Popen(
                 ['ubiquity-greeter-gtk',
