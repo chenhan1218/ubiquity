@@ -49,7 +49,7 @@ import debconf
 from ubiquity import filteredcommand, i18n, validation, parted_server
 from ubiquity.misc import *
 from ubiquity.plugin import Plugin
-from ubiquity.components import partman, partman_commit, summary, install
+from ubiquity.components import partman_commit, install
 import ubiquity.progressposition
 import ubiquity.frontend.base
 from ubiquity.frontend.base import BaseFrontend
