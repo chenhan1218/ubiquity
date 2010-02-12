@@ -8,6 +8,7 @@ import signal
 import errno
 import imp
 import grp
+import optparse
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
@@ -17,6 +18,7 @@ import pwd
 from ubiquity import osextras
 from ubiquity.casper import get_casper
 
+options = None
 background = '/usr/share/backgrounds/warty-final-ubuntu.png'
 
 class XStartupError(EnvironmentError):
@@ -282,8 +284,23 @@ EndSection
             wm = subprocess.Popen('kwin', stdin=null, stdout=logfile,
                 stderr=logfile, preexec_fn=self.drop_privileges)
 
-        greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
-        ret = greeter.wait()
+        pre_ret = 0
+        if (options.choose and self.frontend == 'gtk_ui' and
+            osextras.find_on_path('ubiquity-greeter-gtk')):
+            pre_greeter = subprocess.Popen(
+                ['ubiquity-greeter-gtk',
+                 '-f', '/usr/share/ubiquity/pixmaps/greeter-gtk.svg'],
+                stdin=null, stdout=logfile, stderr=logfile)
+            pre_ret = pre_greeter.wait()
+
+        # preliminary greeter returns non-zero if we should go to a normal
+        # desktop instead
+        if pre_ret == 0:
+            greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
+            ret = greeter.wait()
+        else:
+            # fall through cleanly to normal desktop
+            ret = 0
 
         def kill_if_exists(pid, signum):
             try:
@@ -328,21 +345,30 @@ EndSection
         else:
             return 1
 
-if len(sys.argv) < 4:
-    sys.stderr.write('Usage: %s <vt[1-N]> <:[0-N]> <username> <program> [<arguments>]\n' % sys.argv[0])
-    sys.exit(1)
+usage = '%prog [options] <vt[1-N]> <:[0-N]> <username> -- <program> ' \
+        '[<arguments>]'
+parser = optparse.OptionParser(usage=usage)
+parser.set_defaults(choose=False)
+parser.add_option('--choose', action='store_true',
+                  help='Show greeter to choose between normal startup and '
+                       'Ubiquity')
+options, args = parser.parse_args()
 
-vt, display, username = sys.argv[1:4]
+if len(args) < 3:
+    parser.error("need vt, display, and username arguments")
+
+vt, display, username = args[:3]
 try:
     dm = DM(vt, display, username)
 except XStartupError:
     sys.exit(1)
+
 proc = None
 if dm.frontend == 'gtk_ui':
     proc = ['/etc/init.d/gdm', 'start']
 elif dm.frontend == 'kde_ui':
     proc = ['/etc/init.d/kdm', 'start']
-ret = dm.run(*sys.argv[4:])
+ret = dm.run(options, args[3:])
 if proc:
     subprocess.Popen(proc)
 sys.exit(ret)

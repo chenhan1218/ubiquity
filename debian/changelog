@@ -1,3 +1,15 @@
+ubiquity (2.1.18) UNRELEASED; urgency=low
+
+  * Preliminary version of a new greeter, accessible using the
+    'maybe-ubiquity' boot option.  In this mode, ubiquity-dm displays a
+    choice between "Try Ubuntu without installing" and "Install Ubuntu"
+    after starting X, rather than needing to present that choice at the boot
+    loader.  This is not ready for production use yet and (desperately!)
+    needs artwork, but merging it here will make it easier to test.  Thanks
+    to Cody Russell for the first version of the greeter code.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 12 Feb 2010 21:32:00 +0000
+
 ubiquity (2.1.17) lucid; urgency=low
 
   [ Mario Limonciello ]
