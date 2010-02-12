@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -462,10 +462,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "Indstiller opstartsindlæser..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -477,10 +475,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "Kontrollerer installationen..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -810,10 +806,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "Kontrollerer installationen..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1125,10 +1119,8 @@ msgstr "Der opstod en fejl under fjernelse af pakker:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Overfør dokumenter og indstillinger"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1143,10 +1135,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "Netværksindstillinger"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1215,17 +1205,10 @@ msgstr "Vil du vende tilbage til partitioneringsprogrammet?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Nogle af de partitioner, som du har oprettet er for små. Følgende "
-"partitioners størrelse skal forøges, så de mindst er denne størrelse (i "
-"byte):"
 
 #. Type: boolean
 #. Description
@@ -1312,10 +1295,8 @@ msgstr "installationsproces"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "Kontrollerer installationen..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1332,26 +1313,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Skridt ${INDEX} af ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "Skridt ${INDEX} af ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Installerer systemet"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1362,12 +1337,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
 msgstr ""
-"Installationsprogrammet stødte på en fejl under kopieringen af filer til "
-"harddisken:"
 
 #. Type: note
 #. Description

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-01-11 17:12+0000\n"
-"PO-Revision-Date: 2009-10-07 17:29+0000\n"
-"Last-Translator: Eyal Levin <eyalev@gmail.com>\n"
+"PO-Revision-Date: 2010-02-07 22:16+0000\n"
+"Last-Translator: moshenahmias <moshegrey@gmail.com>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -193,19 +193,19 @@ msgstr "בחר את שלך:"
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Layout:"
-msgstr ""
+msgstr "פריסה:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Variant:"
-msgstr ""
+msgstr "וריאציה:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Below is an image of your current layout:"
-msgstr ""
+msgstr "זוהי תמונה של הפריסה הנוכחית שבחרת:"
 
 #. Type: text
 #. Description
@@ -428,7 +428,7 @@ msgstr "האם אתה בטוח שברצונך לצאת מההתקנה כעת?"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Bootloader install failed"
-msgstr ""
+msgstr "התקנת מנהל האתחול נכשלה"
 
 #. Type: text
 #. Description
@@ -437,47 +437,44 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
+"מצטערים, ארעה שגיאה ובגללה לא היה ניתן להתקין את מנהל האתחול במיקום שסופק."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Choose a different device to install the bootloader on:"
-msgstr ""
+msgstr "בחר התקן שונה שעליו יותקן מנהל האתחול:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "מגדיר את מנהל ההפעלה..."
+msgstr "המשך ללא מנהל אתחול."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr ""
+msgstr "תצטרך להתקין ידנית מנהל אתחול כדי להפעיל את ${RELEASE}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "בודק את ההתקנה..."
+msgstr "בטל את ההתקנה."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "פעולה זו עלולה להשאיר את מחשבך ללא יכולת אתחול."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "כיצד ברצונך להמשיך?"
 
 #. Type: text
 #. Description
@@ -791,10 +788,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "בודק את ההתקנה..."
+msgstr "מוודא את תצורת ההתקנה..."
 
 #. Type: title
 #. Description
@@ -1098,10 +1093,8 @@ msgstr "שגיאה קרתה במהלך הסרת החבילות:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "העבר את documents and settings"
+msgstr "שגיאה בהגירת המסמכים וההגדרות"
 
 #. Type: error
 #. Description
@@ -1112,14 +1105,15 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"אירעה טעות בזמן העברת המידע. יתכן שיהיו פרטים נוספים ב־/var/log/syslog. "
+"ההתקנה תמשך, אבל יתכן שחלק או כל המסמכים וההגדרות שביקשת לא יועברו למערכת "
+"המותקנת."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "תצורת רשת"
+msgstr "שגיאה בהעתקת תצורת הרשת"
 
 #. Type: error
 #. Description
@@ -1129,6 +1123,8 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"אירעה שגיאה בזמן העתקת הגדרות הרשת. ההתקנה תמשך, אבל יהיה צורך להגדיר מחדש "
+"את הגדרות הרשת במערכת המותקנת"
 
 #. Type: text
 #. Description
@@ -1185,16 +1181,11 @@ msgstr "האם ברצונך לחזור ליוצר המחיצות?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"כמה מהמחיצות שיצרת קטנות מדי. נא וודא שהמחיצות הבאות בעלות נפח זה לפחות "
-"(בבתים):"
+"חלק מהמחיצות שיצרת קטנות מדי. אנא וודא שהמחיצות הבאות הן לפחות בגודל הזה:"
 
 #. Type: boolean
 #. Description
@@ -1280,60 +1271,50 @@ msgstr "תהליך התקנה"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "בודק את ההתקנה..."
+msgstr "בודק האם ישנם עדכונים לתכנית ההתקנה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Reading package information"
-msgstr ""
+msgstr "קורא את נתוני החבילות"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Updating package information"
-msgstr ""
+msgstr "מעדכן את נתוני החבילות"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "צעד ${INDEX} מתוך ${TOTAL}"
+msgstr "קובץ ${INDEX} מתוך ${TOTAL} ב־${SPEED}/שנייה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "צעד ${INDEX} מתוך ${TOTAL}"
+msgstr "קובץ ${INDEX} מתוך ${TOTAL}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "מתקין את המערכת"
+msgstr "מתקין עדכון"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
 msgid "Error updating installer"
-msgstr ""
+msgstr "שגיאה בעדכון תכנית ההתקנה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "ההתקנה נתקלה בשגיאה בעת העתקת הקבצים אל הדיסק הקשיח:"
+msgstr "ארעה שגיאה בנסיון לעדכן את תכנית ההתקנה:"
 
 #. Type: note
 #. Description

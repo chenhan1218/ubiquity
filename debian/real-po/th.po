@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-01-11 17:12+0000\n"
-"PO-Revision-Date: 2009-09-05 19:31+0000\n"
-"Last-Translator: Roys Hengwatanakul <roysheng@gmail.com>\n"
+"PO-Revision-Date: 2010-02-09 05:05+0000\n"
+"Last-Translator: SiraNokyoongtong <gumaraa@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -26,7 +26,7 @@ msgstr "ใช้พื้นที่ว่างต่อเนื่องท
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr ""
+msgstr "ลบและใช้พื้นที่ดิสก์ทั้งหมด"
 
 #. Type: text
 #. Description
@@ -93,7 +93,7 @@ msgstr "กรุณาเลือกภาษาที่ต้องการ
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
+msgstr "เมื่อคุณตอบคำถามเพียงไม่กี่ข้อนี้, คอมพิวเตอร์เครื่องนี้จะพร้อมใช้งาน"
 
 #. Type: text
 #. Description
@@ -101,7 +101,7 @@ msgstr ""
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
-msgstr ""
+msgstr "โปรดเลือกภาษาที่จะใช้ในการตั้งค่าระบบ ภาษาที่เลือกนี้จะเป็นภาษาปริยายของระบบ"
 
 #. Type: text
 #. Description
@@ -142,12 +142,14 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"เลือกสถานที่ที่คุณอยู่, เพื่อที่ระบบจะได้จัดการตั้งค่าต่างๆ ให้เหมาะกับประเทศของคุณ, เช่น "
+"เลือกอัพเดตจากเซอร์เวอร์ภายในประเทศของคุณ, ตั้งนาฬิกาให้ตรงตามเวลาท้องถิ่นของคุณ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "เขต:"
 
 #. Type: text
 #. Description
@@ -189,19 +191,19 @@ msgstr "คุณเลือกเอง:"
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Layout:"
-msgstr ""
+msgstr "การจัดวาง:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Variant:"
-msgstr ""
+msgstr "รายการย่อย:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Below is an image of your current layout:"
-msgstr ""
+msgstr "รูปข้างล่างแสดงการจัดวางในขณะนี้:"
 
 #. Type: text
 #. Description
@@ -278,13 +280,13 @@ msgstr "ล็อกอินโดยอัตโนมัติ"
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Require my password to log in"
-msgstr ""
+msgstr "ต้องการให้ใช้รหัสผ่าน ในการเข้าสู่ระบบ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr ""
+msgstr "ต้องการให้ใช้รหัสผ่าน ในการเข้าสู่ระบบและเข้าถึงข้อมูลในแฟ้มหลักของฉัน"
 
 #. Type: text
 #. Description
@@ -422,7 +424,7 @@ msgstr "คุณต้องการที่จะยกเลิกการ
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Bootloader install failed"
-msgstr ""
+msgstr "การติดตั้งบูตโหลดเดอร์ล้มเหลว"
 
 #. Type: text
 #. Description
@@ -430,48 +432,44 @@ msgstr ""
 msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
-msgstr ""
+msgstr "ขออภัยเกิดข้อผิดพลาด ไม่สามารถติดตั้งบูตโหลดเดอร์ในตำแหน่งที่กำหนด"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Choose a different device to install the bootloader on:"
-msgstr ""
+msgstr "เลือกอุปกรณ์อื่นสำหรับติดตั้งบูตโหลดเดอร์:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "กำลังตั้งค่าตัวบูตระบบ..."
+msgstr "ดำเนินการต่อโดยไม่ติดตั้งบูตโหลดเดอร์"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr ""
+msgstr "คุณจะต้องติดตั้งบูตโหลดเดอร์ด้วยตนเอง เพื่อเริ่ม ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "กำลังตรวจสอบการติตตั้ง..."
+msgstr "ยกเลิกการติดตั้ง"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "นี่อาจทำให้เครื่องคอมพิวเตอร์ของคุณไม่สามารถบูตได้"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "คุณจะดำเนินการอย่างไร?"
 
 #. Type: text
 #. Description
@@ -543,35 +541,35 @@ msgstr "หลัง:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:75001
 msgid "New Partition Table..."
-msgstr ""
+msgstr "ตารางพาร์ทิชันใหม่..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:76001
 msgid "Add..."
-msgstr ""
+msgstr "เพิ่ม..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:77001
 msgid "Change..."
-msgstr ""
+msgstr "เปลี่ยน..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:78001
 msgid "Delete"
-msgstr ""
+msgstr "ลบ"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:79001
 msgid "Revert"
-msgstr ""
+msgstr "แปลงกลับ"
 
 #. Type: text
 #. Description
@@ -785,10 +783,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "กำลังตรวจสอบการติตตั้ง..."
+msgstr "กำลังตรวจสอบการกำหนดค่าสำหรับการติดตั้ง..."
 
 #. Type: title
 #. Description
@@ -818,7 +814,7 @@ msgstr "กำลังคัดลอกไฟล์..."
 #. Description
 #: ../ubiquity.templates:116001
 msgid "Almost finished copying files..."
-msgstr ""
+msgstr "การคัดลอกแฟ้มใกล้เสร็จ..."
 
 #. Type: error
 #. Description
@@ -1091,10 +1087,8 @@ msgstr "เกิดข้อผิดพลาดขณะเอาแพคเ
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "ขนย้ายเอกสารและปรับแต่ง"
+msgstr "เกิดข้อผิดพลาด ในการย้ายเอกสารและการตั้งค่า"
 
 #. Type: error
 #. Description
@@ -1105,14 +1099,14 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"เกิดข้อผิดพลาดในขณะย้ายข้อมูล ดูข้อมูลเพิ่มเติมได้จากแฟ้ม /var/log/syslog "
+"การติดตั้งจะดำเนินการต่อ แต่เอกสารบางอย่างที่คุณกำหนดอาจไม่ถูกติดตั้ง"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "ปรับแต่งระบบเครือข่าย"
+msgstr "เกิดข้อผิดพลาดระหว่างการคัดลอกค่าปรับแต่งเครือข่าย"
 
 #. Type: error
 #. Description
@@ -1122,6 +1116,8 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"เกิดข้อผิดพลาดระหว่างการคัดลอกการตั้งค่าเครือข่าย การติดตั้งจะดำเนินการต่อไป "
+"แต่ค่าปรับแต่งเครือข่ายจะต้องถูกตั้งใหม่หลักจากติดตั้งระบบเสร็จ"
 
 #. Type: text
 #. Description
@@ -1178,16 +1174,10 @@ msgstr "คุณต้องการกลับไปยังตัวจั
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
-msgstr ""
-"ตารางพื้นที่ที่ถูกสร้างขึ้นมามีขนาดเล็กเกินไป โปรดแก้ไขตารางพื้นที่ดังกล่าวให้มีขนาดอย่างน้อย "
-"(หน่วยเป็นไบต์)"
+msgstr "บางพาร์ทิชันที่คุณสร้างเล็กเกินไป โปรดปรับขนาดพาร์ทิชันให้มีขนาดอย่างน้อย:"
 
 #. Type: boolean
 #. Description
@@ -1231,101 +1221,91 @@ msgstr "กำลังปรับแต่ง"
 #. Description
 #: ../ubiquity.templates:173001
 msgid "Language"
-msgstr ""
+msgstr "ภาษา"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:174001
 msgid "Timezone"
-msgstr ""
+msgstr "เขตเวลา"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:175001
 msgid "Keyboard"
-msgstr ""
+msgstr "แป้นพิมพ์"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:176001
 msgid "Disk Setup"
-msgstr ""
+msgstr "ตั้งค่าดิสก์"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:177001
 msgid "User Info"
-msgstr ""
+msgstr "ข้อมูลผู้ใช้"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:178001
 msgid "Summary"
-msgstr ""
+msgstr "ภาพรวม"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:180001
 msgid "installation process"
-msgstr ""
+msgstr "กระบวนการติดตั้ง"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "กำลังตรวจสอบการติตตั้ง..."
+msgstr "กำลังตรวจหาตัวติดตั้งที่ใหม่กว่า"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Reading package information"
-msgstr ""
+msgstr "กำลังอ่านข้อมูลของแพคเกจ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Updating package information"
-msgstr ""
+msgstr "กำลังปรับข้อมูลแพกเกจ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "ขั้นที่ ${INDEX} จาก ${TOTAL}"
+msgstr "แฟ้ม ${INDEX} จากทั้งหมด ${TOTAL} ด้วยความเร็ว ${SPEED}/s"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "ขั้นที่ ${INDEX} จาก ${TOTAL}"
+msgstr "แฟ้ม ${INDEX} จากทั้งหมด ${TOTAL}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "กำลังติดตั้งระบบ"
+msgstr "กำลังติดตั้งของใหม่"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
 msgid "Error updating installer"
-msgstr ""
+msgstr "พบข้อผิดพลาดระหว่างการปรับปรุงตัวติดตั้ง"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "โปรแกรมติดตั้งไม่สามารถคัดลอกไฟล์ลงฮาร์ดดิสก์ได้์:"
+msgstr "ตัวติดตั้งพบข้อผิดพลาดขณะปรับข้อมูลตัวเอง:"
 
 #. Type: note
 #. Description

@@ -39,6 +39,7 @@ my @basebd = (
     'po-debconf (>= 1.0)',
     'python-central (>= 0.5)',
     'xkb-data (>= 0.9)',
+    'xkb-data-i18n',
 );
 my $basebd = join ', ', @basebd;
 my $parsed = Dpkg::Deps::parse($basebd, reduce_arch => 1);

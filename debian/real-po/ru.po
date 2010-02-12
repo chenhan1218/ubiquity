@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-01-11 17:12+0000\n"
-"PO-Revision-Date: 2009-10-07 17:30+0000\n"
-"Last-Translator: Артём Попов <artfwo@gmail.com>\n"
+"PO-Revision-Date: 2010-02-09 10:51+0000\n"
+"Last-Translator: Sergey \"Shnatsel\" Davidoff <Shnatsel@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -26,19 +26,19 @@ msgstr "Использовать наибольшее непрерывное с�
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr "Стереть и использовать весь диск"
+msgstr "Стереть всё и использовать весь диск"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr "Устанавливать их все вместе, выбирать нужное при каждом запуске"
+msgstr "Установить их все вместе и выбирать нужную систему при каждом запуске"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr "Указать разделы вручную (расширенно)"
+msgstr "Указать разделы вручную (для опытных пользователей)"
 
 #. Type: text
 #. Description
@@ -69,9 +69,8 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Уже готовы для установки? Ответив на несколько вопросов, вы можете "
-"установить содержимое живого CD на этот компьютер, и вы сможете запускать "
-"систему быстрее и без живого CD"
+"Готовы к установке? Ответив на несколько вопросов, вы сможете установить "
+"систему себе на компьютер и работать быстрее, не используя при этом CD диск."
 
 #. Type: text
 #. Description
@@ -79,7 +78,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:10001 ../ubiquity.templates:11001
 msgid "Answering the questions should only take a few minutes."
-msgstr "Вопросы займут несколько минут."
+msgstr "Вопросы займут всего пару минут."
 
 #. Type: text
 #. Description
@@ -97,7 +96,7 @@ msgstr ""
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
 "После того, как вы ответите на несколько вопросов, этот компьютер будет "
-"готов к использованию."
+"готов к работе."
 
 #. Type: text
 #. Description
@@ -106,7 +105,7 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Пожалуйста, выберите язык используемый для процесса конфигурации. Этот язык "
+"Пожалуйста, выберите язык используемый для настройки системы. Этот язык "
 "будет установлен языком по умолчанию для этого компьютера."
 
 #. Type: text
@@ -129,7 +128,7 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
-"Если у вас есть доступ в сеть интернет, прочтите информацию о проблемах, с "
+"Если у вас есть доступ в Интернет, прочтите информацию о проблемах, с "
 "которыми вы можете столкнуться, в сведениях о релизе."
 
 #. Type: text
@@ -160,7 +159,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr "Зона:"
+msgstr "Пояс:"
 
 #. Type: text
 #. Description
@@ -178,13 +177,13 @@ msgstr "Раскладка клавиатуры"
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Какая раскладка больше подходит к вашей клавиатуре?"
+msgstr "Какая раскладка больше подходит вашей клавиатуре?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "Вы можете писать в этом поле чтобы проверить вашу раскладку."
+msgstr "Для проверки выбранной раскладки напечатайте что-нибудь в этом поле."
 
 #. Type: text
 #. Description
@@ -241,14 +240,14 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Если этот компьютер используется больше чем одним человеком, вы можете "
-"создать дополнительные записи после установки."
+"Если этот компьютер используется больше чем одним человеком, то вы можете "
+"создать дополнительные учётные записи после установки."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Choose a password to keep your account safe."
-msgstr "Придумайте пароль чтобы держать вашу запись в сохранности"
+msgstr "Выберите пароль для вашей учётной записи."
 
 #. Type: text
 #. Description
@@ -267,13 +266,13 @@ msgid ""
 msgstr ""
 "Введите пароль дважды  (для обнаружения возможной ошибки ввода). Безопасный "
 "пароль должен иметь не менее восьми символов и содержать буквы, цифры и "
-"знаки пунктуации. Кроме этого пароль должен переодически меняться."
+"знаки пунктуации. Кроме этого пароль должен периодически меняться."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "What is the name of this computer?"
-msgstr "Имя этого компьютера?"
+msgstr "Название этого компьютера?"
 
 #. Type: text
 #. Description
@@ -281,7 +280,8 @@ msgstr "Имя этого компьютера?"
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr "Это имя будет использовано, если вы сделаете компьютер видимым в сети."
+msgstr ""
+"Это название будет использовано, если вы сделаете компьютер видимым в сети."
 
 #. Type: text
 #. Description
@@ -344,13 +344,13 @@ msgstr "Подготовка дискового пространства"
 #. Description
 #: ../ubiquity.templates:43001
 msgid "How do you want to partition the disk?"
-msgstr "Как вы желаете сделать разметку диска?"
+msgstr "Как вы хотите разметить диск?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "This computer has no operating systems on it."
-msgstr "На этом компьютере не установлено никаких операционных систем."
+msgstr "На этом компьютере не установлено операционных систем."
 
 #. Type: text
 #. Description
@@ -381,7 +381,7 @@ msgstr "Подготовка разделов диска"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:49001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr "Будет удалено ${SYSTEMS} и установлено ${RELEASE}."
+msgstr "Это удалит ${SYSTEMS} и установит ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -456,42 +456,38 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Choose a different device to install the bootloader on:"
-msgstr ""
+msgstr "Выбрать другое устройство для установки загрузчика:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "Настройка загрузчика..."
+msgstr "Продолжить без загрузчика"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr ""
+msgstr "Вам придётся установить загрузчик вручную для запуска ${RELEASE}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "Проверка установки..."
+msgstr "Отменить установку."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "В результате ваш компьютер может перестать загружаться."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "Как Вы хотите продолжить?"
 
 #. Type: text
 #. Description
@@ -809,10 +805,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "Проверка установки..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -842,7 +836,7 @@ msgstr "Копирование файлов..."
 #. Description
 #: ../ubiquity.templates:116001
 msgid "Almost finished copying files..."
-msgstr "Почти закончил копирование файлов..."
+msgstr "Копирование файлов (почти готово)..."
 
 #. Type: error
 #. Description
@@ -871,7 +865,7 @@ msgstr "Ошибка установки"
 #: ../ubiquity.templates:117001 ../ubiquity.templates:118001
 #: ../ubiquity.templates:119001 ../ubiquity.templates:120001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr "Установщик обнаружил проблему при копировании файлов на жесткий диск:"
+msgstr "Возникла проблема при копировании файлов на жесткий диск:"
 
 #. Type: error
 #. Description
@@ -1003,7 +997,7 @@ msgstr "Настройка сети..."
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Setting computer name..."
-msgstr "Установка имени компьютера..."
+msgstr "Установка названия компьютера..."
 
 #. Type: text
 #. Description
@@ -1083,7 +1077,7 @@ msgstr "В процессе установки пакетов произошла
 #. Description
 #: ../ubiquity.templates:144001 ../ubiquity.templates:145001
 msgid "The following packages are in a broken state:"
-msgstr "Следующие пакеты находятся в поврежденном состоянии:"
+msgstr "Эти пакеты повреждены:"
 
 #. Type: error
 #. Description
@@ -1100,11 +1094,11 @@ msgid ""
 "distributor."
 msgstr ""
 "Это могло случиться по причине использования устаревшего установочного "
-"образа, или вследствие ошибки в некоторых пакетах, перечисленных выше. Более "
+"образа или из-за ошибки в некоторых пакетах, перечисленных выше. Более "
 "подробную информацию можно найти в файле /var/log/syslog. Установщик "
 "попытается продолжить работу несмотря на это, но при этом позднее может "
 "снова потерпеть неудачу. В результате он будет не в состоянии установить или "
-"удалить другие пакеты (возможно, включая себя же) установленной системы. "
+"удалить другие пакеты установленной системы (возможно, включая себя же). "
 "Следует, прежде всего, поискать более новые версии установочного образа, "
 "либо отправить отчет с ошибкой вашему поставщику."
 
@@ -1123,10 +1117,8 @@ msgstr "Произошла ошибка при удалении пакетов:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Перенос документов и настроек"
+msgstr "Ошибка при переносе документов и настроек"
 
 #. Type: error
 #. Description
@@ -1141,10 +1133,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "Конфигурация сети"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1154,6 +1144,8 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"Произошла ошибка при копировании настроек сети.  Установка продолжится, но "
+"сеть должна будет быть настроена ещё раз в установленной системе."
 
 #. Type: text
 #. Description
@@ -1213,16 +1205,12 @@ msgstr "Вернуться к программе разметки?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Некоторые созданные разделы слишком малы. Убедитесь, что следующие разделы "
-"имеют необходимо минимальный размер (в байтах):"
+"Некоторые разделы, которые Вы создали, слишком малы.  Пожалуйста, сделайте "
+"следующие разделы не меньше, чем:"
 
 #. Type: boolean
 #. Description
@@ -1309,46 +1297,38 @@ msgstr "процесс установки"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "Проверка установки..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Reading package information"
-msgstr ""
+msgstr "Чтение информации о пакете"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Updating package information"
-msgstr ""
+msgstr "Обновление информации о пакете"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Шаг ${INDEX} из ${TOTAL}"
+msgstr "Файл ${INDEX} из ${TOTAL} на скорости ${SPEED}/с"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "Шаг ${INDEX} из ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Установка системы"
+msgstr "Установка обновления"
 
 #. Type: text
 #. Description
@@ -1359,10 +1339,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "Установщик обнаружил проблему при копировании файлов на жесткий диск:"
+msgstr ""
 
 #. Type: note
 #. Description

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-01-11 17:12+0000\n"
-"PO-Revision-Date: 2009-10-16 17:33+0000\n"
+"PO-Revision-Date: 2009-10-20 22:49+0000\n"
 "Last-Translator: Shushi Kurose <md81bird@hitaki.net>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:00+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -467,10 +467,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "ブートローダを設定しています..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -482,10 +480,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "インストールをチェックしています..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -815,10 +811,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "インストールをチェックしています..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1126,10 +1120,8 @@ msgstr "パッケージの削除中に1件のエラーが発生しました"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "ドキュメントと設定のインポート"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1144,10 +1136,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "ネットワーク設定"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1217,16 +1207,10 @@ msgstr "partitionerに戻りますか？"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"作成したパーティションのうち、いくつかのパーティションが小さすぎます．次の"
-"パーティションを少なくともこのサイズにしてください (バイトで):"
 
 #. Type: boolean
 #. Description
@@ -1313,10 +1297,8 @@ msgstr "インストール処理"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "インストールをチェックしています..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1333,26 +1315,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "ステップ ${INDEX} / ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "ステップ ${INDEX} / ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "システムをインストール中"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1363,10 +1339,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "ハードディスクにファイルをコピー中にエラーが発生しました:"
+msgstr ""
 
 #. Type: note
 #. Description

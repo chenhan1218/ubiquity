@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-01-11 17:12+0000\n"
-"PO-Revision-Date: 2009-09-05 19:32+0000\n"
-"Last-Translator: dequan <mridzuanm@gmail.com>\n"
+"PO-Revision-Date: 2009-10-31 17:00+0000\n"
+"Last-Translator: Mohd Farimi Ab Rahman <Unknown>\n"
 "Language-Team: Malay <ms@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:00+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -27,7 +27,7 @@ msgstr "Gunakan ruang kosong berturutan yang paling besar"
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr ""
+msgstr "Padam dan gunakan seluruh disk"
 
 #. Type: text
 #. Description
@@ -39,7 +39,7 @@ msgstr "Pasang mereka seiringan, pilih antara mereka disetiap permulaan"
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr "Tetapkan paritition secara manual (pakar)"
+msgstr "Tetapkan pembahagian secara manual (pakar)"
 
 #. Type: text
 #. Description
@@ -97,6 +97,8 @@ msgstr ""
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
+"Sebaik sahaja anda menjawab beberapa  soalan,komputer ini sedia untuk "
+"digunakan."
 
 #. Type: text
 #. Description
@@ -105,6 +107,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
+"Sila pilih bahasa untuk proses pengaturan. Bahasa ini akan digunakan sebagai "
+"bahasa piawai untuk komputer ini."
 
 #. Type: text
 #. Description
@@ -148,12 +152,16 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"Sila pilih lokasi anda,supaya sistem ini dapat menggunakan paparan singkatan "
+"yang sepatutnya untuk negara anda, memuat-turun kemaskini dari laman web "
+"yang paling hampir dengan anda,dan aturkan jam pada waktu tempatan yang "
+"sepatutnya."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Zone:"
-msgstr ""
+msgstr "Zon"
 
 #. Type: text
 #. Description
@@ -293,13 +301,13 @@ msgstr "Log masuk secara automatik"
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Require my password to log in"
-msgstr ""
+msgstr "Memerlukan password untuk masuk"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr ""
+msgstr "Memerlukan password untuk masuk dan membuka folder home"
 
 #. Type: text
 #. Description
@@ -362,7 +370,7 @@ msgstr "Komputer ini mempunyai ${OS} di dalamnya."
 #. Description
 #: ../ubiquity.templates:46001
 msgid "This computer has several operating systems on it."
-msgstr "Komputer ini mempunyai beberap sistem operasi di dalamnya."
+msgstr "Komputer ini mempunyai beberapa sistem operasi di dalamnya."
 
 #. Type: text
 #. Description
@@ -461,10 +469,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "Mengkonfigurasi pemuat boot..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -476,10 +482,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "Memeriksa pemasangan..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -515,7 +519,7 @@ msgstr "Teruskan Pengujian"
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Restart Now"
-msgstr "Mula Semula Sekarang"
+msgstr "Ulangmula Sekarang"
 
 #. Type: text
 #. Description
@@ -564,35 +568,35 @@ msgstr "Selepas:"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:75001
 msgid "New Partition Table..."
-msgstr ""
+msgstr "Jadual Partisi Baru..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:76001
 msgid "Add..."
-msgstr ""
+msgstr "Tambah..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:77001
 msgid "Change..."
-msgstr ""
+msgstr "Ubah..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:78001
 msgid "Delete"
-msgstr ""
+msgstr "Padam"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:79001
 msgid "Revert"
-msgstr ""
+msgstr "Kembali Ke Asal"
 
 #. Type: text
 #. Description
@@ -808,10 +812,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "Memeriksa pemasangan..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -835,13 +837,13 @@ msgstr "Mengimbas fail..."
 #. Description
 #: ../ubiquity.templates:115001
 msgid "Copying files..."
-msgstr "Menyalin fail..."
+msgstr "Menyalin fail-fail..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:116001
 msgid "Almost finished copying files..."
-msgstr ""
+msgstr "Proses menyalin fail hampir selesai..."
 
 #. Type: error
 #. Description
@@ -870,7 +872,7 @@ msgstr "Instalasi Gagal"
 #: ../ubiquity.templates:117001 ../ubiquity.templates:118001
 #: ../ubiquity.templates:119001 ../ubiquity.templates:120001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr "Pemasang menghadapi ralat ketika menyalin fail ke dalam cakera keras:"
+msgstr "Pemasang menjumpai ralat ketika menyalin fail ke dalam cakera keras:"
 
 #. Type: error
 #. Description
@@ -880,9 +882,9 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"Ini disebabkan kekurangan ruang kosong bagi pelengkapan instalasi pada "
-"pembahagian yang dipilih. Sila jalankan pemasang perisian semula dan memilih "
-"pembahagian yang mempunyai ruang yang mencukupi."
+"Ini adalah disebabkan tiada ruang kosong yang mencukupi untuk menyelesaikan "
+"proses pemasangan pada bahagian yang telah dipilih. Cuba pasang sekali lagi "
+"dan pilih bahagian yang lebih besar."
 
 #. Type: error
 #. Description
@@ -905,9 +907,9 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Ini biasanya disebabkan hard disk yang rosak. Ia mungkin membantu untuk "
-"memeriksa sama ada hard disk tersebut lama atau memerlukan penggantian, atau "
-"meletakkan sistem pada tempat yang lebih sejuk."
+"Ini biasanya disebabkan oleh hard disk yang rosak.Cuba periksa samada hard "
+"disk itu sudah terlalu lama dan perlu diganti, atau memindahkan sistem pada "
+"kawasan yang lebih sejuk."
 
 #. Type: error
 #. Description
@@ -1122,10 +1124,8 @@ msgstr "Ralat berlaku semasa mengeluarkan pakej"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Pindahkan dokumen dan tetapan"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1209,16 +1209,10 @@ msgstr "Adakah anda ingin pulang ke pembahagi?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Beberapa pembahagian yang anda menciptakan terlalu kecil. Sila jadikan "
-"pembahagian berikut sekurang-kurangnya sebesar ini (didalam byte):"
 
 #. Type: boolean
 #. Description
@@ -1234,7 +1228,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:168001
 msgid "System Configuration"
-msgstr ""
+msgstr "Tetapan Sistem"
 
 #. Type: text
 #. Description
@@ -1246,69 +1240,67 @@ msgstr "Pilih bahasa"
 #. Description
 #: ../ubiquity.templates:170001
 msgid "Network configuration"
-msgstr ""
+msgstr "Aturan Rangkaian"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:171001
 msgid "Software selection"
-msgstr ""
+msgstr "Pilihan Perisian"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:172001
 msgid "Applying configuration"
-msgstr ""
+msgstr "Menerapkan aturan"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:173001
 msgid "Language"
-msgstr ""
+msgstr "Bahasa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:174001
 msgid "Timezone"
-msgstr ""
+msgstr "Zonmasa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:175001
 msgid "Keyboard"
-msgstr ""
+msgstr "Papan Kekunci"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:176001
 msgid "Disk Setup"
-msgstr ""
+msgstr "Aturan Cakera"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:177001
 msgid "User Info"
-msgstr ""
+msgstr "Maklumat Pengguna"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:178001
 msgid "Summary"
-msgstr ""
+msgstr "Ringkasan"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:180001
 msgid "installation process"
-msgstr ""
+msgstr "proses pemasangan"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "Memeriksa pemasangan..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1325,26 +1317,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Langkah ${INDEX} dari ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "Langkah ${INDEX} dari ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Memasang sistem"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1355,10 +1341,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "Pemasang menghadapi ralat ketika menyalin fail ke dalam cakera keras:"
+msgstr ""
 
 #. Type: note
 #. Description

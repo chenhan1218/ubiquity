@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:00+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -464,10 +464,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "Stilli ræsistjóra..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -479,10 +477,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "Athuga uppsetninguna..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -811,10 +807,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "Athuga uppsetninguna..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1124,10 +1118,8 @@ msgstr "Villa kom upp við að fjarlægja pakka:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Flytja gögn og stillingar"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1142,10 +1134,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "Netstillingar"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1212,16 +1202,10 @@ msgstr "Viltu fara aftur yfir í sneiðastjórann?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Sumar sneiðarnar sem þú bjóst til eru of litlar. Gerðu eftirfarandi sneiðar "
-"a.m.k. svona stórar (í bætum):"
 
 #. Type: boolean
 #. Description
@@ -1308,10 +1292,8 @@ msgstr "uppsetningarferli"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "Athuga uppsetninguna..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1328,26 +1310,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Hluti ${INDEX} af ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "Hluti ${INDEX} af ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Set upp kerfið"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1358,10 +1334,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "Villa kom upp í uppsetningu við það að afrita skrár á harða diskinn:"
+msgstr ""
 
 #. Type: note
 #. Description

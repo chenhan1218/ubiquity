@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-01-11 17:12+0000\n"
-"PO-Revision-Date: 2009-10-07 17:30+0000\n"
-"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
+"PO-Revision-Date: 2010-02-05 11:02+0000\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -69,8 +69,8 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"¿Está listo para instalar? Unha vez que conteste a unhas preguntas, os "
-"contidos do \"live CD\" poderán ser instalados neste computador de xeito que "
+"Está listo para instalar? Unha vez que conteste a unhas preguntas, os "
+"contidos do «live CD» poderán ser instalados neste computador de xeito que "
 "poida executar o sistema á máxima velocidade e sen o CD."
 
 #. Type: text
@@ -96,8 +96,8 @@ msgstr ""
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
-"Logo de respostar algunhas preguntas ese computador estará lista para "
-"empregar."
+"Logo de responder algunhas preguntas ese computador estará lista para ser "
+"empregado."
 
 #. Type: text
 #. Description
@@ -106,8 +106,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Seleccione a linguaxe que quere empregar para o proceso de configuración. "
-"Esta linguaxe será a linguaxe predefinida para este computador."
+"Seleccione o idioma que quere empregar para o proceso de configuración. Este "
+"idiomae será o idioma predefinido para este computador."
 
 #. Type: text
 #. Description
@@ -118,7 +118,7 @@ msgid ""
 "and can be used to help with bug reports."
 msgstr ""
 "Está instalando o sistema en modo para fabricantes. Por favor introduza un "
-"nome único para este conxunto de sistemas.EIste nome gardarase no sistema "
+"nome único para este conxunto de sistemas.Este nome gardarase no sistema "
 "instalado e serviralle de axuda para os informes de erros."
 
 #. Type: text
@@ -135,13 +135,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Release Notes"
-msgstr "Notas da revisión"
+msgstr "Notas da publicación"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "Where are you?"
-msgstr "¿Onde está?"
+msgstr "Onde está?"
 
 #. Type: text
 #. Description
@@ -151,9 +151,9 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
-"Seleccione a súa localización, para que o sistema mostrar as convencións "
-"axeitadas ao seu país, recoller actualizacións dende os lugares máis "
-"próximos a vostede e configurar o reloxo á hora local correcta."
+"Seleccione a súa localización, para que o sistema poida mostrar as "
+"convencións axeitadas ao seu país, recoller actualizacións dende os lugares "
+"máis próximos a vostede e configurar o reloxo á hora local correcta."
 
 #. Type: text
 #. Description
@@ -201,37 +201,37 @@ msgstr "Escolla a súa:"
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Layout:"
-msgstr ""
+msgstr "Disposición:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Variant:"
-msgstr ""
+msgstr "Variante:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Below is an image of your current layout:"
-msgstr ""
+msgstr "A seguir mostrase unha imaxe do seu deseño actual:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Who are you?"
-msgstr "¿Quen é vostede?"
+msgstr "Quen é vostede?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
 msgid "What is your name?"
-msgstr "¿Como se chama?"
+msgstr "Como se chama?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "What name do you want to use to log in?"
-msgstr "¿Que nome quere usar para iniciar a sesión?"
+msgstr "Que nome quere usar para iniciar sesión?"
 
 #. Type: text
 #. Description
@@ -240,7 +240,7 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Se este computador vai ser usada por máis dunha persoa, pode configurar "
+"Se este computador vai ser usado por máis dunha persoa, pode configurar "
 "varias contas despois da instalación."
 
 #. Type: text
@@ -254,7 +254,7 @@ msgstr "Elixa un contrasinal para asegurar a súa conta."
 #: ../ubiquity.templates:32001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
-"Vostede está executando o sistema en modo de depuración. ¡Non use un "
+"Vostede está a executar o sistema en modo de depuración. Non use un "
 "contrasinal valioso!"
 
 #. Type: text
@@ -268,8 +268,8 @@ msgid ""
 msgstr ""
 "Escriba dúas veces o mesmo contrasinal para comprobar que non se equivoca ao "
 "escribilo. Un contrasinal bon contén unha mestura de letras, números e "
-"puntuación, ha de ter cando menos oito caracteres e habería que modificalo a "
-"intervalos regulares."
+"signos de puntuación, ha de ter cando menos oito caracteres e habería que "
+"modificalo a intervalos regulares."
 
 #. Type: text
 #. Description
@@ -348,7 +348,7 @@ msgstr "Preparar o espazo no disco"
 #. Description
 #: ../ubiquity.templates:43001
 msgid "How do you want to partition the disk?"
-msgstr "¿Como quere particionar o disco?"
+msgstr "Como quere particionar o disco?"
 
 #. Type: text
 #. Description
@@ -433,19 +433,19 @@ msgstr "Paso ${INDEX} de ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Quit the installation?"
-msgstr "Cancela-la instalación"
+msgstr "Saír da instalación?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Do you really want to quit the installation now?"
-msgstr "Seguro de desexas cancela-la instalación?"
+msgstr "Quere realmente saír da instalación agora?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Bootloader install failed"
-msgstr ""
+msgstr "Fallou a instalación do xestor de arranque"
 
 #. Type: text
 #. Description
@@ -454,20 +454,20 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
+"Sentimolo, ocorreu un erro e non foi posíbel instalar o xestor de arranque "
+"na ubicación indicada."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Choose a different device to install the bootloader on:"
-msgstr ""
+msgstr "Elixa un dispositivo diferente para instalar o xestor de arranque en:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "A configurar o xestor de inicio..."
+msgstr "Continuar sen xestor de arranque."
 
 #. Type: text
 #. Description
@@ -475,32 +475,32 @@ msgstr "A configurar o xestor de inicio..."
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
+"Necesitará instalar manualmente un xestor de arranque para iniciar "
+"${RELEASE}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "Comprobando a instalación..."
+msgstr "Cancelar a instalación."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "Isto pode provocar que o seu equipo non poida arrancar."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "Cómo lle gustaría continuar?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Skip"
-msgstr "Saltar"
+msgstr "Ignorar"
 
 #. Type: title
 #. Description
@@ -715,7 +715,7 @@ msgstr "Opcións avanzadas"
 #. Description
 #: ../ubiquity.templates:98001
 msgid "Boot loader"
-msgstr "Cargador de inicio"
+msgstr "Cargador de arranque"
 
 #. Type: text
 #. Description
@@ -770,7 +770,7 @@ msgstr ""
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:106001
 msgid "Go Back"
-msgstr "Voltar"
+msgstr "Volver atrás"
 
 #. Type: text
 #. Description
@@ -812,10 +812,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "Comprobando a instalación..."
+msgstr "Verificando a configuración da instalación..."
 
 #. Type: title
 #. Description
@@ -886,7 +884,7 @@ msgid ""
 "a larger partition to install into."
 msgstr ""
 "Isto débese a que non hai espazo abondo na partición seleccionada para que "
-"se complete a instalación. Inicia o instalador outra vez e selecciona unha "
+"se complete a instalación. Inicie o instalador outra vez e seleccione unha "
 "partición maior na que realizar a instalación."
 
 #. Type: error
@@ -958,31 +956,31 @@ msgstr "Configurando o sistema destino..."
 #. Description
 #: ../ubiquity.templates:124001
 msgid "Configuring system locales..."
-msgstr "A configurar as 'localizacións' do sistema..."
+msgstr "Configurando as «localizacións» do sistema..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:125001
 msgid "Configuring apt..."
-msgstr "A configurar apt..."
+msgstr "Configurando apt..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:126001
 msgid "Configuring time zone..."
-msgstr "A configurar o fuso horario..."
+msgstr "Configurando o fuso horario..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:127001
 msgid "Configuring keyboard..."
-msgstr "A configurar o teclado..."
+msgstr "Configurando o teclado..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:128001
 msgid "Creating user..."
-msgstr "A crear o usuario..."
+msgstr "Creando o usuario..."
 
 #. Type: text
 #. Description
@@ -994,31 +992,31 @@ msgstr "Importando documentos e configuracións..."
 #. Description
 #: ../ubiquity.templates:130001
 msgid "Configuring hardware..."
-msgstr "A configurar o hardware..."
+msgstr "Configurando o hardware..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:131001
 msgid "Configuring network..."
-msgstr "A configurar a rede..."
+msgstr "Configurando a rede..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Setting computer name..."
-msgstr "A establecer o nome do computador..."
+msgstr "Estabelecendo o nome do computador..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Configuring boot loader..."
-msgstr "A configurar o xestor de inicio..."
+msgstr "Configurando o xestor de inicio..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Installing additional packages..."
-msgstr "A instalar paquetes adicionais"
+msgstr "Instalando paquetes adicionais"
 
 #. Type: text
 #. Description
@@ -1030,13 +1028,13 @@ msgstr "Comprobando os paquetes a instalar..."
 #. Description
 #: ../ubiquity.templates:136001
 msgid "Removing extra packages..."
-msgstr "A desinstalar os paquetes extra..."
+msgstr "Desinstalando os paquetes extra..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Checking for packages to remove..."
-msgstr "A comprobar os paquetes a desinstalar..."
+msgstr "Configurando os paquetes a desinstalar..."
 
 #. Type: text
 #. Description
@@ -1060,13 +1058,13 @@ msgstr "Descargando as listas de paquetes (quedan ${TIME})..."
 #. Description
 #: ../ubiquity.templates:142001
 msgid "Error installing ${PACKAGE}"
-msgstr "Erro instalando ${PACKAGE}"
+msgstr "Erro ao instalar ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:143001
 msgid "Error removing ${PACKAGE}"
-msgstr "Erro desinstalando ${PACKAGE}"
+msgstr "Erro ao desinstalar ${PACKAGE}"
 
 #. Type: error
 #. Description
@@ -1107,7 +1105,7 @@ msgstr ""
 "var/log/syslog. O instalador tratará de continuar de todos modos, pero pode "
 "fallar máis tarde, e non ser capaz de instalar ou eliminar outros paquetes "
 "(posiblemente incluso el mesmo) do sistema instalado. Debería antes buscar "
-"unha versión máis nova da imaxe de instalación, o mandar o reporte do "
+"unha versión máis nova da imaxe de instalación, o mandar o informe do "
 "problema ao seu distribuidor."
 
 #. Type: error
@@ -1125,10 +1123,8 @@ msgstr "Ocurríu un erro ao eliminar paquetes:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Migrar os documentos e configuracións"
+msgstr "Ocorreu un erro migrando documentos e configuracións"
 
 #. Type: error
 #. Description
@@ -1139,14 +1135,16 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"Ocoreu un erro durante a migración de datos. Pode atopar máis detalles en /"
+"var/log/syslog. A instalación continuará, pero algúns ou todos os documentos "
+"e configuracións que vostede solicitou non foron transferidos ao sistema "
+"instalado."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "Configuración da rede"
+msgstr "Ocorreu un erro ao copiar a configuración da rede"
 
 #. Type: error
 #. Description
@@ -1156,12 +1154,15 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"Ocorreu un erro ao copiar a configuración da rede. A instalación continuará, "
+"pero a configuración da rede terá que ser creada de novo no sistema "
+"instalado."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:151001
 msgid "Calculating files to skip copying..."
-msgstr "A calcular os ficheiros que se omitirán ao copiar..."
+msgstr "Calculando os ficheiros que se omitirán ao copiar..."
 
 #. Type: title
 #. Description
@@ -1197,33 +1198,29 @@ msgstr ""
 #: ../ubiquity.templates:161001
 msgid "Please close any applications using these mount points."
 msgstr ""
-"Por favor, peche as aplicación que estean usando estes puntos de montaxe."
+"Por favor, peche os aplicativos que estean usando estes puntos de montaxe."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr "¿Desexa que o instalador tente desmontar outra vez estas particións?"
+msgstr "Desexa que o instalador tente desmontar outra vez estas particións?"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
 msgid "Do you want to return to the partitioner?"
-msgstr "Quere voltar ao particionador?"
+msgstr "Quere volver ao particionador?"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Algunhas das particións creadas son demasiado pequenas. Por favor, faga as "
-"seguintes particións polo menos deste tamaño (en bytes):"
+"Algunhas das particións creadas son demasiado pequenas. Faga as particións "
+"polo menos do tamaño:"
 
 #. Type: boolean
 #. Description
@@ -1232,7 +1229,7 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
-"Se volta ao particionador para incrementar o tamaño desas particións, a "
+"Se non volve ao particionador para incrementar o tamaño desas particións, a "
 "instalación pode fallar."
 
 #. Type: text
@@ -1245,7 +1242,7 @@ msgstr "Configuración do sistema"
 #. Description
 #: ../ubiquity.templates:169001
 msgid "Choose language"
-msgstr "Escolla unha lingua/Choose language"
+msgstr "Escolla un idioma/Choose language"
 
 #. Type: text
 #. Description
@@ -1263,7 +1260,7 @@ msgstr "Selección do software"
 #. Description
 #: ../ubiquity.templates:172001
 msgid "Applying configuration"
-msgstr "A aplicar a configuración"
+msgstr "Aplicando a configuración"
 
 #. Type: text
 #. Description
@@ -1310,61 +1307,50 @@ msgstr "proceso de instalación"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "Comprobando a instalación..."
+msgstr "Comprobando actualizacóns do instalador"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Reading package information"
-msgstr ""
+msgstr "Lendo a información do paquete"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Updating package information"
-msgstr ""
+msgstr "Actualizando a información do paquete"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Paso ${INDEX} de ${TOTAL}"
+msgstr "Ficheiro ${INDEX} de ${TOTAL} a ${SPEED}/s"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "Paso ${INDEX} de ${TOTAL}"
+msgstr "Ficheiro ${INDEX} de ${TOTAL}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Instalando o sistema"
+msgstr "Instalando a actualización"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
 msgid "Error updating installer"
-msgstr ""
+msgstr "Ocorreu un erro ao actualizar o instalador"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr ""
-"O programa de instalación atopou un erro copiando ficheiros ao disco duro:"
+msgstr "O instalador atopou un erro ao tentar actualizarse:"
 
 #. Type: note
 #. Description
@@ -1382,7 +1368,7 @@ msgid ""
 " Services: ${SERVICES}"
 msgstr ""
 " Tipo de instalación: ${INSTALLTYPE}\n"
-" Lingua: ${LANGUAGE}\n"
+" Idioma: ${LANGUAGE}\n"
 " Distribución do teclado: ${KEYMAP}\n"
 " Nome: ${FULLNAME}\n"
 " Nome de usuario: ${USERNAME}\n"
@@ -1486,7 +1472,7 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
-"Unha máquina só con frontend está pensada para recibi-lo contido multimedia "
+"Unha máquina só con frontend está pensada para recibir o contido multimedia "
 "do backend e distribuílo. Ista configuración require un backend existente na "
 "rede."
 
@@ -1507,26 +1493,26 @@ msgid ""
 msgstr ""
 "Un controlador de gráficos libres xa está activado e configurado na súa "
 "instalación. Se quere empregar un controlador de gráficos diferente, pode "
-"face-lo aquí. Teña en conta que os controladores de gráficos propietarios "
+"facelo aquí. Teña en conta que os controladores de gráficos propietarios "
 "poden ser necesarios para a Saída de TV ou os efectos OpenGL."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:16001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr "Se quere configurar a Saída a TV, escolla unha opción aquí:"
+msgstr "Se quere configurar a Saída de TV, escolla unha opción aquí:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-msgstr "Se activa a Saída de TV, necesitará elixir un Estándar de TV:"
+msgstr "Se activa a saída de TV, necesitará elixir un Estándar de TV:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:18001
 msgid "Master Backend Info"
-msgstr "Información do backend maestro."
+msgstr "Información do backend mestre."
 
 #. Type: text
 #. Description
@@ -1534,7 +1520,7 @@ msgstr "Información do backend maestro."
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
 "Por favor introduza a información necesaria para contactar co seu backend "
-"maestro:"
+"mestre:"
 
 #. Type: text
 #. Description
@@ -1546,7 +1532,7 @@ msgstr "Contrasinal de MySQL"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "MySQL User Name"
-msgstr "Nome de Usuario MySQL"
+msgstr "Nome de usuario de MySQL"
 
 #. Type: text
 #. Description
@@ -1564,7 +1550,7 @@ msgstr "Servidor MySQL"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Configure Guide Data / Backend"
-msgstr "Configurar Datos da Guía / Backend"
+msgstr "Configurar datos da guía / Backend"
 
 #. Type: text
 #. Description
@@ -1580,7 +1566,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:26001
 msgid "Click to open the Schedules Direct website"
-msgstr "Click para abrir a web do programador de gravacións"
+msgstr "Clic para abrir a web do programador de gravacións"
 
 #. Type: text
 #. Description
@@ -1590,7 +1576,7 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
-"Os usuarios de Norteamérica deben configurar unha conta de Schedules Direct "
+"Os usuarios de Norte América deben configurar unha conta de Schedules Direct "
 "(SD). SD proporciona a programación por unha subscrición. Sen SD, os "
 "usuarios de Norte América perderanse bastantes funcións de programación en "
 "MythTV."
@@ -1611,7 +1597,7 @@ msgid ""
 "during the third."
 msgstr ""
 "Despois de configurar a súa fonte de datos da guía, necesita iniciar MythTV-"
-"Setup para configura-lo backend por primeira vez. Necesita configurar as "
+"Setup para configurar o backend por primeira vez. Necesita configurar as "
 "primeiras catro seccións, estando seguro de proporcionar os datos da guía "
 "durante a terceira."
 
@@ -1625,13 +1611,13 @@ msgstr "A configurar mythtv..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Configuring additional drivers..."
-msgstr "A configurar os controladores adicionais..."
+msgstr "Configurando os controladores adicionais..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Configuring additional services..."
-msgstr "A configurar os servizos adicionais"
+msgstr "Configurando os servizos adicionais"
 
 #. Type: text
 #. Description

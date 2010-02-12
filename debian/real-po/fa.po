@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:00+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -448,10 +448,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Cancel the installation."
-msgstr "در حال کپی‌کردن ثبتهای نصب..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -763,10 +761,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Verifying the installation configuration..."
-msgstr "در حال کپی‌کردن ثبتهای نصب..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1240,26 +1236,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "گام ${INDEX} از ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "گام ${INDEX} از ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "در حال نصب کردن سیستم"
+msgstr ""
 
 #. Type: text
 #. Description

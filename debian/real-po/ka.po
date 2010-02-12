@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -456,10 +456,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "boot-ჩამტვირთველის (საწყისი ჩამტვირთველის) კონფიგურაცია..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -471,10 +469,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "დაყენებულის შემოწმება..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -805,10 +801,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "დაყენებულის შემოწმება..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1107,10 +1101,8 @@ msgstr "დაიშვა შეცდომა პაკეტების წ
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "პარამეტრების და დოკუმენტების მიგრირება"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1193,16 +1185,10 @@ msgstr "გნებავთ დისკის დაყოფის პრო
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"თქვენს მიერ შექმნილი ზოგიერთი დანაყოფი საკმაოდ პატარა ზომისაა. დარწმუნდით "
-"რომ მოცემული დანაყოფების მინიმალური ზომებია (ბაიტებში):"
 
 #. Type: boolean
 #. Description
@@ -1289,10 +1275,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "დაყენებულის შემოწმება..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1309,26 +1293,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "ბიჯი ${INDEX} ${TOTAL}-დან"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "ბიჯი ${INDEX} ${TOTAL}-დან"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "სისტემის დაყენება"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1339,10 +1317,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "ინსტალერმა ვერ გადაწერა ფაილები მყარ დისკზე:"
+msgstr ""
 
 #. Type: note
 #. Description

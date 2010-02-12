@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -467,10 +467,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "Sedang mengonfigurasi boot loader..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -482,10 +480,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "Sedang memeriksa instalasi..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -815,10 +811,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "Sedang memeriksa instalasi..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1129,10 +1123,8 @@ msgstr "Sebuah kesalahan terjadi ketika sedang menghapus paket:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Migrasi dokumen dan pengaturan"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1147,10 +1139,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "Konfigurasi jaringan"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1220,16 +1210,10 @@ msgstr "Apakah anda ingin kembali ke pemartisi?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Beberapa partisi yang anda buat terlalu kecil. Pastikan bahwa anda membuat "
-"partisi sekurang-kurangnya sebesar (dalam byte):"
 
 #. Type: boolean
 #. Description
@@ -1316,10 +1300,8 @@ msgstr "proses instalasi"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "Sedang memeriksa instalasi..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1336,26 +1318,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Langkah ${INDEX} dari ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "Langkah ${INDEX} dari ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Meng-install sistem"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1366,10 +1342,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "Penginstal menemukan error saat menyalin berkas ke hard disk:"
+msgstr ""
 
 #. Type: note
 #. Description

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-01-11 17:12+0000\n"
-"PO-Revision-Date: 2009-10-07 17:31+0000\n"
+"PO-Revision-Date: 2010-02-12 13:32+0000\n"
 "Last-Translator: Kjetil Birkeland Moe <kjetilbi@stud.ntnu.no>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -32,7 +32,7 @@ msgstr "Slett og bruk hele disken"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr "Installer dem side ved side, og velg mellom dem ved hver oppstart."
+msgstr "Installer dem side ved side, og velg mellom dem ved hver oppstart"
 
 #. Type: text
 #. Description
@@ -70,8 +70,8 @@ msgid ""
 "and without the CD."
 msgstr ""
 "Er du klar til å installere? Når du har svart på noen få spørsmål vil "
-"innholdet på live CD'en bli installert slik at du kan kjøre systemet på full "
-"hastighet og uten CD'en"
+"innholdet på live CD-en bli installert slik at du kan kjøre systemet på full "
+"hastighet og uten CD-en."
 
 #. Type: text
 #. Description
@@ -458,10 +458,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "Setter opp oppstartslaster..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -473,22 +471,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "Kontrollerer installasjonen …"
+msgstr "Avbryt installasjonen."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "Dette kan føre til at datamaskinen ikke vil starte opp."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "Hvordan ønsker du å fortsette?"
 
 #. Type: text
 #. Description
@@ -806,10 +802,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "Kontrollerer installasjonen …"
+msgstr "Kontrollerer installasjonsinstillinger..."
 
 #. Type: title
 #. Description
@@ -1121,10 +1115,8 @@ msgstr "Det oppstod en feil under fjerning av pakker:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Slå sammen dokumenter og innstillinger"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1139,10 +1131,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "Nettverksoppsett"
+msgstr "Feil ved kopiering av nettverksinstillingene"
 
 #. Type: error
 #. Description
@@ -1152,6 +1142,9 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"En feil oppsto ved kopieringen av nettverksinnstillingene. Installasjonen "
+"vil fortsette, men nettverksinnstillingene må angis igjen i det installerte "
+"systemet."
 
 #. Type: text
 #. Description
@@ -1211,16 +1204,12 @@ msgstr "Ønsker du å gå tilbake til partisjoneringsprogrammet?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Noen av partisjonene du har laget har for liten størrelse. Vennligst "
-"korriger følgende partisjoner til minst følgende størrelse (i bytes):"
+"Noen av partisjonene du har laget er for små. Vennligst lag følgende "
+"partisjon minimum denne størrelsen:"
 
 #. Type: boolean
 #. Description
@@ -1307,61 +1296,52 @@ msgstr "innstalasjonsprosess"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "Kontrollerer installasjonen …"
+msgstr "Ser etter installasjonsoppdateringer"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Reading package information"
-msgstr ""
+msgstr "Leser pakkeinformasjon"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Updating package information"
-msgstr ""
+msgstr "Oppdaterer pakkeinformasjon"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Steg ${INDEX} av ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "Steg ${INDEX} av ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Installerer systemet"
+msgstr "Installerer oppdatering"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
 msgid "Error updating installer"
-msgstr ""
+msgstr "Feil ved oppdatering av installasjonsprogrammet"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
 msgstr ""
-"Installasjonen støtte på en feil ved kopiering av filer til harddisken:"
+"Installasjonsprogrammet støtte på en feil mens den prøvde å oppdatere seg "
+"selv:"
 
 #. Type: note
 #. Description

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-01-11 17:12+0000\n"
-"PO-Revision-Date: 2009-10-15 10:01+0000\n"
+"PO-Revision-Date: 2010-02-05 13:22+0000\n"
 "Last-Translator: cumulus007 <cumulus0007@gmail.com>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -202,19 +202,19 @@ msgstr "Zelf kiezen:"
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Layout:"
-msgstr ""
+msgstr "Indeling:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Variant:"
-msgstr ""
+msgstr "Variant:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Below is an image of your current layout:"
-msgstr ""
+msgstr "Dit is een afbeelding van uw huidige indeling:"
 
 #. Type: text
 #. Description
@@ -449,7 +449,7 @@ msgstr "Weet u zeker dat u de installatie wilt afbreken?"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Bootloader install failed"
-msgstr ""
+msgstr "Opstartlader installeren mislukt"
 
 #. Type: text
 #. Description
@@ -458,20 +458,20 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
+"Excuses, er is een fout opgetreden en het was niet mogelijk om de "
+"opstartlader te installeren op de opgegeven locatie."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Choose a different device to install the bootloader on:"
-msgstr ""
+msgstr "Kies een ander apparaat om de opstartlader op te installeren:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "De opstartlader wordt geconfigureerd..."
+msgstr "Verdergaan zonder een opstartlader."
 
 #. Type: text
 #. Description
@@ -479,26 +479,26 @@ msgstr "De opstartlader wordt geconfigureerd..."
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
+"U zult handmatig een opstartlader moeten installeren om ${RELEASE} te "
+"starten."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "De installatie wordt gecontroleerd..."
+msgstr "De installatie annuleren."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "Hierdoor start uw computer mogelijk niet op."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "Hoe wilt u verdergaan?"
 
 #. Type: text
 #. Description
@@ -816,10 +816,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "De installatie wordt gecontroleerd..."
+msgstr "De installatieconfiguratie verifiëren..."
 
 #. Type: title
 #. Description
@@ -1135,10 +1133,8 @@ msgstr "Er is een fout opgetreden bij het verwijderen van pakketten:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Documenten en instellingen overzetten"
+msgstr "Fout bij migreren van documenten en instellingen"
 
 #. Type: error
 #. Description
@@ -1149,14 +1145,16 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"Er is een fout opgetreden bij het migreren van de gegevens. Meer informatie "
+"kan gevonden worden in /var/lolg/syslog. De installatie zal verdergaan, maar "
+"mogelijk worden niet alle documenten en instellingen naar het geïnstalleerde "
+"systeem overgebracht."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "Netwerkconfiguratie"
+msgstr "Fout bij kopiëren van netwerkconfiguratie."
 
 #. Type: error
 #. Description
@@ -1166,6 +1164,9 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"Er is een fout opgetreden bij het kopiëren van de netwerkinstellingen. De "
+"installatie zal verdergaan, maar u zult de netwerkconfiguratie zelf moeten "
+"opzetten in het geïnstalleerde systeem."
 
 #. Type: text
 #. Description
@@ -1225,16 +1226,12 @@ msgstr "Wilt u terugkeren naar het partitioneringsprogramma?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Een of meer van de partities die u heeft aangemaakt zijn te klein. Maak de "
-"volgende partities minstens deze grootte (in bytes):"
+"Sommige door u aangemaakte partities zijn te klein. Maak de volgende "
+"partities ten minste even groot als:"
 
 #. Type: boolean
 #. Description
@@ -1321,61 +1318,52 @@ msgstr "Installatieproces"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "De installatie wordt gecontroleerd..."
+msgstr "Controleren op updates voor installatieprogramma"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Reading package information"
-msgstr ""
+msgstr "Pakketinformatie lezen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Updating package information"
-msgstr ""
+msgstr "Pakketinformatie bijwerken"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Stap ${INDEX} van ${TOTAL}"
+msgstr "Bestand ${INDEX} van ${TOTAL} op ${SPEED}/s"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "Stap ${INDEX} van ${TOTAL}"
+msgstr "Bestand ${INDEX} van ${TOTAL}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Het systeem wordt geïnstalleerd"
+msgstr "Update installeren"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
 msgid "Error updating installer"
-msgstr ""
+msgstr "Fout bij bijwerken van installatieprogramma"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
 msgstr ""
-"Fout geconstateerd tijdens het kopiëren van bestanden naar de harde schijf:"
+"In het installatieprogramma is een fout opgetreden terwijl het zichzelf "
+"probeerde bij te werken:"
 
 #. Type: note
 #. Description

@@ -1,4 +1,4 @@
-ubiquity (2.1.17) UNRELEASED; urgency=low
+ubiquity (2.1.17) lucid; urgency=low
 
   [ Mario Limonciello ]
   * debian/oem-config.postinst:
@@ -31,8 +31,18 @@ ubiquity (2.1.17) UNRELEASED; urgency=low
   * Automatically fall back to vesa if normal X startup fails.  This is a
     reduced emulation of bullet-proof-X; using the standard implementation
     is currently tricky.
+  * Add a couple of lintian overrides.
+  * Explicitly build-depend on xkb-data-i18n.  We normally skip
+    console-setup's build-dependencies when generating our own, but we need
+    this one to run kbdnames-maker.
+  * Update translations from Launchpad (LP: #473554, #520905).
+  * Automatic update of included source packages: base-installer
+    1.103ubuntu3, console-setup 1.34ubuntu9, debian-installer-utils
+    1.72ubuntu3, grub-installer 1.49ubuntu4, hw-detect 1.73ubuntu2,
+    partman-auto 89ubuntu3, partman-basicfilesystems 63ubuntu3,
+    partman-partitioning 72ubuntu3, tzsetup 1:0.26ubuntu5.
 
- -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 03 Feb 2010 18:25:36 -0600
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 12 Feb 2010 21:07:51 +0000
 
 ubiquity (2.1.16) lucid; urgency=low
 

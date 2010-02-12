@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-01-11 17:12+0000\n"
-"PO-Revision-Date: 2009-10-07 17:31+0000\n"
-"Last-Translator: Adi Roiban <adi@roiban.ro>\n"
+"PO-Revision-Date: 2010-02-06 10:17+0000\n"
+"Last-Translator: marianvasile <marianvasile@upcmail.ro>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -69,9 +69,9 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Pregătit pentru instalare? O dată ce răspundeți la câteva întrebări, "
-"conținutul Live CD-ului se poate instala pe acest calculator astfel încât să "
-"puteți rula sistemul la întreaga viteză și fără CD."
+"Sunteți pregătit pentru instalare? După ce răspundeți la câteva întrebări, "
+"conținutul CD-ului Live se poate instala pe acest calculator, astfel încât "
+"să puteți rula sistemul la întreaga viteză și fără CD."
 
 #. Type: text
 #. Description
@@ -96,8 +96,8 @@ msgstr ""
 #: ../ubiquity.templates:11001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
-"Dupe ce ați răspuns la câteva întrebări, calculatorul va fi gata pentru "
-"folosire."
+"După ce ați răspuns la câteva întrebări, calculatorul va fi pregătit de "
+"utilizare."
 
 #. Type: text
 #. Description
@@ -151,9 +151,9 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
-"Alegeți locația dumneavoastră, astfel încât sistemul va putea afișa "
-"convențiile corespunzătoare țării, va folosi servere de actualizare mai "
-"apropiate și va configura ora la fusul local."
+"Alegeți locația în care vă aflați, astfel încât sistemul să poată afișa "
+"convențiile corespunzătoare țării, să preia actualizări de la servere mai "
+"apropiate și să configureze corect ora după fusul orar local."
 
 #. Type: text
 #. Description
@@ -185,13 +185,13 @@ msgstr ""
 #: ../ubiquity.templates:21001
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
-"Puteți tasta în această căsuță pentru a testa noul aranjament al tastaturii."
+"Puteți tasta în această casetă pentru a testa noul aranjament al tastaturii."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Suggested option:"
-msgstr "Opțiuni sugerate:"
+msgstr "Opțiune sugerată:"
 
 #. Type: text
 #. Description
@@ -203,19 +203,19 @@ msgstr "Alegere personală:"
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Layout:"
-msgstr ""
+msgstr "Aranjament:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Variant:"
-msgstr ""
+msgstr "Variantă:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Below is an image of your current layout:"
-msgstr ""
+msgstr "Dedesubt este prezentată imaginea aranjamentului curent:"
 
 #. Type: text
 #. Description
@@ -242,8 +242,8 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"În cazul în care acest calculator va fi utilizat de mai multe persoane, după "
-"instalare, veți putea definii mai multe conturi."
+"Dacă acest calculator va fi utilizat de mai multe persoane, puteți defini "
+"mai multe conturi după instalare."
 
 #. Type: text
 #. Description
@@ -255,7 +255,7 @@ msgstr "Alegeți o parolă pentru a menține acest cont în siguranță."
 #. Description
 #: ../ubiquity.templates:32001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "Rulați în modul de depanare. Nu folosiți o parolă importantă."
+msgstr "Rulați în modul de depanare. Nu utilizați o parolă importantă!"
 
 #. Type: text
 #. Description
@@ -266,7 +266,7 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
-"Introduceți aceeași parolă de două ori, astfel încât vor pute fi detectate "
+"Introduceți aceeași parolă de două ori, astfel încât vor putea fi detectate "
 "greșeli în tastare. O parolă sigură conține o combinație de litere, cifre și "
 "semne de punctuație, este de cel puțin opt caractere și este schimbată "
 "periodic."
@@ -314,7 +314,7 @@ msgstr "Alegeți o altă parolă"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Migrate documents and settings"
-msgstr "Migrează documentele și setările"
+msgstr "Migrează documentele și configurările"
 
 #. Type: text
 #. Description
@@ -323,8 +323,9 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Selectați conturile pe care doriți să le importați. Documentele și setările "
-"pentru aceste conturi vor fi disponibile după ce instalarea se finalizează."
+"Selectați conturile pe care doriți să le importați. Documentele și "
+"configurările pentru aceste conturi vor fi disponibile după ce se "
+"finalizează instalarea."
 
 #. Type: text
 #. Description
@@ -333,7 +334,7 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"Dacă nu doriți sa importați nici un cont, nu selectați nimic și mergeți la "
+"Dacă nu doriți să importați niciun cont, nu selectați nimic și mergeți la "
 "pagina următoare."
 
 #. Type: text
@@ -405,7 +406,7 @@ msgstr "Detalii"
 #: ../ubiquity.templates:52001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr "Noul tău sistem de operare va fi instalat cu următoarele setări:"
+msgstr "Noul sistem de operare va fi instalat cu următoarele configurări:"
 
 #. Type: text
 #. Description
@@ -431,7 +432,7 @@ msgstr "Pasul ${INDEX} din ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Quit the installation?"
-msgstr "Anulează instalarea?"
+msgstr "Anulați instalarea?"
 
 #. Type: text
 #. Description
@@ -443,7 +444,7 @@ msgstr "Sigur doriți să anulați instalarea acum?"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Bootloader install failed"
-msgstr ""
+msgstr "Instalarea încărcătorului de sisteme a eșuat"
 
 #. Type: text
 #. Description
@@ -452,20 +453,20 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
+"A apărut o eroare din cauza căreia instalarea încărcătorului de sisteme nu "
+"este posibilă în locul specificat."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Choose a different device to install the bootloader on:"
-msgstr ""
+msgstr "Alegeți un alt dispozitiv pentru a instala încărcătorul de sisteme:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "Configurare boot loader..."
+msgstr "Continuați fără încărcătorul de sisteme."
 
 #. Type: text
 #. Description
@@ -473,32 +474,32 @@ msgstr "Configurare boot loader..."
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
+"Trebuie să instalați manual un încărcător de sisteme pentru a porni "
+"${RELEASE}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "Verific instalare..."
+msgstr "Anulați instalarea."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "Ca urmare, există posibilitatea ca sistemul să nu poată porni."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "Cum doriți să continuați?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Skip"
-msgstr "Treci peste"
+msgstr "Mai departe"
 
 #. Type: title
 #. Description
@@ -537,11 +538,11 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
-"Ne pare rău, dar sistemul de instalarea a eșuat. Vă rugăm să raportați "
+"Ne pare rău, dar sistemul de instalare a eșuat. Vă rugăm să raportați "
 "această eroare la adresa https://launchpad.net/ubuntu/+source/ubiquity/"
-"+filebug (nu atașati detaliile nici unui bug existent) iar un dezvoltator va "
-"analiza problema în cel mai scurt timp. Pentru a ajuta dezvoltatorii la "
-"analizarea problemei, includeți următoarele detalii în raport și atașati "
+"+filebug (nu atașați detaliile niciunei erori existente), iar un programator "
+"va analiza problema în cel mai scurt timp. Pentru a ajuta programatorii în "
+"analizarea problemei, includeți următoarele detalii în raport și atașați "
 "fișierele /var/log/syslog și /var/log/partman:"
 
 #. Type: text
@@ -644,7 +645,7 @@ msgstr "Utilizat"
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:86001
 msgid "free space"
-msgstr "stațiu liber"
+msgstr "spațiu liber"
 
 #. Type: text
 #. Description
@@ -657,7 +658,7 @@ msgstr "necunoscut"
 #. Description
 #: ../ubiquity.templates:88001
 msgid "Create partition"
-msgstr "Creeare partiții"
+msgstr "Creează partiția"
 
 #. Type: text
 #. Description
@@ -707,7 +708,7 @@ msgstr "Modifică o partiție"
 #. Description
 #: ../ubiquity.templates:97001
 msgid "Advanced Options"
-msgstr "Opțiuni Avansate"
+msgstr "Opțiuni avansate"
 
 #. Type: text
 #. Description
@@ -731,7 +732,7 @@ msgstr "Concurs de popularitate"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Participate in the package usage survey"
-msgstr "Participă la sondajul de utilizare a pachetelor"
+msgstr "Participați la sondajul privind utilizarea pachetelor"
 
 #. Type: text
 #. Description
@@ -759,8 +760,9 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Instalarea a luat sfârșit. Puteți continua să testați Ubuntu, dar orice "
-"modificare făcută pâna la repornirea calculatorului nu va fi salvată."
+"Instalarea a luat sfârșit. Puteți continua să testați Ubuntu, dar nu se va "
+"păstra nicio modificare făcută și niciun document salvat, până la repornirea "
+"calculatorului."
 
 #. Type: text
 #. Description
@@ -784,8 +786,7 @@ msgid ""
 "the new installation."
 msgstr ""
 "Instalarea este completă. Trebuie să reporniți calculatorul pentru a utiliza "
-"noua instalare. Puteți continua să folosiți acest live CD, dar modificările "
-"efectuate sau documentele create nu vor fi păstrate."
+"noua instalare."
 
 #. Type: note
 #. Description
@@ -804,46 +805,44 @@ msgstr ""
 " Numele: ${FULLNAME}\n"
 " Numele de utilizator: ${USERNAME}\n"
 " Locația: ${LOCATION}\n"
-" Asitare migrație:\n"
-" ${MIGRATE}"
+" Asistare migrație:\n"
+"${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "Verific instalare..."
+msgstr "Se verifică configurarea instalării..."
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:111001
 msgid "Installing system"
-msgstr "Instalare sistem"
+msgstr "Instalarea sistemului"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
 msgid "Finding the distribution to copy..."
-msgstr "Căutare distribuție pentru copiere..."
+msgstr "Se caută distribuția pentru copiere..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:114001
 msgid "Scanning files..."
-msgstr "Examinare fișiere..."
+msgstr "Se examinează fișierele..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:115001
 msgid "Copying files..."
-msgstr "Copiere fișiere..."
+msgstr "Se copiază fișierele..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:116001
 msgid "Almost finished copying files..."
-msgstr "Aproape a fost finalizată copierea fișierelor..."
+msgstr "Copierea fișierelor se apropie de finalizare..."
 
 #. Type: error
 #. Description
@@ -859,7 +858,7 @@ msgstr "Aproape a fost finalizată copierea fișierelor..."
 #: ../ubiquity.templates:119001 ../ubiquity.templates:120001
 #: ../ubiquity.templates:121001
 msgid "Installation Failed"
-msgstr "Instalarea a eşuat"
+msgstr "Instalarea a eșuat"
 
 #. Type: error
 #. Description
@@ -884,9 +883,9 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"Aceasta este din cauză că nu există suficient spațiu pe partiția selectată "
-"pentru a termina instalarea. Vă rog rulați programul de instalare din nou și "
-"selectați o partiție mai mare pe care să se instaleze."
+"Cauza este spațiul insuficient pentru finalizarea instalării pe partiția "
+"selectată. Executați programul de instalare din nou și selectați o partiție "
+"mai mare pentru instalare."
 
 #. Type: error
 #. Description
@@ -896,10 +895,11 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Aceasta este de obicei datorită unei unități CD/DVD sau unui CD/DVD "
-"nefuncțional(e). Poate ajută să curățați CD/DVD-ul, să scrieți CD/DVD-ul la "
-"o viteză mai mică sau să curățați lentilele CD/DVD-ului (pachetele de "
-"curățare sunt de obicei disponibile la magazinele de electronice)."
+"Aceasta se datorează, deseori, unei unități CD/DVD sau unui CD/DVD "
+"nefuncțional(e). Poate fi util să curățați CD/DVD-ul, să inscripționați CD/"
+"DVD-ul la o viteză mai mică sau să curățați lentila inscriptorului de CD/DVD "
+"(pachetele de curățare sunt disponibile, de obicei, la magazinele de "
+"electronice)."
 
 #. Type: error
 #. Description
@@ -909,9 +909,9 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Aceasta este de obicei datorită unui hard disc care nu funcționează corect. "
-"Ar putea ajuta dacă ați verifica dacă hard discul nu este vechi sau are "
-"nevoie de înlocuitor sau să mutați sistemul într-un mediul mai răcoros."
+"Aceasta se datorează, de obicei, unui hard disc care nu funcționează corect. "
+"Ar putea fi util să verificați dacă hard discul nu este prea vechi și ar "
+"trebui înlocuit sau să mutați sistemul într-un mediu mai răcoros."
 
 #. Type: error
 #. Description
@@ -929,24 +929,24 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Eroarea se datorează adesea unui CD/DVD sau unui hard disk cu probleme. "
-"Încercați să curățați CD-ul sau DVD-ul (kit-uri de curățare se găsesc adesea "
-"la magazinele de electronică) - sau să-l inscripționați la o viteză mai "
-"mică. Curățarea lentilei unității optice poate fi de folos. Mai puteți "
-"verifica starea hard disk-ului, care poate fi vechi și necesita o înlocuire "
-"sau muta sistemul într-un loc mai răcoros."
+"Aceasta se datorează, adesea, unui CD/DVD sau unui hard disk cu probleme. "
+"Poate fi util să curățați CD-ul sau DVD-ul, să îl inscripționați la o viteză "
+"mai mică sau să curățați lentila inscriptorului de CD/DVD (kit-uri de "
+"curățare se găsesc, de obicei, la magazinele de electronice). Mai puteți să "
+"verificați starea hard disk-ului, care poate fi vechi și ar trebui înlocuit, "
+"sau să mutați sistemul într-un loc mai răcoros."
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:121001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr "Următorul fișier nu s-a potrivit cu sursa copierii de pe CD/DVD"
+msgstr "Următorul fișier nu s-a potrivit cu sursa sa de copiere de pe CD/DVD:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:122001
 msgid "Copying installation logs..."
-msgstr "Copiere jurnal de instalare..."
+msgstr "Se copiază înregistrările de instalare..."
 
 #. Type: text
 #. Description
@@ -958,43 +958,43 @@ msgstr "Se configurează sistemul ales..."
 #. Description
 #: ../ubiquity.templates:124001
 msgid "Configuring system locales..."
-msgstr "Configurare date locale..."
+msgstr "Se configurează datele locale..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:125001
 msgid "Configuring apt..."
-msgstr "Configurează apt..."
+msgstr "Se configurează apt..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:126001
 msgid "Configuring time zone..."
-msgstr "Configurare fus orar..."
+msgstr "Se configurează fusul orar..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:127001
 msgid "Configuring keyboard..."
-msgstr "Configurare tastatură..."
+msgstr "Se configurează tastatura..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:128001
 msgid "Creating user..."
-msgstr "Creare utilizator..."
+msgstr "Se creează utilizatorul..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Importing documents and settings..."
-msgstr "Import documentele și setările ..."
+msgstr "Se importă documentele și configurările..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:130001
 msgid "Configuring hardware..."
-msgstr "Configurare hardware..."
+msgstr "Se configurează suportul hardware..."
 
 #. Type: text
 #. Description
@@ -1006,13 +1006,13 @@ msgstr "Se configurează rețeaua..."
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Setting computer name..."
-msgstr "Definire nume calculator..."
+msgstr "Se definește numele calculatorului..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Configuring boot loader..."
-msgstr "Configurare boot loader..."
+msgstr "Se configurează încărcătorul de sistem..."
 
 #. Type: text
 #. Description
@@ -1030,43 +1030,43 @@ msgstr "Se verifică pachetele pentru instalare..."
 #. Description
 #: ../ubiquity.templates:136001
 msgid "Removing extra packages..."
-msgstr "Eliminare pachete extra..."
+msgstr "Se elimină pachetele suplimentare..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Checking for packages to remove..."
-msgstr "Verificare pachete de șters..."
+msgstr "Se caută pachete de eliminat..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Descărcare pachete (durată ${TIME})..."
+msgstr "Se descarcă pachete (încă ${TIME})..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:139001
 msgid "Downloading package lists..."
-msgstr "Descărcare liste de pachete..."
+msgstr "Se descarcă listele de pachete..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:140001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Descărcare liste de pachete (durată ${TIME})..."
+msgstr "Se descarcă listele de pachete (încă ${TIME})..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:142001
 msgid "Error installing ${PACKAGE}"
-msgstr "Nu am putut instala ${PACKAGE}"
+msgstr "Eroare la instalarea ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:143001
 msgid "Error removing ${PACKAGE}"
-msgstr "Nu am putut șterge ${PACKAGE}"
+msgstr "Eroare la eliminarea ${PACKAGE}"
 
 #. Type: error
 #. Description
@@ -1078,7 +1078,7 @@ msgstr "Eroare în timpul instalării pachetelor"
 #. Description
 #: ../ubiquity.templates:144001
 msgid "An error occurred while installing packages:"
-msgstr "O eroare a apărut pe parcursul instalării pachetelor:"
+msgstr "A apărut o eroare pe parcursul instalării pachetelor:"
 
 #. Type: error
 #. Description
@@ -1086,7 +1086,7 @@ msgstr "O eroare a apărut pe parcursul instalării pachetelor:"
 #. Description
 #: ../ubiquity.templates:144001 ../ubiquity.templates:145001
 msgid "The following packages are in a broken state:"
-msgstr "Următoarele pachete sunt în stadiul \"stricat\":"
+msgstr "Următoarele pachete se află în stare nefuncțională:"
 
 #. Type: error
 #. Description
@@ -1102,34 +1102,32 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
-"Această eroare se poate să fie cauzată de o imagine veche a programului de "
-"instalare, sau poate fi cauzată de un bug într-unul dintre pachetele listate "
-"mai jos. Mai multe detalii pot fi găsite în /var/log/syslog. Programul de "
-"instalare va încerca să continue oricum, dar s-ar putea să se oprească mai "
-"târziu, și nu va mai putea instala sau dezinstala alte pachete (incluzându-"
-"se pe sine) din sistemul instalat. Trebuie mai întâi să verificați dacă nu "
-"există versiuni mai noi ale imaginii programului de instalare, sau să "
-"prezentați raportul acestei erori la distribuitorul dvs."
+"Această eroare poate fi cauzată de o imagine veche a programului de "
+"instalare sau de o defecțiune într-unul dintre pachetele listate mai sus. "
+"Mai multe detalii pot fi găsite în /var/log/syslog. Programul de instalare "
+"va încerca să continue totuși, dar ar putea eșua mai târziu și nu va mai "
+"putea instala sau dezinstala alte pachete (incluzându-se pe sine) din "
+"sistemul instalat. Mai întâi ar trebui să căutați versiuni mai noi ale "
+"imaginii programului de instalare sau, dacă nu găsiți, să raportați această "
+"eroare distribuitorului dvs."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:145001
 msgid "Error while removing packages"
-msgstr "Eroare în timpu dezinstalării pachetelor"
+msgstr "Eroare în timpul dezinstalării pachetelor"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:145001
 msgid "An error occurred while removing packages:"
-msgstr "O eroare a apărut în timpul dezinstalării pachetelor:"
+msgstr "A apărut o eroare în timpul dezinstalării pachetelor:"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Migrează documentele și setările"
+msgstr "Eroare la transferarea documentelor și configurărilor"
 
 #. Type: error
 #. Description
@@ -1140,14 +1138,16 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"A apărut o eroare în timpul transferării datelor. Mai multe detalii sunt "
+"disponibile în /var/log/syslog. Instalarea va continua, dar există "
+"posibilitatea ca anumite documente și configurări solicitate să nu fie "
+"transferate pe sistemul instalat."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "Configurare rețea"
+msgstr "Eroare la copierea configurației de rețea"
 
 #. Type: error
 #. Description
@@ -1157,30 +1157,32 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"A apărut o eroare în timpul copierii configurărilor de rețea. Instalarea va "
+"continua, dar rețeaua va trebui configurată din nou pe sistemul instalat."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:151001
 msgid "Calculating files to skip copying..."
-msgstr "Se calculează fișierele pentru a se omite copierea..."
+msgstr "Se calculează fișierele care se vor omite de la copiere..."
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:152001
 msgid "Installing language packs"
-msgstr "Instalare pachete pentru limba selectată"
+msgstr "Se instalează pachetele pentru limbă"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:153001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Instalare pachete pentru limba selectată (durată ${TIME})..."
+msgstr "Se instalează pachetele pentru limba selectată (încă ${TIME})..."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Failed to unmount partitions"
-msgstr "Eșec la demontarea partițiilor"
+msgstr "Demontarea partițiilor a eșuat"
 
 #. Type: boolean
 #. Description
@@ -1189,9 +1191,9 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"Programul de instalare trebuie să aplice modificările tabelelor de partiții, "
-"dar nu poate face asta deoarece partițiile cu următoarele locuri de montare "
-"nu pot fi demontate:"
+"Programul de instalare trebuie să aplice modificările la tabelele de "
+"partiții, dar nu poate face aceasta deoarece partițiile din următoarele "
+"locuri de montare nu pot fi demontate:"
 
 #. Type: boolean
 #. Description
@@ -1205,28 +1207,24 @@ msgstr ""
 #: ../ubiquity.templates:161001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
-"Doriți ca programul de instalare să încerce demontarea acestor partiții din "
-"nou?"
+"Doriți ca programul de instalare să încerce din nou demontarea acestor "
+"partiții?"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
 msgid "Do you want to return to the partitioner?"
-msgstr "Doriți să vă întoarceți la împărțitor?"
+msgstr "Doriți să vă întoarceți la utilitarul de partiționare?"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"O parte din partițiile pe care le-ați creat sunt prea mici. Faceți "
-"următoarele partiții de cel puțin această dimensiune (în octeți):"
+"Anumite partiții create de dumneavoastră sunt prea mici. Redimensionați "
+"următoarele partiții cel puțin la valorile recomandate:"
 
 #. Type: boolean
 #. Description
@@ -1242,7 +1240,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:168001
 msgid "System Configuration"
-msgstr "Configurare Sistem"
+msgstr "Configurare sistem"
 
 #. Type: text
 #. Description
@@ -1313,62 +1311,50 @@ msgstr "proces instalare"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "Verific instalare..."
+msgstr "Se verifică dacă există actualizări pentru programul de instalare"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Reading package information"
-msgstr ""
+msgstr "Se citesc informațiile pachetului"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Updating package information"
-msgstr ""
+msgstr "Se actualizează informațiile pachetului"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Pasul ${INDEX} din ${TOTAL}"
+msgstr "Fișier ${INDEX} din ${TOTAL} la ${SPEED}/s"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "Pasul ${INDEX} din ${TOTAL}"
+msgstr "Fișier ${INDEX} din ${TOTAL}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Instalare sistem"
+msgstr "Se instalează actualizările"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
 msgid "Error updating installer"
-msgstr ""
+msgstr "Eroare la actualizarea programului de instalare"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr ""
-"Programul de instalare a întâmpinat o problemă în timpul copierii fișierelor "
-"pe hard disc:"
+msgstr "S-a produs o eroare în timpul actualizării programului de instalare:"
 
 #. Type: note
 #. Description
@@ -1412,7 +1398,7 @@ msgstr "Ce rol va avea acest sistem?"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Primary Backend w/ Frontend"
-msgstr "Suport Principal cu inteftață"
+msgstr "Backend principal cu interfață"
 
 #. Type: text
 #. Description
@@ -1422,16 +1408,16 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
-"Un calculator configurat ca Backend și Frontend este cel mai comun tip de "
-"instalare pentru cineva care dorește MythTV pentru o aplicație de gen Home "
+"Un calculator configurat ca backend cu interfață este cel mai comun tip de "
+"instalare pentru cineva care dorește MythTV pentru aplicații de gen Home "
 "Teather PC. Acest tip de instalare este gândit pentru a fi folosit ca o "
-"componentă în sistemul tău de Home Teather."
+"componentă în sistemul Home Teather."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
 msgid "Secondary Backend w/ Frontend"
-msgstr "Backend Secundar cu Interfață"
+msgstr "Backend secundar cu interfață"
 
 #. Type: text
 #. Description
@@ -1440,15 +1426,15 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
-"Acest tip de instalare este foarte similar cu cel de \"Backend Principal cu "
-"Inteftață\", dar acest calculator va fi configurat pentru a se conecta la un "
-"Backend deja existent în rețea, fie el principal sau secundar."
+"Acest tip de instalare este similar cu un backend principal cu interfață, "
+"dar acest calculator va fi configurat pentru a se conecta la un backend deja "
+"existent în rețea."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
 msgid "Primary Backend"
-msgstr "Backend Principal"
+msgstr "Backend principal"
 
 #. Type: text
 #. Description
@@ -1458,15 +1444,15 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
-"Un calculator ce rulează ca Backend principal este configurat de regulă să "
+"Un calculator ce rulează ca backend principal este configurat de regulă să "
 "funcționeze ca un dispozitiv electronic; necesită foarte puțină întreținere. "
-"Acest tip de instalare este gândit pentru primul Backend dintr-o rețea."
+"Acest tip de instalare este destinat pentru primul backend dintr-o rețea."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "Secondary Backend"
-msgstr "Backend Secundar"
+msgstr "Backend secundar"
 
 #. Type: text
 #. Description
@@ -1475,9 +1461,8 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
-"Această opțiune va configura un calculator foarte similar modului \"Backend "
-"Principal\", dar va fi configurat să se conecteze la un Backend existent "
-"deja în rețea."
+"Această opțiune va configura un sistem similar cu un backend principal, dar "
+"va fi configurat pentru a se conecta la un backend deja existent în rețea."
 
 #. Type: text
 #. Description
@@ -1493,16 +1478,16 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
-"Funcția de bază a unui sistem \"Interfață\" este aceea de a primi conținut "
-"multimedia de la un Backend (principal sau secundar) și a-l pune la "
-"dispoziția utilizatorului pentru folosire sau distribuire. Acest tip de "
-"instalare necesită ca un Backend configurat să existe deja în rețea."
+"Funcția de bază a unui sistem de tip interfață este aceea de a primi "
+"conținut multimedia de la un backend și a-l pune la dispoziția "
+"utilizatorului. Acest tip de instalare necesită prezența unui backend în "
+"rețea."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr "Drivere video"
+msgstr "Drivere grafice"
 
 #. Type: text
 #. Description
@@ -1513,17 +1498,17 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
-"Există deja un driver grafic  cu surse deschise activat și configurat pentru "
-"această instalarea. Dacă dorești să folosești un alt driver grafic o poți "
-"face de aici. Driveri grafici proprietari pot fi necesaro pentru activarea "
-"ieșiri TV sau efecte OpenGL."
+"Există deja un driver grafic cu sursă deschisă activat și configurat pentru "
+"această instalare. Dacă doriți să folosiți un alt driver grafic, o puteți "
+"face de aici. Rețineți că pot fi necesari driveri grafici brevetați pentru "
+"ieșirea TV sau efecte OpenGL."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:16001
 msgid "If you would like to configure TV-out, choose an option here:"
 msgstr ""
-"Dacă dorești să configurezi o ieșire TV (tv-out), alege o opțiune de aici:"
+"Dacă doriți să configurați o ieșire TV (tv-out), alegeți o opțiune de aici:"
 
 #. Type: text
 #. Description
@@ -1536,13 +1521,13 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:18001
 msgid "Master Backend Info"
-msgstr "Informații Backend"
+msgstr "Informații despre master backend"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Please enter the information necessary to contact your master backend:"
-msgstr "Introduce informația necesară conectării la Backend:"
+msgstr "Introduceți informațiile necesare conectării la master backend:"
 
 #. Type: text
 #. Description
@@ -1560,7 +1545,7 @@ msgstr "Utilizator MySQL"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:22001
 msgid "MySQL Database"
-msgstr "Bază de Date MySQL"
+msgstr "Bază de date MySQL"
 
 #. Type: text
 #. Description
@@ -1572,7 +1557,7 @@ msgstr "Server MySQL"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Configure Guide Data / Backend"
-msgstr "Configurează  Datele Ghidului / Backendului"
+msgstr "Configurați datele ghidului / backend-ul"
 
 #. Type: text
 #. Description
@@ -1581,14 +1566,14 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
-"Pentru a finaliza instalarea dumneavoastră este nevoie de a configura un "
-"ghid TV și de asemenea pentru a configura Backend-ul pentru prima dată."
+"Pentru a finaliza instalarea, este necesar să configurați ghidul TV și "
+"backend-ul pentru prima dată."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:26001
 msgid "Click to open the Schedules Direct website"
-msgstr "Clic pentru a deschide website-ul \"Schedules Direct\""
+msgstr "Dați clic pentru a deschide site-ul web „Schedules Direct”"
 
 #. Type: text
 #. Description
@@ -1607,7 +1592,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Launch MythTV Setup"
-msgstr "Porneste Configurarea MythTV"
+msgstr "Porniți configurarea MythTV"
 
 #. Type: text
 #. Description
@@ -1618,31 +1603,31 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
-"Dupa configurarea sursei de informații tip ghid tv, va fi nevoie de a lansa "
-"aplicația MythTV-Setup pentru a configura Backendul pentru prima oară. Va "
-"trebui sa configurezi primele patru secțiuni, fiind absolut sigur ca oferiți "
-"datele pentru ghidul tv în a treia secțiune."
+"După configurarea sursei de informații pentru ghidul tv, va fi necesar să "
+"lansați aplicația MythTV-Setup pentru a configura backend-ul pentru prima "
+"oară. Va trebui sa configurați primele patru secțiuni, asigurându-vă că "
+"furnizați datele ghidului tv în a treia secțiune."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Configuring mythtv..."
-msgstr "Configurare mythtv..."
+msgstr "Se configurează MythTv..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Configuring additional drivers..."
-msgstr "Configurare driveri adiționali..."
+msgstr "Se configurează driverele suplimentare..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Configuring additional services..."
-msgstr "Configurare servicii adiționale..."
+msgstr "Se configurează serviciile suplimentare..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Configuring infrared devices..."
-msgstr "Se configurează dispozitivele infraroșu..."
+msgstr "Se configurează dispozitivele pentru infraroșu..."

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-01-11 17:12+0000\n"
-"PO-Revision-Date: 2009-10-07 17:28+0000\n"
+"PO-Revision-Date: 2009-10-21 22:23+0000\n"
 "Last-Translator: Mikel Pascual Aldabaldetreku <mikel.paskual@gmail.com>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -437,7 +437,7 @@ msgstr "Instalazioa utzi?"
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Do you really want to quit the installation now?"
-msgstr "Instalazioa benetan utzi nahi duzu?"
+msgstr "Instalazioa benetan utzi nahi al duzu?"
 
 #. Type: text
 #. Description
@@ -462,10 +462,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "Abio kargatzailea konfiguratzen..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -477,10 +475,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "Instalazioa egiaztatzen..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -498,7 +494,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Skip"
-msgstr "Utzi"
+msgstr "Saltatu"
 
 #. Type: title
 #. Description
@@ -810,10 +806,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "Instalazioa egiaztatzen..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1125,10 +1119,8 @@ msgstr "Errorea gertatu da paketeak kentzean:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Dokumentu eta ezarpenak migratu"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1143,10 +1135,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "Sare-konfigurazioa"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1216,16 +1206,10 @@ msgstr "Partiziogilera itzuli nahi al duzu?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Txikiegiak dira sortu dituzun partizioetako batzuk. Gutxienez, tamaina (byte-"
-"etan) honetakoak egin itzazu partizio hauek:"
 
 #. Type: boolean
 #. Description
@@ -1312,10 +1296,8 @@ msgstr "instalazio-prozesua"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "Instalazioa egiaztatzen..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1332,26 +1314,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "${INDEX} / ${TOTAL} urratsa"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "${INDEX} / ${TOTAL} urratsa"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Sistema instalatzen"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1362,12 +1338,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
 msgstr ""
-"Instalatzaileak errore bat aurkitu du fitxategiak disko gogorrera "
-"kopiatzerakoan:"
 
 #. Type: note
 #. Description

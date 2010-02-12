@@ -8,20 +8,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-01-11 17:12+0000\n"
-"PO-Revision-Date: 2009-10-19 13:08+0000\n"
-"Last-Translator: Yusuf Shunan <shunan@gmail.com>\n"
+"PO-Revision-Date: 2009-10-28 01:10+0000\n"
+"Last-Translator: Huxain <hussain@maldicore.com>\n"
 "Language-Team: Divehi <dv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:00+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "މެދުކެނޑުމެއްނެތި ލިބެންއޮތް އެންމެ ބޯޑު ހުސްޖާގަ ބޭނުން ކުރައްވާ"
 
 #. Type: text
 #. Description
@@ -54,7 +54,7 @@ msgstr "އިންސްޓޯލްކުރޭ"
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "އިންސްޓޯލް ( OEM މޯޑު ، އުފެދުންތެރިންނަށް ޙާައްސަ)"
 
 #. Type: text
 #. Description
@@ -437,10 +437,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "ބޫޓް ލޯޑަރ ކޮންފިގަރ ކުރަނީ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -452,10 +450,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Cancel the installation."
-msgstr "އިންސްޓޯލް ކުރުން ހުއްޓާލަންވީތަ؟"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -767,10 +763,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Verifying the installation configuration..."
-msgstr "އިންސްޓޮލޭސަންގެ ލޮގްފައިލުތައް ކޮޕީކުރެވެނީ..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1057,10 +1051,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "ޑޮކުމެންޓްސް އާއި ސެޓިންގްސް މައިގްރޭޓްކުރަން"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1075,10 +1067,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "ނެޓްވަރކް ކޮންފިގަރޭޝަން"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1260,10 +1250,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "ސިސްޓަމް އިންސްޓޯލްކުރަނީ"
+msgstr ""
 
 #. Type: text
 #. Description

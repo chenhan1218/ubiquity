@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-01-11 17:12+0000\n"
-"PO-Revision-Date: 2009-10-19 06:15+0000\n"
+"PO-Revision-Date: 2009-10-22 11:04+0000\n"
 "Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -26,15 +26,15 @@ msgstr "Naudoti didžiausią ištisinę laisvą vietą"
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr "Išvalyti ir naudoti visą diską"
+msgstr "Ištrinti viską diske - naudoti visą diską"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
 msgstr ""
-"Įdiegti šalia egzistuojančios sistemos, norimą OS galėsite pasirinkti "
-"paleidimo metu"
+"Šalia esamos sistemos, norimą OS pasirinksite įjungę kompiuterį (šliaužikliu "
+"apačioje nustatykite skirsnio dydį)"
 
 #. Type: text
 #. Description
@@ -247,7 +247,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Choose a password to keep your account safe."
-msgstr "Jūsų prisijungimo saugumui pasirinkite slaptažodį."
+msgstr "Jūsų duomenų saugumo užtikrinimui įveskite slaptažodį."
 
 #. Type: text
 #. Description
@@ -316,7 +316,7 @@ msgstr "Įvesti saugesnį slaptažodį"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Migrate documents and settings"
-msgstr "Įkelkite turimus dokumentų ir nustatymus"
+msgstr "Įkelkite turimus dokumentus ir nustatymus"
 
 #. Type: text
 #. Description
@@ -468,10 +468,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "Konfigūruojama sistemos įkėlimo programa..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -483,10 +481,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "Tikriname įdiegimą..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -599,7 +595,7 @@ msgstr "Šalinti"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:79001
 msgid "Revert"
-msgstr "S&ugrįžti"
+msgstr "Atstatyti"
 
 #. Type: text
 #. Description
@@ -621,7 +617,7 @@ msgstr "Тipas"
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:82001
 msgid "Mount point"
-msgstr "Prijungimo taškas"
+msgstr "Prijungimo vieta"
 
 #. Type: text
 #. Description
@@ -765,9 +761,10 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"Įdiegimas baigtas. Jūs galite toliau naudotis demonstracine Linux versija, "
-"tačiau visa Jūsų sukurta ar atsisiųsta informacija, dokumentai bei "
-"nustatymai nebus automatiškai išsaugoti į kompiuterio diską."
+"Įdiegimas baigtas. Naująja sistema galėsite naudotis kompiuterį paleidę iš "
+"naujo. Jūs galite toliau naudotis demonstracine Linux versija, tačiau visa "
+"Jūsų sukurta ar atsisiųsta informacija, dokumentai bei nustatymai nebus "
+"automatiškai išsaugoti į kompiuterio diską."
 
 #. Type: text
 #. Description
@@ -816,10 +813,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "Tikriname įdiegimą..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -900,10 +895,10 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Ši klaida dažniausiai įvyksta dėl sugadinto CD/DVD disko ar diskų įtaiso. "
-"Pamėginkite nuvalyti CD/DVD arba įrašyti CD/DVD mažesniu greičiu, ar "
-"nuvalyti CD/DVD įrenginio lęšį (valymo rinkinį galite gauti elektronikos "
-"parduotuvėse)."
+"Ši klaida dažniausiai įvyksta dėl sugedusio (pvz. subraižyto) CD/DVD disko "
+"ar diskų nuskaitymo/įrašymo įrenginio. Pamėginkite nuvalyti CD/DVD arba "
+"įrašyti CD/DVD mažesniu greičiu ar nuvalyti CD/DVD įrenginio lęšius (valymo "
+"rinkinį galite gauti elektronikos parduotuvėse)."
 
 #. Type: error
 #. Description
@@ -1129,10 +1124,8 @@ msgstr "Įvyko klaida šalinant paketus:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "Įkelkite turimus dokumentų ir nustatymus"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1147,10 +1140,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "Tinklo nustatymai"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1221,16 +1212,10 @@ msgstr "Ar norite grįžti į diskų skirsnių tvarkymą?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-#, fuzzy
-#| msgid ""
-#| "Some of the partitions you created are too small.  Please make the "
-#| "following partitions at least this large (in bytes):"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Kai kurie jūsų sukurti skirsniai yra per maži. Prašome padaryti šiuos "
-"skirsnius ne mažesnius nei (baitais):"
 
 #. Type: boolean
 #. Description
@@ -1317,10 +1302,8 @@ msgstr "diegimo procesas"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "Tikriname įdiegimą..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1337,26 +1320,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "${INDEX} žingsnis iš ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "${INDEX} žingsnis iš ${TOTAL}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "Įdiegiama sistema"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1367,10 +1344,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "Įvyko klaida kopijuojant failus į kietąjį diską:"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -1395,7 +1370,7 @@ msgstr ""
 " Vieta: ${LOCATION}\n"
 " IR pultelis: ${REMOTE}\n"
 " IR siųstuvas: ${TRANSMITTER}\n"
-" Vaizdo tvarkyklė: ${VIDEO_DRIVER}\n"
+" Vaizdo valdyklė: ${VIDEO_DRIVER}\n"
 " Tarnybos: ${SERVICES}"
 
 #. Type: text
@@ -1487,7 +1462,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
 msgid "Graphics Drivers"
-msgstr "Grafikos tvarkyklė"
+msgstr "Vaizdo posistemės valdyklės"
 
 #. Type: text
 #. Description
@@ -1498,10 +1473,10 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
-"Atviro kodo vaizdo tvarkyklės jau yra įjungtos ir suderintos. Jei norite "
-"pasirinkti kitas vaizdo įrangos tvarkykles, tai galite padaryti čia. "
-"Atsiminkite, kad nuosavybinės tvarkykės gali būti reikalingos norinti "
-"įjungti TV išvestį arba OpenGL efektus."
+"Laisvos vaizdo valdyklės jau yra įjungtos ir suderintos. Jei norite "
+"pasirinkti kitas vaizdo įrangos valdykles, tai galite padaryti čia. "
+"Atsiminkite, kad nuosavybinės valdyklės gali būti reikalingos norinti "
+"įjungti TV išvestį arba OpenGL (trimačius) efektus."
 
 #. Type: text
 #. Description
@@ -1609,7 +1584,7 @@ msgstr "Konfigūruojamas mythtv..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Configuring additional drivers..."
-msgstr "Konfigūruojamos papildomos tvarkyklės..."
+msgstr "Konfigūruojamos papildomos valdyklės (drivers) ..."
 
 #. Type: text
 #. Description

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-01-11 17:12+0000\n"
-"PO-Revision-Date: 2009-10-16 21:29+0000\n"
+"PO-Revision-Date: 2009-10-22 22:19+0000\n"
 "Last-Translator: samson <Unknown>\n"
 "Language-Team: Amharic\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-19 23:52+0000\n"
+"X-Launchpad-Export-Date: 2010-02-12 18:00+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -100,7 +100,7 @@ msgstr "ጥቂት ጥያቄዎች ከመለሱ በኋላ ፤ ኮምፒዩተሮ�
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
-msgstr ""
+msgstr "እባክዎ ቋንቋ ይምረጡ ለማዋቀር እንዲረዳ ፤ ይህ ቋንቋ ነባር የመስሪያ ቋንቋ ይሆናል ለዚህ ኮምፒዩተር"
 
 #. Type: text
 #. Description
@@ -324,25 +324,25 @@ msgstr "ዲስኩን እንዴት አድርገው መከፋፈል ይፈልጋ�
 #. Description
 #: ../ubiquity.templates:44001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "ይህ ኮምፒዩተር የስርአት መተግበሪያ የለውም"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "ይህ ኮምፒዩተር ${OS} የስርአት መተግበሪያ አለው"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "ይህ ኮምፒዩተር በርከት ያለ የስርአት መተግበሪያ አለው"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "የት ነው የሚያስቀምጡት ${RELEASE}?"
 
 #. Type: text
 #. Description
@@ -355,7 +355,7 @@ msgstr "ክፍልፋይ ማሳናዳት"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:49001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "ይህ ይጠፋ ${SYSTEMS} እና ይገጠማል ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -364,7 +364,7 @@ msgstr ""
 #: ../ubiquity.templates:50001 ../ubiquity.templates:109001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
-msgstr "ለመትከል ዝግጁ ነው"
+msgstr "ለመግጠም ዝግጁ ነው"
 
 #. Type: text
 #. Description
@@ -434,10 +434,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-#, fuzzy
-#| msgid "Configuring boot loader..."
 msgid "Continue without a bootloader."
-msgstr "ቡትሎደርን ማዋቀር"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -449,10 +447,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Cancel the installation."
-msgstr "አገጣጠሙን ስለ መመርመር"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -685,7 +681,7 @@ msgstr "ቡት ሎደር"
 #. Description
 #: ../ubiquity.templates:99001
 msgid "Install boot loader"
-msgstr ""
+msgstr "ማስነሻ መጫኛውን መግጠም"
 
 #. Type: text
 #. Description
@@ -725,6 +721,8 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"መግጠሙ ተጠናቋል ፤ ኡቡንቱን መሞከር መቀጠል ይችላሉ ፤ ነገር ግን ኮምፒዩተሩን  አጥፍቶ ማብራት ያስፈልጋል አዲሱን "
+"አገጣጠም ለመጠቀም ፤ ያለበለዚያ ማናቸውም ያስቀመጡዋቸው  ሰነዶች ላይገኙ ይችላሉ"
 
 #. Type: text
 #. Description
@@ -771,10 +769,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Verifying the installation configuration..."
-msgstr "አገጣጠሙን ስለ መመርመር"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -843,6 +839,8 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"ይህ ሁኔታ የሚፈጠረው በቂ የሆነ የዲስክ ቦታ ለገጣሚው በተወሰነለት ክፍልፋይ  ባለመኖሩ ሲሆን ፤ እባክዎን ገጣሚውን "
+"እንደገና በማስኬድ እና ትልቅ ክፍልፋይ በመምረጥ መግጠሙን ያከናውኑ"
 
 #. Type: error
 #. Description
@@ -1061,10 +1059,8 @@ msgstr "ስህተት ተፈጥሯል ጥቅሎችን በማስወገድ ላይ"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:146001
-#, fuzzy
-#| msgid "Migrate documents and settings"
 msgid "Error migrating documents and settings"
-msgstr "ሰነዶችን እና አቀማመጦችን ማምጣት"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1079,10 +1075,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Error copying network configuration"
-msgstr "ኔትዎርክን ማዋቀር"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1097,7 +1091,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:151001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "በማስላት ላይ የሚዘለሉ ፋይሎችን ለመገልበጥ..."
 
 #. Type: title
 #. Description
@@ -1234,10 +1228,8 @@ msgstr "የአገጣጠም ሂደት"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
-#, fuzzy
-#| msgid "Checking the installation..."
 msgid "Checking for installer updates"
-msgstr "አገጣጠሙን ስለ መመርመር"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1254,26 +1246,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "ደረጃ ${ማውጫ} of ${ድምር}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "ደረጃ ${ማውጫ} of ${ድምር}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installing update"
-msgstr "ሲስተሙን መግጠም"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1284,10 +1270,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "ገጣሚው ፋይሎቹን ወድ ሀርድ ድራይቭ መገልበጥ ችግር ገጥሞታል ወድቋል"
+msgstr ""
 
 #. Type: note
 #. Description
