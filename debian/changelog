@@ -23,6 +23,9 @@ ubiquity (2.1.18) UNRELEASED; urgency=low
   * Cache question descriptions in partman plugin, since these are
     frequently fetched and there's no REGISTER funkiness going on in
     partman.
+  * Avoid descending into partman/free_space just to find out whether it's
+    possible to create a partition there.  We can get the same information
+    by inspecting the data returned by PARTITIONS.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 12 Feb 2010 21:32:00 +0000
 

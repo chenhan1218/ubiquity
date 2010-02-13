@@ -330,6 +330,19 @@ class Page(Plugin):
         else:
             return None
 
+    def build_free(self, devpart):
+        partition = self.partition_cache[devpart]
+        if partition['parted']['fs'] == 'free':
+            self.debug('Partman: %s is free space', partition)
+            # The alternative is descending into
+            # partman/free_space and checking for a
+            # 'new' script.  This is quicker.
+            partition['can_new'] = partition['parted']['type'] in \
+                ('primary', 'logical', 'pri/log')
+            return True
+        else:
+            return False
+
     def get_actions(self, devpart, partition):
         if devpart is None and partition is None:
             return
@@ -573,6 +586,8 @@ class Page(Plugin):
                             state[1] = None
                             self.frontend.debconf_progress_step(1)
                             self.frontend.refresh()
+                        elif self.build_free(state[1]):
+                            state[1] = None
                         else:
                             break
 
@@ -713,6 +728,8 @@ class Page(Plugin):
                                 devpart = None
                                 self.frontend.debconf_progress_step(1)
                                 self.frontend.refresh()
+                            elif self.build_free(devpart):
+                                devpart = None
                             else:
                                 break
                     if devpart is not None:
@@ -836,18 +853,7 @@ class Page(Plugin):
                 raise AssertionError, "Arrived at %s unexpectedly" % question
 
         elif question == 'partman/free_space':
-            if self.building_cache:
-                state = self.__state[-1]
-                assert state[0] == 'partman/choose_partition'
-                partition = self.partition_cache[state[1]]
-                can_new = False
-                if self.find_script(menu_options, 'new'):
-                    can_new = True
-                partition['can_new'] = can_new
-                self.maybe_thaw_choose_partition()
-                # Back up to the previous menu.
-                return False
-            elif self.creating_partition:
+            if self.creating_partition:
                 self.preseed_script(question, menu_options, 'new')
                 return True
             else:
