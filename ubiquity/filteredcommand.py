@@ -258,10 +258,7 @@ class FilteredCommand(UntrustedBase):
         return call_again
 
     def question_type(self, question):
-        try:
-            return self.db.metaget(question, 'Type')
-        except debconf.DebconfError:
-            return ''
+        return self.dbfilter.question_type(question)
 
     # Split a string on commas, stripping surrounding whitespace, and
     # honouring backslash-quoting.

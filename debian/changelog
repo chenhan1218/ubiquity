@@ -11,6 +11,9 @@ ubiquity (2.1.18) UNRELEASED; urgency=low
   * Always use default_mountpoint_choices method to get mountpoint choices
     rather than going through slower partman scripts.  (We were already
     doing this in some fast paths.)
+  * Cache question types in each DebconfFilter instance, saving a debconf
+    command during widget search for every component using type: or ERROR
+    matching.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 12 Feb 2010 21:32:00 +0000
 
