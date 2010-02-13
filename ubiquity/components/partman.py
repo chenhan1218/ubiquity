@@ -85,6 +85,7 @@ class Page(Plugin):
 
             # Force autopartitioning to be re-run.
             shutil.rmtree('/var/lib/partman', ignore_errors=True)
+        self.thaw_choices('choose_partition')
         self.thaw_choices('active_partition')
 
         self.autopartition_question = None

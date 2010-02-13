@@ -7,6 +7,7 @@ ubiquity (2.1.18) UNRELEASED; urgency=low
     loader.  This is not ready for production use yet and (desperately!)
     needs artwork, but merging it here will make it easier to test.  Thanks
     to Cody Russell for the first version of the greeter code.
+  * Thaw choose_partition choices on partman startup.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 12 Feb 2010 21:32:00 +0000
 
