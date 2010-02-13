@@ -1597,7 +1597,7 @@ class Wizard(BaseFrontend):
         self.create_dialog.partition_create_place_beginning.setChecked(True)
 
         self.create_use_method_names = {}
-        for method, name, description in self.dbfilter.create_use_as(devpart):
+        for method, name, description in self.dbfilter.use_as(devpart, True):
             self.create_use_method_names[description] = name
             self.create_dialog.partition_create_use_combo.addItem(description)
         if self.create_dialog.partition_create_use_combo.count() == 0:

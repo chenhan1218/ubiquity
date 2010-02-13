@@ -230,8 +230,10 @@ class Page(Plugin):
         except debconf.DebconfError:
             return filesystem
 
-    def create_use_as(self, devpart):
-        """Yields the possible methods that a new partition may use."""
+    def use_as(self, devpart, create):
+        """Yields the possible methods that a partition may use.
+
+        If create is True, then only list methods usable on new partitions."""
 
         # TODO cjwatson 2006-11-01: This is a particular pain; we can't find
         # out the real list of possible uses from partman until after the
@@ -241,7 +243,12 @@ class Page(Plugin):
             if method == 'filesystem':
                 for fs in self.scripts('/lib/partman/valid_filesystems'):
                     if fs == 'ntfs':
-                        pass
+                        if not create and devpart in self.partition_cache:
+                            partition = self.partition_cache[devpart]
+                            if ('detected_filesystem' in partition and
+                                partition['detected_filesystem'] == 'ntfs'):
+                                yield (method, fs,
+                                       self.filesystem_description(fs))
                     elif fs == 'fat':
                         yield (method, 'fat16',
                                self.filesystem_description('fat16'))
@@ -909,6 +916,11 @@ class Page(Plugin):
                                 parted.readline_part_entry(partition['id'],
                                                            entry)
 
+                partition['method_choices'] = []
+                for use in self.use_as(state[1],
+                                       partition['parted']['fs'] == 'free'):
+                    partition['method_choices'].append(use)
+
                 partition['mountpoint_choices'] = []
                 if 'method' in partition and 'acting_filesystem' in partition:
                     filesystem = partition['acting_filesystem']
@@ -917,10 +929,7 @@ class Page(Plugin):
 
                 visit = []
                 for (script, arg, option) in menu_options:
-                    if arg == 'method':
-                        visit.append((script, arg,
-                                      self.translate_to_c(question, option)))
-                    elif arg == 'format':
+                    if arg == 'format':
                         partition['can_activate_format'] = True
                     elif arg == 'resize':
                         visit.append((script, arg,
@@ -1060,16 +1069,7 @@ class Page(Plugin):
                 raise AssertionError, "Arrived at %s unexpectedly" % question
 
         elif question == 'partman-target/choose_method':
-            if self.building_cache:
-                state = self.__state[-1]
-                assert state[0] == 'partman/active_partition'
-                partition = self.partition_cache[state[1]]
-                partition['method_choices'] = []
-                for (script, arg, option) in menu_options:
-                    partition['method_choices'].append((script, arg, option))
-                # Back up to the previous menu.
-                return False
-            elif self.creating_partition or self.editing_partition:
+            if self.creating_partition or self.editing_partition:
                 if self.creating_partition:
                     request = self.creating_partition
                 else:

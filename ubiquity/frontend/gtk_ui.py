@@ -1849,7 +1849,7 @@ class Wizard(BaseFrontend):
         self.partition_create_use_combo.add_attribute(renderer, 'text', 2)
         list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING,
                                    gobject.TYPE_STRING)
-        for method, name, description in self.dbfilter.create_use_as(devpart):
+        for method, name, description in self.dbfilter.use_as(devpart, True):
             list_store.append([method, name, description])
         self.partition_create_use_combo.set_model(list_store)
         if list_store.get_iter_first():
