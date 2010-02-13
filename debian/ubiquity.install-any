@@ -40,6 +40,9 @@ ubiquity/components/check_kernels.py usr/lib/ubiquity/ubiquity/components
 # choose-mirror
 d-i/source/choose-mirror/choose-mirror usr/lib/ubiquity/choose-mirror
 
+# clock-setup
+d-i/source/clock-setup/set-date-epoch sbin
+
 # console-setup
 compat/locale usr/lib/ubiquity/console-setup
 scripts/console-setup-apply usr/lib/ubiquity
