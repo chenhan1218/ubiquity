@@ -277,6 +277,8 @@ class Page(Plugin):
         # partman until after the partition has been created, but we can at
         # least fish it out of the appropriate debconf template rather than
         # having to hardcode it.
+        # (Actually, getting it from partman tends to be unacceptably slow
+        # anyway.)
 
         if fs in ('fat16', 'fat32', 'ntfs'):
             question = 'partman-basicfilesystems/fat_mountpoint'
@@ -907,9 +909,15 @@ class Page(Plugin):
                                 parted.readline_part_entry(partition['id'],
                                                            entry)
 
+                partition['mountpoint_choices'] = []
+                if 'method' in partition and 'acting_filesystem' in partition:
+                    filesystem = partition['acting_filesystem']
+                    for mpc in self.default_mountpoint_choices(filesystem):
+                        partition['mountpoint_choices'].append(mpc)
+
                 visit = []
                 for (script, arg, option) in menu_options:
-                    if arg in ('method', 'mountpoint'):
+                    if arg == 'method':
                         visit.append((script, arg,
                                       self.translate_to_c(question, option)))
                     elif arg == 'format':
@@ -1076,22 +1084,7 @@ class Page(Plugin):
         elif question in ('partman-basicfilesystems/mountpoint',
                           'partman-basicfilesystems/fat_mountpoint',
                           'partman-uboot/mountpoint'):
-            if self.building_cache:
-                state = self.__state[-1]
-                assert state[0] == 'partman/active_partition'
-                partition = self.partition_cache[state[1]]
-                partition['mountpoint_choices'] = []
-                choices_c = self.choices_untranslated(question)
-                choices = self.choices(question)
-                assert len(choices_c) == len(choices)
-                for i in range(len(choices_c)):
-                    if choices_c[i].startswith('/'):
-                        partition['mountpoint_choices'].append((
-                            choices_c[i].split(' ')[0],
-                            choices_c[i], choices[i]))
-                # Back up to the previous menu.
-                return False
-            elif self.creating_partition or self.editing_partition:
+            if self.creating_partition or self.editing_partition:
                 if self.creating_partition:
                     request = self.creating_partition
                 else:

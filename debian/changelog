@@ -8,6 +8,9 @@ ubiquity (2.1.18) UNRELEASED; urgency=low
     needs artwork, but merging it here will make it easier to test.  Thanks
     to Cody Russell for the first version of the greeter code.
   * Thaw choose_partition choices on partman startup.
+  * Always use default_mountpoint_choices method to get mountpoint choices
+    rather than going through slower partman scripts.  (We were already
+    doing this in some fast paths.)
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 12 Feb 2010 21:32:00 +0000
 
