@@ -106,6 +106,7 @@ class Page(Plugin):
         self.undoing = False
         self.finish_partitioning = False
         self.bad_auto_size = False
+        self.description_cache = {}
 
         questions = ['^partman-auto/.*automatically_partition$',
                      '^partman-auto/select_disk$',
@@ -206,6 +207,16 @@ class Page(Plugin):
         for name in sorted(os.listdir(directory)):
             if os.access(os.path.join(directory, name), os.X_OK):
                 yield name[2:]
+
+    def description(self, question):
+        # We call this quite a lot on a small number of templates that never
+        # change, so add a caching layer.
+        try:
+            return self.description_cache[question]
+        except KeyError:
+            description = Plugin.description(self, question)
+            self.description_cache[question] = description
+            return description
 
     def method_description(self, method):
         try:

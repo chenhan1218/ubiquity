@@ -20,6 +20,9 @@ ubiquity (2.1.18) UNRELEASED; urgency=low
   * Install wrapper scripts to cache results of os-prober and
     linux-boot-prober.  The wrapper approach means that we capture calls to
     these scripts from shell as well as Python.
+  * Cache question descriptions in partman plugin, since these are
+    frequently fetched and there's no REGISTER funkiness going on in
+    partman.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 12 Feb 2010 21:32:00 +0000
 
