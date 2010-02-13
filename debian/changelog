@@ -17,6 +17,9 @@ ubiquity (2.1.18) UNRELEASED; urgency=low
   * Cache question types in each DebconfFilter instance, saving a debconf
     command during widget search for every component using type: or ERROR
     matching.
+  * Install wrapper scripts to cache results of os-prober and
+    linux-boot-prober.  The wrapper approach means that we capture calls to
+    these scripts from shell as well as Python.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 12 Feb 2010 21:32:00 +0000
 

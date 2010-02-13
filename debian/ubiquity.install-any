@@ -8,6 +8,8 @@ ubiquity/frontend/noninteractive.py usr/lib/ubiquity/ubiquity/frontend
 compat/anna-install usr/lib/ubiquity/compat
 compat/apt-install usr/lib/ubiquity/compat
 compat/depmod usr/lib/ubiquity/compat
+compat/linux-boot-prober usr/lib/ubiquity/compat
+compat/os-prober usr/lib/ubiquity/compat
 compat/udpkg usr/lib/ubiquity/compat
 compat/update-dev usr/lib/ubiquity/compat
 scripts/* usr/share/ubiquity

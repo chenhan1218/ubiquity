@@ -6,7 +6,10 @@ import pwd
 import re
 import subprocess
 import syslog
+import shutil
 import contextlib
+
+from ubiquity import osextras
 from ubiquity.parted_server import PartedServer
 
 def is_swap(device):
@@ -216,6 +219,12 @@ def find_in_os_prober(device):
     return unicode('')
 find_in_os_prober.oslist = {}
 find_in_os_prober.called = False
+
+@raise_privileges
+def remove_os_prober_cache():
+    osextras.unlink_force('/var/lib/ubiquity/os-prober-cache')
+    shutil.rmtree('/var/lib/ubiquity/linux-boot-prober-cache',
+                  ignore_errors=True)
 
 def get_release_name():
     if not get_release_name.release_name:
