@@ -1,4 +1,4 @@
-ubiquity (2.1.18) UNRELEASED; urgency=low
+ubiquity (2.1.18) lucid; urgency=low
 
   * Preliminary version of a new greeter, accessible using the
     'maybe-ubiquity' boot option.  In this mode, ubiquity-dm displays a
@@ -33,7 +33,7 @@ ubiquity (2.1.18) UNRELEASED; urgency=low
   * Switch to source format 3.0 (native) with bzip2 compression, saving a
     little over a megabyte.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 12 Feb 2010 21:32:00 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 14 Feb 2010 02:02:16 +0000
 
 ubiquity (2.1.17) lucid; urgency=low
 
