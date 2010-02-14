@@ -1,3 +1,10 @@
+ubiquity (2.1.19) UNRELEASED; urgency=low
+
+  * Automatic update of included source packages: clock-setup 0.102ubuntu1,
+    debian-installer-utils 1.72ubuntu4.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 14 Feb 2010 02:39:01 +0000
+
 ubiquity (2.1.18) lucid; urgency=low
 
   * Preliminary version of a new greeter, accessible using the
