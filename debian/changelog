@@ -30,6 +30,8 @@ ubiquity (2.1.18) UNRELEASED; urgency=low
   * PROGRESS INFO takes a template, not a string (and even if it took a
     string, debconf's command parsing wouldn't like passing just a space);
     adjust install plugin handling to fix debconf_ui (LP: #521362).
+  * Switch to source format 3.0 (native) with bzip2 compression, saving a
+    little over a megabyte.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 12 Feb 2010 21:32:00 +0000
 
