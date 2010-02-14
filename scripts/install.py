@@ -1018,7 +1018,8 @@ class Install:
 
         for plugin in self.plugins:
             self.next_region()
-            self.db.progress('INFO', ' ') # clear info in case plugin doesn't provide one
+            # set a generic info message in case plugin doesn't provide one
+            self.db.progress('INFO', 'ubiquity/install/title')
             inst = plugin.Install(None, db=self.db)
             ret = inst.install(self.target, Progress(self.db))
             if ret:

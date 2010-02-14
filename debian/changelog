@@ -27,6 +27,9 @@ ubiquity (2.1.18) UNRELEASED; urgency=low
     possible to create a partition there.  We can get the same information
     by inspecting the data returned by PARTITIONS.
   * Install set-date-epoch program from clock-setup (>= 0.101).
+  * PROGRESS INFO takes a template, not a string (and even if it took a
+    string, debconf's command parsing wouldn't like passing just a space);
+    adjust install plugin handling to fix debconf_ui (LP: #521362).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 12 Feb 2010 21:32:00 +0000
 
