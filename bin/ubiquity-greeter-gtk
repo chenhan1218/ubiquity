@@ -4,6 +4,7 @@ import sys
 import optparse
 
 import glib
+import gobject
 import gtk
 import rsvg
 
@@ -15,6 +16,7 @@ image = None
 button1 = None
 button2 = None
 fixed = None
+combo = None
 
 def recompute_button_positions():
     if button1:
@@ -31,6 +33,13 @@ def recompute_button_positions():
         if button2.allocation.x != x or button2.allocation.y != y:
             fixed.move(button2, int(x), int(y))
 
+    if combo:
+        requisition = combo.get_child_requisition()
+        x = window.allocation.width / 2 - requisition[0] / 2
+        y = window.allocation.height / 4
+        if combo.allocation.x != x or combo.allocation.y != y:
+            fixed.move(combo, int(x), int(y))
+
     return False
 
 def button_mapped(button):
@@ -46,11 +55,24 @@ def button2_clicked(button):
     return_value = 0
     gtk.main_quit()
 
+def combo_changed(combobox):
+    print(combobox.get_active_text())
+
 def fixed_size_allocate(widget, allocation):
     glib.timeout_add(100, recompute_button_positions)
 
+def create_language_model():
+    langs = ('English', 'French', 'German', 'Spanish')
+
+    store = gtk.ListStore(gobject.TYPE_STRING)
+    for l in langs:
+        iter = store.append()
+        store.set(iter, 0, l)
+
+    return store
+
 def window_size_allocate(widget, allocation):
-    global image, button1, button2
+    global image, button1, button2, combo
 
     orig_pixbuf = gtk.gdk.pixbuf_new_from_file(options.filename)
     pixbuf = orig_pixbuf.scale_simple(allocation.width, allocation.height,
@@ -72,6 +94,18 @@ def window_size_allocate(widget, allocation):
         button2.connect('map', button_mapped)
         fixed.put(button2, 0, 0)
         button2.show()
+
+        combo = gtk.ComboBox(create_language_model())
+        combo.set_title('Language')
+
+        renderer = gtk.CellRendererText()
+        combo.pack_start(renderer, False)
+        combo.set_attributes(renderer, text=0)
+        combo.connect('changed', combo_changed)
+        combo.set_active(0)
+
+        fixed.put(combo, 0, 0)
+        combo.show()
     else:
         if (image.allocation.width != allocation.width or
             image.allocation.height != allocation.height):
