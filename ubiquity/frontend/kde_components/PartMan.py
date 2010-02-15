@@ -4,12 +4,17 @@ import os
 from PyQt4 import uic
 from PyQt4.QtGui import *
 
-from ubiquity.components import partman
-
 from ubiquity.frontend.kde_components.PartitionBar import PartitionsBar
 from ubiquity.frontend.kde_components.PartitionModel import PartitionModel
 
 _uidir="/usr/share/ubiquity/qt/"
+
+# FIXME: Taken from ubi-partman, needs to be moved somewhere.
+PARTITION_TYPE_PRIMARY = 0
+PARTITION_TYPE_LOGICAL = 1
+
+PARTITION_PLACE_BEGINNING = 0
+PARTITION_PLACE_END = 1
 
 class PartMan(QWidget):
     
@@ -27,7 +32,7 @@ class PartMan(QWidget):
         uic.loadUi(os.path.join(_uidir,'stepPartMan.ui'), self)
         self.part_advanced_warning_hbox.setVisible(False)
         
-        self.partition_tree_model = PartitionModel(self, self.partition_list_treeview)
+        self.partition_tree_model = PartitionModel(self.ctrlr, self.partition_list_treeview)
         self.partition_list_treeview.setModel(self.partition_tree_model)
         self.partition_list_treeview.selectionModel().selectionChanged.connect(self.on_treeviewSelectionChanged)
         self.partition_button_new_label.clicked[bool].connect(self.on_new_table_clicked)
@@ -61,13 +66,13 @@ class PartMan(QWidget):
                 else:
                     self.active_bar = partition_bar
                     
-                self.partition_tree_model.append([item, disk_cache[item], partition_bar], self)
+                self.partition_tree_model.append([item, disk_cache[item], partition_bar], self.ctrlr)
             else:
                 # the item is a partition, add it to the current bar
                 partition = partition_cache[item]
                 
                 # add the new partition to our tree display
-                self.partition_tree_model.append([item, partition, partition_bar], self)
+                self.partition_tree_model.append([item, partition, partition_bar], self.ctrlr)
                 indexCount += 1
                 
                 # data for bar display

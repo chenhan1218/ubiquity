@@ -118,11 +118,14 @@ class PartitionModel(QAbstractItemModel):
         return self.rootItem.children()
 
 class TreeItem:
-    def __init__(self, data, dbfilter=None, parent=None):
+    def __init__(self, data, controller=None, parent=None):
         self.parentItem = parent
         self.itemData = data
         self.childItems = []
-        self.dbfilter = dbfilter
+        if controller:
+            self.dbfilter = controller.dbfilter
+        else:
+            self.dbfilter = None
 
     def appendChild(self, item):
         self.childItems.append(item)
@@ -200,8 +203,7 @@ class TreeItem:
 
     def partman_column_mountpoint(self):
         partition = self.itemData[1]
-        #if isinstance(self.dbfilter, partman.Page):
-        if self.dbfilter.NAME == 'partman':
+        if hasattr(self.dbfilter, 'get_current_mountpoint'):
             mountpoint = self.dbfilter.get_current_mountpoint(partition)
             if mountpoint is None:
                 mountpoint = ''
