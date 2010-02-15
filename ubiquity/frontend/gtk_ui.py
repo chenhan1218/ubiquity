@@ -551,10 +551,7 @@ class Wizard(BaseFrontend):
         self.logo_image.set_from_file(logo)
         self.photo.set_from_file(photo)
 
-        if 'UBIQUITY_ONLY' in os.environ:
-            self.live_installer.fullscreen()
-        else:
-            self.live_installer.connect('size-request', self.win_size_req)
+        self.live_installer.connect('size-request', self.win_size_req)
 
         if self.oem_config:
             self.live_installer.set_title(self.get_string('oem_config_title'))
@@ -1160,10 +1157,6 @@ class Wizard(BaseFrontend):
             if self.current_page is not None:
                 self.debconf_progress_window.set_transient_for(
                     self.live_installer)
-                # Metacity doesn't seem to respect the modal flag for normal
-                # windows when the parent window is fullscreened.
-                self.debconf_progress_window.set_type_hint(
-                    gtk.gdk.WINDOW_TYPE_HINT_DIALOG)
             else:
                 self.debconf_progress_window.set_transient_for(None)
         if progress_title is None:
