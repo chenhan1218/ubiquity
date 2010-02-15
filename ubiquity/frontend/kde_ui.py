@@ -183,8 +183,9 @@ class Wizard(BaseFrontend):
                 mod.controller = Controller(self)
                 mod.ui = mod.ui_class(mod.controller)
                 widgets = mod.ui.get('plugin_widgets')
+                optional_widgets = mod.ui.get('plugin_optional_widgets')
                 breadcrumb = mod.ui.get('plugin_breadcrumb')
-                if widgets:
+                if widgets or optional_widgets:
                     def fill_out(widget_list):
                         rv = []
                         if not isinstance(widget_list, list):
@@ -200,6 +201,7 @@ class Wizard(BaseFrontend):
                             rv.append(w)
                         return rv
                     mod.widgets = fill_out(widgets)
+                    mod.optional_widgets = fill_out(optional_widgets)
                     if not hasattr(mod.ui, 'plugin_breadcrumb'):
                         breadcrumb = '------' # just a placeholder
                     if breadcrumb:

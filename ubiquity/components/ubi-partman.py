@@ -1057,13 +1057,13 @@ class PageKde(PageBase):
         from ubiquity.frontend.kde_components.PartMan import PartMan
         
         self.partAuto = PartAuto()
-        self.part_page = self.partAuto
         self.partMan = PartMan(self.controller)
         
         self.page = self.partAuto
         self.page_advanced = self.partMan
         self.plugin_widgets = self.page
         self.plugin_optional_widgets = self.page_advanced
+        self.current_page = self.page
 
     # provides the basic disk layout
     def set_disk_layout(self, layout):
@@ -1092,8 +1092,7 @@ class PageKde(PageBase):
         self.current_page = self.page_advanced
 
     def plugin_get_current_page(self):
-        print self.part_page
-        return self.part_page
+        return self.current_page
 
 class PageNoninteractive(PluginUI):
     def set_part_page(self, p):
