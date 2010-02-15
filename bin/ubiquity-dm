@@ -84,7 +84,7 @@ class DM:
     def server_preexec(self):
         signal.signal(signal.SIGUSR1, signal.SIG_IGN)
 
-    def run(self, *program):
+    def run(self, program):
         null = open('/dev/null', 'w')
         try:
             os.makedirs('/var/log/installer')
@@ -368,7 +368,7 @@ if dm.frontend == 'gtk_ui':
     proc = ['/etc/init.d/gdm', 'start']
 elif dm.frontend == 'kde_ui':
     proc = ['/etc/init.d/kdm', 'start']
-ret = dm.run(options, args[3:])
+ret = dm.run(args[3:])
 if proc:
     subprocess.Popen(proc)
 sys.exit(ret)

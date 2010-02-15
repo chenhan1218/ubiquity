@@ -4,6 +4,7 @@ ubiquity (2.1.20) UNRELEASED; urgency=low
     plugins.
   * Do not fullscreen the installer window when in only-ubiquity mode,
     so users can see the pretty background and window decorations.
+  * Fix function arguments in ubiquity-dm.
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 15 Feb 2010 12:27:55 +0000
 
