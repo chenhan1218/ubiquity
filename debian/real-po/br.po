@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-01-11 17:12+0000\n"
+"POT-Creation-Date: 2010-02-15 15:33+0000\n"
 "PO-Revision-Date: 2009-10-22 13:28+0000\n"
 "Last-Translator: Denis <Unknown>\n"
 "Language-Team: Breton <br@li.org>\n"
@@ -47,7 +47,7 @@ msgstr "Termenañ ar parzhadoù pladenn dre zorn (araoket)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:179001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:181001
 msgid "Install"
 msgstr "Staliañ"
 
@@ -392,7 +392,7 @@ msgstr "Dilemet e vo ${SYSTEMS} ha staliet ${RELEASE}."
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:50001 ../ubiquity.templates:109001
+#: ../ubiquity.templates:50001 ../ubiquity.templates:110001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
 msgstr "Prest da staliañ"
@@ -597,8 +597,16 @@ msgstr "Adlakaat en e reizh"
 
 #. Type: text
 #. Description
-#. A column heading in the partitioner.
 #: ../ubiquity.templates:80001
+#, fuzzy
+#| msgid "Create partition"
+msgid "Recalculating partitions..."
+msgstr "Krouiñ ur parzhad pladenn"
+
+#. Type: text
+#. Description
+#. A column heading in the partitioner.
+#: ../ubiquity.templates:81001
 msgid "Device"
 msgstr "Trobarzhell"
 
@@ -606,28 +614,28 @@ msgstr "Trobarzhell"
 #. Description
 #. A column heading in the partitioner. Indicates how the partition is to be
 #. used (ext2, swap, etc.).
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:82001
 msgid "Type"
 msgstr "Seurt"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:83001
 msgid "Mount point"
 msgstr "Poent savadenn"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:84001
 msgid "Format?"
 msgstr "Mentrezh ?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:85001
 msgid "Size"
 msgstr "Ment"
 
@@ -635,27 +643,27 @@ msgstr "Ment"
 #. Description
 #. A column heading in the partitioner. Indicates how much of the space on
 #. this partition is used by data.
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:86001
 msgid "Used"
 msgstr "Arveret"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:87001
 msgid "free space"
 msgstr "egor diac'hub"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:88001
 msgid "unknown"
 msgstr "dianav"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:89001
 msgid "Create partition"
 msgstr "Krouiñ ur parzhad pladenn"
 
@@ -663,97 +671,97 @@ msgstr "Krouiñ ur parzhad pladenn"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:89001 ../ubiquity.templates:96001
+#: ../ubiquity.templates:90001 ../ubiquity.templates:97001
 msgid "New partition size in megabytes (1000000 bytes):"
 msgstr "Ment ar parzhad pladenn nevez, e megaeizhbit (1000000 eizhbit)"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001
 msgid "Beginning"
 msgstr "Deroù"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:92001
 msgid "End"
 msgstr "Dibenn"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:93001
 msgid "Primary"
 msgstr "Pennañ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:94001
 msgid "Logical"
 msgstr "Poellek"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:95001
 msgid "Edit partition"
 msgstr "Kemmañ ar parzhad pladenn"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:96001
 msgid "Edit a partition"
 msgstr "Kemmañ ur parzhad pladenn"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:97001
+#: ../ubiquity.templates:98001
 msgid "Advanced Options"
 msgstr "Dibarzhioù araoket"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:98001
+#: ../ubiquity.templates:99001
 msgid "Boot loader"
 msgstr "Karger loc'hañ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:99001
+#: ../ubiquity.templates:100001
 msgid "Install boot loader"
 msgstr "Staliañ ar c'harger loc'hañ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:101001
 msgid "Popularity contest"
 msgstr "Kenstrivadeg brud vat"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:102001
 msgid "Participate in the package usage survey"
 msgstr "Kemer perzh er studiadenn eus arver ar pakad"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:103001
 msgid "Network proxy"
 msgstr "Proksi ar rouedad"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:103001
+#: ../ubiquity.templates:104001
 msgid "HTTP proxy:"
 msgstr "Proksi HTTP :"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:104001
+#: ../ubiquity.templates:105001
 msgid "Port:"
 msgstr "Porzh :"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:105001
+#: ../ubiquity.templates:106001
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
@@ -766,20 +774,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:106001
+#: ../ubiquity.templates:107001
 msgid "Go Back"
 msgstr "Distreiñ"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:107001
+#: ../ubiquity.templates:108001
 msgid "Continue"
 msgstr "Kenderc'hel"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:109001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
@@ -789,7 +797,7 @@ msgstr ""
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:109001
+#: ../ubiquity.templates:110001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -809,37 +817,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:111001
 msgid "Verifying the installation configuration..."
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:111001
+#: ../ubiquity.templates:112001
 msgid "Installing system"
 msgstr "O staliañ ar reizhiad"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:112001
+#: ../ubiquity.templates:113001
 msgid "Finding the distribution to copy..."
 msgstr "O klask an dasparzhadenn da eilañ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:114001
+#: ../ubiquity.templates:115001
 msgid "Scanning files..."
 msgstr "O c'hwilervañ ar restroù..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:115001
+#: ../ubiquity.templates:116001
 msgid "Copying files..."
 msgstr "Oc'h eilañ ar restroù..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:116001
+#: ../ubiquity.templates:117001
 msgid "Almost finished copying files..."
 msgstr "Hogos echu eo eilañ ar restroù..."
 
@@ -853,9 +861,9 @@ msgstr "Hogos echu eo eilañ ar restroù..."
 #. Description
 #. Type: select
 #. Description
-#: ../ubiquity.templates:117001 ../ubiquity.templates:118001
-#: ../ubiquity.templates:119001 ../ubiquity.templates:120001
-#: ../ubiquity.templates:121001
+#: ../ubiquity.templates:118001 ../ubiquity.templates:119001
+#: ../ubiquity.templates:120001 ../ubiquity.templates:121001
+#: ../ubiquity.templates:122001
 msgid "Installation Failed"
 msgstr "C'hwitet eo ar staliadur"
 
@@ -867,8 +875,8 @@ msgstr "C'hwitet eo ar staliadur"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:117001 ../ubiquity.templates:118001
-#: ../ubiquity.templates:119001 ../ubiquity.templates:120001
+#: ../ubiquity.templates:118001 ../ubiquity.templates:119001
+#: ../ubiquity.templates:120001 ../ubiquity.templates:121001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
 "Degouezhet ez eus bet ur fazi gant ar meziant staliañ e-pad ma oa oc'h eilañ "
@@ -876,7 +884,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:117001
+#: ../ubiquity.templates:118001
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
@@ -889,7 +897,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:118001
+#: ../ubiquity.templates:119001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -902,7 +910,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:119001
+#: ../ubiquity.templates:120001
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -920,7 +928,7 @@ msgstr ""
 #. Description
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
-#: ../ubiquity.templates:120001 ../ubiquity.templates:121001
+#: ../ubiquity.templates:121001 ../ubiquity.templates:122001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -937,145 +945,145 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../ubiquity.templates:121001
+#: ../ubiquity.templates:122001
 msgid "The following file did not match its source copy on the CD/DVD:"
 msgstr "Ar restr da heul ne glot ket gant eilad he zarzh war ar CD/DVD :"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:122001
+#: ../ubiquity.templates:123001
 msgid "Copying installation logs..."
 msgstr "Oc'h eilañ renabloù ar staliadur..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:123001
+#: ../ubiquity.templates:124001
 msgid "Configuring target system..."
 msgstr "O kefluniañ ar reizhiad pal..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:124001
+#: ../ubiquity.templates:125001
 msgid "Configuring system locales..."
 msgstr "O kefluniañ yezhoù ar reizhiad..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:125001
+#: ../ubiquity.templates:126001
 msgid "Configuring apt..."
 msgstr "O kefluniañ apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:126001
+#: ../ubiquity.templates:127001
 msgid "Configuring time zone..."
 msgstr "O kefluniañ gwerzhid-eur..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:127001
+#: ../ubiquity.templates:128001
 msgid "Configuring keyboard..."
 msgstr "O kefluniañ ar c'havier..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:129001
 msgid "Creating user..."
 msgstr "O krouiñ an arveriad-ez..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:129001
+#: ../ubiquity.templates:130001
 msgid "Importing documents and settings..."
 msgstr "Oc'h enporzhiañ teulioù hag arventennoù..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:130001
+#: ../ubiquity.templates:131001
 msgid "Configuring hardware..."
 msgstr "O kefluniañ ar periant..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:131001
+#: ../ubiquity.templates:132001
 msgid "Configuring network..."
 msgstr "O kefluniañ ar rouedad..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:132001
+#: ../ubiquity.templates:133001
 msgid "Setting computer name..."
 msgstr "O lakaat anv an urzhiataer..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:133001
+#: ../ubiquity.templates:134001
 msgid "Configuring boot loader..."
 msgstr "O kefluniañ ar c'harger-loc'hañ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:135001
 msgid "Installing additional packages..."
 msgstr "O staliañ pakadoù ouzhpenn..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:135001
+#: ../ubiquity.templates:136001
 msgid "Checking for packages to install..."
 msgstr "O wiriañ ar pakadoù da staliañ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:136001
+#: ../ubiquity.templates:137001
 msgid "Removing extra packages..."
 msgstr "O tilemel ar pakadoù diret..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:137001
+#: ../ubiquity.templates:138001
 msgid "Checking for packages to remove..."
 msgstr "O klask ar pakadoù da zilemel..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:138001
+#: ../ubiquity.templates:139001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "O pellgargañ pakadoù (${TIME} a chom)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:139001
+#: ../ubiquity.templates:140001
 msgid "Downloading package lists..."
 msgstr "O pellgargañ roll ar pakadoù..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:140001
+#: ../ubiquity.templates:141001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "O pellgargañ roll ar pakadoù (${TIME} a chom)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:142001
+#: ../ubiquity.templates:143001
 msgid "Error installing ${PACKAGE}"
 msgstr "Fazi o staliañ ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:143001
+#: ../ubiquity.templates:144001
 msgid "Error removing ${PACKAGE}"
 msgstr "Fazi o tilemel ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:144001
+#: ../ubiquity.templates:145001
 msgid "Error while installing packages"
 msgstr "Fazi o staliañ pakadoù"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:144001
+#: ../ubiquity.templates:145001
 msgid "An error occurred while installing packages:"
 msgstr "Bet ez eus bet ur fazi e-pad ma oa o staliañ ar pakadoù:"
 
@@ -1083,7 +1091,7 @@ msgstr "Bet ez eus bet ur fazi e-pad ma oa o staliañ ar pakadoù:"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:144001 ../ubiquity.templates:145001
+#: ../ubiquity.templates:145001 ../ubiquity.templates:146001
 msgid "The following packages are in a broken state:"
 msgstr "Torret eo pakadoù da heul:"
 
@@ -1091,7 +1099,7 @@ msgstr "Torret eo pakadoù da heul:"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:144001 ../ubiquity.templates:145001
+#: ../ubiquity.templates:145001 ../ubiquity.templates:146001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -1112,25 +1120,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:145001
+#: ../ubiquity.templates:146001
 msgid "Error while removing packages"
 msgstr "Fazi o tilemel ar pakadoù"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:145001
+#: ../ubiquity.templates:146001
 msgid "An error occurred while removing packages:"
 msgstr "Bet ez eus bet ur fazi e-pad ma oa o tilemel ar pakadoù :"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:146001
+#: ../ubiquity.templates:147001
 msgid "Error migrating documents and settings"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:146001
+#: ../ubiquity.templates:147001
 msgid ""
 "An error occurred while migrating data.  More details may be found in /var/"
 "log/syslog.  The installation will continue, but some or all of the "
@@ -1140,13 +1148,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:147001
+#: ../ubiquity.templates:148001
 msgid "Error copying network configuration"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:147001
+#: ../ubiquity.templates:148001
 msgid ""
 "An error occurred while copying the network settings.  The installation will "
 "continue, but the network configuration will have to be set up again in the "
@@ -1155,31 +1163,31 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:151001
+#: ../ubiquity.templates:152001
 msgid "Calculating files to skip copying..."
 msgstr "O jediñ ar restroù na vint ket eilet..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:152001
+#: ../ubiquity.templates:153001
 msgid "Installing language packs"
 msgstr "O staliañ pakadoù-yezh"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:153001
+#: ../ubiquity.templates:154001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "O staliañ pakadoù-yezh (${TIME} a chom)..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:161001
+#: ../ubiquity.templates:163001
 msgid "Failed to unmount partitions"
 msgstr "Dibosupl eo disevel ar parzhadoù pladenn"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:161001
+#: ../ubiquity.templates:163001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -1189,13 +1197,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:161001
+#: ../ubiquity.templates:163001
 msgid "Please close any applications using these mount points."
 msgstr "Mar plij, serrit an holl arloadoù oc'h ober gant ar poentoù sevel-mañ."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:161001
+#: ../ubiquity.templates:163001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Ha fellout a rafe deoc'h ma vefe klasket gant ar meziant staliañ da zisevel "
@@ -1203,13 +1211,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:169001
 msgid "Do you want to return to the partitioner?"
 msgstr "Ha fellout a ra deoc'h distreiñ d'ar meziant rannañ ?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:169001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
@@ -1217,7 +1225,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:169001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1227,121 +1235,121 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:168001
+#: ../ubiquity.templates:170001
 msgid "System Configuration"
 msgstr "Kefluniadur ar reizhiad"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:169001
+#: ../ubiquity.templates:171001
 msgid "Choose language"
 msgstr "Dibabit ur yezh"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:170001
+#: ../ubiquity.templates:172001
 msgid "Network configuration"
 msgstr "Kefluniadur rouedad"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:171001
+#: ../ubiquity.templates:173001
 msgid "Software selection"
 msgstr "Diuzadur ar meziant"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:172001
+#: ../ubiquity.templates:174001
 msgid "Applying configuration"
 msgstr "O seveniñ ar c'hefluniadur"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:173001
+#: ../ubiquity.templates:175001
 msgid "Language"
 msgstr "Yezh"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:176001
 msgid "Timezone"
 msgstr "Gwerzid-eur"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001
+#: ../ubiquity.templates:177001
 msgid "Keyboard"
 msgstr "Klavier"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:176001
+#: ../ubiquity.templates:178001
 msgid "Disk Setup"
 msgstr "Kefluniadur ar bladenn"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:177001
+#: ../ubiquity.templates:179001
 msgid "User Info"
 msgstr "Titouroù diwar-benn an arveriad"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001
+#: ../ubiquity.templates:180001
 msgid "Summary"
 msgstr "Taolenn"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:180001
+#: ../ubiquity.templates:182001
 msgid "installation process"
 msgstr "prantad staliañ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:184001
 msgid "Checking for installer updates"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:185001
 msgid "Reading package information"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:186001
 msgid "Updating package information"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:187001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:186001
+#: ../ubiquity.templates:188001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:189001
 msgid "Installing update"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:188001
+#: ../ubiquity.templates:190001
 msgid "Error updating installer"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:188001
+#: ../ubiquity.templates:190001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr ""
 
