@@ -203,7 +203,7 @@ class PageKde(PageBase):
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLanguage.ui')
             self.combobox = self.page.language_combobox
             self.combobox.currentIndexChanged[str].connect(self.on_language_selection_changed)
-
+            
             if not self.controller.oem_config:
                 self.page.oem_id_label.hide()
                 self.page.oem_id_entry.hide()
@@ -241,6 +241,7 @@ class PageKde(PageBase):
             except:
                 self.page.release_notes_label.hide()
                 self.page.release_notes_frame.hide()
+                
         except Exception, e:
             self.debug('Could not create language page: %s', e)
             self.page = None

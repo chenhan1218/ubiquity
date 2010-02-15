@@ -1,5 +1,6 @@
 # -*- coding: utf-8; Mode: Python; indent-tabs-mode: nil; tab-width: 4 -*-
 
+from PyQt4 import QtCore
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 
@@ -15,7 +16,7 @@ class City:
     
 class TimezoneMap(QWidget):
 
-    SIGNAL("zoneChanged(PyQt_PyObject, PyQt_PyObject)")
+    zoneChanged = QtCore.pyqtSignal(object, object)
 
     def __init__(self, parent):
         QWidget.__init__(self, parent)
@@ -25,7 +26,6 @@ class TimezoneMap(QWidget):
         #dictionary of full name (ie. 'Australia/Sydney') -> city
         self.cities = {}
         self.setObjectName("timezone_map")
-        self.SIGNAL = SIGNAL
 
         #load background pixmap
         self.imagePath = "/usr/share/ubiquity/pixmaps/timezone"
@@ -33,7 +33,7 @@ class TimezoneMap(QWidget):
         
         #redraw timer for selected city time
         self.timer = QTimer(self)
-        QApplication.instance().connect(self.timer, SIGNAL("timeout()"), self.update)
+        self.timer.timeout.connect(self.update)
         self.timer.start(1000)
         
         #load the pixmaps for the zone overlays
@@ -239,7 +239,7 @@ class TimezoneMap(QWidget):
         if city:
             self.selected_city = city
             self.selected_zone = zone or loc.zone
-            self.emit(self.SIGNAL("zoneChanged"), loc, self.selected_zone)
+            self.zoneChanged.emit(loc, self.selected_zone)
             self.repaint()
 
     # return the full timezone string

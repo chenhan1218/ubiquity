@@ -26,23 +26,12 @@ import syslog
 import debconf
 from ubiquity.debconfcommunicator import DebconfCommunicator
 from ubiquity.misc import drop_privileges, execute_root
-from ubiquity.components import usersetup, \
-                                partman, partman_commit, \
-                                summary, install, migrationassistant
+from ubiquity.components import install
 from ubiquity import i18n
 from ubiquity import plugin_manager
 
 # Lots of intentionally unused arguments here (abstract methods).
 __pychecker__ = 'no-argsused'
-
-# Pages that may be loaded. Interpretation is up to the frontend, but it is
-# strongly recommended to keep the page identifiers the same.
-PAGE_COMPONENTS = {
-    'Partman' : partman,
-    'UserInfo' : usersetup,
-    'MigrationAssistant' : migrationassistant,
-    'Ready' : summary,
-}
 
 class Controller:
     def __init__(self, wizard):
@@ -50,11 +39,25 @@ class Controller:
         self.dbfilter = None
         self.oem_config = wizard.oem_config
         self.oem_user_config = wizard.oem_user_config
+    
+        # For summary and install.
+        self.get_grub = wizard.get_grub
+        self.get_summary_device = wizard.get_summary_device
+        self.get_popcon = wizard.get_popcon
+        self.set_popcon = wizard.set_popcon
+        self.set_proxy_host = wizard.set_proxy_host
+        self.set_proxy_port = wizard.set_proxy_port
+        self.get_proxy = wizard.get_proxy
+
     def translate(self, lang=None, just_me=True, reget=False):
         pass
     def allow_go_forward(self, allowed):
         pass
     def allow_go_backward(self, allowed):
+        pass
+    def allow_change_step(self, allowed):
+        pass
+    def allowed_change_step(self):
         pass
     def go_forward(self):
         pass
@@ -140,32 +143,14 @@ class BaseFrontend:
         except debconf.DebconfError:
             pass
 
-        self.allow_password_empty = False
-        try:
-            self.allow_password_empty = self.db.get('user-setup/allow-password-empty') == 'true'
-        except debconf.DebconfError:
-            pass
-
-        # These step lists are the steps that aren't yet converted to plugins.
-        # We just hardcode them here, but they will eventually be dynamic.
-        if self.oem_user_config:
-            steps = ['UserInfo']
-        else:
-            steps = ['Partman', 'UserInfo', 'MigrationAssistant', 'Ready']
-        modules = []
-        for step in steps:
-            if step == 'MigrationAssistant' and \
-                'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
-                continue
-            page_module = PAGE_COMPONENTS[step]
-            if page_module is not None:
-                modules.append(page_module)
-
         # Load plugins
         plugins = plugin_manager.load_plugins()
-        modules = plugin_manager.order_plugins(plugins, modules)
+        modules = plugin_manager.order_plugins(plugins)
         self.modules = []
         for mod in modules:
+            if mod.NAME == 'migrationassistant' and \
+                'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
+                continue
             comp = Component()
             comp.module = mod
             if hasattr(mod, 'Page'):
@@ -334,125 +319,7 @@ class BaseFrontend:
     # Interfaces with various components. If a given component is not used
     # then its abstract methods may safely be left unimplemented.
 
-    # ubiquity.components.partman
-
-    def set_disk_layout(self, layout):
-        pass
-
-    def set_autopartition_choices(self, choices, extra_options,
-                                  resize_choice, manual_choice,
-                                  biggest_free_choice):
-        """Set available autopartitioning choices."""
-        self.resize_choice = resize_choice
-        self.manual_choice = manual_choice
-        self.biggest_free_choice = biggest_free_choice
-
-    def get_autopartition_choice(self):
-        """Get the selected autopartitioning choice."""
-        self._abstract('get_autopartition_choice')
-
-    def installation_medium_mounted(self, message):
-        """Note that the installation medium is mounted."""
-        # not flagged as abstract because some frontends may not be able to
-        # present this sensibly, for example if they only implement
-        # autopartitioning
-        pass
-
-    def update_partman(self, disk_cache, partition_cache, cache_order):
-        """Update the manual partitioner display."""
-        # not flagged as abstract because some frontends may only implement
-        # autopartitioning
-        pass
-
-    # ubiquity.components.partman_commit
-
-    def return_to_partitioning(self):
-        """Return to partitioning following a commit error."""
-        self._abstract('return_to_partitioning')
-
-    # ubiquity.components.migrationassistant
-
-    def ma_set_choices(self, choices):
-        """Set the available migration-assistant choices."""
-        pass
-
-    def ma_get_choices(self):
-        """Get the selected migration-assistant choices."""
-        self._abstract('ma_get_choices')
-
-    def ma_user_error(self, error, user):
-        """The selected migration-assistant username was bad."""
-        self._abstract('ma_user_error')
-
-    def ma_password_error(self, error, user):
-        """The selected migration-assistant password was bad."""
-        self._abstract('ma_password_error')
-
-    # ubiquity.components.usersetup
-
-    def set_fullname(self, value):
-        """Set the user's full name."""
-        pass
-
-    def get_fullname(self):
-        """Get the user's full name."""
-        self._abstract('get_fullname')
-
-    def set_username(self, value):
-        """Set the user's Unix user name."""
-        pass
-
-    def get_username(self):
-        """Get the user's Unix user name."""
-        self._abstract('get_username')
-
-    def get_password(self):
-        """Get the user's password."""
-        self._abstract('get_password')
-
-    def get_verified_password(self):
-        """Get the user's password confirmation."""
-        self._abstract('get_password')
-
-    def select_password(self):
-        """Select the text in the first password entry widget."""
-        self._abstract('select_password')
-
-    def set_auto_login(self, value):
-        """Set whether the user should be automatically logged in."""
-        self._abstract('set_auto_login')
-
-    def get_auto_login(self):
-        """Returns true if the user should be automatically logged in."""
-        self._abstract('get_auto_login')
-
-    def set_encrypt_home(self, value):
-        """Set whether the home directory should be encrypted."""
-        self._abstract('set_encrypt_home')
-
-    def get_encrypt_home(self):
-        """Returns true if the home directory should be encrypted."""
-        self._abstract('get_encrypt_home')
-
-    def username_error(self, msg):
-        """The selected username was bad."""
-        self._abstract('username_error')
-
-    def password_error(self, msg):
-        """The selected password was bad."""
-        self._abstract('password_error')
-
-    # typically part of the usersetup UI but actually called from
-    # ubiquity.components.install
-    def get_hostname(self):
-        """Get the selected hostname."""
-        self._abstract('get_hostname')
-
     # ubiquity.components.summary
-
-    def set_summary_text(self, text):
-        """Set text to be displayed in the installation summary."""
-        pass
 
     def set_summary_device(self, device):
         """Set the GRUB device. A hack until we have something better."""
@@ -467,10 +334,12 @@ class BaseFrontend:
         """Returns whether we will be installing GRUB."""
         return self.grub_en
 
-    # called from ubiquity.components.install
     def get_summary_device(self):
         """Get the selected GRUB device."""
         return self.summary_device
+
+    def get_popcon(self):
+        return self.popcon
 
     def set_popcon(self, participate):
         """Set whether to participate in popularity-contest."""
@@ -511,11 +380,6 @@ class BaseFrontend:
             return False
         else:
             return True
-
-    # called from ubiquity.components.install
-    def get_popcon(self):
-        """Get whether to participate in popularity-contest."""
-        return self.popcon
 
     # General facilities for components.
 

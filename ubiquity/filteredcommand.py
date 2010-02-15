@@ -405,9 +405,6 @@ class FilteredCommand(UntrustedBase):
     # The confmodule asked a question; process it. Subclasses only need to
     # override this if they want to do something special like updating their
     # UI depending on what questions were asked.
-
-    # TODO: Make the steps references in the individual components, rather than
-    # having to define the relationship here?
     def run(self, unused_priority, question):
         if not self.frontend.installing:
             # Make sure any started progress bars are stopped.

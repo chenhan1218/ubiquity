@@ -10,6 +10,10 @@ class ProgressDialog(QDialog):
         self.progressBar = QProgressBar(self)
         self.progressBar.setMinimum(min)
         self.setMaximum(max)
+         
+        #self.setWindowFlags(Qt.SplashScreen | Qt.FramelessWindowHint)
+        #self.setWindowFlags(Qt.SplashScreen | Qt.WindowStaysOnTopHint | Qt.WindowTitleHint)
+        #self.setWindowFlags(Qt.WindowTitleHint | Qt.WindowCloseButtonHint)
         
         self.cancelButton = QPushButton()
         self.cancelButton.clicked.connect(self.reject)

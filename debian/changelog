@@ -1,3 +1,10 @@
+ubiquity (2.1.20) UNRELEASED; urgency=low
+
+  * Convert migrationassistant, partman, summary, and usersetup to
+    plugins.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 15 Feb 2010 12:27:55 +0000
+
 ubiquity (2.1.19) lucid; urgency=low
 
   * Automatic update of included source packages: clock-setup 0.102ubuntu1,

@@ -50,10 +50,7 @@ from ubiquity import install_misc
 from ubiquity import osextras
 from ubiquity import plugin_manager
 from ubiquity.casper import get_casper
-from ubiquity.components import apt_setup, usersetup_apply, \
-                                hw_detect, check_kernels, \
-                                migrationassistant_apply
-
+from ubiquity.components import apt_setup, hw_detect, check_kernels
 
 class DebconfFetchProgress(FetchProgress):
     """An object that reports apt's fetching progress using debconf."""
@@ -371,11 +368,7 @@ class Install:
             self.configure_apt()
 
             self.configure_plugins()
-
-            self.next_region()
-            self.db.progress('INFO', 'ubiquity/install/user')
-            self.configure_user()
-
+            
             self.next_region()
             self.run_target_config_hooks()
 
@@ -389,10 +382,6 @@ class Install:
                 pass
             except SystemError:
                 pass
-
-            self.next_region()
-            self.db.progress('INFO', 'ubiquity/install/migrationassistant')
-            self.configure_ma()
 
             self.next_region()
             self.remove_unusable_kernels()
@@ -1017,14 +1006,20 @@ class Install:
                 self._db.subst(template, substr, data)
 
         for plugin in self.plugins:
+            if plugin.NAME == 'migrationassistant' and \
+                'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
+                    continue
             self.next_region()
             # set a generic info message in case plugin doesn't provide one
             self.db.progress('INFO', 'ubiquity/install/title')
             inst = plugin.Install(None, db=self.db)
             ret = inst.install(self.target, Progress(self.db))
             if ret:
-                raise InstallStepError("Plugin %s failed with code %s" % (plugin.NAME, ret))
-
+                if plugin.NAME == 'migrationassistant':
+                    self.db.input('critical', 'ubiquity/install/broken_migration')
+                    self.db.go()
+                else:
+                    raise InstallStepError("Plugin %s failed with code %s" % (plugin.NAME, ret))
 
     def configure_apt(self):
         """Configure /etc/apt/sources.list."""
@@ -1294,29 +1289,6 @@ class Install:
                                   os.path.join(home, homedir))
                     install_misc.record_installed(['ecryptfs-utils'])
                     break
-
-
-    def configure_user(self):
-        """create the user selected along the installation process
-        into the installed system. Default user from live system is
-        deleted and skel for this new user is copied to $HOME."""
-
-        dbfilter = usersetup_apply.UserSetupApply(None, self.db)
-        ret = dbfilter.run_command(auto_process=True)
-        if ret != 0:
-            raise InstallStepError("UserSetupApply failed with code %d" % ret)
-
-    def configure_ma(self):
-        """import documents, settings, and users from previous operating
-        systems."""
-
-        if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
-            dbfilter = migrationassistant_apply.MigrationAssistantApply(
-                None, self.db)
-            ret = dbfilter.run_command(auto_process=True)
-            if ret != 0:
-                self.db.input('critical', 'ubiquity/install/broken_migration')
-                self.db.go()
 
     def get_resume_partition(self):
         biggest_size = 0
