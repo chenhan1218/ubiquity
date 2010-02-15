@@ -1,4 +1,4 @@
-ubiquity (2.1.20) UNRELEASED; urgency=low
+ubiquity (2.1.20) lucid; urgency=low
 
   * Convert migrationassistant, partman, summary, and usersetup to
     plugins.
@@ -7,7 +7,7 @@ ubiquity (2.1.20) UNRELEASED; urgency=low
   * Fix function arguments in ubiquity-dm (LP: #521702).
   * Add python-rsvg dependency for the new greeter.
 
- -- Evan Dandrea <evand@ubuntu.com>  Mon, 15 Feb 2010 12:27:55 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 15 Feb 2010 15:33:38 +0000
 
 ubiquity (2.1.19) lucid; urgency=low
 
