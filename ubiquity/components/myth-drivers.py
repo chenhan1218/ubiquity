@@ -72,12 +72,7 @@ class PageGtk(MythPageGtk):
         """Called whenever the modify video driver option is toggled or its kids"""
         drivers=get_graphics_dictionary()
         if (widget is not None and widget.get_name() == 'video_driver'):
-            try:
-                self.controller.allow_go_forward(True)
-            except AttributeError:
-                #depends on when video_changed got called
-                #the UI might not be ready yet
-                pass
+            self.controller.allow_go_forward(True)
             type = widget.get_active()
             if (type < len(drivers)):
                 self.tvout_vbox.set_sensitive(True)

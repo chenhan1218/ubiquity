@@ -1,3 +1,11 @@
+ubiquity (2.1.21) UNRELEASED; urgency=low
+
+  * Catch some attribute errors if plugins try to use the controller to
+    control allowing page changes too early during initialization due to
+    signal handlers.
+
+ -- Mario Limonciello <supermario@mlimonciello>  Mon, 15 Feb 2010 19:08:49 -0600
+
 ubiquity (2.1.20) lucid; urgency=low
 
   * Convert migrationassistant, partman, summary, and usersetup to

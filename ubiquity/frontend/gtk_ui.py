@@ -111,13 +111,22 @@ class Controller(ubiquity.frontend.base.Controller):
         self._wizard.translate_pages(lang, just_me, reget)
 
     def allow_go_forward(self, allowed):
-        self._wizard.allow_go_forward(allowed)
+        try:
+             self._wizard.allow_go_forward(allowed)
+        except AttributeError:
+            pass
 
     def allow_go_backward(self, allowed):
-        self._wizard.allow_go_backward(allowed)
+        try:
+            self._wizard.allow_go_backward(allowed)
+        except AttributeError:
+            pass
 
     def allow_change_step(self, allowed):
-        self._wizard.allow_change_step(allowed)
+        try:
+            self._wizard.allow_change_step(allowed)
+        except AttributeError:
+            pass
 
     def allowed_change_step(self):
         return self._wizard.allowed_change_step
