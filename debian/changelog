@@ -1,8 +1,14 @@
 ubiquity (2.1.21) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
   * Catch some attribute errors if plugins try to use the controller to
     control allowing page changes too early during initialization due to
     signal handlers.
+
+  [ Evan Dandrea ]
+  * Consider a failure to set up the user-setup page to be a fatal
+    error.
+  * Add some missing imports and variables to the user-setup page.
 
  -- Mario Limonciello <supermario@mlimonciello>  Mon, 15 Feb 2010 19:08:49 -0600
 

@@ -27,7 +27,7 @@
 import os
 
 from ubiquity import validation
-from ubiquity.misc import execute
+from ubiquity.misc import execute, execute_root
 from ubiquity.plugin import *
 import debconf
 
@@ -121,58 +121,57 @@ class PageGtk(PageBase):
         self.hostname_changed_id = None
         self.username_edited = False
         self.hostname_edited = False
-        try:
-            import gtk
-            builder = gtk.Builder()
-            self.controller.add_builder(builder)
-            builder.add_from_file('/usr/share/ubiquity/gtk/stepUserInfo.ui')
-            builder.connect_signals(self)
-            self.page = builder.get_object('stepUserInfo')
-            self.username = builder.get_object('username')
-            self.fullname = builder.get_object('fullname')
-            self.password = builder.get_object('password')
-            self.verified_password = builder.get_object('verified_password')
-            self.login_auto = builder.get_object('login_auto')
-            self.login_encrypt = builder.get_object('login_encrypt')
-            self.username_error_reason = builder.get_object('username_error_reason')
-            self.username_error_box = builder.get_object('username_error_box')
-            self.password_error_reason = builder.get_object('password_error_reason')
-            self.password_error_box = builder.get_object('password_error_box')
-            self.hostname_error_reason = builder.get_object( 'hostname_error_reason')
-            self.hostname_error_box = builder.get_object('hostname_error_box')
-            self.hostname = builder.get_object('hostname')
-            
-            # Some signals need to be connected by hand so that we have the
-            # handler ids.
-            self.username_changed_id = self.username.connect(
-                'changed', self.on_username_changed)
-            self.hostname_changed_id = self.hostname.connect(
-                'changed', self.on_hostname_changed)
+        
+        import gtk
+        builder = gtk.Builder()
+        self.controller.add_builder(builder)
+        builder.add_from_file('/usr/share/ubiquity/gtk/stepUserInfo.ui')
+        builder.connect_signals(self)
+        self.page = builder.get_object('stepUserInfo')
+        self.username = builder.get_object('username')
+        self.fullname = builder.get_object('fullname')
+        self.password = builder.get_object('password')
+        self.verified_password = builder.get_object('verified_password')
+        self.login_auto = builder.get_object('login_auto')
+        self.login_encrypt = builder.get_object('login_encrypt')
+        self.username_error_reason = builder.get_object('username_error_reason')
+        self.username_error_box = builder.get_object('username_error_box')
+        self.password_error_reason = builder.get_object('password_error_reason')
+        self.password_error_box = builder.get_object('password_error_box')
+        self.hostname_error_reason = builder.get_object( 'hostname_error_reason')
+        self.hostname_error_box = builder.get_object('hostname_error_box')
+        self.hostname = builder.get_object('hostname')
+        self.login_vbox = builder.get_object('login_vbox')
+        
+        # Some signals need to be connected by hand so that we have the
+        # handler ids.
+        self.username_changed_id = self.username.connect(
+            'changed', self.on_username_changed)
+        self.hostname_changed_id = self.hostname.connect(
+            'changed', self.on_hostname_changed)
 
-            if self.controller.oem_user_config:
-                password_debug_warning_label = \
-                    builder.get_object('password_debug_warning_label')
-                password_debug_warning_label.show()
+        if self.controller.oem_user_config:
+            password_debug_warning_label = \
+                builder.get_object('password_debug_warning_label')
+            password_debug_warning_label.show()
 
-            if self.controller.oem_config:
-                self.fullname.set_text('OEM Configuration (temporary user)')
-                self.fullname.set_editable(False)
-                self.fullname.set_sensitive(False)
-                self.username.set_text('oem')
-                self.username.set_editable(False)
-                self.username.set_sensitive(False)
-                self.username_edited = True
-                if self.laptop:
-                    self.hostname.set_text('oem-laptop')
-                else:
-                    self.hostname.set_text('oem-desktop')
-                self.hostname_edited = True
-                self.login_vbox.hide()
-                # The UserSetup component takes care of preseeding passwd/user-uid.
-                execute_root('apt-install', 'oem-config-gtk')
-        except Exception, e:
-            self.debug('Could not create keyboard page: %s', e)
-            self.page = None
+        if self.controller.oem_config:
+            self.fullname.set_text('OEM Configuration (temporary user)')
+            self.fullname.set_editable(False)
+            self.fullname.set_sensitive(False)
+            self.username.set_text('oem')
+            self.username.set_editable(False)
+            self.username.set_sensitive(False)
+            self.username_edited = True
+            if self.laptop:
+                self.hostname.set_text('oem-laptop')
+            else:
+                self.hostname.set_text('oem-desktop')
+            self.hostname_edited = True
+            self.login_vbox.hide()
+            # The UserSetup component takes care of preseeding passwd/user-uid.
+            execute_root('apt-install', 'oem-config-gtk')
+        
         self.plugin_widgets = self.page
     
     # Functions called by the Page.
