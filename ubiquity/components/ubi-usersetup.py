@@ -294,41 +294,41 @@ class PageGtk(PageBase):
         # can know if we can really show the next button.  Otherwise we'd show
         # it on any field being valid.
         complete = True
-        if widget is not None:
-            if self.fullname.get_text():
-                self.fullname_valid_image.show()
-            else:
-                self.fullname_valid_image.hide()
 
-            if self.username.get_text():
-                self.username_error_box.hide()
-                self.username_valid_image.show()
-            else:
-                self.username_valid_image.hide()
-                complete = False
+        if self.fullname.get_text():
+            self.fullname_valid_image.show()
+        else:
+            self.fullname_valid_image.hide()
 
-            passw = self.password.get_text()
-            vpassw = self.verified_password.get_text()
-            allow_empty = self.allow_password_empty
-            if (passw and vpassw) and (allow_empty or (passw == vpassw)):
-                self.password_error_box.hide()
-                self.password_valid_image.show()
-            else:
-                self.password_valid_image.hide()
-                complete = False
+        if self.username.get_text():
+            self.username_error_box.hide()
+            self.username_valid_image.show()
+        else:
+            self.username_valid_image.hide()
+            complete = False
 
-            txt = self.hostname.get_text()
-            if txt:
-                error_msg = check_hostname(txt)
-                if not error_msg:
-                    self.hostname_error_box.hide()
-                    self.hostname_valid_image.show()
-                else:
-                    self.hostname_error(error_msg)
-                    complete = False
+        passw = self.password.get_text()
+        vpassw = self.verified_password.get_text()
+        allow_empty = self.allow_password_empty
+        if (passw and vpassw) and (allow_empty or (passw == vpassw)):
+            self.password_error_box.hide()
+            self.password_valid_image.show()
+        else:
+            self.password_valid_image.hide()
+            complete = False
+
+        txt = self.hostname.get_text()
+        if txt:
+            error_msg = check_hostname(txt)
+            if not error_msg:
+                self.hostname_error_box.hide()
+                self.hostname_valid_image.show()
             else:
-                self.hostname_valid_image.hide()
+                self.hostname_error(error_msg)
                 complete = False
+        else:
+            self.hostname_valid_image.hide()
+            complete = False
 
         self.controller.allow_go_forward(complete)
 
