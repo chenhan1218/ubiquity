@@ -15,6 +15,8 @@ ubiquity (2.1.21) UNRELEASED; urgency=low
     user.
   * Add an 'OEM' field to the plugins to declare whether a module is
     suitable for use in oem-config (defaults to True).
+  * Don't assuming that the partman component is present when checking
+    to see if we're on the advanced partitioning page.
 
   [ Roman Shtylman ]
   * Fix for (LP: #522502)
