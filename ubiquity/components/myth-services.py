@@ -87,8 +87,10 @@ class Page(Plugin):
         type = self.db.get('mythbuntu/install_type')
         self.ui.toggle_customtype(type)
 
+        passwd = self.db.get('passwd/user-password')
+
         #VNC hates us if we have short passwords
-        self.ui.toggle_offer_vnc(len(self.frontend.get_password()) >= 6)
+        self.ui.toggle_offer_vnc(len(passwd) >= 6)
 
         return (['/usr/share/ubiquity/ask-mythbuntu','services'], questions)
 
