@@ -1239,6 +1239,9 @@ class Install:
             return
 
         self.do_install(self.langpacks)
+        self.verify_language_packs()
+
+    def verify_language_packs(self):
 
         if len(self.languages) == 1 and self.languages[0] in ('C', 'en'):
             return # always complete enough
@@ -2001,13 +2004,26 @@ class Install:
         """Try to install additional packages requested by the distributor"""
 
         try:
+            inst_langpacks = self.db.get('oem-config/install-language-support')
+        except debconf.DebconfError:
+            inst_langpacks = False
+        if inst_langpacks:
+            self.select_language_packs()
+
+        try:
             extra_packages = self.db.get('oem-config/extra_packages')
             if extra_packages:
                 extra_packages = extra_packages.replace(',', ' ').split()
-            else:
+            elif not inst_langpacks:
                 return
+            else:
+                extra_packages = []
         except debconf.DebconfError:
-            return
+            if not inst_langpacks:
+                return
+        
+        if inst_langpacks:
+            extra_packages += self.langpacks
         
         save_replace = None
         save_override = None
@@ -2066,6 +2082,9 @@ class Install:
                 os.environ['DEBCONF_DB_REPLACE'] = save_replace
             if save_override:
                 os.environ['DEBCONF_DB_OVERRIDE'] = save_override
+
+        if inst_langpacks:
+            self.verify_language_packs()
 
     def install_extras(self):
         """Try to install additional packages requested by installer

@@ -31,3 +31,10 @@ Type: string
 Description: for internal use; can be preseeded
  Path of a public key that packages in oem-config/repository
  are signed with.
+
+Template: oem-config/install-language-support
+Type: boolean
+Default: true
+Description: for internal use; can be preseeded
+ Install language support packages for the locale that has been selected by
+ the user

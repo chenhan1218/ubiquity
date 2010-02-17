@@ -10,6 +10,9 @@ ubiquity (2.1.21) UNRELEASED; urgency=low
   * Consider a failure to set up the user-setup page to be a fatal
     error.
   * Add some missing imports and variables to the user-setup page.
+  * Add oem-config/install-language-support, which installs the
+    respective language support packages for the locale selected by the
+    user.
 
   [ Roman Shtylman ]
   * Fix for (LP: #522502)
