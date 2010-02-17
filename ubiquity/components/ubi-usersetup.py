@@ -35,6 +35,24 @@ NAME = 'usersetup'
 AFTER = 'console_setup'
 WEIGHT = 10
 
+def check_hostname(hostname):
+    """Returns a newline separated string of reasons why the hostname is
+    invalid."""
+    # TODO: i18n
+    e = []
+    for result in validation.check_hostname(unicode(hostname)):
+        if result == validation.HOSTNAME_LENGTH:
+            e.append("The hostname must be between 1 and 63 characters long.")
+        elif result == validation.HOSTNAME_BADCHAR:
+            e.append("The hostname may only contain letters, digits, hyphens, "
+                     "and dots.")
+        elif result == validation.HOSTNAME_BADHYPHEN:
+            e.append("The hostname may not start or end with a hyphen.")
+        elif result == validation.HOSTNAME_BADDOTS:
+            e.append('The hostname may not start or end with a dot, '
+                     'or contain the sequence "..".')
+    return "\n".join(e)
+
 class PageBase(PluginUI):
     def __init__(self):
         self.laptop = execute("laptop-detect")
@@ -138,10 +156,15 @@ class PageGtk(PageBase):
         self.username_error_box = builder.get_object('username_error_box')
         self.password_error_reason = builder.get_object('password_error_reason')
         self.password_error_box = builder.get_object('password_error_box')
-        self.hostname_error_reason = builder.get_object( 'hostname_error_reason')
+        self.hostname_error_reason = builder.get_object('hostname_error_reason')
         self.hostname_error_box = builder.get_object('hostname_error_box')
         self.hostname = builder.get_object('hostname')
         self.login_vbox = builder.get_object('login_vbox')
+        
+        self.username_valid_image = builder.get_object('username_valid_image')
+        self.password_valid_image = builder.get_object('password_valid_image')
+        self.hostname_valid_image = builder.get_object('hostname_valid_image')
+        self.fullname_valid_image = builder.get_object('fullname_valid_image')
         
         # Some signals need to be connected by hand so that we have the
         # handler ids.
@@ -214,14 +237,17 @@ class PageGtk(PageBase):
         return self.login_encrypt.get_active()
 
     def username_error(self, msg):
+        self.username_valid_image.hide()
         self.username_error_reason.set_text(msg)
         self.username_error_box.show()
 
     def password_error(self, msg):
+        self.password_valid_image.hide()
         self.password_error_reason.set_text(msg)
         self.password_error_box.show()
 
     def hostname_error(self, msg):
+        self.hostname_valid_image.hide()
         self.hostname_error_reason.set_text(msg)
         self.hostname_error_box.show()
 
@@ -235,7 +261,7 @@ class PageGtk(PageBase):
         self.username_error_box.hide()
         self.password_error_box.hide()
         self.hostname_error_box.hide()
-    
+
     # Callback functions.
 
     def info_loop(self, widget):
@@ -263,15 +289,47 @@ class PageGtk(PageBase):
             self.hostname.handler_block(self.hostname_changed_id)
             self.hostname.set_text(widget.get_text().strip() + hostname_suffix)
             self.hostname.handler_unblock(self.hostname_changed_id)
-
+        
+        # Do some initial validation.  We have to process all the widgets so we
+        # can know if we can really show the next button.  Otherwise we'd show
+        # it on any field being valid.
         complete = True
-        for name in ('username', 'hostname'):
-            if getattr(self, name).get_text() == '':
+        if widget is not None:
+            if self.fullname.get_text():
+                self.fullname_valid_image.show()
+            else:
+                self.fullname_valid_image.hide()
+
+            if self.username.get_text():
+                self.username_error_box.hide()
+                self.username_valid_image.show()
+            else:
+                self.username_valid_image.hide()
                 complete = False
-        if not self.allow_password_empty:
-            for name in ('password', 'verified_password'):
-                if getattr(self, name).get_text() == '':
+
+            passw = self.password.get_text()
+            vpassw = self.verified_password.get_text()
+            allow_empty = self.allow_password_empty
+            if (passw and vpassw) and (allow_empty or (passw == vpassw)):
+                self.password_error_box.hide()
+                self.password_valid_image.show()
+            else:
+                self.password_valid_image.hide()
+                complete = False
+
+            txt = self.hostname.get_text()
+            if txt:
+                error_msg = check_hostname(txt)
+                if not error_msg:
+                    self.hostname_error_box.hide()
+                    self.hostname_valid_image.show()
+                else:
+                    self.hostname_error(error_msg)
                     complete = False
+            else:
+                self.hostname_valid_image.hide()
+                complete = False
+
         self.controller.allow_go_forward(complete)
 
     def on_username_changed(self, widget):
@@ -409,7 +467,7 @@ class PageKde(PageBase):
     def hostname_error(self, msg):
         self.page.hostname_error_reason.setText(msg)
         self.page.hostname_error_image.show()
-        self.page.hostname_error_reason.show();
+        self.page.hostname_error_reason.show()
 
     def get_hostname (self):
         return unicode(self.page.hostname.text())
@@ -614,22 +672,12 @@ class Page(Plugin):
         
         hostname = self.ui.get_hostname()
         
-        # TODO: i18n
         # check if the hostname had errors
-        error_msg = []
-        for result in validation.check_hostname(unicode(hostname)):
-            if result == validation.HOSTNAME_LENGTH:
-                error_msg.append("The hostname must be between 1 and 63 characters long.")
-            elif result == validation.HOSTNAME_BADCHAR:
-                error_msg.append("The hostname may only contain letters, digits, hyphens, and dots.")
-            elif result == validation.HOSTNAME_BADHYPHEN:
-                error_msg.append("The hostname may not start or end with a hyphen.")
-            elif result == validation.HOSTNAME_BADDOTS:
-                error_msg.append('The hostname may not start or end with a dot, or contain the sequence "..".')
-            
+        error_msg = check_hostname(hostname)
+        
         # showing warning message is error is set
         if len(error_msg) != 0:
-            self.ui.hostname_error("\n".join(error_msg))
+            self.ui.hostname_error(error_msg)
             self.done = False
             self.enter_ui_loop()
             return

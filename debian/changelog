@@ -19,6 +19,8 @@ ubiquity (2.1.21) UNRELEASED; urgency=low
     to see if we're on the advanced partitioning page.
   * Make usersetup depend on console_setup rather than partman, in case
     the latter isn't present.
+  * Validate some fields on the usersetup page in real time.  Provide a
+    visual cue that the data entered is probably okay.
 
   [ Roman Shtylman ]
   * Fix for (LP: #522502)

@@ -99,12 +99,11 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkHBox" id="fullname_error_box">
-                                    <property name="spacing">6</property>
+                                  <object class="GtkHBox" id="hbox1">
+                                    <property name="visible">True</property>
                                     <child>
-                                      <object class="GtkImage" id="fullname_error_image">
-                                        <property name="visible">True</property>
-                                        <property name="stock">gtk-dialog-error</property>
+                                      <object class="GtkImage" id="fullname_valid_image">
+                                        <property name="stock">gtk-yes</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -112,15 +111,33 @@
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkLabel" id="fullname_error_reason">
-                                        <property name="visible">True</property>
-                                        <property name="xalign">0</property>
-                                        <property name="wrap">True</property>
-                                        <property name="selectable">True</property>
+                                      <object class="GtkHBox" id="fullname_error_box">
+                                        <property name="spacing">6</property>
+                                        <child>
+                                          <object class="GtkImage" id="fullname_error_image">
+                                            <property name="visible">True</property>
+                                            <property name="stock">gtk-dialog-error</property>
+                                          </object>
+                                          <packing>
+                                            <property name="expand">False</property>
+                                            <property name="position">0</property>
+                                          </packing>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel" id="fullname_error_reason">
+                                            <property name="visible">True</property>
+                                            <property name="xalign">0</property>
+                                            <property name="wrap">True</property>
+                                            <property name="selectable">True</property>
+                                          </object>
+                                          <packing>
+                                            <property name="expand">False</property>
+                                            <property name="fill">False</property>
+                                            <property name="position">1</property>
+                                          </packing>
+                                        </child>
                                       </object>
                                       <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">False</property>
                                         <property name="position">1</property>
                                       </packing>
                                     </child>
@@ -192,12 +209,11 @@
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkHBox" id="username_error_box">
-                                        <property name="spacing">6</property>
+                                      <object class="GtkHBox" id="hbox2">
+                                        <property name="visible">True</property>
                                         <child>
-                                          <object class="GtkImage" id="username_error_image">
-                                            <property name="visible">True</property>
-                                            <property name="stock">gtk-dialog-error</property>
+                                          <object class="GtkImage" id="username_valid_image">
+                                            <property name="stock">gtk-yes</property>
                                           </object>
                                           <packing>
                                             <property name="expand">False</property>
@@ -205,15 +221,33 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkLabel" id="username_error_reason">
-                                            <property name="visible">True</property>
-                                            <property name="xalign">0</property>
-                                            <property name="wrap">True</property>
-                                            <property name="selectable">True</property>
+                                          <object class="GtkHBox" id="username_error_box">
+                                            <property name="spacing">6</property>
+                                            <child>
+                                              <object class="GtkImage" id="username_error_image">
+                                                <property name="visible">True</property>
+                                                <property name="stock">gtk-dialog-error</property>
+                                              </object>
+                                              <packing>
+                                                <property name="expand">False</property>
+                                                <property name="position">0</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkLabel" id="username_error_reason">
+                                                <property name="visible">True</property>
+                                                <property name="xalign">0</property>
+                                                <property name="wrap">True</property>
+                                                <property name="selectable">True</property>
+                                              </object>
+                                              <packing>
+                                                <property name="expand">False</property>
+                                                <property name="fill">False</property>
+                                                <property name="position">1</property>
+                                              </packing>
+                                            </child>
                                           </object>
                                           <packing>
-                                            <property name="expand">False</property>
-                                            <property name="fill">False</property>
                                             <property name="position">1</property>
                                           </packing>
                                         </child>
@@ -345,12 +379,11 @@
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkHBox" id="password_error_box">
-                                        <property name="spacing">6</property>
+                                      <object class="GtkHBox" id="hbox3">
+                                        <property name="visible">True</property>
                                         <child>
-                                          <object class="GtkImage" id="password_error_image">
-                                            <property name="visible">True</property>
-                                            <property name="stock">gtk-dialog-error</property>
+                                          <object class="GtkImage" id="password_valid_image">
+                                            <property name="stock">gtk-yes</property>
                                           </object>
                                           <packing>
                                             <property name="expand">False</property>
@@ -358,15 +391,34 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkLabel" id="password_error_reason">
-                                            <property name="visible">True</property>
-                                            <property name="xalign">0</property>
-                                            <property name="wrap">True</property>
-                                            <property name="selectable">True</property>
+                                          <object class="GtkHBox" id="password_error_box">
+                                            <property name="spacing">6</property>
+                                            <child>
+                                              <object class="GtkImage" id="password_error_image">
+                                                <property name="visible">True</property>
+                                                <property name="stock">gtk-dialog-error</property>
+                                              </object>
+                                              <packing>
+                                                <property name="expand">False</property>
+                                                <property name="position">0</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkLabel" id="password_error_reason">
+                                                <property name="visible">True</property>
+                                                <property name="xalign">0</property>
+                                                <property name="wrap">True</property>
+                                                <property name="selectable">True</property>
+                                              </object>
+                                              <packing>
+                                                <property name="expand">False</property>
+                                                <property name="fill">False</property>
+                                                <property name="position">1</property>
+                                              </packing>
+                                            </child>
                                           </object>
                                           <packing>
                                             <property name="expand">False</property>
-                                            <property name="fill">False</property>
                                             <property name="position">1</property>
                                           </packing>
                                         </child>
@@ -466,12 +518,11 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkHBox" id="hostname_error_box">
-                                    <property name="spacing">6</property>
+                                  <object class="GtkHBox" id="hbox4">
+                                    <property name="visible">True</property>
                                     <child>
-                                      <object class="GtkImage" id="hostname_error_image">
-                                        <property name="visible">True</property>
-                                        <property name="stock">gtk-dialog-error</property>
+                                      <object class="GtkImage" id="hostname_valid_image">
+                                        <property name="stock">gtk-yes</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -479,15 +530,33 @@
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkLabel" id="hostname_error_reason">
-                                        <property name="visible">True</property>
-                                        <property name="xalign">0</property>
-                                        <property name="wrap">True</property>
-                                        <property name="selectable">True</property>
+                                      <object class="GtkHBox" id="hostname_error_box">
+                                        <property name="spacing">6</property>
+                                        <child>
+                                          <object class="GtkImage" id="hostname_error_image">
+                                            <property name="visible">True</property>
+                                            <property name="stock">gtk-dialog-error</property>
+                                          </object>
+                                          <packing>
+                                            <property name="expand">False</property>
+                                            <property name="position">0</property>
+                                          </packing>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel" id="hostname_error_reason">
+                                            <property name="visible">True</property>
+                                            <property name="xalign">0</property>
+                                            <property name="wrap">True</property>
+                                            <property name="selectable">True</property>
+                                          </object>
+                                          <packing>
+                                            <property name="expand">False</property>
+                                            <property name="fill">False</property>
+                                            <property name="position">1</property>
+                                          </packing>
+                                        </child>
                                       </object>
                                       <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">False</property>
                                         <property name="position">1</property>
                                       </packing>
                                     </child>
