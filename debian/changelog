@@ -10,7 +10,10 @@ ubiquity (2.1.21) UNRELEASED; urgency=low
     error.
   * Add some missing imports and variables to the user-setup page.
 
- -- Mario Limonciello <supermario@mlimonciello>  Mon, 15 Feb 2010 19:08:49 -0600
+  [ Roman Shtylman ]
+  * Fix for (LP: #522502)
+
+ -- Roman Shtylman <shtylman@gmail.com>  Tue, 16 Feb 2010 23:00:15 -0500
 
 ubiquity (2.1.20) lucid; urgency=low
 
