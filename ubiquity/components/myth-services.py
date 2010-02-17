@@ -22,7 +22,6 @@
 from ubiquity.plugin import *
 from mythbuntu_common.installer import *
 from mythbuntu_common.dictionaries import get_services_dictionary
-from mythbuntu_common.vnc import VNCHandler
 from ubiquity import install_misc
 from ubiquity import misc
 
@@ -129,15 +128,6 @@ class Install(InstallPlugin):
 [mysqld]
 bind-address=0.0.0.0"""
             f.close()
-
-        if misc.create_bool(progress.get('mythbuntu/x11vnc')):
-            vnc=VNCHandler()
-            vnc.create_password(progress.get('passwd/user-password'))
-            directory = target + '/home/' + progress.get('passwd/username') + '/.vnc'
-            if not os.path.exists(directory):
-                os.makedirs(directory)
-            shutil.move('/root/.vnc/passwd', directory + '/passwd')
-            to_install.append('x11vnc')
 
         #Mark new items
         install_misc.record_installed(to_install)

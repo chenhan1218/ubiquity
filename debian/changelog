@@ -5,6 +5,8 @@ ubiquity (2.1.21) UNRELEASED; urgency=low
     control allowing page changes too early during initialization due to
     signal handlers.
   * Update mythbuntu-services for changes in ubi-usersetup.
+  * Accomodate for the fact that passwd/user-passwd is no longer available
+    by the time the myth-* pages come up.
 
   [ Evan Dandrea ]
   * Consider a failure to set up the user-setup page to be a fatal

@@ -22,9 +22,11 @@
 from ubiquity.plugin import *
 from mythbuntu_common.installer import MythPageGtk
 from ubiquity import install_misc
+from mythbuntu_common.vnc import VNCHandler
 from ubiquity import misc
 import os
 import subprocess
+import shutil
 
 NAME = 'myth-installtype'
 AFTER = ['usersetup', None]
@@ -78,6 +80,10 @@ class Page(Plugin):
 
     def ok_handler(self):
         self.preseed('mythbuntu/' + self.questions[0],self.ui.get_installtype())
+
+        admin = self.db.get('passwd/user-password')
+        self.preseed('mythtv/mysql_admin_password', admin)
+
         Plugin.ok_handler(self)
 
 class Install(InstallPlugin):
@@ -113,8 +119,16 @@ class Install(InstallPlugin):
         os.remove(self.target + '/etc/mythtv/mysql.txt')
         install_misc.reconfigure(self.target, 'mythtv-common')
 
-    def setup_master_backend(self):
+    def setup_roles(self):
+        passwd = self.progress.get('mythtv/mysql_admin_password')
+        user = self.progress.get('passwd/username')
         if 'Master' in self.type:
+            #Before beginning, set the initial root sql pass to the user pass
+            for key in [ 'mythtv/mysql_admin_password',
+                     'mysql-server/root_password',
+                     'mysql-server/root_password_again' ]:
+                install_misc.set_debconf(self.target, key, passwd)
+
             #Setup database
             install_misc.reconfigure(self.target, 'mysql-server-5.1')
             proc=subprocess.Popen(['chroot',self.target,'mysqld'])
@@ -125,12 +139,22 @@ class Install(InstallPlugin):
             proc.communicate()
 
             #Mythweb
-            passwd = self.progress.get('passwd/user-password')
-            user = self.progress.get('passwd/username')
             install_misc.set_debconf(self.target, 'mythweb/enable', 'true')
             install_misc.set_debconf(self.target, 'mythweb/username', user)
             install_misc.set_debconf(self.target, 'mythweb/password', passwd)
             install_misc.reconfigure(self.target, 'mythweb')
+
+        #Normally this would be in myth-services, but we need a way to see the passwd,
+        #and this is the last place we can see it.
+        if 'Frontend' in self.type:
+            if misc.create_bool(self.progress.get('mythbuntu/x11vnc')):
+                vnc=VNCHandler()
+                vnc.create_password(passwd)
+                directory = self.target + '/home/' + user + '/.vnc'
+                if not os.path.exists(directory):
+                    os.makedirs(directory)
+                shutil.move('/root/.vnc/passwd', directory + '/passwd')
+                install_misc.record_installed(['x11nvc'])
 
     def install(self, target, progress, *args, **kwargs):
         self.target = target
@@ -140,7 +164,7 @@ class Install(InstallPlugin):
         self.type = self.progress.get('mythbuntu/install_type')
 
         self.setup_common()
-        self.setup_master_backend()
+        self.setup_roles()
         self.process_package_removals()
 
         return InstallPlugin.install(self, target, progress, *args, **kwargs)

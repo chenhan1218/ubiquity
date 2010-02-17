@@ -121,16 +121,8 @@ class Page(Plugin):
 
 class Install(InstallPlugin):
     def install(self, target, progress, *args, **kwargs):
-        passwd = progress.get('passwd/user-password')
         user = progress.get('passwd/username')
         type = progress.get('mythbuntu/install_type')
-
-        #Before beginning, set the initial root sql pass to the user pass
-        for key in [ 'mythtv/mysql_admin_password',
-                     'mysql-server/root_password',
-                     'mysql-server/root_password_again' ]:
-            install_misc.set_debconf(target, key, passwd)
-
 
         #Create a .mythtv directory
         home_mythtv_dir = target + '/home/' + user + '/.mythtv'
