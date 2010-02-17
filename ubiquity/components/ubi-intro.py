@@ -24,6 +24,8 @@ from ubiquity.plugin import *
 NAME = 'intro'
 AFTER = None
 WEIGHT = 100
+# Not useful in oem-config.
+OEM = False
 
 def get_intro():
     """Get some introductory text, if available."""

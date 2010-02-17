@@ -60,6 +60,13 @@ def get_mod_int(mod, name):
     else:
         return 0
 
+def get_mod_bool(mod, name):
+    if hasattr(mod, name):
+        mod_bool = getattr(mod, name)
+        return mod_bool
+    else:
+        return None
+
 def get_mod_index(modlist, name):
     index = 0
     for mod in modlist:
@@ -99,6 +106,11 @@ def one_pass(mods, order, hidden_list):
         if not name:
             mods.remove(mod)
             continue
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            oem = get_mod_bool(mod, 'OEM')
+            if oem == False:
+                mods.remove(mod)
+                continue
         after = get_mod_list(mod, 'AFTER')
         before = get_mod_list(mod, 'BEFORE')
         hidden = get_mod_list(mod, 'HIDDEN')

@@ -32,6 +32,8 @@ from ubiquity import validation
 NAME = 'summary'
 AFTER = 'usersetup'
 WEIGHT = 10
+# Not useful in oem-config.
+OEM = False
 
 class PageBase(PluginUI):
     def __init__(self):

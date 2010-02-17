@@ -27,6 +27,8 @@ from ubiquity.misc import *
 NAME = 'migrationassistant'
 AFTER = 'partman'
 WEIGHT = 10
+# Not useful in oem-config.
+OEM = False
 
 class PageBase(PluginUI):
     def ma_set_choices(self, choices):

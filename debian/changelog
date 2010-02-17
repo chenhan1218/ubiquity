@@ -13,6 +13,8 @@ ubiquity (2.1.21) UNRELEASED; urgency=low
   * Add oem-config/install-language-support, which installs the
     respective language support packages for the locale selected by the
     user.
+  * Add an 'OEM' field to the plugins to declare whether a module is
+    suitable for use in oem-config (defaults to True).
 
   [ Roman Shtylman ]
   * Fix for (LP: #522502)

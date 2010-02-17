@@ -150,7 +150,7 @@ class BaseFrontend:
         for mod in modules:
             if mod.NAME == 'migrationassistant' and \
                 'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
-                continue
+                    continue
             comp = Component()
             comp.module = mod
             if hasattr(mod, 'Page'):
