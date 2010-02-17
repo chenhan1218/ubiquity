@@ -32,7 +32,7 @@ from ubiquity.plugin import *
 import debconf
 
 NAME = 'usersetup'
-AFTER = 'partman'
+AFTER = 'console_setup'
 WEIGHT = 10
 
 class PageBase(PluginUI):
