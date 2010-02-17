@@ -23,6 +23,8 @@ ubiquity (2.1.21) UNRELEASED; urgency=low
     the latter isn't present.
   * Validate some fields on the usersetup page in real time.  Provide a
     visual cue that the data entered is probably okay.
+  * Automatic update of included source packages: console-setup
+    1.34ubuntu10.
 
   [ Roman Shtylman ]
   * Fix for (LP: #522502)
