@@ -488,7 +488,7 @@ class PageKde(PageBase):
 class PageDebconf(PluginUI):
     plugin_title = 'ubiquity/text/userinfo_heading_label'
 
-class PageNoninteractive(PluginUI):
+class PageNoninteractive(PageBase):
     def __init__(self, controller, *args, **kwargs):
         PageBase.__init__(self, *args, **kwargs)
         self.controller = controller
@@ -505,7 +505,7 @@ class PageNoninteractive(PluginUI):
 
     def get_fullname(self):
         """Get the user's full name."""
-        if self.oem_config:
+        if self.controller.oem_config:
             return 'OEM Configuration (temporary user)'
         return self.fullname
 
@@ -515,7 +515,7 @@ class PageNoninteractive(PluginUI):
 
     def get_username(self):
         """Get the user's Unix user name."""
-        if self.oem_config:
+        if self.controller.oem_config:
             return 'oem'
         return self.username
 
@@ -549,6 +549,9 @@ class PageNoninteractive(PluginUI):
         print >>self.console, '\nBad password: %s' % msg
         self.password = getpass.getpass('Password: ')
         self.verifiedpassword = getpass.getpass('Password again: ')
+
+    def set_hostname(self, name):
+        pass
 
     def get_hostname(self):
         """Get the selected hostname."""

@@ -1,6 +1,8 @@
 ubiquity (2.1.22) UNRELEASED; urgency=low
 
   * Use raised_privileges() in the noninteractive FE for init.
+  * Fix a couple of areas that broke in the noninteractive portions of
+    ubi-usersetup from the plugins conversion.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 18 Feb 2010 15:51:59 -0600
 
