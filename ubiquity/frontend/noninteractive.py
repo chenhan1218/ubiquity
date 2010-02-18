@@ -46,7 +46,8 @@ class Wizard(BaseFrontend):
     def __init__(self, distro):
         BaseFrontend.__init__(self, distro)
 
-        self.console = open('/dev/console', 'w')
+        with raised_privileges():
+            self.console = open('/dev/console', 'w')
         if not self.console:
             self.console = sys.stdout # better than crashing
         self.installing = False

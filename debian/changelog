@@ -1,3 +1,9 @@
+ubiquity (2.1.22) UNRELEASED; urgency=low
+
+  * Use raised_privileges() in the noninteractive FE for init.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 18 Feb 2010 15:51:59 -0600
+
 ubiquity (2.1.21) lucid; urgency=low
 
   [ Mario Limonciello ]
