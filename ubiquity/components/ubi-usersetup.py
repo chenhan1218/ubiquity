@@ -485,8 +485,11 @@ class PageKde(PageBase):
         self.page.password_error_reason.hide()
         self.page.hostname_error_reason.hide()
 
-class PageDebconf(PluginUI):
+class PageDebconf(PageBase):
     plugin_title = 'ubiquity/text/userinfo_heading_label'
+
+    def __init__(self, controller, *args, **kwargs):
+        self.controller = controller
 
 class PageNoninteractive(PageBase):
     def __init__(self, controller, *args, **kwargs):
