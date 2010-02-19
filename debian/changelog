@@ -1,4 +1,4 @@
-ubiquity (2.1.22) UNRELEASED; urgency=low
+ubiquity (2.1.22) lucid; urgency=low
 
   * Use raised_privileges() in the noninteractive FE for init.
   * Fix a couple of areas that broke in the noninteractive portions of
@@ -13,7 +13,7 @@ ubiquity (2.1.22) UNRELEASED; urgency=low
   * For user-setup's PageDebconf, inherit from PageBase for skeleton
     functions that Page may use.
 
- -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 18 Feb 2010 15:51:59 -0600
+ -- Mario Limonciello <superm1@ubuntu.com>  Fri, 19 Feb 2010 10:41:33 -0600
 
 ubiquity (2.1.21) lucid; urgency=low
 
