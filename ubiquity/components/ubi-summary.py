@@ -45,15 +45,15 @@ class PageBase(PluginUI):
 
     def set_summary_text(self):
         pass
-    
+
 class PageGtk(PageBase):
     plugin_is_install = True
     plugin_widgets = 'stepReady'
-    
+
     def __init__(self, controller, *args, **kwargs):
         PageBase.__init__(self)
         self.controller = controller
-        
+
         import gtk
         builder = gtk.Builder()
         controller.add_builder(builder)
@@ -73,10 +73,10 @@ class PageGtk(PageBase):
         self.proxy_port_spinbutton = builder.get_object('proxy_port_spinbutton')
         self.advanced_dialog = builder.get_object('advanced_dialog')
         self.plugin_widgets = self.page
-        
+
         self.grub_device_entry.connect('changed', self.grub_verify_loop,
             self.advanced_okbutton)
-        
+
         self.grub_device_entry.clear()
         renderer = gtk.CellRendererText()
         self.grub_device_entry.pack_start(renderer, True)
@@ -85,7 +85,7 @@ class PageGtk(PageBase):
         self.grub_device_entry.pack_start(renderer, True)
         self.grub_device_entry.add_attribute(renderer, 'text', 1)
         self.grub_device_entry.set_model(self.controller.grub_options)
-    
+
     def set_summary_text(self, text):
         import gtk
         for child in self.ready_text.get_children():
@@ -94,7 +94,7 @@ class PageGtk(PageBase):
         ready_buffer = gtk.TextBuffer()
         ready_buffer.set_text(text)
         self.ready_text.set_buffer(ready_buffer)
-    
+
     def grub_verify_loop(self, widget, okbutton):
         if widget is not None:
             if validation.check_grub_device(widget.child.get_text()):
@@ -172,36 +172,36 @@ class PageGtk(PageBase):
 class PageKde(PageBase):
     plugin_is_install = True
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_summary'
-    
+
     def __init__(self, controller, *args, **kwargs):
         PageBase.__init__(self)
-        
+
         self.controller = controller
-        
+
         from PyQt4 import uic
         from PyQt4.QtGui import QDialog
-        
+
         self.plugin_widgets = uic.loadUi('/usr/share/ubiquity/qt/stepSummary.ui')
         self.advanceddialog = QDialog(self.plugin_widgets)
         uic.loadUi("/usr/share/ubiquity/qt/advanceddialog.ui", self.advanceddialog)
-        
+
         self.advanceddialog.grub_enable.stateChanged.connect(self.toggle_grub)
         self.advanceddialog.proxy_host_entry.textChanged.connect(self.enable_proxy_spinbutton)
-        
+
         self.plugin_widgets.advanced_button.clicked.connect(self.on_advanced_button_clicked)
         self.w = self.plugin_widgets
-        
+
     def set_summary_text (self, text):
         text = text.replace("\n", "<br>")
         self.plugin_widgets.ready_text.setText(text)
-    
+
     def set_grub_combo(self, options):
         ''' options gives us a possible list of install locations for the boot loader '''
         self.advanceddialog.grub_device_entry.clear()
         ''' options is from summary.py grub_options() '''
         for opt in options:
            self.advanceddialog.grub_device_entry.addItem(opt[0]);
-        
+
     def enable_proxy_spinbutton(self):
         self.advanceddialog.proxy_port_spinbutton.setEnabled(self.advanceddialog.proxy_host_entry.text() != '')
 
@@ -209,26 +209,26 @@ class PageKde(PageBase):
         grub_en = self.advanceddialog.grub_enable.isChecked()
         self.advanceddialog.grub_device_entry.setEnabled(grub_en)
         self.advanceddialog.grub_device_label.setEnabled(grub_en)
-        
+
     def on_advanced_button_clicked(self):
-        
+
         display = False
         grub_en = self.controller.get_grub()
         summary_device = self.controller.get_summary_device()
-        
+
         if grub_en:
             self.advanceddialog.grub_enable.show()
             self.advanceddialog.grub_enable.setChecked(grub_en)
         else:
             self.advanceddialog.grub_enable.hide()
             summary_device = None
-            
+
         if summary_device:
             display = True
             self.advanceddialog.bootloader_group_label.show()
             self.advanceddialog.grub_device_label.show()
             self.advanceddialog.grub_device_entry.show()
-            
+
             # if the combo box does not yet have the target install device, add it
             # select current device
             summary_device = self.controller.get_summary_device()
@@ -236,17 +236,17 @@ class PageKde(PageBase):
             if (index == -1):
                 self.advanceddialog.grub_device_entry.addItem(summary_device)
                 index = self.advanceddialog.grub_device_entry.count() - 1
-            
+
             # select the target device
             self.advanceddialog.grub_device_entry.setCurrentIndex(index)
-            
+
             self.advanceddialog.grub_device_entry.setEnabled(grub_en)
             self.advanceddialog.grub_device_label.setEnabled(grub_en)
         else:
             self.advanceddialog.bootloader_group_label.hide()
             self.advanceddialog.grub_device_label.hide()
             self.advanceddialog.grub_device_entry.hide()
-            
+
         if self.popcon:
             display = True
             self.advanceddialog.popcon_group_label.show()

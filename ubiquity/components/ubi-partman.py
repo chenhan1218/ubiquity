@@ -42,14 +42,14 @@ class PageBase(PluginUI):
         self.manual_choice = None
         self.biggest_free_choice = None
         pass
-        
+
     def set_disk_layout(self, layout):
         pass
 
     """Set available autopartitioning choices."""
     def set_autopartition_choices(self, choices, extra_options,
                                   resize_choice, manual_choice,
-                                  biggest_free_choice):    
+                                  biggest_free_choice):
         self.resize_choice = resize_choice
         self.manual_choice = manual_choice
         self.biggest_free_choice = biggest_free_choice
@@ -124,7 +124,7 @@ class PageGtk(PageBase):
             self.release_color = 'D07316'
             self.auto_colors = ['3465a4', '73d216', 'f57900']
             self.dev_colors = {}
-            
+
             self.partition_create_mount_combo.child.set_activates_default(True)
             self.partition_edit_mount_combo.child.set_activates_default(True)
 
@@ -386,7 +386,7 @@ class PageGtk(PageBase):
                 self.action_bar.add_segment_rgb(get_release_name(), -1, \
                     self.release_color)
                 self.on_extra_combo_changed(extra_combo)
-    
+
     def partman_column_name (self, unused_column, cell, model, iterator):
         partition = model[iterator][1]
         if 'id' not in partition:
@@ -1043,24 +1043,24 @@ class PageGtk(PageBase):
             sel.select_path(0)
         # make sure we're on the advanced partitioning page
         self.current_page = self.page_advanced
-    
+
     def installation_medium_mounted (self, message):
         self.part_advanced_warning_message.set_text(message)
         self.part_advanced_warning_hbox.show_all()
 
 class PageKde(PageBase):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_partition'
-    
+
     def __init__(self, controller, *args, **kwargs):
         PageBase.__init__(self)
         self.controller = controller
-        
+
         from ubiquity.frontend.kde_components.PartAuto import PartAuto
         from ubiquity.frontend.kde_components.PartMan import PartMan
-        
+
         self.partAuto = PartAuto()
         self.partMan = PartMan(self.controller)
-        
+
         self.page = self.partAuto
         self.page_advanced = self.partMan
         self.plugin_widgets = self.page
@@ -1078,16 +1078,16 @@ class PageKde(PageBase):
         PageBase.set_autopartition_choices(self, choices, extra_options,
                                                resize_choice, manual_choice,
                                                biggest_free_choice)
-                                               
+
         self.partAuto.setupChoices(choices, extra_options,
                                    resize_choice, manual_choice,
                                    biggest_free_choice)
-                                   
+
         self.current_page = self.page
 
     def get_autopartition_choice (self):
         return self.partAuto.getChoice()
-            
+
     def update_partman (self, disk_cache, partition_cache, cache_order):
         self.partMan.update(disk_cache, partition_cache, cache_order)
         # make sure we're on the advanced partitioning page
@@ -1344,7 +1344,7 @@ class Page(Plugin):
         if fs in ('fat16', 'fat32', 'ntfs'):
             question = 'partman-basicfilesystems/fat_mountpoint'
         elif fs == 'uboot':
-            question = 'partman-uboot/mountpoint' 
+            question = 'partman-uboot/mountpoint'
         else:
             question = 'partman-basicfilesystems/mountpoint'
         choices_c = self.choices_untranslated(question)
@@ -1493,7 +1493,7 @@ class Page(Plugin):
         if self.done:
             # user answered confirmation question or backed up
             return self.succeeded
-            
+
         self.current_question = question
         options = self.snoop()
         menu_options = self.snoop_menu(options)
@@ -1555,7 +1555,7 @@ class Page(Plugin):
                         ret.append((dev, size, partition[1], partition[4]))
                     layout[disk] = ret
             self.ui.set_disk_layout(layout)
-            
+
             # Set up translation mappings to avoid debian-installer
             # specific text ('Guided -').
             self.translation_mappings = {}
@@ -1576,7 +1576,7 @@ class Page(Plugin):
             self.biggest_free_desc = map_trans(self.biggest_free_desc, 'ubiquity/text/biggest_free')
             self.resize_desc = map_trans(self.resize_desc, 'ubiquity/text/resize_use_free')
             self.manual_desc = map_trans(self.manual_desc, 'ubiquity/text/custom_partitioning')
-            
+
             biggest_free = self.find_script(menu_options, 'biggest_free')
             if biggest_free:
                 biggest_free = biggest_free[0][1]
