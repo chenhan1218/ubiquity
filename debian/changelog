@@ -8,6 +8,8 @@ ubiquity (2.1.22) UNRELEASED; urgency=low
   * Since both partman and usersetup now want to go after console_setup,
     set partman's weight higher than usersetup's to restore the page.
     (LP: #523648)
+  * Integrate 60mythbuntu target config into myth-passwords now that
+    user setup is a plugin.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 18 Feb 2010 15:51:59 -0600
 

@@ -160,4 +160,9 @@ class Install(InstallPlugin):
                 #on a live disk, this will appear a broken link, but it works
                 pass
 
+        #prep user for stuff we did
+        install_misc.chrex(target, 'adduser', user, 'mythtv')
+        install_misc.chrex(target, 'adduser', user, 'video')
+        install_misc.chrex(target, 'chown','1000:1000','-R', os.path.join('/home',user))
+
         return InstallPlugin.install(self, target, progress, *args, **kwargs)
