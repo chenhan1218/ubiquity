@@ -1,6 +1,10 @@
 ubiquity (2.1.23) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Fix docstrings. They need to be the first statement in a function.
+
+  [ Mario Limonciello ]
+  * Fix an UnboundLocalError in oem-config mode related to trusted_db.
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 19 Feb 2010 18:02:13 -0500
 

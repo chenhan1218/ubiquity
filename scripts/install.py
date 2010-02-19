@@ -2029,6 +2029,7 @@ class Install:
         save_override = None
         custom = '/etc/apt/sources.list.d/oem-config.list'
         apt_update = ['debconf-apt-progress', '--', 'apt-get', 'update']
+        trusted_db = '/etc/apt/trusted.gpg'
         try:
             if 'DEBCONF_DB_REPLACE' in os.environ:
                 save_replace = os.environ['DEBCONF_DB_REPLACE']
@@ -2050,7 +2051,6 @@ class Install:
                 with open(custom, 'w') as f:
                     print >>f, extra_pool
             if extra_key and os.path.exists(extra_key):
-                trusted_db = '/etc/apt/trusted.gpg'
                 if os.path.exists(trusted_db):
                     shutil.copy(trusted_db, trusted_db + '.oem-config')
                 subprocess.call(['apt-key', 'add', extra_key])
