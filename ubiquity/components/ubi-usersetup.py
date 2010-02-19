@@ -57,23 +57,23 @@ class PageBase(PluginUI):
     def __init__(self):
         self.laptop = execute("laptop-detect")
         self.allow_password_empty = False
-        
-    def set_fullname(self, value):        
+
+    def set_fullname(self, value):
         """Set the user's full name."""
         raise NotImplementedError('set_fullname')
 
     def get_fullname(self):
         """Get the user's full name."""
         raise NotImplementedError('get_fullname')
-        
-    def set_username(self, value):        
+
+    def set_username(self, value):
         """Set the user's Unix user name."""
         raise NotImplementedError('set_username')
 
     def get_username(self):
         """Get the user's Unix user name."""
         raise NotImplementedError('get_username')
-        
+
     def get_password(self):
         """Get the user's password."""
         raise NotImplementedError('get_password')
@@ -109,7 +109,7 @@ class PageBase(PluginUI):
     def password_error(self, msg):
         """The selected password was bad."""
         raise NotImplementedError('password_error')
-        
+
     def hostname_error(self, msg):
         """ The hostname had an error """
         raise NotImplementedError('hostname_error')
@@ -117,17 +117,17 @@ class PageBase(PluginUI):
     def get_hostname(self):
         """Get the selected hostname."""
         raise NotImplementedError('get_hostname')
-        
+
     def set_hostname(self, hostname):
         raise NotImplementedError('set_hostname')
-        
+
     def clear_errors(self):
         pass
 
     def info_loop(self, *args):
         """Verify user input."""
         pass
-    
+
     def set_allow_password_empty(self, empty):
         self.allow_password_empty = empty
 
@@ -139,7 +139,7 @@ class PageGtk(PageBase):
         self.hostname_changed_id = None
         self.username_edited = False
         self.hostname_edited = False
-        
+
         import gtk
         builder = gtk.Builder()
         self.controller.add_builder(builder)
@@ -160,12 +160,12 @@ class PageGtk(PageBase):
         self.hostname_error_box = builder.get_object('hostname_error_box')
         self.hostname = builder.get_object('hostname')
         self.login_vbox = builder.get_object('login_vbox')
-        
+
         self.username_valid_image = builder.get_object('username_valid_image')
         self.password_valid_image = builder.get_object('password_valid_image')
         self.hostname_valid_image = builder.get_object('hostname_valid_image')
         self.fullname_valid_image = builder.get_object('fullname_valid_image')
-        
+
         # Some signals need to be connected by hand so that we have the
         # handler ids.
         self.username_changed_id = self.username.connect(
@@ -194,9 +194,9 @@ class PageGtk(PageBase):
             self.login_vbox.hide()
             # The UserSetup component takes care of preseeding passwd/user-uid.
             execute_root('apt-install', 'oem-config-gtk')
-        
+
         self.plugin_widgets = self.page
-    
+
     # Functions called by the Page.
 
     def set_fullname(self, value):
@@ -256,7 +256,7 @@ class PageGtk(PageBase):
 
     def set_hostname(self, value):
         self.hostname.set_text(value)
-    
+
     def clear_errors(self):
         self.username_error_box.hide()
         self.password_error_box.hide()
@@ -289,7 +289,7 @@ class PageGtk(PageBase):
             self.hostname.handler_block(self.hostname_changed_id)
             self.hostname.set_text(widget.get_text().strip() + hostname_suffix)
             self.hostname.handler_unblock(self.hostname_changed_id)
-        
+
         # Do some initial validation.  We have to process all the widgets so we
         # can know if we can really show the next button.  Otherwise we'd show
         # it on any field being valid.
@@ -340,21 +340,21 @@ class PageGtk(PageBase):
 
 class PageKde(PageBase):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_user'
-    
+
     def __init__(self, controller, *args, **kwargs):
         PageBase.__init__(self, *args, **kwargs)
         self.controller = controller
-        
+
         from PyQt4 import uic
         from PyQt4.QtGui import QDialog
         from PyKDE4.kdeui import KIconLoader
-        
+
         self.plugin_widgets = uic.loadUi('/usr/share/ubiquity/qt/stepUserSetup.ui')
         self.page = self.plugin_widgets
-        
+
         self.username_edited = False
         self.hostname_edited = False
-        
+
         if self.controller.oem_config:
             self.page.fullname.setText('OEM Configuration (temporary user)')
             self.page.fullname.setReadOnly(True)
@@ -367,29 +367,29 @@ class PageKde(PageBase):
             self.page.login_encrypt.hide()
             self.username_edited = True
             self.hostname_edited = True
-            
+
             if self.laptop:
                 self.page.hostname.setText('oem-laptop')
             else:
                 self.page.hostname.setText('oem-desktop')
-                
+
         iconLoader = KIconLoader()
         warningIcon = iconLoader.loadIcon("dialog-warning", KIconLoader.Desktop)
         self.page.fullname_error_image.setPixmap(warningIcon)
         self.page.username_error_image.setPixmap(warningIcon)
         self.page.password_error_image.setPixmap(warningIcon)
         self.page.hostname_error_image.setPixmap(warningIcon)
-        
+
         self.clear_errors()
-        
+
         self.page.fullname.textChanged[str].connect(self.on_fullname_changed)
         self.page.username.textChanged[str].connect(self.on_username_changed)
         self.page.hostname.textChanged[str].connect(self.on_hostname_changed)
         #self.page.password.textChanged[str].connect(self.on_password_changed)
         #self.page.verified_password.textChanged[str].connect(self.on_verified_password_changed)
-        
-        self.page.password_debug_warning_label.setVisible('UBIQUITY_DEBUG' in os.environ)                    
-    
+
+        self.page.password_debug_warning_label.setVisible('UBIQUITY_DEBUG' in os.environ)
+
     def on_fullname_changed(self):
         # If the user did not manually enter a username create one for him.
         if not self.username_edited:
@@ -405,11 +405,11 @@ class PageKde(PageBase):
                 hostname_suffix = '-laptop'
             else:
                 hostname_suffix = '-desktop'
-                
+
             self.page.hostname.blockSignals(True)
             self.page.hostname.setText(unicode(self.page.hostname.text()).strip() + hostname_suffix)
             self.page.hostname.blockSignals(False)
-            
+
         self.username_edited = (self.page.username.text() != '')
 
     def on_password_changed(self):
@@ -420,7 +420,7 @@ class PageKde(PageBase):
 
     def on_hostname_changed(self):
         self.hostname_edited = (self.page.hostname.text() != '')
-        
+
     def set_fullname(self, value):
         self.page.fullname.setText(unicode(value, "UTF-8"))
 
@@ -447,7 +447,7 @@ class PageKde(PageBase):
 
     def get_auto_login(self):
         return self.page.login_auto.isChecked()
-    
+
     def set_encrypt_home(self, value):
         self.page.login_encrypt.setChecked(value)
 
@@ -463,7 +463,7 @@ class PageKde(PageBase):
         self.page.password_error_reason.setText(msg)
         self.page.password_error_image.show()
         self.page.password_error_reason.show()
-        
+
     def hostname_error(self, msg):
         self.page.hostname_error_reason.setText(msg)
         self.page.hostname_error_image.show()
@@ -474,13 +474,13 @@ class PageKde(PageBase):
 
     def set_hostname (self, value):
         self.page.hostname.setText(value)
-        
+
     def clear_errors(self):
         self.page.fullname_error_image.hide()
         self.page.username_error_image.hide()
         self.page.password_error_image.hide()
         self.page.hostname_error_image.hide()
-        
+
         self.page.username_error_reason.hide()
         self.page.password_error_reason.hide()
         self.page.hostname_error_reason.hide()
@@ -532,7 +532,7 @@ class PageNoninteractive(PageBase):
 
     def get_auto_login(self):
         return self.auto_login
-    
+
     def set_encrypt_home(self, value):
         self.encrypt_home = value
 
@@ -558,7 +558,7 @@ class PageNoninteractive(PageBase):
         # We set a default in install.py in case it isn't preseeded but when we
         # preseed, we are looking for None anyhow.
         return ''
-    
+
     def clear_errors(self):
         pass
 
@@ -653,7 +653,7 @@ class Page(Plugin):
 
     def ok_handler(self):
         self.ui.clear_errors()
-    
+
         fullname = self.ui.get_fullname()
         username = self.ui.get_username().strip()
         password = self.ui.get_password()
@@ -672,19 +672,19 @@ class Page(Plugin):
             self.preseed('passwd/user-uid', '')
         self.preseed_bool('passwd/auto-login', auto_login)
         self.preseed_bool('user-setup/encrypt-home', encrypt_home)
-        
+
         hostname = self.ui.get_hostname()
-        
+
         # check if the hostname had errors
         error_msg = check_hostname(hostname)
-        
+
         # showing warning message is error is set
         if len(error_msg) != 0:
             self.ui.hostname_error(error_msg)
             self.done = False
             self.enter_ui_loop()
             return
-        
+
         if hostname is not None and hostname != '':
             hd = hostname.split('.', 1)
             self.preseed('netcfg/get_hostname', hd[0])
@@ -718,7 +718,7 @@ class Install(InstallPlugin):
         self.ui.error_dialog(self.description(question),
                              self.extended_description(question))
         return InstallPlugin.error(self, priority, question)
-    
+
     def install(self, target, progress, *args, **kwargs):
         progress.info('ubiquity/install/user')
         return InstallPlugin.install(self, target, progress, *args, **kwargs)
