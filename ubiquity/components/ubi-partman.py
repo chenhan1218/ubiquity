@@ -46,24 +46,24 @@ class PageBase(PluginUI):
     def set_disk_layout(self, layout):
         pass
 
-    """Set available autopartitioning choices."""
     def set_autopartition_choices(self, choices, extra_options,
                                   resize_choice, manual_choice,
                                   biggest_free_choice):
+        """Set available autopartitioning choices."""
         self.resize_choice = resize_choice
         self.manual_choice = manual_choice
         self.biggest_free_choice = biggest_free_choice
 
-    """Get the selected autopartitioning choice."""
     def get_autopartition_choice(self):
+        """Get the selected autopartitioning choice."""
         pass
 
-    """Note that the installation medium is mounted."""
     def installation_medium_mounted(self, message):
+        """Note that the installation medium is mounted."""
         pass
 
-    """Update the manual partitioner display."""
     def update_partman(self, disk_cache, partition_cache, cache_order):
+        """Update the manual partitioner display."""
         pass
 
 class PageGtk(PageBase):

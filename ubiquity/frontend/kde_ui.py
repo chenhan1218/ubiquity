@@ -714,8 +714,8 @@ class Wizard(BaseFrontend):
             self.stackLayout.setCurrentWidget(widget)
             self.on_steps_switch_page(current)
 
-    """prepare, copy and config the system in the core install process."""
     def progress_loop(self):
+        """prepare, copy and config the system in the core install process."""
         syslog.syslog('progress_loop()')
 
         self.current_page = None
@@ -841,13 +841,13 @@ class Wizard(BaseFrontend):
         elif self.get_reboot():
             self.reboot()
 
-    """reboot the system after installing process."""
     def reboot(self, *args):
+        """reboot the system after installing process."""
         self.returncode = 10
         self.quit()
 
-    """Callback for main program to actually reboot the machine."""
     def do_reboot(self):
+        """Callback for main program to actually reboot the machine."""
         if 'DESKTOP_SESSION' in os.environ:
             execute('qdbus', 'org.kde.ksmserver', '/KSMServer', 'org.kde.KSMServerInterface.logout',
                     # ShutdownConfirmNo, ShutdownTypeReboot,
@@ -856,8 +856,8 @@ class Wizard(BaseFrontend):
         else:
             execute('reboot')
 
-    """quit installer cleanly."""
     def quit(self):
+        """quit installer cleanly."""
         self.current_page = None
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
@@ -876,8 +876,8 @@ class Wizard(BaseFrontend):
         else:
             return False
 
-    """Callback to control the installation process between steps."""
     def on_next_clicked(self):
+        """Callback to control the installation process between steps."""
         if not self.allowed_change_step or not self.allowed_go_forward:
             return
 
@@ -890,8 +890,8 @@ class Wizard(BaseFrontend):
         else:
             self.app.exit()
 
-    """Process and validate the results of this step."""
     def process_step(self):
+        """Process and validate the results of this step."""
 
         # setting actual step
         step_num = self.get_current_page()
@@ -905,8 +905,8 @@ class Wizard(BaseFrontend):
         if step == "stepPartAuto":
             self.process_autopartitioning()
 
-    """Processing automatic partitioning step tasks."""
     def process_autopartitioning(self):
+        """Processing automatic partitioning step tasks."""
         self.app.processEvents()
 
         # For safety, if we somehow ended up improperly initialised
@@ -917,8 +917,8 @@ class Wizard(BaseFrontend):
         else:
             self.set_current_page(self.step_index("stepUserInfo"))
 
-    """Callback to set previous screen."""
     def on_back_clicked(self):
+        """Callback to set previous screen."""
         if not self.allowed_change_step:
             return
 

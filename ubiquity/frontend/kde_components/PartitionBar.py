@@ -56,8 +56,8 @@ class PartitionsBar(QWidget):
     ## signals
     partitionResized = pyqtSignal(['PyQt_PyObject', 'PyQt_PyObject'])
     
-    """ a widget to graphically show disk partitions. """
     def __init__(self, parent = None):
+        """ a widget to graphically show disk partitions. """
         QWidget.__init__(self, parent)
         self.partitions = []
         self.bar_height = 20 #should be a multiple of 2

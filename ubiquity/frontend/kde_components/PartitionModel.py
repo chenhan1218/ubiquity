@@ -8,8 +8,8 @@ from PyQt4.QtCore import *
 from ubiquity.misc import *
 from ubiquity import i18n
 
-"""Get the string name in the given lang or a default."""
 def get_string(name, lang=None, prefix=None):
+    """Get the string name in the given lang or a default."""
     if lang is None and 'LANG' in os.environ:
         lang = os.environ['LANG']
     return i18n.get_string(name, lang, prefix)

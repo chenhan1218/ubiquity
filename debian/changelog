@@ -1,3 +1,9 @@
+ubiquity (2.1.23) UNRELEASED; urgency=low
+
+  * Fix docstrings. They need to be the first statement in a function.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 19 Feb 2010 18:02:13 -0500
+
 ubiquity (2.1.22) lucid; urgency=low
 
   * Use raised_privileges() in the noninteractive FE for init.
