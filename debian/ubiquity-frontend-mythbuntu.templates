@@ -1,20 +1,3 @@
-Template: mythbuntu/summary
-Type: note
-#flag:translate!:3
-_Description: Ready to install
-  Install Type: ${INSTALLTYPE}
-  Language: ${LANGUAGE}
-  Keyboard layout: ${KEYMAP}
-  Name: ${FULLNAME}
-  Login name: ${USERNAME}
-  Location: ${LOCATION}
-  IR Remote: ${REMOTE}
-  IR Transmitter: ${TRANSMITTER}
-  Video Driver: ${VIDEO_DRIVER}
-  Services: ${SERVICES}
- .
- ${PARTMAN_CHANGES}
-
 Template: ubiquity/text/installtype_heading_label
 Type: text
 _Description: Installation Type

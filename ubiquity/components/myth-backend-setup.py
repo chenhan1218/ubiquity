@@ -25,8 +25,9 @@ from ubiquity.plugin import *
 import os
 
 NAME = 'myth-backend-setup'
-AFTER = 'myth-summary'
+AFTER = 'summary'
 WEIGHT = 10
+HIDDEN = 'migrationassistant'
 
 class PageGtk(MythPageGtk):
     def __init__(self, controller, *args, **kwargs):
