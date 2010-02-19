@@ -31,7 +31,7 @@ from ubiquity import osextras
 
 NAME = 'partman'
 AFTER = 'console_setup'
-WEIGHT = 10
+WEIGHT = 11
 # Not useful in oem-config.
 OEM = False
 

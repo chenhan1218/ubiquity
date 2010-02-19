@@ -5,6 +5,9 @@ ubiquity (2.1.22) UNRELEASED; urgency=low
     ubi-usersetup from the plugins conversion.
   * Drop myth-summary.  Now that ubi-summary is a plugin, it's much more
     difficult to override, and not worth the delta.
+  * Since both partman and usersetup now want to go after console_setup,
+    set partman's weight higher than usersetup's to restore the page.
+    (LP: #523648)
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 18 Feb 2010 15:51:59 -0600
 
