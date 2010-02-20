@@ -6,6 +6,3 @@ gui/qt/*.ui usr/share/ubiquity/qt
 gui/qt/style.qss usr/share/ubiquity/qt
 gui/qt/images/*.png usr/share/ubiquity/qt/images
 gui/qt/images/*.jpg usr/share/ubiquity/qt/images
-gui/qt/images/104_key.svg usr/share/ubiquity/qt/images
-gui/qt/images/105_key.svg usr/share/ubiquity/qt/images
-gui/qt/images/106_key.svg usr/share/ubiquity/qt/images
