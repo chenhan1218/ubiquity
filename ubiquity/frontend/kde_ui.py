@@ -159,6 +159,11 @@ class Wizard(BaseFrontend):
 
         self.ui = UbiquityUI()
         
+        # handle smaller screens (old school eee pc
+        if (QApplication.desktop().screenGeometry().height() < 560):
+            self.ui.main_frame.setFixedHeight(470)
+            self.ui.main_frame.setStyleSheet(file(os.path.join(UIDIR, "style_small.qss")).read())
+        
         # initially the steps widget is not visible
         # it becomes visible once the first step becomes active
         self.ui.steps_widget.setVisible(False)
