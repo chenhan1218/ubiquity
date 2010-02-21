@@ -91,6 +91,19 @@ class UbiquityUI(KMainWindow):
         self.minimize_button.clicked.connect(self.showMinimized)
         
         self.setWindowTitle("%s %s" % (distro_name, distro_release))
+        
+        # don't use stylesheet cause we want to scale the wallpaper for various
+        # screen sizes as well as support larger screens
+        self.bgImage = QImage("/usr/share/ubiquity/qt/images/wallpaper.jpg");
+        self.scaledBgImage = self.bgImage
+    
+    def paintEvent(self, pe):
+        p = QPainter(self)
+        p.drawImage(0, 0, self.scaledBgImage)
+        
+    def resizeEvent(self, re):
+        self.scaledBgImage = self.bgImage.scaled(self.width(), self.height(), 
+                Qt.KeepAspectRatioByExpanding, Qt.SmoothTransformation)
 
     def setWizard(self, wizardRef):
         self.wizard = wizardRef
@@ -158,6 +171,11 @@ class Wizard(BaseFrontend):
             self.app.setStyleSheet(file(os.path.join(UIDIR, "style.qss")).read())
 
         self.ui = UbiquityUI()
+        
+        # handle smaller screens (old school eee pc
+        if (QApplication.desktop().screenGeometry().height() < 560):
+            self.ui.main_frame.setFixedHeight(470)
+            self.ui.main_frame.setStyleSheet(file(os.path.join(UIDIR, "style_small.qss")).read())
         
         # initially the steps widget is not visible
         # it becomes visible once the first step becomes active

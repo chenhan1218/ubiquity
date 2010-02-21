@@ -1,8 +1,6 @@
+/** main stylesheet */
+
 #centralwidget {
-	background-image: url(/usr/share/ubiquity/qt/images/wallpaper.jpg);
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-color: black;
 }
 
 #minimize_button {
@@ -107,7 +105,13 @@
 	qproperty-alignment: AlignCenter;
 }
 
-#content_widget {
+#content_widget
+{
+}
+
+#widgetStack QWidget
+{
+    font-size: 10pt;
 }
 
 #widgetStack {
@@ -127,21 +131,6 @@
 {
 	border-radius: 5px;
 	border: 1px solid #bac8d1;
-}
-
-#keyboard_frame QPushButton
-{
-    border: 1px solid #bac8d1;
-    background-color: #e4ecf2;
-    border-radius: 3px;
-    font-size: 8pt;
-    padding: 5px;
-}
-
-#keyboard_frame #x36, 
-#keyboard_frame #x2a
-{
-    border: 1px solid #85a8d1;
 }
 
 #progressBar {

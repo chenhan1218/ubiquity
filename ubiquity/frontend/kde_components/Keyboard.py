@@ -83,6 +83,13 @@ class Keyboard(QWidget):
             self.kb = self.kb_106
         elif self.kb != self.kb_105:
             self.kb = self.kb_105
+            
+    def resizeEvent(self, re):
+        self.space = 6
+        self.usable_width = self.width()-2
+        self.key_w = (self.usable_width - 14 * self.space)/15
+        
+        self.setMinimumHeight(self.key_w*4 + self.space*5)
         
     def paintEvent(self, pe):
         p = QPainter(self)
@@ -97,9 +104,9 @@ class Keyboard(QWidget):
         
         rx = 6
         
-        space = 6
-        w = self.width()-2;
-        kw = (w - 14 * space)/15
+        space = self.space
+        w = self.usable_width
+        kw = self.key_w
         
         def drawRow(row, sx, sy, last_end=False):            
             x=sx

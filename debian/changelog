@@ -8,7 +8,12 @@ ubiquity (2.1.23) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Fix an UnboundLocalError in oem-config mode related to trusted_db.
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 19 Feb 2010 18:02:13 -0500
+  [ Roman Shtylman ]
+  * Fix for (LP: #424216) KDE ui on small screens
+  * Fix for (LP: #485322) KDE ui forward/install buttons
+  * Fix for (LP: #524090) KDE ui gray bar and scaling wallpaper
+
+ -- Roman Shtylman <shtylman@gmail.com>  Sun, 21 Feb 2010 13:09:33 -0500
 
 ubiquity (2.1.22) lucid; urgency=low
 
