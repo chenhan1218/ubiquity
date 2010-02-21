@@ -122,6 +122,7 @@ class TreeItem:
         self.parentItem = parent
         self.itemData = data
         self.childItems = []
+        self.controller = controller
         if controller:
             self.dbfilter = controller.dbfilter
         else:
@@ -229,15 +230,16 @@ class TreeItem:
         return 'method' in partition and 'can_activate_format' in partition
 
     def partman_column_format_toggled(self, unused_value):
-        #model = user_data
-        #devpart = model[path][0]
-        #partition = model[path][1]
+        if not self.controller.allowed_change_step():
+            return
+        if not isinstance(self.controller.dbfilter, Page):
+            return
         devpart = self.itemData[0]
         partition = self.itemData[1]
         if 'id' not in partition or 'method' not in partition:
             return
-        self.ubiquity.allow_change_step(False)
-        self.ubiquity.dbfilter.edit_partition(devpart, fmt='dummy')
+        self.controller.allow_change_step(False)
+        self.controller.dbfilter.edit_partition(devpart, fmt='dummy')
 
     def partman_column_size(self):
         partition = self.itemData[1]
