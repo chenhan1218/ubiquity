@@ -1,10 +1,6 @@
 /** main stylesheet */
 
 #centralwidget {
-	background-image: url(/usr/share/ubiquity/qt/images/wallpaper.jpg);
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-color: black;
 }
 
 #minimize_button {
