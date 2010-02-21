@@ -2,6 +2,8 @@ ubiquity (2.1.23) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Fix docstrings. They need to be the first statement in a function.
+  * Fix method call to set_summary_device in the advanced dialog.
+    Thanks Roman Shtylman.
 
   [ Mario Limonciello ]
   * Fix an UnboundLocalError in oem-config mode related to trusted_db.

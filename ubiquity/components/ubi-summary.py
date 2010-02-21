@@ -151,7 +151,7 @@ class PageGtk(PageBase):
         self.advanced_dialog.hide()
         if response == gtk.RESPONSE_OK:
             if summary_device is not None:
-                self.set_summary_device(self.grub_device_entry.child.get_text())
+                self.controller.set_summary_device(self.grub_device_entry.child.get_text())
             self.controller.set_popcon(self.popcon_checkbutton.get_active())
             self.controller.set_grub(self.grub_enable.get_active())
             self.controller.set_proxy_host(self.proxy_host_entry.get_text())
