@@ -11,6 +11,8 @@ ubiquity (2.1.24) UNRELEASED; urgency=low
   * Use /usr/share/images/xsplash/bg_2560x1600.jpg as ubiquity-greeter-gtk's
     background image for now; it's slightly more visually appealing than the
     test image!
+  * Make sure to run migration-assistant after user-setup, since it uses
+    passwd/username (LP: #524993).
 
   [ Jonathan Riddell ]
   * optimizegraphics: Losslessly optimized PNG and SVGZ files with
