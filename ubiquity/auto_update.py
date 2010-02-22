@@ -34,7 +34,6 @@ UBIQUITY_PKGS = ["ubiquity-casper",
                  "ubiquity-frontend-debconf",
                  "ubiquity-frontend-gtk",
                  "ubiquity-frontend-kde",
-                 "ubiquity-frontend-mythbuntu",
                  "ubiquity-ubuntu-artwork",
                  "ubiquity"]
 

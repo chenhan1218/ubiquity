@@ -110,10 +110,6 @@ endif
 
 	# Bits of manual installation that can't be done by dh_install
 	
-	# Get rid of duplicate mythbuntu scripts and move some mythbuntu stuff around
-	mv debian/ubiquity-frontend-mythbuntu/usr/share/pixmaps/ubiquity-mythbuntu.png debian/ubiquity-frontend-mythbuntu/usr/share/pixmaps/ubiquity.png
-	rm -rf debian/ubiquity/usr/share/ubiquity/mythbuntu
-
 	install bin/ubiquity-wrapper debian/ubiquity/usr/bin/ubiquity
 	sed 's/@VERSION@/$(VERSION)/g' bin/ubiquity \
 		> debian/ubiquity/usr/lib/ubiquity/bin/ubiquity
@@ -241,8 +237,7 @@ binary-indep: install
 	dh_compress
 	dh_fixperms
 	DH_OPTIONS= dh_pycentral -pubiquity-frontend-gtk \
-				 -pubiquity-frontend-kde \
-				 -pubiquity-frontend-mythbuntu
+				 -pubiquity-frontend-kde
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol -- -Vmangled-version='$(MANGLED_VERSION)'

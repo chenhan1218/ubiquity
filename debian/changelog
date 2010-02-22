@@ -7,6 +7,9 @@ ubiquity (2.1.23) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Fix an UnboundLocalError in oem-config mode related to trusted_db.
+  * Remove all of the mythbuntu frontend from ubiquity.  Now that it's fully
+    stable, it's being moved to the mythbuntu-live-autostart package so that
+    it can benefit from being maintained by anyone in ~mythbuntu-dev.
 
   [ Roman Shtylman ]
   * Fix for (LP: #424216) KDE ui on small screens
