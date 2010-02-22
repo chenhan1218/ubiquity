@@ -3,6 +3,11 @@ ubiquity (2.1.24) UNRELEASED; urgency=low
   [ Cody Russell ]
   * ubiquity-greeter-gtk: Add language selection facility.
 
+  [ Colin Watson ]
+  * Hook up ubiquity-greeter-gtk's language selection in ubiquity-dm to
+    rewrite /etc/default/locale, /etc/environment, and /etc/locale.gen
+    before continuing.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 22 Feb 2010 10:38:25 +0000
 
 ubiquity (2.1.23) lucid; urgency=low
