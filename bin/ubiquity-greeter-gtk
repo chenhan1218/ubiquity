@@ -36,7 +36,7 @@ def recompute_button_positions():
     if combo:
         requisition = combo.get_child_requisition()
         x = window.allocation.width / 2 - requisition[0] / 2
-        y = window.allocation.height / 4
+        y = window.allocation.height * 3 / 4
         if combo.allocation.x != x or combo.allocation.y != y:
             fixed.move(combo, int(x), int(y))
 
