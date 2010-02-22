@@ -8,6 +8,10 @@ import gobject
 import gtk
 import rsvg
 
+sys.path.insert(0, '/usr/lib/ubiquity')
+
+from ubiquity import i18n
+
 return_value = 0
 options = None
 svg = None
@@ -62,14 +66,27 @@ def fixed_size_allocate(widget, allocation):
     glib.timeout_add(100, recompute_button_positions)
 
 def create_language_model():
-    langs = ('English', 'French', 'German', 'Spanish')
+    current_language, sorted_choices, language_display_map = \
+        i18n.get_languages()
+    default_locales = i18n.default_locales()
 
-    store = gtk.ListStore(gobject.TYPE_STRING)
-    for l in langs:
+    store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
+    current_language_index = 0
+    i = 0
+    for choice in sorted_choices:
+        if choice not in language_display_map:
+            continue
+        code = language_display_map[choice][1]
+        if code not in default_locales:
+            continue
+        locale = default_locales[code]
         iter = store.append()
-        store.set(iter, 0, l)
+        store.set(iter, 0, choice, 1, locale)
+        if choice == current_language:
+            current_language_index = i
+        i += 1
 
-    return store
+    return store, current_language_index
 
 def window_size_allocate(widget, allocation):
     global image, button1, button2, combo
@@ -95,14 +112,15 @@ def window_size_allocate(widget, allocation):
         fixed.put(button2, 0, 0)
         button2.show()
 
-        combo = gtk.ComboBox(create_language_model())
+        language_model, current_language = create_language_model()
+        combo = gtk.ComboBox(language_model)
         combo.set_title('Language')
 
         renderer = gtk.CellRendererText()
         combo.pack_start(renderer, False)
         combo.set_attributes(renderer, text=0)
         combo.connect('changed', combo_changed)
-        combo.set_active(0)
+        combo.set_active(current_language)
 
         fixed.put(combo, 0, 0)
         combo.show()

@@ -19,7 +19,6 @@
 
 import os
 import debconf
-import PyICU
 
 from ubiquity.plugin import *
 from ubiquity import i18n
@@ -361,77 +360,11 @@ class Page(Plugin):
             if self.initial_language is None:
                 self.initial_language = self.db.get(question)
             current_language_index = self.value_index(question)
-            current_language = "English"
-
-
             only_installable = misc.create_bool(self.db.get('ubiquity/only-show-installable-languages'))
-            if only_installable:
-                from apt.cache import Cache
-                cache = Cache()
 
-            import gzip
-            languagelist = gzip.open('/usr/lib/ubiquity/localechooser/languagelist.data.gz')
-            language_display_map = {}
-            i = 0
-            for line in languagelist:
-                line = unicode(line, 'utf-8')
-                if line == '' or line == '\n':
-                    continue
-                code, name, trans = line.strip(u'\n').split(u':')[1:]
-                if code in ('dz', 'km'):
-                    i += 1
-                    continue
+            current_language, sorted_choices, language_display_map = \
+                i18n.get_languages(current_language_index, only_installable)
 
-                if only_installable and code != 'C':
-                    pkg_name = 'language-pack-%s' % code
-                    #special case these
-                    if pkg_name.endswith('_CN'):
-                        pkg_name = 'language-pack-zh-hans'
-                    elif pkg_name.endswith('_TW'):
-                        pkg_name = 'language-pack-zh-hant'
-                    elif pkg_name.endswith('_NO'):
-                        pkg_name = pkg_name.split('_NO')[0]
-                    elif pkg_name.endswith('_BR'):
-                        pkg_name = pkg_name.split('_BR')[0]
-                    try:
-                        pkg = cache[pkg_name]
-                        if not (pkg.installed or pkg.candidate):
-                            continue
-                    except KeyError:
-                        continue
-
-                language_display_map[trans] = (name, code)
-                if i == current_language_index:
-                    current_language = trans
-                i += 1
-            languagelist.close()
-
-            if only_installable:
-                del cache
-
-            try:
-                # Note that we always collate with the 'C' locale.  This is far
-                # from ideal.  But proper collation always requires a specific
-                # language for its collation rules (languages frequently have
-                # custom sorting).  This at least gives us common sorting rules,
-                # like stripping accents.
-                collator = PyICU.Collator.createInstance(PyICU.Locale('C'))
-            except:
-                collator = None
-
-            def compare_choice(x):
-                if language_display_map[x][1] == 'C':
-                    return None # place C first
-                if collator:
-                    try:
-                        return collator.getCollationKey(x).getByteArray()
-                    except:
-                        pass
-                # Else sort by unicode code point, which isn't ideal either,
-                # but also has the virtue of sorting like-glyphs together
-                return x
-
-            sorted_choices = sorted(language_display_map, key=compare_choice)
             self.ui.set_language_choices(sorted_choices,
                                          language_display_map)
             self.ui.set_language(current_language)
