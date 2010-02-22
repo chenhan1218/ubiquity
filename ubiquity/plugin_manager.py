@@ -108,7 +108,7 @@ def one_pass(mods, order, hidden_list):
             continue
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
             oem = get_mod_bool(mod, 'OEM')
-            if oem == False:
+            if not oem:
                 mods.remove(mod)
                 continue
         after = get_mod_list(mod, 'AFTER')
