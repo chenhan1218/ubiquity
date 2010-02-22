@@ -23,7 +23,6 @@ import codecs
 import os
 import locale
 import sys
-from ubiquity.debconfcommunicator import DebconfCommunicator
 from ubiquity import misc, im_switch
 
 _supported_locales = None
