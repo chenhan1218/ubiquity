@@ -12,7 +12,11 @@ ubiquity (2.1.24) UNRELEASED; urgency=low
     background image for now; it's slightly more visually appealing than the
     test image!
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 22 Feb 2010 10:38:25 +0000
+  [ Jonathan Riddell ]
+  * optimizegraphics: Losslessly optimized PNG and SVGZ files with
+    "optipng -o5" and "advdef -z -4". Reduced disk space: 160KB (0MB)
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 22 Feb 2010 17:04:56 +0000
 
 ubiquity (2.1.23) lucid; urgency=low
 
