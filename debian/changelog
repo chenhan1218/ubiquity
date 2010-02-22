@@ -8,6 +8,9 @@ ubiquity (2.1.24) UNRELEASED; urgency=low
     rewrite /etc/default/locale, /etc/environment, and /etc/locale.gen
     before continuing.
   * Remove unnecessary SVG-specific code from ubiquity-greeter-gtk.
+  * Use /usr/share/images/xsplash/bg_2560x1600.jpg as ubiquity-greeter-gtk's
+    background image for now; it's slightly more visually appealing than the
+    test image!
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 22 Feb 2010 10:38:25 +0000
 

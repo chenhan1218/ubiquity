@@ -20,6 +20,7 @@ from ubiquity.casper import get_casper
 
 options = None
 background = '/usr/share/backgrounds/warty-final-ubuntu.png'
+greeter_background = '/usr/share/images/xsplash/bg_2560x1600.jpg'
 
 class XStartupError(EnvironmentError):
     pass
@@ -340,10 +341,10 @@ EndSection
         pre_locale = None
         pre_ret = 0
         if (options.choose and self.frontend == 'gtk_ui' and
-            osextras.find_on_path('ubiquity-greeter-gtk')):
+            osextras.find_on_path('ubiquity-greeter-gtk') and
+            os.path.exists(greeter_background)):
             pre_greeter = subprocess.Popen(
-                ['ubiquity-greeter-gtk',
-                 '-f', '/usr/share/ubiquity/pixmaps/greeter-gtk.svg'],
+                ['ubiquity-greeter-gtk', '-f', greeter_background],
                 stdin=null, stdout=logfile, stderr=logfile)
             pre_locale = pre_greeter.communicate()[0].rstrip('\n')
             pre_ret = pre_greeter.returncode
