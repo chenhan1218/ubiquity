@@ -1,4 +1,4 @@
-ubiquity (2.1.23) UNRELEASED; urgency=low
+ubiquity (2.1.23) lucid; urgency=low
 
   [ Evan Dandrea ]
   * Fix docstrings. They need to be the first statement in a function.
@@ -18,7 +18,7 @@ ubiquity (2.1.23) UNRELEASED; urgency=low
   * Fix for (LP: #485322) KDE ui forward/install buttons
   * Fix for (LP: #524090) KDE ui gray bar and scaling wallpaper
 
- -- Roman Shtylman <shtylman@gmail.com>  Sun, 21 Feb 2010 13:09:33 -0500
+ -- Mario Limonciello <superm1@ubuntu.com>  Sun, 21 Feb 2010 22:17:26 -0600
 
 ubiquity (2.1.22) lucid; urgency=low
 
