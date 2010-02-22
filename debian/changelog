@@ -7,6 +7,7 @@ ubiquity (2.1.24) UNRELEASED; urgency=low
   * Hook up ubiquity-greeter-gtk's language selection in ubiquity-dm to
     rewrite /etc/default/locale, /etc/environment, and /etc/locale.gen
     before continuing.
+  * Remove unnecessary SVG-specific code from ubiquity-greeter-gtk.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 22 Feb 2010 10:38:25 +0000
 

@@ -6,7 +6,6 @@ import optparse
 import glib
 import gobject
 import gtk
-import rsvg
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
@@ -14,7 +13,6 @@ from ubiquity import i18n
 
 return_value = 0
 options = None
-svg = None
 window = None
 image = None
 button1 = None
@@ -126,7 +124,7 @@ def window_size_allocate(widget, allocation):
             image.set_from_pixbuf(pixbuf)
 
 def main():
-    global options, svg, window, fixed
+    global options, window, fixed
 
     usage = '%prog [options]'
     parser = optparse.OptionParser(usage=usage)
@@ -140,8 +138,6 @@ def main():
     parser.add_option('-2', '--button2-y', type='float',
                       help='Button 2 height ratio')
     options, args = parser.parse_args()
-
-    svg = rsvg.Handle(file=options.filename)
 
     window = gtk.Window()
     window.set_title("Welcome to Ubuntu!")
