@@ -59,9 +59,6 @@ def button2_clicked(button):
     return_value = 0
     gtk.main_quit()
 
-def combo_changed(combobox):
-    print(combobox.get_active_text())
-
 def fixed_size_allocate(widget, allocation):
     glib.timeout_add(100, recompute_button_positions)
 
@@ -119,7 +116,6 @@ def window_size_allocate(widget, allocation):
         renderer = gtk.CellRendererText()
         combo.pack_start(renderer, False)
         combo.set_attributes(renderer, text=0)
-        combo.connect('changed', combo_changed)
         combo.set_active(current_language)
 
         fixed.put(combo, 0, 0)
@@ -162,6 +158,13 @@ def main():
     window.show_all()
 
     gtk.main()
+
+    language_iter = combo.get_active_iter()
+    if language_iter is None:
+        language = 'C'
+    else:
+        language = combo.get_model().get_value(language_iter, 1)
+    print language
 
     return return_value
 
