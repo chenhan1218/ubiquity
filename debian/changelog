@@ -1,3 +1,9 @@
+ubiquity (2.1.25) UNRELEASED; urgency=low
+
+  * Fix installation_medium_mounted call in partman plugin (LP: #524169).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 22 Feb 2010 23:38:20 +0000
+
 ubiquity (2.1.24) lucid; urgency=low
 
   [ Cody Russell ]

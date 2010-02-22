@@ -2203,7 +2203,7 @@ class Page(Plugin):
                 return True
 
         elif question == 'partman/installation_medium_mounted':
-            self.frontend.installation_medium_mounted(
+            self.ui.installation_medium_mounted(
                 self.extended_description(question))
             return True
 
