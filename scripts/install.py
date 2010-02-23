@@ -802,8 +802,12 @@ class Install:
         media_info = '/cdrom/.disk/info'
         if os.path.isfile(media_info):
             try:
-                shutil.copy(media_info,
-                    os.path.join(self.target, 'var/log/installer/media-info'))
+                target_media_info = \
+                    os.path.join(self.target, 'var/log/installer/media-info')
+                shutil.copy(media_info, target_media_info)
+                os.chmod(target_media_info,
+                         stat.S_IRUSR | stat.S_IWUSR |
+                         stat.S_IRGRP | stat.S_IROTH)
             except (IOError, OSError):
                 pass
 

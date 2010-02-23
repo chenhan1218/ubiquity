@@ -1,6 +1,7 @@
 ubiquity (2.1.25) UNRELEASED; urgency=low
 
   * Fix installation_medium_mounted call in partman plugin (LP: #524169).
+  * Make sure that /var/log/installer/media-info is world-readable.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 22 Feb 2010 23:38:20 +0000
 
