@@ -65,7 +65,7 @@ def get_mod_bool(mod, name):
         mod_bool = getattr(mod, name)
         return mod_bool
     else:
-        return None
+        return True
 
 def get_mod_index(modlist, name):
     index = 0
