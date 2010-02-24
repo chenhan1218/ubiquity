@@ -9,6 +9,8 @@ ubiquity (2.1.25) UNRELEASED; urgency=low
     exist in the plugin.
     - Fixes oem-config ValueError (LP: #526405)
   * Fix launching KDE frontend in oem-config mode (LP: #526496)
+  * Automatic update of included source packages: base-installer
+    1.103ubuntu4.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 22 Feb 2010 23:38:20 +0000
 
