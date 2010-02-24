@@ -35,8 +35,11 @@ def main():
         inner = ['/usr/lib/ubiquity/bin/ubiquity']
         inner.extend(newargv)
 
-        # Lock HAL's storage subsystem (or DeviceKit-disks).
-        if osextras.find_on_path('devkit-disks'):
+        # Lock HAL's storage subsystem (or DeviceKit-disks or udisks).
+        if osextras.find_on_path('udisks'):
+            toexec.extend(['udisks', '--inhibit', '--'])
+            toexec.extend(inner)
+        elif osextras.find_on_path('devkit-disks'):
             toexec.extend(['devkit-disks', '--inhibit', '--'])
             toexec.extend(inner)
         elif osextras.find_on_path('hal-lock') and not os.system('pgrep hald>/dev/null'):
