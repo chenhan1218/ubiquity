@@ -1,8 +1,14 @@
 ubiquity (2.1.26) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Specify migrationassistant's order as simply coming before summary,
     as setting it as coming after user-setup and partman was causing it
     to come after summary (LP: #526581).
+
+  [ Jonathan Riddell ]
+  * kde_ui.py: don't show integrated progress bar, it seems to cause a crash
+    https://launchpad.net/bugs/526534
+  * kde_ui.py: Show progressDialog for install, still needed (LP: #526454)
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 24 Feb 2010 11:45:19 +0000
 
@@ -7256,3 +7262,4 @@ ubuntu-express (0.4ubuntu1) breezy; urgency=low
   * Initial Release.
 
  -- Javier Carranza <javier.carranza@interactors.coop>  Fri, 29 Jul 2005 17:04:51 +0200
+
