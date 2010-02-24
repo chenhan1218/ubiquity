@@ -1,10 +1,10 @@
-ubiquity (2.1.27) UNRELEASED; urgency=low
+ubiquity (2.1.27) lucid; urgency=low
 
   * Check whether choose_partition should be thawed when going back from
     scanning a non-resizable partition (LP: #527057).
   * devkit-disks was renamed to udisks; try to inhibit that first.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 24 Feb 2010 14:20:49 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 24 Feb 2010 15:08:00 +0000
 
 ubiquity (2.1.26) lucid; urgency=low
 
