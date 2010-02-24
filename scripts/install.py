@@ -2143,8 +2143,6 @@ class Install:
                 di_locale = self.db.get('debian-installer/locale')
                 if di_locale:
                     install_misc.set_debconf(self.target, 'debian-installer/locale', di_locale, self.db)
-                # Copy oem-config preseeded data to the install system.
-                self.copy_debconf('oem-config')
                 #in an automated install, this key needs to carry over
                 installable_lang = self.db.get('ubiquity/only-show-installable-languages')
                 if installable_lang:
@@ -2377,22 +2375,6 @@ class Install:
 
         if self.source == '/var/lib/ubiquity/source':
             self.umount_source()
-
-
-    def copy_debconf(self, package):
-        """setting debconf database into installed system."""
-
-        # TODO cjwatson 2006-02-25: unusable here now because we have a
-        # running debconf frontend that's locked the database; fortunately
-        # this isn't critical. We still need to think about how to handle
-        # preseeding in general, though.
-        targetdb = os.path.join(self.target, 'var/cache/debconf/config.dat')
-
-        misc.execute('debconf-copydb', 'configdb', 'targetdb', '-p',
-                     '^%s/' % package, '--config=Name:targetdb',
-                     '--config=Driver:File','--config=Filename:' + targetdb)
-
-
 
 if __name__ == '__main__':
     if not os.path.exists('/var/lib/ubiquity'):

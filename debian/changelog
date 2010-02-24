@@ -1,3 +1,10 @@
+ubiquity (2.1.28) UNRELEASED; urgency=low
+
+  * Copy oem-config debconf questions only after we're done using the
+    database.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 24 Feb 2010 16:38:07 +0000
+
 ubiquity (2.1.27) lucid; urgency=low
 
   * Check whether choose_partition should be thawed when going back from
