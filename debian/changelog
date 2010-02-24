@@ -1,7 +1,12 @@
 ubiquity (2.1.28) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Copy oem-config debconf questions only after we're done using the
     database.
+
+  [ Mario Limonciello ]
+  * Don't mistakingly always show ubiquity running in debug mode warning
+    in oem-config mode.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 24 Feb 2010 16:38:07 +0000
 

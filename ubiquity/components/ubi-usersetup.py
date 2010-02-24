@@ -173,11 +173,6 @@ class PageGtk(PageBase):
         self.hostname_changed_id = self.hostname.connect(
             'changed', self.on_hostname_changed)
 
-        if self.controller.oem_user_config:
-            password_debug_warning_label = \
-                builder.get_object('password_debug_warning_label')
-            password_debug_warning_label.show()
-
         if self.controller.oem_config:
             self.fullname.set_text('OEM Configuration (temporary user)')
             self.fullname.set_editable(False)
