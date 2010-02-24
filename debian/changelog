@@ -1,4 +1,4 @@
-ubiquity (2.1.26) UNRELEASED; urgency=low
+ubiquity (2.1.26) lucid; urgency=low
 
   [ Evan Dandrea ]
   * Specify migrationassistant's order as simply coming before summary,
@@ -10,7 +10,7 @@ ubiquity (2.1.26) UNRELEASED; urgency=low
     https://launchpad.net/bugs/526534
   * kde_ui.py: Show progressDialog for install, still needed (LP: #526454)
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 24 Feb 2010 11:45:19 +0000
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 24 Feb 2010 13:11:43 +0000
 
 ubiquity (2.1.25) lucid; urgency=low
 
