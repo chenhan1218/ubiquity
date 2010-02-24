@@ -1,3 +1,11 @@
+ubiquity (2.1.26) UNRELEASED; urgency=low
+
+  * Specify migrationassistant's order as simply coming before summary,
+    as setting it as coming after user-setup and partman was causing it
+    to come after summary (LP: #526581).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 24 Feb 2010 11:45:19 +0000
+
 ubiquity (2.1.25) lucid; urgency=low
 
   [ Colin Watson ]
