@@ -2002,6 +2002,7 @@ class Page(Plugin):
                 else:
                     # Back up to the previous menu.
                     self.thaw_choices('active_partition')
+                    self.maybe_thaw_choose_partition()
                     return False
 
             elif self.creating_partition or self.editing_partition:
