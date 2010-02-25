@@ -8,6 +8,10 @@ ubiquity (2.1.28) UNRELEASED; urgency=low
   * Don't mistakenly always show ubiquity running in debug mode warning in
     oem-config mode.
 
+  [ Colin Watson ]
+  * KDE frontend:
+    - Fix partman component for use_as signature change (LP: #527468).
+
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 24 Feb 2010 16:38:07 +0000
 
 ubiquity (2.1.27) lucid; urgency=low
