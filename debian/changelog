@@ -5,8 +5,8 @@ ubiquity (2.1.28) UNRELEASED; urgency=low
     database.
 
   [ Mario Limonciello ]
-  * Don't mistakingly always show ubiquity running in debug mode warning
-    in oem-config mode.
+  * Don't mistakenly always show ubiquity running in debug mode warning in
+    oem-config mode.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 24 Feb 2010 16:38:07 +0000
 
