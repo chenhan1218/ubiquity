@@ -1,4 +1,4 @@
-ubiquity (2.1.28) UNRELEASED; urgency=low
+ubiquity (2.1.28) lucid; urgency=low
 
   [ Evan Dandrea ]
   * Copy oem-config debconf questions only after we're done using the
@@ -17,7 +17,7 @@ ubiquity (2.1.28) UNRELEASED; urgency=low
   * kde_ui.py: Always show progressDialog during the install stage (LP:
     #527448)
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 25 Feb 2010 12:31:28 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 25 Feb 2010 12:37:09 +0000
 
 ubiquity (2.1.27) lucid; urgency=low
 
