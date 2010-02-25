@@ -777,7 +777,6 @@ class Wizard(BaseFrontend):
                     #add the webview to the extra frame of the progress dialog
                     self.progressDialog.extraFrame.layout().addWidget(webView)
                     self.progressDialog.extraFrame.setVisible(True)
-                    self.progressDialog.show()
                 except ImportError:
                     fail = 'Webkit not present.'
             else:
@@ -786,6 +785,8 @@ class Wizard(BaseFrontend):
             fail = 'No slides present for %s.' % slideshow_dir
         if fail:
             syslog.syslog('Not displaying the slideshow: %s' % fail)
+
+        self.progressDialog.show()
 
         self.debconf_progress_start(
             0, 100, self.get_string('ubiquity/install/title'))

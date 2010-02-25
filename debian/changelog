@@ -13,7 +13,11 @@ ubiquity (2.1.28) UNRELEASED; urgency=low
     - Fix partman component for use_as signature change (LP: #527468).
     - on_partitionResized needs a self argument (LP: #527457).
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 24 Feb 2010 16:38:07 +0000
+  [ Jonathan Riddell ]
+  * kde_ui.py: Always show progressDialog during the install stage (LP:
+    #527448)
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 25 Feb 2010 12:31:28 +0000
 
 ubiquity (2.1.27) lucid; urgency=low
 
