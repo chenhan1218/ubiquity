@@ -228,7 +228,7 @@ class PartAuto(QWidget):
             b.setChecked(True)
             
     # slot for when partition is resized on the bar
-    def on_partitionResized(path, size):
+    def on_partitionResized(self, path, size):
         #self.resizePath = path
         self.resizeSize = size
             

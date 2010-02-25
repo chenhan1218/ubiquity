@@ -11,6 +11,7 @@ ubiquity (2.1.28) UNRELEASED; urgency=low
   [ Colin Watson ]
   * KDE frontend:
     - Fix partman component for use_as signature change (LP: #527468).
+    - on_partitionResized needs a self argument (LP: #527457).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 24 Feb 2010 16:38:07 +0000
 
