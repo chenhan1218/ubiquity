@@ -376,7 +376,7 @@ class PartMan(QWidget):
                 if otherpart['dev'] == partition['dev'] and 'id' in otherpart:
                     break
             else:
-                self.allow_change_step(False)
+                self.ctrlr.allow_change_step(False)
                 self.ctrlr.dbfilter.create_label(devpart)
         elif partition['parted']['fs'] == 'free':
             if 'can_new' in partition and partition['can_new']:
@@ -401,7 +401,7 @@ class PartMan(QWidget):
         devpart, partition = self.get_treeview_data()
         if not devpart or not partition:
             return
-        self.dbfilter.create_label(devpart)
+        self.ctrlr.dbfilter.create_label(devpart)
 
     def on_new_clicked(self):
         devpart, partition = self.get_treeview_data()
@@ -422,5 +422,5 @@ class PartMan(QWidget):
         self.ctrlr.dbfilter.delete_partition(devpart)
 
     def on_undo_clicked(self):
-        self.allow_change_step(False)
+        self.ctrlr.allow_change_step(False)
         self.ctrlr.dbfilter.undo()
