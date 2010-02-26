@@ -700,7 +700,11 @@ class Page(Plugin):
         layout = self.db.get('console-setup/layoutcode')
         variant = self.db.get('console-setup/variantcode')
         options = self.db.get('console-setup/optionscode')
-        self.apply_real_keyboard(model, layout, variant, options.split(','))
+        if options:
+            options_list = options.split(',')
+        else:
+            options_list = []
+        self.apply_real_keyboard(model, layout, variant, options_list)
 
         Plugin.cleanup(self)
 

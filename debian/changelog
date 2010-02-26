@@ -4,6 +4,8 @@ ubiquity (2.1.29) UNRELEASED; urgency=low
     rid of the width request (LP: #524827).
   * Fix references to create_label and allow_change_step in the KDE
     frontend's PartMan module (LP: #527932).
+  * str.split returns a list of one empty string when splitting on an
+    empty string.
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 25 Feb 2010 12:50:49 +0000
 
