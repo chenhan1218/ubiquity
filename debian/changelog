@@ -8,6 +8,13 @@ ubiquity (2.1.29) UNRELEASED; urgency=low
     empty string.
   * Update the KDE frontend with the new slideshow location (as of
     ubiquity-slideshow 15).
+  * The timezone is perfectly usable at half its width and height, so
+    only request that.  This also means we're not trying to guess how
+    much space we can reasonably take up with the map, but rather
+    letting the rest of the interface determine the width and height of
+    the installer window.
+  * If the screen resolution is particularly low (< 600px height), allow
+    the user to scroll through the user setup page content.
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 25 Feb 2010 12:50:49 +0000
 

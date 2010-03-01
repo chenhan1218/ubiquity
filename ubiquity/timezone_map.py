@@ -155,20 +155,8 @@ class TimezoneMap(gtk.Widget):
         self.dist_pos = 0
         
     def do_size_request(self, requisition):
-        # Set a small size request to create an aspect ratio for the parent
-        # widget.
-        screen_height = gtk.gdk.get_default_root_window().get_screen().get_height()
-        # fudge factor for rest of timezone page + panels + a bit for luck;
-        # since the current background image is 409 pixels high, 1024+768
-        # screens and better should end up with a full-sized background
-        if screen_height > self.orig_background.get_height() + 300:
-            width = self.orig_background.get_width()
-            height = self.orig_background.get_height()
-        else:
-            width = self.orig_background.get_width() / 2
-            height = self.orig_background.get_height() / 2
-        requisition.width = width
-        requisition.height = height
+        requisition.width = self.orig_background.get_width() / 2
+        requisition.height = self.orig_background.get_height() / 2
         gtk.Widget.do_size_request(self, requisition)
 
     def do_size_allocate(self, allocation):

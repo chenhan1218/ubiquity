@@ -160,6 +160,7 @@ class PageGtk(PageBase):
         self.hostname_error_box = builder.get_object('hostname_error_box')
         self.hostname = builder.get_object('hostname')
         self.login_vbox = builder.get_object('login_vbox')
+        self.scrolledwin = builder.get_object('userinfo_scrolledwindow')
 
         self.username_valid_image = builder.get_object('username_valid_image')
         self.password_valid_image = builder.get_object('password_valid_image')
@@ -190,6 +191,11 @@ class PageGtk(PageBase):
             # The UserSetup component takes care of preseeding passwd/user-uid.
             execute_root('apt-install', 'oem-config-gtk')
 
+        sh = gtk.gdk.get_default_root_window().get_screen().get_height()
+        # A bit ugly, but better to show the scrollbar on the edge cases than
+        # not show it when needed.
+        if sh < 600:
+            self.scrolledwin.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
         self.plugin_widgets = self.page
 
     # Functions called by the Page.
