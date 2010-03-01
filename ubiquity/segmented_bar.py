@@ -231,12 +231,15 @@ class SegmentedBar(gtk.Widget):
         self.layout_height = 0
 
         # Properties
-        self.bar_height = 26
+        self.bar_height = 13
+        # Vertical space between the bar and the label.
         self.bar_label_spacing = 8
+        # Horizontal space between the label and the next box.
         self.segment_label_spacing = 16
         self.segment_box_size = 12
         self.segment_box_spacing = 6
         self.h_padding = 0
+        self.center_labels = False
 
         self.show_labels = True
         self.reflect = True
@@ -491,9 +494,14 @@ class SegmentedBar(gtk.Widget):
             cr.paint()
         if self.show_labels:
             if self.reflect:
-                cr.translate(self.allocation.x + (self.allocation.width - \
-                    self.layout_width) / 2, self.allocation.y + \
-                    self.bar_height + self.bar_label_spacing)
+                if self.center_labels:
+                    cr.translate(self.allocation.x + (self.allocation.width -
+                                 self.layout_width) / 2, self.allocation.y +
+                                 self.bar_height + self.bar_label_spacing)
+                else:
+                    cr.translate(self.allocation.x + self.h_padding,
+                                 self.allocation.y + self.bar_height +
+                                 self.bar_label_spacing)
             else:
                 cr.translate(-self.h_padding + (self.allocation.width - \
                     self.layout_width) / 2, self.bar_height + \
