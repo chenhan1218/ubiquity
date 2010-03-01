@@ -194,7 +194,7 @@ class PageGtk(PageBase):
         sh = gtk.gdk.get_default_root_window().get_screen().get_height()
         # A bit ugly, but better to show the scrollbar on the edge cases than
         # not show it when needed.
-        if sh < 600:
+        if sh <= 600:
             self.scrolledwin.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
         self.plugin_widgets = self.page
 

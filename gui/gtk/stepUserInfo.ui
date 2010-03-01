@@ -37,11 +37,11 @@
       </packing>
     </child>
     <child>
-      <object class="GtkScrolledWindow" id="scrolledwindow1">
+      <object class="GtkScrolledWindow" id="userinfo_scrolledwindow">
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="hscrollbar_policy">never</property>
-        <property name="vscrollbar_policy">automatic</property>
+        <property name="vscrollbar_policy">never</property>
         <child>
           <object class="GtkViewport" id="viewport1">
             <property name="visible">True</property>
