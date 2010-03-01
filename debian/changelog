@@ -1,5 +1,6 @@
 ubiquity (2.1.29) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Align description labels to the top left on the user-setup page and get
     rid of the width request (LP: #524827).
   * Fix references to create_label and allow_change_step in the KDE
@@ -15,6 +16,10 @@ ubiquity (2.1.29) UNRELEASED; urgency=low
     the installer window.
   * If the screen resolution is particularly low (< 600px height), allow
     the user to scroll through the user setup page content.
+
+  [ Colin Watson ]
+  * Fix choose_partition thawing to handle free space at the end of
+    update_partitions (LP: #527848).
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 25 Feb 2010 12:50:49 +0000
 

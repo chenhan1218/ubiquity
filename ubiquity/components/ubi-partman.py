@@ -1376,7 +1376,7 @@ class Page(Plugin):
     def build_free(self, devpart):
         partition = self.partition_cache[devpart]
         if partition['parted']['fs'] == 'free':
-            self.debug('Partman: %s is free space', partition)
+            self.debug('Partman: %s is free space', devpart)
             # The alternative is descending into
             # partman/free_space and checking for a
             # 'new' script.  This is quicker.
@@ -1476,6 +1476,20 @@ class Page(Plugin):
         self.debug('Partman: Thawing choices for %s', menu)
         osextras.unlink_force('/lib/partman/%s/no_show_choices' % menu)
 
+    def tidy_update_partitions(self):
+        """Tidy up boring entries from the start of update_partitions."""
+        while self.update_partitions:
+            devpart = self.update_partitions[0]
+            if devpart not in self.partition_cache:
+                self.debug('Partman: %s not found in cache', devpart)
+            elif self.build_free(devpart):
+                pass
+            else:
+                break
+            del self.update_partitions[0]
+            self.frontend.debconf_progress_step(1)
+            self.frontend.refresh()
+
     def maybe_thaw_choose_partition(self):
         # partman/choose_partition is special; it's the main control point
         # for building the partition cache.  If we're freezing choices (a
@@ -1485,8 +1499,8 @@ class Page(Plugin):
         # that may fail because we don't have enough information to preseed
         # choose_partition properly.
         if self.__state[-1][0] == 'partman/choose_partition':
-            if not [p for p in self.update_partitions
-                      if p in self.partition_cache]:
+            self.tidy_update_partitions()
+            if not self.update_partitions:
                 self.thaw_choices('choose_partition')
 
     def run(self, priority, question):
@@ -1618,21 +1632,10 @@ class Page(Plugin):
                     self.debug('Partman: update_partitions = %s',
                                self.update_partitions)
                     state[1] = None
-                    while self.update_partitions:
-                        state[1] = self.update_partitions[0]
-                        del self.update_partitions[0]
-                        if state[1] not in self.partition_cache:
-                            self.debug('Partman: %s not found in cache',
-                                       partition)
-                            state[1] = None
-                            self.frontend.debconf_progress_step(1)
-                            self.frontend.refresh()
-                        elif self.build_free(state[1]):
-                            state[1] = None
-                        else:
-                            break
+                    self.tidy_update_partitions()
 
-                    if state[1] is not None:
+                    if self.update_partitions:
+                        state[1] = self.update_partitions.pop(0)
                         # Move on to the next partition.
                         partition = self.partition_cache[state[1]]
                         self.debug('Partman: Building cache (%s)',
@@ -1759,21 +1762,9 @@ class Page(Plugin):
                     # so don't bother with that.
 
                     devpart = None
-                    if self.partition_cache:
-                        while self.update_partitions:
-                            devpart = self.update_partitions[0]
-                            del self.update_partitions[0]
-                            if devpart not in self.partition_cache:
-                                self.debug('Partman: %s not found in cache',
-                                           partition)
-                                devpart = None
-                                self.frontend.debconf_progress_step(1)
-                                self.frontend.refresh()
-                            elif self.build_free(devpart):
-                                devpart = None
-                            else:
-                                break
-                    if devpart is not None:
+                    self.tidy_update_partitions()
+                    if self.update_partitions:
+                        devpart = self.update_partitions.pop(0)
                         partition = self.partition_cache[devpart]
                         self.debug('Partman: Building cache (%s)',
                                    partition['parted']['path'])
