@@ -348,6 +348,9 @@ def main(oem_config):
                       'better suit a minimal environment.')
     parser.add_option('-q', '--query', dest='query', action='store_true',
                       help='find out which frontend will be used by default')
+    parser.add_option('-g', '--greeter', dest='greeter', action='store_true',
+                      help='allow the user to leave the installer and enter ' \
+                      'a live desktop (for the initial boot).')
     (options, args) = parser.parse_args()
 
     if options.debug:
@@ -368,6 +371,9 @@ def main(oem_config):
 
     if options.migration_assistant:
         os.environ['UBIQUITY_MIGRATION_ASSISTANT'] = '1'
+    
+    if options.greeter:
+        os.environ['UBIQUITY_GREETER'] = '1'
 
     if options.only:
         os.environ['UBIQUITY_ONLY'] = '1'

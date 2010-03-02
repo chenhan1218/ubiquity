@@ -20,6 +20,8 @@ ubiquity (2.1.29) UNRELEASED; urgency=low
   * Make the segmented_bars narrower.
   * Set the width of the language selection treeview to the minimum
     required to fit the contents.  Do not allow it to expand.
+  * Move the greeter functionality into ubiquity itself, still
+    accessible with the maybe-ubiquity boot option.
 
   [ Colin Watson ]
   * Fix choose_partition thawing to handle free space at the end of

@@ -252,6 +252,21 @@ def get_release_name():
     return get_release_name.release_name
 get_release_name.release_name = ''
 
+@raise_privileges
+def get_install_medium():
+    if not get_install_medium.medium:
+        try:
+            if os.access('/cdrom', os.W_OK):
+                get_install_medium.medium = 'USB'
+            else:
+                get_install_medium.medium = 'CD'
+        except:
+            syslog.syslog(syslog.LOG_ERR,
+                "Unable to determine install medium.")
+            get_install_medium.medium = 'CD'
+    return get_install_medium.medium
+get_install_medium.medium = ''
+
 def execute(*args):
     """runs args* in shell mode. Output status is taken."""
 

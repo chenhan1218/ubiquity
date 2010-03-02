@@ -105,10 +105,10 @@ class Controller(ubiquity.frontend.base.Controller):
     def add_builder(self, builder):
         self._wizard.builders.append(builder)
 
-    def translate(self, lang=None, just_me=True, reget=False):
+    def translate(self, lang=None, just_me=True, not_me=False, reget=False):
         if lang:
             self._wizard.locale = lang
-        self._wizard.translate_pages(lang, just_me, reget)
+        self._wizard.translate_pages(lang, just_me, not_me, reget)
 
     def allow_go_forward(self, allowed):
         try:
@@ -295,13 +295,17 @@ class Wizard(BaseFrontend):
         else:
             return [parent]
 
-    def translate_pages(self, lang=None, just_current=True, reget=False):
+    def translate_pages(self, lang=None, just_current=True, not_current=False, reget=False):
+        current_page = self.pages[self.pagesindex]
         if just_current:
-            pages = [self.pages[self.pagesindex]]
+            pages = [current_page]
         else:
             pages = self.pages
         widgets = []
         for p in pages:
+            # There's no sense retranslating the page we're leaving.
+            if not_current and p == current_page:
+                continue
             prefix = p.ui.get('plugin_prefix')
             for w in p.all_widgets:
                 for c in self.all_children(w):
@@ -574,8 +578,6 @@ class Wizard(BaseFrontend):
             self.live_installer.show()
         self.allow_change_step(False)
 
-        gtk.link_button_set_uri_hook(self.link_button_browser)
-
         if hasattr(self, 'stepPartAuto'):
             self.previous_partitioning_page = \
                 self.steps.page_num(self.stepPartAuto)
@@ -680,7 +682,7 @@ class Wizard(BaseFrontend):
                 text = text.replace('${TOTAL}', str(self.user_pageslen))
             elif name == 'welcome_text_label' and self.oem_user_config:
                 text = self.get_string('welcome_text_oem_user_label', lang)
-            widget.set_text(text)
+            widget.set_markup(text)
 
             # Ideally, these attributes would be in the ui file (and can be if
             # we bump required gtk+ to 2.16), but as long as we support glade
@@ -1125,17 +1127,17 @@ class Wizard(BaseFrontend):
                          close_fds=True, preexec_fn=drop_all_privileges)
         return True
 
-    def link_button_browser (self, unused_button, uri):
-        lang = self.locale
-        lang = lang.split('.')[0] # strip encoding
-        uri = uri.replace('${LANG}', lang)
-        subprocess.Popen(['sensible-browser', uri],
-                         close_fds=True, preexec_fn=drop_all_privileges)
-
     def on_steps_switch_page (self, unused_notebook, unused_page, current):
         self.current_page = current
         self.translate_widget(self.step_label)
-        syslog.syslog('switched to page %s' % self.step_name(current))
+        name = self.step_name(current)
+        if 'UBIQUITY_GREETER' in os.environ:
+            if name == 'language':
+                self.navigation_control.hide()
+            else:
+                self.navigation_control.show()
+
+        syslog.syslog('switched to page %s' % name)
 
     # Callbacks provided to components.
 

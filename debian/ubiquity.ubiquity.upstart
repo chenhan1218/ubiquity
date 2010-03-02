@@ -37,7 +37,7 @@ script
 		;;
 	    maybe-ubiquity)
 		ubiquity=1
-		choose="--choose"
+		choose="--greeter"
 		;;
 	    only-ubiquity)
 		ubiquity=1
@@ -67,7 +67,7 @@ script
     if [ -n "$noninteractive" ]; then
 	exec ubiquity noninteractive $debug
     else
-	if ! ubiquity-dm $choose vt7 :0 ubuntu -- /usr/bin/ubiquity $debug $automatic --only; then
+	if ! ubiquity-dm vt7 :0 ubuntu /usr/bin/ubiquity $debug $automatic $choose --only; then
 	    # has X crashed, or has ubiquity?
             if ! [ -f /var/log/installer/version ]; then
                 exec ubiquity noninteractive $debug

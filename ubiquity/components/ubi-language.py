@@ -76,24 +76,34 @@ class PageGtk(PageBase):
             if self.controller.oem_config:
                 builder.get_object('oem_id_vbox').show()
 
-            if self.controller.oem_config or auto_update.already_updated():
-                update_this_installer = builder.get_object(
-                    'update_this_installer')
-                if update_this_installer:
-                    update_this_installer.hide()
-
-            release_notes_vbox = builder.get_object('release_notes_vbox')
-            if release_notes_vbox:
+            self.release_notes_url = ''
+            self.update_installer = True
+            self.release_notes_label = builder.get_object('release_notes_label')
+            if self.release_notes_label:
+                if self.controller.oem_config or auto_update.already_updated():
+                    self.update_installer = False
                 try:
-                    release_notes_url = builder.get_object('release_notes_url')
                     release_notes = open(_release_notes_url_path)
-                    release_notes_url.set_uri(
-                        release_notes.read().rstrip('\n'))
+                    self.release_notes_url = release_notes.read().rstrip('\n')
                     release_notes.close()
                 except (KeyboardInterrupt, SystemExit):
                     raise
                 except:
-                    release_notes_vbox.hide()
+                    pass
+            self.install_ubuntu = builder.get_object('install_ubuntu')
+            self.try_ubuntu = builder.get_object('try_ubuntu')
+            if not 'UBIQUITY_GREETER' in os.environ:
+                try_section_vbox = builder.get_object('try_section_vbox')
+                try_section_vbox and try_section_vbox.hide()
+                self.install_ubuntu and self.install_ubuntu.hide()
+            else:
+                self.install_ubuntu.connect('clicked',
+                        self.controller._wizard.on_next_clicked)
+                self.try_ubuntu.connect('clicked',
+                    self.controller._wizard.quit_installer)
+            self.try_text_label = builder.get_object('try_text_label')
+            self.ready_text_label = builder.get_object('ready_text_label')
+
         except Exception, e:
             self.debug('Could not create language page: %s', e)
             self.page = None
@@ -178,6 +188,31 @@ class PageGtk(PageBase):
                 gtk.widget_set_default_direction(gtk.TEXT_DIR_RTL)
             else:
                 gtk.widget_set_default_direction(gtk.TEXT_DIR_LTR)
+        else:
+            lang = 'C'
+            
+        release_name = misc.get_release_name()
+        install_medium = misc.get_install_medium()
+        install_medium = i18n.get_string(install_medium, lang)
+        for widget in (self.try_text_label,
+                       self.try_ubuntu,
+                       self.install_ubuntu,
+                       self.ready_text_label):
+            text = i18n.get_string(gtk.Buildable.get_name(widget), lang)
+            text = text.replace('${RELEASE}', release_name)
+            text = text.replace('${MEDIUM}', install_medium)
+            widget.set_label(text)
+        if self.release_notes_label:
+            if self.release_notes_url and self.update_installer:
+                pass
+            elif self.release_notes_url:
+                text = i18n.get_string('release_notes_only', lang)
+                self.release_notes_label.set_markup(text)
+            elif self.update_installer:
+                text = i18n.get_string('update_installer_only', lang)
+                self.release_notes_label.set_markup(text)
+            else:
+                self.release_notes_label.hide()
 
     def set_oem_id(self, text):
         return self.oem_id_entry.set_text(text)
@@ -185,10 +220,23 @@ class PageGtk(PageBase):
     def get_oem_id(self):
         return self.oem_id_entry.get_text()
 
-    def on_update_this_installer(self, widget):
-        if not auto_update.update(self.controller._wizard):
-            # no updates, so don't check again
-            widget.set_sensitive(False)
+    def on_link_clicked(self, widget, uri):
+        if uri == 'update':
+            if not auto_update.update(self.controller._wizard):
+                # no updates, so don't check again
+                if self.release_notes_url:
+                    text = i18n.get_string('release_notes_only', lang)
+                    self.release_notes_label.set_text(text)
+                else:
+                    self.release_notes_label.hide()
+        elif uri == 'release-notes':
+            import subprocess
+            lang = self.get_language()
+            lang = lang.split('.')[0] # strip encoding
+            uri = self.release_notes_url.replace('${LANG}', lang)
+            subprocess.Popen(['sensible-browser', uri], close_fds=True,
+                             preexec_fn=misc.drop_all_privileges)
+        return True
 
 class PageKde(PageBase):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_language'
@@ -371,7 +419,7 @@ class Page(Plugin):
         return Plugin.run(self, priority, question)
 
     def cancel_handler(self):
-        self.ui.controller.translate(just_me=False) # undo effects of UI translation
+        self.ui.controller.translate(just_me=False, not_me=True) # undo effects of UI translation
         Plugin.cancel_handler(self)
 
     def ok_handler(self):
@@ -389,7 +437,7 @@ class Page(Plugin):
         Plugin.cleanup(self)
         i18n.reset_locale(self.frontend)
         self.frontend.stop_debconf()
-        self.ui.controller.translate(just_me=False, reget=True)
+        self.ui.controller.translate(just_me=False, not_me=True, reget=True)
 
 class Install(InstallPlugin):
     def prepare(self, unfiltered=False):

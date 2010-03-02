@@ -8,7 +8,6 @@ import signal
 import errno
 import imp
 import grp
-import optparse
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
@@ -18,9 +17,7 @@ import pwd
 from ubiquity import osextras
 from ubiquity.casper import get_casper
 
-options = None
 background = '/usr/share/backgrounds/warty-final-ubuntu.png'
-greeter_background = '/usr/share/images/xsplash/bg_2560x1600.jpg'
 
 class XStartupError(EnvironmentError):
     pass
@@ -85,60 +82,7 @@ class DM:
     def server_preexec(self):
         signal.signal(signal.SIGUSR1, signal.SIG_IGN)
 
-    def preseed(self, db, name, value, seen=True):
-        import debconf
-        from ubiquity import misc
-
-        value = misc.debconf_escape(value)
-        value = value.encode("UTF-8", "ignore")
-        try:
-            db.set(name, value)
-        except debconf.DebconfError:
-            db.register('debian-installer/dummy', name)
-            db.set(name, value)
-            db.subst(name, 'ID', name)
-
-        if seen:
-            db.fset(name, 'seen', 'true')
-
-    def set_locale(self, locale):
-        from ubiquity.debconfcommunicator import DebconfCommunicator
-
-        db = DebconfCommunicator('ubiquity', cloexec=True)
-        if '_' in locale:
-            self.preseed(db, 'debian-installer/locale', locale)
-        else:
-            self.preseed(db, 'debian-installer/language', locale)
-        db.shutdown()
-
-        default_locale = open('/etc/default/locale', 'w')
-        print >>default_locale, 'LANG="%s"' % locale
-        default_locale.close()
-
-        environment = open('/etc/environment')
-        environment_lines = environment.readlines()
-        environment.close()
-        environment = open('/etc/environment', 'w')
-        seen_lang = False
-        for line in environment_lines:
-            if line.startswith('LANG='):
-                print >>environment, 'LANG="%s"' % locale
-                seen_lang = True
-            else:
-                print >>environment, line.rstrip('\n')
-        if not seen_lang:
-            print >>environment, 'LANG="%s"' % locale
-        environment.close()
-
-        locale_gen = open('/etc/locale.gen', 'w')
-        print >>locale_gen, '%s UTF-8' % locale
-        locale_gen.close()
-
-        subprocess.call(['/usr/sbin/locale-gen', locale])
-
-        # TODO: configure keyboard
-
-    def run(self, program):
+    def run(self, *program):
         null = open('/dev/null', 'w')
         try:
             os.makedirs('/var/log/installer')
@@ -338,28 +282,8 @@ EndSection
             wm = subprocess.Popen('kwin', stdin=null, stdout=logfile,
                 stderr=logfile, preexec_fn=self.drop_privileges)
 
-        pre_locale = None
-        pre_ret = 0
-        if (options.choose and self.frontend == 'gtk_ui' and
-            osextras.find_on_path('ubiquity-greeter-gtk') and
-            os.path.exists(greeter_background)):
-            pre_greeter = subprocess.Popen(
-                ['ubiquity-greeter-gtk', '-f', greeter_background],
-                stdin=null, stdout=logfile, stderr=logfile)
-            pre_locale = pre_greeter.communicate()[0].rstrip('\n')
-            pre_ret = pre_greeter.returncode
-
-        if pre_locale is not None:
-            self.set_locale(pre_locale)
-
-        # preliminary greeter returns non-zero if we should go to a normal
-        # desktop instead
-        if pre_ret == 0:
-            greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
-            ret = greeter.wait()
-        else:
-            # fall through cleanly to normal desktop
-            ret = 0
+        greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
+        ret = greeter.wait()
 
         def kill_if_exists(pid, signum):
             try:
@@ -404,30 +328,21 @@ EndSection
         else:
             return 1
 
-usage = '%prog [options] <vt[1-N]> <:[0-N]> <username> -- <program> ' \
-        '[<arguments>]'
-parser = optparse.OptionParser(usage=usage)
-parser.set_defaults(choose=False)
-parser.add_option('--choose', action='store_true',
-                  help='Show greeter to choose between normal startup and '
-                       'Ubiquity')
-options, args = parser.parse_args()
+if len(sys.argv) < 4:
+    sys.stderr.write('Usage: %s <vt[1-N]> <:[0-N]> <username> <program> [<arguments>]\n' % sys.argv[0])
+    sys.exit(1)
 
-if len(args) < 3:
-    parser.error("need vt, display, and username arguments")
-
-vt, display, username = args[:3]
+vt, display, username = sys.argv[1:4]
 try:
     dm = DM(vt, display, username)
 except XStartupError:
     sys.exit(1)
-
 proc = None
 if dm.frontend == 'gtk_ui':
     proc = ['/etc/init.d/gdm', 'start']
 elif dm.frontend == 'kde_ui':
     proc = ['/etc/init.d/kdm', 'start']
-ret = dm.run(args[3:])
+ret = dm.run(*sys.argv[4:])
 if proc:
     subprocess.Popen(proc)
 sys.exit(ret)

@@ -70,7 +70,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkAlignment" id="alignment25">
+                      <object class="GtkAlignment" id="navigation_control">
                         <property name="visible">True</property>
                         <property name="left_padding">16</property>
                         <child>
