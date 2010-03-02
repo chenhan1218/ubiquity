@@ -18,6 +18,8 @@ ubiquity (2.1.29) UNRELEASED; urgency=low
     the user to scroll through the user setup page content.
   * Left-align the labels on the segmented_bars.
   * Make the segmented_bars narrower.
+  * Set the width of the language selection treeview to the minimum
+    required to fit the contents.  Do not allow it to expand.
 
   [ Colin Watson ]
   * Fix choose_partition thawing to handle free space at the end of

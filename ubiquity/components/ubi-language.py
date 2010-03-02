@@ -115,7 +115,7 @@ class PageGtk(PageBase):
         else:
             if len(self.treeview.get_columns()) < 1:
                 column = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=0)
-                column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+                column.set_sizing(gtk.TREE_VIEW_COLUMN_GROW_ONLY)
                 self.treeview.append_column(column)
                 selection = self.treeview.get_selection()
                 selection.connect('changed',

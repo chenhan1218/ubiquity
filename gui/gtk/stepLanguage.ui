@@ -17,13 +17,13 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="headers_visible">False</property>
-            <property name="fixed_height_mode">True</property>
             <signal name="row_activated" handler="on_language_activated"/>
           </object>
         </child>
       </object>
       <packing>
         <property name="position">0</property>
+        <property name="expand">False</property>
       </packing>
     </child>
     <child>
