@@ -2366,7 +2366,10 @@ class Install:
 
     def copy_wallpaper_cache(self):
         """Copy wallpaper cache for libgnome desktop so that it's taken into
-        account by ureadheaded. Only install on system having g-s-d."""
+        account by ureadahead. Only install on system having g-s-d."""
+
+        # we don't use copy_network_config casper user trick as it's not and not
+        # ubuntu in install mode
         casper_user = 'ubuntu'
         casper_user_home = os.path.expanduser('~%s' % casper_user)
         casper_user_wallpaper_cache_dir = os.path.join(casper_user_home,
@@ -2377,12 +2380,12 @@ class Install:
         target_user_wallpaper_cache_dir = os.path.join(target_user_cache_dir,
                                                        'wallpaper')
         if not os.path.isdir(target_user_wallpaper_cache_dir) and \
-               os.path.isfile('/usr/lib/gnome-settings-daemon/'\
-                         'gnome-update-wallpaper-cache'):
+               os.path.isfile('/usr/lib/gnome-settings-daemon/'
+                              'gnome-update-wallpaper-cache'):
             # installer mode (else, g-s-d created it)
             if not os.path.isdir(casper_user_wallpaper_cache_dir):
                 subprocess.call(['sudo', '-u', casper_user, '-i', 'DISPLAY=:0',
-                                 '/usr/lib/gnome-settings-daemon/'\
+                                 '/usr/lib/gnome-settings-daemon/'
                                  'gnome-update-wallpaper-cache'])
             # copy to targeted user
             uid = subprocess.Popen(['chroot', self.target, 'sudo', '-u',
@@ -2397,7 +2400,6 @@ class Install:
                            target_user_wallpaper_cache_dir, uid, gid)
             os.chmod(target_user_cache_dir, 0700)
             os.chmod(target_user_wallpaper_cache_dir, 0700)
-        return
 
     def cleanup(self):
         """Miscellaneous cleanup tasks."""
