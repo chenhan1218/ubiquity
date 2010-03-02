@@ -22,6 +22,8 @@ ubiquity (2.1.29) UNRELEASED; urgency=low
     required to fit the contents.  Do not allow it to expand.
   * Move the greeter functionality into ubiquity itself, still
     accessible with the maybe-ubiquity boot option (LP: #530713).
+  * Automatic update of included source packages: netcfg 1.51ubuntu2,
+    partconf 1.32ubuntu1, partman-base 138ubuntu1.
 
   [ Colin Watson ]
   * Fix choose_partition thawing to handle free space at the end of

@@ -11,11 +11,11 @@ hw-detect 1.73ubuntu2
 kboot-installer 0.0.1ubuntu9
 localechooser 2.12ubuntu3
 migration-assistant 0.6.4
-netcfg 1.51ubuntu1
-partconf 1.32
+netcfg 1.51ubuntu2
+partconf 1.32ubuntu1
 partman-auto 89ubuntu3
 partman-auto-loop 0ubuntu18
-partman-base 135ubuntu4
+partman-base 138ubuntu1
 partman-basicfilesystems 63ubuntu3
 partman-basicmethods 43ubuntu2
 partman-efi 20ubuntu1
