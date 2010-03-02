@@ -427,7 +427,13 @@ class Install:
                     'Could not create an Apparmor cache:')
                 for line in traceback.format_exc().split('\n'):
                     syslog.syslog(syslog.LOG_WARNING, line)
-
+            try:
+                self.copy_wallpaper_cache()
+            except:
+                syslog.syslog(syslog.LOG_WARNING,
+                    'Could not copy wallpaper cache:')                
+                for line in traceback.format_exc().split('\n'):
+                    syslog.syslog(syslog.LOG_WARNING, line)
             self.copy_dcd()
 
             self.db.progress('SET', self.count)
@@ -2357,6 +2363,41 @@ class Install:
         install_misc.chrex(self.target,'umount', '/proc')
         install_misc.chrex(self.target,'umount', '/sys/kernel/security')
         install_misc.chrex(self.target,'umount', '/sys')
+
+    def copy_wallpaper_cache(self):
+        """Copy wallpaper cache for libgnome desktop so that it's taken into
+        account by ureadheaded. Only install on system having g-s-d."""
+        casper_user = 'ubuntu'
+        casper_user_home = os.path.expanduser('~%s' % casper_user)
+        casper_user_wallpaper_cache_dir = os.path.join(casper_user_home,
+                                                       '.cache', 'wallpaper')
+        target_user = self.db.get('passwd/username')
+        target_user_cache_dir = os.path.join(self.target, 'home',
+                                                       target_user, '.cache')
+        target_user_wallpaper_cache_dir = os.path.join(target_user_cache_dir,
+                                                       'wallpaper')
+        if not os.path.isdir(target_user_wallpaper_cache_dir) and \
+               os.path.isfile('/usr/lib/gnome-settings-daemon/'\
+                         'gnome-update-wallpaper-cache'):
+            # installer mode (else, g-s-d created it)
+            if not os.path.isdir(casper_user_wallpaper_cache_dir):
+                subprocess.call(['sudo', '-u', casper_user, '-i', 'DISPLAY=:0',
+                                 '/usr/lib/gnome-settings-daemon/'\
+                                 'gnome-update-wallpaper-cache'])
+            # copy to targeted user
+            uid = subprocess.Popen(['chroot', self.target, 'sudo', '-u',
+                target_user, '--', 'id', '-u'],
+                stdout=subprocess.PIPE).communicate()[0].strip('\n')
+            gid = subprocess.Popen(['chroot', self.target, 'sudo', '-u',
+                target_user, '--', 'id', '-g'],
+                stdout=subprocess.PIPE).communicate()[0].strip('\n')
+            uid = int(uid)
+            gid = int(gid)
+            self.copy_tree(casper_user_wallpaper_cache_dir, 
+                           target_user_wallpaper_cache_dir, uid, gid)
+            os.chmod(target_user_cache_dir, 0700)
+            os.chmod(target_user_wallpaper_cache_dir, 0700)
+        return
 
     def cleanup(self):
         """Miscellaneous cleanup tasks."""

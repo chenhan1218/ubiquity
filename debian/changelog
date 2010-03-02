@@ -23,7 +23,12 @@ ubiquity (2.1.29) UNRELEASED; urgency=low
   * Fix choose_partition thawing to handle free space at the end of
     update_partitions (LP: #527848).
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 25 Feb 2010 12:50:49 +0000
+  [ Didier Roche ]
+  * scripts/install.py:
+   - copy the cached wallpaper created either by g-s-d or nautilus or by the
+     dedicated script in install mode. (LP: #530024)
+
+ -- Didier Roche <didrocks@ubuntu.com>  Mon, 01 Mar 2010 18:40:15 +0100
 
 ubiquity (2.1.28) lucid; urgency=low
 
