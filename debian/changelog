@@ -1,4 +1,4 @@
-ubiquity (2.1.29) UNRELEASED; urgency=low
+ubiquity (2.1.29) lucid; urgency=low
 
   [ Evan Dandrea ]
   * Align description labels to the top left on the user-setup page and get
@@ -29,7 +29,7 @@ ubiquity (2.1.29) UNRELEASED; urgency=low
   * Fix choose_partition thawing to handle free space at the end of
     update_partitions (LP: #527848).
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 25 Feb 2010 12:50:49 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 02 Mar 2010 21:11:41 +0000
 
 ubiquity (2.1.28) lucid; urgency=low
 
