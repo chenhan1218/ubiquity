@@ -9,6 +9,8 @@ ubiquity (2.1.30) UNRELEASED; urgency=low
     It fits better there now that we have the greeter functionality.
   * Push handling the progress bar when on the partitioning page
     properly into ubi-partman.
+  * Show the advanced partitioning page immediately, now that its
+    progress is displayed in the window contents (LP: #336751).
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 02 Mar 2010 18:15:15 -0600
 
