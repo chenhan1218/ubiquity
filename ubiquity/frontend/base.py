@@ -107,29 +107,30 @@ class BaseFrontend:
 
         self.start_debconf()
 
-        self.oem_config = False
-        try:
-            if self.db.get('oem-config/enable') == 'true':
-                self.oem_config = True
-                # It seems unlikely that anyone will need
-                # migration-assistant in the OEM installation process. If it
-                # turns out that they do, just delete the following two
-                # lines.
-                if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
-                    del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
-        except debconf.DebconfError:
-            pass
-
         self.oem_user_config = False
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
           self.oem_user_config = True
 
-        if self.oem_config:
+        self.oem_config = False
+        if not self.oem_user_config:
             try:
-                self.db.set('passwd/auto-login', 'true')
-                self.db.set('passwd/auto-login-backup', 'oem')
+                if self.db.get('oem-config/enable') == 'true':
+                    self.oem_config = True
+                    # It seems unlikely that anyone will need
+                    # migration-assistant in the OEM installation process. If it
+                    # turns out that they do, just delete the following two
+                    # lines.
+                    if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
+                        del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
             except debconf.DebconfError:
                 pass
+    
+            if self.oem_config:
+                try:
+                    self.db.set('passwd/auto-login', 'true')
+                    self.db.set('passwd/auto-login-backup', 'oem')
+                except debconf.DebconfError:
+                    pass
 
         # set commands
         # Note that this will never work if the database is locked, so you
