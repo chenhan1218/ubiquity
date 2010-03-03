@@ -1,7 +1,12 @@
 ubiquity (2.1.30) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
   * Raise permissions for misc.execute calls in bin/ubiquity.
   * Don't allow oem-user-config and oem-config to both be enabled.
+
+  [ Evan Dandrea ]
+  * Move the alpha warning for the GTK+ frontend to the language page.
+    It fits better there now that we have the greeter functionality.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 02 Mar 2010 18:15:15 -0600
 

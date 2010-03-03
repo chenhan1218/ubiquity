@@ -47,20 +47,6 @@ def get_intro():
     intro_file.close()
     return text
 
-class PageGtk(PluginUI):
-    def __init__(self, controller, *args, **kwargs):
-        text = get_intro()
-        if text:
-            try:
-                import gtk
-                builder = gtk.Builder()
-                controller.add_builder(builder)
-                builder.add_from_file('/usr/share/ubiquity/gtk/stepIntro.ui')
-                builder.get_object('intro_label').set_markup(text.rstrip('\n'))
-                self.plugin_widgets = builder.get_object('stepWelcome')
-            except Exception, e:
-                self.debug('Could not create intro page: %s', e)
-
 class PageKde(PluginUI):
     plugin_breadcrumb = None
 
