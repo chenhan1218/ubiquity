@@ -113,6 +113,10 @@ class PageGtk(PageBase):
             self.page = None
         self.plugin_widgets = self.page
 
+    def set_alpha_warning(self, show):
+        if not show:
+            self.alpha_warning_label.hide()
+
     def set_language_choices(self, choices, choice_map):
         import gtk, gobject
         PageBase.set_language_choices(self, choices, choice_map)
@@ -208,8 +212,6 @@ class PageGtk(PageBase):
             text = text.replace('${MEDIUM}', install_medium)
             widget.set_label(text)
         
-        if not self.show_alpha_warning:
-            self.alpha_warning_label.hide()
         if self.release_notes_label:
             if self.release_notes_url and self.update_installer:
                 pass
