@@ -106,6 +106,7 @@
         <child>
           <object class="GtkHBox" id="hbox2">
             <property name="visible">True</property>
+            <property name="spacing">6</property>
             <child>
               <object class="GtkHBox" id="partition_list_buttonbox">
                 <property name="visible">True</property>
@@ -193,18 +194,18 @@
               </packing>
             </child>
             <child>
-              <placeholder/>
-            </child>
-            <child>
               <object class="GtkHBox" id="part_advanced_recalculating_box">
                 <property name="spacing">6</property>
                 <child>
                   <object class="GtkLabel" id="part_advanced_recalculating_label">
                     <property name="visible">True</property>
+                    <property name="xalign">0</property>
                     <property name="label" translatable="yes">Recalculating partitions&#x2026;</property>
+                    <property name="ellipsize">end</property>
                   </object>
                   <packing>
-                    <property name="expand">False</property>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
                     <property name="position">0</property>
                   </packing>
                 </child>
@@ -219,8 +220,8 @@
                 </child>
               </object>
               <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
                 <property name="pack_type">end</property>
                 <property name="position">2</property>
               </packing>
