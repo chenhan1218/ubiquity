@@ -108,6 +108,11 @@ class PageGtk(PageBase):
                 self.try_text_label = builder.get_object('try_text_label')
                 self.ready_text_label = builder.get_object('ready_text_label')
                 self.alpha_warning_label = builder.get_object('alpha_warning_label')
+                # We do not want to show the yet to be substituted strings
+                # (${MEDIUM}, etc), so don't show the core of the page until
+                # it's ready.
+                for w in self.page.get_children():
+                    w.hide()
 
         except Exception, e:
             self.debug('Could not create language page: %s', e)
@@ -225,6 +230,8 @@ class PageGtk(PageBase):
                     self.release_notes_label.set_markup(text)
                 else:
                     self.release_notes_label.hide()
+            for w in self.page.get_children():
+                w.show()
 
     def set_oem_id(self, text):
         return self.oem_id_entry.set_text(text)
