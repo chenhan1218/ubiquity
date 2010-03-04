@@ -70,6 +70,7 @@ class PageGtk(PluginUI):
         v = keyboard_names.lang[l]['variants'][keymap[0]]
         idx = v.values().index(keymap[1])
         variant = v.keys()[idx]
+        self.calculate_keymap_label.show()
         self.calculate_keymap_label.set_label(variant)
         self.calculate_variant = variant
         self.calculate_layout = layout

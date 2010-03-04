@@ -7,6 +7,7 @@ ubiquity (2.1.31) UNRELEASED; urgency=low
     spinner and left-aligned label, but that doesn't appear to be
     possible without a custom composite widget, and putting the spinner
     to the right of a right-aligned label looks ugly.
+  * Fix the spacing on the console-setup page (LP: #528695).
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 04 Mar 2010 09:38:44 +0000
 
