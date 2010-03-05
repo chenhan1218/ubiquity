@@ -10,6 +10,10 @@ ubiquity (2.1.32) UNRELEASED; urgency=low
     anything which checks for the same origin, such as creating an
     XMLHttpRequest, will fail unless this is disabled (LP: #532502).
 
+  [ Colin Watson ]
+  * KDE frontend:
+    - Fix references to PARTITION_* in PartMan module (LP: #528171).
+
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 05 Mar 2010 16:31:06 +0000
 
 ubiquity (2.1.31) lucid; urgency=low

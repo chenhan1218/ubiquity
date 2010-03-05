@@ -181,19 +181,19 @@ class PartMan(QWidget):
         
         if self.create_dialog.exec_() == QDialog.Accepted:
             if partition['parted']['type'] == 'primary':
-                prilog = partman.PARTITION_TYPE_PRIMARY
+                prilog = PARTITION_TYPE_PRIMARY
             elif partition['parted']['type'] == 'logical':
-                prilog = partman.PARTITION_TYPE_LOGICAL
+                prilog = PARTITION_TYPE_LOGICAL
             elif partition['parted']['type'] == 'pri/log':
                 if self.create_dialog.partition_create_type_primary.isChecked():
-                    prilog = partman.PARTITION_TYPE_PRIMARY
+                    prilog = PARTITION_TYPE_PRIMARY
                 else:
-                    prilog = partman.PARTITION_TYPE_LOGICAL
+                    prilog = PARTITION_TYPE_LOGICAL
 
             if self.create_dialog.partition_create_place_beginning.isChecked():
-                place = partman.PARTITION_PLACE_BEGINNING
+                place = PARTITION_PLACE_BEGINNING
             else:
-                place = partman.PARTITION_PLACE_END
+                place = PARTITION_PLACE_END
 
             method_description = unicode(self.create_dialog.partition_create_use_combo.currentText())
             method = self.create_use_method_names[method_description]
