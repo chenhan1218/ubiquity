@@ -21,6 +21,8 @@ ubiquity (2.1.32) UNRELEASED; urgency=low
       D-Bus.  Instead, use saved IDs to store our root privileges so that we
       can get them back (LP: #526486).
   * ubiquity-dm: Close stdout from dbus-launch.
+  * Automatic update of included source packages: apt-setup 1:0.42ubuntu3,
+    user-setup 1.28ubuntu4.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 05 Mar 2010 16:31:06 +0000
 
