@@ -5,6 +5,11 @@ ubiquity (2.1.32) UNRELEASED; urgency=low
    - copy the cached wallpaper created either by g-s-d or nautilus or by the
      dedicated script in install mode. (LP: #530024)
 
+  [ Evan Dandrea ]
+  * WebKit puts file URLs in their own domain by default.  This means that
+    anything which checks for the same origin, such as creating an
+    XMLHttpRequest, will fail unless this is disabled (LP: #532502).
+
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 05 Mar 2010 16:31:06 +0000
 
 ubiquity (2.1.31) lucid; urgency=low
