@@ -1,3 +1,12 @@
+ubiquity (2.1.32) UNRELEASED; urgency=low
+
+  [ Didier Roche ]
+  * scripts/install.py:
+   - copy the cached wallpaper created either by g-s-d or nautilus or by the
+     dedicated script in install mode. (LP: #530024)
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 05 Mar 2010 16:31:06 +0000
+
 ubiquity (2.1.31) lucid; urgency=low
 
   * Do not show the contents of the language page until the strings have
