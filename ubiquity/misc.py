@@ -60,6 +60,24 @@ def regain_privileges():
         os.seteuid(0)
         os.setegid(0)
 
+def drop_privileges_save():
+    """Drop the real UID/GID as well, and hide them in saved IDs."""
+    # At the moment, we only know how to handle this when effective
+    # privileges were already dropped.
+    assert _dropped_privileges is not None and _dropped_privileges > 0
+    if 'SUDO_GID' in os.environ:
+        gid = int(os.environ['SUDO_GID'])
+        osextras.setresgid(gid, gid, 0)
+    if 'SUDO_UID' in os.environ:
+        uid = int(os.environ['SUDO_UID'])
+        osextras.setresuid(uid, uid, 0)
+
+def regain_privileges_save():
+    """Recover our real UID/GID after calling drop_privileges_save."""
+    assert _dropped_privileges is not None and _dropped_privileges > 0
+    osextras.setresuid(0, -1, 0)
+    osextras.setresgid(0, -1, 0)
+
 @contextlib.contextmanager
 def raised_privileges():
     """As regain_privileges/drop_privileges, but in context manager style."""

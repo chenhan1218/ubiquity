@@ -29,9 +29,12 @@ debian/*.debhelper*
 debian/*.substvars
 ./Makefile
 ./autom4te.cache
+./config.h
 ./config.log
 ./config.status
 ./intltool-*
+./libtool
+./stamp-h1
 d-i/apt
 d-i/manifest.old
 d-i/source
@@ -47,7 +50,11 @@ po/remove-potcdate.sed
 po/stamp-it
 po/*.gmo
 pixmaps/Makefile
+ubiquity/.libs
+ubiquity/Makefile
 ubiquity/frontend/*.bak
 ubiquity/frontend/liveinstaller.py
 ubiquity/frontend/crashdialog.py
 ubiquity/keyboard_names.py
+ubiquity/*.la
+ubiquity/*.lo

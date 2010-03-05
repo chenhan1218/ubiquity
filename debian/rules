@@ -19,6 +19,8 @@ DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 
 INTRO_MESSAGE := 1
 
+PYTHON := $(shell pyversions -r)
+
 console-setup-depends := console-setup (>= $(shell cd d-i/source/console-setup && dpkg-parsechangelog | awk '/Version:/ {print $$2}'))
 
 update:
@@ -32,7 +34,7 @@ build: build-stamp
 build-stamp:
 	dh_testdir
 
-	dh_auto_configure
+	PYTHON=$(PYTHON) dh_auto_configure
 	dh_auto_build
 	$(MAKE) -C d-i build
 
@@ -87,9 +89,15 @@ endif
 	# For the meantime, nearly everything automake wants to install is
 	# part of the GTK frontend.
 ifndef UBIQUITY_NO_GTK
-	$(MAKE) install DESTDIR=$(CURDIR)/debian/ubiquity-frontend-gtk
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/ubiquity-frontend-gtk \
+		pythondir=\$${prefix}/lib/ubiquity \
+		pyexecdir=\$${prefix}/lib/ubiquity
 	rm -rf debian/ubiquity-frontend-gtk/usr/share/applications \
 		debian/ubiquity-frontend-gtk/usr/share/ubiquity/pixmaps
+	mv -n debian/ubiquity-frontend-gtk/usr/lib/ubiquity/ubiquity \
+		debian/ubiquity/usr/lib/ubiquity/
+	rm -f debian/ubiquity/usr/lib/ubiquity/ubiquity/_osextras.a \
+		debian/ubiquity/usr/lib/ubiquity/ubiquity/_osextras.la
 endif
 	$(MAKE) -C d-i install
 

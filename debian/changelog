@@ -16,6 +16,10 @@ ubiquity (2.1.32) UNRELEASED; urgency=low
   [ Colin Watson ]
   * KDE frontend:
     - Fix references to PARTITION_* in PartMan module (LP: #528171).
+    - Drop real UID/GID when initialising KApplication.  The real and
+      effective IDs need to match, but raising them means we can't talk to
+      D-Bus.  Instead, use saved IDs to store our root privileges so that we
+      can get them back (LP: #526486).
   * ubiquity-dm: Close stdout from dbus-launch.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 05 Mar 2010 16:31:06 +0000

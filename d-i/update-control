@@ -37,6 +37,7 @@ my @basebd = (
     'intltool (>= 0.40.0)',
     'keymapper (>= 0.5.3-7)',
     'po-debconf (>= 1.0)',
+    'python-all-dev (>= 2.6)',
     'python-central (>= 0.5)',
     'xkb-data (>= 0.9)',
     'xkb-data-i18n',

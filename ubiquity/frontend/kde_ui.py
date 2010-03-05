@@ -165,10 +165,17 @@ class Wizard(BaseFrontend):
         about.addAuthor(ki18n("Roman Shtylman"), KLocalizedString() ,"shtylman@gmail.com")
         KCmdLineArgs.init([""],about)
 
-        # raised privileges are needed to play nice with KDE
-        with raised_privileges():
+        # KApplication won't initialise if real UID != effective UID.  On
+        # the other hand, we can't talk to D-Bus unless the effective user
+        # is the live CD user.  Oh dear.  The solution is to use saved IDs:
+        # if we hide our rootliness in the saved IDs, then neither
+        # KApplication nor D-Bus will spot it.
+        drop_privileges_save()
+        try:
             self.app = KApplication()
             self.app.setStyleSheet(file(os.path.join(UIDIR, "style.qss")).read())
+        finally:
+            regain_privileges_save()
 
         self.ui = UbiquityUI()
         
