@@ -16,6 +16,7 @@ ubiquity (2.1.32) UNRELEASED; urgency=low
   [ Colin Watson ]
   * KDE frontend:
     - Fix references to PARTITION_* in PartMan module (LP: #528171).
+  * ubiquity-dm: Close stdout from dbus-launch.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 05 Mar 2010 16:31:06 +0000
 

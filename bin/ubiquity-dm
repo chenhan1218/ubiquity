@@ -230,6 +230,7 @@ EndSection
                     os.environ[name] = value
                 except ValueError:
                     pass
+            dbus_subp.stdout.close()
             dbus_subp.wait()
 
         gconfd_running = False
