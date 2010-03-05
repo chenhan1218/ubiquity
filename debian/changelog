@@ -9,6 +9,9 @@ ubiquity (2.1.32) UNRELEASED; urgency=low
   * WebKit puts file URLs in their own domain by default.  This means that
     anything which checks for the same origin, such as creating an
     XMLHttpRequest, will fail unless this is disabled (LP: #532502).
+  * Restore Colin's set_locale function.  However, this is only half the
+    puzzle.  We need to finish running the language component when the
+    exit button is pressed when in greeter mode.
 
   [ Colin Watson ]
   * KDE frontend:

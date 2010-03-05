@@ -19,6 +19,48 @@ from ubiquity.casper import get_casper
 
 background = '/usr/share/backgrounds/warty-final-ubuntu.png'
 
+def set_locale():
+    from ubiquity.debconfcommunicator import DebconfCommunicator
+    import debconf
+
+    db = DebconfCommunicator('ubiquity', cloexec=True)
+    locale = ''
+    try:
+        locale = db.get('debian-installer/locale')
+    except debconf.DebconfError:
+        pass
+    
+    if not locale:
+        db.shutdown()
+        return
+
+    db.shutdown()
+
+    default_locale = open('/etc/default/locale', 'w')
+    print >>default_locale, 'LANG="%s"' % locale
+    default_locale.close()
+
+    environment = open('/etc/environment')
+    environment_lines = environment.readlines()
+    environment.close()
+    environment = open('/etc/environment', 'w')
+    seen_lang = False
+    for line in environment_lines:
+        if line.startswith('LANG='):
+            print >>environment, 'LANG="%s"' % locale
+            seen_lang = True
+        else:
+            print >>environment, line.rstrip('\n')
+    if not seen_lang:
+        print >>environment, 'LANG="%s"' % locale
+    environment.close()
+
+    locale_gen = open('/etc/locale.gen', 'w')
+    print >>locale_gen, '%s UTF-8' % locale
+    locale_gen.close()
+
+    subprocess.call(['/usr/sbin/locale-gen', locale])
+
 class XStartupError(EnvironmentError):
     pass
 
@@ -343,6 +385,8 @@ if dm.frontend == 'gtk_ui':
 elif dm.frontend == 'kde_ui':
     proc = ['/etc/init.d/kdm', 'start']
 ret = dm.run(*sys.argv[4:])
+if ret == 0:
+    set_locale()
 if proc:
     subprocess.Popen(proc)
 sys.exit(ret)
