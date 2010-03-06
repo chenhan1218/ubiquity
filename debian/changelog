@@ -1,4 +1,4 @@
-ubiquity (2.1.32) UNRELEASED; urgency=low
+ubiquity (2.1.32) lucid; urgency=low
 
   [ Didier Roche ]
   * scripts/install.py:
@@ -24,7 +24,7 @@ ubiquity (2.1.32) UNRELEASED; urgency=low
   * Automatic update of included source packages: apt-setup 1:0.42ubuntu3,
     user-setup 1.28ubuntu4.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 05 Mar 2010 16:31:06 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat, 06 Mar 2010 00:09:55 +0000
 
 ubiquity (2.1.31) lucid; urgency=low
 
