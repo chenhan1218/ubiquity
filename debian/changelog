@@ -1,10 +1,15 @@
 ubiquity (2.1.33) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Wait for kwriteconfig to exit before proceeding.
   * Start ibus-daemon when starting KDE in install-only mode, which should
     make a few things a bit happier.
   * Derive partman component's PageNoninteractive class from PageBase rather
     than PluginUI, so that it has all the required methods.
+
+  [ Evan Dandrea ]
+  * Fix call to self.progress_start in ubi-partman.
+  * Also display progress titles on the advanced partitioning page.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 06 Mar 2010 23:10:27 +0000
 
