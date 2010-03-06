@@ -10,6 +10,7 @@ ubiquity (2.1.33) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Fix call to self.progress_start in ubi-partman.
   * Also display progress titles on the advanced partitioning page.
+  * Fix call to self.progress_stop in ubi-partman.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 06 Mar 2010 23:10:27 +0000
 

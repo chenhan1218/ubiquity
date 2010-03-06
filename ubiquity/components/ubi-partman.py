@@ -1666,7 +1666,7 @@ class Page(Plugin):
                         self.__state.pop()
                         self.update_partitions = None
                         self.building_cache = False
-                        self.progress_stop()
+                        self.progress_stop('')
                         self.frontend.refresh()
                         self.ui.current_page = self.ui.page_advanced
                         self.ui.update_partman(
@@ -1796,7 +1796,7 @@ class Page(Plugin):
                         self.thaw_choices('choose_partition')
                         self.update_partitions = None
                         self.building_cache = False
-                        self.progress_stop()
+                        self.progress_stop('')
                         self.ui.update_partman(
                             self.disk_cache, self.partition_cache,
                             self.cache_order)
