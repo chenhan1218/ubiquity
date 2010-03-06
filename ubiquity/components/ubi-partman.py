@@ -166,7 +166,7 @@ class PageGtk(PageBase):
     def progress_info(self, progress_info):
         self.part_advanced_recalculating_label.set_text(progress_info)
     
-    def progress_stop(self, *args):
+    def progress_stop(self):
         self.partition_list_buttonbox.set_sensitive(True)
         self.part_advanced_recalculating_spinner.stop()
         self.part_advanced_recalculating_box.hide()
@@ -1666,7 +1666,7 @@ class Page(Plugin):
                         self.__state.pop()
                         self.update_partitions = None
                         self.building_cache = False
-                        self.progress_stop('')
+                        self.progress_stop()
                         self.frontend.refresh()
                         self.ui.current_page = self.ui.page_advanced
                         self.ui.update_partman(
@@ -1796,7 +1796,7 @@ class Page(Plugin):
                         self.thaw_choices('choose_partition')
                         self.update_partitions = None
                         self.building_cache = False
-                        self.progress_stop('')
+                        self.progress_stop()
                         self.ui.update_partman(
                             self.disk_cache, self.partition_cache,
                             self.cache_order)
@@ -2323,11 +2323,11 @@ class Page(Plugin):
         else:
             Plugin.progress_info(self, progress_title, progress_info)
 
-    def progress_stop(self, *args):
+    def progress_stop(self):
         if hasattr(self.ui, 'progress_stop'):
-            self.ui.progress_stop(*args)
+            self.ui.progress_stop()
         else:
-            Plugin.progress_stop(self, *args)
+            Plugin.progress_stop(self)
 
 # Notes:
 #
