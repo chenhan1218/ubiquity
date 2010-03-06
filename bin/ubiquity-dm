@@ -338,10 +338,6 @@ EndSection
             wm = subprocess.Popen('kwin',
                 stdin=null, stdout=logfile, stderr=logfile,
                 preexec_fn=self.drop_privileges)
-            extras.append(subprocess.Popen(
-                ['ibus-daemon', '--xim'],
-                stdin=null, stdout=logfile, stderr=logfile,
-                preexec_fn=self.drop_privileges))
 
         greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
         ret = greeter.wait()
