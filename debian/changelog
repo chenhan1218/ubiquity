@@ -6,6 +6,9 @@ ubiquity (2.1.33) UNRELEASED; urgency=low
     make a few things a bit happier.
   * Derive partman component's PageNoninteractive class from PageBase rather
     than PluginUI, so that it has all the required methods.
+  * Stop starting gdm and kdm by hand on exit from /var/log/installer/dm
+    (using /etc/init.d/ calls, no less).  The Upstart jobs are written so
+    that this happens automatically if necessary.
 
   [ Evan Dandrea ]
   * Fix call to self.progress_start in ubi-partman.

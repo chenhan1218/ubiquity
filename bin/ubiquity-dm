@@ -395,14 +395,7 @@ try:
     dm = DM(vt, display, username)
 except XStartupError:
     sys.exit(1)
-proc = None
-if dm.frontend == 'gtk_ui':
-    proc = ['/etc/init.d/gdm', 'start']
-elif dm.frontend == 'kde_ui':
-    proc = ['/etc/init.d/kdm', 'start']
 ret = dm.run(*sys.argv[4:])
 if ret == 0:
     set_locale()
-if proc:
-    subprocess.Popen(proc)
 sys.exit(ret)
