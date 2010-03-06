@@ -16,6 +16,9 @@ ubiquity (2.1.33) UNRELEASED; urgency=low
   * Fix call to self.progress_stop in ubi-partman.
   * Don't accept unnecessary arguments to progress_stop anymore.
 
+  [ Mario Limonciello ]
+  * Fix wrong page to jump back to when partitioning fails during install.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 06 Mar 2010 23:10:27 +0000
 
 ubiquity (2.1.32) lucid; urgency=low
