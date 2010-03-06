@@ -1113,7 +1113,7 @@ class PageKde(PageBase):
     def plugin_get_current_page(self):
         return self.current_page
 
-class PageNoninteractive(PluginUI):
+class PageNoninteractive(PageBase):
     def set_part_page(self, p):
         pass
 
