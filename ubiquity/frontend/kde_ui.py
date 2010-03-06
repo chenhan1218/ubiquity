@@ -113,10 +113,10 @@ class UbiquityUI(KMainWindow):
             event.ignore()
 
 class Controller(ubiquity.frontend.base.Controller):
-    def translate(self, lang=None, just_me=True, reget=False):
+    def translate(self, lang=None, just_me=True, not_me=False, reget=False):
         if lang:
             self._wizard.locale = lang
-        self._wizard.translate_pages(lang, just_me, reget)
+        self._wizard.translate_pages(lang, just_me, not_me, reget)
 
     def allow_go_forward(self, allowed):
         self._wizard.allow_go_forward(allowed)
@@ -467,17 +467,27 @@ class Wizard(BaseFrontend):
         rv = reduce(recurse, parentWidget.children(), [parentWidget])
         return rv
 
-    def translate_pages(self, lang=None, just_current=True, reget=False):
+    def translate_pages(self, lang=None, just_current=True, not_current=False, reget=False):
+        current_page = self.pages[self.pagesindex]
         if just_current:
             pages = [self.pages[self.pagesindex]]
         else:
             pages = self.pages
         widgets = []
         for p in pages:
+            # There's no sense retranslating the page we're leaving.
+            if not_current and p == current_page:
+                continue
             prefix = p.ui.get('plugin_prefix')
             for w in p.widgets:
                 for c in self.all_children(w):
                     widgets.append((c, prefix))
+                    
+        #if not just_current:
+        #for toplevel in self.toplevels:
+            #if toplevel.name != 'live_installer':
+                #for c in self.all_children(toplevel):
+                    #widgets.append((c, None))
         self.translate_widgets(lang=lang, widgets=widgets, reget=reget)
 
     # translates widget text based on the object names
