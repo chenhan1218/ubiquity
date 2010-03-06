@@ -187,7 +187,9 @@ EndSection
 '''
                     xorg_conf_failsafe_file.close()
 
-            server = subprocess.Popen(command, stdin=null, stdout=logfile, stderr=logfile, preexec_fn=self.server_preexec)
+            server = subprocess.Popen(
+                command, stdin=null, stdout=logfile, stderr=logfile,
+                preexec_fn=self.server_preexec)
 
             # Really we should select on a pipe or something, but it's not
             # worth the effort for now.
@@ -198,11 +200,13 @@ EndSection
                     if type(status) is int and status != 0:
                         if plymouth_running:
                             subprocess.call(['plymouth', 'quit'])
-                        raise XStartupError, "X server exited with return code " + str(status)
+                        raise XStartupError, \
+                            "X server exited with return code " + str(status)
                     if timeout == 0:
                         if plymouth_running:
                             subprocess.call(['plymouth', 'quit'])
-                        raise XStartupError, "X server failed to start after 60 seconds"
+                        raise XStartupError, \
+                            "X server failed to start after 60 seconds"
                     time.sleep(1)
                     timeout -= 1
                 if plymouth_running:
@@ -263,7 +267,8 @@ EndSection
             # Accessibility infrastructure
             if accessibility == 'true':
                 if os.path.exists('/usr/lib/at-spi/at-spi-registryd'):
-                    extras.append(subprocess.Popen(['/usr/lib/at-spi/at-spi-registryd'],
+                    extras.append(subprocess.Popen(
+                        ['/usr/lib/at-spi/at-spi-registryd'],
                         stdin=null, stdout=logfile, stderr=logfile))
                     os.environ['GTK_MODULES'] = 'gail:atk-bridge'
 
@@ -274,7 +279,8 @@ EndSection
             # Don't show the background image in v1 accessibility profile. It
             # is not shown in the GNOME desktop after all.
             fp = open('/proc/cmdline', 'r')
-            if os.access(background, os.R_OK) and not 'access=v1' in fp.readline():
+            if (os.access(background, os.R_OK) and
+                not 'access=v1' in fp.readline()):
                 import gtk
                 pixbuf = gtk.gdk.pixbuf_new_from_file(background)
                 root = gtk.gdk.get_default_root_window()
@@ -301,11 +307,14 @@ EndSection
                     **maybe_drop_privileges)
             else:
                 raise MissingProgramError, \
-                    "No window manager found (tried metacity, xfwm4, matchbox-window-manager)"
+                    ("No window manager found (tried metacity, xfwm4, "
+                     "matchbox-window-manager)")
 
             if os.path.exists('/usr/lib/gnome-settings-daemon/gnome-settings-daemon'):
-                extras.append(subprocess.Popen(['/usr/lib/gnome-settings-daemon/gnome-settings-daemon'],
-                    stdin=null, stdout=logfile, stderr=logfile, **maybe_drop_privileges))
+                extras.append(subprocess.Popen(
+                    ['/usr/lib/gnome-settings-daemon/gnome-settings-daemon'],
+                    stdin=null, stdout=logfile, stderr=logfile,
+                    **maybe_drop_privileges))
 
             # Accessibility tools
             if accessibility == 'true':
@@ -321,13 +330,18 @@ EndSection
                             stdin=null, stdout=logfile, stderr=logfile))
                 fp.close()
         elif self.frontend == 'kde_ui':
-            subprocess.call(['kwriteconfig', '--file', 'kwinrc', '--group', 'Compositing', '--key', 'Enabled', 'false'], stdin=null, stdout=logfile, stderr=logfile, preexec_fn=self.drop_privileges)
-            wm = subprocess.Popen('kwin', stdin=null, stdout=logfile,
-                stderr=logfile, preexec_fn=self.drop_privileges)
-            extras.append(
-                subprocess.Popen(['ibus-daemon', '--xim'],
-                                 stdin=null, stdout=logfile, stderr=logfile,
-                                 preexec_fn=self.drop_privileges))
+            subprocess.call(
+                ['kwriteconfig', '--file', 'kwinrc', '--group', 'Compositing',
+                                 '--key', 'Enabled', 'false'],
+                stdin=null, stdout=logfile, stderr=logfile,
+                preexec_fn=self.drop_privileges)
+            wm = subprocess.Popen('kwin',
+                stdin=null, stdout=logfile, stderr=logfile,
+                preexec_fn=self.drop_privileges)
+            extras.append(subprocess.Popen(
+                ['ibus-daemon', '--xim'],
+                stdin=null, stdout=logfile, stderr=logfile,
+                preexec_fn=self.drop_privileges))
 
         greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
         ret = greeter.wait()
@@ -376,7 +390,8 @@ EndSection
             return 1
 
 if len(sys.argv) < 4:
-    sys.stderr.write('Usage: %s <vt[1-N]> <:[0-N]> <username> <program> [<arguments>]\n' % sys.argv[0])
+    sys.stderr.write('Usage: %s <vt[1-N]> <:[0-N]> <username> <program> '
+                     '[<arguments>]\n' % sys.argv[0])
     sys.exit(1)
 
 vt, display, username = sys.argv[1:4]
