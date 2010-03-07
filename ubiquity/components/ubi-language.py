@@ -264,6 +264,11 @@ class PageKde(PageBase):
 
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
+        if self.controller.oem_user_config:
+            self.only = True
+        else:
+            self.only = False
+            
         try:
             from PyQt4 import uic
             from PyQt4.QtGui import QLabel, QWidget
@@ -271,60 +276,57 @@ class PageKde(PageBase):
             self.combobox = self.page.language_combobox
             self.combobox.currentIndexChanged[str].connect(self.on_language_selection_changed)
             
+            self.page.begin_install_button.clicked.connect(self.controller._wizard.on_next_clicked)
+            self.page.try_ubuntu.clicked.connect(self.controller._wizard.quit_installer)
+            
             if not self.controller.oem_config:
                 self.page.oem_id_label.hide()
                 self.page.oem_id_entry.hide()
-
-            if self.page.findChildren(QWidget,'update_this_installer'):
-                if self.controller.oem_config or auto_update.already_updated():
-                    self.page.update_this_installer.hide()
-                else:
-                    self.page.update_this_installer.clicked.connect(
-                        self.on_update_this_installer)
-
-            class linkLabel(QLabel):
-                def __init__(self, wizard, parent):
-                    QLabel.__init__(self, parent)
-                    self.wizard = wizard
-
-                def mouseReleaseEvent(self, event):
-                    self.wizard.openReleaseNotes()
-
-                def setText(self, text):
-                    QLabel.setText(self, text)
-                    self.resize(self.sizeHint())
-
-            self.release_notes_url = linkLabel(self, self.page.release_notes_frame)
-            self.release_notes_url.setObjectName("release_notes_url")
-            self.release_notes_url.show()
-
-            self.release_notes_url_template = None
+            
+            self.release_notes_url = ''
             try:
                 release_notes = open(_release_notes_url_path)
-                self.release_notes_url_template = release_notes.read().rstrip('\n')
+                self.release_notes_url = release_notes.read().rstrip('\n')
                 release_notes.close()
             except (KeyboardInterrupt, SystemExit):
-                raise
-            except:
-                self.page.release_notes_label.hide()
-                self.page.release_notes_frame.hide()
+                pass
+            
+            self.page.release_notes_label.linkActivated.connect(self.on_release_notes_link)
+            
+            if not 'UBIQUITY_GREETER' in os.environ:
+                self.page.try_ubuntu.hide()
+                self.page.try_test_label.hide()
+                self.begin_install_button.hide()
                 
         except Exception, e:
             self.debug('Could not create language page: %s', e)
             self.page = None
+            
         self.plugin_widgets = self.page
 
-    def openReleaseNotes(self):
+    def on_release_notes_link(self, link):
         lang = self.selected_language()
-        if lang:
-            lang = lang.split('.')[0].lower()
-            url = self.release_notes_url_template.replace('${LANG}', lang)
-            self.openURL(url)
-
+        if link == "release-notes":
+            if lang:
+               lang = lang.split('.')[0].lower()
+               url = self.release_notes_url.replace('${LANG}', lang)
+               self.openURL(url)
+            pass
+        elif link == "update":
+            if not auto_update.update(self.controller._wizard):
+                # no updates, so don't check again
+                text = i18n.get_string('release_notes_only', lang)
+                self.page.release_notes_label.setText(text)
+    
     def openURL(self, url):
-        #need to run this else kdesu can't run Konqueror
-        misc.execute('su', '-c', 'xhost +localhost', 'ubuntu')
-        misc.execute('su', '-c', 'kfmclient openURL '+url, 'ubuntu')
+        from PyQt4.QtGui import QDesktopServices
+        from PyQt4.QtCore import QUrl
+        from ubiquity.misc import drop_privileges_save, regain_privileges_save
+        
+        # this nonsense is needed because kde doesn't want to be root
+        drop_privileges_save()
+        QDesktopServices.openUrl(QUrl(url))
+        regain_privileges_save()
 
     def set_language_choices(self, choices, choice_map):
         from PyQt4.QtCore import QString
@@ -357,24 +359,28 @@ class PageKde(PageBase):
         if lang:
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
-
             self.controller.translate(lang)
-
-            if self.release_notes_url_template is not None:
-                url = self.release_notes_url_template.replace('${LANG}', lang)
-                text = i18n.get_string('release_notes_url', lang)
-                self.release_notes_url.setText('<a href="%s">%s</a>' % (url, text))
+        else:
+            lang = 'C'
+            
+        if not self.only:
+            release_name = misc.get_release_name()
+            install_medium = misc.get_install_medium()
+            install_medium = i18n.get_string(install_medium, lang)
+            for widget in (self.page.try_text_label,
+                           self.page.try_ubuntu,
+                           self.page.ready_text_label,
+                           self.page.alpha_warning_label):
+                text = widget.text()
+                text = text.replace('${RELEASE}', release_name)
+                text = text.replace('${MEDIUM}', install_medium)
+                widget.setText(text)
 
     def set_oem_id(self, text):
         return self.page.oem_id_entry.setText(text)
 
     def get_oem_id(self):
         return unicode(self.page.oem_id_entry.text())
-
-    def on_update_this_installer(self):
-        if not auto_update.update(self.controller._wizard):
-            # no updates, so don't check again
-            self.page.update_this_installer.setEnabled(False)
 
 class PageDebconf(PageBase):
     plugin_title = 'ubiquity/text/language_heading_label'

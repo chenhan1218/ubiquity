@@ -351,13 +351,14 @@ class Wizard(BaseFrontend):
 
     # Disable the KDE media notifier to avoid problems during partitioning.
     def disable_volume_manager(self):
-        print "FIXME, medianotifier unload port to KDE 4"
+        #FIXME, medianotifier unload port to KDE 4"
         #execute('dcop', 'kded', 'kded', 'unloadModule', 'medianotifier')
         atexit.register(self.enable_volume_manager)
 
     def enable_volume_manager(self):
-        print "FIXME, medianotifier unload port to KDE 4"
+        #FIXME, medianotifier unload port to KDE 4"
         #execute('dcop', 'kded', 'kded', 'loadModule', 'medianotifier')
+        pass
 
     def run(self):
         """run the interface."""
@@ -683,9 +684,6 @@ class Wizard(BaseFrontend):
                 self.set_current_page(index)
                 if page.breadcrumb:
                     page.breadcrumb.setStyleSheet(currentSS)
-                    self.ui.steps_widget.setVisible(True)
-                else:
-                    self.ui.steps_widget.setVisible(False)
                 found = True
                 is_install = page.ui.get('plugin_is_install')
             elif page.breadcrumb:
@@ -901,6 +899,15 @@ class Wizard(BaseFrontend):
             
         self.app.exit()
 
+    def quit_installer(self):
+        """quit installer cleanly."""
+
+        # exiting from application
+        self.current_page = None
+        if self.dbfilter is not None:
+            self.dbfilter.cancel_handler()
+        self.quit_main_loop()
+
     def on_quit_clicked(self):
         warning_dialog_label = self.get_string("warning_dialog_label")
         abortTitle = self.get_string("warning_dialog")
@@ -984,8 +991,16 @@ class Wizard(BaseFrontend):
 
     def on_steps_switch_page(self, newPageID):
         self.current_page = newPageID
+        name = self.step_name(newPageID)
         #self.translate_widget(self.ui.step_label)
-        syslog.syslog('switched to page %s' % self.step_name(newPageID))
+        syslog.syslog('switched to page %s' % name)
+        if 'UBIQUITY_GREETER' in os.environ:
+            if name == 'language':
+                self.ui.steps_widget.hide()
+                self.ui.navigation.hide()
+            else:
+                self.ui.steps_widget.show()
+                self.ui.navigation.show()
 
     def watch_debconf_fd (self, from_debconf, process_input):
         self.debconf_fd_counter = 0
