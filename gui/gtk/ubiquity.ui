@@ -187,7 +187,6 @@
     <property name="icon_name">gtk-dialog-warning</property>
     <property name="type_hint">dialog</property>
     <property name="gravity">center</property>
-    <property name="has_separator">False</property>
     <signal name="realize" handler="set_window_hints"/>
     <child internal-child="vbox">
       <object class="GtkVBox" id="dialog-vbox1">
@@ -393,7 +392,6 @@
     <property name="resizable">False</property>
     <property name="window_position">center</property>
     <property name="type_hint">dialog</property>
-    <property name="has_separator">False</property>
     <signal name="realize" handler="set_window_hints"/>
     <child internal-child="vbox">
       <object class="GtkVBox" id="dialog-vbox3">
@@ -504,7 +502,6 @@
     <property name="modal">True</property>
     <property name="window_position">center-on-parent</property>
     <property name="type_hint">dialog</property>
-    <property name="has_separator">False</property>
     <signal name="realize" handler="set_window_hints"/>
     <child internal-child="vbox">
       <object class="GtkVBox" id="dialog-vbox4">
@@ -620,7 +617,6 @@
     <property name="type_hint">dialog</property>
     <property name="gravity">center</property>
     <property name="transient_for">live_installer</property>
-    <property name="has_separator">False</property>
     <signal name="realize" handler="set_window_hints"/>
     <child internal-child="vbox">
       <object class="GtkVBox" id="dialog-vbox7">

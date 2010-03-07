@@ -18,6 +18,8 @@ ubiquity (2.1.33) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Fix wrong page to jump back to when partitioning fails during install.
+  * Remove has_separator property from gtk dialogs to prevent a warning
+    from gtk.Builder when they are loaded.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 06 Mar 2010 23:10:27 +0000
 
