@@ -87,7 +87,7 @@ class PageGtk(PluginUI):
 
     def calculate_clicked(self, *args):
         from ubiquity.frontend.gtk_components.keyboard_query import KeyboardQuery
-        self.query = KeyboardQuery()
+        self.query = KeyboardQuery(self.controller._wizard)
         self.query.connect('layout_result', self.calculate_result)
         self.query.connect('delete-event', self.calculate_closed)
         self.query.run()

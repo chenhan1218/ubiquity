@@ -154,6 +154,22 @@ Template: ubiquity/text/manual_keymap
 Type: text
 _Description: Choose your own:
 
+Template: ubiquity/text/calculate_keymap
+Type: text
+_Description: Guess keymap:
+
+Template: ubiquity/text/calculate_keymap_button
+Type: text
+_Description: Guess...
+
+Template: ubiquity/text/keyboard_query_press
+Type: text
+_Description: Please press one of the following keys:
+
+Template: ubiquity/text/keyboard_query_present
+Type: text
+_Description: Is the following key present on your keyboard?
+
 Template: ubiquity/text/keyboard_layout_label
 Type: text
 _Description: Layout:

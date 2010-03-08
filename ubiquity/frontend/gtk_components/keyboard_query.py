@@ -19,7 +19,7 @@ class KeyboardQuery(gtk.Window):
     __gtype_name__ = 'KeyboardQuery'
     __gsignals__ = { 'layout_result' : (gobject.SIGNAL_RUN_FIRST,
                     gobject.TYPE_NONE, (gobject.TYPE_STRING,)) }
-    def __init__(self):
+    def __init__(self, frontend):
         gtk.Window.__init__(self)
         
         self.set_title('')
@@ -27,8 +27,11 @@ class KeyboardQuery(gtk.Window):
         self.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DIALOG)
         self.vbox = gtk.VBox()
         
-        # TODO i18n
-        self.heading = gtk.Label('Please press one of the following keys:')
+        self.press_string = \
+            frontend.get_string('ubiquity/text/keyboard_query_press')
+        self.present_string = \
+            frontend.get_string('ubiquity/text/keyboard_query_present')
+        self.heading = gtk.Label(self.press_string)
         self.vbox.add(self.heading)
         
         self.keyrow = Keyrow()
@@ -63,13 +66,11 @@ class KeyboardQuery(gtk.Window):
         for k in self.keyboard_detect.symbols:
             self.keyrow.add_character(k)
         if r == KeyboardDetector.PRESS_KEY:
-            # TODO i18n
-            self.heading.set_label('Please press one of the following keys:')
+            self.heading.set_label(self.press_string)
             self.buttons.hide()
         elif (r == KeyboardDetector.KEY_PRESENT or
               r == KeyboardDetector.KEY_PRESENT_P):
-            # TODO i18n
-            self.heading.set_label('Is the following key present on your keyboard?')
+            self.heading.set_label(self.present_string)
             self.buttons.show()
         elif r == KeyboardDetector.RESULT:
             self.emit('layout_result', self.keyboard_detect.result)
