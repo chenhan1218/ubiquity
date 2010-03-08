@@ -15,6 +15,9 @@ ubiquity (2.1.33) UNRELEASED; urgency=low
   * Also display progress titles on the advanced partitioning page.
   * Fix call to self.progress_stop in ubi-partman.
   * Don't accept unnecessary arguments to progress_stop anymore.
+  * Only try to set the focus on the next button when we've handed over
+    control to the user.  Prior to this the quit button was getting the
+    focus because the next button was insensitive.
 
   [ Mario Limonciello ]
   * Fix wrong page to jump back to when partitioning fails during install.
