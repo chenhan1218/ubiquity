@@ -373,7 +373,7 @@ class DebconfFilter:
                              'progress_stop'):
                         self.debug('filter', 'widget found for',
                                    self.progress_bars[0])
-                        widget.progress_stop()
+                        widget.progress_stop(self.progress_bars[0])
                     self.progress_bars.pop()
                 elif subcommand == 'REGION' and len(params) == 3:
                     progress_region_start = int(params[1])

@@ -447,7 +447,7 @@ class FilteredCommand(UntrustedBase):
             # ignore unknown info templates
             return True
 
-    def progress_stop(self):
+    def progress_stop(self, unused_progress_title):
         self.frontend.debconf_progress_stop()
         self.frontend.refresh()
 

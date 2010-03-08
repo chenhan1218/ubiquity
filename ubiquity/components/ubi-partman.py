@@ -157,7 +157,7 @@ class PageGtk(PageBase):
             self.page = None
         self.plugin_widgets = self.page
 
-    def progress_start(self, progress_title):
+    def progress_start(self):
         self.partition_list_buttonbox.set_sensitive(False)
         self.part_advanced_recalculating_label.set_text(progress_title)
         self.part_advanced_recalculating_box.show()
@@ -2306,13 +2306,15 @@ class Page(Plugin):
         self.exit_ui_loops()
 
     def progress_start(self, progress_min, progress_max, progress_title):
-        if hasattr(self.ui, 'progress_start'):
+        if (progress_title != 'partman/text/please_wait' and
+        hasattr(self.ui, 'progress_start')):
             self.ui.progress_start(self.description(progress_title))
         else:
             Plugin.progress_start(self, progress_min, progress_max, progress_title)
 
     def progress_info(self, progress_title, progress_info):
-        if hasattr(self.ui, 'progress_info'):
+        if (progress_info != 'partman-partitioning/progress_resizing' and
+        hasattr(self.ui, 'progress_info')):
             try:
                 self.ui.progress_info(self.description(progress_info))
             except debconf.DebconfError:
@@ -2323,11 +2325,12 @@ class Page(Plugin):
         else:
             Plugin.progress_info(self, progress_title, progress_info)
 
-    def progress_stop(self):
-        if hasattr(self.ui, 'progress_stop'):
+    def progress_stop(self, progress_title):
+        if (progress_title != 'partman/text/please_wait' and
+        hasattr(self.ui, 'progress_stop')):
             self.ui.progress_stop()
         else:
-            Plugin.progress_stop(self)
+            Plugin.progress_stop(self, progress_title)
 
 # Notes:
 #
