@@ -17,8 +17,6 @@ endif
 
 DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 
-INTRO_MESSAGE := 1
-
 PYTHON := $(shell pyversions -r)
 
 console-setup-depends := console-setup (>= $(shell cd d-i/source/console-setup && dpkg-parsechangelog | awk '/Version:/ {print $$2}'))
@@ -209,10 +207,6 @@ endif
 ifeq ($(DEB_HOST_ARCH),sparc)
 	install d-i/source/silo-installer/debian/silo-installer.postinst \
 		debian/ubiquity/usr/lib/ubiquity/silo-installer/silo-installer
-endif
-ifdef INTRO_MESSAGE
-	install -m644 debian/intro-alpha.txt \
-		debian/ubiquity/usr/share/ubiquity/intro.txt
 endif
 
 	set -e; for size in 16 22 32 48 64 128; do \

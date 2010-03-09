@@ -22,6 +22,8 @@ ubiquity (2.1.33) UNRELEASED; urgency=low
     (LP: #533859).
   * Bring back the resizing partition progress dialog that was removed
     with the rest of the automatic partitioning progress dialogs.
+  * Remove the intro plugin.  It's now presented as part of the language
+    page when the greeter option (-g) is selected.
 
   [ Mario Limonciello ]
   * Fix wrong page to jump back to when partitioning fails during install.

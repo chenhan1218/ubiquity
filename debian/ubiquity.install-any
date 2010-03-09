@@ -18,9 +18,6 @@ pixmaps/earth.jpg usr/share/ubiquity/pixmaps
 apport/source_ubiquity.py usr/share/apport/package-hooks
 bin/ubiquity-dm usr/bin
 
-# intro
-ubiquity/components/ubi-intro.py usr/lib/ubiquity/plugins
-
 # apt-setup
 d-i/source/apt-setup/apt-setup-verify usr/lib/ubiquity/apt-setup
 d-i/source/apt-setup/apt-setup-signed-release usr/lib/ubiquity/apt-setup
