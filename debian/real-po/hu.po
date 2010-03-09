@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-04 12:01+0000\n"
+"POT-Creation-Date: 2010-03-09 12:16+0000\n"
 "PO-Revision-Date: 2009-10-07 17:28+0000\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
@@ -46,7 +46,7 @@ msgstr "Partíciók saját kezű megadása (haladóknak)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:188001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:192001
 msgid "Install"
 msgstr "Telepítés"
 
@@ -239,42 +239,66 @@ msgstr "Egyéni használata:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
-msgid "Layout:"
+msgid "Guess keymap:"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-msgid "Variant:"
+msgid "Guess..."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
-msgid "Below is an image of your current layout:"
+msgid "Please press one of the following keys:"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
+msgid "Is the following key present on your keyboard?"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:35001
+msgid "Layout:"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:36001
+msgid "Variant:"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:37001
+msgid "Below is an image of your current layout:"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:38001
 msgid "Who are you?"
 msgstr "Kicsoda Ön?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:35001
+#: ../ubiquity.templates:39001
 msgid "What is your name?"
 msgstr "Mi a neve?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:36001
+#: ../ubiquity.templates:40001
 msgid "What name do you want to use to log in?"
 msgstr "Milyen felhasználói nevet szeretne használni a bejelentkezéshez?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:37001
+#: ../ubiquity.templates:41001
 msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
@@ -284,19 +308,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:38001
+#: ../ubiquity.templates:42001
 msgid "Choose a password to keep your account safe."
 msgstr "Válasszon jelszót, hogy biztonságban lehessen felhasználói fiókja."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:39001
+#: ../ubiquity.templates:43001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr "A rendszer hibakereső módban fut! Ne használjon „értékes” jelszót!"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:40001
+#: ../ubiquity.templates:44001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors. "
 "A good password will contain a mixture of letters, numbers and punctuation, "
@@ -309,13 +333,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:41001
+#: ../ubiquity.templates:45001
 msgid "What is the name of this computer?"
 msgstr "Mi a neve ennek a számítógépnek?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:42001
+#: ../ubiquity.templates:46001
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
@@ -325,38 +349,38 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:43001
+#: ../ubiquity.templates:47001
 msgid "Log in automatically"
 msgstr "Automatikus bejelentkezés"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:48001
 msgid "Require my password to log in"
 msgstr "Jelszó megkövetelése a bejelentkezéshez"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:49001
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr ""
 "Jelszó megkövetelése a bejelentkezéshez és saját mappám visszafejtéséhez"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:50001
 msgid "Choose another password"
 msgstr "Válasszon másik jelszót"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:51001
 msgid "Migrate documents and settings"
 msgstr "Dokumentumok és beállítások átvitele"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:52001
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
@@ -366,7 +390,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:52001
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
@@ -376,51 +400,51 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:53001
 msgid "Prepare disk space"
 msgstr "Lemezhely előkészítése"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:54001
 msgid "How do you want to partition the disk?"
 msgstr "Hogyan kívánja particionálni a lemezt?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:55001
 msgid "This computer has no operating systems on it."
 msgstr "A számítógépen jelenleg nincs operációs rendszer."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:56001
 msgid "This computer has ${OS} on it."
 msgstr ""
 "Erre a számítógépre jelenleg a(z) ${OS} operációs rendszer van telepítve."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:57001
 msgid "This computer has several operating systems on it."
 msgstr "Erre a számítógépre jelenleg több operációs rendszer van telepítve."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:58001
 msgid "Where do you want to put ${RELEASE}?"
 msgstr "Hová szeretné telepíteni a(z) ${RELEASE} operációs rendszert?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:59001
 msgid "Prepare partitions"
 msgstr "Partíciók előkészítése"
 
 #. Type: text
 #. Description
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:60001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
 msgstr ""
 "Ez törli a(z) ${SYSTEMS} rendszert és telepíti a(z) ${RELEASE} rendszert."
@@ -429,26 +453,26 @@ msgstr ""
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:57001 ../ubiquity.templates:117001
+#: ../ubiquity.templates:61001 ../ubiquity.templates:121001
 msgid "Ready to install"
 msgstr "Készen áll a telepítésre"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:62001
 msgid "Details"
 msgstr "Részletek"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:63001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr "Az új operációs rendszer a következő beállításokkal kerül telepítésre:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:64001
 msgid "Advanced..."
 msgstr "Haladó…"
 
@@ -456,37 +480,37 @@ msgstr "Haladó…"
 #. Description
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:65001
 msgid "Install[ action ]"
 msgstr "Telepítés"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:66001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr "${INDEX}. lépés (Összesen: ${TOTAL})"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:67001
 msgid "Quit the installation?"
 msgstr "Megszakítja a telepítést?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:68001
 msgid "Do you really want to quit the installation now?"
 msgstr "Valóban meg kívánja szakítani a telepítést?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:69001
 msgid "Bootloader install failed"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:70001
 msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
@@ -494,62 +518,62 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:71001
 msgid "Choose a different device to install the bootloader on:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:72001
 msgid "Continue without a bootloader."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:73001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:74001
 msgid "Cancel the installation."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:75001
 msgid "This may leave your computer unable to boot."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:76001
 msgid "How would you like to proceed?"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:77001
 msgid "Skip"
 msgstr "Kihagyás"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:78001
 msgid "Installation Complete"
 msgstr "A telepítés befejeződött"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:79001
 msgid "Continue Testing"
 msgstr "A tesztelés folytatása"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:80001
 msgid "Restart Now"
 msgstr "Újraindítás most"
 
@@ -557,13 +581,13 @@ msgstr "Újraindítás most"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:77001 ../ubiquity.templates:78001
+#: ../ubiquity.templates:81001 ../ubiquity.templates:82001
 msgid "Installer crashed"
 msgstr "A telepítő összeomlott"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:83001
 msgid ""
 "We're sorry; the installer crashed. Please file a new bug report at https://"
 "launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
@@ -583,7 +607,7 @@ msgstr ""
 #. Description
 #. Displayed next to a graphical bar depicting the state of the disk before
 #. automatic partitioning.
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:84001
 msgid "Before:"
 msgstr "Előtte:"
 
@@ -591,48 +615,48 @@ msgstr "Előtte:"
 #. Description
 #. Displayed next to a graphical bar depicting the state of the disk after
 #. automatic partitioning.
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:85001
 msgid "After:"
 msgstr "Utána:"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:86001
 msgid "New Partition Table..."
 msgstr "Új partíciós tábla…"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:87001
 msgid "Add..."
 msgstr "Hozzáadás…"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:88001
 msgid "Change..."
 msgstr "Módosítás…"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:89001
 msgid "Delete"
 msgstr "Törlés"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:90001
 msgid "Revert"
 msgstr "Visszaállítás"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:91001
 #, fuzzy
 #| msgid "Create partition"
 msgid "Recalculating partitions..."
@@ -641,7 +665,7 @@ msgstr "Partíció létrehozása"
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:92001
 msgid "Device"
 msgstr "Eszköz"
 
@@ -649,28 +673,28 @@ msgstr "Eszköz"
 #. Description
 #. A column heading in the partitioner. Indicates how the partition is to be
 #. used (ext2, swap, etc.).
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:93001
 msgid "Type"
 msgstr "Típus"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:94001
 msgid "Mount point"
 msgstr "Csatolási pont"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:95001
 msgid "Format?"
 msgstr "Formázandó?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:96001
 msgid "Size"
 msgstr "Méret"
 
@@ -678,27 +702,27 @@ msgstr "Méret"
 #. Description
 #. A column heading in the partitioner. Indicates how much of the space on
 #. this partition is used by data.
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:97001
 msgid "Used"
 msgstr "Használt"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:98001
 msgid "free space"
 msgstr "szabad terület"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:99001
 msgid "unknown"
 msgstr "ismeretlen"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:100001
 msgid "Create partition"
 msgstr "Partíció létrehozása"
 
@@ -706,97 +730,97 @@ msgstr "Partíció létrehozása"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:97001 ../ubiquity.templates:104001
+#: ../ubiquity.templates:101001 ../ubiquity.templates:108001
 msgid "New partition size in megabytes (1000000 bytes):"
 msgstr "Új partíció mérete megabájtokban (1000000 bájt):"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:98001
+#: ../ubiquity.templates:102001
 msgid "Beginning"
 msgstr "Eleje"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:99001
+#: ../ubiquity.templates:103001
 msgid "End"
 msgstr "Vége"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:104001
 msgid "Primary"
 msgstr "Elsődleges"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:105001
 msgid "Logical"
 msgstr "Logikai"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:106001
 msgid "Edit partition"
 msgstr "Partíció szerkesztése"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:103001
+#: ../ubiquity.templates:107001
 msgid "Edit a partition"
 msgstr "Egy partíció szerkesztése"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:105001
+#: ../ubiquity.templates:109001
 msgid "Advanced Options"
 msgstr "Speciális beállítások"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:106001
+#: ../ubiquity.templates:110001
 msgid "Boot loader"
 msgstr "Rendszertöltő"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:107001
+#: ../ubiquity.templates:111001
 msgid "Install boot loader"
 msgstr "Rendszertöltő telepítése"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:112001
 msgid "Popularity contest"
 msgstr "Népszerűségi verseny"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:109001
+#: ../ubiquity.templates:113001
 msgid "Participate in the package usage survey"
 msgstr "Részvétel a csomaghasználat felmérésében"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:114001
 msgid "Network proxy"
 msgstr "Hálózati proxy"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:111001
+#: ../ubiquity.templates:115001
 msgid "HTTP proxy:"
 msgstr "HTTP proxy:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:112001
+#: ../ubiquity.templates:116001
 msgid "Port:"
 msgstr "Port:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:113001
+#: ../ubiquity.templates:117001
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
@@ -809,20 +833,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:114001
+#: ../ubiquity.templates:118001
 msgid "Go Back"
 msgstr "Vissza"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:115001
+#: ../ubiquity.templates:119001
 msgid "Continue"
 msgstr "Folytatás"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:116001
+#: ../ubiquity.templates:120001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
@@ -832,7 +856,7 @@ msgstr ""
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:117001
+#: ../ubiquity.templates:121001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -852,37 +876,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:118001
+#: ../ubiquity.templates:122001
 msgid "Verifying the installation configuration..."
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:119001
+#: ../ubiquity.templates:123001
 msgid "Installing system"
 msgstr "A rendszer telepítése"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:120001
+#: ../ubiquity.templates:124001
 msgid "Finding the distribution to copy..."
 msgstr "A másolandó disztribúció keresése…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:122001
+#: ../ubiquity.templates:126001
 msgid "Scanning files..."
 msgstr "Fájlok elemzése…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:123001
+#: ../ubiquity.templates:127001
 msgid "Copying files..."
 msgstr "Fájlok másolása…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:124001
+#: ../ubiquity.templates:128001
 msgid "Almost finished copying files..."
 msgstr "A fájlok másolása majdnem kész…"
 
@@ -896,9 +920,9 @@ msgstr "A fájlok másolása majdnem kész…"
 #. Description
 #. Type: select
 #. Description
-#: ../ubiquity.templates:125001 ../ubiquity.templates:126001
-#: ../ubiquity.templates:127001 ../ubiquity.templates:128001
-#: ../ubiquity.templates:129001
+#: ../ubiquity.templates:129001 ../ubiquity.templates:130001
+#: ../ubiquity.templates:131001 ../ubiquity.templates:132001
+#: ../ubiquity.templates:133001
 msgid "Installation Failed"
 msgstr "A telepítés meghiúsult"
 
@@ -910,14 +934,14 @@ msgstr "A telepítés meghiúsult"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:125001 ../ubiquity.templates:126001
-#: ../ubiquity.templates:127001 ../ubiquity.templates:128001
+#: ../ubiquity.templates:129001 ../ubiquity.templates:130001
+#: ../ubiquity.templates:131001 ../ubiquity.templates:132001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr "A telepítő hibát észlelt a fájlok merevlemezre másolása során."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:125001
+#: ../ubiquity.templates:129001
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
@@ -929,7 +953,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:126001
+#: ../ubiquity.templates:130001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -942,7 +966,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:127001
+#: ../ubiquity.templates:131001
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -960,7 +984,7 @@ msgstr ""
 #. Description
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
-#: ../ubiquity.templates:128001 ../ubiquity.templates:129001
+#: ../ubiquity.templates:132001 ../ubiquity.templates:133001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -977,145 +1001,145 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../ubiquity.templates:129001
+#: ../ubiquity.templates:133001
 msgid "The following file did not match its source copy on the CD/DVD:"
 msgstr "A következő fájl nem egyezik meg a CD/DVD-n található forrásfájllal:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:130001
+#: ../ubiquity.templates:134001
 msgid "Copying installation logs..."
 msgstr "Telepítési naplófájlok másolása…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:131001
+#: ../ubiquity.templates:135001
 msgid "Configuring target system..."
 msgstr "A célrendszer beállítása…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:132001
+#: ../ubiquity.templates:136001
 msgid "Configuring system locales..."
 msgstr "A rendszer területi beállításainak konfigurálása…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:133001
+#: ../ubiquity.templates:137001
 msgid "Configuring apt..."
 msgstr "Az apt beállítása…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:138001
 msgid "Configuring time zone..."
 msgstr "Az időzóna beállítása…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:135001
+#: ../ubiquity.templates:139001
 msgid "Configuring keyboard..."
 msgstr "Billentyűzet beállítása…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:136001
+#: ../ubiquity.templates:140001
 msgid "Creating user..."
 msgstr "Felhasználó létrehozása…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:137001
+#: ../ubiquity.templates:141001
 msgid "Importing documents and settings..."
 msgstr "Dokumentumok és beállítások importálása…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:138001
+#: ../ubiquity.templates:142001
 msgid "Configuring hardware..."
 msgstr "A hardver konfigurálása…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:139001
+#: ../ubiquity.templates:143001
 msgid "Configuring network..."
 msgstr "Hálózat konfigurálása folyamatban…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:140001
+#: ../ubiquity.templates:144001
 msgid "Setting computer name..."
 msgstr "Gépnév beállítása…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:141001
+#: ../ubiquity.templates:145001
 msgid "Configuring boot loader..."
 msgstr "A rendszerindító konfigurálása…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:142001
+#: ../ubiquity.templates:146001
 msgid "Installing additional packages..."
 msgstr "További csomagok telepítése…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:143001
+#: ../ubiquity.templates:147001
 msgid "Checking for packages to install..."
 msgstr "Telepítendő csomagok keresése…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:144001
+#: ../ubiquity.templates:148001
 msgid "Removing extra packages..."
 msgstr "Extra csomagok eltávolítása…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:145001
+#: ../ubiquity.templates:149001
 msgid "Checking for packages to remove..."
 msgstr "Törlendő csomagok keresése…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:146001
+#: ../ubiquity.templates:150001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Csomagok letöltése (${TIME} van hátra)…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:147001
+#: ../ubiquity.templates:151001
 msgid "Downloading package lists..."
 msgstr "Csomaglisták letöltése…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:148001
+#: ../ubiquity.templates:152001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Csomaglisták letöltése (${TIME} van hátra)…"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:150001
+#: ../ubiquity.templates:154001
 msgid "Error installing ${PACKAGE}"
 msgstr "Hiba a csomag (${PACKAGE}) telepítése során"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:151001
+#: ../ubiquity.templates:155001
 msgid "Error removing ${PACKAGE}"
 msgstr "Hiba a csomag (${PACKAGE}) eltávolítása során"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:152001
+#: ../ubiquity.templates:156001
 msgid "Error while installing packages"
 msgstr "Hiba a csomagok telepítésekor"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:152001
+#: ../ubiquity.templates:156001
 msgid "An error occurred while installing packages:"
 msgstr "Hiba történt a csomagok telepítésekor:"
 
@@ -1123,7 +1147,7 @@ msgstr "Hiba történt a csomagok telepítésekor:"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:152001 ../ubiquity.templates:153001
+#: ../ubiquity.templates:156001 ../ubiquity.templates:157001
 msgid "The following packages are in a broken state:"
 msgstr "A következő csomagok törött állapotban vannak:"
 
@@ -1131,7 +1155,7 @@ msgstr "A következő csomagok törött állapotban vannak:"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:152001 ../ubiquity.templates:153001
+#: ../ubiquity.templates:156001 ../ubiquity.templates:157001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -1150,25 +1174,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:153001
+#: ../ubiquity.templates:157001
 msgid "Error while removing packages"
 msgstr "Hiba a csomagok eltávolításakor"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:153001
+#: ../ubiquity.templates:157001
 msgid "An error occurred while removing packages:"
 msgstr "Hiba történt a csomagok eltávolításakor:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:154001
+#: ../ubiquity.templates:158001
 msgid "Error migrating documents and settings"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:154001
+#: ../ubiquity.templates:158001
 msgid ""
 "An error occurred while migrating data.  More details may be found in /var/"
 "log/syslog.  The installation will continue, but some or all of the "
@@ -1178,13 +1202,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:155001
+#: ../ubiquity.templates:159001
 msgid "Error copying network configuration"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:155001
+#: ../ubiquity.templates:159001
 msgid ""
 "An error occurred while copying the network settings.  The installation will "
 "continue, but the network configuration will have to be set up again in the "
@@ -1193,31 +1217,31 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:159001
+#: ../ubiquity.templates:163001
 msgid "Calculating files to skip copying..."
 msgstr "Fájlok számolása a másolás kihagyásához…"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:164001
 msgid "Installing language packs"
 msgstr "Nyelvi csomagok telepítése"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:161001
+#: ../ubiquity.templates:165001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Nyelvi csomagok letöltése (${TIME} van hátra)…"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:170001
+#: ../ubiquity.templates:174001
 msgid "Failed to unmount partitions"
 msgstr "A partíciók leválasztása meghiúsult"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:170001
+#: ../ubiquity.templates:174001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -1228,26 +1252,26 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:170001
+#: ../ubiquity.templates:174001
 msgid "Please close any applications using these mount points."
 msgstr "Zárjon be minden, a kérdéses csatolási pontokat használó alkalmazást."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:170001
+#: ../ubiquity.templates:174001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Kívánja, hogy a telepítő újra megpróbálja leválasztani ezeket a partíciókat?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:176001
+#: ../ubiquity.templates:180001
 msgid "Do you want to return to the partitioner?"
 msgstr "Visszatér a particionálóhoz?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:176001
+#: ../ubiquity.templates:180001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
@@ -1255,7 +1279,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:176001
+#: ../ubiquity.templates:180001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1265,137 +1289,159 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:177001
+#: ../ubiquity.templates:181001
 msgid "System Configuration"
 msgstr "Rendszerbeállítás"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001
+#: ../ubiquity.templates:182001
 msgid "Choose language"
 msgstr "Válasszon nyelvet/Choose language"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:179001
+#: ../ubiquity.templates:183001
 msgid "Network configuration"
 msgstr "Hálózat beállítása"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:180001
+#: ../ubiquity.templates:184001
 msgid "Software selection"
 msgstr "Csomagok kiválasztása"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:181001
+#: ../ubiquity.templates:185001
 msgid "Applying configuration"
 msgstr "A beállítások alkalmazása"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:186001
 msgid "Language"
 msgstr "Nyelv"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:187001
 msgid "Timezone"
 msgstr "Időzóna"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:188001
 msgid "Keyboard"
 msgstr "Billentyűzet"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:189001
 msgid "Disk Setup"
 msgstr "Lemezbeállítások"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:186001
+#: ../ubiquity.templates:190001
 msgid "User Info"
 msgstr "Felhasználói adatok"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:191001
 msgid "Summary"
 msgstr "Összegzés"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:193001
 msgid "installation process"
 msgstr "telepítési folyamat"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:195001
 msgid "Checking for installer updates"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:196001
 msgid "Reading package information"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:197001
 msgid "Updating package information"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:198001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:199001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:200001
 msgid "Installing update"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:201001
 msgid "Error updating installer"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:201001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr ""
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:198001
+#: ../ubiquity.templates:202001
 msgid "USB"
 msgstr ""
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:203001
 msgid "CD"
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:204001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language used for the configuration process. This "
+#| "language will be the default language for this computer."
+msgid ""
+"Please choose the language to use for the install process. This\n"
+" Language will be the default language for this computer."
+msgstr ""
+"Válassza ki a beállítási folyamathoz használandó nyelvet. Ez a nyelv kerül "
+"felhasználásra a számítógép alapértelmezett nyelveként."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:205001
+#, fuzzy
+#| msgid "Quit the installation?"
+msgid "Continue with installation."
+msgstr "Megszakítja a telepítést?"
 
 #~ msgid ""
 #~ "Please choose the language used for the installation process. This "
