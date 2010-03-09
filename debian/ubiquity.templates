@@ -1055,3 +1055,14 @@ Template: ubiquity/text/CD
 Type: text
 # Translated acronym for Compact Disc.
 _Description: CD
+
+Template: ubiquity/text/select_language_label
+Type: text
+_Description:
+ Please choose the language to use for the install process. This
+  Language will be the default language for this computer.
+
+Template: ubiquity/text/begin_install_button
+Type: text
+_Description:
+ Continue with installation.

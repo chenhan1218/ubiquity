@@ -236,7 +236,9 @@ class PartAuto(QWidget):
         bId = self.autopartition_buttongroup.checkedId()
         if bId > -1:
             choice = unicode(self.autopartitionTexts[bId])
-
+        else:
+            raise AssertionError, "no active autopartitioning choice"
+        
         if choice == self.resizeChoice:
             # resize choice should have been hidden otherwise
             assert self.resizeSize is not None

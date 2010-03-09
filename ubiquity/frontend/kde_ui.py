@@ -113,10 +113,10 @@ class UbiquityUI(KMainWindow):
             event.ignore()
 
 class Controller(ubiquity.frontend.base.Controller):
-    def translate(self, lang=None, just_me=True, reget=False):
+    def translate(self, lang=None, just_me=True, not_me=False, reget=False):
         if lang:
             self._wizard.locale = lang
-        self._wizard.translate_pages(lang, just_me, reget)
+        self._wizard.translate_pages(lang, just_me, not_me, reget)
 
     def allow_go_forward(self, allowed):
         self._wizard.allow_go_forward(allowed)
@@ -351,13 +351,14 @@ class Wizard(BaseFrontend):
 
     # Disable the KDE media notifier to avoid problems during partitioning.
     def disable_volume_manager(self):
-        print "FIXME, medianotifier unload port to KDE 4"
+        #FIXME, medianotifier unload port to KDE 4"
         #execute('dcop', 'kded', 'kded', 'unloadModule', 'medianotifier')
         atexit.register(self.enable_volume_manager)
 
     def enable_volume_manager(self):
-        print "FIXME, medianotifier unload port to KDE 4"
+        #FIXME, medianotifier unload port to KDE 4"
         #execute('dcop', 'kded', 'kded', 'loadModule', 'medianotifier')
+        pass
 
     def run(self):
         """run the interface."""
@@ -467,17 +468,27 @@ class Wizard(BaseFrontend):
         rv = reduce(recurse, parentWidget.children(), [parentWidget])
         return rv
 
-    def translate_pages(self, lang=None, just_current=True, reget=False):
+    def translate_pages(self, lang=None, just_current=True, not_current=False, reget=False):
+        current_page = self.pages[self.pagesindex]
         if just_current:
             pages = [self.pages[self.pagesindex]]
         else:
             pages = self.pages
         widgets = []
         for p in pages:
+            # There's no sense retranslating the page we're leaving.
+            if not_current and p == current_page:
+                continue
             prefix = p.ui.get('plugin_prefix')
             for w in p.widgets:
                 for c in self.all_children(w):
                     widgets.append((c, prefix))
+                    
+        #if not just_current:
+        #for toplevel in self.toplevels:
+            #if toplevel.name != 'live_installer':
+                #for c in self.all_children(toplevel):
+                    #widgets.append((c, None))
         self.translate_widgets(lang=lang, widgets=widgets, reget=reget)
 
     # translates widget text based on the object names
@@ -673,9 +684,6 @@ class Wizard(BaseFrontend):
                 self.set_current_page(index)
                 if page.breadcrumb:
                     page.breadcrumb.setStyleSheet(currentSS)
-                    self.ui.steps_widget.setVisible(True)
-                else:
-                    self.ui.steps_widget.setVisible(False)
                 found = True
                 is_install = page.ui.get('plugin_is_install')
             elif page.breadcrumb:
@@ -891,6 +899,15 @@ class Wizard(BaseFrontend):
             
         self.app.exit()
 
+    def quit_installer(self):
+        """quit installer cleanly."""
+
+        # exiting from application
+        self.current_page = None
+        if self.dbfilter is not None:
+            self.dbfilter.cancel_handler()
+        self.quit_main_loop()
+
     def on_quit_clicked(self):
         warning_dialog_label = self.get_string("warning_dialog_label")
         abortTitle = self.get_string("warning_dialog")
@@ -974,8 +991,16 @@ class Wizard(BaseFrontend):
 
     def on_steps_switch_page(self, newPageID):
         self.current_page = newPageID
+        name = self.step_name(newPageID)
         #self.translate_widget(self.ui.step_label)
-        syslog.syslog('switched to page %s' % self.step_name(newPageID))
+        syslog.syslog('switched to page %s' % name)
+        if 'UBIQUITY_GREETER' in os.environ:
+            if name == 'language':
+                self.ui.steps_widget.hide()
+                self.ui.navigation.hide()
+            else:
+                self.ui.steps_widget.show()
+                self.ui.navigation.show()
 
     def watch_debconf_fd (self, from_debconf, process_input):
         self.debconf_fd_counter = 0
@@ -1015,17 +1040,17 @@ class Wizard(BaseFrontend):
         
         self.ui.progressCancel.setText(skipText)
         
-        self.progressDialog.setWindowModality(Qt.WindowModal);
-        self.progressDialog.setCancelText(skipText)
-        self.progressDialog.setCancellable(False)
-        self.progressDialog.setMaximum(total_steps)
-        self.progressDialog.setWindowTitle(progress_title)
+        #self.progressDialog.setWindowModality(Qt.WindowModal);
+        #self.progressDialog.setCancelText(skipText)
+        #self.progressDialog.setCancellable(False)
+        #self.progressDialog.setMaximum(total_steps)
+        #self.progressDialog.setWindowTitle(progress_title)
         #self.progressDialog.show()
         
         # TODO cancel button
         
         self.ui.progressBar.setMaximum(total_steps)
-        #self.ui.progressBar.show()
+        self.ui.progressBar.show()
         
         self.ui.content_widget.setEnabled(False)
         
@@ -1042,8 +1067,8 @@ class Wizard(BaseFrontend):
         self.progress_position.set(progress_val)
         fraction = self.progress_position.fraction()
         
-        self.progressDialog.setProgressValue(
-            int(fraction * self.progressDialog.maximum()))
+        #self.progressDialog.setProgressValue(
+        #    int(fraction * self.progressDialog.maximum()))
             
         self.ui.progressBar.setValue(int(fraction * self.ui.progressBar.maximum()))
         
@@ -1056,8 +1081,8 @@ class Wizard(BaseFrontend):
         self.progress_position.step(progress_inc)
         fraction = self.progress_position.fraction()
         
-        self.progressDialog.setProgressValue(
-            int(fraction * self.progressDialog.maximum()))
+        #self.progressDialog.setProgressValue(
+        #    int(fraction * self.progressDialog.maximum()))
         
         self.ui.progressBar.setValue(int(fraction * self.ui.progressBar.maximum()))
         
@@ -1068,7 +1093,7 @@ class Wizard(BaseFrontend):
         if self.progress_cancelled:
             return False
         
-        self.progressDialog.setProgressLabel(progress_info)
+        #self.progressDialog.setProgressLabel(progress_info)
         self.ui.progressBar.setFormat(progress_info + " %p%")
         
         return True
@@ -1076,10 +1101,10 @@ class Wizard(BaseFrontend):
     def debconf_progress_stop (self):
         self.progress_cancelled = False
         self.progress_position.stop()
-        if self.progress_position.depth() == 0:
-            self.progressDialog.reset() # also hides dialog
-        else:
-            self.progressDialog.setWindowTitle(self.progress_position.title())
+        #if self.progress_position.depth() == 0:
+        #    self.progressDialog.reset() # also hides dialog
+        #else:
+        #    self.progressDialog.setWindowTitle(self.progress_position.title())
         
         self.ui.content_widget.setEnabled(True)
         self.ui.progressBar.hide()
@@ -1089,11 +1114,11 @@ class Wizard(BaseFrontend):
 
     def debconf_progress_cancellable (self, cancellable):
         if cancellable:
-            self.progressDialog.setCancellable(True)
+            #self.progressDialog.setCancellable(True)
             self.ui.progressCancel.show()
         else:
             self.ui.progressCancel.hide()
-            self.progressDialog.setCancellable(False)
+            #self.progressDialog.setCancellable(False)
             self.progress_cancelled = False
 
     #def on_progress_cancel_button_clicked (self, button):
