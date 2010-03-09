@@ -29,6 +29,10 @@ ubiquity (2.1.33) UNRELEASED; urgency=low
     Ubuntu' is clicked.
   * Fix missing references in the noninteractive portion of the
     usersetup plugin.
+  * Automatic update of included source packages: bterm-unifont
+    1.1build1, flash-kernel 2.13ubuntu14, grub-installer 1.49ubuntu6,
+    migration-assistant 0.6.4build1, partconf 1.32ubuntu2, partman-base
+    138ubuntu2.
 
   [ Mario Limonciello ]
   * Fix wrong page to jump back to when partitioning fails during install.
