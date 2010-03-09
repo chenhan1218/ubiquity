@@ -216,25 +216,6 @@ class Wizard(BaseFrontend):
         """Control whether the current progress bar may be cancelled."""
         pass
 
-    # Interfaces with various components. If a given component is not used
-    # then its abstract methods may safely be left unimplemented.
-
-    # ubiquity.components.partman
-
-    def set_disk_layout(self, layout):
-        pass
-
-    def set_autopartition_choices(self, choices, extra_options,
-                                  resize_choice, manual_choice,
-                                  biggest_free_choice):
-        """Set available autopartitioning choices."""
-        BaseFrontend.set_autopartition_choices(self, choices, extra_options,
-            resize_choice, manual_choice, biggest_free_choice)
-
-    def get_autopartition_choice(self):
-        """Get the selected autopartitioning choice."""
-        #print >>self.console, '*** get_autopartition_choice'
-
     # ubiquity.components.partman_commit
 
     def return_to_partitioning(self):
@@ -247,22 +228,6 @@ class Wizard(BaseFrontend):
     # FIXME: Needed by m-a, but is it really necessary?
     def allow_go_forward(self, allow):
         pass
-
-    def ma_set_choices(self, choices):
-        """Set the available migration-assistant choices."""
-        self.ma_choices = choices
-
-    def ma_get_choices(self):
-        """Get the selected migration-assistant choices."""
-        return (self.ma_choices, {})
-
-    def ma_user_error(self, error, user):
-        """The selected migration-assistant username was bad."""
-        print >>self.console, '\nError: %s: %s' % (user, error)
-
-    def ma_password_error(self, error, user):
-        """The selected migration-assistant password was bad."""
-        print >>self.console, '\nError: %s: %s' % (user, error)
 
     # ubiquity.components.summary
 

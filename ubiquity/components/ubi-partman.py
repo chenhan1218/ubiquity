@@ -157,7 +157,7 @@ class PageGtk(PageBase):
             self.page = None
         self.plugin_widgets = self.page
 
-    def progress_start(self):
+    def progress_start(self, progress_title):
         self.partition_list_buttonbox.set_sensitive(False)
         self.part_advanced_recalculating_label.set_text(progress_title)
         self.part_advanced_recalculating_box.show()
