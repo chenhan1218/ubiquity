@@ -51,7 +51,7 @@ class Controller:
         self.set_proxy_port = wizard.set_proxy_port
         self.get_proxy = wizard.get_proxy
 
-    def translate(self, lang=None, just_me=True, reget=False):
+    def translate(self, lang=None, just_me=True, not_me=False, reget=False):
         pass
     def allow_go_forward(self, allowed):
         pass

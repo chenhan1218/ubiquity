@@ -1,6 +1,10 @@
 ubiquity (2.1.34) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
   * Remove extraneous '--', restoring oem-config-firstboot.
+
+  [ Colin Watson ]
+  * Add not_me to the base interface definition of Controller.translate.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 09 Mar 2010 11:46:06 -0600
 
