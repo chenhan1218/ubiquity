@@ -27,6 +27,8 @@ ubiquity (2.1.33) UNRELEASED; urgency=low
   * Support setting the language for the live environment from the
     language page in greeter mode by finishing localechooser when 'Try
     Ubuntu' is clicked.
+  * Fix missing references in the noninteractive portion of the
+    usersetup plugin.
 
   [ Mario Limonciello ]
   * Fix wrong page to jump back to when partitioning fails during install.

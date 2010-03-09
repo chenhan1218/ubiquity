@@ -502,6 +502,7 @@ class PageNoninteractive(PageBase):
         self.verifiedpassword = ''
         self.auto_login = False
         self.encrypt_home = False
+        self.console = self.controller._wizard.console
 
     def set_fullname(self, value):
         """Set the user's full name."""
@@ -525,11 +526,11 @@ class PageNoninteractive(PageBase):
 
     def get_password(self):
         """Get the user's password."""
-        return self.dbfilter.db.get('passwd/user-password')
+        return self.controller.dbfilter.db.get('passwd/user-password')
 
     def get_verified_password(self):
         """Get the user's password confirmation."""
-        return self.dbfilter.db.get('passwd/user-password-again')
+        return self.controller.dbfilter.db.get('passwd/user-password-again')
 
     def set_auto_login(self, value):
         self.auto_login = value
@@ -551,6 +552,7 @@ class PageNoninteractive(PageBase):
     def password_error(self, msg):
         """The selected password was bad."""
         print >>self.console, '\nBad password: %s' % msg
+        import getpass
         self.password = getpass.getpass('Password: ')
         self.verifiedpassword = getpass.getpass('Password again: ')
 

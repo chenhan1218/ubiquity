@@ -28,7 +28,6 @@ import syslog
 
 import gobject
 
-import getpass
 import os
 import sys
 import signal
