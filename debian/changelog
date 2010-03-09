@@ -1,4 +1,4 @@
-ubiquity (2.1.33) UNRELEASED; urgency=low
+ubiquity (2.1.33) lucid; urgency=low
 
   [ Colin Watson ]
   * Wait for kwriteconfig to exit before proceeding.
@@ -44,7 +44,7 @@ ubiquity (2.1.33) UNRELEASED; urgency=low
   * Bring back the in-window progress bar, which was previous disabled to work
     around a bug.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Sat, 06 Mar 2010 23:10:27 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 09 Mar 2010 13:14:37 +0000
 
 ubiquity (2.1.32) lucid; urgency=low
 
