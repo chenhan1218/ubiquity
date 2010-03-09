@@ -24,6 +24,9 @@ ubiquity (2.1.33) UNRELEASED; urgency=low
     with the rest of the automatic partitioning progress dialogs.
   * Remove the intro plugin.  It's now presented as part of the language
     page when the greeter option (-g) is selected.
+  * Support setting the language for the live environment from the
+    language page in greeter mode by finishing localechooser when 'Try
+    Ubuntu' is clicked.
 
   [ Mario Limonciello ]
   * Fix wrong page to jump back to when partitioning fails during install.

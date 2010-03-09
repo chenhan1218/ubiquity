@@ -104,7 +104,7 @@ class PageGtk(PageBase):
                     self.install_ubuntu.connect('clicked',
                             self.controller._wizard.on_next_clicked)
                     self.try_ubuntu.connect('clicked',
-                        self.controller._wizard.quit_installer)
+                        self.on_try_ubuntu_clicked)
                 self.try_text_label = builder.get_object('try_text_label')
                 self.ready_text_label = builder.get_object('ready_text_label')
                 self.alpha_warning_label = builder.get_object('alpha_warning_label')
@@ -118,6 +118,11 @@ class PageGtk(PageBase):
             self.debug('Could not create language page: %s', e)
             self.page = None
         self.plugin_widgets = self.page
+
+    def on_try_ubuntu_clicked(self, *args):
+        # Queue quit.
+        self.controller._wizard.current_page = None
+        self.controller.dbfilter.ok_handler()
 
     def set_alpha_warning(self, show):
         if not show and not self.only:
@@ -277,7 +282,7 @@ class PageKde(PageBase):
             self.combobox.currentIndexChanged[str].connect(self.on_language_selection_changed)
             
             self.page.begin_install_button.clicked.connect(self.controller._wizard.on_next_clicked)
-            self.page.try_ubuntu.clicked.connect(self.controller._wizard.quit_installer)
+            self.page.try_ubuntu.clicked.connect(self.on_try_ubuntu_clicked)
             
             if not self.controller.oem_config:
                 self.page.oem_id_label.hide()
@@ -303,6 +308,11 @@ class PageKde(PageBase):
             self.page = None
             
         self.plugin_widgets = self.page
+    
+    def on_try_ubuntu_clicked(self, *args):
+        # Queue quit.
+        self.controller._wizard.current_page = None
+        self.controller.dbfilter.ok_handler()
 
     def on_release_notes_link(self, link):
         lang = self.selected_language()
