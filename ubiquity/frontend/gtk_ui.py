@@ -1268,6 +1268,7 @@ class Wizard(BaseFrontend):
                     break
             if self.pagesindex == -1: return
             self.start_debconf()
+            ui = self.pages[self.pagesindex].ui
             self.dbfilter = self.pages[self.pagesindex].filter_class(self, ui=ui)
             self.set_current_page(self.previous_partitioning_page)
             self.next.set_label("gtk-go-forward")
