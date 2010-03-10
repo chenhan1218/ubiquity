@@ -94,7 +94,7 @@ class UbiquityUI(KMainWindow):
         
         # don't use stylesheet cause we want to scale the wallpaper for various
         # screen sizes as well as support larger screens
-        self.bgImage = QImage("/usr/share/ubiquity/qt/images/wallpaper.jpg");
+        self.bgImage = QImage("/usr/share/wallpapers/Ethais/contents/images/1920x1200.png");
         self.scaledBgImage = self.bgImage
     
     def paintEvent(self, pe):
@@ -187,6 +187,10 @@ class Wizard(BaseFrontend):
         # initially the steps widget is not visible
         # it becomes visible once the first step becomes active
         self.ui.steps_widget.setVisible(False)
+        self.ui.content_widget.setVisible(False)
+        
+        if 'UBIQUITY_GREETER' in os.environ:
+            self.ui.minimize_button.hide()
         
         self.ui.setWindowState(self.ui.windowState() ^ Qt.WindowFullScreen)
                 
@@ -990,6 +994,7 @@ class Wizard(BaseFrontend):
             self.app.exit()
 
     def on_steps_switch_page(self, newPageID):
+        self.ui.content_widget.show()
         self.current_page = newPageID
         name = self.step_name(newPageID)
         #self.translate_widget(self.ui.step_label)
@@ -1001,6 +1006,9 @@ class Wizard(BaseFrontend):
             else:
                 self.ui.steps_widget.show()
                 self.ui.navigation.show()
+        else:
+            self.ui.steps_widget.show()
+            self.ui.navigation.show()
 
     def watch_debconf_fd (self, from_debconf, process_input):
         self.debconf_fd_counter = 0

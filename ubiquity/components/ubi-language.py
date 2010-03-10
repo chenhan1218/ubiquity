@@ -300,7 +300,7 @@ class PageKde(PageBase):
             
             if not 'UBIQUITY_GREETER' in os.environ:
                 self.page.try_ubuntu.hide()
-                self.page.try_test_label.hide()
+                self.page.try_text_label.hide()
                 self.page.begin_install_button.hide()
                 
         except Exception, e:

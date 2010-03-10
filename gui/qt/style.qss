@@ -15,17 +15,16 @@
 	border-width: 13px;
 	border-image: url(/usr/share/ubiquity/qt/images/main_frame_border.png) 13px;
 	
+    background-image: url(/usr/share/ubiquity/qt/images/squares.png);
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    background-origin: border;
+    
     padding: 0px;
     padding-bottom: 0px;
 }
 
 #main_widget {
-	background-image: url(/usr/share/ubiquity/qt/images/circles.png);
-	background-repeat: no-repeat;
-	background-position: top left;
-	
-	background-origin: border;
-	background-clip: border;
 }
 
 #distro_name_label,
