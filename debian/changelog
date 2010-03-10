@@ -6,7 +6,11 @@ ubiquity (2.1.34) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Add not_me to the base interface definition of Controller.translate.
 
- -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 09 Mar 2010 11:46:06 -0600
+  [ Roman Shtylman ]
+  * Updated Kubuntu artwork
+  * Fixed sidebar showing when not in greeter mode for kde
+
+ -- Roman Shtylman <shtylman@gmail.com>  Wed, 10 Mar 2010 01:17:34 -0500
 
 ubiquity (2.1.33) lucid; urgency=low
 
