@@ -1168,6 +1168,7 @@ class Page(Plugin):
         self.finish_partitioning = False
         self.bad_auto_size = False
         self.description_cache = {}
+        self.local_progress = False
 
         questions = ['^partman-auto/.*automatically_partition$',
                      '^partman-auto/select_disk$',
@@ -2310,6 +2311,7 @@ class Page(Plugin):
         hasattr(self.ui, 'progress_start')):
             self.ui.progress_start(self.description(progress_title))
         else:
+            self.local_progress = True
             Plugin.progress_start(self, progress_min, progress_max, progress_title)
 
     def progress_info(self, progress_title, progress_info):
@@ -2325,12 +2327,12 @@ class Page(Plugin):
         else:
             Plugin.progress_info(self, progress_title, progress_info)
 
-    def progress_stop(self, progress_title):
-        if (progress_title != 'partman/text/please_wait' and
-        hasattr(self.ui, 'progress_stop')):
+    def progress_stop(self):
+        if not self.local_progress and hasattr(self.ui, 'progress_stop'):
             self.ui.progress_stop()
         else:
-            Plugin.progress_stop(self, progress_title)
+            Plugin.progress_stop(self)
+            self.local_progress = False
 
 # Notes:
 #

@@ -5,6 +5,8 @@ ubiquity (2.1.34) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Add not_me to the base interface definition of Controller.translate.
+  * Keep track of how partitioning progress is displayed without requiring
+    an argument to be passed to progress_stop (LP: #535630).
 
   [ Roman Shtylman ]
   * Updated Kubuntu artwork
