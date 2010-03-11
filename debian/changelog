@@ -1,3 +1,11 @@
+ubiquity (2.1.35) UNRELEASED; urgency=low
+
+  * KDE frontend:
+    - There are no more files matching gui/qt/images/*.jpg.  Don't try to
+      install them.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 11 Mar 2010 02:43:10 +0000
+
 ubiquity (2.1.34) lucid; urgency=low
 
   [ Mario Limonciello ]
