@@ -7,6 +7,7 @@ ubiquity (2.1.34) UNRELEASED; urgency=low
   * Add not_me to the base interface definition of Controller.translate.
   * Keep track of how partitioning progress is displayed without requiring
     an argument to be passed to progress_stop (LP: #535630).
+  * Automatic update of included source packages: user-setup 1.28ubuntu5.
 
   [ Roman Shtylman ]
   * Updated Kubuntu artwork
