@@ -246,6 +246,8 @@ class PageGtk(PageBase):
 
     def on_link_clicked(self, widget, uri):
         # Connected in glade.
+        lang = self.get_language()
+        lang = lang.split('.')[0] # strip encoding
         if uri == 'update':
             if not auto_update.update(self.controller._wizard):
                 # no updates, so don't check again
@@ -256,8 +258,6 @@ class PageGtk(PageBase):
                     self.release_notes_label.hide()
         elif uri == 'release-notes':
             import subprocess
-            lang = self.get_language()
-            lang = lang.split('.')[0] # strip encoding
             uri = self.release_notes_url.replace('${LANG}', lang)
             subprocess.Popen(['sensible-browser', uri], close_fds=True,
                              preexec_fn=misc.drop_all_privileges)

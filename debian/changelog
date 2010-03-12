@@ -1,6 +1,10 @@
 ubiquity (2.2.0) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Removed the alpha warning.  Welcome to Ubuntu 10.04 Beta 1.
+
+  [ Colin Watson ]
+  * Fix label retranslation when clicking on update link (LP: #531864).
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 12 Mar 2010 09:23:22 +0000
 
