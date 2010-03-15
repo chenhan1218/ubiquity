@@ -7,6 +7,10 @@ ubiquity (2.2.0) UNRELEASED; urgency=low
   * Fix label retranslation when clicking on update link (LP: #531864).
   * Explicitly pass $HOME through kdesudo (LP: #538142).
 
+  [ Jonathan Riddell ]
+  * Ensure progressDialog is kept updated (LP: #538147)
+  * Set Qt style accelarators on question dialogue
+
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 12 Mar 2010 09:23:22 +0000
 
 ubiquity (2.1.35) lucid; urgency=low
