@@ -80,6 +80,8 @@ def main():
                 kdesu = '/usr/lib/kde4/libexec/kdesu'
             if kdesu:
                 toexec = [kdesu, '--nonewdcop', '--']
+                if 'HOME' in os.environ:
+                    toexec.extend(['env', 'HOME=%s' % os.environ['HOME']])
             else:
                 toexec = ['sudo', '-E']
         else:
