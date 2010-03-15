@@ -7,7 +7,9 @@ ubiquity (2.2.0) UNRELEASED; urgency=low
   * GTK frontend:
     - Fix label retranslation when clicking on update link (LP: #531864).
   * KDE frontend:
-    - Explicitly pass $HOME through kdesudo (LP: #538142).
+    - Use manual xauth code and sudo rather than kdesudo; the latter does
+      not permit passing through environment variables other than
+      one-by-one, which broke various things (LP: #526456, #538142).
 
   [ Jonathan Riddell ]
   * Ensure progressDialog is kept updated (LP: #538147)
