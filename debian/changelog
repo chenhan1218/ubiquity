@@ -19,6 +19,9 @@ ubiquity (2.2.0) UNRELEASED; urgency=low
       one-by-one, which broke various things (LP: #526456, #538142).
     - Construct the default hostname from the text in the username box, not
       from the previous text in the hostname box (LP: #527704).
+  * Automatic update of included source packages: console-setup
+    1.34ubuntu11, grub-installer 1.49ubuntu7, partman-base 138ubuntu3,
+    partman-target 64ubuntu7.
 
   [ Jonathan Riddell ]
   * Ensure progressDialog is kept updated (LP: #538147)
