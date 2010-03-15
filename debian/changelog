@@ -1,4 +1,4 @@
-ubiquity (2.2.0) UNRELEASED; urgency=low
+ubiquity (2.2.0) lucid; urgency=low
 
   [ Evan Dandrea ]
   * Removed the alpha warning.  Welcome to Ubuntu 10.04 Beta 1.
@@ -28,7 +28,7 @@ ubiquity (2.2.0) UNRELEASED; urgency=low
   * Set Qt style accelarators on question dialogue
   * Do OEM config UI setup after translate_widgets, (LP: #539176)
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 12 Mar 2010 09:23:22 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 15 Mar 2010 23:37:55 +0000
 
 ubiquity (2.1.35) lucid; urgency=low
 
