@@ -23,6 +23,7 @@ ubiquity (2.2.0) UNRELEASED; urgency=low
   [ Jonathan Riddell ]
   * Ensure progressDialog is kept updated (LP: #538147)
   * Set Qt style accelarators on question dialogue
+  * Do OEM config UI setup after translate_widgets, (LP: #539176)
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 12 Mar 2010 09:23:22 +0000
 

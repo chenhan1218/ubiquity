@@ -287,6 +287,12 @@ class Wizard(BaseFrontend):
         self.ui.setWindowIcon(KIcon("ubiquity"))
         self.allow_go_backward(False)
 
+        if not 'UBIQUITY_AUTOMATIC' in os.environ:
+            self.ui.show()
+
+        self.stop_debconf()
+        self.translate_widgets(reget=True)
+
         if self.oem_config:
             self.ui.setWindowTitle(self.get_string('oem_config_title'))
         elif self.oem_user_config:
@@ -297,13 +303,7 @@ class Wizard(BaseFrontend):
                 flags = flags ^ Qt.WindowCloseButtonHint
             self.ui.setWindowFlags(flags)
             self.ui.quit.hide()
-        
-        if not 'UBIQUITY_AUTOMATIC' in os.environ:
-            self.ui.show()
 
-        self.stop_debconf()
-        self.translate_widgets(reget=True)
-        
         iconLoader = KIconLoader()
         warningIcon = iconLoader.loadIcon("dialog-warning", KIconLoader.Desktop)
         
