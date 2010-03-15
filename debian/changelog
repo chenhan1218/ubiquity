@@ -11,6 +11,8 @@ ubiquity (2.2.0) UNRELEASED; urgency=low
     - Use manual xauth code and sudo rather than kdesudo; the latter does
       not permit passing through environment variables other than
       one-by-one, which broke various things (LP: #526456, #538142).
+    - Construct the default hostname from the text in the username box, not
+      from the previous text in the hostname box (LP: #527704).
 
   [ Jonathan Riddell ]
   * Ensure progressDialog is kept updated (LP: #538147)

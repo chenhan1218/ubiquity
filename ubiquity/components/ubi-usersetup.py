@@ -408,7 +408,7 @@ class PageKde(PageBase):
                 hostname_suffix = '-desktop'
 
             self.page.hostname.blockSignals(True)
-            self.page.hostname.setText(unicode(self.page.hostname.text()).strip() + hostname_suffix)
+            self.page.hostname.setText(unicode(self.page.username.text()).strip() + hostname_suffix)
             self.page.hostname.blockSignals(False)
 
         self.username_edited = (self.page.username.text() != '')
