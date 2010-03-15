@@ -35,6 +35,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="xalign">0</property>
+            <property name="yalign">0</property>
             <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Welcome&lt;/b&gt;&lt;/big&gt;</property>
             <property name="use_markup">True</property>
             <property name="selectable">True</property>
@@ -72,6 +73,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="xalign">0</property>
+            	    <property name="yalign">0</property>
                     <property name="label" translatable="yes">You can try Ubuntu from this CD without making any changes to your system.</property>
                     <property name="wrap">True</property>
                     <property name="selectable">True</property>
@@ -122,6 +124,7 @@
                       <object class="GtkLabel" id="ready_text_label">
                         <property name="visible">True</property>
                         <property name="xalign">0</property>
+            	        <property name="yalign">0</property>
                         <property name="label" translatable="yes">Ready to install?  Once you answer a few questions, the contents of the live CD can be installed on this computer so you can run Ubuntu at full speed without the CD.</property>
                         <property name="wrap">True</property>
                       </object>
@@ -133,6 +136,7 @@
                       <object class="GtkLabel" id="duration_label">
                         <property name="visible">True</property>
                         <property name="xalign">0</property>
+            	        <property name="yalign">0</property>
                         <property name="label" translatable="yes">Answering the questions should only take a few minutes.</property>
                         <property name="wrap">True</property>
                       </object>
@@ -144,6 +148,7 @@
                       <object class="GtkLabel" id="alpha_warning_label">
                         <property name="visible">True</property>
                         <property name="xalign">0</property>
+            	        <property name="yalign">0</property>
                         <property name="label" translatable="yes">This is a pre-release of the Ubuntu live CD installer. It is not a final release; that will come with the final release of Ubuntu 10.04 in April 2010.
 
 The installation process may resize or erase partitions on your hard disk. Be sure to &lt;b&gt;take a full backup of any valuable data&lt;/b&gt; before running this program.</property>
@@ -159,6 +164,7 @@ The installation process may resize or erase partitions on your hard disk. Be su
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="xalign">0</property>
+            	        <property name="yalign">0</property>
                         <property name="label" translatable="yes">You may wish to &lt;a href=""&gt;read the release notes&lt;/a&gt; or &lt;a href=""&gt;update this installer&lt;/a&gt;.</property>
                         <property name="use_markup">True</property>
                         <property name="wrap">True</property>
@@ -181,6 +187,7 @@ The installation process may resize or erase partitions on your hard disk. Be su
                             <property name="visible">True</property>
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                             <property name="xalign">0</property>
+            	            <property name="yalign">0</property>
                             <property name="label" translatable="yes">You are installing in system manufacturer mode. Please enter a unique name for this batch of systems. This name will be saved on the installed system and can be used to help with bug reports.</property>
                             <property name="wrap">True</property>
                             <property name="selectable">True</property>
