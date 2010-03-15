@@ -251,6 +251,7 @@
                 <property name="receives_default">False</property>
                 <property name="use_underline">True</property>
                 <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_quit_cancelled"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -267,6 +268,7 @@
                 <property name="receives_default">False</property>
                 <property name="use_underline">True</property>
                 <property name="use_stock">True</property>
+                <signal name="clicked" handler="quit_installer"/>
               </object>
               <packing>
                 <property name="expand">False</property>

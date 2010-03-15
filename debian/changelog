@@ -3,6 +3,12 @@ ubiquity (2.2.0) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Removed the alpha warning.  Welcome to Ubuntu 10.04 Beta 1.
   * Align labels to the top on the language page (LP: #532876).
+  * The run method of GTK+ dialogs enters a nested main loop.  However,
+    the user can click the quit button (which calls the quit dialog's
+    run method) before the page is ready.  Once the page is actually ready,
+    another main loop is entered, and thus if the user hits the quit button
+    on the quit dialog at this point, nothing will happen.  Work around this
+    by managing the state of the quit dialog in the frontend.
 
   [ Colin Watson ]
   * GTK frontend:

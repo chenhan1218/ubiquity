@@ -1034,6 +1034,7 @@ class Wizard(BaseFrontend):
 
         # exiting from application
         self.current_page = None
+        self.warning_dialog.hide()
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
         self.quit_main_loop()
@@ -1042,13 +1043,9 @@ class Wizard(BaseFrontend):
 
     def on_quit_clicked(self, unused_widget):
         self.warning_dialog.show()
-        response = self.warning_dialog.run()
+
+    def on_quit_cancelled(self, unused_widget):
         self.warning_dialog.hide()
-        if response == gtk.RESPONSE_CLOSE:
-            self.quit_installer()
-            return False
-        else:
-            return True # stop processing
 
     def on_live_installer_delete_event(self, widget, unused_event):
         return self.on_quit_clicked(widget)
