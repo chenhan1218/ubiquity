@@ -314,6 +314,10 @@ class PageKde(PageBase):
         self.controller._wizard.current_page = None
         self.controller.dbfilter.ok_handler()
 
+    def set_alpha_warning(self, show):
+        if not show and not self.only:
+            self.page.alpha_warning_label.hide()
+
     def on_release_notes_link(self, link):
         lang = self.selected_language()
         if link == "release-notes":
