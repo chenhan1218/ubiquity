@@ -36,8 +36,9 @@ WEIGHT = 11
 OEM = False
 
 class PageBase(PluginUI):
-    def __init__(self):
-        PluginUI.__init__(self)
+    def __init__(self, controller, *args, **kwargs):
+        PluginUI.__init__(self, *args, **kwargs)
+        self.controller = controller
         self.resize_choice = None
         self.manual_choice = None
         self.biggest_free_choice = None
@@ -68,7 +69,7 @@ class PageBase(PluginUI):
 
 class PageGtk(PageBase):
     def __init__(self, controller, *args, **kwargs):
-        self.controller = controller
+        PageBase.__init__(self, controller, *args, **kwargs)
         try:
             import gtk
             from ubiquity import segmented_bar
@@ -1070,8 +1071,7 @@ class PageKde(PageBase):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_partition'
 
     def __init__(self, controller, *args, **kwargs):
-        PageBase.__init__(self)
-        self.controller = controller
+        PageBase.__init__(self, controller, *args, **kwargs)
 
         from ubiquity.frontend.kde_components.PartAuto import PartAuto
         from ubiquity.frontend.kde_components.PartMan import PartMan
