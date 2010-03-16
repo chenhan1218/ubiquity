@@ -3,7 +3,7 @@ ubiquity (2.2.1) UNRELEASED; urgency=low
   * KDE frontend:
     - Honour ubiquity/show_alpha_warning.
   * Noninteractive frontend:
-    - Fix up plugin problems in the partman component (LP: #539493).
+    - Fix up plugin problems in the partman component (LP: #539342).
   * Only fall through to the noninteractive frontend in automatic mode.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 16 Mar 2010 13:15:03 +0000
