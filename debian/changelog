@@ -1,4 +1,4 @@
-ubiquity (2.2.4) UNRELEASED; urgency=low
+ubiquity (2.2.4) lucid; urgency=low
 
   * Port from base-installer:
     - Ensure that Acquire::cdrom::AutoDetect is disabled when running
