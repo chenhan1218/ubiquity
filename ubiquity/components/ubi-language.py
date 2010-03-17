@@ -253,7 +253,7 @@ class PageGtk(PageBase):
                 # no updates, so don't check again
                 if self.release_notes_url:
                     text = i18n.get_string('release_notes_only', lang)
-                    self.release_notes_label.set_text(text)
+                    self.release_notes_label.set_markup(text)
                 else:
                     self.release_notes_label.hide()
         elif uri == 'release-notes':

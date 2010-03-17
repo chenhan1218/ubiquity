@@ -1,3 +1,10 @@
+ubiquity (2.2.4) UNRELEASED; urgency=low
+
+  * Properly set the text for the release notes label after the user
+    runs the 'update this installer' option.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 17 Mar 2010 09:49:31 +0000
+
 ubiquity (2.2.3) lucid; urgency=low
 
   * Automatic update of included source packages: partman-base 138ubuntu4.
