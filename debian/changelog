@@ -1,3 +1,10 @@
+ubiquity (2.2.5) UNRELEASED; urgency=low
+
+  * Use a custom-generated locale when building keyboard_names.py
+    (LP: #540275).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 17 Mar 2010 19:08:16 +0000
+
 ubiquity (2.2.4) lucid; urgency=low
 
   * Port from base-installer:
