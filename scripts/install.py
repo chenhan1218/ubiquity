@@ -1089,6 +1089,7 @@ class Install:
                 Mount  "true";
                 UMount "true";
               };
+              AutoDetect "false";
             }""")
         apt_conf_nmc.close()
 
