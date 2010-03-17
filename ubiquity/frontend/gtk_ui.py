@@ -582,15 +582,13 @@ class Wizard(BaseFrontend):
             self.previous_partitioning_page = \
                 self.steps.page_num(self.stepPartAuto)
 
-        self.grub_new_device_entry.clear()
-        renderer = gtk.CellRendererText()
-        self.grub_new_device_entry.pack_start(renderer, True)
-        self.grub_new_device_entry.add_attribute(renderer, 'text', 0)
+        # The default instantiation of GtkComboBoxEntry creates a
+        # GtkCellRenderer, so reuse it.
+        self.grub_new_device_entry.set_model(self.grub_options)
+        self.grub_new_device_entry.set_text_column(0)
         renderer = gtk.CellRendererText()
         self.grub_new_device_entry.pack_start(renderer, True)
         self.grub_new_device_entry.add_attribute(renderer, 'text', 1)
-        self.grub_new_device_entry.set_model(self.grub_options)
-        self.grub_new_device_entry.set_text_column(0)
 
         # set initial bottom bar status
         self.allow_go_backward(False)

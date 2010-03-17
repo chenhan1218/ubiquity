@@ -77,14 +77,13 @@ class PageGtk(PageBase):
         self.grub_device_entry.connect('changed', self.grub_verify_loop,
             self.advanced_okbutton)
 
-        self.grub_device_entry.clear()
-        renderer = gtk.CellRendererText()
-        self.grub_device_entry.pack_start(renderer, True)
-        self.grub_device_entry.add_attribute(renderer, 'text', 0)
+        # The default instantiation of GtkComboBoxEntry creates a
+        # GtkCellRenderer, so reuse it.
+        self.grub_device_entry.set_model(self.controller.grub_options)
+        self.grub_device_entry.set_text_column(0)
         renderer = gtk.CellRendererText()
         self.grub_device_entry.pack_start(renderer, True)
         self.grub_device_entry.add_attribute(renderer, 'text', 1)
-        self.grub_device_entry.set_model(self.controller.grub_options)
 
     def set_summary_text(self, text):
         import gtk
