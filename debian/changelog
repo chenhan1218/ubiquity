@@ -1,3 +1,9 @@
+ubiquity (2.2.3) UNRELEASED; urgency=low
+
+  * Automatic update of included source packages: partman-base 138ubuntu4.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 17 Mar 2010 00:26:22 +0000
+
 ubiquity (2.2.2) lucid; urgency=low
 
   * Quit plymouth if it doesn't have an active VT, rather than trying to

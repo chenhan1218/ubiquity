@@ -15,7 +15,7 @@ netcfg 1.51ubuntu2
 partconf 1.32ubuntu2
 partman-auto 89ubuntu3
 partman-auto-loop 0ubuntu18
-partman-base 138ubuntu3
+partman-base 138ubuntu4
 partman-basicfilesystems 63ubuntu3
 partman-basicmethods 43ubuntu2
 partman-efi 20ubuntu1
