@@ -1,10 +1,16 @@
 ubiquity (2.2.6) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Properly set the text for the release notes label after the user
     runs the 'update this installer' option.
   * Correctly set up GtkComboBoxEntry widgets (LP: #539204).
   * In the KDE frontend, call reboot with root privileges and try
     rebooting via dbus only if a KDE dbus session exists (LP: #540856).
+
+  [ Colin Watson ]
+  * If pkgsel/install-language-support is set to false, then don't install
+    new language packs from the network, but nevertheless keep any language
+    packs that are in the live filesystem (LP: #540878).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 17 Mar 2010 09:49:31 +0000
 

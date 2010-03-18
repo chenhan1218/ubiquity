@@ -1146,12 +1146,6 @@ class Install:
 
     def select_language_packs(self):
         try:
-            master_disable = self.db.get('pkgsel/install-language-support')
-            if master_disable != '' and not misc.create_bool(master_disable):
-                return
-        except debconf.DebconfError:
-            pass
-        try:
             keep_packages = self.db.get('ubiquity/keep-installed')
             keep_packages = keep_packages.replace(',', '').split()
             syslog.syslog('keeping packages due to preseeding: %s' %
@@ -1239,10 +1233,28 @@ class Install:
         to_install = [lp for lp in to_install
                          if self.get_cache_pkg(cache, lp) is not None]
 
+        install_new = True
+        try:
+            install_new_key = self.db.get('pkgsel/install-language-support')
+            if install_new_key != '' and not misc.create_bool(install_new_key):
+                install_new = False
+        except debconf.DebconfError:
+            pass
+
         del cache
 
+        if not install_new:
+            # Keep packages that are on the live filesystem, but don't install
+            # new ones.
+            # TODO cjwatson 2010-03-18: To match pkgsel's semantics, we ought to
+            # be willing to install packages from the package pool on the CD as
+            # well.
+            to_install = [lp for lp in to_install
+                             if self.get_cache_pkg(cache, lp).isInstalled]
+
         install_misc.record_installed(to_install)
-        self.langpacks = to_install
+        if install_new:
+            self.langpacks = to_install
 
     def install_language_packs(self):
 
