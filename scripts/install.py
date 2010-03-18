@@ -1241,8 +1241,6 @@ class Install:
         except debconf.DebconfError:
             pass
 
-        del cache
-
         if not install_new:
             # Keep packages that are on the live filesystem, but don't install
             # new ones.
@@ -1251,6 +1249,8 @@ class Install:
             # well.
             to_install = [lp for lp in to_install
                              if self.get_cache_pkg(cache, lp).isInstalled]
+
+        del cache
 
         install_misc.record_installed(to_install)
         if install_new:

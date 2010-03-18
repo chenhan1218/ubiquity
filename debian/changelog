@@ -13,6 +13,9 @@ ubiquity (2.2.6) UNRELEASED; urgency=low
     packs that are in the live filesystem (LP: #540878).
   * Install oem-config-kde in the KDE user-setup plugin (LP: #540895).
 
+  [ Mario Limonciello ]
+  * Don't delete the cache too early in select_language_packs.
+
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 17 Mar 2010 09:49:31 +0000
 
 ubiquity (2.2.5) lucid; urgency=low
