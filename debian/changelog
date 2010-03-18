@@ -16,7 +16,10 @@ ubiquity (2.2.6) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Don't delete the cache too early in select_language_packs.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 17 Mar 2010 09:49:31 +0000
+  [ Roman Shtylman ]
+  * Fix for 100% cpu usage in kde frontend (LP: #538505)
+
+ -- Roman Shtylman <shtylman@gmail.com>  Thu, 18 Mar 2010 14:40:09 -0400
 
 ubiquity (2.2.5) lucid; urgency=low
 

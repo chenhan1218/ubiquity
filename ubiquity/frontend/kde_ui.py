@@ -1234,7 +1234,7 @@ class Wizard(BaseFrontend):
         self.allow_change_step(True)
         self.mainLoopRunning = True
         while self.mainLoopRunning:    # nasty, but works OK
-            self.app.processEvents()
+            self.app.processEvents(QEventLoop.WaitForMoreEvents)
 
     # Return control to the next level up.
     def quit_main_loop (self):
