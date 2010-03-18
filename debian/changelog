@@ -6,6 +6,7 @@ ubiquity (2.2.6) UNRELEASED; urgency=low
   * Correctly set up GtkComboBoxEntry widgets (LP: #539204).
   * In the KDE frontend, call reboot with root privileges and try
     rebooting via dbus only if a KDE dbus session exists (LP: #540856).
+  * Remove the apport hook, it lives in Ubuntu's apport package now.
 
   [ Colin Watson ]
   * If pkgsel/install-language-support is set to false, then don't install
