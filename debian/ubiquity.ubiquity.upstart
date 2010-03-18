@@ -9,7 +9,8 @@ author		"Ubuntu Installer Team <ubuntu-installer@lists.ubuntu.com>"
 
 start on (starting gdm
 	  or starting kdm
-	  or starting xdm)
+	  or starting xdm
+	  or starting uxlaunch)
 stop on runlevel [06]
 
 task
