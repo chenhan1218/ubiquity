@@ -15,6 +15,7 @@ ubiquity (2.2.6) UNRELEASED; urgency=low
   * Install oem-config-kde in the KDE user-setup plugin (LP: #540895).
   * Don't fall through to the failsafe X server if the main X server
     succeeds (LP: #540938).
+  * ubiquity-frontend-gtk depends on gksu (LP: #540331).
 
   [ Mario Limonciello ]
   * Don't delete the cache too early in select_language_packs.
