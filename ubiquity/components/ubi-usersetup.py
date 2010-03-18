@@ -374,6 +374,9 @@ class PageKde(PageBase):
             else:
                 self.page.hostname.setText('oem-desktop')
 
+            # The UserSetup component takes care of preseeding passwd/user-uid.
+            execute_root('apt-install', 'oem-config-kde')
+
         iconLoader = KIconLoader()
         warningIcon = iconLoader.loadIcon("dialog-warning", KIconLoader.Desktop)
         self.page.fullname_error_image.setPixmap(warningIcon)
