@@ -22,6 +22,10 @@ ubiquity (2.2.6) UNRELEASED; urgency=low
   [ Roman Shtylman ]
   * Fix for 100% cpu usage in kde frontend (LP: #538505)
 
+  [ Michael Terry ]
+  * Upstart jobs: start on starting uxlaunch, Moblin's display manager
+    (LP: #540257).
+
  -- Roman Shtylman <shtylman@gmail.com>  Thu, 18 Mar 2010 14:40:09 -0400
 
 ubiquity (2.2.5) lucid; urgency=low
