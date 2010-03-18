@@ -122,6 +122,8 @@ class PageGtk(PageBase):
         self.plugin_widgets = self.page
 
     def on_try_ubuntu_clicked(self, *args):
+        # Spinning cursor.
+        self.controller.allow_change_step(False)
         # Queue quit.
         self.install_ubuntu.set_sensitive(False)
         self.controller._wizard.current_page = None
@@ -320,6 +322,8 @@ class PageKde(PageBase):
         self.plugin_widgets = self.page
 
     def on_try_ubuntu_clicked(self, *args):
+        # Spinning cursor.
+        self.controller.allow_change_step(False)
         # Queue quit.
         self.begin_install_button.setEnabled(False)
         self.controller._wizard.current_page = None
