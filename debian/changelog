@@ -16,6 +16,7 @@ ubiquity (2.2.6) UNRELEASED; urgency=low
   * Don't fall through to the failsafe X server if the main X server
     succeeds (LP: #540938).
   * ubiquity-frontend-gtk depends on gksu (LP: #540331).
+  * Change .desktop translation domain to ubiquity-desktop (LP: #540936).
 
   [ Mario Limonciello ]
   * Don't delete the cache too early in select_language_packs.
