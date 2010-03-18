@@ -219,6 +219,9 @@ EndSection
                 if attempt == 'failsafe':
                     raise
 
+            if self.server_started:
+                break
+
         os.environ['DISPLAY'] = self.display
         os.environ['HOME'] = self.homedir
         # Give ubiquity a UID and GID that it can drop privileges to.
