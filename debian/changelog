@@ -17,6 +17,9 @@ ubiquity (2.2.6) UNRELEASED; urgency=low
     succeeds (LP: #540938).
   * ubiquity-frontend-gtk depends on gksu (LP: #540331).
   * Change .desktop translation domain to ubiquity-desktop (LP: #540936).
+  * Report disk sizes in decimal units in the manual partitioner, for
+    consistency with partman and to abide by the new units policy
+    (LP: #539653).
 
   [ Mario Limonciello ]
   * Don't delete the cache too early in select_language_packs.
