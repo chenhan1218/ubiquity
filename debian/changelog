@@ -4,6 +4,8 @@ ubiquity (2.2.4) UNRELEASED; urgency=low
   * Properly set the text for the release notes label after the user
     runs the 'update this installer' option.
   * Correctly set up GtkComboBoxEntry widgets (LP: #539204).
+  * In the KDE frontend, call reboot with root privileges and try
+    rebooting via dbus only if a KDE dbus session exists (LP: #540856).
 
   [ Colin Watson ]
   * Port from base-installer:

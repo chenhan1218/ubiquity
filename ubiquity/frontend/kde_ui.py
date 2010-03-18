@@ -32,6 +32,7 @@ import syslog
 import atexit
 import signal
 import gettext
+import dbus
 
 # kde gui specifics
 from PyQt4.QtCore import *
@@ -887,13 +888,18 @@ class Wizard(BaseFrontend):
 
     def do_reboot(self):
         """Callback for main program to actually reboot the machine."""
-        if 'DESKTOP_SESSION' in os.environ:
-            execute('qdbus', 'org.kde.ksmserver', '/KSMServer', 'org.kde.KSMServerInterface.logout',
-                    # ShutdownConfirmNo, ShutdownTypeReboot,
-                    # ShutdownModeForceNow
-                    '0', '1', '2')
+        try:
+            session = dbus.Bus.get_session()
+            ksmserver = session.name_has_owner('org.kde.ksmserver')
+        except dbus.exceptions.DBusException:
+            ksmserver = False
+        if ksmserver:
+            ksmserver = session.get_object('org.kde.ksmserver', '/KSMServer')
+            ksmserver = dbus.Interface(ksmserver, 'org.kde.KSMServerInterface')
+            # ShutdownConfirmNo, ShutdownTypeReboot, ShutdownModeForceNow
+            ksmserver.logout(0, 1, 2)
         else:
-            execute('reboot')
+            execute_root('reboot')
 
     def quit(self):
         """quit installer cleanly."""
