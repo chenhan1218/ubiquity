@@ -135,7 +135,6 @@ def open_terminal():
     if 'UBIQUITY_CTTY' not in os.environ:
         os.environ['UBIQUITY_CTTY'] = '1'
 
-        import fcntl
         import termios
 
         try:
