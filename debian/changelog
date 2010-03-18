@@ -1,19 +1,28 @@
-ubiquity (2.2.4) UNRELEASED; urgency=low
+ubiquity (2.2.6) UNRELEASED; urgency=low
 
-  [ Evan Dandrea ]
   * Properly set the text for the release notes label after the user
     runs the 'update this installer' option.
   * Correctly set up GtkComboBoxEntry widgets (LP: #539204).
   * In the KDE frontend, call reboot with root privileges and try
     rebooting via dbus only if a KDE dbus session exists (LP: #540856).
 
-  [ Colin Watson ]
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 17 Mar 2010 09:49:31 +0000
+
+ubiquity (2.2.5) lucid; urgency=low
+
+  * Use a custom-generated locale when building keyboard_names.py
+    (LP: #540275).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 17 Mar 2010 19:10:05 +0000
+
+ubiquity (2.2.4) lucid; urgency=low
+
   * Port from base-installer:
     - Ensure that Acquire::cdrom::AutoDetect is disabled when running
       apt-cdrom.  We bind-mount /target/cdrom, so apt's new libudev-based
       autodetection isn't needed during installation (LP: #539170).
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 17 Mar 2010 09:49:31 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 17 Mar 2010 09:49:31 +0000
 
 ubiquity (2.2.3) lucid; urgency=low
 
