@@ -368,7 +368,7 @@ class Install:
             self.configure_apt()
 
             self.configure_plugins()
-            
+
             self.next_region()
             self.run_target_config_hooks()
 
@@ -431,7 +431,7 @@ class Install:
                 self.copy_wallpaper_cache()
             except:
                 syslog.syslog(syslog.LOG_WARNING,
-                    'Could not copy wallpaper cache:')                
+                    'Could not copy wallpaper cache:')
                 for line in traceback.format_exc().split('\n'):
                     syslog.syslog(syslog.LOG_WARNING, line)
             self.copy_dcd()
@@ -2044,10 +2044,10 @@ class Install:
         except debconf.DebconfError:
             if not inst_langpacks:
                 return
-        
+
         if inst_langpacks:
             extra_packages += self.langpacks
-        
+
         save_replace = None
         save_override = None
         custom = '/etc/apt/sources.list.d/oem-config.list'
@@ -2409,7 +2409,7 @@ class Install:
                 stdout=subprocess.PIPE).communicate()[0].strip('\n')
             uid = int(uid)
             gid = int(gid)
-            self.copy_tree(casper_user_wallpaper_cache_dir, 
+            self.copy_tree(casper_user_wallpaper_cache_dir,
                            target_user_wallpaper_cache_dir, uid, gid)
             os.chmod(target_user_cache_dir, 0700)
             os.chmod(target_user_wallpaper_cache_dir, 0700)

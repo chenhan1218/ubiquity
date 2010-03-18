@@ -13,12 +13,12 @@
 # the terms of the GNU General Public License as published by the Free Software
 # Foundation, either version 3 of the License, or (at your option) any later
 # version.
-# 
+#
 # This program is distributed in the hope that it will be useful, but WITHOUT
 # ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 # FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
 # details.
-# 
+#
 # You should have received a copy of the GNU General Public License along with
 # this program.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -31,19 +31,19 @@ fi
 cleanup() {
 	echo "Cleaning up."
 	set +e
-	if [ -n "$cd_writable" ]; then 
+	if [ -n "$cd_writable" ]; then
 		(umount $cd_writable && rm -rf $cd_backing $cd_writable) || \
 		rmdir $cd_writable $cd_backing
 	fi
-	if [ -n "$writable" ]; then 
+	if [ -n "$writable" ]; then
 		(umount $writable && rm -rf $backing $writable) || \
 		rmdir $writable $backing
 	fi
-	if [ -n "$squash" ]; then 
+	if [ -n "$squash" ]; then
 		(umount $squash && rm -rf $squash) || \
 		rmdir $squash
 	fi
-	if [ -n "$iso" ]; then 
+	if [ -n "$iso" ]; then
 		(umount $iso && rm -rf $iso) || \
 		rmdir $iso
 	fi

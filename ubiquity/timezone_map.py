@@ -153,7 +153,7 @@ class TimezoneMap(gtk.Widget):
         self.distances = []
         self.previous_click = (-1, -1)
         self.dist_pos = 0
-        
+
     def do_size_request(self, requisition):
         requisition.width = self.orig_background.get_width() / 2
         requisition.height = self.orig_background.get_height() / 2
@@ -191,7 +191,7 @@ class TimezoneMap(gtk.Widget):
         cr = self.window.cairo_create()
         cr.set_source_pixbuf(self.background, 0, 0)
         cr.paint()
-        
+
         # Render highlight.
         # Possibly not the best solution, though in my head it seems better
         # than keeping two copies (original and resized) of every timezone in
@@ -250,7 +250,7 @@ class TimezoneMap(gtk.Widget):
     def timeout(self):
         self.queue_draw()
         return True
-    
+
     def mapped(self, unused_widget, unused_event):
         if self.update_timeout is None:
             self.update_timeout = gobject.timeout_add(1000, self.timeout)
@@ -290,11 +290,11 @@ class TimezoneMap(gtk.Widget):
     def button_press(self, unused_widget, event):
         x = int(event.x)
         y = int(event.y)
-        
+
         o = self.convert_xy_to_offset(x, y)
         if not o:
             return
-        
+
         self.selected_offset = o
 
         if (x, y) == self.previous_click and self.distances:

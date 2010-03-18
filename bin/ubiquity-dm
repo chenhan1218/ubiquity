@@ -29,7 +29,7 @@ def set_locale():
         locale = db.get('debian-installer/locale')
     except debconf.DebconfError:
         pass
-    
+
     if not locale:
         db.shutdown()
         return

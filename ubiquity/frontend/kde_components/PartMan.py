@@ -17,39 +17,39 @@ PARTITION_PLACE_BEGINNING = 0
 PARTITION_PLACE_END = 1
 
 class PartMan(QWidget):
-    
+
     def __init__(self, controller):
         QWidget.__init__(self)
         self.ctrlr = controller
-        
+
         self.edit_use_method_names = {}
         self.create_dialog = None
         self.edit_dialog = None
-        
+
         # currently visible partition bar
         self.active_bar = None
-        
+
         uic.loadUi(os.path.join(_uidir,'stepPartMan.ui'), self)
         self.part_advanced_warning_hbox.setVisible(False)
-        
+
         self.partition_tree_model = PartitionModel(self.ctrlr, self.partition_list_treeview)
         self.partition_list_treeview.setModel(self.partition_tree_model)
         self.partition_list_treeview.selectionModel().selectionChanged.connect(self.on_treeviewSelectionChanged)
         self.partition_button_new_label.clicked[bool].connect(self.on_new_table_clicked)
-        
+
         self.partition_button_new.clicked[bool].connect(self.on_new_clicked)
         self.partition_button_edit.clicked[bool].connect(self.on_edit_clicked)
         self.partition_button_delete.clicked[bool].connect(self.on_delete_clicked)
         self.undo_everything.clicked[bool].connect(self.on_undo_clicked)
-        
+
     def update(self, disk_cache, partition_cache, cache_order):
         self.partition_tree_model.clear()
-        
+
         for child in self.part_advanced_bar_frame.children():
             if isinstance(child, QWidget):
                 child.setParent(None)
                 del child
-        
+
         self.active_bar = None
         partition_bar = None
         indexCount = -1
@@ -59,22 +59,22 @@ class PartMan(QWidget):
                 indexCount += 1
                 partition_bar = PartitionsBar(self.part_advanced_bar_frame)
                 self.part_advanced_bar_frame.layout().addWidget(partition_bar)
-                
+
                 #hide all the other bars at first
                 if self.active_bar:
                     partition_bar.setVisible(False)
                 else:
                     self.active_bar = partition_bar
-                    
+
                 self.partition_tree_model.append([item, disk_cache[item], partition_bar], self.ctrlr)
             else:
                 # the item is a partition, add it to the current bar
                 partition = partition_cache[item]
-                
+
                 # add the new partition to our tree display
                 self.partition_tree_model.append([item, partition, partition_bar], self.ctrlr)
                 indexCount += 1
-                
+
                 # data for bar display
                 size = int(partition['parted']['size'])
                 fs = partition['parted']['fs']
@@ -82,39 +82,39 @@ class PartMan(QWidget):
                 if fs == "free":
                     path = fs
                 partition_bar.addPartition(path, size, fs)
-        
+
         self.partition_list_treeview.reset()
-        
+
     def on_treeviewSelectionChanged(self, unused, deselected):
-    
+
         # by default disable editing the partition
         self.partition_button_new_label.setEnabled(False)
         self.partition_button_new.setEnabled(False)
         self.partition_button_edit.setEnabled(False)
         self.partition_button_delete.setEnabled(False)
         self.undo_everything.setEnabled(False)
-        
+
         if self.active_bar:
             self.active_bar.setVisible(False)
-            
+
         indexes = self.partition_list_treeview.selectedIndexes()
         if indexes:
             index = indexes[0]
-            
+
             item = index.internalPointer()
             devpart = item.itemData[0]
             partition = item.itemData[1]
-            
+
             self.active_bar = item.itemData[2]
             if self.active_bar:
                 self.active_bar.setVisible(True)
         else:
             devpart = None
             partition = None
-        
+
         if not self.ctrlr:
             return
-            
+
         for action in self.ctrlr.dbfilter.get_actions(devpart, partition):
             if action == 'new_label':
                 self.partition_button_new_label.setEnabled(True)
@@ -124,17 +124,17 @@ class PartMan(QWidget):
                 self.partition_button_edit.setEnabled(True)
             elif action == 'delete':
                 self.partition_button_delete.setEnabled(True)
-                
+
         self.undo_everything.setEnabled(True)
-        
+
     def partman_create_dialog(self, devpart, partition):
-        
+
         # lazy initialization
         if not self.create_dialog:
             self.create_dialog = QDialog(self)
             uic.loadUi("%s/partition_create_dialog.ui" % _uidir, self.create_dialog)
             self.create_dialog.partition_create_use_combo.currentIndexChanged[int].connect(self.on_partition_create_use_combo_changed)
-        
+
             # TODO
             #self.translate_widget_children(self.create_dialog)
 
@@ -178,7 +178,7 @@ class PartMan(QWidget):
             ##'choice' text in the drop down, but only selecting the 'mp' text
             self.create_dialog.partition_create_mount_combo.addItem(mp)
         self.create_dialog.partition_create_mount_combo.clearEditText()
-        
+
         if self.create_dialog.exec_() == QDialog.Accepted:
             if partition['parted']['type'] == 'primary':
                 prilog = PARTITION_TYPE_PRIMARY
@@ -199,7 +199,7 @@ class PartMan(QWidget):
             method = self.create_use_method_names[method_description]
 
             mountpoint = unicode(self.create_dialog.partition_create_mount_combo.currentText())
-            
+
             self.ctrlr.dbfilter.create_partition(
                 devpart,
                 str(self.create_dialog.partition_create_size_spinbutton.value()),
@@ -213,7 +213,7 @@ class PartMan(QWidget):
         text = unicode(self.create_dialog.partition_create_use_combo.currentText())
         if text not in self.create_use_method_names:
             return
-            
+
         method = self.create_use_method_names[text]
         if method not in known_filesystems:
             self.create_dialog.partition_create_mount_combo.clearEditText()
@@ -226,13 +226,13 @@ class PartMan(QWidget):
                 self.create_dialog.partition_create_mount_combo.addItem(mp)
 
     def partman_edit_dialog(self, devpart, partition):
-    
+
         #lazy loading
         if not self.edit_dialog:
             self.edit_dialog = QDialog(self)
             uic.loadUi("%s/partition_edit_dialog.ui" % _uidir, self.edit_dialog)
             self.edit_dialog.partition_edit_use_combo.currentIndexChanged[int].connect(self.on_partition_edit_use_combo_changed)
-        
+
             # TODO
             #self.translate_widget_children(self.edit_dialog)
 
@@ -265,7 +265,7 @@ class PartMan(QWidget):
             self.edit_use_method_names[option] = arg
             method_descriptions[arg] = option
             self.edit_dialog.partition_edit_use_combo.addItem(option)
-            
+
         current_method = self.ctrlr.dbfilter.get_current_method(partition)
         if current_method and current_method in method_descriptions:
             current_method_description = method_descriptions[current_method]
@@ -304,7 +304,7 @@ class PartMan(QWidget):
             else:
                 self.edit_dialog.partition_edit_mount_combo.addItem(current_mountpoint)
                 self.edit_dialog.partition_edit_mount_combo.setCurrentIndex(self.edit_dialog.partition_edit_mount_combo.count() - 1)
-                
+
         if (self.edit_dialog.exec_() == QDialog.Accepted):
             size = None
             if current_size is not None:
@@ -334,7 +334,7 @@ class PartMan(QWidget):
                 if fmt is not None:
                     edits['fmt'] = 'dummy'
                 self.ctrlr.dbfilter.edit_partition(devpart, **edits)
-    
+
     def on_partition_edit_use_combo_changed(self, *args):
         if not hasattr(self, 'edit_use_method_names'):
             return
@@ -347,7 +347,7 @@ class PartMan(QWidget):
         if text not in self.edit_use_method_names:
             return
         method = self.edit_use_method_names[text]
-        
+
         if method not in known_filesystems:
             self.edit_dialog.partition_edit_mount_combo.clearEditText()
             self.edit_dialog.partition_edit_mount_combo.setEnabled(False)
@@ -359,7 +359,7 @@ class PartMan(QWidget):
             for mp, choice_c, choice in \
                 self.ctrlr.dbfilter.default_mountpoint_choices(method):
                 self.edit_dialog.partition_edit_mount_combo.addItem(mp)
-    
+
     def on_partition_list_treeview_activated(self, index):
         """ activated when parition lick clicked """
         item = index.internalPointer()
@@ -383,9 +383,9 @@ class PartMan(QWidget):
                 self.partman_create_dialog(devpart, partition)
         else:
             self.partman_edit_dialog(devpart, partition)
-    
-    ### actions for clicking the buttons ### 
-    
+
+    ### actions for clicking the buttons ###
+
     def get_treeview_data(self):
         selected = self.partition_list_treeview.selectedIndexes()
         if not selected:
@@ -394,9 +394,9 @@ class PartMan(QWidget):
         item = index.internalPointer()
         devpart = item.itemData[0]
         partition = item.itemData[1]
-        
+
         return (devpart, partition)
-    
+
     def on_new_table_clicked(self):
         devpart, partition = self.get_treeview_data()
         if not devpart or not partition:

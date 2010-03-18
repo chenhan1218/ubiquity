@@ -63,19 +63,19 @@ LOCALEDIR = "/usr/share/locale"
 
 #currently using for testing, will remove
 UIDIR = os.path.join(PATH, 'qt')
-    
+
 class UbiquityUI(KMainWindow):
 
     def __init__(self, parent = None):
         QMainWindow.__init__(self, parent)
         uic.loadUi(os.path.join(UIDIR, "app.ui"), self)
-        
+
         distro_name = "Kubuntu"
         distro_release = ""
-        
+
         ## setup the release and codename
         fp = open("/etc/lsb-release", 'r')
-        
+
         for line in fp:
             if "DISTRIB_ID=" in line:
                 name = str.strip(line.split("=")[1], '\n')
@@ -83,27 +83,27 @@ class UbiquityUI(KMainWindow):
                     distro_name = name
             elif "DISTRIB_RELEASE=" in line:
                 distro_release = str.strip(line.split("=")[1], '\n')
-                
+
         fp.close()
-        
+
         self.distro_name_label.setText(distro_name)
         self.distro_release_label.setText(distro_release)
-        
+
         self.minimize_button.clicked.connect(self.showMinimized)
-        
+
         self.setWindowTitle("%s %s" % (distro_name, distro_release))
-        
+
         # don't use stylesheet cause we want to scale the wallpaper for various
         # screen sizes as well as support larger screens
-        self.bgImage = QImage("/usr/share/wallpapers/Ethais/contents/images/1920x1200.png");
+        self.bgImage = QImage("/usr/share/wallpapers/Ethais/contents/images/1920x1200.png")
         self.scaledBgImage = self.bgImage
-    
+
     def paintEvent(self, pe):
         p = QPainter(self)
         p.drawImage(0, 0, self.scaledBgImage)
-        
+
     def resizeEvent(self, re):
-        self.scaledBgImage = self.bgImage.scaled(self.width(), self.height(), 
+        self.scaledBgImage = self.bgImage.scaled(self.width(), self.height(),
                 Qt.KeepAspectRatioByExpanding, Qt.SmoothTransformation)
 
     def setWizard(self, wizardRef):
@@ -159,7 +159,7 @@ class Wizard(BaseFrontend):
         text        = ki18n ("none")
         homePage    = "http://wiki.kubuntu.org/KubuntuUbiquity"
         bugEmail    = "jriddell@ubuntu.com"
-        
+
         about = KAboutData (appName, catalog, programName, ver, description,
                             rights, copy, text, homePage, bugEmail)
         about.addAuthor(ki18n("Jonathan Riddell"), KLocalizedString() ,"jriddell@ubuntu.com")
@@ -179,29 +179,29 @@ class Wizard(BaseFrontend):
             regain_privileges_save()
 
         self.ui = UbiquityUI()
-        
+
         # handle smaller screens (old school eee pc
         if (QApplication.desktop().screenGeometry().height() < 560):
             self.ui.main_frame.setFixedHeight(470)
             self.ui.main_frame.setStyleSheet(file(os.path.join(UIDIR, "style_small.qss")).read())
-        
+
         # initially the steps widget is not visible
         # it becomes visible once the first step becomes active
         self.ui.steps_widget.setVisible(False)
         self.ui.content_widget.setVisible(False)
-        
+
         if 'UBIQUITY_GREETER' in os.environ:
             self.ui.minimize_button.hide()
-        
+
         self.ui.setWindowState(self.ui.windowState() ^ Qt.WindowFullScreen)
-                
+
         self.ui.setWizard(self)
         #self.ui.setWindowFlags(Qt.Window | Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowMinMaxButtonsHint)
-        
+
         #hide the minimize button if in "install only" mode
         if 'UBIQUITY_ONLY' in os.environ:
             self.ui.minimize_button.setVisible(False)
-            
+
         self.stackLayout = QStackedLayout(self.ui.widgetStack)
 
         self.pages = []
@@ -251,8 +251,8 @@ class Wizard(BaseFrontend):
         self.language_questions = (
             'live_installer',
             'step_label',
-            'quit', 
-            'back', 
+            'quit',
+            'back',
             'next',
             'warning_dialog',
             'warning_dialog_label',
@@ -260,7 +260,7 @@ class Wizard(BaseFrontend):
             'exitbutton',
             'install_process_label'
         )
-                             
+
         self.current_page = None
         self.first_seen_page = None
         self.allowed_change_step = True
@@ -277,14 +277,14 @@ class Wizard(BaseFrontend):
         self.backup = False
         self.history = []
         self.progressDialog = ProgressDialog(0, 0, self.ui)
-        
+
         self.laptop = execute("laptop-detect")
 
         # set default language
         self.locale = i18n.reset_locale(self)
 
         self.debconf_callbacks = {}    # array to keep callback functions needed by debconf file descriptors
-        
+
         self.ui.setWindowIcon(KIcon("ubiquity"))
         self.allow_go_backward(False)
 
@@ -307,7 +307,7 @@ class Wizard(BaseFrontend):
 
         iconLoader = KIconLoader()
         warningIcon = iconLoader.loadIcon("dialog-warning", KIconLoader.Desktop)
-        
+
         # TODO move to plugin
         #self.ui.part_advanced_warning_image.setPixmap(warningIcon)
 
@@ -322,7 +322,7 @@ class Wizard(BaseFrontend):
 
         quitIcon = KIcon("dialog-close")
         self.ui.quit.setIcon(quitIcon)
-        
+
         self.ui.progressBar.hide()
         self.ui.progressCancel.hide()
 
@@ -377,7 +377,7 @@ class Wizard(BaseFrontend):
         self.disable_volume_manager()
 
         self.allow_change_step(True)
-        
+
         # Declare SignalHandler
         self.ui.next.clicked.connect(self.on_next_clicked)
         self.ui.back.clicked.connect(self.on_back_clicked)
@@ -449,7 +449,7 @@ class Wizard(BaseFrontend):
                 self.current_page = None
                 self.installing = True
                 self.progress_loop()
-                
+
         return self.returncode
 
     def set_layout_direction(self, lang=None):
@@ -488,7 +488,7 @@ class Wizard(BaseFrontend):
             for w in p.widgets:
                 for c in self.all_children(w):
                     widgets.append((c, prefix))
-                    
+
         #if not just_current:
         #for toplevel in self.toplevels:
             #if toplevel.name != 'live_installer':
@@ -554,7 +554,7 @@ class Wizard(BaseFrontend):
             return
 
         name = str(widget.objectName())
-        
+
         text = self.get_string(name, lang, prefix)
 
         if str(name) == "UbiquityUIBase":
@@ -579,7 +579,7 @@ class Wizard(BaseFrontend):
                 widget.setText("<strong>" + text + "</strong>")
             else:
                 widget.setText(text)
-                
+
         elif isinstance(widget, QAbstractButton):
             widget.setText(text.replace('_', '&', 1))
 
@@ -661,16 +661,16 @@ class Wizard(BaseFrontend):
     def set_page(self, n):
         self.run_automation_error_cmd()
         self.ui.show()
-        
+
         borderCSS = "border-width: 6px; border-image: url(/usr/share/ubiquity/qt/images/label_border.png) 6px;"
         activeSS = "color: %s; " % "#666666"
         inactiveSS = "color: %s; " % "#b3b3b3"
         currentSS = "%s color: %s; " % (borderCSS, "#0088aa")
-        
+
         #set all the steps active
         #each step will set its previous ones as inactive
         #this handles the ability to go back
-        
+
         found = False
         is_install = False
         for page in self.pages:
@@ -701,14 +701,14 @@ class Wizard(BaseFrontend):
         if is_install:
             self.ui.next.setText(self.get_string('install_button').replace('_', '&', 1))
             self.ui.next.setIcon(self.applyIcon)
-            
+
         if self.pagesindex == 0:
             self.allow_go_backward(False)
         else:
             self.allow_go_backward(True)
 
         return True
-    
+
     def page_name(self, step_index):
         if step_index < 0:
             step_index = 0
@@ -775,25 +775,25 @@ class Wizard(BaseFrontend):
                 try:
                     from PyQt4.QtWebKit import QWebView
                     from PyQt4.QtWebKit import QWebPage
-                    
-                    #we need to get root privs to open a link because 
+
+                    #we need to get root privs to open a link because
                     #the kapplication was started that way...
                     @raise_privileges
                     def openLink(qUrl):
                         QDesktopServices.openUrl(qUrl)
-                    
+
                     webView = QWebView()
-                    
+
                     webView.linkClicked.connect(openLink)
-                    
+
                     webView.setContextMenuPolicy(Qt.NoContextMenu)
                     webView.page().setLinkDelegationPolicy(QWebPage.DelegateExternalLinks)
                     webView.page().mainFrame().setScrollBarPolicy(Qt.Horizontal, Qt.ScrollBarAlwaysOff)
                     webView.page().mainFrame().setScrollBarPolicy(Qt.Vertical, Qt.ScrollBarAlwaysOff)
-                    webView.setFixedSize(700,420);
-                    
+                    webView.setFixedSize(700,420)
+
                     webView.load(QUrl(slides))
-                    
+
                     #add the webview to the extra frame of the progress dialog
                     self.progressDialog.extraFrame.layout().addWidget(webView)
                     self.progressDialog.extraFrame.setVisible(True)
@@ -906,7 +906,7 @@ class Wizard(BaseFrontend):
         self.current_page = None
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
-            
+
         self.app.exit()
 
     def quit_installer(self):
@@ -936,7 +936,7 @@ class Wizard(BaseFrontend):
             return
 
         self.allow_change_step(False)
-        
+
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
             # expect recursive main loops to be exited and
@@ -1051,28 +1051,28 @@ class Wizard(BaseFrontend):
             progress_title = ""
         total_steps = progress_max - progress_min
         skipText = self.get_string("progress_cancel_button")
-        
+
         self.ui.progressCancel.setText(skipText)
-        
-        self.progressDialog.setWindowModality(Qt.WindowModal);
+
+        self.progressDialog.setWindowModality(Qt.WindowModal)
         self.progressDialog.setCancelText(skipText)
         self.progressDialog.setCancellable(False)
         self.progressDialog.setMaximum(total_steps)
         self.progressDialog.setWindowTitle(progress_title)
         #self.progressDialog.show()
-        
+
         # TODO cancel button
-        
+
         self.ui.progressBar.setMaximum(total_steps)
         self.ui.progressBar.show()
-        
+
         self.ui.content_widget.setEnabled(False)
-        
+
         self.progress_position.start(progress_min, progress_max,
                                      progress_title)
-        
+
         self.debconf_progress_set(0)
-        
+
 
     def debconf_progress_set (self, progress_val):
         self.progress_cancelled = self.progressDialog.wasCanceled()
@@ -1080,12 +1080,12 @@ class Wizard(BaseFrontend):
             return False
         self.progress_position.set(progress_val)
         fraction = self.progress_position.fraction()
-        
+
         self.progressDialog.setProgressValue(
             int(fraction * self.progressDialog.maximum()))
-            
+
         self.ui.progressBar.setValue(int(fraction * self.ui.progressBar.maximum()))
-        
+
         return True
 
     def debconf_progress_step (self, progress_inc):
@@ -1094,22 +1094,22 @@ class Wizard(BaseFrontend):
             return False
         self.progress_position.step(progress_inc)
         fraction = self.progress_position.fraction()
-        
+
         self.progressDialog.setProgressValue(
             int(fraction * self.progressDialog.maximum()))
-        
+
         self.ui.progressBar.setValue(int(fraction * self.ui.progressBar.maximum()))
-        
+
         return True
 
     def debconf_progress_info (self, progress_info):
         self.progress_cancelled = self.progressDialog.wasCanceled()
         if self.progress_cancelled:
             return False
-        
+
         self.progressDialog.setProgressLabel(progress_info)
         self.ui.progressBar.setFormat(progress_info + " %p%")
-        
+
         return True
 
     def debconf_progress_stop (self):
@@ -1119,7 +1119,7 @@ class Wizard(BaseFrontend):
             self.progressDialog.reset() # also hides dialog
         else:
             self.progressDialog.setWindowTitle(self.progress_position.title())
-        
+
         self.ui.content_widget.setEnabled(True)
         self.ui.progressBar.hide()
 

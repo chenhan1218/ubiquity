@@ -39,7 +39,7 @@ class Controller:
         self.dbfilter = None
         self.oem_config = wizard.oem_config
         self.oem_user_config = wizard.oem_user_config
-    
+
         # For summary and install.
         self.get_grub = wizard.get_grub
         self.set_grub = wizard.set_grub
@@ -124,7 +124,7 @@ class BaseFrontend:
                         del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
             except debconf.DebconfError:
                 pass
-    
+
             if self.oem_config:
                 try:
                     self.db.set('passwd/auto-login', 'true')
@@ -407,7 +407,7 @@ class BaseFrontend:
             self.debconf_progress_info(
                 self.get_string('ubiquity/install/success_command'))
             execute_root('sh', '-c', self.success_cmd)
-    
+
     def slideshow_get_available_locale(self, slideshow_dir, locale):
         # Returns the ideal locale for the given slideshow, based on the
         # given locale, or 'c' if an ideal one is not available.

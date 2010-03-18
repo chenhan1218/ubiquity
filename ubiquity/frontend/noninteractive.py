@@ -133,7 +133,7 @@ class Wizard(BaseFrontend):
         method will be called with from_debconf as a file descriptor reading
         from the filtered command and a process_input callback which should
         be called when input events are received."""
-        
+
         gobject.io_add_watch(from_debconf,
                              gobject.IO_IN | gobject.IO_ERR | gobject.IO_HUP,
                              self.watch_debconf_fd_helper, process_input)
@@ -175,7 +175,7 @@ class Wizard(BaseFrontend):
         """Return control blocked in run_main_loop."""
         if not self.dbfilter and self.mainloop.is_running():
             self.mainloop.quit()
-    
+
     def set_page(self, page):
         # There's no need to do anything here as there's no interface to speak
         # of.

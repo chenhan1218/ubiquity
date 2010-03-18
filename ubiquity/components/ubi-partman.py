@@ -171,7 +171,7 @@ class PageGtk(PageBase):
 
     def progress_info(self, progress_info):
         self.part_advanced_recalculating_label.set_text(progress_info)
-    
+
     def progress_stop(self):
         self.partition_list_buttonbox.set_sensitive(True)
         self.part_advanced_recalculating_spinner.stop()

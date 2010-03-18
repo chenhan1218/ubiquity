@@ -63,7 +63,7 @@ class PageGtk(PageBase):
             self.debug('Could not create keyboard page: %s', e)
             self.page = None
         self.plugin_widgets = self.page
-    
+
     def ma_get_choices(self):
         return self.ma_choices
 
@@ -261,7 +261,7 @@ class Page(Plugin):
         self.frontend.error_dialog(self.description(question),
                                    self.extended_description(question))
         return Plugin.error(self, priority, question)
-    
+
     def ok_handler(self):
         choices = self.ui.ma_get_choices()
         username = self.db.get('passwd/username')
@@ -365,11 +365,11 @@ class Install(InstallPlugin):
     def prepare(self):
         return (['/usr/lib/ubiquity/migration-assistant/ma-apply',
                  '/usr/lib/ubiquity/migration-assistant'], [])
-    
+
     def install(self, target, progress, *args, **kwargs):
         progress.info('ubiquity/install/migrationassistant')
         return InstallPlugin.install(self, target, progress, *args, **kwargs)
-    
+
     def error(self, priority, question):
         self.frontend.error_dialog(self.description(question))
         return InstallPlugin.error(self, priority, question)

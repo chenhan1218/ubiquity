@@ -199,7 +199,7 @@ class PageKde(PageBase):
         self.advanceddialog.grub_device_entry.clear()
         ''' options is from summary.py grub_options() '''
         for opt in options:
-           self.advanceddialog.grub_device_entry.addItem(opt[0]);
+           self.advanceddialog.grub_device_entry.addItem(opt[0])
 
     def enable_proxy_spinbutton(self):
         self.advanceddialog.proxy_port_spinbutton.setEnabled(self.advanceddialog.proxy_host_entry.text() != '')

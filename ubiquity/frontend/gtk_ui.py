@@ -146,7 +146,7 @@ class Controller(ubiquity.frontend.base.Controller):
         else:
             self._wizard.live_installer.show()
         self._wizard.refresh()
-    
+
     def get_string(self, name, lang=None, prefix=None):
         return self._wizard.get_string(name, lang, prefix)
 
@@ -1090,7 +1090,7 @@ class Wizard(BaseFrontend):
 
         if step.startswith("stepPart"):
             self.previous_partitioning_page = step_num
-        
+
         # Ready to install
         if self.pages[self.pagesindex].ui.get('plugin_is_install'):
             self.progress_loop()

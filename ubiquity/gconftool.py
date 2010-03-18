@@ -99,7 +99,7 @@ def unset(key):
 def _dir_exists(key):
     if not _gconftool_exists():
         return False
-    
+
     subp = subprocess.Popen(['gconftool-2', '--config-source', _gconf_dir(),
                              '--dir-exists=%s' % key],
                             stdout=subprocess.PIPE, stderr=subprocess.PIPE,

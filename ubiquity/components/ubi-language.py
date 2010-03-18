@@ -50,7 +50,7 @@ class PageBase(PluginUI):
 
     def get_oem_id(self):
         return ''
-    
+
     def set_alpha_warning(self, show):
         self.show_alpha_warning = show
 
@@ -209,7 +209,7 @@ class PageGtk(PageBase):
                 gtk.widget_set_default_direction(gtk.TEXT_DIR_LTR)
         else:
             lang = 'C'
-            
+
         if not self.only:
             release_name = misc.get_release_name()
             install_medium = misc.get_install_medium()
@@ -223,7 +223,7 @@ class PageGtk(PageBase):
                 text = text.replace('${RELEASE}', release_name)
                 text = text.replace('${MEDIUM}', install_medium)
                 widget.set_label(text)
-            
+
             if self.release_notes_label:
                 if self.release_notes_url and self.update_installer:
                     pass
@@ -273,21 +273,21 @@ class PageKde(PageBase):
             self.only = True
         else:
             self.only = False
-            
+
         try:
             from PyQt4 import uic
             from PyQt4.QtGui import QLabel, QWidget
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLanguage.ui')
             self.combobox = self.page.language_combobox
             self.combobox.currentIndexChanged[str].connect(self.on_language_selection_changed)
-            
+
             self.page.begin_install_button.clicked.connect(self.controller._wizard.on_next_clicked)
             self.page.try_ubuntu.clicked.connect(self.on_try_ubuntu_clicked)
-            
+
             if not self.controller.oem_config:
                 self.page.oem_id_label.hide()
                 self.page.oem_id_entry.hide()
-            
+
             self.release_notes_url = ''
             try:
                 release_notes = open(_release_notes_url_path)
@@ -295,20 +295,20 @@ class PageKde(PageBase):
                 release_notes.close()
             except (KeyboardInterrupt, SystemExit):
                 pass
-            
+
             self.page.release_notes_label.linkActivated.connect(self.on_release_notes_link)
-            
+
             if not 'UBIQUITY_GREETER' in os.environ:
                 self.page.try_ubuntu.hide()
                 self.page.try_text_label.hide()
                 self.page.begin_install_button.hide()
-                
+
         except Exception, e:
             self.debug('Could not create language page: %s', e)
             self.page = None
-            
+
         self.plugin_widgets = self.page
-    
+
     def on_try_ubuntu_clicked(self, *args):
         # Queue quit.
         self.controller._wizard.current_page = None
@@ -331,12 +331,12 @@ class PageKde(PageBase):
                 # no updates, so don't check again
                 text = i18n.get_string('release_notes_only', lang)
                 self.page.release_notes_label.setText(text)
-    
+
     def openURL(self, url):
         from PyQt4.QtGui import QDesktopServices
         from PyQt4.QtCore import QUrl
         from ubiquity.misc import drop_privileges_save, regain_privileges_save
-        
+
         # this nonsense is needed because kde doesn't want to be root
         drop_privileges_save()
         QDesktopServices.openUrl(QUrl(url))
@@ -376,7 +376,7 @@ class PageKde(PageBase):
             self.controller.translate(lang)
         else:
             lang = 'C'
-            
+
         if not self.only:
             release_name = misc.get_release_name()
             install_medium = misc.get_install_medium()
@@ -428,7 +428,7 @@ class Page(Plugin):
                 self.ui.set_oem_id(self.db.get('oem-config/id'))
             except debconf.DebconfError:
                 pass
-        
+
         if not self.ui.controller.oem_config:
             show = self.db.get('ubiquity/show_alpha_warning') == 'true'
             self.ui.set_alpha_warning(show)

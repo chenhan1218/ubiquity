@@ -58,7 +58,7 @@ class CairoExtensions:
     @staticmethod
     def modula(number, divisor):
         return int((number % divisor) + (number - int(number)))
-    
+
     @staticmethod
     def gdk_color_to_cairo_color(color, alpha=1.0):
         return Color((color.red >> 8) / 255.0,
@@ -224,7 +224,7 @@ class SegmentedBar(gtk.Widget):
     __gtype_name__ = 'SegmentedBar'
     def __init__(self):
         gtk.Widget.__init__(self)
-        
+
         # State
         self.segments = []
         self.layout_width = 0
@@ -260,7 +260,7 @@ class SegmentedBar(gtk.Widget):
 
     def add_segment_rgb(self, title, size, rgb_color):
         self.add_segment(title, size, CairoExtensions.rgb_to_color(rgb_color))
-    
+
     def do_size_request(self, requisition):
         requisition.width = 200
         requisition.height = 0
@@ -297,7 +297,7 @@ class SegmentedBar(gtk.Widget):
             title = self.segments[i].title
             layout.set_text(title)
             aw, ah = layout.get_pixel_size()
-            
+
             layout = self.create_adapt_layout(layout, True, False)
             layout.set_text(self.segments[i].subtitle)
             bw, bh = layout.get_pixel_size()
@@ -332,11 +332,11 @@ class SegmentedBar(gtk.Widget):
         else:
             self.set_size_request(bar_height, self.bar_height + (2 * self.h_padding))
         gtk.Widget.do_size_allocate(self, allocation)
-    
+
     def render_bar_segments(self, cr, w, h, r):
         grad = cairo.LinearGradient(0, 0, w, 0)
         last = 0.0
-        
+
         for segment in self.segments:
             percent = segment.size / float(self.disk_size)
             if percent > 0:
@@ -393,7 +393,7 @@ class SegmentedBar(gtk.Widget):
         CairoExtensions.rounded_rectangle(cr, 0.5, 0.5, w - 1, h - 1, r, corners=CairoCorners.no_corners)
         cr.set_source(stroke)
         cr.stroke()
-        
+
     def render_labels(self, cr):
         if len(self.segments) == 0:
             return
@@ -410,7 +410,7 @@ class SegmentedBar(gtk.Widget):
             cr.fill_preserve()
             cr.set_source_rgba(box_stroke_color.r, box_stroke_color.g, box_stroke_color.b, box_stroke_color.a)
             cr.stroke()
-            
+
             x = x + self.segment_box_size + self.segment_box_spacing
 
             layout = self.create_adapt_layout(layout, False, True)
@@ -450,7 +450,7 @@ class SegmentedBar(gtk.Widget):
             # Are we not guaranteed that the event has a parent window?
             print 'The event did not possess a gdk window.'
             return gtk.Widget.do_expose_event(self, event)
-        
+
         cr = self.window.cairo_create()
         if self.reflect:
             cr.push_group()
@@ -507,7 +507,7 @@ class SegmentedBar(gtk.Widget):
                     self.layout_width) / 2, self.bar_height + \
                     self.bar_label_spacing)
             self.render_labels(cr)
-        
+
         return True
 
     pango_size_normal = 0
@@ -612,10 +612,10 @@ class SegmentedBarSlider(SegmentedBar):
             x = event.x
             y = event.y
             state = event.state
-        
+
         if not (state & gtk.gdk.BUTTON1_MASK) or self.resize == -1:
             return
-        
+
         i = 0
         resize_part_start = 0
         while i < self.resize:
@@ -624,7 +624,7 @@ class SegmentedBarSlider(SegmentedBar):
         total = self.segments[self.resize].size + \
                 self.segments[self.resize + 1].size
         b = x / float(self.allocation.width - self.h_padding)
-        
+
         # The minimum size the old partition can be.
         if self.min_size != -1:
             a = ((self.min_size + resize_part_start) /
@@ -720,7 +720,7 @@ class SegmentedBarSlider(SegmentedBar):
         cr.move_to(p + 2, (h / 4))
         cr.line_to(p + 2, h - (h / 4))
         cr.stroke()
-    
+
     def render_bar(self, w, h):
         s = cairo.ImageSurface(cairo.FORMAT_ARGB32, w, h)
         cr = cairo.Context(s)
@@ -732,4 +732,3 @@ class SegmentedBarSlider(SegmentedBar):
         return pattern
 
 gobject.type_register(SegmentedBarSlider)
-
