@@ -101,8 +101,10 @@ class PageGtk(PageBase):
                     try_section_vbox and try_section_vbox.hide()
                     self.install_ubuntu and self.install_ubuntu.hide()
                 else:
-                    self.install_ubuntu.connect('clicked',
-                            self.controller._wizard.on_next_clicked)
+                    def inst(*args):
+                        self.try_ubuntu.set_sensitive(False)
+                        self.controller.go_forward()
+                    self.install_ubuntu.connect('clicked', inst)
                     self.try_ubuntu.connect('clicked',
                         self.on_try_ubuntu_clicked)
                 self.try_text_label = builder.get_object('try_text_label')
@@ -121,6 +123,7 @@ class PageGtk(PageBase):
 
     def on_try_ubuntu_clicked(self, *args):
         # Queue quit.
+        self.install_ubuntu.set_sensitive(False)
         self.controller._wizard.current_page = None
         self.controller.dbfilter.ok_handler()
 
@@ -174,6 +177,10 @@ class PageGtk(PageBase):
                         path, use_align=True, row_align=0.5)
                     break
                 iterator = model.iter_next(iterator)
+        
+        if not self.only and 'UBIQUITY_GREETER' in os.environ:
+            self.try_ubuntu.set_sensitive(True)
+            self.install_ubuntu.set_sensitive(True)
 
     def get_language(self):
         # Support both iconview and treeview
@@ -281,7 +288,10 @@ class PageKde(PageBase):
             self.combobox = self.page.language_combobox
             self.combobox.currentIndexChanged[str].connect(self.on_language_selection_changed)
 
-            self.page.begin_install_button.clicked.connect(self.controller._wizard.on_next_clicked)
+            def inst(*args):
+                self.try_ubuntu.setEnabled(False)
+                self.controller.go_forward()
+            self.page.begin_install_button.clicked.connect(inst)
             self.page.try_ubuntu.clicked.connect(self.on_try_ubuntu_clicked)
 
             if not self.controller.oem_config:
@@ -311,6 +321,7 @@ class PageKde(PageBase):
 
     def on_try_ubuntu_clicked(self, *args):
         # Queue quit.
+        self.begin_install_button.setEnabled(False)
         self.controller._wizard.current_page = None
         self.controller.dbfilter.ok_handler()
 
@@ -356,6 +367,10 @@ class PageKde(PageBase):
             self.combobox.addItem("C")
         else:
             self.combobox.setCurrentIndex(index)
+        
+        if not self.only and 'UBIQUITY_GREETER' in os.environ:
+            self.page.try_ubuntu.setEnabled(True)
+            self.page.begin_install_button.setEnabled(True)
 
     def get_language(self):
         lang = self.selected_language()
