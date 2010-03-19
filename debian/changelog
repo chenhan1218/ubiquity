@@ -10,6 +10,8 @@ ubiquity (2.2.6) UNRELEASED; urgency=low
   * Don't let the user select both "Try Ubuntu" and "Install Ubuntu".
   * Provide visual feedback for clicking "Try Ubuntu" in the form of a
     spinning cursor.
+  * Automatic update of included source packages: base-installer
+    1.103ubuntu5, console-setup 1.34ubuntu12, partman-base 139ubuntu1.
 
   [ Colin Watson ]
   * If pkgsel/install-language-support is set to false, then don't install
