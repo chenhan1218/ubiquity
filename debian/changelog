@@ -1,4 +1,4 @@
-ubiquity (2.2.6) UNRELEASED; urgency=low
+ubiquity (2.2.6) lucid; urgency=low
 
   [ Evan Dandrea ]
   * Properly set the text for the release notes label after the user
@@ -36,7 +36,7 @@ ubiquity (2.2.6) UNRELEASED; urgency=low
   * Upstart jobs: start on starting uxlaunch, Moblin's display manager
     (LP: #540257).
 
- -- Roman Shtylman <shtylman@gmail.com>  Thu, 18 Mar 2010 14:40:09 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 19 Mar 2010 23:52:24 +0000
 
 ubiquity (2.2.5) lucid; urgency=low
 
