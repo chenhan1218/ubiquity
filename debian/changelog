@@ -1,3 +1,9 @@
+ubiquity (2.2.7) UNRELEASED; urgency=low
+
+  * Add inactive labels to the user setup page (LP: #537986).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Sat, 20 Mar 2010 11:05:09 +0000
+
 ubiquity (2.2.6) lucid; urgency=low
 
   [ Evan Dandrea ]

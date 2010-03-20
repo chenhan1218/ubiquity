@@ -190,9 +190,17 @@ Template: ubiquity/text/fullname_label
 Type: text
 _Description: What is your name?
 
+Template: ubiquity/text/fullname_inactive_label
+Type: text
+_Description: Full Name
+
 Template: ubiquity/text/username_label
 Type: text
 _Description: What name do you want to use to log in?
+
+Template: ubiquity/text/username_inactive_label
+Type: text
+_Description: Username
 
 Template: ubiquity/text/username_extra_label
 Type: text
@@ -203,6 +211,14 @@ _Description:
 Template: ubiquity/text/password_label
 Type: text
 _Description: Choose a password to keep your account safe.
+
+Template: ubiquity/text/password_inactive_label
+Type: text
+_Description: Password
+
+Template: ubiquity/text/password_again_inactive_label
+Type: text
+_Description: Re-enter password
 
 Template: ubiquity/text/password_debug_warning_label
 Type: text
@@ -219,6 +235,10 @@ _Description:
 Template: ubiquity/text/hostname_label
 Type: text
 _Description: What is the name of this computer?
+
+Template: ubiquity/text/hostname_inactive_label
+Type: text
+_Description: Computer Name
 
 Template: ubiquity/text/hostname_extra_label
 Type: text

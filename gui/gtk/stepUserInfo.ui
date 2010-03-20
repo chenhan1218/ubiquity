@@ -80,7 +80,7 @@
                             <property name="visible">True</property>
                             <property name="spacing">12</property>
                             <child>
-                              <object class="GtkEntry" id="fullname">
+                              <object class="LabelledEntry" id="fullname">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="invisible_char">&#x25CF;</property>
@@ -190,7 +190,7 @@
                                 <property name="visible">True</property>
                                 <property name="spacing">12</property>
                                 <child>
-                                  <object class="GtkEntry" id="username">
+                                  <object class="LabelledEntry" id="username">
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="invisible_char">&#x25CF;</property>
@@ -338,7 +338,7 @@
                                     <property name="spacing">6</property>
                                     <property name="homogeneous">True</property>
                                     <child>
-                                      <object class="GtkEntry" id="password">
+                                      <object class="LabelledEntry" id="password">
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="visibility">False</property>
@@ -352,7 +352,7 @@
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkEntry" id="verified_password">
+                                      <object class="LabelledEntry" id="verified_password">
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="visibility">False</property>
@@ -492,7 +492,7 @@
                                 <property name="visible">True</property>
                                 <property name="spacing">12</property>
                                 <child>
-                                  <object class="GtkEntry" id="hostname">
+                                  <object class="LabelledEntry" id="hostname">
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="invisible_char">&#x25CF;</property>

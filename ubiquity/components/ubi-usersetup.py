@@ -30,6 +30,7 @@ from ubiquity import validation
 from ubiquity.misc import execute, execute_root
 from ubiquity.plugin import *
 import debconf
+from ubiquity.frontend.gtk_components.labelled_entry import LabelledEntry
 
 NAME = 'usersetup'
 AFTER = 'console_setup'
@@ -197,6 +198,19 @@ class PageGtk(PageBase):
         if sh <= 600:
             self.scrolledwin.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
         self.plugin_widgets = self.page
+
+    def plugin_translate(self, lang):
+        user = self.controller.get_string('username_inactive_label', lang)
+        full = self.controller.get_string('fullname_inactive_label', lang)
+        pasw = self.controller.get_string('password_inactive_label', lang)
+        host = self.controller.get_string('hostname_inactive_label', lang)
+        vpas = self.controller.get_string('password_again_inactive_label',
+                                          lang)
+        self.username.set_inactive_message(user)
+        self.fullname.set_inactive_message(full)
+        self.password.set_inactive_message(pasw)
+        self.verified_password.set_inactive_message(vpas)
+        self.hostname.set_inactive_message(host)
 
     # Functions called by the Page.
 

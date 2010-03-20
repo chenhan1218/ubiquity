@@ -306,6 +306,13 @@ class Wizard(BaseFrontend):
             # There's no sense retranslating the page we're leaving.
             if not_current and p == current_page:
                 continue
+            # Allow plugins to provide a hook for translation.
+            if hasattr(p.ui, 'plugin_translate'):
+                try:
+                    p.ui.plugin_translate(lang or self.locale)
+                except Exception, e:
+                    print >>sys.stderr, 'Could not translate page (%s): %s' \
+                                        % (p.module.NAME, str(e))
             prefix = p.ui.get('plugin_prefix')
             for w in p.all_widgets:
                 for c in self.all_children(w):
