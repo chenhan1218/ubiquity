@@ -105,6 +105,7 @@ class PartAuto(QWidget):
                     dev = None
 
                     try:
+                        resize_path = biggest_free_id[3]
                         dev = self.diskLayout[resize_path.replace("/", "=").rstrip("1234567890")]
                     except Exception: pass
 
