@@ -1169,7 +1169,8 @@ class Wizard(BaseFrontend):
                     break
             if self.pagesindex == -1: return
             self.start_debconf()
-            self.dbfilter = partman.Page(self)
+            ui = self.pages[self.pagesindex].ui
+            self.dbfilter = self.pages[self.pagesindex].filter_class(self, ui=ui)
             self.set_current_page(self.previous_partitioning_page)
             self.ui.next.setText(self.get_string("next").replace('_', '&', 1))
             self.ui.next.setIcon(self.forwardIcon)
