@@ -232,7 +232,7 @@ class TreeItem:
     def partman_column_format_toggled(self, unused_value):
         if not self.controller.allowed_change_step():
             return
-        if not isinstance(self.controller.dbfilter, Page):
+        if not hasattr(self.controller.dbfilter, 'edit_partition'):
             return
         devpart = self.itemData[0]
         partition = self.itemData[1]

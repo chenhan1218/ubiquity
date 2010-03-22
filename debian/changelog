@@ -3,6 +3,8 @@ ubiquity (2.2.7) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Add inactive labels to the user setup page (LP: #537986).
   * Fix KDE frontend's return_to_partitioning function.
+  * Fix the KDE frontend's format button on the advanced partitioning
+    page.
 
   [ Mario Limonciello ]
   * Return True for set_page, restoring UI only page functionality.
