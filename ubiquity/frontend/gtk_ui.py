@@ -486,8 +486,6 @@ class Wizard(BaseFrontend):
                 self.start_debconf()
                 self.dbfilter = self.pages[self.pagesindex].filter_class(self, ui=ui)
 
-                # Non-debconf steps are no longer possible as the interface is now
-                # driven by whether there is a question to ask.
                 if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                     self.allow_change_step(False)
                     glib.idle_add(lambda: self.dbfilter.start(auto_process=True))
@@ -878,6 +876,7 @@ class Wizard(BaseFrontend):
             self.allow_go_backward(False)
         elif 'UBIQUITY_AUTOMATIC' not in os.environ:
             self.allow_go_backward(True)
+        return True
 
     def set_focus(self):
         # Make sure that something reasonable has the focus.  If the first
