@@ -337,6 +337,27 @@ EndSection
                             stdin=null, stdout=logfile, stderr=logfile))
                 fp.close()
         elif self.frontend == 'kde_ui':
+            # Don't show the background image in v1 accessibility profile.
+            path = '/usr/share/wallpapers/Ethais/contents/images/1920x1200.png'
+            with open('/proc/cmdline', 'r') as fp:
+                if (os.access(path, os.R_OK)
+                    and not 'access=v1' in fp.readline()):
+                    # Draw a background image for the install progress window.
+                    from PyQt4.QtCore import Qt
+                    from PyQt4 import QtGui
+                    a = QtGui.QApplication(sys.argv)
+                    root_win = a.desktop()
+                    wallpaper = QtGui.QPixmap(path)
+                    wallpaper = wallpaper.scaled(root_win.width(),
+                        root_win.height(), Qt.KeepAspectRatioByExpanding,
+                        Qt.SmoothTransformation)
+                    palette = QtGui.QPalette()
+                    palette.setBrush(root_win.backgroundRole(),
+                                     QtGui.QBrush(wallpaper))
+                    root_win.setPalette(palette)
+                    root_win.setCursor(Qt.ArrowCursor)
+                    a.processEvents()
+
             subprocess.call(
                 ['kwriteconfig', '--file', 'kwinrc', '--group', 'Compositing',
                                  '--key', 'Enabled', 'false'],

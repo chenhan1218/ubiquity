@@ -1,3 +1,10 @@
+ubiquity (2.2.8) UNRELEASED; urgency=low
+
+  * Set a wallpaper and cursor for the KDE frontend when in only-
+    ubiquity mode (LP: #540933, LP: #540339).  Thanks Roman Shtylman!
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 23 Mar 2010 17:41:49 +0000
+
 ubiquity (2.2.7) lucid; urgency=low
 
   [ Evan Dandrea ]
