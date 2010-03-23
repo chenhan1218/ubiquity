@@ -3,6 +3,8 @@ ubiquity (2.2.8) UNRELEASED; urgency=low
   * Set a wallpaper and cursor for the KDE frontend when in only-
     ubiquity mode (LP: #540933, LP: #540339).  Thanks Roman Shtylman!
   * Add a password strength meter (LP: #537995).
+  * Modify the install progress window to match the new theme
+    (LP: #538411).
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 23 Mar 2010 17:41:49 +0000
 

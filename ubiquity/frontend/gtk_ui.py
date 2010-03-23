@@ -230,6 +230,9 @@ class Wizard(BaseFrontend):
 
         # load the main interface
         self.builder.add_from_file('%s/ubiquity.ui' % UIDIR)
+        
+        # load the main install window
+        self.builder.add_from_file('%s/install_window.ui' % UIDIR)
 
         self.builders = [self.builder]
         self.pages = []
@@ -597,6 +600,13 @@ class Wizard(BaseFrontend):
 
         # set initial bottom bar status
         self.allow_go_backward(False)
+        
+        # Set the install window to the (presumably dark) theme colors.
+        a = gtk.Menu().rc_get_style()
+        bg = a.bg[gtk.STATE_NORMAL]
+        fg = a.fg[gtk.STATE_NORMAL]
+        self.install_progress_window.modify_bg(gtk.STATE_NORMAL, bg)
+        self.install_progress_info.modify_fg(gtk.STATE_NORMAL, fg)
 
     def poke_screensaver(self):
         """Attempt to make sure that the screensaver doesn't kick in."""
@@ -904,6 +914,23 @@ class Wizard(BaseFrontend):
 
     # Methods
 
+    def switch_progress_windows(self, use_install_window=True):
+        if use_install_window:
+            self.old_progress_window = self.debconf_progress_window
+            self.old_progress_info = self.progress_info
+            self.old_progress_bar = self.progress_bar
+            self.old_progress_cancel_button = self.progress_cancel_button
+            
+            self.debconf_progress_window = self.install_progress_window
+            self.progress_info = self.install_progress_info
+            self.progress_bar = self.install_progress_bar
+            self.progress_cancel_button = self.install_progress_cancel_button
+        else:
+            self.debconf_progress_window = self.old_progress_window
+            self.progress_info = self.old_progress_info
+            self.progress_bar = self.old_progress_bar
+            self.progress_cancel_button = self.old_progress_cancel_button
+
     def progress_loop(self):
         """prepare, copy and config the system in the core install process."""
         self.installing = True
@@ -911,6 +938,7 @@ class Wizard(BaseFrontend):
         syslog.syslog('progress_loop()')
 
         self.live_installer.hide()
+        self.switch_progress_windows(use_install_window=True)
 
         slideshow_dir = '/usr/share/ubiquity-slideshow'
         slideshow_locale = self.slideshow_get_available_locale(slideshow_dir, self.locale)
@@ -941,7 +969,7 @@ class Wizard(BaseFrontend):
                         'enable-file-access-from-file-uris', True)
                     webview.open(slides)
                     self.slideshow_frame.add(webview)
-                    webview.set_size_request(700, 420)
+                    webview.set_size_request(798, 500)
                     webview.connect('new-window-policy-decision-requested',
                                     self.on_slideshow_link_clicked)
                     self.slideshow_frame.show_all()
@@ -1261,6 +1289,7 @@ class Wizard(BaseFrontend):
         if self.installing and not self.installing_no_return:
             # Go back to the partitioner and try again.
             self.slideshow_frame.hide()
+            self.switch_progress_windows(use_install_window=False)
             self.live_installer.show()
             self.pagesindex = -1
             for page in self.pages:

@@ -301,6 +301,7 @@
     <child>
       <object class="GtkVBox" id="vbox35">
         <property name="visible">True</property>
+        <property name="orientation">vertical</property>
         <property name="spacing">6</property>
         <child>
           <object class="GtkLabel" id="progress_title">
@@ -368,21 +369,6 @@
           <packing>
             <property name="expand">False</property>
             <property name="position">2</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkFrame" id="slideshow_frame">
-            <property name="label_xalign">0</property>
-            <property name="shadow_type">in</property>
-            <child>
-              <placeholder/>
-            </child>
-            <child type="label_item">
-              <placeholder/>
-            </child>
-          </object>
-          <packing>
-            <property name="position">3</property>
           </packing>
         </child>
       </object>
