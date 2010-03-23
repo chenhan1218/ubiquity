@@ -66,6 +66,7 @@ script
     setterm -blank 0
 
     if [ -n "$noninteractive" ]; then
+	plymouth quit || :
 	exec ubiquity noninteractive $debug
     else
 	if ! ubiquity-dm vt7 :0 ubuntu /usr/bin/ubiquity $debug $automatic $choose --only; then

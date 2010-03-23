@@ -11,6 +11,8 @@ ubiquity (2.2.7) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Return True for set_page, restoring UI only page functionality.
+  * Quit plymouth before running ubiquity in noninteractive from the
+    upstart job.
 
  -- Evan Dandrea <evand@ubuntu.com>  Sat, 20 Mar 2010 11:05:09 +0000
 
