@@ -324,60 +324,69 @@
                         <property name="xalign">0</property>
                         <property name="left_padding">12</property>
                         <child>
-                          <object class="GtkVBox" id="vbox18">
+                          <object class="GtkHBox" id="hbox6">
                             <property name="visible">True</property>
-                            <property name="orientation">vertical</property>
-                            <property name="spacing">6</property>
+                            <property name="spacing">12</property>
                             <child>
-                              <object class="GtkHBox" id="hbox6">
+                              <object class="GtkHBox" id="hbox7">
                                 <property name="visible">True</property>
-                                <property name="spacing">12</property>
+                                <property name="spacing">6</property>
+                                <property name="homogeneous">True</property>
                                 <child>
-                                  <object class="GtkHBox" id="hbox7">
+                                  <object class="LabelledEntry" id="password">
                                     <property name="visible">True</property>
-                                    <property name="spacing">6</property>
-                                    <property name="homogeneous">True</property>
-                                    <child>
-                                      <object class="LabelledEntry" id="password">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="visibility">False</property>
-                                        <property name="invisible_char">&#x25CF;</property>
-                                        <property name="activates_default">True</property>
-                                        <property name="width_chars">20</property>
-                                        <signal name="changed" handler="info_loop"/>
-                                      </object>
-                                      <packing>
-                                        <property name="position">0</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="LabelledEntry" id="verified_password">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="visibility">False</property>
-                                        <property name="invisible_char">&#x25CF;</property>
-                                        <property name="activates_default">True</property>
-                                        <property name="width_chars">20</property>
-                                        <signal name="changed" handler="info_loop"/>
-                                      </object>
-                                      <packing>
-                                        <property name="position">1</property>
-                                      </packing>
-                                    </child>
+                                    <property name="can_focus">True</property>
+                                    <property name="visibility">False</property>
+                                    <property name="invisible_char">&#x25CF;</property>
+                                    <property name="activates_default">True</property>
+                                    <property name="width_chars">20</property>
+                                    <signal name="changed" handler="info_loop"/>
                                   </object>
                                   <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">False</property>
                                     <property name="position">0</property>
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkHBox" id="hbox3">
+                                  <object class="LabelledEntry" id="verified_password">
                                     <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="visibility">False</property>
+                                    <property name="invisible_char">&#x25CF;</property>
+                                    <property name="activates_default">True</property>
+                                    <property name="width_chars">20</property>
+                                    <signal name="changed" handler="info_loop"/>
+                                  </object>
+                                  <packing>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">False</property>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkHBox" id="hbox3">
+                                <property name="visible">True</property>
+                                <child>
+                                  <object class="GtkLabel" id="password_valid">
+                                    <property name="visible">True</property>
+                                    <property name="xalign">0</property>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkHBox" id="password_error_box">
+                                    <property name="spacing">6</property>
                                     <child>
-                                      <object class="GtkImage" id="password_valid_image">
-                                        <property name="stock">gtk-yes</property>
+                                      <object class="GtkImage" id="password_error_image">
+                                        <property name="visible">True</property>
+                                        <property name="stock">gtk-dialog-error</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -385,34 +394,15 @@
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkHBox" id="password_error_box">
-                                        <property name="spacing">6</property>
-                                        <child>
-                                          <object class="GtkImage" id="password_error_image">
-                                            <property name="visible">True</property>
-                                            <property name="stock">gtk-dialog-error</property>
-                                          </object>
-                                          <packing>
-                                            <property name="expand">False</property>
-                                            <property name="position">0</property>
-                                          </packing>
-                                        </child>
-                                        <child>
-                                          <object class="GtkLabel" id="password_error_reason">
-                                            <property name="visible">True</property>
-                                            <property name="xalign">0</property>
-                                            <property name="wrap">True</property>
-                                            <property name="selectable">True</property>
-                                          </object>
-                                          <packing>
-                                            <property name="expand">False</property>
-                                            <property name="fill">False</property>
-                                            <property name="position">1</property>
-                                          </packing>
-                                        </child>
+                                      <object class="GtkLabel" id="password_error_reason">
+                                        <property name="visible">True</property>
+                                        <property name="xalign">0</property>
+                                        <property name="wrap">True</property>
+                                        <property name="selectable">True</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
+                                        <property name="fill">False</property>
                                         <property name="position">1</property>
                                       </packing>
                                     </child>
@@ -425,23 +415,6 @@
                               </object>
                               <packing>
                                 <property name="expand">False</property>
-                                <property name="position">0</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkLabel" id="password_extra_label">
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="xalign">0</property>
-                                <property name="yalign">0</property>
-                                <property name="label" translatable="yes">&lt;small&gt;Enter the same password twice, so that it can be checked for typing errors. A good password will contain a mixture of letters, numbers and punctuation, should be at least eight characters long, and should be changed at regular intervals.&lt;/small&gt;</property>
-                                <property name="use_markup">True</property>
-                                <property name="wrap">True</property>
-                                <property name="selectable">True</property>
-                              </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">False</property>
                                 <property name="position">1</property>
                               </packing>
                             </child>

@@ -224,13 +224,25 @@ Template: ubiquity/text/password_debug_warning_label
 Type: text
 _Description: You are running in debugging mode. Do not use a valuable password!
 
-Template: ubiquity/text/password_extra_label
+Template: ubiquity/text/password/too_short
 Type: text
-_Description:
- Enter the same password twice, so that it can be checked for typing errors.
- A good password will contain a mixture of letters, numbers and punctuation,
- should be at least eight characters long, and should be changed at regular
- intervals.
+_Description: Strength: too short
+
+Template: ubiquity/text/password/weak
+Type: text
+_Description: Strength: weak
+
+Template: ubiquity/text/password/fair
+Type: text
+_Description: Strength: fair
+
+Template: ubiquity/text/password/good
+Type: text
+_Description: Strength: good
+
+Template: ubiquity/text/password/strong
+Type: text
+_Description: Strength: strong
 
 Template: ubiquity/text/hostname_label
 Type: text
