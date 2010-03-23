@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-09 12:16+0000\n"
-"PO-Revision-Date: 2009-10-20 22:52+0000\n"
-"Last-Translator: Aron Xu <Unknown>\n"
+"POT-Creation-Date: 2010-03-23 11:32+0000\n"
+"PO-Revision-Date: 2010-03-13 06:51+0000\n"
+"Last-Translator: Jimhu <jimhuyiwei@yahoo.com.cn>\n"
 "Language-Team: Simplified Chinese <debian-chinese-gb@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-02-12 18:00+0000\n"
+"X-Launchpad-Export-Date: 2010-03-23 11:04+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -45,7 +45,7 @@ msgstr "手动指定分区(高级)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:192001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:197001
 msgid "Install"
 msgstr "安装"
 
@@ -101,34 +101,31 @@ msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
 msgstr ""
+"您可以在这张 ${MEDIUM} 上试用 ${RELEASE}，这不会对您的系统做出任何修改。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Try ${RELEASE}"
-msgstr ""
+msgstr "试用 ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Install ${RELEASE}"
-msgstr ""
+msgstr "安装 ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "Ready to install? Once you answer a few questions, the contents of the "
-#| "live CD can be installed on this computer so you can run the system at "
-#| "full speed and without the CD."
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
-"准备好进行安装了吗？在回答几个问题之后，Live CD 的内容就可以安装到计算机上，"
-"您就可以全速运行系统而不再需要这张 CD 了。"
+"准备好安装了吗？一旦您完成回答几个问题，这张 Live ${MEDIUM} 上的内容就可以被"
+"安装到这台计算机上。这样您便可以不再需要这张 ${MEDIUM}，并且以全速来运行 "
+"${RELEASE}。"
 
 #. Type: text
 #. Description
@@ -137,18 +134,20 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
+"您可能希望阅读 <a href=\"release-notes\">发行注记</a> 或者 <a href=\"update"
+"\">更新安装程序</a>。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr ""
+msgstr "您可能希望阅读 <a href=\"release-notes\">发行注记</a>。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr ""
+msgstr "您可能希望 <a href=\"update\">更新安装程序</a>。"
 
 #. Type: text
 #. Description
@@ -158,6 +157,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2010."
 msgstr ""
+"这是一个与发行的 ${RELEASE} Live ${MEDIUM} 安装程序。这并不是最终的发行版本；"
+"最终正式发行的 ${RELEASE} 将会在 2010 年 4 月发布。"
 
 #. Type: text
 #. Description
@@ -167,6 +168,8 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
+"安装进程中可能会在您的硬盘上改变分区大小或者擦除分区。请确保在开始运行这个程"
+"序之前 <b>备份所有重要数据</b>。"
 
 #. Type: text
 #. Description
@@ -231,43 +234,43 @@ msgstr "选择您的："
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Guess keymap:"
-msgstr ""
+msgstr "猜测键盘布局："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Guess..."
-msgstr ""
+msgstr "猜测..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Please press one of the following keys:"
-msgstr ""
+msgstr "请按如下按键："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Is the following key present on your keyboard?"
-msgstr ""
+msgstr "您的键盘上有下面这些按键吗？"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Layout:"
-msgstr ""
+msgstr "布局："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Variant:"
-msgstr ""
+msgstr "变种："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Below is an image of your current layout:"
-msgstr ""
+msgstr "下面是您当前布局的图像："
 
 #. Type: text
 #. Description
@@ -284,12 +287,26 @@ msgstr "您的名字是？"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
+msgid "Full Name"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:41001
 msgid "What name do you want to use to log in?"
 msgstr "您想用什么名字作为登录名？"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:41001
+#: ../ubiquity.templates:42001
+#, fuzzy
+#| msgid "MySQL User Name"
+msgid "Username"
+msgstr "MySQL 用户名"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:43001
 msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
@@ -297,19 +314,35 @@ msgstr "如果有多个用户使用本计算机，您可以在完成安装后建
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:42001
+#: ../ubiquity.templates:44001
 msgid "Choose a password to keep your account safe."
 msgstr "选择一个密码来确保您的帐户安全。"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:43001
+#: ../ubiquity.templates:45001
+#, fuzzy
+#| msgid "MySQL Password"
+msgid "Password"
+msgstr "MySQL 密码"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:46001
+#, fuzzy
+#| msgid "Choose another password"
+msgid "Re-enter password"
+msgstr "选择另一个密码"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:47001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr "您正在以调试模式运行。请勿使用重要密码！"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:48001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors. "
 "A good password will contain a mixture of letters, numbers and punctuation, "
@@ -321,13 +354,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:49001
 msgid "What is the name of this computer?"
 msgstr "这台计算机的名称是什么？"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:50001
+msgid "Computer Name"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:51001
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
@@ -335,37 +374,37 @@ msgstr "如果您让网络上的其他人看到这台计算机，那么将使用
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:52001
 msgid "Log in automatically"
 msgstr "自动登录"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:53001
 msgid "Require my password to log in"
 msgstr "登录时需要密码"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:54001
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr "登录时需要密码并且加密我的主目录"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:55001
 msgid "Choose another password"
 msgstr "选择另一个密码"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:56001
 msgid "Migrate documents and settings"
 msgstr "迁移文档和设置"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:57001
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
@@ -373,7 +412,7 @@ msgstr "选择您想要导入的帐号。这些帐号中的文档和设置将在
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:57001
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
@@ -381,50 +420,50 @@ msgstr "如果您不希望导入任何帐户，那么请不要选中任何东西
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:58001
 msgid "Prepare disk space"
 msgstr "准备硬盘空间"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:59001
 msgid "How do you want to partition the disk?"
 msgstr "您希望如何对硬盘分区？"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:60001
 msgid "This computer has no operating systems on it."
 msgstr "这台计算机没有安装操作系统。"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:61001
 msgid "This computer has ${OS} on it."
 msgstr "这台计算机已安装了 ${OS} 操作系统。"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:62001
 msgid "This computer has several operating systems on it."
 msgstr "这台计算机安装了若干个操作系统。"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:63001
 msgid "Where do you want to put ${RELEASE}?"
 msgstr "您要将 ${RELEASE} 安装在哪里？"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:64001
 msgid "Prepare partitions"
 msgstr "准备分区"
 
 #. Type: text
 #. Description
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:65001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
 msgstr "这将会删除 ${SYSTEMS} 然后安装 ${RELEASE}。"
 
@@ -432,26 +471,26 @@ msgstr "这将会删除 ${SYSTEMS} 然后安装 ${RELEASE}。"
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:61001 ../ubiquity.templates:121001
+#: ../ubiquity.templates:66001 ../ubiquity.templates:126001
 msgid "Ready to install"
 msgstr "准备开始安装"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:67001
 msgid "Details"
 msgstr "详情"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:68001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr "您的新操作系统将会使用下列选项安装："
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:69001
 msgid "Advanced..."
 msgstr "高级..."
 
@@ -459,100 +498,100 @@ msgstr "高级..."
 #. Description
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:70001
 msgid "Install[ action ]"
 msgstr "安装"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:71001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr "第 ${INDEX} 步(共 ${TOTAL} 步)"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:72001
 msgid "Quit the installation?"
 msgstr "退出安装？"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:73001
 msgid "Do you really want to quit the installation now?"
 msgstr "您确定现在要退出安装吗？"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
-msgid "Bootloader install failed"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:70001
-msgid ""
-"Sorry, an error occurred and it was not possible to install the bootloader "
-"at the specified location."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:71001
-msgid "Choose a different device to install the bootloader on:"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:72001
-msgid "Continue without a bootloader."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:73001
-msgid ""
-"You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr ""
-
-#. Type: text
-#. Description
 #: ../ubiquity.templates:74001
-msgid "Cancel the installation."
-msgstr ""
+msgid "Bootloader install failed"
+msgstr "启动程序安装失败"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:75001
-msgid "This may leave your computer unable to boot."
-msgstr ""
+msgid ""
+"Sorry, an error occurred and it was not possible to install the bootloader "
+"at the specified location."
+msgstr "对不起，发生了一个错误，不能在指定的地方安装启动程序。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76001
-msgid "How would you like to proceed?"
-msgstr ""
+msgid "Choose a different device to install the bootloader on:"
+msgstr "选择另一个设备来安装启动程序："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
+msgid "Continue without a bootloader."
+msgstr "继续并且不安装启动程序。"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:78001
+msgid ""
+"You will need to manually install a bootloader in order to start ${RELEASE}."
+msgstr "您将必须手动安装一个启动程序来启动 &{RELEASE}。"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:79001
+msgid "Cancel the installation."
+msgstr "取消安装。"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:80001
+msgid "This may leave your computer unable to boot."
+msgstr "这可能导致您的计算机无法启动。"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:81001
+msgid "How would you like to proceed?"
+msgstr "您希望如何处理？"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:82001
 msgid "Skip"
 msgstr "跳过"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:83001
 msgid "Installation Complete"
 msgstr "安装完毕"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:84001
 msgid "Continue Testing"
 msgstr "继续测试"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:85001
 msgid "Restart Now"
 msgstr "现在重启"
 
@@ -560,13 +599,13 @@ msgstr "现在重启"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:81001 ../ubiquity.templates:82001
+#: ../ubiquity.templates:86001 ../ubiquity.templates:87001
 msgid "Installer crashed"
 msgstr "安装程序崩溃"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:88001
 msgid ""
 "We're sorry; the installer crashed. Please file a new bug report at https://"
 "launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
@@ -584,7 +623,7 @@ msgstr ""
 #. Description
 #. Displayed next to a graphical bar depicting the state of the disk before
 #. automatic partitioning.
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:89001
 msgid "Before:"
 msgstr "之前："
 
@@ -592,57 +631,55 @@ msgstr "之前："
 #. Description
 #. Displayed next to a graphical bar depicting the state of the disk after
 #. automatic partitioning.
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:90001
 msgid "After:"
 msgstr "之后："
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:91001
 msgid "New Partition Table..."
 msgstr "新建分区表..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:92001
 msgid "Add..."
 msgstr "添加..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:93001
 msgid "Change..."
 msgstr "更改..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:94001
 msgid "Delete"
 msgstr "删除"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:95001
 msgid "Revert"
 msgstr "还原"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:91001
-#, fuzzy
-#| msgid "Create partition"
+#: ../ubiquity.templates:96001
 msgid "Recalculating partitions..."
-msgstr "创建分区"
+msgstr "正在重新计算分区..."
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:97001
 msgid "Device"
 msgstr "设备"
 
@@ -650,28 +687,28 @@ msgstr "设备"
 #. Description
 #. A column heading in the partitioner. Indicates how the partition is to be
 #. used (ext2, swap, etc.).
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:98001
 msgid "Type"
 msgstr "类型"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:99001
 msgid "Mount point"
 msgstr "挂载点"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:100001
 msgid "Format?"
 msgstr "格式化？"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:101001
 msgid "Size"
 msgstr "大小"
 
@@ -679,27 +716,27 @@ msgstr "大小"
 #. Description
 #. A column heading in the partitioner. Indicates how much of the space on
 #. this partition is used by data.
-#: ../ubiquity.templates:97001
+#: ../ubiquity.templates:102001
 msgid "Used"
 msgstr "已用"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
-#: ../ubiquity.templates:98001
+#: ../ubiquity.templates:103001
 msgid "free space"
 msgstr "空闲"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
-#: ../ubiquity.templates:99001
+#: ../ubiquity.templates:104001
 msgid "unknown"
 msgstr "未知"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:105001
 msgid "Create partition"
 msgstr "创建分区"
 
@@ -707,97 +744,97 @@ msgstr "创建分区"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:101001 ../ubiquity.templates:108001
+#: ../ubiquity.templates:106001 ../ubiquity.templates:113001
 msgid "New partition size in megabytes (1000000 bytes):"
 msgstr "新建分区容量(MB)："
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:107001
 msgid "Beginning"
 msgstr "起始"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:103001
+#: ../ubiquity.templates:108001
 msgid "End"
 msgstr "结束"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:104001
+#: ../ubiquity.templates:109001
 msgid "Primary"
 msgstr "主分区"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:105001
+#: ../ubiquity.templates:110001
 msgid "Logical"
 msgstr "逻辑分区"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:106001
+#: ../ubiquity.templates:111001
 msgid "Edit partition"
 msgstr "编辑分区"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:107001
+#: ../ubiquity.templates:112001
 msgid "Edit a partition"
 msgstr "编辑一个分区"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:109001
+#: ../ubiquity.templates:114001
 msgid "Advanced Options"
 msgstr "高级选项"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:115001
 msgid "Boot loader"
 msgstr "引导程序"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:111001
+#: ../ubiquity.templates:116001
 msgid "Install boot loader"
 msgstr "安装引导程序"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:112001
+#: ../ubiquity.templates:117001
 msgid "Popularity contest"
 msgstr "流行度对比"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:113001
+#: ../ubiquity.templates:118001
 msgid "Participate in the package usage survey"
 msgstr "参加软件包使用调查"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:114001
+#: ../ubiquity.templates:119001
 msgid "Network proxy"
 msgstr "网络代理"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:115001
+#: ../ubiquity.templates:120001
 msgid "HTTP proxy:"
 msgstr "HTTP 代理："
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:116001
+#: ../ubiquity.templates:121001
 msgid "Port:"
 msgstr "端口："
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:117001
+#: ../ubiquity.templates:122001
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
@@ -809,20 +846,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:118001
+#: ../ubiquity.templates:123001
 msgid "Go Back"
 msgstr "后退"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:119001
+#: ../ubiquity.templates:124001
 msgid "Continue"
 msgstr "继续"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:120001
+#: ../ubiquity.templates:125001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
@@ -830,7 +867,7 @@ msgstr "安装完毕。您需要重新启动计算机以使用新安装的系统
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:121001
+#: ../ubiquity.templates:126001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -850,37 +887,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:122001
+#: ../ubiquity.templates:127001
 msgid "Verifying the installation configuration..."
-msgstr ""
+msgstr "正在验证安装配置..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:123001
+#: ../ubiquity.templates:128001
 msgid "Installing system"
 msgstr "正在安装系统"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:124001
+#: ../ubiquity.templates:129001
 msgid "Finding the distribution to copy..."
 msgstr "正在寻找要复制的发行版..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:126001
+#: ../ubiquity.templates:131001
 msgid "Scanning files..."
 msgstr "正在扫描文件..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:127001
+#: ../ubiquity.templates:132001
 msgid "Copying files..."
 msgstr "正在复制文件..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:133001
 msgid "Almost finished copying files..."
 msgstr "正在完成文件复制..."
 
@@ -894,9 +931,9 @@ msgstr "正在完成文件复制..."
 #. Description
 #. Type: select
 #. Description
-#: ../ubiquity.templates:129001 ../ubiquity.templates:130001
-#: ../ubiquity.templates:131001 ../ubiquity.templates:132001
-#: ../ubiquity.templates:133001
+#: ../ubiquity.templates:134001 ../ubiquity.templates:135001
+#: ../ubiquity.templates:136001 ../ubiquity.templates:137001
+#: ../ubiquity.templates:138001
 msgid "Installation Failed"
 msgstr "安装失败"
 
@@ -908,14 +945,14 @@ msgstr "安装失败"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:129001 ../ubiquity.templates:130001
-#: ../ubiquity.templates:131001 ../ubiquity.templates:132001
+#: ../ubiquity.templates:134001 ../ubiquity.templates:135001
+#: ../ubiquity.templates:136001 ../ubiquity.templates:137001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr "安装程序向硬盘复制文件时遇到错误："
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:129001
+#: ../ubiquity.templates:134001
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
@@ -926,7 +963,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:130001
+#: ../ubiquity.templates:135001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -937,7 +974,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:131001
+#: ../ubiquity.templates:136001
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -954,7 +991,7 @@ msgstr ""
 #. Description
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
-#: ../ubiquity.templates:132001 ../ubiquity.templates:133001
+#: ../ubiquity.templates:137001 ../ubiquity.templates:138001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -969,145 +1006,145 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../ubiquity.templates:133001
+#: ../ubiquity.templates:138001
 msgid "The following file did not match its source copy on the CD/DVD:"
 msgstr "CD/DVD 中的以下文件与原始文件不同："
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:139001
 msgid "Copying installation logs..."
 msgstr "正在复制安装日志..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:135001
+#: ../ubiquity.templates:140001
 msgid "Configuring target system..."
 msgstr "正在配置目标系统..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:136001
+#: ../ubiquity.templates:141001
 msgid "Configuring system locales..."
 msgstr "正在配置区域设置..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:137001
+#: ../ubiquity.templates:142001
 msgid "Configuring apt..."
 msgstr "正在配置 APT..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:138001
+#: ../ubiquity.templates:143001
 msgid "Configuring time zone..."
 msgstr "正在配置时区..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:139001
+#: ../ubiquity.templates:144001
 msgid "Configuring keyboard..."
 msgstr "正在配置键盘..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:140001
+#: ../ubiquity.templates:145001
 msgid "Creating user..."
 msgstr "正在创建用户..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:141001
+#: ../ubiquity.templates:146001
 msgid "Importing documents and settings..."
 msgstr "正在导入文档和设置..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:142001
+#: ../ubiquity.templates:147001
 msgid "Configuring hardware..."
 msgstr "正在配置硬件..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:143001
+#: ../ubiquity.templates:148001
 msgid "Configuring network..."
 msgstr "正在配置网络..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:144001
+#: ../ubiquity.templates:149001
 msgid "Setting computer name..."
 msgstr "正在设置计算机名..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:145001
+#: ../ubiquity.templates:150001
 msgid "Configuring boot loader..."
 msgstr "正在配置引导程序..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:146001
+#: ../ubiquity.templates:151001
 msgid "Installing additional packages..."
 msgstr "正在安装附加软件包..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:147001
+#: ../ubiquity.templates:152001
 msgid "Checking for packages to install..."
 msgstr "正在检查要安装的软件包..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:148001
+#: ../ubiquity.templates:153001
 msgid "Removing extra packages..."
 msgstr "正在删除额外的软件包..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:149001
+#: ../ubiquity.templates:154001
 msgid "Checking for packages to remove..."
 msgstr "正在检查要删除的软件包…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:150001
+#: ../ubiquity.templates:155001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "正在下载软件包(剩余时间 ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:151001
+#: ../ubiquity.templates:156001
 msgid "Downloading package lists..."
 msgstr "正在下载软件包列表..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:152001
+#: ../ubiquity.templates:157001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "正在下载软件包列表(剩余时间 ${TIME})..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:154001
+#: ../ubiquity.templates:159001
 msgid "Error installing ${PACKAGE}"
 msgstr "安装 ${PACKAGE} 时出错"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:155001
+#: ../ubiquity.templates:160001
 msgid "Error removing ${PACKAGE}"
 msgstr "删除 ${PACKAGE} 时出错"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:156001
+#: ../ubiquity.templates:161001
 msgid "Error while installing packages"
 msgstr "安装软件包时发生错误"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:156001
+#: ../ubiquity.templates:161001
 msgid "An error occurred while installing packages:"
 msgstr "安装软件包时发生了一个错误："
 
@@ -1115,7 +1152,7 @@ msgstr "安装软件包时发生了一个错误："
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:156001 ../ubiquity.templates:157001
+#: ../ubiquity.templates:161001 ../ubiquity.templates:162001
 msgid "The following packages are in a broken state:"
 msgstr "下列软件包已损坏："
 
@@ -1123,7 +1160,7 @@ msgstr "下列软件包已损坏："
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:156001 ../ubiquity.templates:157001
+#: ../ubiquity.templates:161001 ../ubiquity.templates:162001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -1141,74 +1178,78 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:157001
+#: ../ubiquity.templates:162001
 msgid "Error while removing packages"
 msgstr "删除软件包时发生错误"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:157001
+#: ../ubiquity.templates:162001
 msgid "An error occurred while removing packages:"
 msgstr "删除软件包时发生了一个错误："
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:158001
+#: ../ubiquity.templates:163001
 msgid "Error migrating documents and settings"
-msgstr ""
+msgstr "迁移文档和设置时发生错误"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:158001
+#: ../ubiquity.templates:163001
 msgid ""
 "An error occurred while migrating data.  More details may be found in /var/"
 "log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"在迁移数据时发生了一个错误。更多细节请参阅 /var/log/syslog。安装程序将会继"
+"续，但是您请求的部分或者全部文档或者设置可能不会迁移到新安装的系统上。"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:159001
+#: ../ubiquity.templates:164001
 msgid "Error copying network configuration"
-msgstr ""
+msgstr "复制网络配置错误"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:159001
+#: ../ubiquity.templates:164001
 msgid ""
 "An error occurred while copying the network settings.  The installation will "
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"在复制网络设置时发生一个错误。安装程序将会继续，但是您必须在新安装的系统上再"
+"次设置网络配置。"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:168001
 msgid "Calculating files to skip copying..."
 msgstr "正在计算要跳过复制的文件..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:164001
+#: ../ubiquity.templates:169001
 msgid "Installing language packs"
 msgstr "正在安装语言包"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:165001
+#: ../ubiquity.templates:170001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "正在下载语言包(剩余 ${TIME})..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:179001
 msgid "Failed to unmount partitions"
 msgstr "卸载分区失败"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:179001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -1216,33 +1257,33 @@ msgstr "安装程序需要更改分区表，但未能实现，因为不能卸载
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:179001
 msgid "Please close any applications using these mount points."
 msgstr "请关闭所有正在使用这些挂载点的应用程序。"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:179001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "您是否想让安装程序再次尝试卸载这些分区？"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:180001
+#: ../ubiquity.templates:185001
 msgid "Do you want to return to the partitioner?"
 msgstr "您希望返回到分区工具吗？"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:180001
+#: ../ubiquity.templates:185001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
-msgstr ""
+msgstr "您创建的部分分区太小。请确保下列分区至少有如下大小："
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:180001
+#: ../ubiquity.templates:185001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1250,234 +1291,164 @@ msgstr "如果您不回到分区工具并增加这些分区的大小，安装可
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:181001
+#: ../ubiquity.templates:186001
 msgid "System Configuration"
 msgstr "系统设置"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:187001
 msgid "Choose language"
 msgstr "选择语言"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:188001
 msgid "Network configuration"
 msgstr "网络设置"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:189001
 msgid "Software selection"
 msgstr "软件选择"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:190001
 msgid "Applying configuration"
 msgstr "正在应用设置"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:186001
+#: ../ubiquity.templates:191001
 msgid "Language"
 msgstr "语言"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:192001
 msgid "Timezone"
 msgstr "时区"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:188001
+#: ../ubiquity.templates:193001
 msgid "Keyboard"
 msgstr "键盘"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:194001
 msgid "Disk Setup"
 msgstr "磁盘配置"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:195001
 msgid "User Info"
 msgstr "用户信息"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:196001
 msgid "Summary"
 msgstr "概要"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:198001
 msgid "installation process"
 msgstr "安装进程"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
-msgid "Checking for installer updates"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:196001
-msgid "Reading package information"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:197001
-msgid "Updating package information"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:198001
-msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:199001
-msgid "File ${INDEX} of ${TOTAL}"
-msgstr ""
-
-#. Type: text
-#. Description
 #: ../ubiquity.templates:200001
-msgid "Installing update"
-msgstr ""
+msgid "Checking for installer updates"
+msgstr "正在检查安装程序更新"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
-msgid "Error updating installer"
-msgstr ""
+msgid "Reading package information"
+msgstr "正在读取软件包信息"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
-msgid "The installer encountered an error while trying to update itself:"
-msgstr ""
-
-#. Type: text
-#. Description
-#. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:202001
-msgid "USB"
-msgstr ""
+msgid "Updating package information"
+msgstr "正在更新软件包信息"
 
 #. Type: text
 #. Description
-#. Translated acronym for Compact Disc.
 #: ../ubiquity.templates:203001
-msgid "CD"
-msgstr ""
+msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
+msgstr "文件 ${INDEX} 共 ${TOTAL}，下载速度 ${SPEED}/s"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "Please choose the language used for the configuration process. This "
-#| "language will be the default language for this computer."
-msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
-msgstr "请选择配置阶段中所使用的语言，该语言将会成为这台计算机的默认语言。"
+msgid "File ${INDEX} of ${TOTAL}"
+msgstr "文件 ${INDEX} 共 ${TOTAL}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
-#, fuzzy
-#| msgid "Quit the installation?"
+msgid "Installing update"
+msgstr "正在安装更新"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:206001
+msgid "Error updating installer"
+msgstr "升级安装程序时发生错误"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:206001
+msgid "The installer encountered an error while trying to update itself:"
+msgstr "安装程序在尝试自我更新时发生一个错误："
+
+#. Type: text
+#. Description
+#. Translated acronym for Universal Serial Bus.
+#: ../ubiquity.templates:207001
+msgid "USB"
+msgstr "USB"
+
+#. Type: text
+#. Description
+#. Translated acronym for Compact Disc.
+#: ../ubiquity.templates:208001
+msgid "CD"
+msgstr "CD"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:209001
+msgid ""
+"Please choose the language to use for the install process. This\n"
+" Language will be the default language for this computer."
+msgstr ""
+"请选择安装过程中使用的语言。这\n"
+" 个语言将会成为这台计算机的默认语言。"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:210001
 msgid "Continue with installation."
-msgstr "退出安装？"
+msgstr "继续安装。"
 
 #~ msgid ""
 #~ "Please choose the language used for the installation process. This "
 #~ "language will be the default language for the final system."
 #~ msgstr "请选择安装过程使用的语言。该语言将成为最终系统的默认语言。"
 
-#~ msgid ""
-#~ "If you have Internet access, read the release notes for information on "
-#~ "problems that may affect you."
-#~ msgstr ""
-#~ "如果您能够连接到互联网，请阅读发行注记，其中包含可能会影响到您的问题的信"
-#~ "息。"
-
-#~ msgid "Release Notes"
-#~ msgstr "发行注记"
-
-#~ msgid ""
-#~ " Install Type: ${INSTALLTYPE}\n"
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " IR Remote: ${REMOTE}\n"
-#~ " IR Transmitter: ${TRANSMITTER}\n"
-#~ " Video Driver: ${VIDEO_DRIVER}\n"
-#~ " Services: ${SERVICES}"
-#~ msgstr ""
-#~ " 安装类型：${INSTALLTYPE}\n"
-#~ " 语言：${LANGUAGE}\n"
-#~ " 键盘布局：${KEYMAP}\n"
-#~ " 全名：${FULLNAME}\n"
-#~ " 登录名：${USERNAME}\n"
-#~ " 地点：${LOCATION}\n"
-#~ " 红外遥控器：${REMOTE}\n"
-#~ " 红外发送器：${TRANSMITTER}\n"
-#~ " 显卡驱动：${VIDEO_DRIVER}\n"
-#~ " 服务：${SERVICES}"
-
 #~ msgid "Installation Type"
 #~ msgstr "安装类型"
 
-#~ msgid "What type of system will this be?"
-#~ msgstr "需要什么类型的系统？"
-
-#~ msgid "Primary Backend w/ Frontend"
-#~ msgstr "首选后端 w/ 前端"
-
-#~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
-#~ msgstr ""
-#~ "对于需要用于 HPTC 应用的 MythTV 的人群，一个后端/前端复合机是最常见的安装"
-#~ "方案。该安装类型旨在作为您的家庭影院中的一个组件使用。"
-
-#~ msgid "Secondary Backend w/ Frontend"
-#~ msgstr "次选后端 w/ 前端"
-
-#~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
-#~ msgstr ""
-#~ "这将创建一个类似于主后端 w/ 前端的系统，不过将被配置以通过网络连接到一个已"
-#~ "存在的后端。"
-
 #~ msgid "Primary Backend"
 #~ msgstr "首选后端"
-
-#~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
-#~ msgstr ""
-#~ "一个纯后端机是典型仿家电功能的设计，只需要很少的维护。其会被以网络内首个后"
-#~ "端的形式被安装。"
 
 #~ msgid "Secondary Backend"
 #~ msgstr "次选后端"
@@ -1503,62 +1474,29 @@ msgstr "退出安装？"
 #~ msgid "Graphics Drivers"
 #~ msgstr "图形驱动"
 
-#~ msgid ""
-#~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
-#~ msgstr ""
-#~ "一个开源的图形驱动已经启用并用来配置您的安装。如果您想用一个不同的图形驱"
-#~ "动，您可以在这里更改。注意需要电视输出支持或 OpenGL 效果可能需要专有的图形"
-#~ "驱动。"
+#~ msgid "Click to open the Schedules Direct website"
+#~ msgstr "点击打开迅捷预定网站"
 
-#~ msgid "If you would like to configure TV-out, choose an option here:"
-#~ msgstr "如果您想配置电视输出，在这里选择一项："
+#~ msgid "Configuring additional drivers..."
+#~ msgstr "正在配置附加驱动..."
+
+#~ msgid "Configuring additional services..."
+#~ msgstr "正在配置附加服务..."
+
+#~ msgid "Configuring infrared devices..."
+#~ msgstr "配置红外设备..."
 
 #~ msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 #~ msgstr "如果启用电视输出，您还需要选择一个电视标准："
 
-#~ msgid "Master Backend Info"
-#~ msgstr "主要后端信息"
-
-#~ msgid ""
-#~ "Please enter the information necessary to contact your master backend:"
-#~ msgstr "请输入连接你的主要后端必需的信息："
-
-#~ msgid "MySQL Password"
-#~ msgstr "MySQL 密码"
-
-#~ msgid "MySQL User Name"
-#~ msgstr "MySQL 用户名"
+#~ msgid "Configuring mythtv..."
+#~ msgstr "正在配置 mythtv..."
 
 #~ msgid "MySQL Database"
 #~ msgstr "MySQL 数据库"
 
 #~ msgid "MySQL Server"
 #~ msgstr "MySQL 服务器"
-
-#~ msgid "Configure Guide Data / Backend"
-#~ msgstr "配置收视信息/后端"
-
-#~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
-#~ msgstr "安装的最后步骤需要设置您的收视信息并进行首次后端配置。"
-
-#~ msgid "Click to open the Schedules Direct website"
-#~ msgstr "点击打开迅捷预定网站"
-
-#~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
-#~ msgstr ""
-#~ "北美用户将需要设置一个迅捷预定帐户(SD)。该账户提供收视信息，只收取象征性的"
-#~ "费用。没有这个账户北美用户可能会失去很多 MythTV 的预定功能。"
-
-#~ msgid "Launch MythTV Setup"
-#~ msgstr "启动 MythTV 设置"
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
@@ -1569,14 +1507,107 @@ msgstr "退出安装？"
 #~ "在设置好收视指南信息来源后，您需要启动 MythTV 的设置来进行首次终端配置。您"
 #~ "将需要配置最前面四个部分，在第三部分时请确定提供了您的指南信息。"
 
-#~ msgid "Configuring mythtv..."
-#~ msgstr "正在配置 mythtv..."
+#~ msgid "Launch MythTV Setup"
+#~ msgstr "启动 MythTV 设置"
 
-#~ msgid "Configuring additional drivers..."
-#~ msgstr "正在配置附加驱动..."
+#~ msgid "If you would like to configure TV-out, choose an option here:"
+#~ msgstr "如果您想配置电视输出，在这里选择一项："
 
-#~ msgid "Configuring additional services..."
-#~ msgstr "正在配置附加服务..."
+#~ msgid "Primary Backend w/ Frontend"
+#~ msgstr "首选后端 w/ 前端"
 
-#~ msgid "Configuring infrared devices..."
-#~ msgstr "配置红外设备..."
+#~ msgid "Secondary Backend w/ Frontend"
+#~ msgstr "次选后端 w/ 前端"
+
+#~ msgid ""
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
+#~ "however will be configured to connect to an existing backend on the "
+#~ "network."
+#~ msgstr ""
+#~ "这将创建一个类似于主后端 w/ 前端的系统，不过将被配置以通过网络连接到一个已"
+#~ "存在的后端。"
+
+#~ msgid "What type of system will this be?"
+#~ msgstr "需要什么类型的系统？"
+
+#~ msgid ""
+#~ "Please enter the information necessary to contact your master backend:"
+#~ msgstr "请输入连接你的主要后端必需的信息："
+
+#~ msgid "Master Backend Info"
+#~ msgstr "主要后端信息"
+
+#~ msgid ""
+#~ "An open source graphics driver is already enabled and configured for your "
+#~ "installation.  If you would like to use a different graphics driver, you "
+#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
+#~ "for TV Output or OpenGL effects."
+#~ msgstr ""
+#~ "一个开源的图形驱动已经启用并用来配置您的安装。如果您想用一个不同的图形驱"
+#~ "动，您可以在这里更改。注意需要电视输出支持或 OpenGL 效果可能需要专有的图形"
+#~ "驱动。"
+
+#~ msgid ""
+#~ "The final steps of the installation require setting up your guide data "
+#~ "and configuring the backend for the first time."
+#~ msgstr "安装的最后步骤需要设置您的收视信息并进行首次后端配置。"
+
+#~ msgid "Release Notes"
+#~ msgstr "发行注记"
+
+#~ msgid ""
+#~ "If you have Internet access, read the release notes for information on "
+#~ "problems that may affect you."
+#~ msgstr ""
+#~ "如果您能够连接到互联网，请阅读发行注记，其中包含可能会影响到您的问题的信"
+#~ "息。"
+
+#~ msgid ""
+#~ " Install Type: ${INSTALLTYPE}\n"
+#~ " Language: ${LANGUAGE}\n"
+#~ " Keyboard layout: ${KEYMAP}\n"
+#~ " Name: ${FULLNAME}\n"
+#~ " Login name: ${USERNAME}\n"
+#~ " Location: ${LOCATION}\n"
+#~ " IR Remote: ${REMOTE}\n"
+#~ " IR Transmitter: ${TRANSMITTER}\n"
+#~ " Video Driver: ${VIDEO_DRIVER}\n"
+#~ " Services: ${SERVICES}"
+#~ msgstr ""
+#~ " 安装类型：${INSTALLTYPE}\n"
+#~ " 语言：${LANGUAGE}\n"
+#~ " 键盘布局：${KEYMAP}\n"
+#~ " 全名：${FULLNAME}\n"
+#~ " 登录名：${USERNAME}\n"
+#~ " 地点：${LOCATION}\n"
+#~ " 红外遥控器：${REMOTE}\n"
+#~ " 红外发送器：${TRANSMITTER}\n"
+#~ " 显卡驱动：${VIDEO_DRIVER}\n"
+#~ " 服务：${SERVICES}"
+
+#~ msgid ""
+#~ "A Backend/frontend combo machine is the most common setup for people "
+#~ "wanting MythTV for HTPC applications. This type of installation is "
+#~ "intended for use as a component in your home theatre."
+#~ msgstr ""
+#~ "对于需要用于 HPTC 应用的 MythTV 的人群，一个后端/前端复合机是最常见的安装"
+#~ "方案。该安装类型旨在作为您的家庭影院中的一个组件使用。"
+
+#~ msgid ""
+#~ "A backend only machine is typically designed to function like an "
+#~ "appliance; requiring very little maintenance.  This is intended to be "
+#~ "installed as the first backend on a network."
+#~ msgstr ""
+#~ "一个纯后端机是典型仿家电功能的设计，只需要很少的维护。其会被以网络内首个后"
+#~ "端的形式被安装。"
+
+#~ msgid ""
+#~ "Users in North America will need to setup an account with Schedules "
+#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
+#~ "North American users may lose many of the scheduling features in MythTV."
+#~ msgstr ""
+#~ "北美用户将需要设置一个迅捷预定帐户(SD)。该账户提供收视信息，只收取象征性的"
+#~ "费用。没有这个账户北美用户可能会失去很多 MythTV 的预定功能。"
+
+#~ msgid "Configure Guide Data / Backend"
+#~ msgstr "配置收视信息/后端"

@@ -14,6 +14,7 @@ ubiquity (2.2.7) UNRELEASED; urgency=low
     frontend (LP: #541829).
   * Automatic update of included source packages: grub-installer
     1.49ubuntu8.
+  * Update translations from Launchpad.
 
   [ Mario Limonciello ]
   * Return True for set_page, restoring UI only page functionality.
