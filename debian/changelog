@@ -12,6 +12,8 @@ ubiquity (2.2.7) UNRELEASED; urgency=low
     (LP: #368060).
   * Fix setting the window title when in automatic mode in the KDE
     frontend (LP: #541829).
+  * Automatic update of included source packages: grub-installer
+    1.49ubuntu8.
 
   [ Mario Limonciello ]
   * Return True for set_page, restoring UI only page functionality.
