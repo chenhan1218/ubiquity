@@ -51,6 +51,14 @@ class PageGtk(PluginUI):
             self.page = None
         self.plugin_widgets = self.page
 
+    def plugin_translate(self, lang):
+        c = self.controller
+        if c.get_string('ubiquity/imported/time-format', lang) == '12-hour':
+            fmt = c.get_string('ubiquity/imported/12-hour', lang)
+        else:
+            fmt = c.get_string('ubiquity/imported/24-hour', lang)
+        self.tzmap.set_time_format(fmt)
+
     def set_timezone(self, timezone):
         self.fill_timezone_boxes()
         self.select_city(None, timezone)

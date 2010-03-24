@@ -128,7 +128,7 @@ _Description:
 
 Template: ubiquity/text/timezone_city_label
 Type: text
-_Description: Zone:
+_Description: Time Zone:
 
 Template: ubiquity/text/timezone_zone_label
 Type: text

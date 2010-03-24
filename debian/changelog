@@ -6,6 +6,9 @@ ubiquity (2.2.8) UNRELEASED; urgency=low
   * Modify the install progress window to match the new theme
     (LP: #538411).
   * Don't show the alpha warning in OEM mode when it's disabled.
+  * Add translations for the locale's preferred time format and
+    respective format string, as imported from gnome-panel
+    (LP: #538156).
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 23 Mar 2010 17:41:49 +0000
 
