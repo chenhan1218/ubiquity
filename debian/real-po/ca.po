@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-24 22:19+0000\n"
+"POT-Creation-Date: 2010-03-24 23:25+0000\n"
 "PO-Revision-Date: 2010-02-17 11:37+0000\n"
 "Last-Translator: David Planella <Unknown>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
@@ -189,8 +189,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-msgid "Zone:"
-msgstr "Zona:"
+#, fuzzy
+#| msgid "Timezone"
+msgid "Time Zone:"
+msgstr "Fus horari"
 
 #. Type: text
 #. Description
@@ -1484,6 +1486,9 @@ msgstr ""
 #: ../ubiquity.templates:214001
 msgid "Continue with installation."
 msgstr ""
+
+#~ msgid "Zone:"
+#~ msgstr "Zona:"
 
 #~ msgid ""
 #~ "Enter the same password twice, so that it can be checked for typing "

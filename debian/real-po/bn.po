@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-24 22:19+0000\n"
+"POT-Creation-Date: 2010-03-24 23:25+0000\n"
 "PO-Revision-Date: 2010-03-23 06:22+0000\n"
 "Last-Translator: nasir khan saikat <nasir8891@gmail.com>\n"
 "Language-Team: Bangla <core@BengaLinux.Org>\n"
@@ -189,8 +189,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-msgid "Zone:"
-msgstr "অঞ্চল বা জোন:"
+#, fuzzy
+#| msgid "Timezone"
+msgid "Time Zone:"
+msgstr "সময় অঞ্চল"
 
 #. Type: text
 #. Description
@@ -1474,6 +1476,9 @@ msgstr "ইনস্টলের সময় কোন ভাষা ব্য�
 #: ../ubiquity.templates:214001
 msgid "Continue with installation."
 msgstr ""
+
+#~ msgid "Zone:"
+#~ msgstr "অঞ্চল বা জোন:"
 
 #~ msgid ""
 #~ "Enter the same password twice, so that it can be checked for typing "

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-24 22:19+0000\n"
+"POT-Creation-Date: 2010-03-24 23:25+0000\n"
 "PO-Revision-Date: 2010-03-20 16:19+0000\n"
 "Last-Translator: chhorran <khmeritforyou@gmail.com>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -180,8 +180,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-msgid "Zone:"
-msgstr ""
+#, fuzzy
+#| msgid "Timezone"
+msgid "Time Zone:"
+msgstr "ល្វែងម៉ោង"
 
 #. Type: text
 #. Description
