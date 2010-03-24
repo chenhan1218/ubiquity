@@ -448,9 +448,8 @@ class Page(Plugin):
             except debconf.DebconfError:
                 pass
 
-        if not self.ui.controller.oem_config:
-            show = self.db.get('ubiquity/show_alpha_warning') == 'true'
-            self.ui.set_alpha_warning(show)
+        show = self.db.get('ubiquity/show_alpha_warning') == 'true'
+        self.ui.set_alpha_warning(show)
 
         localechooser_script = '/usr/lib/ubiquity/localechooser/localechooser'
         if ('UBIQUITY_FRONTEND' in os.environ and

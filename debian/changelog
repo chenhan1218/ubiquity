@@ -5,6 +5,7 @@ ubiquity (2.2.8) UNRELEASED; urgency=low
   * Add a password strength meter (LP: #537995).
   * Modify the install progress window to match the new theme
     (LP: #538411).
+  * Don't show the alpha warning in OEM mode when it's disabled.
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 23 Mar 2010 17:41:49 +0000
 
