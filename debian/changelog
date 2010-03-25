@@ -8,7 +8,7 @@ ubiquity (2.2.9) UNRELEASED; urgency=low
   * Disable the context menu in the slideshow frame.  Thanks Dylan
     McCall!
   * Make sure the user we're not processing events before we've set up
-    the language list in the KDE frontend (LP: #528678).
+    the language list in the KDE frontend (LP 528678).
   * Don't try to translate the greeter with the C locale.
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 25 Mar 2010 11:15:08 +0000
