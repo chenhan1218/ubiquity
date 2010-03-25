@@ -12,6 +12,9 @@ ubiquity (2.2.9) UNRELEASED; urgency=low
   * Don't try to translate the greeter with the C locale.
   * Don't destroy the main window when the close button is pressed
     (LP: #543775).
+  * Properly handle exceptions around opening the release_notes_url file
+    in the KDE frontend (LP: #540266).  Hide the label if the release notes
+    do not exist.
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 25 Mar 2010 11:15:08 +0000
 

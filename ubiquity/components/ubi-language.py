@@ -304,9 +304,15 @@ class PageKde(PageBase):
                 self.release_notes_url = release_notes.read().rstrip('\n')
                 release_notes.close()
             except (KeyboardInterrupt, SystemExit):
+                raise
+            except:
                 pass
 
-            self.page.release_notes_label.linkActivated.connect(self.on_release_notes_link)
+            if self.release_notes_url:
+                self.page.release_notes_label.linkActivated.connect(
+                    self.on_release_notes_link)
+            else:
+                self.page.release_notes_label.hide()
 
             if not 'UBIQUITY_GREETER' in os.environ:
                 self.page.try_ubuntu.hide()
