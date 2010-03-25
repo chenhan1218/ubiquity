@@ -30,7 +30,6 @@ from ubiquity import validation
 from ubiquity.misc import execute, execute_root
 from ubiquity.plugin import *
 import debconf
-from ubiquity.frontend.gtk_components.labelled_entry import LabelledEntry
 
 NAME = 'usersetup'
 AFTER = 'console_setup'
@@ -138,6 +137,7 @@ class PageGtk(PageBase):
         self.hostname_edited = False
 
         import gtk
+        from ubiquity.frontend.gtk_components.labelled_entry import LabelledEntry
         builder = gtk.Builder()
         self.controller.add_builder(builder)
         builder.add_from_file('/usr/share/ubiquity/gtk/stepUserInfo.ui')
