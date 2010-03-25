@@ -2,7 +2,7 @@ ubiquity (2.2.9) UNRELEASED; urgency=low
 
   * Correctly feed the calculated keyboard layout back to the running
     component.  This has the side benefit of the calculated layout
-    getting selected in the treeviews.
+    getting selected in the treeviews (LP: #521831).
   * Don't try to import the GTK LabelledEntry widget in the KDE frontend
     (LP: #546792).
 
