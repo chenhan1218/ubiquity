@@ -1076,6 +1076,8 @@ class Wizard(BaseFrontend):
 
     def on_quit_clicked(self, unused_widget):
         self.warning_dialog.show()
+        # Stop processing.
+        return True
 
     def on_quit_cancelled(self, unused_widget):
         self.warning_dialog.hide()
