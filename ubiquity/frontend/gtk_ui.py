@@ -965,8 +965,9 @@ class Wizard(BaseFrontend):
                     # such as creating a XMLHttpRequest, will fail unless this
                     # is disabled.
                     # http://www.gitorious.org/webkit/webkit/commit/624b9463c33adbffa7f6705210384d0d7cf122d6
-                    webview.get_settings().set_property(
-                        'enable-file-access-from-file-uris', True)
+                    s = webview.get_settings()
+                    s.set_property('enable-file-access-from-file-uris', True)
+                    s.set_property('enable-default-context-menu', False)
                     webview.open(slides)
                     self.slideshow_frame.add(webview)
                     webview.set_size_request(798, 500)
