@@ -74,6 +74,7 @@ class PageGtk(PluginUI):
         self.calculate_keymap_label.set_label(variant)
         self.calculate_variant = variant
         self.calculate_layout = layout
+        self.controller.dbfilter.change_layout(layout)
         self.controller.dbfilter.apply_keyboard(layout, variant)
         self.controller.allow_go_forward(True)
 
@@ -125,8 +126,12 @@ class PageGtk(PluginUI):
             selection.connect('changed',
                               self.on_keyboard_layout_selected)
 
-        if self.current_layout is not None:
-            self.set_keyboard(self.current_layout)
+        if self.calculate_keymap.get_active():
+            if self.calculate_layout is not None:
+                self.set_keyboard(self.calculate_layout)
+        else:
+            if self.current_layout is not None:
+                self.set_keyboard(self.current_layout)
 
     def set_keyboard(self, layout):
         if self.default_keyboard_layout is None:
@@ -221,6 +226,7 @@ class PageGtk(PluginUI):
         if self.calculate_keymap.get_active():
             self.calculate_keymap_button.set_sensitive(True)
             if self.calculate_variant:
+                self.controller.dbfilter.change_layout(self.calculate_layout)
                 self.controller.dbfilter.apply_keyboard(self.calculate_layout,
                                                         self.calculate_variant)
             else:
