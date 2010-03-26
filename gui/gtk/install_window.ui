@@ -44,7 +44,7 @@
                     <property name="ypad">6</property>
                     <property name="label">&lt;i&gt;Progress bar info&lt;/i&gt;</property>
                     <property name="use_markup">True</property>
-                    <property name="selectable">True</property>
+                    <property name="selectable">False</property>
                     <property name="ellipsize">end</property>
                   </object>
                   <packing>

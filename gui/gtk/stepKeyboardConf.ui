@@ -13,7 +13,7 @@
         <property name="xalign">0</property>
         <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Keyboard layout&lt;/b&gt;&lt;/big&gt;</property>
         <property name="use_markup">True</property>
-        <property name="selectable">True</property>
+        <property name="selectable">False</property>
         <property name="single_line_mode">True</property>
       </object>
       <packing>
@@ -44,7 +44,7 @@
             <property name="can_focus">True</property>
             <property name="xalign">0</property>
             <property name="label" translatable="yes">Which layout is most similar to your keyboard?</property>
-            <property name="selectable">True</property>
+            <property name="selectable">False</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -248,7 +248,7 @@
                 <property name="xalign">0</property>
                 <property name="label" translatable="yes">You can type into this box to test your new keyboard layout.</property>
                 <property name="wrap">True</property>
-                <property name="selectable">True</property>
+                <property name="selectable">False</property>
               </object>
               <packing>
                 <property name="expand">False</property>

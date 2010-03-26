@@ -23,7 +23,7 @@
         <property name="xalign">0</property>
         <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Prepare partitions&lt;/b&gt;&lt;/big&gt;</property>
         <property name="use_markup">True</property>
-        <property name="selectable">True</property>
+        <property name="selectable">False</property>
       </object>
       <packing>
         <property name="expand">False</property>
@@ -65,7 +65,7 @@
                 <property name="visible">True</property>
                 <property name="xalign">0</property>
                 <property name="wrap">True</property>
-                <property name="selectable">True</property>
+                <property name="selectable">False</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -263,7 +263,7 @@
                     <property name="xalign">0</property>
                     <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Edit a partition&lt;/b&gt;&lt;/big&gt;</property>
                     <property name="use_markup">True</property>
-                    <property name="selectable">True</property>
+                    <property name="selectable">False</property>
                     <property name="single_line_mode">True</property>
                   </object>
                   <packing>
@@ -301,7 +301,7 @@
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">New partition size in megabytes (1000000 bytes):</property>
                             <property name="wrap">True</property>
-                            <property name="selectable">True</property>
+                            <property name="selectable">False</property>
                           </object>
                           <packing>
                             <property name="x_options">GTK_FILL</property>
@@ -314,7 +314,7 @@
                             <property name="can_focus">True</property>
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">Use as:</property>
-                            <property name="selectable">True</property>
+                            <property name="selectable">False</property>
                             <property name="single_line_mode">True</property>
                           </object>
                           <packing>
@@ -343,7 +343,7 @@
                             <property name="can_focus">True</property>
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">Mount point:</property>
-                            <property name="selectable">True</property>
+                            <property name="selectable">False</property>
                             <property name="single_line_mode">True</property>
                           </object>
                           <packing>
@@ -388,7 +388,7 @@
                             <property name="can_focus">True</property>
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">Format the partition:</property>
-                            <property name="selectable">True</property>
+                            <property name="selectable">False</property>
                             <property name="single_line_mode">True</property>
                           </object>
                           <packing>
@@ -502,7 +502,7 @@
                     <property name="xalign">0</property>
                     <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Create a new partition&lt;/b&gt;&lt;/big&gt;</property>
                     <property name="use_markup">True</property>
-                    <property name="selectable">True</property>
+                    <property name="selectable">False</property>
                     <property name="single_line_mode">True</property>
                   </object>
                   <packing>
@@ -539,7 +539,7 @@
                             <property name="can_focus">True</property>
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">Type for the new partition:</property>
-                            <property name="selectable">True</property>
+                            <property name="selectable">False</property>
                             <property name="single_line_mode">True</property>
                           </object>
                           <packing>
@@ -553,7 +553,7 @@
                             <property name="can_focus">True</property>
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">Mount point:</property>
-                            <property name="selectable">True</property>
+                            <property name="selectable">False</property>
                             <property name="single_line_mode">True</property>
                           </object>
                           <packing>
@@ -569,7 +569,7 @@
                             <property name="can_focus">True</property>
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">Use as:</property>
-                            <property name="selectable">True</property>
+                            <property name="selectable">False</property>
                             <property name="single_line_mode">True</property>
                           </object>
                           <packing>
@@ -586,7 +586,7 @@
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">New partition size in megabytes (1000000 bytes):</property>
                             <property name="wrap">True</property>
-                            <property name="selectable">True</property>
+                            <property name="selectable">False</property>
                           </object>
                           <packing>
                             <property name="top_attach">1</property>
@@ -627,7 +627,7 @@
                             <property name="can_focus">True</property>
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">Location for the new partition:</property>
-                            <property name="selectable">True</property>
+                            <property name="selectable">False</property>
                             <property name="single_line_mode">True</property>
                           </object>
                           <packing>

@@ -20,6 +20,8 @@ ubiquity (2.2.9) UNRELEASED; urgency=low
     (LP 539827).
   * Update DebconfInstallProgress for changes to python-apt
     (LP: #546889).
+  * Make labels unselectable now that we're in beta, per foundations-
+    lucid-installer-design-improvements.
 
   [ Colin Watson ]
   * Depend on uboot-mkimage and redboot-tools on armel, and ensure that the

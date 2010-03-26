@@ -789,7 +789,7 @@ class Wizard(BaseFrontend):
         self.dbfilter_status = None
         label = gtk.Label(text)
         label.set_line_wrap(True)
-        label.set_selectable(True)
+        label.set_selectable(False)
         dialog.vbox.add(label)
         dialog.show_all()
         response = dialog.run()
@@ -1399,7 +1399,7 @@ class Wizard(BaseFrontend):
         vbox.set_border_width(5)
         label = gtk.Label(msg)
         label.set_line_wrap(True)
-        label.set_selectable(True)
+        label.set_selectable(False)
         vbox.pack_start(label)
         vbox.show_all()
         dialog.vbox.pack_start(vbox)

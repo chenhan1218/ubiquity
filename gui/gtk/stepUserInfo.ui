@@ -13,7 +13,7 @@
         <property name="xalign">0</property>
         <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Who are you?&lt;/b&gt;&lt;/big&gt;</property>
         <property name="use_markup">True</property>
-        <property name="selectable">True</property>
+        <property name="selectable">False</property>
         <property name="single_line_mode">True</property>
         <attributes>
           <attribute name="weight" value="bold"/>
@@ -63,7 +63,7 @@
                         <property name="can_focus">True</property>
                         <property name="xalign">0</property>
                         <property name="label" translatable="yes">What is your name?</property>
-                        <property name="selectable">True</property>
+                        <property name="selectable">False</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -123,7 +123,7 @@
                                         <property name="visible">True</property>
                                         <property name="xalign">0</property>
                                         <property name="wrap">True</property>
-                                        <property name="selectable">True</property>
+                                        <property name="selectable">False</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -167,7 +167,7 @@
                         <property name="can_focus">True</property>
                         <property name="xalign">0</property>
                         <property name="label" translatable="yes">What name do you want to use to log in?</property>
-                        <property name="selectable">True</property>
+                        <property name="selectable">False</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -233,7 +233,7 @@
                                             <property name="visible">True</property>
                                             <property name="xalign">0</property>
                                             <property name="wrap">True</property>
-                                            <property name="selectable">True</property>
+                                            <property name="selectable">False</property>
                                           </object>
                                           <packing>
                                             <property name="expand">False</property>
@@ -267,7 +267,7 @@
                                 <property name="label" translatable="yes">&lt;small&gt;If more than one person will use this computer, you can set up multiple accounts after installation.&lt;/small&gt;</property>
                                 <property name="use_markup">True</property>
                                 <property name="wrap">True</property>
-                                <property name="selectable">True</property>
+                                <property name="selectable">False</property>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -299,7 +299,7 @@
                         <property name="can_focus">True</property>
                         <property name="xalign">0</property>
                         <property name="label" translatable="yes">Choose a password to keep your account safe.</property>
-                        <property name="selectable">True</property>
+                        <property name="selectable">False</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -312,7 +312,7 @@
                         <property name="xalign">0</property>
                         <property name="label" translatable="yes">&lt;b&gt;You are running in debugging mode. Do not use a valuable password!&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
-                        <property name="selectable">True</property>
+                        <property name="selectable">False</property>
                       </object>
                       <packing>
                         <property name="position">1</property>
@@ -398,7 +398,7 @@
                                         <property name="visible">True</property>
                                         <property name="xalign">0</property>
                                         <property name="wrap">True</property>
-                                        <property name="selectable">True</property>
+                                        <property name="selectable">False</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -442,7 +442,7 @@
                         <property name="can_focus">True</property>
                         <property name="xalign">0</property>
                         <property name="label" translatable="yes">What is the name of this computer?</property>
-                        <property name="selectable">True</property>
+                        <property name="selectable">False</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -508,7 +508,7 @@
                                             <property name="visible">True</property>
                                             <property name="xalign">0</property>
                                             <property name="wrap">True</property>
-                                            <property name="selectable">True</property>
+                                            <property name="selectable">False</property>
                                           </object>
                                           <packing>
                                             <property name="expand">False</property>
@@ -540,7 +540,7 @@
                                 <property name="label" translatable="yes">&lt;small&gt;This name will be used if you make the computer visible to others on a network.&lt;/small&gt;</property>
                                 <property name="use_markup">True</property>
                                 <property name="wrap">True</property>
-                                <property name="selectable">True</property>
+                                <property name="selectable">False</property>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
