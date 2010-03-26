@@ -109,8 +109,8 @@ class DebconfInstallProgress(InstallProgress):
         # InstallProgress uses a non-blocking status fd; our run()
         # implementation doesn't need that, and in fact we spin unless the
         # fd is blocking.
-        flags = fcntl.fcntl(self.statusfd.fileno(), fcntl.F_GETFL)
-        fcntl.fcntl(self.statusfd.fileno(), fcntl.F_SETFL,
+        flags = fcntl.fcntl(self.status_stream.fileno(), fcntl.F_GETFL)
+        fcntl.fcntl(self.status_stream.fileno(), fcntl.F_SETFL,
                     flags & ~os.O_NONBLOCK)
 
     def startUpdate(self):
@@ -137,7 +137,7 @@ class DebconfInstallProgress(InstallProgress):
         child_pid = self.fork()
         if child_pid == 0:
             # child
-            os.close(self.writefd)
+            os.close(self.write_stream)
             try:
                 while self.updateInterface():
                     pass
@@ -148,7 +148,7 @@ class DebconfInstallProgress(InstallProgress):
                     syslog.syslog(syslog.LOG_WARNING, line)
             os._exit(0)
 
-        self.statusfd.close()
+        self.status_stream.close()
 
         # Redirect stdin from /dev/null and stdout to stderr to avoid them
         # interfering with our debconf protocol stream.
@@ -180,10 +180,10 @@ class DebconfInstallProgress(InstallProgress):
 
         res = pm.ResultFailed
         try:
-            res = pm.DoInstall(self.writefd)
+            res = pm.DoInstall(self.write_stream.fileno())
         finally:
             # Reap the status-to-debconf subprocess.
-            os.close(self.writefd)
+            os.close(self.write_stream)
             while True:
                 try:
                     (pid, status) = os.waitpid(child_pid, 0)

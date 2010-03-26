@@ -18,6 +18,8 @@ ubiquity (2.2.9) UNRELEASED; urgency=low
     do not exist.
   * Handle window manager buttons properly in greeter mode
     (LP 539827).
+  * Update DebconfInstallProgress for changes to python-apt
+    (LP: #548852).
 
   [ Colin Watson ]
   * Depend on uboot-mkimage and redboot-tools on armel, and ensure that the
