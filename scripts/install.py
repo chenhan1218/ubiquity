@@ -591,6 +591,10 @@ class Install:
         elif (arch == 'armel' and
               subarch in ('dove', 'imx51', 'iop32x', 'ixp4xx', 'orion5x')):
             keep.add('flash-kernel')
+            if subarch == 'dove':
+                keep.add('uboot-mkimage')
+            elif subarch == 'imx51':
+                keep.add('redboot-tools')
         elif arch == 'powerpc' and subarch != 'ps3':
             keep.add('yaboot')
             keep.add('hfsutils')

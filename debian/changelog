@@ -1,5 +1,6 @@
 ubiquity (2.2.9) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Correctly feed the calculated keyboard layout back to the running
     component.  This has the side benefit of the calculated layout
     getting selected in the treeviews (LP: #521831).
@@ -15,6 +16,11 @@ ubiquity (2.2.9) UNRELEASED; urgency=low
   * Properly handle exceptions around opening the release_notes_url file
     in the KDE frontend (LP: #540266).  Hide the label if the release notes
     do not exist.
+
+  [ Colin Watson ]
+  * Depend on uboot-mkimage and redboot-tools on armel, and ensure that the
+    appropriate one for the subarchitecture is kept installed, so that
+    flash-kernel can work properly without network access (LP: #537007).
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 25 Mar 2010 11:15:08 +0000
 
