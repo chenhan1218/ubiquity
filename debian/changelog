@@ -1,4 +1,4 @@
-ubiquity (2.2.9) UNRELEASED; urgency=low
+ubiquity (2.2.9) lucid; urgency=low
 
   [ Evan Dandrea ]
   * Correctly feed the calculated keyboard layout back to the running
@@ -31,7 +31,7 @@ ubiquity (2.2.9) UNRELEASED; urgency=low
     appropriate one for the subarchitecture is kept installed, so that
     flash-kernel can work properly without network access (LP: #537007).
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 25 Mar 2010 11:15:08 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 26 Mar 2010 17:59:52 +0000
 
 ubiquity (2.2.8) lucid; urgency=low
 
