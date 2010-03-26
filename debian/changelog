@@ -23,6 +23,8 @@ ubiquity (2.2.9) UNRELEASED; urgency=low
   * Make labels unselectable now that we're in beta, per foundations-
     lucid-installer-design-improvements.
   * Make the quit warning dialog transient for the main window (modal).
+  * Automatic update of included source packages: console-setup
+    1.34ubuntu13, grub-installer 1.49ubuntu9, partman-base 139ubuntu2.
 
   [ Colin Watson ]
   * Depend on uboot-mkimage and redboot-tools on armel, and ensure that the
