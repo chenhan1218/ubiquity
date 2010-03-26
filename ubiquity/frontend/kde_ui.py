@@ -199,7 +199,7 @@ class Wizard(BaseFrontend):
         #self.ui.setWindowFlags(Qt.Window | Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowMinMaxButtonsHint)
 
         #hide the minimize button if in "install only" mode
-        if 'UBIQUITY_ONLY' in os.environ:
+        if 'UBIQUITY_ONLY' in os.environ or 'UBIQUITY_GREETER' in os.environ:
             self.ui.minimize_button.setVisible(False)
 
         self.stackLayout = QStackedLayout(self.ui.widgetStack)
@@ -867,11 +867,13 @@ class Wizard(BaseFrontend):
         if self.oem_user_config:
             self.quit()
         elif not self.get_reboot_seen():
-            if 'UBIQUITY_ONLY' in os.environ:
+            if ('UBIQUITY_ONLY' in os.environ or
+                'UBIQUITY_GREETER' in os.environ):
                 quitText = self.get_string('ubiquity/finished_restart_only')
             messageBox = QMessageBox(QMessageBox.Question, titleText, quitText, QMessageBox.NoButton, self.ui)
             messageBox.addButton(rebootButtonText, QMessageBox.AcceptRole)
-            if not 'UBIQUITY_ONLY' in os.environ:
+            if ('UBIQUITY_ONLY' not in os.environ and
+                'UBIQUITY_GREETER' not in os.environ):
                 messageBox.addButton(quitButtonText, QMessageBox.RejectRole)
             messageBox.setWindowFlags(messageBox.windowFlags() | Qt.WindowStaysOnTopHint)
             quitAnswer = messageBox.exec_()

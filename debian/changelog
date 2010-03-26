@@ -16,6 +16,8 @@ ubiquity (2.2.9) UNRELEASED; urgency=low
   * Properly handle exceptions around opening the release_notes_url file
     in the KDE frontend (LP: #540266).  Hide the label if the release notes
     do not exist.
+  * Handle window manager buttons properly in greeter mode
+    (LP 539827).
 
   [ Colin Watson ]
   * Depend on uboot-mkimage and redboot-tools on armel, and ensure that the
