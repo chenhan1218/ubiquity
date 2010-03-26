@@ -22,6 +22,7 @@ ubiquity (2.2.9) UNRELEASED; urgency=low
     (LP: #546889).
   * Make labels unselectable now that we're in beta, per foundations-
     lucid-installer-design-improvements.
+  * Make the quit warning dialog transient for the main window (modal).
 
   [ Colin Watson ]
   * Depend on uboot-mkimage and redboot-tools on armel, and ensure that the

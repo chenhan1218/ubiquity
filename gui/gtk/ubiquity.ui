@@ -188,6 +188,7 @@
     <property name="icon_name">gtk-dialog-warning</property>
     <property name="type_hint">dialog</property>
     <property name="gravity">center</property>
+    <property name="transient_for">live_installer</property>
     <signal name="realize" handler="set_window_hints"/>
     <child internal-child="vbox">
       <object class="GtkVBox" id="dialog-vbox1">
