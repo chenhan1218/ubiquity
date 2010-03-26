@@ -1,3 +1,10 @@
+ubiquity (2.2.10) UNRELEASED; urgency=low
+
+  * Fix the default language selection for when only-show-installable-languages
+    is set to true.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 26 Mar 2010 16:45:50 -0500
+
 ubiquity (2.2.9) lucid; urgency=low
 
   [ Evan Dandrea ]
