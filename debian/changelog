@@ -4,6 +4,8 @@ ubiquity (2.2.10) UNRELEASED; urgency=low
     is set to true.
   * Use the file object's close function rather than os.close in
     DebconfInstallProgress. (LP: #549478)
+  * Hide the currently active progress window when switching to the new progress
+    window.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 26 Mar 2010 16:45:50 -0500
 

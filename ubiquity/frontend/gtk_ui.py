@@ -918,6 +918,7 @@ class Wizard(BaseFrontend):
     # Methods
 
     def switch_progress_windows(self, use_install_window=True):
+        self.debconf_progress_window.hide()
         if use_install_window:
             self.old_progress_window = self.debconf_progress_window
             self.old_progress_info = self.progress_info
