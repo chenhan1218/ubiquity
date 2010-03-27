@@ -8,6 +8,7 @@
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
     <property name="deletable">False</property>
+    <signal name="realize" handler="set_window_hints"/>
     <child>
       <object class="GtkVBox" id="vbox35">
         <property name="visible">True</property>

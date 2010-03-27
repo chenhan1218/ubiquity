@@ -7,6 +7,8 @@ ubiquity (2.2.10) UNRELEASED; urgency=low
   * Hide the currently active progress window when switching to the new progress
     window.
   * Sync the title of the install progress window in automatic mode.
+  * In both of the gtk progress windows, don't show minimize or close buttons in
+    only mode.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 26 Mar 2010 16:45:50 -0500
 

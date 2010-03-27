@@ -634,7 +634,7 @@ class Wizard(BaseFrontend):
             'UBIQUITY_ONLY' in os.environ or
             'UBIQUITY_GREETER' in os.environ):
             f = gtk.gdk.FUNC_RESIZE | gtk.gdk.FUNC_MAXIMIZE | gtk.gdk.FUNC_MOVE
-            if not self.oem_user_config:
+            if not self.oem_user_config and not 'progress' in widget.get_name():
                 f |= gtk.gdk.FUNC_CLOSE
             widget.window.set_functions(f)
 
