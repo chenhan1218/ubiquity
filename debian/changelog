@@ -1,4 +1,4 @@
-ubiquity (2.2.10) UNRELEASED; urgency=low
+ubiquity (2.2.10) lucid; urgency=low
 
   * Fix the default language selection for when only-show-installable-languages
     is set to true.
