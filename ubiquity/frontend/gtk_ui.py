@@ -466,6 +466,8 @@ class Wizard(BaseFrontend):
                 self.get_string('ubiquity/install/checking'))
             self.debconf_progress_window.set_title(
                 self.get_string('ubiquity/install/title'))
+            self.install_progress_window.set_title(
+                self.get_string('ubiquity/install/title'))
             self.refresh()
 
         self.set_current_page(0)
