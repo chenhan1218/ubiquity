@@ -137,7 +137,7 @@ class DebconfInstallProgress(InstallProgress):
         child_pid = self.fork()
         if child_pid == 0:
             # child
-            os.close(self.write_stream)
+            self.write_stream.close()
             try:
                 while self.updateInterface():
                     pass
@@ -183,7 +183,7 @@ class DebconfInstallProgress(InstallProgress):
             res = pm.DoInstall(self.write_stream.fileno())
         finally:
             # Reap the status-to-debconf subprocess.
-            os.close(self.write_stream)
+            self.write_stream.close()
             while True:
                 try:
                     (pid, status) = os.waitpid(child_pid, 0)

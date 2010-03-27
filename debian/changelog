@@ -2,6 +2,8 @@ ubiquity (2.2.10) UNRELEASED; urgency=low
 
   * Fix the default language selection for when only-show-installable-languages
     is set to true.
+  * Use the file object's close function rather than os.close in
+    DebconfInstallProgress. (LP: #549478)
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 26 Mar 2010 16:45:50 -0500
 
