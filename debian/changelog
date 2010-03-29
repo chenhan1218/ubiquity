@@ -1,7 +1,14 @@
 ubiquity (2.2.11) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Get the slideshow dimensions from the slideshow.conf file as they
     now vary from distribution to distribution.
+  * Give the installer window a slightly larger bottom edge to make the
+    grey border look less ugly.
+  * Connect the new installer window's skip button to the appropriate
+    function.
+  * Slighly tweak the layout so the progress widgets are more centered
+    in their frame.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 29 Mar 2010 09:32:43 -0500
 
