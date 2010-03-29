@@ -1140,12 +1140,13 @@ class Install:
 
 
     def locale_to_language_pack(self, locale):
-        lang = locale.split('_')[0]
+        lang = locale.split('.')[0]
         if lang == 'zh_CN':
             return 'zh-hans'
         elif lang == 'zh_TW':
             return 'zh-hant'
         else:
+            lang = locale.split('_')[0]
             return lang
 
     def select_language_packs(self):

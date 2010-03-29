@@ -10,6 +10,9 @@ ubiquity (2.2.11) UNRELEASED; urgency=low
   * Slighly tweak the layout so the progress widgets are more centered
     in their frame.
 
+  [ Mario Limonciello ]
+  * Fix installation of zh_CN and zh_TW language packs.
+
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 29 Mar 2010 09:32:43 -0500
 
 ubiquity (2.2.10) lucid; urgency=low
