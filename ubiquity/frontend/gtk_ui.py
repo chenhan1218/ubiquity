@@ -976,7 +976,17 @@ class Wizard(BaseFrontend):
                     s.set_property('enable-default-context-menu', False)
                     webview.open(slides)
                     self.slideshow_frame.add(webview)
-                    webview.set_size_request(798, 500)
+                    try:
+                        import ConfigParser
+                        cfg = ConfigParser.ConfigParser()
+                        cfg.read(os.path.join(slideshow_dir, 'slideshow.conf'))
+                        config_width = int(cfg.get('Slideshow','width'))
+                        config_height = int(cfg.get('Slideshow','height'))
+                    except:
+                        config_width = 798
+                        config_height = 451
+
+                    webview.set_size_request(config_width, config_height)
                     webview.connect('new-window-policy-decision-requested',
                                     self.on_slideshow_link_clicked)
                     self.slideshow_frame.show_all()
