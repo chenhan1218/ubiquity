@@ -1,6 +1,12 @@
+ubiquity (2.2.11) UNRELEASED; urgency=low
+
+  * Get the slideshow dimensions from the slideshow.conf file as they
+    now vary from distribution to distribution.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 29 Mar 2010 09:32:43 -0500
+
 ubiquity (2.2.10) lucid; urgency=low
 
-  [ Mario Limonciello ]
   * Fix the default language selection for when only-show-installable-languages
     is set to true.
   * Use the file object's close function rather than os.close in
@@ -10,10 +16,6 @@ ubiquity (2.2.10) lucid; urgency=low
   * Sync the title of the install progress window in automatic mode.
   * In both of the gtk progress windows, don't show minimize or close buttons in
     only mode.
-
-  [ Evan Dandrea ]
-  * Get the slideshow dimensions from the slideshow.conf file as they
-    now vary from distribution to distribution.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 26 Mar 2010 16:45:50 -0500
 
