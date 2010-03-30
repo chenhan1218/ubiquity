@@ -68,6 +68,7 @@ class PageGtk(PluginUI):
         m = self.city_combo.get_model()
         return m[i][1]
 
+    @only_this_page
     def fill_timezone_boxes(self):
         m = self.region_combo.get_model()
         tz = self.controller.dbfilter
@@ -84,6 +85,7 @@ class PageGtk(PluginUI):
         for pair in region_pairs:
             m.append(pair)
 
+    @only_this_page
     def select_country(self, country):
         def country_is_in_region(country, region):
             if not region: return False
@@ -204,6 +206,7 @@ class PageGtk(PluginUI):
 
         completion.set_match_func(match_func)
 
+    @only_this_page
     def on_region_combo_changed(self, *args):
         i = self.region_combo.get_active()
         m = self.region_combo.get_model()
@@ -263,6 +266,7 @@ class PageKde(PluginUI):
 
         self.plugin_widgets = self.page
 
+    @only_this_page
     def refresh_timezones(self):
         lang = os.environ['LANG'].split('_', 1)[0]
         shortlist = self.controller.dbfilter.build_shortlist_region_pairs(lang)
@@ -275,6 +279,7 @@ class PageKde(PluginUI):
         for pair in longlist:
             self.page.timezone_zone_combo.addItem(pair[0], pair[2])
 
+    @only_this_page
     def populateCities(self, regionIndex):
         self.page.timezone_city_combo.clear()
 
@@ -295,6 +300,7 @@ class PageKde(PluginUI):
         return len(countries) == 1 and self.controller.dbfilter.get_default_for_region(countries[0])
 
     # called when the region(zone) combo changes
+    @only_this_page
     def regionChanged(self, regionIndex):
         if self.controller.dbfilter is None:
             return
@@ -317,6 +323,7 @@ class PageKde(PluginUI):
         self.tzmap.set_timezone(zone)
         self.tzmap.zoneChanged.connect(self.mapZoneChanged)
 
+    @only_this_page
     def mapZoneChanged(self, loc, zone):
         self.page.timezone_zone_combo.blockSignals(True)
         self.page.timezone_city_combo.blockSignals(True)

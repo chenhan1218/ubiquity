@@ -60,6 +60,7 @@ class PageGtk(PluginUI):
             self.page = None
         self.plugin_widgets = self.page
 
+    @only_this_page
     def calculate_result(self, w, keymap):
         l = self.controller.dbfilter.get_locale()
         keymap = keymap.split(':')
@@ -96,6 +97,7 @@ class PageGtk(PluginUI):
     def on_keyboardlayoutview_row_activated(self, *args):
         self.controller.go_forward()
 
+    @only_this_page
     def on_keyboard_layout_selected(self, *args):
         layout = self.get_keyboard()
         if layout is not None:
@@ -105,6 +107,7 @@ class PageGtk(PluginUI):
     def on_keyboardvariantview_row_activated(self, *args):
         self.controller.go_forward()
 
+    @only_this_page
     def on_keyboard_variant_selected(self, *args):
         layout = self.get_keyboard()
         variant = self.get_keyboard_variant()
@@ -218,6 +221,7 @@ class PageGtk(PluginUI):
         else:
             return unicode(model.get_value(iterator, 0))
 
+    @only_this_page
     def on_keymap_toggled(self, widget):
         self.controller.allow_go_forward(True)
         self.calculate_keymap_button.set_sensitive(False)
@@ -266,6 +270,7 @@ class PageKde(PluginUI):
             self.page = None
         self.plugin_widgets = self.page
 
+    @only_this_page
     def on_keyboard_layout_selected(self):
         layout = self.get_keyboard()
         l = self.controller.dbfilter.get_locale()
@@ -282,6 +287,7 @@ class PageKde(PluginUI):
             self.current_layout = layout
             self.controller.dbfilter.change_layout(layout)
 
+    @only_this_page
     def on_keyboard_variant_selected(self):
         layout = self.get_keyboard()
         variant = self.get_keyboard_variant()
@@ -308,6 +314,7 @@ class PageKde(PluginUI):
         if self.current_layout is not None:
             self.set_keyboard(self.current_layout)
 
+    @only_this_page
     def set_keyboard (self, layout):
         from PyQt4.QtCore import QString
         index = self.page.keyboard_layout_combobox.findText(QString(unicode(layout)))
@@ -332,6 +339,7 @@ class PageKde(PluginUI):
         for choice in sorted(choices):
             self.page.keyboard_variant_combobox.addItem(QString(unicode(choice)))
 
+    @only_this_page
     def set_keyboard_variant(self, variant):
         from PyQt4.QtCore import QString
         index = self.page.keyboard_variant_combobox.findText(QString(unicode(variant)))

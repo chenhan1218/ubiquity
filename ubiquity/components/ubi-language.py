@@ -121,6 +121,7 @@ class PageGtk(PageBase):
             self.page = None
         self.plugin_widgets = self.page
 
+    @only_this_page
     def on_try_ubuntu_clicked(self, *args):
         # Spinning cursor.
         self.controller.allow_change_step(False)
@@ -325,6 +326,7 @@ class PageKde(PageBase):
 
         self.plugin_widgets = self.page
 
+    @only_this_page
     def on_try_ubuntu_clicked(self, *args):
         # Spinning cursor.
         self.controller.allow_change_step(False)

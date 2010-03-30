@@ -17,6 +17,8 @@ ubiquity (2.2.11) UNRELEASED; urgency=low
   * Move info_loop call from run to prepare so that it doesn't get
     called with each debconf question asked in the user-setup component
     (LP: #551742).
+  * Add only_this_page decorator to be used on functions that should
+    never be called once we've left their page.
 
   [ Mario Limonciello ]
   * Fix installation of zh_CN and zh_TW language packs.
