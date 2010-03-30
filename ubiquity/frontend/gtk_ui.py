@@ -1083,6 +1083,12 @@ class Wizard(BaseFrontend):
     def quit_installer(self, *args):
         """quit installer cleanly."""
 
+        # Let the user know we're shutting down.
+        self.finished_dialog.window.set_cursor(self.watch)
+        self.quit_button.set_sensitive(False)
+        self.reboot_button.set_sensitive(False)
+        self.refresh()
+
         # exiting from application
         self.current_page = None
         self.warning_dialog.hide()

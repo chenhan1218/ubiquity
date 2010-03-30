@@ -10,6 +10,8 @@ ubiquity (2.2.11) UNRELEASED; urgency=low
   * Slighly tweak the layout so the progress widgets are more centered
     in their frame.
   * Translate the skip button in the new install window (LP: #551554).
+  * Update the interface when the user presses one of the buttons on the
+    finished_dialog (LP: #551574).
 
   [ Mario Limonciello ]
   * Fix installation of zh_CN and zh_TW language packs.
