@@ -22,6 +22,7 @@ ubiquity (2.2.11) UNRELEASED; urgency=low
   * Update translations from Launchpad.
   * Automatic update of included source packages: base-installer
     1.103ubuntu6, partman-base 139ubuntu3.
+  * Freeze exception (LP: #551503).
 
   [ Mario Limonciello ]
   * Fix installation of zh_CN and zh_TW language packs.
