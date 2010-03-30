@@ -9,6 +9,7 @@ ubiquity (2.2.11) UNRELEASED; urgency=low
     function.
   * Slighly tweak the layout so the progress widgets are more centered
     in their frame.
+  * Translate the skip button in the new install window (LP: #551554).
 
   [ Mario Limonciello ]
   * Fix installation of zh_CN and zh_TW language packs.

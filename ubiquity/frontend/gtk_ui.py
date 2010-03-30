@@ -931,6 +931,8 @@ class Wizard(BaseFrontend):
             self.progress_info = self.install_progress_info
             self.progress_bar = self.install_progress_bar
             self.progress_cancel_button = self.install_progress_cancel_button
+            self.progress_cancel_button.set_label(
+                self.old_progress_cancel_button.get_label())
         else:
             self.debconf_progress_window = self.old_progress_window
             self.progress_info = self.old_progress_info
