@@ -629,6 +629,10 @@ class Page(Plugin):
             empty = False
         self.ui.set_allow_password_empty(empty)
 
+        # We need to call info_loop as we switch to the page so the next button
+        # gets disabled.
+        self.ui.info_loop(None)
+
         # We intentionally don't listen to passwd/auto-login or
         # user-setup/encrypt-home because we don't want those alone to force
         # the page to be shown, if they're the only questions not preseeded.
@@ -649,9 +653,6 @@ class Page(Plugin):
                 self.ui.set_username(value)
 
     def run(self, priority, question):
-        # We need to call info_loop as we switch to the page so the next button
-        # gets disabled.
-        self.ui.info_loop(None)
         return Plugin.run(self, priority, question)
 
     def ok_handler(self):

@@ -14,6 +14,9 @@ ubiquity (2.2.11) UNRELEASED; urgency=low
     finished_dialog (LP: #551574).
   * Use the fancy new 'reboot required' panel notification
     (LP: #551537).
+  * Move info_loop call from run to prepare so that it doesn't get
+    called with each debconf question asked in the user-setup component
+    (LP: #551742).
 
   [ Mario Limonciello ]
   * Fix installation of zh_CN and zh_TW language packs.
