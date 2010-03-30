@@ -12,6 +12,8 @@ ubiquity (2.2.11) UNRELEASED; urgency=low
   * Translate the skip button in the new install window (LP: #551554).
   * Update the interface when the user presses one of the buttons on the
     finished_dialog (LP: #551574).
+  * Use the fancy new 'reboot required' panel notification
+    (LP: #551537).
 
   [ Mario Limonciello ]
   * Fix installation of zh_CN and zh_TW language packs.
