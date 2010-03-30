@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-03-24 23:25+0000\n"
-"PO-Revision-Date: 2010-03-20 16:19+0000\n"
+"PO-Revision-Date: 2010-03-28 11:50+0000\n"
 "Last-Translator: chhorran <khmeritforyou@gmail.com>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-23 11:05+0000\n"
+"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -91,9 +91,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"អ្នកកំពុងតំលើង ក្នុងប្រព័ន្ធបែបម្ចាស់រោងចក្រ។ សូមបញ្ចូល ឈ្មោះមួយគត់ សំរាប់បណ្តុំនៃប្រព័ន្ធ នេះ។ "
-"ឈ្មោះនេះ នឹងត្រូវបានរក្សាទុក លើប្រព័ន្ធបានតំលើង និង អាចត្រូវបានប្រើប្រាស់ ដើម្បីជួយ "
-"ជាមួយរបាយការកំហុស។"
+"អ្នកកំពុងតំលើង ក្នុងប្រព័ន្ធបែបម្ចាស់រោងចក្រ។ សូមបញ្ចូល ឈ្មោះមួយគត់ "
+"សំរាប់បណ្តុំនៃប្រព័ន្ធ នេះ។ ឈ្មោះនេះ នឹងត្រូវបានរក្សាទុក លើប្រព័ន្ធបានតំលើង "
+"និង អាចត្រូវបានប្រើប្រាស់ ដើម្បីជួយ ជាមួយរបាយការកំហុស។"
 
 #. Type: text
 #. Description
@@ -180,10 +180,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Timezone"
 msgid "Time Zone:"
-msgstr "ល្វែងម៉ោង"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -207,7 +205,8 @@ msgstr "ផែនទីណា ស្រដៀងបំផុត ទៅក្ត�
 #. Description
 #: ../ubiquity.templates:28001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "អ្នកអាចវាយ ទៅក្នុងប្រអប់នេះ ដើម្បីសាកប្រើប្រាស់ ផែនទីក្តារចុច ថ្មី របស់អ្នក។"
+msgstr ""
+"អ្នកអាចវាយ ទៅក្នុងប្រអប់នេះ ដើម្បីសាកប្រើប្រាស់ ផែនទីក្តារចុច ថ្មី របស់អ្នក។"
 
 #. Type: text
 #. Description
@@ -290,10 +289,8 @@ msgstr "អ្នក ចង់ប្រើប្រាស់ឈ្មោះអ�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
-#, fuzzy
-#| msgid "MySQL User Name"
 msgid "Username"
-msgstr "ឈ្មោះអ្នកប្រើប្រាស់ MySQL"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -301,7 +298,9 @@ msgstr "ឈ្មោះអ្នកប្រើប្រាស់ MySQL"
 msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
-msgstr "បើមាន ច្រើនជាងម្នាក់ នឹងប្រើប្រាស់ ខំព្យូរើនេះ, អ្នកអាចកំណត់ ច្រើនគណនី បន្ទាប់ការតំលើង។"
+msgstr ""
+"បើមាន ច្រើនជាងម្នាក់ នឹងប្រើប្រាស់ ខំព្យូរើនេះ, អ្នកអាចកំណត់ ច្រើនគណនី "
+"បន្ទាប់ការតំលើង។"
 
 #. Type: text
 #. Description
@@ -312,24 +311,21 @@ msgstr "ជ្រើសរើស មួយពាក្យសំងាត់ ដ�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
-#, fuzzy
-#| msgid "MySQL Password"
 msgid "Password"
-msgstr "ពាក្យសំងាត់ MySQL"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Re-enter password"
-msgstr "ជ្រើសរើស មួយពាក្យសំងាត់ដទៃ"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "អ្នក កំពុងរត់ ជាបែបស្រាយកំហុស។ មិនត្រូវប្រើប្រាស់ ពាក្យសំងាត់មានតំលៃ។"
+msgstr ""
+"អ្នក កំពុងរត់ ជាបែបស្រាយកំហុស។ មិនត្រូវប្រើប្រាស់ ពាក្យសំងាត់មានតំលៃ។"
 
 #. Type: text
 #. Description
@@ -379,7 +375,9 @@ msgstr ""
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr "ឈ្មោះនេះ នឹងត្រូវបានប្រើប្រាស់ បើអ្នកធ្វើខំព្យូរើ អាចមើលឃើញ ទៅអ្នកដទៃ លើមួយបណ្តាញ។"
+msgstr ""
+"ឈ្មោះនេះ នឹងត្រូវបានប្រើប្រាស់ បើអ្នកធ្វើខំព្យូរើ អាចមើលឃើញ ទៅអ្នកដទៃ "
+"លើមួយបណ្តាញ។"
 
 #. Type: text
 #. Description
@@ -427,7 +425,8 @@ msgstr ""
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
-msgstr "បើអ្នក គ្មានប្រាថ្នានាំចូល គណនីណាមួយ, ជ្រើសយក ទទេ និង ទៅទំព័របន្ទាប់។"
+msgstr ""
+"បើអ្នក គ្មានប្រាថ្នានាំចូល គណនីណាមួយ, ជ្រើសយក ទទេ និង ទៅទំព័របន្ទាប់។"
 
 #. Type: text
 #. Description
@@ -497,7 +496,9 @@ msgstr "ភាពលំអិត"
 #: ../ubiquity.templates:72001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr "ប្រព័ន្ធប្រតិបត្តិថ្មី របស់អ្នក ពេលនេះនឹងត្រូវបានតំលើង ជាមួយការកំណត់ខាងក្រោម ៖"
+msgstr ""
+"ប្រព័ន្ធប្រតិបត្តិថ្មី របស់អ្នក ពេលនេះនឹងត្រូវបានតំលើង ជាមួយការកំណត់ខាងក្រោម "
+"៖"
 
 #. Type: text
 #. Description
@@ -618,18 +619,19 @@ msgstr "ឧបករតំលើង មានបញ្ហា"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
-"យើងអធ្យាស្រ័យ, ឧបករតំលើងមាន​បញ្ហា។ សូម​រាយការ មួយកំហុស​ថ្មី​ ​នៅ https://launchpad.net/"
-"ubuntu/+source/ubiquity/+filebug (មិនត្រូវភ្ជាប់​ ការរៀបរាប់លំអិត ​របស់​អ្នក ​ទៅ​"
-"កំហុសមានស្រាប់) និង មួយអ្នក​អភិវឌ្ឍ ​នឹងឆាប់មើលបញ្ហា តាមពេលដែលអាច។ ដើម្បីជួយ​ ​អ្នកអភិវឌ្ឍ យល់​អ្វី​ដែល​"
-"ខុស, រួម​បញ្ចូល​សេចក្តី​លំអិតបន្ត ក្នុងរបាយការ​កំហុស របស់​អ្នក, និង​ភ្ជាប់​ឯកសារ /var/log/syslog និង /"
-"var/log/partman ៖"
+"យើងអធ្យាស្រ័យ, ឧបករតំលើងមាន​បញ្ហា។ សូម​រាយការ មួយកំហុស​ថ្មី​ ​នៅ "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (មិនត្រូវភ្ជាប់​ "
+"ការរៀបរាប់លំអិត ​របស់​អ្នក ​ទៅ​កំហុសមានស្រាប់) និង មួយអ្នក​អភិវឌ្ឍ "
+"​នឹងឆាប់មើលបញ្ហា តាមពេលដែលអាច។ ដើម្បីជួយ​ ​អ្នកអភិវឌ្ឍ យល់​អ្វី​ដែល​ខុស, "
+"រួម​បញ្ចូល​សេចក្តី​លំអិតបន្ត ក្នុងរបាយការ​កំហុស របស់​អ្នក, និង​ភ្ជាប់​ឯកសារ "
+"/var/log/syslog និង /var/log/partman ៖"
 
 #. Type: text
 #. Description
@@ -852,8 +854,9 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"ការតំលើង បានរួចរាល់។ អ្នក អាចបន្តសាកប្រើប្រាស់ ​Ubuntu ឥឡូវ, ប៉ុន្តែរហូត អ្នកផ្តើមឡើងវិញ "
-"ខំព្យូរើ, រាល់បំលាស់ប្តូរ ដែលអ្នកធ្វើ ឬ​ឯកសារ​ដែលអ្នករក្សាទុក នឹងមិនត្រូវបានថែទុក។"
+"ការតំលើង បានរួចរាល់។ អ្នក អាចបន្តសាកប្រើប្រាស់ ​Ubuntu ឥឡូវ, ប៉ុន្តែរហូត "
+"អ្នកផ្តើមឡើងវិញ ខំព្យូរើ, រាល់បំលាស់ប្តូរ ដែលអ្នកធ្វើ "
+"ឬ​ឯកសារ​ដែលអ្នករក្សាទុក នឹងមិនត្រូវបានថែទុក។"
 
 #. Type: text
 #. Description
@@ -875,7 +878,9 @@ msgstr "បន្ត"
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
-msgstr "ការតំលើង ពេញលេញ។ អ្នក ត្រូវតែផ្តើមឡើងវិញ ខំព្យូរើ ដើម្បីប្រើប្រាស់ ការតំលើងថ្មី។"
+msgstr ""
+"ការតំលើង ពេញលេញ។ អ្នក ត្រូវតែផ្តើមឡើងវិញ ខំព្យូរើ ដើម្បីប្រើប្រាស់ "
+"ការតំលើងថ្មី។"
 
 #. Type: note
 #. Description
@@ -970,8 +975,8 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"នេះបណ្តាលពី ទំហំថាសខ្វះ សំរាប់តំលើងបំពេញ លើការចែកភាគគោលដៅ។ សូមរត់ឡើងវិញ កម្មវិធីតំលើង "
-"និងជ្រើសយក ការចែកភាគទូលាយជាង ដើម្បីតំលើងទៅក្នុង។"
+"នេះបណ្តាលពី ទំហំថាសខ្វះ សំរាប់តំលើងបំពេញ លើការចែកភាគគោលដៅ។ សូមរត់ឡើងវិញ "
+"កម្មវិធីតំលើង និងជ្រើសយក ការចែកភាគទូលាយជាង ដើម្បីតំលើងទៅក្នុង។"
 
 #. Type: error
 #. Description
@@ -981,8 +986,9 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"នេះបណ្តាលញឹកញាប់ ពី មួយប្រអប់អាន ឬ ថាសស៊ីឌី/ឌិវីឌី កំហុស។ វា អាចនឹងជួយសំអាត ស៊ីឌី/ឌិវីឌី, ដុត (បន្សឹក) "
-"ស៊ីឌី/ឌិវីឌី នៅល្បឿនយឺតជាង, ឬ សំអាតកញ្ចក់ប្រអប់អាន ស៊ីឌី/ឌិវីឌី (របស់របរសំអាត តែងមានស្រាប់ ពីក្រុមហ៊ុន "
+"នេះបណ្តាលញឹកញាប់ ពី មួយប្រអប់អាន ឬ ថាសស៊ីឌី/ឌិវីឌី កំហុស។ វា អាចនឹងជួយសំអាត "
+"ស៊ីឌី/ឌិវីឌី, ដុត (បន្សឹក) ស៊ីឌី/ឌិវីឌី នៅល្បឿនយឺតជាង, ឬ "
+"សំអាតកញ្ចក់ប្រអប់អាន ស៊ីឌី/ឌិវីឌី (របស់របរសំអាត តែងមានស្រាប់ ពីក្រុមហ៊ុន "
 "ផ្គត់ផ្គង់គ្រឿងអេឡិចត្រូនិច)។"
 
 #. Type: error
@@ -993,8 +999,8 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"នេះបណ្តាលញឹកញាប់ ពី មួយថាសរឹងកំហុស។ វា អាចនឹងជួយឆែក ថាសរឹងចាស់ ឬ អត់ និងបើត្រូវការជំនួស, ឬ "
-"ប្តូរទីតាំងប្រព័ន្ធ ទៅមួយបរិថានល្អជាងនេះ។"
+"នេះបណ្តាលញឹកញាប់ ពី មួយថាសរឹងកំហុស។ វា អាចនឹងជួយឆែក ថាសរឹងចាស់ ឬ អត់ "
+"និងបើត្រូវការជំនួស, ឬ ប្តូរទីតាំងប្រព័ន្ធ ទៅមួយបរិថានល្អជាងនេះ។"
 
 #. Type: error
 #. Description
@@ -1012,16 +1018,18 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"នេះបណ្តាលញឹកញាប់ ពី មួយប្រអប់អាន ឬ ថាសស៊ីឌី/ឌិវីឌី, ឬ មួយថាសរឹង កំហុស។ វា អាចនឹងជួយសំអាត ស៊ីឌី/ឌិវីឌី, "
-"ដុត (បន្សឹក) ស៊ីឌី/ឌិវីឌី នៅល្បឿនយឺតជាង, ឬ សំអាតកញ្ចក់ប្រអប់អាន ស៊ីឌី/ឌិវីឌី (របស់របរសំអាត "
-"តែងមានស្រាប់ ពីក្រុមហ៊ុន ផ្គត់ផ្គង់គ្រឿងអេឡិចត្រូនិច), ឆែក ថាសរឹងចាស់ ឬ អត់ និងបើត្រូវការជំនួស, ឬ "
+"នេះបណ្តាលញឹកញាប់ ពី មួយប្រអប់អាន ឬ ថាសស៊ីឌី/ឌិវីឌី, ឬ មួយថាសរឹង កំហុស។ វា "
+"អាចនឹងជួយសំអាត ស៊ីឌី/ឌិវីឌី, ដុត (បន្សឹក) ស៊ីឌី/ឌិវីឌី នៅល្បឿនយឺតជាង, ឬ "
+"សំអាតកញ្ចក់ប្រអប់អាន ស៊ីឌី/ឌិវីឌី (របស់របរសំអាត តែងមានស្រាប់ ពីក្រុមហ៊ុន "
+"ផ្គត់ផ្គង់គ្រឿងអេឡិចត្រូនិច), ឆែក ថាសរឹងចាស់ ឬ អត់ និងបើត្រូវការជំនួស, ឬ "
 "ប្តូរទីតាំងប្រព័ន្ធ ទៅមួយបរិថានល្អជាងនេះ។"
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:142001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr "ឯកសារខាងក្រោម គ្មានបានត្រូវគ្នា ច្បាប់ចំលងអក្សរកូដ របស់វា លើ ស៊ីឌី/ឌិវីឌី ៖"
+msgstr ""
+"ឯកសារខាងក្រោម គ្មានបានត្រូវគ្នា ច្បាប់ចំលងអក្សរកូដ របស់វា លើ ស៊ីឌី/ឌិវីឌី ៖"
 
 #. Type: text
 #. Description
@@ -1176,18 +1184,20 @@ msgstr "កញ្ចប់​ខាងក្រោម ថិតក្នុង �
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
-"នេះ​អាចបណ្តាល​ពី ​ប្រើប្រាស់​រូបភាព​ឧបករតំលើងចាស់ ឬ ​វា​អាចបណ្តាលពី មួយ​កំហុស ​ក្នុងមួយចំនួន​កញ្ចប់ "
-"ត្រូវបានរាយបញ្ជីខាងលើ​។ អាចរកឃើញ លំអិតបន្ថែម ​នៅ​  /var/log/syslog។ ទោះ​យ៉ាង​ណា, ឧបករតំលើង "
-"នឹងព្យាយាមបន្ត, ប៉ុន្តែ​អាចនឹង​បរាជ័យ នៅចំណុចក្រោយ, និង​អាចនឹងគ្មានអាច តំលើង ឬ ដកចេញ កញ្ចប់ដទៃ "
-"(អាចរួមបញ្ចូល ​ខ្លួន​វា) ពីប្រព័ន្ធ ត្រូវបានតំលើង។ អ្នក គួរស្វែងរកដំបូង កំណែថ្មីជាង "
-"នៃរូបភាពឧបករតំលើង របស់អ្នក, ឬ នៃភាពបរាជ័យ ដែលរាយការបញ្ហា ទៅអ្នកបែងចែក របស់អ្នក។"
+"នេះ​អាចបណ្តាល​ពី ​ប្រើប្រាស់​រូបភាព​ឧបករតំលើងចាស់ ឬ ​វា​អាចបណ្តាលពី "
+"មួយ​កំហុស ​ក្នុងមួយចំនួន​កញ្ចប់ ត្រូវបានរាយបញ្ជីខាងលើ​។ អាចរកឃើញ លំអិតបន្ថែម "
+"​នៅ​  /var/log/syslog។ ទោះ​យ៉ាង​ណា, ឧបករតំលើង នឹងព្យាយាមបន្ត, "
+"ប៉ុន្តែ​អាចនឹង​បរាជ័យ នៅចំណុចក្រោយ, និង​អាចនឹងគ្មានអាច តំលើង ឬ ដកចេញ "
+"កញ្ចប់ដទៃ (អាចរួមបញ្ចូល ​ខ្លួន​វា) ពីប្រព័ន្ធ ត្រូវបានតំលើង។ អ្នក "
+"គួរស្វែងរកដំបូង កំណែថ្មីជាង នៃរូបភាពឧបករតំលើង របស់អ្នក, ឬ នៃភាពបរាជ័យ "
+"ដែលរាយការបញ្ហា ទៅអ្នកបែងចែក របស់អ្នក។"
 
 #. Type: error
 #. Description
@@ -1211,8 +1221,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1263,8 +1273,8 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"ឧបករ​តំលើង ត្រូវការសំរេចបំលាស់ប្តូរ ទៅតារាងចែកភាគ, ប៉ុន្តែ​ គ្មានអាចធ្វើចឹង ព្រោះ​ ការចែកភាគ "
-"លើចំណុចសកម្ម ខាងក្រោម គ្មានអាច ត្រូវបានលែងសកម្ម ៖"
+"ឧបករ​តំលើង ត្រូវការសំរេចបំលាស់ប្តូរ ទៅតារាងចែកភាគ, ប៉ុន្តែ​ គ្មានអាចធ្វើចឹង "
+"ព្រោះ​ ការចែកភាគ លើចំណុចសកម្ម ខាងក្រោម គ្មានអាច ត្រូវបានលែងសកម្ម ៖"
 
 #. Type: boolean
 #. Description
@@ -1275,7 +1285,8 @@ msgstr "សូម​បិទ​ គ្រប់កម្មវិធី ​ដ�
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr "អ្នកចង់ ឧបករតំលើង ព្យាយាមលែងធ្វើសកម្មឡើងវិញ ការចែក​ភាគ​ទាំងនេះ ឬ ?"
 
 #. Type: boolean
@@ -1299,7 +1310,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
-"បើអ្នក គ្មានត្រលប់ ទៅឧបករចែកថាស និងបង្កើនទំហំ នៃការចែកភាគទាំងនេះ, ការតំលើង អាចនឹងបរាជ័យ។"
+"បើអ្នក គ្មានត្រលប់ ទៅឧបករចែកថាស និងបង្កើនទំហំ នៃការចែកភាគទាំងនេះ, ការតំលើង "
+"អាចនឹងបរាជ័យ។"
 
 #. Type: text
 #. Description
@@ -1466,9 +1478,8 @@ msgstr ""
 #~ msgstr "ផ្នែកខាងក្រោយ បថម"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
+#~ "will be configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "វា នឹងតំលើង មួយប្រព័ន្ធ ស្រដៀងទៅ ផ្នែកខាងក្រោយ w/ ផ្នែកខាងមុខ បថម, ទោះយ៉ាងណា "
 #~ "នឹងត្រូវបានកំណត់ទំរង់ ភ្ជាប់ទៅ ផ្នែកខាងក្រោយ មានស្រាប់ លើបណ្តាញ។"
@@ -1503,13 +1514,13 @@ msgstr ""
 #~ msgstr "ផ្នែកខាងក្រោយ w/ ផ្នែកខាងមុខ ​បន្ទាប់"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people wanting "
+#~ "MythTV for HTPC applications. This type of installation is intended for use "
+#~ "as a component in your home theatre."
 #~ msgstr ""
-#~ "ម៉ាស៊ីនបន្សំ ផ្នែកខាងក្រោយ/ផ្នែកខាងមុខ ​ជាការរៀបចំ រួមបំផុត សំរាប់មហាជន ចង់ MythTV សំរាប់ "
-#~ "រាល់កម្មវិធីអនុវត្ត  HTPC ។ ប្រភេទតំលើងនេះ មានគោលដៅ ប្រើប្រាស់ ជាសំភារៈរួមផ្សំ "
-#~ "ក្នុងរោងសិល្បះ នៅផ្ទះ។"
+#~ "ម៉ាស៊ីនបន្សំ ផ្នែកខាងក្រោយ/ផ្នែកខាងមុខ ​ជាការរៀបចំ រួមបំផុត សំរាប់មហាជន ចង់ "
+#~ "MythTV សំរាប់ រាល់កម្មវិធីអនុវត្ត  HTPC ។ ប្រភេទតំលើងនេះ មានគោលដៅ ប្រើប្រាស់ "
+#~ "ជាសំភារៈរួមផ្សំ ក្នុងរោងសិល្បះ នៅផ្ទះ។"
 
 #~ msgid "Primary Backend w/ Frontend"
 #~ msgstr "ផ្នែកខាងក្រោយ w/ ផ្នែកខាងមុខ ​បថម"
@@ -1518,12 +1529,13 @@ msgstr ""
 #~ msgstr "នេះនឹងជា ប្រភេទប្រព័ន្ធណា?"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
+#~ "A backend only machine is typically designed to function like an appliance; "
+#~ "requiring very little maintenance.  This is intended to be installed as the "
+#~ "first backend on a network."
 #~ msgstr ""
-#~ "ម៉ាស៊ីនត្រឹមផ្នែកខាងក្រោយ ត្រូវបានតែរំលេច ជាគំរូ ទៅមុខងារ ដូចជា មួយសំភាភារៈផ្សំ; "
-#~ "ទាមទារតិចបំផុត ការថែទាំ។​ នេះ មានគោលដៅ ត្រូវបានតំលើង ជា ផ្នែកខាងមុខដំបូង លើមួយបណ្តាញ។"
+#~ "ម៉ាស៊ីនត្រឹមផ្នែកខាងក្រោយ ត្រូវបានតែរំលេច ជាគំរូ ទៅមុខងារ ដូចជា "
+#~ "មួយសំភាភារៈផ្សំ; ទាមទារតិចបំផុត ការថែទាំ។​ នេះ មានគោលដៅ ត្រូវបានតំលើង ជា "
+#~ "ផ្នែកខាងមុខដំបូង លើមួយបណ្តាញ។"
 
 #~ msgid "Secondary Backend"
 #~ msgstr "ផ្នែកខាងក្រោយ បន្ទាប់"
@@ -1534,54 +1546,60 @@ msgstr ""
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you can "
+#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
+#~ "Output or OpenGL effects."
 #~ msgstr ""
-#~ "មួយកម្មវិធីបញ្ជាក្រាភិក អក្សរកូដចំហ ត្រូវបានស្រាប់ អនុញ្ញាត និង កំណត់ទំរង់ សំរាប់ការតំលើង របស់អ្នក។ "
-#~ "បើអ្នក ចង់ប្រើប្រាស់ មួយកម្មវិធីបញ្ជាក្រាភិក ដទៃ, អ្នកអាចធ្វើដូច្នេះ នៅទីនេះ។ ចំណាំ ៖ "
-#~ "មួយកម្មវិធីបញ្ជាក្រាភិក កម្មសិទ្ធិ អាចនឹងចាំបាច់ សំរាប់លទ្ធផល ទូរទស្សចេញ (TV Output) ឬ "
-#~ "អាជ្ញាបណ្ណទូទៅចំហ (OpenGL)។"
+#~ "មួយកម្មវិធីបញ្ជាក្រាភិក អក្សរកូដចំហ ត្រូវបានស្រាប់ អនុញ្ញាត និង កំណត់ទំរង់ "
+#~ "សំរាប់ការតំលើង របស់អ្នក។ បើអ្នក ចង់ប្រើប្រាស់ មួយកម្មវិធីបញ្ជាក្រាភិក ដទៃ, "
+#~ "អ្នកអាចធ្វើដូច្នេះ នៅទីនេះ។ ចំណាំ ៖ មួយកម្មវិធីបញ្ជាក្រាភិក កម្មសិទ្ធិ "
+#~ "អាចនឹងចាំបាច់ សំរាប់លទ្ធផល ទូរទស្សចេញ (TV Output) ឬ អាជ្ញាបណ្ណទូទៅចំហ "
+#~ "(OpenGL)។"
 
 #~ msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-#~ msgstr "បើអនុញ្ញាត ទូរទស្សចេញ (TV-out), អ្នកក៏ផងដែរ នឹងត្រូវការជ្រើសរើស មួយគំរូទូរទស្សន៍ ៖"
+#~ msgstr ""
+#~ "បើអនុញ្ញាត ទូរទស្សចេញ (TV-out), អ្នកក៏ផងដែរ នឹងត្រូវការជ្រើសរើស "
+#~ "មួយគំរូទូរទស្សន៍ ៖"
 
 #~ msgid "Master Backend Info"
 #~ msgstr "ពត៌មាន ផ្នែកខាងក្រោយ ចំបង"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
+#~ "A frontend only machine's main function is to receive media content from the "
+#~ "backend and distribute it.  This configuration requires an existing backend "
+#~ "on the network."
 #~ msgstr ""
-#~ "មុខងារចំបង នៃម៉ាស៊ីនត្រឹមផ្នែកខាងមុខ ជាមុខងារ សំរាប់ទទួល ខ្លឹមសារមីឌា ពីផ្នែកខាងក្រោយ និ "
-#~ "ចែកផ្សាយ វា។ ការកំណត់ទំរង់នេះ ទាមទារ មួយផ្នែកខាងក្រោយ មានស្រាប់ លើបណ្តាញ។"
+#~ "មុខងារចំបង នៃម៉ាស៊ីនត្រឹមផ្នែកខាងមុខ ជាមុខងារ សំរាប់ទទួល ខ្លឹមសារមីឌា "
+#~ "ពីផ្នែកខាងក្រោយ និ ចែកផ្សាយ វា។ ការកំណត់ទំរង់នេះ ទាមទារ មួយផ្នែកខាងក្រោយ "
+#~ "មានស្រាប់ លើបណ្តាញ។"
 
 #~ msgid "Graphics Drivers"
 #~ msgstr "កម្មវិធីបញ្ជា ក្រាភិក"
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
-#~ msgstr "បើអ្នក ចង់កំណត់ទំរង់ ទូរទស្សចេញ (TV-out), ជ្រើសរើស មួយជំរើស នៅទីនេះ ៖"
+#~ msgstr ""
+#~ "បើអ្នក ចង់កំណត់ទំរង់ ទូរទស្សចេញ (TV-out), ជ្រើសរើស មួយជំរើស នៅទីនេះ ៖"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will be "
+#~ "configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "វា នឹងរៀបចំមួយប្រព័ន្ធ ស្រដៀងទៅ ផ្នែកខាងក្រោយបថម, ទោះយ៉ាងណា វា នឹងត្រូវបាន កំណត់ទំរង់ "
-#~ "ភ្ជាប់ទៅ ផ្នែកខាងក្រោយ មានស្រាប់ លើបណ្តាញ។"
+#~ "វា នឹងរៀបចំមួយប្រព័ន្ធ ស្រដៀងទៅ ផ្នែកខាងក្រោយបថម, ទោះយ៉ាងណា វា នឹងត្រូវបាន "
+#~ "កំណត់ទំរង់ ភ្ជាប់ទៅ ផ្នែកខាងក្រោយ មានស្រាប់ លើបណ្តាញ។"
 
 #~ msgid "Configuring mythtv..."
 #~ msgstr "កំពុងកំណត់ទំរង់ Mythtv..."
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need to "
+#~ "configure the first four sections, being sure to provide your guide data "
+#~ "during the third."
 #~ msgstr ""
-#~ "បន្ទាប់ពី ការកំណត់ ប្រភពទិន្នន័យណែនាំ របស់អ្នក, អ្នកនឹងត្រូវការផ្តើម ការតំលើង MythTV ដើម្បីរត់ "
-#~ "ការកំណត់ទំរង់ផ្នែកខាងក្រោយ សំរាប់លើកដំបូង។ អ្នក នឹងត្រូវការ កំណត់ទំរង់ បួនផ្នែកដំបូង, "
-#~ "ដោយប្រាកដនឹងប្រគល់ ទិន្នន័យណែនាំ របស់អ្នក ពេលដល់ផ្នែកទីបី។"
+#~ "បន្ទាប់ពី ការកំណត់ ប្រភពទិន្នន័យណែនាំ របស់អ្នក, អ្នកនឹងត្រូវការផ្តើម "
+#~ "ការតំលើង MythTV ដើម្បីរត់ ការកំណត់ទំរង់ផ្នែកខាងក្រោយ សំរាប់លើកដំបូង។ អ្នក "
+#~ "នឹងត្រូវការ កំណត់ទំរង់ បួនផ្នែកដំបូង, ដោយប្រាកដនឹងប្រគល់ ទិន្នន័យណែនាំ "
+#~ "របស់អ្នក ពេលដល់ផ្នែកទីបី។"
 
 #~ msgid "MySQL Database"
 #~ msgstr "មូលដ្ឋានទិន្នន័យ MySQL"
@@ -1596,23 +1614,24 @@ msgstr ""
 #~ msgstr "ចុច ដើម្បីបើក វ៉ែបសៃថ៍ចែកពេលផ្ទាល់"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data and "
+#~ "configuring the backend for the first time."
 #~ msgstr ""
-#~ "ជំហានបញ្ចប់ នៃការតំលើង ទាមទាររៀបចំ ទិន្នន័យណែនាំ និងការកំណត់ទំរង់ ផ្នែកខាងក្រោយ របស់អ្នក "
-#~ "សំរាប់លើកដំបូង។"
+#~ "ជំហានបញ្ចប់ នៃការតំលើង ទាមទាររៀបចំ ទិន្នន័យណែនាំ និងការកំណត់ទំរង់ "
+#~ "ផ្នែកខាងក្រោយ របស់អ្នក សំរាប់លើកដំបូង។"
 
 #~ msgid "Launch MythTV Setup"
 #~ msgstr "ផ្តើម ការរៀបចំ MythTV"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules Direct "
+#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
+#~ "users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
-#~ "ពួកអ្នកប្រើប្រាស់ នៅអឺមែរិខា ប៉ែកខាងជើង នឹងត្រូវតែកំណត់ មួយគណនី ជាមួយ ការចែកពេលផ្ទាល់ (SD: "
-#~ "Schedules Direct)។ SD ផ្តល់ការណែនាំទិន្នន័យ សំរាប់តំលៃតិចតួច។ គ្មាន SD,  ពួកអ្នកប្រើប្រាស់ "
-#~ "នៅអឺមែរិខា ប៉ែកខាងជើង អាចនឹងបាត់បង់ ច្រើនមុខងារចែកពេល ក្នុង MythTV។"
+#~ "ពួកអ្នកប្រើប្រាស់ នៅអឺមែរិខា ប៉ែកខាងជើង នឹងត្រូវតែកំណត់ មួយគណនី ជាមួយ "
+#~ "ការចែកពេលផ្ទាល់ (SD: Schedules Direct)។ SD ផ្តល់ការណែនាំទិន្នន័យ "
+#~ "សំរាប់តំលៃតិចតួច។ គ្មាន SD,  ពួកអ្នកប្រើប្រាស់ នៅអឺមែរិខា ប៉ែកខាងជើង "
+#~ "អាចនឹងបាត់បង់ ច្រើនមុខងារចែកពេល ក្នុង MythTV។"
 
 #~ msgid "Configuring additional drivers..."
 #~ msgstr "កំពុងកំណត់ទំរង់ កម្មវិធីបញ្ជាបន្ថែម..."

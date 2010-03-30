@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-03-24 23:25+0000\n"
-"PO-Revision-Date: 2010-03-22 17:05+0000\n"
+"PO-Revision-Date: 2010-03-29 17:58+0000\n"
 "Last-Translator: jmb_kz <jmb_kz@mail.ru>\n"
 "Language-Team: Kazakh\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-23 11:04+0000\n"
+"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -140,17 +140,17 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Мүмкін сіз <a href=\"release-notes\">осы шығарылымға қосымша мәліметтерді</"
-"a> оқуға не <a href=\"update\">осы орнатушы бағдарламаны жаңартуыңыз</a> "
-"келіп тұрған шығар."
+"Мүмкін сіз <a href=\"release-notes\">осы шығарылымға қосымша "
+"мәліметтерді</a> оқуға не <a href=\"update\">осы орнатушы бағдарламаны "
+"жаңартуыңыз</a> келіп тұрған шығар."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Мүмкін сіз <a href=\"release-notes\">осы шығарылымға қосымша мәліметтерді</"
-"a> оқуға келіп тұрған шығар."
+"Мүмкін сіз <a href=\"release-notes\">осы шығарылымға қосымша "
+"мәліметтерді</a> оқуға келіп тұрған шығар."
 
 #. Type: text
 #. Description
@@ -205,10 +205,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Timezone"
 msgid "Time Zone:"
-msgstr "Сағат белдеуі"
+msgstr "Сағат белдеуі:"
 
 #. Type: text
 #. Description
@@ -304,7 +302,7 @@ msgstr "Атыңыз кім?"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Full Name"
-msgstr ""
+msgstr "Толық аты"
 
 #. Type: text
 #. Description
@@ -315,10 +313,8 @@ msgstr "Жүйеге кіру үшін қандай ат қолданғыңыз 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
-#, fuzzy
-#| msgid "MySQL User Name"
 msgid "Username"
-msgstr "MySQL пайдаланушы аты:"
+msgstr "Пайдаланушы аты"
 
 #. Type: text
 #. Description
@@ -339,18 +335,14 @@ msgstr "Тіркелгіңізге сәйкес пароль енгізіңіз.
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
-#, fuzzy
-#| msgid "MySQL Password"
 msgid "Password"
-msgstr "MySQL паролі:"
+msgstr "Құпия сөз"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Re-enter password"
-msgstr "Басқа құпия сөзді таңдаңыз"
+msgstr "Құпия сөзді қайталау"
 
 #. Type: text
 #. Description
@@ -362,31 +354,31 @@ msgstr "Жүйе жөндеу режимінде жегілген. Шын пар
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Strength: too short"
-msgstr ""
+msgstr "Беріктік: тым қысқа"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Strength: weak"
-msgstr ""
+msgstr "Беріктік: әлсіз"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Strength: fair"
-msgstr ""
+msgstr "Беріктік: жарайтын (нормальный)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Strength: good"
-msgstr ""
+msgstr "Беріктік: жақсы"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Strength: strong"
-msgstr ""
+msgstr "Беріктік: берік"
 
 #. Type: text
 #. Description
@@ -398,7 +390,7 @@ msgstr "Компьютердің аты қандай?"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Computer Name"
-msgstr ""
+msgstr "Компьютер аты"
 
 #. Type: text
 #. Description
@@ -424,7 +416,8 @@ msgstr "Жүйеге кіну үшін құпия сөзін сұрау"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr "Жүйеге кіру үшін және шифрленген үй бумасын ашу үшін құпия сөзін сұрау"
+msgstr ""
+"Жүйеге кіру үшін және шифрленген үй бумасын ашу үшін құпия сөзін сұрау"
 
 #. Type: text
 #. Description
@@ -591,7 +584,8 @@ msgstr "Жүктегіш орнатпай жалғастыру."
 #: ../ubiquity.templates:82001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr "${RELEASE} жүктеу үшін, жүктегішті өзіңіз орнатуыңызға мәжбүр боласыз."
+msgstr ""
+"${RELEASE} жүктеу үшін, жүктегішті өзіңіз орнатуыңызға мәжбүр боласыз."
 
 #. Type: text
 #. Description
@@ -603,7 +597,8 @@ msgstr "Орнатылымды болдырмау."
 #. Description
 #: ../ubiquity.templates:84001
 msgid "This may leave your computer unable to boot."
-msgstr "Осы әрекет кесірінен, сіздің компьютеріңіз мүлдем жүктелінбеуі мүмкін."
+msgstr ""
+"Осы әрекет кесірінен, сіздің компьютеріңіз мүлдем жүктелінбеуі мүмкін."
 
 #. Type: text
 #. Description
@@ -647,19 +642,19 @@ msgstr "Орнату бағдарламасы қирап қалды"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Өкінішке орай, орнату бағдарламасының қирауы орын алды. Қате туралы "
 "хабарламаны https://launchpad.net/ubuntu/+source/ubiquity/+filebug адресіне "
 "жіберуді сұраймыз (бұрыннан бар хабарламаларға тіркемеңіз). Өндірушілер "
 "табылған қатені мүмкіндігінше тез жөндеуге тырысады. Қате кетудің себебін "
-"анықтауға көмектесу үшін хабарламаңызбен бірге /var/log/syslog және /var/log/"
-"partman: файлдарын бірге тіркеп жіберуді сұраймыз."
+"анықтауға көмектесу үшін хабарламаңызбен бірге /var/log/syslog және "
+"/var/log/partman: файлдарын бірге тіркеп жіберуді сұраймыз."
 
 #. Type: text
 #. Description
@@ -1212,12 +1207,12 @@ msgstr "Келесі дестелер зақымданған:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Мұның себебі орнатушының ескі болуы не жоғарыдағы дестенің құрамында қате "
 "кездесуінен болуы мүмкін. Толығырақ мәліметті /var/log/syslog файлынан алуға "
@@ -1248,8 +1243,8 @@ msgstr "Құжаттар мен баптаулар көшіру қатесі"
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1319,7 +1314,8 @@ msgstr "Осы тіркеу нүктелерін пайдаланып жатқа
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr "Осы бөлімдерді тіркеуден шығаруды қайталап көруді қалайсыз ба?"
 
 #. Type: boolean
@@ -1498,33 +1494,19 @@ msgstr ""
 msgid "Continue with installation."
 msgstr "Орнатылымды жалғастыру."
 
-#~ msgid "Zone:"
-#~ msgstr "Зона:"
-
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
+#~ "Please choose the language used for the installation process. This language "
+#~ "will be the default language for the final system."
 #~ msgstr ""
-#~ "Қателікті байқау үшін, құпия сөзді екі рет енгізіңіз. Қауіпсіз құпия "
-#~ "сөздің ұзындығы сегіз символдан кем емес және құрылымында әріптер, "
-#~ "сандар, тыныс белгілер болуы қажет, және де ол әрбір белгіленген уақыт "
-#~ "өткен сайын ол өзгертілуі қажет."
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
-#~ msgstr ""
-#~ "Орнату кезінде қолданылатын тілді таңдаңыз. Таңдалатын тіл жүйенің "
-#~ "әдеттегі тілі болып табылады."
+#~ "Орнату кезінде қолданылатын тілді таңдаңыз. Таңдалатын тіл жүйенің әдеттегі "
+#~ "тілі болып табылады."
 
 #~ msgid ""
 #~ "If you have Internet access, read the release notes for information on "
 #~ "problems that may affect you."
 #~ msgstr ""
-#~ "Интернетке қосылған болсаңыз, пайда болуы мүмкін проблемалар туралы "
-#~ "басылым туралы мәліметтен оқып шығыңыз."
+#~ "Интернетке қосылған болсаңыз, пайда болуы мүмкін проблемалар туралы басылым "
+#~ "туралы мәліметтен оқып шығыңыз."
 
 #~ msgid "Release Notes"
 #~ msgstr "Басылым туралы мәлімет"
@@ -1536,9 +1518,9 @@ msgstr "Орнатылымды жалғастыру."
 #~ msgstr "Негізгі ішкі/графикалық интерфейс"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people wanting "
+#~ "MythTV for HTPC applications. This type of installation is intended for use "
+#~ "as a component in your home theatre."
 #~ msgstr ""
 #~ "Ішкі/графикалық интерфейс - MythTV-ді HTPC қолданбаларына пайдалану үшін "
 #~ "таңдайтын тип. Көбіне үй кинотеатрын ұйымдастыру кезінде таңдалады."
@@ -1547,9 +1529,8 @@ msgstr "Орнатылымды жалғастыру."
 #~ msgstr "Қосымша ішкі/графикалық интерфейс"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
+#~ "will be configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "Негізгі ішкі/графикалық интерфейс таңдауына ұқсас, бірақ машина желідегі "
 #~ "бұрыннан бар бэкендке қосылу үшін бапталады."
@@ -1558,30 +1539,30 @@ msgstr "Орнатылымды жалғастыру."
 #~ msgstr "Негізгі ішкі интерфейс"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
+#~ "A backend only machine is typically designed to function like an appliance; "
+#~ "requiring very little maintenance.  This is intended to be installed as the "
+#~ "first backend on a network."
 #~ msgstr ""
-#~ "Негізгі ішкі интерфейс, көбінесе, машинаны сирек қадағалап тұратын "
-#~ "жағдайда және желідегі алғашқы бэкенд үшін таңдалады."
+#~ "Негізгі ішкі интерфейс, көбінесе, машинаны сирек қадағалап тұратын жағдайда "
+#~ "және желідегі алғашқы бэкенд үшін таңдалады."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "Қосымша ішкі интерфейс"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will be "
+#~ "configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "Қосымша ішкі интерфейс таңдауына ұқсас, бірақ машина желідегі бұрыннан "
-#~ "бар бэкендке қосылу үшін бапталады."
+#~ "Қосымша ішкі интерфейс таңдауына ұқсас, бірақ машина желідегі бұрыннан бар "
+#~ "бэкендке қосылу үшін бапталады."
 
 #~ msgid "Frontend"
 #~ msgstr "Графикалық интерфейс"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
+#~ "A frontend only machine's main function is to receive media content from the "
+#~ "backend and distribute it.  This configuration requires an existing backend "
+#~ "on the network."
 #~ msgstr ""
 #~ "Графикалық интерфейсі бар машинаның негізгі қызметі - бэкендтен келетін "
 #~ "медиа құрамды қабылдау және тарату. Желіде бэкенд бұрынан бар болған "
@@ -1589,14 +1570,13 @@ msgstr "Орнатылымды жалғастыру."
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you can "
+#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
+#~ "Output or OpenGL effects."
 #~ msgstr ""
-#~ "Ашық видеодрайвер орнатуға сәйкес бапталған. Қаласаңыз, басқа "
-#~ "видеодрайвер да қолдануға болады, бірақ та проприетарлық видеодрайверлер "
-#~ "сигналды TV шығыстан беру не OpenGL эффекттерін көру үшін керек болуы "
-#~ "мүмкін."
+#~ "Ашық видеодрайвер орнатуға сәйкес бапталған. Қаласаңыз, басқа видеодрайвер "
+#~ "да қолдануға болады, бірақ та проприетарлық видеодрайверлер сигналды TV "
+#~ "шығыстан беру не OpenGL эффекттерін көру үшін керек болуы мүмкін."
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
 #~ msgstr "TV-шығысты баптауды қаласаңыз, мына опциялардан таңдаңыз:"
@@ -1622,8 +1602,8 @@ msgstr "Орнатылымды жалғастыру."
 #~ msgstr "Ішкі интерфейстің басқару дерегін баптау"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data and "
+#~ "configuring the backend for the first time."
 #~ msgstr ""
 #~ "Орнатудың соңында ішкі интерфейстің басқару дерегін көрсетіп, интерфейсті "
 #~ "бір рет баптау керек."
@@ -1632,28 +1612,28 @@ msgstr "Орнатылымды жалғастыру."
 #~ msgstr "Schedules Direct веб сайын ашу үшін шертіңіз"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules Direct "
+#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
+#~ "users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
-#~ "Солтүстік Америка пайдаланушылары Schedules Direct (SD) тіркелгісін "
-#~ "баптауы қажет. SD басқару дерегін номиналды баға бойынша сатады. SD "
-#~ "қолданбайтын Солтүстік Америка пайдаланушылары MythTV бағдарламалар "
-#~ "кестесін баптауда бірқатар мүмкіндіктерді қолдана алмай қалады."
+#~ "Солтүстік Америка пайдаланушылары Schedules Direct (SD) тіркелгісін баптауы "
+#~ "қажет. SD басқару дерегін номиналды баға бойынша сатады. SD қолданбайтын "
+#~ "Солтүстік Америка пайдаланушылары MythTV бағдарламалар кестесін баптауда "
+#~ "бірқатар мүмкіндіктерді қолдана алмай қалады."
 
 #~ msgid "Launch MythTV Setup"
 #~ msgstr "MythTV орнату"
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need to "
+#~ "configure the first four sections, being sure to provide your guide data "
+#~ "during the third."
 #~ msgstr ""
 #~ "Негізгі (кілттік) мәліметтер көзін баптаған соң, сіз MythTV-Setup "
-#~ "бағдарламасын қосуыңыз керек, оның көмегімен backend құрылғысының "
-#~ "бастапқы баптауларын енгізесіз. Сізге бірінші төрт бөлімін баптау керек, "
-#~ "және үшінші бөлімінде кілттік ақпаратты енгізу керек."
+#~ "бағдарламасын қосуыңыз керек, оның көмегімен backend құрылғысының бастапқы "
+#~ "баптауларын енгізесіз. Сізге бірінші төрт бөлімін баптау керек, және үшінші "
+#~ "бөлімінде кілттік ақпаратты енгізу керек."
 
 #~ msgid "Configuring mythtv..."
 #~ msgstr "mythtv баптау..."
@@ -1666,6 +1646,20 @@ msgstr "Орнатылымды жалғастыру."
 
 #~ msgid "Configuring infrared devices..."
 #~ msgstr "Инфрақызыл құрылғыларды баптау..."
+
+#~ msgid "Zone:"
+#~ msgstr "Зона:"
+
+#~ msgid ""
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
+#~ msgstr ""
+#~ "Қателікті байқау үшін, құпия сөзді екі рет енгізіңіз. Қауіпсіз құпия сөздің "
+#~ "ұзындығы сегіз символдан кем емес және құрылымында әріптер, сандар, тыныс "
+#~ "белгілер болуы қажет, және де ол әрбір белгіленген уақыт өткен сайын ол "
+#~ "өзгертілуі қажет."
 
 #~ msgid "Graphics Drivers"
 #~ msgstr "Видеодрайверлер"

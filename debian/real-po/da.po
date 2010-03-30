@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-03-24 23:25+0000\n"
-"PO-Revision-Date: 2010-02-16 00:36+0000\n"
+"PO-Revision-Date: 2010-03-25 02:27+0000\n"
 "Last-Translator: AJenbo <anders@jenbo.dk>\n"
 "Language-Team: <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-23 11:05+0000\n"
+"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -116,7 +116,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Install ${RELEASE}"
-msgstr ""
+msgstr "Installér ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -186,10 +186,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Timezone"
 msgid "Time Zone:"
-msgstr "Tidszone"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -296,10 +294,8 @@ msgstr "Hvilket navn vil du bruge til at logge ind med?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
-#, fuzzy
-#| msgid "MySQL User Name"
 msgid "Username"
-msgstr "MySQL-brugernavn"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -320,18 +316,14 @@ msgstr "Vælg et password der skal beskytte din brugerkonto."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
-#, fuzzy
-#| msgid "MySQL Password"
 msgid "Password"
-msgstr "MySQL-adgangskode"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Re-enter password"
-msgstr "Vælg en anden adgangskode"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -632,19 +624,19 @@ msgstr "Installationen mislykkedes"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Vi beklager, installationsprogrammet gik ned. Udfyld venligst en bug rapport "
 "på https://launchpad.net/ubuntu/+source/ubiquity/+filebug (Du skal ikke "
 "tilføje detaljer til andre eksisterende fejl.) og en udvikler vil kigge på "
 "problemet så hurtigt som muligt. For at hjælpe udviklerne med at forstå hvad "
-"der kig galt inkluder  følgende oplysninger, og vedhæft filerne /var/log/"
-"syslog og var/log/partman:"
+"der kig galt inkluder  følgende oplysninger, og vedhæft filerne "
+"/var/log/syslog og var/log/partman:"
 
 #. Type: text
 #. Description
@@ -1200,12 +1192,12 @@ msgstr "Følgende pakker er i en beskadiget tilstand:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Dette kan skyldes, at du bruger et gammelt installationsaftryk, eller at der "
 "er en fejl i nogle af pakkerne, som er listet ovenfor. Yderligere detaljer "
@@ -1238,8 +1230,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1303,7 +1295,8 @@ msgstr "Luk venligst alle programmer, som bruger disse monteringspunkter."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Ønsker du at installationsprogrammet skal prøve at afmontere disse "
 "partitioner igen?"
@@ -1480,23 +1473,9 @@ msgstr ""
 msgid "Continue with installation."
 msgstr ""
 
-#~ msgid "Zone:"
-#~ msgstr "Zone:"
-
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Indtast den samme adgangskode to gange, så den kan blive tjekket for "
-#~ "tastefejl. En god adgangskode indeholder en blanding af bogstaver, tal og "
-#~ "andre tegn, den bør være mindst otte tegn lang, og den bør udskiftes med "
-#~ "jævne mellemrum."
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This language "
+#~ "will be the default language for the final system."
 #~ msgstr ""
 #~ "Vælg det sprog der skal bruges under installationen. Det valgte sprog vil "
 #~ "også være det forvalgte sprog i det installerede system."
@@ -1510,6 +1489,17 @@ msgstr ""
 
 #~ msgid "Release Notes"
 #~ msgstr "Udgivelsesnoter"
+
+#~ msgid ""
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
+#~ msgstr ""
+#~ "Indtast den samme adgangskode to gange, så den kan blive tjekket for "
+#~ "tastefejl. En god adgangskode indeholder en blanding af bogstaver, tal og "
+#~ "andre tegn, den bør være mindst otte tegn lang, og den bør udskiftes med "
+#~ "jævne mellemrum."
 
 #~ msgid ""
 #~ " Install Type: ${INSTALLTYPE}\n"
@@ -1544,38 +1534,37 @@ msgstr ""
 #~ msgstr "Primær backend m/ frontend"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people wanting "
+#~ "MythTV for HTPC applications. This type of installation is intended for use "
+#~ "as a component in your home theatre."
 #~ msgstr ""
 #~ "En backend/frontend kombinations-maskine er det mest almindelige valg for "
-#~ "folk der vil have MythTV til HTPC applikationer. Denne type installation "
-#~ "er beregnet til brug som en komponent i din hjemme-biograf."
+#~ "folk der vil have MythTV til HTPC applikationer. Denne type installation er "
+#~ "beregnet til brug som en komponent i din hjemme-biograf."
 
 #~ msgid "Secondary Backend w/ Frontend"
 #~ msgstr "Sekundær maskinkode/brugergrænseflade"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
+#~ "will be configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "Dette vil sætte et system op der svarer til en primær Backend m/Frontend, "
-#~ "vil dog blive konfigureret til at forbindes til en eksisterende Backend "
-#~ "på netværket."
+#~ "vil dog blive konfigureret til at forbindes til en eksisterende Backend på "
+#~ "netværket."
 
 #~ msgid "Primary Backend"
 #~ msgstr "Primært Administrationsdel"
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you can "
+#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
+#~ "Output or OpenGL effects."
 #~ msgstr ""
 #~ "Der er allerede aktiveret og konfigureret en open source grafikdriver til "
-#~ "denne installation. Hvis du foretrækker at bruge en anden grafikdriver, "
-#~ "kan du gøre dette her. Bemærk at det kan være nødvendigt at installere "
+#~ "denne installation. Hvis du foretrækker at bruge en anden grafikdriver, kan "
+#~ "du gøre dette her. Bemærk at det kan være nødvendigt at installere "
 #~ "proprietære drivere for at få TV-out og OpenGL effekter."
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
@@ -1593,6 +1582,9 @@ msgstr ""
 #~ msgid "MySQL Server"
 #~ msgstr "MySQL-server"
 
+#~ msgid "Zone:"
+#~ msgstr "Zone:"
+
 #~ msgid ""
 #~ "Please enter the information necessary to contact your master backend:"
 #~ msgstr ""
@@ -1606,40 +1598,39 @@ msgstr ""
 #~ msgstr "Klik for at åbne Schedules Direct-hjemmesiden"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data and "
+#~ "configuring the backend for the first time."
 #~ msgstr ""
-#~ "De afsluttende trin i installationen kræver opsætning af dine guidedata "
-#~ "og konfiguration af backend'en for første gang."
+#~ "De afsluttende trin i installationen kræver opsætning af dine guidedata og "
+#~ "konfiguration af backend'en for første gang."
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
+#~ "A frontend only machine's main function is to receive media content from the "
+#~ "backend and distribute it.  This configuration requires an existing backend "
+#~ "on the network."
 #~ msgstr ""
-#~ "En maskine, som kun fungerer som frontend, har som hovedfunktion at "
-#~ "modtage medieindhold fra backend'en og distribuere det. Denne "
-#~ "konfiguration kræver en eksisterende backend på netværket."
+#~ "En maskine, som kun fungerer som frontend, har som hovedfunktion at modtage "
+#~ "medieindhold fra backend'en og distribuere det. Denne konfiguration kræver "
+#~ "en eksisterende backend på netværket."
 
 #~ msgid "Graphics Drivers"
 #~ msgstr "Grafikdrivere"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
+#~ "A backend only machine is typically designed to function like an appliance; "
+#~ "requiring very little maintenance.  This is intended to be installed as the "
+#~ "first backend on a network."
 #~ msgstr ""
-#~ "En maskine, der kun fungerer som backend, er typisk designet til at "
-#~ "fungere som et apparat; som kun kræver meget begrænset vedligeholdelse. "
-#~ "Denne er tilsigtet at blive installeret som den første backend på et "
-#~ "netværk."
+#~ "En maskine, der kun fungerer som backend, er typisk designet til at fungere "
+#~ "som et apparat; som kun kræver meget begrænset vedligeholdelse. Denne er "
+#~ "tilsigtet at blive installeret som den første backend på et netværk."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "Sekundær backend"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will be "
+#~ "configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "Dette vil sætte et system på, der ligner en primær backend. Dog vil det "
 #~ "blive indstillet til at forbinde sig til en eksisterende backend på "
@@ -1650,19 +1641,19 @@ msgstr ""
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need to "
+#~ "configure the first four sections, being sure to provide your guide data "
+#~ "during the third."
 #~ msgstr ""
-#~ "Efter at du har indstillet din kilde til guidedata er det nødvendigt at "
-#~ "åbne MythTV-setup for at køre backend-konfigurationen for første gang. Du "
-#~ "skal konfigurere de første fire sektioner, og i den forbindelse sikre "
-#~ "dig, at du angiver dine guidedata i den tredje sektion."
+#~ "Efter at du har indstillet din kilde til guidedata er det nødvendigt at åbne "
+#~ "MythTV-setup for at køre backend-konfigurationen for første gang. Du skal "
+#~ "konfigurere de første fire sektioner, og i den forbindelse sikre dig, at du "
+#~ "angiver dine guidedata i den tredje sektion."
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules Direct "
+#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
+#~ "users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
 #~ "Brugere i Nordamerika bør oprette en konto hos Schedules Direct (SD). SD "
 #~ "leverer guidedata for et fast beløb. Uden SD kan brugere fra Nordamerika "

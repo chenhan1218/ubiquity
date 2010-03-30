@@ -1,16 +1,16 @@
-# Frisian translation for ubiquity
-# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+# Marathi translation for ubiquity
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
 # This file is distributed under the same license as the ubiquity package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: ubiquity\n"
-"Report-Msgid-Bugs-To: Colin Watson <cjwatson@ubuntu.com>\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2009-08-25 13:38+0100\n"
-"PO-Revision-Date: 2010-03-23 16:28+0000\n"
-"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
-"Language-Team: Frisian <fy@li.org>\n"
+"PO-Revision-Date: 2010-03-09 10:21+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Marathi <mr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,14 +21,14 @@ msgstr ""
 #: ../desktop/ubiquity-gtkui.desktop.in.h:2
 #: ../desktop/ubiquity-kdeui.desktop.in.h:2
 msgid "Install RELEASE"
-msgstr "Ynstallear RELEASE"
+msgstr "स्थापित RELEASE"
 
 #: ../desktop/ubiquity-gtkui.desktop.in.h:3
 #: ../desktop/ubiquity-kdeui.desktop.in.h:3
 msgid "Install this system permanently to your hard disk"
-msgstr "Ynstallear dit systeem permanint op jo hurde skiif."
+msgstr "ही प्रणाली कायमची तुमच्या हार्ड डिस्कवर स्थापित करा"
 
 #: ../desktop/oem-config-prepare-kde.desktop.in.h:1
 #: ../desktop/oem-config-prepare-gtk.desktop.in.h:1
 msgid "Prepare for shipping to end user"
-msgstr "Taberiede foar ferstoering nei einbrûker"
+msgstr "वापरकर्त्याला पाठवण्यासाठी तयार"

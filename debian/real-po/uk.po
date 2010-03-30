@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-03-24 23:25+0000\n"
-"PO-Revision-Date: 2010-03-10 12:15+0000\n"
-"Last-Translator: Sergiy Gavrylov <sergiovana@bigmir.net>\n"
+"PO-Revision-Date: 2010-03-27 17:43+0000\n"
+"Last-Translator: TheAsus <Unknown>\n"
 "Language-Team: uk <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-23 11:04+0000\n"
+"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -129,6 +129,9 @@ msgid ""
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+"Готові розпочати процес встановлення? Дайте відповідь на кілька запитань, "
+"після чого вміст ${MEDIUM} буде встановлено на цей комп'ютер та ${RELEASE} "
+"буде працювати на повну потужність, без потреби в ${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -137,18 +140,22 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
+"Можливо ви хочете прочитати <a href=\"release-notes\">примітки до "
+"випуску</a> або <a href=\"update\">оновити цей встановлювач</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
+"Можливо ви хочете прочитати  <a href=\"release-notes\">примітки до "
+"випуску</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr ""
+msgstr "Можливо ви хочете <a href=\"update\">оновити цей встановлювач</a>."
 
 #. Type: text
 #. Description
@@ -158,6 +165,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2010."
 msgstr ""
+"Це попередній випуску ${RELEASE} поточного ${MEDIUM} встановлювача. Це не "
+"кінцева версія. Вона з'явиться у фінальній версії ${RELEASE} у квітні 2010."
 
 #. Type: text
 #. Description
@@ -167,6 +176,8 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
+"Програма встановлення може змінити або стерти розділи на жорсткому диску. "
+"Переконайтесь, що <b>у вас є резервна копія ваших даних</b>."
 
 #. Type: text
 #. Description
@@ -189,10 +200,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Timezone"
 msgid "Time Zone:"
-msgstr "Часовий пояс"
+msgstr "Часовий пояс:"
 
 #. Type: text
 #. Description
@@ -234,13 +243,13 @@ msgstr "Вибрати власний:"
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Guess keymap:"
-msgstr ""
+msgstr "Визначити розкладку:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Guess..."
-msgstr ""
+msgstr "Визначення..."
 
 #. Type: text
 #. Description
@@ -252,7 +261,7 @@ msgstr "Будь ласка, натисніть одну з вказаних к�
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Is the following key present on your keyboard?"
-msgstr ""
+msgstr "Чи присутня ця клавіша на клавіатурі?"
 
 #. Type: text
 #. Description
@@ -288,7 +297,7 @@ msgstr "Ваше ім'я?"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Full Name"
-msgstr ""
+msgstr "Повне ім'я"
 
 #. Type: text
 #. Description
@@ -299,10 +308,8 @@ msgstr "Яке ім'я Ви хочете використовувати для �
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
-#, fuzzy
-#| msgid "MySQL User Name"
 msgid "Username"
-msgstr "Ім'я користувача MySQL"
+msgstr "Ім'я користувача"
 
 #. Type: text
 #. Description
@@ -323,54 +330,51 @@ msgstr "Виберіть пароль для захисту свого облі�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
-#, fuzzy
-#| msgid "MySQL Password"
 msgid "Password"
-msgstr "Пароль MySQL"
+msgstr "Пароль"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Re-enter password"
-msgstr "Виберіть інший пароль"
+msgstr "Повторіть пароль"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "Ви працюєте в режимі налагодження. Не використовуйте важливих паролів!"
+msgstr ""
+"Ви працюєте в режимі налагодження. Не використовуйте важливих паролів!"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Strength: too short"
-msgstr ""
+msgstr "Захищеність: слаба"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Strength: weak"
-msgstr ""
+msgstr "Захищеність: середня"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Strength: fair"
-msgstr ""
+msgstr "Захищеність: непогана"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Strength: good"
-msgstr ""
+msgstr "Захищеність: добра"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Strength: strong"
-msgstr ""
+msgstr "Захищеність: найкраща"
 
 #. Type: text
 #. Description
@@ -382,7 +386,7 @@ msgstr "Яке ім'я цього комп'ютера?"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Computer Name"
-msgstr ""
+msgstr "Назва комп'ютера"
 
 #. Type: text
 #. Description
@@ -639,20 +643,20 @@ msgstr "Програма установки аварійно завершила�
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Вибачте; Програма установки аварійно завершилась. Будь ласка, повідомте про "
 "помилку на https://launchpad.net/ubuntu/+source/ubiquity/+filebug (не "
 "додавайте ніякої інформації до вже наявних звітів про помилки) і розробники "
 "виправлять її настільки швидко, наскільки це можливо. Щоб допомогти "
 "розробникам зрозуміти, чим викликана ця помилка, додайте до свого звіту "
-"нижченаведену інформацію та приєднайте до неї файли /var/log/syslog та /var/"
-"log/partman:"
+"нижченаведену інформацію та приєднайте до неї файли /var/log/syslog та "
+"/var/log/partman:"
 
 #. Type: text
 #. Description
@@ -986,7 +990,8 @@ msgstr "Помилка установки"
 #: ../ubiquity.templates:138001 ../ubiquity.templates:139001
 #: ../ubiquity.templates:140001 ../ubiquity.templates:141001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr "Програма установки виявила помилку копіювання файлів на жорсткий диск:"
+msgstr ""
+"Програма установки виявила помилку копіювання файлів на жорсткий диск:"
 
 #. Type: error
 #. Description
@@ -1204,12 +1209,12 @@ msgstr "Наступні пакети пошкоджені:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Це могло статися через використання застарілого образу програми установки, "
 "або внаслідок помилки в деяких пакунках, перерахованих вище. Більш детальну "
@@ -1242,13 +1247,13 @@ msgstr "Помилка при перенесенні документів та �
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"При перенесенні даних виникла помилка. Більше відомостей можна одержати у /"
-"var/log/syslog. Встановлення буде продовжено, але деякі чи всі документи та "
+"При перенесенні даних виникла помилка. Більше відомостей можна одержати у "
+"/var/log/syslog. Встановлення буде продовжено, але деякі чи всі документи та "
 "налаштування, які Ви обрали, можливо, не будуть перенесені на встановлену "
 "систему."
 
@@ -1315,7 +1320,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Чи Ви хочете, щоб програма установки спробувала розмонтувати ці розділи ще "
 "раз?"
@@ -1487,25 +1493,15 @@ msgid ""
 "Please choose the language to use for the install process. This\n"
 " Language will be the default language for this computer."
 msgstr ""
+"Будь ласка, виберіть мову, яка буде використовуватися у процесі "
+"встановлення. Ця мова буде встановлена мовою за замовчуванням для вашого "
+"комп'ютера."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
 msgid "Continue with installation."
-msgstr ""
-
-#~ msgid "Zone:"
-#~ msgstr "Зона:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Введіть пароль двічі, щоб уникнути помилок. Безпечний пароль має містити "
-#~ "літери, цифри та знаки пунктуації, довжиною не менше восьми символів, "
-#~ "також бажано регулярно змінювати його."
+msgstr "Продовжити встановлення."
 
 #~ msgid ""
 #~ "If you have Internet access, read the release notes for information on "
@@ -1542,8 +1538,8 @@ msgstr ""
 #~ msgstr "Налаштовуються інфрачервоні пристрої..."
 
 #~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This language "
+#~ "will be the default language for the final system."
 #~ msgstr ""
 #~ "Будь ласка, виберіть мову для процесу установки. Ця мова також буде "
 #~ "використовуватися як основна мова системи."
@@ -1551,17 +1547,28 @@ msgstr ""
 #~ msgid "Release Notes"
 #~ msgstr "Примітки до випуску"
 
+#~ msgid "Zone:"
+#~ msgstr "Зона:"
+
+#~ msgid ""
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
+#~ msgstr ""
+#~ "Введіть пароль двічі, щоб уникнути помилок. Безпечний пароль має містити "
+#~ "літери, цифри та знаки пунктуації, довжиною не менше восьми символів, також "
+#~ "бажано регулярно змінювати його."
+
 #~ msgid "Primary Backend"
 #~ msgstr "Первинний Внутрішній Інтерфейс"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
+#~ "will be configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "Це налаштує систему, подібну до Первинного Backend w/ Frontend. Однак, "
-#~ "буде налаштоване підключення до вже існуючого внутрішнього інтерфейсу в "
-#~ "мережі."
+#~ "Це налаштує систему, подібну до Первинного Backend w/ Frontend. Однак, буде "
+#~ "налаштоване підключення до вже існуючого внутрішнього інтерфейсу в мережі."
 
 #~ msgid "Installation Type"
 #~ msgstr "Тип установки"
@@ -1593,13 +1600,13 @@ msgstr ""
 #~ msgstr "Вторинний Backend w/ Frontend"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people wanting "
+#~ "MythTV for HTPC applications. This type of installation is intended for use "
+#~ "as a component in your home theatre."
 #~ msgstr ""
-#~ "Комбінована Backend/frontend машина - звичайний тип установки для тих, "
-#~ "хто хоче використовувати MythTV для HTPC програм. Цей тип установки "
-#~ "призначений для використання як компонент Вашого домашнього кінотеатру."
+#~ "Комбінована Backend/frontend машина - звичайний тип установки для тих, хто "
+#~ "хоче використовувати MythTV для HTPC програм. Цей тип установки призначений "
+#~ "для використання як компонент Вашого домашнього кінотеатру."
 
 #~ msgid "Primary Backend w/ Frontend"
 #~ msgstr "Первинний Backend w/ Frontend"
@@ -1608,13 +1615,13 @@ msgstr ""
 #~ msgstr "Якого типу буде установлювана система?"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
+#~ "A backend only machine is typically designed to function like an appliance; "
+#~ "requiring very little maintenance.  This is intended to be installed as the "
+#~ "first backend on a network."
 #~ msgstr ""
-#~ "Комп'ютер без інтерфейсу користувача (backend) зазвичай використовується "
-#~ "як остаточний пристрій, який не потребує особливої підтримки. Ця машина "
-#~ "буде налаштована для роботи в якості першого backend-комп'ютера в мережі."
+#~ "Комп'ютер без інтерфейсу користувача (backend) зазвичай використовується як "
+#~ "остаточний пристрій, який не потребує особливої підтримки. Ця машина буде "
+#~ "налаштована для роботи в якості першого backend-комп'ютера в мережі."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "Вторинний Внутрішній Інтерфейс"
@@ -1629,48 +1636,47 @@ msgstr ""
 #~ msgstr "Щоб розблокувати TV-вихід, Вам необхідно вибрати TV-стандарт:"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
+#~ "A frontend only machine's main function is to receive media content from the "
+#~ "backend and distribute it.  This configuration requires an existing backend "
+#~ "on the network."
 #~ msgstr ""
 #~ "Основне призначення комп'ютера тільки з графічною оболонкою - приймати "
-#~ "мультимедійні дані і поширювати їх. Ця конфігурація має потребу в "
-#~ "існуючому внутрішньому інтерфейсі в мережі."
+#~ "мультимедійні дані і поширювати їх. Ця конфігурація має потребу в існуючому "
+#~ "внутрішньому інтерфейсі в мережі."
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you can "
+#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
+#~ "Output or OpenGL effects."
 #~ msgstr ""
 #~ "Відео-драйвер з відкритим вихідним кодом вже задіяний і налаштований для "
-#~ "Вашої системи. Якщо хочете використовувати інший , можете налаштувати "
-#~ "його тут. Зверніть увагу, що відео-драйвери з закритим вихідним кодом "
-#~ "можуть бути необхідні для TV  виводу або OpenGL ефектів."
+#~ "Вашої системи. Якщо хочете використовувати інший , можете налаштувати його "
+#~ "тут. Зверніть увагу, що відео-драйвери з закритим вихідним кодом можуть бути "
+#~ "необхідні для TV  виводу або OpenGL ефектів."
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
 #~ msgstr "Якщо ви хочете налаштувати TV-вихід, виберіть опцію тут:"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will be "
+#~ "configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "Це налаштує систему, подібну до Первинного Backend. Однак, буде "
-#~ "налаштоване підключення до вже існуючого внутрішнього інтерфейсу в мережі."
+#~ "Це налаштує систему, подібну до Первинного Backend. Однак, буде налаштоване "
+#~ "підключення до вже існуючого внутрішнього інтерфейсу в мережі."
 
 #~ msgid "Frontend"
 #~ msgstr "Графічний Інтерфейс"
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need to "
+#~ "configure the first four sections, being sure to provide your guide data "
+#~ "during the third."
 #~ msgstr ""
 #~ "Після налаштування джерел програм передач, Вам потрібно запустити MythTV-"
-#~ "Setup, щоб виконати початкове налаштування backend. Налаштуйте перші "
-#~ "чотири секції та переконайтесь, що Ви налаштували програми передач в "
-#~ "третій."
+#~ "Setup, щоб виконати початкове налаштування backend. Налаштуйте перші чотири "
+#~ "секції та переконайтесь, що Ви налаштували програми передач в третій."
 
 #~ msgid "MySQL Database"
 #~ msgstr "База данных MySQL"
@@ -1679,18 +1685,18 @@ msgstr ""
 #~ msgstr "Налаштування програм передач / Backend"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data and "
+#~ "configuring the backend for the first time."
 #~ msgstr ""
 #~ "В кінці установки Вам потрібно налаштувати програми передач та виконати "
 #~ "початкове налаштування backend."
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules Direct "
+#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
+#~ "users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
 #~ "Користувачам в Північній Америці необхідно налаштувати обліковий запис "
 #~ "Schedules Direct (SD). SD надає програми передач за символічну плату. Без "
-#~ "SD, північноамериканські користувачі можуть втратити багато можливостей "
-#~ "для налаштування телепрограм в MythTV."
+#~ "SD, північноамериканські користувачі можуть втратити багато можливостей для "
+#~ "налаштування телепрограм в MythTV."

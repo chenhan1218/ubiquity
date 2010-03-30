@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-03-24 23:25+0000\n"
-"PO-Revision-Date: 2010-03-14 15:56+0000\n"
-"Last-Translator: Dark_Webster <pedro_flores_16@hotmail.com>\n"
+"PO-Revision-Date: 2010-03-28 00:55+0000\n"
+"Last-Translator: Flávio Martins <xhaker@gmail.com>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-23 11:05+0000\n"
+"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -203,10 +203,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Timezone"
 msgid "Time Zone:"
-msgstr "Fuso horário"
+msgstr "Fuso Horário:"
 
 #. Type: text
 #. Description
@@ -303,7 +301,7 @@ msgstr "Qual é o seu nome?"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Full Name"
-msgstr ""
+msgstr "Nome Completo"
 
 #. Type: text
 #. Description
@@ -314,10 +312,8 @@ msgstr "Que nome deseja utilizar para efectuar o início de sessão?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
-#, fuzzy
-#| msgid "MySQL User Name"
 msgid "Username"
-msgstr "Utilizador MySQL"
+msgstr "Nome de Utilizador"
 
 #. Type: text
 #. Description
@@ -338,18 +334,14 @@ msgstr "Escolha uma senha para manter a sua conta segura."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
-#, fuzzy
-#| msgid "MySQL Password"
 msgid "Password"
-msgstr "Senha MySQL:"
+msgstr "Senha"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Re-enter password"
-msgstr "Escolha outra senha"
+msgstr "Repita a sua senha"
 
 #. Type: text
 #. Description
@@ -363,31 +355,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Strength: too short"
-msgstr ""
+msgstr "Qualidade: muito curta"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Strength: weak"
-msgstr ""
+msgstr "Qualidade: fraca"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Strength: fair"
-msgstr ""
+msgstr "Qualidade: razoável"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Strength: good"
-msgstr ""
+msgstr "Qualidade: boa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Strength: strong"
-msgstr ""
+msgstr "Qualidade: sólida"
 
 #. Type: text
 #. Description
@@ -399,7 +391,7 @@ msgstr "Qual o nome deste computador?"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Computer Name"
-msgstr ""
+msgstr "Nome do Computador"
 
 #. Type: text
 #. Description
@@ -585,7 +577,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:80001
 msgid "Choose a different device to install the bootloader on:"
-msgstr "Escolha um outro dispositivo para a instalação da Rotina de Arranque:"
+msgstr ""
+"Escolha um outro dispositivo para a instalação da Rotina de Arranque:"
 
 #. Type: text
 #. Description
@@ -612,7 +605,8 @@ msgstr "Cancelar a instalação."
 #. Description
 #: ../ubiquity.templates:84001
 msgid "This may leave your computer unable to boot."
-msgstr "Esta acção poderá impedir que o seu computador seja capaz de arrancar."
+msgstr ""
+"Esta acção poderá impedir que o seu computador seja capaz de arrancar."
 
 #. Type: text
 #. Description
@@ -656,12 +650,12 @@ msgstr "Ocorreu um erro fatal durante a instalação"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Pedimos desculpa, ocorreu um erro fatal no instalador. Por favor reporte "
 "este erro em https://launchpad.net/ubuntu/+source/ubiquity/+filebug (não "
@@ -1226,12 +1220,12 @@ msgstr "Os seguintes pacotes estão danificados:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Isto pode ter ocorrido por usar uma imagem de instalação antiga ou devido a "
 "um erro em algum dos pacotes listados acima. Mais detalhes podem ser "
@@ -1263,8 +1257,8 @@ msgstr "Erro ao migrar os documentos e as definições"
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1334,7 +1328,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr "Você deseja que o instalador tente desmontar as partições novamente?"
 
 #. Type: boolean
@@ -1513,20 +1508,6 @@ msgstr ""
 msgid "Continue with installation."
 msgstr "Continuar com a instalação."
 
-#~ msgid "Zone:"
-#~ msgstr "Zona:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Introduza a mesma senha duas vezes, para se ter a certeza que não houve "
-#~ "erros ao escrever. Uma boa senha deverá conter uma mistura de letras, "
-#~ "números e pontuação, deverá ter um comprimento mínimo de oito caracteres "
-#~ "e ser alterada regularmente."
-
 #~ msgid "Release Notes"
 #~ msgstr "Notas de lançamento"
 
@@ -1563,43 +1544,41 @@ msgstr "Continuar com a instalação."
 #~ msgstr "Backend principal c/ Frontend"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people wanting "
+#~ "MythTV for HTPC applications. This type of installation is intended for use "
+#~ "as a component in your home theatre."
 #~ msgstr ""
-#~ "Uma máquina Backend/frontend combinado é o modo mais comum de operação "
-#~ "para quem quer o MythTV para aplicações HTPC. Este tipo de instalação tem "
-#~ "como objectivo o uso como componente no seu sistema de Media Center."
+#~ "Uma máquina Backend/frontend combinado é o modo mais comum de operação para "
+#~ "quem quer o MythTV para aplicações HTPC. Este tipo de instalação tem como "
+#~ "objectivo o uso como componente no seu sistema de Media Center."
 
 #~ msgid "Secondary Backend w/ Frontend"
 #~ msgstr "Backend Secundário c/Frontend"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
+#~ "will be configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "Este tipo de sistema é similar ao Backend Primário c/ Frontend, contudo "
-#~ "será configurado para se ligar a um backend existente na rede."
+#~ "Este tipo de sistema é similar ao Backend Primário c/ Frontend, contudo será "
+#~ "configurado para se ligar a um backend existente na rede."
 
 #~ msgid "Primary Backend"
 #~ msgstr "Backend Primário"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
+#~ "A backend only machine is typically designed to function like an appliance; "
+#~ "requiring very little maintenance.  This is intended to be installed as the "
+#~ "first backend on a network."
 #~ msgstr ""
-#~ "Uma máquina backend apenas, é tipicamente utilizada como um servidor; "
-#~ "requer muito pouca manutenção. O objectivo é ser o primeiro backend duma "
-#~ "rede."
+#~ "Uma máquina backend apenas, é tipicamente utilizada como um servidor; requer "
+#~ "muito pouca manutenção. O objectivo é ser o primeiro backend duma rede."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "Backend Secundário"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will be "
+#~ "configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "Isto irá instalar um sistema similar ao Backend Primário, contudo será "
 #~ "configurado para se ligar a um backend existente na rede."
@@ -1608,28 +1587,26 @@ msgstr "Continuar com a instalação."
 #~ msgstr "Frontend"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
+#~ "A frontend only machine's main function is to receive media content from the "
+#~ "backend and distribute it.  This configuration requires an existing backend "
+#~ "on the network."
 #~ msgstr ""
-#~ "A função principal do frontend é a receber conteúdos do backend e "
-#~ "distribuí-los. Esta configuração requer a existência de um backend na "
-#~ "rede."
+#~ "A função principal do frontend é a receber conteúdos do backend e distribuí-"
+#~ "los. Esta configuração requer a existência de um backend na rede."
 
 #~ msgid "Graphics Drivers"
 #~ msgstr "Controladores Gráficos"
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you can "
+#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
+#~ "Output or OpenGL effects."
 #~ msgstr ""
-#~ "Um controlador gráfico de código fonte aberto já está activo e "
-#~ "configurado na sua instalação. Se pretende usar um controlador gráfico "
-#~ "diferente, poderá fazê-lo aqui. Tenha em atenção que poderão ser "
-#~ "necessários controladores gráficos proprietários para efeitos OpenGL ou "
-#~ "Saída TV."
+#~ "Um controlador gráfico de código fonte aberto já está activo e configurado "
+#~ "na sua instalação. Se pretende usar um controlador gráfico diferente, poderá "
+#~ "fazê-lo aqui. Tenha em atenção que poderão ser necessários controladores "
+#~ "gráficos proprietários para efeitos OpenGL ou Saída TV."
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
 #~ msgstr "Se deseja configurar a saída de TV, escolha uma opção:"
@@ -1644,8 +1621,8 @@ msgstr "Continuar com a instalação."
 #~ msgid ""
 #~ "Please enter the information necessary to contact your master backend:"
 #~ msgstr ""
-#~ "Por favor insira toda a informação necessária para contactar o seu "
-#~ "backend principal:"
+#~ "Por favor insira toda a informação necessária para contactar o seu backend "
+#~ "principal:"
 
 #~ msgid "MySQL Database"
 #~ msgstr "Base de Dados MySQL"
@@ -1657,19 +1634,19 @@ msgstr "Continuar com a instalação."
 #~ msgstr "Configurar Dados de Guia / Backend"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data and "
+#~ "configuring the backend for the first time."
 #~ msgstr ""
-#~ "Os passos finais da instalação requerem configurar os dados do seu guia e "
-#~ "a configuração do backend pela primeira vez."
+#~ "Os passos finais da instalação requerem configurar os dados do seu guia e a "
+#~ "configuração do backend pela primeira vez."
 
 #~ msgid "Click to open the Schedules Direct website"
 #~ msgstr "Clique para abrir o site Marcações Directas"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules Direct "
+#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
+#~ "users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
 #~ "Utilizadores na América do Norte vão precisar criar uma conta com a "
 #~ "Schedules Direct (SD). A SD providencia o guia de dados por uma taxa "
@@ -1681,14 +1658,14 @@ msgstr "Continuar com a instalação."
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need to "
+#~ "configure the first four sections, being sure to provide your guide data "
+#~ "during the third."
 #~ msgstr ""
 #~ "Após a configuração da origem do guia de dados, terá que lançar o MythTv-"
 #~ "Setup de forma a correr a configuração do backend pela primeira vez. Será "
-#~ "necessário configurar as primeiras quatro secções, tendo de forneçer o "
-#~ "guia de dados durante a terceira secção."
+#~ "necessário configurar as primeiras quatro secções, tendo de forneçer o guia "
+#~ "de dados durante a terceira secção."
 
 #~ msgid "Configuring mythtv..."
 #~ msgstr "A configurar mythtv..."
@@ -1702,9 +1679,12 @@ msgstr "Continuar com a instalação."
 #~ msgid "Configuring infrared devices..."
 #~ msgstr "A configurar dispositivos de infra-vermelhos"
 
+#~ msgid "Zone:"
+#~ msgstr "Zona:"
+
 #~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This language "
+#~ "will be the default language for the final system."
 #~ msgstr ""
 #~ "Por favor escolha o idioma utilizado para o processo de instalação. Este "
 #~ "idioma será o idioma predefinido para o sistema final."
@@ -1715,3 +1695,14 @@ msgstr "Continuar com a instalação."
 #~ msgstr ""
 #~ "Se tem acesso à Internet, leia as notas de lançamento para obter mais "
 #~ "informações sobre eventuais problemas que possam surgir."
+
+#~ msgid ""
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
+#~ msgstr ""
+#~ "Introduza a mesma senha duas vezes, para se ter a certeza que não houve "
+#~ "erros ao escrever. Uma boa senha deverá conter uma mistura de letras, "
+#~ "números e pontuação, deverá ter um comprimento mínimo de oito caracteres e "
+#~ "ser alterada regularmente."

@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-03-24 23:25+0000\n"
-"PO-Revision-Date: 2010-03-21 19:20+0000\n"
+"PO-Revision-Date: 2010-03-23 16:50+0000\n"
 "Last-Translator: Mark Kwidzińsczi <mark@linuxcsb.org>\n"
 "Language-Team: Kashubian <csb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-23 11:04+0000\n"
+"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -67,7 +67,8 @@ msgstr "Witôj"
 #. Description
 #: ../ubiquity.templates:10001
 msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr "Pò òdpòwiescë na czile pëtaniów nen kòmpùtr bãdze ju fardich do ùżëcô."
+msgstr ""
+"Pò òdpòwiescë na czile pëtaniów nen kòmpùtr bãdze ju fardich do ùżëcô."
 
 #. Type: text
 #. Description
@@ -147,7 +148,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr "Mòżesz przeczëtac <a href=\"release-notes\">wëdowiédzã ò wëdôwkù</a> ."
+msgstr ""
+"Mòżesz przeczëtac <a href=\"release-notes\">wëdowiédzã ò wëdôwkù</a> ."
 
 #. Type: text
 #. Description
@@ -194,10 +196,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Timezone"
 msgid "Time Zone:"
-msgstr "Czasowô cona"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -304,10 +304,8 @@ msgstr "Jaczé miono të bë chcôł brëkòwac do logòwaniô?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
-#, fuzzy
-#| msgid "MySQL User Name"
 msgid "Username"
-msgstr "Miono brëkòwnika MySQL"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -328,18 +326,14 @@ msgstr "Ùstôwi parolã, abë Twòje kònto bëło bezpieczne."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
-#, fuzzy
-#| msgid "MySQL Password"
 msgid "Password"
-msgstr "Parola MySQL"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Re-enter password"
-msgstr "Wëbierzë parolã"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -583,7 +577,8 @@ msgstr "Biéj dali bez startowi programë."
 #: ../ubiquity.templates:82001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr "Je nót rãczno winstalowac startową programã dlô zrëszeniô ${RELEASE}."
+msgstr ""
+"Je nót rãczno winstalowac startową programã dlô zrëszeniô ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -639,12 +634,12 @@ msgstr "Fela jinstalatora"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Przeprôszajemë, wëstãpiła fela jinstalatora. Prszëmë ò zgłoszenię nowi felë "
 "pòd adresã https://launchpad.net/ubuntu/+source/ubiquity/+filebug (proszëmë "
@@ -1201,12 +1196,12 @@ msgstr "Paczétë niżi są w stónie ùszkòdzeniô:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Mòże tak bëc bez brëkòwanié stôrégò òbrazu jinstalatora abò téż feli w "
 "jednym z paczétów wëżi. Wicy detalów mòże nalézc w katalogù /var/log/syslog. "
@@ -1237,8 +1232,8 @@ msgstr "Fela migracëji dokùmentów ë nastôwów"
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1305,7 +1300,8 @@ msgstr "Proszã zamknąc wszëtczé programë brëkùjącé tich pùnktów mònt
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr "Chcesz bë instalownik spróbòwôł òdmòntowac ne particëje znowa?"
 
 #. Type: boolean
@@ -1480,25 +1476,12 @@ msgstr ""
 msgid "Continue with installation."
 msgstr "Biéj dali z instalacëją."
 
-#~ msgid "Zone:"
-#~ msgstr "Cona:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Proszã wpisac dwa razë równą parolã, abë sprôwdzëc, czë ni ma felów. "
-#~ "Dobrô parola mô zamëkac w se lëterë, cyfrë ë interpùnkcjowé céchë, je "
-#~ "zestôwkã ni mni jakno òsmiu céchów ë bëc zjinaczanô regùlarno."
-
 #~ msgid ""
 #~ "If you have Internet access, read the release notes for information on "
 #~ "problems that may affect you."
 #~ msgstr ""
-#~ "Eżlë môsz przistãp do interneta, przëczëtôj wëdowiédzã ò problemach na "
-#~ "jaczé mòżesz napòtkac."
+#~ "Eżlë môsz przistãp do interneta, przëczëtôj wëdowiédzã ò problemach na jaczé "
+#~ "mòżesz napòtkac."
 
 #~ msgid "Release Notes"
 #~ msgstr "Wëdowiédzô ò wëdôwkù"
@@ -1531,16 +1514,28 @@ msgstr "Biéj dali z instalacëją."
 #~ msgstr "Kònfigùrowanié dodôwnëch czerowników..."
 
 #~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This language "
+#~ "will be the default language for the final system."
 #~ msgstr ""
 #~ "Proszã wëbrac jãzëk brëkòwóny przë instalacëji. Nen jãzëk mdze domëszlnym "
 #~ "jãzëkã systemë."
 
+#~ msgid "Zone:"
+#~ msgstr "Cona:"
+
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
+#~ msgstr ""
+#~ "Proszã wpisac dwa razë równą parolã, abë sprôwdzëc, czë ni ma felów. Dobrô "
+#~ "parola mô zamëkac w se lëterë, cyfrë ë interpùnkcjowé céchë, je zestôwkã ni "
+#~ "mni jakno òsmiu céchów ë bëc zjinaczanô regùlarno."
+
+#~ msgid ""
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
+#~ "will be configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "Na òptacëjô nastôwi systemã jakno w przëtrôfkù przédnegò mòdułu z "
 #~ "interfejsã, skònfigùrowóny bãdze òn równak do łączbë z ju egzystëjącym "
@@ -1576,41 +1571,41 @@ msgstr "Biéj dali z instalacëją."
 #~ msgstr "Drëdżi mòduł przerôbiający z interfejsã"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people wanting "
+#~ "MythTV for HTPC applications. This type of installation is intended for use "
+#~ "as a component in your home theatre."
 #~ msgstr ""
-#~ "Zestôwk modułu przerôbiającegò z interfejsã je nôczãstszim ùstôwã dlô "
-#~ "tich co chcą brëkòwac MythTV jakno centróm domôcegò kina. Nen ôrt "
-#~ "instalacëji je sczérowóny do brëkùnkù  jakno kòmpònent domôcegò kina."
+#~ "Zestôwk modułu przerôbiającegò z interfejsã je nôczãstszim ùstôwã dlô tich "
+#~ "co chcą brëkòwac MythTV jakno centróm domôcegò kina. Nen ôrt instalacëji je "
+#~ "sczérowóny do brëkùnkù  jakno kòmpònent domôcegò kina."
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
+#~ "A frontend only machine's main function is to receive media content from the "
+#~ "backend and distribute it.  This configuration requires an existing backend "
+#~ "on the network."
 #~ msgstr ""
 #~ "Przédną fùnkcëją kòmpùtra blós z  z interfejsã je òdbiérk mùltimedialny "
-#~ "zamkłoscë z przerôbiającegò mòdułu ë rozkòscërzanié gò. Ny kònfigùracëji "
-#~ "je nót ju egzystëjącegò mòduła przerôbianiu sécë."
+#~ "zamkłoscë z przerôbiającegò mòdułu ë rozkòscërzanié gò. Ny kònfigùracëji je "
+#~ "nót ju egzystëjącegò mòduła przerôbianiu sécë."
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
+#~ "A backend only machine is typically designed to function like an appliance; "
+#~ "requiring very little maintenance.  This is intended to be installed as the "
+#~ "first backend on a network."
 #~ msgstr ""
-#~ "Kòmpùtr z winstalowónym blós mòdułã przerôbiającym (bez interfejsu) robi "
-#~ "w wikszoscë jakno nôrzãdze. Nie je jemù nót wiele dozéraniô ë je "
-#~ "sczérowóny do robòtë jakno pierszi przerôbiający mòduł sécë."
+#~ "Kòmpùtr z winstalowónym blós mòdułã przerôbiającym (bez interfejsu) robi w "
+#~ "wikszoscë jakno nôrzãdze. Nie je jemù nót wiele dozéraniô ë je sczérowóny do "
+#~ "robòtë jakno pierszi przerôbiający mòduł sécë."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "Drëdżi mòduł przerôbiający"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will be "
+#~ "configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "Kònfigùracëjô systemë jakno przédnegò mòdułu, bãdze òn rówank sparłãczony "
-#~ "do ju robiącégò mòdułu przerôbianô sécë."
+#~ "Kònfigùracëjô systemë jakno przédnegò mòdułu, bãdze òn rówank sparłãczony do "
+#~ "ju robiącégò mòdułu przerôbianô sécë."
 
 #~ msgid ""
 #~ "Please enter the information necessary to contact your master backend:"
@@ -1625,16 +1620,16 @@ msgstr "Biéj dali z instalacëją."
 #~ msgstr "Klëkniãce òtemknie starną Schedules Direct"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data and "
+#~ "configuring the backend for the first time."
 #~ msgstr ""
 #~ "Slédnym krokòm instalacëji je nót nastôwù pòdôwków ò programach ë "
 #~ "kònfigùracëji przerôbiającegò mòdułu."
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules Direct "
+#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
+#~ "users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
 #~ "Brëkòwnikòm z Nordowi Americzi  nãdze nót skònfigùriowac kònto brëkùjąc "
 #~ "Schedules Direct (SD). SD dostarczô programã TV za dëtczi. Bez SD "
@@ -1651,14 +1646,13 @@ msgstr "Biéj dali z instalacëją."
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you can "
+#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
+#~ "Output or OpenGL effects."
 #~ msgstr ""
-#~ "Ôpen graficzny czérownik je ju skònfigùrowóny ë brëkòwóny w systemie. "
-#~ "Jeżlë bãdze nót jegò zmianë, to mòże to zrobic tuwò. Proszã bôczëc na to, "
-#~ "że swój czérownik mòże bëc nóterny, abë szło ùżëwac wińdzenié TV ë "
-#~ "efektów OpenGL."
+#~ "Ôpen graficzny czérownik je ju skònfigùrowóny ë brëkòwóny w systemie. Jeżlë "
+#~ "bãdze nót jegò zmianë, to mòże to zrobic tuwò. Proszã bôczëc na to, że swój "
+#~ "czérownik mòże bëc nóterny, abë szło ùżëwac wińdzenié TV ë efektów OpenGL."
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
 #~ msgstr ""
@@ -1673,11 +1667,11 @@ msgstr "Biéj dali z instalacëją."
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need to "
+#~ "configure the first four sections, being sure to provide your guide data "
+#~ "during the third."
 #~ msgstr ""
 #~ "Pò nastôwieniu zdroju pòdôwków ò programach bãdze nót jesz zrëszëc MythTV-"
-#~ "Setup, pò to abë pierszi rôz włączëc kònfigùracëjã przerôbiającegò "
-#~ "mòdułu. Bãdze nót kònfigùracëji pierszich sztërëch dzélów. Nót je sã téż "
-#~ "ùgwësnic, że pòdôwczi ò programach trzecym dzéłu òstôł pòprôwno pòdóny."
+#~ "Setup, pò to abë pierszi rôz włączëc kònfigùracëjã przerôbiającegò mòdułu. "
+#~ "Bãdze nót kònfigùracëji pierszich sztërëch dzélów. Nót je sã téż ùgwësnic, "
+#~ "że pòdôwczi ò programach trzecym dzéłu òstôł pòprôwno pòdóny."

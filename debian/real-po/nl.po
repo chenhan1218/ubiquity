@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-03-24 23:25+0000\n"
-"PO-Revision-Date: 2010-03-10 13:32+0000\n"
+"PO-Revision-Date: 2010-03-25 09:20+0000\n"
 "Last-Translator: cumulus007 <cumulus0007@gmail.com>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-23 11:05+0000\n"
+"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -75,7 +75,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:10001 ../ubiquity.templates:16001
 msgid "Answering the questions should only take a few minutes."
-msgstr "Het beantwoorden van de vragen neemt slechts enkele minuten in beslag."
+msgstr ""
+"Het beantwoorden van de vragen neemt slechts enkele minuten in beslag."
 
 #. Type: text
 #. Description
@@ -140,8 +141,8 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"U kunt de <a href=\"release-notes\">uitgave-opmerkingen</a> lezen of <a href="
-"\"update\">dit installatieprogramma bijwerken</a>."
+"U kunt de <a href=\"release-notes\">uitgave-opmerkingen</a> lezen of <a "
+"href=\"update\">dit installatieprogramma bijwerken</a>."
 
 #. Type: text
 #. Description
@@ -200,10 +201,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Timezone"
 msgid "Time Zone:"
-msgstr "Tijdzone"
+msgstr "Tijdzone:"
 
 #. Type: text
 #. Description
@@ -300,7 +299,7 @@ msgstr "Wat is uw naam?"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Full Name"
-msgstr ""
+msgstr "Volledige naam"
 
 #. Type: text
 #. Description
@@ -311,10 +310,8 @@ msgstr "Welke naam wilt u gebruiken om aan te melden?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
-#, fuzzy
-#| msgid "MySQL User Name"
 msgid "Username"
-msgstr "MySQL-gebruikersnaam"
+msgstr "Gebruikersnaam"
 
 #. Type: text
 #. Description
@@ -335,18 +332,14 @@ msgstr "Kies een wachtwoord om uw account te beveiligen."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
-#, fuzzy
-#| msgid "MySQL Password"
 msgid "Password"
-msgstr "MySQL-wachtwoord"
+msgstr "Wachtwoord"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Re-enter password"
-msgstr "Kies een nieuw wachtwoord"
+msgstr "Wachtwoord opnieuw invoeren"
 
 #. Type: text
 #. Description
@@ -359,31 +352,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Strength: too short"
-msgstr ""
+msgstr "Sterkte: te kort"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Strength: weak"
-msgstr ""
+msgstr "Sterkte: zwak"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Strength: fair"
-msgstr ""
+msgstr "Sterkte: redelijk"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Strength: good"
-msgstr ""
+msgstr "Sterkte: goed"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Strength: strong"
-msgstr ""
+msgstr "Sterkte: sterk"
 
 #. Type: text
 #. Description
@@ -395,7 +388,7 @@ msgstr "Wat is de naam van deze computer?"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Computer Name"
-msgstr ""
+msgstr "Computernaam"
 
 #. Type: text
 #. Description
@@ -655,12 +648,12 @@ msgstr "Installatieprogramma is vastgelopen"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Excuses, het installatieprogramma is vastgelopen. Dien een foutenrapport in "
 "op https://launchpad.net/ubuntu/+source/ubiquity/+filebug (voeg niet uw "
@@ -1227,12 +1220,12 @@ msgstr "De volgende pakketten zijn momenteel in een gebroken staat:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Dit kan komen doordat u een oud installatieprogramma gebruikt, of door een "
 "fout in enkele van de hierboven weergegeven pakketten. Meer details zijn te "
@@ -1265,8 +1258,8 @@ msgstr "Fout bij migreren van documenten en instellingen"
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1337,7 +1330,8 @@ msgstr "Sluit alle programma's die deze aankoppelingspunten gebruiken."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Wilt u dat het installatieprogramma probeert deze partities opnieuw te "
 "ontkoppelen?"
@@ -1520,23 +1514,9 @@ msgstr ""
 msgid "Continue with installation."
 msgstr "Doorgaan met installatie."
 
-#~ msgid "Zone:"
-#~ msgstr "Zone:"
-
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Voer hetzelfde wachtwoord twee keer in, zodat het op typefouten "
-#~ "gecontroleerd kan worden. Een goed wachtwoord bevat zowel letters als "
-#~ "cijfers en leestekens, en is minstens acht karakters lang. Het is "
-#~ "aangeraden om het wachtwoord regelmatig te veranderen."
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This language "
+#~ "will be the default language for the final system."
 #~ msgstr ""
 #~ "Kies de taal voor het installatieproces. De gekozen taal wordt ook de "
 #~ "standaardtaal voor het geïnstalleerde systeem."
@@ -1558,61 +1538,60 @@ msgstr "Doorgaan met installatie."
 #~ msgstr "Primair backend met frontend"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people wanting "
+#~ "MythTV for HTPC applications. This type of installation is intended for use "
+#~ "as a component in your home theatre."
 #~ msgstr ""
 #~ "Een machine met een backend/frontend-combinatie is de meest gebruikelijke "
-#~ "installatie voor mensen die MythTV willen gebruiken voor HTPC-"
-#~ "toepassingen. Dit installatietype is bedoeld voor gebruik als onderdeel "
-#~ "van uw thuistheater."
+#~ "installatie voor mensen die MythTV willen gebruiken voor HTPC-toepassingen. "
+#~ "Dit installatietype is bedoeld voor gebruik als onderdeel van uw "
+#~ "thuistheater."
 
 #~ msgid "Secondary Backend w/ Frontend"
 #~ msgstr "Secundair backend met frontend"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
+#~ "will be configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "Dit zal een systeem installeren, vergelijkbaar met een primair frontend "
-#~ "met backend, maar zal geconfigureerd worden om op het netwerk verbinding "
-#~ "te maken met een bestaand backend."
+#~ "Dit zal een systeem installeren, vergelijkbaar met een primair frontend met "
+#~ "backend, maar zal geconfigureerd worden om op het netwerk verbinding te "
+#~ "maken met een bestaand backend."
 
 #~ msgid "Primary Backend"
 #~ msgstr "Primair backend"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
+#~ "A backend only machine is typically designed to function like an appliance; "
+#~ "requiring very little maintenance.  This is intended to be installed as the "
+#~ "first backend on a network."
 #~ msgstr ""
-#~ "Een systeem met alleen een backend is gewoonlijk ontworpen om te werken "
-#~ "als een apparaat dat weinig onderhoud nodig heeft. Dit is bedoeld om als "
-#~ "het eerste backend op het netwerk geïnstalleerd te worden."
+#~ "Een systeem met alleen een backend is gewoonlijk ontworpen om te werken als "
+#~ "een apparaat dat weinig onderhoud nodig heeft. Dit is bedoeld om als het "
+#~ "eerste backend op het netwerk geïnstalleerd te worden."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "Secundair backend"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will be "
+#~ "configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "Dit zal een systeem installeren, vergelijkbaar met een primair backend, "
-#~ "maar zal geconfigureerd worden om op het netwerk verbinding te maken met "
-#~ "een bestaand backend."
+#~ "Dit zal een systeem installeren, vergelijkbaar met een primair backend, maar "
+#~ "zal geconfigureerd worden om op het netwerk verbinding te maken met een "
+#~ "bestaand backend."
 
 #~ msgid "Frontend"
 #~ msgstr "Frontend"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
+#~ "A frontend only machine's main function is to receive media content from the "
+#~ "backend and distribute it.  This configuration requires an existing backend "
+#~ "on the network."
 #~ msgstr ""
-#~ "De belangrijkste functie van een machine met alleen een frontend is om "
-#~ "media-inhoud te ontvangen van de backend en deze te verdelen. Deze "
-#~ "configuratie vereist een bestaand backend op het netwerk."
+#~ "De belangrijkste functie van een machine met alleen een frontend is om media-"
+#~ "inhoud te ontvangen van de backend en deze te verdelen. Deze configuratie "
+#~ "vereist een bestaand backend op het netwerk."
 
 #~ msgid "Master Backend Info"
 #~ msgstr "Informatie over hoofd-backend"
@@ -1632,19 +1611,19 @@ msgstr "Doorgaan met installatie."
 #~ msgstr "Gidsgegevens / backend configureren"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data and "
+#~ "configuring the backend for the first time."
 #~ msgstr ""
-#~ "De laatste stappen van de installatie vereisen dat u uw gidsgegevens "
-#~ "instelt en dat u de backend voor eerste gebruik configureert."
+#~ "De laatste stappen van de installatie vereisen dat u uw gidsgegevens instelt "
+#~ "en dat u de backend voor eerste gebruik configureert."
 
 #~ msgid "Click to open the Schedules Direct website"
 #~ msgstr "Klik om de Schedules Direct-website te openen."
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules Direct "
+#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
+#~ "users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
 #~ "Gebruikers in Noord-Amerika moeten een account bij Schedules Direct (SD) "
 #~ "aanmaken. SD biedt gidsgegevens voor een laag bedrag. Zonder SD kunnen "
@@ -1656,14 +1635,14 @@ msgstr "Doorgaan met installatie."
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need to "
+#~ "configure the first four sections, being sure to provide your guide data "
+#~ "during the third."
 #~ msgstr ""
-#~ "Nadat u uw gidsgegevensbron hebt ingesteld, moet u MythTV-Setup starten "
-#~ "om voor de eerste keer de backendconfiguratie te starten. U moet de "
-#~ "eerste vier secties configureren en zorgen dat u uw gidsgegevens in de "
-#~ "derde sectie opgeeft."
+#~ "Nadat u uw gidsgegevensbron hebt ingesteld, moet u MythTV-Setup starten om "
+#~ "voor de eerste keer de backendconfiguratie te starten. U moet de eerste vier "
+#~ "secties configureren en zorgen dat u uw gidsgegevens in de derde sectie "
+#~ "opgeeft."
 
 #~ msgid "Configuring mythtv..."
 #~ msgstr "Mythtv wordt geconfigureerd..."
@@ -1706,19 +1685,33 @@ msgstr "Doorgaan met installatie."
 #~ msgid "Graphics Drivers"
 #~ msgstr "Grafische stuurprogramma's"
 
+#~ msgid "Zone:"
+#~ msgstr "Zone:"
+
+#~ msgid ""
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
+#~ msgstr ""
+#~ "Voer hetzelfde wachtwoord twee keer in, zodat het op typefouten "
+#~ "gecontroleerd kan worden. Een goed wachtwoord bevat zowel letters als "
+#~ "cijfers en leestekens, en is minstens acht karakters lang. Het is aangeraden "
+#~ "om het wachtwoord regelmatig te veranderen."
+
 #~ msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 #~ msgstr "Als u tv-uit aanzet, moet u ook een tv-standaard kiezen:"
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you can "
+#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
+#~ "Output or OpenGL effects."
 #~ msgstr ""
 #~ "Er is al een open-source videostuurprogramma voor uw installatie "
-#~ "ingeschakeld en geconfigureerd. Als u een andere  videostuurprogramma "
-#~ "wilt gebruiken, dan kunt u dat hier doen. Merk op dat u mogelijk niet-"
-#~ "vrije videostuurprogramma nodig hebt voor tv-uitvoer en OpenGL-effecten."
+#~ "ingeschakeld en geconfigureerd. Als u een andere  videostuurprogramma wilt "
+#~ "gebruiken, dan kunt u dat hier doen. Merk op dat u mogelijk niet-vrije "
+#~ "videostuurprogramma nodig hebt voor tv-uitvoer en OpenGL-effecten."
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
 #~ msgstr "Kies hier een optie als u tv-uit wilt configureren:"

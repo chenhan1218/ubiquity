@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-23 11:04+0000\n"
+"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -186,10 +186,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Timezone"
 msgid "Time Zone:"
-msgstr "Múi giờ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -296,10 +294,8 @@ msgstr "Bạn muốn sử dụng tên gì để đăng nhập?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
-#, fuzzy
-#| msgid "MySQL User Name"
 msgid "Username"
-msgstr "Tài khoản MySQL"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -320,18 +316,14 @@ msgstr "Hãy chọn mật khẩu để đảm bảo an toàn cho tài khoản c�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
-#, fuzzy
-#| msgid "MySQL Password"
 msgid "Password"
-msgstr "Mật khẩu MySQL"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Re-enter password"
-msgstr "Chọn mật khẩu khác"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -632,12 +624,12 @@ msgstr "Trình cài đặt đã bị hỏng"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Chúng tôi thành thật xin lỗi! Trình cài đặt đã bị hỏng. Vui lòng báo cho "
 "chúng tôi lỗi này tại https://launchpad.net/ubuntu/+source/ubiquity/+filebug "
@@ -999,9 +991,9 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Việc này xảy ra thường do lỗi CD/DVD hoặc ổ đĩa. Hãy thử lau CD/DVD, ghi CD/"
-"DVD với tốc độ chậm hơn, hoặc lau chùi mắt đọc CD/DVD (các dụng cụ lau chùi "
-"thường có bán tại các cửa hàng điện tử)"
+"Việc này xảy ra thường do lỗi CD/DVD hoặc ổ đĩa. Hãy thử lau CD/DVD, ghi "
+"CD/DVD với tốc độ chậm hơn, hoặc lau chùi mắt đọc CD/DVD (các dụng cụ lau "
+"chùi thường có bán tại các cửa hàng điện tử)"
 
 #. Type: error
 #. Description
@@ -1030,10 +1022,10 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Việc này xảy ra thường do lỗi CD/DVD hoặc ổ đĩa. Hãy thử lau CD/DVD, ghi CD/"
-"DVD với tốc độ chậm hơn, hoặc lau chùi mắt đọc CD/DVD (các dụng cụ lau chùi "
-"thường có bán tại các cửa hàng điện tử), thử kiểm tra tuổi thọ ổ đĩa, nếu "
-"cần hãy thay thế hoặc dời hệ thống sang chỗ giải nhiệt tốt hơn."
+"Việc này xảy ra thường do lỗi CD/DVD hoặc ổ đĩa. Hãy thử lau CD/DVD, ghi "
+"CD/DVD với tốc độ chậm hơn, hoặc lau chùi mắt đọc CD/DVD (các dụng cụ lau "
+"chùi thường có bán tại các cửa hàng điện tử), thử kiểm tra tuổi thọ ổ đĩa, "
+"nếu cần hãy thay thế hoặc dời hệ thống sang chỗ giải nhiệt tốt hơn."
 
 #. Type: select
 #. Description
@@ -1194,19 +1186,19 @@ msgstr "Những gói dưới đây ở trong trạng thái bị hỏng:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Lỗi có thể do sử dụng một ảnh đĩa của bộ cài đặt cũ, hoặc cũng có thể do lỗi "
-"trong gói cài đặt nào đó liệt kê ở trên. Chi tiết có thể xem ở /var/log/"
-"syslog. Bộ cài đặt sẽ tiếp tục mặc dù có thể không thành công, và sẽ không "
-"thể cài hay gỡ các gói cài đặt khác (có thể cả chính nó) khỏi máy sau khi "
-"cài đặt. Đầu tiên bạn nên kiếm một ảnh đĩa cài đặt mới hơn, hoặc tạm dừng "
-"cài đặt và thông báo lỗi cho nhà phân phối."
+"trong gói cài đặt nào đó liệt kê ở trên. Chi tiết có thể xem ở "
+"/var/log/syslog. Bộ cài đặt sẽ tiếp tục mặc dù có thể không thành công, và "
+"sẽ không thể cài hay gỡ các gói cài đặt khác (có thể cả chính nó) khỏi máy "
+"sau khi cài đặt. Đầu tiên bạn nên kiếm một ảnh đĩa cài đặt mới hơn, hoặc tạm "
+"dừng cài đặt và thông báo lỗi cho nhà phân phối."
 
 #. Type: error
 #. Description
@@ -1230,8 +1222,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1294,7 +1286,8 @@ msgstr "Vui lòng đóng các ứng dụng đang sử dụng các điểm gắn 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr "Bạn có muốn chương trình cài đặt cố gỡ bỏ các phân vùng này?"
 
 #. Type: boolean
@@ -1469,25 +1462,12 @@ msgstr ""
 msgid "Continue with installation."
 msgstr ""
 
-#~ msgid "Zone:"
-#~ msgstr "Vùng:"
-
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
+#~ "Please choose the language used for the installation process. This language "
+#~ "will be the default language for the final system."
 #~ msgstr ""
-#~ "Nhập cùng một mật khẩu hai lần, để nó có thể được kiểm tra nếu bạn gõ "
-#~ "lỗi. Một mật khẩu an toàn sẽ chứa một hỗn hợp các chữ cái, chữ số và dấu "
-#~ "chấm câu, nên có ít nhất tám ký tự, và nên được thay đổi theo chu kỳ."
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
-#~ msgstr ""
-#~ "Bạn hãy chọn ngôn ngữ cho quá trình cài đặt. Ngôn ngữ đó sẽ là ngôn ngữ "
-#~ "mặc định của hệ thống sau khi quá trình cài đặt kế thúc."
+#~ "Bạn hãy chọn ngôn ngữ cho quá trình cài đặt. Ngôn ngữ đó sẽ là ngôn ngữ mặc "
+#~ "định của hệ thống sau khi quá trình cài đặt kế thúc."
 
 #~ msgid ""
 #~ "If you have Internet access, read the release notes for information on "
@@ -1498,6 +1478,16 @@ msgstr ""
 
 #~ msgid "Release Notes"
 #~ msgstr "Thông tin Phát hành"
+
+#~ msgid ""
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
+#~ msgstr ""
+#~ "Nhập cùng một mật khẩu hai lần, để nó có thể được kiểm tra nếu bạn gõ lỗi. "
+#~ "Một mật khẩu an toàn sẽ chứa một hỗn hợp các chữ cái, chữ số và dấu chấm "
+#~ "câu, nên có ít nhất tám ký tự, và nên được thay đổi theo chu kỳ."
 
 #~ msgid ""
 #~ " Install Type: ${INSTALLTYPE}\n"
@@ -1532,73 +1522,72 @@ msgstr ""
 #~ msgstr "CHÍNH: Máy chạy nền (Backend) với Giao diện (Frontend)"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people wanting "
+#~ "MythTV for HTPC applications. This type of installation is intended for use "
+#~ "as a component in your home theatre."
 #~ msgstr ""
 #~ "Một hệ thống kết hợp Backend/frontend là cài đặt thường được sử dụng nhất "
-#~ "với những người muốn sử dụng MythTV cho ứng dụng HTPC . Kiểu cài đặt này "
-#~ "tạo ra để sử dụng làm thành phần cho rạp hát gia đình."
+#~ "với những người muốn sử dụng MythTV cho ứng dụng HTPC . Kiểu cài đặt này tạo "
+#~ "ra để sử dụng làm thành phần cho rạp hát gia đình."
 
 #~ msgid "Secondary Backend w/ Frontend"
 #~ msgstr "PHỤ: Máy chạy nền (Backend) với Giao diện (Frontend)"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
+#~ "will be configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "Kiểu cài đặt này tương tự với kiểu \"CHÍNH: Máy chạy nền (Backend) với "
-#~ "Giao diện (Frontend)\", khác biệt là nó được cấu hình để kết nối với một "
-#~ "máy chạy nền đã có trong mạng."
+#~ "Kiểu cài đặt này tương tự với kiểu \"CHÍNH: Máy chạy nền (Backend) với Giao "
+#~ "diện (Frontend)\", khác biệt là nó được cấu hình để kết nối với một máy chạy "
+#~ "nền đã có trong mạng."
 
 #~ msgid "Primary Backend"
 #~ msgstr "CHÍNH: Chạy nền"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
+#~ "A backend only machine is typically designed to function like an appliance; "
+#~ "requiring very little maintenance.  This is intended to be installed as the "
+#~ "first backend on a network."
 #~ msgstr ""
-#~ "Máy chạy nền (backend) là máy duy nhất thường được thiết kế để làm việc "
-#~ "như một thiết bị phụ trợ; yêu cầu ít bảo dưỡng. Sử dụng kiểu này để tạo "
-#~ "máy chạy nền đầu tiên trong mạng."
+#~ "Máy chạy nền (backend) là máy duy nhất thường được thiết kế để làm việc như "
+#~ "một thiết bị phụ trợ; yêu cầu ít bảo dưỡng. Sử dụng kiểu này để tạo máy chạy "
+#~ "nền đầu tiên trong mạng."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "PHỤ: Máy chạy nền"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will be "
+#~ "configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "Cài đặt một hệ thống tương tự với \"CHÍNH: Máy chạy nền\", khác biệt là "
-#~ "nó được cấu hình để kết nối với một máy chạy nền đã có trong mạng."
+#~ "Cài đặt một hệ thống tương tự với \"CHÍNH: Máy chạy nền\", khác biệt là nó "
+#~ "được cấu hình để kết nối với một máy chạy nền đã có trong mạng."
 
 #~ msgid "Frontend"
 #~ msgstr "Chỉ Giao diện"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
+#~ "A frontend only machine's main function is to receive media content from the "
+#~ "backend and distribute it.  This configuration requires an existing backend "
+#~ "on the network."
 #~ msgstr ""
 #~ "Máy giao diện là máy chỉ thực hiện chức năng chính là nhận nội dung đa "
-#~ "phương tiện từ máy chạy nền và truyền tải nó. Cấu hình này yêu cầu một "
-#~ "máy chạy nền có sẵn trong mạng."
+#~ "phương tiện từ máy chạy nền và truyền tải nó. Cấu hình này yêu cầu một máy "
+#~ "chạy nền có sẵn trong mạng."
 
 #~ msgid "Graphics Drivers"
 #~ msgstr "Các Trình điều khiển Đồ họa"
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you can "
+#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
+#~ "Output or OpenGL effects."
 #~ msgstr ""
 #~ "Một trình điều khiển đồ họa mã nguồn mở đã hoạt động và thiếp lập cho cài "
-#~ "đặt của bạn. Nếu bạn muốn dùng trình điều khiển đồ họa khác, bạn có thể "
-#~ "chọn ở đây. Lưu ý các trình điều khiển có đăng ký có thể cần để xuất ra "
-#~ "TV hoặc để thực hiện các hiệu ứng OpenGL."
+#~ "đặt của bạn. Nếu bạn muốn dùng trình điều khiển đồ họa khác, bạn có thể chọn "
+#~ "ở đây. Lưu ý các trình điều khiển có đăng ký có thể cần để xuất ra TV hoặc "
+#~ "để thực hiện các hiệu ứng OpenGL."
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
 #~ msgstr "Nếu bạn muốn cấu hình TV-out, xin chọn ở đây:"
@@ -1625,8 +1614,8 @@ msgstr ""
 #~ msgstr "Cấu hình dữ liêu hướng dẫn/ backend"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data and "
+#~ "configuring the backend for the first time."
 #~ msgstr ""
 #~ "Bước cài đặt cuối cùng yêu cầu thiết lập dữ liệu hướng dẫn và cấu hình "
 #~ "backend cho lần đầu tiên."
@@ -1635,13 +1624,13 @@ msgstr ""
 #~ msgstr "Click để mở Schedules Direct website"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules Direct "
+#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
+#~ "users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
-#~ "Người dùng ở Bắc Mỹ sẽ cần phải tạo một tài khoản với Schedules Direct "
-#~ "(SD). SD cung cấp dữ liệu hướng dẫn việc định giá. Người dùng ở Bắc Mỹ sẽ "
-#~ "có thể không sử dụng hết các tính năng của MythTV nếu không có SD."
+#~ "Người dùng ở Bắc Mỹ sẽ cần phải tạo một tài khoản với Schedules Direct (SD). "
+#~ "SD cung cấp dữ liệu hướng dẫn việc định giá. Người dùng ở Bắc Mỹ sẽ có thể "
+#~ "không sử dụng hết các tính năng của MythTV nếu không có SD."
 
 #~ msgid "Launch MythTV Setup"
 #~ msgstr "Chạy cài đặt MythTV"
@@ -1658,13 +1647,16 @@ msgstr ""
 #~ msgid "Configuring infrared devices..."
 #~ msgstr "Cấu hình các thiết bị hồng ngoại..."
 
+#~ msgid "Zone:"
+#~ msgstr "Vùng:"
+
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need to "
+#~ "configure the first four sections, being sure to provide your guide data "
+#~ "during the third."
 #~ msgstr ""
-#~ "Sau khi thiết lập tài liệu hướng dẫn nguồn dữ liệu của bạn, bạn sẽ cần "
-#~ "phải khởi động MythTV-Setup để chạy các cấu hình phụ trợ cho lần đầu "
-#~ "tiên. Bạn sẽ cần phải cấu hình bốn phần đầu tiên, được bảo đảm cung cấp "
-#~ "dữ liệu hướng dẫn của bạn trong thứ ba."
+#~ "Sau khi thiết lập tài liệu hướng dẫn nguồn dữ liệu của bạn, bạn sẽ cần phải "
+#~ "khởi động MythTV-Setup để chạy các cấu hình phụ trợ cho lần đầu tiên. Bạn sẽ "
+#~ "cần phải cấu hình bốn phần đầu tiên, được bảo đảm cung cấp dữ liệu hướng dẫn "
+#~ "của bạn trong thứ ba."

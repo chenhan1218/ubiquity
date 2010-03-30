@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-03-24 23:25+0000\n"
-"PO-Revision-Date: 2010-03-21 13:06+0000\n"
+"PO-Revision-Date: 2010-03-23 16:48+0000\n"
 "Last-Translator: Bundo <bundo@bundo.biz>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-23 11:04+0000\n"
+"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -81,9 +81,7 @@ msgstr "질문에 답하는 시간은 잠깐이면 충분합니다."
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
-msgstr ""
-"설정에 사용할 언어를 선택하십시오. 선택하신 언어는 이 컴퓨터의 기본언어가 됩"
-"니다."
+msgstr "설정에 사용할 언어를 선택하십시오. 선택하신 언어는 이 컴퓨터의 기본언어가 됩니다."
 
 #. Type: text
 #. Description
@@ -93,9 +91,8 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"시스템 제조사 모드에서 설치 중입니다. 시스템의 일괄처리르 위한 고유 이름을 입"
-"력해 주십시오. 이 이름은 설치된 시스템에 저장되고, 버그 리포트에 도움을 주기"
-"위해 사용될 수 있습니다."
+"시스템 제조사 모드에서 설치 중입니다. 시스템의 일괄처리르 위한 고유 이름을 입력해 주십시오. 이 이름은 설치된 시스템에 저장되고, 버그 "
+"리포트에 도움을 주기위해 사용될 수 있습니다."
 
 #. Type: text
 #. Description
@@ -103,9 +100,7 @@ msgstr ""
 msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
-msgstr ""
-"이 ${MEDIUM}를 이용하시면, 시스템에 아무 영향을 안주고도 ${RELEASE}를 사용하"
-"실 수 있습니다."
+msgstr "이 ${MEDIUM}를 이용하시면, 시스템에 아무 영향을 안주고도 ${RELEASE}를 사용하실 수 있습니다."
 
 #. Type: text
 #. Description
@@ -127,9 +122,8 @@ msgid ""
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
-"설치할 준비가 되셨습니까? 몇개의 질문에 답하고 나면, 라이브 ${MEDIUM}의 자료"
-"들이 컴퓨터에 설치되어 ${REKEASE}를 ${MEDIUM}없이 최고 속도로 실행할 수 있습"
-"니다."
+"설치할 준비가 되셨습니까? 몇개의 질문에 답하고 나면, 라이브 ${MEDIUM}의 자료들이 컴퓨터에 설치되어 ${REKEASE}를 "
+"${MEDIUM}없이 최고 속도로 실행할 수 있습니다."
 
 #. Type: text
 #. Description
@@ -159,8 +153,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2010."
 msgstr ""
-"이 버전은 ${RELEASE}의 베타버전 라이브 ${MEDIUM} 인스톨러입니다. ${RELEASE}"
-"의 마지막 버전은 2010년 4월에 배포됩니다."
+"이 버전은 ${RELEASE}의 베타버전 라이브 ${MEDIUM} 인스톨러입니다. ${RELEASE}의 마지막 버전은 2010년 4월에 "
+"배포됩니다."
 
 #. Type: text
 #. Description
@@ -170,8 +164,7 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
-"설치 진행중에 하드디스크의 파티션을 재조정하거나 삭제할 수 있습니다. 시작하"
-"기 전에 <b>모든 중요한 자료를 백업</b>하세요."
+"설치 진행중에 하드디스크의 파티션을 재조정하거나 삭제할 수 있습니다. 시작하기 전에 <b>모든 중요한 자료를 백업</b>하세요."
 
 #. Type: text
 #. Description
@@ -187,16 +180,13 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
-"지역을 선택하십시오. 컴퓨터는 자동으로 그 지역에 알맞는 화면구성으로 바뀌고, "
-"가까운 곳에서 업데이트를 받고, 시간대를 조정할 것입니다."
+"지역을 선택하십시오. 컴퓨터는 자동으로 그 지역에 알맞는 화면구성으로 바뀌고, 가까운 곳에서 업데이트를 받고, 시간대를 조정할 것입니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Timezone"
 msgid "Time Zone:"
-msgstr "시간대"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -303,10 +293,8 @@ msgstr "로그인 시 사용할 계정 이름은 무엇입니까?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
-#, fuzzy
-#| msgid "MySQL User Name"
 msgid "Username"
-msgstr "MySQL 사용자 이름"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -314,9 +302,7 @@ msgstr "MySQL 사용자 이름"
 msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
-msgstr ""
-"여러 사람이 이 컴퓨터를 사용하는 경우, 설치 후에 여러 계정을 설정할 수 있습니"
-"다."
+msgstr "여러 사람이 이 컴퓨터를 사용하는 경우, 설치 후에 여러 계정을 설정할 수 있습니다."
 
 #. Type: text
 #. Description
@@ -327,18 +313,14 @@ msgstr "계정을 안전하게 보호할 암호를 선택하세요."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
-#, fuzzy
-#| msgid "MySQL Password"
 msgid "Password"
-msgstr "MySQL 비밀번호"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Re-enter password"
-msgstr "다른 암호를 선택"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -394,9 +376,7 @@ msgstr ""
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr ""
-"이 이름은 컴퓨터를 네트워크에서 다른 컴퓨터에 보이도록 설정했을 때 사용됩니"
-"다."
+msgstr "이 이름은 컴퓨터를 네트워크에서 다른 컴퓨터에 보이도록 설정했을 때 사용됩니다."
 
 #. Type: text
 #. Description
@@ -414,8 +394,7 @@ msgstr "로그인 할 때 암호 입력 필요"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr ""
-"로그인할때 암호를 입력하고, 암호화된 개인 폴더에도 접근할 수 있게 합니다."
+msgstr "로그인할때 암호를 입력하고, 암호화된 개인 폴더에도 접근할 수 있게 합니다."
 
 #. Type: text
 #. Description
@@ -435,9 +414,7 @@ msgstr "문서와 설정 가져오기"
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
-msgstr ""
-"가져오기 할 계정을 선택하십시오. 이 계정의 문서와 설정은 설치 완료 후 사용 가"
-"능합니다."
+msgstr "가져오기 할 계정을 선택하십시오. 이 계정의 문서와 설정은 설치 완료 후 사용 가능합니다."
 
 #. Type: text
 #. Description
@@ -445,9 +422,7 @@ msgstr ""
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
-msgstr ""
-"만약 어떤 계정도 가져오고 싶지 않으시다면, 없음을 선택하신 다음 다음 페이지"
-"로 이동하십시오."
+msgstr "만약 어떤 계정도 가져오고 싶지 않으시다면, 없음을 선택하신 다음 다음 페이지로 이동하십시오."
 
 #. Type: text
 #. Description
@@ -638,18 +613,17 @@ msgstr "인스톨러 다운"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
-"죄송합니다. 인스톨러가 다운 되었습니다. https://launchpad.net/ubuntu/+source/"
-"ubiquity/+filebug 에 새로운 버그 리포트를 제출해 주시면 (이미 존재하는 버그"
-"에 대한 내용은 첨부하지 마십시오.) 개발자들이 가능한 빨리 문제를 해결할 것입"
-"니다. 개발자들이 문제를 잘 파악할 수 있도록 다음의 내용을 버그 리포트에 포함"
-"해주시고, /var/log/syslog와 /var/log/partman 을 첨부하여 주십시오."
+"죄송합니다. 인스톨러가 다운 되었습니다. "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug 에 새로운 버그 리포트를 제출해 주시면 "
+"(이미 존재하는 버그에 대한 내용은 첨부하지 마십시오.) 개발자들이 가능한 빨리 문제를 해결할 것입니다. 개발자들이 문제를 잘 파악할 수 "
+"있도록 다음의 내용을 버그 리포트에 포함해주시고, /var/log/syslog와 /var/log/partman 을 첨부하여 주십시오."
 
 #. Type: text
 #. Description
@@ -872,8 +846,8 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
-"설치가 완료되었습니다. 다시 시작하기 전에 우분투를 계속 테스트 해볼 수 있습니"
-"다. 하지만 변경한 사항이나 저장한 문서들은 보존되지 않습니다."
+"설치가 완료되었습니다. 다시 시작하기 전에 우분투를 계속 테스트 해볼 수 있습니다. 하지만 변경한 사항이나 저장한 문서들은 보존되지 "
+"않습니다."
 
 #. Type: text
 #. Description
@@ -895,9 +869,7 @@ msgstr "계속"
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
-msgstr ""
-"설치가 완료되었습니다. 새로 설치된 프로그램을 사용하기 위해 컴퓨터를 다시 시"
-"작하십시오."
+msgstr "설치가 완료되었습니다. 새로 설치된 프로그램을 사용하기 위해 컴퓨터를 다시 시작하십시오."
 
 #. Type: note
 #. Description
@@ -991,8 +963,7 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"대상 파티션에 설치를 마치기 위한 디스크 공간이 부족합니다. 설치 프로그램을 다"
-"시 실행시키고, 더 큰 파티션을 선택하십시오."
+"대상 파티션에 설치를 마치기 위한 디스크 공간이 부족합니다. 설치 프로그램을 다시 실행시키고, 더 큰 파티션을 선택하십시오."
 
 #. Type: error
 #. Description
@@ -1002,9 +973,8 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"이 문제는 잘못된 CD/DVD 디스크나 드라이브 때문에 종종 발생합니다. CD/DVD 닦"
-"기,  CD/DVD 저속 굽기, CD/DVD 드라이브 렌즈 닦기 (크리닝 키트는 보통 전자제"
-"품 판매채에 있음) 같은 것들이 도움이 될 수 있습니다."
+"이 문제는 잘못된 CD/DVD 디스크나 드라이브 때문에 종종 발생합니다. CD/DVD 닦기,  CD/DVD 저속 굽기, CD/DVD "
+"드라이브 렌즈 닦기 (크리닝 키트는 보통 전자제품 판매채에 있음) 같은 것들이 도움이 될 수 있습니다."
 
 #. Type: error
 #. Description
@@ -1014,9 +984,8 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"이 문제는 종종 하드 디스크의 문제 때문에 발생합니다. 하드 디스크가 오래되어 "
-"교체가 필요한지 확인하기, 시스템을 시원한 환경으로 옮기는 것들이 도움이 될 "
-"수 있습니다."
+"이 문제는 종종 하드 디스크의 문제 때문에 발생합니다. 하드 디스크가 오래되어 교체가 필요한지 확인하기, 시스템을 시원한 환경으로 옮기는 "
+"것들이 도움이 될 수 있습니다."
 
 #. Type: error
 #. Description
@@ -1034,10 +1003,9 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"이 문제는 잘못된 CD/DVD 디스크나 드라이브 또는 하드 디스크 때문에 종종 발생합"
-"니다.  CD/DVD 닦기,  CD/DVD 저속 굽기, CD/DVD 드라이브 렌즈 닦기 (크리닝 키트"
-"는 보통 전자제품 판매채에 있음), 하드디스크가 오래되어 교체가 필요한지 확인하"
-"기, 시스템을 시원한 환경으로 옮기는 것들이 도움이 될 수 있습니다."
+"이 문제는 잘못된 CD/DVD 디스크나 드라이브 또는 하드 디스크 때문에 종종 발생합니다.  CD/DVD 닦기,  CD/DVD 저속 "
+"굽기, CD/DVD 드라이브 렌즈 닦기 (크리닝 키트는 보통 전자제품 판매채에 있음), 하드디스크가 오래되어 교체가 필요한지 확인하기, "
+"시스템을 시원한 환경으로 옮기는 것들이 도움이 될 수 있습니다."
 
 #. Type: select
 #. Description
@@ -1198,19 +1166,17 @@ msgstr "다음 패키지들은 손상 되었음"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
-"이 문제는 오래된 인스톨러 이미지를 사용하였거나 위에 표시된 패키지들의 버그 "
-"때문일 수 있습니다. 더 자세한 내용은 /var/log/syslog에서 확인하실 수 있습니"
-"다. 설치 과정은 계속 진행되지만, 이후 다른 지점에서 실패할 수 있고, 그렇게되"
-"면 시스템에서 설치 프로그램을 포함하여 다른 패키지를 설치하거나 제거할 수 없"
-"습니다. 먼저 설치 이미지의 새로운 버전이 있는지를 살펴보십시오. 그렇지 않으"
-"면 배포자에게 문제 보고 할 수 없을 것입니다."
+"이 문제는 오래된 인스톨러 이미지를 사용하였거나 위에 표시된 패키지들의 버그 때문일 수 있습니다. 더 자세한 내용은 "
+"/var/log/syslog에서 확인하실 수 있습니다. 설치 과정은 계속 진행되지만, 이후 다른 지점에서 실패할 수 있고, 그렇게되면 "
+"시스템에서 설치 프로그램을 포함하여 다른 패키지를 설치하거나 제거할 수 없습니다. 먼저 설치 이미지의 새로운 버전이 있는지를 "
+"살펴보십시오. 그렇지 않으면 배포자에게 문제 보고 할 수 없을 것입니다."
 
 #. Type: error
 #. Description
@@ -1234,8 +1200,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1254,8 +1220,7 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
-"네트워크 설정을 복사해 오는중에 에러가 발생했습니다. 설치는 계속 진행되지만 "
-"완료된 후에 네트워크 설정을 다시 해주셔야 합니다."
+"네트워크 설정을 복사해 오는중에 에러가 발생했습니다. 설치는 계속 진행되지만 완료된 후에 네트워크 설정을 다시 해주셔야 합니다."
 
 #. Type: text
 #. Description
@@ -1287,9 +1252,7 @@ msgstr "파티션의 마운트 해제 실패"
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
-msgstr ""
-"인스톨러가 파티션 테이블에 변화를 적용시키려 했지만, 다음 마운트 위치를 마운"
-"트 해제할 수 없어서 할 수 없었습니다:"
+msgstr "인스톨러가 파티션 테이블에 변화를 적용시키려 했지만, 다음 마운트 위치를 마운트 해제할 수 없어서 할 수 없었습니다:"
 
 #. Type: boolean
 #. Description
@@ -1300,7 +1263,8 @@ msgstr "이 마운트 위치를 사용하는 모든 응용프로그램을 종료
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr "인스톨러가 다시 이 파티션을 마운트 해제하도록 할까요?"
 
 #. Type: boolean
@@ -1315,9 +1279,7 @@ msgstr "파티션 프로그램으로 돌아가시겠습니까?"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
-msgstr ""
-"몇개의 파티션들의 크기가 너무 작습니다. 아래의 파티션들을 최소 사이즈로 조정"
-"해주세요."
+msgstr "몇개의 파티션들의 크기가 너무 작습니다. 아래의 파티션들을 최소 사이즈로 조정해주세요."
 
 #. Type: boolean
 #. Description
@@ -1325,9 +1287,7 @@ msgstr ""
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
-msgstr ""
-"파티션 프로그램으로 돌아가지 않고 파티션 크기를 늘리지 않는다면 설치는 실패"
-"할 것입니다."
+msgstr "파티션 프로그램으로 돌아가지 않고 파티션 크기를 늘리지 않는다면 설치는 실패할 것입니다."
 
 #. Type: text
 #. Description
@@ -1477,19 +1437,6 @@ msgstr ""
 msgid "Continue with installation."
 msgstr "설치 계속"
 
-#~ msgid "Zone:"
-#~ msgstr "시간대:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "입력 오류를 검사하기 위해 같은 비밀번호를 2번 입력하세요. 기호와 숫자, 문"
-#~ "자가 섞여있는 여덟 글자 이상이 좋은 비밀번호이며, 주기적으로 변경해주는 것"
-#~ "이 좋습니다."
-
 #~ msgid "Release Notes"
 #~ msgstr "릴리즈 정보"
 
@@ -1526,58 +1473,51 @@ msgstr "설치 계속"
 #~ msgstr "프론트엔드를 포함한 주 백엔드"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people wanting "
+#~ "MythTV for HTPC applications. This type of installation is intended for use "
+#~ "as a component in your home theatre."
 #~ msgstr ""
-#~ "백엔드/프론트엔드 콤보 머신은 MythTV를 홈씨어터로 이용하고자 하는 사람들에"
-#~ "게 가장 일반적인 설정입니다. 이 설치 방식은 홈씨어터를 구성하기 위한 것입"
-#~ "니다."
+#~ "백엔드/프론트엔드 콤보 머신은 MythTV를 홈씨어터로 이용하고자 하는 사람들에게 가장 일반적인 설정입니다. 이 설치 방식은 홈씨어터를 "
+#~ "구성하기 위한 것입니다."
 
 #~ msgid "Secondary Backend w/ Frontend"
 #~ msgstr "프론트엔드를 포함한 부 백엔드"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
+#~ "will be configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "이 방식은 프론트엔드를 포함한 주 백엔드와 비슷하게 시스템을 설정하지만, 네"
-#~ "트워크 상에 존재하는 백엔드에 연결하도록 설정될 것입니다."
+#~ "이 방식은 프론트엔드를 포함한 주 백엔드와 비슷하게 시스템을 설정하지만, 네트워크 상에 존재하는 백엔드에 연결하도록 설정될 것입니다."
 
 #~ msgid "Primary Backend"
 #~ msgstr "주 백엔드"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
+#~ "A backend only machine is typically designed to function like an appliance; "
+#~ "requiring very little maintenance.  This is intended to be installed as the "
+#~ "first backend on a network."
 #~ msgstr ""
-#~ "백엔드 전용 머신은 일반적으로 가전제품과 같은 기능을 가지도록 설계되었으"
-#~ "며, 관리가 거의 필요없습니다. 이것은 네트워크 상의 첫 번째 백엔드로 설치하"
-#~ "는 경우를 위한 것입니다."
+#~ "백엔드 전용 머신은 일반적으로 가전제품과 같은 기능을 가지도록 설계되었으며, 관리가 거의 필요없습니다. 이것은 네트워크 상의 첫 번째 "
+#~ "백엔드로 설치하는 경우를 위한 것입니다."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "부 백엔드"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
-#~ msgstr ""
-#~ "이 방식은 주 백엔드와 비슷하게 시스템을 설정하지만, 네트워크 상에 존재하"
-#~ "는 백엔드에 연결하도록 설정될 것입니다."
+#~ "This will set up a system similar to a Primary Backend, however it will be "
+#~ "configured to connect to an existing backend on the network."
+#~ msgstr "이 방식은 주 백엔드와 비슷하게 시스템을 설정하지만, 네트워크 상에 존재하는 백엔드에 연결하도록 설정될 것입니다."
 
 #~ msgid "Frontend"
 #~ msgstr "프론트엔드"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
+#~ "A frontend only machine's main function is to receive media content from the "
+#~ "backend and distribute it.  This configuration requires an existing backend "
+#~ "on the network."
 #~ msgstr ""
-#~ "프론트엔드 전용 머신의 주요 기능은 백엔드로부터 미디어 컨텐츠를 수신하여 "
-#~ "분배하는 것입니다. 이 설정은 네트워크 상에 백엔드가 이미 존재하고 있어야 "
-#~ "합니다."
+#~ "프론트엔드 전용 머신의 주요 기능은 백엔드로부터 미디어 컨텐츠를 수신하여 분배하는 것입니다. 이 설정은 네트워크 상에 백엔드가 이미 "
+#~ "존재하고 있어야 합니다."
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
 #~ msgstr "TV 출력을 설정하시려면 여기서 옵션을 고르십시오:"
@@ -1599,11 +1539,9 @@ msgstr "설치 계속"
 #~ msgstr "가이드 데이터/백엔드 설정"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
-#~ msgstr ""
-#~ "설치의 마지막 단계에는 최초 연결을 위한 여러분의 가이드 데이터와 백엔드 설"
-#~ "정이 필요합니다."
+#~ "The final steps of the installation require setting up your guide data and "
+#~ "configuring the backend for the first time."
+#~ msgstr "설치의 마지막 단계에는 최초 연결을 위한 여러분의 가이드 데이터와 백엔드 설정이 필요합니다."
 
 #~ msgid "Click to open the Schedules Direct website"
 #~ msgstr "Schedules Direct 웹사이트 열기 (클릭)"
@@ -1613,13 +1551,12 @@ msgstr "설치 계속"
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need to "
+#~ "configure the first four sections, being sure to provide your guide data "
+#~ "during the third."
 #~ msgstr ""
-#~ "가이드 데이터 소스를 설정한 후에 MythTV-Setup을 실행하여 초기 백엔드 설정"
-#~ "을 수행해야 합니다. 앞 쪽의 네 부분을 설정해야 하며, 세번째 부분에서 가이"
-#~ "드 데이터를 지정하십시오."
+#~ "가이드 데이터 소스를 설정한 후에 MythTV-Setup을 실행하여 초기 백엔드 설정을 수행해야 합니다. 앞 쪽의 네 부분을 설정해야 "
+#~ "하며, 세번째 부분에서 가이드 데이터를 지정하십시오."
 
 #~ msgid "Configuring mythtv..."
 #~ msgstr "MythTV 구성 중..."
@@ -1633,19 +1570,18 @@ msgstr "설치 계속"
 #~ msgid "Configuring infrared devices..."
 #~ msgstr "적외선 장치 구성 중..."
 
+#~ msgid "Zone:"
+#~ msgstr "시간대:"
+
 #~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
-#~ msgstr ""
-#~ "설치 과정에서 사용될 언어를 선택하십시오. 이 언어는 설치 완료 후 시스템의 "
-#~ "기본 언어가 될 것입니다."
+#~ "Please choose the language used for the installation process. This language "
+#~ "will be the default language for the final system."
+#~ msgstr "설치 과정에서 사용될 언어를 선택하십시오. 이 언어는 설치 완료 후 시스템의 기본 언어가 될 것입니다."
 
 #~ msgid ""
 #~ "If you have Internet access, read the release notes for information on "
 #~ "problems that may affect you."
-#~ msgstr ""
-#~ "만약 인터넷이 연결되어있다면, 영향을 미칠 수 있는 문제의 정보를 얻기 위해 "
-#~ "릴리즈 정보를 참고해주십시오."
+#~ msgstr "만약 인터넷이 연결되어있다면, 영향을 미칠 수 있는 문제의 정보를 얻기 위해 릴리즈 정보를 참고해주십시오."
 
 #~ msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 #~ msgstr "TV 출력을 활성화하려면 TV 표준을 선택해야 합니다."
@@ -1655,20 +1591,26 @@ msgstr "설치 계속"
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you can "
+#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
+#~ "Output or OpenGL effects."
 #~ msgstr ""
-#~ "오픈 소스 그래픽 드라이버가 이미 활성화되었습니다. 다른 그래픽 드라이버를 "
-#~ "사용하기 원한다면, 여기서 바꿀 수 있습니다. TV 출력이나 OpenGL 효과를 사용"
-#~ "하기 위해서는 독점적 드라이버가 필요할 수도 있습니다."
+#~ "오픈 소스 그래픽 드라이버가 이미 활성화되었습니다. 다른 그래픽 드라이버를 사용하기 원한다면, 여기서 바꿀 수 있습니다. TV 출력이나 "
+#~ "OpenGL 효과를 사용하기 위해서는 독점적 드라이버가 필요할 수도 있습니다."
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules Direct "
+#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
+#~ "users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
-#~ "북미 지역의 사용자들은 Schedules Direct (SD)의 계정을 설정할 필요가 있을 "
-#~ "것입니다. SD는 명목상의 요금으로 가이드 데이터를 제공합니다. SD를 사용하"
-#~ "지 않는다면 북미 지역의 사용자들은 MythTV의 예약 기능 중 많은 부분을 이용"
-#~ "할 수 없게 됩니다."
+#~ "북미 지역의 사용자들은 Schedules Direct (SD)의 계정을 설정할 필요가 있을 것입니다. SD는 명목상의 요금으로 가이드 "
+#~ "데이터를 제공합니다. SD를 사용하지 않는다면 북미 지역의 사용자들은 MythTV의 예약 기능 중 많은 부분을 이용할 수 없게 됩니다."
+
+#~ msgid ""
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
+#~ msgstr ""
+#~ "입력 오류를 검사하기 위해 같은 비밀번호를 2번 입력하세요. 기호와 숫자, 문자가 섞여있는 여덟 글자 이상이 좋은 비밀번호이며, "
+#~ "주기적으로 변경해주는 것이 좋습니다."

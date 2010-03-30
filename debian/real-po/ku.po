@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-23 11:04+0000\n"
+"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -181,10 +181,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Timezone"
 msgid "Time Zone:"
-msgstr "Qada Demê"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -313,24 +311,21 @@ msgstr "Ji bo ewlekariya hesaba xwe nasnavekê (password) hilbijêre."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
-#, fuzzy
-#| msgid "MySQL Password"
 msgid "Password"
-msgstr "Şîfreya MySQL"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Re-enter password"
-msgstr "Şîfreyeke din hilbijêre"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "Di moda neqandina çewtiyan de dixebitî. Nasnavekî girîng bi kar neyne."
+msgstr ""
+"Di moda neqandina çewtiyan de dixebitî. Nasnavekî girîng bi kar neyne."
 
 #. Type: text
 #. Description
@@ -623,19 +618,19 @@ msgstr "Sazkirin têk çû"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
-"Bibore: sazkirin têk çû. ji kerema xwe re ji https://launchpad.net/ubuntu/"
-"+source/ubiquity/+filebug 'ê re peleke raporkirina bugê bişeyîne (kîtekîtên "
-"xwe nexe tu tu bugekê heyî). pêşdebirek dê di demeke kin de li ser vê "
-"pirsgirêkê hûr bibe. Ji bo ku pêşdebir baş fêm bikin ka pirsgirêk çiye "
-"kîtekîtên li jêr têxe rapora bugê û li pelên /var/log/syslog û /var/log/"
-"partman zêde bike:"
+"Bibore: sazkirin têk çû. ji kerema xwe re ji "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug 'ê re peleke "
+"raporkirina bugê bişeyîne (kîtekîtên xwe nexe tu tu bugekê heyî). pêşdebirek "
+"dê di demeke kin de li ser vê pirsgirêkê hûr bibe. Ji bo ku pêşdebir baş fêm "
+"bikin ka pirsgirêk çiye kîtekîtên li jêr têxe rapora bugê û li pelên "
+"/var/log/syslog û /var/log/partman zêde bike:"
 
 #. Type: text
 #. Description
@@ -1024,9 +1019,9 @@ msgid ""
 "replacement, or to move the system to a cooler environment."
 msgstr ""
 "Ev pirsgirêk bi piranî ji ber pirsgirêkên CD/DVD, ajokarên CD/DVD an jî "
-"dîska sabît rû dide. Ji bo çareserkirinê van tiştan biceribîne: Ajokara CD/"
-"DVD paqij bike, eger xirabe be tamîr bike an jî biguherîne an jî komputerê "
-"li ciyekî hênik bixebitîne."
+"dîska sabît rû dide. Ji bo çareserkirinê van tiştan biceribîne: Ajokara "
+"CD/DVD paqij bike, eger xirabe be tamîr bike an jî biguherîne an jî "
+"komputerê li ciyekî hênik bixebitîne."
 
 #. Type: select
 #. Description
@@ -1187,12 +1182,12 @@ msgstr "Pakêtên li jêr di rewşeke şkestî de ne"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Dibe ku ev rewş ji ber ku tu peleke kevn a sazkirinê bi kar tînî an jî di "
 "pakêtên li jorê de hin çewtî hene. Zêdetir agahî di pela /var/log/syslog de "
@@ -1223,8 +1218,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1288,7 +1283,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Dixwazî ku bernameya sazkirinê dîsa biceribînî ku van beşan mîheng bikî?"
 
@@ -1465,16 +1461,6 @@ msgid "Continue with installation."
 msgstr ""
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Heman şîfreyê du caran têkevê, bi vî awayî dê rastbûna wê bê "
-#~ "kontrolkirin. Şîfreyeke baş ji gelek tîpan, reqeman û nîşaneyan pêk tê; "
-#~ "herî kêm heşt curetîp e; dem bi dem tê guhertin."
-
-#~ msgid ""
 #~ "If you have Internet access, read the release notes for information on "
 #~ "problems that may affect you."
 #~ msgstr ""
@@ -1483,6 +1469,16 @@ msgstr ""
 
 #~ msgid "Release Notes"
 #~ msgstr "Nîşeyên Weşanê"
+
+#~ msgid ""
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
+#~ msgstr ""
+#~ "Heman şîfreyê du caran têkevê, bi vî awayî dê rastbûna wê bê kontrolkirin. "
+#~ "Şîfreyeke baş ji gelek tîpan, reqeman û nîşaneyan pêk tê; herî kêm heşt "
+#~ "curetîp e; dem bi dem tê guhertin."
 
 #~ msgid ""
 #~ " Install Type: ${INSTALLTYPE}\n"

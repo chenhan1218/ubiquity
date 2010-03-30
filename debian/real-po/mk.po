@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-23 11:04+0000\n"
+"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -314,10 +314,8 @@ msgstr "Одберете лозинка за да ја обезбедите Ва
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
-#, fuzzy
-#| msgid "MySQL Password"
 msgid "Password"
-msgstr "MySQL лозинка"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -329,7 +327,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "Работите во режим за исправување грешки. Не користете вредна лозинка!"
+msgstr ""
+"Работите во режим за исправување грешки. Не користете вредна лозинка!"
 
 #. Type: text
 #. Description
@@ -623,12 +622,12 @@ msgstr "Инсталерот падна"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Жал ни е, инсталерот падна. Ве молиме поднесете нова пријава за бубачка на "
 "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (не ги приложувајте "
@@ -1171,12 +1170,12 @@ msgstr "Следниве пакети се во расипана состојб�
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 
 #. Type: error
@@ -1201,8 +1200,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1266,7 +1265,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Дали сакате инсталерот повторно да се обиде да ги демонтира овие партиции?"
 
@@ -1457,46 +1457,45 @@ msgstr ""
 #~ msgstr "Примарен backend со frontend"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people wanting "
+#~ "MythTV for HTPC applications. This type of installation is intended for use "
+#~ "as a component in your home theatre."
 #~ msgstr ""
-#~ "Backend/Frontend комбо машина е најчестото поставување за луѓе кои го "
-#~ "сакаат MythTV за HTPC апликации. Овој тип на инсталација е наменет за да "
-#~ "се искористи како дел во Вашето домашно кино."
+#~ "Backend/Frontend комбо машина е најчестото поставување за луѓе кои го сакаат "
+#~ "MythTV за HTPC апликации. Овој тип на инсталација е наменет за да се "
+#~ "искористи како дел во Вашето домашно кино."
 
 #~ msgid "Secondary Backend w/ Frontend"
 #~ msgstr "Секундарен backend со frontend"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
+#~ "will be configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "Ова ќе постави систем сличен на примарен backend со фrontend, иако ќе "
-#~ "биде поставен за да се поврзува на постоечки backend на мрежата."
+#~ "Ова ќе постави систем сличен на примарен backend со фrontend, иако ќе биде "
+#~ "поставен за да се поврзува на постоечки backend на мрежата."
 
 #~ msgid "Primary Backend"
 #~ msgstr "Примарен backend."
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
+#~ "A backend only machine is typically designed to function like an appliance; "
+#~ "requiring very little maintenance.  This is intended to be installed as the "
+#~ "first backend on a network."
 #~ msgstr ""
 #~ "Backend-only машина е типично дизајнирана да функционира како инструмент; "
-#~ "барајќи многу малку оддржување. Ова е наменето за да биде инсталирано "
-#~ "како првиот backend на една мрежа."
+#~ "барајќи многу малку оддржување. Ова е наменето за да биде инсталирано како "
+#~ "првиот backend на една мрежа."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "Секундарен backend"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will be "
+#~ "configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "Ова ќе постави систем сличен на примарен backend, иако ќе биде поставен "
-#~ "за да се поврзува на постоечки backend на мрежата."
+#~ "Ова ќе постави систем сличен на примарен backend, иако ќе биде поставен за "
+#~ "да се поврзува на постоечки backend на мрежата."
 
 #~ msgid "Frontend"
 #~ msgstr "Frontend"

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-03-24 23:25+0000\n"
-"PO-Revision-Date: 2010-03-18 08:07+0000\n"
-"Last-Translator: Красимир Чонов (bfaf) <mk2616@abv.bg>\n"
+"PO-Revision-Date: 2010-03-25 07:31+0000\n"
+"Last-Translator: Krasimir Chonov <mk2616@abv.bg>\n"
 "Language-Team: American English <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-23 11:05+0000\n"
+"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -201,10 +201,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Timezone"
 msgid "Time Zone:"
-msgstr "Часови пояс"
+msgstr "Часова зона:"
 
 #. Type: text
 #. Description
@@ -301,7 +299,7 @@ msgstr "Как се казвате?"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Full Name"
-msgstr ""
+msgstr "Пълно име"
 
 #. Type: text
 #. Description
@@ -312,10 +310,8 @@ msgstr "Какво име искате да използвате за вход?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
-#, fuzzy
-#| msgid "MySQL User Name"
 msgid "Username"
-msgstr "MySQL Потребител"
+msgstr "Потребителско име"
 
 #. Type: text
 #. Description
@@ -336,18 +332,14 @@ msgstr "Изберете парола, за да защитите вашата �
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
-#, fuzzy
-#| msgid "MySQL Password"
 msgid "Password"
-msgstr "MySQL Парола"
+msgstr "Парола"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Re-enter password"
-msgstr "Изберете друг парола"
+msgstr "Повторете паролата"
 
 #. Type: text
 #. Description
@@ -360,31 +352,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Strength: too short"
-msgstr ""
+msgstr "Надеждност: прекалено къса"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Strength: weak"
-msgstr ""
+msgstr "Надеждност: слаба"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Strength: fair"
-msgstr ""
+msgstr "Надеждност: много слаба"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Strength: good"
-msgstr ""
+msgstr "Надеждност: добра"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Strength: strong"
-msgstr ""
+msgstr "Надеждност: много добра"
 
 #. Type: text
 #. Description
@@ -396,7 +388,7 @@ msgstr "Какво е името на този компютър?"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Computer Name"
-msgstr ""
+msgstr "Име на компютъра"
 
 #. Type: text
 #. Description
@@ -652,12 +644,12 @@ msgstr "Инсталаторът се срина"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Съжалавяме, но инсталаторът се срина. Моля, качете файл с нов доклад за "
 "грешка на https://launchpad.net/ubuntu/+source/ubiquity/+filebug (не "
@@ -1219,12 +1211,12 @@ msgstr "Следните пакети са повредени:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Това може да се дължи на стар инсталационен пакет или диск, или може да е "
 "грешка в някои от пакетите в горния списък. Допълнителни сведения могат да "
@@ -1257,8 +1249,8 @@ msgstr "Грешка при мигриране на документи и нас
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1331,7 +1323,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Желаете ли инсталаторът да направи повторен опит да отмонтира тези дялове?"
 
@@ -1511,23 +1504,9 @@ msgstr ""
 msgid "Continue with installation."
 msgstr "Продължаване с инсталацията."
 
-#~ msgid "Zone:"
-#~ msgstr "Зона:"
-
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Въведете еднаква парола два пъти, така че да сте сигурни, че не сте "
-#~ "допуснали правописни грешки. Добрата парола ще съдържа комбинация от "
-#~ "букви, числа и пунктуационни знаци, трябва да е поне осем знака и трябва "
-#~ "да се сменя често на равни интевали."
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This language "
+#~ "will be the default language for the final system."
 #~ msgstr ""
 #~ "Моля, изберете езика, използван по време на инсталацията! Този език ще е "
 #~ "езикът по подразбиране и при новоинсталираната система."
@@ -1541,6 +1520,17 @@ msgstr "Продължаване с инсталацията."
 
 #~ msgid "Release Notes"
 #~ msgstr "Бележки към изданието"
+
+#~ msgid ""
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
+#~ msgstr ""
+#~ "Въведете еднаква парола два пъти, така че да сте сигурни, че не сте "
+#~ "допуснали правописни грешки. Добрата парола ще съдържа комбинация от букви, "
+#~ "числа и пунктуационни знаци, трябва да е поне осем знака и трябва да се "
+#~ "сменя често на равни интевали."
 
 #~ msgid ""
 #~ " Install Type: ${INSTALLTYPE}\n"
@@ -1575,21 +1565,20 @@ msgstr "Продължаване с инсталацията."
 #~ msgstr "Основен бекенд с фронтенд"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people wanting "
+#~ "MythTV for HTPC applications. This type of installation is intended for use "
+#~ "as a component in your home theatre."
 #~ msgstr ""
-#~ "Бекенд/фронтенд комбинирана машина е най-често използваната конфигурация "
-#~ "за хора, които искат MythTV за HTPC програми. Този тип инсталация е "
+#~ "Бекенд/фронтенд комбинирана машина е най-често използваната конфигурация за "
+#~ "хора, които искат MythTV за HTPC програми. Този тип инсталация е "
 #~ "предназначена за употреба като компонент от вашето домашно кино."
 
 #~ msgid "Secondary Backend w/ Frontend"
 #~ msgstr "Втори Бекенд/интерфейс"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
+#~ "will be configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "Това ще настрои система подобна на Първи Бекенд без Форнтенд, но въпреки "
 #~ "това ще бъде конфигурирана да се свързва със съществуващ бекенд в мрежата."
@@ -1598,20 +1587,20 @@ msgstr "Продължаване с инсталацията."
 #~ msgstr "Първа програма"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
+#~ "A backend only machine is typically designed to function like an appliance; "
+#~ "requiring very little maintenance.  This is intended to be installed as the "
+#~ "first backend on a network."
 #~ msgstr ""
 #~ "Само бекенд машина е проектирана да работи като приложение; изисква много "
-#~ "малко поддръжка.  Това е предназначено да се инсталира като първи бекенд "
-#~ "в мрежата."
+#~ "малко поддръжка.  Това е предназначено да се инсталира като първи бекенд в "
+#~ "мрежата."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "Втора програма"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will be "
+#~ "configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "Това ще настрои система подобна на първия бекенд, въпреки това ще бъде "
 #~ "конфигурирана да се свърже със съществуващ бекенд в мрежата."
@@ -1620,22 +1609,22 @@ msgstr "Продължаване с инсталацията."
 #~ msgstr "Програма за настройка"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
+#~ "A frontend only machine's main function is to receive media content from the "
+#~ "backend and distribute it.  This configuration requires an existing backend "
+#~ "on the network."
 #~ msgstr ""
 #~ "Главната функция на фронтенд машина е да получава медийно съдържание от "
-#~ "бекенд и да го разпространява.  Тази конфигурация изисква съществуващ "
-#~ "бекенд в мрежата."
+#~ "бекенд и да го разпространява.  Тази конфигурация изисква съществуващ бекенд "
+#~ "в мрежата."
 
 #~ msgid "Graphics Drivers"
 #~ msgstr "Графични драйвери"
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you can "
+#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
+#~ "Output or OpenGL effects."
 #~ msgstr ""
 #~ "Графичен драйвер с отворен код е вече активиран и конфигуриран за вашата "
 #~ "инсталация. Ако искате да използвате друг графичен драйвер, можете да го "
@@ -1654,8 +1643,7 @@ msgstr "Продължаване с инсталацията."
 #~ msgid ""
 #~ "Please enter the information necessary to contact your master backend:"
 #~ msgstr ""
-#~ "Моля, въведете информацията необходима за свързване с вашия главен "
-#~ "драйвер:"
+#~ "Моля, въведете информацията необходима за свързване с вашия главен драйвер:"
 
 #~ msgid "MySQL Database"
 #~ msgstr "MySQL База данни"
@@ -1667,19 +1655,19 @@ msgstr "Продължаване с инсталацията."
 #~ msgstr "Конфигуриране на упътване / бекенд"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data and "
+#~ "configuring the backend for the first time."
 #~ msgstr ""
-#~ "Финалните стъпки на инсталацията изискват да се настроят вашите данни и "
-#~ "да се конфигурира бекенд за първи път."
+#~ "Финалните стъпки на инсталацията изискват да се настроят вашите данни и да "
+#~ "се конфигурира бекенд за първи път."
 
 #~ msgid "Click to open the Schedules Direct website"
 #~ msgstr "Щракнете, за да отворитесайта за директни разписания."
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules Direct "
+#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
+#~ "users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
 #~ "Потребителите в Северна Америка трябва да създадат акаунт със Schedules "
 #~ "Direct (SD).  SD предоставя данни на стандартна такса.  Без SD, "
@@ -1691,14 +1679,13 @@ msgstr "Продължаване с инсталацията."
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need to "
+#~ "configure the first four sections, being sure to provide your guide data "
+#~ "during the third."
 #~ msgstr ""
-#~ "След като настроите вашите данни, трябва да стартирате MythTV-Setup, за "
-#~ "да изпълните бекенд конфигурация за първи път.  Трябва да конфигурирате "
-#~ "първите четири раздела, като се уверите, че въведете вашите данни в "
-#~ "третия раздел."
+#~ "След като настроите вашите данни, трябва да стартирате MythTV-Setup, за да "
+#~ "изпълните бекенд конфигурация за първи път.  Трябва да конфигурирате първите "
+#~ "четири раздела, като се уверите, че въведете вашите данни в третия раздел."
 
 #~ msgid "Configuring mythtv..."
 #~ msgstr "Настройване на mythtv..."
@@ -1711,3 +1698,6 @@ msgstr "Продължаване с инсталацията."
 
 #~ msgid "Configuring infrared devices..."
 #~ msgstr "Конфигуриране на инфрачервени устройства..."
+
+#~ msgid "Zone:"
+#~ msgstr "Зона:"

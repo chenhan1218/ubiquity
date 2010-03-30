@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-03-24 23:25+0000\n"
-"PO-Revision-Date: 2010-02-17 11:37+0000\n"
-"Last-Translator: David Planella <Unknown>\n"
+"PO-Revision-Date: 2010-03-27 12:16+0000\n"
+"Last-Translator: Siegfried Gevatter <rainct@ubuntu.com>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-23 11:04+0000\n"
+"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -108,6 +108,8 @@ msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
 msgstr ""
+"Podeu provar ${RELEASE} des d'aquest ${MEDIUM} sense fer cap canvi al vostre "
+"ordinador."
 
 #. Type: text
 #. Description
@@ -137,18 +139,20 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
+"Podeu llegir les <a href=\"release-notes\">notes de la versió</a> o bé <a "
+"href=\"update\">actualitzar aquest instal·lador</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr ""
+msgstr "Podeu llegir les <a href=\"release-notes\">notes de la versió</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr ""
+msgstr "Podeu <a href=\"update\">actualitzar aquest instal·lador</a>."
 
 #. Type: text
 #. Description
@@ -189,10 +193,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Timezone"
 msgid "Time Zone:"
-msgstr "Fus horari"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -236,7 +238,7 @@ msgstr "Escolliu la que vulgueu:"
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Guess keymap:"
-msgstr ""
+msgstr "Determina la disposició del teclat:"
 
 #. Type: text
 #. Description
@@ -301,10 +303,8 @@ msgstr "Quin nom voleu utilitzar per a entrar al sistema?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
-#, fuzzy
-#| msgid "MySQL User Name"
 msgid "Username"
-msgstr "Nom d'usuari del MySQL"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -325,18 +325,14 @@ msgstr "Seleccioneu una contrasenya per a mantenir el vostre compte segur."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
-#, fuzzy
-#| msgid "MySQL Password"
 msgid "Password"
-msgstr "Contrasenya del MySQL"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Re-enter password"
-msgstr "Trieu una altra contrasenya"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -517,7 +513,8 @@ msgstr "Detalls"
 #: ../ubiquity.templates:72001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr "El nou sistema operatiu s'instal·larà ara amb els següents paràmetres:"
+msgstr ""
+"El nou sistema operatiu s'instal·larà ara amb els següents paràmetres:"
 
 #. Type: text
 #. Description
@@ -638,12 +635,12 @@ msgstr "L'instal·lador ha fallat"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Ho sentim: l'instal·lador ha fallat. Seria recomanable que informéssiu "
 "d'aquest error a https://launchpad.net/ubuntu/+source/ubiquity/+filebug "
@@ -1208,12 +1205,12 @@ msgstr "Els paquets següents estan en un estat trencat:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Això pot ser degut al fet que s'estigui utilitzant una imatge d'instal·lació "
 "vella, o bé a un error en algun dels paquets llistats aquí sobre. Podeu "
@@ -1246,8 +1243,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1310,7 +1307,8 @@ msgstr "Tanqueu les aplicacions que emprin aquests punts de muntatge:"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Voleu que l'instal·lador provi de desmuntar aquestes particions una altra "
 "vegada?"
@@ -1487,23 +1485,9 @@ msgstr ""
 msgid "Continue with installation."
 msgstr ""
 
-#~ msgid "Zone:"
-#~ msgstr "Zona:"
-
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Introduïu la mateixa contrasenya dues vegades, a fi de comprovar si hi ha "
-#~ "errors d'escriptura. Una bona contrasenya hauria de contenir una barreja "
-#~ "de lletres, nombres i signes de puntuació, hauria de tenir com a mínim "
-#~ "vuit caràcters de llargada, i s'hauria de canviar sovint."
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This language "
+#~ "will be the default language for the final system."
 #~ msgstr ""
 #~ "Seleccioneu la llengua a utilitzar per al procés d'instal·lació. Aquesta "
 #~ "llengua serà la predeterminada al sistema final."
@@ -1517,6 +1501,17 @@ msgstr ""
 
 #~ msgid "Release Notes"
 #~ msgstr "Notes de la versió"
+
+#~ msgid ""
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
+#~ msgstr ""
+#~ "Introduïu la mateixa contrasenya dues vegades, a fi de comprovar si hi ha "
+#~ "errors d'escriptura. Una bona contrasenya hauria de contenir una barreja de "
+#~ "lletres, nombres i signes de puntuació, hauria de tenir com a mínim vuit "
+#~ "caràcters de llargada, i s'hauria de canviar sovint."
 
 #~ msgid ""
 #~ " Install Type: ${INSTALLTYPE}\n"
@@ -1551,44 +1546,43 @@ msgstr ""
 #~ msgstr "Rerefons primari amb frontal"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people wanting "
+#~ "MythTV for HTPC applications. This type of installation is intended for use "
+#~ "as a component in your home theatre."
 #~ msgstr ""
-#~ "Un ordinador amb una combinació de rerefons/frontal és la configuració "
-#~ "més habitual per als qui vulguin utilitzar el MythTV per a aplicacions de "
-#~ "cinema de saló (HTPC). Aquest tipus d'instal·lació està pensada per a "
-#~ "utilitzar-la com a component del cinema de saló."
+#~ "Un ordinador amb una combinació de rerefons/frontal és la configuració més "
+#~ "habitual per als qui vulguin utilitzar el MythTV per a aplicacions de cinema "
+#~ "de saló (HTPC). Aquest tipus d'instal·lació està pensada per a utilitzar-la "
+#~ "com a component del cinema de saló."
 
 #~ msgid "Secondary Backend w/ Frontend"
 #~ msgstr "Rerefons secundari amb frontal"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
+#~ "will be configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "Això configurarà un sistema similar a un rerefons primari amb frontal que "
-#~ "es connectarà a un rerefons existent a la xarxa."
+#~ "Això configurarà un sistema similar a un rerefons primari amb frontal que es "
+#~ "connectarà a un rerefons existent a la xarxa."
 
 #~ msgid "Primary Backend"
 #~ msgstr "Rerefons primari"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
+#~ "A backend only machine is typically designed to function like an appliance; "
+#~ "requiring very little maintenance.  This is intended to be installed as the "
+#~ "first backend on a network."
 #~ msgstr ""
 #~ "Un ordinador només amb rerefons està típicament dissenyat per a funcionar "
-#~ "com un electrodomèstic -requereix un manteniment mínim. La seva finalitat "
-#~ "és ésser instal·lat com a primer rerefons d'una xarxa."
+#~ "com un electrodomèstic -requereix un manteniment mínim. La seva finalitat és "
+#~ "ésser instal·lat com a primer rerefons d'una xarxa."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "Rerefons secundari"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will be "
+#~ "configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "Això configurarà un sistema similar a un rerefons primari, però de tal "
 #~ "manera que es connectarà a un rerefons existent a la xarxa."
@@ -1597,22 +1591,22 @@ msgstr ""
 #~ msgstr "Frontal"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
+#~ "A frontend only machine's main function is to receive media content from the "
+#~ "backend and distribute it.  This configuration requires an existing backend "
+#~ "on the network."
 #~ msgstr ""
 #~ "La funció principal d'un ordinador només amb frontal és rebre continguts "
-#~ "multimèdia del rerefons i distribuir-los. Aquesta configuració requereix "
-#~ "un rerefons existent a la xarxa."
+#~ "multimèdia del rerefons i distribuir-los. Aquesta configuració requereix un "
+#~ "rerefons existent a la xarxa."
 
 #~ msgid "Graphics Drivers"
 #~ msgstr "Controladors gràfics"
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you can "
+#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
+#~ "Output or OpenGL effects."
 #~ msgstr ""
 #~ "La vostra instal·lació ja disposa d'un controlador de programari lliure "
 #~ "habilitat i configurat. En cas que vulgueu utilitzar-ne un altre, podeu "
@@ -1646,8 +1640,8 @@ msgstr ""
 #~ msgstr "Configuració de les dades de programació / rerefons"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data and "
+#~ "configuring the backend for the first time."
 #~ msgstr ""
 #~ "Els passos finals de la instal·lació requereixen la configuració de les "
 #~ "dades de programació i del rerefons per a la primera utilització."
@@ -1656,13 +1650,13 @@ msgstr ""
 #~ msgstr "Feu clic per a anar al lloc web de l'«Schedules Direct»"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules Direct "
+#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
+#~ "users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
-#~ "Els usuaris de l'Amèrica del Nord hauran de crear o configurar un compte "
-#~ "amb l'Schedules Direct (SD). SD ofereix dades de programació a canvi d'un "
-#~ "petit import, sense les quals aquests usuaris es perdran moltes de les "
+#~ "Els usuaris de l'Amèrica del Nord hauran de crear o configurar un compte amb "
+#~ "l'Schedules Direct (SD). SD ofereix dades de programació a canvi d'un petit "
+#~ "import, sense les quals aquests usuaris es perdran moltes de les "
 #~ "característiques de programació del MythTV."
 
 #~ msgid "Launch MythTV Setup"
@@ -1670,14 +1664,14 @@ msgstr ""
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need to "
+#~ "configure the first four sections, being sure to provide your guide data "
+#~ "during the third."
 #~ msgstr ""
 #~ "Un cop hàgiu configurat la vostra font de dades de programació, haureu "
 #~ "d'executar el MythTV-Setup per a iniciar la configuració del rerefons per "
-#~ "primera vegada. S'han de configurar les primeres quatre seccions; "
-#~ "assegureu-vos d'introduir les dades de programació a la tercera."
+#~ "primera vegada. S'han de configurar les primeres quatre seccions; assegureu-"
+#~ "vos d'introduir les dades de programació a la tercera."
 
 #~ msgid "Configuring mythtv..."
 #~ msgstr "S'està configurant el MythTV..."
@@ -1690,3 +1684,6 @@ msgstr ""
 
 #~ msgid "Configuring infrared devices..."
 #~ msgstr "S'estan configurant els dispositius d'infrarojos"
+
+#~ msgid "Zone:"
+#~ msgstr "Zona:"

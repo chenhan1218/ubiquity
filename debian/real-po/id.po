@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-03-24 23:25+0000\n"
-"PO-Revision-Date: 2010-03-15 11:42+0000\n"
+"PO-Revision-Date: 2010-03-26 05:18+0000\n"
 "Last-Translator: Bagus Herlambang <bagus@vfemail.net>\n"
 "Language-Team: Bahasa Indonesia <debian-l10n-id@gurame.fisika.ui.ac.id>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-23 11:04+0000\n"
+"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -192,10 +192,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Timezone"
 msgid "Time Zone:"
-msgstr "Zona Waktu"
+msgstr "Zona Waktu:"
 
 #. Type: text
 #. Description
@@ -245,7 +243,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Guess..."
-msgstr ""
+msgstr "Menebak..."
 
 #. Type: text
 #. Description
@@ -257,7 +255,7 @@ msgstr "Tolong tekan salah satu tombol berikut ini:"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Is the following key present on your keyboard?"
-msgstr ""
+msgstr "Apakah tombol berikut ini ada pada papan ketik anda?"
 
 #. Type: text
 #. Description
@@ -293,7 +291,7 @@ msgstr "Siapakah nama anda?"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Full Name"
-msgstr ""
+msgstr "Nama Lengkap"
 
 #. Type: text
 #. Description
@@ -304,10 +302,8 @@ msgstr "Nama apakah yang ingin anda gunakan untuk melakukan log in?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
-#, fuzzy
-#| msgid "MySQL User Name"
 msgid "Username"
-msgstr "Nama Pemakai MySQL"
+msgstr "Nama Pengguna"
 
 #. Type: text
 #. Description
@@ -328,18 +324,14 @@ msgstr "Pilih sebuah password untuk menjaga agar account anda aman."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
-#, fuzzy
-#| msgid "MySQL Password"
 msgid "Password"
-msgstr "Katasandi MySQL"
+msgstr "Sandi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Re-enter password"
-msgstr "Pilih sandi lainnya"
+msgstr "Masukkan kembali sandinya"
 
 #. Type: text
 #. Description
@@ -353,31 +345,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Strength: too short"
-msgstr ""
+msgstr "Kekuatan: terlalu pendek"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Strength: weak"
-msgstr ""
+msgstr "Kekuatan: lemah"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Strength: fair"
-msgstr ""
+msgstr "Kekuatan: cukup"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Strength: good"
-msgstr ""
+msgstr "Kekuatan: baik"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Strength: strong"
-msgstr ""
+msgstr "Kekuatan: kuat"
 
 #. Type: text
 #. Description
@@ -389,7 +381,7 @@ msgstr "Apakah nama komputer ini?"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Computer Name"
-msgstr ""
+msgstr "Nama Komputer"
 
 #. Type: text
 #. Description
@@ -645,12 +637,12 @@ msgstr "Pemasang kres"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Mohon maaf, program pemasang kres. Silahkan mengajukan laporan bug baru pada "
 "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (jangan melampirkan "
@@ -1013,10 +1005,10 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Hal ini lebih sering disebabkan adanya kesalahan pada penggerak cakram CD/"
-"DVD. Coba bersihkan CD/DVD, bakar CD/DVD pada kecepatan yang lebih rendah, "
-"atau bersihkan lensa CD/DVD (perlengkapan pembersih dapat dibeli di toko "
-"elektronik)"
+"Hal ini lebih sering disebabkan adanya kesalahan pada penggerak cakram "
+"CD/DVD. Coba bersihkan CD/DVD, bakar CD/DVD pada kecepatan yang lebih "
+"rendah, atau bersihkan lensa CD/DVD (perlengkapan pembersih dapat dibeli di "
+"toko elektronik)"
 
 #. Type: error
 #. Description
@@ -1212,12 +1204,12 @@ msgstr "Paket-paket berikut berada dalam kondisi rusak:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Hal ini mungkin karena pemakaian image installer lama, atau karena sebuah "
 "bug pada bebarapa dari paket yang didaftar di atas. Rincian lebih lanjut "
@@ -1250,8 +1242,8 @@ msgstr "Galat memigrasi dokumen dan tatanan"
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1316,7 +1308,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Apakah anda ingin agar proses instalasi mencoba melakukan umount lagi "
 "terhadap partisi-partisi tersebut?"
@@ -1472,14 +1465,14 @@ msgstr "Pemasang menemui galat ketika mencoba memperbarui dirinya sendiri:"
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:211001
 msgid "USB"
-msgstr ""
+msgstr "USB"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
 #: ../ubiquity.templates:212001
 msgid "CD"
-msgstr ""
+msgstr "CD"
 
 #. Type: text
 #. Description
@@ -1495,24 +1488,9 @@ msgstr ""
 msgid "Continue with installation."
 msgstr ""
 
-#~ msgid "Zone:"
-#~ msgstr "Zona"
-
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Masukkan kata sandi yang sama dua kali, sehingga dapat diperiksa apabila "
-#~ "terjadi kesalahan pengetikan. Sebuah kata sandi yang baik sebaiknya "
-#~ "merupakan kombinasi dari huruf, angka, dan tanda baca, setidaknya terdiri "
-#~ "dari minimal delapan karakter, dan sebaiknya sering diganti secara "
-#~ "berkala."
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This language "
+#~ "will be the default language for the final system."
 #~ msgstr ""
 #~ "Silakan memilih bahasa yang digunakan untuk proses instalasi. Bahasa ini "
 #~ "akan menjadi bahasa pilihan untuk sistem akhir nanti."
@@ -1526,6 +1504,17 @@ msgstr ""
 
 #~ msgid "Release Notes"
 #~ msgstr "Catatan Rilis"
+
+#~ msgid ""
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
+#~ msgstr ""
+#~ "Masukkan kata sandi yang sama dua kali, sehingga dapat diperiksa apabila "
+#~ "terjadi kesalahan pengetikan. Sebuah kata sandi yang baik sebaiknya "
+#~ "merupakan kombinasi dari huruf, angka, dan tanda baca, setidaknya terdiri "
+#~ "dari minimal delapan karakter, dan sebaiknya sering diganti secara berkala."
 
 #~ msgid ""
 #~ " Install Type: ${INSTALLTYPE}\n"
@@ -1560,21 +1549,20 @@ msgstr ""
 #~ msgstr "Backend Utama dgn Frontend"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people wanting "
+#~ "MythTV for HTPC applications. This type of installation is intended for use "
+#~ "as a component in your home theatre."
 #~ msgstr ""
-#~ "Suatu mesin gabungan backend/frontend adalah setup paling umum bagi "
-#~ "pengguna yang menginginkan MythTV untuk aplikasi HTPC. Tipe instalasi ini "
-#~ "ditujukan bagi sebuah komponen dalam teater rumah anda."
+#~ "Suatu mesin gabungan backend/frontend adalah setup paling umum bagi pengguna "
+#~ "yang menginginkan MythTV untuk aplikasi HTPC. Tipe instalasi ini ditujukan "
+#~ "bagi sebuah komponen dalam teater rumah anda."
 
 #~ msgid "Secondary Backend w/ Frontend"
 #~ msgstr "Backend Sekunder dgn Frontend"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
+#~ "will be configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "Ini akan menyiapkan sebuah sistem yang serupa dengan Backend Primer dgn "
 #~ "Frontend, namun akan diatur untuk menyambung ke backed yang telah ada di "
@@ -1584,9 +1572,9 @@ msgstr ""
 #~ msgstr "Backend Utama"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
+#~ "A backend only machine is typically designed to function like an appliance; "
+#~ "requiring very little maintenance.  This is intended to be installed as the "
+#~ "first backend on a network."
 #~ msgstr ""
 #~ "Mesin hanya backend biasanya dirancang untuk berfungsi seperti sebuah "
 #~ "appliance; membutuhkan perawatan minimum. Ini ditujukan untuk dipasang "
@@ -1596,8 +1584,8 @@ msgstr ""
 #~ msgstr "Backend Sekunder"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will be "
+#~ "configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "Ini akan menyiapkan sistem serupa dengan Backed Primer, namun ini akan "
 #~ "dikonfigurasi untuk menyambung ke backend yang telah ada di jaringan."
@@ -1606,22 +1594,22 @@ msgstr ""
 #~ msgstr "Frontend"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
+#~ "A frontend only machine's main function is to receive media content from the "
+#~ "backend and distribute it.  This configuration requires an existing backend "
+#~ "on the network."
 #~ msgstr ""
 #~ "Fungsi utama sebuah mesin hanya frontend adalah untuk menerima isi media "
-#~ "dari backend dan menyebarkannya. Konfigurasi ini memerlukan sebuah "
-#~ "backend yang telah ada pada jaringan."
+#~ "dari backend dan menyebarkannya. Konfigurasi ini memerlukan sebuah backend "
+#~ "yang telah ada pada jaringan."
 
 #~ msgid "Graphics Drivers"
 #~ msgstr "Driver grafis"
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you can "
+#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
+#~ "Output or OpenGL effects."
 #~ msgstr ""
 #~ "Sebuah driver grafik open source telah diaktifkan dan dikonfigurasi untuk "
 #~ "instalasi anda. Bila anda ingin memakai driver grafik yang berbeda, anda "
@@ -1641,8 +1629,8 @@ msgstr ""
 #~ msgid ""
 #~ "Please enter the information necessary to contact your master backend:"
 #~ msgstr ""
-#~ "Silahkan masukkan informasi yang diperlukan untuk menghubungi backend "
-#~ "master anda:"
+#~ "Silahkan masukkan informasi yang diperlukan untuk menghubungi backend master "
+#~ "anda:"
 
 #~ msgid "MySQL Database"
 #~ msgstr "Basisdata MySQL"
@@ -1654,8 +1642,8 @@ msgstr ""
 #~ msgstr "Atur Data Penuntun / Backend"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data and "
+#~ "configuring the backend for the first time."
 #~ msgstr ""
 #~ "Langkah terakhir instalasi membutuhkan pengaturan data guide anda dan "
 #~ "mengkonfigur backend untuk pertama kali."
@@ -1664,28 +1652,28 @@ msgstr ""
 #~ msgstr "Klik untuk membuka situs web Schedules Direct"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules Direct "
+#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
+#~ "users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
 #~ "Pengguna di Amerika Utara perlu menyiapkan sebuah akun dengan Schedules "
-#~ "Direct (SD). SD menyediakan data penuntun dengan biaya tertentu. Tanpa "
-#~ "SD, pengguna Amerika Utara mungkin kehilangan banyak fitur penskedulan "
-#~ "pada MythTV."
+#~ "Direct (SD). SD menyediakan data penuntun dengan biaya tertentu. Tanpa SD, "
+#~ "pengguna Amerika Utara mungkin kehilangan banyak fitur penskedulan pada "
+#~ "MythTV."
 
 #~ msgid "Launch MythTV Setup"
 #~ msgstr "Luncurkan Setup MythTV"
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need to "
+#~ "configure the first four sections, being sure to provide your guide data "
+#~ "during the third."
 #~ msgstr ""
-#~ "Setelah menyiapkan sumber data penuntun anda, anda perlu meluncurkan "
-#~ "MythTV-Setup untuk menjalankan konfigurasi backend yang pertama kali. "
-#~ "Anda perlu mengatur empat seksi pertama, untuk memastikan penyediaan data "
-#~ "penuntun anda pada seksi ketiga."
+#~ "Setelah menyiapkan sumber data penuntun anda, anda perlu meluncurkan MythTV-"
+#~ "Setup untuk menjalankan konfigurasi backend yang pertama kali. Anda perlu "
+#~ "mengatur empat seksi pertama, untuk memastikan penyediaan data penuntun anda "
+#~ "pada seksi ketiga."
 
 #~ msgid "Configuring mythtv..."
 #~ msgstr "Mengkonfigurasi mythtv..."
@@ -1698,3 +1686,6 @@ msgstr ""
 
 #~ msgid "Configuring infrared devices..."
 #~ msgstr "Mengatur peralatan infra merah"
+
+#~ msgid "Zone:"
+#~ msgstr "Zona"

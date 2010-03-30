@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-03-24 23:25+0000\n"
-"PO-Revision-Date: 2010-03-13 13:06+0000\n"
-"Last-Translator: Moritz Baumann <Unknown>\n"
+"PO-Revision-Date: 2010-03-28 18:10+0000\n"
+"Last-Translator: Martin Lettner <m.lettner@gmail.com>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-23 11:04+0000\n"
+"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -32,7 +32,8 @@ msgstr "Löschen und das gesamte Medium verwenden"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr "Nebeneinander installieren und bei jedem Start zwischen diesen wählen"
+msgstr ""
+"Nebeneinander installieren und bei jedem Start zwischen diesen wählen"
 
 #. Type: text
 #. Description
@@ -132,9 +133,9 @@ msgid ""
 "full speed without the ${MEDIUM}."
 msgstr ""
 "Bereit für die Installation? Sobald Sie einige Fragen beantwortet haben, "
-"kann der Inhalt der/des Live-${MEDIUM} auf diesen Rechner installiert "
+"kann der Inhalt der/des Live-${MEDIUM} auf diesem Rechner installiert "
 "werden, so dass Sie ${RELEASE} ohne ${MEDIUM} mit voller Geschwindigkeit "
-"starten können."
+"nutzen können."
 
 #. Type: text
 #. Description
@@ -150,15 +151,14 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr "Sie möchten die <a href=\"release-notes\">Freigabevermerke</a> lesen."
+msgstr "Sie können die <a href=\"release-notes\">Freigabevermerke</a> lesen."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
 msgstr ""
-"Sie möchten <a href=\"update\">dieses Installationsprogramm aktualisieren</"
-"a>."
+"Sie können <a href=\"update\">dieses Installationsprogramm aktualisieren</a>."
 
 #. Type: text
 #. Description
@@ -169,8 +169,8 @@ msgid ""
 "April 2010."
 msgstr ""
 "Dies ist eine Vorabversion des ${RELEASE} Live-${MEDIUM}-"
-"Installationsprogramm. Es ist keine stabile Veröffentlichung; die kommt mit "
-"der finalen Veröffentlichung von ${RELEASE} im April 2010."
+"Installationsprogramms. Dies ist keine stabile Ausgabe; diese kommt mit der "
+"finalen Version von ${RELEASE} im April 2010."
 
 #. Type: text
 #. Description
@@ -206,10 +206,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Timezone"
 msgid "Time Zone:"
-msgstr "Zeitzone"
+msgstr "Zeitzone:"
 
 #. Type: text
 #. Description
@@ -227,7 +225,7 @@ msgstr "Tastenbelegung"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Welche Tastenbelegung ähnelt der Ihrer Tastatur am Meisten?"
+msgstr "Welche Tastenbelegung ähnelt der Ihrer Tastatur am meisten?"
 
 #. Type: text
 #. Description
@@ -305,7 +303,7 @@ msgstr "Wie heißen Sie?"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Full Name"
-msgstr ""
+msgstr "Vollständiger Name"
 
 #. Type: text
 #. Description
@@ -316,10 +314,8 @@ msgstr "Welchen Namen möchten Sie zum Anmelden verwenden?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
-#, fuzzy
-#| msgid "MySQL User Name"
 msgid "Username"
-msgstr "MySQL-Benutzername"
+msgstr "Benutzername"
 
 #. Type: text
 #. Description
@@ -340,18 +336,14 @@ msgstr "Wählen Sie ein Passwort, um Ihr Benutzerkonto abzusichern."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
-#, fuzzy
-#| msgid "MySQL Password"
 msgid "Password"
-msgstr "MySQL-Passwort"
+msgstr "Passwort"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Re-enter password"
-msgstr "Wählen Sie ein anderes Passwort"
+msgstr "Passwort-Wiederholung"
 
 #. Type: text
 #. Description
@@ -365,31 +357,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Strength: too short"
-msgstr ""
+msgstr "Stärke: zu kurz"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Strength: weak"
-msgstr ""
+msgstr "Stärke: schwach"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Strength: fair"
-msgstr ""
+msgstr "Stärke: durchschnittlich"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Strength: good"
-msgstr ""
+msgstr "Stärke: gut"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Strength: strong"
-msgstr ""
+msgstr "Stärke: solide"
 
 #. Type: text
 #. Description
@@ -401,7 +393,7 @@ msgstr "Wie heißt dieser Rechner?"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Computer Name"
-msgstr ""
+msgstr "Rechnername"
 
 #. Type: text
 #. Description
@@ -663,12 +655,12 @@ msgstr "Installationsprogramm abgestürzt"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Leider ist die Installation fehlgeschlagen. Bitte melden Sie diesen Fehler "
 "unter https://launchpad.net/ubuntu/+source/ubiquity/+filebug (erstellen Sie "
@@ -949,7 +941,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:131001
 msgid "Verifying the installation configuration..."
-msgstr "Einstellungen des Installers werden überprüft …"
+msgstr "Einstellungen des Installationsprogramms werden überprüft …"
 
 #. Type: title
 #. Description
@@ -1231,12 +1223,12 @@ msgstr "Die folgenden Pakete sind defekt:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Der Fehler kann durch die Verwendung eines veralteten Installationsprogramms "
 "auftreten oder von den obigen Paketen verursacht worden sein. Näheres finden "
@@ -1268,15 +1260,15 @@ msgstr "Fehler bei der Übernahme der Dokumente und Einstellungen"
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Ein Fehler ist bei der Übernahme der Daten ist aufgetreten. Weitere "
-"Einzelheiten dazu sind in /var/log/syslog zu finden. Die Installation wird "
-"fortgesetzt, aber einige oder alle der von Ihnen gewählten Dokumente und "
-"Einstellungen konnten nicht auf das Zielsystem übertragen werden."
+"Ein Fehler ist bei der Übernahme der Daten aufgetreten. Weitere Einzelheiten "
+"dazu sind in /var/log/syslog zu finden. Die Installation wird fortgesetzt, "
+"aber einige oder alle der von Ihnen gewählten Dokumente und Einstellungen "
+"konnten nicht auf das Zielsystem übertragen werden."
 
 #. Type: error
 #. Description
@@ -1341,10 +1333,11 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
-"Möchten Sie, dass der Installer erneut versucht, die Laufwerkseinbindungen "
-"zu lösen?"
+"Möchten Sie, dass das Installationsprogramm erneut versucht, die "
+"Laufwerkseinbindungen zu lösen?"
 
 #. Type: boolean
 #. Description
@@ -1369,7 +1362,7 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
-"Wenn Sie nicht zum Partitionseditor zurück gehen und den Speicherplatz "
+"Wenn Sie nicht zum Partitionseditor zurückkehren und den Speicherplatz "
 "vergrößern, kann die Installation scheitern."
 
 #. Type: text
@@ -1448,7 +1441,7 @@ msgstr "Installationsvorgang"
 #. Description
 #: ../ubiquity.templates:204001
 msgid "Checking for installer updates"
-msgstr "Auf Aktualisierungen des Installers prüfen"
+msgstr "Auf Aktualisierungen des Installationsprogramms prüfen"
 
 #. Type: text
 #. Description
@@ -1525,20 +1518,6 @@ msgstr ""
 msgid "Continue with installation."
 msgstr "Installation fortsetzen."
 
-#~ msgid "Zone:"
-#~ msgstr "Zone:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Geben Sie das Passwort doppelt ein, so dass es auf Tippfehler überprüft "
-#~ "werden kann. Ein sicheres Passwort beinhaltet eine Mischung aus "
-#~ "Buchstaben, Ziffern und Sonderzeichen, sollte mindestens 8 Zeichen lang "
-#~ "sein und regelmäßig geändert werden."
-
 #~ msgid "Installation Type"
 #~ msgstr "Installationsmethode"
 
@@ -1552,21 +1531,19 @@ msgstr "Installation fortsetzen."
 #~ msgstr "Sekundärer Hintergrunddienst mit Benutzeroberfläche"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
+#~ "will be configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "Das System ähnelt einem primären Hintergrunddienst mit "
-#~ "Benutzeroberfläche, greift aber über das Netzwerk auf ein anderen "
-#~ "Hintergrunddienst zurück."
+#~ "Das System ähnelt einem primären Hintergrunddienst mit Benutzeroberfläche, "
+#~ "greift aber über das Netzwerk auf ein anderen Hintergrunddienst zurück."
 
 #~ msgid "Primary Backend"
 #~ msgstr "Primärerer Hintergrunddienst"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
+#~ "A backend only machine is typically designed to function like an appliance; "
+#~ "requiring very little maintenance.  This is intended to be installed as the "
+#~ "first backend on a network."
 #~ msgstr ""
 #~ "Ein wartungsarmer Hintergrunddienst, der als primärer Dienst im Netzwerk "
 #~ "verwendet werden kann."
@@ -1575,8 +1552,8 @@ msgstr "Installation fortsetzen."
 #~ msgstr "Sekundärer Hintergrunddienst"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will be "
+#~ "configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "Reiner Hintergrunddienst, der über das Netzwerk auf einen primären "
 #~ "Hintergrunddienst zurückgreift."
@@ -1585,12 +1562,12 @@ msgstr "Installation fortsetzen."
 #~ msgstr "Benutzeroberfläche"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
+#~ "A frontend only machine's main function is to receive media content from the "
+#~ "backend and distribute it.  This configuration requires an existing backend "
+#~ "on the network."
 #~ msgstr ""
-#~ "Eine reine Benutzeroberfläche, die Inhalte von einem Hintergrunddienst "
-#~ "über das Netzwerk bezieht und zur Verfügung stellt."
+#~ "Eine reine Benutzeroberfläche, die Inhalte von einem Hintergrunddienst über "
+#~ "das Netzwerk bezieht und zur Verfügung stellt."
 
 #~ msgid "Graphics Drivers"
 #~ msgstr "Grafiktreiber"
@@ -1625,6 +1602,9 @@ msgstr "Installation fortsetzen."
 #~ msgid "Launch MythTV Setup"
 #~ msgstr "MythTV einrichten"
 
+#~ msgid "Zone:"
+#~ msgstr "Zone:"
+
 #~ msgid ""
 #~ "If you have Internet access, read the release notes for information on "
 #~ "problems that may affect you."
@@ -1635,27 +1615,27 @@ msgstr "Installation fortsetzen."
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need to "
+#~ "configure the first four sections, being sure to provide your guide data "
+#~ "during the third."
 #~ msgstr ""
-#~ "Nachdem Sie Ihren Fernsehprogrammanbieter gewählt haben, ist die "
-#~ "einmalige Einrichtung des Hintergrunddienstes von MythTV erforderlich. "
-#~ "Die Angaben in den ersten vier Abschnitten sind unbedingt erforderlich."
+#~ "Nachdem Sie Ihren Fernsehprogrammanbieter gewählt haben, ist die einmalige "
+#~ "Einrichtung des Hintergrunddienstes von MythTV erforderlich. Die Angaben in "
+#~ "den ersten vier Abschnitten sind unbedingt erforderlich."
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data and "
+#~ "configuring the backend for the first time."
 #~ msgstr ""
-#~ "Zum Abschluss müssen Sie den Fernsehprogrammdienst und den "
-#~ "Hintergrunddienst für die erstmalige Verwendung einrichten."
+#~ "Zum Abschluss müssen Sie den Fernsehprogrammdienst und den Hintergrunddienst "
+#~ "für die erstmalige Verwendung einrichten."
 
 #~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This language "
+#~ "will be the default language for the final system."
 #~ msgstr ""
-#~ "Bitte wählen Sie die Sprache, die für die Installation benutzt werden "
-#~ "soll. Die Sprache wird auch die Standardsprache des installierten Systems."
+#~ "Bitte wählen Sie die Sprache, die für die Installation benutzt werden soll. "
+#~ "Die Sprache wird auch die Standardsprache des installierten Systems."
 
 #~ msgid ""
 #~ " Install Type: ${INSTALLTYPE}\n"
@@ -1679,3 +1659,14 @@ msgstr "Installation fortsetzen."
 #~ " IR Transmitter: ${TRANSMITTER}\n"
 #~ " Grafiktreiber: ${VIDEO_DRIVER}\n"
 #~ " Dienste: ${SERVICES}"
+
+#~ msgid ""
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
+#~ msgstr ""
+#~ "Geben Sie das Passwort doppelt ein, so dass es auf Tippfehler überprüft "
+#~ "werden kann. Ein sicheres Passwort beinhaltet eine Mischung aus Buchstaben, "
+#~ "Ziffern und Sonderzeichen, sollte mindestens 8 Zeichen lang sein und "
+#~ "regelmäßig geändert werden."

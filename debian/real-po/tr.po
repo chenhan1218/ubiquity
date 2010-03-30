@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-03-24 23:25+0000\n"
-"PO-Revision-Date: 2010-03-13 14:04+0000\n"
-"Last-Translator: Irmak Bıçakçıgil <Unknown>\n"
+"PO-Revision-Date: 2010-03-25 07:21+0000\n"
+"Last-Translator: Yiğit Ateş <yigitates52@gmail.com>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-23 11:04+0000\n"
+"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -198,10 +198,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Timezone"
 msgid "Time Zone:"
-msgstr "Saat Dilimi"
+msgstr "Zaman Dilimi:"
 
 #. Type: text
 #. Description
@@ -297,7 +295,7 @@ msgstr "Adınız nedir?"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Full Name"
-msgstr ""
+msgstr "Tam İsim"
 
 #. Type: text
 #. Description
@@ -308,10 +306,8 @@ msgstr "Oturum açmak için hangi adı kullanmak istersiniz?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
-#, fuzzy
-#| msgid "MySQL User Name"
 msgid "Username"
-msgstr "MySQL Kullanıcı Adı"
+msgstr "Kullanıcı Adı"
 
 #. Type: text
 #. Description
@@ -332,54 +328,51 @@ msgstr "Hesabınızı güvenli tutmak için bir şifre seçin."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
-#, fuzzy
-#| msgid "MySQL Password"
 msgid "Password"
-msgstr "MySQL Parolası"
+msgstr "Parola"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Re-enter password"
-msgstr "Başka bir parola seçin"
+msgstr "Parola (tekrar)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "Hata ayıklama kipinde çalışıyorsunuz. Değerli bir parola kullanmayın!"
+msgstr ""
+"Hata ayıklama kipinde çalışıyorsunuz. Değerli bir parola kullanmayın!"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Strength: too short"
-msgstr ""
+msgstr "Güç: çok kısa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Strength: weak"
-msgstr ""
+msgstr "Güç: zayıf"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Strength: fair"
-msgstr ""
+msgstr "Güç: orta"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Strength: good"
-msgstr ""
+msgstr "Güç: iyi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Strength: strong"
-msgstr ""
+msgstr "Güç: güçlü"
 
 #. Type: text
 #. Description
@@ -391,7 +384,7 @@ msgstr "Bu bilgisayarın adı nedir?"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Computer Name"
-msgstr ""
+msgstr "Bilgisayar Adı"
 
 #. Type: text
 #. Description
@@ -569,7 +562,8 @@ msgstr "Önyükleyici kurulumu başarısız oldu"
 msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
-msgstr "Üzgünüz, bir hata oluştu ve belirtilen konumda önyükleyici kurulamadı."
+msgstr ""
+"Üzgünüz, bir hata oluştu ve belirtilen konumda önyükleyici kurulamadı."
 
 #. Type: text
 #. Description
@@ -644,19 +638,19 @@ msgstr "Yükleyici çöktü"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
-"Üzgünüz; yükleyici çöktü. Lütfen https://launchpad.net/ubuntu/+source/"
-"ubiquity/+filebug adresinde bir hata raporu oluşturun (lütfen mevcut bir "
-"hata için bilgi göndermeyin). Bir programcı en kısa sürede sorununuzu "
-"çözecektir. Programcıların neyin yanlış olduğunu anlayabilmelerine yardım "
-"etmek için, lütfen /var/log/syslog ve /var/log/partman dosyalarını ve şu "
-"bilgileri raporunuza ekleyin:"
+"Üzgünüz; yükleyici çöktü. Lütfen "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug adresinde bir hata "
+"raporu oluşturun (lütfen mevcut bir hata için bilgi göndermeyin). Bir "
+"programcı en kısa sürede sorununuzu çözecektir. Programcıların neyin yanlış "
+"olduğunu anlayabilmelerine yardım etmek için, lütfen /var/log/syslog ve "
+"/var/log/partman dosyalarını ve şu bilgileri raporunuza ekleyin:"
 
 #. Type: text
 #. Description
@@ -1211,19 +1205,20 @@ msgstr "Şu paketler bozuk durumda:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Bu durum eski bir kurulum dosyası kullandığınızdan veya yukarıda sıralanan "
-"bazı paketlerdeki hatalardan kaynaklanıyor olabilir. Ayrıntılı bilgi /var/"
-"log/syslog dosyasında bulunabilir. Kurulum devam edecek; ancak ilerleyen bir "
-"aşamada başarısız olabilir ve kurulu sistemde (muhtemelen kendisi de dahil) "
-"diğer paketleri yükleyemeyebilir veya kaldıramayabilir. Öncelikle yükleme "
-"dosyanızın yeni sürümlerini aramalı veya sorunu yayımcısına bildirmelisiniz."
+"bazı paketlerdeki hatalardan kaynaklanıyor olabilir. Ayrıntılı bilgi "
+"/var/log/syslog dosyasında bulunabilir. Kurulum devam edecek; ancak "
+"ilerleyen bir aşamada başarısız olabilir ve kurulu sistemde (muhtemelen "
+"kendisi de dahil) diğer paketleri yükleyemeyebilir veya kaldıramayabilir. "
+"Öncelikle yükleme dosyanızın yeni sürümlerini aramalı veya sorunu "
+"yayımcısına bildirmelisiniz."
 
 #. Type: error
 #. Description
@@ -1247,8 +1242,8 @@ msgstr "Belge ve ayarların taşınması hatası"
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1317,7 +1312,8 @@ msgstr "Bu bağlama noktalarını kullan uygulamaları lütfen kapatın."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Kurulum programının bu bölümleri yeniden ayırmayı denemesini ister misiniz?"
 
@@ -1497,23 +1493,9 @@ msgstr ""
 msgid "Continue with installation."
 msgstr "Kuruluma devam et."
 
-#~ msgid "Zone:"
-#~ msgstr "Alan:"
-
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Aynı parolayı iki kere girin, böylelikle yazım hatalarına karşı da "
-#~ "denetlenmiş olur. İyi bir parola, harflerin, sayıların ve noktalama "
-#~ "işaretlerinin bir karışımını içermelidir; En az sekiz karakter "
-#~ "uzunluğunda olmalıdır; Belirli aralıklarla değiştirilmelidir."
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This language "
+#~ "will be the default language for the final system."
 #~ msgstr ""
 #~ "Lütfen kurulum işlemi için kullanılacak dili seçin. Bu, sisteminiz için "
 #~ "varsayılan dil olacaktır."
@@ -1527,6 +1509,17 @@ msgstr "Kuruluma devam et."
 
 #~ msgid "Release Notes"
 #~ msgstr "Sürüm Notları"
+
+#~ msgid ""
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
+#~ msgstr ""
+#~ "Aynı parolayı iki kere girin, böylelikle yazım hatalarına karşı da "
+#~ "denetlenmiş olur. İyi bir parola, harflerin, sayıların ve noktalama "
+#~ "işaretlerinin bir karışımını içermelidir; En az sekiz karakter uzunluğunda "
+#~ "olmalıdır; Belirli aralıklarla değiştirilmelidir."
 
 #~ msgid ""
 #~ " Install Type: ${INSTALLTYPE}\n"
@@ -1561,44 +1554,42 @@ msgstr "Kuruluma devam et."
 #~ msgstr "Birincil Altyapı w/ Üstyapı"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people wanting "
+#~ "MythTV for HTPC applications. This type of installation is intended for use "
+#~ "as a component in your home theatre."
 #~ msgstr ""
 #~ "Bir Arkauç/önuç karma makine yüklemesi, MythTV'yi HTPC uygulamaları için "
-#~ "isteyenlerin en yaygın kullandığı yükleme seçeneğidir. Bu yükleme çeşidi "
-#~ "ev sinema sistemlerinde bir bileşen olarak kullanılmak için düşünülmüştür."
+#~ "isteyenlerin en yaygın kullandığı yükleme seçeneğidir. Bu yükleme çeşidi ev "
+#~ "sinema sistemlerinde bir bileşen olarak kullanılmak için düşünülmüştür."
 
 #~ msgid "Secondary Backend w/ Frontend"
 #~ msgstr "İkincil Altyapı w/ Üstyapı"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
+#~ "will be configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "Bu seçenek Önuç ile birlikte Birincil Arkauca benzer bir kurulum "
-#~ "yapacaktır, fakat arkauç olarak ağınızda varolan bir sisteme "
-#~ "bağlanacaktır."
+#~ "Bu seçenek Önuç ile birlikte Birincil Arkauca benzer bir kurulum yapacaktır, "
+#~ "fakat arkauç olarak ağınızda varolan bir sisteme bağlanacaktır."
 
 #~ msgid "Primary Backend"
 #~ msgstr "Birincil Arkauç"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
+#~ "A backend only machine is typically designed to function like an appliance; "
+#~ "requiring very little maintenance.  This is intended to be installed as the "
+#~ "first backend on a network."
 #~ msgstr ""
-#~ "Salt arkauç olarak kurulmuş bir makine bir elektronik cihaz gibi "
-#~ "çalışarak, çok az bakıma ihtiyaç duyacaktır. Bu seçenek ağınızdaki ilk "
-#~ "arkaucu kurmaya yarar."
+#~ "Salt arkauç olarak kurulmuş bir makine bir elektronik cihaz gibi çalışarak, "
+#~ "çok az bakıma ihtiyaç duyacaktır. Bu seçenek ağınızdaki ilk arkaucu kurmaya "
+#~ "yarar."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "İkincil Arkauç"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will be "
+#~ "configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "Bu seçenek Birincil Arkauca benzer bir kurulum yapacaktır, fakat arkauç "
 #~ "olarak ağınızda varolan bir sisteme bağlanacaktır."
@@ -1607,9 +1598,9 @@ msgstr "Kuruluma devam et."
 #~ msgstr "Önuç"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
+#~ "A frontend only machine's main function is to receive media content from the "
+#~ "backend and distribute it.  This configuration requires an existing backend "
+#~ "on the network."
 #~ msgstr ""
 #~ "Bir Önuç makinesinin ana işlevi arkauçtan aldığı içeriği dağıtmaktır. Bu "
 #~ "seçeneği seçmeniz için ağınızda çalışan bir arkauç bulunmalıdır."
@@ -1619,14 +1610,14 @@ msgstr "Kuruluma devam et."
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you can "
+#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
+#~ "Output or OpenGL effects."
 #~ msgstr ""
-#~ "Bir açık kaynak grafik sürücüsü halihazırda etkinleştirildi ve "
-#~ "kurulumunuz için ayarlandı. Eğer farklı bir grafik sürücüsü kullanmak "
-#~ "isterseniz, buradan seçebilirsiniz. Tescilli grafik sürücülerinin TV "
-#~ "Output veya OpenGL etkileri için gerekli olabileceğine dikkat edin."
+#~ "Bir açık kaynak grafik sürücüsü halihazırda etkinleştirildi ve kurulumunuz "
+#~ "için ayarlandı. Eğer farklı bir grafik sürücüsü kullanmak isterseniz, "
+#~ "buradan seçebilirsiniz. Tescilli grafik sürücülerinin TV Output veya OpenGL "
+#~ "etkileri için gerekli olabileceğine dikkat edin."
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
 #~ msgstr ""
@@ -1634,8 +1625,7 @@ msgstr "Kuruluma devam et."
 
 #~ msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 #~ msgstr ""
-#~ "Eğer TV çıkışını aktifleştiriyorsanız, bir TV standardı da seçmeniz "
-#~ "gerekir:"
+#~ "Eğer TV çıkışını aktifleştiriyorsanız, bir TV standardı da seçmeniz gerekir:"
 
 #~ msgid "Master Backend Info"
 #~ msgstr "Ana Altyapı Bilgisi"
@@ -1654,37 +1644,37 @@ msgstr "Kuruluma devam et."
 #~ msgstr "Kılavuz bilgisini & altyapısını yapılandır"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data and "
+#~ "configuring the backend for the first time."
 #~ msgstr ""
-#~ "Kurulumun son adımları kılavuz bilgilerinizin çalışır hale getirilmesini "
-#~ "ve altyapının ilk kez için yapılandırılmasını gerektirir."
+#~ "Kurulumun son adımları kılavuz bilgilerinizin çalışır hale getirilmesini ve "
+#~ "altyapının ilk kez için yapılandırılmasını gerektirir."
 
 #~ msgid "Click to open the Schedules Direct website"
 #~ msgstr "Schedules Direct internet sitesini açmak için tıklayınız"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules Direct "
+#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
+#~ "users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
-#~ "Kuzey Amerika'da bununan kullanıcılar Schedules Direct (SD) aracılığıyla "
-#~ "bir hesap açmalıdırlar. SD rehber veriyi az bir ücret karşılığında "
-#~ "vermketedir. SD olmadan, Kuzey Amerikadaki kullanıcılar MythTV'nin birçok "
-#~ "planlama özelliğini kaybedeceklerdir."
+#~ "Kuzey Amerika'da bununan kullanıcılar Schedules Direct (SD) aracılığıyla bir "
+#~ "hesap açmalıdırlar. SD rehber veriyi az bir ücret karşılığında vermketedir. "
+#~ "SD olmadan, Kuzey Amerikadaki kullanıcılar MythTV'nin birçok planlama "
+#~ "özelliğini kaybedeceklerdir."
 
 #~ msgid "Launch MythTV Setup"
 #~ msgstr "MythTV Kuru Çalıştır"
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need to "
+#~ "configure the first four sections, being sure to provide your guide data "
+#~ "during the third."
 #~ msgstr ""
-#~ "Rehber veri kaynağını ayarladıktan sonra altyapı yapılandırmasını ilk "
-#~ "defa çalıştırmak için MythTV kurulumunu başlatmanız gerekmektedir. İlk "
-#~ "dört bölümü yapılandırmanız ve üçüncü bölümde rehber verinizi sağlamanız "
+#~ "Rehber veri kaynağını ayarladıktan sonra altyapı yapılandırmasını ilk defa "
+#~ "çalıştırmak için MythTV kurulumunu başlatmanız gerekmektedir. İlk dört "
+#~ "bölümü yapılandırmanız ve üçüncü bölümde rehber verinizi sağlamanız "
 #~ "gerekecektir."
 
 #~ msgid "Configuring mythtv..."
@@ -1698,3 +1688,6 @@ msgstr "Kuruluma devam et."
 
 #~ msgid "Configuring infrared devices..."
 #~ msgstr "Kızılötesi cihazları yapılandırıyor..."
+
+#~ msgid "Zone:"
+#~ msgstr "Alan:"

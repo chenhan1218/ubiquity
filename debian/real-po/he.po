@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-03-24 23:25+0000\n"
-"PO-Revision-Date: 2010-03-11 23:16+0000\n"
+"PO-Revision-Date: 2010-03-23 16:46+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-23 11:04+0000\n"
+"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -125,8 +125,8 @@ msgid ""
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
-"מוכנים להתקנה? לאחר שתענו על מספר שאלות, ניתן יהיה להתקין את התוכן של ה"
-"${MEDIUM} למחשב זה כדי שתוכלו להפעיל את ${RELEASE} ללא צורך ב${MEDIUM}."
+"מוכנים להתקנה? לאחר שתענו על מספר שאלות, ניתן יהיה להתקין את התוכן של "
+"ה${MEDIUM} למחשב זה כדי שתוכלו להפעיל את ${RELEASE} ללא צורך ב${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -135,8 +135,8 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"יתכן שתרצה לקרוא את <a href=\"release-notes\">הערות ההפצה</a> או <a href="
-"\"update\">לעדכן את תכנית התקנה זו</a>."
+"יתכן שתרצה לקרוא את <a href=\"release-notes\">הערות ההפצה</a> או <a "
+"href=\"update\">לעדכן את תכנית התקנה זו</a>."
 
 #. Type: text
 #. Description
@@ -192,10 +192,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Timezone"
 msgid "Time Zone:"
-msgstr "איזור זמן"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -302,10 +300,8 @@ msgstr "באיזה שם ברצונך להשתמש כדי להיכנס למערכ
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
-#, fuzzy
-#| msgid "MySQL User Name"
 msgid "Username"
-msgstr "שם משתמש MySQL"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -325,18 +321,14 @@ msgstr "בחר סיסמה כדי לשמור על חשבונך בטוח."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
-#, fuzzy
-#| msgid "MySQL Password"
 msgid "Password"
-msgstr "סיסמאת MySQL"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Re-enter password"
-msgstr "בחר סיסמה אחרת"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -440,7 +432,8 @@ msgstr ""
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
-msgstr "אם אין ברצונך ליבא חשבונות, השאר את השדות לא מסומנים ועבור לעמוד הבא."
+msgstr ""
+"אם אין ברצונך ליבא חשבונות, השאר את השדות לא מסומנים ועבור לעמוד הבא."
 
 #. Type: text
 #. Description
@@ -632,18 +625,18 @@ msgstr "תוכנית ההתקנה קרסה"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
-"מצטערים, אך תוכנית ההתקנה קרסה. אנא דווח על התקלה הזו בכתובת https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (הוסף אותה כבאג חדש, ולא לבאג "
-"שכבר קיים) כדי שאחד המפתחים יוכל לפתור את הבעיה הזו בהקדם האפשרי. בכדי לסייע "
-"למפתחים להבין מהו מקור הבעיה, אנא כלול בדיווח את הפרטים הבאים, בנוסף לקבצים /"
-"var/log/syslog ו- /var/log/partman:"
+"מצטערים, אך תוכנית ההתקנה קרסה. אנא דווח על התקלה הזו בכתובת "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (הוסף אותה כבאג חדש, "
+"ולא לבאג שכבר קיים) כדי שאחד המפתחים יוכל לפתור את הבעיה הזו בהקדם האפשרי. "
+"בכדי לסייע למפתחים להבין מהו מקור הבעיה, אנא כלול בדיווח את הפרטים הבאים, "
+"בנוסף לקבצים /var/log/syslog ו- /var/log/partman:"
 
 #. Type: text
 #. Description
@@ -1190,12 +1183,12 @@ msgstr "חבילות אלו נמצאו פגומות:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "זה יכול היה לקרות בשל שימוש בתמונה ישנה של תוכנית ההתקנה, או בגלל באג בכמה "
 "מהחבילות שהוזכרו למעלה. פרטים נוספים יכולים להימצא ב /var/log/syslog. תוכנית "
@@ -1226,8 +1219,8 @@ msgstr "שגיאה בהגירת המסמכים וההגדרות"
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1295,7 +1288,8 @@ msgstr "אנא סגור את כל היישומים המשתמשים במחיצו
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr "האם ברצונך שתוכנית ההתקנה תנסה לכבות את המחיצות הללו שוב?"
 
 #. Type: boolean
@@ -1472,22 +1466,9 @@ msgstr ""
 msgid "Continue with installation."
 msgstr "המשך בהתקנה."
 
-#~ msgid "Zone:"
-#~ msgstr "איזור:"
-
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "יש להקליד את אותה הסיסמה פעמיים, כדי שניתן יהיה לבדוק שגיאות בהקלדה. על "
-#~ "סיסמה טובה להכיל ערבוב של אותיות, מספרים וסימני כתב נוספים, להיות בת "
-#~ "שמונה תווים לכל הפחות, ויש להחליפה על בסיס קבוע."
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This language "
+#~ "will be the default language for the final system."
 #~ msgstr ""
 #~ "בחר שפה לשימוש בתוכנית ההתקנה. שפה זו תשמש כברירת מחדל למערכת שתותקן."
 
@@ -1508,21 +1489,20 @@ msgstr "המשך בהתקנה."
 #~ msgstr "ראשי עם Backend ו-Frontend"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people wanting "
+#~ "MythTV for HTPC applications. This type of installation is intended for use "
+#~ "as a component in your home theatre."
 #~ msgstr ""
-#~ "הקומבינציה של מחשב עם Backend/frontend היא הקומבינציה הנפוצה ביותר "
-#~ "למשתמשים המעוניינים להשתמש ב-MythTV במחשב מדיה סלוני. סוג התקנה זה מיועד "
-#~ "לשימוש כחלק ממערכת קולנוע ביתית."
+#~ "הקומבינציה של מחשב עם Backend/frontend היא הקומבינציה הנפוצה ביותר למשתמשים "
+#~ "המעוניינים להשתמש ב-MythTV במחשב מדיה סלוני. סוג התקנה זה מיועד לשימוש כחלק "
+#~ "ממערכת קולנוע ביתית."
 
 #~ msgid "Secondary Backend w/ Frontend"
 #~ msgstr "מנגנון משני עם ממשק"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
+#~ "will be configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "זה יתקין מערכת דומה למערכת מנוע עם או בלי ממשק, אבל המערכת תוגדר להתחברות "
 #~ "למנוע קיים ברשת."
@@ -1531,43 +1511,43 @@ msgstr "המשך בהתקנה."
 #~ msgstr "מנגנון ראשי"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
+#~ "A backend only machine is typically designed to function like an appliance; "
+#~ "requiring very little maintenance.  This is intended to be installed as the "
+#~ "first backend on a network."
 #~ msgstr ""
-#~ "מחשב המשמש כמנגנון בלבד מיועד לתפקד כמתקן; הדורש תחזוקה מזערית. מיועד "
-#~ "להתקנה בתור המחשב הראשון ברשת."
+#~ "מחשב המשמש כמנגנון בלבד מיועד לתפקד כמתקן; הדורש תחזוקה מזערית. מיועד להתקנה "
+#~ "בתור המחשב הראשון ברשת."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "מנגנון משני"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will be "
+#~ "configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "פעולה זו תתקין מערכת הדומה למנגנון ראשי, מצד שני המחשב יוגדר על מנת "
-#~ "להתחבר למנגנון קיים ברשת."
+#~ "פעולה זו תתקין מערכת הדומה למנגנון ראשי, מצד שני המחשב יוגדר על מנת להתחבר "
+#~ "למנגנון קיים ברשת."
 
 #~ msgid "Frontend"
 #~ msgstr "ממשק"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
+#~ "A frontend only machine's main function is to receive media content from the "
+#~ "backend and distribute it.  This configuration requires an existing backend "
+#~ "on the network."
 #~ msgstr ""
-#~ "תפקידה הראשי של מכונת ממשק הינו לקבל תוכן מדיה מהמנגנון ולהפיץ אותו. "
-#~ "הגדרה זו דורשת מנגנון קיים ברשת."
+#~ "תפקידה הראשי של מכונת ממשק הינו לקבל תוכן מדיה מהמנגנון ולהפיץ אותו. הגדרה "
+#~ "זו דורשת מנגנון קיים ברשת."
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you can "
+#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
+#~ "Output or OpenGL effects."
 #~ msgstr ""
-#~ "מנהל התקן לכרטיס המסך בקוד פתוח כבר מאופשר ומוגדר להתקנה על ידך. אם "
-#~ "ברצונך להשתמש במנהל התקן שונה לכרטיס המסך, תוכל לעשות זאת כאן. שים לב לכך "
-#~ "שמנהל התקן כרטיס המסך הינו הכרחי לפלט טלוויזיה או אפקטים של OpenGL."
+#~ "מנהל התקן לכרטיס המסך בקוד פתוח כבר מאופשר ומוגדר להתקנה על ידך. אם ברצונך "
+#~ "להשתמש במנהל התקן שונה לכרטיס המסך, תוכל לעשות זאת כאן. שים לב לכך שמנהל "
+#~ "התקן כרטיס המסך הינו הכרחי לפלט טלוויזיה או אפקטים של OpenGL."
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
 #~ msgstr "אם ברצונך להגדיר פלט לטלויזיה, בחר את האפשרות מכאן:"
@@ -1592,19 +1572,18 @@ msgstr "המשך בהתקנה."
 #~ msgstr "הגדר מדריך נתונים / מנוע"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data and "
+#~ "configuring the backend for the first time."
 #~ msgstr ""
-#~ "השלבים האחרונים של ההתקנה דורשים את הגדרת מדריך הנתונים והמנוע בפעם "
-#~ "הראשונה."
+#~ "השלבים האחרונים של ההתקנה דורשים את הגדרת מדריך הנתונים והמנוע בפעם הראשונה."
 
 #~ msgid "Click to open the Schedules Direct website"
 #~ msgstr "לחץ כאן כדי לפתוח את אתר האינטרנט של Schedules Direct"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules Direct "
+#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
+#~ "users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
 #~ "משתמשים בצפון אמריקה יצטרכו לפתוח חשבון ב-Schedules Direct (SD). SD מספקת "
 #~ "מדריך נתונים בסכום נקוב. בלי SD, משתמשי צפון אמריקה יאבדו הרבה מתכונות "
@@ -1615,13 +1594,13 @@ msgstr "המשך בהתקנה."
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need to "
+#~ "configure the first four sections, being sure to provide your guide data "
+#~ "during the third."
 #~ msgstr ""
-#~ "לאחר הגדרת מקורות מדריך הנתונים, תצטרך להפעיל את התקנת MythTV כדי להריץ "
-#~ "את הגדרות המנוע בפעם הראשונה. תצטרך להגדיר את ארבע האיזורים הראשונים, ודא "
-#~ "שאתה מספק את מדריך הנתונים בשלישי."
+#~ "לאחר הגדרת מקורות מדריך הנתונים, תצטרך להפעיל את התקנת MythTV כדי להריץ את "
+#~ "הגדרות המנוע בפעם הראשונה. תצטרך להגדיר את ארבע האיזורים הראשונים, ודא שאתה "
+#~ "מספק את מדריך הנתונים בשלישי."
 
 #~ msgid "Configuring mythtv..."
 #~ msgstr "מגדיר את MythTV..."
@@ -1634,6 +1613,16 @@ msgstr "המשך בהתקנה."
 
 #~ msgid "Configuring infrared devices..."
 #~ msgstr "מגדיר את התקני האינפרא-אדום..."
+
+#~ msgid ""
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
+#~ msgstr ""
+#~ "יש להקליד את אותה הסיסמה פעמיים, כדי שניתן יהיה לבדוק שגיאות בהקלדה. על "
+#~ "סיסמה טובה להכיל ערבוב של אותיות, מספרים וסימני כתב נוספים, להיות בת שמונה "
+#~ "תווים לכל הפחות, ויש להחליפה על בסיס קבוע."
 
 #~ msgid ""
 #~ " Install Type: ${INSTALLTYPE}\n"
@@ -1663,3 +1652,6 @@ msgstr "המשך בהתקנה."
 
 #~ msgid "Graphics Drivers"
 #~ msgstr "כרטיס מסך"
+
+#~ msgid "Zone:"
+#~ msgstr "איזור:"

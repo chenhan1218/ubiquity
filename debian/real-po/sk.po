@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-23 11:04+0000\n"
+"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -32,7 +32,8 @@ msgstr "Zmazať a využiť celý disk"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr "Nainštalovať ich vedľa seba a pri každom spustení si medzi nimi zvolím"
+msgstr ""
+"Nainštalovať ich vedľa seba a pri každom spustení si medzi nimi zvolím"
 
 #. Type: text
 #. Description
@@ -65,7 +66,8 @@ msgstr "Vitajte"
 #. Description
 #: ../ubiquity.templates:10001
 msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr "Po zodpovedaní niekoľkých otázok bude počítač pripravený na použitie."
+msgstr ""
+"Po zodpovedaní niekoľkých otázok bude počítač pripravený na použitie."
 
 #. Type: text
 #. Description
@@ -185,10 +187,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Timezone"
 msgid "Time Zone:"
-msgstr "Časové pásmo"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -296,10 +296,8 @@ msgstr "Aké prihlasovacie meno chcete používať?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
-#, fuzzy
-#| msgid "MySQL User Name"
 msgid "Username"
-msgstr "Používateľské meno MySQL"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -320,18 +318,14 @@ msgstr "Zvoľte heslo na zabezpečenie svojho účtu."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
-#, fuzzy
-#| msgid "MySQL Password"
 msgid "Password"
-msgstr "Heslo MySQL"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Re-enter password"
-msgstr "Zvoľte iné heslo"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -632,19 +626,19 @@ msgstr "Inštalátor havaroval"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Ľutujeme, inštalátor havaroval. Prosím, podajte nové hlásenie o chybe na "
 "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (nepripájajte svoje "
 "podrobnosti k žiadnemu existujúcemu hláseniu) a vývojár sa na problém pozrie "
 "hneď ako to bude možné. Aby ste vývojárom pomohli zistiť, čo sa pokazilo, do "
-"svojho hlásenia o chybe uveďte nasledovné podrobnosti a priložte súbory /var/"
-"log/syslog a /var/log/partman:"
+"svojho hlásenia o chybe uveďte nasledovné podrobnosti a priložte súbory "
+"/var/log/syslog a /var/log/partman:"
 
 #. Type: text
 #. Description
@@ -1199,12 +1193,12 @@ msgstr "Nasledovné balíky sú v stave pokazené:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Táto chyba mohla nastať kvôli použitiu starej verzie inštalátora alebo kvôli "
 "chybe v niektorom z balíčkov vypísaných vyššie. Ďalšie podrobnosti môžete "
@@ -1237,8 +1231,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1302,7 +1296,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr "Chcete, aby sa inštalátor opäť pokúsil tieto oblasti odpojiť?"
 
 #. Type: boolean
@@ -1477,22 +1472,9 @@ msgstr ""
 msgid "Continue with installation."
 msgstr ""
 
-#~ msgid "Zone:"
-#~ msgstr "Pásmo:"
-
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Zadajte rovnaké heslo dvakrát kvôli kontrole preklepov. Dobré heslo "
-#~ "obsahuje zmes písmen, číslic, interpunkčných znamienok, malo by mať aspoň "
-#~ "osem znakov a malo by sa pravidelne meniť."
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This language "
+#~ "will be the default language for the final system."
 #~ msgstr ""
 #~ "Zvoľte si jazyk, ktorý chcete použiť pri inštalácii. Tento jazyk bude "
 #~ "predvoleným jazykom nainštalovaného systému."
@@ -1514,9 +1496,9 @@ msgstr ""
 #~ msgstr "Primárny backend s frontendom"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people wanting "
+#~ "MythTV for HTPC applications. This type of installation is intended for use "
+#~ "as a component in your home theatre."
 #~ msgstr ""
 #~ "Kombinovaný stroj s backendom/frontendom je najbežnejšou voľbou pre ľudí, "
 #~ "ktorá chcú MythTV pre HTPC aplikácie. Tento typ inštalácie je určený pre "
@@ -1526,9 +1508,8 @@ msgstr ""
 #~ msgstr "Sekundárny backend s frontendom"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
+#~ "will be configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "Toto nastaví systém podpobný ako Primárny backend s frontendom, ale "
 #~ "nakonfiguruje sa pre pripojenie k existujúcemu backendu v sieti."
@@ -1537,46 +1518,44 @@ msgstr ""
 #~ msgstr "Primárny backend"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
+#~ "A backend only machine is typically designed to function like an appliance; "
+#~ "requiring very little maintenance.  This is intended to be installed as the "
+#~ "first backend on a network."
 #~ msgstr ""
-#~ "Stroj určený iba ako backend má zvyčajne fungovať ako nezávislé "
-#~ "zariadenie vyžadujúce veľmi malú údržbu. Má sa inštalovať ako prvý "
-#~ "backend v sieti."
+#~ "Stroj určený iba ako backend má zvyčajne fungovať ako nezávislé zariadenie "
+#~ "vyžadujúce veľmi malú údržbu. Má sa inštalovať ako prvý backend v sieti."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "Sekundárny backend"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will be "
+#~ "configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "Toto nastaví systém podobne ako Primárny backend, ale bude "
-#~ "nakonfigurovaný, aby sa pripájal k existujúcemu backendu v sieti."
+#~ "Toto nastaví systém podobne ako Primárny backend, ale bude nakonfigurovaný, "
+#~ "aby sa pripájal k existujúcemu backendu v sieti."
 
 #~ msgid "Frontend"
 #~ msgstr "Frontend"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
+#~ "A frontend only machine's main function is to receive media content from the "
+#~ "backend and distribute it.  This configuration requires an existing backend "
+#~ "on the network."
 #~ msgstr ""
-#~ "Jedinou funkciou frontend stroja je prijímať multimediálny obsah od "
-#~ "backendu a šíriť ho. Táto konfigurácia vyžaduje v sieti existujúci "
-#~ "backend."
+#~ "Jedinou funkciou frontend stroja je prijímať multimediálny obsah od backendu "
+#~ "a šíriť ho. Táto konfigurácia vyžaduje v sieti existujúci backend."
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you can "
+#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
+#~ "Output or OpenGL effects."
 #~ msgstr ""
 #~ "Open source grafický ovládač je už vo vašej inštalácii zapnutý a "
-#~ "nakonfigurovaný. Ak si želáte použiť iný grafický ovládač, môžete tak "
-#~ "urobiť tu. Majte na pamäti, že efekty TV výstup alebo OpenGL môžu "
-#~ "vyžadovať použitie proprietárnych grafických ovládačov."
+#~ "nakonfigurovaný. Ak si želáte použiť iný grafický ovládač, môžete tak urobiť "
+#~ "tu. Majte na pamäti, že efekty TV výstup alebo OpenGL môžu vyžadovať "
+#~ "použitie proprietárnych grafických ovládačov."
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
 #~ msgstr "Ak chcete nakonfigurovať TV-výstup, vyberte z týchto volieb:"
@@ -1602,8 +1581,8 @@ msgstr ""
 #~ msgstr "Konfigurovať vodiace dáta / backend"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data and "
+#~ "configuring the backend for the first time."
 #~ msgstr ""
 #~ "Finálne kroky inštalácie vyžadujú, aby ste nastavili svoje vodiace dáta a "
 #~ "prvýkrát nakonfigurovali backend."
@@ -1612,9 +1591,9 @@ msgstr ""
 #~ msgstr "Kliknutím otvoríte webstránku Schedules Direct"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules Direct "
+#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
+#~ "users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
 #~ "Používatelia v Severnej Amerike budú musieť nastaviť účet so Schedules "
 #~ "Direct (SD). SD poskytuje sprievodné údaje za nepatrný poplatok. Bez SD "
@@ -1626,14 +1605,14 @@ msgstr ""
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need to "
+#~ "configure the first four sections, being sure to provide your guide data "
+#~ "during the third."
 #~ msgstr ""
-#~ "Po nastavení zdrojov údajov sprievodcov budete musieť spustiť MythTV-"
-#~ "Setup, aby sa po prvý raz nastavil backend MythTV. Budete musieť "
-#~ "nakonfigurovať prvé štyri sekcie. Nezabudnite správne vyplniť programové "
-#~ "nastavenia v tretej sekcii."
+#~ "Po nastavení zdrojov údajov sprievodcov budete musieť spustiť MythTV-Setup, "
+#~ "aby sa po prvý raz nastavil backend MythTV. Budete musieť nakonfigurovať "
+#~ "prvé štyri sekcie. Nezabudnite správne vyplniť programové nastavenia v "
+#~ "tretej sekcii."
 
 #~ msgid "Configuring additional drivers..."
 #~ msgstr "Nastavujú sa ďalšie ovládače..."
@@ -1643,6 +1622,16 @@ msgstr ""
 
 #~ msgid "Configuring infrared devices..."
 #~ msgstr "Nastavujú sa infračervené zariadenia..."
+
+#~ msgid ""
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
+#~ msgstr ""
+#~ "Zadajte rovnaké heslo dvakrát kvôli kontrole preklepov. Dobré heslo obsahuje "
+#~ "zmes písmen, číslic, interpunkčných znamienok, malo by mať aspoň osem znakov "
+#~ "a malo by sa pravidelne meniť."
 
 #~ msgid ""
 #~ " Install Type: ${INSTALLTYPE}\n"
@@ -1672,6 +1661,9 @@ msgstr ""
 
 #~ msgid "Graphics Drivers"
 #~ msgstr "Grafické ovládače"
+
+#~ msgid "Zone:"
+#~ msgstr "Pásmo:"
 
 #~ msgid "Configuring mythtv..."
 #~ msgstr "Nastavuje sa MythTV..."

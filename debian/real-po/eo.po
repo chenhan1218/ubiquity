@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-03-24 23:25+0000\n"
-"PO-Revision-Date: 2010-03-20 08:32+0000\n"
-"Last-Translator: Patrick (Petriko) Oudejans <Unknown>\n"
+"PO-Revision-Date: 2010-03-27 18:12+0000\n"
+"Last-Translator: Kristjan <Unknown>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-23 11:04+0000\n"
+"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -138,8 +138,8 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Eble vi volas legi la <a href=\"release-notes\">eldon-notojn</a> aŭ <a href="
-"\"update\">ĝisdatigi ĉi tiun instalilon</a>."
+"Eble vi volas legi la <a href=\"release-notes\">eldon-notojn</a> aŭ <a "
+"href=\"update\">ĝisdatigi ĉi tiun instalilon</a>."
 
 #. Type: text
 #. Description
@@ -198,10 +198,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Timezone"
 msgid "Time Zone:"
-msgstr "Tempozono"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -213,7 +211,7 @@ msgstr "Regiono:"
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Keyboard layout"
-msgstr "Elektu klavaran aranĝon"
+msgstr "Klavararanĝo"
 
 #. Type: text
 #. Description
@@ -225,7 +223,8 @@ msgstr "Kiu aranĝo plej similas al via klavaro?"
 #. Description
 #: ../ubiquity.templates:28001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "Vi povas tajpi en ĉi tiun skatolon por testi vian novan klavararanĝon."
+msgstr ""
+"Vi povas tajpi en ĉi tiun skatolon por testi vian novan klavararanĝon."
 
 #. Type: text
 #. Description
@@ -308,10 +307,8 @@ msgstr "Kion uzantnomon vi volas uzi por ensaluti?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
-#, fuzzy
-#| msgid "MySQL User Name"
 msgid "Username"
-msgstr "Uzantnomo de MySQL"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -332,18 +329,14 @@ msgstr "Elektu pasvorton por sekurigi vian konton."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
-#, fuzzy
-#| msgid "MySQL Password"
 msgid "Password"
-msgstr "Pasvorto de MySQL"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Re-enter password"
-msgstr "Elektu alian pasvorton"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -645,18 +638,19 @@ msgstr "La instalilo kraŝis"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
-"Pardonu, la instalilo kraŝis. Bonvolu sendi raporton ĉe https://launchpad."
-"net/ubuntu/+source/ubiquity/+filebug (ne aldonu al jam ekzistanta eraro) kaj "
-"prizorgistoj traktos la problemon, kiam plej frue eblos. Por helpi la "
-"laboron de prizorgistoj, bonvolu priskribi la sekvajn detalojn kaj aldoni la "
-"enhavon de la dosieroj /var/log/syslog kaj /var/log/partman:"
+"Pardonu, la instalilo kraŝis. Bonvolu sendi raporton ĉe "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (ne aldonu al jam "
+"ekzistanta eraro) kaj prizorgistoj traktos la problemon, kiam plej frue "
+"eblos. Por helpi la laboron de prizorgistoj, bonvolu priskribi la sekvajn "
+"detalojn kaj aldoni la enhavon de la dosieroj /var/log/syslog kaj "
+"/var/log/partman:"
 
 #. Type: text
 #. Description
@@ -1210,12 +1204,12 @@ msgstr "La stato de la sekvaj pakoj estas rompita:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "La kaŭzo povas esti malnova instalpakaĵo, aŭ eble iu supre listigita pako "
 "enhavas cimon. Pli da detaloj troviĝas en /var/log/syslog. La instalilo "
@@ -1246,14 +1240,14 @@ msgstr "Eraro dum migrigo de dokumentoj kaj agordoj"
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Okazis eraro dum migrigo de datumoj. Pli da detaloj vi povas trovi en /var/"
-"log/syslog. Daŭriĝos la instalado, sed eble kelkaj aŭ ĉiuj dokumentoj kaj "
-"agordoj kiujn vi indikis ne estos kopiataj al la instalata sistemo."
+"Okazis eraro dum migrigo de datumoj. Pli da detaloj vi povas trovi en "
+"/var/log/syslog. Daŭriĝos la instalado, sed eble kelkaj aŭ ĉiuj dokumentoj "
+"kaj agordoj kiujn vi indikis ne estos kopiataj al la instalata sistemo."
 
 #. Type: error
 #. Description
@@ -1315,7 +1309,8 @@ msgstr "Bonvolu fermi ĉiujn aplikaĵojn uzantajn ĉi tiujn surmetingojn."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr "Ĉu vi ŝatus ke la instalilo reklopodu demeti ĉi tiujn subdiskojn?"
 
 #. Type: boolean
@@ -1494,25 +1489,12 @@ msgstr ""
 msgid "Continue with installation."
 msgstr "Daŭrigi la instaladon."
 
-#~ msgid "Zone:"
-#~ msgstr "Terzono:"
-
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
+#~ "Please choose the language used for the installation process. This language "
+#~ "will be the default language for the final system."
 #~ msgstr ""
-#~ "Enskribu la saman pasvorton dufoje, por ke ĝi povu esti kontrolita pri "
-#~ "tajperaroj. Bona pasvorto havu miksaĵon de literoj, nombroj kaj "
-#~ "interpunkcio, havu almenaŭ ok signojn, kaj ŝanĝendas regulintervale."
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
-#~ msgstr ""
-#~ "Bonvolu elekti la lingvon uzotan por la instala procezo. Ĉi tiu lingvo "
-#~ "estos la implicita lingvo por la fina sistemo."
+#~ "Bonvolu elekti la lingvon uzotan por la instala procezo. Ĉi tiu lingvo estos "
+#~ "la implicita lingvo por la fina sistemo."
 
 #~ msgid ""
 #~ "If you have Internet access, read the release notes for information on "
@@ -1531,43 +1513,42 @@ msgstr "Daŭrigi la instaladon."
 #~ msgstr "Ĉefa fona kaj malfona softvaro"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people wanting "
+#~ "MythTV for HTPC applications. This type of installation is intended for use "
+#~ "as a component in your home theatre."
 #~ msgstr ""
-#~ "Interna/fasada kunmaŝino estas la plej ofta agordo por tiuj, kiuj volas "
-#~ "je MythTV por HTPC-aplikoj. Ĉi tia agordo estas por uzi kiel konsistaĵon "
-#~ "de via hejma kinejo."
+#~ "Interna/fasada kunmaŝino estas la plej ofta agordo por tiuj, kiuj volas je "
+#~ "MythTV por HTPC-aplikoj. Ĉi tia agordo estas por uzi kiel konsistaĵon de via "
+#~ "hejma kinejo."
 
 #~ msgid "Secondary Backend w/ Frontend"
 #~ msgstr "Kroma internaĵo kun fasado"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
+#~ "will be configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "Tio agordos sistemon similan al ĉefa internaĵo kun fasado, tamen agordos "
-#~ "por konekti al ekzistanta internaĵo en la reto."
+#~ "Tio agordos sistemon similan al ĉefa internaĵo kun fasado, tamen agordos por "
+#~ "konekti al ekzistanta internaĵo en la reto."
 
 #~ msgid "Primary Backend"
 #~ msgstr "Ĉefa Internaĵo"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
+#~ "A backend only machine is typically designed to function like an appliance; "
+#~ "requiring very little maintenance.  This is intended to be installed as the "
+#~ "first backend on a network."
 #~ msgstr ""
-#~ "Nur-internaĵa maŝino tipe estas planita por funkcii specialigite; "
-#~ "bezonante tre malmultan flegadon. Ĉi tiu estas por esti instalita kiel la "
-#~ "unua internaĵo en reto."
+#~ "Nur-internaĵa maŝino tipe estas planita por funkcii specialigite; bezonante "
+#~ "tre malmultan flegadon. Ĉi tiu estas por esti instalita kiel la unua "
+#~ "internaĵo en reto."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "Kroma internaĵo"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will be "
+#~ "configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "Ĉi tio agordos sistemon similan al Ĉefa Internaĵo, tamen agordos ĝin por "
 #~ "konekti al ekzistanta internaĵo en la reto."
@@ -1576,24 +1557,24 @@ msgstr "Daŭrigi la instaladon."
 #~ msgstr "Fasado"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
+#~ "A frontend only machine's main function is to receive media content from the "
+#~ "backend and distribute it.  This configuration requires an existing backend "
+#~ "on the network."
 #~ msgstr ""
-#~ "La ĉefa funkcio de nur-fasada maŝino estas akcepti aŭdvidan materialon el "
-#~ "la internaĵo kaj distribui ĝin. Ĉi tiu agordo postulas ekzistantan "
-#~ "internaĵon en la reto."
+#~ "La ĉefa funkcio de nur-fasada maŝino estas akcepti aŭdvidan materialon el la "
+#~ "internaĵo kaj distribui ĝin. Ĉi tiu agordo postulas ekzistantan internaĵon "
+#~ "en la reto."
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you can "
+#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
+#~ "Output or OpenGL effects."
 #~ msgstr ""
 #~ "Malfermitkoda grafika pelilo jam estas ŝaltita kaj agordita por via "
-#~ "agordaĵo. Se vi volas uzi alian grafikan pelilon, vi povas ĉi tie. Notu "
-#~ "ke komercaj grafikaj peliloj eble estas bezonataj por Televida Eligo aŭ "
-#~ "por OpenGL efektoj."
+#~ "agordaĵo. Se vi volas uzi alian grafikan pelilon, vi povas ĉi tie. Notu ke "
+#~ "komercaj grafikaj peliloj eble estas bezonataj por Televida Eligo aŭ por "
+#~ "OpenGL efektoj."
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
 #~ msgstr "Se vi volas agordi Televidan Eligon, elektu opcion ĉi tie:"
@@ -1621,8 +1602,8 @@ msgstr "Daŭrigi la instaladon."
 #~ msgstr "Agordi Gvidan Datumon / Internan Interfacon"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data and "
+#~ "configuring the backend for the first time."
 #~ msgstr ""
 #~ "La finaj paŝoj de la instalaĵo postulas ke vi agordas vian gvidan datumon "
 #~ "kaj agordas la internan interfacon unua-foje."
@@ -1631,22 +1612,22 @@ msgstr "Daŭrigi la instaladon."
 #~ msgstr "Klaku por malfermi la Schedules Direct retpaĝaron."
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules Direct "
+#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
+#~ "users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
-#~ "Uzantoj en Nordameriko devas agordi konton kun Schedules Direct (SD, "
-#~ "Horaroj Rekte). SD donas gvidan datumon por eta kosto. Sen SD, "
-#~ "Nordamerikaj uzantoj povas perdi multe da la horaraj eblecoj de MythTV."
+#~ "Uzantoj en Nordameriko devas agordi konton kun Schedules Direct (SD, Horaroj "
+#~ "Rekte). SD donas gvidan datumon por eta kosto. Sen SD, Nordamerikaj uzantoj "
+#~ "povas perdi multe da la horaraj eblecoj de MythTV."
 
 #~ msgid "Launch MythTV Setup"
 #~ msgstr "Lanĉu Agordaĵon de MythTV"
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need to "
+#~ "configure the first four sections, being sure to provide your guide data "
+#~ "during the third."
 #~ msgstr ""
 #~ "Post vi agordas vian gvida-datuman fonton, vi devos lanĉi la MythTV-"
 #~ "Agordaĵon por plenumi la interna-interfacan agordaĵon unua-foje. Vi devos "
@@ -1663,6 +1644,16 @@ msgstr "Daŭrigi la instaladon."
 
 #~ msgid "Configuring infrared devices..."
 #~ msgstr "Konfigurado de infraruĝaj aparatoj..."
+
+#~ msgid ""
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
+#~ msgstr ""
+#~ "Enskribu la saman pasvorton dufoje, por ke ĝi povu esti kontrolita pri "
+#~ "tajperaroj. Bona pasvorto havu miksaĵon de literoj, nombroj kaj "
+#~ "interpunkcio, havu almenaŭ ok signojn, kaj ŝanĝendas regulintervale."
 
 #~ msgid ""
 #~ " Install Type: ${INSTALLTYPE}\n"
@@ -1692,3 +1683,6 @@ msgstr "Daŭrigi la instaladon."
 
 #~ msgid "Graphics Drivers"
 #~ msgstr "Grafikaj peliloj"
+
+#~ msgid "Zone:"
+#~ msgstr "Terzono:"

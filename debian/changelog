@@ -19,6 +19,7 @@ ubiquity (2.2.11) UNRELEASED; urgency=low
     (LP: #551742).
   * Add only_this_page decorator to be used on functions that should
     never be called once we've left their page.
+  * Update translations from Launchpad.
 
   [ Mario Limonciello ]
   * Fix installation of zh_CN and zh_TW language packs.
