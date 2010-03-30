@@ -20,6 +20,8 @@ ubiquity (2.2.11) UNRELEASED; urgency=low
   * Add only_this_page decorator to be used on functions that should
     never be called once we've left their page.
   * Update translations from Launchpad.
+  * Automatic update of included source packages: base-installer
+    1.103ubuntu6, partman-base 139ubuntu3.
 
   [ Mario Limonciello ]
   * Fix installation of zh_CN and zh_TW language packs.
