@@ -6,6 +6,8 @@ ubiquity (2.2.12) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Fix pkgsel/ignore-incomplete-language-support check (LP: #527623).
+  * KDE frontend:
+    - Ensure that entries in extra_bar_frames are never None (LP: #536912).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 31 Mar 2010 11:01:02 +0100
 

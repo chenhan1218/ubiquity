@@ -170,7 +170,6 @@ class PartAuto(QWidget):
                     frame_layout.addStretch(1)
 
                     self.extra_bar_frames = []
-                    extra_bar_frame = None
                     comboTexts = []
 
                     button.toggled[bool].connect(self.extra_combo.setEnabled)
@@ -181,6 +180,8 @@ class PartAuto(QWidget):
                         #each extra choice needs to be a before/after bar option
                         if extra == '':
                             continue
+
+                        extra_bar_frame = None
 
                         # add the extra disk to the combo box
                         self.extra_combo.addItem(extra)
@@ -213,7 +214,7 @@ class PartAuto(QWidget):
                             if len(self.extra_bar_frames) > 0:
                                 extra_bar_frame.setVisible(False)
 
-                        if self.extra_bar_frames is not None:
+                        if extra_bar_frame is not None:
                             self.extra_bar_frames.append(extra_bar_frame)
 
                         # Qt changes the string by adding accelerators,
