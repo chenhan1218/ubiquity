@@ -1274,7 +1274,7 @@ class Install:
         if len(self.languages) == 1 and self.languages[0] in ('C', 'en'):
             return # always complete enough
 
-        if self.db.get('pkgsel/ignore-incomplete-language-support'):
+        if self.db.get('pkgsel/ignore-incomplete-language-support') == 'true':
             return
 
         cache = Cache()

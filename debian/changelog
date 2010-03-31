@@ -1,7 +1,11 @@
 ubiquity (2.2.12) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Accept and discard arguments to the KDE frontend's
     on_keyboard_layout_selected function (LP: #552399).
+
+  [ Colin Watson ]
+  * Fix pkgsel/ignore-incomplete-language-support check (LP: #527623).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 31 Mar 2010 11:01:02 +0100
 
