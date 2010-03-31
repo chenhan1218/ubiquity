@@ -288,7 +288,7 @@ class PageKde(PluginUI):
             self.controller.dbfilter.change_layout(layout)
 
     @only_this_page
-    def on_keyboard_variant_selected(self):
+    def on_keyboard_variant_selected(self, *args):
         layout = self.get_keyboard()
         variant = self.get_keyboard_variant()
 
