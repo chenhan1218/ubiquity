@@ -1,3 +1,10 @@
+ubiquity (2.2.12) UNRELEASED; urgency=low
+
+  * Accept and discard arguments to the KDE frontend's
+    on_keyboard_layout_selected function (LP: #552399).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 31 Mar 2010 11:01:02 +0100
+
 ubiquity (2.2.11) lucid; urgency=low
 
   [ Evan Dandrea ]

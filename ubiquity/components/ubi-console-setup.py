@@ -271,7 +271,7 @@ class PageKde(PluginUI):
         self.plugin_widgets = self.page
 
     @only_this_page
-    def on_keyboard_layout_selected(self):
+    def on_keyboard_layout_selected(self, *args):
         layout = self.get_keyboard()
         l = self.controller.dbfilter.get_locale()
         if layout is not None:
