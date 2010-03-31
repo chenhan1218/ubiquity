@@ -2150,7 +2150,7 @@ class Install:
 
                     for desktop_file in (
                         'usr/share/applications/oem-config-prepare-gtk.desktop',
-                        'usr/share/applications/kde/oem-config-prepare-kde.desktop'):
+                        'usr/share/applications/kde4/oem-config-prepare-kde.desktop'):
                         if os.path.exists(os.path.join(self.target,
                                                        desktop_file)):
                             desktop_base = os.path.basename(desktop_file)

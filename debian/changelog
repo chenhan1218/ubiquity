@@ -11,7 +11,12 @@ ubiquity (2.2.12) UNRELEASED; urgency=low
     - Lock out manual partitioning operations while the partitioning backend
       is running (LP: #540203).
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 31 Mar 2010 11:01:02 +0100
+  [ Jonathan Riddell ]
+  * Move oem-config-prepare-kde.desktop install directory to
+    /usr/share/applications/kde4/, else it is labelled as a KDE 3
+    application
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 31 Mar 2010 20:03:58 +0100
 
 ubiquity (2.2.11) lucid; urgency=low
 
