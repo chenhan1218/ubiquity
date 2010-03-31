@@ -8,6 +8,8 @@ ubiquity (2.2.12) UNRELEASED; urgency=low
   * Fix pkgsel/ignore-incomplete-language-support check (LP: #527623).
   * KDE frontend:
     - Ensure that entries in extra_bar_frames are never None (LP: #536912).
+    - Lock out manual partitioning operations while the partitioning backend
+      is running (LP: #540203).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 31 Mar 2010 11:01:02 +0100
 

@@ -128,6 +128,8 @@ class PartMan(QWidget):
         self.undo_everything.setEnabled(True)
 
     def partman_create_dialog(self, devpart, partition):
+        if not self.ctrlr.allowed_change_step():
+            return
 
         # lazy initialization
         if not self.create_dialog:
@@ -226,6 +228,8 @@ class PartMan(QWidget):
                 self.create_dialog.partition_create_mount_combo.addItem(mp)
 
     def partman_edit_dialog(self, devpart, partition):
+        if not self.ctrlr.allowed_change_step():
+            return
 
         #lazy loading
         if not self.edit_dialog:
@@ -362,6 +366,9 @@ class PartMan(QWidget):
 
     def on_partition_list_treeview_activated(self, index):
         """ activated when parition lick clicked """
+        if not self.ctrlr.allowed_change_step():
+            return
+
         item = index.internalPointer()
         devpart = item.itemData[0]
         partition = item.itemData[1]
@@ -398,6 +405,8 @@ class PartMan(QWidget):
         return (devpart, partition)
 
     def on_new_table_clicked(self):
+        if not self.ctrlr.allowed_change_step():
+            return
         devpart, partition = self.get_treeview_data()
         if not devpart or not partition:
             return
@@ -416,11 +425,15 @@ class PartMan(QWidget):
         self.partman_edit_dialog(devpart, partition)
 
     def on_delete_clicked(self):
+        if not self.ctrlr.allowed_change_step():
+            return
         devpart, partition = self.get_treeview_data()
         if not devpart or not partition:
             return
         self.ctrlr.dbfilter.delete_partition(devpart)
 
     def on_undo_clicked(self):
+        if not self.ctrlr.allowed_change_step():
+            return
         self.ctrlr.allow_change_step(False)
         self.ctrlr.dbfilter.undo()
