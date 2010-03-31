@@ -10,6 +10,10 @@ ubiquity (2.2.12) UNRELEASED; urgency=low
     - Ensure that entries in extra_bar_frames are never None (LP: #536912).
     - Lock out manual partitioning operations while the partitioning backend
       is running (LP: #540203).
+  * Don't lower-case the locale attribute on frontends.  This was added a
+    long time ago; since then, it's become unnecessary since i18n.get_string
+    lower-cases the locale itself, and it prevented us from finding
+    slideshow files for language variants (LP: #476269).
 
   [ Jonathan Riddell ]
   * Move oem-config-prepare-kde.desktop install directory to

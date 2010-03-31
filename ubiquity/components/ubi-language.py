@@ -210,7 +210,7 @@ class PageGtk(PageBase):
         if not lang:
             return
         # strip encoding; we use UTF-8 internally no matter what
-        lang = lang.split('.')[0].lower()
+        lang = lang.split('.')[0]
         self.controller.translate(lang)
         import gtk
         ltr = i18n.get_string('default-ltr', lang, 'ubiquity/imported')
@@ -397,7 +397,7 @@ class PageKde(PageBase):
         if not lang:
             return
         # strip encoding; we use UTF-8 internally no matter what
-        lang = lang.split('.')[0].lower()
+        lang = lang.split('.')[0]
         self.controller.translate(lang)
         if not self.only:
             release_name = misc.get_release_name()
