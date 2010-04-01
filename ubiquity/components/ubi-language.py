@@ -288,7 +288,7 @@ class PageKde(PageBase):
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLanguage.ui')
             self.combobox = self.page.language_combobox
             self.combobox.currentIndexChanged[str].connect(self.on_language_selection_changed)
-
+            
             def inst(*args):
                 self.try_ubuntu.setEnabled(False)
                 self.controller.go_forward()
@@ -319,6 +319,15 @@ class PageKde(PageBase):
                 self.page.try_ubuntu.hide()
                 self.page.try_text_label.hide()
                 self.page.begin_install_button.hide()
+                
+            # We do not want to show the yet to be substituted strings
+            # (${MEDIUM}, etc), so don't show the core of the page until
+            # it's ready.
+            self.widgetHidden = []
+            for w in self.page.children():
+                if isinstance(w, QWidget) and not w.isHidden():
+                    self.widgetHidden.append(w)
+                    w.hide()
 
         except Exception, e:
             self.debug('Could not create language page: %s', e)
@@ -331,7 +340,7 @@ class PageKde(PageBase):
         # Spinning cursor.
         self.controller.allow_change_step(False)
         # Queue quit.
-        self.begin_install_button.setEnabled(False)
+        self.page.begin_install_button.setEnabled(False)
         self.controller._wizard.current_page = None
         self.controller.dbfilter.ok_handler()
 
@@ -411,6 +420,10 @@ class PageKde(PageBase):
                 text = text.replace('${RELEASE}', release_name)
                 text = text.replace('${MEDIUM}', install_medium)
                 widget.setText(text)
+                
+        for w in self.widgetHidden:
+            w.show()
+        self.widgetHidden = []
 
     def set_oem_id(self, text):
         return self.page.oem_id_entry.setText(text)
