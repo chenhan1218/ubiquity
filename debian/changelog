@@ -22,7 +22,12 @@ ubiquity (2.2.12) lucid; urgency=low
     /usr/share/applications/kde4/, else it is labelled as a KDE 3
     application
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 01 Apr 2010 01:27:27 +0100
+  [ Roman Shtylman ]
+  * Kde_ui: 
+    - fixed (LP: #550466) (LP: #550472) using kmessage box for quit dialog
+    - fixed (LP: #540202) hide widgets until translated
+
+ -- Roman Shtylman <shtylman@gmail.com>  Thu, 01 Apr 2010 02:25:27 -0400
 
 ubiquity (2.2.11) lucid; urgency=low
 
