@@ -924,8 +924,8 @@ class Wizard(BaseFrontend):
         warning_dialog_label = self.get_string("warning_dialog_label")
         abortTitle = self.get_string("warning_dialog")
         continueButtonText = self.get_string("continue")
-        response = QMessageBox.question(self.ui, abortTitle, warning_dialog_label, abortTitle, continueButtonText)
-        if response == 0:
+        response = KMessageBox.questionYesNo(self.ui, abortTitle, warning_dialog_label)
+        if response == KMessageBox.Yes:
             self.current_page = None
             self.quit()
             return True
