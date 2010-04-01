@@ -1,4 +1,4 @@
-ubiquity (2.2.13) UNRELEASED; urgency=low
+ubiquity (2.2.13) lucid; urgency=low
 
   [ Evan Dandrea ]
   * In oem-config, support removing packages that were not part of the
@@ -10,7 +10,7 @@ ubiquity (2.2.13) UNRELEASED; urgency=low
     - fixed (LP: #550466) (LP: #550472) using kmessage box for quit dialog
     - fixed (LP: #540202) hide widgets until translated
 
- -- Roman Shtylman <shtylman@gmail.com>  Thu, 01 Apr 2010 02:25:27 -0400
+ -- Mario Limonciello <superm1@ubuntu.com>  Thu, 01 Apr 2010 11:51:01 -0500
 
 ubiquity (2.2.12) lucid; urgency=low
 
