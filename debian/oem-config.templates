@@ -38,3 +38,10 @@ Default: true
 Description: for internal use; can be preseeded
  Install language support packages for the locale that has been selected by
  the user
+
+Template: oem-config/remove_extras
+Type: boolean
+Default: false
+Description: for internal use; can be preseeded
+ Remove packages that were not part of the base install and are not needed
+ by the final system.

@@ -409,7 +409,11 @@ class Install:
 
             self.next_region(size=4)
             self.db.progress('INFO', 'ubiquity/install/removing')
-            self.remove_extras()
+            if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+                if self.db.get('oem-config/remove_extras') == 'true':
+                    self.remove_oem_extras()
+            else:
+                self.remove_extras()
 
             try:
                 self.copy_network_config()
@@ -2181,9 +2185,6 @@ class Install:
         """Try to remove packages that are needed on the live CD but not on
         the installed system."""
 
-        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
-            return
-
         # Looking through files for packages to remove is pretty quick, so
         # don't bother with a progress bar for that.
 
@@ -2249,6 +2250,46 @@ class Install:
         # for the user to sort them out with a graphical package manager (or
         # whatever) after installation than it will be to try to deal with
         # them automatically here.
+        (regular, recursive) = install_misc.query_recorded_removed()
+        self.do_remove(regular)
+        self.do_remove(recursive, recursive=True)
+        
+        if self.db.get('oem-config/remove_extras') == 'true':
+            installed = (desktop_packages | keep - regular - recursive)
+            p = os.path.join(self.target, '/var/lib/ubiquity/installed-packages')
+            with open(p, 'w') as fp:
+                for line in installed:
+                    print >>fp, line
+
+    def remove_oem_extras(self):
+        '''Try to remove packages that were not part of the base install and
+        are not needed by the final system.
+        
+        This is roughly the set of packages installed by ubiquity + packages we
+        explicitly installed in oem-config (langpacks, for example) -
+        everything else.'''
+
+        manifest = '/var/lib/ubiquity/installed-packages'
+        if not os.path.exists(manifest):
+            return
+        
+        keep = set()
+        with open(manifest) as manifest_file:
+            for line in manifest_file:
+                if line.strip() != '' and not line.startswith('#'):
+                    keep.add(line.split()[0])
+        # Lets not rip out the ground beneath our feet.
+        keep.add('ubiquity')
+        keep.add('oem-config')
+
+        cache = Cache()
+        remove = set([pkg for pkg in cache.keys() if cache[pkg].isInstalled])
+        # Keep packages we explicitly installed.
+        keep |= install_misc.query_recorded_installed()
+        remove -= self.expand_dependencies_simple(cache, keep, remove)
+        del cache
+        
+        install_misc.record_removed(remove)
         (regular, recursive) = install_misc.query_recorded_removed()
         self.do_remove(regular)
         self.do_remove(recursive, recursive=True)

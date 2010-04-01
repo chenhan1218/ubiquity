@@ -1,5 +1,11 @@
 ubiquity (2.2.13) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
+  * In oem-config, support removing packages that were not part of the
+    base install and are not needed in the final system by preseeding
+    oem-config/remove_extras to true (LP: #315644, LP: #553184).
+
+  [ Roman Shtylman ]
   * Kde_ui: 
     - fixed (LP: #550466) (LP: #550472) using kmessage box for quit dialog
     - fixed (LP: #540202) hide widgets until translated
