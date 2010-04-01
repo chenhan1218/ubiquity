@@ -1,3 +1,9 @@
+ubiquity (2.2.14) UNRELEASED; urgency=low
+
+  * Update Kubuntu icon desktop/hi*-app-ubiquity.png for new logo
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 01 Apr 2010 23:08:48 +0100
+
 ubiquity (2.2.13) lucid; urgency=low
 
   [ Evan Dandrea ]
@@ -10,10 +16,7 @@ ubiquity (2.2.13) lucid; urgency=low
     - fixed (LP: #550466) (LP: #550472) using kmessage box for quit dialog
     - fixed (LP: #540202) hide widgets until translated
 
-  [ Jonathan Riddell ]
-  * Update Kubuntu icon desktop/hi*-app-ubiquity.png for new logo
-
- -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 01 Apr 2010 23:06:45 +0100
+ -- Mario Limonciello <superm1@ubuntu.com>  Thu, 01 Apr 2010 11:51:01 -0500
 
 ubiquity (2.2.12) lucid; urgency=low
 
