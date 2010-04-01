@@ -1,4 +1,4 @@
-ubiquity (2.2.12) UNRELEASED; urgency=low
+ubiquity (2.2.12) lucid; urgency=low
 
   [ Evan Dandrea ]
   * Accept and discard arguments to the KDE frontend's
@@ -22,7 +22,7 @@ ubiquity (2.2.12) UNRELEASED; urgency=low
     /usr/share/applications/kde4/, else it is labelled as a KDE 3
     application
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 31 Mar 2010 20:03:58 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 01 Apr 2010 01:27:27 +0100
 
 ubiquity (2.2.11) lucid; urgency=low
 
