@@ -1,4 +1,4 @@
-ubiquity (2.2.14) UNRELEASED; urgency=low
+ubiquity (2.2.14) lucid; urgency=low
 
   [ Jonathan Riddell ]
   * Update Kubuntu icon desktop/hi*-app-ubiquity.png for new logo
@@ -7,7 +7,7 @@ ubiquity (2.2.14) UNRELEASED; urgency=low
   * Don't bail out if oem-config/remove_extras doesn't exist yet since
     oem-config isn't actually installed. (LP: #554324, LP: #554664)
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 01 Apr 2010 23:08:48 +0100
+ -- Mario Limonciello <superm1@ubuntu.com>  Sat, 03 Apr 2010 15:20:32 -0500
 
 ubiquity (2.2.13) lucid; urgency=low
 
