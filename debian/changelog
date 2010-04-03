@@ -1,6 +1,11 @@
 ubiquity (2.2.14) UNRELEASED; urgency=low
 
+  [ Jonathan Riddell ]
   * Update Kubuntu icon desktop/hi*-app-ubiquity.png for new logo
+
+  [ Mario Limonciello ]
+  * Don't bail out if oem-config/remove_extras doesn't exist yet since
+    oem-config isn't actually installed. (LP: #554324, LP: #554664)
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 01 Apr 2010 23:08:48 +0100
 

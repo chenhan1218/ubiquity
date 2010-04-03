@@ -1098,10 +1098,3 @@ Template: ubiquity/text/begin_install_button
 Type: text
 _Description:
  Continue with installation.
-
-Template: oem-config/remove_extras
-Type: boolean
-Default: false
-Description: for internal use; can be preseeded
- Try to remove packages that were not part of the base install and
- are not needed by the final system.

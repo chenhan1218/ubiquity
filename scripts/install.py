@@ -410,8 +410,11 @@ class Install:
             self.next_region(size=4)
             self.db.progress('INFO', 'ubiquity/install/removing')
             if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
-                if self.db.get('oem-config/remove_extras') == 'true':
-                    self.remove_oem_extras()
+                try:
+                    if misc.create_bool(self.db.get('oem-config/remove_extras')):
+                        self.remove_oem_extras()
+                except debconf.DebconfError:
+                    pass
             else:
                 self.remove_extras()
 
@@ -2253,8 +2256,14 @@ class Install:
         (regular, recursive) = install_misc.query_recorded_removed()
         self.do_remove(regular)
         self.do_remove(recursive, recursive=True)
-        
-        if self.db.get('oem-config/remove_extras') == 'true':
+
+        oem_remove_extras = False
+        try:
+            oem_remove_extras = misc.create_bool(self.db.get('oem-config/remove_extras'))
+        except debconf.DebconfError:
+            pass
+
+        if oem_remove_extras:
             installed = (desktop_packages | keep - regular - recursive)
             p = os.path.join(self.target, '/var/lib/ubiquity/installed-packages')
             with open(p, 'w') as fp:
