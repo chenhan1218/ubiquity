@@ -1,3 +1,9 @@
+ubiquity (2.2.15) UNRELEASED; urgency=low
+
+  * Fix KDE frontend's slideshow links not working (LP: #540278)
+
+ -- Amichai Rothman <amichai2@amichais.net>  Sun, 04 Apr 2010 04:46:27 +0300
+
 ubiquity (2.2.14) lucid; urgency=low
 
   [ Jonathan Riddell ]
