@@ -2,8 +2,10 @@ ubiquity (2.2.15) UNRELEASED; urgency=low
 
   * Fix KDE frontend's slideshow links not working (LP: #540278)
   * Fix KDE progress bar and skip button too small (LP: #555707)
+  * Fix KDE skip button appearing as full-width button at the
+    bottom of the window and messing up dialog layout (LP: #540321)
 
- -- Amichai Rothman <amichai2@amichais.net>  Mon, 05 Apr 2010 16:01:57 +0300
+ -- Amichai Rothman <amichai2@amichais.net>  Mon, 05 Apr 2010 17:58:42 +0300
 
 ubiquity (2.2.14) lucid; urgency=low
 

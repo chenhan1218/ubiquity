@@ -7,16 +7,24 @@ class ProgressDialog(QDialog):
     def __init__(self, min, max, parent = None):
         QDialog.__init__(self, parent)
 
-        self.progressBar = QProgressBar(self)
-        self.progressBar.setMinimum(min)
-        self.setMaximum(max)
-
         #self.setWindowFlags(Qt.SplashScreen | Qt.FramelessWindowHint)
         #self.setWindowFlags(Qt.SplashScreen | Qt.WindowStaysOnTopHint | Qt.WindowTitleHint)
         #self.setWindowFlags(Qt.WindowTitleHint | Qt.WindowCloseButtonHint)
 
+        self.progressLabel = QLabel()
+
+        self.progressBar = QProgressBar()
+        self.progressBar.setMinimum(min)
+        self.setMaximum(max)
+
         self.cancelButton = QPushButton()
         self.cancelButton.clicked.connect(self.reject)
+
+        progressWidget = QWidget()
+        progressWidget.setLayout(QHBoxLayout())
+        progressWidget.layout().setContentsMargins(0,0,0,0)
+        progressWidget.layout().addWidget(self.progressBar)
+        progressWidget.layout().addWidget(self.cancelButton)
 
         self.extraFrame = QFrame()
         self.extraFrame.setFrameStyle(QFrame.StyledPanel)
@@ -25,14 +33,10 @@ class ProgressDialog(QDialog):
         self.extraFrame.layout().setContentsMargins(0,0,0,0)
         self.extraFrame.setVisible(False)
 
-        self.progressLabel = QLabel(self)
-
         self.setLayout(QVBoxLayout())
-
         self.layout().addWidget(self.progressLabel)
-        self.layout().addWidget(self.progressBar)
+        self.layout().addWidget(progressWidget)
         self.layout().addWidget(self.extraFrame)
-        self.layout().addWidget(self.cancelButton)
 
         self.reset()
 
