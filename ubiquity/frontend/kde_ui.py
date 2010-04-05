@@ -1063,6 +1063,7 @@ class Wizard(BaseFrontend):
         # TODO cancel button
 
         self.ui.progressBar.setMaximum(total_steps)
+        self.ui.progressBar.setFormat(progress_title + " %p%")
         self.ui.progressBar.show()
 
         self.ui.content_widget.setEnabled(False)
