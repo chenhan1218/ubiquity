@@ -605,13 +605,6 @@ class Wizard(BaseFrontend):
         # set initial bottom bar status
         self.allow_go_backward(False)
         
-        # Set the install window to the (presumably dark) theme colors.
-        a = gtk.Menu().rc_get_style()
-        bg = a.bg[gtk.STATE_NORMAL]
-        fg = a.fg[gtk.STATE_NORMAL]
-        self.install_progress_window.modify_bg(gtk.STATE_NORMAL, bg)
-        self.install_progress_info.modify_fg(gtk.STATE_NORMAL, fg)
-
     def poke_screensaver(self):
         """Attempt to make sure that the screensaver doesn't kick in."""
         if os.path.exists('/usr/bin/gnome-screensaver-command'):
@@ -935,6 +928,14 @@ class Wizard(BaseFrontend):
             self.progress_cancel_button = self.install_progress_cancel_button
             self.progress_cancel_button.set_label(
                 self.old_progress_cancel_button.get_label())
+            
+            # Set the install window to the (presumably dark) theme colors.
+            a = gtk.Menu().rc_get_style()
+            bg = a.bg[gtk.STATE_NORMAL]
+            fg = a.fg[gtk.STATE_NORMAL]
+            self.install_progress_window.modify_bg(gtk.STATE_NORMAL, bg)
+            self.install_progress_info.modify_fg(gtk.STATE_NORMAL, fg)
+
         else:
             self.debconf_progress_window = self.old_progress_window
             self.progress_info = self.old_progress_info

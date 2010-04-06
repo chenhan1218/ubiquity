@@ -1,3 +1,10 @@
+ubiquity (2.2.15) UNRELEASED; urgency=low
+
+  * Move the install window color setting code closer to when the window
+    is shown, so the colors don't get reset before then.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 06 Apr 2010 10:20:32 +0100
+
 ubiquity (2.2.14) lucid; urgency=low
 
   [ Jonathan Riddell ]
