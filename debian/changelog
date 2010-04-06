@@ -1,4 +1,4 @@
-ubiquity (2.2.15) UNRELEASED; urgency=low
+ubiquity (2.2.15) lucid; urgency=low
 
   [ Evan Dandrea ]
   * Move the install window color setting code closer to when the window
@@ -18,7 +18,7 @@ ubiquity (2.2.15) UNRELEASED; urgency=low
   [ Jonathan Riddell ]
   * Workaround PyQt unicode encoding error in ubi-console-setup.py, (LP: #556436)
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 06 Apr 2010 16:41:04 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 06 Apr 2010 17:29:17 +0100
 
 ubiquity (2.2.14) lucid; urgency=low
 
