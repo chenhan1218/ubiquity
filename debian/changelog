@@ -12,6 +12,8 @@ ubiquity (2.2.15) UNRELEASED; urgency=low
   * Update timezone images to cover changes to the Russian timezones and
     make further adjustments around UTC+5, UTC+5.5, and UTC+7
     (LP: #368060).
+  * Automatic update of included source packages: grub-installer
+    1.49ubuntu11.
 
   [ Jonathan Riddell ]
   * Workaround PyQt unicode encoding error in ubi-console-setup.py, (LP: #556436)
