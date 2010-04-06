@@ -7,6 +7,8 @@ ubiquity (2.2.15) UNRELEASED; urgency=low
     the KDE frontend.
   * Define allowed_change_step in the KDE frontend to fix the manual
     partitioner buttons not working (LP: #556180).
+  * Do not show the 'ready to install' or alpha warning text in the KDE
+    frontend when in oem-config mode (LP: #556577).
 
   [ Jonathan Riddell ]
   * Workaround PyQt unicode encoding error in ubi-console-setup.py, (LP: #556436)
