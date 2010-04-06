@@ -1,5 +1,6 @@
 ubiquity (2.2.15) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Move the install window color setting code closer to when the window
     is shown, so the colors don't get reset before then.
   * Fix alpha warning being shown all the time with recent changes to
@@ -7,7 +8,10 @@ ubiquity (2.2.15) UNRELEASED; urgency=low
   * Define allowed_change_step in the KDE frontend to fix the manual
     partitioner buttons not working (LP: #556180).
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 06 Apr 2010 10:20:32 +0100
+  [ Jonathan Riddell ]
+  * Workaround PyQt unicode encoding error in ubi-console-setup.py, (LP: #556436)
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 06 Apr 2010 16:41:04 +0100
 
 ubiquity (2.2.14) lucid; urgency=low
 
