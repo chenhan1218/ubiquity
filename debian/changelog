@@ -6,6 +6,8 @@ ubiquity (2.2.16) UNRELEASED; urgency=low
   * Fix backing up to the language page in the KDE frontend (LP: #557225).
   * Bring back the debconf translation for password_extra_label.  The
     KDE frontend still uses it (LP: #557192).
+  * Fix a small typo that was preventing the duration string on the
+    language page from being translated (LP: #551633).
 
   [ Amichai Rothman ]
   * Fix KDE frontend's slideshow links not working (LP: #540278)
