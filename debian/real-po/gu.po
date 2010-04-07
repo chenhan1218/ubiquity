@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-24 23:25+0000\n"
+"POT-Creation-Date: 2010-04-07 11:44+0100\n"
 "PO-Revision-Date: 2009-09-05 19:32+0000\n"
 "Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
 "Language-Team: Gujarati <team@utkarsh.org>\n"
@@ -64,40 +64,17 @@ msgstr "સ્વગતમ"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001 ../ubiquity.templates:16001
-msgid "Answering the questions should only take a few minutes."
-msgstr "પ્રશ્નોનો જવાબ આપતા માત્ર થોડો સમય લાગશે."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001
-msgid ""
-"Please choose the language used for the configuration process. This language "
-"will be the default language for this computer."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:11001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"તમે ઉત્પાદક ઢબમાં સ્થાપન કરી રહ્યા છો. સિસ્ટમના આ જૂથ માટે એક અનોખું નામ "
-"આપો. આ નામ સ્થાપિત સિસ્ટમ પર યાદ રખાશે અને તેને ભૂલોના વર્ણન વિષે મદદ મેળવવા "
-"માટે વાપરી શકાશે."
+"તમે ઉત્પાદક ઢબમાં સ્થાપન કરી રહ્યા છો. સિસ્ટમના આ જૂથ માટે એક અનોખું નામ આપો. આ નામ "
+"સ્થાપિત સિસ્ટમ પર યાદ રખાશે અને તેને ભૂલોના વર્ણન વિષે મદદ મેળવવા માટે વાપરી શકાશે."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:11001
 msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
@@ -105,24 +82,36 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
+#: ../ubiquity.templates:14001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:15001
+msgid "Once you answer a few questions, this computer will be ready to use."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "Answering the questions should only take a few minutes."
+msgstr "પ્રશ્નોનો જવાબ આપતા માત્ર થોડો સમય લાગશે."
 
 #. Type: text
 #. Description
@@ -298,8 +287,8 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"જો એક કરતા વધુ વ્યક્તિ આ કોમ્પ્યુટરનો ઉપયોગ કરવાના હોય, તો તમે સ્થાપન "
-"પ્રક્રિયા પૂર્ણ થયા બાદ વધુ ખાતા બનાવી શકશો."
+"જો એક કરતા વધુ વ્યક્તિ આ કોમ્પ્યુટરનો ઉપયોગ કરવાના હોય, તો તમે સ્થાપન પ્રક્રિયા પૂર્ણ "
+"થયા બાદ વધુ ખાતા બનાવી શકશો."
 
 #. Type: text
 #. Description
@@ -323,8 +312,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
-"તમે અત્યારે ખામીશોધક (ડીબગીંગ) ઢબ માં છો. એક કીંમતી પાસવર્ડ વાપરી નાખશો નહી !"
+msgstr "તમે અત્યારે ખામીશોધક (ડીબગીંગ) ઢબ માં છો. એક કીંમતી પાસવર્ડ વાપરી નાખશો નહી !"
 
 #. Type: text
 #. Description
@@ -374,9 +362,7 @@ msgstr ""
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr ""
-"જો તમે કોમ્પ્યુટર ને નેટવર્ક પર દ્રશ્ય બનાવવા માગતા હો, તો તે માટે આ નામ "
-"વપરાશે."
+msgstr "જો તમે કોમ્પ્યુટર ને નેટવર્ક પર દ્રશ્ય બનાવવા માગતા હો, તો તે માટે આ નામ વપરાશે."
 
 #. Type: text
 #. Description
@@ -415,8 +401,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"તમે આયાત કરવા માગતા હો તેવા કોઇ ખાતા પસંદ કરો. સ્થાપન સમાપ્ત થયા બાદ તે "
-"ખાતાના ડોક્યુમેનટ અને સંયોજનો ઉપલબ્ધ થશે."
+"તમે આયાત કરવા માગતા હો તેવા કોઇ ખાતા પસંદ કરો. સ્થાપન સમાપ્ત થયા બાદ તે ખાતાના "
+"ડોક્યુમેનટ અને સંયોજનો ઉપલબ્ધ થશે."
 
 #. Type: text
 #. Description
@@ -425,8 +411,7 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"જો તમે કંઇજ આયાત કરવા માગતા ન હો, તો કંઇ પણ પસંદ કર્યા વિના આગળના પાના પર "
-"જાઓ."
+"જો તમે કંઇજ આયાત કરવા માગતા ન હો, તો કંઇ પણ પસંદ કર્યા વિના આગળના પાના પર જાઓ."
 
 #. Type: text
 #. Description
@@ -617,19 +602,18 @@ msgstr "સ્થાપક તૂટી પડ્યુ"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
-"માફ કરજો, પણ સ્થાપક તૂટી પડ્યુ છે. મહેરબાની કરી તમારી ભૂલનું વર્ણન "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug અહીં નોંધાવો (કોઇ "
-"પહેલેથીજ નોંધાયેલા વર્ણન સાથે તેને જોડશો નહિ), અને ટુ્ક સમયમાંજ એક વિકાસકાર "
-"આ ભૂલ તરફ ધ્યાન આપશે. નક્કી શું લોચો પડ્યો તે જાણવામાં વિકાસકારોને મદદ કરવા "
-"તમારા વર્ણન સાથે નીચે આપેલી વિગતો અને /var/log/syslog and /var/log/partman "
-"ફાઇલ જોડી દો."
+"માફ કરજો, પણ સ્થાપક તૂટી પડ્યુ છે. મહેરબાની કરી તમારી ભૂલનું વર્ણન https://launchpad."
+"net/ubuntu/+source/ubiquity/+filebug અહીં નોંધાવો (કોઇ પહેલેથીજ નોંધાયેલા વર્ણન સાથે "
+"તેને જોડશો નહિ), અને ટુ્ક સમયમાંજ એક વિકાસકાર આ ભૂલ તરફ ધ્યાન આપશે. નક્કી શું લોચો પડ્યો "
+"તે જાણવામાં વિકાસકારોને મદદ કરવા તમારા વર્ણન સાથે નીચે આપેલી વિગતો અને /var/log/"
+"syslog and /var/log/partman ફાઇલ જોડી દો."
 
 #. Type: text
 #. Description
@@ -873,9 +857,7 @@ msgstr "ચાલુ રાખો"
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
-msgstr ""
-"સ્થાપન સંપન્ન થયુ. નવુ સ્થાપન વાપરવા માટે તમારે કોમ્પ્યુટર ફરી શરૂ કરવાની "
-"જરૂર છે."
+msgstr "સ્થાપન સંપન્ન થયુ. નવુ સ્થાપન વાપરવા માટે તમારે કોમ્પ્યુટર ફરી શરૂ કરવાની જરૂર છે."
 
 #. Type: note
 #. Description
@@ -970,8 +952,8 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"આવું પસંદ કરેલા વિભાગ પર સ્થાપન પૂર્ણ થવા માટે અપૂરતી જગ્યા હોવાને કારણે થયુ "
-"છે. મહેરબાની કરી કોઇ મોટો વિભાગ પસંદ કરી સ્થાપકને ફરી ચલાવો."
+"આવું પસંદ કરેલા વિભાગ પર સ્થાપન પૂર્ણ થવા માટે અપૂરતી જગ્યા હોવાને કારણે થયુ છે. મહેરબાની "
+"કરી કોઇ મોટો વિભાગ પસંદ કરી સ્થાપકને ફરી ચલાવો."
 
 #. Type: error
 #. Description
@@ -1167,12 +1149,12 @@ msgstr ""
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 
 #. Type: error
@@ -1197,8 +1179,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1259,8 +1241,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 
 #. Type: boolean
@@ -1430,6 +1411,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr ""
 
@@ -1437,18 +1426,18 @@ msgstr ""
 #~ "If you have Internet access, read the release notes for information on "
 #~ "problems that may affect you."
 #~ msgstr ""
-#~ "જો તમારી પાસે ઇન્ટરનેટ જોડાણ હોય, તો તમને અસર કરી શકે તેવી સમસ્યાની વિગતો "
-#~ "જાણવા પ્રકાશન નોંધ વાંચો."
+#~ "જો તમારી પાસે ઇન્ટરનેટ જોડાણ હોય, તો તમને અસર કરી શકે તેવી સમસ્યાની વિગતો જાણવા "
+#~ "પ્રકાશન નોંધ વાંચો."
 
 #~ msgid "Release Notes"
 #~ msgstr "પ્રકાશન નોંધ"
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing errors. "
-#~ "A good password will contain a mixture of letters, numbers and punctuation, "
-#~ "should be at least eight characters long, and should be changed at regular "
-#~ "intervals."
+#~ "Enter the same password twice, so that it can be checked for typing "
+#~ "errors. A good password will contain a mixture of letters, numbers and "
+#~ "punctuation, should be at least eight characters long, and should be "
+#~ "changed at regular intervals."
 #~ msgstr ""
 #~ "એકસરખો પાસવર્ડ બે વાર નાખો, જેથી ટાયપિંગ ભૂલ ચકાસી શકાય. એક સારા પાસવર્ડમાં "
-#~ "અક્ષરો, આંકડા અને સંજ્ઞાનું મિશ્રણ, ઓછામાં ઓછા આંઠ અક્ષર લાંબો, અને સમયાંતરે "
-#~ "બદલતો રેહતો હોવો જોઈએ."
+#~ "અક્ષરો, આંકડા અને સંજ્ઞાનું મિશ્રણ, ઓછામાં ઓછા આંઠ અક્ષર લાંબો, અને સમયાંતરે બદલતો રેહતો "
+#~ "હોવો જોઈએ."

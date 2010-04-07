@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-24 23:25+0000\n"
+"POT-Creation-Date: 2010-04-07 11:44+0100\n"
 "PO-Revision-Date: 2010-03-25 20:36+0000\n"
 "Last-Translator: Adrian Guniš <andygun696@gmail.com>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
@@ -64,31 +64,6 @@ msgstr "Vítejte"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
-"Jakmile odpovíte na pár otázek, bude tento počítač připraven k použití."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001 ../ubiquity.templates:16001
-msgid "Answering the questions should only take a few minutes."
-msgstr "Odpovědi na otázky by neměly zabrat víc než pár minut."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001
-msgid ""
-"Please choose the language used for the configuration process. This language "
-"will be the default language for this computer."
-msgstr ""
-"Vyberte prosím jazyk, v jakém chcete provést nastavování. Zvolený jazyk bude "
-"zároveň i výchozím jazykem pro tento počítač."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:11001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
@@ -100,7 +75,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:11001
 msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
@@ -110,19 +85,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
 msgstr "Vyzkoušet ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
 msgstr "Nainstalovat ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
+#: ../ubiquity.templates:14001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
@@ -134,21 +109,34 @@ msgstr ""
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:15001
+msgid "Once you answer a few questions, this computer will be ready to use."
+msgstr ""
+"Jakmile odpovíte na pár otázek, bude tento počítač připraven k použití."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "Answering the questions should only take a few minutes."
+msgstr "Odpovědi na otázky by neměly zabrat víc než pár minut."
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:17001
 msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Možná si budete chtít přečíst <a href=\"release-notes\">poznámky k "
-"vydání</a> nebo <a href=\"update\">aktualizovat tento instalátor</a>."
+"Možná si budete chtít přečíst <a href=\"release-notes\">poznámky k vydání</"
+"a> nebo <a href=\"update\">aktualizovat tento instalátor</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Možná si budete chtít přečíst <a href=\"release-notes\">poznámky k "
-"vydání</a>."
+"Možná si budete chtít přečíst <a href=\"release-notes\">poznámky k vydání</"
+"a>."
 
 #. Type: text
 #. Description
@@ -177,8 +165,8 @@ msgid ""
 "this program."
 msgstr ""
 "Instalace může změnit velikost nebo smazat oddíly na vašem pevném disku. "
-"Před spuštěním tohoto programu proveďte <b>úplnou zálohu všech cenných "
-"dat</b>."
+"Před spuštěním tohoto programu proveďte <b>úplnou zálohu všech cenných dat</"
+"b>."
 
 #. Type: text
 #. Description
@@ -395,8 +383,7 @@ msgstr "Název počítače"
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr ""
-"Tento název bude použit, pokud počítač zpřístupníte ostatním na síti."
+msgstr "Tento název bude použit, pokud počítač zpřístupníte ostatním na síti."
 
 #. Type: text
 #. Description
@@ -640,19 +627,19 @@ msgstr "Instalátor havaroval"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Omlouváme se; instalátor havaroval. Prosím vyplňte hlášení o chybě na "
 "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (nepřidávejte vaše "
 "podrobnosti k jiné existující chybě) a vývojář se bude věnovat problému co "
 "nejdříve. Abyste pomohli vývojářům pochopit, co vedlo k chybě, přidejte k "
-"vašemu hlášení o chybě následující podrobnosti, a také připojte soubory "
-"/var/log/syslog a /var/log/partman:"
+"vašemu hlášení o chybě následující podrobnosti, a také připojte soubory /var/"
+"log/syslog a /var/log/partman:"
 
 #. Type: text
 #. Description
@@ -1008,8 +995,8 @@ msgid ""
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
 "Toto je často způsobeno chybou CD/DVD disku nebo mechaniky. Může pomoci "
-"vyčištění CD/DVD, vypálení CD/DVD na nižší rychlosti nebo vyčištění čočky "
-"CD/DVD mechaniky (čistící sady bývají dostupné u prodejců elektroniky)."
+"vyčištění CD/DVD, vypálení CD/DVD na nižší rychlosti nebo vyčištění čočky CD/"
+"DVD mechaniky (čistící sady bývají dostupné u prodejců elektroniky)."
 
 #. Type: error
 #. Description
@@ -1204,12 +1191,12 @@ msgstr "Následující balíky jsou v poškozeném stavu:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Toto mohlo způsobit použití starého obrazu instalátoru, nebo to může být "
 "kvůli chybě v některém výše uvedeném balíku. Více podrobností můžete nalézt "
@@ -1241,15 +1228,14 @@ msgstr "Chyba při přesunu dokumentů a nastavení"
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Při přesunu dat došlo k chybě. Více podrobností můžete nalézt ve "
-"/var/log/syslog. Instalace bude pokračovat, ale některé nebo všechny "
-"dokumenty a nastavení, které požadujete, nemusí být přesunuty do "
-"instalovaného systému."
+"Při přesunu dat došlo k chybě. Více podrobností můžete nalézt ve /var/log/"
+"syslog. Instalace bude pokračovat, ale některé nebo všechny dokumenty a "
+"nastavení, které požadujete, nemusí být přesunuty do instalovaného systému."
 
 #. Type: error
 #. Description
@@ -1311,8 +1297,7 @@ msgstr "Prosím uzavřete všechny aplikace používající tato přípojná mí
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "Chcete, aby instalátor zkusil znovu odpojit tyto oddíly?"
 
 #. Type: boolean
@@ -1488,35 +1473,45 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
+msgstr ""
+"Vyberte prosím jazyk, v jakém chcete provést nastavování. Zvolený jazyk bude "
+"zároveň i výchozím jazykem pro tento počítač."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr "Pokračovat v instalaci."
 
 #~ msgid ""
-#~ "Please choose the language used for the installation process. This language "
-#~ "will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This "
+#~ "language will be the default language for the final system."
 #~ msgstr ""
-#~ "Vyberte prosím jazyk, v jakém chcete provést instalaci. Zvolený jazyk bude "
-#~ "zároveň i výchozím jazykem pro nainstalovaný systém."
+#~ "Vyberte prosím jazyk, v jakém chcete provést instalaci. Zvolený jazyk "
+#~ "bude zároveň i výchozím jazykem pro nainstalovaný systém."
 
 #~ msgid ""
 #~ "If you have Internet access, read the release notes for information on "
 #~ "problems that may affect you."
 #~ msgstr ""
-#~ "Pokud máte přístup k Internetu, můžete si přečíst poznámky k tomuto vydání a "
-#~ "informace o problémech, které vás mohou potkat."
+#~ "Pokud máte přístup k Internetu, můžete si přečíst poznámky k tomuto "
+#~ "vydání a informace o problémech, které vás mohou potkat."
 
 #~ msgid "Release Notes"
 #~ msgstr "Poznámky k vydání"
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing errors. "
-#~ "A good password will contain a mixture of letters, numbers and punctuation, "
-#~ "should be at least eight characters long, and should be changed at regular "
-#~ "intervals."
+#~ "Enter the same password twice, so that it can be checked for typing "
+#~ "errors. A good password will contain a mixture of letters, numbers and "
+#~ "punctuation, should be at least eight characters long, and should be "
+#~ "changed at regular intervals."
 #~ msgstr ""
-#~ "Vložte stejné heslo dvakrát, aby mohlo být ověřeno na překlepy. Dobré heslo "
-#~ "by mělo obsahovat směs písmen, číslic a interpunkce. Mělo by být nejméně 8 "
-#~ "znaků dlouhé a měli byste jej pravidelně měnit."
+#~ "Vložte stejné heslo dvakrát, aby mohlo být ověřeno na překlepy. Dobré "
+#~ "heslo by mělo obsahovat směs písmen, číslic a interpunkce. Mělo by být "
+#~ "nejméně 8 znaků dlouhé a měli byste jej pravidelně měnit."
 
 #~ msgid ""
 #~ " Install Type: ${INSTALLTYPE}\n"
@@ -1576,14 +1571,14 @@ msgstr "Pokračovat v instalaci."
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you can "
-#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
-#~ "Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you "
+#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
+#~ "for TV Output or OpenGL effects."
 #~ msgstr ""
-#~ "Ovladač grafické karty s otevřeným zdrojovým kódem je již povolen a nastaven "
-#~ "pro vaši instalaci. Pokud byste chtěli použít jiný grafický ovladač, můžete "
-#~ "to udělat zde. Mějte na vědomí, že proprietární grafické ovladače mohou být "
-#~ "nezbytné pro TV výstup nebo OpenGL efekty."
+#~ "Ovladač grafické karty s otevřeným zdrojovým kódem je již povolen a "
+#~ "nastaven pro vaši instalaci. Pokud byste chtěli použít jiný grafický "
+#~ "ovladač, můžete to udělat zde. Mějte na vědomí, že proprietární grafické "
+#~ "ovladače mohou být nezbytné pro TV výstup nebo OpenGL efekty."
 
 #~ msgid "Click to open the Schedules Direct website"
 #~ msgstr "Kliknutím otevřete webovou stránku Schedules Direct"

@@ -370,7 +370,6 @@ class PageKde(PageBase):
                 self.page.begin_install_button.hide()
 
             if self.only:
-                self.page.ready_text_label.hide()
                 self.page.alpha_warning_label.hide()
 
             # We do not want to show the yet to be substituted strings

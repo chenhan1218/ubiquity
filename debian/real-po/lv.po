@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-24 23:25+0000\n"
+"POT-Creation-Date: 2010-04-07 11:44+0100\n"
 "PO-Revision-Date: 2010-03-28 11:48+0000\n"
 "Last-Translator: Pēteris Krišjānis <pecisk@gmail.com>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
@@ -65,32 +65,6 @@ msgstr "Laipni lūdzam"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
-"Tiklīdz jūs būsiet atbildējis uz dažiem jautājumiem, dators būs gatavs "
-"lietošanai."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001 ../ubiquity.templates:16001
-msgid "Answering the questions should only take a few minutes."
-msgstr "Lai atbildētu uz jautājumiem, vajadzēs tikai dažas minūtes."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001
-msgid ""
-"Please choose the language used for the configuration process. This language "
-"will be the default language for this computer."
-msgstr ""
-"Lūdzu, izvēlieties valodu, kura tiks lietota konfigurācijas procesā. Šī "
-"valoda būs pamatvaloda šim datoram."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:11001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
@@ -102,7 +76,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:11001
 msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
@@ -111,19 +85,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
 msgstr "Izmēģināt ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
 msgstr "Instalēt ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
+#: ../ubiquity.templates:14001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
@@ -132,6 +106,20 @@ msgstr ""
 "Esat gatavi instalēt? Pēc tam, kad būsiet atbildējuši uz dažiem jautājumiem, "
 "dzīvā ${MEDIUM} saturs var tikt instalēts šajā datorā, lai jūs varētu "
 "palaist ${RELEASE} pilnā apjomā, neizmantojot ${MEDIUM}."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:15001
+msgid "Once you answer a few questions, this computer will be ready to use."
+msgstr ""
+"Tiklīdz jūs būsiet atbildējis uz dažiem jautājumiem, dators būs gatavs "
+"lietošanai."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "Answering the questions should only take a few minutes."
+msgstr "Lai atbildētu uz jautājumiem, vajadzēs tikai dažas minūtes."
 
 #. Type: text
 #. Description
@@ -154,8 +142,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:19001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr ""
-"Jūs varētu vēlēties <a href=\"update\">atjaunināt šo instalatoru</a>."
+msgstr "Jūs varētu vēlēties <a href=\"update\">atjaunināt šo instalatoru</a>."
 
 #. Type: text
 #. Description
@@ -413,8 +400,7 @@ msgstr "Pieprasīt manu paroli, lai pieteiktos sistēmā"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr ""
-"Pieprasīt manu paroli, lai pieteiktos sistēmā un atšifrētu mājas mapi"
+msgstr "Pieprasīt manu paroli, lai pieteiktos sistēmā un atšifrētu mājas mapi"
 
 #. Type: text
 #. Description
@@ -640,12 +626,12 @@ msgstr "Instalatora avārija"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Diemžēl instalators avarēja. Lūdzu, izveidojiet jaunu kļūdas ziņojumu "
 "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (nepievienojiet "
@@ -1207,20 +1193,19 @@ msgstr "Šīs pakotnes ir bojātas:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Tā varētu gadīties, ja izmantojat vecu instalatora programmu, vai arī kādā "
-"no instalējamajām pakotnēm ir kļūda. Papildu informācija atrodama "
-"/var/log/syslog žurnāla failā. Instalators mēģinās tomēr turpināt, bet darba "
-"gaitā var rasties kļūmes un, iespējams, vairs neizdosies instalēt vai noņemt "
-"citas pakotnes. Vispirms vajadzētu pārbaudīt, vai nav pieejama jaunāka "
-"instalatora versija, un, ja tādas nav, nosūtīt kļūdas paziņojumu "
-"izplatītājam."
+"no instalējamajām pakotnēm ir kļūda. Papildu informācija atrodama /var/log/"
+"syslog žurnāla failā. Instalators mēģinās tomēr turpināt, bet darba gaitā "
+"var rasties kļūmes un, iespējams, vairs neizdosies instalēt vai noņemt citas "
+"pakotnes. Vispirms vajadzētu pārbaudīt, vai nav pieejama jaunāka instalatora "
+"versija, un, ja tādas nav, nosūtīt kļūdas paziņojumu izplatītājam."
 
 #. Type: error
 #. Description
@@ -1244,13 +1229,13 @@ msgstr "Kļūda pārnesot dokumentus un iestatījumus"
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Gadījās kļūda pārnesot lietotāja datus. Papildu informācija atrodama "
-"/var/log/syslog žurnāla failā. Instalēšana turpināsies, bet daži vai visi "
+"Gadījās kļūda pārnesot lietotāja datus. Papildu informācija atrodama /var/"
+"log/syslog žurnāla failā. Instalēšana turpināsies, bet daži vai visi "
 "dokumenti un iestatījumi jūs pieprasījāt varētu nebūt pārnesti uz instalēto "
 "sistēmu."
 
@@ -1316,8 +1301,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "Vai vēlaties, lai instalators mēģinātu vēlreiz atmontēt sadaļas?"
 
 #. Type: boolean
@@ -1491,12 +1475,22 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
+msgstr ""
+"Lūdzu, izvēlieties valodu, kura tiks lietota konfigurācijas procesā. Šī "
+"valoda būs pamatvaloda šim datoram."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr "Turpināt ar instalēšanu."
 
 #~ msgid ""
-#~ "Please choose the language used for the installation process. This language "
-#~ "will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This "
+#~ "language will be the default language for the final system."
 #~ msgstr ""
 #~ "Lūdzu, izvēlieties valodu instalēšanas procesam. Tā būs arī izveidotās "
 #~ "sistēmas noklusētā valoda."
@@ -1505,14 +1499,14 @@ msgstr "Turpināt ar instalēšanu."
 #~ msgstr "Laidiena piezīmes"
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing errors. "
-#~ "A good password will contain a mixture of letters, numbers and punctuation, "
-#~ "should be at least eight characters long, and should be changed at regular "
-#~ "intervals."
+#~ "Enter the same password twice, so that it can be checked for typing "
+#~ "errors. A good password will contain a mixture of letters, numbers and "
+#~ "punctuation, should be at least eight characters long, and should be "
+#~ "changed at regular intervals."
 #~ msgstr ""
-#~ "Ievadiet vienu paroli divas reizes, lai izvairītos no drukas kļūdām. Labai "
-#~ "parolei jābūt vismaz astoņus simbolus garai, jāsastāv no burtu, ciparu un "
-#~ "citu simbolu sajaukuma un to regulāri jāmaina."
+#~ "Ievadiet vienu paroli divas reizes, lai izvairītos no drukas kļūdām. "
+#~ "Labai parolei jābūt vismaz astoņus simbolus garai, jāsastāv no burtu, "
+#~ "ciparu un citu simbolu sajaukuma un to regulāri jāmaina."
 
 #~ msgid ""
 #~ " Install Type: ${INSTALLTYPE}\n"
@@ -1550,29 +1544,30 @@ msgstr "Turpināt ar instalēšanu."
 #~ msgstr "Sekundārā aizmugure ar priekšpusi"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
-#~ "will be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
+#~ "however will be configured to connect to an existing backend on the "
+#~ "network."
 #~ msgstr ""
-#~ "Šis iestatījums ir līdzīgs primārajai aizmugurei ar priekšpusi, bet tā tiks "
-#~ "konfigurēta tā, lai pieslēgtos tīklā jau esošai aizmugurei."
+#~ "Šis iestatījums ir līdzīgs primārajai aizmugurei ar priekšpusi, bet tā "
+#~ "tiks konfigurēta tā, lai pieslēgtos tīklā jau esošai aizmugurei."
 
 #~ msgid "Primary Backend"
 #~ msgstr "Primārā aizmugure"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an appliance; "
-#~ "requiring very little maintenance.  This is intended to be installed as the "
-#~ "first backend on a network."
+#~ "A backend only machine is typically designed to function like an "
+#~ "appliance; requiring very little maintenance.  This is intended to be "
+#~ "installed as the first backend on a network."
 #~ msgstr ""
-#~ "Dators tikai ar aizmuguri parasti ir veidots kā ierīce, kurai vajag minimālu "
-#~ "apkopi. Šī ir paredzēta kā pirmā aizmugures instalācija tīklā."
+#~ "Dators tikai ar aizmuguri parasti ir veidots kā ierīce, kurai vajag "
+#~ "minimālu apkopi. Šī ir paredzēta kā pirmā aizmugures instalācija tīklā."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "Sekundārā aizmugure"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will be "
-#~ "configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will "
+#~ "be configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "Tas izveidos sistēmu, kas līdzīga primārajai aizmugurei, bet tā būs "
 #~ "konfigurēta pieslēgties esošai aizmugurei tīklā."
@@ -1581,9 +1576,9 @@ msgstr "Turpināt ar instalēšanu."
 #~ msgstr "Priekšpuse"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from the "
-#~ "backend and distribute it.  This configuration requires an existing backend "
-#~ "on the network."
+#~ "A frontend only machine's main function is to receive media content from "
+#~ "the backend and distribute it.  This configuration requires an existing "
+#~ "backend on the network."
 #~ msgstr ""
 #~ "Priekšpuses datora galvenā funkcija ir saņemt datus no aizmugures un tos "
 #~ "izplatīt. Šai konfigurācijai ir nepieciešama tīklā esoša aizmugure."
@@ -1600,7 +1595,8 @@ msgstr "Turpināt ar instalēšanu."
 #~ msgid ""
 #~ "Please enter the information necessary to contact your master backend:"
 #~ msgstr ""
-#~ "Lūdzu, ievadiet nepieciešamo informāciju, lai sazinātos ar galveno aizmuguri:"
+#~ "Lūdzu, ievadiet nepieciešamo informāciju, lai sazinātos ar galveno "
+#~ "aizmuguri:"
 
 #~ msgid "MySQL Database"
 #~ msgstr "MySQL datubāze"
@@ -1612,32 +1608,33 @@ msgstr "Turpināt ar instalēšanu."
 #~ msgstr "Konfigurēt kanālu datus / aizmuguri"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data and "
-#~ "configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data "
+#~ "and configuring the backend for the first time."
 #~ msgstr ""
-#~ "Pēdējos instalēšanas soļos nepieciešams iestatīt jūsu kanālus un pirmoreiz "
-#~ "konfigurēt aizmuguri."
+#~ "Pēdējos instalēšanas soļos nepieciešams iestatīt jūsu kanālus un "
+#~ "pirmoreiz konfigurēt aizmuguri."
 
 #~ msgid "Click to open the Schedules Direct website"
 #~ msgstr "Klikšķiniet, lai atvērtu Schedules Direct tīmekļa lapu"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules Direct "
-#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
-#~ "users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules "
+#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
+#~ "North American users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
-#~ "Lietotājiem Ziemeļamerikā nepieciešams izveidot Schedules Direct (SD) kontu. "
-#~ "SD nodrošina kanālu datus par nominālu samaksu. Bez SD Ziemeļamerikas "
-#~ "lietotāji nevarēs izmantot daudzas MythTV laika plānošanas iespējas."
+#~ "Lietotājiem Ziemeļamerikā nepieciešams izveidot Schedules Direct (SD) "
+#~ "kontu. SD nodrošina kanālu datus par nominālu samaksu. Bez SD "
+#~ "Ziemeļamerikas lietotāji nevarēs izmantot daudzas MythTV laika plānošanas "
+#~ "iespējas."
 
 #~ msgid "Launch MythTV Setup"
 #~ msgstr "Palaist MythTV Setup"
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need to "
-#~ "configure the first four sections, being sure to provide your guide data "
-#~ "during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need "
+#~ "to configure the first four sections, being sure to provide your guide "
+#~ "data during the third."
 #~ msgstr ""
 #~ "Pēc kanālu datu avota uzstādīšanas jāpalaiž MythTV-Setup, lai pirmoreiz "
 #~ "izpildītu aizmugures konfigurēšanas procesu. Jums būs jāaizpilda pirmās "
@@ -1659,32 +1656,32 @@ msgstr "Turpināt ar instalēšanu."
 #~ "If you have Internet access, read the release notes for information on "
 #~ "problems that may affect you."
 #~ msgstr ""
-#~ "Ja jums ir Internet pieslēgums, izlasiet laidiena piezīmes, lai noskaidrotu "
-#~ "iespējamās problēmas, kas varētu ietekmēt jūsu sistēmu."
+#~ "Ja jums ir Internet pieslēgums, izlasiet laidiena piezīmes, lai "
+#~ "noskaidrotu iespējamās problēmas, kas varētu ietekmēt jūsu sistēmu."
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people wanting "
-#~ "MythTV for HTPC applications. This type of installation is intended for use "
-#~ "as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people "
+#~ "wanting MythTV for HTPC applications. This type of installation is "
+#~ "intended for use as a component in your home theatre."
 #~ msgstr ""
 #~ "Dators ar aizmugures/priekšpuses kombināciju ir visizplatītākais veids "
-#~ "cilvēkiem, kuri vēlas izmantot MythTV HTPC (mājas kinozāles PC) aplikācijām. "
-#~ "Šādu instalācijas veidu ir paredzēts izmantot kā jūsu mājas kinozāles "
-#~ "sastāvdaļu."
+#~ "cilvēkiem, kuri vēlas izmantot MythTV HTPC (mājas kinozāles PC) "
+#~ "aplikācijām. Šādu instalācijas veidu ir paredzēts izmantot kā jūsu mājas "
+#~ "kinozāles sastāvdaļu."
 
 #~ msgid "Graphics Drivers"
 #~ msgstr "Videokartes draiveris"
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you can "
-#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
-#~ "Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you "
+#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
+#~ "for TV Output or OpenGL effects."
 #~ msgstr ""
 #~ "Atvērtā koda videokartes draiveris jau ir ieslēgts un nokonfigurēts "
-#~ "lietošanai jūsu instalācijā. Ja jūs vēlaties izmantot citu draiveri, jūs to "
-#~ "varat izdarīt šeit. Ņemiet vērā, ka aizvērtā koda videokartes draiveri var "
-#~ "būt nepieciešami TV izejai un OpenGL efektiem."
+#~ "lietošanai jūsu instalācijā. Ja jūs vēlaties izmantot citu draiveri, jūs "
+#~ "to varat izdarīt šeit. Ņemiet vērā, ka aizvērtā koda videokartes draiveri "
+#~ "var būt nepieciešami TV izejai un OpenGL efektiem."
 
 #~ msgid "Configuring additional services..."
 #~ msgstr "Konfigurē papildu pakalpojumus..."

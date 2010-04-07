@@ -693,8 +693,8 @@ class Wizard(BaseFrontend):
             if name == 'step_label':
                 text = text.replace('${INDEX}', str(min(self.user_pageslen, max(1, len(self.history)))))
                 text = text.replace('${TOTAL}', str(self.user_pageslen))
-            elif name == 'welcome_text_label' and self.oem_user_config:
-                text = self.get_string('welcome_text_oem_user_label', lang)
+            elif name == 'ready_text_label' and self.oem_user_config:
+                text = self.get_string('ready_text_oem_user_label', lang)
             widget.set_markup(text)
 
             # Ideally, these attributes would be in the ui file (and can be if

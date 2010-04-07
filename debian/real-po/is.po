@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-24 23:25+0000\n"
+"POT-Creation-Date: 2010-04-07 11:44+0100\n"
 "PO-Revision-Date: 2009-10-18 18:42+0000\n"
 "Last-Translator: Baldur <baldurpet@gmail.com>\n"
 "Language-Team: Icelandic <debian-user-icelandic@lists.debian.org>\n"
@@ -66,30 +66,6 @@ msgstr "Velkomin"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr "Tölvan verður nothæf eftir nokkrar spurningar."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001 ../ubiquity.templates:16001
-msgid "Answering the questions should only take a few minutes."
-msgstr "Það tekur örskamma stund að svara þessum spurningum."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001
-msgid ""
-"Please choose the language used for the configuration process. This language "
-"will be the default language for this computer."
-msgstr ""
-"Veldu tungumálið sem þú vilt nota. Þetta tungumál verður aðaltungumál "
-"tölvunnar."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:11001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
@@ -101,7 +77,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:11001
 msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
@@ -109,24 +85,36 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
+#: ../ubiquity.templates:14001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:15001
+msgid "Once you answer a few questions, this computer will be ready to use."
+msgstr "Tölvan verður nothæf eftir nokkrar spurningar."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "Answering the questions should only take a few minutes."
+msgstr "Það tekur örskamma stund að svara þessum spurningum."
 
 #. Type: text
 #. Description
@@ -625,12 +613,12 @@ msgstr "Uppsetningin hrundi"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Eitthvað hefur farið úrskeiðis. Gott væri ef þú gætir skráð nýja villu á "
 "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (ekki bæta skýringum "
@@ -1192,16 +1180,16 @@ msgstr "Eftirfarandi pakkar virka ekki:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Þetta gæti verið vegna notkunar á gamalli uppsetningarmynd, eða vegna villu "
-"í einhverjum af ofangreindum pökkum. Nánari upplýsingar er hægt að finna í "
-"/var/log/syslog. Uppsetningarforritið mun samt reyna að halda áfram, en gæti "
+"í einhverjum af ofangreindum pökkum. Nánari upplýsingar er hægt að finna í /"
+"var/log/syslog. Uppsetningarforritið mun samt reyna að halda áfram, en gæti "
 "strandað seinna og mun ekki geta sett inn né tekið út aðra pakka (hugsanlega "
 "ekki sjálfan sig heldur) á kerfinu. Þú ættir fyrst að leita að nýrri útgáfu "
 "af uppsetningarmyndinni eða hafa samband við útgefandann."
@@ -1228,8 +1216,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1292,8 +1280,7 @@ msgstr "Lokaðu forritum sem nota þessa tengipunkta."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Viltu láta uppsetningarforritið reyna að aftengja þessar disksneiðar aftur?"
 
@@ -1466,12 +1453,22 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
+msgstr ""
+"Veldu tungumálið sem þú vilt nota. Þetta tungumál verður aðaltungumál "
+"tölvunnar."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr ""
 
 #~ msgid ""
-#~ "Please choose the language used for the installation process. This language "
-#~ "will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This "
+#~ "language will be the default language for the final system."
 #~ msgstr ""
 #~ "Veldu það tungumál sem þú vilt nota á meðan á uppsetningu stendur. "
 #~ "Tungumálið sem þú velur verður notað sem aðaltungumál stýrikerfisins að "
@@ -1481,22 +1478,22 @@ msgstr ""
 #~ "If you have Internet access, read the release notes for information on "
 #~ "problems that may affect you."
 #~ msgstr ""
-#~ "Þú getur líka skoðað upplýsingar um hugsanleg vandamál sem gætu komið upp ef "
-#~ "þú hefur netaðgang."
+#~ "Þú getur líka skoðað upplýsingar um hugsanleg vandamál sem gætu komið upp "
+#~ "ef þú hefur netaðgang."
 
 #~ msgid "Release Notes"
 #~ msgstr "Upplýsingar"
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing errors. "
-#~ "A good password will contain a mixture of letters, numbers and punctuation, "
-#~ "should be at least eight characters long, and should be changed at regular "
-#~ "intervals."
+#~ "Enter the same password twice, so that it can be checked for typing "
+#~ "errors. A good password will contain a mixture of letters, numbers and "
+#~ "punctuation, should be at least eight characters long, and should be "
+#~ "changed at regular intervals."
 #~ msgstr ""
 #~ "Skrifaðu sama lykilorðið tvisvar svo hægt sé að forðast villur. Gott "
-#~ "lykilorð inniheldur t.d. blöndu af bókstöfum, númerum og greinarmerkjum. Það "
-#~ "ætti að vera að minnsta kosti átta stafir, og sniðugt er að breyta því "
-#~ "reglulega."
+#~ "lykilorð inniheldur t.d. blöndu af bókstöfum, númerum og greinarmerkjum. "
+#~ "Það ætti að vera að minnsta kosti átta stafir, og sniðugt er að breyta "
+#~ "því reglulega."
 
 #~ msgid ""
 #~ " Install Type: ${INSTALLTYPE}\n"
@@ -1531,20 +1528,21 @@ msgstr ""
 #~ msgstr "Aðal bakendi með framenda"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people wanting "
-#~ "MythTV for HTPC applications. This type of installation is intended for use "
-#~ "as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people "
+#~ "wanting MythTV for HTPC applications. This type of installation is "
+#~ "intended for use as a component in your home theatre."
 #~ msgstr ""
-#~ "Samsett bakenda/framenda vél er algengasta uppsentningin fyrir fólk sem vill "
-#~ "MythTV fyrir HTPC forrit.  Þessi gerð uppsetninfar er ætluð til notkunar sem "
-#~ "hluti af heimabíóinu þínu."
+#~ "Samsett bakenda/framenda vél er algengasta uppsentningin fyrir fólk sem "
+#~ "vill MythTV fyrir HTPC forrit.  Þessi gerð uppsetninfar er ætluð til "
+#~ "notkunar sem hluti af heimabíóinu þínu."
 
 #~ msgid "Secondary Backend w/ Frontend"
 #~ msgstr "Annar bakendi með framenda"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
-#~ "will be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
+#~ "however will be configured to connect to an existing backend on the "
+#~ "network."
 #~ msgstr ""
 #~ "Þetta mun setja upp kerfi svipað og aðal bakendi með framenda. Hins vegar "
 #~ "verður það stillt til að tengjast bakenda sem þegar er á netkerfinu."
@@ -1553,20 +1551,20 @@ msgstr ""
 #~ msgstr "Aðalbakendi"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an appliance; "
-#~ "requiring very little maintenance.  This is intended to be installed as the "
-#~ "first backend on a network."
+#~ "A backend only machine is typically designed to function like an "
+#~ "appliance; requiring very little maintenance.  This is intended to be "
+#~ "installed as the first backend on a network."
 #~ msgstr ""
 #~ "Vél sem aðeins er bakendi er hönnuð til að virka eins og heimilistæki; og "
-#~ "þarf mjög lítið viðhalds. Þetta er ætlað til uppsetningar sem fyrsti bakendi "
-#~ "á netkerfi."
+#~ "þarf mjög lítið viðhalds. Þetta er ætlað til uppsetningar sem fyrsti "
+#~ "bakendi á netkerfi."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "Annar bakendi"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will be "
-#~ "configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will "
+#~ "be configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "Þetta mun setja upp kerfi svipað og aðalbakendi. Hins vegar verður það "
 #~ "stillt til að tengjast bakenda sem þegar er á netkerfinu."
@@ -1575,9 +1573,9 @@ msgstr ""
 #~ msgstr "Framendi"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from the "
-#~ "backend and distribute it.  This configuration requires an existing backend "
-#~ "on the network."
+#~ "A frontend only machine's main function is to receive media content from "
+#~ "the backend and distribute it.  This configuration requires an existing "
+#~ "backend on the network."
 #~ msgstr ""
 #~ "Vél sem aðeins er framendi er ætlað að taka á móti hljóð- og myndefni frá "
 #~ "bakendanum og dreifa því. Þessi uppsetning þarfnast framenda sem þegar er "
@@ -1588,14 +1586,14 @@ msgstr ""
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you can "
-#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
-#~ "Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you "
+#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
+#~ "for TV Output or OpenGL effects."
 #~ msgstr ""
 #~ "Það er þegar búið að setja upp og stilla frjálsan rekill fyrir skjákort "
-#~ "þitt. Ef þú vilt nota annan rekil fyrir skjákortið, þá getur þú valið hann "
-#~ "hér. Hafið í huga að ófrjálsa skjákortsrekla gæti þurft til að geta tengt "
-#~ "tölvuna við sjónvarp eða til að virkja OpenGL brellur."
+#~ "þitt. Ef þú vilt nota annan rekil fyrir skjákortið, þá getur þú valið "
+#~ "hann hér. Hafið í huga að ófrjálsa skjákortsrekla gæti þurft til að geta "
+#~ "tengt tölvuna við sjónvarp eða til að virkja OpenGL brellur."
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
 #~ msgstr "Ef þú við stilla sjónvarpsúttakið (TV-out), veldu möguleika hér:"
@@ -1623,8 +1621,8 @@ msgstr ""
 #~ msgstr "Stila dagskrárupplýsingar eða bakenda"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data and "
-#~ "configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data "
+#~ "and configuring the backend for the first time."
 #~ msgstr ""
 #~ "Síðustu skref uppsetningarinnar krefjast þess að gefnar séu upp "
 #~ "dagskrárupplýsingar og bakendinn stilltur í fyrsta sinn."
@@ -1633,27 +1631,28 @@ msgstr ""
 #~ msgstr "Ýttu hér til að opna Schedules Direct vefsíðuna"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules Direct "
-#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
-#~ "users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules "
+#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
+#~ "North American users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
-#~ "Notendur í Norður Ameríku þurfa að búa til aðgang að Schedules Direct (SD). "
-#~ "SD býður upp á dagskrárupplýsingar gegn vægu gjaldi. Án SD munu notendur í "
-#~ "Norður Ameríku ekki geta notað marga af dagskráráætlunareiginleikum MythTV."
+#~ "Notendur í Norður Ameríku þurfa að búa til aðgang að Schedules Direct "
+#~ "(SD). SD býður upp á dagskrárupplýsingar gegn vægu gjaldi. Án SD munu "
+#~ "notendur í Norður Ameríku ekki geta notað marga af "
+#~ "dagskráráætlunareiginleikum MythTV."
 
 #~ msgid "Launch MythTV Setup"
 #~ msgstr "Opna MythTV stillingar"
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need to "
-#~ "configure the first four sections, being sure to provide your guide data "
-#~ "during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need "
+#~ "to configure the first four sections, being sure to provide your guide "
+#~ "data during the third."
 #~ msgstr ""
 #~ "Eftir að dagskrárupplýsingaveitan hefur verið sett upp, þarftu að ræsa "
 #~ "MythTV-Setup til að keyra bakenda stillingu  í fyrsta sinn. Þú þarft að "
-#~ "stilla fyrstu fjóra kaflana, og vera viss um að skrá dagskrárupplýsingarnar "
-#~ "í þeim þriðja."
+#~ "stilla fyrstu fjóra kaflana, og vera viss um að skrá "
+#~ "dagskrárupplýsingarnar í þeim þriðja."
 
 #~ msgid "Configuring mythtv..."
 #~ msgstr "Stilli MythTV..."

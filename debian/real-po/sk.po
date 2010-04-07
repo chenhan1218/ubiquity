@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-24 23:25+0000\n"
+"POT-Creation-Date: 2010-04-07 11:44+0100\n"
 "PO-Revision-Date: 2009-10-15 10:09+0000\n"
 "Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -32,8 +32,7 @@ msgstr "Zmazať a využiť celý disk"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
-"Nainštalovať ich vedľa seba a pri každom spustení si medzi nimi zvolím"
+msgstr "Nainštalovať ich vedľa seba a pri každom spustení si medzi nimi zvolím"
 
 #. Type: text
 #. Description
@@ -65,31 +64,6 @@ msgstr "Vitajte"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
-"Po zodpovedaní niekoľkých otázok bude počítač pripravený na použitie."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001 ../ubiquity.templates:16001
-msgid "Answering the questions should only take a few minutes."
-msgstr "Odpovede na otázky vám zaberú len pár minút."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001
-msgid ""
-"Please choose the language used for the configuration process. This language "
-"will be the default language for this computer."
-msgstr ""
-"Prosím, zvoľte jazyk v ktorom bude prebiehať konfigurácia. Tento jazyk bude "
-"nastavený ako štandardný jazyk na tomto počítači."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:11001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
@@ -101,7 +75,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:11001
 msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
@@ -109,24 +83,36 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
+#: ../ubiquity.templates:14001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:15001
+msgid "Once you answer a few questions, this computer will be ready to use."
+msgstr "Po zodpovedaní niekoľkých otázok bude počítač pripravený na použitie."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "Answering the questions should only take a few minutes."
+msgstr "Odpovede na otázky vám zaberú len pár minút."
 
 #. Type: text
 #. Description
@@ -626,19 +612,19 @@ msgstr "Inštalátor havaroval"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Ľutujeme, inštalátor havaroval. Prosím, podajte nové hlásenie o chybe na "
 "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (nepripájajte svoje "
 "podrobnosti k žiadnemu existujúcemu hláseniu) a vývojár sa na problém pozrie "
 "hneď ako to bude možné. Aby ste vývojárom pomohli zistiť, čo sa pokazilo, do "
-"svojho hlásenia o chybe uveďte nasledovné podrobnosti a priložte súbory "
-"/var/log/syslog a /var/log/partman:"
+"svojho hlásenia o chybe uveďte nasledovné podrobnosti a priložte súbory /var/"
+"log/syslog a /var/log/partman:"
 
 #. Type: text
 #. Description
@@ -1193,12 +1179,12 @@ msgstr "Nasledovné balíky sú v stave pokazené:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Táto chyba mohla nastať kvôli použitiu starej verzie inštalátora alebo kvôli "
 "chybe v niektorom z balíčkov vypísaných vyššie. Ďalšie podrobnosti môžete "
@@ -1231,8 +1217,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1296,8 +1282,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "Chcete, aby sa inštalátor opäť pokúsil tieto oblasti odpojiť?"
 
 #. Type: boolean
@@ -1469,12 +1454,22 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
+msgstr ""
+"Prosím, zvoľte jazyk v ktorom bude prebiehať konfigurácia. Tento jazyk bude "
+"nastavený ako štandardný jazyk na tomto počítači."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr ""
 
 #~ msgid ""
-#~ "Please choose the language used for the installation process. This language "
-#~ "will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This "
+#~ "language will be the default language for the final system."
 #~ msgstr ""
 #~ "Zvoľte si jazyk, ktorý chcete použiť pri inštalácii. Tento jazyk bude "
 #~ "predvoleným jazykom nainštalovaného systému."
@@ -1496,9 +1491,9 @@ msgstr ""
 #~ msgstr "Primárny backend s frontendom"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people wanting "
-#~ "MythTV for HTPC applications. This type of installation is intended for use "
-#~ "as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people "
+#~ "wanting MythTV for HTPC applications. This type of installation is "
+#~ "intended for use as a component in your home theatre."
 #~ msgstr ""
 #~ "Kombinovaný stroj s backendom/frontendom je najbežnejšou voľbou pre ľudí, "
 #~ "ktorá chcú MythTV pre HTPC aplikácie. Tento typ inštalácie je určený pre "
@@ -1508,8 +1503,9 @@ msgstr ""
 #~ msgstr "Sekundárny backend s frontendom"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
-#~ "will be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
+#~ "however will be configured to connect to an existing backend on the "
+#~ "network."
 #~ msgstr ""
 #~ "Toto nastaví systém podpobný ako Primárny backend s frontendom, ale "
 #~ "nakonfiguruje sa pre pripojenie k existujúcemu backendu v sieti."
@@ -1518,44 +1514,46 @@ msgstr ""
 #~ msgstr "Primárny backend"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an appliance; "
-#~ "requiring very little maintenance.  This is intended to be installed as the "
-#~ "first backend on a network."
+#~ "A backend only machine is typically designed to function like an "
+#~ "appliance; requiring very little maintenance.  This is intended to be "
+#~ "installed as the first backend on a network."
 #~ msgstr ""
-#~ "Stroj určený iba ako backend má zvyčajne fungovať ako nezávislé zariadenie "
-#~ "vyžadujúce veľmi malú údržbu. Má sa inštalovať ako prvý backend v sieti."
+#~ "Stroj určený iba ako backend má zvyčajne fungovať ako nezávislé "
+#~ "zariadenie vyžadujúce veľmi malú údržbu. Má sa inštalovať ako prvý "
+#~ "backend v sieti."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "Sekundárny backend"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will be "
-#~ "configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will "
+#~ "be configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "Toto nastaví systém podobne ako Primárny backend, ale bude nakonfigurovaný, "
-#~ "aby sa pripájal k existujúcemu backendu v sieti."
+#~ "Toto nastaví systém podobne ako Primárny backend, ale bude "
+#~ "nakonfigurovaný, aby sa pripájal k existujúcemu backendu v sieti."
 
 #~ msgid "Frontend"
 #~ msgstr "Frontend"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from the "
-#~ "backend and distribute it.  This configuration requires an existing backend "
-#~ "on the network."
+#~ "A frontend only machine's main function is to receive media content from "
+#~ "the backend and distribute it.  This configuration requires an existing "
+#~ "backend on the network."
 #~ msgstr ""
-#~ "Jedinou funkciou frontend stroja je prijímať multimediálny obsah od backendu "
-#~ "a šíriť ho. Táto konfigurácia vyžaduje v sieti existujúci backend."
+#~ "Jedinou funkciou frontend stroja je prijímať multimediálny obsah od "
+#~ "backendu a šíriť ho. Táto konfigurácia vyžaduje v sieti existujúci "
+#~ "backend."
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you can "
-#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
-#~ "Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you "
+#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
+#~ "for TV Output or OpenGL effects."
 #~ msgstr ""
 #~ "Open source grafický ovládač je už vo vašej inštalácii zapnutý a "
-#~ "nakonfigurovaný. Ak si želáte použiť iný grafický ovládač, môžete tak urobiť "
-#~ "tu. Majte na pamäti, že efekty TV výstup alebo OpenGL môžu vyžadovať "
-#~ "použitie proprietárnych grafických ovládačov."
+#~ "nakonfigurovaný. Ak si želáte použiť iný grafický ovládač, môžete tak "
+#~ "urobiť tu. Majte na pamäti, že efekty TV výstup alebo OpenGL môžu "
+#~ "vyžadovať použitie proprietárnych grafických ovládačov."
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
 #~ msgstr "Ak chcete nakonfigurovať TV-výstup, vyberte z týchto volieb:"
@@ -1581,8 +1579,8 @@ msgstr ""
 #~ msgstr "Konfigurovať vodiace dáta / backend"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data and "
-#~ "configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data "
+#~ "and configuring the backend for the first time."
 #~ msgstr ""
 #~ "Finálne kroky inštalácie vyžadujú, aby ste nastavili svoje vodiace dáta a "
 #~ "prvýkrát nakonfigurovali backend."
@@ -1591,9 +1589,9 @@ msgstr ""
 #~ msgstr "Kliknutím otvoríte webstránku Schedules Direct"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules Direct "
-#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
-#~ "users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules "
+#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
+#~ "North American users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
 #~ "Používatelia v Severnej Amerike budú musieť nastaviť účet so Schedules "
 #~ "Direct (SD). SD poskytuje sprievodné údaje za nepatrný poplatok. Bez SD "
@@ -1605,14 +1603,14 @@ msgstr ""
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need to "
-#~ "configure the first four sections, being sure to provide your guide data "
-#~ "during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need "
+#~ "to configure the first four sections, being sure to provide your guide "
+#~ "data during the third."
 #~ msgstr ""
-#~ "Po nastavení zdrojov údajov sprievodcov budete musieť spustiť MythTV-Setup, "
-#~ "aby sa po prvý raz nastavil backend MythTV. Budete musieť nakonfigurovať "
-#~ "prvé štyri sekcie. Nezabudnite správne vyplniť programové nastavenia v "
-#~ "tretej sekcii."
+#~ "Po nastavení zdrojov údajov sprievodcov budete musieť spustiť MythTV-"
+#~ "Setup, aby sa po prvý raz nastavil backend MythTV. Budete musieť "
+#~ "nakonfigurovať prvé štyri sekcie. Nezabudnite správne vyplniť programové "
+#~ "nastavenia v tretej sekcii."
 
 #~ msgid "Configuring additional drivers..."
 #~ msgstr "Nastavujú sa ďalšie ovládače..."
@@ -1624,14 +1622,14 @@ msgstr ""
 #~ msgstr "Nastavujú sa infračervené zariadenia..."
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing errors. "
-#~ "A good password will contain a mixture of letters, numbers and punctuation, "
-#~ "should be at least eight characters long, and should be changed at regular "
-#~ "intervals."
+#~ "Enter the same password twice, so that it can be checked for typing "
+#~ "errors. A good password will contain a mixture of letters, numbers and "
+#~ "punctuation, should be at least eight characters long, and should be "
+#~ "changed at regular intervals."
 #~ msgstr ""
-#~ "Zadajte rovnaké heslo dvakrát kvôli kontrole preklepov. Dobré heslo obsahuje "
-#~ "zmes písmen, číslic, interpunkčných znamienok, malo by mať aspoň osem znakov "
-#~ "a malo by sa pravidelne meniť."
+#~ "Zadajte rovnaké heslo dvakrát kvôli kontrole preklepov. Dobré heslo "
+#~ "obsahuje zmes písmen, číslic, interpunkčných znamienok, malo by mať aspoň "
+#~ "osem znakov a malo by sa pravidelne meniť."
 
 #~ msgid ""
 #~ " Install Type: ${INSTALLTYPE}\n"

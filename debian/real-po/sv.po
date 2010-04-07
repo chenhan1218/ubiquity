@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-24 23:25+0000\n"
+"POT-Creation-Date: 2010-04-07 11:44+0100\n"
 "PO-Revision-Date: 2010-03-25 18:36+0000\n"
 "Last-Translator: Daniel Nylander <yeager@ubuntu.com>\n"
 "Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
@@ -64,32 +64,6 @@ msgstr "Välkommen"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
-"Denna dator kommer att vara färdig att användas efter att du svarat på ett "
-"antal frågor."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001 ../ubiquity.templates:16001
-msgid "Answering the questions should only take a few minutes."
-msgstr "Det tar endast några få minuter att svara på frågorna."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001
-msgid ""
-"Please choose the language used for the configuration process. This language "
-"will be the default language for this computer."
-msgstr ""
-"Välj det språk som du vill använda för konfigurationsprocessen. Detta språk "
-"kommer att bli standardspråket för denna dator."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:11001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
@@ -101,7 +75,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:11001
 msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
@@ -111,19 +85,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
 msgstr "Prova ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
 msgstr "Installera ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
+#: ../ubiquity.templates:14001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
@@ -132,6 +106,20 @@ msgstr ""
 "Redo att installera?  Efter att du besvarat ett antal frågor så kommer "
 "innehållet på live-${MEDIUM} installeras på denna dator så att du kan köra "
 "${RELEASE} med full fart utan ${MEDIUM}."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:15001
+msgid "Once you answer a few questions, this computer will be ready to use."
+msgstr ""
+"Denna dator kommer att vara färdig att användas efter att du svarat på ett "
+"antal frågor."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "Answering the questions should only take a few minutes."
+msgstr "Det tar endast några få minuter att svara på frågorna."
 
 #. Type: text
 #. Description
@@ -416,8 +404,7 @@ msgstr "Kräv mitt lösenord för att logga in"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr ""
-"Kräv mitt lösenord för att logga in och för att dekryptera min hemmapp"
+msgstr "Kräv mitt lösenord för att logga in och för att dekryptera min hemmapp"
 
 #. Type: text
 #. Description
@@ -646,12 +633,12 @@ msgstr "Installationsprogrammet kraschade"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Ursäkta, installationsprogrammet kraschade. Skicka in en ny felrapport på "
 "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (bifoga inte dina "
@@ -1215,12 +1202,12 @@ msgstr "Följande paket är i ett trasigt tillstånd:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Det här kan bero på användningen av en gammal installationsavbild, eller det "
 "kan bero på ett fel i några av de paket som listas ovan. Mer information kan "
@@ -1252,8 +1239,8 @@ msgstr "Fel vid migrering av dokument och inställningar"
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1324,8 +1311,7 @@ msgstr "Stäng de program som använder dessa monteringspunkter."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Vill du att installationsprogrammet ska försöka igen att avmontera dessa "
 "partitioner?"
@@ -1505,12 +1491,22 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
+msgstr ""
+"Välj det språk som du vill använda för konfigurationsprocessen. Detta språk "
+"kommer att bli standardspråket för denna dator."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr "Fortsätt med installationen."
 
 #~ msgid ""
-#~ "Please choose the language used for the installation process. This language "
-#~ "will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This "
+#~ "language will be the default language for the final system."
 #~ msgstr ""
 #~ "Välj vilket språk som ska användas under installationsprocessen. Det här "
 #~ "språket kommer att bli standardspråket i det installerade systemet."
@@ -1519,22 +1515,22 @@ msgstr "Fortsätt med installationen."
 #~ "If you have Internet access, read the release notes for information on "
 #~ "problems that may affect you."
 #~ msgstr ""
-#~ "Om du har en internetanslutning kan du läsa kommentarerna till utgåvan för "
-#~ "information om problem som kan påverka ditt system."
+#~ "Om du har en internetanslutning kan du läsa kommentarerna till utgåvan "
+#~ "för information om problem som kan påverka ditt system."
 
 #~ msgid "Release Notes"
 #~ msgstr "Kommentarer till utgåvan"
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing errors. "
-#~ "A good password will contain a mixture of letters, numbers and punctuation, "
-#~ "should be at least eight characters long, and should be changed at regular "
-#~ "intervals."
+#~ "Enter the same password twice, so that it can be checked for typing "
+#~ "errors. A good password will contain a mixture of letters, numbers and "
+#~ "punctuation, should be at least eight characters long, and should be "
+#~ "changed at regular intervals."
 #~ msgstr ""
 #~ "Ange samma lösenord två gånger så att det kan kontrolleras för "
 #~ "inmatningsfel. Ett bra lösenord innehåller en blandning av bokstäver, "
-#~ "siffror och skiljetecken, bör vara minst åtta tecken långt samt bör ändras "
-#~ "med jämna mellanrum."
+#~ "siffror och skiljetecken, bör vara minst åtta tecken långt samt bör "
+#~ "ändras med jämna mellanrum."
 
 #~ msgid ""
 #~ " Install Type: ${INSTALLTYPE}\n"
@@ -1569,32 +1565,34 @@ msgstr "Fortsätt med installationen."
 #~ msgstr "Primär serverdel med klientdel"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people wanting "
-#~ "MythTV for HTPC applications. This type of installation is intended for use "
-#~ "as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people "
+#~ "wanting MythTV for HTPC applications. This type of installation is "
+#~ "intended for use as a component in your home theatre."
 #~ msgstr ""
 #~ "En maskin med kombinationen klientdel/serverdel är den vanligaste "
-#~ "konfigurationen för folk som vill använda MythTV för HTPC-ändamål. Den här "
-#~ "typen av installation är tänkt att användas som en komponent i din hemmabio."
+#~ "konfigurationen för folk som vill använda MythTV för HTPC-ändamål. Den "
+#~ "här typen av installation är tänkt att användas som en komponent i din "
+#~ "hemmabio."
 
 #~ msgid "Secondary Backend w/ Frontend"
 #~ msgstr "Sekundär serverdel med klientdel"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
-#~ "will be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
+#~ "however will be configured to connect to an existing backend on the "
+#~ "network."
 #~ msgstr ""
-#~ "Det här kommer att konfigurera ett system liknande en Primär serverdel med "
-#~ "klientdel, dock kommer den att konfigureras till att ansluta till en "
+#~ "Det här kommer att konfigurera ett system liknande en Primär serverdel "
+#~ "med klientdel, dock kommer den att konfigureras till att ansluta till en "
 #~ "befintlig serverdel i nätverket."
 
 #~ msgid "Primary Backend"
 #~ msgstr "Primär serverdel"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an appliance; "
-#~ "requiring very little maintenance.  This is intended to be installed as the "
-#~ "first backend on a network."
+#~ "A backend only machine is typically designed to function like an "
+#~ "appliance; requiring very little maintenance.  This is intended to be "
+#~ "installed as the first backend on a network."
 #~ msgstr ""
 #~ "En maskin med endast en serverdel är vanligtvis designad till att fungera "
 #~ "som en svart låda; kräver mycket lite underhåll. Den är tänkt att "
@@ -1604,38 +1602,38 @@ msgstr "Fortsätt med installationen."
 #~ msgstr "Sekundär serverdel"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will be "
-#~ "configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will "
+#~ "be configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "Det här kommer att konfigurera ett system liknande en Primär serverdel, dock "
-#~ "kommer den att konfigureras till att ansluta till en befintlig serverdel i "
-#~ "nätverket."
+#~ "Det här kommer att konfigurera ett system liknande en Primär serverdel, "
+#~ "dock kommer den att konfigureras till att ansluta till en befintlig "
+#~ "serverdel i nätverket."
 
 #~ msgid "Frontend"
 #~ msgstr "Klientdel"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from the "
-#~ "backend and distribute it.  This configuration requires an existing backend "
-#~ "on the network."
+#~ "A frontend only machine's main function is to receive media content from "
+#~ "the backend and distribute it.  This configuration requires an existing "
+#~ "backend on the network."
 #~ msgstr ""
 #~ "Huvudfunktionen för en maskin med endast en klientdel är att ta emot "
-#~ "mediainnehåll från serverdelen och distribuera det. Den här konfigurationen "
-#~ "kräver en befintlig serverdel i nätverket."
+#~ "mediainnehåll från serverdelen och distribuera det. Den här "
+#~ "konfigurationen kräver en befintlig serverdel i nätverket."
 
 #~ msgid "Graphics Drivers"
 #~ msgstr "Grafikdrivrutiner"
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you can "
-#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
-#~ "Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you "
+#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
+#~ "for TV Output or OpenGL effects."
 #~ msgstr ""
-#~ "En grafikdrivrutin med öppen källkod är redan aktiverad och konfigurerad för "
-#~ "din installation. Om du vill använda en annan grafikdrivrutin kan du ändra "
-#~ "det här. Observera att proprietära grafikdrivrutiner kan vara nödvändiga för "
-#~ "TV-ut eller OpenGL-effekter."
+#~ "En grafikdrivrutin med öppen källkod är redan aktiverad och konfigurerad "
+#~ "för din installation. Om du vill använda en annan grafikdrivrutin kan du "
+#~ "ändra det här. Observera att proprietära grafikdrivrutiner kan vara "
+#~ "nödvändiga för TV-ut eller OpenGL-effekter."
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
 #~ msgstr "Välj ett alternativ här om du vill konfigurera TV-ut:"
@@ -1648,7 +1646,8 @@ msgstr "Fortsätt med installationen."
 
 #~ msgid ""
 #~ "Please enter the information necessary to contact your master backend:"
-#~ msgstr "Ange den information som behövs för att kontakta din huvudserverdel:"
+#~ msgstr ""
+#~ "Ange den information som behövs för att kontakta din huvudserverdel:"
 
 #~ msgid "MySQL Database"
 #~ msgstr "MySQL-databas"
@@ -1660,19 +1659,19 @@ msgstr "Fortsätt med installationen."
 #~ msgstr "Konfigurera tablådata / serverdel"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data and "
-#~ "configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data "
+#~ "and configuring the backend for the first time."
 #~ msgstr ""
-#~ "De sista stegen i installationen kräver att du konfigurerar ditt tablådata "
-#~ "och serverdelen."
+#~ "De sista stegen i installationen kräver att du konfigurerar ditt "
+#~ "tablådata och serverdelen."
 
 #~ msgid "Click to open the Schedules Direct website"
 #~ msgstr "Klicka för att öppna webbplatsen Schedules Direct"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules Direct "
-#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
-#~ "users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules "
+#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
+#~ "North American users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
 #~ "Användare i Nordamerika behöver registrera ett konto hos Schedules Direct "
 #~ "(SD).  SD tillhandahåller tablådata mot en mindre avgift.  Utan SD kan "
@@ -1683,14 +1682,14 @@ msgstr "Fortsätt med installationen."
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need to "
-#~ "configure the first four sections, being sure to provide your guide data "
-#~ "during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need "
+#~ "to configure the first four sections, being sure to provide your guide "
+#~ "data during the third."
 #~ msgstr ""
 #~ "Efter konfiguration av din tablådatakälla så kommer du att behöva starta "
-#~ "MythTV-Setup för att köra konfigurationen för serverdelen för första gången. "
-#~ " Du kommer att behöva konfigurera de första fyra sektionerna och var beredd "
-#~ "på att tillhandahålla tablådata under den tredje sektionen."
+#~ "MythTV-Setup för att köra konfigurationen för serverdelen för första "
+#~ "gången.  Du kommer att behöva konfigurera de första fyra sektionerna och "
+#~ "var beredd på att tillhandahålla tablådata under den tredje sektionen."
 
 #~ msgid "Configuring mythtv..."
 #~ msgstr "Konfigurerar mythtv..."

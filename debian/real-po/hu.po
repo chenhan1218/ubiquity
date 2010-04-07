@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-24 23:25+0000\n"
+"POT-Creation-Date: 2010-04-07 11:44+0100\n"
 "PO-Revision-Date: 2010-03-28 23:57+0000\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
-"Language-Team: Debian L10n Hungarian <debian-l10n-"
-"hungarian@lists.debian.org>\n"
+"Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
+"org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -33,8 +33,7 @@ msgstr "Törlés és a teljes lemez felhasználása"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
-"Telepítés egymás mellé és az indítandó kiválasztása rendszerindításkor"
+msgstr "Telepítés egymás mellé és az indítandó kiválasztása rendszerindításkor"
 
 #. Type: text
 #. Description
@@ -66,32 +65,6 @@ msgstr "Üdvözöljük"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
-"Néhány kérdés megválaszolása után a számítógép készen fog állni a "
-"használatra."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001 ../ubiquity.templates:16001
-msgid "Answering the questions should only take a few minutes."
-msgstr "A kérdések megválaszolása csak pár percig fog tartani."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001
-msgid ""
-"Please choose the language used for the configuration process. This language "
-"will be the default language for this computer."
-msgstr ""
-"Válassza ki a beállítási folyamathoz használandó nyelvet. Ez a nyelv kerül "
-"felhasználásra a számítógép alapértelmezett nyelveként."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:11001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
@@ -103,7 +76,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:11001
 msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
@@ -113,19 +86,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
 msgstr "A(z) ${RELEASE} kipróbálása"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
 msgstr "A(z) ${RELEASE} telepítése"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
+#: ../ubiquity.templates:14001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
@@ -134,6 +107,20 @@ msgstr ""
 "Készen áll a telepítésre? Pár kérdés megválaszolása után telepítheti "
 "számítógépére a live ${MEDIUM} tartalmát, ezután a számítógép teljes "
 "kapacitását kihasználva futtatható a(z) ${RELEASE}."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:15001
+msgid "Once you answer a few questions, this computer will be ready to use."
+msgstr ""
+"Néhány kérdés megválaszolása után a számítógép készen fog állni a "
+"használatra."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "Answering the questions should only take a few minutes."
+msgstr "A kérdések megválaszolása csak pár percig fog tartani."
 
 #. Type: text
 #. Description
@@ -520,8 +507,7 @@ msgstr "Részletek"
 #: ../ubiquity.templates:72001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
-"Az új operációs rendszer a következő beállításokkal kerül telepítésre:"
+msgstr "Az új operációs rendszer a következő beállításokkal kerül telepítésre:"
 
 #. Type: text
 #. Description
@@ -647,19 +633,19 @@ msgstr "A telepítő összeomlott"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
-"Elnézést, a telepítő összeomlott. Küldjön be egy új hibajelentést a "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug oldalon (ne egy "
-"meglévő hibához csatolja), és amint lehetséges egy fejlesztő megvizsgálja a "
+"Elnézést, a telepítő összeomlott. Küldjön be egy új hibajelentést a https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug oldalon (ne egy meglévő "
+"hibához csatolja), és amint lehetséges egy fejlesztő megvizsgálja a "
 "problémát. A fejlesztők munkájának segítése érdekében vegye be a következő "
-"részleteket a hibajelentésbe és csatolja a /var/log/syslog és "
-"/var/log/partman fájlok tartalmát:"
+"részleteket a hibajelentésbe és csatolja a /var/log/syslog és /var/log/"
+"partman fájlok tartalmát:"
 
 #. Type: text
 #. Description
@@ -1214,12 +1200,12 @@ msgstr "A következő csomagok törött állapotban vannak:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Ezt egy régi telepítő-lemezkép használata, vagy a fenti csomagok egyikének "
 "hibája okozhatja. További részletek a /var/log/syslog fájlban találhatók. A "
@@ -1250,8 +1236,8 @@ msgstr "A dokumentumok és beállítások költöztetése meghiúsult"
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1317,14 +1303,12 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Please close any applications using these mount points."
-msgstr ""
-"Zárjon be minden, a kérdéses csatolási pontokat használó alkalmazást."
+msgstr "Zárjon be minden, a kérdéses csatolási pontokat használó alkalmazást."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Kívánja, hogy a telepítő újra megpróbálja leválasztani ezeket a partíciókat?"
 
@@ -1501,12 +1485,22 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
+msgstr ""
+"Válassza ki a beállítási folyamathoz használandó nyelvet. Ez a nyelv kerül "
+"felhasználásra a számítógép alapértelmezett nyelveként."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr "Telepítés folytatása."
 
 #~ msgid ""
-#~ "Please choose the language used for the installation process. This language "
-#~ "will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This "
+#~ "language will be the default language for the final system."
 #~ msgstr ""
 #~ "Válassza ki a telepítés során használandó nyelvet. A kiválasztott nyelv "
 #~ "egyben a végleges rendszer alapértelmezett nyelve is lesz."
@@ -1515,20 +1509,20 @@ msgstr "Telepítés folytatása."
 #~ "If you have Internet access, read the release notes for information on "
 #~ "problems that may affect you."
 #~ msgstr ""
-#~ "Ha van internet-hozzáférése, olvassa el a kiadási megjegyzéseket az esetleg "
-#~ "Önt is érintő problémákról."
+#~ "Ha van internet-hozzáférése, olvassa el a kiadási megjegyzéseket az "
+#~ "esetleg Önt is érintő problémákról."
 
 #~ msgid "Release Notes"
 #~ msgstr "Kiadási megjegyzések"
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing errors. "
-#~ "A good password will contain a mixture of letters, numbers and punctuation, "
-#~ "should be at least eight characters long, and should be changed at regular "
-#~ "intervals."
+#~ "Enter the same password twice, so that it can be checked for typing "
+#~ "errors. A good password will contain a mixture of letters, numbers and "
+#~ "punctuation, should be at least eight characters long, and should be "
+#~ "changed at regular intervals."
 #~ msgstr ""
-#~ "Írja be ugyanazt a jelszót kétszer a gépelési hibák kiszűrése érdekében. A "
-#~ "jó jelszó vegyesen tartalmaz betűket, számokat és írásjeleket, legalább "
+#~ "Írja be ugyanazt a jelszót kétszer a gépelési hibák kiszűrése érdekében. "
+#~ "A jó jelszó vegyesen tartalmaz betűket, számokat és írásjeleket, legalább "
 #~ "nyolc karakter hosszú és rendszeresen váltogatni kell."
 
 #~ msgid ""
@@ -1564,31 +1558,33 @@ msgstr "Telepítés folytatása."
 #~ msgstr "Elsődleges háttér előtéttel"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people wanting "
-#~ "MythTV for HTPC applications. This type of installation is intended for use "
-#~ "as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people "
+#~ "wanting MythTV for HTPC applications. This type of installation is "
+#~ "intended for use as a component in your home theatre."
 #~ msgstr ""
 #~ "A háttér/előtét kombinált gép a leggyakoribb telepítés, ha HTPC "
-#~ "alkalmazásokhoz MythTV-t kíván használni. Ez a telepítési típust a házimozi "
-#~ "összetevőjeként történő használatra tervezték."
+#~ "alkalmazásokhoz MythTV-t kíván használni. Ez a telepítési típust a "
+#~ "házimozi összetevőjeként történő használatra tervezték."
 
 #~ msgid "Secondary Backend w/ Frontend"
 #~ msgstr "Másodlagos háttér előtéttel"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
-#~ "will be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
+#~ "however will be configured to connect to an existing backend on the "
+#~ "network."
 #~ msgstr ""
-#~ "Ez az Elsődleges háttér előtéttel típusúhoz hasonló rendszert telepít, amely "
-#~ "azonban a hálózat egy meglévő hátteréhez csatlakozásra lesz beállítva."
+#~ "Ez az Elsődleges háttér előtéttel típusúhoz hasonló rendszert telepít, "
+#~ "amely azonban a hálózat egy meglévő hátteréhez csatlakozásra lesz "
+#~ "beállítva."
 
 #~ msgid "Primary Backend"
 #~ msgstr "Elsődleges háttér"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an appliance; "
-#~ "requiring very little maintenance.  This is intended to be installed as the "
-#~ "first backend on a network."
+#~ "A backend only machine is typically designed to function like an "
+#~ "appliance; requiring very little maintenance.  This is intended to be "
+#~ "installed as the first backend on a network."
 #~ msgstr ""
 #~ "A csak háttérből álló gépet jellemzően nagyon kevés karbantartást igénylő "
 #~ "készülékként való működésre tervezték. Ezt egy hálózat első háttereként "
@@ -1598,19 +1594,19 @@ msgstr "Telepítés folytatása."
 #~ msgstr "Másodlagos háttér"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will be "
-#~ "configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will "
+#~ "be configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "Ez az Elsődleges háttérhez hasonló rendszert telepít, azonban a hálózat egy "
-#~ "meglévő hátteréhez való csatlakozásra kerül beállításra."
+#~ "Ez az Elsődleges háttérhez hasonló rendszert telepít, azonban a hálózat "
+#~ "egy meglévő hátteréhez való csatlakozásra kerül beállításra."
 
 #~ msgid "Frontend"
 #~ msgstr "Előtét"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from the "
-#~ "backend and distribute it.  This configuration requires an existing backend "
-#~ "on the network."
+#~ "A frontend only machine's main function is to receive media content from "
+#~ "the backend and distribute it.  This configuration requires an existing "
+#~ "backend on the network."
 #~ msgstr ""
 #~ "A csak előtétből álló gép elsődleges funkciója a médiatartalom fogadása a "
 #~ "háttértől és annak terjesztése. Ez a konfiguráció egy meglévő hátteret "
@@ -1621,13 +1617,13 @@ msgstr "Telepítés folytatása."
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you can "
-#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
-#~ "Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you "
+#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
+#~ "for TV Output or OpenGL effects."
 #~ msgstr ""
 #~ "A telepítéshez már be van állítva és engedélyezve van nyílt forrású "
-#~ "meghajtó. Ha másik videomeghajtót szeretne használni, itt beállíthatja. Ne "
-#~ "feledje, hogy zárt meghajtók lehetnek szükségesek a TV kimenet vagy az "
+#~ "meghajtó. Ha másik videomeghajtót szeretne használni, itt beállíthatja. "
+#~ "Ne feledje, hogy zárt meghajtók lehetnek szükségesek a TV kimenet vagy az "
 #~ "OpenGL effektek támogatásához."
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
@@ -1655,8 +1651,8 @@ msgstr "Telepítés folytatása."
 #~ msgstr "Műsoradatok/háttér beállítása"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data and "
-#~ "configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data "
+#~ "and configuring the backend for the first time."
 #~ msgstr ""
 #~ "A telepítés utolsó lépései megkövetelik a műsoradatok beállítását és a "
 #~ "háttér kiinduló beállítását."
@@ -1665,27 +1661,28 @@ msgstr "Telepítés folytatása."
 #~ msgstr "Kattintson a Schedules Direct webhely megnyitásához"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules Direct "
-#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
-#~ "users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules "
+#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
+#~ "North American users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
 #~ "Az észak-amerikai felhasználóknak létre kell hozniuk egy Schedules Direct "
 #~ "(SD) fiókot. Az SD jelképes összegért biztosítja a műsoradatokat. Az SD "
-#~ "nélkül a MythTV észak-amerikai felhasználói számos ütemezési szolgáltatásról "
-#~ "lemaradnak."
+#~ "nélkül a MythTV észak-amerikai felhasználói számos ütemezési "
+#~ "szolgáltatásról lemaradnak."
 
 #~ msgid "Launch MythTV Setup"
 #~ msgstr "A MythTV beállításának indítása"
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need to "
-#~ "configure the first four sections, being sure to provide your guide data "
-#~ "during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need "
+#~ "to configure the first four sections, being sure to provide your guide "
+#~ "data during the third."
 #~ msgstr ""
-#~ "A műsoradatforrás beállítása után el kell indítania a MythTV-Setup programot "
-#~ "a háttérbeállítások első lefuttatásához, Az első négy szakaszt kell "
-#~ "beállítania, ne feledje el a műsoradatokat megadni a harmadik lépésben."
+#~ "A műsoradatforrás beállítása után el kell indítania a MythTV-Setup "
+#~ "programot a háttérbeállítások első lefuttatásához, Az első négy szakaszt "
+#~ "kell beállítania, ne feledje el a műsoradatokat megadni a harmadik "
+#~ "lépésben."
 
 #~ msgid "Configuring mythtv..."
 #~ msgstr "A mythtv beállítása…"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-24 23:25+0000\n"
+"POT-Creation-Date: 2010-04-07 11:44+0100\n"
 "PO-Revision-Date: 2010-03-25 08:43+0000\n"
 "Last-Translator: Bruno Patri <bruno.patri@gmail.com>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
@@ -65,32 +65,6 @@ msgstr "Bienvenue"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
-"Après avoir répondu à quelques questions, votre ordinateur sera prêt à être "
-"utilisé."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001 ../ubiquity.templates:16001
-msgid "Answering the questions should only take a few minutes."
-msgstr "Répondre aux questions ne devrait vous prendre que quelques minutes."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001
-msgid ""
-"Please choose the language used for the configuration process. This language "
-"will be the default language for this computer."
-msgstr ""
-"Veuillez choisir la langue utilisée pendant la phase de configuration. Cette "
-"langue sera la langue par défaut pour ce système."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:11001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
@@ -102,7 +76,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:11001
 msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
@@ -112,19 +86,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
 msgstr "Essayer ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
 msgstr "Installer ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
+#: ../ubiquity.templates:14001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
@@ -136,14 +110,28 @@ msgstr ""
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:15001
+msgid "Once you answer a few questions, this computer will be ready to use."
+msgstr ""
+"Après avoir répondu à quelques questions, votre ordinateur sera prêt à être "
+"utilisé."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "Answering the questions should only take a few minutes."
+msgstr "Répondre aux questions ne devrait vous prendre que quelques minutes."
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:17001
 msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
 "Vous pouvez éventuellement <a href=\"update\">mettre à jour cet "
-"installateur</a> ou lire les <a href=\"release-notes\">notes de "
-"publication</a>."
+"installateur</a> ou lire les <a href=\"release-notes\">notes de publication</"
+"a>."
 
 #. Type: text
 #. Description
@@ -654,20 +642,20 @@ msgstr "L'installateur a rencontré une erreur"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Nous sommes désolés, l'installateur a rencontré une erreur. Veuillez "
 "signaler ce bogue sur https://launchpad.net/ubuntu/+source/ubiquity/+filebug "
 "(n'ajoutez pas vos renseignements à un bogue existant) et un développeur "
 "s'occupera du problème le plus rapidement possible. Pour aider le "
 "développeur à appréhender le problème, incluez les renseignements suivants "
-"dans votre rapport et attachez les fichiers /var/log/syslog et "
-"/var/log/partma :"
+"dans votre rapport et attachez les fichiers /var/log/syslog et /var/log/"
+"partma :"
 
 #. Type: text
 #. Description
@@ -1071,8 +1059,8 @@ msgstr ""
 #: ../ubiquity.templates:142001
 msgid "The following file did not match its source copy on the CD/DVD:"
 msgstr ""
-"Le fichier suivant ne correspond pas à sa copie originale présente sur le "
-"CD/DVD :"
+"Le fichier suivant ne correspond pas à sa copie originale présente sur le CD/"
+"DVD :"
 
 #. Type: text
 #. Description
@@ -1227,12 +1215,12 @@ msgstr "Les paquets suivants sont cassés :"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Ceci peut être dû à l'utilisation d'une ancienne image de l'installeur, ou "
 "bien à un bogue dans certains paquets listés ci-dessous. De plus amples "
@@ -1265,8 +1253,8 @@ msgstr "Erreur lors de la migration des documents et paramètres"
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1337,8 +1325,7 @@ msgstr "Veuillez fermer les applications utilisant ces points de montage."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Voulez-vous que le programme d'installation essaye à nouveau de démonter ces "
 "partitions?"
@@ -1517,35 +1504,45 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
+msgstr ""
+"Veuillez choisir la langue utilisée pendant la phase de configuration. Cette "
+"langue sera la langue par défaut pour ce système."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr "Poursuivre l'installation."
 
 #~ msgid ""
-#~ "Please choose the language used for the installation process. This language "
-#~ "will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This "
+#~ "language will be the default language for the final system."
 #~ msgstr ""
-#~ "Choisissez la langue à utiliser pour l'installation. Cette langue sera celle "
-#~ "par défaut du système après l'installation."
+#~ "Choisissez la langue à utiliser pour l'installation. Cette langue sera "
+#~ "celle par défaut du système après l'installation."
 
 #~ msgid ""
 #~ "If you have Internet access, read the release notes for information on "
 #~ "problems that may affect you."
 #~ msgstr ""
 #~ "Si vous disposez d'une connexion Internet, consultez les notes de "
-#~ "publication afin d'avoir des informations sur des problèmes qui pourraient "
-#~ "vous concerner."
+#~ "publication afin d'avoir des informations sur des problèmes qui "
+#~ "pourraient vous concerner."
 
 #~ msgid "Release Notes"
 #~ msgstr "Notes de publication"
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing errors. "
-#~ "A good password will contain a mixture of letters, numbers and punctuation, "
-#~ "should be at least eight characters long, and should be changed at regular "
-#~ "intervals."
+#~ "Enter the same password twice, so that it can be checked for typing "
+#~ "errors. A good password will contain a mixture of letters, numbers and "
+#~ "punctuation, should be at least eight characters long, and should be "
+#~ "changed at regular intervals."
 #~ msgstr ""
-#~ "Saisissez deux fois le même mot de passe pour éviter toute erreur de frappe. "
-#~ "Un bon mot de passe contient un mélange de lettres, chiffres et "
+#~ "Saisissez deux fois le même mot de passe pour éviter toute erreur de "
+#~ "frappe. Un bon mot de passe contient un mélange de lettres, chiffres et "
 #~ "ponctuations, avec un minimum de huit caractères et doit être changé "
 #~ "régulièrement."
 
@@ -1582,21 +1579,22 @@ msgstr "Poursuivre l'installation."
 #~ msgstr "Machine primaire combinant moteur de traitement et interface"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people wanting "
-#~ "MythTV for HTPC applications. This type of installation is intended for use "
-#~ "as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people "
+#~ "wanting MythTV for HTPC applications. This type of installation is "
+#~ "intended for use as a component in your home theatre."
 #~ msgstr ""
-#~ "Une machine combinant moteur de traitement et interface est la configuration "
-#~ "la plus courante pour les personnes désirant utiliser MythTV pour les "
-#~ "applications HTPC. Ce type d'installation est prévu pour utiliser en tant "
-#~ "que composant de votre « home cinéma »."
+#~ "Une machine combinant moteur de traitement et interface est la "
+#~ "configuration la plus courante pour les personnes désirant utiliser "
+#~ "MythTV pour les applications HTPC. Ce type d'installation est prévu pour "
+#~ "utiliser en tant que composant de votre « home cinéma »."
 
 #~ msgid "Secondary Backend w/ Frontend"
 #~ msgstr "Machine secondaire combinant moteur de traitement et interface"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
-#~ "will be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
+#~ "however will be configured to connect to an existing backend on the "
+#~ "network."
 #~ msgstr ""
 #~ "Le système sera configuré de façon similaire à une machine primaire "
 #~ "combinant moteur de traitement et interface, cependant il sera configuré "
@@ -1606,21 +1604,21 @@ msgstr "Poursuivre l'installation."
 #~ msgstr "Machine primaire de traitement"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an appliance; "
-#~ "requiring very little maintenance.  This is intended to be installed as the "
-#~ "first backend on a network."
+#~ "A backend only machine is typically designed to function like an "
+#~ "appliance; requiring very little maintenance.  This is intended to be "
+#~ "installed as the first backend on a network."
 #~ msgstr ""
-#~ "Une machine contenant uniquement le moteur de traitement est conçue pour se "
-#~ "comporter comme un serveur applicatif ; nécessitant très peu de maintenance. "
-#~ "Elle est prévue pour être installé en tant que moteur de traitement primaire "
-#~ "sur le réseau."
+#~ "Une machine contenant uniquement le moteur de traitement est conçue pour "
+#~ "se comporter comme un serveur applicatif ; nécessitant très peu de "
+#~ "maintenance. Elle est prévue pour être installé en tant que moteur de "
+#~ "traitement primaire sur le réseau."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "Machine secondaire de traitement"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will be "
-#~ "configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will "
+#~ "be configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "Le système sera configuré de façon similaire à un moteur de traitement "
 #~ "primaire, cependant il sera configuré pour ce connecter à un moteur de "
@@ -1630,31 +1628,32 @@ msgstr "Poursuivre l'installation."
 #~ msgstr "Machine servant uniquement d'interface"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from the "
-#~ "backend and distribute it.  This configuration requires an existing backend "
-#~ "on the network."
+#~ "A frontend only machine's main function is to receive media content from "
+#~ "the backend and distribute it.  This configuration requires an existing "
+#~ "backend on the network."
 #~ msgstr ""
-#~ "La fonction principale d'une machine servant uniquement d'interface, est de "
-#~ "recevoir les contenus multimédia du moteur de traitement et de les "
-#~ "distribuer. Cette configuration nécessite un moteur de traitement existant "
-#~ "sur le réseau."
+#~ "La fonction principale d'une machine servant uniquement d'interface, est "
+#~ "de recevoir les contenus multimédia du moteur de traitement et de les "
+#~ "distribuer. Cette configuration nécessite un moteur de traitement "
+#~ "existant sur le réseau."
 
 #~ msgid "Graphics Drivers"
 #~ msgstr "Pilotes vidéo"
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you can "
-#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
-#~ "Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you "
+#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
+#~ "for TV Output or OpenGL effects."
 #~ msgstr ""
 #~ "Un pilote graphique open source est déjà activé et configuré pour votre "
-#~ "installation. Si vous souhaitez utiliser un pilote graphique différent, vous "
-#~ "pouvez le faire ici. Notez qu'un pilote graphique propriétaire peut-être "
-#~ "nécessaire pour la sortie TV ou les effets OpenGL."
+#~ "installation. Si vous souhaitez utiliser un pilote graphique différent, "
+#~ "vous pouvez le faire ici. Notez qu'un pilote graphique propriétaire peut-"
+#~ "être nécessaire pour la sortie TV ou les effets OpenGL."
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
-#~ msgstr "Si vous désirez configurer la sortie TV, choisissez une option ici :"
+#~ msgstr ""
+#~ "Si vous désirez configurer la sortie TV, choisissez une option ici :"
 
 #~ msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 #~ msgstr ""
@@ -1679,20 +1678,20 @@ msgstr "Poursuivre l'installation."
 #~ msgstr "Configurer les données pour les programmes TV/ moteur de traitement"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data and "
-#~ "configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data "
+#~ "and configuring the backend for the first time."
 #~ msgstr ""
-#~ "Les étapes finales de l'installation nécessitent de définir les données pour "
-#~ "les programmes TV et d'effectuer une première configuration du moteur de "
-#~ "traitement."
+#~ "Les étapes finales de l'installation nécessitent de définir les données "
+#~ "pour les programmes TV et d'effectuer une première configuration du "
+#~ "moteur de traitement."
 
 #~ msgid "Click to open the Schedules Direct website"
 #~ msgstr "Cliquez pour ouvrir le site web « Schedules Direct »"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules Direct "
-#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
-#~ "users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules "
+#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
+#~ "North American users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
 #~ "Les utilisateurs en Amérique du Nord devront créer un compte chez "
 #~ "« Schedules Direct » (SD). SD fournit les programmes TV pour un prix "
@@ -1704,15 +1703,15 @@ msgstr "Poursuivre l'installation."
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need to "
-#~ "configure the first four sections, being sure to provide your guide data "
-#~ "during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need "
+#~ "to configure the first four sections, being sure to provide your guide "
+#~ "data during the third."
 #~ msgstr ""
 #~ "Après avoir configuré votre source de donnée pour les programmes TV, vous "
 #~ "allez devoir lancer MythTV-Setup pour une première exécution de la "
 #~ "configuration du moteur de traitement. Vous devrez configurer les quatre "
-#~ "premières sections, assurez-vous de fournir les données pour les programme "
-#~ "dans la troisième."
+#~ "premières sections, assurez-vous de fournir les données pour les "
+#~ "programme dans la troisième."
 
 #~ msgid "Configuring mythtv..."
 #~ msgstr "Configuration de mythtv..."
