@@ -823,6 +823,7 @@ class Wizard(BaseFrontend):
                 idx = self.history.index(history_entry)
                 if idx + 1 < len(self.history):
                     self.history = self.history[:idx+1]
+                    return # The page is now effectively a dup
             # We may have either jumped backward or forward over pages.
             # Correct history in that case
             new_index = self.pages.index(page)
