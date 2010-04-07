@@ -1,7 +1,16 @@
 ubiquity (2.2.16) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Only show the update link and release notes when a critical update
     is available (LP: #554570).
+
+  [ Amichai Rothman ]
+  * Fix KDE frontend's slideshow links not working (LP: #540278)
+  * Fix KDE progress bar and skip button too small (LP: #555707)
+  * Fix KDE skip button appearing as full-width button at the
+    bottom of the window and messing up dialog layout (LP: #540321)
+  * Fix progress bar updated file count out of range (LP: #550147) 
+  * Fix progress title not shown during some configuration steps
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 07 Apr 2010 09:45:37 +0100
 

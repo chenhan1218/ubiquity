@@ -782,9 +782,6 @@ class Wizard(BaseFrontend):
                     from PyQt4.QtWebKit import QWebView
                     from PyQt4.QtWebKit import QWebPage
 
-                    #we need to get root privs to open a link because
-                    #the kapplication was started that way...
-                    @raise_privileges
                     def openLink(qUrl):
                         QDesktopServices.openUrl(qUrl)
 
@@ -1072,6 +1069,7 @@ class Wizard(BaseFrontend):
         # TODO cancel button
 
         self.ui.progressBar.setMaximum(total_steps)
+        self.ui.progressBar.setFormat(progress_title + " %p%")
         self.ui.progressBar.show()
 
         self.ui.content_widget.setEnabled(False)
