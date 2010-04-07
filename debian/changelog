@@ -16,6 +16,11 @@ ubiquity (2.2.16) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Update handling of "Ready to install" etc. templates to account for the
     removal of the separate welcome page.
+  * KDE frontend:
+    - Hide install_process_label ("installation process") and
+      breadcrumb_install ("Install") when running as oem-config; providing
+      alternative strings would break string freeze, and the UI should look
+      OK without them (LP: #540929).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 07 Apr 2010 09:45:37 +0100
 

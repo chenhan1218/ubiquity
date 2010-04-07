@@ -310,6 +310,9 @@ class Wizard(BaseFrontend):
                 flags = flags ^ Qt.WindowCloseButtonHint
             self.ui.setWindowFlags(flags)
             self.ui.quit.hide()
+            # TODO cjwatson 2010-04-07: provide alternative strings instead
+            self.ui.install_process_label.hide()
+            self.ui.breadcrumb_install.hide()
 
         iconLoader = KIconLoader()
         warningIcon = iconLoader.loadIcon("dialog-warning", KIconLoader.Desktop)
