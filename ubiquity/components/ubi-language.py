@@ -30,6 +30,13 @@ NAME = 'language'
 AFTER = None
 WEIGHT = 10
 
+try:
+    import lsb_release
+    _ver = lsb_release.get_distro_information()['RELEASE']
+except:
+    _ver = '10.04'
+_wget_url = 'http://changelogs.ubuntu.com/ubiquity/%s-update-available' % _ver
+
 _release_notes_url_path = '/cdrom/.disk/release_notes_url'
 
 class PageBase(PluginUI):
@@ -115,11 +122,53 @@ class PageGtk(PageBase):
                 # it's ready.
                 for w in self.page.get_children():
                     w.hide()
+                if self.update_installer:
+                    self.setup_network_watch()
 
         except Exception, e:
             self.debug('Could not create language page: %s', e)
             self.page = None
         self.plugin_widgets = self.page
+
+    def setup_network_watch(self):
+        import dbus
+        from dbus.mainloop.glib import DBusGMainLoop
+        DBusGMainLoop(set_as_default=True)
+        bus = dbus.SystemBus()
+        bus.add_signal_receiver(self.network_change, 'DeviceNoLongerActive',
+                                'org.freedesktop.NetworkManager',
+                                'org.freedesktop.NetworkManager',
+                                '/org/freedesktop/NetworkManager')
+        bus.add_signal_receiver(self.network_change, 'StateChange',
+                                'org.freedesktop.NetworkManager',
+                                'org.freedesktop.NetworkManager',
+                                '/org/freedesktop/NetworkManager')
+        self.timeout_id = None
+        self.wget_retcode = None
+        self.wget_proc = None
+        self.network_change()
+
+    def network_change(self, state=None):
+        import gobject
+        if state and (state != 4 and state != 3):
+            return
+        if self.timeout_id:
+            gobject.source_remove(self.timeout_id)
+        self.timeout_id = gobject.timeout_add(300, self.check_returncode)
+
+    def check_returncode(self, *args):
+        import subprocess
+        if self.wget_retcode is not None or self.wget_proc is None:
+            self.wget_proc = subprocess.Popen(
+                ['wget', '-q', _wget_url, '--timeout=15'])
+        self.wget_retcode = self.wget_proc.poll()
+        if self.wget_retcode is None:
+            return True
+        else:
+            if self.wget_retcode == 0:
+                self.release_notes_label.show()
+            else:
+                self.release_notes_label.hide()
 
     @only_this_page
     def on_try_ubuntu_clicked(self, *args):
