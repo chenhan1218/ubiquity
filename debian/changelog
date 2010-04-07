@@ -3,7 +3,7 @@ ubiquity (2.2.16) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Only show the update link and release notes when a critical update
     is available (LP: #554570).
-  * Fix backing up to the language page in the KDE frontend.
+  * Fix backing up to the language page in the KDE frontend (LP: #557225).
 
   [ Amichai Rothman ]
   * Fix KDE frontend's slideshow links not working (LP: #540278)
