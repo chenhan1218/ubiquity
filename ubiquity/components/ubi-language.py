@@ -400,7 +400,8 @@ class PageKde(PageBase):
     def set_alpha_warning(self, show):
         if not show and not self.only:
             self.page.alpha_warning_label.hide()
-            self.widgetHidden.remove(self.page.alpha_warning_label)
+            if self.page.alpha_warning_label in self.widgetHidden:
+                self.widgetHidden.remove(self.page.alpha_warning_label)
 
     def on_release_notes_link(self, link):
         lang = self.selected_language()
