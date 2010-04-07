@@ -8,6 +8,8 @@ ubiquity (2.2.16) UNRELEASED; urgency=low
     KDE frontend still uses it (LP: #557192).
   * Fix a small typo that was preventing the duration string on the
     language page from being translated (LP: #551633).
+  * Fix backing up past partitioning when manual partitioning was
+    selected (LP: #557210).
 
   [ Amichai Rothman ]
   * Fix KDE frontend's slideshow links not working (LP: #540278)
