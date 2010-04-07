@@ -4,6 +4,8 @@ ubiquity (2.2.16) UNRELEASED; urgency=low
   * Only show the update link and release notes when a critical update
     is available (LP: #554570).
   * Fix backing up to the language page in the KDE frontend (LP: #557225).
+  * Bring back the debconf translation for password_extra_label.  The
+    KDE frontend still uses it (LP: #557192).
 
   [ Amichai Rothman ]
   * Fix KDE frontend's slideshow links not working (LP: #540278)
