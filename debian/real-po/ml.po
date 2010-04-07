@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-24 23:25+0000\n"
+"POT-Creation-Date: 2010-04-07 11:44+0100\n"
 "PO-Revision-Date: 2009-09-05 19:33+0000\n"
 "Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
-"Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം "
-"Computing|കമ്പ്യൂട്ടിങ്ങ് <smc-discuss@googlegroups.com>\n"
+"Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc-"
+"discuss@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -65,41 +65,18 @@ msgstr "സ്വാഗതം"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001 ../ubiquity.templates:16001
-msgid "Answering the questions should only take a few minutes."
-msgstr "ഉത്തരങ്ങള്‍ കുറഞ്ഞ നിമിഷം കൊണ്ട് നല്‍കുവാന്‍ സാധിക്കുന്നതാണ്"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001
-msgid ""
-"Please choose the language used for the configuration process. This language "
-"will be the default language for this computer."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:11001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"താങ്കള്‍ കമ്പ്യൂട്ടര്‍ സജ്ജീകരിക്കുന്നത് നിര്‍മ്മാതാക്കളുടെ ശൈലിയിലാണ്. "
-"ദയവായി ഈ ശ്രേണിയിലുള്ള കമ്പ്യൂട്ടറുകള്‍ക്ക് ഒരു അതുല്യനാമം നല്‍കുക. ഈ പേര് "
-"സജ്ജമാക്കിയ കമ്പ്യൂട്ടറില്‍ സൂക്ഷിക്കുകയും പിഴവുകള്‍ പരിഹരിക്കുന്നതിന് "
-"പിന്നീട് ഉപയോഗിക്കുകയും ചെയ്യാവുന്നതാണ്."
+"താങ്കള്‍ കമ്പ്യൂട്ടര്‍ സജ്ജീകരിക്കുന്നത് നിര്‍മ്മാതാക്കളുടെ ശൈലിയിലാണ്. ദയവായി ഈ ശ്രേണിയിലുള്ള "
+"കമ്പ്യൂട്ടറുകള്‍ക്ക് ഒരു അതുല്യനാമം നല്‍കുക. ഈ പേര് സജ്ജമാക്കിയ കമ്പ്യൂട്ടറില്‍ സൂക്ഷിക്കുകയും പിഴവുകള്‍ "
+"പരിഹരിക്കുന്നതിന് പിന്നീട് ഉപയോഗിക്കുകയും ചെയ്യാവുന്നതാണ്."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:11001
 msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
@@ -107,24 +84,36 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
+#: ../ubiquity.templates:14001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:15001
+msgid "Once you answer a few questions, this computer will be ready to use."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "Answering the questions should only take a few minutes."
+msgstr "ഉത്തരങ്ങള്‍ കുറഞ്ഞ നിമിഷം കൊണ്ട് നല്‍കുവാന്‍ സാധിക്കുന്നതാണ്"
 
 #. Type: text
 #. Description
@@ -207,8 +196,7 @@ msgstr "ഏത് ലേയൌട്ടിനാണ് നിങ്ങളുട�
 #. Description
 #: ../ubiquity.templates:28001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
-"പുതിയ കീബോര്‍ഡ് രൂപകല്പന പരിശോധിക്കുവാന്‍ ഈ ചതുരത്തില്‍ ടൈപ് ചെയ്യുക."
+msgstr "പുതിയ കീബോര്‍ഡ് രൂപകല്പന പരിശോധിക്കുവാന്‍ ഈ ചതുരത്തില്‍ ടൈപ് ചെയ്യുക."
 
 #. Type: text
 #. Description
@@ -286,8 +274,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:41001
 msgid "What name do you want to use to log in?"
-msgstr ""
-"എന്ത് പേര് വെച്ചാണ് നിങ്ങള്‍ അകത്ത് കടക്കുവാന്‍ (log in) ഉദ്ദേശിക്കുന്നത്?"
+msgstr "എന്ത് പേര് വെച്ചാണ് നിങ്ങള്‍ അകത്ത് കടക്കുവാന്‍ (log in) ഉദ്ദേശിക്കുന്നത്?"
 
 #. Type: text
 #. Description
@@ -302,16 +289,14 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"ഒന്നിലധികം ആളുകള്‍ ഈ കമ്പ്യൂട്ടര്‍ ഉപയോഗിക്കുവാന്‍ "
-"താല്പര്യപ്പെടുന്നുണ്ടെങ്കില്‍, സജ്ജീകരണം പൂര്‍ത്തിയായതിനു ശേഷം അനേകം "
-"അംഗത്വങ്ങള്‍ ഒരുക്കാവുന്നതാണ്"
+"ഒന്നിലധികം ആളുകള്‍ ഈ കമ്പ്യൂട്ടര്‍ ഉപയോഗിക്കുവാന്‍ താല്പര്യപ്പെടുന്നുണ്ടെങ്കില്‍, സജ്ജീകരണം "
+"പൂര്‍ത്തിയായതിനു ശേഷം അനേകം അംഗത്വങ്ങള്‍ ഒരുക്കാവുന്നതാണ്"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Choose a password to keep your account safe."
-msgstr ""
-"നിങ്ങ്~അളുടെ അക്കൌണ്ട് സുരക്ഷിതമാക്കുവാന്‍ ഒരു പാസ്സ്‍വേഡ് കൊടുക്കുക."
+msgstr "നിങ്ങ്~അളുടെ അക്കൌണ്ട് സുരക്ഷിതമാക്കുവാന്‍ ഒരു പാസ്സ്‍വേഡ് കൊടുക്കുക."
 
 #. Type: text
 #. Description
@@ -330,8 +315,7 @@ msgstr ""
 #: ../ubiquity.templates:47001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
-"താങ്കള്‍ പ്രശ്നപരിഹാര സമ്പ്രദായത്തിലാണ് പ്രവര്‍ത്തിക്കുന്നത്. വിലപ്പെട്ട "
-"രഹസ്യവാക്കുകള്‍ ഉപയോഗിക്കരുത്!"
+"താങ്കള്‍ പ്രശ്നപരിഹാര സമ്പ്രദായത്തിലാണ് പ്രവര്‍ത്തിക്കുന്നത്. വിലപ്പെട്ട രഹസ്യവാക്കുകള്‍ ഉപയോഗിക്കരുത്!"
 
 #. Type: text
 #. Description
@@ -618,12 +602,12 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 
 #. Type: text
@@ -1151,12 +1135,12 @@ msgstr ""
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 
 #. Type: error
@@ -1181,8 +1165,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1243,8 +1227,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 
 #. Type: boolean
@@ -1414,6 +1397,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr ""
 
@@ -1421,8 +1412,8 @@ msgstr ""
 #~ "If you have Internet access, read the release notes for information on "
 #~ "problems that may affect you."
 #~ msgstr ""
-#~ "താങ്കള്‍ക്ക് ഇന്റെര്‍നെറ്റ് ലഭ്യമാണെങ്കില്‍, താങ്കള്‍ക്ക് ബാധകമായേക്കാവുന്ന "
-#~ "പ്രശ്നങ്ങളെ പറ്റിയുള്ള വിവരങ്ങള്‍ക്ക് പ്രകാശനക്കുറിപ്പുകള്‍ വായിക്കുക."
+#~ "താങ്കള്‍ക്ക് ഇന്റെര്‍നെറ്റ് ലഭ്യമാണെങ്കില്‍, താങ്കള്‍ക്ക് ബാധകമായേക്കാവുന്ന പ്രശ്നങ്ങളെ പറ്റിയുള്ള "
+#~ "വിവരങ്ങള്‍ക്ക് പ്രകാശനക്കുറിപ്പുകള്‍ വായിക്കുക."
 
 #~ msgid "Release Notes"
 #~ msgstr "പ്രകാശനക്കുറിപ്പുകള്‍"

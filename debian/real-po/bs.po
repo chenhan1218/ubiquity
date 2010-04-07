@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-24 23:25+0000\n"
+"POT-Creation-Date: 2010-04-07 11:44+0100\n"
 "PO-Revision-Date: 2010-03-23 16:52+0000\n"
 "Last-Translator: Miro Glavić <glavicmiro@gmail.com>\n"
 "Language-Team: Bosnian <lokal@linux.org.ba>\n"
@@ -64,32 +64,6 @@ msgstr "Dobrodošli"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
-"Nakon što odgovorite na nekoliko pitanja, ovaj kompjuter će biti spreman za "
-"upotrebu."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001 ../ubiquity.templates:16001
-msgid "Answering the questions should only take a few minutes."
-msgstr "Odgovaranje na pitanja ne bi smjelo trajati duže od par minuta."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001
-msgid ""
-"Please choose the language used for the configuration process. This language "
-"will be the default language for this computer."
-msgstr ""
-"Odaberite jezik koji će se koristiti za proces konfiguracije, Taj jezik će "
-"biti podrazumijevani jezik za ovaj računar."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:11001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
@@ -101,7 +75,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:11001
 msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
@@ -109,24 +83,38 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
+#: ../ubiquity.templates:14001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:15001
+msgid "Once you answer a few questions, this computer will be ready to use."
+msgstr ""
+"Nakon što odgovorite na nekoliko pitanja, ovaj kompjuter će biti spreman za "
+"upotrebu."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "Answering the questions should only take a few minutes."
+msgstr "Odgovaranje na pitanja ne bi smjelo trajati duže od par minuta."
 
 #. Type: text
 #. Description
@@ -503,8 +491,7 @@ msgstr "Detalji"
 #: ../ubiquity.templates:72001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
-"Vaš novi operativni sistem će se instalirati sa slijedećim postavkama:"
+msgstr "Vaš novi operativni sistem će se instalirati sa slijedećim postavkama:"
 
 #. Type: text
 #. Description
@@ -625,12 +612,12 @@ msgstr "Program za instaliranje je pukao"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Žao nam je, program za instalaciju je pukao. Molim, javite novi izvještaj o "
 "grešci na https://launchpad.net/ubuntu/+source/ubiquity/+filebug(nemojte "
@@ -1191,16 +1178,16 @@ msgstr "Sljedeći paketi su u neispravnom stanju:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Ovo može biti zato što koristite stari program za instalaciju ilizbog "
-"grešaka u navedenim paketima. Više detalja o ovome možete naćiu datoteci "
-"/var/log/syslog. Program za instalaciju će pokušati da nastaviali može "
+"grešaka u navedenim paketima. Više detalja o ovome možete naćiu datoteci /"
+"var/log/syslog. Program za instalaciju će pokušati da nastaviali može "
 "otkazati u nekom kasnijem trenutku i možda neće moći dainstalira ili ukloni "
 "druge pakete (uključujući i sebe samog) sainstaliranog sistema. Prvo bi "
 "trebalo da pogledata da li postoji novijaverzija programa za instalaciju "
@@ -1228,8 +1215,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1293,8 +1280,7 @@ msgstr "Molim, zatvorite sve aplikacije koje koriste ove tačke montiranja."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Da li želite da program za instalaciju proba da ponovo otkači ove particije?"
 
@@ -1467,22 +1453,32 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
+msgstr ""
+"Odaberite jezik koji će se koristiti za proces konfiguracije, Taj jezik će "
+"biti podrazumijevani jezik za ovaj računar."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr ""
 
 #~ msgid ""
-#~ "Please choose the language used for the installation process. This language "
-#~ "will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This "
+#~ "language will be the default language for the final system."
 #~ msgstr ""
-#~ "Molim odaberite jezik koji će koristiti instalacijski proces. Ovaj će jezik "
-#~ "također biti i uobičajeni jezik za gotovi sistem."
+#~ "Molim odaberite jezik koji će koristiti instalacijski proces. Ovaj će "
+#~ "jezik također biti i uobičajeni jezik za gotovi sistem."
 
 #~ msgid ""
 #~ "If you have Internet access, read the release notes for information on "
 #~ "problems that may affect you."
 #~ msgstr ""
-#~ "Ako imate pristup Internet, pročitajte bilješke izdanja za više informacija "
-#~ "o problemima koje bi mogli imati."
+#~ "Ako imate pristup Internet, pročitajte bilješke izdanja za više "
+#~ "informacija o problemima koje bi mogli imati."
 
 #~ msgid "Release Notes"
 #~ msgstr "Bilješke izdanja"
@@ -1491,14 +1487,14 @@ msgstr ""
 #~ msgstr "Zona:"
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing errors. "
-#~ "A good password will contain a mixture of letters, numbers and punctuation, "
-#~ "should be at least eight characters long, and should be changed at regular "
-#~ "intervals."
+#~ "Enter the same password twice, so that it can be checked for typing "
+#~ "errors. A good password will contain a mixture of letters, numbers and "
+#~ "punctuation, should be at least eight characters long, and should be "
+#~ "changed at regular intervals."
 #~ msgstr ""
 #~ "Unesite lozinku dva puta kako bi se provjerila na greške u kucanju. Dobra "
-#~ "lozinka treba sadržati mješavinu slova, brojeva i interpunkcijskih znakova i "
-#~ "biti mijenjana u pravilnim intervalima."
+#~ "lozinka treba sadržati mješavinu slova, brojeva i interpunkcijskih "
+#~ "znakova i biti mijenjana u pravilnim intervalima."
 
 #~ msgid ""
 #~ " Install Type: ${INSTALLTYPE}\n"
@@ -1527,8 +1523,9 @@ msgstr ""
 #~ msgstr "Primarni pozadinski sistem"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
-#~ "will be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
+#~ "however will be configured to connect to an existing backend on the "
+#~ "network."
 #~ msgstr ""
 #~ "Ovo će podesiti sistem slično Primarnom pozadinskom sistemu sa čeonim "
 #~ "sistemom, ali će biti konfigurisan da se povezuje na postojećipozadinski "
@@ -1541,13 +1538,14 @@ msgstr ""
 #~ msgstr "Sekundarni pozadinski sistem sa čeonim sistemom"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people wanting "
-#~ "MythTV for HTPC applications. This type of installation is intended for use "
-#~ "as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people "
+#~ "wanting MythTV for HTPC applications. This type of installation is "
+#~ "intended for use as a component in your home theatre."
 #~ msgstr ""
 #~ "Kombinovana 'čeoni/pozadinski sistem' mašina je najčešći tip sistema za "
-#~ "ljude koji žele da koriste MythTV za HTPC aplikacije. Ovaj tip instalacije "
-#~ "jenamijenjen za korišćenje računara kao komponente u vašem kućnom bioskopu."
+#~ "ljude koji žele da koriste MythTV za HTPC aplikacije. Ovaj tip "
+#~ "instalacije jenamijenjen za korišćenje računara kao komponente u vašem "
+#~ "kućnom bioskopu."
 
 #~ msgid "Primary Backend w/ Frontend"
 #~ msgstr "Primarni pozadinski sistem sa čeonim sistemom"
@@ -1556,21 +1554,21 @@ msgstr ""
 #~ msgstr "Kojeg će tipa biti ovaj sistem?"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an appliance; "
-#~ "requiring very little maintenance.  This is intended to be installed as the "
-#~ "first backend on a network."
+#~ "A backend only machine is typically designed to function like an "
+#~ "appliance; requiring very little maintenance.  This is intended to be "
+#~ "installed as the first backend on a network."
 #~ msgstr ""
 #~ "Mašina koja ima samo pozadinski sistem je namijenjena da radi kao kućni "
 #~ "uređaj koji zahtjeva minimalno održavanje. Ovaj tip instalacije je "
-#~ "namijenjen za mašinu koja će biti instalirana kao prvi pozadinski sistem na "
-#~ "mreži."
+#~ "namijenjen za mašinu koja će biti instalirana kao prvi pozadinski sistem "
+#~ "na mreži."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "Sekundarni pozadinski sistem"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will be "
-#~ "configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will "
+#~ "be configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "Ovo će podesiti sistem slično Primarnom pozadinskom sistemu ali će biti "
 #~ "konfigurisan da se kači na postojeći pozadinski sistem na mreži."
@@ -1578,7 +1576,8 @@ msgstr ""
 #~ msgid ""
 #~ "Please enter the information necessary to contact your master backend:"
 #~ msgstr ""
-#~ "Molim, unesite neophodne informacije za pristup glavnom pozadinskom sistemu:"
+#~ "Molim, unesite neophodne informacije za pristup glavnom pozadinskom "
+#~ "sistemu:"
 
 #~ msgid "Graphics Drivers"
 #~ msgstr "Grafički drajveri"
@@ -1590,23 +1589,23 @@ msgstr ""
 #~ msgstr "Informacije o glavnom pozadinskom sistemu"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from the "
-#~ "backend and distribute it.  This configuration requires an existing backend "
-#~ "on the network."
+#~ "A frontend only machine's main function is to receive media content from "
+#~ "the backend and distribute it.  This configuration requires an existing "
+#~ "backend on the network."
 #~ msgstr ""
 #~ "Osnovna funkcija mašine samo sa čeonim sistemom je da prima sadržaj od "
-#~ "pozadinskog sistema i distribuira ga. Ova konfiguracija zahtjeva da na mreži "
-#~ "već postoji pozadinski sistem."
+#~ "pozadinskog sistema i distribuira ga. Ova konfiguracija zahtjeva da na "
+#~ "mreži već postoji pozadinski sistem."
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you can "
-#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
-#~ "Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you "
+#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
+#~ "for TV Output or OpenGL effects."
 #~ msgstr ""
-#~ "Grafički drajver je uključen i konfigurisan za vašu instalaciju. Ako želite "
-#~ "koristiti drugi grafički drajver, to možete učiniti ovde. Uzmite u obzir da "
-#~ "je za TV izlaz ili OpenGL efekte potreban odgovarajući drajver."
+#~ "Grafički drajver je uključen i konfigurisan za vašu instalaciju. Ako "
+#~ "želite koristiti drugi grafički drajver, to možete učiniti ovde. Uzmite u "
+#~ "obzir da je za TV izlaz ili OpenGL efekte potreban odgovarajući drajver."
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
 #~ msgstr "Ako želite konfigurisati TV-izlaz, odaberite opciju:"
@@ -1619,9 +1618,9 @@ msgstr ""
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need to "
-#~ "configure the first four sections, being sure to provide your guide data "
-#~ "during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need "
+#~ "to configure the first four sections, being sure to provide your guide "
+#~ "data during the third."
 #~ msgstr ""
 #~ "Nakon što postavite izvor podataka za vodič, pokrenite postavke MythTV da "
 #~ "prvi put pokrenete pozadinsku konfiguraciju.  Trebate konfigurisati prve "
@@ -1643,19 +1642,19 @@ msgstr ""
 #~ msgstr "Kliknite da otvorite Schedules·Direct veb sajt"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data and "
-#~ "configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data "
+#~ "and configuring the backend for the first time."
 #~ msgstr ""
-#~ "Posljednji koraci instalacije zahtijevaju postavljanje podataka o TV vodiču "
-#~ "i konfiguraciju pozadinskog sistema."
+#~ "Posljednji koraci instalacije zahtijevaju postavljanje podataka o TV "
+#~ "vodiču i konfiguraciju pozadinskog sistema."
 
 #~ msgid "Launch MythTV Setup"
 #~ msgstr "Pokreni podešavanje za MythTV"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules Direct "
-#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
-#~ "users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules "
+#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
+#~ "North American users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
 #~ "Korisnici u Sjevernoj Americi treba da kreiraju nalog na "
 #~ "Schedules·Directsistemu (SD).  SD obezbjeđuje podatke za TV vodič za "

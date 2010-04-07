@@ -133,7 +133,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="duration_label">
+                      <object class="GtkLabel" id="duration_text_label">
                         <property name="visible">True</property>
                         <property name="xalign">0</property>
             	        <property name="yalign">0</property>
@@ -161,7 +161,6 @@ The installation process may resize or erase partitions on your hard disk. Be su
                     </child>
                     <child>
                       <object class="GtkLabel" id="release_notes_label">
-                        <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="xalign">0</property>
             	        <property name="yalign">0</property>

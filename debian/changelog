@@ -1,5 +1,17 @@
-ubiquity (2.2.15) UNRELEASED; urgency=low
+ubiquity (2.2.16) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
+  * Only show the update link and release notes when a critical update
+    is available (LP: #554570).
+  * Fix backing up to the language page in the KDE frontend (LP: #557225).
+  * Bring back the debconf translation for password_extra_label.  The
+    KDE frontend still uses it (LP: #557192).
+  * Fix a small typo that was preventing the duration string on the
+    language page from being translated (LP: #551633).
+  * Fix backing up past partitioning when manual partitioning was
+    selected (LP: #557210).
+
+  [ Amichai Rothman ]
   * Fix KDE frontend's slideshow links not working (LP: #540278)
   * Fix KDE progress bar and skip button too small (LP: #555707)
   * Fix KDE skip button appearing as full-width button at the
@@ -7,7 +19,38 @@ ubiquity (2.2.15) UNRELEASED; urgency=low
   * Fix progress bar updated file count out of range (LP: #550147) 
   * Fix progress title not shown during some configuration steps
 
- -- Amichai Rothman <amichai2@amichais.net>  Mon, 05 Apr 2010 19:31:29 +0300
+  [ Colin Watson ]
+  * Update handling of "Ready to install" etc. templates to account for the
+    removal of the separate welcome page.
+  * KDE frontend:
+    - Hide install_process_label ("installation process") and
+      breadcrumb_install ("Install") when running as oem-config; providing
+      alternative strings would break string freeze, and the UI should look
+      OK without them (LP: #540929).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 07 Apr 2010 09:45:37 +0100
+
+ubiquity (2.2.15) lucid; urgency=low
+
+  [ Evan Dandrea ]
+  * Move the install window color setting code closer to when the window
+    is shown, so the colors don't get reset before then.
+  * Fix alpha warning being shown all the time with recent changes to
+    the KDE frontend.
+  * Define allowed_change_step in the KDE frontend to fix the manual
+    partitioner buttons not working (LP: #556180).
+  * Do not show the 'ready to install' or alpha warning text in the KDE
+    frontend when in oem-config mode (LP: #556577).
+  * Update timezone images to cover changes to the Russian timezones and
+    make further adjustments around UTC+5, UTC+5.5, and UTC+7
+    (LP: #368060).
+  * Automatic update of included source packages: grub-installer
+    1.49ubuntu11.
+
+  [ Jonathan Riddell ]
+  * Workaround PyQt unicode encoding error in ubi-console-setup.py, (LP: #556436)
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 06 Apr 2010 17:29:17 +0100
 
 ubiquity (2.2.14) lucid; urgency=low
 

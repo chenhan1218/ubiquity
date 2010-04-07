@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-24 23:25+0000\n"
+"POT-Creation-Date: 2010-04-07 11:44+0100\n"
 "PO-Revision-Date: 2010-03-29 16:03+0000\n"
 "Last-Translator: Sergey \"Shnatsel\" Davidoff <Shnatsel@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
@@ -65,32 +65,6 @@ msgstr "Добро пожаловать"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
-"После того, как вы ответите на несколько вопросов, этот компьютер будет "
-"готов к работе."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001 ../ubiquity.templates:16001
-msgid "Answering the questions should only take a few minutes."
-msgstr "Вопросы займут всего пару минут."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001
-msgid ""
-"Please choose the language used for the configuration process. This language "
-"will be the default language for this computer."
-msgstr ""
-"Пожалуйста, выберите язык используемый для настройки системы. Этот язык "
-"будет установлен языком по умолчанию для этого компьютера."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:11001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
@@ -103,7 +77,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:11001
 msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
@@ -113,19 +87,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
 msgstr "Попробовать ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
 msgstr "Установить ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
+#: ../ubiquity.templates:14001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
@@ -137,13 +111,27 @@ msgstr ""
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:15001
+msgid "Once you answer a few questions, this computer will be ready to use."
+msgstr ""
+"После того, как вы ответите на несколько вопросов, этот компьютер будет "
+"готов к работе."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "Answering the questions should only take a few minutes."
+msgstr "Вопросы займут всего пару минут."
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:17001
 msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Возможно вы хотите прочитать <a href=\"release-notes\">примечания к "
-"выпуску</a> или <a href=\"update\">обновить этот установщик</a>."
+"Возможно вы хотите прочитать <a href=\"release-notes\">примечания к выпуску</"
+"a> или <a href=\"update\">обновить этот установщик</a>."
 
 #. Type: text
 #. Description
@@ -639,20 +627,20 @@ msgstr "Программа установки аварийно завершил�
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "К сожалению, программа установки аварийно завершилась. Пожалуйста, сообщите "
 "об ошибке на https://launchpad.net/ubuntu/+source/ubiquity/+filebug (не "
 "добавляйте информацию к уже существующим отчетам об ошибках) и разработчики "
 "исправят эту ошибку настолько быстро, насколько это возможно. Чтобы помочь "
 "разработчикам понять, чем вызвана эта ошибка, включите в ваш отчёт "
-"нижеследующую информацию и присоедините к нему файлы /var/log/syslog и "
-"/var/log/partman:"
+"нижеследующую информацию и присоедините к нему файлы /var/log/syslog и /var/"
+"log/partman:"
 
 #. Type: text
 #. Description
@@ -1206,12 +1194,12 @@ msgstr "Эти пакеты повреждены:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Это могло случиться по причине использования устаревшего установочного "
 "образа или из-за ошибки в некоторых пакетах, перечисленных выше. Более "
@@ -1244,14 +1232,14 @@ msgstr "Ошибка при переносе документов и настр�
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Произошла ошибка при переносе данных. Подробности можно найти в "
-"/var/log/syslog. Установка будет продолжена, но некоторые или все документы "
-"и настройки, не могут быть перенесены в устанавливаемую систему."
+"Произошла ошибка при переносе данных. Подробности можно найти в /var/log/"
+"syslog. Установка будет продолжена, но некоторые или все документы и "
+"настройки, не могут быть перенесены в устанавливаемую систему."
 
 #. Type: error
 #. Description
@@ -1315,8 +1303,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Вы хотите, чтобы установщик еще раз попытался отмонтировать эти разделы?"
 
@@ -1494,12 +1481,22 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
+msgstr ""
+"Пожалуйста, выберите язык используемый для настройки системы. Этот язык "
+"будет установлен языком по умолчанию для этого компьютера."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr "Продолжить установку."
 
 #~ msgid ""
-#~ "Please choose the language used for the installation process. This language "
-#~ "will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This "
+#~ "language will be the default language for the final system."
 #~ msgstr ""
 #~ "Пожалуйста, выберите язык для процесса установки. Этот же язык будет "
 #~ "задействован в системе в качестве основного языка."
@@ -1540,21 +1537,22 @@ msgstr "Продолжить установку."
 #~ msgstr "Основной бэкэнд/фронтэнд"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people wanting "
-#~ "MythTV for HTPC applications. This type of installation is intended for use "
-#~ "as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people "
+#~ "wanting MythTV for HTPC applications. This type of installation is "
+#~ "intended for use as a component in your home theatre."
 #~ msgstr ""
-#~ "Комбинированная бэкэнд/фронтэнд-машина - это обычный тип установки для тех, "
-#~ "кто хочет использовать MythTV для HTPC-приложений. Этот тип установки "
-#~ "предназначен для использования в качестве компонента вашего домашнего "
-#~ "кинотеатра."
+#~ "Комбинированная бэкэнд/фронтэнд-машина - это обычный тип установки для "
+#~ "тех, кто хочет использовать MythTV для HTPC-приложений. Этот тип "
+#~ "установки предназначен для использования в качестве компонента вашего "
+#~ "домашнего кинотеатра."
 
 #~ msgid "Secondary Backend w/ Frontend"
 #~ msgstr "Дополнительный бэкэнд/фронтэнд"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
-#~ "will be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
+#~ "however will be configured to connect to an existing backend on the "
+#~ "network."
 #~ msgstr ""
 #~ "Это настроит систему, похожую на Первичный Внутренний Интерфейс / "
 #~ "Графический Интерфейс. Тем не менее, будет настроено подключение к уже "
@@ -1564,9 +1562,9 @@ msgstr "Продолжить установку."
 #~ msgstr "Первичный Внутренний Интерфейс"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an appliance; "
-#~ "requiring very little maintenance.  This is intended to be installed as the "
-#~ "first backend on a network."
+#~ "A backend only machine is typically designed to function like an "
+#~ "appliance; requiring very little maintenance.  This is intended to be "
+#~ "installed as the first backend on a network."
 #~ msgstr ""
 #~ "Компьютер без интерфейса пользователя (бэкэнд) обычно используется как "
 #~ "законченное устройство, не требующее особой поддержки. Эта машина будет "
@@ -1576,8 +1574,8 @@ msgstr "Продолжить установку."
 #~ msgstr "Вторичный Внутренний Интерфейс"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will be "
-#~ "configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will "
+#~ "be configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "Это настроит систему, схожую с Первичным интерфейсом. Тем не менее, будет "
 #~ "настроено подключение к уже существующему внутреннему интерфейсу в сети."
@@ -1586,27 +1584,27 @@ msgstr "Продолжить установку."
 #~ msgstr "Графический Интерфейс"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from the "
-#~ "backend and distribute it.  This configuration requires an existing backend "
-#~ "on the network."
+#~ "A frontend only machine's main function is to receive media content from "
+#~ "the backend and distribute it.  This configuration requires an existing "
+#~ "backend on the network."
 #~ msgstr ""
 #~ "Основное предназначение компьютера только с графической оболочкой - "
-#~ "принимать мультимедийное содержимое и распространять его. Эта конфигурация "
-#~ "нуждается в существующем внутреннем интерфейсе в сети."
+#~ "принимать мультимедийное содержимое и распространять его. Эта "
+#~ "конфигурация нуждается в существующем внутреннем интерфейсе в сети."
 
 #~ msgid "Graphics Drivers"
 #~ msgstr "Видеодрайверы"
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you can "
-#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
-#~ "Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you "
+#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
+#~ "for TV Output or OpenGL effects."
 #~ msgstr ""
-#~ "Открытый видеодрайвер уже задействован и настроен для вашей установки. Если "
-#~ "вы желаете, то можете использовать другой видеодрайвер. Обратите внимание, "
-#~ "что проприетарные видеодрайверы могут быть необходимы для вывода TV или "
-#~ "других эффектов OpenGL."
+#~ "Открытый видеодрайвер уже задействован и настроен для вашей установки. "
+#~ "Если вы желаете, то можете использовать другой видеодрайвер. Обратите "
+#~ "внимание, что проприетарные видеодрайверы могут быть необходимы для "
+#~ "вывода TV или других эффектов OpenGL."
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
 #~ msgstr "Если вы желаете настроить TV-вывод, выберите опцию здесь:"
@@ -1633,8 +1631,8 @@ msgstr "Продолжить установку."
 #~ msgstr "Настройка управляющих данных бэкэнда"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data and "
-#~ "configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data "
+#~ "and configuring the backend for the first time."
 #~ msgstr ""
 #~ "В конце установки вам потребуется задать управляющие данные и выполнить "
 #~ "первичную настройку бэкэнда."
@@ -1643,9 +1641,9 @@ msgstr "Продолжить установку."
 #~ msgstr "Нажмите для открытия веб-сайта Schedules Direct"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules Direct "
-#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
-#~ "users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules "
+#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
+#~ "North American users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
 #~ "Пользователям в Северной Америке необходимо настроить учётную запись "
 #~ "Schedules Direct (SD). SD предоставляет управляющие данные по номинальной "
@@ -1657,14 +1655,14 @@ msgstr "Продолжить установку."
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need to "
-#~ "configure the first four sections, being sure to provide your guide data "
-#~ "during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need "
+#~ "to configure the first four sections, being sure to provide your guide "
+#~ "data during the third."
 #~ msgstr ""
-#~ "После настройки источника ключевых данных, вам потребуется запустить MythTV-"
-#~ "Setup, чтобы выполнить первичную конфигурацию бэкэнд-устройства. Вам "
-#~ "предстоит настроить первые четыре секции и убедиться, что вы предоставили "
-#~ "ключевые данные в третьей."
+#~ "После настройки источника ключевых данных, вам потребуется запустить "
+#~ "MythTV-Setup, чтобы выполнить первичную конфигурацию бэкэнд-устройства. "
+#~ "Вам предстоит настроить первые четыре секции и убедиться, что вы "
+#~ "предоставили ключевые данные в третьей."
 
 #~ msgid "Configuring mythtv..."
 #~ msgstr "Настройка mythtv..."
@@ -1689,11 +1687,12 @@ msgstr "Продолжить установку."
 #~ msgstr "Пояс:"
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing errors. "
-#~ "A good password will contain a mixture of letters, numbers and punctuation, "
-#~ "should be at least eight characters long, and should be changed at regular "
-#~ "intervals."
+#~ "Enter the same password twice, so that it can be checked for typing "
+#~ "errors. A good password will contain a mixture of letters, numbers and "
+#~ "punctuation, should be at least eight characters long, and should be "
+#~ "changed at regular intervals."
 #~ msgstr ""
-#~ "Введите пароль дважды  (для обнаружения возможной ошибки ввода). Безопасный "
-#~ "пароль должен иметь не менее восьми символов и содержать буквы, цифры и "
-#~ "знаки пунктуации. Кроме этого, пароль должен периодически меняться."
+#~ "Введите пароль дважды  (для обнаружения возможной ошибки ввода). "
+#~ "Безопасный пароль должен иметь не менее восьми символов и содержать "
+#~ "буквы, цифры и знаки пунктуации. Кроме этого, пароль должен периодически "
+#~ "меняться."

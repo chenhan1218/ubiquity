@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-24 23:25+0000\n"
+"POT-Creation-Date: 2010-04-07 11:44+0100\n"
 "PO-Revision-Date: 2010-03-29 09:34+0000\n"
 "Last-Translator: zerng07 <Unknown>\n"
-"Language-Team: Debian-user in Chinese [Big5] <debian-chinese-"
-"big5@lists.debian.org>\n"
+"Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
+"debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -65,37 +65,17 @@ msgstr "歡迎"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr "您只要回答一些問題，這台電腦很快就可以準備就緒。"
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001 ../ubiquity.templates:16001
-msgid "Answering the questions should only take a few minutes."
-msgstr "回答這些問題應該只需要花上幾分鐘。"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001
-msgid ""
-"Please choose the language used for the configuration process. This language "
-"will be the default language for this computer."
-msgstr "請選擇在設定程序中要使用的語言。這個語言將成為這台電腦的預設語言。"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:11001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
-msgstr "您正以系統製造商模式安裝。請為這批系統輸入一個特定名稱。此名稱將會儲存在安裝完成的系統上，並可用來協助錯誤回報。"
+msgstr ""
+"您正以系統製造商模式安裝。請為這批系統輸入一個特定名稱。此名稱將會儲存在安裝"
+"完成的系統上，並可用來協助錯誤回報。"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:11001
 msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
@@ -103,26 +83,38 @@ msgstr "您可從本 ${MEDIUM} 嘗試 ${RELEASE} 來避免對您的系統做出�
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
 msgstr "試用 ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
 msgstr "安裝 ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
+#: ../ubiquity.templates:14001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
-"準備好要安裝了嗎？只要您回答一些問題，這個 live ${MEDIUM} 的內容就能安裝到這台電腦上，這樣您就能全速執行 ${RELEASE} "
-"而不需用到 ${MEDIUM}。"
+"準備好要安裝了嗎？只要您回答一些問題，這個 live ${MEDIUM} 的內容就能安裝到這"
+"台電腦上，這樣您就能全速執行 ${RELEASE} 而不需用到 ${MEDIUM}。"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:15001
+msgid "Once you answer a few questions, this computer will be ready to use."
+msgstr "您只要回答一些問題，這台電腦很快就可以準備就緒。"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "Answering the questions should only take a few minutes."
+msgstr "回答這些問題應該只需要花上幾分鐘。"
 
 #. Type: text
 #. Description
@@ -131,7 +123,8 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"您可能希望閱讀<a href=\"release-notes\">發行備註</a>或是<a href=\"update\">更新本安裝程式</a>。"
+"您可能希望閱讀<a href=\"release-notes\">發行備註</a>或是<a href=\"update\">更"
+"新本安裝程式</a>。"
 
 #. Type: text
 #. Description
@@ -153,8 +146,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2010."
 msgstr ""
-"這是 ${RELEASE} live ${MEDIUM} 安裝程式的發行前版本。它不是最終的發行版本；${RELEASE} 的最終發行版會於 2010 "
-"年 4 月發布。"
+"這是 ${RELEASE} live ${MEDIUM} 安裝程式的發行前版本。它不是最終的發行版本；"
+"${RELEASE} 的最終發行版會於 2010 年 4 月發布。"
 
 #. Type: text
 #. Description
@@ -163,7 +156,9 @@ msgid ""
 "The installation process may resize or erase partitions on your hard disk. "
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
-msgstr "這個安裝程序可能會重新調整您硬碟上的分割區大小，或是消除分割區。請確定在執行本程式之前，<b>已經對任何重要資料製作完整備份</b>。"
+msgstr ""
+"這個安裝程序可能會重新調整您硬碟上的分割區大小，或是消除分割區。請確定在執行"
+"本程式之前，<b>已經對任何重要資料製作完整備份</b>。"
 
 #. Type: text
 #. Description
@@ -178,7 +173,9 @@ msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
-msgstr "請選擇您的位置，如此一來系統可以使用適合您的國家的顯示方式、從離您較近的網站取得更新，還有將時鐘設定為正確的當地時刻。"
+msgstr ""
+"請選擇您的位置，如此一來系統可以使用適合您的國家的顯示方式、從離您較近的網站"
+"取得更新，還有將時鐘設定為正確的當地時刻。"
 
 #. Type: text
 #. Description
@@ -611,17 +608,19 @@ msgstr "安裝程式當掉"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
-"很抱歉，安裝程式發生錯誤。請傳送一份錯誤回報到 "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug\r\n"
-"（請不要附加細節到任何已知的錯誤內），開發人員將會盡快處理這個問題。為了幫助開發人員瞭解何處發生問題，\r\n"
-"請附加下面的細節到你的錯誤回報中，並且附加以下檔案：/var/log/syslog 和 /var/log/partman。"
+"很抱歉，安裝程式發生錯誤。請傳送一份錯誤回報到 https://launchpad.net/ubuntu/"
+"+source/ubiquity/+filebug\r\n"
+"（請不要附加細節到任何已知的錯誤內），開發人員將會盡快處理這個問題。為了幫助"
+"開發人員瞭解何處發生問題，\r\n"
+"請附加下面的細節到你的錯誤回報中，並且附加以下檔案：/var/log/syslog 和 /var/"
+"log/partman。"
 
 #. Type: text
 #. Description
@@ -843,7 +842,9 @@ msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
-msgstr "安裝已完成。您現在可以繼續試用 Ubuntu，但是您做的任何變更或儲存的文件都不會保留直到重新啟動電腦。"
+msgstr ""
+"安裝已完成。您現在可以繼續試用 Ubuntu，但是您做的任何變更或儲存的文件都不會保"
+"留直到重新啟動電腦。"
 
 #. Type: text
 #. Description
@@ -959,7 +960,9 @@ msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
-msgstr "這是因為硬碟空間不足以完成到目標硬碟分區的安裝。請重新啟動安裝程式並選擇更大的硬碟分區安裝。"
+msgstr ""
+"這是因為硬碟空間不足以完成到目標硬碟分區的安裝。請重新啟動安裝程式並選擇更大"
+"的硬碟分區安裝。"
 
 #. Type: error
 #. Description
@@ -969,8 +972,9 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"這是多數因為 CD/DVD 光碟或光碟機有問題。清理 CD/DVD、以低速度燒錄 CD/DVD，或是清理 CD/DVD "
-"光碟機的雷射針頭（通常電子產品供應商會提供清潔組）可能解決此問題。"
+"這是多數因為 CD/DVD 光碟或光碟機有問題。清理 CD/DVD、以低速度燒錄 CD/DVD，或"
+"是清理 CD/DVD 光碟機的雷射針頭（通常電子產品供應商會提供清潔組）可能解決此問"
+"題。"
 
 #. Type: error
 #. Description
@@ -979,7 +983,9 @@ msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
-msgstr "這多數是因為硬碟有問題。檢查硬碟是否太舊而需要更換，或是將系統移至更涼快的環境可能解決此問題。"
+msgstr ""
+"這多數是因為硬碟有問題。檢查硬碟是否太舊而需要更換，或是將系統移至更涼快的環"
+"境可能解決此問題。"
 
 #. Type: error
 #. Description
@@ -997,8 +1003,9 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"這是多數因為 CD/DVD 光碟、光碟機，或是硬碟有問題。清理 CD/DVD、以低速度燒錄 CD/DVD、是清理 CD/DVD "
-"光碟機的雷射針頭（通常電子產品供應商會提供清潔組）、檢查硬碟是否太舊而需要更換，或是將系統移動到更涼快的環境可能解決此問題。"
+"這是多數因為 CD/DVD 光碟、光碟機，或是硬碟有問題。清理 CD/DVD、以低速度燒錄 "
+"CD/DVD、是清理 CD/DVD 光碟機的雷射針頭（通常電子產品供應商會提供清潔組）、檢"
+"查硬碟是否太舊而需要更換，或是將系統移動到更涼快的環境可能解決此問題。"
 
 #. Type: select
 #. Description
@@ -1159,16 +1166,17 @@ msgstr "下列套件處於損毀狀態："
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
-"這問題可能由於使用了舊的安裝程式映像檔，或者是因為上列部份軟體有臭蟲，更多的細節可以在 /var/log/syslog "
-"中找到。安裝程式將會試著繼續執行，但是安裝有可能會再次失敗，而且可能會無法在系統中安裝或移除其他的套件（可能包含安裝程式本身）。您必須找尋較新版本的安裝程"
-"式映像檔，或者回報問題給您的發行版提供者。"
+"這問題可能由於使用了舊的安裝程式映像檔，或者是因為上列部份軟體有臭蟲，更多的"
+"細節可以在 /var/log/syslog 中找到。安裝程式將會試著繼續執行，但是安裝有可能會"
+"再次失敗，而且可能會無法在系統中安裝或移除其他的套件（可能包含安裝程式本"
+"身）。您必須找尋較新版本的安裝程式映像檔，或者回報問題給您的發行版提供者。"
 
 #. Type: error
 #. Description
@@ -1192,13 +1200,13 @@ msgstr "轉移檔案和設定值時發生錯誤"
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"轉移資料時發生錯誤。您可以在 /var/log/syslog "
-"找到更多詳細資訊。安裝將會繼續，但是一些或所有您請求的文件與設定值可能不會被轉移到安裝的系統內。"
+"轉移資料時發生錯誤。您可以在 /var/log/syslog 找到更多詳細資訊。安裝將會繼續，"
+"但是一些或所有您請求的文件與設定值可能不會被轉移到安裝的系統內。"
 
 #. Type: error
 #. Description
@@ -1213,7 +1221,9 @@ msgid ""
 "An error occurred while copying the network settings.  The installation will "
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
-msgstr "在複製網路設定的時候發生錯誤。安裝將會繼續，但是網路設定必須要在安裝好的系統內再次設定。"
+msgstr ""
+"在複製網路設定的時候發生錯誤。安裝將會繼續，但是網路設定必須要在安裝好的系統"
+"內再次設定。"
 
 #. Type: text
 #. Description
@@ -1256,8 +1266,7 @@ msgstr "請關閉所有使用這些掛載點的程式。"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "您想要讓安裝程式再次嘗試卸載這些分割區嗎？"
 
 #. Type: boolean
@@ -1429,13 +1438,23 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
+msgstr "請選擇在設定程序中要使用的語言。這個語言將成為這台電腦的預設語言。"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr "繼續安裝。"
 
 #~ msgid ""
-#~ "Please choose the language used for the installation process. This language "
-#~ "will be the default language for the final system."
-#~ msgstr "請選擇安裝時所要使用的語言。 您在此選定的語言將會是本系統安裝完成時的預設語言。"
+#~ "Please choose the language used for the installation process. This "
+#~ "language will be the default language for the final system."
+#~ msgstr ""
+#~ "請選擇安裝時所要使用的語言。 您在此選定的語言將會是本系統安裝完成時的預設"
+#~ "語言。"
 
 #~ msgid ""
 #~ " Install Type: ${INSTALLTYPE}\n"
@@ -1470,56 +1489,65 @@ msgstr "繼續安裝。"
 #~ msgstr "主要的前端與後端"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people wanting "
-#~ "MythTV for HTPC applications. This type of installation is intended for use "
-#~ "as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people "
+#~ "wanting MythTV for HTPC applications. This type of installation is "
+#~ "intended for use as a component in your home theatre."
 #~ msgstr ""
-#~ "前後端介面整合的機器是大眾所期待的 MythTV HTPC 應用軟體中，最受歡迎的一種安裝方式。這種安裝類型是為了讓您的機器成為家庭劇院的一分子。"
+#~ "前後端介面整合的機器是大眾所期待的 MythTV HTPC 應用軟體中，最受歡迎的一種"
+#~ "安裝方式。這種安裝類型是為了讓您的機器成為家庭劇院的一分子。"
 
 #~ msgid "Secondary Backend w/ Frontend"
 #~ msgstr "次要的前端和後端"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
-#~ "will be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
+#~ "however will be configured to connect to an existing backend on the "
+#~ "network."
 #~ msgstr "與處理前端和終端的系統設定，但是將連接到現有的後端以進行配置。"
 
 #~ msgid "Primary Backend"
 #~ msgstr "主要後端"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an appliance; "
-#~ "requiring very little maintenance.  This is intended to be installed as the "
-#~ "first backend on a network."
-#~ msgstr "只有後端的機器就像家電（冰箱、電風扇）一般運作；需要很少的維護。這將安裝網路上第一個後端。"
+#~ "A backend only machine is typically designed to function like an "
+#~ "appliance; requiring very little maintenance.  This is intended to be "
+#~ "installed as the first backend on a network."
+#~ msgstr ""
+#~ "只有後端的機器就像家電（冰箱、電風扇）一般運作；需要很少的維護。這將安裝網"
+#~ "路上第一個後端。"
 
 #~ msgid "Secondary Backend"
 #~ msgstr "次要後端"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will be "
-#~ "configured to connect to an existing backend on the network."
-#~ msgstr "這將設定一個類似主要後端程式的系統，然而它將被設定連接到網路上已存在的後端程式。"
+#~ "This will set up a system similar to a Primary Backend, however it will "
+#~ "be configured to connect to an existing backend on the network."
+#~ msgstr ""
+#~ "這將設定一個類似主要後端程式的系統，然而它將被設定連接到網路上已存在的後端"
+#~ "程式。"
 
 #~ msgid "Frontend"
 #~ msgstr "前端程式"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from the "
-#~ "backend and distribute it.  This configuration requires an existing backend "
-#~ "on the network."
-#~ msgstr "一個只有前端程式的機器，其主要功能是接收後端程式的媒體內容並將之散佈出去。這個設定需要網路上已存在後端程式。"
+#~ "A frontend only machine's main function is to receive media content from "
+#~ "the backend and distribute it.  This configuration requires an existing "
+#~ "backend on the network."
+#~ msgstr ""
+#~ "一個只有前端程式的機器，其主要功能是接收後端程式的媒體內容並將之散佈出去。"
+#~ "這個設定需要網路上已存在後端程式。"
 
 #~ msgid "Graphics Drivers"
 #~ msgstr "顯示卡驅動程式"
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you can "
-#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
-#~ "Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you "
+#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
+#~ "for TV Output or OpenGL effects."
 #~ msgstr ""
-#~ "一個開放原始碼的顯示卡驅動程式已經啟用並在安裝過程中設定完成。如果您想要使用不同的顯示卡驅動程式，您可以在此完成變更。請注意輸出到電視的功能或 "
+#~ "一個開放原始碼的顯示卡驅動程式已經啟用並在安裝過程中設定完成。如果您想要使"
+#~ "用不同的顯示卡驅動程式，您可以在此完成變更。請注意輸出到電視的功能或 "
 #~ "OpenGL 特效可能需要專有的顯示卡驅動程式。"
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
@@ -1545,32 +1573,33 @@ msgstr "繼續安裝。"
 #~ msgstr "設定引導資料/後端程式"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data and "
-#~ "configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data "
+#~ "and configuring the backend for the first time."
 #~ msgstr "安裝的最後步驟需要設定您的引導數據並第一次設定後端程式。"
 
 #~ msgid "Click to open the Schedules Direct website"
 #~ msgstr "點擊以開啟網站控制表"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules Direct "
-#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
-#~ "users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules "
+#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
+#~ "North American users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
-#~ "位於北美洲的使用者需要建立 Schedule Direct (SD) 的使用帳號. 只需些許費用，SD 會提供導覽資料。若沒有SD "
-#~ "帳號，北美洲的使用者可能無法使用 MythTV 提供的許多排程功能！"
+#~ "位於北美洲的使用者需要建立 Schedule Direct (SD) 的使用帳號. 只需些許費用，"
+#~ "SD 會提供導覽資料。若沒有SD 帳號，北美洲的使用者可能無法使用 MythTV 提供的"
+#~ "許多排程功能！"
 
 #~ msgid "Launch MythTV Setup"
 #~ msgstr "執行 MythTV 安裝"
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need to "
-#~ "configure the first four sections, being sure to provide your guide data "
-#~ "during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need "
+#~ "to configure the first four sections, being sure to provide your guide "
+#~ "data during the third."
 #~ msgstr ""
-#~ "設定完您的導引資料來源後，您需要啟動 MythTV 安裝程式以執行第一次的背景設定。您需要設定最開始的四個選項, "
-#~ "請確定您在第三個選項中提供了您的導引資料。"
+#~ "設定完您的導引資料來源後，您需要啟動 MythTV 安裝程式以執行第一次的背景設"
+#~ "定。您需要設定最開始的四個選項, 請確定您在第三個選項中提供了您的導引資料。"
 
 #~ msgid "Configuring mythtv..."
 #~ msgstr "正在設定 MythTV..."
@@ -1590,14 +1619,17 @@ msgstr "繼續安裝。"
 #~ msgid ""
 #~ "If you have Internet access, read the release notes for information on "
 #~ "problems that may affect you."
-#~ msgstr "如果您有網路連線，請閱讀發行註記以取得可能會影響到您電腦的相關資訊。"
+#~ msgstr ""
+#~ "如果您有網路連線，請閱讀發行註記以取得可能會影響到您電腦的相關資訊。"
 
 #~ msgid "Configuring infrared devices..."
 #~ msgstr "正在設定紅外線裝置..."
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing errors. "
-#~ "A good password will contain a mixture of letters, numbers and punctuation, "
-#~ "should be at least eight characters long, and should be changed at regular "
-#~ "intervals."
-#~ msgstr "請輸入相同的密碼兩次，以便檢查是否有輸入錯誤。一個良好的密碼會混有字母、數字、標點符號，應至少為８個字母長，並且定期變更。"
+#~ "Enter the same password twice, so that it can be checked for typing "
+#~ "errors. A good password will contain a mixture of letters, numbers and "
+#~ "punctuation, should be at least eight characters long, and should be "
+#~ "changed at regular intervals."
+#~ msgstr ""
+#~ "請輸入相同的密碼兩次，以便檢查是否有輸入錯誤。一個良好的密碼會混有字母、數"
+#~ "字、標點符號，應至少為８個字母長，並且定期變更。"

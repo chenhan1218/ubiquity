@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-24 23:25+0000\n"
+"POT-Creation-Date: 2010-04-07 11:44+0100\n"
 "PO-Revision-Date: 2010-03-28 19:29+0000\n"
 "Last-Translator: Marius Gedminas <marius@pov.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
@@ -66,30 +66,6 @@ msgstr "Sveiki!"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr "Kompiuteris bus paruoštas darbui kai atsakysite į keletą klausimų."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001 ../ubiquity.templates:16001
-msgid "Answering the questions should only take a few minutes."
-msgstr "Atsakymai į šiuos klausimus turėtų užtrukti tik keletą minučių."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001
-msgid ""
-"Please choose the language used for the configuration process. This language "
-"will be the default language for this computer."
-msgstr ""
-"Prašome pasirinkti kalbą, kuri bus naudojama konfigūravimo metu. Ši kalba "
-"bus numatytoji kalba šiame kompiuteryje."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:11001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
@@ -101,7 +77,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:11001
 msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
@@ -111,19 +87,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
 msgstr "Išbandyti ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
 msgstr "Įdiegti ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
+#: ../ubiquity.templates:14001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
@@ -132,6 +108,18 @@ msgstr ""
 "Pasiruošę diegimui?  Atsakykite į kelis klausimus ir ${MEDIUM} turinys bus "
 "įdiegtas į šį kompiuterį, kad galėtumėte naudoti ${RELEASE} pilnu greičiu be "
 "${MEDIUM}."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:15001
+msgid "Once you answer a few questions, this computer will be ready to use."
+msgstr "Kompiuteris bus paruoštas darbui kai atsakysite į keletą klausimų."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "Answering the questions should only take a few minutes."
+msgstr "Atsakymai į šiuos klausimus turėtų užtrukti tik keletą minučių."
 
 #. Type: text
 #. Description
@@ -148,8 +136,8 @@ msgstr ""
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Jei norite, galite perskaityti  <a href=\"release-notes\">laidos "
-"apžvalgą</a>."
+"Jei norite, galite perskaityti  <a href=\"release-notes\">laidos apžvalgą</"
+"a>."
 
 #. Type: text
 #. Description
@@ -178,8 +166,8 @@ msgid ""
 "this program."
 msgstr ""
 "Diegimo procesas gali pakeisti kietojo disko skirsnių dydį arba juos "
-"pašalinti.  <b>Būtinai padarykite pilną vertingų duomenų atsarginę "
-"kopiją</b> prieš naudodami šią programą."
+"pašalinti.  <b>Būtinai padarykite pilną vertingų duomenų atsarginę kopiją</"
+"b> prieš naudodami šią programą."
 
 #. Type: text
 #. Description
@@ -227,8 +215,7 @@ msgstr "Kuris išdėstymas labiausiai tinka Jūsų klaviatūrai?"
 #. Description
 #: ../ubiquity.templates:28001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
-"Rašydami į šį laukelį galite išbandyti parinktą klaviatūros išdėstymą."
+msgstr "Rašydami į šį laukelį galite išbandyti parinktą klaviatūros išdėstymą."
 
 #. Type: text
 #. Description
@@ -650,20 +637,19 @@ msgstr "Diegimo programa lūžo"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Atsiprašome, tačiau diegimo programoje įvyo klaida ir ji nebegali tęsti. "
-"Užpildykite naują klaidos pranešimą "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (nerašykite komentaro "
-"prie jau esamo klaidos pranešimo) ir problema bus sprendžiama kaip galima "
-"greičiau. Kad padėtumėte suprasti, kas įvyko blogai, įtraukite žemiau rodomą "
-"informaciją į klaidos pranešimą ir prisekite failus /var/log/syslog ir "
-"/var/log/partman :"
+"Užpildykite naują klaidos pranešimą https://launchpad.net/ubuntu/+source/"
+"ubiquity/+filebug (nerašykite komentaro prie jau esamo klaidos pranešimo) ir "
+"problema bus sprendžiama kaip galima greičiau. Kad padėtumėte suprasti, kas "
+"įvyko blogai, įtraukite žemiau rodomą informaciją į klaidos pranešimą ir "
+"prisekite failus /var/log/syslog ir /var/log/partman :"
 
 #. Type: text
 #. Description
@@ -1219,12 +1205,12 @@ msgstr "Šie paketai yra sugadintoje būsenoje:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Tai gali būti dėl to, kad naudojamas senas diegimo programos 'atvaizdis', "
 "arba dėl klaidos kažkuriame iš aukščiau išvardintų programų paketų. "
@@ -1256,14 +1242,14 @@ msgstr "Klaida perkeliant dokumentus ir nuostatas"
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Įvyko klaida perkeliant duomenis. Daugiau informacijos rasite "
-"/var/log/syslog. Diegimas bus pratęstas, bet kai kurie ar visi jūsų "
-"dokumentai ir nuostatos galėjo būti neperkelti į įdiegtą sistemą."
+"Įvyko klaida perkeliant duomenis. Daugiau informacijos rasite /var/log/"
+"syslog. Diegimas bus pratęstas, bet kai kurie ar visi jūsų dokumentai ir "
+"nuostatos galėjo būti neperkelti į įdiegtą sistemą."
 
 #. Type: error
 #. Description
@@ -1328,8 +1314,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Ar jūs norite,  kad įdiegimo programa vėl pabandytų atjungti šiuos skirsnius?"
 
@@ -1506,12 +1491,22 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
+msgstr ""
+"Prašome pasirinkti kalbą, kuri bus naudojama konfigūravimo metu. Ši kalba "
+"bus numatytoji kalba šiame kompiuteryje."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr "Tęsti diegimą."
 
 #~ msgid ""
-#~ "Please choose the language used for the installation process. This language "
-#~ "will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This "
+#~ "language will be the default language for the final system."
 #~ msgstr ""
 #~ "Pasirinkite kalbą, kurią naudosite įdiegimo metu. Ši kalba bus naudojama "
 #~ "kaip numatytoji įdiegus sistemą."
@@ -1548,22 +1543,22 @@ msgstr "Tęsti diegimą."
 #~ msgstr "Paspausdami atidarysite Schedules Direct tinklalapį"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules Direct "
-#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
-#~ "users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules "
+#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
+#~ "North American users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
-#~ "Šiaurės Amerikos naudotojai turės sukurti Schedules Direct (SD) paskyrą. SD "
-#~ "teikia duomenis už nominalų mokestį. Be SD, Šiaurės Amerikos vartotojai "
-#~ "negalės naudotis didele MythTV planavimo funkcijų dalimi."
+#~ "Šiaurės Amerikos naudotojai turės sukurti Schedules Direct (SD) paskyrą. "
+#~ "SD teikia duomenis už nominalų mokestį. Be SD, Šiaurės Amerikos "
+#~ "vartotojai negalės naudotis didele MythTV planavimo funkcijų dalimi."
 
 #~ msgid "Launch MythTV Setup"
 #~ msgstr "Paleisti MythTV diegimo programą"
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing errors. "
-#~ "A good password will contain a mixture of letters, numbers and punctuation, "
-#~ "should be at least eight characters long, and should be changed at regular "
-#~ "intervals."
+#~ "Enter the same password twice, so that it can be checked for typing "
+#~ "errors. A good password will contain a mixture of letters, numbers and "
+#~ "punctuation, should be at least eight characters long, and should be "
+#~ "changed at regular intervals."
 #~ msgstr ""
 #~ "Įvesite tą patį slaptažodį dukart, kad būtų galima patikrinti dėl rašymo "
 #~ "klaidų. Saugus slaptažodis bus jei jame bus ir raidės, ir skaičiai, ir "
@@ -1616,9 +1611,9 @@ msgstr "Tęsti diegimą."
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you can "
-#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
-#~ "Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you "
+#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
+#~ "for TV Output or OpenGL effects."
 #~ msgstr ""
 #~ "Laisvos vaizdo valdyklės jau yra įjungtos ir suderintos. Jei norite "
 #~ "pasirinkti kitas vaizdo įrangos valdykles, tai galite padaryti čia. "

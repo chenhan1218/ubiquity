@@ -605,13 +605,6 @@ class Wizard(BaseFrontend):
         # set initial bottom bar status
         self.allow_go_backward(False)
         
-        # Set the install window to the (presumably dark) theme colors.
-        a = gtk.Menu().rc_get_style()
-        bg = a.bg[gtk.STATE_NORMAL]
-        fg = a.fg[gtk.STATE_NORMAL]
-        self.install_progress_window.modify_bg(gtk.STATE_NORMAL, bg)
-        self.install_progress_info.modify_fg(gtk.STATE_NORMAL, fg)
-
     def poke_screensaver(self):
         """Attempt to make sure that the screensaver doesn't kick in."""
         if os.path.exists('/usr/bin/gnome-screensaver-command'):
@@ -700,8 +693,8 @@ class Wizard(BaseFrontend):
             if name == 'step_label':
                 text = text.replace('${INDEX}', str(min(self.user_pageslen, max(1, len(self.history)))))
                 text = text.replace('${TOTAL}', str(self.user_pageslen))
-            elif name == 'welcome_text_label' and self.oem_user_config:
-                text = self.get_string('welcome_text_oem_user_label', lang)
+            elif name == 'ready_text_label' and self.oem_user_config:
+                text = self.get_string('ready_text_oem_user_label', lang)
             widget.set_markup(text)
 
             # Ideally, these attributes would be in the ui file (and can be if
@@ -823,6 +816,14 @@ class Wizard(BaseFrontend):
     def add_history(self, page, widget):
         history_entry = (page, widget)
         if self.history:
+            # We may have skipped past child pages of the component.  Remove
+            # the history between the page we're on and the end of the list in
+            # that case.
+            if history_entry in self.history:
+                idx = self.history.index(history_entry)
+                if idx + 1 < len(self.history):
+                    self.history = self.history[:idx+1]
+                    return # The page is now effectively a dup
             # We may have either jumped backward or forward over pages.
             # Correct history in that case
             new_index = self.pages.index(page)
@@ -935,6 +936,14 @@ class Wizard(BaseFrontend):
             self.progress_cancel_button = self.install_progress_cancel_button
             self.progress_cancel_button.set_label(
                 self.old_progress_cancel_button.get_label())
+            
+            # Set the install window to the (presumably dark) theme colors.
+            a = gtk.Menu().rc_get_style()
+            bg = a.bg[gtk.STATE_NORMAL]
+            fg = a.fg[gtk.STATE_NORMAL]
+            self.install_progress_window.modify_bg(gtk.STATE_NORMAL, bg)
+            self.install_progress_info.modify_fg(gtk.STATE_NORMAL, fg)
+
         else:
             self.debconf_progress_window = self.old_progress_window
             self.progress_info = self.old_progress_info

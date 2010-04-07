@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-24 23:25+0000\n"
+"POT-Creation-Date: 2010-04-07 11:44+0100\n"
 "PO-Revision-Date: 2010-03-25 08:52+0000\n"
 "Last-Translator: Ricardo Pérez López <ricpelo@gmail.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -65,31 +65,6 @@ msgstr "Bienvenido/a"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
-"Una vez haya respondido unas preguntas, este equipo estará listo para usarse."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001 ../ubiquity.templates:16001
-msgid "Answering the questions should only take a few minutes."
-msgstr "Sólo le llevará algunos minutos responder a las preguntas."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001
-msgid ""
-"Please choose the language used for the configuration process. This language "
-"will be the default language for this computer."
-msgstr ""
-"Elija el idioma a usar en el proceso de configuración. Este idioma será el "
-"predeterminado para este equipo."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:11001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
@@ -101,7 +76,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:11001
 msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
@@ -111,19 +86,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
 msgstr "Probar ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
 msgstr "Instalar ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
+#: ../ubiquity.templates:14001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
@@ -132,6 +107,19 @@ msgstr ""
 "¿Está listo para instalar? Una vez que haya contestado a algunas preguntas, "
 "podrá instalar en este equipo el contenido de este live ${MEDIUM} para que "
 "pueda usar ${RELEASE} a la máxima velocidad sin necesitar el ${MEDIUM}."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:15001
+msgid "Once you answer a few questions, this computer will be ready to use."
+msgstr ""
+"Una vez haya respondido unas preguntas, este equipo estará listo para usarse."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "Answering the questions should only take a few minutes."
+msgstr "Sólo le llevará algunos minutos responder a las preguntas."
 
 #. Type: text
 #. Description
@@ -347,8 +335,7 @@ msgstr "Repita su contraseña"
 #. Description
 #: ../ubiquity.templates:47001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
-"Está funcionando en modo de depuración. No use una contraseña valiosa."
+msgstr "Está funcionando en modo de depuración. No use una contraseña valiosa."
 
 #. Type: text
 #. Description
@@ -577,8 +564,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:80001
 msgid "Choose a different device to install the bootloader on:"
-msgstr ""
-"Elija un dispositivo diferente para instalar el gestor de arranque en:"
+msgstr "Elija un dispositivo diferente para instalar el gestor de arranque en:"
 
 #. Type: text
 #. Description
@@ -649,20 +635,20 @@ msgstr "El instalador ha fallado"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Lo sentimos; el instalador ha fallado. Por favor, envíe un nuevo informe de "
 "fallo en https://launchpad.net/ubuntu/+source/ubiquity/+filebug (no adjunte "
 "sus detalles a ningún informe de fallo existente) y un desarrollador "
 "atenderá su problema tan pronto como le sea posible. Para ayudar a los "
 "desarrolladores a entender qué ha podido ir mal, incluya los siguientes "
-"detalles en su informe de fallo, y adjunte los archivos /var/log/syslog y "
-"/var/log/partman:"
+"detalles en su informe de fallo, y adjunte los archivos /var/log/syslog y /"
+"var/log/partman:"
 
 #. Type: text
 #. Description
@@ -996,8 +982,7 @@ msgstr "Falló la instalación"
 #: ../ubiquity.templates:138001 ../ubiquity.templates:139001
 #: ../ubiquity.templates:140001 ../ubiquity.templates:141001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
-"El instalador encontró un error al copiar los archivos al disco duro:"
+msgstr "El instalador encontró un error al copiar los archivos al disco duro:"
 
 #. Type: error
 #. Description
@@ -1019,10 +1004,9 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Esto se debe a un CD/DVD o unidad defectuosa. Podría ayudar limpiar el "
-"CD/DVD, grabar el CD/DVD a una velocidad menor, o limpiar la lente de la "
-"unidad de CD/DVD (en tiendas de electrónica puede encontrar sistemas  de "
-"limpieza)."
+"Esto se debe a un CD/DVD o unidad defectuosa. Podría ayudar limpiar el CD/"
+"DVD, grabar el CD/DVD a una velocidad menor, o limpiar la lente de la unidad "
+"de CD/DVD (en tiendas de electrónica puede encontrar sistemas  de limpieza)."
 
 #. Type: error
 #. Description
@@ -1063,8 +1047,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:142001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
-"El siguiente archivo no coincide con su copia de origen en el CD/DVD:"
+msgstr "El siguiente archivo no coincide con su copia de origen en el CD/DVD:"
 
 #. Type: text
 #. Description
@@ -1219,12 +1202,12 @@ msgstr "Los siguientes paquetes están dañados:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Esto puede deberse a que se está usando una imagen antigua del instalador, o "
 "a un error en algunos de los paquetes listados a continuación. Puede "
@@ -1256,8 +1239,8 @@ msgstr "Error migrando documentos y configuraciones"
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1330,10 +1313,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
-msgstr ""
-"¿Desea que el instalador intente desmontar de nuevo estas particiones?"
+msgid "Would you like the installer to try to unmount these partitions again?"
+msgstr "¿Desea que el instalador intente desmontar de nuevo estas particiones?"
 
 #. Type: boolean
 #. Description
@@ -1508,12 +1489,22 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
+msgstr ""
+"Elija el idioma a usar en el proceso de configuración. Este idioma será el "
+"predeterminado para este equipo."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr "Continuar con la instalación."
 
 #~ msgid ""
-#~ "Please choose the language used for the installation process. This language "
-#~ "will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This "
+#~ "language will be the default language for the final system."
 #~ msgstr ""
 #~ "Por favor, seleccione el idioma a usar durante el proceso de instalación. "
 #~ "Ese idioma será el idioma predeterminado en el sistema final."
@@ -1561,42 +1552,44 @@ msgstr "Continuar con la instalación."
 #~ msgstr "Backend primario con interfaz"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people wanting "
-#~ "MythTV for HTPC applications. This type of installation is intended for use "
-#~ "as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people "
+#~ "wanting MythTV for HTPC applications. This type of installation is "
+#~ "intended for use as a component in your home theatre."
 #~ msgstr ""
-#~ "La configuración más común para aquellos que quieran usar aplicaciones HTPC "
-#~ "en MythTV es la de backend/interfaz. Este tipo de instalación está diseñado "
-#~ "para ser utilizado como un componente en su teatro en casa."
+#~ "La configuración más común para aquellos que quieran usar aplicaciones "
+#~ "HTPC en MythTV es la de backend/interfaz. Este tipo de instalación está "
+#~ "diseñado para ser utilizado como un componente en su teatro en casa."
 
 #~ msgid "Secondary Backend w/ Frontend"
 #~ msgstr "Backend secundario con interfaz"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
-#~ "will be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
+#~ "however will be configured to connect to an existing backend on the "
+#~ "network."
 #~ msgstr ""
-#~ "Con esto configurará un sistema similar a un backend primario con interfaz, "
-#~ "pero se configurará para conectarse a un backend existente en la red."
+#~ "Con esto configurará un sistema similar a un backend primario con "
+#~ "interfaz, pero se configurará para conectarse a un backend existente en "
+#~ "la red."
 
 #~ msgid "Primary Backend"
 #~ msgstr "Backend primario"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an appliance; "
-#~ "requiring very little maintenance.  This is intended to be installed as the "
-#~ "first backend on a network."
+#~ "A backend only machine is typically designed to function like an "
+#~ "appliance; requiring very little maintenance.  This is intended to be "
+#~ "installed as the first backend on a network."
 #~ msgstr ""
 #~ "Una máquina que sólo es backend normalmente está diseñada para funcionar "
-#~ "necesitando muy poco mantenimiento. Esto está diseñado para ser instalalado "
-#~ "como primer backend de una red."
+#~ "necesitando muy poco mantenimiento. Esto está diseñado para ser "
+#~ "instalalado como primer backend de una red."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "Backend secundario"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will be "
-#~ "configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will "
+#~ "be configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "Con esto configurará un sistema similar a un backend primario, pero se "
 #~ "configurará para conectarse a un backend existente en la red."
@@ -1605,9 +1598,9 @@ msgstr "Continuar con la instalación."
 #~ msgstr "Interfaz"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from the "
-#~ "backend and distribute it.  This configuration requires an existing backend "
-#~ "on the network."
+#~ "A frontend only machine's main function is to receive media content from "
+#~ "the backend and distribute it.  This configuration requires an existing "
+#~ "backend on the network."
 #~ msgstr ""
 #~ "La función principal de una máquina que sólo es interfaz es recibir "
 #~ "contenido multimedia del backend, y distribuirlo. Esta configuración "
@@ -1618,9 +1611,9 @@ msgstr "Continuar con la instalación."
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you can "
-#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
-#~ "Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you "
+#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
+#~ "for TV Output or OpenGL effects."
 #~ msgstr ""
 #~ "Su instalación ya tiene habilitado un controlador gráfico libre. Si desea "
 #~ "usar un controlador gráfico distinto, puede hacerlo aquí. Tenga en cuenta "
@@ -1640,8 +1633,8 @@ msgstr "Continuar con la instalación."
 #~ msgid ""
 #~ "Please enter the information necessary to contact your master backend:"
 #~ msgstr ""
-#~ "Por favor, introduzca la información necesaria para contactar con su backend "
-#~ "maestro:"
+#~ "Por favor, introduzca la información necesaria para contactar con su "
+#~ "backend maestro:"
 
 #~ msgid "MySQL Database"
 #~ msgstr "Base de datos MySQL"
@@ -1653,19 +1646,19 @@ msgstr "Continuar con la instalación."
 #~ msgstr "Configurar datos de guía / backend"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data and "
-#~ "configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data "
+#~ "and configuring the backend for the first time."
 #~ msgstr ""
-#~ "Los pasos finales de la instalación requieren configurar sus datos de guía, "
-#~ "así como el backend por primera vez."
+#~ "Los pasos finales de la instalación requieren configurar sus datos de "
+#~ "guía, así como el backend por primera vez."
 
 #~ msgid "Click to open the Schedules Direct website"
 #~ msgstr "Pulsar para entrar en el sitio web Schedules Direct"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules Direct "
-#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
-#~ "users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules "
+#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
+#~ "North American users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
 #~ "Los usuarios en Norteamérica necesitarán disponer de una cuenta Schedules "
 #~ "Direct (SD). SD provee datos de guía para cargos nominales. Sin SD, los "
@@ -1677,9 +1670,9 @@ msgstr "Continuar con la instalación."
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need to "
-#~ "configure the first four sections, being sure to provide your guide data "
-#~ "during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need "
+#~ "to configure the first four sections, being sure to provide your guide "
+#~ "data during the third."
 #~ msgstr ""
 #~ "Después de configurar la fuente de datos de la guía, se necesita ejecutar "
 #~ "MythTV-Setup para que se ejecute el sistema de configuración por primera "
@@ -1702,12 +1695,12 @@ msgstr "Continuar con la instalación."
 #~ msgstr "Zona:"
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing errors. "
-#~ "A good password will contain a mixture of letters, numbers and punctuation, "
-#~ "should be at least eight characters long, and should be changed at regular "
-#~ "intervals."
+#~ "Enter the same password twice, so that it can be checked for typing "
+#~ "errors. A good password will contain a mixture of letters, numbers and "
+#~ "punctuation, should be at least eight characters long, and should be "
+#~ "changed at regular intervals."
 #~ msgstr ""
-#~ "Introduzca la misma contraseña dos veces, de modo que se puede comprobar los "
-#~ "errores de tecleo. Una buena contraseña debe contener una combinación de "
-#~ "letras, números y signos de puntuación, debe tener al menos ocho caracteres "
-#~ "de longitud y se debe cambiar a intervalos regulares."
+#~ "Introduzca la misma contraseña dos veces, de modo que se puede comprobar "
+#~ "los errores de tecleo. Una buena contraseña debe contener una combinación "
+#~ "de letras, números y signos de puntuación, debe tener al menos ocho "
+#~ "caracteres de longitud y se debe cambiar a intervalos regulares."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-24 23:25+0000\n"
+"POT-Creation-Date: 2010-04-07 11:44+0100\n"
 "PO-Revision-Date: 2010-03-23 16:52+0000\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
@@ -64,42 +64,17 @@ msgstr "أهلا بك"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr "بمجرد إجابتك لبعض الأسئلة سيكون هذا الحاسوب جاهزا للاستخدام."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001 ../ubiquity.templates:16001
-msgid "Answering the questions should only take a few minutes."
-msgstr "لن تستغرق الإجابة على الأسئلة أكثر من بضعة دقائق."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001
-msgid ""
-"Please choose the language used for the configuration process. This language "
-"will be the default language for this computer."
-msgstr ""
-"من فضلك اختر اللغة المستخدمة في عملية الإعداد. ستكون هذه اللغة المبدئية "
-"للحاسوب."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:11001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"أنت تثبّت في وضع صانع الأنظمة. رجاء أدخل اسما فريدا لهذه المجموعة من "
-"الأنظمة. هذا الاسم سوف يُحفظ في النظام المثبّت وسوف يُستخدم للمساعدة في "
-"بلاغات العلل."
+"أنت تثبّت في وضع صانع الأنظمة. رجاء أدخل اسما فريدا لهذه المجموعة من الأنظمة. "
+"هذا الاسم سوف يُحفظ في النظام المثبّت وسوف يُستخدم للمساعدة في بلاغات العلل."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:11001
 msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
@@ -107,24 +82,36 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
 msgstr "جرّب ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
 msgstr "ثبّت ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
+#: ../ubiquity.templates:14001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:15001
+msgid "Once you answer a few questions, this computer will be ready to use."
+msgstr "بمجرد إجابتك لبعض الأسئلة سيكون هذا الحاسوب جاهزا للاستخدام."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "Answering the questions should only take a few minutes."
+msgstr "لن تستغرق الإجابة على الأسئلة أكثر من بضعة دقائق."
 
 #. Type: text
 #. Description
@@ -617,18 +604,18 @@ msgstr "انهار المثبّت"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
-"نعتذر، انهار المثبّت. الرجاء الابلاغ عن المشكلة في "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (لا ترفق تفاصيلك بأي "
-"بلاغ سابق) وسيحاول المطورون معالجة المشكلة في أقرب وقت ممكن. لمساعدة "
-"المطورين لفهم المشكلة. أرفق البيانات التالية مع تقريرك. وأرفق الملفات "
-"‭/var/log/syslog‬ و ‭/var/log/partman‬"
+"نعتذر، انهار المثبّت. الرجاء الابلاغ عن المشكلة في https://launchpad.net/"
+"ubuntu/+source/ubiquity/+filebug (لا ترفق تفاصيلك بأي بلاغ سابق) وسيحاول "
+"المطورون معالجة المشكلة في أقرب وقت ممكن. لمساعدة المطورين لفهم المشكلة. "
+"أرفق البيانات التالية مع تقريرك. وأرفق الملفات ‭/var/log/syslog‬ و ‭/var/log/"
+"partman‬"
 
 #. Type: text
 #. Description
@@ -1177,16 +1164,16 @@ msgstr "الحزم التالية في حالة معطوبة"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "قد يكون هذا الخطأ ناتج عن استعمال نسخة قديمة من المثبت أو خلل في إحدى الحزم "
-"في القائمه أعلاه.  لمزيد من التفاصيل راجع ‭/var/log/syslog‬. سيحاول المثبت "
-"أن يكمل التثبيت ولكن قد يفشل في إكماله في أي مرحلة وقد لا يمكنك إزاله الحزم "
+"في القائمه أعلاه.  لمزيد من التفاصيل راجع ‭/var/log/syslog‬. سيحاول المثبت أن "
+"يكمل التثبيت ولكن قد يفشل في إكماله في أي مرحلة وقد لا يمكنك إزاله الحزم "
 "الزائده بما فيها هذه الحزمة، يجب أولا أن تحاول أن تجد إصدارة جديده من المثبت "
 "أو أبلغ عن المشكله لموزعك."
 
@@ -1212,8 +1199,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1276,8 +1263,7 @@ msgstr "الرجاء غلق أي تطبيق يستخدم نقاط الوصل ه�
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "هل تريد من برنامج التثبيت أن يحاول فصل نقاط الوصل هذه مره أخرى؟"
 
 #. Type: boolean
@@ -1447,12 +1433,22 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
+msgstr ""
+"من فضلك اختر اللغة المستخدمة في عملية الإعداد. ستكون هذه اللغة المبدئية "
+"للحاسوب."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr ""
 
 #~ msgid ""
-#~ "Please choose the language used for the installation process. This language "
-#~ "will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This "
+#~ "language will be the default language for the final system."
 #~ msgstr ""
 #~ "رجاء اختر اللغة التي ستستخدم خلال عملية التثبيت. هذه اللغة ستصبح اللغة "
 #~ "الافتراضية للنظام النهائي."
@@ -1461,21 +1457,21 @@ msgstr ""
 #~ "If you have Internet access, read the release notes for information on "
 #~ "problems that may affect you."
 #~ msgstr ""
-#~ "إذا توفر لديك اتصال بالانترنت اقرأ ملاحظات الإصدار لتعرف عن المشاكل التي قد "
-#~ "تؤثر عليك."
+#~ "إذا توفر لديك اتصال بالانترنت اقرأ ملاحظات الإصدار لتعرف عن المشاكل التي "
+#~ "قد تؤثر عليك."
 
 #~ msgid "Release Notes"
 #~ msgstr "ملاحظات الإصدار"
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing errors. "
-#~ "A good password will contain a mixture of letters, numbers and punctuation, "
-#~ "should be at least eight characters long, and should be changed at regular "
-#~ "intervals."
+#~ "Enter the same password twice, so that it can be checked for typing "
+#~ "errors. A good password will contain a mixture of letters, numbers and "
+#~ "punctuation, should be at least eight characters long, and should be "
+#~ "changed at regular intervals."
 #~ msgstr ""
 #~ "أدخل كلمة السر نفسها مرتين، حتى يمكن التحقق من الأخطاء. يفضل وضع كلمة سر "
-#~ "تتضمن خليطاً من الحروف والأرقام وعلامات الترقيم، و ينبغي أن لا تقل عن ثمانية "
-#~ "حروف، و يفضل تغييرها على فترات منتظمة."
+#~ "تتضمن خليطاً من الحروف والأرقام وعلامات الترقيم، و ينبغي أن لا تقل عن "
+#~ "ثمانية حروف، و يفضل تغييرها على فترات منتظمة."
 
 #~ msgid ""
 #~ " Install Type: ${INSTALLTYPE}\n"
@@ -1510,13 +1506,13 @@ msgstr ""
 #~ msgstr "خلفية أولية مع واجهة"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people wanting "
-#~ "MythTV for HTPC applications. This type of installation is intended for use "
-#~ "as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people "
+#~ "wanting MythTV for HTPC applications. This type of installation is "
+#~ "intended for use as a component in your home theatre."
 #~ msgstr ""
 #~ "المحرك المزدوج ذو الواجهتين الأمامية والخلفية هو الإعداد الشائع للناس "
-#~ "الراغبين بـ mythTV من أجل تطبيقات HTPC. هذا النوع من التثبيت سيُستخدم كمكوّن "
-#~ "في مسرحك المنزلي."
+#~ "الراغبين بـ mythTV من أجل تطبيقات HTPC. هذا النوع من التثبيت سيُستخدم "
+#~ "كمكوّن في مسرحك المنزلي."
 
 #~ msgid "Secondary Backend w/ Frontend"
 #~ msgstr "خلفية ثانوية مع واجهة"
@@ -1525,9 +1521,9 @@ msgstr ""
 #~ msgstr "خلفية أولية"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an appliance; "
-#~ "requiring very little maintenance.  This is intended to be installed as the "
-#~ "first backend on a network."
+#~ "A backend only machine is typically designed to function like an "
+#~ "appliance; requiring very little maintenance.  This is intended to be "
+#~ "installed as the first backend on a network."
 #~ msgstr ""
 #~ "نظام يعمل كخلفية فقط مصمم خصيصا ليعمل كجهاز مخصص، فيتطلب القليل جدا من "
 #~ "الصيانة . يقصد بهذا ان يكون أول خلفية فى الشبكة ."
@@ -1539,9 +1535,9 @@ msgstr ""
 #~ msgstr "واجهة"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from the "
-#~ "backend and distribute it.  This configuration requires an existing backend "
-#~ "on the network."
+#~ "A frontend only machine's main function is to receive media content from "
+#~ "the backend and distribute it.  This configuration requires an existing "
+#~ "backend on the network."
 #~ msgstr ""
 #~ "الغرض الرئيسي من جهاز يحتوى على الواجهة الأمامية فقط هو استقبال محتوى "
 #~ "الوسائط من الواجهة الخلفية و توزيعه. هذه الإعدادات تتطلب وجود الواجهة "
@@ -1567,8 +1563,8 @@ msgstr ""
 #~ msgstr "إعداد بيانات المرشد / واجهة خلفية"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data and "
-#~ "configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data "
+#~ "and configuring the backend for the first time."
 #~ msgstr ""
 #~ "تتطلب الخطوات الأخيرة تنصيب بيانات المرشد الخاص بك وإعداد الواجهة الخلفية "
 #~ "للمرة الأولى."
@@ -1577,33 +1573,35 @@ msgstr ""
 #~ msgstr "انقر لفتح موقع وب Schedules Direct."
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules Direct "
-#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
-#~ "users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules "
+#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
+#~ "North American users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
 #~ "مستخدمو شمال أمريكا سيحتاجون إلى فتح حساب لدى موقع Schedules Direct. هذا "
-#~ "الموقع يقدم جداول البرامج التلفزيونية بتكلفة رمزية ، بدون هذا الموقع قد يخسر "
-#~ "مستخدمو شمال أمريكا العديد من ميزات جداول البرامج التلفزيونية على الـ MythTV."
+#~ "الموقع يقدم جداول البرامج التلفزيونية بتكلفة رمزية ، بدون هذا الموقع قد "
+#~ "يخسر مستخدمو شمال أمريكا العديد من ميزات جداول البرامج التلفزيونية على "
+#~ "الـ MythTV."
 
 #~ msgid "Launch MythTV Setup"
 #~ msgstr "إقلاع تثبيت تلفاز الإسطورة"
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need to "
-#~ "configure the first four sections, being sure to provide your guide data "
-#~ "during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need "
+#~ "to configure the first four sections, being sure to provide your guide "
+#~ "data during the third."
 #~ msgstr ""
 #~ "بعد تجهيز موقع دليلك ستحتاج إلى تشغيل مثبت MythTV لتشغيل المنصة الخلفية "
-#~ "للمرة الأولى. ستحتاج لإعداد أول أربع أقسام مع التأكد بإضافة بيانات دليلك فى "
-#~ "القسم الثالث."
+#~ "للمرة الأولى. ستحتاج لإعداد أول أربع أقسام مع التأكد بإضافة بيانات دليلك "
+#~ "فى القسم الثالث."
 
 #~ msgid "Zone:"
 #~ msgstr "المنطقة:"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
-#~ "will be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
+#~ "however will be configured to connect to an existing backend on the "
+#~ "network."
 #~ msgstr ""
 #~ "سيثبّت هذا نظاماً شبيهاً بـواجهة خلفية أساسية مع واجهة أمامية، لكنه سيُعَدّ "
 #~ "للاتصال بواجهة خلفية موجودة على الشبكة."
@@ -1617,17 +1615,17 @@ msgstr ""
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you can "
-#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
-#~ "Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you "
+#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
+#~ "for TV Output or OpenGL effects."
 #~ msgstr ""
-#~ "مشغّل الرسوميات الحرّ المصدر مُفعّل ومُعدّ مُسبقا. إذا احتجت استخدام مشغّل "
-#~ "آخر  فيمكنك فعل ذلك هنا، مع ملاحظة أن المشغّلات الرسومية المملوكة قد تكون "
+#~ "مشغّل الرسوميات الحرّ المصدر مُفعّل ومُعدّ مُسبقا. إذا احتجت استخدام مشغّل آخر  "
+#~ "فيمكنك فعل ذلك هنا، مع ملاحظة أن المشغّلات الرسومية المملوكة قد تكون "
 #~ "ضرورية لخرج التلفاز أو لإظهار تأثيرات OpenGL."
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will be "
-#~ "configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will "
+#~ "be configured to connect to an existing backend on the network."
 #~ msgstr ""
 #~ "هذا الاختيار ينصب برنامجا مشابها للخلفية الأولية ولكن سيتم إعداده ليتصل "
 #~ "بخلفية موجودة على الشبكة ."

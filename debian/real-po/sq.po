@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-24 23:25+0000\n"
+"POT-Creation-Date: 2010-04-07 11:44+0100\n"
 "PO-Revision-Date: 2010-03-26 13:12+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
@@ -64,32 +64,6 @@ msgstr "Mirësevini"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
-"Pasi ju t'i jeni përgjigjur disa pyetjeve, ky kompjuter do jetë gati për "
-"përdorim."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001 ../ubiquity.templates:16001
-msgid "Answering the questions should only take a few minutes."
-msgstr "Përgjigja e pyetjeve do të duhej të zgjasë vetëm disa minuta"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001
-msgid ""
-"Please choose the language used for the configuration process. This language "
-"will be the default language for this computer."
-msgstr ""
-"Ju lutemi të zgjidhni gjuhën e përdorur për proçesin e konfigurimit. Kjo "
-"gjuhë do të jetë gjuha e preferuar për këtë kompjuter."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:11001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
@@ -101,7 +75,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:11001
 msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
@@ -111,19 +85,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
 msgstr "Provo ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
 msgstr "Instalo ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
+#: ../ubiquity.templates:14001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
@@ -135,21 +109,35 @@ msgstr ""
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:15001
+msgid "Once you answer a few questions, this computer will be ready to use."
+msgstr ""
+"Pasi ju t'i jeni përgjigjur disa pyetjeve, ky kompjuter do jetë gati për "
+"përdorim."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "Answering the questions should only take a few minutes."
+msgstr "Përgjigja e pyetjeve do të duhej të zgjasë vetëm disa minuta"
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:17001
 msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Ju mund të dëshironi të lexoni <a href=\"release-notes\">shënimet e "
-"nisjes</a> ose <a href=\"update\">të përditësoni këtë instalues</a>."
+"Ju mund të dëshironi të lexoni <a href=\"release-notes\">shënimet e nisjes</"
+"a> ose <a href=\"update\">të përditësoni këtë instalues</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Ju mund të dëshironi të lexoni <a href=\"release-notes\">shënimet e "
-"nisjes</a>."
+"Ju mund të dëshironi të lexoni <a href=\"release-notes\">shënimet e nisjes</"
+"a>."
 
 #. Type: text
 #. Description
@@ -647,12 +635,12 @@ msgstr "Instaluesi u dëmtua"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Na vjen keq, instaluesi u dëmtua. Ju lutemi, dërgoni një raport për defektin "
 "në https://launchpad.net/ubuntu/+source/ubiquity/+filebug (mos i shtoni "
@@ -1212,12 +1200,12 @@ msgstr "Paketat e mëposhtme janë të dëmtuara:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Kjo mund të ketë ndodhur për shkak të përdorimit të një instaluesi të "
 "vjetër, ose për shkak të ndonjë defekti në paketat e mësipërme. Më tepër "
@@ -1249,8 +1237,8 @@ msgstr "Gabim në migrimin e dokumenteve dhe parametrave"
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1320,8 +1308,7 @@ msgstr "Ju lutemi mbyllni çdo aplikim që po i përdor këto pika hyrjeje."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "Doni që instaluesi të përpiqet t'i përdorë këto particione përsëri?"
 
 #. Type: boolean
@@ -1500,15 +1487,25 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
+msgstr ""
+"Ju lutemi të zgjidhni gjuhën e përdorur për proçesin e konfigurimit. Kjo "
+"gjuhë do të jetë gjuha e preferuar për këtë kompjuter."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr "Vazhdo me instalimin."
 
 #~ msgid ""
-#~ "Please choose the language used for the installation process. This language "
-#~ "will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This "
+#~ "language will be the default language for the final system."
 #~ msgstr ""
-#~ "Të lutem, zgjedh gjuhën që do të përdoret gjatë instalimit. Kjo gjuhë do të "
-#~ "jetë gjuha që do të përdoret për sistemin përfundimtar."
+#~ "Të lutem, zgjedh gjuhën që do të përdoret gjatë instalimit. Kjo gjuhë do "
+#~ "të jetë gjuha që do të përdoret për sistemin përfundimtar."
 
 #~ msgid ""
 #~ "If you have Internet access, read the release notes for information on "
@@ -1521,15 +1518,16 @@ msgstr "Vazhdo me instalimin."
 #~ msgstr "Informata lidhur me versionin aktual"
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing errors. "
-#~ "A good password will contain a mixture of letters, numbers and punctuation, "
-#~ "should be at least eight characters long, and should be changed at regular "
-#~ "intervals."
+#~ "Enter the same password twice, so that it can be checked for typing "
+#~ "errors. A good password will contain a mixture of letters, numbers and "
+#~ "punctuation, should be at least eight characters long, and should be "
+#~ "changed at regular intervals."
 #~ msgstr ""
-#~ "Vendosni të njëjtin fjalëkalim dy herë, kështu që mund të kontrollohet për "
-#~ "gabime në shtypje. Një fjalëkalim i mirë duhet të përmbajë një përzierje "
-#~ "shkronjash, numrash dhe shenjash pikësimi, duhet të jetë të paktën me tetë "
-#~ "shifra i gjatë dhe duhet ndërruar me intervale të rregullta."
+#~ "Vendosni të njëjtin fjalëkalim dy herë, kështu që mund të kontrollohet "
+#~ "për gabime në shtypje. Një fjalëkalim i mirë duhet të përmbajë një "
+#~ "përzierje shkronjash, numrash dhe shenjash pikësimi, duhet të jetë të "
+#~ "paktën me tetë shifra i gjatë dhe duhet ndërruar me intervale të "
+#~ "rregullta."
 
 #~ msgid ""
 #~ " Install Type: ${INSTALLTYPE}\n"
@@ -1564,9 +1562,9 @@ msgstr "Vazhdo me instalimin."
 #~ msgstr "Shtresa parësore / Dytësore"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people wanting "
-#~ "MythTV for HTPC applications. This type of installation is intended for use "
-#~ "as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people "
+#~ "wanting MythTV for HTPC applications. This type of installation is "
+#~ "intended for use as a component in your home theatre."
 #~ msgstr ""
 #~ "Një makinë parësore/dytësore është lloji më i zakonshëm i instalimit për "
 #~ "njerëzit që duan MythTV në aplikimet HTPC. Ky lloj instalimi nënkupton "
@@ -1576,59 +1574,61 @@ msgstr "Vazhdo me instalimin."
 #~ msgstr "Pjesë e përparme/e pasme dytësore"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
-#~ "will be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
+#~ "however will be configured to connect to an existing backend on the "
+#~ "network."
 #~ msgstr ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
-#~ "will be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
+#~ "however will be configured to connect to an existing backend on the "
+#~ "network."
 
 #~ msgid "Primary Backend"
 #~ msgstr "Pjesa e pasme primare"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an appliance; "
-#~ "requiring very little maintenance.  This is intended to be installed as the "
-#~ "first backend on a network."
+#~ "A backend only machine is typically designed to function like an "
+#~ "appliance; requiring very little maintenance.  This is intended to be "
+#~ "installed as the first backend on a network."
 #~ msgstr ""
-#~ "A backend only machine is typically designed to function like an appliance; "
-#~ "requiring very little maintenance. This is intended to be installed as the "
-#~ "first backend on a network."
+#~ "A backend only machine is typically designed to function like an "
+#~ "appliance; requiring very little maintenance. This is intended to be "
+#~ "installed as the first backend on a network."
 
 #~ msgid "Secondary Backend"
 #~ msgstr "Pjesa e pasme dytësore"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will be "
-#~ "configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will "
+#~ "be configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "Kjo do të vendosë një sistem të ngjajshëm me Primary backend, sidoqoftë ai "
-#~ "do të konfigurohet për tu lidhur me një fund ekzistues në rrjet."
+#~ "Kjo do të vendosë një sistem të ngjajshëm me Primary backend, sidoqoftë "
+#~ "ai do të konfigurohet për tu lidhur me një fund ekzistues në rrjet."
 
 #~ msgid "Frontend"
 #~ msgstr "Frontend"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from the "
-#~ "backend and distribute it.  This configuration requires an existing backend "
-#~ "on the network."
+#~ "A frontend only machine's main function is to receive media content from "
+#~ "the backend and distribute it.  This configuration requires an existing "
+#~ "backend on the network."
 #~ msgstr ""
-#~ "Në frontend i vetmi funksion i makinës është të marrë përmbajtje mediash nga "
-#~ "backend dhe ta shpërndajë atë. Ky konfigurim kërkon që të ketë një backend "
-#~ "ekzistues në rrjet."
+#~ "Në frontend i vetmi funksion i makinës është të marrë përmbajtje mediash "
+#~ "nga backend dhe ta shpërndajë atë. Ky konfigurim kërkon që të ketë një "
+#~ "backend ekzistues në rrjet."
 
 #~ msgid "Graphics Drivers"
 #~ msgstr "Driverat Grafikë"
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you can "
-#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
-#~ "Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you "
+#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
+#~ "for TV Output or OpenGL effects."
 #~ msgstr ""
 #~ "Një driver grafik me burim të hapur është aktivizuar tashmë dhe është "
 #~ "konfiguruar për instalimin tuaj. Nëse doni të përdorni një driver grafik "
-#~ "tjetër, mund ta bëni këtu. Duhet të keni parasysh që driverat me pagesë mund "
-#~ "të jenë të nevojshëm për daljen TV apo për efektet OpenGL."
+#~ "tjetër, mund ta bëni këtu. Duhet të keni parasysh që driverat me pagesë "
+#~ "mund të jenë të nevojshëm për daljen TV apo për efektet OpenGL."
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
 #~ msgstr "Nëse doni të konfiguroni daljen TV, zgjidhni një opsion këtu:"
@@ -1656,38 +1656,38 @@ msgstr "Vazhdo me instalimin."
 #~ msgstr "Konfiguro të Dhënat Udhëzuese / Backend"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data and "
-#~ "configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data "
+#~ "and configuring the backend for the first time."
 #~ msgstr ""
-#~ "Hapat finale të instalimit kërkojnë që të vendosni të dhënat tuaja udhëzuese "
-#~ "dhe të konfiguroni backend për herë të parë."
+#~ "Hapat finale të instalimit kërkojnë që të vendosni të dhënat tuaja "
+#~ "udhëzuese dhe të konfiguroni backend për herë të parë."
 
 #~ msgid "Click to open the Schedules Direct website"
 #~ msgstr "Kliko prë të hapur faqen web të skedimit të drejtpërdrejtë"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules Direct "
-#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
-#~ "users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules "
+#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
+#~ "North American users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
 #~ "Përdoruesve në Amerikën e Veriut do tu duhet të krijojnë një llogari me "
-#~ "Schedules Direct (SD). SD ju jep të dhëna shtesë për një tarifë shtesë. Pa "
-#~ "SD, përdoruesit amerikano-veriorë mund të humbasin shumë nga rregullimet e "
-#~ "MythTV."
+#~ "Schedules Direct (SD). SD ju jep të dhëna shtesë për një tarifë shtesë. "
+#~ "Pa SD, përdoruesit amerikano-veriorë mund të humbasin shumë nga "
+#~ "rregullimet e MythTV."
 
 #~ msgid "Launch MythTV Setup"
 #~ msgstr "Nis instalimin e MythTV"
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need to "
-#~ "configure the first four sections, being sure to provide your guide data "
-#~ "during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need "
+#~ "to configure the first four sections, being sure to provide your guide "
+#~ "data during the third."
 #~ msgstr ""
 #~ "Pasi të vendosni burimin e të dhënave, juve do t'iu duhet të nisni "
 #~ "instalimin e MythTV dhe të nisni konfigurimin e backend për herë të parë. "
-#~ "Juvo do t'iu duhet të konfiguroni katër seksionet e para, sigurohuni që të "
-#~ "jepni të dhënat tuaja udhëzuese gjatë të tretit."
+#~ "Juvo do t'iu duhet të konfiguroni katër seksionet e para, sigurohuni që "
+#~ "të jepni të dhënat tuaja udhëzuese gjatë të tretit."
 
 #~ msgid "Configuring mythtv..."
 #~ msgstr "Duke konfiguruar MythTV..."

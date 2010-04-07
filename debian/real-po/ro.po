@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-24 23:25+0000\n"
+"POT-Creation-Date: 2010-04-07 11:44+0100\n"
 "PO-Revision-Date: 2010-03-23 16:51+0000\n"
 "Last-Translator: Ionuț Jula <ionutjula@gmail.com>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
@@ -64,32 +64,6 @@ msgstr "Bun venit"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
-"După ce ați răspuns la câteva întrebări, calculatorul va fi pregătit de "
-"utilizare."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001 ../ubiquity.templates:16001
-msgid "Answering the questions should only take a few minutes."
-msgstr "Răspunsul la întrebări ar trebui să ia doar câteva minute."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001
-msgid ""
-"Please choose the language used for the configuration process. This language "
-"will be the default language for this computer."
-msgstr ""
-"Alegeți limba folosită pentru procesul de configurare. Aceasta va fi limba "
-"implicită pentru acest calculator."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:11001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
@@ -101,7 +75,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:11001
 msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
@@ -109,24 +83,38 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
+#: ../ubiquity.templates:14001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:15001
+msgid "Once you answer a few questions, this computer will be ready to use."
+msgstr ""
+"După ce ați răspuns la câteva întrebări, calculatorul va fi pregătit de "
+"utilizare."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "Answering the questions should only take a few minutes."
+msgstr "Răspunsul la întrebări ar trebui să ia doar câteva minute."
 
 #. Type: text
 #. Description
@@ -629,20 +617,19 @@ msgstr "Sistemul de instalare a eșuat"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Ne pare rău, dar sistemul de instalare a eșuat. Vă rugăm să raportați "
-"această eroare la adresa "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (nu atașați detaliile "
-"niciunei erori existente), iar un programator va analiza problema în cel mai "
-"scurt timp. Pentru a ajuta programatorii în analizarea problemei, includeți "
-"următoarele detalii în raport și atașați fișierele /var/log/syslog și "
-"/var/log/partman:"
+"această eroare la adresa https://launchpad.net/ubuntu/+source/ubiquity/"
+"+filebug (nu atașați detaliile niciunei erori existente), iar un programator "
+"va analiza problema în cel mai scurt timp. Pentru a ajuta programatorii în "
+"analizarea problemei, includeți următoarele detalii în raport și atașați "
+"fișierele /var/log/syslog și /var/log/partman:"
 
 #. Type: text
 #. Description
@@ -1001,9 +988,9 @@ msgid ""
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
 "Aceasta se datorează, deseori, unei unități CD/DVD sau unui CD/DVD "
-"nefuncțional(e). Poate fi util să curățați CD/DVD-ul, să inscripționați "
-"CD/DVD-ul la o viteză mai mică sau să curățați lentila inscriptorului de "
-"CD/DVD (pachetele de curățare sunt disponibile, de obicei, la magazinele de "
+"nefuncțional(e). Poate fi util să curățați CD/DVD-ul, să inscripționați CD/"
+"DVD-ul la o viteză mai mică sau să curățați lentila inscriptorului de CD/DVD "
+"(pachetele de curățare sunt disponibile, de obicei, la magazinele de "
 "electronice)."
 
 #. Type: error
@@ -1045,8 +1032,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:142001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
-"Următorul fișier nu s-a potrivit cu sursa sa de copiere de pe CD/DVD:"
+msgstr "Următorul fișier nu s-a potrivit cu sursa sa de copiere de pe CD/DVD:"
 
 #. Type: text
 #. Description
@@ -1201,12 +1187,12 @@ msgstr "Următoarele pachete se află în stare nefuncțională:"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Această eroare poate fi cauzată de o imagine veche a programului de "
 "instalare sau de o defecțiune într-unul dintre pachetele listate mai sus. "
@@ -1239,8 +1225,8 @@ msgstr "Eroare la transferarea documentelor și configurărilor"
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1311,8 +1297,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Doriți ca programul de instalare să încerce din nou demontarea acestor "
 "partiții?"
@@ -1488,12 +1473,22 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
+msgstr ""
+"Alegeți limba folosită pentru procesul de configurare. Aceasta va fi limba "
+"implicită pentru acest calculator."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr ""
 
 #~ msgid ""
-#~ "Please choose the language used for the installation process. This language "
-#~ "will be the default language for the final system."
+#~ "Please choose the language used for the installation process. This "
+#~ "language will be the default language for the final system."
 #~ msgstr ""
 #~ "Alegeți limba utilizată în procesul de instalare. Aceasta va fi limba "
 #~ "implicită pentru sistemul final."
@@ -1542,15 +1537,16 @@ msgstr ""
 
 #~ msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 #~ msgstr ""
-#~ "La activarea ieșirii TV (tv-out), este necesară și alegerea unui standard TV:"
+#~ "La activarea ieșirii TV (tv-out), este necesară și alegerea unui standard "
+#~ "TV:"
 
 #~ msgid "MySQL Server"
 #~ msgstr "Server MySQL"
 
 #~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules Direct "
-#~ "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
-#~ "users may lose many of the scheduling features in MythTV."
+#~ "Users in North America will need to setup an account with Schedules "
+#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
+#~ "North American users may lose many of the scheduling features in MythTV."
 #~ msgstr ""
 #~ "Utilizatorii din America de Nord vor avea nevoie de un cont pe websiteul "
 #~ "Schedules Direct (SD). SD oferă informații tip ghid tv pentru un tarif "
@@ -1561,39 +1557,40 @@ msgstr ""
 #~ msgstr "Zonă:"
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing errors. "
-#~ "A good password will contain a mixture of letters, numbers and punctuation, "
-#~ "should be at least eight characters long, and should be changed at regular "
-#~ "intervals."
+#~ "Enter the same password twice, so that it can be checked for typing "
+#~ "errors. A good password will contain a mixture of letters, numbers and "
+#~ "punctuation, should be at least eight characters long, and should be "
+#~ "changed at regular intervals."
 #~ msgstr ""
-#~ "Introduceți aceeași parolă de două ori, astfel încât vor putea fi detectate "
-#~ "greșeli în tastare. O parolă sigură conține o combinație de litere, cifre și "
-#~ "semne de punctuație, este de cel puțin opt caractere și este schimbată "
-#~ "periodic."
+#~ "Introduceți aceeași parolă de două ori, astfel încât vor putea fi "
+#~ "detectate greșeli în tastare. O parolă sigură conține o combinație de "
+#~ "litere, cifre și semne de punctuație, este de cel puțin opt caractere și "
+#~ "este schimbată periodic."
 
 #~ msgid "Primary Backend"
 #~ msgstr "Backend principal"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, however "
-#~ "will be configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
+#~ "however will be configured to connect to an existing backend on the "
+#~ "network."
 #~ msgstr ""
 #~ "Acest tip de instalare este similar cu un backend principal cu interfață, "
-#~ "dar acest calculator va fi configurat pentru a se conecta la un backend deja "
-#~ "existent în rețea."
+#~ "dar acest calculator va fi configurat pentru a se conecta la un backend "
+#~ "deja existent în rețea."
 
 #~ msgid "Secondary Backend w/ Frontend"
 #~ msgstr "Backend secundar cu interfață"
 
 #~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people wanting "
-#~ "MythTV for HTPC applications. This type of installation is intended for use "
-#~ "as a component in your home theatre."
+#~ "A Backend/frontend combo machine is the most common setup for people "
+#~ "wanting MythTV for HTPC applications. This type of installation is "
+#~ "intended for use as a component in your home theatre."
 #~ msgstr ""
-#~ "Un calculator configurat ca backend cu interfață este cel mai comun tip de "
-#~ "instalare pentru cineva care dorește MythTV pentru aplicații de gen Home "
-#~ "Teather PC. Acest tip de instalare este gândit pentru a fi folosit ca o "
-#~ "componentă în sistemul Home Teather."
+#~ "Un calculator configurat ca backend cu interfață este cel mai comun tip "
+#~ "de instalare pentru cineva care dorește MythTV pentru aplicații de gen "
+#~ "Home Teather PC. Acest tip de instalare este gândit pentru a fi folosit "
+#~ "ca o componentă în sistemul Home Teather."
 
 #~ msgid "Primary Backend w/ Frontend"
 #~ msgstr "Backend principal cu interfață"
@@ -1602,22 +1599,23 @@ msgstr ""
 #~ msgstr "Backend secundar"
 
 #~ msgid ""
-#~ "A backend only machine is typically designed to function like an appliance; "
-#~ "requiring very little maintenance.  This is intended to be installed as the "
-#~ "first backend on a network."
+#~ "A backend only machine is typically designed to function like an "
+#~ "appliance; requiring very little maintenance.  This is intended to be "
+#~ "installed as the first backend on a network."
 #~ msgstr ""
-#~ "Un calculator ce rulează ca backend principal este configurat de regulă să "
-#~ "funcționeze ca un dispozitiv electronic; necesită foarte puțină întreținere. "
-#~ "Acest tip de instalare este destinat pentru primul backend dintr-o rețea."
+#~ "Un calculator ce rulează ca backend principal este configurat de regulă "
+#~ "să funcționeze ca un dispozitiv electronic; necesită foarte puțină "
+#~ "întreținere. Acest tip de instalare este destinat pentru primul backend "
+#~ "dintr-o rețea."
 
 #~ msgid ""
 #~ "Please enter the information necessary to contact your master backend:"
 #~ msgstr "Introduceți informațiile necesare conectării la master backend:"
 
 #~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from the "
-#~ "backend and distribute it.  This configuration requires an existing backend "
-#~ "on the network."
+#~ "A frontend only machine's main function is to receive media content from "
+#~ "the backend and distribute it.  This configuration requires an existing "
+#~ "backend on the network."
 #~ msgstr ""
 #~ "Funcția de bază a unui sistem de tip interfață este aceea de a primi "
 #~ "conținut multimedia de la un backend și a-l pune la dispoziția "
@@ -1632,31 +1630,33 @@ msgstr ""
 
 #~ msgid ""
 #~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you can "
-#~ "do so here.  Note that proprietary graphics drivers may be necessary for TV "
-#~ "Output or OpenGL effects."
+#~ "installation.  If you would like to use a different graphics driver, you "
+#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
+#~ "for TV Output or OpenGL effects."
 #~ msgstr ""
-#~ "Există deja un driver grafic cu sursă deschisă activat și configurat pentru "
-#~ "această instalare. Dacă doriți să folosiți un alt driver grafic, o puteți "
-#~ "face de aici. Rețineți că pot fi necesari driveri grafici brevetați pentru "
-#~ "ieșirea TV sau efecte OpenGL."
+#~ "Există deja un driver grafic cu sursă deschisă activat și configurat "
+#~ "pentru această instalare. Dacă doriți să folosiți un alt driver grafic, o "
+#~ "puteți face de aici. Rețineți că pot fi necesari driveri grafici "
+#~ "brevetați pentru ieșirea TV sau efecte OpenGL."
 
 #~ msgid "If you would like to configure TV-out, choose an option here:"
 #~ msgstr ""
-#~ "Dacă doriți să configurați o ieșire TV (tv-out), alegeți o opțiune de aici:"
+#~ "Dacă doriți să configurați o ieșire TV (tv-out), alegeți o opțiune de "
+#~ "aici:"
 
 #~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will be "
-#~ "configured to connect to an existing backend on the network."
+#~ "This will set up a system similar to a Primary Backend, however it will "
+#~ "be configured to connect to an existing backend on the network."
 #~ msgstr ""
-#~ "Această opțiune va configura un sistem similar cu un backend principal, dar "
-#~ "va fi configurat pentru a se conecta la un backend deja existent în rețea."
+#~ "Această opțiune va configura un sistem similar cu un backend principal, "
+#~ "dar va fi configurat pentru a se conecta la un backend deja existent în "
+#~ "rețea."
 
 #~ msgid ""
 #~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need to "
-#~ "configure the first four sections, being sure to provide your guide data "
-#~ "during the third."
+#~ "Setup to run the backend configuration for the first time.  You will need "
+#~ "to configure the first four sections, being sure to provide your guide "
+#~ "data during the third."
 #~ msgstr ""
 #~ "După configurarea sursei de informații pentru ghidul tv, va fi necesar să "
 #~ "lansați aplicația MythTV-Setup pentru a configura backend-ul pentru prima "
@@ -1676,8 +1676,8 @@ msgstr ""
 #~ msgstr "Dați clic pentru a deschide site-ul web „Schedules Direct”"
 
 #~ msgid ""
-#~ "The final steps of the installation require setting up your guide data and "
-#~ "configuring the backend for the first time."
+#~ "The final steps of the installation require setting up your guide data "
+#~ "and configuring the backend for the first time."
 #~ msgstr ""
 #~ "Pentru a finaliza instalarea, este necesar să configurați ghidul TV și "
 #~ "backend-ul pentru prima dată."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-24 23:25+0000\n"
+"POT-Creation-Date: 2010-04-07 11:44+0100\n"
 "PO-Revision-Date: 2009-10-07 17:30+0000\n"
 "Last-Translator: Erdal Ronahi <erdal.ronahi@gmail.com>\n"
 "Language-Team: ku <ubuntu-l10n-kur@lists.ubuntu.com>\n"
@@ -65,28 +65,6 @@ msgstr "Bi xêr hatî"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001 ../ubiquity.templates:16001
-msgid "Answering the questions should only take a few minutes."
-msgstr "Bersivandina pirsan diviya tenê çend xulekan bidomiya."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001
-msgid ""
-"Please choose the language used for the configuration process. This language "
-"will be the default language for this computer."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:11001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
@@ -98,7 +76,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:11001
 msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
@@ -106,24 +84,36 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
+#: ../ubiquity.templates:14001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:15001
+msgid "Once you answer a few questions, this computer will be ready to use."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "Answering the questions should only take a few minutes."
+msgstr "Bersivandina pirsan diviya tenê çend xulekan bidomiya."
 
 #. Type: text
 #. Description
@@ -324,8 +314,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
-"Di moda neqandina çewtiyan de dixebitî. Nasnavekî girîng bi kar neyne."
+msgstr "Di moda neqandina çewtiyan de dixebitî. Nasnavekî girîng bi kar neyne."
 
 #. Type: text
 #. Description
@@ -618,19 +607,19 @@ msgstr "Sazkirin têk çû"
 #. Description
 #: ../ubiquity.templates:92001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
-"Bibore: sazkirin têk çû. ji kerema xwe re ji "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug 'ê re peleke "
-"raporkirina bugê bişeyîne (kîtekîtên xwe nexe tu tu bugekê heyî). pêşdebirek "
-"dê di demeke kin de li ser vê pirsgirêkê hûr bibe. Ji bo ku pêşdebir baş fêm "
-"bikin ka pirsgirêk çiye kîtekîtên li jêr têxe rapora bugê û li pelên "
-"/var/log/syslog û /var/log/partman zêde bike:"
+"Bibore: sazkirin têk çû. ji kerema xwe re ji https://launchpad.net/ubuntu/"
+"+source/ubiquity/+filebug 'ê re peleke raporkirina bugê bişeyîne (kîtekîtên "
+"xwe nexe tu tu bugekê heyî). pêşdebirek dê di demeke kin de li ser vê "
+"pirsgirêkê hûr bibe. Ji bo ku pêşdebir baş fêm bikin ka pirsgirêk çiye "
+"kîtekîtên li jêr têxe rapora bugê û li pelên /var/log/syslog û /var/log/"
+"partman zêde bike:"
 
 #. Type: text
 #. Description
@@ -1019,9 +1008,9 @@ msgid ""
 "replacement, or to move the system to a cooler environment."
 msgstr ""
 "Ev pirsgirêk bi piranî ji ber pirsgirêkên CD/DVD, ajokarên CD/DVD an jî "
-"dîska sabît rû dide. Ji bo çareserkirinê van tiştan biceribîne: Ajokara "
-"CD/DVD paqij bike, eger xirabe be tamîr bike an jî biguherîne an jî "
-"komputerê li ciyekî hênik bixebitîne."
+"dîska sabît rû dide. Ji bo çareserkirinê van tiştan biceribîne: Ajokara CD/"
+"DVD paqij bike, eger xirabe be tamîr bike an jî biguherîne an jî komputerê "
+"li ciyekî hênik bixebitîne."
 
 #. Type: select
 #. Description
@@ -1182,12 +1171,12 @@ msgstr "Pakêtên li jêr di rewşeke şkestî de ne"
 #: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Dibe ku ev rewş ji ber ku tu peleke kevn a sazkirinê bi kar tînî an jî di "
 "pakêtên li jorê de hin çewtî hene. Zêdetir agahî di pela /var/log/syslog de "
@@ -1218,8 +1207,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1283,8 +1272,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Dixwazî ku bernameya sazkirinê dîsa biceribînî ku van beşan mîheng bikî?"
 
@@ -1457,6 +1445,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr ""
 
@@ -1471,14 +1467,14 @@ msgstr ""
 #~ msgstr "Nîşeyên Weşanê"
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing errors. "
-#~ "A good password will contain a mixture of letters, numbers and punctuation, "
-#~ "should be at least eight characters long, and should be changed at regular "
-#~ "intervals."
+#~ "Enter the same password twice, so that it can be checked for typing "
+#~ "errors. A good password will contain a mixture of letters, numbers and "
+#~ "punctuation, should be at least eight characters long, and should be "
+#~ "changed at regular intervals."
 #~ msgstr ""
-#~ "Heman şîfreyê du caran têkevê, bi vî awayî dê rastbûna wê bê kontrolkirin. "
-#~ "Şîfreyeke baş ji gelek tîpan, reqeman û nîşaneyan pêk tê; herî kêm heşt "
-#~ "curetîp e; dem bi dem tê guhertin."
+#~ "Heman şîfreyê du caran têkevê, bi vî awayî dê rastbûna wê bê "
+#~ "kontrolkirin. Şîfreyeke baş ji gelek tîpan, reqeman û nîşaneyan pêk tê; "
+#~ "herî kêm heşt curetîp e; dem bi dem tê guhertin."
 
 #~ msgid ""
 #~ " Install Type: ${INSTALLTYPE}\n"
