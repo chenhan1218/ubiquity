@@ -39,7 +39,7 @@ class PageGtk(PluginUI):
             import gtk
             builder = gtk.Builder()
             self.controller.add_builder(builder)
-            builder.add_from_file('/usr/share/ubiquity/gtk/stepLocation.ui')
+            builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepLocation.ui'))
             builder.connect_signals(self)
             self.page = builder.get_object('stepLocation')
             self.region_combo = builder.get_object('timezone_zone_combo')

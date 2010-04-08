@@ -1,0 +1,25 @@
+#!/usr/bin/python
+
+import unittest
+import os, sys
+# Make sure we're working in the source tree.
+sys.path.insert(0, '.')
+#os.environ['UBIQUITY_PLUGIN_PATH'] = './ubiquity/components'
+from ubiquity.frontend import gtk_ui
+
+class FrontendTests(unittest.TestCase):
+    def setUp(self):
+        self.frontend = gtk_ui.Wizard('ubuntu')
+        # fail.
+        self.frontend.live_installer.hide()
+
+    def testReturnToPartitioner(self):
+        self.frontend.installing = True
+        self.frontend.return_to_partitioning()
+
+    def tearDown(self):
+        # Needed?
+        self.frontend.quit_main_loop()
+
+if __name__ == '__main__':
+    unittest.main()

@@ -74,8 +74,8 @@ class PageGtk(PageBase):
             from ubiquity import segmented_bar
             builder = gtk.Builder()
             self.controller.add_builder(builder)
-            builder.add_from_file('/usr/share/ubiquity/gtk/stepPartAuto.ui')
-            builder.add_from_file('/usr/share/ubiquity/gtk/stepPartAdvanced.ui')
+            builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPartAuto.ui'))
+            builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPartAdvanced.ui'))
             builder.connect_signals(self)
             self.page = builder.get_object('stepPartAuto')
             self.page_advanced = builder.get_object('stepPartAdvanced')
