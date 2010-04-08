@@ -36,6 +36,8 @@ ubiquity (2.2.16) UNRELEASED; urgency=low
       breadcrumb_install ("Install") when running as oem-config; providing
       alternative strings would break string freeze, and the UI should look
       OK without them (LP: #540929).
+  * GTK frontend:
+    - Re-fetch translations before calling plugin_translate (LP: #552673).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 07 Apr 2010 09:45:37 +0100
 

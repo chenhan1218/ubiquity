@@ -304,6 +304,10 @@ class Wizard(BaseFrontend):
             pages = [current_page]
         else:
             pages = self.pages
+
+        if reget:
+            self.translate_reget(lang)
+
         widgets = []
         for p in pages:
             # There's no sense retranslating the page we're leaving.
@@ -325,7 +329,7 @@ class Wizard(BaseFrontend):
                 if toplevel.name != 'live_installer':
                     for c in self.all_children(toplevel):
                         widgets.append((c, None))
-        self.translate_widgets(lang=lang, widgets=widgets, reget=reget)
+        self.translate_widgets(lang=lang, widgets=widgets, reget=False)
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -642,35 +646,41 @@ class Wizard(BaseFrontend):
         gettext.textdomain(domain)
         gettext.install(domain, LOCALEDIR, unicode=1)
 
+    def translate_reget(self, lang):
+        if lang is None:
+            lang = self.locale
+        if lang is None:
+            languages = []
+        else:
+            languages = [lang]
+
+        core_names = ['ubiquity/text/%s' % q for q in self.language_questions]
+        core_names.append('ubiquity/text/oem_config_title')
+        core_names.append('ubiquity/text/oem_user_config_title')
+        core_names.append('ubiquity/imported/default-ltr')
+        for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
+                            'ok', 'quit'):
+            core_names.append('ubiquity/imported/%s' % stock_item)
+        prefixes = []
+        for p in self.pages:
+            prefix = p.ui.get('plugin_prefix')
+            if not prefix:
+                prefix = 'ubiquity/text'
+            if p.ui.get('plugin_is_language'):
+                children = reduce(lambda x,y: x + self.all_children(y), p.all_widgets, [])
+                core_names.extend([prefix+'/'+c.get_name() for c in children])
+            prefixes.append(prefix)
+        i18n.get_translations(languages=languages, core_names=core_names, extra_prefixes=prefixes)
+
     # widgets is a set of (widget, prefix) pairs
     def translate_widgets(self, lang=None, widgets=None, reget=True):
         if lang is None:
             lang = self.locale
         if widgets is None:
             widgets = [(x, None) for x in self.all_widgets]
-        if lang is None:
-            languages = []
-        else:
-            languages = [lang]
 
         if reget:
-            core_names = ['ubiquity/text/%s' % q for q in self.language_questions]
-            core_names.append('ubiquity/text/oem_config_title')
-            core_names.append('ubiquity/text/oem_user_config_title')
-            core_names.append('ubiquity/imported/default-ltr')
-            for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
-                                'ok', 'quit'):
-                core_names.append('ubiquity/imported/%s' % stock_item)
-            prefixes = []
-            for p in self.pages:
-                prefix = p.ui.get('plugin_prefix')
-                if not prefix:
-                    prefix = 'ubiquity/text'
-                if p.ui.get('plugin_is_language'):
-                    children = reduce(lambda x,y: x + self.all_children(y), p.all_widgets, [])
-                    core_names.extend([prefix+'/'+c.get_name() for c in children])
-                prefixes.append(prefix)
-            i18n.get_translations(languages=languages, core_names=core_names, extra_prefixes=prefixes)
+            self.translate_reget(lang)
 
         # We always translate always-visible widgets
         for q in self.language_questions:
