@@ -34,10 +34,11 @@ Description: for internal use; can be preseeded
 
 Template: oem-config/install-language-support
 Type: boolean
-Default: true
+Default: false
 Description: for internal use; can be preseeded
  Install language support packages for the locale that has been selected by
- the user
+ the user.  Ensure you have provided these packages in oem-config/repository
+ or can guarantee a connection to the Internet.
 
 Template: oem-config/remove_extras
 Type: boolean

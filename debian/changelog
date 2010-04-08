@@ -14,6 +14,10 @@ ubiquity (2.2.16) UNRELEASED; urgency=low
     when ubiquity in only mode crashes.  If in automatic mode, the
     default is to reboot.  Preseed ubiquity/reboot_on_failure to false
     to start a desktop session instead (LP: #558371).
+  * Make oem-config/install-language-support false by default.  OEMs
+    should only be turning this on if they've provided all the possible
+    langpacks in oem-config/repository or can guarantee an Internet
+    connection (LP: #539710).
 
   [ Amichai Rothman ]
   * Fix KDE frontend's slideshow links not working (LP: #540278)
