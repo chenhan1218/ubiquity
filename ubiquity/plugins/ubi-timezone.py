@@ -116,7 +116,9 @@ class PageGtk(PluginUI):
         import gobject, gtk
         from ubiquity import timezone_map
         self.tzdb = ubiquity.tz.Database()
-        self.tzmap = timezone_map.TimezoneMap(self.tzdb, '/usr/share/ubiquity/pixmaps/timezone')
+        PATH = os.environ.get('UBIQUITY_PATH', False) or '/usr/share/ubiquity'
+        self.tzmap = timezone_map.TimezoneMap(self.tzdb,
+                                        os.path.join(PATH, 'pixmaps/timezone'))
         self.tzmap.connect('city-selected', self.select_city)
         self.map_window.add(self.tzmap)
         self.tzmap.show()

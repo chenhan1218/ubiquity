@@ -2,8 +2,22 @@
 #make -C d-i update
 #make -C d-i build
 #make -C d-i install
-(cat d-i/templates; echo; po2debconf debian/ubiquity.templates; echo; po2debconf debian/ubiquity.templates-imported --podir=debian/imported-po) > tests/debconfdb
-#export DEBCONF_DB_REPLACE="File{tests/debconfdb.dat}"
+# Need to install python-pyicu
+# For loading the console-setup plugin.  This is needed for at least testing
+# loading of plugins.
+./debian/rules ubiquity/keyboard_names.py
+rebuild=false
+for x in d-i/templates debian/ubiquity.templates \
+	debian/ubiquity.templates-imported; do
+	if [ $x -nt tests/debconfdb ]; then
+		rebuild=:
+		break
+	fi
+done
+$rebuild && (cat d-i/templates; echo;
+	po2debconf debian/ubiquity.templates; echo;
+	po2debconf debian/ubiquity.templates-imported \
+		--podir=debian/imported-po) > tests/debconfdb
 cat > tests/debconf.conf << EOF
 Config: configdb
 Templates: templatedb
@@ -19,7 +33,8 @@ Mode: 644
 Filename: tests/templates.dat
 EOF
 export DEBCONF_SYSTEMRC=tests/debconf.conf
-debconf-loadtemplate ubiquity tests/debconfdb
+$rebuild && debconf-loadtemplate ubiquity tests/debconfdb
 # For log-output
 export PATH="d-i/source/debian-installer-utils:$PATH"
-UBIQUITY_PLUGIN_PATH=ubiquity/plugins PIXMAPS=desktop UBIQUITY_GLADE=gui/gtk ./tests/run-gtk
+UBIQUITY_PATH=. UBIQUITY_PLUGIN_PATH=ubiquity/plugins PIXMAPS=desktop \
+	UBIQUITY_GLADE=gui/gtk ./tests/run-frontend
