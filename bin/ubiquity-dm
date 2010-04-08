@@ -376,6 +376,12 @@ EndSection
             import debconf
             db = DebconfCommunicator('ubiquity', cloexec=True)
             try:
+                error_cmd = db.get('ubiquity/failure_command')
+                if error_cmd:
+                    subprocess.call(['sh', '-c', error_cmd])
+            except debconf.DebconfError:
+                pass
+            try:
                 reboot = db.get('ubiquity/reboot_on_failure') == 'true'
             except debconf.DebconfError:
                 reboot = False

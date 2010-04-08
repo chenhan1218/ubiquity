@@ -18,6 +18,7 @@ ubiquity (2.2.16) UNRELEASED; urgency=low
     should only be turning this on if they've provided all the possible
     langpacks in oem-config/repository or can guarantee an Internet
     connection (LP: #539710).
+  * Call ubiquity/failure_command if we crash in only ubiquity mode.
 
   [ Amichai Rothman ]
   * Fix KDE frontend's slideshow links not working (LP: #540278)
