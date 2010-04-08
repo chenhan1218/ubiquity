@@ -1107,3 +1107,19 @@ Template: ubiquity/text/begin_install_button
 Type: text
 _Description:
  Continue with installation.
+
+Template: ubiquity/install_failed
+Type: text
+_Description: Installation failed
+ The installer encountered an unrecoverable error.  A desktop session will
+ now be run so that you may investigate the problem or try installing again.
+
+Template: ubiquity/install_failed_reboot
+Type: text
+_Description: Installation failed
+ The installer encountered an unrecoverable error and will now reboot.
+
+Template: ubiquity/reboot_on_failure
+Type: boolean
+Default: true
+Description: for internal use; automatically reboot when the install fails.

@@ -370,6 +370,45 @@ EndSection
         greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
         ret = greeter.wait()
 
+        reboot = False
+        if ret != 0:
+            from ubiquity.debconfcommunicator import DebconfCommunicator
+            import debconf
+            db = DebconfCommunicator('ubiquity', cloexec=True)
+            try:
+                reboot = db.get('ubiquity/reboot_on_failure') == 'true'
+            except debconf.DebconfError:
+                reboot = False
+            
+            if '--automatic' in program and reboot:
+                question = 'ubiquity/install_failed_reboot'
+            else:
+                question = 'ubiquity/install_failed'
+            title = ''
+            message = ''
+            try:
+                title = unicode(db.metaget(question, 'description'),
+                                'utf-8', 'replace')
+                message = unicode(db.metaget(question, 'extended_description'),
+                                  'utf-8', 'replace')
+            except debconf.DebconfError:
+                pass
+
+            if title and message:
+                if self.frontend == 'gtk_ui':
+                    cmd = ['zenity', '--error', '--title=%s' % title,
+                           '--text=%s' % message]
+                    subprocess.call(cmd)
+                elif self.frontend == 'kde_ui':
+                    cmd = ['kdialog', '--title=%s' % title,
+                           '--msgbox=%s' % message]
+                    subprocess.call(cmd)
+                else:
+                    # Not ideal, but if we cannot let the user know what's
+                    # going on, it's best to drop them into a desktop and let
+                    # them figure it out.
+                    reboot = False
+
         def kill_if_exists(pid, signum):
             try:
                 os.kill(pid, signum)
@@ -408,6 +447,8 @@ EndSection
         kill_if_exists(server.pid, signal.SIGTERM)
         server.wait()
 
+        if reboot:
+            subprocess.Popen(['reboot'])
         if ret is not None and ret >= 0:
             return ret
         else:
