@@ -13,7 +13,7 @@ ubiquity (2.2.16) UNRELEASED; urgency=low
   * Let the user know why we're starting a desktop session or rebooting
     when ubiquity in only mode crashes.  If in automatic mode, the
     default is to reboot.  Preseed ubiquity/reboot_on_failure to false
-    to start a desktop session instead.
+    to start a desktop session instead (LP: #558371).
 
   [ Amichai Rothman ]
   * Fix KDE frontend's slideshow links not working (LP: #540278)
