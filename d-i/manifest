@@ -13,7 +13,7 @@ localechooser 2.12ubuntu3
 migration-assistant 0.6.4build1
 netcfg 1.51ubuntu2
 partconf 1.32ubuntu2
-partman-auto 89ubuntu4
+partman-auto 89ubuntu5
 partman-auto-loop 0ubuntu18
 partman-base 139ubuntu3
 partman-basicfilesystems 63ubuntu3
@@ -29,6 +29,6 @@ partman-uboot 3
 partman-xfs 44
 preseed 1.43
 silo-installer 1.16ubuntu1
-tzsetup 1:0.26ubuntu5
+tzsetup 1:0.26ubuntu7
 user-setup 1.28ubuntu5
 yaboot-installer 1.1.15ubuntu1
