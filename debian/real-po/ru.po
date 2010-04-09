@@ -7,26 +7,26 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-07 11:44+0100\n"
-"PO-Revision-Date: 2010-03-29 16:03+0000\n"
-"Last-Translator: Sergey \"Shnatsel\" Davidoff <Shnatsel@gmail.com>\n"
+"PO-Revision-Date: 2010-04-04 09:20+0000\n"
+"Last-Translator: Vadim Nevorotin <malamut@ubuntu.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
+"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr "Использовать наибольшее свободное пространство"
+msgstr "Использовать наибольшее свободное пространство на диске"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr "Стереть всё и использовать весь диск"
+msgstr "Удалить все данные и использовать весь диск"
 
 #. Type: text
 #. Description
@@ -60,7 +60,7 @@ msgstr "Установка (режим OEM, только для производ
 #. Description
 #: ../ubiquity.templates:9001
 msgid "Welcome"
-msgstr "Добро пожаловать"
+msgstr "Добро пожаловать!"
 
 #. Type: text
 #. Description
@@ -156,7 +156,8 @@ msgid ""
 "April 2010."
 msgstr ""
 "Это предварительный выпуск ${RELEASE} текущего ${MEDIUM} установщика. Это не "
-"конечная версия. Она появится в финальной версии ${RELEASE} в апреле 2010."
+"финальная версия, которая появится в финальной версии ${RELEASE} в апреле "
+"2010."
 
 #. Type: text
 #. Description
@@ -209,7 +210,7 @@ msgstr "Раскладка клавиатуры"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Какая раскладка больше подходит вашей клавиатуре?"
+msgstr "Какая раскладка больше подходит для вашей клавиатуры?"
 
 #. Type: text
 #. Description
@@ -293,7 +294,7 @@ msgstr "Фамилия"
 #. Description
 #: ../ubiquity.templates:41001
 msgid "What name do you want to use to log in?"
-msgstr "Какое имя вы хотите использовать для входа?"
+msgstr "Какое имя вы хотите использовать для входа в систему?"
 
 #. Type: text
 #. Description
@@ -339,31 +340,31 @@ msgstr "Система запущена в отладочном режиме. Н
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Strength: too short"
-msgstr ""
+msgstr "Надёжность пароля: слишком короткий"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Strength: weak"
-msgstr ""
+msgstr "Надёжность пароля: слишком слабый"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Strength: fair"
-msgstr ""
+msgstr "Надёжность пароля: достаточный"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Strength: good"
-msgstr ""
+msgstr "Надёжность пароля: хороший"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Strength: strong"
-msgstr ""
+msgstr "Надёжность пароля: устойчивый"
 
 #. Type: text
 #. Description
@@ -402,7 +403,9 @@ msgstr "Требовать пароль для входа в систему"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr "Требуется мой пароль для входа в зашифрованный домашний каталог"
+msgstr ""
+"Требовать пароль для входа в систему и доступа к зашифрованному домашнему "
+"каталогу"
 
 #. Type: text
 #. Description
@@ -433,8 +436,8 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"Если вы не желаете импортировать учетные записи, не выбирайте ничего и "
-"переходите на следующую страницу."
+"Если вы не желаете импортировать какие-либо учетные записи, не выбирайте "
+"ничего и переходите на следующую страницу."
 
 #. Type: text
 #. Description
@@ -537,7 +540,7 @@ msgstr "Прервать установку?"
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Do you really want to quit the installation now?"
-msgstr "Вы уверены что хотите выйти из программы установки?"
+msgstr "Вы уверены, что хотите прервать установку?"
 
 #. Type: text
 #. Description
@@ -944,7 +947,7 @@ msgstr "Копирование файлов..."
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Almost finished copying files..."
-msgstr "Копирование файлов (почти готово)..."
+msgstr "Копирование файлов почти закончено..."
 
 #. Type: error
 #. Description
@@ -1485,7 +1488,7 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Пожалуйста, выберите язык используемый для настройки системы. Этот язык "
+"Пожалуйста, выберите язык, используемый для настройки системы. Этот язык "
 "будет установлен языком по умолчанию для этого компьютера."
 
 #. Type: text
@@ -1493,206 +1496,3 @@ msgstr ""
 #: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr "Продолжить установку."
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
-#~ msgstr ""
-#~ "Пожалуйста, выберите язык для процесса установки. Этот же язык будет "
-#~ "задействован в системе в качестве основного языка."
-
-#~ msgid "Release Notes"
-#~ msgstr "Сведения о релизе"
-
-#~ msgid ""
-#~ " Install Type: ${INSTALLTYPE}\n"
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " IR Remote: ${REMOTE}\n"
-#~ " IR Transmitter: ${TRANSMITTER}\n"
-#~ " Video Driver: ${VIDEO_DRIVER}\n"
-#~ " Services: ${SERVICES}"
-#~ msgstr ""
-#~ " Тип установки: ${INSTALLTYPE}\n"
-#~ " Язык: ${LANGUAGE}\n"
-#~ " Раскладка клавиатуры: ${KEYMAP}\n"
-#~ " Имя: ${FULLNAME}\n"
-#~ " Логин: ${USERNAME}\n"
-#~ " Местонахождение: ${LOCATION}\n"
-#~ " Пульт ДУ: ${REMOTE}\n"
-#~ " ИК передатчик: ${TRANSMITTER}\n"
-#~ " Видеодрайвер: ${VIDEO_DRIVER}\n"
-#~ " Службы: ${SERVICES}"
-
-#~ msgid "Installation Type"
-#~ msgstr "Тип установки"
-
-#~ msgid "What type of system will this be?"
-#~ msgstr "Тип устанавливаемой системы?"
-
-#~ msgid "Primary Backend w/ Frontend"
-#~ msgstr "Основной бэкэнд/фронтэнд"
-
-#~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
-#~ msgstr ""
-#~ "Комбинированная бэкэнд/фронтэнд-машина - это обычный тип установки для "
-#~ "тех, кто хочет использовать MythTV для HTPC-приложений. Этот тип "
-#~ "установки предназначен для использования в качестве компонента вашего "
-#~ "домашнего кинотеатра."
-
-#~ msgid "Secondary Backend w/ Frontend"
-#~ msgstr "Дополнительный бэкэнд/фронтэнд"
-
-#~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
-#~ msgstr ""
-#~ "Это настроит систему, похожую на Первичный Внутренний Интерфейс / "
-#~ "Графический Интерфейс. Тем не менее, будет настроено подключение к уже "
-#~ "существующему внутреннему интерфейсу в сети."
-
-#~ msgid "Primary Backend"
-#~ msgstr "Первичный Внутренний Интерфейс"
-
-#~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
-#~ msgstr ""
-#~ "Компьютер без интерфейса пользователя (бэкэнд) обычно используется как "
-#~ "законченное устройство, не требующее особой поддержки. Эта машина будет "
-#~ "настроена для работы в качестве первого бэкэнд-компьютера в сети."
-
-#~ msgid "Secondary Backend"
-#~ msgstr "Вторичный Внутренний Интерфейс"
-
-#~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
-#~ msgstr ""
-#~ "Это настроит систему, схожую с Первичным интерфейсом. Тем не менее, будет "
-#~ "настроено подключение к уже существующему внутреннему интерфейсу в сети."
-
-#~ msgid "Frontend"
-#~ msgstr "Графический Интерфейс"
-
-#~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
-#~ msgstr ""
-#~ "Основное предназначение компьютера только с графической оболочкой - "
-#~ "принимать мультимедийное содержимое и распространять его. Эта "
-#~ "конфигурация нуждается в существующем внутреннем интерфейсе в сети."
-
-#~ msgid "Graphics Drivers"
-#~ msgstr "Видеодрайверы"
-
-#~ msgid ""
-#~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
-#~ msgstr ""
-#~ "Открытый видеодрайвер уже задействован и настроен для вашей установки. "
-#~ "Если вы желаете, то можете использовать другой видеодрайвер. Обратите "
-#~ "внимание, что проприетарные видеодрайверы могут быть необходимы для "
-#~ "вывода TV или других эффектов OpenGL."
-
-#~ msgid "If you would like to configure TV-out, choose an option here:"
-#~ msgstr "Если вы желаете настроить TV-вывод, выберите опцию здесь:"
-
-#~ msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-#~ msgstr "Задействуя TV-вывод, вам необходимо выбрать TV-стандарт."
-
-#~ msgid "Master Backend Info"
-#~ msgstr "Информация по основному бэкэнду"
-
-#~ msgid ""
-#~ "Please enter the information necessary to contact your master backend:"
-#~ msgstr ""
-#~ "Пожалуйста, введите информацию, необходимую для того, чтобы связаться с "
-#~ "вашим основным бэкэндом:"
-
-#~ msgid "MySQL Database"
-#~ msgstr "База данных MySQL"
-
-#~ msgid "MySQL Server"
-#~ msgstr "Сервер MySQL"
-
-#~ msgid "Configure Guide Data / Backend"
-#~ msgstr "Настройка управляющих данных бэкэнда"
-
-#~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
-#~ msgstr ""
-#~ "В конце установки вам потребуется задать управляющие данные и выполнить "
-#~ "первичную настройку бэкэнда."
-
-#~ msgid "Click to open the Schedules Direct website"
-#~ msgstr "Нажмите для открытия веб-сайта Schedules Direct"
-
-#~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
-#~ msgstr ""
-#~ "Пользователям в Северной Америке необходимо настроить учётную запись "
-#~ "Schedules Direct (SD). SD предоставляет управляющие данные по номинальной "
-#~ "цене. Без SD, североамериканские пользователи могут потерять многие "
-#~ "возможности MythTV по настройке телепрограмм."
-
-#~ msgid "Launch MythTV Setup"
-#~ msgstr "Запуск установки MythTV"
-
-#~ msgid ""
-#~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
-#~ msgstr ""
-#~ "После настройки источника ключевых данных, вам потребуется запустить "
-#~ "MythTV-Setup, чтобы выполнить первичную конфигурацию бэкэнд-устройства. "
-#~ "Вам предстоит настроить первые четыре секции и убедиться, что вы "
-#~ "предоставили ключевые данные в третьей."
-
-#~ msgid "Configuring mythtv..."
-#~ msgstr "Настройка mythtv..."
-
-#~ msgid "Configuring additional drivers..."
-#~ msgstr "Настройка дополнительных драйверов..."
-
-#~ msgid "Configuring additional services..."
-#~ msgstr "Настройка дополнительных служб..."
-
-#~ msgid "Configuring infrared devices..."
-#~ msgstr "Настройка инфракрасных устройств..."
-
-#~ msgid ""
-#~ "If you have Internet access, read the release notes for information on "
-#~ "problems that may affect you."
-#~ msgstr ""
-#~ "Если у вас есть доступ в Интернет, прочтите информацию о проблемах, с "
-#~ "которыми вы можете столкнуться, в сведениях о релизе."
-
-#~ msgid "Zone:"
-#~ msgstr "Пояс:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Введите пароль дважды  (для обнаружения возможной ошибки ввода). "
-#~ "Безопасный пароль должен иметь не менее восьми символов и содержать "
-#~ "буквы, цифры и знаки пунктуации. Кроме этого, пароль должен периодически "
-#~ "меняться."

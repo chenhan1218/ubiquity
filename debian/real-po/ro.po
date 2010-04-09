@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-07 11:44+0100\n"
-"PO-Revision-Date: 2010-03-23 16:51+0000\n"
-"Last-Translator: Ionuț Jula <ionutjula@gmail.com>\n"
+"PO-Revision-Date: 2010-04-05 19:11+0000\n"
+"Last-Translator: Adi Roiban <adi@roiban.ro>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
+"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -38,7 +38,7 @@ msgstr "Instalează una lângă alta, alegând între ele la pornire"
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr "Specifică partiția manual (avansat)"
+msgstr "Specifică partițiile manual (avansat)"
 
 #. Type: text
 #. Description
@@ -80,18 +80,20 @@ msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
 msgstr ""
+"Puteți încerca ${RELEASE} de pe acest ${MEDIUM} fără a face modificări "
+"sistemului."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
-msgstr ""
+msgstr "Încercați ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
-msgstr ""
+msgstr "Instalați ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -101,6 +103,10 @@ msgid ""
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+"Gata de instalare?  O dată ce ați răspuns câtorva întrebări, conținutul "
+"acestui ${MEDIUM} live poate fi instalat pe acest calculator, astfel încât "
+"veți putea folosi ${RELEASE} la viteză deplină, fără a mai fi nevoie de "
+"acest ${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -123,6 +129,8 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
+"Probabil doriți să citiți <a href=\"release-notes\">notele de lansare</a> "
+"sau <a href=\"update\">actualizarea acestui instalator</a>."
 
 #. Type: text
 #. Description
@@ -1485,208 +1493,3 @@ msgstr ""
 #: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr ""
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
-#~ msgstr ""
-#~ "Alegeți limba utilizată în procesul de instalare. Aceasta va fi limba "
-#~ "implicită pentru sistemul final."
-
-#~ msgid ""
-#~ "If you have Internet access, read the release notes for information on "
-#~ "problems that may affect you."
-#~ msgstr ""
-#~ "Dacă aveți acces la Internet, citiți notițele acestei lansări pentru "
-#~ "informații legate de problemele care v-ar putea afecta."
-
-#~ msgid "Release Notes"
-#~ msgstr "Notițe de lansare"
-
-#~ msgid ""
-#~ " Install Type: ${INSTALLTYPE}\n"
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " IR Remote: ${REMOTE}\n"
-#~ " IR Transmitter: ${TRANSMITTER}\n"
-#~ " Video Driver: ${VIDEO_DRIVER}\n"
-#~ " Services: ${SERVICES}"
-#~ msgstr ""
-#~ " Tip instalare: ${INSTALLTYPE}\n"
-#~ " Limbă: ${LANGUAGE}\n"
-#~ " Aranjament tastatură: ${KEYMAP}\n"
-#~ " Nume: ${FULLNAME}\n"
-#~ " Cont: ${USERNAME}\n"
-#~ " Loc: ${LOCATION}\n"
-#~ " Telecomandă IR: ${REMOTE}\n"
-#~ " Transmițător IR: ${TRANSMITTER}\n"
-#~ " Driver video: ${VIDEO_DRIVER}\n"
-#~ " Servicii: ${SERVICES}"
-
-#~ msgid "Installation Type"
-#~ msgstr "Tip instalare"
-
-#~ msgid "What type of system will this be?"
-#~ msgstr "Ce rol va avea acest sistem?"
-
-#~ msgid "Frontend"
-#~ msgstr "Interfață"
-
-#~ msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-#~ msgstr ""
-#~ "La activarea ieșirii TV (tv-out), este necesară și alegerea unui standard "
-#~ "TV:"
-
-#~ msgid "MySQL Server"
-#~ msgstr "Server MySQL"
-
-#~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
-#~ msgstr ""
-#~ "Utilizatorii din America de Nord vor avea nevoie de un cont pe websiteul "
-#~ "Schedules Direct (SD). SD oferă informații tip ghid tv pentru un tarif "
-#~ "infim. Fară SD utilizatorii din America de Nord nu vor beneficia de multe "
-#~ "din facilitățile de programare din MythTV."
-
-#~ msgid "Zone:"
-#~ msgstr "Zonă:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Introduceți aceeași parolă de două ori, astfel încât vor putea fi "
-#~ "detectate greșeli în tastare. O parolă sigură conține o combinație de "
-#~ "litere, cifre și semne de punctuație, este de cel puțin opt caractere și "
-#~ "este schimbată periodic."
-
-#~ msgid "Primary Backend"
-#~ msgstr "Backend principal"
-
-#~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
-#~ msgstr ""
-#~ "Acest tip de instalare este similar cu un backend principal cu interfață, "
-#~ "dar acest calculator va fi configurat pentru a se conecta la un backend "
-#~ "deja existent în rețea."
-
-#~ msgid "Secondary Backend w/ Frontend"
-#~ msgstr "Backend secundar cu interfață"
-
-#~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
-#~ msgstr ""
-#~ "Un calculator configurat ca backend cu interfață este cel mai comun tip "
-#~ "de instalare pentru cineva care dorește MythTV pentru aplicații de gen "
-#~ "Home Teather PC. Acest tip de instalare este gândit pentru a fi folosit "
-#~ "ca o componentă în sistemul Home Teather."
-
-#~ msgid "Primary Backend w/ Frontend"
-#~ msgstr "Backend principal cu interfață"
-
-#~ msgid "Secondary Backend"
-#~ msgstr "Backend secundar"
-
-#~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
-#~ msgstr ""
-#~ "Un calculator ce rulează ca backend principal este configurat de regulă "
-#~ "să funcționeze ca un dispozitiv electronic; necesită foarte puțină "
-#~ "întreținere. Acest tip de instalare este destinat pentru primul backend "
-#~ "dintr-o rețea."
-
-#~ msgid ""
-#~ "Please enter the information necessary to contact your master backend:"
-#~ msgstr "Introduceți informațiile necesare conectării la master backend:"
-
-#~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
-#~ msgstr ""
-#~ "Funcția de bază a unui sistem de tip interfață este aceea de a primi "
-#~ "conținut multimedia de la un backend și a-l pune la dispoziția "
-#~ "utilizatorului. Acest tip de instalare necesită prezența unui backend în "
-#~ "rețea."
-
-#~ msgid "Master Backend Info"
-#~ msgstr "Informații despre master backend"
-
-#~ msgid "Graphics Drivers"
-#~ msgstr "Drivere grafice"
-
-#~ msgid ""
-#~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
-#~ msgstr ""
-#~ "Există deja un driver grafic cu sursă deschisă activat și configurat "
-#~ "pentru această instalare. Dacă doriți să folosiți un alt driver grafic, o "
-#~ "puteți face de aici. Rețineți că pot fi necesari driveri grafici "
-#~ "brevetați pentru ieșirea TV sau efecte OpenGL."
-
-#~ msgid "If you would like to configure TV-out, choose an option here:"
-#~ msgstr ""
-#~ "Dacă doriți să configurați o ieșire TV (tv-out), alegeți o opțiune de "
-#~ "aici:"
-
-#~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
-#~ msgstr ""
-#~ "Această opțiune va configura un sistem similar cu un backend principal, "
-#~ "dar va fi configurat pentru a se conecta la un backend deja existent în "
-#~ "rețea."
-
-#~ msgid ""
-#~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
-#~ msgstr ""
-#~ "După configurarea sursei de informații pentru ghidul tv, va fi necesar să "
-#~ "lansați aplicația MythTV-Setup pentru a configura backend-ul pentru prima "
-#~ "oară. Va trebui sa configurați primele patru secțiuni, asigurându-vă că "
-#~ "furnizați datele ghidului tv în a treia secțiune."
-
-#~ msgid "Configuring mythtv..."
-#~ msgstr "Se configurează MythTv..."
-
-#~ msgid "MySQL Database"
-#~ msgstr "Bază de date MySQL"
-
-#~ msgid "Configure Guide Data / Backend"
-#~ msgstr "Configurați datele ghidului / backend-ul"
-
-#~ msgid "Click to open the Schedules Direct website"
-#~ msgstr "Dați clic pentru a deschide site-ul web „Schedules Direct”"
-
-#~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
-#~ msgstr ""
-#~ "Pentru a finaliza instalarea, este necesar să configurați ghidul TV și "
-#~ "backend-ul pentru prima dată."
-
-#~ msgid "Launch MythTV Setup"
-#~ msgstr "Porniți configurarea MythTV"
-
-#~ msgid "Configuring additional services..."
-#~ msgstr "Se configurează serviciile suplimentare..."
-
-#~ msgid "Configuring infrared devices..."
-#~ msgstr "Se configurează dispozitivele pentru infraroșu..."

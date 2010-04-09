@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-07 11:44+0100\n"
-"PO-Revision-Date: 2009-10-15 10:09+0000\n"
-"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
+"PO-Revision-Date: 2010-04-05 13:15+0000\n"
+"Last-Translator: mrt <Unknown>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
+"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -80,18 +80,20 @@ msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
 msgstr ""
+"Lahko preizkusite izdajo ${RELEASE} z ${MEDIUM} brez da bi prišlo do "
+"kakršnih koli sprememb vašega sistema."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
-msgstr ""
+msgstr "Preizkusi ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
-msgstr ""
+msgstr "Namesti ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -101,6 +103,9 @@ msgid ""
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+"Pripravljeni na namestitev? Ko odgovorite na nekaj vprašanje, se lahko "
+"vsebina iz žive ${MEDIUM} namesti na ta računalnik, tako da boste lahko "
+"uporabljali ${RELEASE} s polno hitrostjo brez ${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -122,18 +127,20 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
+"Lahko si preberete <a href=\"release-notes\">opombe ob izdaji</a> ali <a "
+"href=\"update\">posodobite ta namestitvenik</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr ""
+msgstr "Lahko si preberete <a href=\"release-notes\">opombe ob izdaji</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr ""
+msgstr "Lahko <a href=\"update\">posodobite ta namestitvenik</a>."
 
 #. Type: text
 #. Description
@@ -143,6 +150,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2010."
 msgstr ""
+"To je pred-izdaja  ${RELEASE} živega ${MEDIUM} namestitvenika. Ni dokončna "
+"izdaja ${RELEASE}, ki bo na voljo aprila 2010."
 
 #. Type: text
 #. Description
@@ -152,6 +161,9 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
+"Namestitveni proces lahko spremeni velikost particij ali jih izbriše iz "
+"vašega dirka. Poskrbite za <b>polno varnostno kopijo vseh pomembnih "
+"podatkov</b>, preden zaženete program."
 
 #. Type: text
 #. Description
@@ -175,7 +187,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Time Zone:"
-msgstr ""
+msgstr "Časovni pas:"
 
 #. Type: text
 #. Description
@@ -217,43 +229,43 @@ msgstr "Izberite svojo:"
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Guess keymap:"
-msgstr ""
+msgstr "Ugani razpored tipk:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Guess..."
-msgstr ""
+msgstr "Ugani..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Please press one of the following keys:"
-msgstr ""
+msgstr "Prpsim pritisnite eno od naslednjih tipk:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Is the following key present on your keyboard?"
-msgstr ""
+msgstr "Je naslenja tipka prisotna na vaši tipkovnici?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Layout:"
-msgstr ""
+msgstr "Razpored:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Variant:"
-msgstr ""
+msgstr "Različica:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Below is an image of your current layout:"
-msgstr ""
+msgstr "Spodaj je slika vašega trenutnega razporeda:"
 
 #. Type: text
 #. Description
@@ -271,7 +283,7 @@ msgstr "Kako vam je ime?"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Full Name"
-msgstr ""
+msgstr "Polno ime"
 
 #. Type: text
 #. Description
@@ -283,7 +295,7 @@ msgstr "Katero ime želite uporabljati pri prijavi?"
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Username"
-msgstr ""
+msgstr "Uporabniško ime"
 
 #. Type: text
 #. Description
@@ -305,13 +317,13 @@ msgstr "Vnesite geslo za varovanje svojega računa."
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Password"
-msgstr ""
+msgstr "Geslo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Re-enter password"
-msgstr ""
+msgstr "Ponovno vnesite geslo"
 
 #. Type: text
 #. Description
@@ -324,31 +336,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Strength: too short"
-msgstr ""
+msgstr "Moč: prekratko"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Strength: weak"
-msgstr ""
+msgstr "Moč: šibko"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Strength: fair"
-msgstr ""
+msgstr "Moč: solidno"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Strength: good"
-msgstr ""
+msgstr "Moč: dobro"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Strength: strong"
-msgstr ""
+msgstr "Moč: močno"
 
 #. Type: text
 #. Description
@@ -360,7 +372,7 @@ msgstr "Kako naj se imenuje ta računalnik?"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Computer Name"
-msgstr ""
+msgstr "Ime računalnika"
 
 #. Type: text
 #. Description
@@ -528,7 +540,7 @@ msgstr "Ali res želite zapustiti namestitev sedaj?"
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Bootloader install failed"
-msgstr ""
+msgstr "Namestitev zagonskega nalagalnika ni uspela"
 
 #. Type: text
 #. Description
@@ -537,18 +549,20 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
+"Oprostite, prišlo je do napake, zaradi katere ni bilo mogoče namestiti "
+"zagonskega nalagalnika za določeno lokacijo."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
 msgid "Choose a different device to install the bootloader on:"
-msgstr ""
+msgstr "Izberite drugo napravo za namestitev zagonskega nalagalnika:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:81001
 msgid "Continue without a bootloader."
-msgstr ""
+msgstr "Nadaljuj brez zagonskega nalagalnika."
 
 #. Type: text
 #. Description
@@ -556,24 +570,26 @@ msgstr ""
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
+"Morali boste ročno namestiti zagonski nalagalnik, da boste lahko zagnali "
+"${RELEASE}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:83001
 msgid "Cancel the installation."
-msgstr ""
+msgstr "Prekini namestitev."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:84001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "To morda lahko povzroči, da se vaš računalnih ne bo zagnal."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:85001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "Kako želite nadaljevati?"
 
 #. Type: text
 #. Description
@@ -680,7 +696,7 @@ msgstr "Povrni"
 #. Description
 #: ../ubiquity.templates:100001
 msgid "Recalculating partitions..."
-msgstr ""
+msgstr "Preračunjujem particije..."
 
 #. Type: text
 #. Description
@@ -898,7 +914,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:131001
 msgid "Verifying the installation configuration..."
-msgstr ""
+msgstr "Preverjam konfiguracij namestitve..."
 
 #. Type: title
 #. Description
@@ -1210,7 +1226,7 @@ msgstr "Med odstranjevanjem programskih paketov je prišlo do napake:"
 #. Description
 #: ../ubiquity.templates:167001
 msgid "Error migrating documents and settings"
-msgstr ""
+msgstr "Napaka pri selitvi dokumentov in nastavitev."
 
 #. Type: error
 #. Description
@@ -1221,12 +1237,16 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"Prišlo je do napake pri selitvi dokumentov in nastavitev. Več podrobnosti se "
+"morda nahaja v /var/log/syslog. Namestitev se bo nadaljevala, toda nekateri "
+"ali celo vsi zahtevani dokumenti in nastavitve mora niso bile prenesene na "
+"nov sistem."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:168001
 msgid "Error copying network configuration"
-msgstr ""
+msgstr "Napaka pri kopiranju nastavitev omrežja"
 
 #. Type: error
 #. Description
@@ -1236,6 +1256,9 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"Prišlo je do napake pri kopiranju nastavitev omrežja.  Namestitev se bo "
+"nadaljevala, toda na novem sistemu bo potrebno ponovno vzpostaviti omrežne "
+"nastavitve."
 
 #. Type: text
 #. Description
@@ -1297,6 +1320,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
+"Nekatere od ustvarjenih particij so premajhne. Prosim povečajte naslednje "
+"particije vsaj na:"
 
 #. Type: boolean
 #. Description
@@ -1384,63 +1409,63 @@ msgstr "postopek namestitve"
 #. Description
 #: ../ubiquity.templates:204001
 msgid "Checking for installer updates"
-msgstr ""
+msgstr "Preverjam za namestitvene posodobitve"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
 msgid "Reading package information"
-msgstr ""
+msgstr "Branje podatkov o paketih"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:206001
 msgid "Updating package information"
-msgstr ""
+msgstr "Posodobitev podatkov o paketih"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:207001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr ""
+msgstr "Datoteka ${INDEX} od ${TOTAL}-ih pri ${SPEED}/s"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:208001
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Datoteka ${INDEX} od ${TOTAL}-ih"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
 msgid "Installing update"
-msgstr ""
+msgstr "Nameščanje posodobitev"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:210001
 msgid "Error updating installer"
-msgstr ""
+msgstr "Napaka pri posodabljanju namestitvenika"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:210001
 msgid "The installer encountered an error while trying to update itself:"
-msgstr ""
+msgstr "V namestitveniku je prišlo do napake, ko se je poskušal posodobiti:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:211001
 msgid "USB"
-msgstr ""
+msgstr "USB"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
 #: ../ubiquity.templates:212001
 msgid "CD"
-msgstr ""
+msgstr "CD"
 
 #. Type: text
 #. Description
@@ -1449,6 +1474,8 @@ msgid ""
 "Please choose the language to use for the install process. This\n"
 " Language will be the default language for this computer."
 msgstr ""
+"Prosim izberite jezik za namestitveni proces. Ta\n"
+" jezik bo tudi privzeti jezik novega sistema."
 
 #. Type: text
 #. Description
@@ -1464,203 +1491,4 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:215001
 msgid "Continue with installation."
-msgstr ""
-
-#~ msgid "Release Notes"
-#~ msgstr "Opombe ob izdaji"
-
-#~ msgid "What type of system will this be?"
-#~ msgstr "Kakšne vrste bo ta sistem?"
-
-#~ msgid ""
-#~ " Install Type: ${INSTALLTYPE}\n"
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " IR Remote: ${REMOTE}\n"
-#~ " IR Transmitter: ${TRANSMITTER}\n"
-#~ " Video Driver: ${VIDEO_DRIVER}\n"
-#~ " Services: ${SERVICES}"
-#~ msgstr ""
-#~ " Tip namestitve: ${INSTALLTYPE}\n"
-#~ " Jezik: ${LANGUAGE}\n"
-#~ " Razporeditev tipk na tipkovnici: ${KEYMAP}\n"
-#~ " Ime: ${FULLNAME}\n"
-#~ " Uporabniško ime: ${USERNAME}\n"
-#~ " Lokacija: ${LOCATION}\n"
-#~ " IR daljinec: ${REMOTE}\n"
-#~ " IR oddajnik: ${TRANSMITTER}\n"
-#~ " Video gonilnik: ${VIDEO_DRIVER}\n"
-#~ " Storitve: ${SERVICES}"
-
-#~ msgid "Graphics Drivers"
-#~ msgstr "Grafični gonilniki"
-
-#~ msgid "Zone:"
-#~ msgstr "Območje:"
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
-#~ msgstr ""
-#~ "Izberite jezik za namestitev. Isti jezik bo potem tudi privzeti sistemski "
-#~ "jezik."
-
-#~ msgid ""
-#~ "If you have Internet access, read the release notes for information on "
-#~ "problems that may affect you."
-#~ msgstr ""
-#~ "Če imate dostop do interneta, si preberite opombe ob izdaji in se "
-#~ "seznanite z morebitnimi težavami, na katere lahko naletite."
-
-#~ msgid "Installation Type"
-#~ msgstr "Vrsta namestitve"
-
-#~ msgid "If you would like to configure TV-out, choose an option here:"
-#~ msgstr "Če bi radi nastavili TV izhod, izberite nekaj izmed naslednjega:"
-
-#~ msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-#~ msgstr "Če boste omogočili TV izhod, boste morali izbrati tudi TV standard:"
-
-#~ msgid ""
-#~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
-#~ msgstr ""
-#~ "Odprtokodni grafični gonilnik je že omogočen in nastavljen za vaš sistem. "
-#~ "Če želite uporabiti druge grafične gonilnike, to lahko storite tukaj. "
-#~ "Vedeti je treba, da so lastniški grafični gonilniki morda nujni za "
-#~ "pravilno delovanje TV izhoda ali učinkov OpenGL."
-
-#~ msgid "Configuring mythtv..."
-#~ msgstr "Nastavljanje MythTV ..."
-
-#~ msgid "MySQL Database"
-#~ msgstr "Podatkovna baza MySQL"
-
-#~ msgid "MySQL Server"
-#~ msgstr "Strežnik MySQL"
-
-#~ msgid "Click to open the Schedules Direct website"
-#~ msgstr "Kliknite za spletno stran 'Schedules Direct'"
-
-#~ msgid "Launch MythTV Setup"
-#~ msgstr "Zaženi nastavitev MythTV"
-
-#~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
-#~ msgstr ""
-#~ "Uporabniki v Severni Ameriki bodo morali ustvariti uporabniški račun pri "
-#~ "'Shedules Direct' (SD). SD nudi sporede za manjše plačilo. Brez tega bodo "
-#~ "uporabniki v Severni Ameriki izgubili mnogo funkcij MythTV za spremljanje "
-#~ "sporeda."
-
-#~ msgid "Configuring additional drivers..."
-#~ msgstr "Nastavljanje dodatnih gonilnikov ..."
-
-#~ msgid "Configuring infrared devices..."
-#~ msgstr "Nastavljanje infrardečih naprav ..."
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Svoje geslo vnesite dvakrat, da ne bi prišlo do morebitnih napak pri "
-#~ "tipkanju. Dobro geslo naj bo sestavljeno iz mešanice črk, številk in "
-#~ "ločil, dolgo naj bo vsaj osem znakov in naj se redno menja."
-
-#~ msgid "Primary Backend"
-#~ msgstr "Primarni zaledni"
-
-#~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
-#~ msgstr ""
-#~ "To bo namestilo sistem, podoben primarnemu zaledno-čelnemu, s to razliko, "
-#~ "da bo nastavljen tako, da se bo preko omrežja povezoval na obstoječe "
-#~ "zaledje."
-
-#~ msgid "Secondary Backend w/ Frontend"
-#~ msgstr "Sekundarni zaledno-čelni"
-
-#~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
-#~ msgstr ""
-#~ "Kombinacija zaledne in čelne namestitve je najpogostejša pri ljudeh, ki "
-#~ "hočejo uporabljati MythTV kot HTPC. Takšna namestitev je namenjena "
-#~ "uporabi v komponentah domačega kina."
-
-#~ msgid "Primary Backend w/ Frontend"
-#~ msgstr "Primarni zaledno-čelni"
-
-#~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
-#~ msgstr ""
-#~ "Zaledni računalnik je tipično nastavljen tako, da deluje v ozadju in ne "
-#~ "potrebuje veliko vzdrževanja. Ta možnost je namenjena prvemu zalednemu "
-#~ "sistemu v omrežju."
-
-#~ msgid "Secondary Backend"
-#~ msgstr "Sekundarni zaledni"
-
-#~ msgid ""
-#~ "Please enter the information necessary to contact your master backend:"
-#~ msgstr "Vpišite podatke za dostop do vašega glavnega zalednega sistema"
-
-#~ msgid "Master Backend Info"
-#~ msgstr "Podatki o glavnem zalednem sistemu"
-
-#~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
-#~ msgstr ""
-#~ "Glavna naloga izključno čelnega računalnika je sprejemanje in "
-#~ "posredovanje multimedijskih vsebin iz zaledja. Ta možnost zahteva "
-#~ "obstoječ zaledni sistem v omrežju."
-
-#~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
-#~ msgstr ""
-#~ "To bo nastavilo sistem, podoben primarnemu zalednemu, s to razliko, da bo "
-#~ "nastavljen tako, da se bo povezoval na obstoječe zaledje v omrežju."
-
-#~ msgid "Frontend"
-#~ msgstr "Čelni"
-
-#~ msgid ""
-#~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
-#~ msgstr ""
-#~ "Po nastavitvi podatkov o sporedu boste morali zagnati nastavitev MythTV, "
-#~ "ki bo pripravila začetne nastavitve zaledja. Morali boste nastaviti prve "
-#~ "štiri razdelke, pri tem pa boste morali v tretjem razdelku podati podatke "
-#~ "o sporedu."
-
-#~ msgid "Configure Guide Data / Backend"
-#~ msgstr "Nastavite podatke o sporedu - zaledje"
-
-#~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
-#~ msgstr ""
-#~ "Za zadnji del namestitve so potrebni podatki o sporedih in začetna "
-#~ "nastavitev zalednega sistema."
-
-#~ msgid "Configuring additional services..."
-#~ msgstr "Nastavljanje dodatnih storitev ..."
+msgstr "Nadaljuj z namestitvijo."

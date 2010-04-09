@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-07 11:44+0100\n"
-"PO-Revision-Date: 2010-03-27 16:33+0000\n"
-"Last-Translator: Kentaro Kazuhama <kazken3@gmail.com>\n"
+"PO-Revision-Date: 2010-04-09 06:28+0000\n"
+"Last-Translator: Shushi Kurose <md81bird@hitaki.net>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
+"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -80,18 +80,20 @@ msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
 msgstr ""
+"現在のシステムに変更を加えることなく ${MEDIUM} から ${RELEASE} を試すことがで"
+"きます。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
-msgstr ""
+msgstr "${RELEASE} を試す"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
-msgstr ""
+msgstr "${RELEASE} をインストールする"
 
 #. Type: text
 #. Description
@@ -114,7 +116,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Answering the questions should only take a few minutes."
-msgstr "質問への回答は、数分で終えることができるでしょう。"
+msgstr "質問への回答は数分で終わります。"
 
 #. Type: text
 #. Description
@@ -220,13 +222,13 @@ msgstr "自分で選択する："
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Guess keymap:"
-msgstr ""
+msgstr "キーマップを推測:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Guess..."
-msgstr ""
+msgstr "推測しています..."
 
 #. Type: text
 #. Description
@@ -238,7 +240,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Is the following key present on your keyboard?"
-msgstr ""
+msgstr "以下のキーはあなたのキーボードにありますか?"
 
 #. Type: text
 #. Description
@@ -262,13 +264,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Who are you?"
-msgstr "あなたは誰ですか？"
+msgstr "あなたの情報を入力してください"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "What is your name?"
-msgstr "あなたの名前は何ですか？"
+msgstr "あなたの名前を入力してください"
 
 #. Type: text
 #. Description
@@ -280,7 +282,7 @@ msgstr "氏名"
 #. Description
 #: ../ubiquity.templates:41001
 msgid "What name do you want to use to log in?"
-msgstr "ログインに使いたい名前は何ですか？"
+msgstr "ログインに使う名前を入力してください"
 
 #. Type: text
 #. Description
@@ -295,7 +297,7 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"このコンピュータを2人以上で使うならば、インストール後に複数のアカウントをセッ"
+"このコンピュータを2人以上で使う場合は、インストール後に複数のアカウントをセッ"
 "トアップすることができます。"
 
 #. Type: text
@@ -314,7 +316,7 @@ msgstr "パスワード"
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Re-enter password"
-msgstr ""
+msgstr "パスワードの再入力"
 
 #. Type: text
 #. Description
@@ -328,37 +330,37 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Strength: too short"
-msgstr ""
+msgstr "パスワードの強さ: 短すぎ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Strength: weak"
-msgstr ""
+msgstr "パスワードの強さ: 弱い"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Strength: fair"
-msgstr ""
+msgstr "パスワードの強さ: まずまず"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Strength: good"
-msgstr ""
+msgstr "パスワードの強さ: 良好"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Strength: strong"
-msgstr ""
+msgstr "パスワードの強さ: 強い"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "What is the name of this computer?"
-msgstr "コンピュータの名前は何にしますか？"
+msgstr "このコンピュータの名前を入力してください"
 
 #. Type: text
 #. Description
@@ -374,7 +376,7 @@ msgid ""
 "network."
 msgstr ""
 "この名前は、ネットワーク上の他のコンピュータからこのコンピュータを見えるよう"
-"に設定したときに使われます。"
+"設定したときに使われます。"
 
 #. Type: text
 #. Description
@@ -443,20 +445,20 @@ msgstr "どのようにディスクを分割しますか？"
 #: ../ubiquity.templates:64001
 msgid "This computer has no operating systems on it."
 msgstr ""
-"このコンピュータ上にはオペレーティングシステムがインストールされていません。"
+"このコンピュータにはオペレーティングシステムがインストールされていません。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "This computer has ${OS} on it."
-msgstr "このコンピュータ上には ${OS} がインストールされています。"
+msgstr "このコンピュータには ${OS} がインストールされています。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
 msgid "This computer has several operating systems on it."
 msgstr ""
-"このコンピュータ上には複数のオペレーティングシステムがインストールされていま"
+"このコンピュータには複数のオペレーティングシステムがインストールされていま"
 "す。"
 
 #. Type: text
@@ -584,7 +586,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:85001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "どのように進めますか?"
 
 #. Type: text
 #. Description
@@ -690,7 +692,7 @@ msgstr "元に戻す"
 #. Description
 #: ../ubiquity.templates:100001
 msgid "Recalculating partitions..."
-msgstr ""
+msgstr "パーティションを再計算しています..."
 
 #. Type: text
 #. Description
@@ -882,8 +884,8 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"インストールは完了しました。新しいインストールを使うためにはコンピュータの再"
-"起動が必要です。"
+"インストールは完了しました。新しくインストールしたものを使うにはコンピュータ"
+"の再起動が必要です。"
 
 #. Type: note
 #. Description
@@ -909,7 +911,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:131001
 msgid "Verifying the installation configuration..."
-msgstr ""
+msgstr "インストールの設定を検証しています"
 
 #. Type: title
 #. Description
@@ -1193,14 +1195,14 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
-"このエラーは、古いインストールイメージを使用したか、上記のパッケージのエラー"
-"のため発生しました\r\n"
-"より詳細な情報は、/var/log/syslogを確認してください\r\n"
-"インストーラーはインストールを続行しますが、この先失敗する可能性があり、イン"
+"このエラーは、古いインストールイメージを使用したか、上記のパッケージのバグに"
+"よって発生した可能性があります。\r\n"
+"より詳細な情報は、/var/log/syslog を確認してください。\r\n"
+"インストーラはインストールを続行しますが、この先で失敗する可能性があり、イン"
 "ストール済みのPCから他のパッケージ（上記のパッケージもおそらく含まれます）の"
-"インストール／削除ができなくなる可能性があります\r\n"
-"より新しいインストーラーのイメージファイルをまず探し、それでも失敗するなら問"
-"題点を販売業者に報告してください"
+"インストールや削除ができなくなる可能性があります。\r\n"
+"まず最新のインストールイメージを探した上で、それでも失敗するなら問題点を製造"
+"元に報告してください。"
 
 #. Type: error
 #. Description
@@ -1218,7 +1220,7 @@ msgstr "パッケージの削除中に1件のエラーが発生しました"
 #. Description
 #: ../ubiquity.templates:167001
 msgid "Error migrating documents and settings"
-msgstr ""
+msgstr "documents and settings の移行エラー"
 
 #. Type: error
 #. Description
@@ -1229,12 +1231,16 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"データの移行中にエラーが発生しました。さらに詳しい内容は /var/log/syslog で確"
+"認できるでしょう。インストールは継続しますが、要求された一部またはすべての "
+"documents and settings は、インストールしたシステムに転送されていないかもしれ"
+"ません。"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:168001
 msgid "Error copying network configuration"
-msgstr ""
+msgstr "ネットワーク設定のコピーエラー"
 
 #. Type: error
 #. Description
@@ -1244,6 +1250,8 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"ネットワーク設定のコピー中にエラーが発生しました。インストールは継続します"
+"が、システムのインストール後に再度ネットワークの設定を行う必要があります。"
 
 #. Type: text
 #. Description
@@ -1308,6 +1316,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
+"作成したパーティションのいくつかが小さすぎます。以下のパーティションを少なく"
+"ともこの大きさにしてください:"
 
 #. Type: boolean
 #. Description
@@ -1395,19 +1405,19 @@ msgstr "インストール処理"
 #. Description
 #: ../ubiquity.templates:204001
 msgid "Checking for installer updates"
-msgstr ""
+msgstr "インストーラのアップデートを確認しています"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
 msgid "Reading package information"
-msgstr ""
+msgstr "パッケージ情報を取得しています"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:206001
 msgid "Updating package information"
-msgstr ""
+msgstr "パッケージ情報をアップデートしています"
 
 #. Type: text
 #. Description
@@ -1425,13 +1435,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:209001
 msgid "Installing update"
-msgstr ""
+msgstr "アップデートをインストールしています"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:210001
 msgid "Error updating installer"
-msgstr ""
+msgstr "アップデートインストーラのエラー"
 
 #. Type: text
 #. Description
@@ -1476,201 +1486,3 @@ msgstr ""
 #: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr ""
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
-#~ msgstr ""
-#~ "インストールプロセスに使う言語を選択してください。ここで選んだ言語は、イン"
-#~ "ストールされるシステムの標準の言語になります。"
-
-#~ msgid ""
-#~ "If you have Internet access, read the release notes for information on "
-#~ "problems that may affect you."
-#~ msgstr ""
-#~ "インターネットに接続できるなら、今起きている問題に関する情報を得るため、リ"
-#~ "リースノートを読んでください。"
-
-#~ msgid "Release Notes"
-#~ msgstr "リリースノート"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "入力間違いがないことを確認するために、同じパスワードを二回入力してくださ"
-#~ "い。パスワードは、さまざまな文字や数字、記号が混在し、少なくとも8文字以上"
-#~ "であることが好ましいです。また、定期的に変更するようにしましょう。"
-
-#~ msgid ""
-#~ " Install Type: ${INSTALLTYPE}\n"
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " IR Remote: ${REMOTE}\n"
-#~ " IR Transmitter: ${TRANSMITTER}\n"
-#~ " Video Driver: ${VIDEO_DRIVER}\n"
-#~ " Services: ${SERVICES}"
-#~ msgstr ""
-#~ " インストールタイプ: ${INSTALLTYPE}\n"
-#~ " 言語: ${LANGUAGE}\n"
-#~ " キーボードレイアウト: ${KEYMAP}\n"
-#~ " 名前: ${FULLNAME}\n"
-#~ " ログイン名: ${USERNAME}\n"
-#~ " 場所: ${LOCATION}\n"
-#~ " IR Remote: ${REMOTE}\n"
-#~ " IR Transmitter: ${TRANSMITTER}\n"
-#~ " ビデオドライバ: ${VIDEO_DRIVER}\n"
-#~ " サービス: ${SERVICES}"
-
-#~ msgid "Installation Type"
-#~ msgstr "インストールタイプ"
-
-#~ msgid "What type of system will this be?"
-#~ msgstr "このPCをどの形式のシステムにしますか？"
-
-#~ msgid "Primary Backend w/ Frontend"
-#~ msgstr "フロントエンドを備えた基本的なバックエンドシステム"
-
-#~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
-#~ msgstr ""
-#~ "バックエンド／フロントエンドのコンボマシンは、HTPCアプリケーション用に"
-#~ "MythTV が必要な方に、もっとも一般的なセットアップです。ホームシアターの一"
-#~ "部として使われるインストール形式です。"
-
-#~ msgid "Secondary Backend w/ Frontend"
-#~ msgstr "フロントエンドを備えた二台目のバックエンドシステム"
-
-#~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
-#~ msgstr ""
-#~ "この形式は、フロントエンドを備えた基本的なバックエンドシステムと似たシステ"
-#~ "ムをセットアップしますが、ネットワーク上の既存のバックエンドマシンに接続す"
-#~ "るための設定がされます"
-
-#~ msgid "Primary Backend"
-#~ msgstr "基本的なバックエンド"
-
-#~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
-#~ msgstr ""
-#~ "バックエンド専用マシンは電化製品のような機能を持たせるよう設定されます；ほ"
-#~ "とんどメンテナンスの必要がありません\r\n"
-#~ "ネットワーク上の最初のバックエンドマシンとするためのインストール形式です"
-
-#~ msgid "Secondary Backend"
-#~ msgstr "二台目のバックエンド"
-
-#~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
-#~ msgstr ""
-#~ "この形式は基本的なバックエンドマシンと似たシステムをセットアップしますが、"
-#~ "ネットワーク上の既存のバックエンドマシンに接続するために設定されます"
-
-#~ msgid "Frontend"
-#~ msgstr "フロントエンド"
-
-#~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
-#~ msgstr ""
-#~ "フロントエンド専用マシンの主な機能は、バックエンドからメディアコンテンツを"
-#~ "受け取り、そのコンテンツを配信することです\r\n"
-#~ "この設定には、ネットワーク上にバックエンドマシンがあることが必要です"
-
-#~ msgid "Graphics Drivers"
-#~ msgstr "グラフィックドライバ"
-
-#~ msgid ""
-#~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
-#~ msgstr ""
-#~ "オープンソースのグラフィックドライバーが既にインストール・設定されています"
-#~ "が、別のグラフィックドライバーを使用することもできます。なおTV出力または"
-#~ "OpenGLは多くの場合プロプライエタリなグラフィックドライバを必要とします。"
-
-#~ msgid "If you would like to configure TV-out, choose an option here:"
-#~ msgstr "TV出力を設定するにはここでオプションを選択してください"
-
-#~ msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-#~ msgstr "TV出力を有効にする場合、TVの放送方式を選択する必要があります"
-
-#~ msgid "Master Backend Info"
-#~ msgstr "マスター側バックエンドの情報"
-
-#~ msgid ""
-#~ "Please enter the information necessary to contact your master backend:"
-#~ msgstr ""
-#~ "マスター側バックエンドにコンタクトする為に必要な情報を入力してください"
-
-#~ msgid "MySQL Database"
-#~ msgstr "MySQL データベース"
-
-#~ msgid "MySQL Server"
-#~ msgstr "MySQL サーバー"
-
-#~ msgid "Configure Guide Data / Backend"
-#~ msgstr "番組ガイドデータ／バックエンドの設定"
-
-#~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
-#~ msgstr ""
-#~ "セットアップの最後にお好みの番組ガイドデータの設定とバックエンドマシーンの"
-#~ "初期設定が必要です"
-
-#~ msgid "Click to open the Schedules Direct website"
-#~ msgstr "クリックしてWebサイトの番組表を開く"
-
-#~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
-#~ msgstr ""
-#~ "北米のユーザはSchedules Direct (SD) のアカウント設定が必要です\r\n"
-#~ "SDは安価に番組ガイドデータを提供しています\r\n"
-#~ "SDを使用しない場合、北米のユーザーはMythTVのスケジュール機能の多くを利用で"
-#~ "きません"
-
-#~ msgid "Launch MythTV Setup"
-#~ msgstr "Myth TVのセットアップを立ち上げてください"
-
-#~ msgid ""
-#~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
-#~ msgstr ""
-#~ "番組ガイドデータの提供元を指定した後、最初にMythTV-Setupをバックエンドマシ"
-#~ "ンを設定するため起動する必要があります\r\n"
-#~ "次にまず４つのセクションを設定し、三番目にお好みの番組データを入力します"
-
-#~ msgid "Configuring mythtv..."
-#~ msgstr "mythtvを設定しています・・・"
-
-#~ msgid "Configuring additional drivers..."
-#~ msgstr "追加ドライバの設定をしています・・・"
-
-#~ msgid "Configuring additional services..."
-#~ msgstr "追加サービスの設定をしています・・・"
-
-#~ msgid "Configuring infrared devices..."
-#~ msgstr "赤外線デバイスを設定しています..."
-
-#~ msgid "Zone:"
-#~ msgstr "地域:"

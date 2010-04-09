@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-07 11:44+0100\n"
-"PO-Revision-Date: 2009-08-25 14:28+0000\n"
-"Last-Translator: Laiq Chughtai <laiq_chughtai@hotmail.com>\n"
+"PO-Revision-Date: 2010-04-09 11:42+0000\n"
+"Last-Translator: Shoaib Mirza <Unknown>\n"
 "Language-Team: Urdu <urd@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
+"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -48,7 +48,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:7001 ../ubiquity.templates:201001
 msgid "Install"
-msgstr ""
+msgstr "انسٹال"
 
 #. Type: text
 #. Description
@@ -83,13 +83,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
-msgstr ""
+msgstr "آزمائیں ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
-msgstr ""
+msgstr "انسٹال کریں ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -265,7 +265,7 @@ msgstr "آپ کا نام کیا ھے؟"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Full Name"
-msgstr ""
+msgstr "پورا نام"
 
 #. Type: text
 #. Description
@@ -277,7 +277,7 @@ msgstr "آپ کس نام سے لاگ ان کرنا چاھتے ھیں؟"
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Username"
-msgstr ""
+msgstr "صارف کا نام"
 
 #. Type: text
 #. Description
@@ -291,19 +291,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "اپنا کھاتہ محفوز کرنے کیلئیے ایک پاس ورڈ منتخب کریں"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Password"
-msgstr ""
+msgstr "پاس ورڈ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Re-enter password"
-msgstr ""
+msgstr "پاس ورڈ کا اندراج دوبارہ کریں"
 
 #. Type: text
 #. Description
@@ -345,13 +345,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:53001
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "اِس کمپیوٹر کا نام کیا ھے؟"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Computer Name"
-msgstr ""
+msgstr "کمپیوٹر کا نام"
 
 #. Type: text
 #. Description
@@ -468,7 +468,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:71001
 msgid "Details"
-msgstr ""
+msgstr "تفصیلات"
 
 #. Type: text
 #. Description
@@ -489,7 +489,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:74001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "انسٹال[ action ]"
 
 #. Type: text
 #. Description
@@ -501,7 +501,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Quit the installation?"
-msgstr ""
+msgstr "انسٹالیشن ختم کریں؟"
 
 #. Type: text
 #. Description
@@ -582,7 +582,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:89001
 msgid "Restart Now"
-msgstr ""
+msgstr "اب دوبارہ شروع کریں"
 
 #. Type: text
 #. Description
@@ -610,7 +610,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:93001
 msgid "Before:"
-msgstr ""
+msgstr "پہلے:"
 
 #. Type: text
 #. Description
@@ -618,7 +618,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:94001
 msgid "After:"
-msgstr ""
+msgstr "بعد:"
 
 #. Type: text
 #. Description
@@ -632,21 +632,21 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:96001
 msgid "Add..."
-msgstr ""
+msgstr "شامل۔۔۔۔"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:97001
 msgid "Change..."
-msgstr ""
+msgstr "تبدیل:"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:98001
 msgid "Delete"
-msgstr ""
+msgstr "خارج"
 
 #. Type: text
 #. Description
@@ -666,7 +666,7 @@ msgstr ""
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:101001
 msgid "Device"
-msgstr ""
+msgstr "ڈیوائس"
 
 #. Type: text
 #. Description
@@ -674,7 +674,7 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:102001
 msgid "Type"
-msgstr ""
+msgstr "قِسم"
 
 #. Type: text
 #. Description
@@ -695,7 +695,7 @@ msgstr ""
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:105001
 msgid "Size"
-msgstr ""
+msgstr "سائز"
 
 #. Type: text
 #. Description
@@ -703,21 +703,21 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:106001
 msgid "Used"
-msgstr ""
+msgstr "استعمال شُدہ"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:107001
 msgid "free space"
-msgstr ""
+msgstr "خالی جگہ"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:108001
 msgid "unknown"
-msgstr ""
+msgstr "نا واقف"
 
 #. Type: text
 #. Description
@@ -779,7 +779,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:119001
 msgid "Boot loader"
-msgstr ""
+msgstr "بوٹ لوڈر"
 
 #. Type: text
 #. Description
@@ -889,7 +889,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:136001
 msgid "Copying files..."
-msgstr ""
+msgstr "...فائلیں کاپی کی جارہی ہیں"
 
 #. Type: text
 #. Description

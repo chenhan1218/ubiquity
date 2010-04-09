@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-07 11:44+0100\n"
-"PO-Revision-Date: 2010-03-25 07:41+0000\n"
-"Last-Translator: mahfiaz <mahfiaz@gmail.com>\n"
+"PO-Revision-Date: 2010-04-09 18:14+0000\n"
+"Last-Translator: Heiki Nooremäe <Unknown>\n"
 "Language-Team: Eesti <linuxiabi@hot.ee>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
+"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -72,8 +72,8 @@ msgid ""
 "and can be used to help with bug reports."
 msgstr ""
 "Paigaldus toimub süsteemitootja režiimis. Sisesta süsteemipartiile unikaalne "
-"nimi. See nimi salvestatakse paigaldusse ja seda kasutatakse vearaportite "
-"lahendamisel."
+"nimi. See nimi salvestatakse paigaldatud süsteemi ning seda saab kasutada "
+"vearaportite lahendamisel."
 
 #. Type: text
 #. Description
@@ -557,7 +557,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:80001
 msgid "Choose a different device to install the bootloader on:"
-msgstr "Vali teine seade, millele alglaadur paigaldada:"
+msgstr "Vali alglaaduri paigaldamiseks mõni teine seade:"
 
 #. Type: text
 #. Description
@@ -1315,8 +1315,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Mõned loodud partitsioonid on liiga väikesed. Palun tee järgnevad "
-"partitsioonid vähemalt näidatud suurusega:"
+"Mõned loodud kettajagudest on liiga väikesed. Palun anna järgnevatele "
+"kettajagudele vähemalt näidatud mahud:"
 
 #. Type: boolean
 #. Description
@@ -1470,7 +1470,7 @@ msgid ""
 " Language will be the default language for this computer."
 msgstr ""
 "Vali keel, mida kasutada paigalduse läbiviimisel.\n"
-" See keel jääb sinu arvuti vaikimisi keeleks."
+" See keel jääb sinu süsteemi vaikimisi keeleks."
 
 #. Type: text
 #. Description
@@ -1487,202 +1487,3 @@ msgstr ""
 #: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr "Jätka paigaldusega."
-
-#~ msgid "What type of system will this be?"
-#~ msgstr "Mis tüüpi see süsteem tuleb?"
-
-#~ msgid "Frontend"
-#~ msgstr "Kasutajaliides"
-
-#~ msgid ""
-#~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
-#~ msgstr ""
-#~ "Avatud lähtekoodiga graafikadraiver on selles paigalduses juba "
-#~ "seadistatud ja sisse lülitatud. Kui soovid kasutada mõnda teist "
-#~ "graafikadraiverit, saad seda siin muuta. Pane tähele, et omanduslikud "
-#~ "graafikadraiverid võivad olla vajalikud TV väljundi või OpenGL efektide "
-#~ "jaoks."
-
-#~ msgid "If you would like to configure TV-out, choose an option here:"
-#~ msgstr "Kui soovid TV väljundit seadistada, tee valik:"
-
-#~ msgid "MySQL Database"
-#~ msgstr "MySQL andmebaas"
-
-#~ msgid "MySQL Server"
-#~ msgstr "MySQL server"
-
-#~ msgid "Configuring additional drivers..."
-#~ msgstr "Draiverite seadistamine..."
-
-#~ msgid "Configuring additional services..."
-#~ msgstr "Võrgu seadistamine..."
-
-#~ msgid "Installation Type"
-#~ msgstr "Paigalduse tüüp"
-
-#~ msgid "Graphics Drivers"
-#~ msgstr "Graafikakaardi draiverid"
-
-#~ msgid "Launch MythTV Setup"
-#~ msgstr "Käivita MythTV seadistus"
-
-#~ msgid "Zone:"
-#~ msgstr "Ajavöönd:"
-
-#~ msgid "Click to open the Schedules Direct website"
-#~ msgstr "Klõpsa Schedules Direct veebilehe avamiseks"
-
-#~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
-#~ msgstr ""
-#~ "Põhja-Ameerikas elavatel kasutajatel on vajalik üles sättida konto "
-#~ "Schedules Direct'iga (SD). SD pakub telekavasid nominaalhinnaga. Ilma SD-"
-#~ "ta võivad Põhja-Ameerikas elavad kasutajad kaotada mitmeid MythTV "
-#~ "telekavafunktsioone."
-
-#~ msgid "Release Notes"
-#~ msgstr "Märkused väljalaske kohta"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Kirjavigade välistamiseks sisesta parool kaks korda. Hea parool sisaldab "
-#~ "tähti, numbreid ja kirjavahemärke ning on vähemalt kaheksa märki pikk. "
-#~ "Parooli on soovitatav regulaarselt muuta."
-
-#~ msgid "Primary Backend"
-#~ msgstr "Peamine tugijaam"
-
-#~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
-#~ msgstr ""
-#~ "See paigaldab süsteemi sarnaselt peamisele tugijaamale kasutajaliidesega, "
-#~ "erinevuseks on, et see seadistatakse ühenduma olemasoleva võrgus asuva "
-#~ "tugijaamaga."
-
-#~ msgid ""
-#~ " Install Type: ${INSTALLTYPE}\n"
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " IR Remote: ${REMOTE}\n"
-#~ " IR Transmitter: ${TRANSMITTER}\n"
-#~ " Video Driver: ${VIDEO_DRIVER}\n"
-#~ " Services: ${SERVICES}"
-#~ msgstr ""
-#~ " Paigalduse tüüp: ${INSTALLTYPE}\n"
-#~ " Keel: ${LANGUAGE}\n"
-#~ " Klaviatuuri asetus: ${KEYMAP}\n"
-#~ " Nimi: ${FULLNAME}\n"
-#~ " Kasutajanimi: ${USERNAME}\n"
-#~ " Asukoht: ${LOCATION}\n"
-#~ " Infrapuna-kaugjuhtimispult: ${REMOTE}\n"
-#~ " Infrapunaliides (saatja): ${TRANSMITTER}\n"
-#~ " Videodraiver: ${VIDEO_DRIVER}\n"
-#~ " Süsteemiteenused: ${SERVICES}"
-
-#~ msgid "Secondary Backend w/ Frontend"
-#~ msgstr "Teisene tugijaam kasutajaliidesega"
-
-#~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
-#~ msgstr ""
-#~ "Tugijaama üjendamine kasutajaliidesega on kõige tavalisem masina "
-#~ "seadistus neile, kes soovivad MythTV-d HTPC rakenduste jaoks. Seda tüüpi "
-#~ "paigaldus on mõeldud kasutamiseks kodukino komponendina."
-
-#~ msgid "Primary Backend w/ Frontend"
-#~ msgstr "Peamine tugijaam kasutajaliidesega"
-
-#~ msgid "Secondary Backend"
-#~ msgstr "Teisene tugijaam"
-
-#~ msgid ""
-#~ "Please enter the information necessary to contact your master backend:"
-#~ msgstr "Sisesta tugijaamaga ühendumiseks vajalik teave:"
-
-#~ msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-#~ msgstr "Lülitades TV väljundi sisse pead valima TV standardi:"
-
-#~ msgid "Master Backend Info"
-#~ msgstr "Peamise tugijaama andmed"
-
-#~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
-#~ msgstr ""
-#~ "Ainult kasutajaliidesega masina peamine ülesanne on tugijaamale meedia "
-#~ "vastuvõtmine ja levitamine. Selline seadistus vajab võrgus olemasolevat "
-#~ "tugijaama."
-
-#~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
-#~ msgstr ""
-#~ "See paigaldab süsteemi sarnaselt peamisele tugijaamale, erinevuseks on, "
-#~ "et see seadistatakse ühenduma olemasoleva võrgus asuva tugijaamaga."
-
-#~ msgid ""
-#~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
-#~ msgstr ""
-#~ "Pärast juhtandmete allika määramist pead käivitama MythTV seadistuse "
-#~ "tugijaama esmaseadistamiseks. Seadistada tuleb neli esimest sektsiooni, "
-#~ "juhtandmed määratakse kolmandas."
-
-#~ msgid "Configuring mythtv..."
-#~ msgstr "MythTV seadistamine..."
-
-#~ msgid "Configure Guide Data / Backend"
-#~ msgstr "Juhtandmete / tugijaama seadistamine"
-
-#~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
-#~ msgstr ""
-#~ "Paigaldamise viimastel sammudel on vajalik juhtandmete määramine ja "
-#~ "tugijaama esmaseadistamine."
-
-#~ msgid "Configuring infrared devices..."
-#~ msgstr "Infrapunaseadmete seadistamine..."
-
-#~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
-#~ msgstr ""
-#~ "Ainult tugistruktuuri sisaldav masin mõeldud töötama eraldiseisva "
-#~ "seadmena, mis vajab väga vähe hooldust. See on mõeldud paigaldamiseks "
-#~ "kohtvõrgu esimese tugijaamana."
-
-#~ msgid ""
-#~ "If you have Internet access, read the release notes for information on "
-#~ "problems that may affect you."
-#~ msgstr ""
-#~ "Kui sul on netiühendus, vaata märkuseid süsteemi selle väljalaske "
-#~ "probleemide kohta."
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
-#~ msgstr ""
-#~ "Vali, mis keeles soovid paigaldamise käigus arvutiga suhelda. Valitud "
-#~ "keel saab ühtlasi paigaldatud süsteemi vaikimisi keeleks."

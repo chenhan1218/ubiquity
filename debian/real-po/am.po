@@ -8,12 +8,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-07 11:44+0100\n"
 "PO-Revision-Date: 2010-03-23 16:44+0000\n"
-"Last-Translator: Evan Dandrea <evan.dandrea@canonical.com>\n"
+"Last-Translator: Evan Dandrea <ev@ubuntu.com>\n"
 "Language-Team: Amharic\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
+"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1415,31 +1415,3 @@ msgstr "እባክዎ ቋንቋ ይምረጡ ለማዋቀር እንዲረዳ ፤ 
 #: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr ""
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
-#~ msgstr "እባክዎ ቋንቋዎትን ይምረጡ ለመግጠም እንዲመች ይህ ቋንቋ መደበኛ የመስሪያ ቋንቋዎ ይሆናል"
-
-#~ msgid "Release Notes"
-#~ msgstr "የመልቀቂያ ማስታወሻ"
-
-#~ msgid "Zone:"
-#~ msgstr "ክልል"
-
-#~ msgid ""
-#~ "If you have Internet access, read the release notes for information on "
-#~ "problems that may affect you."
-#~ msgstr "ኢንተርኔት መገናኘት ከቻሉ ስለ እዚህ እትም የተጻፈውን መረጃ ያንቡ ለሚገጥሞት ችግር በሙሉ"
-
-#~ msgid "Installation Type"
-#~ msgstr "የአገጣጠም አይነት"
-
-#~ msgid "What type of system will this be?"
-#~ msgstr "ምን አይነት ሲስተም ይሆን ይሆን?"
-
-#~ msgid "Graphics Drivers"
-#~ msgstr "ግራፊክ ድራይቨርስ"
-
-#~ msgid "Configuring additional services..."
-#~ msgstr "ማዋቀር ተጨማሪ ግልጋሎቶች..."

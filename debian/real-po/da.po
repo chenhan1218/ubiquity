@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-07 11:44+0100\n"
-"PO-Revision-Date: 2010-03-25 02:27+0000\n"
+"PO-Revision-Date: 2010-04-08 10:58+0000\n"
 "Last-Translator: AJenbo <anders@jenbo.dk>\n"
 "Language-Team: <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
+"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -80,12 +80,14 @@ msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
 msgstr ""
+"Du kan prøve ${RELEASE} fra denne ${MEDIUM} uden at lave ændre ved dit "
+"system."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
-msgstr ""
+msgstr "Prøv ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -101,6 +103,9 @@ msgid ""
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+"Klar til at installere? Når du har besvaret et par spørgsmål, kan indholdet "
+"af denne live-${MEDIUM} installeres på denne computer, så du kan køre "
+"${RELEASE} ved fuld hastighed, uden ${MEDIUM}'en."
 
 #. Type: text
 #. Description
@@ -122,18 +127,22 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
+"Du har mulighed for at læse <a href=\"release-notes\">udgivelsesnoterne</a> "
+"eller <a href=\"update\">opdatere denne installation</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
+"Du har mulighed for at læse <a href=\"release-notes\">udgivelsesnoterne</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
 msgstr ""
+"Du har mulighed for at <a href=\"update\">opdatere denne installation</a>."
 
 #. Type: text
 #. Description
@@ -143,6 +152,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2010."
 msgstr ""
+"Dette er en præ-udgivelse af ${RELEASE}-installationen på live-${MEDIUM}. "
+"Det er ikke en endelig udgivelses, som vil komme med den endelige version af "
+"${RELEASE} i april 2010."
 
 #. Type: text
 #. Description
@@ -152,6 +164,9 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
+"Installationen kan ændre størrelsen på eller slette partitioner på din "
+"harddisk. Sørg for at <b>tage en komplet sikkerhedskopi af alle værdifulde "
+"data</b>, før du kører dette program."
 
 #. Type: text
 #. Description
@@ -175,7 +190,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Time Zone:"
-msgstr ""
+msgstr "Tidszone:"
 
 #. Type: text
 #. Description
@@ -217,25 +232,25 @@ msgstr "Vælg din egen:"
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Guess keymap:"
-msgstr ""
+msgstr "Gæt tastaturopsætning:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Guess..."
-msgstr ""
+msgstr "Gæt..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Please press one of the following keys:"
-msgstr ""
+msgstr "Tryk venligst på en af følgende taster:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Is the following key present on your keyboard?"
-msgstr ""
+msgstr "Er følgende tast til stede på dit tastatur?"
 
 #. Type: text
 #. Description
@@ -253,7 +268,7 @@ msgstr "Variant:"
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Below is an image of your current layout:"
-msgstr ""
+msgstr "Nedenfor er et billede af dit nuværende layout:"
 
 #. Type: text
 #. Description
@@ -271,7 +286,7 @@ msgstr "Hvad er dit navn?"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Full Name"
-msgstr ""
+msgstr "Fulde navn"
 
 #. Type: text
 #. Description
@@ -283,7 +298,7 @@ msgstr "Hvilket navn vil du bruge til at logge ind med?"
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Username"
-msgstr ""
+msgstr "Brugernavn"
 
 #. Type: text
 #. Description
@@ -305,7 +320,7 @@ msgstr "Vælg et password der skal beskytte din brugerkonto."
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Password"
-msgstr ""
+msgstr "Adgangskode"
 
 #. Type: text
 #. Description
@@ -360,7 +375,7 @@ msgstr "Hvad er navnet på denne computer?"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Computer Name"
-msgstr ""
+msgstr "Computernavn"
 
 #. Type: text
 #. Description
@@ -529,7 +544,7 @@ msgstr "Er du sikker på, at du vil afslutte installationen nu?"
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Bootloader install failed"
-msgstr ""
+msgstr "Installationen af opstartsindlæseren mislykkedes"
 
 #. Type: text
 #. Description
@@ -538,18 +553,20 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
+"Beklager, der opstod en fejl, og det var ikke muligt at installere "
+"opstartsindlæseren på den angivne placering."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
 msgid "Choose a different device to install the bootloader on:"
-msgstr ""
+msgstr "Vælg en anden enhed at installere opstartsindlæser på:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:81001
 msgid "Continue without a bootloader."
-msgstr ""
+msgstr "Fortsæt uden en opstartsindlæser."
 
 #. Type: text
 #. Description
@@ -557,24 +574,26 @@ msgstr ""
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
+"Du bliver nødt til manuelt at installere en opstartsindlæser for at starte "
+"${RELEASE}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:83001
 msgid "Cancel the installation."
-msgstr ""
+msgstr "Annullér installationen."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:84001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "Dette kan efterlade din computer ude af stand til at starte."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:85001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "Hvordan vil du fortsætte?"
 
 #. Type: text
 #. Description
@@ -681,7 +700,7 @@ msgstr "Forkast ændringer"
 #. Description
 #: ../ubiquity.templates:100001
 msgid "Recalculating partitions..."
-msgstr ""
+msgstr "Genberegner partitioner..."
 
 #. Type: text
 #. Description
@@ -753,7 +772,7 @@ msgstr "Opret partition"
 #. Description
 #: ../ubiquity.templates:110001 ../ubiquity.templates:117001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr "Ny partitionsstørrelse i megabytes (1.000.000 bytes)"
+msgstr "Ny partitionsstørrelse i megabyte (1.000.000 byte):"
 
 #. Type: text
 #. Description
@@ -899,7 +918,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:131001
 msgid "Verifying the installation configuration..."
-msgstr ""
+msgstr "Kontrollerer installationskonfigurationen..."
 
 #. Type: title
 #. Description
@@ -1212,7 +1231,7 @@ msgstr "Der opstod en fejl under fjernelse af pakker:"
 #. Description
 #: ../ubiquity.templates:167001
 msgid "Error migrating documents and settings"
-msgstr ""
+msgstr "Fejl under overførsel af dokumenter og indstillinger"
 
 #. Type: error
 #. Description
@@ -1223,12 +1242,16 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"Der opstod en fejl under overførsel af data. Flere oplysninger kan findes i /"
+"var/log/syslog. Installationen vil fortsætte, men nogle eller alle de "
+"dokumenter og indstillinger, du anmodede om, er muligvis ikke blevet "
+"overført til det installerede system."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:168001
 msgid "Error copying network configuration"
-msgstr ""
+msgstr "Fejl ved kopiering af netværkskonfiguration"
 
 #. Type: error
 #. Description
@@ -1238,6 +1261,9 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"Der opstod en fejl under kopiering af netværksindstillingerne. "
+"Installationen vil fortsætte, men netværkskonfigurationen skal oprettes igen "
+"under det installerede system."
 
 #. Type: text
 #. Description
@@ -1301,6 +1327,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
+"Nogle af de partitioner du har oprettet, er for små. Du bedes gøre følgende "
+"partitioner mindst så store:"
 
 #. Type: boolean
 #. Description
@@ -1388,7 +1416,7 @@ msgstr "installationsproces"
 #. Description
 #: ../ubiquity.templates:204001
 msgid "Checking for installer updates"
-msgstr ""
+msgstr "Søger efter opdateringer til installation"
 
 #. Type: text
 #. Description
@@ -1400,51 +1428,52 @@ msgstr "Læser pakkeinformation"
 #. Description
 #: ../ubiquity.templates:206001
 msgid "Updating package information"
-msgstr ""
+msgstr "Opdaterer pakkeinformation"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:207001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr ""
+msgstr "Fil ${INDEX} af ${TOTAL} med ${SPEED}/s"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:208001
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Fil ${INDEX} af ${TOTAL}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
 msgid "Installing update"
-msgstr ""
+msgstr "Installerer opdatering"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:210001
 msgid "Error updating installer"
-msgstr ""
+msgstr "Fejl ved opdatering af installationen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:210001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr ""
+"Installationen stødte på en fejl under forsøget på at opdatere sig selv:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:211001
 msgid "USB"
-msgstr ""
+msgstr "USB"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
 #: ../ubiquity.templates:212001
 msgid "CD"
-msgstr ""
+msgstr "cd"
 
 #. Type: text
 #. Description
@@ -1453,6 +1482,9 @@ msgid ""
 "Please choose the language to use for the install process. This\n"
 " Language will be the default language for this computer."
 msgstr ""
+"Vælg venligst det sprog, der skal bruges under installationsprocessen. "
+"Dette\n"
+" Dette sprog vil blive standardsproget for denne computer."
 
 #. Type: text
 #. Description
@@ -1468,207 +1500,4 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:215001
 msgid "Continue with installation."
-msgstr ""
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
-#~ msgstr ""
-#~ "Vælg det sprog der skal bruges under installationen. Det valgte sprog vil "
-#~ "også være det forvalgte sprog i det installerede system."
-
-#~ msgid ""
-#~ "If you have Internet access, read the release notes for information on "
-#~ "problems that may affect you."
-#~ msgstr ""
-#~ "Hvis du har adgang til internettet, så læs udgivelsesnoterne for at finde "
-#~ "oplysninger om problemer der kan vedkomme dig."
-
-#~ msgid "Release Notes"
-#~ msgstr "Udgivelsesnoter"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Indtast den samme adgangskode to gange, så den kan blive tjekket for "
-#~ "tastefejl. En god adgangskode indeholder en blanding af bogstaver, tal og "
-#~ "andre tegn, den bør være mindst otte tegn lang, og den bør udskiftes med "
-#~ "jævne mellemrum."
-
-#~ msgid ""
-#~ " Install Type: ${INSTALLTYPE}\n"
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " IR Remote: ${REMOTE}\n"
-#~ " IR Transmitter: ${TRANSMITTER}\n"
-#~ " Video Driver: ${VIDEO_DRIVER}\n"
-#~ " Services: ${SERVICES}"
-#~ msgstr ""
-#~ " Installations Type: ${INSTALLTYPE}\n"
-#~ " Sprog: ${LANGUAGE}\n"
-#~ " Tastatur layout: ${KEYMAP}\n"
-#~ " Navn: ${FULLNAME}\n"
-#~ " Bruger Navn: ${USERNAME}\n"
-#~ " Placering: ${LOCATION}\n"
-#~ " IR Remote: ${REMOTE}\n"
-#~ " IR Transmitter: ${TRANSMITTER}\n"
-#~ " Video Driver: ${VIDEO_DRIVER}\n"
-#~ " Services: ${SERVICES}"
-
-#~ msgid "Installation Type"
-#~ msgstr "Installationstype"
-
-#~ msgid "What type of system will this be?"
-#~ msgstr "Hvilken type system skal dette være?"
-
-#~ msgid "Primary Backend w/ Frontend"
-#~ msgstr "Primær backend m/ frontend"
-
-#~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
-#~ msgstr ""
-#~ "En backend/frontend kombinations-maskine er det mest almindelige valg for "
-#~ "folk der vil have MythTV til HTPC applikationer. Denne type installation "
-#~ "er beregnet til brug som en komponent i din hjemme-biograf."
-
-#~ msgid "Secondary Backend w/ Frontend"
-#~ msgstr "Sekundær maskinkode/brugergrænseflade"
-
-#~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
-#~ msgstr ""
-#~ "Dette vil sætte et system op der svarer til en primær Backend m/Frontend, "
-#~ "vil dog blive konfigureret til at forbindes til en eksisterende Backend "
-#~ "på netværket."
-
-#~ msgid "Primary Backend"
-#~ msgstr "Primært Administrationsdel"
-
-#~ msgid ""
-#~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
-#~ msgstr ""
-#~ "Der er allerede aktiveret og konfigureret en open source grafikdriver til "
-#~ "denne installation. Hvis du foretrækker at bruge en anden grafikdriver, "
-#~ "kan du gøre dette her. Bemærk at det kan være nødvendigt at installere "
-#~ "proprietære drivere for at få TV-out og OpenGL effekter."
-
-#~ msgid "If you would like to configure TV-out, choose an option here:"
-#~ msgstr "Hvis du gerne vil konfigurere TV-out, vælg da en indstilling her:"
-
-#~ msgid "Master Backend Info"
-#~ msgstr "Hoved Backend Info"
-
-#~ msgid "Launch MythTV Setup"
-#~ msgstr "Kør MythTV Opsætning"
-
-#~ msgid "MySQL Database"
-#~ msgstr "MySQL-database"
-
-#~ msgid "MySQL Server"
-#~ msgstr "MySQL-server"
-
-#~ msgid "Zone:"
-#~ msgstr "Zone:"
-
-#~ msgid ""
-#~ "Please enter the information necessary to contact your master backend:"
-#~ msgstr ""
-#~ "Indtast venligst den information, der er nødvendig for at kontakte din "
-#~ "primære backend:"
-
-#~ msgid "Configure Guide Data / Backend"
-#~ msgstr "Indstil guidedata / Backend"
-
-#~ msgid "Click to open the Schedules Direct website"
-#~ msgstr "Klik for at åbne Schedules Direct-hjemmesiden"
-
-#~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
-#~ msgstr ""
-#~ "De afsluttende trin i installationen kræver opsætning af dine guidedata "
-#~ "og konfiguration af backend'en for første gang."
-
-#~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
-#~ msgstr ""
-#~ "En maskine, som kun fungerer som frontend, har som hovedfunktion at "
-#~ "modtage medieindhold fra backend'en og distribuere det. Denne "
-#~ "konfiguration kræver en eksisterende backend på netværket."
-
-#~ msgid "Graphics Drivers"
-#~ msgstr "Grafikdrivere"
-
-#~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
-#~ msgstr ""
-#~ "En maskine, der kun fungerer som backend, er typisk designet til at "
-#~ "fungere som et apparat; som kun kræver meget begrænset vedligeholdelse. "
-#~ "Denne er tilsigtet at blive installeret som den første backend på et "
-#~ "netværk."
-
-#~ msgid "Secondary Backend"
-#~ msgstr "Sekundær backend"
-
-#~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
-#~ msgstr ""
-#~ "Dette vil sætte et system på, der ligner en primær backend. Dog vil det "
-#~ "blive indstillet til at forbinde sig til en eksisterende backend på "
-#~ "netværket."
-
-#~ msgid "Frontend"
-#~ msgstr "Frontend"
-
-#~ msgid ""
-#~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
-#~ msgstr ""
-#~ "Efter at du har indstillet din kilde til guidedata er det nødvendigt at "
-#~ "åbne MythTV-setup for at køre backend-konfigurationen for første gang. Du "
-#~ "skal konfigurere de første fire sektioner, og i den forbindelse sikre "
-#~ "dig, at du angiver dine guidedata i den tredje sektion."
-
-#~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
-#~ msgstr ""
-#~ "Brugere i Nordamerika bør oprette en konto hos Schedules Direct (SD). SD "
-#~ "leverer guidedata for et fast beløb. Uden SD kan brugere fra Nordamerika "
-#~ "miste mange af planlægningsfunktionerne i MythTV."
-
-#~ msgid "Configuring additional drivers..."
-#~ msgstr "Indstiller øvrige drivere..."
-
-#~ msgid "Configuring mythtv..."
-#~ msgstr "Indstiller mythtv..."
-
-#~ msgid "Configuring infrared devices..."
-#~ msgstr "Indstiller infrarøde enheder..."
-
-#~ msgid "Configuring additional services..."
-#~ msgstr "Indstiller øvrige tjenester..."
-
-#~ msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-#~ msgstr "Hvis du aktiverer TV-out, skal du også vælge en TV-standard:"
+msgstr "Fortsæt med installationen."

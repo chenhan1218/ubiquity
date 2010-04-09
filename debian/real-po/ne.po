@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
+"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1413,13 +1413,3 @@ msgstr ""
 #: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr ""
-
-#~ msgid "Release Notes"
-#~ msgstr "सुरूवात टिप्पणी"
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
-#~ msgstr ""
-#~ "कृपया प्रतिस्थापन प्रक्रियाका लागि प्रयोग हुने भाषा छनौट गर्नुहोस्। यही भाषा नै "
-#~ "तपाईको अन्तिम प्रणालीको लागि पूर्वनिर्धारित भाषा हुनेछ।"

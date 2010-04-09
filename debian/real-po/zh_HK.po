@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-07 11:44+0100\n"
-"PO-Revision-Date: 2010-03-23 16:50+0000\n"
+"PO-Revision-Date: 2010-04-09 04:42+0000\n"
 "Last-Translator: Roy Chan <roy.chan@linux.org.hk>\n"
 "Language-Team: Chinese (Hong Kong) <zh_HK@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
+"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -181,7 +181,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Time Zone:"
-msgstr ""
+msgstr "時區："
 
 #. Type: text
 #. Description
@@ -277,7 +277,7 @@ msgstr "您的名字是？"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Full Name"
-msgstr ""
+msgstr "全名"
 
 #. Type: text
 #. Description
@@ -289,7 +289,7 @@ msgstr "您要使用什麼名稱登入？"
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Username"
-msgstr ""
+msgstr "使用者名稱"
 
 #. Type: text
 #. Description
@@ -309,13 +309,13 @@ msgstr "請選一個密碼以確保您的帳戶安全."
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Password"
-msgstr ""
+msgstr "密碼"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Re-enter password"
-msgstr ""
+msgstr "重新輸入密碼"
 
 #. Type: text
 #. Description
@@ -327,31 +327,31 @@ msgstr "你正在除錯模式下. 別使用重要的密碼！"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Strength: too short"
-msgstr ""
+msgstr "密碼強度：太短"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Strength: weak"
-msgstr ""
+msgstr "密碼強度：太弱"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Strength: fair"
-msgstr ""
+msgstr "密碼強度：尚可"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Strength: good"
-msgstr ""
+msgstr "密碼強度：良好"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Strength: strong"
-msgstr ""
+msgstr "密碼強度：堅固"
 
 #. Type: text
 #. Description
@@ -363,7 +363,7 @@ msgstr "您要為這台電腦取什麼名字？"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Computer Name"
-msgstr ""
+msgstr "電腦名稱"
 
 #. Type: text
 #. Description
@@ -1446,186 +1446,3 @@ msgstr "請選擇安裝時用的語言。此將會成為這電腦的預設語言
 #: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr "繼續安裝。"
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
-#~ msgstr ""
-#~ "請選擇安裝時所要使用的語言。 您在此選定的語言將會是本系統安裝完成時的預設"
-#~ "語言。"
-
-#~ msgid ""
-#~ "If you have Internet access, read the release notes for information on "
-#~ "problems that may affect you."
-#~ msgstr "如果您有網路連線，請閱讀發行紀錄，它可能記載會影響到您電腦的問題。"
-
-#~ msgid "Release Notes"
-#~ msgstr "發行公告"
-
-#~ msgid "What type of system will this be?"
-#~ msgstr "您使用何種系統？"
-
-#~ msgid "Primary Backend w/ Frontend"
-#~ msgstr "主要的前端與後端"
-
-#~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
-#~ msgstr ""
-#~ "前後端介面整合的機器是大眾所期待的 MythTV HTPC 應用軟體中，最受歡迎的一種"
-#~ "安裝方式。這種安裝類型是為了讓您的機器成為家庭劇院的一分子。"
-
-#~ msgid "Secondary Backend w/ Frontend"
-#~ msgstr "次要的前端和後端"
-
-#~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
-#~ msgstr "與處理前端和終端的系統設定，但是將連接到現有的後端以進行配置。"
-
-#~ msgid "Primary Backend"
-#~ msgstr "主要後端"
-
-#~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
-#~ msgstr ""
-#~ "只有後端的機器就像家電（冰箱、電風扇）一般運作；需要很少的維護。這將安裝網"
-#~ "路上第一個後端。"
-
-#~ msgid "Secondary Backend"
-#~ msgstr "次要後端"
-
-#~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
-#~ msgstr ""
-#~ "這將設定一個類似主要後端程式的系統，然而它將被設定連接到網路上已存在的後端"
-#~ "程式。"
-
-#~ msgid "Frontend"
-#~ msgstr "前端程式"
-
-#~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
-#~ msgstr ""
-#~ "一個只有前端程式的機器，其主要功能是接收後端程式的媒體內容並將之散佈出去。"
-#~ "這個設定需要網路上已存在後端程式。"
-
-#~ msgid ""
-#~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
-#~ msgstr ""
-#~ "一個開放原始碼的顯示卡驅動程式已經啟用並在安裝過程中設定完成。如果您想要使"
-#~ "用不同的顯示卡驅動程式，您可以在此完成變更。請注意輸出到電視的功能或 "
-#~ "OpenGL 特效可能需要專有的顯示卡驅動程式。"
-
-#~ msgid "If you would like to configure TV-out, choose an option here:"
-#~ msgstr "如果你想要設定「輸出到電視」的功能，在此選擇其中一項："
-
-#~ msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-#~ msgstr "如果啟用「輸出到電視」功能，你將必須選擇一種電視標準。"
-
-#~ msgid "Master Backend Info"
-#~ msgstr "主要後端程式資訊"
-
-#~ msgid ""
-#~ "Please enter the information necessary to contact your master backend:"
-#~ msgstr "請輸入連接您的主要後端程式的必要資訊。"
-
-#~ msgid "MySQL Database"
-#~ msgstr "MySQL 資料庫"
-
-#~ msgid "MySQL Server"
-#~ msgstr "MySQL 伺服器"
-
-#~ msgid "Configure Guide Data / Backend"
-#~ msgstr "設定引導資料/後端程式"
-
-#~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
-#~ msgstr "安裝的最後步驟需要設定您的引導數據並第一次設定後端程式。"
-
-#~ msgid "Click to open the Schedules Direct website"
-#~ msgstr "點擊以開啟網站控制表"
-
-#~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
-#~ msgstr ""
-#~ "位於北美洲的使用者需要建立 Schedule Direct (SD) 的使用帳號. 只需些許費用，"
-#~ "SD 會提供導覽資料。若沒有SD 帳號，北美洲的使用者可能無法使用 MythTV 提供的"
-#~ "許多排程功能！"
-
-#~ msgid "Launch MythTV Setup"
-#~ msgstr "執行 MythTV 安裝"
-
-#~ msgid ""
-#~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
-#~ msgstr ""
-#~ "設定完您的導引資料來源後，您需要啟動 MythTV 安裝程式以執行第一次的背景設"
-#~ "定。您需要設定最開始的四個選項, 請確定您在第三個選項中提供了您的導引資料。"
-
-#~ msgid "Configuring mythtv..."
-#~ msgstr "正在設定 mythtv..."
-
-#~ msgid "Configuring additional drivers..."
-#~ msgstr "正在設定附加的驅動程式"
-
-#~ msgid "Configuring additional services..."
-#~ msgstr "正在設定附加的服務..."
-
-#~ msgid "Configuring infrared devices..."
-#~ msgstr "設定紅外線裝置中..."
-
-#~ msgid "Graphics Drivers"
-#~ msgstr "顯示卡驅動程式"
-
-#~ msgid "Installation Type"
-#~ msgstr "安裝類型"
-
-#~ msgid "Zone:"
-#~ msgstr "分區:"
-
-#~ msgid ""
-#~ " Install Type: ${INSTALLTYPE}\n"
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " IR Remote: ${REMOTE}\n"
-#~ " IR Transmitter: ${TRANSMITTER}\n"
-#~ " Video Driver: ${VIDEO_DRIVER}\n"
-#~ " Services: ${SERVICES}"
-#~ msgstr ""
-#~ " 安裝類型: ${INSTALLTYPE}\n"
-#~ "語言: ${LANGUAGE}\n"
-#~ "鍵盤配置: ${KEYMAP}\n"
-#~ "名稱: ${FULLNAME}\n"
-#~ "登入名稱: ${USERNAME}\n"
-#~ "地點: ${LOCATION}\n"
-#~ "紅外線搖控: ${REMOTE}\n"
-#~ "紅外線傳輸器: ${TRANSMITTER}\n"
-#~ "顯示卡驅動程式: ${VIDEO_DRIVER}\n"
-#~ "服務: ${SERVICES}"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "再填密碼，以防打錯。好密碼應俱具文字、數字與符號，最少八位，並定時更改。"

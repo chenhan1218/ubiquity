@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-07 11:44+0100\n"
-"PO-Revision-Date: 2010-03-23 16:46+0000\n"
-"Last-Translator: Yaron <sh.yaron@gmail.com>\n"
+"PO-Revision-Date: 2010-04-05 11:11+0000\n"
+"Last-Translator: Ddorda <d.dorda@gmail.com>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
+"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -26,7 +26,7 @@ msgstr "השתמש בשטח הפנוי הרציף הגדול ביותר"
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr "מחק והשתמש בדיסק כולו"
+msgstr "מחקו והשתמשו בדיסק כולו"
 
 #. Type: text
 #. Description
@@ -427,7 +427,7 @@ msgstr "אם אין ברצונך ליבא חשבונות, השאר את השדו
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Prepare disk space"
-msgstr "צור מקום בדיסק"
+msgstr "פינוי שטח בדיסק"
 
 #. Type: text
 #. Description
@@ -1461,195 +1461,3 @@ msgstr ""
 #: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr "המשך בהתקנה."
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
-#~ msgstr ""
-#~ "בחר שפה לשימוש בתוכנית ההתקנה. שפה זו תשמש כברירת מחדל למערכת שתותקן."
-
-#~ msgid ""
-#~ "If you have Internet access, read the release notes for information on "
-#~ "problems that may affect you."
-#~ msgstr ""
-#~ "אם יש לך גישה לאינטרנט, קרא את הערות שחרור הגרסא כדי למצוא מידע אשר יכול "
-#~ "לעניין אותך."
-
-#~ msgid "Release Notes"
-#~ msgstr "הערות שחרור גירסה"
-
-#~ msgid "What type of system will this be?"
-#~ msgstr "מה סוג המערכת שלך?"
-
-#~ msgid "Primary Backend w/ Frontend"
-#~ msgstr "ראשי עם Backend ו-Frontend"
-
-#~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
-#~ msgstr ""
-#~ "הקומבינציה של מחשב עם Backend/frontend היא הקומבינציה הנפוצה ביותר "
-#~ "למשתמשים המעוניינים להשתמש ב-MythTV במחשב מדיה סלוני. סוג התקנה זה מיועד "
-#~ "לשימוש כחלק ממערכת קולנוע ביתית."
-
-#~ msgid "Secondary Backend w/ Frontend"
-#~ msgstr "מנגנון משני עם ממשק"
-
-#~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
-#~ msgstr ""
-#~ "זה יתקין מערכת דומה למערכת מנוע עם או בלי ממשק, אבל המערכת תוגדר להתחברות "
-#~ "למנוע קיים ברשת."
-
-#~ msgid "Primary Backend"
-#~ msgstr "מנגנון ראשי"
-
-#~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
-#~ msgstr ""
-#~ "מחשב המשמש כמנגנון בלבד מיועד לתפקד כמתקן; הדורש תחזוקה מזערית. מיועד "
-#~ "להתקנה בתור המחשב הראשון ברשת."
-
-#~ msgid "Secondary Backend"
-#~ msgstr "מנגנון משני"
-
-#~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
-#~ msgstr ""
-#~ "פעולה זו תתקין מערכת הדומה למנגנון ראשי, מצד שני המחשב יוגדר על מנת "
-#~ "להתחבר למנגנון קיים ברשת."
-
-#~ msgid "Frontend"
-#~ msgstr "ממשק"
-
-#~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
-#~ msgstr ""
-#~ "תפקידה הראשי של מכונת ממשק הינו לקבל תוכן מדיה מהמנגנון ולהפיץ אותו. "
-#~ "הגדרה זו דורשת מנגנון קיים ברשת."
-
-#~ msgid ""
-#~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
-#~ msgstr ""
-#~ "מנהל התקן לכרטיס המסך בקוד פתוח כבר מאופשר ומוגדר להתקנה על ידך. אם "
-#~ "ברצונך להשתמש במנהל התקן שונה לכרטיס המסך, תוכל לעשות זאת כאן. שים לב לכך "
-#~ "שמנהל התקן כרטיס המסך הינו הכרחי לפלט טלוויזיה או אפקטים של OpenGL."
-
-#~ msgid "If you would like to configure TV-out, choose an option here:"
-#~ msgstr "אם ברצונך להגדיר פלט לטלויזיה, בחר את האפשרות מכאן:"
-
-#~ msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-#~ msgstr "אם תבחר להפעיל פלט לטלויזיה, עליך לבחור תקן שידור:"
-
-#~ msgid "Master Backend Info"
-#~ msgstr "מידע מנגנון ראשי"
-
-#~ msgid ""
-#~ "Please enter the information necessary to contact your master backend:"
-#~ msgstr "נא הזן את המידע הנחוץ ליצירת קשר עם המנגנון הראשי."
-
-#~ msgid "MySQL Database"
-#~ msgstr "מסד נתונים MySQL"
-
-#~ msgid "MySQL Server"
-#~ msgstr "שרת MySQL"
-
-#~ msgid "Configure Guide Data / Backend"
-#~ msgstr "הגדר מדריך נתונים / מנוע"
-
-#~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
-#~ msgstr ""
-#~ "השלבים האחרונים של ההתקנה דורשים את הגדרת מדריך הנתונים והמנוע בפעם "
-#~ "הראשונה."
-
-#~ msgid "Click to open the Schedules Direct website"
-#~ msgstr "לחץ כאן כדי לפתוח את אתר האינטרנט של Schedules Direct"
-
-#~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
-#~ msgstr ""
-#~ "משתמשים בצפון אמריקה יצטרכו לפתוח חשבון ב-Schedules Direct (SD). SD מספקת "
-#~ "מדריך נתונים בסכום נקוב. בלי SD, משתמשי צפון אמריקה יאבדו הרבה מתכונות "
-#~ "התזמון של MythTV."
-
-#~ msgid "Launch MythTV Setup"
-#~ msgstr "הרץ את התקנת MythTV"
-
-#~ msgid ""
-#~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
-#~ msgstr ""
-#~ "לאחר הגדרת מקורות מדריך הנתונים, תצטרך להפעיל את התקנת MythTV כדי להריץ "
-#~ "את הגדרות המנוע בפעם הראשונה. תצטרך להגדיר את ארבע האיזורים הראשונים, ודא "
-#~ "שאתה מספק את מדריך הנתונים בשלישי."
-
-#~ msgid "Configuring mythtv..."
-#~ msgstr "מגדיר את MythTV..."
-
-#~ msgid "Configuring additional drivers..."
-#~ msgstr "מגדיר התקני חומרה נוספים..."
-
-#~ msgid "Configuring additional services..."
-#~ msgstr "מגדיר שירותים נוספים..."
-
-#~ msgid "Configuring infrared devices..."
-#~ msgstr "מגדיר את התקני האינפרא-אדום..."
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "יש להקליד את אותה הסיסמה פעמיים, כדי שניתן יהיה לבדוק שגיאות בהקלדה. על "
-#~ "סיסמה טובה להכיל ערבוב של אותיות, מספרים וסימני כתב נוספים, להיות בת "
-#~ "שמונה תווים לכל הפחות, ויש להחליפה על בסיס קבוע."
-
-#~ msgid ""
-#~ " Install Type: ${INSTALLTYPE}\n"
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " IR Remote: ${REMOTE}\n"
-#~ " IR Transmitter: ${TRANSMITTER}\n"
-#~ " Video Driver: ${VIDEO_DRIVER}\n"
-#~ " Services: ${SERVICES}"
-#~ msgstr ""
-#~ " סוג התקנה: ${INSTALLTYPE}\n"
-#~ "שפה: ${LANGUAGE}\n"
-#~ "פריסת מקלדת: ${KEYMAP}\n"
-#~ "שם: ${FULLNAME}\n"
-#~ "שם משתמש: ${USERNAME}\n"
-#~ "מיקום: ${LOCATION}\n"
-#~ "שלט IR: ${REMOTE}\n"
-#~ "עינית IR: ${TRANSMITTER}\n"
-#~ "כרטיס מסך: ${VIDEO_DRIVER}\n"
-#~ "שירותים: ${SERVICES}"
-
-#~ msgid "Installation Type"
-#~ msgstr "סוג התקנה"
-
-#~ msgid "Graphics Drivers"
-#~ msgstr "כרטיס מסך"
-
-#~ msgid "Zone:"
-#~ msgstr "איזור:"

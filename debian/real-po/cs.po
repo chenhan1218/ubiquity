@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-07 11:44+0100\n"
-"PO-Revision-Date: 2010-03-25 20:36+0000\n"
+"PO-Revision-Date: 2010-04-01 02:42+0000\n"
 "Last-Translator: Adrian Guniš <andygun696@gmail.com>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
+"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1485,112 +1485,3 @@ msgstr ""
 #: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr "Pokračovat v instalaci."
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
-#~ msgstr ""
-#~ "Vyberte prosím jazyk, v jakém chcete provést instalaci. Zvolený jazyk "
-#~ "bude zároveň i výchozím jazykem pro nainstalovaný systém."
-
-#~ msgid ""
-#~ "If you have Internet access, read the release notes for information on "
-#~ "problems that may affect you."
-#~ msgstr ""
-#~ "Pokud máte přístup k Internetu, můžete si přečíst poznámky k tomuto "
-#~ "vydání a informace o problémech, které vás mohou potkat."
-
-#~ msgid "Release Notes"
-#~ msgstr "Poznámky k vydání"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Vložte stejné heslo dvakrát, aby mohlo být ověřeno na překlepy. Dobré "
-#~ "heslo by mělo obsahovat směs písmen, číslic a interpunkce. Mělo by být "
-#~ "nejméně 8 znaků dlouhé a měli byste jej pravidelně měnit."
-
-#~ msgid ""
-#~ " Install Type: ${INSTALLTYPE}\n"
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " IR Remote: ${REMOTE}\n"
-#~ " IR Transmitter: ${TRANSMITTER}\n"
-#~ " Video Driver: ${VIDEO_DRIVER}\n"
-#~ " Services: ${SERVICES}"
-#~ msgstr ""
-#~ " Typ instalace: ${INSTALLTYPE}\n"
-#~ " Jazyk: ${LANGUAGE}\n"
-#~ " Rozvržení klávesnice: ${KEYMAP}\n"
-#~ " Jméno: ${FULLNAME}\n"
-#~ " Přihlašovací jméno: ${USERNAME}\n"
-#~ " Umístění: ${LOCATION}\n"
-#~ " Ovladač IR: ${REMOTE}\n"
-#~ " Vysílač IR: ${TRANSMITTER}\n"
-#~ " Ovladač videa: ${VIDEO_DRIVER}\n"
-#~ " Služby: ${SERVICES}"
-
-#~ msgid "Installation Type"
-#~ msgstr "Typ instalace"
-
-#~ msgid "What type of system will this be?"
-#~ msgstr "Jaký bude typ tohoto systému?"
-
-#~ msgid "Primary Backend w/ Frontend"
-#~ msgstr "Primární backend s frontendem"
-
-#~ msgid "Secondary Backend w/ Frontend"
-#~ msgstr "Druhotný backend s frontendem"
-
-#~ msgid "MySQL Database"
-#~ msgstr "Databáze MySQL"
-
-#~ msgid "MySQL Server"
-#~ msgstr "Server MySQL"
-
-#~ msgid "Configuring mythtv..."
-#~ msgstr "Nastavuji mythtv..."
-
-#~ msgid "Configuring additional drivers..."
-#~ msgstr "Nastavuji dodatečné ovladače..."
-
-#~ msgid "Configuring additional services..."
-#~ msgstr "Nastavuji dodatečné služby..."
-
-#~ msgid "Zone:"
-#~ msgstr "Pásmo"
-
-#~ msgid "Graphics Drivers"
-#~ msgstr "Ovladače grafické karty"
-
-#~ msgid ""
-#~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
-#~ msgstr ""
-#~ "Ovladač grafické karty s otevřeným zdrojovým kódem je již povolen a "
-#~ "nastaven pro vaši instalaci. Pokud byste chtěli použít jiný grafický "
-#~ "ovladač, můžete to udělat zde. Mějte na vědomí, že proprietární grafické "
-#~ "ovladače mohou být nezbytné pro TV výstup nebo OpenGL efekty."
-
-#~ msgid "Click to open the Schedules Direct website"
-#~ msgstr "Kliknutím otevřete webovou stránku Schedules Direct"
-
-#~ msgid "Launch MythTV Setup"
-#~ msgstr "Spustit nastavení MythTV"
-
-#~ msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-#~ msgstr "Je-li povolen TV výstup, je třeba zvolit také TV normu:"
-
-#~ msgid "If you would like to configure TV-out, choose an option here:"
-#~ msgstr "Pro nastavení TV výstupu vyberte jednu z možností:"
-
-#~ msgid "Configuring infrared devices..."
-#~ msgstr "Nastavování infračervených zařízení..."

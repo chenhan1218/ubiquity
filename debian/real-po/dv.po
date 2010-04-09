@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
+"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1401,12 +1401,3 @@ msgstr ""
 #: ../ubiquity.templates:215001
 msgid "Continue with installation."
 msgstr ""
-
-#~ msgid ""
-#~ "If you have Internet access, read the release notes for information on "
-#~ "problems that may affect you."
-#~ msgstr ""
-#~ "ތިބޭފުޅާއަށް އިންޓަނެޓްގެ ހިދުމަތް ލިބޭނަމަ، ކުރިމަތިވެދާނެ މައްސަލަތަކާ ބެހޭގޮތުން މައުލޫމާތު ލިބިގަތުމަށް ރިލީސް ނޯޓްސް ކިޔުއްވާށެވެ."
-
-#~ msgid "Release Notes"
-#~ msgstr "ރިލީސް ނޯޓް"

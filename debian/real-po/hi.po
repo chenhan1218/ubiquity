@@ -7,38 +7,38 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-07 11:44+0100\n"
-"PO-Revision-Date: 2009-09-05 19:33+0000\n"
-"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
+"PO-Revision-Date: 2010-04-06 12:20+0000\n"
+"Last-Translator: Manish Kumar <manishku86@yahoo.co.in>\n"
 "Language-Team: Hindi <debian-in-workers@lists.alioth.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-30 16:44+0000\n"
+"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "सबसे बड़े सतत रिक्त स्थान का उपयोग करें"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr ""
+msgstr "पूरे डिस्क को मिटाकर कर उपयोग करें"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr ""
+msgstr "अगल - बगल इन्हे संस्थापित करें, प्रत्येक शुरुआत में इनके बीच चुनाव करें"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "मैनुअल पार्टिशन का उल्लेख करें (उन्नत)"
 
 #. Type: text
 #. Description
@@ -80,18 +80,19 @@ msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
 msgstr ""
+"अपने तंत्र में बिना किसी परिवर्तन के इस ${MEDIUM} द्वारा आप ${RELEASE} को परख सकते हैं।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
-msgstr ""
+msgstr "${RELEASE} को परखे"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
-msgstr ""
+msgstr "${RELEASE} को संस्थापित करें।"
 
 #. Type: text
 #. Description
@@ -101,12 +102,15 @@ msgid ""
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+"संस्थापन हेतु तैयार हैं? एक बार बस कुछ प्रश्नो के जबाब दें इस सजीव ${MEDIUM} के अंश आपके "
+"कम्प्यूटर में संस्थापित हो जाएगा ताकि आप ${RELEASE} को बिना ${MEDIUM} के पूरे गति से "
+"चला सकेंगे।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
+msgstr "एक बार कुछ प्रश्नो का जबाब दे, फिर यह कम्प्यूटर उपयोग हेतु तैयार हो जाएगा।"
 
 #. Type: text
 #. Description
@@ -121,18 +125,20 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
+"आप <a href=\"प्रकाशित-सूचना\">प्रकाशित सूचना</a> या <a href=\"अद्यतन\">संस्थापक का "
+"अद्यतन</a> को पढ़ना चाहेंगे।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr ""
+msgstr "आप <a href=\"प्रकाशित-सूचना\">प्रकाशित सूचना</a> को पढ़ना चाहेंगे।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr ""
+msgstr "आप <a href=\"अद्यतन\">संस्थापक का अद्यतन</a> को पढ़ना चाहेंगे।"
 
 #. Type: text
 #. Description
@@ -142,6 +148,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2010."
 msgstr ""
+"सजीव ${MEDIUM} ${RELEASE}  संस्थापक का पूर्व प्रकाशित है। यह अंतिम प्रकाशन नहीं है; "
+"अर्थात अंतिम रुप से यह ${RELEASE} अप्रैल 2010 में प्रकाशित होगा।"
 
 #. Type: text
 #. Description
@@ -151,6 +159,8 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
+"संस्थापन प्रक्रिया आपके हार्ड डिस्क के पार्टिशन को पुनःआकारित या मिटा सकता है। अतः इस "
+"कार्यक्रम को चलाने  के पहले  <b>अपने मुल्यवान आंकड़े का पूर्ण बैकअप करें</b> सुनिश्चित कर ले।"
 
 #. Type: text
 #. Description
@@ -166,18 +176,21 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"अपना स्थाननिर्धारण चुनें ताकि यह तंत्र आपके देश का परम्परानुसार उचित प्रदर्शन का इस्तेमाल "
+"कर सके, आपके निकट से साइट से अद्यतन को आकर्षित कर सके, तथा आपके स्थानीय समयानुसार घड़ी "
+"को नियत कर सके।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Time Zone:"
-msgstr ""
+msgstr "समय क्षेत्र:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Region:"
-msgstr ""
+msgstr "क्षेत्र"
 
 #. Type: text
 #. Description
@@ -201,55 +214,55 @@ msgstr "आप अपने नये कीबोर्ड की बनाव�
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Suggested option:"
-msgstr ""
+msgstr "सुझावित विकल्पः"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Choose your own:"
-msgstr ""
+msgstr "आप स्वयं चुनेः"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Guess keymap:"
-msgstr ""
+msgstr "कुंजी मानचित्र का अनुमान करेंः"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Guess..."
-msgstr ""
+msgstr "अनुमान लगाएं..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Please press one of the following keys:"
-msgstr ""
+msgstr "निम्न कुंजीयों में से एक को दबाएंः"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Is the following key present on your keyboard?"
-msgstr ""
+msgstr "क्या आपके कुंजीपटल में निम्न कुंजी उपस्थित है?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Layout:"
-msgstr ""
+msgstr "अभिन्यास"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Variant:"
-msgstr ""
+msgstr "असंगत"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Below is an image of your current layout:"
-msgstr ""
+msgstr "नीचे आपके वर्तमान अभिन्यास का चित्र हैः"
 
 #. Type: text
 #. Description
@@ -267,7 +280,7 @@ msgstr "आपका नाम क्या है?"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Full Name"
-msgstr ""
+msgstr "पूरा नाम"
 
 #. Type: text
 #. Description
@@ -279,7 +292,7 @@ msgstr "आप लॉग इन करने के लिए किस ना�
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Username"
-msgstr ""
+msgstr "प्रयोक्ता नाम"
 
 #. Type: text
 #. Description
@@ -301,13 +314,13 @@ msgstr "अपने खाते को सुरक्षित रखने �
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Password"
-msgstr ""
+msgstr "कूटशब्द"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Re-enter password"
-msgstr ""
+msgstr "कुटशब्द की पुनःप्रविष्टी करें"
 
 #. Type: text
 #. Description
@@ -319,31 +332,31 @@ msgstr "आप दोषमुक्ति विधा चला रहे ह�
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Strength: too short"
-msgstr ""
+msgstr "मजबुतीः काफी छोटा है"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Strength: weak"
-msgstr ""
+msgstr "मजबूती: कमजोर है"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Strength: fair"
-msgstr ""
+msgstr "मजबूती: संतोषजनक है"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Strength: good"
-msgstr ""
+msgstr "मजबूती: अच्छा है"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Strength: strong"
-msgstr ""
+msgstr "मजबूती: मजबूत है"
 
 #. Type: text
 #. Description
@@ -355,7 +368,7 @@ msgstr "इस कंप्यूटर का नाम क्या है?"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Computer Name"
-msgstr ""
+msgstr "कम्प्यूटर नाम"
 
 #. Type: text
 #. Description
@@ -370,31 +383,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Log in automatically"
-msgstr ""
+msgstr "स्वतः लाँग इन"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Require my password to log in"
-msgstr ""
+msgstr "लाँग इन हेतु कुटशब्द की जरुरत है"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr ""
+msgstr "लाँग इन हेतु कुटशब्द की जरुरत हो तथा मेरे होम फोल्डर को डिक्रिप्ट करें।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Choose another password"
-msgstr ""
+msgstr "दूसरा कुटशब्द चुनें"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Migrate documents and settings"
-msgstr ""
+msgstr "दस्तावेज तथा विन्यास का प्रवास करें"
 
 #. Type: text
 #. Description
@@ -403,6 +416,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"उन खातो को चुनें जिन्हे आप आयात करना चाहते हैं । इन खातो के दस्तावेज़ और व्यवस्था संस्थापण के "
+"बाद उपलब्ध हो जायेंगे ।"
 
 #. Type: text
 #. Description
@@ -430,25 +445,25 @@ msgstr "चुने गये डिस्क को कैसे विभा�
 #. Description
 #: ../ubiquity.templates:64001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "इस कम्प्यूटर में कोई भी आपरेटिंग तंत्र नहीं है।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "इस कम्प्यूटर में ${OS} है।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "इस कम्प्यूटर में कई आपरेटिंग तंत्र है।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:67001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "आप ${RELEASE} को कहाँ रखना चाहते हैं?"
 
 #. Type: text
 #. Description
@@ -461,7 +476,7 @@ msgstr "नये विभाजन बनाएँ"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:69001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "यह ${SYSTEMS} मिट जाएगा तथा ${RELEASE} संस्थापित हो जाएगा।"
 
 #. Type: text
 #. Description
@@ -475,7 +490,7 @@ msgstr "संस्थापना के लिये तैयार।"
 #. Description
 #: ../ubiquity.templates:71001
 msgid "Details"
-msgstr ""
+msgstr "विवरण"
 
 #. Type: text
 #. Description
@@ -508,19 +523,19 @@ msgstr "कुल ${TOTAL} में का ${INDEX} कदम"
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Quit the installation?"
-msgstr ""
+msgstr "संस्थापना छोडें?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Do you really want to quit the installation now?"
-msgstr ""
+msgstr "क्या आप सच में संस्थापना अभी छोड़ना चाहते हैं?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Bootloader install failed"
-msgstr ""
+msgstr "बूटलोडर का संस्थापना विफल"
 
 #. Type: text
 #. Description
@@ -529,43 +544,44 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
+"क्षमा करें, त्रुटि आ गया है जिससे निर्दिष्ट स्थान पर बूटलोडर को संस्थापित करना संभव नहीं है।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
 msgid "Choose a different device to install the bootloader on:"
-msgstr ""
+msgstr "बूटलोडर को संस्थापित करने हेतु कोई अन्य उपकरण चुनें।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:81001
 msgid "Continue without a bootloader."
-msgstr ""
+msgstr "बिना बूटलोडर के आगे बढ़े।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:82001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr ""
+msgstr "${RELEASE} को चालू करने के दौरान मैनुअल संस्थापित करना होगा।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:83001
 msgid "Cancel the installation."
-msgstr ""
+msgstr "संस्थापन रद्द करें।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:84001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "यह आपके कम्प्यूटर को बिना बूट किए छोड़ रहा है।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:85001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "किस तरह आगे बढ़ाना चाहते है?"
 
 #. Type: text
 #. Description
@@ -577,19 +593,19 @@ msgstr "छोड़े"
 #. Description
 #: ../ubiquity.templates:87001
 msgid "Installation Complete"
-msgstr ""
+msgstr "संस्थापना पूर्ण"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:88001
 msgid "Continue Testing"
-msgstr ""
+msgstr "परीक्षण जारी रखें"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
 msgid "Restart Now"
-msgstr ""
+msgstr "पुनःशुरु करें"
 
 #. Type: text
 #. Description
@@ -597,7 +613,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:90001 ../ubiquity.templates:91001
 msgid "Installer crashed"
-msgstr ""
+msgstr "संस्थापना ध्वंस हो गया"
 
 #. Type: text
 #. Description
@@ -610,6 +626,11 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"हमें खेद है; संस्थापना ध्वंस हो गया। कृपया नये बग की जानकारी https://launchpad.net/"
+"ubuntu/+source/ubiquity/+filebug (वर्तमान बग के साथ अपना कोई भी विवरण संलग्न न "
+"करें) दें ताकि यथासम्भव शीध्र कोई विकासकर्ता इस समस्या को हल करने का प्रयास कर सके। "
+"विकासकर्ता की सहायता हेतु अपने बग रिपोर्ट के साथ निम्न विवरण को फाइल /var/log/"
+"syslog तथा /var/log/partman के साथ संलग्न करें ताकि वह समझ सके क्या गलत हुआ हैः"
 
 #. Type: text
 #. Description
@@ -617,7 +638,7 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:93001
 msgid "Before:"
-msgstr ""
+msgstr "पूर्वः"
 
 #. Type: text
 #. Description
@@ -625,55 +646,55 @@ msgstr ""
 #. automatic partitioning.
 #: ../ubiquity.templates:94001
 msgid "After:"
-msgstr ""
+msgstr "पश्चातः"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:95001
 msgid "New Partition Table..."
-msgstr ""
+msgstr "नये पार्टिशन सारणी"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:96001
 msgid "Add..."
-msgstr ""
+msgstr "जोड़ें..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:97001
 msgid "Change..."
-msgstr ""
+msgstr "बदलें..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:98001
 msgid "Delete"
-msgstr ""
+msgstr "मिटाएँ"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:99001
 msgid "Revert"
-msgstr ""
+msgstr "प्रत्यावर्त"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:100001
 msgid "Recalculating partitions..."
-msgstr ""
+msgstr "पार्टिशन का पुनःगणना"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:101001
 msgid "Device"
-msgstr ""
+msgstr "उपकरण"
 
 #. Type: text
 #. Description
@@ -681,28 +702,28 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:102001
 msgid "Type"
-msgstr ""
+msgstr "प्रकार"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:103001
 msgid "Mount point"
-msgstr ""
+msgstr "माउन्ट बिन्दु"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:104001
 msgid "Format?"
-msgstr ""
+msgstr "फार्मेट"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:105001
 msgid "Size"
-msgstr ""
+msgstr "आकार"
 
 #. Type: text
 #. Description
@@ -710,27 +731,27 @@ msgstr ""
 #. this partition is used by data.
 #: ../ubiquity.templates:106001
 msgid "Used"
-msgstr ""
+msgstr "उपयोग में"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:107001
 msgid "free space"
-msgstr ""
+msgstr "खाली स्थान"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:108001
 msgid "unknown"
-msgstr ""
+msgstr "अज्ञात"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:109001
 msgid "Create partition"
-msgstr ""
+msgstr "पार्टिशन बनाएँ"
 
 #. Type: text
 #. Description
@@ -738,7 +759,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:110001 ../ubiquity.templates:117001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "नया पार्टिशन का मेगाबाइट (1000000 बाइट) में आकार हैः"
 
 #. Type: text
 #. Description
@@ -768,13 +789,13 @@ msgstr "लॉज़िकल"
 #. Description
 #: ../ubiquity.templates:115001
 msgid "Edit partition"
-msgstr ""
+msgstr "पार्टिशन का संपादन"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:116001
 msgid "Edit a partition"
-msgstr ""
+msgstr "किसी पार्टिशन का संपादन"
 
 #. Type: text
 #. Description
@@ -792,37 +813,37 @@ msgstr "बूटलोडर"
 #. Description
 #: ../ubiquity.templates:120001
 msgid "Install boot loader"
-msgstr ""
+msgstr "बूटलोडर संस्थापन"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:121001
 msgid "Popularity contest"
-msgstr ""
+msgstr "लोकप्रिय विवाद"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:122001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "पैकेज उपयोगिता सर्वेक्षण में भाग लें"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Network proxy"
-msgstr ""
+msgstr "नेटवर्क प्रोक्सी"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP प्रोक्सी:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:125001
 msgid "Port:"
-msgstr ""
+msgstr "पोर्टः"
 
 #. Type: text
 #. Description
@@ -832,6 +853,9 @@ msgid ""
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
 msgstr ""
+"संस्थापन समाप्त हुआ। आप उबुन्टू का परीक्षण जारी रख सकते हैं, लेकिन जबतक आप कम्प्यूटर को "
+"पुनःचालु नहीं करते आपका द्वारा किया गया कोई परिवर्तन या संचित किया गया दस्तावेज "
+"सुरक्षित नहीं रहेगा।"
 
 #. Type: text
 #. Description
@@ -854,6 +878,8 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
+"संस्थापना पूरा हो चुका है। नई संस्थापना का इस्तेमाल करने के लिए आपको कम्प्यूटर फिर से चालू "
+"करना होगा।"
 
 #. Type: note
 #. Description
@@ -867,18 +893,25 @@ msgid ""
 " Migration Assistant:\n"
 " ${MIGRATE}"
 msgstr ""
+" भाषा: ${LANGUAGE}\n"
+" कुंजीपटल अभिन्यास: ${KEYMAP}\n"
+" नाम: ${FULLNAME}\n"
+"लाँगइन नाम: ${USERNAME}\n"
+" स्थान: ${LOCATION}\n"
+" प्रवास सहायता:\n"
+" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:131001
 msgid "Verifying the installation configuration..."
-msgstr ""
+msgstr "संस्थापना विन्यास को सत्यापित करें..."
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Installing system"
-msgstr ""
+msgstr "तंत्र का संस्थापना हो रहा है"
 
 #. Type: text
 #. Description
@@ -902,7 +935,7 @@ msgstr "फ़ाइलों नक़ल की जा रही है..."
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Almost finished copying files..."
-msgstr ""
+msgstr "फाइलों की प्रतिलिपि करना प्रायः समाप्त है..."
 
 #. Type: error
 #. Description
@@ -918,7 +951,7 @@ msgstr ""
 #: ../ubiquity.templates:140001 ../ubiquity.templates:141001
 #: ../ubiquity.templates:142001
 msgid "Installation Failed"
-msgstr ""
+msgstr "संस्थापना विफल"
 
 #. Type: error
 #. Description
@@ -941,6 +974,8 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"इसका कारण निर्दिष्ट पार्टिशन पर संस्थापना पूर्ण हेतु डिस्क स्थान अपर्याप्त है। कृपया संस्थापक "
+"को पुनः चलाएं तथा संस्थापना हेतु पहले से बड़ा पार्टिशन चुनें।"
 
 #. Type: error
 #. Description
@@ -950,6 +985,9 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
+"यह प्रायः सीडी/डीवीडी डिस्क या ड्राइव की गड़ब़ड़ी से होता है। सीडी/डीवीडी को साफ "
+"करने, सीडी/डीवीडी को धीमी गति से बर्न करने या सीडी/डीवीडी ड्राइव लेंस को साफ करने पर "
+"लाभ हो सकता है (सफाई करने का समान इलेक्टाँनिक आपुर्तिकर्ता के पास उपलब्ध रहता है)"
 
 #. Type: error
 #. Description
@@ -959,6 +997,8 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
+"यह प्रायः हार्ड डिस्क की गड़ब़ड़ी से होता है। जाँच करें हार्ड डिस्क पुराना तो नहीं है तथा "
+"इसको बदलने की जरुरत तो नही है या अपने तंत्र को ठंडे वातावरण में ले जाएं।"
 
 #. Type: error
 #. Description
@@ -976,12 +1016,17 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
+"यह प्रायः खराब सीडी/डीवीडी डिस्क या ड्राइव या खराब हार्ड डिस्क की वजह से होता है। "
+"सीडी/डीवीडी को साफ करने, सीडी/डीवीडी को धीमी गति से बर्न करने या सीडी/डीवीडी "
+"ड्राइव लेंस को साफ करने (साफ करने का समान प्रायः इलेक्टाँनिक आपुर्तिकर्ता के पास उपलब्ध "
+"रहता है), या फिर जाँच करे की आपका हार्ड डिस्क पुराना तो नहीं है तथा उसे बदलने की "
+"आवश्यकता तो नहीं है या अपने तंत्र को ठंडे वातावरण में ले जाने पर लाभ हो सकता है।"
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:142001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "निम्न फाइल अपने सीडी/डीवीडी स्रोत से मेल नही खाती:"
 
 #. Type: text
 #. Description
@@ -993,7 +1038,7 @@ msgstr "संस्थापना के लॉग का नकल कीय�
 #. Description
 #: ../ubiquity.templates:144001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "लक्षित तंत्र का संरुप..."
 
 #. Type: text
 #. Description
@@ -1166,7 +1211,7 @@ msgstr "संकुलों की विस्थापना मे एक �
 #. Description
 #: ../ubiquity.templates:167001
 msgid "Error migrating documents and settings"
-msgstr ""
+msgstr "दस्तावेज तथा विन्यास के प्रवास में त्रुटि"
 
 #. Type: error
 #. Description
@@ -1177,12 +1222,15 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"दस्तावेज प्रवास के दौरान त्रुटि पाई गई। विस्तृत विवरण /var/log/syslog में मिलेगा। "
+"संस्थापना चालू रहेगा लेकिन आपके द्वारा आग्रहीत कुछ या सभी दास्तावेज तथा विन्यास संस्थापित "
+"तंत्र में स्थानान्तरित नहीं होगा।"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:168001
 msgid "Error copying network configuration"
-msgstr ""
+msgstr "नेटवर्क विन्यास की प्रतिलिपि में त्रुटि"
 
 #. Type: error
 #. Description
@@ -1192,12 +1240,14 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"नेटवर्क विन्यास की प्रतिलिपि के दौरान त्रुटि पाई गई। संस्थापन चालू रहेगा लेकिन नेटवर्क "
+"विन्यास संस्थापित तंत्र में पुनः किया जा सकता है।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:172001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "फाइलों प्रतिलिपि छोड़ने हेतु गणना..."
 
 #. Type: title
 #. Description
@@ -1231,19 +1281,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Please close any applications using these mount points."
-msgstr ""
+msgstr "कृपया माउन्ट बिन्दू का उपयोग कर रहे किसी एपिलिकेशन को बंद करें।"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr ""
+msgstr "क्या आप चाहेंगे कि संस्थापक पुनः इस पार्टिशन को अनमाउन्ट करने की चेष्टा करे?"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:189001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "पार्टिशनर पर वाफस जान चाहेंगें?"
 
 #. Type: boolean
 #. Description
@@ -1252,6 +1302,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
+"आपके द्वारा सृष्टि किया गया कुछ पार्टिशन काफी छोटा है। कृपया निम्न पार्टिशन को कम से कम "
+"इतना बड़ा करेंः"
 
 #. Type: boolean
 #. Description
@@ -1260,12 +1312,14 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"आप वाफस पार्टिशन के आकार को बढ़ाने के लिए वाफस पार्टिशनर में नहीं जाते तो संस्थापना विफल "
+"हो जाएगा।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:190001
 msgid "System Configuration"
-msgstr ""
+msgstr "तंत्र विन्यास"
 
 #. Type: text
 #. Description
@@ -1277,123 +1331,123 @@ msgstr "भाषा चुनें / Choose language"
 #. Description
 #: ../ubiquity.templates:192001
 msgid "Network configuration"
-msgstr ""
+msgstr "नेटवर्क विन्यास"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:193001
 msgid "Software selection"
-msgstr ""
+msgstr "साँफ्टवेयर चुनाव"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:194001
 msgid "Applying configuration"
-msgstr ""
+msgstr "विन्यास लागु कर रहा है"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:195001
 msgid "Language"
-msgstr ""
+msgstr "भाषा"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:196001
 msgid "Timezone"
-msgstr ""
+msgstr "समयक्षेत्र"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:197001
 msgid "Keyboard"
-msgstr ""
+msgstr "कुंजीपटल"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:198001
 msgid "Disk Setup"
-msgstr ""
+msgstr "डिस्क प्रतिष्ठित करें"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:199001
 msgid "User Info"
-msgstr ""
+msgstr "प्रयोक्ता सूचना"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
 msgid "Summary"
-msgstr ""
+msgstr "सारांश"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:202001
 msgid "installation process"
-msgstr ""
+msgstr "संस्थापना प्रक्रिया"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
 msgid "Checking for installer updates"
-msgstr ""
+msgstr "संस्थापक अद्यतन हेतु जाँच"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
 msgid "Reading package information"
-msgstr ""
+msgstr "पैकेज सूचना पढ़ रहा है"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:206001
 msgid "Updating package information"
-msgstr ""
+msgstr "पैकेज सूचना अद्यतन कर रहा है"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:207001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr ""
+msgstr "कुल ${TOTAL} में ${INDEX} फाइल ${SPEED}/s से"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:208001
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "कुल ${TOTAL} मे ${INDEX} फाइल"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
 msgid "Installing update"
-msgstr ""
+msgstr "अद्यतन संस्थापित कर रहा है"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:210001
 msgid "Error updating installer"
-msgstr ""
+msgstr "अद्यतन संस्थापन में त्रुटि पाई गई"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:210001
 msgid "The installer encountered an error while trying to update itself:"
-msgstr ""
+msgstr "स्वतः अद्यतन के दौरान संस्थापक को त्रुटि मिलाः"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:211001
 msgid "USB"
-msgstr ""
+msgstr "USB"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
 #: ../ubiquity.templates:212001
 msgid "CD"
-msgstr ""
+msgstr "सीडी"
 
 #. Type: text
 #. Description
@@ -1402,6 +1456,8 @@ msgid ""
 "Please choose the language to use for the install process. This\n"
 " Language will be the default language for this computer."
 msgstr ""
+"कृपया संस्थापन प्रक्रिया हेतु भाषा को चुने. यह\n"
+" भाषा इस कम्प्यूटर के लिए डिफाल्ट भाषा होगा।"
 
 #. Type: text
 #. Description
@@ -1410,19 +1466,11 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
+"विन्यास प्रक्रिया में उपयोग होने वाले भाषा का चुनाव करें। यह भाषा इस कम्प्यूटर के लिए "
+"डिफाँल्ट रहेगा।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:215001
 msgid "Continue with installation."
-msgstr ""
-
-#~ msgid ""
-#~ "If you have Internet access, read the release notes for information on "
-#~ "problems that may affect you."
-#~ msgstr ""
-#~ "अगर आपके पास इंटरनेट की सुविधा है तो आप िवमोचन वचन पत्र पढ़ कर समस्याओं के बारे में और "
-#~ "जानकारी पा सकते हैं"
-
-#~ msgid "Release Notes"
-#~ msgstr "रिलीज टिप्पणी"
+msgstr "संस्थापना में आगे बढ़े।"
