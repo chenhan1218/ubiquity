@@ -34,7 +34,15 @@ Filename: tests/templates.dat
 EOF
 export DEBCONF_SYSTEMRC=tests/debconf.conf
 $rebuild && debconf-loadtemplate ubiquity tests/debconfdb
+[ -e ubiquity/Makefile ] || ./configure && (cd ubiquity; make)
 # For log-output
 export PATH="d-i/source/debian-installer-utils:$PATH"
-UBIQUITY_PATH=. UBIQUITY_PLUGIN_PATH=ubiquity/plugins PIXMAPS=desktop \
-	UBIQUITY_GLADE=gui/gtk ./tests/run-frontend
+
+# SUDO UID and SUDO_GID are for KDE
+SUDO_UID=$(id -u) \
+SUDO_GID=$(id -g) \
+UBIQUITY_PATH=. \
+UBIQUITY_PLUGIN_PATH=ubiquity/plugins \
+PIXMAPS=desktop \
+UBIQUITY_GLADE=gui/gtk \
+./tests/run-frontend
