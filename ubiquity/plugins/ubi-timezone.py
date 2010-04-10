@@ -51,6 +51,14 @@ class PageGtk(PluginUI):
             self.page = None
         self.plugin_widgets = self.page
 
+    def plugin_translate(self, lang):
+        c = self.controller
+        if c.get_string('ubiquity/imported/time-format', lang) == '12-hour':
+            fmt = c.get_string('ubiquity/imported/12-hour', lang)
+        else:
+            fmt = c.get_string('ubiquity/imported/24-hour', lang)
+        self.tzmap.set_time_format(fmt)
+
     def set_timezone(self, timezone):
         self.fill_timezone_boxes()
         self.select_city(None, timezone)
@@ -60,6 +68,7 @@ class PageGtk(PluginUI):
         m = self.city_combo.get_model()
         return m[i][1]
 
+    @only_this_page
     def fill_timezone_boxes(self):
         m = self.region_combo.get_model()
         tz = self.controller.dbfilter
@@ -76,6 +85,7 @@ class PageGtk(PluginUI):
         for pair in region_pairs:
             m.append(pair)
 
+    @only_this_page
     def select_country(self, country):
         def country_is_in_region(country, region):
             if not region: return False
@@ -174,7 +184,7 @@ class PageGtk(PluginUI):
         self.city_combo.set_text_column(0)
         city_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
         self.city_combo.set_model(city_store)
-        
+
         completion = gtk.EntryCompletion()
         entry = self.city_combo.child
         entry.set_completion(completion)
@@ -198,6 +208,7 @@ class PageGtk(PluginUI):
 
         completion.set_match_func(match_func)
 
+    @only_this_page
     def on_region_combo_changed(self, *args):
         i = self.region_combo.get_active()
         m = self.region_combo.get_model()
@@ -243,20 +254,21 @@ class PageKde(PluginUI):
         try:
             from PyQt4 import uic
             from ubiquity.frontend.kde_components.Timezone import TimezoneMap
-            
+
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLocation.ui')
             self.tzmap = TimezoneMap(self.page.map_frame)
             self.page.map_frame.layout().addWidget(self.tzmap)
-            
+
             self.tzmap.zoneChanged.connect(self.mapZoneChanged)
             self.page.timezone_zone_combo.currentIndexChanged[int].connect(self.regionChanged)
             self.page.timezone_city_combo.currentIndexChanged[int].connect(self.cityChanged)
         except Exception, e:
             self.debug('Could not create timezone page: %s', e)
             self.page = None
-            
+
         self.plugin_widgets = self.page
 
+    @only_this_page
     def refresh_timezones(self):
         lang = os.environ['LANG'].split('_', 1)[0]
         shortlist = self.controller.dbfilter.build_shortlist_region_pairs(lang)
@@ -269,6 +281,7 @@ class PageKde(PluginUI):
         for pair in longlist:
             self.page.timezone_zone_combo.addItem(pair[0], pair[2])
 
+    @only_this_page
     def populateCities(self, regionIndex):
         self.page.timezone_city_combo.clear()
 
@@ -289,6 +302,7 @@ class PageKde(PluginUI):
         return len(countries) == 1 and self.controller.dbfilter.get_default_for_region(countries[0])
 
     # called when the region(zone) combo changes
+    @only_this_page
     def regionChanged(self, regionIndex):
         if self.controller.dbfilter is None:
             return
@@ -311,6 +325,7 @@ class PageKde(PluginUI):
         self.tzmap.set_timezone(zone)
         self.tzmap.zoneChanged.connect(self.mapZoneChanged)
 
+    @only_this_page
     def mapZoneChanged(self, loc, zone):
         self.page.timezone_zone_combo.blockSignals(True)
         self.page.timezone_city_combo.blockSignals(True)
@@ -443,7 +458,7 @@ class Page(Plugin):
         continents = self.choices_display_map('localechooser/continentlist')
         names, codes = zip(*continents.items())
         codes = [c.replace(' ', '_') for c in codes]
-        
+
         nones = [None for _ in continents]
         pairs = zip(names, nones, codes)
         pairs.sort(key=self.collation_key)
@@ -472,12 +487,12 @@ class Page(Plugin):
             shortlist = self.build_shortlist_timezone_pairs(country_codes[0])
         else:
             shortlist = []
-        
+
         longlist = []
         for country_code in country_codes:
             longlist += self.build_longlist_timezone_pairs(country_code, sort=False)
         longlist.sort(key=self.collation_key)
-        
+
         # There may be duplicate entries in the shortlist and longlist.
         # Basically, the shortlist is most useful when there are non-city
         # timezones that may be more familiar to denizens of that country.
@@ -492,7 +507,7 @@ class Page(Plugin):
                 if short_item[1] == long_item[1]:
                     shortlist.remove(short_item)
                     break
-        
+
         return (shortlist, longlist)
 
     def build_shortlist_timezone_pairs(self, country_code):

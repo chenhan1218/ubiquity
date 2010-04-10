@@ -71,17 +71,22 @@ def main():
                 toexec.extend(['--desktop', desktop])
             toexec.append('--')
         elif frontend == 'kde_ui':
-            kdesu = None
-            if osextras.find_on_path('kdesu'):
-                kdesu = 'kdesu'
-            elif osextras.find_on_path('kdesudo'):
-                kdesu = 'kdesudo'
-            elif os.path.exists('/usr/lib/kde4/libexec/kdesu'):
-                kdesu = '/usr/lib/kde4/libexec/kdesu'
-            if kdesu:
-                toexec = [kdesu, '--nonewdcop', '--']
-            else:
-                toexec = ['sudo', '-E']
+            # We need to pass through xauth information.  kdesudo won't do,
+            # though, as it can't be made to tell sudo to preserve the
+            # environment.
+            import tempfile
+            xauthority = tempfile.NamedTemporaryFile(prefix='ubiquity-',
+                                                     suffix='-xauth')
+            os.chmod(xauthority.name, 0600) # root can still read it
+            xauth_extract = subprocess.Popen(
+                ['xauth', 'extract', '-', os.environ['DISPLAY']],
+                stdout=subprocess.PIPE)
+            xauth_merge = subprocess.Popen(
+                ['xauth', '-f', xauthority.name, 'merge', '-'],
+                stdin=xauth_extract.stdout)
+            xauth_merge.wait()
+            xauth_extract.wait()
+            toexec = ['sudo', '-E', 'XAUTHORITY=%s' % xauthority.name]
         else:
             toexec = ['sudo', '-E']
 

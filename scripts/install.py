@@ -109,8 +109,8 @@ class DebconfInstallProgress(InstallProgress):
         # InstallProgress uses a non-blocking status fd; our run()
         # implementation doesn't need that, and in fact we spin unless the
         # fd is blocking.
-        flags = fcntl.fcntl(self.statusfd.fileno(), fcntl.F_GETFL)
-        fcntl.fcntl(self.statusfd.fileno(), fcntl.F_SETFL,
+        flags = fcntl.fcntl(self.status_stream.fileno(), fcntl.F_GETFL)
+        fcntl.fcntl(self.status_stream.fileno(), fcntl.F_SETFL,
                     flags & ~os.O_NONBLOCK)
 
     def startUpdate(self):
@@ -137,7 +137,7 @@ class DebconfInstallProgress(InstallProgress):
         child_pid = self.fork()
         if child_pid == 0:
             # child
-            os.close(self.writefd)
+            self.write_stream.close()
             try:
                 while self.updateInterface():
                     pass
@@ -148,7 +148,7 @@ class DebconfInstallProgress(InstallProgress):
                     syslog.syslog(syslog.LOG_WARNING, line)
             os._exit(0)
 
-        self.statusfd.close()
+        self.status_stream.close()
 
         # Redirect stdin from /dev/null and stdout to stderr to avoid them
         # interfering with our debconf protocol stream.
@@ -180,10 +180,10 @@ class DebconfInstallProgress(InstallProgress):
 
         res = pm.ResultFailed
         try:
-            res = pm.DoInstall(self.writefd)
+            res = pm.DoInstall(self.write_stream.fileno())
         finally:
             # Reap the status-to-debconf subprocess.
-            os.close(self.writefd)
+            self.write_stream.close()
             while True:
                 try:
                     (pid, status) = os.waitpid(child_pid, 0)
@@ -368,7 +368,7 @@ class Install:
             self.configure_apt()
 
             self.configure_plugins()
-            
+
             self.next_region()
             self.run_target_config_hooks()
 
@@ -409,7 +409,14 @@ class Install:
 
             self.next_region(size=4)
             self.db.progress('INFO', 'ubiquity/install/removing')
-            self.remove_extras()
+            if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+                try:
+                    if misc.create_bool(self.db.get('oem-config/remove_extras')):
+                        self.remove_oem_extras()
+                except debconf.DebconfError:
+                    pass
+            else:
+                self.remove_extras()
 
             try:
                 self.copy_network_config()
@@ -431,7 +438,7 @@ class Install:
                 self.copy_wallpaper_cache()
             except:
                 syslog.syslog(syslog.LOG_WARNING,
-                    'Could not copy wallpaper cache:')                
+                    'Could not copy wallpaper cache:')
                 for line in traceback.format_exc().split('\n'):
                     syslog.syslog(syslog.LOG_WARNING, line)
             self.copy_dcd()
@@ -591,6 +598,10 @@ class Install:
         elif (arch == 'armel' and
               subarch in ('dove', 'imx51', 'iop32x', 'ixp4xx', 'orion5x')):
             keep.add('flash-kernel')
+            if subarch == 'dove':
+                keep.add('uboot-mkimage')
+            elif subarch == 'imx51':
+                keep.add('redboot-tools')
         elif arch == 'powerpc' and subarch != 'ps3':
             keep.add('yaboot')
             keep.add('hfsutils')
@@ -1089,6 +1100,7 @@ class Install:
                 Mount  "true";
                 UMount "true";
               };
+              AutoDetect "false";
             }""")
         apt_conf_nmc.close()
 
@@ -1135,21 +1147,16 @@ class Install:
 
 
     def locale_to_language_pack(self, locale):
-        lang = locale.split('_')[0]
+        lang = locale.split('.')[0]
         if lang == 'zh_CN':
             return 'zh-hans'
         elif lang == 'zh_TW':
             return 'zh-hant'
         else:
+            lang = locale.split('_')[0]
             return lang
 
     def select_language_packs(self):
-        try:
-            master_disable = self.db.get('pkgsel/install-language-support')
-            if master_disable != '' and not misc.create_bool(master_disable):
-                return
-        except debconf.DebconfError:
-            pass
         try:
             keep_packages = self.db.get('ubiquity/keep-installed')
             keep_packages = keep_packages.replace(',', '').split()
@@ -1238,10 +1245,28 @@ class Install:
         to_install = [lp for lp in to_install
                          if self.get_cache_pkg(cache, lp) is not None]
 
+        install_new = True
+        try:
+            install_new_key = self.db.get('pkgsel/install-language-support')
+            if install_new_key != '' and not misc.create_bool(install_new_key):
+                install_new = False
+        except debconf.DebconfError:
+            pass
+
+        if not install_new:
+            # Keep packages that are on the live filesystem, but don't install
+            # new ones.
+            # TODO cjwatson 2010-03-18: To match pkgsel's semantics, we ought to
+            # be willing to install packages from the package pool on the CD as
+            # well.
+            to_install = [lp for lp in to_install
+                             if self.get_cache_pkg(cache, lp).isInstalled]
+
         del cache
 
         install_misc.record_installed(to_install)
-        self.langpacks = to_install
+        if install_new:
+            self.langpacks = to_install
 
     def install_language_packs(self):
 
@@ -1256,7 +1281,7 @@ class Install:
         if len(self.languages) == 1 and self.languages[0] in ('C', 'en'):
             return # always complete enough
 
-        if self.db.get('pkgsel/ignore-incomplete-language-support'):
+        if self.db.get('pkgsel/ignore-incomplete-language-support') == 'true':
             return
 
         cache = Cache()
@@ -2031,10 +2056,10 @@ class Install:
         except debconf.DebconfError:
             if not inst_langpacks:
                 return
-        
+
         if inst_langpacks:
             extra_packages += self.langpacks
-        
+
         save_replace = None
         save_override = None
         custom = '/etc/apt/sources.list.d/oem-config.list'
@@ -2132,7 +2157,7 @@ class Install:
 
                     for desktop_file in (
                         'usr/share/applications/oem-config-prepare-gtk.desktop',
-                        'usr/share/applications/kde/oem-config-prepare-kde.desktop'):
+                        'usr/share/applications/kde4/oem-config-prepare-kde.desktop'):
                         if os.path.exists(os.path.join(self.target,
                                                        desktop_file)):
                             desktop_base = os.path.basename(desktop_file)
@@ -2162,9 +2187,6 @@ class Install:
     def remove_extras(self):
         """Try to remove packages that are needed on the live CD but not on
         the installed system."""
-
-        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
-            return
 
         # Looking through files for packages to remove is pretty quick, so
         # don't bother with a progress bar for that.
@@ -2231,6 +2253,52 @@ class Install:
         # for the user to sort them out with a graphical package manager (or
         # whatever) after installation than it will be to try to deal with
         # them automatically here.
+        (regular, recursive) = install_misc.query_recorded_removed()
+        self.do_remove(regular)
+        self.do_remove(recursive, recursive=True)
+
+        oem_remove_extras = False
+        try:
+            oem_remove_extras = misc.create_bool(self.db.get('oem-config/remove_extras'))
+        except debconf.DebconfError:
+            pass
+
+        if oem_remove_extras:
+            installed = (desktop_packages | keep - regular - recursive)
+            p = os.path.join(self.target, '/var/lib/ubiquity/installed-packages')
+            with open(p, 'w') as fp:
+                for line in installed:
+                    print >>fp, line
+
+    def remove_oem_extras(self):
+        '''Try to remove packages that were not part of the base install and
+        are not needed by the final system.
+        
+        This is roughly the set of packages installed by ubiquity + packages we
+        explicitly installed in oem-config (langpacks, for example) -
+        everything else.'''
+
+        manifest = '/var/lib/ubiquity/installed-packages'
+        if not os.path.exists(manifest):
+            return
+        
+        keep = set()
+        with open(manifest) as manifest_file:
+            for line in manifest_file:
+                if line.strip() != '' and not line.startswith('#'):
+                    keep.add(line.split()[0])
+        # Lets not rip out the ground beneath our feet.
+        keep.add('ubiquity')
+        keep.add('oem-config')
+
+        cache = Cache()
+        remove = set([pkg for pkg in cache.keys() if cache[pkg].isInstalled])
+        # Keep packages we explicitly installed.
+        keep |= install_misc.query_recorded_installed()
+        remove -= self.expand_dependencies_simple(cache, keep, remove)
+        del cache
+        
+        install_misc.record_removed(remove)
         (regular, recursive) = install_misc.query_recorded_removed()
         self.do_remove(regular)
         self.do_remove(recursive, recursive=True)
@@ -2396,7 +2464,7 @@ class Install:
                 stdout=subprocess.PIPE).communicate()[0].strip('\n')
             uid = int(uid)
             gid = int(gid)
-            self.copy_tree(casper_user_wallpaper_cache_dir, 
+            self.copy_tree(casper_user_wallpaper_cache_dir,
                            target_user_wallpaper_cache_dir, uid, gid)
             os.chmod(target_user_cache_dir, 0700)
             os.chmod(target_user_wallpaper_cache_dir, 0700)

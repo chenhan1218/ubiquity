@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-09 12:16+0000\n"
+"POT-Creation-Date: 2010-04-07 11:44+0100\n"
 "PO-Revision-Date: 2009-09-05 19:33+0000\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: Punjabi/Panjabi <punjabi-users@lists.sf.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
+"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -45,7 +45,7 @@ msgstr ""
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:192001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:201001
 msgid "Install"
 msgstr "ਇੰਸਟਾਲ"
 
@@ -64,28 +64,6 @@ msgstr "ਜੀ ਆਇਆਂ ਨੂੰ"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001 ../ubiquity.templates:16001
-msgid "Answering the questions should only take a few minutes."
-msgstr "ਪ੍ਰਸ਼ਨਾਂ ਦੇ ੳੁੱਤਰ ਦੇਣ ਨੂੰ ਸਿਰਫ ਚੰਦ ਮਿਨਟ ਹੀ ਲਗ ਸਕਦੇ ਹਨ।"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001
-msgid ""
-"Please choose the language used for the configuration process. This language "
-"will be the default language for this computer."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:11001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
@@ -94,7 +72,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:11001
 msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
@@ -102,32 +80,36 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "Ready to install? Once you answer a few questions, the contents of the "
-#| "live CD can be installed on this computer so you can run the system at "
-#| "full speed and without the CD."
+#: ../ubiquity.templates:14001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
-"ਿੲੰਸਟਾਲ ਲੲੀ ਤਿਅਾਰ ? ਤੁਹਾਡੇ ਕੁਝ ਪ੍ਰਸ਼ਨਾਂ ਦੇ ੳੁੱਤਰ ਦੇਣ ਤੋਂ ਬਾਦ ਲਾੲੀਵ ਸੀਡੀ ਦੇ ਪਦਾਰਥ ੲਿਸ "
-"ਕਂਪਿੳੂਟਰ ੳੁਤੇ ੲਿੰਸਟਾਲ ਕੀਤੇ ਜਾ ਸਕਨਗੇ ਤਾਂਕਿ ਤੁਸੀਂ ੲਿਸ ਸਿਸਟਮ ਨੂੰ ਸੀਡੀ ਤੋਂ ਬਿਨਾ ਪੂਰੀ ਰਫਤਾਰ ਨਾਲ "
-"ਚਲਾ ਸਕੋ |"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:15001
+msgid "Once you answer a few questions, this computer will be ready to use."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "Answering the questions should only take a few minutes."
+msgstr "ਪ੍ਰਸ਼ਨਾਂ ਦੇ ੳੁੱਤਰ ਦੇਣ ਨੂੰ ਸਿਰਫ ਚੰਦ ਮਿਨਟ ਹੀ ਲਗ ਸਕਦੇ ਹਨ।"
 
 #. Type: text
 #. Description
@@ -185,7 +167,7 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-msgid "Zone:"
+msgid "Time Zone:"
 msgstr ""
 
 #. Type: text
@@ -281,12 +263,24 @@ msgstr "ਤੁਹਾਡਾ ਨਾਂ ਕੀ ਹੈ ?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
+msgid "Full Name"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:41001
 msgid "What name do you want to use to log in?"
 msgstr "ਤੁਸੀਂ ਲੌਗਿਨ ਕਰਣ ਲੲੀ ਕਿਹੜਾ ਨਾਂ ਵਰਤਣਾ ਚਾਂਓਦੇ ਹੋ?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:41001
+#: ../ubiquity.templates:42001
+msgid "Username"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:43001
 msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
@@ -296,35 +290,73 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:42001
+#: ../ubiquity.templates:44001
 msgid "Choose a password to keep your account safe."
 msgstr "ਅਾਪਣੇ ਖਾਤੇ ਦੀ ਰਾਖ ਲੲੀ ੲਿਕ ਸਫਲਸ਼ਬਦ ਚੁਣੋ।"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:43001
+#: ../ubiquity.templates:45001
+msgid "Password"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:46001
+msgid "Re-enter password"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:47001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr "ਤੁਸੀਂ ਡੀਬਗਿਂਗ ਮੋਡ ਵਿਚ ਚਲ ਰਹੇ ਹੋ। ਕੋੲੀ ਕੀਮਤੀ ਸਫਲਸ਼ਬਦ ੲਿਸਤੇਮਾਲ ਨਾਂ ਕਰੋ!"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
-msgid ""
-"Enter the same password twice, so that it can be checked for typing errors. "
-"A good password will contain a mixture of letters, numbers and punctuation, "
-"should be at least eight characters long, and should be changed at regular "
-"intervals."
+#: ../ubiquity.templates:48001
+msgid "Strength: too short"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:49001
+msgid "Strength: weak"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Strength: fair"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:51001
+msgid "Strength: good"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:52001
+msgid "Strength: strong"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:53001
 msgid "What is the name of this computer?"
 msgstr "ੲਿਸ ਕੰਮਪੂਟਰ ਦਾ ਕੀ ਨਾਂ ਹੈ?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:54001
+msgid "Computer Name"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:55001
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
@@ -332,37 +364,37 @@ msgstr "ੲਿਸ ਨਾਂ ਨੂੰ ਵਰਤਿਅਾ ਜਾੲੇਗਾ ਜ�
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:56001
 msgid "Log in automatically"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:57001
 msgid "Require my password to log in"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:58001
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:59001
 msgid "Choose another password"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:60001
 msgid "Migrate documents and settings"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:61001
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
@@ -370,7 +402,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:61001
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
@@ -378,50 +410,50 @@ msgstr "ਜੇ ਤੁਸੀਂ ਕੋੲੀ ਖਾਤੇ ਅਾਯਾਤ ਨਹ�
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:62001
 msgid "Prepare disk space"
 msgstr "ਡਿਸਕ ਜਗ੍ਹਾ ਤਿਅਾਰ ਕਰੋ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:63001
 msgid "How do you want to partition the disk?"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:64001
 msgid "This computer has no operating systems on it."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:65001
 msgid "This computer has ${OS} on it."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:66001
 msgid "This computer has several operating systems on it."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:67001
 msgid "Where do you want to put ${RELEASE}?"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:68001
 msgid "Prepare partitions"
 msgstr ""
 
 #. Type: text
 #. Description
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:69001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
 msgstr ""
 
@@ -429,26 +461,26 @@ msgstr ""
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:61001 ../ubiquity.templates:121001
+#: ../ubiquity.templates:70001 ../ubiquity.templates:130001
 msgid "Ready to install"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:71001
 msgid "Details"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:72001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr "ਤੁਹਾਡਾ ਨਵਾਂ ਅੌਪਰੇਟਿਂਗ ਸਿਸਟਮ ਹੁਣ ੲਿਨ੍ਹਾਂ ਸੈਟਿਂਗਾਂ ਨਾਲ ਿੲੰਸਟਾਲ ਕੀਤਾ ਜਾੲੇਗਾ:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:73001
 msgid "Advanced..."
 msgstr ""
 
@@ -456,37 +488,37 @@ msgstr ""
 #. Description
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:74001
 msgid "Install[ action ]"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:75001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr "ਕਦਮ ${INDEX} ਤੋਂ ${TOTAL}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:76001
 msgid "Quit the installation?"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:77001
 msgid "Do you really want to quit the installation now?"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:78001
 msgid "Bootloader install failed"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:79001
 msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
@@ -494,62 +526,62 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:80001
 msgid "Choose a different device to install the bootloader on:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:81001
 msgid "Continue without a bootloader."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:82001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:83001
 msgid "Cancel the installation."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:84001
 msgid "This may leave your computer unable to boot."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:85001
 msgid "How would you like to proceed?"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:86001
 msgid "Skip"
 msgstr "ਛੱਡੋ"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:87001
 msgid "Installation Complete"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:88001
 msgid "Continue Testing"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:89001
 msgid "Restart Now"
 msgstr ""
 
@@ -557,13 +589,13 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:81001 ../ubiquity.templates:82001
+#: ../ubiquity.templates:90001 ../ubiquity.templates:91001
 msgid "Installer crashed"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:92001
 msgid ""
 "We're sorry; the installer crashed. Please file a new bug report at https://"
 "launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
@@ -577,7 +609,7 @@ msgstr ""
 #. Description
 #. Displayed next to a graphical bar depicting the state of the disk before
 #. automatic partitioning.
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:93001
 msgid "Before:"
 msgstr ""
 
@@ -585,55 +617,55 @@ msgstr ""
 #. Description
 #. Displayed next to a graphical bar depicting the state of the disk after
 #. automatic partitioning.
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:94001
 msgid "After:"
 msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:95001
 msgid "New Partition Table..."
 msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:96001
 msgid "Add..."
 msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:97001
 msgid "Change..."
 msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:98001
 msgid "Delete"
 msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:99001
 msgid "Revert"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:100001
 msgid "Recalculating partitions..."
 msgstr ""
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:101001
 msgid "Device"
 msgstr ""
 
@@ -641,28 +673,28 @@ msgstr ""
 #. Description
 #. A column heading in the partitioner. Indicates how the partition is to be
 #. used (ext2, swap, etc.).
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:102001
 msgid "Type"
 msgstr ""
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:103001
 msgid "Mount point"
 msgstr ""
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:104001
 msgid "Format?"
 msgstr ""
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:105001
 msgid "Size"
 msgstr ""
 
@@ -670,27 +702,27 @@ msgstr ""
 #. Description
 #. A column heading in the partitioner. Indicates how much of the space on
 #. this partition is used by data.
-#: ../ubiquity.templates:97001
+#: ../ubiquity.templates:106001
 msgid "Used"
 msgstr ""
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
-#: ../ubiquity.templates:98001
+#: ../ubiquity.templates:107001
 msgid "free space"
 msgstr ""
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
-#: ../ubiquity.templates:99001
+#: ../ubiquity.templates:108001
 msgid "unknown"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:109001
 msgid "Create partition"
 msgstr ""
 
@@ -698,97 +730,97 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:101001 ../ubiquity.templates:108001
+#: ../ubiquity.templates:110001 ../ubiquity.templates:117001
 msgid "New partition size in megabytes (1000000 bytes):"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:111001
 msgid "Beginning"
 msgstr "ਸ਼ੁਰੂ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:103001
+#: ../ubiquity.templates:112001
 msgid "End"
 msgstr "ਅੰਤ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:104001
+#: ../ubiquity.templates:113001
 msgid "Primary"
 msgstr "ਪ੍ਰਾਇਮਰੀ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:105001
+#: ../ubiquity.templates:114001
 msgid "Logical"
 msgstr "ਲਾਜ਼ੀਕਲ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:106001
+#: ../ubiquity.templates:115001
 msgid "Edit partition"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:107001
+#: ../ubiquity.templates:116001
 msgid "Edit a partition"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:109001
+#: ../ubiquity.templates:118001
 msgid "Advanced Options"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:119001
 msgid "Boot loader"
 msgstr "ਬੂਟ ਲੋਡਰ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:111001
+#: ../ubiquity.templates:120001
 msgid "Install boot loader"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:112001
+#: ../ubiquity.templates:121001
 msgid "Popularity contest"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:113001
+#: ../ubiquity.templates:122001
 msgid "Participate in the package usage survey"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:114001
+#: ../ubiquity.templates:123001
 msgid "Network proxy"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:115001
+#: ../ubiquity.templates:124001
 msgid "HTTP proxy:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:116001
+#: ../ubiquity.templates:125001
 msgid "Port:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:117001
+#: ../ubiquity.templates:126001
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
@@ -798,20 +830,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:118001
+#: ../ubiquity.templates:127001
 msgid "Go Back"
 msgstr "ਪਿੱਛੇ ਜਾਓ"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:119001
+#: ../ubiquity.templates:128001
 msgid "Continue"
 msgstr "ਜਾਰੀ ਰੱਖੋ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:120001
+#: ../ubiquity.templates:129001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
@@ -819,7 +851,7 @@ msgstr ""
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:121001
+#: ../ubiquity.templates:130001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -838,37 +870,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:122001
+#: ../ubiquity.templates:131001
 msgid "Verifying the installation configuration..."
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:123001
+#: ../ubiquity.templates:132001
 msgid "Installing system"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:124001
+#: ../ubiquity.templates:133001
 msgid "Finding the distribution to copy..."
 msgstr "ਕਾਪੀ ਕਰਣ ਵਾਲੀ ਡਿਸਟ੍ਰੀਬਿੳੂਸ਼ਨ ਦੀ ਖੋਜ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:126001
+#: ../ubiquity.templates:135001
 msgid "Scanning files..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:127001
+#: ../ubiquity.templates:136001
 msgid "Copying files..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:137001
 msgid "Almost finished copying files..."
 msgstr ""
 
@@ -882,9 +914,9 @@ msgstr ""
 #. Description
 #. Type: select
 #. Description
-#: ../ubiquity.templates:129001 ../ubiquity.templates:130001
-#: ../ubiquity.templates:131001 ../ubiquity.templates:132001
-#: ../ubiquity.templates:133001
+#: ../ubiquity.templates:138001 ../ubiquity.templates:139001
+#: ../ubiquity.templates:140001 ../ubiquity.templates:141001
+#: ../ubiquity.templates:142001
 msgid "Installation Failed"
 msgstr ""
 
@@ -896,14 +928,14 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:129001 ../ubiquity.templates:130001
-#: ../ubiquity.templates:131001 ../ubiquity.templates:132001
+#: ../ubiquity.templates:138001 ../ubiquity.templates:139001
+#: ../ubiquity.templates:140001 ../ubiquity.templates:141001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr "ੲਿੰਸਟਾਲਰ ਨੇਂ ਹਾਰਡ ਡਿਸਕ ਤੇ ਫਾੲੀਲਾਂ ਕਾਪੀ ਕਰਦੇ ਹੋੲੇ ਦੋਸ਼ ਪਾੲਿਅਾ:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:129001
+#: ../ubiquity.templates:138001
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
@@ -912,7 +944,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:130001
+#: ../ubiquity.templates:139001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -921,7 +953,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:131001
+#: ../ubiquity.templates:140001
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -936,7 +968,7 @@ msgstr ""
 #. Description
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
-#: ../ubiquity.templates:132001 ../ubiquity.templates:133001
+#: ../ubiquity.templates:141001 ../ubiquity.templates:142001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -947,145 +979,145 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../ubiquity.templates:133001
+#: ../ubiquity.templates:142001
 msgid "The following file did not match its source copy on the CD/DVD:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:143001
 msgid "Copying installation logs..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:135001
+#: ../ubiquity.templates:144001
 msgid "Configuring target system..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:136001
+#: ../ubiquity.templates:145001
 msgid "Configuring system locales..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:137001
+#: ../ubiquity.templates:146001
 msgid "Configuring apt..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:138001
+#: ../ubiquity.templates:147001
 msgid "Configuring time zone..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:139001
+#: ../ubiquity.templates:148001
 msgid "Configuring keyboard..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:140001
+#: ../ubiquity.templates:149001
 msgid "Creating user..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:141001
+#: ../ubiquity.templates:150001
 msgid "Importing documents and settings..."
 msgstr "ਦਸਤਾਵੇਜ਼ ਅਤੇ ਸੈਟਿੰਗਾਂ ਅਾਯਾਤ ਕੀਤੀਅਾਂ ਜਾ ਰਹੀਅਾਂ ਹਨ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:142001
+#: ../ubiquity.templates:151001
 msgid "Configuring hardware..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:143001
+#: ../ubiquity.templates:152001
 msgid "Configuring network..."
 msgstr "ਨੈੱਟਵਰਕ ਸੰਰਚਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:144001
+#: ../ubiquity.templates:153001
 msgid "Setting computer name..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:145001
+#: ../ubiquity.templates:154001
 msgid "Configuring boot loader..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:146001
+#: ../ubiquity.templates:155001
 msgid "Installing additional packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:147001
+#: ../ubiquity.templates:156001
 msgid "Checking for packages to install..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:148001
+#: ../ubiquity.templates:157001
 msgid "Removing extra packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:149001
+#: ../ubiquity.templates:158001
 msgid "Checking for packages to remove..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:150001
+#: ../ubiquity.templates:159001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:151001
+#: ../ubiquity.templates:160001
 msgid "Downloading package lists..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:152001
+#: ../ubiquity.templates:161001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:154001
+#: ../ubiquity.templates:163001
 msgid "Error installing ${PACKAGE}"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:155001
+#: ../ubiquity.templates:164001
 msgid "Error removing ${PACKAGE}"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:156001
+#: ../ubiquity.templates:165001
 msgid "Error while installing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:156001
+#: ../ubiquity.templates:165001
 msgid "An error occurred while installing packages:"
 msgstr ""
 
@@ -1093,7 +1125,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:156001 ../ubiquity.templates:157001
+#: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid "The following packages are in a broken state:"
 msgstr ""
 
@@ -1101,7 +1133,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:156001 ../ubiquity.templates:157001
+#: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -1114,25 +1146,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:157001
+#: ../ubiquity.templates:166001
 msgid "Error while removing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:157001
+#: ../ubiquity.templates:166001
 msgid "An error occurred while removing packages:"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:158001
+#: ../ubiquity.templates:167001
 msgid "Error migrating documents and settings"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:158001
+#: ../ubiquity.templates:167001
 msgid ""
 "An error occurred while migrating data.  More details may be found in /var/"
 "log/syslog.  The installation will continue, but some or all of the "
@@ -1142,13 +1174,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:159001
+#: ../ubiquity.templates:168001
 msgid "Error copying network configuration"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:159001
+#: ../ubiquity.templates:168001
 msgid ""
 "An error occurred while copying the network settings.  The installation will "
 "continue, but the network configuration will have to be set up again in the "
@@ -1157,31 +1189,31 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:172001
 msgid "Calculating files to skip copying..."
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:164001
+#: ../ubiquity.templates:173001
 msgid "Installing language packs"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:165001
+#: ../ubiquity.templates:174001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:183001
 msgid "Failed to unmount partitions"
 msgstr "ਭਾਗ ਅਨਮਾਊਟ ਕਰਨ ਵਿੱਚ ਅਸਫਲ"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:183001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -1189,25 +1221,25 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:183001
 msgid "Please close any applications using these mount points."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:183001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:180001
+#: ../ubiquity.templates:189001
 msgid "Do you want to return to the partitioner?"
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:180001
+#: ../ubiquity.templates:189001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
@@ -1215,7 +1247,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:180001
+#: ../ubiquity.templates:189001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1223,164 +1255,156 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:181001
+#: ../ubiquity.templates:190001
 msgid "System Configuration"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:191001
 msgid "Choose language"
 msgstr "ਭਾਸ਼ਾ ਚੁਣੋ/Choose language"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:192001
 msgid "Network configuration"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:193001
 msgid "Software selection"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:194001
 msgid "Applying configuration"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:186001
+#: ../ubiquity.templates:195001
 msgid "Language"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:196001
 msgid "Timezone"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:188001
+#: ../ubiquity.templates:197001
 msgid "Keyboard"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:198001
 msgid "Disk Setup"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:199001
 msgid "User Info"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:200001
 msgid "Summary"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:202001
 msgid "installation process"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:204001
 msgid "Checking for installer updates"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:205001
 msgid "Reading package information"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:206001
 msgid "Updating package information"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
+#: ../ubiquity.templates:207001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:208001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:209001
 msgid "Installing update"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:210001
 msgid "Error updating installer"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:210001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr ""
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:202001
+#: ../ubiquity.templates:211001
 msgid "USB"
 msgstr ""
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:203001
+#: ../ubiquity.templates:212001
 msgid "CD"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "Please choose the language used for the installation process. This "
-#| "language will be the default language for the final system."
+#: ../ubiquity.templates:213001
 msgid ""
 "Please choose the language to use for the install process. This\n"
 " Language will be the default language for this computer."
 msgstr ""
-"ਕਿਰਪਾ ਕਰਕੇ ੲਿੰਸਟਾਲੇਸ਼ਨ ਦੇ ਦੌਰ ਲੲੀ ਵਰਤੀ ਜਾਣ ਵਾਲੀ ਭਾਸ਼ਾ ਚੁਣੋਂ । ੲਿਹ ਭਾਸ਼ਾ ਅੰਤਲੇ ਸਿਸਟਮ ਦੀ ਮੁੱਢ "
-"ਭਾਸ਼ਾ ਹੋਵੇਗੀ।"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:205001
-msgid "Continue with installation."
+#: ../ubiquity.templates:214001
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
 msgstr ""
 
-#~ msgid ""
-#~ "If you have Internet access, read the release notes for information on "
-#~ "problems that may affect you."
-#~ msgstr ""
-#~ "ਜੇ ਤੁਹਾਢੇ ਪਾਸ ਿੲੰਟਰਨੈਟ ਦੀ ਸੁਵਿਧਾ ਹੈ ਤਾਂ ਤੁਹਾਡੀਅਾਂ ਸਂਭਾਵਿਤ ਮੁਸ਼ਕਿਲਾਂ ਦੇ ਬਾਰੇ ਜਾਨਕਾਰੀ ਲੲੀ "
-#~ "ਜਾਰੀ ਕੀਤੇ ਨੋਟ ਪੜੋ।"
-
-#~ msgid "Release Notes"
-#~ msgstr "ਜਾਰੀ ਕੀਤੇ ਨੋਟ"
+#. Type: text
+#. Description
+#: ../ubiquity.templates:215001
+msgid "Continue with installation."
+msgstr ""

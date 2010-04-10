@@ -135,7 +135,6 @@ def open_terminal():
     if 'UBIQUITY_CTTY' not in os.environ:
         os.environ['UBIQUITY_CTTY'] = '1'
 
-        import fcntl
         import termios
 
         try:
@@ -203,9 +202,9 @@ def start_debconf():
 
 def install(frontend=None, query=False):
     '''install(frontend=None) -> none
-    
+
     Get the type of frontend to use and load the module for that.
-    If frontend is None, defaults to the first of 
+    If frontend is None, defaults to the first of
     gtk_ui, kde_ui, and debconf_ui that exists.
     '''
     if frontend is None:
@@ -242,10 +241,67 @@ def install(frontend=None, query=False):
         start_debconf()
     ret = wizard.run()
     wizard.stop_debconf()
+    if ret != 10 and 'UBIQUITY_GREETER' in os.environ:
+        import traceback
+        try:
+            apply_keyboard()
+        except:
+            traceback.print_exc()
     copy_debconf()
     unmount_target()
     if ret == 10:
         wizard.do_reboot()
+
+@misc.raise_privileges
+def apply_keyboard():
+    '''Set the keyboard layout to the default layout for the language selected.
+    If a user wants a different layout, they can be reasonably expected to
+    change it in System -> Preferences -> Keyboard.'''
+    
+    # Mostly taken from ubi-console-setup.
+    
+    # We need to get rid of /etc/default/console-setup, or console-setup
+    # will think it's already configured and behave differently. Try to
+    # save the old file for interest's sake, but it's not a big deal if
+    # we can't.
+    osextras.unlink_force('/etc/default/console-setup.pre-ubiquity')
+    try:
+        os.rename('/etc/default/console-setup',
+                  '/etc/default/console-setup.pre-ubiquity')
+    except OSError:
+        osextras.unlink_force('/etc/default/console-setup')
+
+    import debconf
+    dccomm = subprocess.Popen(['debconf-communicate',
+                               '-fnoninteractive', 'ubiquity'],
+                              stdin=subprocess.PIPE,
+                              stdout=subprocess.PIPE, close_fds=True)
+    try:
+        dc = debconf.Debconf(read=dccomm.stdout, write=dccomm.stdin)
+        try:
+            # Make sure debconf doesn't do anything with crazy "preseeded"
+            # answers to these questions. If you want to preseed these, use the
+            # *code variants.
+            dc.fset('console-setup/layout', 'seen', 'false')
+            dc.fset('console-setup/variant', 'seen', 'false')
+            dc.fset('console-setup/model', 'seen', 'false')
+            dc.fset('console-setup/codeset', 'seen', 'false')
+        except debconf.DebconfError:
+            return
+    finally:
+        dccomm.stdin.close()
+        dccomm.wait()
+    
+    # Accept all the defaults, given the preseeded language.
+    child_env = dict(os.environ)
+    child_env['OVERRIDE_ALLOW_PRESEEDING'] = '1'
+    subprocess.call(['dpkg-reconfigure', '-fnoninteractive', 'console-setup'],
+                    env=child_env)
+    misc.execute('setupcon', '--save-only')
+    # Reprocess /lib/udev/rules.d/64-xorg-xkb.rules
+    misc.execute('udevadm', 'trigger', '--subsystem-match=input',
+                 '--action=change')
+    misc.execute('udevadm', 'settle')
 
 def copy_debconf():
     """Copy a few important questions into the installed system."""
@@ -371,7 +427,7 @@ def main(oem_config):
 
     if options.migration_assistant:
         os.environ['UBIQUITY_MIGRATION_ASSISTANT'] = '1'
-    
+
     if options.greeter:
         os.environ['UBIQUITY_GREETER'] = '1'
 

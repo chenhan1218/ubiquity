@@ -136,6 +136,7 @@ class TimezoneMap(gtk.Widget):
         gtk.Widget.__init__(self)
         self.tzdb = database
         self.image_path = image_path
+        self.time_fmt = '%X'
         self.orig_background = \
             gtk.gdk.pixbuf_new_from_file(os.path.join(self.image_path,
             'bg.png'))
@@ -153,7 +154,10 @@ class TimezoneMap(gtk.Widget):
         self.distances = []
         self.previous_click = (-1, -1)
         self.dist_pos = 0
-        
+
+    def set_time_format(self, time_fmt):
+        self.time_fmt = time_fmt
+
     def do_size_request(self, requisition):
         requisition.width = self.orig_background.get_width() / 2
         requisition.height = self.orig_background.get_height() / 2
@@ -191,7 +195,7 @@ class TimezoneMap(gtk.Widget):
         cr = self.window.cairo_create()
         cr.set_source_pixbuf(self.background, 0, 0)
         cr.paint()
-        
+
         # Render highlight.
         # Possibly not the best solution, though in my head it seems better
         # than keeping two copies (original and resized) of every timezone in
@@ -227,7 +231,7 @@ class TimezoneMap(gtk.Widget):
 
             # Draw the time.
             now = datetime.datetime.now(loc.info)
-            time_text = now.strftime('%X')
+            time_text = now.strftime(self.time_fmt)
             cr.select_font_face('Sans', cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
             cr.set_font_size(12.0)
             xbearing, ybearing, width, height, xadvance, yadvance = \
@@ -250,7 +254,7 @@ class TimezoneMap(gtk.Widget):
     def timeout(self):
         self.queue_draw()
         return True
-    
+
     def mapped(self, unused_widget, unused_event):
         if self.update_timeout is None:
             self.update_timeout = gobject.timeout_add(1000, self.timeout)
@@ -290,11 +294,11 @@ class TimezoneMap(gtk.Widget):
     def button_press(self, unused_widget, event):
         x = int(event.x)
         y = int(event.y)
-        
+
         o = self.convert_xy_to_offset(x, y)
         if not o:
             return
-        
+
         self.selected_offset = o
 
         if (x, y) == self.previous_click and self.distances:

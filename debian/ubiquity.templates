@@ -39,16 +39,6 @@ Template: ubiquity/text/welcome_heading_label
 Type: text
 _Description: Welcome
 
-Template: ubiquity/text/welcome_text_oem_user_label
-Type: text
-_Description:
- Once you answer a few questions, this computer will be ready to use.
- .
- Answering the questions should only take a few minutes.
- .
- Please choose the language used for the configuration process. This
- language will be the default language for this computer.
-
 Template: ubiquity/text/oem_id_label
 Type: text
 _Description:
@@ -76,6 +66,11 @@ _Description:
  Ready to install?  Once you answer a few questions, the contents of the live
  ${MEDIUM} can be installed on this computer so you can run ${RELEASE} at
  full speed without the ${MEDIUM}.
+
+Template: ubiquity/text/ready_text_oem_user_label
+Type: text
+_Description:
+ Once you answer a few questions, this computer will be ready to use.
 
 Template: ubiquity/text/duration_text_label
 Type: text
@@ -128,7 +123,7 @@ _Description:
 
 Template: ubiquity/text/timezone_city_label
 Type: text
-_Description: Zone:
+_Description: Time Zone:
 
 Template: ubiquity/text/timezone_zone_label
 Type: text
@@ -190,9 +185,17 @@ Template: ubiquity/text/fullname_label
 Type: text
 _Description: What is your name?
 
+Template: ubiquity/text/fullname_inactive_label
+Type: text
+_Description: Full Name
+
 Template: ubiquity/text/username_label
 Type: text
 _Description: What name do you want to use to log in?
+
+Template: ubiquity/text/username_inactive_label
+Type: text
+_Description: Username
 
 Template: ubiquity/text/username_extra_label
 Type: text
@@ -203,6 +206,14 @@ _Description:
 Template: ubiquity/text/password_label
 Type: text
 _Description: Choose a password to keep your account safe.
+
+Template: ubiquity/text/password_inactive_label
+Type: text
+_Description: Password
+
+Template: ubiquity/text/password_again_inactive_label
+Type: text
+_Description: Re-enter password
 
 Template: ubiquity/text/password_debug_warning_label
 Type: text
@@ -216,9 +227,33 @@ _Description:
  should be at least eight characters long, and should be changed at regular
  intervals.
 
+Template: ubiquity/text/password/too_short
+Type: text
+_Description: Strength: too short
+
+Template: ubiquity/text/password/weak
+Type: text
+_Description: Strength: weak
+
+Template: ubiquity/text/password/fair
+Type: text
+_Description: Strength: fair
+
+Template: ubiquity/text/password/good
+Type: text
+_Description: Strength: good
+
+Template: ubiquity/text/password/strong
+Type: text
+_Description: Strength: strong
+
 Template: ubiquity/text/hostname_label
 Type: text
 _Description: What is the name of this computer?
+
+Template: ubiquity/text/hostname_inactive_label
+Type: text
+_Description: Computer Name
 
 Template: ubiquity/text/hostname_extra_label
 Type: text
@@ -1062,7 +1097,29 @@ _Description:
  Please choose the language to use for the install process. This
   Language will be the default language for this computer.
 
+Template: ubiquity/text/select_language_oem_user_label
+Type: text
+_Description:
+ Please choose the language used for the configuration process. This
+ language will be the default language for this computer.
+
 Template: ubiquity/text/begin_install_button
 Type: text
 _Description:
  Continue with installation.
+
+Template: ubiquity/install_failed
+Type: text
+_Description: Installation failed
+ The installer encountered an unrecoverable error.  A desktop session will
+ now be run so that you may investigate the problem or try installing again.
+
+Template: ubiquity/install_failed_reboot
+Type: text
+_Description: Installation failed
+ The installer encountered an unrecoverable error and will now reboot.
+
+Template: ubiquity/reboot_on_failure
+Type: boolean
+Default: true
+Description: for internal use; automatically reboot when the install fails.

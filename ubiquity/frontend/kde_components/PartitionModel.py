@@ -18,10 +18,10 @@ def get_string(name, lang=None, prefix=None):
 class PartitionModel(QAbstractItemModel):
     def __init__(self, ubiquity, parent=None):
         QAbstractItemModel.__init__(self, parent)
-        
+
         self.rootItem = None
         self.clear()
-        
+
     def clear(self):
         rootData = []
         rootData.append(QVariant(get_string('partition_column_device')))
@@ -223,7 +223,7 @@ class TreeItem:
                 return Qt.Unchecked
         else:
             return Qt.Unchecked  ##FIXME should be enabled(False)
-    
+
     def formatEnabled(self):
         """is the format tickbox enabled"""
         partition = self.itemData[1]
@@ -232,7 +232,7 @@ class TreeItem:
     def partman_column_format_toggled(self, unused_value):
         if not self.controller.allowed_change_step():
             return
-        if not isinstance(self.controller.dbfilter, Page):
+        if not hasattr(self.controller.dbfilter, 'edit_partition'):
             return
         devpart = self.itemData[0]
         partition = self.itemData[1]
@@ -262,4 +262,3 @@ class TreeItem:
             # partman expects.
             size_mb = int(partition['resize_min_size']) / 1000000
             return '%d MB' % size_mb
-            

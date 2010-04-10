@@ -7,6 +7,7 @@
     <property name="title" translatable="yes">Install</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
+    <signal name="realize" handler="set_window_hints"/>
     <signal name="delete_event" handler="on_live_installer_delete_event"/>
     <child>
       <object class="GtkAlignment" id="alignment1">
@@ -82,7 +83,7 @@
                                 <property name="can_focus">True</property>
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes">Step ${INDEX} of ${TOTAL}</property>
-                                <property name="selectable">True</property>
+                                <property name="selectable">False</property>
                               </object>
                               <packing>
                                 <property name="position">0</property>
@@ -187,6 +188,7 @@
     <property name="icon_name">gtk-dialog-warning</property>
     <property name="type_hint">dialog</property>
     <property name="gravity">center</property>
+    <property name="transient_for">live_installer</property>
     <signal name="realize" handler="set_window_hints"/>
     <child internal-child="vbox">
       <object class="GtkVBox" id="dialog-vbox1">
@@ -222,7 +224,7 @@
                         <property name="can_focus">True</property>
                         <property name="label" translatable="yes">Do you really want to abort the installation now?</property>
                         <property name="wrap">True</property>
-                        <property name="selectable">True</property>
+                        <property name="selectable">False</property>
                       </object>
                     </child>
                   </object>
@@ -251,6 +253,7 @@
                 <property name="receives_default">False</property>
                 <property name="use_underline">True</property>
                 <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_quit_cancelled"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -267,6 +270,7 @@
                 <property name="receives_default">False</property>
                 <property name="use_underline">True</property>
                 <property name="use_stock">True</property>
+                <signal name="clicked" handler="quit_installer"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -299,6 +303,7 @@
     <child>
       <object class="GtkVBox" id="vbox35">
         <property name="visible">True</property>
+        <property name="orientation">vertical</property>
         <property name="spacing">6</property>
         <child>
           <object class="GtkLabel" id="progress_title">
@@ -307,7 +312,7 @@
             <property name="xalign">0</property>
             <property name="label">&lt;big&gt;&lt;b&gt;Progress bar title&lt;/b&gt;&lt;/big&gt;</property>
             <property name="use_markup">True</property>
-            <property name="selectable">True</property>
+            <property name="selectable">False</property>
             <property name="ellipsize">end</property>
           </object>
           <packing>
@@ -340,7 +345,7 @@
                 <property name="ypad">6</property>
                 <property name="label">&lt;i&gt;Progress bar info&lt;/i&gt;</property>
                 <property name="use_markup">True</property>
-                <property name="selectable">True</property>
+                <property name="selectable">False</property>
                 <property name="ellipsize">end</property>
               </object>
               <packing>
@@ -366,21 +371,6 @@
           <packing>
             <property name="expand">False</property>
             <property name="position">2</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkFrame" id="slideshow_frame">
-            <property name="label_xalign">0</property>
-            <property name="shadow_type">in</property>
-            <child>
-              <placeholder/>
-            </child>
-            <child type="label_item">
-              <placeholder/>
-            </child>
-          </object>
-          <packing>
-            <property name="position">3</property>
           </packing>
         </child>
       </object>
@@ -428,7 +418,7 @@
                         <property name="ypad">6</property>
                         <property name="label" translatable="yes">Installation is complete. You need to restart the computer in order to use the new installation. You can continue to use this live CD, although any changes you make or documents you save will not be preserved.</property>
                         <property name="wrap">True</property>
-                        <property name="selectable">True</property>
+                        <property name="selectable">False</property>
                       </object>
                     </child>
                   </object>
@@ -545,7 +535,7 @@
                     <property name="xalign">0</property>
                     <property name="label" translatable="yes">We're sorry; the installer crashed. Please file a new bug report at https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details to any existing bug) and a developer will attend to the problem as soon as possible. To help the developers understand what went wrong, include the following detail in your bug report, and attach the files /var/log/syslog and /var/log/partman:</property>
                     <property name="wrap">True</property>
-                    <property name="selectable">True</property>
+                    <property name="selectable">False</property>
                   </object>
                   <packing>
                     <property name="fill">False</property>
@@ -558,7 +548,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="xalign">0</property>
-                    <property name="selectable">True</property>
+                    <property name="selectable">False</property>
                   </object>
                   <packing>
                     <property name="fill">False</property>

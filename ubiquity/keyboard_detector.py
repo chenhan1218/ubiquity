@@ -1,11 +1,11 @@
 class KeyboardDetector:
     UNKNOWN, PRESS_KEY, KEY_PRESENT, KEY_PRESENT_P, RESULT = range(5)
-    
+
     def __init__(self):
         self.current_step = -1
         f = '/usr/lib/ubiquity/console-setup/pc105.tree'
         self.fp = open(f)
-        
+
         # Dictionary of keycode -> step.
         self.keycodes = {}
         self.symbols = []
@@ -23,7 +23,7 @@ class KeyboardDetector:
                 raise KeyError, 'invalid argument'
             if self.result:
                 raise Exception, 'already done'
-        
+
         step_type = KeyboardDetector.UNKNOWN
         self.keycodes = {}
         self.symbols = []
@@ -94,4 +94,3 @@ class KeyboardDetector:
                 self.result = line[4:].strip()
             else:
                 raise Exception
-

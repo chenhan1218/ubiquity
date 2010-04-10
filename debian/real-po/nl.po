@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-03-09 12:16+0000\n"
-"PO-Revision-Date: 2010-02-05 13:22+0000\n"
+"POT-Creation-Date: 2010-04-07 11:44+0100\n"
+"PO-Revision-Date: 2010-04-08 08:09+0000\n"
 "Last-Translator: cumulus007 <cumulus0007@gmail.com>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-02-12 18:01+0000\n"
+"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -46,7 +46,7 @@ msgstr "Partities handmatig specificeren (geavanceerd)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:192001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:201001
 msgid "Install"
 msgstr "Installeren"
 
@@ -65,31 +65,6 @@ msgstr "Welkom"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
-"Na het beantwoorden van enkele vragen is deze computer klaar voor gebruik."
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001 ../ubiquity.templates:16001
-msgid "Answering the questions should only take a few minutes."
-msgstr "Het beantwoorden van de vragen neemt slechts enkele minuten in beslag."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:10001
-msgid ""
-"Please choose the language used for the configuration process. This language "
-"will be the default language for this computer."
-msgstr ""
-"Kies de taal die gebruikt zal worden tijdens het instellen. Deze taal zal de "
-"standaardtaal worden voor deze computer."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:11001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
@@ -101,40 +76,50 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:11001
 msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
 msgstr ""
+"U kunt ${RELEASE} vanaf de ${MEDIUM} uitproberen zonder wijzigingen aan te "
+"brengen aan uw computer."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:12001
+msgid "Try ${RELEASE}"
+msgstr "${RELEASE} uitproberen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:13001
-msgid "Try ${RELEASE}"
-msgstr ""
+msgid "Install ${RELEASE}"
+msgstr "${RELEASE} installeren"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
-msgid "Install ${RELEASE}"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "Ready to install? Once you answer a few questions, the contents of the "
-#| "live CD can be installed on this computer so you can run the system at "
-#| "full speed and without the CD."
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
-"Klaar om te installeren? Zodra u een aantal vragen beantwoord heeft, kan de "
-"inhoud van de live-cd op uw computer geïnstalleerd worden, zodat uw systeem "
-"op volle snelheid en zonder deze cd gebruikt kan worden."
+"Klaar om te installeren? Zodra u een aantal vragen heeft beantwoord, kan de "
+"inhoud van de live-${MEDIUM} op deze computer geïnstalleerd worden, zodat u "
+"${RELEASE} op volle snelheid zonder ${MEDIUM} kunt gebruiken."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:15001
+msgid "Once you answer a few questions, this computer will be ready to use."
+msgstr ""
+"Na het beantwoorden van enkele vragen is deze computer klaar voor gebruik."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "Answering the questions should only take a few minutes."
+msgstr "Het beantwoorden van de vragen neemt slechts enkele minuten in beslag."
 
 #. Type: text
 #. Description
@@ -143,18 +128,20 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
+"U kunt de <a href=\"release-notes\">uitgave-opmerkingen</a> lezen of <a href="
+"\"update\">dit installatieprogramma bijwerken</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr ""
+msgstr "U kunt de <a href=\"release-notes\">uitgave-opmerkingen</a> lezen."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr ""
+msgstr "U kunt <a href=\"update\">dit installatieprogramma bijwerken</a>."
 
 #. Type: text
 #. Description
@@ -164,6 +151,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2010."
 msgstr ""
+"Dit is een testuitgave van het ${MEDIUM}-installatieprogramma voor "
+"${RELEASE}. Dit is niet de uiteindelijke uitgave; de uiteindelijke uitgave "
+"zal worden meegeleverd met ${RELEASE} in april 2010."
 
 #. Type: text
 #. Description
@@ -173,6 +163,9 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
+"Het installatieprogramma kan partities op uw harde schijf wissen of van "
+"grootte wijzigen. Zorg dat u een <b>reservekopie heeft van waardevolle "
+"gegevens</b> alvorens u de installatie start."
 
 #. Type: text
 #. Description
@@ -195,8 +188,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-msgid "Zone:"
-msgstr "Zone:"
+msgid "Time Zone:"
+msgstr "Tijdzone:"
 
 #. Type: text
 #. Description
@@ -214,7 +207,7 @@ msgstr "Toetsenbordindeling"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Welke indeling lijkt het meest op dat van uw toetsenbord?"
+msgstr "Welke indeling lijkt het meest op die van uw toetsenbord?"
 
 #. Type: text
 #. Description
@@ -239,25 +232,25 @@ msgstr "Zelf kiezen:"
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Guess keymap:"
-msgstr ""
+msgstr "Toetsenbordindeling raden:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Guess..."
-msgstr ""
+msgstr "Raden…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Please press one of the following keys:"
-msgstr ""
+msgstr "Druk op een van de volgende toetsen:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Is the following key present on your keyboard?"
-msgstr ""
+msgstr "Is de volgende toets aanwezig op uw toetsenbord?"
 
 #. Type: text
 #. Description
@@ -287,17 +280,29 @@ msgstr "Wie bent u?"
 #. Description
 #: ../ubiquity.templates:39001
 msgid "What is your name?"
-msgstr "Wat is uw naam?"
+msgstr "Hoe heet u?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
+msgid "Full Name"
+msgstr "Volledige naam"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:41001
 msgid "What name do you want to use to log in?"
 msgstr "Welke naam wilt u gebruiken om aan te melden?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:41001
+#: ../ubiquity.templates:42001
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:43001
 msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
@@ -307,62 +312,96 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:42001
+#: ../ubiquity.templates:44001
 msgid "Choose a password to keep your account safe."
 msgstr "Kies een wachtwoord om uw account te beveiligen."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:43001
+#: ../ubiquity.templates:45001
+msgid "Password"
+msgstr "Wachtwoord"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:46001
+msgid "Re-enter password"
+msgstr "Wachtwoord opnieuw invoeren"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:47001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
-"U bevindt zich in de debuggingsmodus. Gebruik geen waardevol wachtwoord!"
+"U bevindt zich in de debuggingmodus. Gebruik geen waardevol wachtwoord!"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
-msgid ""
-"Enter the same password twice, so that it can be checked for typing errors. "
-"A good password will contain a mixture of letters, numbers and punctuation, "
-"should be at least eight characters long, and should be changed at regular "
-"intervals."
-msgstr ""
-"Voer hetzelfde wachtwoord twee keer in, zodat het op typefouten "
-"gecontroleerd kan worden. Een goed wachtwoord bevat zowel letters als "
-"cijfers en leestekens, en is minstens acht karakters lang. Het is aangeraden "
-"om het wachtwoord regelmatig te veranderen."
+#: ../ubiquity.templates:48001
+msgid "Strength: too short"
+msgstr "Sterkte: te kort"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:49001
+msgid "Strength: weak"
+msgstr "Sterkte: zwak"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Strength: fair"
+msgstr "Sterkte: redelijk"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:51001
+msgid "Strength: good"
+msgstr "Sterkte: goed"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:52001
+msgid "Strength: strong"
+msgstr "Sterkte: sterk"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:53001
 msgid "What is the name of this computer?"
 msgstr "Wat is de naam van deze computer?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:54001
+msgid "Computer Name"
+msgstr "Computernaam"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:55001
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
-"Deze naam zal gebruikt worden als u uw computer beschikbaar maakt voor "
-"anderen op een netwerk."
+"Deze naam zal gebruikt worden als u uw computer zichtbaar maakt voor anderen "
+"op een netwerk."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:56001
 msgid "Log in automatically"
 msgstr "Automatisch aanmelden"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:57001
 msgid "Require my password to log in"
 msgstr "Mijn wachtwoord vragen om aan te melden"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:58001
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr ""
 "Mijn wachtwoord vragen om aan te melden en om mijn persoonlijke map te "
@@ -370,19 +409,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:59001
 msgid "Choose another password"
 msgstr "Kies een nieuw wachtwoord"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:60001
 msgid "Migrate documents and settings"
-msgstr "Documenten en instellingen overzetten"
+msgstr "Documenten en instellingen migreren"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:61001
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
@@ -393,60 +432,60 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:61001
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"Als u geen gebruikersprofielen wilt importeren, selecteer dan niets en ga "
-"naar de volgende pagina."
+"Als u geen accounts wilt importeren, selecteer dan niets en ga naar de "
+"volgende pagina."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:62001
 msgid "Prepare disk space"
 msgstr "Schijfruimte voorbereiden"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:63001
 msgid "How do you want to partition the disk?"
 msgstr "Hoe wilt u de schijf verdelen?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:64001
 msgid "This computer has no operating systems on it."
-msgstr "Deze computer heeft geen besturingssystemen."
+msgstr "Deze computer heeft geen besturingssysteem."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:65001
 msgid "This computer has ${OS} on it."
 msgstr "Op deze computer is ${OS} geïnstalleerd."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:66001
 msgid "This computer has several operating systems on it."
 msgstr "Op deze computer zijn meerdere besturingssystemen geïnstalleerd."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:67001
 msgid "Where do you want to put ${RELEASE}?"
 msgstr "Waar wilt u ${RELEASE} plaatsen?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:68001
 msgid "Prepare partitions"
 msgstr "Partities voorbereiden"
 
 #. Type: text
 #. Description
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:69001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
 msgstr "Dit verwijdert ${SYSTEMS} en installeert ${RELEASE}."
 
@@ -454,19 +493,19 @@ msgstr "Dit verwijdert ${SYSTEMS} en installeert ${RELEASE}."
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:61001 ../ubiquity.templates:121001
+#: ../ubiquity.templates:70001 ../ubiquity.templates:130001
 msgid "Ready to install"
 msgstr "Klaar om te installeren"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:71001
 msgid "Details"
 msgstr "Details"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:72001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
@@ -475,7 +514,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:73001
 msgid "Advanced..."
 msgstr "Geavanceerd…"
 
@@ -483,37 +522,37 @@ msgstr "Geavanceerd…"
 #. Description
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:74001
 msgid "Install[ action ]"
 msgstr "Installeren"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:75001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr "Stap ${INDEX} van ${TOTAL}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:76001
 msgid "Quit the installation?"
 msgstr "Installatie afbreken?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:77001
 msgid "Do you really want to quit the installation now?"
 msgstr "Weet u zeker dat u de installatie wilt afbreken?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:78001
 msgid "Bootloader install failed"
 msgstr "Opstartlader installeren mislukt"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:79001
 msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
@@ -523,19 +562,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:80001
 msgid "Choose a different device to install the bootloader on:"
 msgstr "Kies een ander apparaat om de opstartlader op te installeren:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:81001
 msgid "Continue without a bootloader."
 msgstr "Verdergaan zonder een opstartlader."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:82001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
@@ -544,43 +583,43 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:83001
 msgid "Cancel the installation."
 msgstr "De installatie annuleren."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:84001
 msgid "This may leave your computer unable to boot."
 msgstr "Hierdoor start uw computer mogelijk niet op."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:85001
 msgid "How would you like to proceed?"
 msgstr "Hoe wilt u verdergaan?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:86001
 msgid "Skip"
 msgstr "Overslaan"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:87001
 msgid "Installation Complete"
 msgstr "Installatie voltooid"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:88001
 msgid "Continue Testing"
-msgstr "Doorgaan met testen"
+msgstr "Doorgaan met uitproberen"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:89001
 msgid "Restart Now"
 msgstr "Nu herstarten"
 
@@ -588,13 +627,13 @@ msgstr "Nu herstarten"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:81001 ../ubiquity.templates:82001
+#: ../ubiquity.templates:90001 ../ubiquity.templates:91001
 msgid "Installer crashed"
 msgstr "Installatieprogramma is vastgelopen"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:92001
 msgid ""
 "We're sorry; the installer crashed. Please file a new bug report at https://"
 "launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
@@ -614,7 +653,7 @@ msgstr ""
 #. Description
 #. Displayed next to a graphical bar depicting the state of the disk before
 #. automatic partitioning.
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:93001
 msgid "Before:"
 msgstr "Voor:"
 
@@ -622,57 +661,55 @@ msgstr "Voor:"
 #. Description
 #. Displayed next to a graphical bar depicting the state of the disk after
 #. automatic partitioning.
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:94001
 msgid "After:"
 msgstr "Na:"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:95001
 msgid "New Partition Table..."
-msgstr "Nieuwe partitietabel..."
+msgstr "Nieuwe partitietabel…"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:96001
 msgid "Add..."
-msgstr "Toevoegen..."
+msgstr "Toevoegen…"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:97001
 msgid "Change..."
-msgstr "Wijzigen..."
+msgstr "Wijzigen…"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:98001
 msgid "Delete"
 msgstr "Verwijderen"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:99001
 msgid "Revert"
 msgstr "Ongedaan maken"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:91001
-#, fuzzy
-#| msgid "Create partition"
+#: ../ubiquity.templates:100001
 msgid "Recalculating partitions..."
-msgstr "Partitie aanmaken"
+msgstr "Partities opnieuw berekenen…"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:101001
 msgid "Device"
 msgstr "Apparaat"
 
@@ -680,28 +717,28 @@ msgstr "Apparaat"
 #. Description
 #. A column heading in the partitioner. Indicates how the partition is to be
 #. used (ext2, swap, etc.).
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:102001
 msgid "Type"
 msgstr "Type"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:103001
 msgid "Mount point"
 msgstr "Koppelpunt"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:104001
 msgid "Format?"
 msgstr "Formatteren?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:105001
 msgid "Size"
 msgstr "Grootte"
 
@@ -709,27 +746,27 @@ msgstr "Grootte"
 #. Description
 #. A column heading in the partitioner. Indicates how much of the space on
 #. this partition is used by data.
-#: ../ubiquity.templates:97001
+#: ../ubiquity.templates:106001
 msgid "Used"
 msgstr "Gebruikt"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
-#: ../ubiquity.templates:98001
+#: ../ubiquity.templates:107001
 msgid "free space"
 msgstr "vrije ruimte"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
-#: ../ubiquity.templates:99001
+#: ../ubiquity.templates:108001
 msgid "unknown"
 msgstr "onbekend"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:109001
 msgid "Create partition"
 msgstr "Partitie aanmaken"
 
@@ -737,97 +774,97 @@ msgstr "Partitie aanmaken"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:101001 ../ubiquity.templates:108001
+#: ../ubiquity.templates:110001 ../ubiquity.templates:117001
 msgid "New partition size in megabytes (1000000 bytes):"
 msgstr "Nieuwe partitiegrootte in megabytes (1000000 bytes):"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:111001
 msgid "Beginning"
 msgstr "Begin"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:103001
+#: ../ubiquity.templates:112001
 msgid "End"
 msgstr "Einde"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:104001
+#: ../ubiquity.templates:113001
 msgid "Primary"
 msgstr "Primair"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:105001
+#: ../ubiquity.templates:114001
 msgid "Logical"
 msgstr "Logisch"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:106001
+#: ../ubiquity.templates:115001
 msgid "Edit partition"
 msgstr "Partitie bewerken"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:107001
+#: ../ubiquity.templates:116001
 msgid "Edit a partition"
 msgstr "Een partitie bewerken"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:109001
+#: ../ubiquity.templates:118001
 msgid "Advanced Options"
 msgstr "Geavanceerde instellingen"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:119001
 msgid "Boot loader"
 msgstr "Opstartlader"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:111001
+#: ../ubiquity.templates:120001
 msgid "Install boot loader"
 msgstr "Opstartlader installeren"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:112001
+#: ../ubiquity.templates:121001
 msgid "Popularity contest"
 msgstr "Populariteitswedstrijd"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:113001
+#: ../ubiquity.templates:122001
 msgid "Participate in the package usage survey"
-msgstr "Neem deel aan het onderzoek naar pakketgebruik"
+msgstr "Deelnemen aan het onderzoek naar pakketgebruik"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:114001
+#: ../ubiquity.templates:123001
 msgid "Network proxy"
 msgstr "Netwerkproxy"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:115001
+#: ../ubiquity.templates:124001
 msgid "HTTP proxy:"
 msgstr "HTTP-proxy:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:116001
+#: ../ubiquity.templates:125001
 msgid "Port:"
 msgstr "Poort:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:117001
+#: ../ubiquity.templates:126001
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
@@ -840,30 +877,30 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:118001
+#: ../ubiquity.templates:127001
 msgid "Go Back"
 msgstr "Terug"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:119001
+#: ../ubiquity.templates:128001
 msgid "Continue"
 msgstr "Doorgaan"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:120001
+#: ../ubiquity.templates:129001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"De installatie is voltooid. U moet de computer opnieuw starten om de nieuwe "
+"De installatie is voltooid. U moet de computer herstarten om de nieuwe "
 "installatie te kunnen gebruiken."
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:121001
+#: ../ubiquity.templates:130001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -883,39 +920,39 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:122001
+#: ../ubiquity.templates:131001
 msgid "Verifying the installation configuration..."
-msgstr "De installatieconfiguratie verifiëren..."
+msgstr "De installatieconfiguratie verifiëren…"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:123001
+#: ../ubiquity.templates:132001
 msgid "Installing system"
 msgstr "Het systeem wordt geïnstalleerd"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:124001
+#: ../ubiquity.templates:133001
 msgid "Finding the distribution to copy..."
-msgstr "De te kopiëren distributie vinden..."
+msgstr "De te kopiëren distributie zoeken…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:126001
+#: ../ubiquity.templates:135001
 msgid "Scanning files..."
-msgstr "Bestanden scannen..."
+msgstr "Bestanden scannen…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:127001
+#: ../ubiquity.templates:136001
 msgid "Copying files..."
-msgstr "Bestanden aan het kopiëren..."
+msgstr "Bestanden kopiëren…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:137001
 msgid "Almost finished copying files..."
-msgstr "Bijna klaar met bestanden kopiëren..."
+msgstr "Bestanden kopiëren bijna voltooid…"
 
 #. Type: error
 #. Description
@@ -927,9 +964,9 @@ msgstr "Bijna klaar met bestanden kopiëren..."
 #. Description
 #. Type: select
 #. Description
-#: ../ubiquity.templates:129001 ../ubiquity.templates:130001
-#: ../ubiquity.templates:131001 ../ubiquity.templates:132001
-#: ../ubiquity.templates:133001
+#: ../ubiquity.templates:138001 ../ubiquity.templates:139001
+#: ../ubiquity.templates:140001 ../ubiquity.templates:141001
+#: ../ubiquity.templates:142001
 msgid "Installation Failed"
 msgstr "Installatie mislukt"
 
@@ -941,15 +978,15 @@ msgstr "Installatie mislukt"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:129001 ../ubiquity.templates:130001
-#: ../ubiquity.templates:131001 ../ubiquity.templates:132001
+#: ../ubiquity.templates:138001 ../ubiquity.templates:139001
+#: ../ubiquity.templates:140001 ../ubiquity.templates:141001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
 "Fout geconstateerd tijdens het kopiëren van bestanden naar de harde schijf:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:129001
+#: ../ubiquity.templates:138001
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
@@ -960,13 +997,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:130001
+#: ../ubiquity.templates:139001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Dit wordt vaak veroorzaakt door een gebrekkige cd/dvd-schijf of speler. "
+"Dit wordt vaak veroorzaakt door een gebrekkige cd/dvd-schijf of -speler. "
 "Mogelijke oplossingen zijn het schoonmaken van de cd/dvd, de cd/dvd opnieuw "
 "branden op een lagere snelheid of het schoonmaken van de lens van de cd/dvd-"
 "speler (schoonmaakproducten zijn te verkrijgen bij de meeste "
@@ -974,7 +1011,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:131001
+#: ../ubiquity.templates:140001
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -982,8 +1019,8 @@ msgid ""
 msgstr ""
 "Dit is vaak het gevolg van een defecte harde schijf. Het kan helpen om na te "
 "gaan of de harde schijf te oud is en vervanging noodzakelijk is, of te "
-"zorgen voor een betere koeling, bijvoorbeeld door te verplaatsen naar een "
-"koelere omgeving."
+"zorgen voor een betere koeling, bijvoorbeeld door de computer te verplaatsen "
+"naar een koelere omgeving."
 
 #. Type: error
 #. Description
@@ -993,7 +1030,7 @@ msgstr ""
 #. Description
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
-#: ../ubiquity.templates:132001 ../ubiquity.templates:133001
+#: ../ubiquity.templates:141001 ../ubiquity.templates:142001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -1001,17 +1038,17 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Dit wordt vaak veroorzaakt door een gebrekkige cd/dvd-schijf of speler. "
+"Dit wordt vaak veroorzaakt door een gebrekkige cd/dvd-schijf of -speler. "
 "Mogelijke oplossingen zijn het schoonmaken van de cd/dvd, de cd/dvd opnieuw "
 "branden op een lagere snelheid of het schoonmaken van de lens van de cd/dvd-"
 "speler (schoonmaakproducten zijn te verkrijgen bij de meeste "
 "elektronicawinkels), na te gaan of de harde schijf te oud is en vervanging "
-"noodzakelijk is, of te zorgen voor een betere koeling, bijvoorbeeld door te "
-"verplaatsen naar een koelere omgeving."
+"noodzakelijk is, of te zorgen voor een betere koeling, bijvoorbeeld door de "
+"computer te verplaatsen naar een koelere omgeving."
 
 #. Type: select
 #. Description
-#: ../ubiquity.templates:133001
+#: ../ubiquity.templates:142001
 msgid "The following file did not match its source copy on the CD/DVD:"
 msgstr ""
 "Het volgende bestand komt niet overeen met het oorspronkelijke exemplaar op "
@@ -1019,139 +1056,139 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:134001
-msgid "Copying installation logs..."
-msgstr "De installatielogboeken worden gekopieerd..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:135001
-msgid "Configuring target system..."
-msgstr "Doelsysteem configureren..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:136001
-msgid "Configuring system locales..."
-msgstr "Het systeem wordt gelokaliseerd..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:137001
-msgid "Configuring apt..."
-msgstr "Apt wordt geconfigureerd..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:138001
-msgid "Configuring time zone..."
-msgstr "De tijdzone wordt ingesteld..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:139001
-msgid "Configuring keyboard..."
-msgstr "Het toetsenbord wordt geconfigureerd..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:140001
-msgid "Creating user..."
-msgstr "Gebruikers worden aangemaakt..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:141001
-msgid "Importing documents and settings..."
-msgstr "Bezig met importeren van documenten en instellingen..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:142001
-msgid "Configuring hardware..."
-msgstr "De hardware wordt geconfigureerd..."
-
-#. Type: text
-#. Description
 #: ../ubiquity.templates:143001
-msgid "Configuring network..."
-msgstr "Netwerk wordt geconfigureerd..."
+msgid "Copying installation logs..."
+msgstr "Installatielogboeken kopiëren…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:144001
-msgid "Setting computer name..."
-msgstr "De computernaam wordt ingesteld..."
+msgid "Configuring target system..."
+msgstr "Doelsysteem instellen…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:145001
-msgid "Configuring boot loader..."
-msgstr "De opstartlader wordt geconfigureerd..."
+msgid "Configuring system locales..."
+msgstr "Systeem lokaliseren…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:146001
-msgid "Installing additional packages..."
-msgstr "Installeren van aanvullende pakketten..."
+msgid "Configuring apt..."
+msgstr "Apt instellen…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:147001
-msgid "Checking for packages to install..."
-msgstr "Controleren op te installeren pakketten..."
+msgid "Configuring time zone..."
+msgstr "Tijdzone instellen…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:148001
-msgid "Removing extra packages..."
-msgstr "Extra pakketten worden verwijderd..."
+msgid "Configuring keyboard..."
+msgstr "Toetsenbord instellen…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:149001
-msgid "Checking for packages to remove..."
-msgstr "Controle op te verwijderen pakketten..."
+msgid "Creating user..."
+msgstr "Gebruiker aanmaken…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:150001
-msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Downloaden van pakketten (${TIME} te gaan)..."
+msgid "Importing documents and settings..."
+msgstr "Documenten en instellingen importeren…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:151001
-msgid "Downloading package lists..."
-msgstr "De pakketlijst wordt opgehaald..."
+msgid "Configuring hardware..."
+msgstr "Hardware instellen…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:152001
-msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Downloaden van pakketlijsten (${TIME} te gaan)..."
+msgid "Configuring network..."
+msgstr "Netwerk instellen…"
 
-#. Type: error
+#. Type: text
+#. Description
+#: ../ubiquity.templates:153001
+msgid "Setting computer name..."
+msgstr "Computernaam instellen…"
+
+#. Type: text
 #. Description
 #: ../ubiquity.templates:154001
-msgid "Error installing ${PACKAGE}"
-msgstr "Foutmelding bij installatie van ${PACKAGE}"
+msgid "Configuring boot loader..."
+msgstr "Opstartlader instellen…"
 
-#. Type: error
+#. Type: text
 #. Description
 #: ../ubiquity.templates:155001
-msgid "Error removing ${PACKAGE}"
-msgstr "Foutmelding bij verwijderen van ${PACKAGE}"
+msgid "Installing additional packages..."
+msgstr "Aanvullende pakketten installeren…"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:156001
+msgid "Checking for packages to install..."
+msgstr "Controleren op te installeren pakketten…"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:157001
+msgid "Removing extra packages..."
+msgstr "Extra pakketten verwijderen…"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:158001
+msgid "Checking for packages to remove..."
+msgstr "Controleren op te verwijderen paketten…"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:159001
+msgid "Downloading packages (${TIME} remaining)..."
+msgstr "Pakketten downloaden (${TIME} resterend)…"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:160001
+msgid "Downloading package lists..."
+msgstr "Pakketlijsten downloaden…"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:161001
+msgid "Downloading package lists (${TIME} remaining)..."
+msgstr "Pakketlijsten downloaden (${TIME} resterend)…"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:156001
+#: ../ubiquity.templates:163001
+msgid "Error installing ${PACKAGE}"
+msgstr "Fout bij installatie van ${PACKAGE}"
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:164001
+msgid "Error removing ${PACKAGE}"
+msgstr "Fout bij verwijderen van ${PACKAGE}"
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:165001
 msgid "Error while installing packages"
 msgstr "Fout tijdens het installeren van pakketten"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:156001
+#: ../ubiquity.templates:165001
 msgid "An error occurred while installing packages:"
 msgstr "Er is een fout opgetreden bij het installeren van pakketten:"
 
@@ -1159,7 +1196,7 @@ msgstr "Er is een fout opgetreden bij het installeren van pakketten:"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:156001 ../ubiquity.templates:157001
+#: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid "The following packages are in a broken state:"
 msgstr "De volgende pakketten zijn momenteel in een gebroken staat:"
 
@@ -1167,7 +1204,7 @@ msgstr "De volgende pakketten zijn momenteel in een gebroken staat:"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:156001 ../ubiquity.templates:157001
+#: ../ubiquity.templates:165001 ../ubiquity.templates:166001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -1183,30 +1220,30 @@ msgstr ""
 "door te gaan, maar de installatie kan op een later moment toch nog "
 "mislukken. Het zal dan niet in staat zijn om andere pakketten te installeren "
 "of te verwijderen (waaronder mogelijk zichzelf) vanaf het geïnstalleerde "
-"systeem. Probeer een nieuwere versies van uw installatieprogramma te vinden "
+"systeem. Probeer een nieuwere versie van uw installatieprogramma te vinden "
 "of, als dat niet lukt, rapporteer het probleem aan uw distributeur."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:157001
+#: ../ubiquity.templates:166001
 msgid "Error while removing packages"
 msgstr "Fout bij het verwijderen van pakketten"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:157001
+#: ../ubiquity.templates:166001
 msgid "An error occurred while removing packages:"
 msgstr "Er is een fout opgetreden bij het verwijderen van pakketten:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:158001
+#: ../ubiquity.templates:167001
 msgid "Error migrating documents and settings"
 msgstr "Fout bij migreren van documenten en instellingen"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:158001
+#: ../ubiquity.templates:167001
 msgid ""
 "An error occurred while migrating data.  More details may be found in /var/"
 "log/syslog.  The installation will continue, but some or all of the "
@@ -1220,13 +1257,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:159001
+#: ../ubiquity.templates:168001
 msgid "Error copying network configuration"
 msgstr "Fout bij kopiëren van netwerkconfiguratie."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:159001
+#: ../ubiquity.templates:168001
 msgid ""
 "An error occurred while copying the network settings.  The installation will "
 "continue, but the network configuration will have to be set up again in the "
@@ -1238,48 +1275,48 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:172001
 msgid "Calculating files to skip copying..."
-msgstr "Bestanden bereken om over te slaan tijdens kopiëren..."
+msgstr "Bestanden berekenen om over te slaan tijdens kopiëren…"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:164001
+#: ../ubiquity.templates:173001
 msgid "Installing language packs"
 msgstr "Taalpakketten worden geïnstalleerd"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:165001
+#: ../ubiquity.templates:174001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Downloaden van taalpakketten (${TIME} te gaan)..."
+msgstr "Taalpakketten downloaden (${TIME} resterend)…"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:183001
 msgid "Failed to unmount partitions"
-msgstr "Ontkoppelen van de partities is mislukt"
+msgstr "Partities ontkoppelen is mislukt"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:183001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"Het installatieprogramma moet wijzigingen aanbrengen aan de partitietabel, "
-"maar kan dit niet doen omdat de volgende aankoppelingspunten niet "
-"losgekoppeld konden worden:"
+"Het installatieprogramma moet wijzigingen aanbrengen aan de "
+"partitietabellen, maar kan dit niet doen omdat partities op de volgende "
+"koppelpunten niet ontkoppeld konden worden:"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:183001
 msgid "Please close any applications using these mount points."
-msgstr "Sluit alle programma's die deze aankoppelingspunten gebruiken."
+msgstr "Sluit alle toepassingen die deze koppelpunten gebruiken."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:183001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Wilt u dat het installatieprogramma probeert deze partities opnieuw te "
@@ -1287,13 +1324,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:180001
+#: ../ubiquity.templates:189001
 msgid "Do you want to return to the partitioner?"
 msgstr "Wilt u terugkeren naar het partitioneringsprogramma?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:180001
+#: ../ubiquity.templates:189001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
@@ -1303,7 +1340,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:180001
+#: ../ubiquity.templates:189001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1313,121 +1350,121 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:181001
+#: ../ubiquity.templates:190001
 msgid "System Configuration"
 msgstr "Systeemconfiguratie"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:191001
 msgid "Choose language"
 msgstr "Taal kiezen"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:192001
 msgid "Network configuration"
 msgstr "Netwerkconfiguratie"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:193001
 msgid "Software selection"
 msgstr "Softwarekeuze"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:194001
 msgid "Applying configuration"
 msgstr "Configuratie toepassen"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:186001
+#: ../ubiquity.templates:195001
 msgid "Language"
 msgstr "Taal"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:196001
 msgid "Timezone"
 msgstr "Tijdzone"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:188001
+#: ../ubiquity.templates:197001
 msgid "Keyboard"
 msgstr "Toetsenbord"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:198001
 msgid "Disk Setup"
 msgstr "Schijfconfiguratie"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:199001
 msgid "User Info"
 msgstr "Gebruikersinformatie"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:200001
 msgid "Summary"
 msgstr "Samenvatting"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:202001
 msgid "installation process"
-msgstr "Installatieproces"
+msgstr "installatieproces"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:204001
 msgid "Checking for installer updates"
 msgstr "Controleren op updates voor installatieprogramma"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:205001
 msgid "Reading package information"
 msgstr "Pakketinformatie lezen"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:206001
 msgid "Updating package information"
 msgstr "Pakketinformatie bijwerken"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
+#: ../ubiquity.templates:207001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Bestand ${INDEX} van ${TOTAL} op ${SPEED}/s"
+msgstr "Bestand ${INDEX} van ${TOTAL} met ${SPEED}/s"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:208001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "Bestand ${INDEX} van ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:209001
 msgid "Installing update"
 msgstr "Update installeren"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:210001
 msgid "Error updating installer"
 msgstr "Fout bij bijwerken van installatieprogramma"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:210001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr ""
 "In het installatieprogramma is een fout opgetreden terwijl het zichzelf "
@@ -1436,230 +1473,39 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:202001
+#: ../ubiquity.templates:211001
 msgid "USB"
-msgstr ""
+msgstr "USB"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:203001
+#: ../ubiquity.templates:212001
 msgid "CD"
-msgstr ""
+msgstr "cd"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "Please choose the language used for the configuration process. This "
-#| "language will be the default language for this computer."
+#: ../ubiquity.templates:213001
 msgid ""
 "Please choose the language to use for the install process. This\n"
 " Language will be the default language for this computer."
+msgstr ""
+"Kies de gewenste taal voor het installatieproces. Deze\n"
+" Taal zal de standaardtaal voor deze computer worden."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:214001
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
 msgstr ""
 "Kies de taal die gebruikt zal worden tijdens het instellen. Deze taal zal de "
 "standaardtaal worden voor deze computer."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:205001
-#, fuzzy
-#| msgid "Cancel the installation."
+#: ../ubiquity.templates:215001
 msgid "Continue with installation."
-msgstr "De installatie annuleren."
-
-#~ msgid ""
-#~ "Please choose the language used for the installation process. This "
-#~ "language will be the default language for the final system."
-#~ msgstr ""
-#~ "Kies de taal voor het installatieproces. De gekozen taal wordt ook de "
-#~ "standaardtaal voor het geïnstalleerde systeem."
-
-#~ msgid ""
-#~ "If you have Internet access, read the release notes for information on "
-#~ "problems that may affect you."
-#~ msgstr ""
-#~ "Als u over internettoegang beschikt, lees dan de uitgave-opmerkingen voor "
-#~ "informatie over problemen die kunnen optreden."
-
-#~ msgid "Release Notes"
-#~ msgstr "Versie-informatie"
-
-#~ msgid ""
-#~ " Install Type: ${INSTALLTYPE}\n"
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " IR Remote: ${REMOTE}\n"
-#~ " IR Transmitter: ${TRANSMITTER}\n"
-#~ " Video Driver: ${VIDEO_DRIVER}\n"
-#~ " Services: ${SERVICES}"
-#~ msgstr ""
-#~ " Installatietype: ${INSTALLTYPE}\n"
-#~ " Taal: ${LANGUAGE}\n"
-#~ " Toetsenbordindeling: ${KEYMAP}\n"
-#~ " Naam: ${FULLNAME}\n"
-#~ " Gebruikersaccount: ${USERNAME}\n"
-#~ " Locatie: ${LOCATION}\n"
-#~ " IR-afstandsbediening: ${REMOTE}\n"
-#~ " IR-transmitter: ${TRANSMITTER}\n"
-#~ " Grafisch stuurprogramma: ${VIDEO_DRIVER}\n"
-#~ " Diensten: ${SERVICES}"
-
-#~ msgid "Installation Type"
-#~ msgstr "Installatietype"
-
-#~ msgid "What type of system will this be?"
-#~ msgstr "Wat voor soort systeem wordt dit?"
-
-#~ msgid "Primary Backend w/ Frontend"
-#~ msgstr "Primair backend met frontend"
-
-#~ msgid ""
-#~ "A Backend/frontend combo machine is the most common setup for people "
-#~ "wanting MythTV for HTPC applications. This type of installation is "
-#~ "intended for use as a component in your home theatre."
-#~ msgstr ""
-#~ "Een machine met een backend/frontend-combinatie is de meest gebruikelijke "
-#~ "installatie voor mensen die MythTV willen gebruiken voor HTPC-"
-#~ "toepassingen. Dit installatietype is bedoeld voor gebruik als onderdeel "
-#~ "van uw thuistheater."
-
-#~ msgid "Secondary Backend w/ Frontend"
-#~ msgstr "Secundair backend met frontend"
-
-#~ msgid ""
-#~ "This will set up a system similar to a Primary Backend w/ Frontend, "
-#~ "however will be configured to connect to an existing backend on the "
-#~ "network."
-#~ msgstr ""
-#~ "Dit zal een systeem installeren, vergelijkbaar met een primair frontend "
-#~ "met backend, maar zal geconfigureerd worden om op het netwerk verbinding "
-#~ "te maken met een bestaand backend."
-
-#~ msgid "Primary Backend"
-#~ msgstr "Primair backend"
-
-#~ msgid ""
-#~ "A backend only machine is typically designed to function like an "
-#~ "appliance; requiring very little maintenance.  This is intended to be "
-#~ "installed as the first backend on a network."
-#~ msgstr ""
-#~ "Een systeem met alleen een backend is gewoonlijk ontworpen om te werken "
-#~ "als een apparaat dat weinig onderhoud nodig heeft. Dit is bedoeld om als "
-#~ "het eerste backend op het netwerk geïnstalleerd te worden."
-
-#~ msgid "Secondary Backend"
-#~ msgstr "Secundair backend"
-
-#~ msgid ""
-#~ "This will set up a system similar to a Primary Backend, however it will "
-#~ "be configured to connect to an existing backend on the network."
-#~ msgstr ""
-#~ "Dit zal een systeem installeren, vergelijkbaar met een primair backend, "
-#~ "maar zal geconfigureerd worden om op het netwerk verbinding te maken met "
-#~ "een bestaand backend."
-
-#~ msgid "Frontend"
-#~ msgstr "Frontend"
-
-#~ msgid ""
-#~ "A frontend only machine's main function is to receive media content from "
-#~ "the backend and distribute it.  This configuration requires an existing "
-#~ "backend on the network."
-#~ msgstr ""
-#~ "De belangrijkste functie van een machine met alleen een frontend is om "
-#~ "media-inhoud te ontvangen van de backend en deze te verdelen. Deze "
-#~ "configuratie vereist een bestaand backend op het netwerk."
-
-#~ msgid "Graphics Drivers"
-#~ msgstr "Grafische stuurprogramma's"
-
-#~ msgid ""
-#~ "An open source graphics driver is already enabled and configured for your "
-#~ "installation.  If you would like to use a different graphics driver, you "
-#~ "can do so here.  Note that proprietary graphics drivers may be necessary "
-#~ "for TV Output or OpenGL effects."
-#~ msgstr ""
-#~ "Er is al een open-source videostuurprogramma voor uw installatie "
-#~ "ingeschakeld en geconfigureerd. Als u een andere  videostuurprogramma "
-#~ "wilt gebruiken, dan kunt u dat hier doen. Merk op dat u mogelijk niet-"
-#~ "vrije videostuurprogramma nodig hebt voor tv-uitvoer en OpenGL-effecten."
-
-#~ msgid "If you would like to configure TV-out, choose an option here:"
-#~ msgstr "Kies hier een optie als u tv-uit wilt configureren:"
-
-#~ msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-#~ msgstr "Als u tv-uit aanzet, moet u ook een tv-standaard kiezen:"
-
-#~ msgid "Master Backend Info"
-#~ msgstr "Informatie over hoofd-backend"
-
-#~ msgid ""
-#~ "Please enter the information necessary to contact your master backend:"
-#~ msgstr ""
-#~ "Voer de vereiste informatie in om contact te leggen met het hoofd-backend:"
-
-#~ msgid "MySQL Password"
-#~ msgstr "MySQL-wachtwoord"
-
-#~ msgid "MySQL User Name"
-#~ msgstr "MySQL-gebruikersnaam"
-
-#~ msgid "MySQL Database"
-#~ msgstr "MySQL-database"
-
-#~ msgid "MySQL Server"
-#~ msgstr "MySQL-server"
-
-#~ msgid "Configure Guide Data / Backend"
-#~ msgstr "Gidsgegevens / backend configureren"
-
-#~ msgid ""
-#~ "The final steps of the installation require setting up your guide data "
-#~ "and configuring the backend for the first time."
-#~ msgstr ""
-#~ "De laatste stappen van de installatie vereisen dat u uw gidsgegevens "
-#~ "instelt en dat u de backend voor eerste gebruik configureert."
-
-#~ msgid "Click to open the Schedules Direct website"
-#~ msgstr "Klik om de Schedules Direct-website te openen."
-
-#~ msgid ""
-#~ "Users in North America will need to setup an account with Schedules "
-#~ "Direct (SD).  SD provides guide data for a nominal fee.  Without SD, "
-#~ "North American users may lose many of the scheduling features in MythTV."
-#~ msgstr ""
-#~ "Gebruikers in Noord-Amerika moeten een account bij Schedules Direct (SD) "
-#~ "aanmaken. SD biedt gidsgegevens voor een laag bedrag. Zonder SD kunnen "
-#~ "gebruikers in Noord-Amerika veel programmeerfunctionaliteiten van MythTV "
-#~ "verliezen."
-
-#~ msgid "Launch MythTV Setup"
-#~ msgstr "MythTV-setup starten"
-
-#~ msgid ""
-#~ "After setting up your guide data source, you will need to launch MythTV-"
-#~ "Setup to run the backend configuration for the first time.  You will need "
-#~ "to configure the first four sections, being sure to provide your guide "
-#~ "data during the third."
-#~ msgstr ""
-#~ "Nadat u uw gidsgegevensbron hebt ingesteld, moet u MythTV-Setup starten "
-#~ "om voor de eerste keer de backendconfiguratie te starten. U moet de "
-#~ "eerste vier secties configureren en zorgen dat u uw gidsgegevens in de "
-#~ "derde sectie opgeeft."
-
-#~ msgid "Configuring mythtv..."
-#~ msgstr "Mythtv wordt geconfigureerd..."
-
-#~ msgid "Configuring additional drivers..."
-#~ msgstr "Extra stuurprogramma's worden geconfigureerd..."
-
-#~ msgid "Configuring additional services..."
-#~ msgstr "Extra diensten worden geconfigureerd..."
-
-#~ msgid "Configuring infrared devices..."
-#~ msgstr "Configureren van infraroodapparaten..."
+msgstr "Doorgaan met installatie."

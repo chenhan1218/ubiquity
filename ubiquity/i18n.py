@@ -292,8 +292,10 @@ def get_languages(current_language_index=-1, only_installable=False):
             try:
                 pkg = cache[pkg_name]
                 if not (pkg.installed or pkg.candidate):
+                    i += 1
                     continue
             except KeyError:
+                i += 1
                 continue
 
         language_display_map[trans] = (name, code)

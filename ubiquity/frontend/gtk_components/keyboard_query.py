@@ -21,22 +21,22 @@ class KeyboardQuery(gtk.Window):
                     gobject.TYPE_NONE, (gobject.TYPE_STRING,)) }
     def __init__(self, frontend):
         gtk.Window.__init__(self)
-        
+
         self.set_title('')
         self.set_modal(True)
         self.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DIALOG)
         self.vbox = gtk.VBox()
-        
+
         self.press_string = \
             frontend.get_string('ubiquity/text/keyboard_query_press')
         self.present_string = \
             frontend.get_string('ubiquity/text/keyboard_query_present')
         self.heading = gtk.Label(self.press_string)
         self.vbox.add(self.heading)
-        
+
         self.keyrow = Keyrow()
         self.vbox.add(self.keyrow)
-        
+
         self.buttons = gtk.HButtonBox()
         self.buttons.set_border_width(4)
         self.buttons.set_layout(gtk.BUTTONBOX_END)
@@ -46,13 +46,13 @@ class KeyboardQuery(gtk.Window):
         self.buttons.add(no)
         self.buttons.add(yes)
         self.vbox.add(self.buttons)
-        
+
         self.add(self.vbox)
 
         yes.connect('clicked', self.have_key)
         no.connect('clicked', self.no_have_key)
         self.connect('key_press_event', self.key_press_event)
-        
+
         self.keyboard_detect = KeyboardDetector()
         self.buttons.hide()
 
@@ -60,7 +60,7 @@ class KeyboardQuery(gtk.Window):
         self.show_all()
         r = self.keyboard_detect.read_step(0)
         self.process(r)
-    
+
     def process(self, r):
         self.keyrow.clear()
         for k in self.keyboard_detect.symbols:
@@ -90,7 +90,7 @@ class KeyboardQuery(gtk.Window):
         # FIXME need to account for possible remapping.  Find the API to translate
         # kernel keycodes to X keycodes (xkb).
         # MIN_KEYCODE = 8
-        
+
         code = event.hardware_keycode - 8
         if code > 255:
             return

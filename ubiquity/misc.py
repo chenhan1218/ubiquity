@@ -311,21 +311,21 @@ def execute_root(*args):
 
 def format_size(size):
     """Format a partition size."""
-    if size < 1024:
+    if size < 1000:
         unit = 'B'
         factor = 1
-    elif size < 1024 * 1024:
+    elif size < 1000 * 1000:
         unit = 'kB'
-        factor = 1024
-    elif size < 1024 * 1024 * 1024:
+        factor = 1000
+    elif size < 1000 * 1000 * 1000:
         unit = 'MB'
-        factor = 1024 * 1024
-    elif size < 1024 * 1024 * 1024 * 1024:
+        factor = 1000 * 1000
+    elif size < 1000 * 1000 * 1000 * 1000:
         unit = 'GB'
-        factor = 1024 * 1024 * 1024
+        factor = 1000 * 1000 * 1000
     else:
         unit = 'TB'
-        factor = 1024 * 1024 * 1024 * 1024
+        factor = 1000 * 1000 * 1000 * 1000
     return '%.1f %s' % (float(size) / factor, unit)
 
 def debconf_escape(text):

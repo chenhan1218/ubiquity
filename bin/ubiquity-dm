@@ -29,7 +29,7 @@ def set_locale():
         locale = db.get('debian-installer/locale')
     except debconf.DebconfError:
         pass
-    
+
     if not locale:
         db.shutdown()
         return
@@ -146,8 +146,12 @@ class DM:
             plymouth_running = False
         if plymouth_running:
             subprocess.call(['plymouth', 'deactivate'])
-            self.vt = 'vt%d' % self.active_vt()
-            servercommand.append('-nr')
+            if subprocess.call(['plymouth', '--has-active-vt']) == 0:
+                self.vt = 'vt%d' % self.active_vt()
+                servercommand.append('-nr')
+            else:
+                subprocess.call(['plymouth', 'quit'])
+                plymouth_running = False
 
         servercommand.extend([self.vt, self.display])
 
@@ -214,6 +218,9 @@ EndSection
             except XStartupError:
                 if attempt == 'failsafe':
                     raise
+
+            if self.server_started:
+                break
 
         os.environ['DISPLAY'] = self.display
         os.environ['HOME'] = self.homedir
@@ -330,6 +337,27 @@ EndSection
                             stdin=null, stdout=logfile, stderr=logfile))
                 fp.close()
         elif self.frontend == 'kde_ui':
+            # Don't show the background image in v1 accessibility profile.
+            path = '/usr/share/wallpapers/Ethais/contents/images/1920x1200.png'
+            with open('/proc/cmdline', 'r') as fp:
+                if (os.access(path, os.R_OK)
+                    and not 'access=v1' in fp.readline()):
+                    # Draw a background image for the install progress window.
+                    from PyQt4.QtCore import Qt
+                    from PyQt4 import QtGui
+                    a = QtGui.QApplication(sys.argv)
+                    root_win = a.desktop()
+                    wallpaper = QtGui.QPixmap(path)
+                    wallpaper = wallpaper.scaled(root_win.width(),
+                        root_win.height(), Qt.KeepAspectRatioByExpanding,
+                        Qt.SmoothTransformation)
+                    palette = QtGui.QPalette()
+                    palette.setBrush(root_win.backgroundRole(),
+                                     QtGui.QBrush(wallpaper))
+                    root_win.setPalette(palette)
+                    root_win.setCursor(Qt.ArrowCursor)
+                    a.processEvents()
+
             subprocess.call(
                 ['kwriteconfig', '--file', 'kwinrc', '--group', 'Compositing',
                                  '--key', 'Enabled', 'false'],
@@ -341,6 +369,51 @@ EndSection
 
         greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
         ret = greeter.wait()
+
+        reboot = False
+        if ret != 0:
+            from ubiquity.debconfcommunicator import DebconfCommunicator
+            import debconf
+            db = DebconfCommunicator('ubiquity', cloexec=True)
+            try:
+                error_cmd = db.get('ubiquity/failure_command')
+                if error_cmd:
+                    subprocess.call(['sh', '-c', error_cmd])
+            except debconf.DebconfError:
+                pass
+            try:
+                reboot = db.get('ubiquity/reboot_on_failure') == 'true'
+            except debconf.DebconfError:
+                reboot = False
+            
+            if '--automatic' in program and reboot:
+                question = 'ubiquity/install_failed_reboot'
+            else:
+                question = 'ubiquity/install_failed'
+            title = ''
+            message = ''
+            try:
+                title = unicode(db.metaget(question, 'description'),
+                                'utf-8', 'replace')
+                message = unicode(db.metaget(question, 'extended_description'),
+                                  'utf-8', 'replace')
+            except debconf.DebconfError:
+                pass
+
+            if title and message:
+                if self.frontend == 'gtk_ui':
+                    cmd = ['zenity', '--error', '--title=%s' % title,
+                           '--text=%s' % message]
+                    subprocess.call(cmd)
+                elif self.frontend == 'kde_ui':
+                    cmd = ['kdialog', '--title=%s' % title,
+                           '--msgbox=%s' % message]
+                    subprocess.call(cmd)
+                else:
+                    # Not ideal, but if we cannot let the user know what's
+                    # going on, it's best to drop them into a desktop and let
+                    # them figure it out.
+                    reboot = False
 
         def kill_if_exists(pid, signum):
             try:
@@ -380,6 +453,8 @@ EndSection
         kill_if_exists(server.pid, signal.SIGTERM)
         server.wait()
 
+        if reboot:
+            subprocess.Popen(['reboot'])
         if ret is not None and ret >= 0:
             return ret
         else:
