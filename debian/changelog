@@ -1,3 +1,9 @@
+ubiquity (2.2.17) UNRELEASED; urgency=low
+
+  * Remove unused install_bottom_eb from GTK frontend's install_window.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sun, 11 Apr 2010 00:31:15 -0500
+
 ubiquity (2.2.16) lucid; urgency=low
 
   [ Evan Dandrea ]
