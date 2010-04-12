@@ -212,7 +212,7 @@ class PageGtk(PluginUI):
     def on_region_combo_changed(self, *args):
         i = self.region_combo.get_active()
         m = self.region_combo.get_model()
-        if i is None:
+        if i is None or i < 0:
             return
         if m[i][1]:
             countries = [m[i][1]]
