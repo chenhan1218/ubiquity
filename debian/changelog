@@ -11,6 +11,9 @@ ubiquity (2.2.17) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Skip copy_wallpaper_cache when running as oem-config.
 
+  [ Amichai Rothman ]
+  * Fix hang unless mouse is moved (LP: #556376)
+
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sun, 11 Apr 2010 00:31:15 -0500
 
 ubiquity (2.2.16) lucid; urgency=low

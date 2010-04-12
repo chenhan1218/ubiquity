@@ -1158,6 +1158,8 @@ class Wizard(BaseFrontend):
     #    self.progress_cancelled = True
 
     def debconffilter_done (self, dbfilter):
+        # processing events here prevents GUI from hanging until mouse moves (LP #556376)
+        self.app.processEvents()
         ##FIXME in Qt 4 without this disconnect it calls watch_debconf_fd_helper_read once more causing
         ## a crash after the keyboard stage.  No idea why.
         try:
