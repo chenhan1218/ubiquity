@@ -1,6 +1,10 @@
 ubiquity (2.2.17) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
   * Remove unused install_bottom_eb from GTK frontend's install_window.
+
+  [ Evan Dandrea ]
+  * Catch invalid iterators in on_region_combo_changed (LP: #521851).
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sun, 11 Apr 2010 00:31:15 -0500
 
