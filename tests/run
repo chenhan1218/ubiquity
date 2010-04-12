@@ -45,4 +45,4 @@ UBIQUITY_PATH=. \
 UBIQUITY_PLUGIN_PATH=ubiquity/plugins \
 PIXMAPS=desktop \
 UBIQUITY_GLADE=gui/gtk \
-./tests/run-frontend
+fakeroot xvfb-run ./tests/run-frontend
