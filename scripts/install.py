@@ -2436,6 +2436,9 @@ class Install:
         """Copy wallpaper cache for libgnome desktop so that it's taken into
         account by ureadahead. Only install on system having g-s-d."""
 
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            return
+
         # we don't use copy_network_config casper user trick as it's not and not
         # ubuntu in install mode
         casper_user = 'ubuntu'
