@@ -18,6 +18,7 @@ ubiquity (2.2.16) UNRELEASED; urgency=low
     bottom of the window and messing up dialog layout (LP: #540321)
   * Fix progress bar updated file count out of range (LP: #550147) 
   * Fix progress title not shown during some configuration steps
+  * Fix hang unless mouse is moved (LP: #556376)
 
   [ Colin Watson ]
   * Update handling of "Ready to install" etc. templates to account for the
@@ -28,7 +29,7 @@ ubiquity (2.2.16) UNRELEASED; urgency=low
       alternative strings would break string freeze, and the UI should look
       OK without them (LP: #540929).
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 07 Apr 2010 09:45:37 +0100
+ -- Amichai Rothman <amichai2@amichais.net>  Tue, 13 Apr 2010 01:06:02 +0300
 
 ubiquity (2.2.15) lucid; urgency=low
 
