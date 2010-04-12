@@ -22,6 +22,7 @@ class CoreFrontendTests:
             assert x in plugins, '%s not in %s' % (x, str(plugins))
     
     def testReturnToPartitioner(self):
+        # bzr r3904, r3895
         self.frontend.installing = True
         self.frontend.next.set_label('Install')
         self.frontend.return_to_partitioning()
@@ -54,6 +55,32 @@ class GtkFrontendTests(CoreFrontendTests, unittest.TestCase):
     def setUp(self):
         from ubiquity.frontend import gtk_ui
         self.frontend = gtk_ui.Wizard('ubuntu')
+
+    def testSkippingPagesBackwards(self):
+        # bzr r4055
+        # Fix backing up past partitioning when manual partitioning was
+        # selected (LP: #557210).
+        part_auto = None
+        for p in self.frontend.pages:
+            self.frontend.add_history(p, p.widgets[0])
+            # Advanced partitioning page.
+            if p.filter_class.__module__ == 'ubi-partman':
+                part_auto = (p, p.widgets[0])
+                self.frontend.add_history(p, p.optional_widgets[0])
+        assert part_auto is not None
+        seen = []
+        while True:
+            h = self.frontend.history[-1]
+            assert h not in seen, 'already been to %s' % str(h[1].name)
+            seen.append(h)
+            self.frontend.pop_history()
+            if h[0].filter_class.__module__ == 'ubi-usersetup':
+                self.frontend.add_history(*part_auto)
+            else:
+                h = self.frontend.history[-1]
+                self.frontend.add_history(h[0], h[1])
+            if len(self.frontend.history) == 1:
+                break
 
 if __name__ == '__main__':
     unittest.main()
