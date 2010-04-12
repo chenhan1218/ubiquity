@@ -25,6 +25,9 @@ class CoreFrontendTests:
         # bzr r3904, r3895
         self.frontend.installing = True
         self.frontend.next.set_label('Install')
+        def nop(*args, **kwargs):
+            pass
+        self.frontend.switch_progress_windows = nop
         self.frontend.return_to_partitioning()
         assert self.frontend.dbfilter.__module__ == 'ubi-partman'
         assert self.frontend.dbfilter.ui.__module__ == 'ubi-partman'
