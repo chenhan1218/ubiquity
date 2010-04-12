@@ -84,6 +84,23 @@ class GtkFrontendTests(CoreFrontendTests, unittest.TestCase):
                 self.frontend.add_history(h[0], h[1])
             if len(self.frontend.history) == 1:
                 break
+    
+    def testNoActiveItemRegionCombo(self):
+        # bzr r4066
+        idx = -1
+        for page in self.frontend.pages:
+            if page.module.NAME == 'timezone':
+                idx = self.frontend.pages.index(page)
+                break
+        assert idx != -1
+        ui = self.frontend.pages[idx].ui
+        dbfilter = self.frontend.dbfilter
+        dbfilter = self.frontend.pages[idx].filter_class(self, ui=ui)
+        dbfilter.ui.controller.dbfilter = dbfilter
+        dbfilter.ui.region_combo.set_active(-1)
+        # Should return instead of raising
+        # 'IndexError: could not find tree path'
+        dbfilter.ui.on_region_combo_changed()
 
 if __name__ == '__main__':
     unittest.main()
