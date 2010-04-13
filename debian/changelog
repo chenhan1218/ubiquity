@@ -18,6 +18,8 @@ ubiquity (2.2.17) UNRELEASED; urgency=low
     oem-config merge.
   * Display simple progress feedback using debconf-apt-progress while
     removing oem-config (LP: #558593).
+  * Write locale-gen output from ubiquity-dm to /var/log/installer/dm rather
+    than to the console.
 
   [ Amichai Rothman ]
   * Fix hang unless mouse is moved (LP: #556376)

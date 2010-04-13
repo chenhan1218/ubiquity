@@ -57,7 +57,10 @@ def set_locale():
     print >>locale_gen, '%s UTF-8' % locale
     locale_gen.close()
 
-    subprocess.call(['/usr/sbin/locale-gen', locale])
+    logfile = open('/var/log/installer/dm', 'a')
+    subprocess.call(['/usr/sbin/locale-gen', locale],
+                    stdout=logfile, stderr=logfile)
+    logfile.close()
 
 class XStartupError(EnvironmentError):
     pass
