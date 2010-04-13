@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 00:41+0100\n"
+"POT-Creation-Date: 2010-04-14 00:45+0100\n"
 "PO-Revision-Date: 2009-09-05 19:29+0000\n"
 "Last-Translator: Vladimer Sichinava <vsichi@gnome.org>\n"
 "Language-Team: Georgian <aietkolkhi@gmail.com>\n"
@@ -1486,3 +1486,55 @@ msgstr ""
 #| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr "ინსტალერმა ვერ გადაწერა ფაილები მყარ დისკზე:"
+
+#. Type: title
+#. Description
+#. Info message displayed when running in OEM mode
+#: ../oem-config-check.templates:2001
+#, fuzzy
+#| msgid "Install (OEM mode, for manufacturers only)"
+msgid "OEM mode (for manufacturers only)"
+msgstr "OEM რეჟიმში დაყენება (მხოლოდ მწარმოებელთათვის)"
+
+#. Type: text
+#. Description
+#. Translators: OEM stands for "Original Equipment Manufacturer", used in
+#. this case to describe an organisation that pre-installs the operating
+#. system on hardware and then sells the result to end users. These strings
+#. will typically only be displayed to OEMs themselves, so you don't have to
+#. worry too much about clarity.
+#: ../oem-config-udeb.templates:1001
+msgid "Prepare for OEM configuration"
+msgstr ""
+
+#. Type: text
+#. Description
+#. finish-install progress bar item
+#: ../oem-config-udeb.templates:2001
+msgid "Preparing for OEM configuration..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../oem-config-udeb.templates:3001
+msgid "Ready for OEM configuration"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../oem-config-udeb.templates:3001
+msgid ""
+"When you boot into the new system, you will be able to log in as the 'oem' "
+"user with the password you selected earlier; this user also has "
+"administrative privileges using 'sudo'. You will then be able to make any "
+"additional modifications you require to the system."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../oem-config-udeb.templates:3001
+msgid ""
+"Once the system is configured to your satisfaction, run 'oem-config-"
+"prepare'. This will cause the system to delete the temporary 'oem' user and "
+"ask the end user various configuration questions the next time it boots."
+msgstr ""
