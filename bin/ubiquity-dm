@@ -29,12 +29,10 @@ def set_locale():
         locale = db.get('debian-installer/locale')
     except debconf.DebconfError:
         pass
+    db.shutdown()
 
     if not locale:
-        db.shutdown()
         return
-
-    db.shutdown()
 
     default_locale = open('/etc/default/locale', 'w')
     print >>default_locale, 'LANG="%s"' % locale
