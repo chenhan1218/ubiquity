@@ -117,6 +117,32 @@ class GtkFrontendTests(CoreFrontendTests, unittest.TestCase):
         # Should return instead of raising
         # 'IndexError: could not find tree path'
         dbfilter.ui.on_region_combo_changed()
+    
+    def testPluginTranslate(self):
+        # bzr r4061
+        idx = -1
+        for page in self.frontend.pages:
+            if page.module.NAME == 'usersetup':
+                idx = self.frontend.pages.index(page)
+                break
+        assert idx != -1
+        self.frontend.pagesindex = idx
+        ui = self.frontend.pages[idx].ui
+        dbfilter = self.frontend.dbfilter
+        dbfilter = self.frontend.pages[idx].filter_class(self, ui=ui)
+        dbfilter.ui.controller.dbfilter = dbfilter
+        
+        self.frontend.translate_pages(reget=True)
+        ui = dbfilter.ui
+        widgets = (ui.username, ui.fullname, ui.password,
+                   ui.verified_password, ui.hostname)
+        cstrs = [x.inactive_message for x in widgets]
+        c = dbfilter.ui.username.inactive_message
+        self.frontend.locale = 'es'
+        self.frontend.translate_pages(reget=True)
+        esstrs = [x.inactive_message for x in widgets]
+        diff = set(cstrs) & set(esstrs)
+        assert not diff, 'Untranslated strings: %s' % ', '.join(diff)
 
 if __name__ == '__main__':
     unittest.main()
