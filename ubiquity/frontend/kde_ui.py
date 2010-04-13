@@ -523,7 +523,7 @@ class Wizard(BaseFrontend):
             core_names.append('ubiquity/text/oem_user_config_title')
             core_names.append('ubiquity/text/breadcrumb_install')
             for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
-                               'ok', 'quit'):
+                               'ok', 'quit', 'yes', 'no'):
                 core_names.append('ubiquity/imported/%s' % stock_item)
             prefixes = []
             for p in self.pages:
@@ -940,7 +940,15 @@ class Wizard(BaseFrontend):
         warning_dialog_label = self.get_string("warning_dialog_label")
         abortTitle = self.get_string("warning_dialog")
         continueButtonText = self.get_string("continue")
-        response = KMessageBox.questionYesNo(self.ui, abortTitle, warning_dialog_label)
+        yes = self.get_string('yes', prefix='ubiquity/imported')
+        no = self.get_string('no', prefix='ubiquity/imported')
+        if yes and no:
+            yes = KGuiItem(yes.replace('_', '&', 1))
+            no = KGuiItem(no.replace('_', '&', 1))
+            args = (self.ui, abortTitle, warning_dialog_label, yes, no)
+        else:
+            args = (self.ui, abortTitle, warning_dialog_label)
+        response = KMessageBox.questionYesNo(*args)
         if response == KMessageBox.Yes:
             self.current_page = None
             self.quit()

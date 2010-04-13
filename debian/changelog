@@ -7,6 +7,8 @@ ubiquity (2.2.17) UNRELEASED; urgency=low
   * Catch invalid iterators in on_region_combo_changed (LP: #521851).
   * Don't let not being able to talk to the system bus crash the entire
     language page.
+  * Translate the yes and no buttons on the quit dialog in the KDE
+    frontend (LP: #561876).
 
   [ Colin Watson ]
   * Skip copy_wallpaper_cache when running as oem-config.
