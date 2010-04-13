@@ -119,7 +119,7 @@ class GtkFrontendTests(CoreFrontendTests, unittest.TestCase):
         dbfilter.ui.on_region_combo_changed()
     
     def testPluginTranslate(self):
-        # bzr r4061
+        # bzr r4061, LP #540929
         idx = -1
         for page in self.frontend.pages:
             if page.module.NAME == 'usersetup':
@@ -141,8 +141,8 @@ class GtkFrontendTests(CoreFrontendTests, unittest.TestCase):
         self.frontend.locale = 'es'
         self.frontend.translate_pages(reget=True)
         esstrs = [x.inactive_message for x in widgets]
-        diff = set(cstrs) & set(esstrs)
-        assert not diff, 'Untranslated strings: %s' % ', '.join(diff)
+        common = set(cstrs) & set(esstrs)
+        assert not common, 'Untranslated strings: %s' % ', '.join(common)
 
 if __name__ == '__main__':
     unittest.main()
