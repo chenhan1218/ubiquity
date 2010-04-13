@@ -4,6 +4,10 @@ Default: true
 Description: for internal use; can be preseeded
  Remove oem-config on successful completion
 
+Template: oem-config/removing
+Type: text
+_Description: Removing packages
+
 Template: oem-config/early_command
 Type: string
 Description: for internal use; can be preseeded
