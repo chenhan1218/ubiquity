@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-07 11:44+0100\n"
+"POT-Creation-Date: 2010-04-14 00:41+0100\n"
 "PO-Revision-Date: 2010-04-09 03:36+0000\n"
 "Last-Translator: SiraNokyoongtong <gumaraa@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -45,7 +45,7 @@ msgstr "กำหนดพาร์ทิชันเอง (ขั้นสู�
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:201001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:202001
 msgid "Install"
 msgstr "ติดตั้ง"
 
@@ -327,48 +327,58 @@ msgstr "คุณกำลังอยู่ในโหมดดีบัก �
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48001
+msgid ""
+"Enter the same password twice, so that it can be checked for typing errors. "
+"A good password will contain a mixture of letters, numbers and punctuation, "
+"should be at least eight characters long, and should be changed at regular "
+"intervals."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:49001
 msgid "Strength: too short"
 msgstr "ความปลอดภัย: สั้นเกินไป"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:50001
 msgid "Strength: weak"
 msgstr "ความปลอดภัย: อ่อนแอ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:51001
 msgid "Strength: fair"
 msgstr "ความปลอดภัย: แย่"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:52001
 msgid "Strength: good"
 msgstr "ความปลอดภัย: ดี"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:53001
 msgid "Strength: strong"
 msgstr "ความปลอดภัย: แข็งแรง"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:54001
 msgid "What is the name of this computer?"
 msgstr "คอมพิวเตอร์เครื่องนี้ชื่ออะไร?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:55001
 msgid "Computer Name"
 msgstr "ชื่อคอมพิวเตอร์"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:56001
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
@@ -376,37 +386,37 @@ msgstr "ชื่อนี้จะถูกใช้ถ้าคุณทำใ
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:57001
 msgid "Log in automatically"
 msgstr "เข้าระบบอัตโนมัติ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:58001
 msgid "Require my password to log in"
 msgstr "ต้องป้อนรหัสผ่านเพื่อเข้าระบบ:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:59001
 msgid "Require my password to log in and to decrypt my home folder"
 msgstr "ต้องป้อนรหัสผ่านเพื่อเข้าระบบ และเพื่อถอดรหัสโฟลเดอร์บ้านของฉัน"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:60001
 msgid "Choose another password"
 msgstr "เลือกรหัสผ่านอื่น"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:61001
 msgid "Migrate documents and settings"
 msgstr "โยกย้ายเอกสารและการปรับแต่ง"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:62001
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
@@ -416,7 +426,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:62001
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
@@ -424,50 +434,50 @@ msgstr "หากคุณไม่ต้องการนำเข้าบั
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:63001
 msgid "Prepare disk space"
 msgstr "จัดเตรียมพื้นที่ดิสก์"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:64001
 msgid "How do you want to partition the disk?"
 msgstr "คุณต้องการจัดการพาร์ทิชันดิสก์อย่างไร?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:65001
 msgid "This computer has no operating systems on it."
 msgstr "คอมพิวเตอร์นี้ไม่มีระบบปฎิบัติการติดตั้งอยู่"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:66001
 msgid "This computer has ${OS} on it."
 msgstr "คอมพิวเตอร์นี้มีระบบปฎิบัติการ ${OS} ติดตั้งอยู่"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:67001
 msgid "This computer has several operating systems on it."
 msgstr "คอมพิวเตอร์นี้มีระบบปฏิบัติการที่หลากหลายติดตั้งอยู่"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:68001
 msgid "Where do you want to put ${RELEASE}?"
 msgstr "คุณต้องการวาง ${RELEASE} ไว้ที่ใด?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:69001
 msgid "Prepare partitions"
 msgstr "จัดเตรียมพาร์ทิชัน"
 
 #. Type: text
 #. Description
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:70001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
 msgstr "นี่จะเป็นการลบ ${SYSTEMS} และติดตั้ง ${RELEASE}"
 
@@ -475,26 +485,26 @@ msgstr "นี่จะเป็นการลบ ${SYSTEMS} และติด
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:70001 ../ubiquity.templates:130001
+#: ../ubiquity.templates:71001 ../ubiquity.templates:131001
 msgid "Ready to install"
 msgstr "พร้อมที่จะติดตั้ง"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:72001
 msgid "Details"
 msgstr "รายละเอียด"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:73001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr "ระบบปฏิบัติการใหม่ของคุณจะติดตั้งด้วยการตั้งค่าตามนี้:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:74001
 msgid "Advanced..."
 msgstr "ขั้นสูง..."
 
@@ -502,37 +512,37 @@ msgstr "ขั้นสูง..."
 #. Description
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:75001
 msgid "Install[ action ]"
 msgstr "ติดตั้ง[ action ]"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:76001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr "ขั้นที่ ${INDEX} จาก ${TOTAL}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:77001
 msgid "Quit the installation?"
 msgstr "ออกจากการติดตั้ง?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:78001
 msgid "Do you really want to quit the installation now?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการออกจากการติดตั้งตอนนี้?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:79001
 msgid "Bootloader install failed"
 msgstr "การติดตั้งบูตโหลดเดอร์ล้มเหลว"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:80001
 msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
@@ -540,62 +550,62 @@ msgstr "ขออภัย ข้อผิดพลาดที่เกิด�
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:81001
 msgid "Choose a different device to install the bootloader on:"
 msgstr "เลือกอุปกรณ์อื่นที่จะติดตั้งบูตโหลดเดอร์ลงไป:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:82001
 msgid "Continue without a bootloader."
 msgstr "ดำเนินการต่อโดยปราศจากบูตโหลดเดอร์"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:83001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr "คุณจะต้องติดตั้งบูตโหลดเดอร์ด้วยตัวเองเพื่อเริ่ม ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:84001
 msgid "Cancel the installation."
 msgstr "ยกเลิกการติดตั้ง"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:85001
 msgid "This may leave your computer unable to boot."
 msgstr "นี่อาจทำให้คอมพิวเตอร์ไม่สามารถบูตได้"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:86001
 msgid "How would you like to proceed?"
 msgstr "คุณต้องการดำเนินการอย่างไร?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:87001
 msgid "Skip"
 msgstr "ข้าม"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:88001
 msgid "Installation Complete"
 msgstr "การติดตั้งสมบูรณ์"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:89001
 msgid "Continue Testing"
 msgstr "ทดลองใช้งานต่อไป"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:90001
 msgid "Restart Now"
 msgstr "เริ่มระบบใหม่ตอนนี้"
 
@@ -603,13 +613,13 @@ msgstr "เริ่มระบบใหม่ตอนนี้"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:90001 ../ubiquity.templates:91001
+#: ../ubiquity.templates:91001 ../ubiquity.templates:92001
 msgid "Installer crashed"
 msgstr "ตัวติดตั้งเกิดการขัดข้อง"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:93001
 msgid ""
 "We're sorry; the installer crashed. Please file a new bug report at https://"
 "launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
@@ -627,7 +637,7 @@ msgstr ""
 #. Description
 #. Displayed next to a graphical bar depicting the state of the disk before
 #. automatic partitioning.
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:94001
 msgid "Before:"
 msgstr "ก่อน:"
 
@@ -635,55 +645,55 @@ msgstr "ก่อน:"
 #. Description
 #. Displayed next to a graphical bar depicting the state of the disk after
 #. automatic partitioning.
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:95001
 msgid "After:"
 msgstr "หลัง:"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:96001
 msgid "New Partition Table..."
 msgstr "พาร์ทิชันใหม่..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:97001
 msgid "Add..."
 msgstr "เพิ่ม..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:97001
+#: ../ubiquity.templates:98001
 msgid "Change..."
 msgstr "เปลี่ยน..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:98001
+#: ../ubiquity.templates:99001
 msgid "Delete"
 msgstr "ลบ"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:99001
+#: ../ubiquity.templates:100001
 msgid "Revert"
 msgstr "ย้อนกลับ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:101001
 msgid "Recalculating partitions..."
 msgstr "กำลังคำนวนพาร์ทิชันอีกครั้ง..."
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:102001
 msgid "Device"
 msgstr "อุปกรณ์"
 
@@ -691,28 +701,28 @@ msgstr "อุปกรณ์"
 #. Description
 #. A column heading in the partitioner. Indicates how the partition is to be
 #. used (ext2, swap, etc.).
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:103001
 msgid "Type"
 msgstr "ชนิด"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:103001
+#: ../ubiquity.templates:104001
 msgid "Mount point"
 msgstr "จุดเมานท์"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:104001
+#: ../ubiquity.templates:105001
 msgid "Format?"
 msgstr "ฟอร์แมต?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:105001
+#: ../ubiquity.templates:106001
 msgid "Size"
 msgstr "ขนาด"
 
@@ -720,27 +730,27 @@ msgstr "ขนาด"
 #. Description
 #. A column heading in the partitioner. Indicates how much of the space on
 #. this partition is used by data.
-#: ../ubiquity.templates:106001
+#: ../ubiquity.templates:107001
 msgid "Used"
 msgstr "ใช้แล้ว"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
-#: ../ubiquity.templates:107001
+#: ../ubiquity.templates:108001
 msgid "free space"
 msgstr "พื้นที่ว่าง"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:109001
 msgid "unknown"
 msgstr "ไม่ทราบ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:109001
+#: ../ubiquity.templates:110001
 msgid "Create partition"
 msgstr "สร้างพาร์ทิชัน"
 
@@ -748,97 +758,97 @@ msgstr "สร้างพาร์ทิชัน"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:110001 ../ubiquity.templates:117001
+#: ../ubiquity.templates:111001 ../ubiquity.templates:118001
 msgid "New partition size in megabytes (1000000 bytes):"
 msgstr "สร้างพาร์ทิชันใหม่ในขนาดเม็กกะไบต์ (1000000 ไบต์):"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:111001
+#: ../ubiquity.templates:112001
 msgid "Beginning"
 msgstr "เริ่มต้น"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:112001
+#: ../ubiquity.templates:113001
 msgid "End"
 msgstr "สิ้นสุด"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:113001
+#: ../ubiquity.templates:114001
 msgid "Primary"
 msgstr "ไพรมารี"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:114001
+#: ../ubiquity.templates:115001
 msgid "Logical"
 msgstr "ลอจิคัล"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:115001
+#: ../ubiquity.templates:116001
 msgid "Edit partition"
 msgstr "แก้ไขพาร์ทิชัน"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:116001
+#: ../ubiquity.templates:117001
 msgid "Edit a partition"
 msgstr "แก้ไขพาร์ทิชัน"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:118001
+#: ../ubiquity.templates:119001
 msgid "Advanced Options"
 msgstr "ตัวเลือกขั้นสูง"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:119001
+#: ../ubiquity.templates:120001
 msgid "Boot loader"
 msgstr "บูตโหลดเดอร์"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:120001
+#: ../ubiquity.templates:121001
 msgid "Install boot loader"
 msgstr "ติดตั้งบูตโหลดเดอร์"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:121001
+#: ../ubiquity.templates:122001
 msgid "Popularity contest"
 msgstr "ประกวดความนิยม"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:122001
+#: ../ubiquity.templates:123001
 msgid "Participate in the package usage survey"
 msgstr "เข้าร่วมในการสำรวจการใช้งานแพกเกจ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:123001
+#: ../ubiquity.templates:124001
 msgid "Network proxy"
 msgstr "พร็อกซีเครือข่าย"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:124001
+#: ../ubiquity.templates:125001
 msgid "HTTP proxy:"
 msgstr "พร็อกซี HTTP:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:125001
+#: ../ubiquity.templates:126001
 msgid "Port:"
 msgstr "พอร์ต:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:126001
+#: ../ubiquity.templates:127001
 msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
@@ -850,20 +860,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:127001
+#: ../ubiquity.templates:128001
 msgid "Go Back"
 msgstr "ย้อนกลับ"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:129001
 msgid "Continue"
 msgstr "ดำเนินการต่อ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:129001
+#: ../ubiquity.templates:130001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
@@ -871,7 +881,7 @@ msgstr "การติดตั้งสมบูรณ์ คุณต้อ�
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:130001
+#: ../ubiquity.templates:131001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -891,37 +901,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:131001
+#: ../ubiquity.templates:132001
 msgid "Verifying the installation configuration..."
 msgstr "กำลังตรวจสอบการตั้งค่าการติตตั้ง..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:132001
+#: ../ubiquity.templates:133001
 msgid "Installing system"
 msgstr "กำลังติดตั้งระบบ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:133001
+#: ../ubiquity.templates:134001
 msgid "Finding the distribution to copy..."
 msgstr "กำลังค้นหาชุดแจกจ่ายเพื่อคัดลอก..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:135001
+#: ../ubiquity.templates:136001
 msgid "Scanning files..."
 msgstr "กำลังสแกนแฟ้ม..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:136001
+#: ../ubiquity.templates:137001
 msgid "Copying files..."
 msgstr "กำลังคัดลอกแฟ้ม..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:137001
+#: ../ubiquity.templates:138001
 msgid "Almost finished copying files..."
 msgstr "การคัดลอกแฟ้มใกล้เสร็จ..."
 
@@ -935,9 +945,9 @@ msgstr "การคัดลอกแฟ้มใกล้เสร็จ..."
 #. Description
 #. Type: select
 #. Description
-#: ../ubiquity.templates:138001 ../ubiquity.templates:139001
-#: ../ubiquity.templates:140001 ../ubiquity.templates:141001
-#: ../ubiquity.templates:142001
+#: ../ubiquity.templates:139001 ../ubiquity.templates:140001
+#: ../ubiquity.templates:141001 ../ubiquity.templates:142001
+#: ../ubiquity.templates:143001
 msgid "Installation Failed"
 msgstr "การติดตั้งล้มเหลว"
 
@@ -949,14 +959,14 @@ msgstr "การติดตั้งล้มเหลว"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:138001 ../ubiquity.templates:139001
-#: ../ubiquity.templates:140001 ../ubiquity.templates:141001
+#: ../ubiquity.templates:139001 ../ubiquity.templates:140001
+#: ../ubiquity.templates:141001 ../ubiquity.templates:142001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr "โปรแกรมติดตั้งไม่สามารถคัดลอกแฟ้มลงฮาร์ดดิสก์ได้์:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:138001
+#: ../ubiquity.templates:139001
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
@@ -967,7 +977,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:139001
+#: ../ubiquity.templates:140001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -979,7 +989,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:140001
+#: ../ubiquity.templates:141001
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -996,7 +1006,7 @@ msgstr ""
 #. Description
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
-#: ../ubiquity.templates:141001 ../ubiquity.templates:142001
+#: ../ubiquity.templates:142001 ../ubiquity.templates:143001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -1011,145 +1021,145 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../ubiquity.templates:142001
+#: ../ubiquity.templates:143001
 msgid "The following file did not match its source copy on the CD/DVD:"
 msgstr "แฟ้มต่อไปนี้ไม่ตรงกับแฟ้มต้นฉบับบนซีดี/ดีวีดี:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:143001
+#: ../ubiquity.templates:144001
 msgid "Copying installation logs..."
 msgstr "กำลังคัดลอกปูมการติดตั้ง..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:144001
+#: ../ubiquity.templates:145001
 msgid "Configuring target system..."
 msgstr "กำลังตั้งค่าระบบปลายทาง..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:145001
+#: ../ubiquity.templates:146001
 msgid "Configuring system locales..."
 msgstr "กำลังตั้งค่าระบบภายใน..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:146001
+#: ../ubiquity.templates:147001
 msgid "Configuring apt..."
 msgstr "กำลังตั้งค่า apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:147001
+#: ../ubiquity.templates:148001
 msgid "Configuring time zone..."
 msgstr "กำลังตั้งค่าเขตเวลา..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:148001
+#: ../ubiquity.templates:149001
 msgid "Configuring keyboard..."
 msgstr "กำลังตั้งค่าแป้นพิมพ์..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:149001
+#: ../ubiquity.templates:150001
 msgid "Creating user..."
 msgstr "กำลังสร้างผู้ใช้..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:150001
+#: ../ubiquity.templates:151001
 msgid "Importing documents and settings..."
 msgstr "กำลังนำเข้าเอกสารและการตั้งค่า..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:151001
+#: ../ubiquity.templates:152001
 msgid "Configuring hardware..."
 msgstr "กำลังตั้งค่าฮาร์ดแวร์..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:152001
+#: ../ubiquity.templates:153001
 msgid "Configuring network..."
 msgstr "กำลังตั้งค่าเครือข่าย..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:153001
+#: ../ubiquity.templates:154001
 msgid "Setting computer name..."
 msgstr "กำลังตั้งชื่อเครื่องคอมพิวเตอร์..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:154001
+#: ../ubiquity.templates:155001
 msgid "Configuring boot loader..."
 msgstr "กำลังตั้งค่าบูตโหลดเดอร์..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:155001
+#: ../ubiquity.templates:156001
 msgid "Installing additional packages..."
 msgstr "กำลังติดตั้งแพกเกจเพิ่มเติม"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:156001
+#: ../ubiquity.templates:157001
 msgid "Checking for packages to install..."
 msgstr "กำลังตรวจแพกเกจที่จะติดตั้ง..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:157001
+#: ../ubiquity.templates:158001
 msgid "Removing extra packages..."
 msgstr "กำลังถอดถอนแพกเกจเสริม..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:158001
+#: ../ubiquity.templates:159001
 msgid "Checking for packages to remove..."
 msgstr "กำลังตรวจสอบแพกเกจที่จะถอดถอน..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:159001
+#: ../ubiquity.templates:160001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "กำลังดาวน์โหลดแพกเกจ (ต้องใช้เวลาอีก ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:161001
 msgid "Downloading package lists..."
 msgstr "กำลังดาวน์โหลดรายชื่อแพกเกจ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:161001
+#: ../ubiquity.templates:162001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "กำลังดาวน์โหลดรายชื่อแพกเกจ (ต้องใช้เวลาอีก ${TIME})..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:164001
 msgid "Error installing ${PACKAGE}"
 msgstr "ผิดพลาดขณะกำลังติดตั้ง ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:164001
+#: ../ubiquity.templates:165001
 msgid "Error removing ${PACKAGE}"
 msgstr "ผิดพลาดขณะกำลังถอดถอน ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:165001
+#: ../ubiquity.templates:166001
 msgid "Error while installing packages"
 msgstr "ผิดพลาดขณะติดตั้งแพกเกจ"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:165001
+#: ../ubiquity.templates:166001
 msgid "An error occurred while installing packages:"
 msgstr "เกิดข้อผิดพลาดขณะกำลังติดตั้งแพกเกจ:"
 
@@ -1157,7 +1167,7 @@ msgstr "เกิดข้อผิดพลาดขณะกำลังติ
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:165001 ../ubiquity.templates:166001
+#: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid "The following packages are in a broken state:"
 msgstr "แพกเกจต่อไปนี้อยู่ในสถานะที่เสีย:"
 
@@ -1165,7 +1175,7 @@ msgstr "แพกเกจต่อไปนี้อยู่ในสถาน
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:165001 ../ubiquity.templates:166001
+#: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -1184,25 +1194,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:166001
+#: ../ubiquity.templates:167001
 msgid "Error while removing packages"
 msgstr "ผิดพลาดขณะกำลังถอดถอนแพกเกจ"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:166001
+#: ../ubiquity.templates:167001
 msgid "An error occurred while removing packages:"
 msgstr "ข้อผิดพลาดขณะกำลังถอดถอนแพกเกจ:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:168001
 msgid "Error migrating documents and settings"
 msgstr "การขนย้ายเอกสารและการปรับแต่งผิดพลาด"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:168001
 msgid ""
 "An error occurred while migrating data.  More details may be found in /var/"
 "log/syslog.  The installation will continue, but some or all of the "
@@ -1214,13 +1224,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:168001
+#: ../ubiquity.templates:169001
 msgid "Error copying network configuration"
 msgstr "การคัดลอกการตั้งค่าเครือข่ายผิดพลาด"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:168001
+#: ../ubiquity.templates:169001
 msgid ""
 "An error occurred while copying the network settings.  The installation will "
 "continue, but the network configuration will have to be set up again in the "
@@ -1231,31 +1241,31 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:172001
+#: ../ubiquity.templates:173001
 msgid "Calculating files to skip copying..."
 msgstr "กำลังคำนวนแฟ้มที่ข้ามการคัดลอก..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:173001
+#: ../ubiquity.templates:174001
 msgid "Installing language packs"
 msgstr "กำลังติดตั้งชุดภาษา"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:175001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "กำลังดาวน์โหลดชุดภาษา (ต้องใช้เวลาอีก ${TIME})..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:184001
 msgid "Failed to unmount partitions"
 msgstr "เลิกเมานท์พาร์ทิชันไม่สำเร็จ"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:184001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -1265,25 +1275,25 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:184001
 msgid "Please close any applications using these mount points."
 msgstr "โปรดปิดโปรแกรมใดๆ ที่กำลังใช้จุดเมานท์เหล่านี้"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:184001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "คุณต้องการให้โปรแกรมติดตั้งลองยกเลิกเมานท์พาร์ทิชั่นเหล่านี้อีกหรือไม่?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:190001
 msgid "Do you want to return to the partitioner?"
 msgstr "คุณต้องการกลับไปยังตัวจัดพาร์ติชันหรือไม่?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:190001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
@@ -1291,7 +1301,7 @@ msgstr "บางพาร์ทิชันที่สร้างไว้ม
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:190001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1299,141 +1309,141 @@ msgstr "หากคุณไม่กลับไปที่ตัวจัด
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:191001
 msgid "System Configuration"
 msgstr "ตั้งค่าระบบ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:192001
 msgid "Choose language"
 msgstr "เลือกภาษา"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:193001
 msgid "Network configuration"
 msgstr "ตั้งค่าเครือข่าย"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:194001
 msgid "Software selection"
 msgstr "เลือกซอฟต์แวร์"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:195001
 msgid "Applying configuration"
 msgstr "กำลังปรับใช้การตั้งค่า"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:196001
 msgid "Language"
 msgstr "ภาษา"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:197001
 msgid "Timezone"
 msgstr "เขตเวลา"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:198001
 msgid "Keyboard"
 msgstr "แป้นพิมพ์"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
+#: ../ubiquity.templates:199001
 msgid "Disk Setup"
 msgstr "ตั้งค่าดิสก์"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:200001
 msgid "User Info"
 msgstr "ข้อมูลผู้ใช้"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:201001
 msgid "Summary"
 msgstr "ภาพรวม"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:202001
+#: ../ubiquity.templates:203001
 msgid "installation process"
 msgstr "ขั้นตอนการติดตั้ง"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:204001
+#: ../ubiquity.templates:205001
 msgid "Checking for installer updates"
 msgstr "กำลังตรวจสอบการปรับปรุงโปรแกรมติตตั้ง"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:205001
+#: ../ubiquity.templates:206001
 msgid "Reading package information"
 msgstr "กำลังอ่านข้อมูลแพกเกจ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
+#: ../ubiquity.templates:207001
 msgid "Updating package information"
 msgstr "กำลังปรับข้อมูลแพกเกจ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:207001
+#: ../ubiquity.templates:208001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "${INDEX} แฟ้ม จาก ${TOTAL} ที่ความเร็ว ${SPEED}/s"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:208001
+#: ../ubiquity.templates:209001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "${INDEX} แฟ้ม จาก ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:209001
+#: ../ubiquity.templates:210001
 msgid "Installing update"
 msgstr "กำลังติดตั้งตัวอัปเดท"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:210001
+#: ../ubiquity.templates:211001
 msgid "Error updating installer"
 msgstr "การอัปเดทโปรแกรมติดตั้งผิดพลาด"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:210001
+#: ../ubiquity.templates:211001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr "เกิดข้อผิดพลาดที่โปรแกรมติดตั้งในขณะกำลังพยายามอัปเดทตัวเอง::"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:211001
+#: ../ubiquity.templates:212001
 msgid "USB"
 msgstr "USB"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:213001
 msgid "CD"
 msgstr "ซีดี"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:213001
+#: ../ubiquity.templates:214001
 msgid ""
 "Please choose the language to use for the install process. This\n"
 " Language will be the default language for this computer."
@@ -1443,7 +1453,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:214001
+#: ../ubiquity.templates:215001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1451,6 +1461,32 @@ msgstr "โปรดเลือกภาษาที่จะใช้ในก
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
+#: ../ubiquity.templates:216001
 msgid "Continue with installation."
 msgstr "ดำเนินการติดตั้งต่อไป"
+
+#. Type: text
+#. Description
+#. Type: text
+#. Description
+#: ../ubiquity.templates:217001 ../ubiquity.templates:218001
+#, fuzzy
+#| msgid "Installation Failed"
+msgid "Installation failed"
+msgstr "การติดตั้งล้มเหลว"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:217001
+msgid ""
+"The installer encountered an unrecoverable error.  A desktop session will "
+"now be run so that you may investigate the problem or try installing again."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:218001
+#, fuzzy
+#| msgid "The installer encountered an error while trying to update itself:"
+msgid "The installer encountered an unrecoverable error and will now reboot."
+msgstr "เกิดข้อผิดพลาดที่โปรแกรมติดตั้งในขณะกำลังพยายามอัปเดทตัวเอง::"
