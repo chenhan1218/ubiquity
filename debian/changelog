@@ -10,6 +10,9 @@ ubiquity (2.2.17) UNRELEASED; urgency=low
   * Translate the yes and no buttons on the quit dialog in the KDE
     frontend (LP: #561876).
   * Update translations from Launchpad.
+  * Automatic update of included source packages: base-installer
+    1.103ubuntu7, choose-mirror 2.29ubuntu3, partman-base 139ubuntu4,
+    partman-basicfilesystems 63ubuntu4, tzsetup 1:0.26ubuntu8.
 
   [ Colin Watson ]
   * Skip copy_wallpaper_cache when running as oem-config.
