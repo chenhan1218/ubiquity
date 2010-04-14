@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 00:45+0100\n"
-"PO-Revision-Date: 2010-04-04 09:20+0000\n"
+"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"PO-Revision-Date: 2010-04-10 14:22+0000\n"
 "Last-Translator: Vadim Nevorotin <malamut@ubuntu.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
+"X-Launchpad-Export-Date: 2010-04-14 16:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -82,8 +82,8 @@ msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
 msgstr ""
-"Вы можете попробовать ${RELEASE} из текущего ${MEDIUM} без изменений на "
-"Вашем компьютере."
+"Вы можете попробовать ${RELEASE} на этом ${MEDIUM} без изменений в вашем "
+"компьютере."
 
 #. Type: text
 #. Description
@@ -105,8 +105,8 @@ msgid ""
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
-"Готовы к установке? Ответьте на несколько вопросов, после чего ${MEDIUM} "
-"будет установлено на Ваш компьютер и ${RELEASE} будет работать на полную "
+"Готовы к установке? Ответив на несколько вопросов, содержимое ${MEDIUM} "
+"будет установлено на ваш компьютер и ${RELEASE} будет работать на полную "
 "мощность, без необходимости в ${MEDIUM}."
 
 #. Type: text
@@ -1590,3 +1590,11 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:2001
+#, fuzzy
+#| msgid "Removing extra packages..."
+msgid "Removing packages"
+msgstr "Удаление дополнительных пакетов..."

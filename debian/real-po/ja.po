@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 00:45+0100\n"
-"PO-Revision-Date: 2010-04-09 06:28+0000\n"
-"Last-Translator: Shushi Kurose <md81bird@hitaki.net>\n"
+"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"PO-Revision-Date: 2010-04-12 16:17+0000\n"
+"Last-Translator: Kentaro Kazuhama <kazken3@gmail.com>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
+"X-Launchpad-Export-Date: 2010-04-14 16:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -53,7 +53,7 @@ msgstr "インストール"
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "インストール（PC製造業者のためのOEMモード）"
+msgstr "OEMモードのインストール (PC製造業者用)"
 
 #. Type: text
 #. Description
@@ -69,9 +69,10 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"PC製造業者モードでインストール中です\r\n"
-"この製造ロットのPCのために、特定の名前を入力してください\r\n"
-"この名前はインストールされたPCに保存され、バグレポートのために使用できます"
+"PC製造業者用のOEMモードでインストールします。\r\n"
+"このPCのシリーズ (または製造ロット) を示す固有の名前を入力してください。\r\n"
+"この名前はインストールされたシステムに保存され、バグレポート時の情報として使"
+"用できます。"
 
 #. Type: text
 #. Description
@@ -103,6 +104,9 @@ msgid ""
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+"インストールしてもいいですか？いくつかの質問に回答すると live ${MEDIUM} の内"
+"容はこのコンピュータにインストールされ ${MEDIUM} を使わずに本来の速度で "
+"${RELEASE} を動かすことができます。"
 
 #. Type: text
 #. Description
@@ -125,18 +129,23 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
+"お望みならば <a href=\"release-notes\">リリースノート</a> をご覧ください。<a "
+"href=\"update\">このインストーラをアップデート</a> することもできます。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
+"お望みならば <a href=\"release-notes\">リリースノート</a> をご覧ください。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
 msgstr ""
+"お望みならば <a href=\"update\">このインストーラをアップデート</a> してくださ"
+"い。"
 
 #. Type: text
 #. Description
@@ -146,6 +155,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2010."
 msgstr ""
+"${RELEASE} ライブ ${MEDIUM} インストーラのプレリリース版です。最終リリースで"
+"はありません。${RELEASE} の最終リリースは2010年4月になります。"
 
 #. Type: text
 #. Description
@@ -155,6 +166,9 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
+"インストールの過程でハードディスクをリサイズ、消去することがあります。このプ"
+"ログラムの利用の前に <b>重要なデータをすべてバックアップする</b> ように心掛け"
+"てください。"
 
 #. Type: text
 #. Description
@@ -228,13 +242,13 @@ msgstr "キーマップを推測:"
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Guess..."
-msgstr "推測しています..."
+msgstr "推測..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Please press one of the following keys:"
-msgstr ""
+msgstr "以下のキーのうち1つを押してください:"
 
 #. Type: text
 #. Description
@@ -258,7 +272,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Below is an image of your current layout:"
-msgstr ""
+msgstr "以下は現在のレイアウトの画像です:"
 
 #. Type: text
 #. Description
@@ -590,7 +604,7 @@ msgstr "インストールをキャンセルします。"
 #. Description
 #: ../ubiquity.templates:85001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "このままではコンピュータがブートできないかもしれません。"
 
 #. Type: text
 #. Description
@@ -1457,7 +1471,7 @@ msgstr "アップデートインストーラのエラー"
 #. Description
 #: ../ubiquity.templates:211001
 msgid "The installer encountered an error while trying to update itself:"
-msgstr ""
+msgstr "インストーラのアップデートを行う間にエラーが発生しました:"
 
 #. Type: text
 #. Description
@@ -1480,6 +1494,8 @@ msgid ""
 "Please choose the language to use for the install process. This\n"
 " Language will be the default language for this computer."
 msgstr ""
+"インストールプロセスで使用する言語を選択してください。\n"
+"この言語はこのコンピュータでのデフォルトの言語に設定されます。"
 
 #. Type: text
 #. Description
@@ -1495,7 +1511,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:216001
 msgid "Continue with installation."
-msgstr ""
+msgstr "インストールを続けます。"
 
 #. Type: text
 #. Description
@@ -1519,9 +1535,9 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:218001
 #, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
+#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "ハードディスクにファイルをコピー中にエラーが発生しました:"
+msgstr "インストーラのアップデートを行う間にエラーが発生しました:"
 
 #. Type: title
 #. Description
@@ -1530,7 +1546,7 @@ msgstr "ハードディスクにファイルをコピー中にエラーが発生
 #, fuzzy
 #| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "インストール（PC製造業者のためのOEMモード）"
+msgstr "OEMモードのインストール (PC製造業者用)"
 
 #. Type: text
 #. Description
@@ -1580,3 +1596,11 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:2001
+#, fuzzy
+#| msgid "Removing extra packages..."
+msgid "Removing packages"
+msgstr "余分なパッケージを削除しています..."

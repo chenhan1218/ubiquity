@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 00:45+0100\n"
-"PO-Revision-Date: 2010-04-09 10:01+0000\n"
-"Last-Translator: Vu Do Quynh <vdquynh@gmail.com>\n"
+"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"PO-Revision-Date: 2010-04-11 01:38+0000\n"
+"Last-Translator: Lê Kiến Trúc <Unknown>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
+"X-Launchpad-Export-Date: 2010-04-14 16:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -233,7 +233,7 @@ msgstr "Lựa chọn riêng của bạn:"
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Guess keymap:"
-msgstr "đoán sơ đồ bàn phím:"
+msgstr "Đoán sơ đồ bàn phím:"
 
 #. Type: text
 #. Description
@@ -350,31 +350,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Strength: too short"
-msgstr "Sức mạnh: ngắn quá"
+msgstr "Độ mạnh: ngắn quá"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Strength: weak"
-msgstr "Sức mạnh: yếu"
+msgstr "Độ mạnh: yếu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Strength: fair"
-msgstr "Sức mạnh: khá"
+msgstr "Độ mạnh: khá"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Strength: good"
-msgstr "Sức mạnh: tốt"
+msgstr "Độ mạnh: tốt"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Strength: strong"
-msgstr "Sức mạnh: thật tốt"
+msgstr "Độ mạnh: rất tốt"
 
 #. Type: text
 #. Description
@@ -1581,3 +1581,11 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:2001
+#, fuzzy
+#| msgid "Removing extra packages..."
+msgid "Removing packages"
+msgstr "Đang loại bỏ các gói thừa..."

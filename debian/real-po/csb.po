@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 00:45+0100\n"
-"PO-Revision-Date: 2010-03-23 16:50+0000\n"
+"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"PO-Revision-Date: 2010-04-12 13:25+0000\n"
 "Last-Translator: Mark Kwidzińsczi <mark@linuxcsb.org>\n"
 "Language-Team: Kashubian <csb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
+"X-Launchpad-Export-Date: 2010-04-14 16:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -151,6 +151,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2010."
 msgstr ""
+"Je to przedwëdôwkòwô wersëjô instalownika ${MEDIUM} platczi live ${RELEASE}. "
+"Nie je to kùńcowi wëdôwk ${RELEASE} - nen bãdze we łżwkwiace 2010 roku."
 
 #. Type: text
 #. Description
@@ -160,6 +162,9 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
+"Instalacjowi proces mòże zmienic wielgòsc abò rëmnąc particëjã na twòjim "
+"cwiardim diskù. Żebë jisc dali, ùgwësni sã, że <b>môsz ùsôdzoną kòpijã "
+"wôżnych pòdôwków</b>,"
 
 #. Type: text
 #. Description
@@ -183,7 +188,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Time Zone:"
-msgstr ""
+msgstr "Czasowô cona:"
 
 #. Type: text
 #. Description
@@ -225,25 +230,25 @@ msgstr "Swój wëbiérk:"
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Guess keymap:"
-msgstr ""
+msgstr "Nalezenié ùstôwù klawiaturë"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Guess..."
-msgstr ""
+msgstr "Nalezë..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Please press one of the following keys:"
-msgstr ""
+msgstr "Proszã wcësnąc jedną z nôslédnych knapów:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Is the following key present on your keyboard?"
-msgstr ""
+msgstr "Je nen céch na klawiaturze?"
 
 #. Type: text
 #. Description
@@ -279,7 +284,7 @@ msgstr "Jaczé je Twòji miono?"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Full Name"
-msgstr ""
+msgstr "Fùl miono ë nôzwëskò"
 
 #. Type: text
 #. Description
@@ -291,7 +296,7 @@ msgstr "Jaczé miono të bë chcôł brëkòwac do logòwaniô?"
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Username"
-msgstr ""
+msgstr "Miono brëkòwnika"
 
 #. Type: text
 #. Description
@@ -313,13 +318,13 @@ msgstr "Ùstôwi parolã, abë Twòje kònto bëło bezpieczne."
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Password"
-msgstr ""
+msgstr "Parola"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Re-enter password"
-msgstr ""
+msgstr "Proszã wpisac parolã znowa"
 
 #. Type: text
 #. Description
@@ -341,31 +346,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Strength: too short"
-msgstr ""
+msgstr "Mòc parolë: za krótkô"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Strength: weak"
-msgstr ""
+msgstr "Mòc parolë: słabô"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Strength: fair"
-msgstr ""
+msgstr "Mòc parolë: strzednô"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Strength: good"
-msgstr ""
+msgstr "Mòc parolë: dobrô"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Strength: strong"
-msgstr ""
+msgstr "Mòc parolë: mòcnô"
 
 #. Type: text
 #. Description
@@ -377,7 +382,7 @@ msgstr "Jaczé mô bëc miono dlô tegò kòmpùtra?"
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Computer Name"
-msgstr ""
+msgstr "Miono kòmpùtra"
 
 #. Type: text
 #. Description
@@ -585,13 +590,13 @@ msgstr "Òprzestóń instalacëjã."
 #. Description
 #: ../ubiquity.templates:85001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "Twój kòmpùtr mòże nie bëc w sztãdze zrëszëc òperacjową systemã."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "Co chcesz zrobic?"
 
 #. Type: text
 #. Description
@@ -1232,6 +1237,9 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"Pòkôza sã fela przë przenoszeniu pòdôwków. Wicy detalów mòże nalezc w /var/"
+"log/syslog. Instalacëjô jidze dali, równak dzél abò wszëtczé dokùmentë ë "
+"nastôwë mògą nie bëc przeniosłé do winstalowóny systemë."
 
 #. Type: error
 #. Description
@@ -1463,6 +1471,8 @@ msgid ""
 "Please choose the language to use for the install process. This\n"
 " Language will be the default language for this computer."
 msgstr ""
+"Proszã wëbrac jãzëk dlô instalacjowégò procesu.  Nen\n"
+" jãzëk bãdze domëslnym dlô twòjegò kòmpùtra."
 
 #. Type: text
 #. Description
@@ -1563,3 +1573,11 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:2001
+#, fuzzy
+#| msgid "Removing extra packages..."
+msgid "Removing packages"
+msgstr "Rëmanié dodôwnëch paczétów..."

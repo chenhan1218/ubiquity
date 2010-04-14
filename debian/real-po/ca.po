@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 00:45+0100\n"
-"PO-Revision-Date: 2010-04-01 02:40+0000\n"
-"Last-Translator: Siegfried Gevatter <rainct@ubuntu.com>\n"
+"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"PO-Revision-Date: 2010-04-13 21:40+0000\n"
+"Last-Translator: Joan Duran <jodufi@gmail.com>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
+"X-Launchpad-Export-Date: 2010-04-14 16:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -89,13 +89,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
-msgstr ""
+msgstr "Proveu ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
-msgstr ""
+msgstr "Instal·leu ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -105,6 +105,10 @@ msgid ""
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+"Esteu preparats per a instal·lar? Un cop respongueu a unes poques preguntes, "
+"el contingut del ${MEDIUM} en viu es podrà instal·lar en aquest ordinador de "
+"manera que podreu executar ${RELEASE} a velocitat màxima sense fer servir el "
+"${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -150,6 +154,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2010."
 msgstr ""
+"Aquesta és una versió prèvia de l'instal·lador del ${MEDIUM} en viu de la "
+"distribució ${RELEASE}. No és la versió final; aquesta vindrà amb el "
+"llançament de la versió ${RELEASE} a l'abril de 2010."
 
 #. Type: text
 #. Description
@@ -159,6 +166,9 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
+"El procés d'instal·lació pot canviar la mida o esborrar particions del disc "
+"dur. Assegureu-vos de fer <b>una còpia de seguretat completa de les dades "
+"importants</b> abans d'executar aquest programa."
 
 #. Type: text
 #. Description
@@ -182,7 +192,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Time Zone:"
-msgstr ""
+msgstr "Fus horari:"
 
 #. Type: text
 #. Description
@@ -232,19 +242,19 @@ msgstr "Determina la disposició del teclat:"
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Guess..."
-msgstr ""
+msgstr "Endevina..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Please press one of the following keys:"
-msgstr ""
+msgstr "Premeu una de les tecles següents:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Is the following key present on your keyboard?"
-msgstr ""
+msgstr "Teniu la tecla següent al vostre teclat?"
 
 #. Type: text
 #. Description
@@ -262,7 +272,7 @@ msgstr "Variant:"
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Below is an image of your current layout:"
-msgstr ""
+msgstr "A sota es mostra una imatge de la vostra distribució actual:"
 
 #. Type: text
 #. Description
@@ -280,7 +290,7 @@ msgstr "Com us dieu?"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Full Name"
-msgstr ""
+msgstr "Nom complet"
 
 #. Type: text
 #. Description
@@ -292,7 +302,7 @@ msgstr "Quin nom voleu utilitzar per a entrar al sistema?"
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Username"
-msgstr ""
+msgstr "﻿Nom d'usuari"
 
 #. Type: text
 #. Description
@@ -314,13 +324,13 @@ msgstr "Seleccioneu una contrasenya per a mantenir el vostre compte segur."
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Password"
-msgstr ""
+msgstr "Contrasenya"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Re-enter password"
-msgstr ""
+msgstr "Torneu a introduir la contrasenya"
 
 #. Type: text
 #. Description
@@ -342,31 +352,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Strength: too short"
-msgstr ""
+msgstr "Força: massa curta"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Strength: weak"
-msgstr ""
+msgstr "Força: dèbil"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Strength: fair"
-msgstr ""
+msgstr "Força: acceptable"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Strength: good"
-msgstr ""
+msgstr "Força: bona"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Strength: strong"
-msgstr ""
+msgstr "Força: molt bona"
 
 #. Type: text
 #. Description
@@ -378,7 +388,7 @@ msgstr "Quin és el nom d'aquest ordinador?"
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Computer Name"
-msgstr ""
+msgstr "Nom de l'ordinador"
 
 #. Type: text
 #. Description
@@ -549,7 +559,7 @@ msgstr "Realment voleu sortir de la instal·lació?"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Bootloader install failed"
-msgstr ""
+msgstr "Ha fallat la instal·lació del carregador d'arrencada"
 
 #. Type: text
 #. Description
@@ -558,18 +568,21 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
+"S'ha produït un error i no s'ha pogut instal·lar el carregador d'arrencada a "
+"la ubicació especificada."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:81001
 msgid "Choose a different device to install the bootloader on:"
 msgstr ""
+"Trieu un dispositiu diferent per instal·lar-hi el carregador d'arrencada:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:82001
 msgid "Continue without a bootloader."
-msgstr ""
+msgstr "Continueu sense cap carregador d'arrencada."
 
 #. Type: text
 #. Description
@@ -577,6 +590,8 @@ msgstr ""
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
+"Necessitareu instal·lar manualment un carregador d'arrencada per poder "
+"iniciar ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -588,13 +603,13 @@ msgstr "Cancel·la la instal·lació."
 #. Description
 #: ../ubiquity.templates:85001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "Pot ser que això faci que l'ordinador no pugui d'arrencar."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "Com voleu continuar?"
 
 #. Type: text
 #. Description
@@ -701,7 +716,7 @@ msgstr "Reverteix"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Recalculating partitions..."
-msgstr ""
+msgstr "S'estan tornant a calcular les particions..."
 
 #. Type: text
 #. Description
@@ -1234,7 +1249,7 @@ msgstr "S'ha produit un error mentre es suprimien paquets:"
 #. Description
 #: ../ubiquity.templates:168001
 msgid "Error migrating documents and settings"
-msgstr ""
+msgstr "S'ha produït un error en migrar els documents i els paràmetres"
 
 #. Type: error
 #. Description
@@ -1245,12 +1260,16 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"S'ha produït un error durant la migració de les dades. Podeu obtenir més "
+"detalls a /var/log/syslog. La instal·lació continuarà, però alguns o tots "
+"els documents i els paràmetres que heu sol·licitat no s'hauran transferit al "
+"sistema instal·lat."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:169001
 msgid "Error copying network configuration"
-msgstr ""
+msgstr "S'ha produït un error en copiar la configuració de la xarxa."
 
 #. Type: error
 #. Description
@@ -1260,6 +1279,9 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"S'ha produït un error en copiar els paràmetres de la xarxa. La instal·lació "
+"continuarà, però la xarxa s'haurà de tornar a configurar en el sistema "
+"instal·lat."
 
 #. Type: text
 #. Description
@@ -1322,6 +1344,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
+"Algunes de les particions que heu creat són massa petites. Feu que les "
+"particions següents tinguin com a mínim aquesta capacitat:"
 
 #. Type: boolean
 #. Description
@@ -1409,25 +1433,25 @@ msgstr "procés d'instal·lació"
 #. Description
 #: ../ubiquity.templates:205001
 msgid "Checking for installer updates"
-msgstr ""
+msgstr "S'està comprovant si hi ha actualitzacions de l'instal·lador"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:206001
 msgid "Reading package information"
-msgstr ""
+msgstr "S'està llegint la informació del paquet"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:207001
 msgid "Updating package information"
-msgstr ""
+msgstr "S'està actualitzant la informació del paquet"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:208001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr ""
+msgstr "Fitxer ${INDEX} de ${TOTAL} a ${SPEED}/s"
 
 #. Type: text
 #. Description
@@ -1439,33 +1463,33 @@ msgstr "Fitxer ${INDEX} de ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:210001
 msgid "Installing update"
-msgstr ""
+msgstr "S'està instal·lant l'actualització"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:211001
 msgid "Error updating installer"
-msgstr ""
+msgstr "S'ha produït un error en actualitzar l'instal·lador"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:211001
 msgid "The installer encountered an error while trying to update itself:"
-msgstr ""
+msgstr "L'instal·lador ha trobat un error quan intentava actualitzar-se:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:212001
 msgid "USB"
-msgstr ""
+msgstr "USB"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
 #: ../ubiquity.templates:213001
 msgid "CD"
-msgstr ""
+msgstr "CD"
 
 #. Type: text
 #. Description
@@ -1474,6 +1498,8 @@ msgid ""
 "Please choose the language to use for the install process. This\n"
 " Language will be the default language for this computer."
 msgstr ""
+"Trieu l'idioma que s'utilitzarà durant el procés d'instal·lació. \n"
+"Aquest idioma serà l'idioma predeterminat d'aquest ordinador."
 
 #. Type: text
 #. Description
@@ -1489,7 +1515,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:216001
 msgid "Continue with installation."
-msgstr ""
+msgstr "Continueu amb l'instal·lació."
 
 #. Type: text
 #. Description
@@ -1513,10 +1539,9 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:218001
 #, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
+#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr ""
-"L'instal·lador ha trobat un error mentre copiava els arxius al disc dur:"
+msgstr "L'instal·lador ha trobat un error quan intentava actualitzar-se:"
 
 #. Type: title
 #. Description
@@ -1575,3 +1600,11 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:2001
+#, fuzzy
+#| msgid "Removing extra packages..."
+msgid "Removing packages"
+msgstr "S'estan suprimint els paquets extra..."

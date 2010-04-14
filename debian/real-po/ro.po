@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 00:45+0100\n"
-"PO-Revision-Date: 2010-04-05 19:11+0000\n"
-"Last-Translator: Adi Roiban <adi@roiban.ro>\n"
+"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"PO-Revision-Date: 2010-04-11 14:19+0000\n"
+"Last-Translator: Claudia Cotună <special4ti@gmail.com>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
+"X-Launchpad-Export-Date: 2010-04-14 16:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -32,7 +32,7 @@ msgstr "Șterge și folosește întreg discul"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr "Instalează una lângă alta, alegând între ele la pornire"
+msgstr "Instalează sistemele unul lângă altul, alegând între ele la pornire"
 
 #. Type: text
 #. Description
@@ -103,24 +103,24 @@ msgid ""
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
-"Gata de instalare?  O dată ce ați răspuns câtorva întrebări, conținutul "
-"acestui ${MEDIUM} live poate fi instalat pe acest calculator, astfel încât "
-"veți putea folosi ${RELEASE} la viteză deplină, fără a mai fi nevoie de "
-"acest ${MEDIUM}."
+"Gata de instalare? Odată ce ați răspuns la câteva întrebări, conținutul "
+"acestui ${MEDIUM} live poate fi instalat pe calculator, astfel încât veți "
+"putea folosi ${RELEASE} la viteză întreagă, fără a mai fi nevoie de "
+"${MEDIUM}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
-"După ce ați răspuns la câteva întrebări, calculatorul va fi pregătit de "
+"După ce veți răspunde la câteva întrebări, calculatorul va fi pregătit de "
 "utilizare."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Answering the questions should only take a few minutes."
-msgstr "Răspunsul la întrebări ar trebui să ia doar câteva minute."
+msgstr "Va dura doar câteva minute să răspundeți la întrebări."
 
 #. Type: text
 #. Description
@@ -129,20 +129,20 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Probabil doriți să citiți <a href=\"release-notes\">notele de lansare</a> "
-"sau <a href=\"update\">actualizarea acestui instalator</a>."
+"Dacă doriți, puteți să citiți <a href=\"release-notes\">notele de lansare</"
+"a> sau să <a href=\"update\">actualizați acest program de instalare</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr ""
+msgstr "Puteți citi <a href=\"release-notes\">notele de lansare</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr ""
+msgstr "Puteți <a href=\"update\">actualiza programul de instalare</a>."
 
 #. Type: text
 #. Description
@@ -152,6 +152,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2010."
 msgstr ""
+"Aceasta este versiunea de pre-lansare a programului de instalare pentru "
+"${MEDIUM} live ${RELEASE}. Nu este versiunea finală; aceea va sosi odată cu "
+"versiunea finală de ${RELEASE}, ce va fi lansată în luna aprilie 2010."
 
 #. Type: text
 #. Description
@@ -161,6 +164,9 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
+"Procesul de instalare poate redimensiona sau șterge partiții de pe hard "
+"discul dumneavoastră. Asigurați-vă că <b>ați creat o copie de rezervă a "
+"datelor importante</b> înainte de a rula acest program."
 
 #. Type: text
 #. Description
@@ -184,7 +190,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Time Zone:"
-msgstr ""
+msgstr "Fus orar:"
 
 #. Type: text
 #. Description
@@ -228,25 +234,25 @@ msgstr "Alegere personală:"
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Guess keymap:"
-msgstr ""
+msgstr "Detectează automat tipul tastaturii:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Guess..."
-msgstr ""
+msgstr "Detectează..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Please press one of the following keys:"
-msgstr ""
+msgstr "Apăsați una dintre următoarele taste:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Is the following key present on your keyboard?"
-msgstr ""
+msgstr "Este prezentă următoarea tastă pe tastatura dumneavoastră?"
 
 #. Type: text
 #. Description
@@ -282,7 +288,7 @@ msgstr "Care este numele dumneavoastră?"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Full Name"
-msgstr ""
+msgstr "Numele complet"
 
 #. Type: text
 #. Description
@@ -294,7 +300,7 @@ msgstr "Ce nume doriți să folosiți pentru autentificare?"
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Username"
-msgstr ""
+msgstr "Nume de utilizator"
 
 #. Type: text
 #. Description
@@ -303,8 +309,8 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Dacă acest calculator va fi utilizat de mai multe persoane, puteți defini "
-"mai multe conturi după instalare."
+"Dacă acest calculator va fi utilizat de mai multe persoane, puteți crea mai "
+"multe conturi după instalare."
 
 #. Type: text
 #. Description
@@ -316,13 +322,13 @@ msgstr "Alegeți o parolă pentru a menține acest cont în siguranță."
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Password"
-msgstr ""
+msgstr "Parolă"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Re-enter password"
-msgstr ""
+msgstr "Reintroduceți parola"
 
 #. Type: text
 #. Description
@@ -344,43 +350,43 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Strength: too short"
-msgstr ""
+msgstr "Securitate: prea scurtă"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Strength: weak"
-msgstr ""
+msgstr "Securitate: slabă"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Strength: fair"
-msgstr ""
+msgstr "Securitate: acceptabilă"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Strength: good"
-msgstr ""
+msgstr "Securitate: bună"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Strength: strong"
-msgstr ""
+msgstr "Securitate: puternică"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "What is the name of this computer?"
-msgstr "Cum se numește acest calculator?"
+msgstr "Care este numele acestui calculator?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Computer Name"
-msgstr ""
+msgstr "Nume calculator"
 
 #. Type: text
 #. Description
@@ -916,7 +922,7 @@ msgstr ""
 " Numele de utilizator: ${USERNAME}\n"
 " Locația: ${LOCATION}\n"
 " Asistare migrație:\n"
-"${MIGRATE}"
+" ${MIGRATE}"
 
 #. Type: text
 #. Description
@@ -1134,7 +1140,7 @@ msgstr "Se instalează pachete adiționale..."
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Checking for packages to install..."
-msgstr "Se verifică pachetele pentru instalare..."
+msgstr "Se caută pachete de instalat..."
 
 #. Type: text
 #. Description
@@ -1343,7 +1349,7 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
-"Dacă nu vă întoarceți la utilitarul de partiționare și nu măriți dimensiunea "
+"Dacă nu reveniți la utilitarul de partiționare și nu măriți dimensiunea "
 "acestor partiții, instalarea poate eșua."
 
 #. Type: text
@@ -1487,6 +1493,8 @@ msgid ""
 "Please choose the language to use for the install process. This\n"
 " Language will be the default language for this computer."
 msgstr ""
+"Alegeți limba pentru procesul de instalare. Aceasta\n"
+" va fi limba implicită pentru acest calculator."
 
 #. Type: text
 #. Description
@@ -1502,7 +1510,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:216001
 msgid "Continue with installation."
-msgstr ""
+msgstr "Continuă instalarea."
 
 #. Type: text
 #. Description
@@ -1587,3 +1595,11 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:2001
+#, fuzzy
+#| msgid "Removing extra packages..."
+msgid "Removing packages"
+msgstr "Se elimină pachetele suplimentare..."

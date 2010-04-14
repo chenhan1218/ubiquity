@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 00:45+0100\n"
-"PO-Revision-Date: 2010-04-06 16:49+0000\n"
-"Last-Translator: Jurgis Pralgauskis <Unknown>\n"
+"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"PO-Revision-Date: 2010-04-13 13:27+0000\n"
+"Last-Translator: Aurimas Fišeras <Unknown>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
+"X-Launchpad-Export-Date: 2010-04-14 16:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1170,7 +1170,7 @@ msgstr "Atsiunčiami paketų sąrašai..."
 #. Description
 #: ../ubiquity.templates:162001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Atsiunčiami paketų sąrašai (${TIME} liko)..."
+msgstr "Atsiunčiami paketų sąrašai (liko ${TIME})..."
 
 #. Type: error
 #. Description
@@ -1290,7 +1290,7 @@ msgstr "Diegiami kalbos paketai"
 #. Description
 #: ../ubiquity.templates:175001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Atsiunčiami kalbos paketai (${TIME} liko)..."
+msgstr "Atsiunčiami kalbos paketai (liko ${TIME})..."
 
 #. Type: boolean
 #. Description
@@ -1593,3 +1593,11 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:2001
+#, fuzzy
+#| msgid "Removing extra packages..."
+msgid "Removing packages"
+msgstr "Pašalinami papildomi (nereikalingi) paketai..."

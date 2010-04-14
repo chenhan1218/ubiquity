@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 00:45+0100\n"
-"PO-Revision-Date: 2009-10-15 10:09+0000\n"
-"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
+"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"PO-Revision-Date: 2010-04-13 10:09+0000\n"
+"Last-Translator: helix84 <Unknown>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-09 18:16+0000\n"
+"X-Launchpad-Export-Date: 2010-04-14 16:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -80,18 +80,20 @@ msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
 msgstr ""
+"Môžete skúsiť ${RELEASE} z tohto ${MEDIUM} bez vykonania akýchkoľvek zmien "
+"vo vašom systéme."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
-msgstr ""
+msgstr "Skúsiť ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
-msgstr ""
+msgstr "Nainštalovat ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -101,6 +103,9 @@ msgid ""
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+"Ste pripravený na inštaláciu? Potom ako zodpoviete niekoľko otázok sa obsah "
+"tohto live ${MEDIUM} nainštaluje na tento počítač a budete môcť spúšťať "
+"${RELEASE} v plnej rýchlosti bez tohto ${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -121,18 +126,20 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
+"Môžete si prečítať <a href=\"release-notes\">Poznámky k vydaniu</a> alebo <a "
+"href=\"update\">aktualizovať tento inštalátor</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr ""
+msgstr "Môžete si prečítať <a href=\"release-notes\">Poznámky k vydaniu</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr ""
+msgstr "Môžete <a href=\"update\">aktualizovať tento inštalátor</a>."
 
 #. Type: text
 #. Description
@@ -142,6 +149,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2010."
 msgstr ""
+"Toto ešte nie je finálne vydanie inštalátora ${RELEASE} live ${MEDIUM}. "
+"Finálne vydanie inštalátora bude dostupné zároveň s finálnym vydaním "
+"${RELEASE} v apríli 2010."
 
 #. Type: text
 #. Description
@@ -151,6 +161,9 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
+"Inštalačný proces môže zmeniť veľkosť alebo zmazať oblasti na vašom disku. "
+"Uistite sa, že pred spustením tohto programu <b>vykonáte úplnú zálohu "
+"akýchkoľvek cenných dát</b>."
 
 #. Type: text
 #. Description
@@ -174,7 +187,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Time Zone:"
-msgstr ""
+msgstr "Časové pásmo:"
 
 #. Type: text
 #. Description
@@ -217,43 +230,43 @@ msgstr "Zvoľte vlastné:"
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Guess keymap:"
-msgstr ""
+msgstr "Odhadnúť rozloženie kláves"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Guess..."
-msgstr ""
+msgstr "Odhadnúť..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Please press one of the following keys:"
-msgstr ""
+msgstr "Prosím, stlačte jeden z nasledovných klávesov:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Is the following key present on your keyboard?"
-msgstr ""
+msgstr "Je nasledovný kláves dostupný na vašom systéme?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Layout:"
-msgstr ""
+msgstr "Rozloženie:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Variant:"
-msgstr ""
+msgstr "Variant:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Below is an image of your current layout:"
-msgstr ""
+msgstr "Dolu je náhľad vášho aktuálneho rozloženia:"
 
 #. Type: text
 #. Description
@@ -271,7 +284,7 @@ msgstr "Ako sa voláte?"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Full Name"
-msgstr ""
+msgstr "Celé meno"
 
 #. Type: text
 #. Description
@@ -283,7 +296,7 @@ msgstr "Aké prihlasovacie meno chcete používať?"
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Username"
-msgstr ""
+msgstr "Meno používateľa"
 
 #. Type: text
 #. Description
@@ -305,13 +318,13 @@ msgstr "Zvoľte heslo na zabezpečenie svojho účtu."
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Password"
-msgstr ""
+msgstr "Heslo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Re-enter password"
-msgstr ""
+msgstr "Znovu zadajte heslo"
 
 #. Type: text
 #. Description
@@ -333,31 +346,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Strength: too short"
-msgstr ""
+msgstr "Sila: príliš krátke"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Strength: weak"
-msgstr ""
+msgstr "Sila: slabé"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Strength: fair"
-msgstr ""
+msgstr "Sila: dostatočné"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Strength: good"
-msgstr ""
+msgstr "Sila: dobré"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Strength: strong"
-msgstr ""
+msgstr "Sila: silné"
 
 #. Type: text
 #. Description
@@ -369,7 +382,7 @@ msgstr "Aký názov priradíte tomuto počítaču?"
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Computer Name"
-msgstr ""
+msgstr "Názov počítača"
 
 #. Type: text
 #. Description
@@ -539,7 +552,7 @@ msgstr "Chcete skutočne ukončiť inštaláciu?"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Bootloader install failed"
-msgstr ""
+msgstr "Inštalácia zavádzača systému zlyhala"
 
 #. Type: text
 #. Description
@@ -548,18 +561,20 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
+"Prepáčte, objavila sa chyba a zavádzač systému na uvedené miesto nebolo "
+"možné nainštalovať."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:81001
 msgid "Choose a different device to install the bootloader on:"
-msgstr ""
+msgstr "Vyberte iné zariadenie, na ktoré chcete nainštalovať zavádzač systému;"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:82001
 msgid "Continue without a bootloader."
-msgstr ""
+msgstr "Pokračovať bez zavádzača systému."
 
 #. Type: text
 #. Description
@@ -567,24 +582,25 @@ msgstr ""
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
+"Aby ste mohli spustiť ${RELEASE}, musíte zavádzač systému nainštalovať ručne."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:84001
 msgid "Cancel the installation."
-msgstr ""
+msgstr "Zrušiť inštaláciu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:85001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "To môže zanechať váš systém v nespustiteľnom stave."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "Ako si želáte pokračovať?"
 
 #. Type: text
 #. Description
@@ -691,7 +707,7 @@ msgstr "Vrátiť"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Recalculating partitions..."
-msgstr ""
+msgstr "Prepočítavajú sa diskové oblasti..."
 
 #. Type: text
 #. Description
@@ -909,7 +925,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Verifying the installation configuration..."
-msgstr ""
+msgstr "Overuje sa konfigurácia inštalácie..."
 
 #. Type: title
 #. Description
@@ -1221,7 +1237,7 @@ msgstr "Pri odstraňovaní balíkov sa vyskytla chyba:"
 #. Description
 #: ../ubiquity.templates:168001
 msgid "Error migrating documents and settings"
-msgstr ""
+msgstr "Chyba pri migrácii dokumentov a nastavení"
 
 #. Type: error
 #. Description
@@ -1232,12 +1248,15 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"Pri migrácii dát nastala chyba. Podrobnosti nájdete v adresári /var/log/"
+"syslog. Inštalácia bude pokračovať, ale niektoré alebo všetky dokumenty a "
+"nastavenia nebude nemusia byť prenesené do nainštalovaného systému"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:169001
 msgid "Error copying network configuration"
-msgstr ""
+msgstr "Chyba pri kopírovaní nastavenia siete"
 
 #. Type: error
 #. Description
@@ -1247,6 +1266,8 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"Pri kopírovaní nastavenia siete nastala chyba. Inštalácia bude pokračovať, "
+"ale na nainštalovanom systéme budete musieť znova nastaviť sieť."
 
 #. Type: text
 #. Description
@@ -1308,6 +1329,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
+"Niektoré diskové oblasti, ktoré ste vytvorili sú príliš malé. Prosím, "
+"zväčšite nasledovné oblasti aspoň na túto veľkosť:"
 
 #. Type: boolean
 #. Description
@@ -1395,63 +1418,63 @@ msgstr "proces inštalácie"
 #. Description
 #: ../ubiquity.templates:205001
 msgid "Checking for installer updates"
-msgstr ""
+msgstr "Kontrolujú sa aktualizácie inštalátora"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:206001
 msgid "Reading package information"
-msgstr ""
+msgstr "Čítajú sa informácie o balíkoch"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:207001
 msgid "Updating package information"
-msgstr ""
+msgstr "Aktualizujú sa informácie o balíkoch"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:208001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr ""
+msgstr "${INDEX}. súbor z ${TOTAL} pri ${SPEED}/s"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "${INDEX}. súbor z ${TOTAL}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:210001
 msgid "Installing update"
-msgstr ""
+msgstr "Inštaluje sa aktualizácia"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:211001
 msgid "Error updating installer"
-msgstr ""
+msgstr "Chyba pri aktualizácii inštalátora"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:211001
 msgid "The installer encountered an error while trying to update itself:"
-msgstr ""
+msgstr "Inštalátor pri pokuse aktualizovať sa narazil na chybu:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:212001
 msgid "USB"
-msgstr ""
+msgstr "USB"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
 #: ../ubiquity.templates:213001
 msgid "CD"
-msgstr ""
+msgstr "CD"
 
 #. Type: text
 #. Description
@@ -1460,6 +1483,8 @@ msgid ""
 "Please choose the language to use for the install process. This\n"
 " Language will be the default language for this computer."
 msgstr ""
+"Prosím, vyberte jazyk, ktorý sa použije počas inštalácie. Tento\n"
+" jazyk bude predvoleným jazykom tohto počítača."
 
 #. Type: text
 #. Description
@@ -1475,7 +1500,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:216001
 msgid "Continue with installation."
-msgstr ""
+msgstr "Pokračovať v inštalácii."
 
 #. Type: text
 #. Description
@@ -1499,9 +1524,9 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:218001
 #, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
+#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "Inštalátor narazil na chybu pri kopírovaní súborov na pevný disk:"
+msgstr "Inštalátor pri pokuse aktualizovať sa narazil na chybu:"
 
 #. Type: title
 #. Description
@@ -1560,3 +1585,11 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:2001
+#, fuzzy
+#| msgid "Removing extra packages..."
+msgid "Removing packages"
+msgstr "Odstraňujú sa extra balíky..."
