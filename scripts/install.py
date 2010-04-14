@@ -686,6 +686,22 @@ class Install:
         else:
             md5_check = True
 
+        # Increase kernel flush times during bulk data copying to make it
+        # more likely that small files are packed contiguously, which should
+        # speed up initial boot times.
+        dirty_writeback_centisecs = None
+        dirty_expire_centisecs = None
+        if os.path.exists('/proc/sys/vm/dirty_writeback_centisecs'):
+            with open('/proc/sys/vm/dirty_writeback_centisecs') as dwc:
+                dirty_writeback_centisecs = int(dwc.readline())
+            with open('/proc/sys/vm/dirty_writeback_centisecs', 'w') as dwc:
+                print >>dwc, '3000\n'
+        if os.path.exists('/proc/sys/vm/dirty_expire_centisecs'):
+            with open('/proc/sys/vm/dirty_expire_centisecs') as dec:
+                dirty_expire_centisecs = int(dec.readline())
+            with open('/proc/sys/vm/dirty_expire_centisecs', 'w') as dec:
+                print >>dec, '6000\n'
+
         old_umask = os.umask(0)
         for dirpath, dirnames, filenames in os.walk(self.source):
             sp = dirpath[len(self.source) + 1:]
@@ -765,6 +781,14 @@ class Install:
                 # I have no idea why I've been getting lots of bug reports
                 # about this failing, but I really don't care. Ignore it.
                 pass
+
+        # Revert to previous kernel flush times.
+        if dirty_writeback_centisecs is not None:
+            with open('/proc/sys/vm/dirty_writeback_centisecs', 'w') as dwc:
+                print >>dwc, dirty_writeback_centisecs
+        if dirty_expire_centisecs is not None:
+            with open('/proc/sys/vm/dirty_expire_centisecs', 'w') as dec:
+                print >>dec, dirty_expire_centisecs
 
         # Try some possible locations for the kernel we used to boot. This
         # lets us save a couple of megabytes of CD space.

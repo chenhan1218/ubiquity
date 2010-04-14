@@ -20,6 +20,10 @@ ubiquity (2.2.17) UNRELEASED; urgency=low
     removing oem-config (LP: #558593).
   * Write locale-gen output from ubiquity-dm to /var/log/installer/dm rather
     than to the console.
+  * Increase kernel flush times (dirty_writeback_centisecs to 3000, and
+    dirty_expire_centisecs to 6000) during bulk data copying.  Surbhi
+    Palande suggests that this should make it easier for the kernel to pack
+    blocks contiguously, speeding up ureadahead after installation.
 
   [ Amichai Rothman ]
   * Fix hang unless mouse is moved (LP: #556376)
