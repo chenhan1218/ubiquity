@@ -358,6 +358,9 @@ EndSection
                     root_win.setPalette(palette)
                     root_win.setCursor(Qt.ArrowCursor)
                     a.processEvents()
+                    # Force garbage collection so we don't end up with stray X
+                    # resources when we kill the X server (LP: #556555).
+                    del a
 
             subprocess.call(
                 ['kwriteconfig', '--file', 'kwinrc', '--group', 'Compositing',
