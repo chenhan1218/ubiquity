@@ -7,6 +7,8 @@ ubiquity (2.2.18) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Break out of oem-config-firstboot's main loop if oem-config-wrapper
     succeeds (LP: #558593).
+  * Quit plymouth before starting either the emergency noninteractive
+    ubiquity frontend in automatic mode, or oem-config's debconf frontend.
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 15 Apr 2010 16:07:38 +0100
 
