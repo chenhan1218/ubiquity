@@ -1,5 +1,8 @@
 #! /bin/sh
 # Remove oem-config.
+# TODO: all of this should be moved into oem-config itself, but that's far
+# too risky for 10.04 LTS since we have to be very careful not to open any
+# files shipped by any ubiquity binary package after removing them.
 set -e
 
 case $1 in
