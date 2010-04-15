@@ -63,7 +63,9 @@ for try in $(seq 1 $TRY); do
 		/usr/bin/ubiquity-dm vt7 :0 root \
 			/usr/sbin/oem-config-wrapper $DEBUG --only || CODE=$?
 	fi
-	if [ "$CODE" -eq 10 ]; then
+	if [ "$CODE" -eq 0 ]; then
+		exit 0
+	elif [ "$CODE" -eq 10 ]; then
 		cat <<EOF
 Your system is not yet configured. Press 'a' to try again, 's' for a
 recovery shell, or 'r' to reboot.
