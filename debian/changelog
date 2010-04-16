@@ -1,4 +1,4 @@
-ubiquity (2.2.18) UNRELEASED; urgency=low
+ubiquity (2.2.18) lucid; urgency=low
 
   [ Evan Dandrea ]
   * Force garbage collection so we don't end up with stray X resources
@@ -27,7 +27,7 @@ ubiquity (2.2.18) UNRELEASED; urgency=low
   * Get a controlling terminal before starting bterm, as otherwise bterm
     won't reliably be able to take console input.
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 15 Apr 2010 16:07:38 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 16 Apr 2010 15:28:19 +0100
 
 ubiquity (2.2.17) lucid; urgency=low
 
