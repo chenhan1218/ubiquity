@@ -13,6 +13,7 @@ ubiquity (2.2.18) UNRELEASED; urgency=low
     (LP: #564582).
   * Start the window manager via ck-launch-session so pulseaudio is
     granted access to the sound devices (LP: #549738).
+  * Update translations from Launchpad.
 
   [ Colin Watson ]
   * Break out of oem-config-firstboot's main loop if oem-config-wrapper

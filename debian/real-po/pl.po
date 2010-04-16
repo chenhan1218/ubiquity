@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2010-04-01 02:47+0000\n"
+"PO-Revision-Date: 2010-04-16 13:45+0000\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <debian-l10n-polish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-14 16:16+0000\n"
+"X-Launchpad-Export-Date: 2010-04-16 14:05+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -82,8 +82,7 @@ msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
 msgstr ""
-"Możesz wypróbować ${RELEASE} z ${MEDIUM} bez wprowadzania zmian w swoim "
-"systemie."
+"Można wypróbować ${RELEASE} z ${MEDIUM} bez wprowadzania zmian w systemie."
 
 #. Type: text
 #. Description
@@ -130,20 +129,20 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Możesz przeczytać <a href=\"release-notes\">informacje o wydaniu</a> lub <a "
-"href=\"update\">zaktualizować ten program instalujący</a>."
+"Można przeczytać <a href=\"release-notes\">informacje o wydaniu</a> lub <a "
+"href=\"update\">zaktualizować ten instalator</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr "Możesz przeczytać <a href=\"release-notes\">informacje o wydaniu</a>."
+msgstr "Można przeczytać <a href=\"release-notes\">informacje o wydaniu</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr "Możesz <a href=\"update\">zaktualizować ten program instalujący</a>."
+msgstr "Można <a href=\"update\">zaktualizować ten instalator</a>."
 
 #. Type: text
 #. Description
@@ -165,9 +164,9 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
-"Proces instalacyjny może zmienić wielkość lub usunąć partycje na Twoim dysku "
-"twardym. Zanim będziesz kontynuować, upewnij się, że <b>wykonałeś pełną "
-"kopię zapasową wszystkich ważnych danych</b>."
+"Proces instalacyjny może zmienić wielkość lub usunąć partycje na dysku "
+"twardym. Proszę się upewnić, że <b>wykonano pełną kopię zapasową wszystkich "
+"ważnych danych</b>."
 
 #. Type: text
 #. Description
@@ -419,7 +418,7 @@ msgstr "Wymaganie hasła do zalogowania i odszyfrowania katalogu domowego"
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Choose another password"
-msgstr "Wybierz inne hasło"
+msgstr "Proszę wybrać inne hasło"
 
 #. Type: text
 #. Description
@@ -572,7 +571,8 @@ msgstr ""
 #: ../ubiquity.templates:81001
 msgid "Choose a different device to install the bootloader on:"
 msgstr ""
-"Wybierz inne urządzenie, na którym zostanie zainstalowany program rozruchowy:"
+"Proszę wybrać inne urządzenie, na którym zostanie zainstalowany program "
+"rozruchowy:"
 
 #. Type: text
 #. Description
@@ -605,7 +605,7 @@ msgstr "Twój komputer może nie być w stanie uruchomić systemu operacyjnego."
 #. Description
 #: ../ubiquity.templates:86001
 msgid "How would you like to proceed?"
-msgstr "W jaki sposób chciałbyś postąpić?"
+msgstr "Co zrobić?"
 
 #. Type: text
 #. Description

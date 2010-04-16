@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2010-04-13 22:46+0000\n"
-"Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
+"PO-Revision-Date: 2010-04-14 18:40+0000\n"
+"Last-Translator: tabbernuk <Unknown>\n"
 "Language-Team: Eesti <linuxiabi@hot.ee>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-14 16:16+0000\n"
+"X-Launchpad-Export-Date: 2010-04-16 14:06+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -233,13 +233,13 @@ msgstr "Vali endale sobiv:"
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Guess keymap:"
-msgstr "Klaviatuuriasetuse arvamine:"
+msgstr "Klahvistikuasetuse aimamine:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Guess..."
-msgstr "Arva..."
+msgstr "Aima..."
 
 #. Type: text
 #. Description
@@ -1263,6 +1263,8 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"Võrguseadistuste kopeerimisel esines tõrge. Paigaldus jätkub, aga võrk tuleb "
+"paigaldatud süsteemis uuesti seadistada."
 
 #. Type: text
 #. Description
@@ -1295,9 +1297,9 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"Paigaldaja peab viima sisse muudatused kettajagude tabelisse, aga ei saa "
-"seda teha, sest järgnevatesse liitekohtadesse ühendatud kettajagusid ei "
-"olnud võimalik lahti ühendada:"
+"Paigaldaja peab viima sisse muudatused kettajaotustabelisse, aga ei saa seda "
+"teha, sest järgnevatesse liitekohtadesse ühendatud kettajagusid ei olnud "
+"võimalik lahti ühendada:"
 
 #. Type: boolean
 #. Description
@@ -1431,7 +1433,7 @@ msgstr "Paketiloendi uuendamine"
 #. Description
 #: ../ubiquity.templates:208001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "File ${INDEX}/${TOTAL} kiirusel ${SPEED}/s"
+msgstr "Fail ${INDEX}/${TOTAL} kiirusel ${SPEED}/s"
 
 #. Type: text
 #. Description
