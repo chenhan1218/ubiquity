@@ -302,21 +302,20 @@ EndSection
 
         if self.frontend == 'gtk_ui':
             if gconfd_running and osextras.find_on_path('metacity'):
-                wm = subprocess.Popen(['metacity', '--sm-disable'],
-                    stdin=null, stdout=logfile, stderr=logfile,
-                    **maybe_drop_privileges)
+                wm_cmd = ['metacity', '--sm-disable']
             elif osextras.find_on_path('xfwm4'):
-                wm = subprocess.Popen('xfwm4',
-                    stdin=null, stdout=logfile, stderr=logfile,
-                    **maybe_drop_privileges)
+                wm_cmd = ['xfwm4']
             elif osextras.find_on_path('matchbox-window-manager'):
-                wm = subprocess.Popen('matchbox-window-manager',
-                    stdin=null, stdout=logfile, stderr=logfile,
-                    **maybe_drop_privileges)
+                wm_cmd = ['matchbox-window-manager']
             else:
                 raise MissingProgramError, \
                     ("No window manager found (tried metacity, xfwm4, "
                      "matchbox-window-manager)")
+            if os.path.exists('/usr/bin/ck-launch-session'):
+                wm_cmd.insert(0, '/usr/bin/ck-launch-session')
+            wm = subprocess.Popen(wm_cmd,
+                stdin=null, stdout=logfile, stderr=logfile,
+                **maybe_drop_privileges)
 
             if os.path.exists('/usr/lib/gnome-settings-daemon/gnome-settings-daemon'):
                 extras.append(subprocess.Popen(

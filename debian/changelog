@@ -11,6 +11,8 @@ ubiquity (2.2.18) UNRELEASED; urgency=low
     LP: #557164, LP: #520898).
   * Do not translate variable names in the Amharic translation
     (LP: #564582).
+  * Start the window manager via ck-launch-session so pulseaudio is
+    granted access to the sound devices (LP: #549738).
 
   [ Colin Watson ]
   * Break out of oem-config-firstboot's main loop if oem-config-wrapper
