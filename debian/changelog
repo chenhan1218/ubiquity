@@ -14,6 +14,10 @@ ubiquity (2.2.18) UNRELEASED; urgency=low
   * Start the window manager via ck-launch-session so pulseaudio is
     granted access to the sound devices (LP: #549738).
   * Update translations from Launchpad.
+  * Automatic update of included source packages: console-setup
+    1.34ubuntu14, flash-kernel 2.13ubuntu16, hw-detect 1.73ubuntu3,
+    partman-auto 89ubuntu6, partman-base 139ubuntu5, partman-ext3
+    58ubuntu3, partman-target 64ubuntu8, user-setup 1.28ubuntu6.
 
   [ Colin Watson ]
   * Break out of oem-config-firstboot's main loop if oem-config-wrapper
