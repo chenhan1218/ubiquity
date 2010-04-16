@@ -167,7 +167,7 @@ msgid ""
 msgstr ""
 "Proces instalacyjny może zmienić wielkość lub usunąć partycje na Twoim dysku "
 "twardym. Zanim będziesz kontynuować, upewnij się, że <b>wykonałeś pełną "
-"kopię zapasową wszystkich ważnych danych<b>."
+"kopię zapasową wszystkich ważnych danych</b>."
 
 #. Type: text
 #. Description

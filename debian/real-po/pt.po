@@ -165,7 +165,7 @@ msgid ""
 "this program."
 msgstr ""
 "O processo de instalação pode redimensionar ou apagar partições no seu disco "
-"rígido. <b>Faça um backup integrar de todos os dados importantes<b> antes de "
+"rígido. <b>Faça um backup integrar de todos os dados importantes</b> antes de "
 "correr este programa."
 
 #. Type: text
