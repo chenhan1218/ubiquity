@@ -3,6 +3,8 @@ ubiquity (2.2.18) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Force garbage collection so we don't end up with stray X resources
     when we kill the X server (LP: #556555).
+  * Fix the Portuguese and Latvian translations of the variable name
+    RELEASE (LP: #564517).
 
   [ Colin Watson ]
   * Break out of oem-config-firstboot's main loop if oem-config-wrapper

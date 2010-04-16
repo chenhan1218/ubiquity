@@ -490,7 +490,7 @@ msgstr "Sadaļu sagatavošana"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:70001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr "Šī darbība dzēsīs ${SYSTEMS} un instalēs ${REKEASE}."
+msgstr "Šī darbība dzēsīs ${SYSTEMS} un instalēs ${RELEASE}."
 
 #. Type: text
 #. Description
