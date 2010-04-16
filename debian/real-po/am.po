@@ -90,7 +90,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
-msgstr "መግጠም ${የተለቀቀውን}"
+msgstr "መግጠም ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -508,7 +508,7 @@ msgstr "ይግጠሙ"
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr "ደረጃ ${ማውጫ} of ${ድምር}"
+msgstr "ደረጃ ${INDEX} of ${TOTAL}"
 
 #. Type: title
 #. Description
@@ -875,13 +875,13 @@ msgid ""
 " Migration Assistant:\n"
 " ${MIGRATE}"
 msgstr ""
-" ቋንቋ: ${ቋንቋ}\n"
-" የፊደል ገበታ አቀራረብ: ${የፊደል ካርታ}\n"
-" ስም: ${ሙል ስም}\n"
-" የመግቢያ ስም: ${የመግቢያ ስም}\n"
-" አካባቢ: ${አካባቢ}\n"
+" ቋንቋ: ${LANGUAGE}\n"
+" የፊደል ገበታ አቀራረብ: ${KEYMAP}\n"
+" ስም: ${FULLNAME}\n"
+" የመግቢያ ስም: ${USERNAME}\n"
+" አካባቢ: ${LOCATION}\n"
 " የመፍለስ እርዳታ:\n"
-" ${መፍለስ}"
+" ${MIGRATE}"
 
 #. Type: text
 #. Description
@@ -1100,7 +1100,7 @@ msgstr "ለማስወገድ ጥቅሎችን በመመርመር ላይ"
 #. Description
 #: ../ubiquity.templates:160001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "በማውረድ ላይ ጥቅሎችን (${ጊዜ} የቀረው)..."
+msgstr "በማውረድ ላይ ጥቅሎችን (${TIME} የቀረው)..."
 
 #. Type: text
 #. Description
@@ -1112,7 +1112,7 @@ msgstr "በማውረድ ላይ የጥቅሎችን ዝርዝር..."
 #. Description
 #: ../ubiquity.templates:162001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "በማውረድ ላይ የጥቅሎችን ዝርዝር (${ጊዜ} የቀረው)..."
+msgstr "በማውረድ ላይ የጥቅሎችን ዝርዝር (${TIME} የቀረው)..."
 
 #. Type: error
 #. Description
@@ -1220,7 +1220,7 @@ msgstr "የቋንቋ ጥቅሎችን በመትከል ላይ"
 #. Description
 #: ../ubiquity.templates:175001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "የቋንቋን ጥቅል በማውረድ ላይ (${ጊዜ} ቀርቷል)..."
+msgstr "የቋንቋን ጥቅል በማውረድ ላይ (${TIME} ቀርቷል)..."
 
 #. Type: boolean
 #. Description

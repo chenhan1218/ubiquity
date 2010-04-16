@@ -9,6 +9,8 @@ ubiquity (2.2.18) UNRELEASED; urgency=low
     translations (LP: #564545).
   * Fix labels not expanding vertically to fit their text (LP: #560114,
     LP: #557164, LP: #520898).
+  * Do not translate variable names in the Amharic translation
+    (LP: #564582).
 
   [ Colin Watson ]
   * Break out of oem-config-firstboot's main loop if oem-config-wrapper
