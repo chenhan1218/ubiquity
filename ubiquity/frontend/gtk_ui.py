@@ -84,7 +84,7 @@ def wrap_fix(w, allocation):
         return
     layout.set_width(allocation.width * pango.SCALE)
     unused, height = layout.get_size()
-    if old_height != height:
+    if allocation.height != height / pango.SCALE:
         w.set_size_request(-1, height / pango.SCALE)
 
 def process_labels(w):
