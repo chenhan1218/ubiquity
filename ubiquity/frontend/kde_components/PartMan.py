@@ -202,6 +202,7 @@ class PartMan(QWidget):
 
             mountpoint = unicode(self.create_dialog.partition_create_mount_combo.currentText())
 
+            self.ctrlr.allow_change_step(False)
             self.ctrlr.dbfilter.create_partition(
                 devpart,
                 str(self.create_dialog.partition_create_size_spinbutton.value()),
@@ -333,6 +334,7 @@ class PartMan(QWidget):
 
             if (size is not None or method is not None or fmt is not None or
                 mountpoint is not None):
+                self.ctrlr.allow_change_step(False)
                 edits = {'size': size, 'method': method,
                          'mountpoint': mountpoint}
                 if fmt is not None:
@@ -410,6 +412,7 @@ class PartMan(QWidget):
         devpart, partition = self.get_treeview_data()
         if not devpart or not partition:
             return
+        self.ctrlr.allow_change_step(False)
         self.ctrlr.dbfilter.create_label(devpart)
 
     def on_new_clicked(self):
@@ -430,6 +433,7 @@ class PartMan(QWidget):
         devpart, partition = self.get_treeview_data()
         if not devpart or not partition:
             return
+        self.ctrlr.allow_change_step(False)
         self.ctrlr.dbfilter.delete_partition(devpart)
 
     def on_undo_clicked(self):
