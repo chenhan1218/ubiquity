@@ -311,8 +311,8 @@ EndSection
                 raise MissingProgramError, \
                     ("No window manager found (tried metacity, xfwm4, "
                      "matchbox-window-manager)")
-            if os.path.exists('/usr/bin/ck-launch-session'):
-                wm_cmd.insert(0, '/usr/bin/ck-launch-session')
+            if osextras.find_on_path('ck-launch-session'):
+                wm_cmd.insert(0, 'ck-launch-session')
             wm = subprocess.Popen(wm_cmd,
                 stdin=null, stdout=logfile, stderr=logfile,
                 **maybe_drop_privileges)
