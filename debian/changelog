@@ -17,6 +17,8 @@ ubiquity (2.2.18) UNRELEASED; urgency=low
     succeeds (LP: #558593).
   * Quit plymouth before starting either the emergency noninteractive
     ubiquity frontend in automatic mode, or oem-config's debconf frontend.
+  * Get a controlling terminal before starting bterm, as otherwise bterm
+    won't reliably be able to take console input.
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 15 Apr 2010 16:07:38 +0100
 
