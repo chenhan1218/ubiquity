@@ -1,3 +1,9 @@
+ubiquity (2.2.21) UNRELEASED; urgency=low
+
+  * Honor user-setup/force-encrypt-home (LP: #566552).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 19 Apr 2010 15:43:06 +0100
+
 ubiquity (2.2.20) lucid; urgency=low
 
   * Use allow_change_step(False) from the KDE portions of the partman
