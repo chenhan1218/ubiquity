@@ -596,12 +596,15 @@ class Install:
             keep.add('grub')
             keep.add('grub-pc')
         elif (arch == 'armel' and
-              subarch in ('dove', 'imx51', 'iop32x', 'ixp4xx', 'orion5x')):
+              subarch in ('dove', 'imx51', 'iop32x', 'ixp4xx', 'orion5x', 'omap')):
             keep.add('flash-kernel')
             if subarch == 'dove':
                 keep.add('uboot-mkimage')
             elif subarch == 'imx51':
                 keep.add('redboot-tools')
+            elif subarch == 'omap':
+                keep.add('uboot-envtools')
+                keep.add('uboot-mkimage')
         elif arch == 'powerpc' and subarch != 'ps3':
             keep.add('yaboot')
             keep.add('hfsutils')
@@ -1663,7 +1666,7 @@ class Install:
                         else:
                             break
                 elif (arch == 'armel' and
-                      subarch in ('dove', 'imx51', 'iop32x', 'ixp4xx', 'orion5x')):
+                      subarch in ('dove', 'imx51', 'iop32x', 'ixp4xx', 'orion5x', 'omap')):
                     from ubiquity.components import flash_kernel
                     dbfilter = flash_kernel.FlashKernel(None, self.db)
                     ret = dbfilter.run_command(auto_process=True)
