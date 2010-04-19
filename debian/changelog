@@ -1,9 +1,9 @@
-ubiquity (2.2.20) UNRELEASED; urgency=low
+ubiquity (2.2.20) lucid; urgency=low
 
   * Use allow_change_step(False) from the KDE portions of the partman
     component when necessary (LP: #563309).
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 16 Apr 2010 18:46:15 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 19 Apr 2010 09:21:49 +0100
 
 ubiquity (2.2.19) lucid; urgency=low
 
