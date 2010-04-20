@@ -1,6 +1,10 @@
 ubiquity (2.2.21) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Honor user-setup/force-encrypt-home (LP: #566552).
+
+  [ Colin Watson ]
+  * Handle new partman/confirm_nooverwrite question properly (LP: #556373).
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 19 Apr 2010 15:43:06 +0100
 
