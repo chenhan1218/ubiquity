@@ -2,6 +2,7 @@ ubiquity (2.2.21) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Honor user-setup/force-encrypt-home (LP: #566552).
+  * Check for LTS in the release name (LP: #558488).
 
   [ Colin Watson ]
   * Handle new partman/confirm_nooverwrite question properly (LP: #556373).

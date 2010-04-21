@@ -258,7 +258,11 @@ def get_release_name():
             fp = open('/cdrom/.disk/info')
             line = fp.readline()
             if line:
-                get_release_name.release_name = ' '.join(line.split()[:2])
+                line = line.split()
+                if line[2] == 'LTS':
+                    get_release_name.release_name = ' '.join(line[:3])
+                else:
+                    get_release_name.release_name = ' '.join(line[:2])
         except:
             syslog.syslog(syslog.LOG_ERR,
                 "Unable to determine the distribution name from /cdrom/.disk/info")
