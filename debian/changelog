@@ -9,6 +9,10 @@ ubiquity (2.2.21) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Handle new partman/confirm_nooverwrite question properly (LP: #556373).
 
+  [ Mario Limonciello ]
+  * In OEM user config, don't change the last page's button to "Install"
+    to avoid confusion.
+
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 19 Apr 2010 15:43:06 +0100
 
 ubiquity (2.2.20) lucid; urgency=low

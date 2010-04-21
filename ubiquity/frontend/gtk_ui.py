@@ -890,7 +890,7 @@ class Wizard(BaseFrontend):
         if not cur:
             return False
 
-        if is_install:
+        if is_install and not self.oem_user_config:
             self.next.set_label(self.get_string('install_button'))
 
         num = self.steps.page_num(cur)
