@@ -31,8 +31,7 @@ class KeyboardDetector:
         self.not_present = -1
         self.result = ''
 
-        while 1:
-            line = self.fp.readline()
+        for line in self.fp:
             if line.startswith('STEP '):
                 # This line starts a new step.
                 if self.current_step == step:
@@ -92,5 +91,6 @@ class KeyboardDetector:
                 if step_type == KeyboardDetector.UNKNOWN:
                     step_type = KeyboardDetector.RESULT
                 self.result = line[4:].strip()
+                return step_type
             else:
                 raise Exception
