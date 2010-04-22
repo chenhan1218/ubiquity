@@ -1274,7 +1274,8 @@ class Install:
 
         install_new = True
         try:
-            install_new_key = self.db.get('pkgsel/install-language-support')
+            install_new_key = \
+                self.db.get('pkgsel/install-language-support') == 'true'
             if install_new_key != '' and not misc.create_bool(install_new_key):
                 install_new = False
         except debconf.DebconfError:
@@ -2066,7 +2067,8 @@ class Install:
         """Try to install additional packages requested by the distributor"""
 
         try:
-            inst_langpacks = self.db.get('oem-config/install-language-support')
+            inst_langpacks = \
+                self.db.get('oem-config/install-language-support') == 'true'
         except debconf.DebconfError:
             inst_langpacks = False
         if inst_langpacks:
