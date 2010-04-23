@@ -1635,6 +1635,10 @@ class Install:
     def configure_bootloader(self):
         """configuring and installing boot loader into installed
         hardware system."""
+
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            return
+
         install_bootloader = self.db.get('ubiquity/install_bootloader')
         if install_bootloader == "true":
             misc.execute('mount', '--bind', '/proc', self.target + '/proc')

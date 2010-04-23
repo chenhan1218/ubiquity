@@ -1,3 +1,11 @@
+ubiquity (2.2.22) UNRELEASED; urgency=low
+
+  * Don't configure the boot loader in oem-config.  By definition, we've
+    already succeeded in booting, and repeating the process is at best a
+    no-op and at worst harmful.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 23 Apr 2010 15:22:57 +0100
+
 ubiquity (2.2.21) lucid; urgency=low
 
   [ Evan Dandrea ]
