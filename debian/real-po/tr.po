@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2010-04-01 02:41+0000\n"
-"Last-Translator: Yiğit Ateş <yigitates52@gmail.com>\n"
+"PO-Revision-Date: 2010-04-18 17:52+0000\n"
+"Last-Translator: ubuntuki <Unknown>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:05+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -329,7 +329,8 @@ msgstr "Parola (tekrar)"
 #. Description
 #: ../ubiquity.templates:47001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "Hata ayıklama kipinde çalışıyorsunuz. Değerli bir parola kullanmayın!"
+msgstr ""
+"Hata ayıklama kipinde çalışıyorsunuz. Değerli bir parola kullanmayın!"
 
 #. Type: text
 #. Description
@@ -340,6 +341,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Aynı parolayı iki kere girin, böylelikle yazım hatalarına karşı da "
+"denetlenmiş olur. İyi bir parola, harflerin, sayıların ve noktalama "
+"işaretlerinin bir karışımını içermelidir; En az sekiz karakter uzunluğunda "
+"olmalıdır; Belirli aralıklarla değiştirilmelidir."
 
 #. Type: text
 #. Description
@@ -559,7 +564,8 @@ msgstr "Önyükleyici kurulumu başarısız oldu"
 msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
-msgstr "Üzgünüz, bir hata oluştu ve belirtilen konumda önyükleyici kurulamadı."
+msgstr ""
+"Üzgünüz, bir hata oluştu ve belirtilen konumda önyükleyici kurulamadı."
 
 #. Type: text
 #. Description
@@ -634,19 +640,19 @@ msgstr "Yükleyici çöktü"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
-"Üzgünüz; yükleyici çöktü. Lütfen https://launchpad.net/ubuntu/+source/"
-"ubiquity/+filebug adresinde bir hata raporu oluşturun (lütfen mevcut bir "
-"hata için bilgi göndermeyin). Bir programcı en kısa sürede sorununuzu "
-"çözecektir. Programcıların neyin yanlış olduğunu anlayabilmelerine yardım "
-"etmek için, lütfen /var/log/syslog ve /var/log/partman dosyalarını ve şu "
-"bilgileri raporunuza ekleyin:"
+"Üzgünüz; yükleyici çöktü. Lütfen "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug adresinde bir hata "
+"raporu oluşturun (lütfen mevcut bir hata için bilgi göndermeyin). Bir "
+"programcı en kısa sürede sorununuzu çözecektir. Programcıların neyin yanlış "
+"olduğunu anlayabilmelerine yardım etmek için, lütfen /var/log/syslog ve "
+"/var/log/partman dosyalarını ve şu bilgileri raporunuza ekleyin:"
 
 #. Type: text
 #. Description
@@ -1201,19 +1207,20 @@ msgstr "Şu paketler bozuk durumda:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Bu durum eski bir kurulum dosyası kullandığınızdan veya yukarıda sıralanan "
-"bazı paketlerdeki hatalardan kaynaklanıyor olabilir. Ayrıntılı bilgi /var/"
-"log/syslog dosyasında bulunabilir. Kurulum devam edecek; ancak ilerleyen bir "
-"aşamada başarısız olabilir ve kurulu sistemde (muhtemelen kendisi de dahil) "
-"diğer paketleri yükleyemeyebilir veya kaldıramayabilir. Öncelikle yükleme "
-"dosyanızın yeni sürümlerini aramalı veya sorunu yayımcısına bildirmelisiniz."
+"bazı paketlerdeki hatalardan kaynaklanıyor olabilir. Ayrıntılı bilgi "
+"/var/log/syslog dosyasında bulunabilir. Kurulum devam edecek; ancak "
+"ilerleyen bir aşamada başarısız olabilir ve kurulu sistemde (muhtemelen "
+"kendisi de dahil) diğer paketleri yükleyemeyebilir veya kaldıramayabilir. "
+"Öncelikle yükleme dosyanızın yeni sürümlerini aramalı veya sorunu "
+"yayımcısına bildirmelisiniz."
 
 #. Type: error
 #. Description
@@ -1237,8 +1244,8 @@ msgstr "Belge ve ayarların taşınması hatası"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1307,7 +1314,8 @@ msgstr "Bu bağlama noktalarını kullan uygulamaları lütfen kapatın."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Kurulum programının bu bölümleri yeniden ayırmayı denemesini ister misiniz?"
 
@@ -1502,10 +1510,8 @@ msgstr "Kuruluma devam et."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
-msgstr "Kurulum Başarısız"
+msgstr "Kurulum başarısız oldu"
 
 #. Type: text
 #. Description
@@ -1514,23 +1520,23 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
+"Yükleyici kurtarılamaz bir hatayla karşılaştı. Problemi incelemeniz ya da "
+"yeniden kurmayı denemeniz için masaüstü oturumu şimdi işletilebilecek."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "Yükleyici kendini güncellerken bir hatayla karşılaştı:"
+msgstr ""
+"Yükleyici kaldırılamaz bir hatayla karşılaştı ve şimdi sistem "
+"yenidenyüklenecek."
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "Yükle (OEM kipi, sadece üreticiler için)"
+msgstr "OEM kipi (sadece üreticiler için)"
 
 #. Type: text
 #. Description
@@ -1540,27 +1546,21 @@ msgstr "Yükle (OEM kipi, sadece üreticiler için)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Ağ yapılandırması"
+msgstr "OEM yapılandırması için hazırla"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "Yapılandırma uygulanıyor"
+msgstr "OEM yapılandırması için hazırlanıyor..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "Ağ yapılandırması"
+msgstr "OEM yapılandırması için hazır"
 
 #. Type: text
 #. Description
@@ -1571,6 +1571,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"Yeni sistemi başlattığınızda, daha önce seçtiğiniz şifreyle 'oem' "
+"kullanıcısı olarak giriş yapabileceksiniz; bu 'oem' kullanıcısı ayrıca "
+"'sudo' kullanmada yönetimsel önceliklere sahip olacaktır. Böylece "
+"sisteminizin gerektirdiği herhangi ek değişiklikleri yapabileceksiniz."
 
 #. Type: text
 #. Description
@@ -1580,11 +1584,13 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"Sistem isteklerinizi karşılayacak şekilde ayarlandıktan sonra 'oem-config-"
+"prepare'i çalıştırın. Bu, sistemin geçici 'oem' kullanıcısını silmesine ve "
+"sistemin bir sonraki yeniden başlatılmasında son kullanıcıya çeşitli "
+"yapılandırma soruları sormasına neden olacaktır."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "Ek paketler kaldırılıyor..."
+msgstr "Paketler kaldırılıyor"

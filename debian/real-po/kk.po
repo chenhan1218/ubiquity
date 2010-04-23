@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2010-04-01 02:41+0000\n"
-"Last-Translator: jmb_kz <jmb_kz@mail.ru>\n"
+"PO-Revision-Date: 2010-04-19 10:22+0000\n"
+"Last-Translator: jmb_kz <Unknown>\n"
 "Language-Team: Kazakh\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:05+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -128,17 +128,17 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Мүмкін сіз <a href=\"release-notes\">осы шығарылымға қосымша мәліметтерді</"
-"a> оқуға не <a href=\"update\">осы орнатушы бағдарламаны жаңартуыңыз</a> "
-"келіп тұрған шығар."
+"Мүмкін сіз <a href=\"release-notes\">осы шығарылымға қосымша "
+"мәліметтерді</a> оқуға не <a href=\"update\">осы орнатушы бағдарламаны "
+"жаңартуыңыз</a> келіп тұрған шығар."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Мүмкін сіз <a href=\"release-notes\">осы шығарылымға қосымша мәліметтерді</"
-"a> оқуға келіп тұрған шығар."
+"Мүмкін сіз <a href=\"release-notes\">осы шығарылымға қосымша "
+"мәліметтерді</a> оқуға келіп тұрған шығар."
 
 #. Type: text
 #. Description
@@ -347,6 +347,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Қателікті байқау үшін, құпия сөзді екі рет енгізіңіз. Қауіпсіз құпия сөздің "
+"ұзындығы сегіз символдан кем емес және құрылымында әріптер, сандар, тыныс "
+"белгілер болуы қажет, және де ол әрбір белгіленген уақыт өткен сайын ол "
+"өзгертілуі қажет."
 
 #. Type: text
 #. Description
@@ -414,7 +418,8 @@ msgstr "Жүйеге кіну үшін құпия сөзін сұрау"
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr "Жүйеге кіру үшін және шифрленген үй бумасын ашу үшін құпия сөзін сұрау"
+msgstr ""
+"Жүйеге кіру үшін және шифрленген үй бумасын ашу үшін құпия сөзін сұрау"
 
 #. Type: text
 #. Description
@@ -581,7 +586,8 @@ msgstr "Жүктегіш орнатпай жалғастыру."
 #: ../ubiquity.templates:83001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr "${RELEASE} жүктеу үшін, жүктегішті өзіңіз орнатуыңызға мәжбүр боласыз."
+msgstr ""
+"${RELEASE} жүктеу үшін, жүктегішті өзіңіз орнатуыңызға мәжбүр боласыз."
 
 #. Type: text
 #. Description
@@ -593,7 +599,8 @@ msgstr "Орнатылымды болдырмау."
 #. Description
 #: ../ubiquity.templates:85001
 msgid "This may leave your computer unable to boot."
-msgstr "Осы әрекет кесірінен, сіздің компьютеріңіз мүлдем жүктелінбеуі мүмкін."
+msgstr ""
+"Осы әрекет кесірінен, сіздің компьютеріңіз мүлдем жүктелінбеуі мүмкін."
 
 #. Type: text
 #. Description
@@ -637,19 +644,19 @@ msgstr "Орнату бағдарламасы қирап қалды"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Өкінішке орай, орнату бағдарламасының қирауы орын алды. Қате туралы "
 "хабарламаны https://launchpad.net/ubuntu/+source/ubiquity/+filebug адресіне "
 "жіберуді сұраймыз (бұрыннан бар хабарламаларға тіркемеңіз). Өндірушілер "
 "табылған қатені мүмкіндігінше тез жөндеуге тырысады. Қате кетудің себебін "
-"анықтауға көмектесу үшін хабарламаңызбен бірге /var/log/syslog және /var/log/"
-"partman: файлдарын бірге тіркеп жіберуді сұраймыз."
+"анықтауға көмектесу үшін хабарламаңызбен бірге /var/log/syslog және "
+"/var/log/partman: файлдарын бірге тіркеп жіберуді сұраймыз."
 
 #. Type: text
 #. Description
@@ -970,7 +977,7 @@ msgstr "Файлдардық көшіру үрдісі дерлік бітіп �
 #: ../ubiquity.templates:141001 ../ubiquity.templates:142001
 #: ../ubiquity.templates:143001
 msgid "Installation Failed"
-msgstr "Орнату қатемен аяқталды"
+msgstr "Орнатылым сәтсіз аяқталды"
 
 #. Type: error
 #. Description
@@ -1125,25 +1132,25 @@ msgstr "Жүктеушіні баптау..."
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Installing additional packages..."
-msgstr "Қосымша дестелерді орнату..."
+msgstr "Қосымша пакеттер орнатылуда..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Checking for packages to install..."
-msgstr "Орнатылатын дестелерді тексеру..."
+msgstr "Орнатылатын пакеттер тексерілуде..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:158001
 msgid "Removing extra packages..."
-msgstr "Қосымша дестелерді жою..."
+msgstr "Қосымша пакеттер жойылуда..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Checking for packages to remove..."
-msgstr "Жойылатын дестелерді тексеру..."
+msgstr "Жойылатын пакеттер тексерілуде..."
 
 #. Type: text
 #. Description
@@ -1173,7 +1180,7 @@ msgstr "${PACKAGE} орнатуда қате"
 #. Description
 #: ../ubiquity.templates:165001
 msgid "Error removing ${PACKAGE}"
-msgstr "${PACKAGE} дестесін жоюда қате кетті"
+msgstr "${PACKAGE} пакетін жою қатесі"
 
 #. Type: error
 #. Description
@@ -1193,7 +1200,7 @@ msgstr "Дестелер орнату кезінде қате кетті:"
 #. Description
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid "The following packages are in a broken state:"
-msgstr "Келесі дестелер зақымданған:"
+msgstr "Келесі пакеттер зақымданған:"
 
 #. Type: error
 #. Description
@@ -1202,17 +1209,17 @@ msgstr "Келесі дестелер зақымданған:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
-"Мұның себебі орнатушының ескі болуы не жоғарыдағы дестенің құрамында қате "
+"Мұның себебі орнатушының ескі болуы не жоғарыдағы пакеттердің құрамында қате "
 "кездесуінен болуы мүмкін. Толығырақ мәліметті /var/log/syslog файлынан алуға "
 "болады. Орнатушы жұмысын жалғастырып көреді, дегенмен кейінірек өзге "
-"дестелерді (өзін де) не орната, не жоя алмайтын жағдайға ұрынуы мүмкін. "
+"пакеттерді (өзін де) не орната, не жоя алмайтын жағдайға ұрынуы мүмкін. "
 "Сондықтан жаңа орнатушы тауып көру керек не қате туралы хабарламаны жіберу "
 "керек."
 
@@ -1238,8 +1245,8 @@ msgstr "Құжаттар мен баптаулар көшіру қатесі"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1276,13 +1283,13 @@ msgstr "Қарастырылмайтын файлдарды есептеп жа�
 #. Description
 #: ../ubiquity.templates:174001
 msgid "Installing language packs"
-msgstr "Тілдік дестелерді орнату"
+msgstr "Тіл пакеттері орнатылуда"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:175001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Тілдік десте жүктелуде (${TIME} қалды)..."
+msgstr "Тіл пакеттерді жүктелінуде (${TIME} қалды)..."
 
 #. Type: boolean
 #. Description
@@ -1309,7 +1316,8 @@ msgstr "Осы тіркеу нүктелерін пайдаланып жатқа
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr "Осы бөлімдерді тіркеуден шығаруды қайталап көруді қалайсыз ба?"
 
 #. Type: boolean
@@ -1503,10 +1511,8 @@ msgstr "Орнатылымды жалғастыру."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
-msgstr "Орнату қатемен аяқталды"
+msgstr "Орнатылым сәтсіз аяқталды"
 
 #. Type: text
 #. Description
@@ -1515,23 +1521,24 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
+"Орнатушы бағдарлама жөндеуге мүмкін емес қатемен кездесті. Мәселені толық "
+"қарастыруға, не орнатылымды жаңадан орындау үшін, сіз графикалық (жұмыс "
+"үстел) сеансты өзгеше ашуыңыз қажет."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "Орнатылым бағдарламасын өз-өзін жаңарту кезінде қате туындады:"
+msgstr ""
+"Орнатушы бағдарлама жөндеуге мүмкін емес қатемен кездесіп, компьютер қайта "
+"жүктелетін болады."
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "Орнату (OEM режимі, жабдық өндірушелір үшін)"
+msgstr "OEM режимі (тек қана өндірушілер үшін)"
 
 #. Type: text
 #. Description
@@ -1541,27 +1548,21 @@ msgstr "Орнату (OEM режимі, жабдық өндірушелір үш
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Желілік конфигурация"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "Конфигурацияны қабылдау"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "Желілік конфигурация"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1585,7 +1586,5 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "Қосымша дестелерді жою..."
+msgstr "Пакеттер жойылуда"

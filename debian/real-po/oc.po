@@ -10,13 +10,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2010-04-01 02:41+0000\n"
-"Last-Translator: Cédric VALMARY (Per Tot en òc) <cvalmary@yahoo.fr>\n"
+"PO-Revision-Date: 2010-04-19 14:19+0000\n"
+"Last-Translator: Cédric VALMARY (Tot en òc) <cvalmary@yahoo.fr>\n"
 "Language-Team: Occitan (post 1500) <ubuntu-l10n-oci@lists.ubuntu.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:05+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -131,8 +131,9 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Eventualament, podètz <a href=\"update\">metre a jorn aqueste installador</"
-"a> o legir las <a href=\"release-notes\">nòtas de publicacion</a>."
+"Eventualament, podètz <a href=\"update\">metre a jorn aqueste "
+"installador</a> o legir las <a href=\"release-notes\">nòtas de "
+"publicacion</a>."
 
 #. Type: text
 #. Description
@@ -147,8 +148,8 @@ msgstr ""
 #: ../ubiquity.templates:19001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
 msgstr ""
-"Eventualament, podètz <a href=\"update\">metre a jorn aqueste installador</"
-"a>."
+"Eventualament, podètz <a href=\"update\">metre a jorn aqueste "
+"installador</a>."
 
 #. Type: text
 #. Description
@@ -354,6 +355,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Picatz lo senhal dos còps per que i aja pas d'engana de picada. Un bon "
+"senhal conten un mescladís de letras, chifras e ponctuacions, amb un minimum "
+"de uèch caractèrs e lo vos cal cambiar regularament."
 
 #. Type: text
 #. Description
@@ -580,7 +584,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:81001
 msgid "Choose a different device to install the bootloader on:"
-msgstr "Causir un autre periferic sul qual installar lo cargador d'amorsatge :"
+msgstr ""
+"Causir un autre periferic sul qual installar lo cargador d'amorsatge :"
 
 #. Type: text
 #. Description
@@ -651,12 +656,12 @@ msgstr "L'installador a rencontrat una error"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "O planhèm, l'installador a rencontrat una error. Senhalatz aqueste bug sus "
 "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (ajustetz pas vòstras "
@@ -1219,12 +1224,12 @@ msgstr "Los paquets seguents son corromputs :"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Aquò pòt èsser degut a l'utilizacion d'un imatge ancian de l'installador, o "
 "alara a un bug dins d'unes paquets listats çaijós. De detalhs mai amples se "
@@ -1256,8 +1261,8 @@ msgstr "Error al moment de la migracion dels documents e paramètres"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1329,7 +1334,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Voliatz que lo programa d'installacion ensage un còp de mai lo desmontatge "
 "d'aquestas particions ?"
@@ -1478,7 +1484,8 @@ msgstr "Error al moment de la mesa a jorn de l'installador"
 #. Description
 #: ../ubiquity.templates:211001
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "L'installador a rencontrat una error en ensajant de se metre a jorn :"
+msgstr ""
+"L'installador a rencontrat una error en ensajant de se metre a jorn :"
 
 #. Type: text
 #. Description
@@ -1525,10 +1532,8 @@ msgstr "Contunhar l'installacion."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
-msgstr "L'installacion a fracassat"
+msgstr "L'installacion a pas capitat"
 
 #. Type: text
 #. Description
@@ -1537,23 +1542,24 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
+"Lo programa d'installacion a rencontrat una error irrecuperabla. Ara, una "
+"sesilha grafica va èsser aviada per tal que poscatz estudiar lo problèma o "
+"tornar ensajar l'installacion."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "L'installador a rencontrat una error en ensajant de se metre a jorn :"
+msgstr ""
+"Lo programa d'installacion a rencontrat una error irrecuperabla e ara se va "
+"reaviar."
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "Installar (mòde OEM, sonque pels fabricants)"
+msgstr "Installar (mòde OEM, pels constructors solament)"
 
 #. Type: text
 #. Description
@@ -1563,27 +1569,21 @@ msgstr "Installar (mòde OEM, sonque pels fabricants)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Configuracion de la ret"
+msgstr "Preparacion per una configuracion OEM"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "Aplicacion de la configuracion"
+msgstr "Preparacion de la configuracion OEM..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "Configuracion de la ret"
+msgstr "Prèst per la configuracion OEM"
 
 #. Type: text
 #. Description
@@ -1594,6 +1594,11 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"Quand aviaretz lo sistèma novèl, seretz capable de vos connectar coma "
+"utilizaire 'oem' amb lo senhal qu'avètz causit abans ; aqueste utilizaire a "
+"los privilègis de l'administrator amb la comanda consòla 'sudo'. Seretz "
+"alara capable de far totas las modificacions suplementàrias que n'avètz "
+"besonh pel vòstre sistèma."
 
 #. Type: text
 #. Description
@@ -1603,11 +1608,13 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"Un còp que lo sistèma es configurat a vòstra convenéncia, amodatz 'oem-"
+"config-prepare'. Aquò va menar lo sistèma a escafar l'utilizaire temporari "
+"'oem' e pausar las questions de configuracion divèrsas per l'utilizaire "
+"final a l'amodatge venent."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "Supression dels paquets suplementaris..."
+msgstr "Supression dels paquets"

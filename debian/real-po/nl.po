@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2010-04-10 14:22+0000\n"
+"PO-Revision-Date: 2010-04-19 14:54+0000\n"
 "Last-Translator: cumulus007 <cumulus0007@gmail.com>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:06+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -119,7 +119,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Answering the questions should only take a few minutes."
-msgstr "Het beantwoorden van de vragen neemt slechts enkele minuten in beslag."
+msgstr ""
+"Het beantwoorden van de vragen neemt slechts enkele minuten in beslag."
 
 #. Type: text
 #. Description
@@ -128,8 +129,8 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"U kunt de <a href=\"release-notes\">uitgave-opmerkingen</a> lezen of <a href="
-"\"update\">dit installatieprogramma bijwerken</a>."
+"U kunt de <a href=\"release-notes\">uitgave-opmerkingen</a> lezen of <a "
+"href=\"update\">dit installatieprogramma bijwerken</a>."
 
 #. Type: text
 #. Description
@@ -344,6 +345,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Voer hetzelfde wachtwoord twee keer in, zodat het op typefouten "
+"gecontroleerd kan worden. Een goed wachtwoord bevat zowel letters als "
+"cijfers en leestekens, en is minstens acht karakters lang. Het is aangeraden "
+"om het wachtwoord regelmatig te veranderen."
 
 #. Type: text
 #. Description
@@ -645,12 +650,12 @@ msgstr "Installatieprogramma is vastgelopen"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Excuses, het installatieprogramma is vastgelopen. Dien een foutenrapport in "
 "op https://launchpad.net/ubuntu/+source/ubiquity/+filebug (voeg niet uw "
@@ -1217,12 +1222,12 @@ msgstr "De volgende pakketten zijn momenteel in een gebroken staat:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Dit kan komen doordat u een oud installatieprogramma gebruikt, of door een "
 "fout in enkele van de hierboven weergegeven pakketten. Meer details zijn te "
@@ -1255,8 +1260,8 @@ msgstr "Fout bij migreren van documenten en instellingen"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1327,7 +1332,8 @@ msgstr "Sluit alle toepassingen die deze koppelpunten gebruiken."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Wilt u dat het installatieprogramma probeert deze partities opnieuw te "
 "ontkoppelen?"
@@ -1525,8 +1531,6 @@ msgstr "Doorgaan met installatie."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
 msgstr "Installatie mislukt"
 
@@ -1537,25 +1541,24 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
+"In het installatieprogramma is een onherstelbare fout opgetreden. Een "
+"bureaubladsessie zal nu gestart worden, zodat u het probleem kunt "
+"onderzoeken of de installatie opnieuw kunt uitvoeren."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
-"In het installatieprogramma is een fout opgetreden terwijl het zichzelf "
-"probeerde bij te werken:"
+"In het installatieprogramma is een onherstelbare fout opgetreden, en zal nu "
+"de computer herstarten."
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "Installeren (OEM-modus, alleen voor fabrikanten)"
+msgstr "OEM-modus (alleen voor fabrikanten)"
 
 #. Type: text
 #. Description
@@ -1565,27 +1568,21 @@ msgstr "Installeren (OEM-modus, alleen voor fabrikanten)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Netwerkconfiguratie"
+msgstr "OEM-configuratie voorbereiden"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "Configuratie toepassen"
+msgstr "Voorbereiden voor OEM-configuratie…"
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "Netwerkconfiguratie"
+msgstr "Gereed voor OEM-configuratie"
 
 #. Type: text
 #. Description
@@ -1596,6 +1593,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"Wanneer u uw nieuw besturingssysteem start, kunt u inloggen als de 'oem'-"
+"gebruiker en het eerder gekozen wachtwoord; deze gebruiker heeft "
+"beheerdersrechten via 'sudo'. U kan dan alle gewenst aanpassingen aan het "
+"systeem aanbrengen."
 
 #. Type: text
 #. Description
@@ -1605,11 +1606,13 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"Zodra het systeem tot uw tevredenheid is geconfigureerd, start u 'oem-config-"
+"prepare'. Hierdoor zal het systeem de tijdelijke 'oem'-gebruiker verwijderen "
+"en zal het de eindgebruiker diverse configuratievragen stellen zodra het "
+"systeem de volgende keer opstart."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "Extra pakketten verwijderen…"
+msgstr "Pakketten verwijderen"

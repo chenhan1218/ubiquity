@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:06+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -69,9 +69,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"तपाईले प्रणाली निर्माता ढाँचाबाट प्रतिस्थापन गरिरहनु भएको छ। कृपया प्रणालीहरूको समूहलाई "
-"अपूर्व नाम दिनुहोस्। यो नाम प्रतिस्थापित प्रणालीहरूमा वचत गरिन्छ र त्रुटि प्रतिवेदनहरूको "
-"मद्दतमा प्रयोग गर्न सकिन्छ।"
+"तपाईले प्रणाली निर्माता ढाँचाबाट प्रतिस्थापन गरिरहनु भएको छ। कृपया "
+"प्रणालीहरूको समूहलाई अपूर्व नाम दिनुहोस्। यो नाम प्रतिस्थापित प्रणालीहरूमा "
+"वचत गरिन्छ र त्रुटि प्रतिवेदनहरूको मद्दतमा प्रयोग गर्न सकिन्छ।"
 
 #. Type: text
 #. Description
@@ -106,7 +106,9 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:15001
 msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr "एकपटक तपाईले केही प्रश्नहरूको जवाफ दिएपछि यो कम्प्युटर प्रयोगको लागि योग्य हुनेछ।"
+msgstr ""
+"एकपटक तपाईले केही प्रश्नहरूको जवाफ दिएपछि यो कम्प्युटर प्रयोगको लागि योग्य "
+"हुनेछ।"
 
 #. Type: text
 #. Description
@@ -195,7 +197,8 @@ msgstr "तपाईको कुञ्जीपटसँग सबैभन्�
 #. Description
 #: ../ubiquity.templates:28001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "तपाईँले यो बाक्सा भित्र टाइप गरेर आफ्नो किबोर्ड ढाँचा जाच्न सक्नुहुन्छ ।"
+msgstr ""
+"तपाईँले यो बाक्सा भित्र टाइप गरेर आफ्नो किबोर्ड ढाँचा जाच्न सक्नुहुन्छ ।"
 
 #. Type: text
 #. Description
@@ -311,7 +314,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "तपाईं डिबगिङ् अवस्थामा चलिरहनुभएको छ । महत्वपूर्ण पासवर्ड प्रयोग नगर्नुहोस् !"
+msgstr ""
+"तपाईं डिबगिङ् अवस्थामा चलिरहनुभएको छ । महत्वपूर्ण पासवर्ड प्रयोग नगर्नुहोस् !"
 
 #. Type: text
 #. Description
@@ -371,7 +375,9 @@ msgstr ""
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr "यदि तपाईंले यो कम्प्युरलाई सञ्जालमा देखिने बनाउनुभयो भने यो नाम प्रयोग गरिने छ ।"
+msgstr ""
+"यदि तपाईंले यो कम्प्युरलाई सञ्जालमा देखिने बनाउनुभयो भने यो नाम प्रयोग गरिने "
+"छ ।"
 
 #. Type: text
 #. Description
@@ -418,7 +424,8 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"यदि तपाईं कुनै खाता आयात गर्न चाहनुहुँदैन भने केहीपनि नछानिकन अर्को पृष्ठमा जानुहोस् ।"
+"यदि तपाईं कुनै खाता आयात गर्न चाहनुहुँदैन भने केहीपनि नछानिकन अर्को पृष्ठमा "
+"जानुहोस् ।"
 
 #. Type: text
 #. Description
@@ -609,12 +616,12 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 
 #. Type: text
@@ -944,7 +951,8 @@ msgstr "स्थापना असफल भयो"
 #: ../ubiquity.templates:139001 ../ubiquity.templates:140001
 #: ../ubiquity.templates:141001 ../ubiquity.templates:142001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr "हार्ड डिस्कमा पाइल प्रतिलिपी बनाउने क्रममा स्थापकले त्रुटि फेला पार्यो।"
+msgstr ""
+"हार्ड डिस्कमा पाइल प्रतिलिपी बनाउने क्रममा स्थापकले त्रुटि फेला पार्यो।"
 
 #. Type: error
 #. Description
@@ -1149,12 +1157,12 @@ msgstr ""
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 
 #. Type: error
@@ -1179,8 +1187,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1241,7 +1249,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 
 #. Type: boolean
@@ -1415,8 +1424,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"कृपया अनुकूलन प्रक्रियाका लागि प्रयोग हुने भाषा छनौट गर्नुहोस्। यो भाषा नै यो कम्प्युटरको "
-"लागि पूर्वनिर्दारित भाषा हुनेछ।"
+"कृपया अनुकूलन प्रक्रियाका लागि प्रयोग हुने भाषा छनौट गर्नुहोस्। यो भाषा नै "
+"यो कम्प्युटरको लागि पूर्वनिर्दारित भाषा हुनेछ।"
 
 #. Type: text
 #. Description
@@ -1429,10 +1438,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
-msgstr "स्थापना असफल भयो"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1445,19 +1452,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "हार्ड डिस्कमा पाइल प्रतिलिपी बनाउने क्रममा स्थापकले त्रुटि फेला पार्यो।"
+msgstr ""
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "स्थापना (OEM मोड, उत्पादकहरुको लागि मात्र)"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1505,7 +1508,5 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "बढी प्याकेजहरु हटाउदै"
+msgstr ""

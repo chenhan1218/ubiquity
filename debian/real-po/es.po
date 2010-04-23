@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2010-04-01 18:50+0000\n"
-"Last-Translator: Paco Molinero <paco@byasl.com>\n"
+"PO-Revision-Date: 2010-04-18 15:42+0000\n"
+"Last-Translator: DiegoJ <diegojromerolopez@gmail.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:06+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -335,7 +335,8 @@ msgstr "Repita su contraseña"
 #. Description
 #: ../ubiquity.templates:47001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "Está funcionando en modo de depuración. No use una contraseña valiosa."
+msgstr ""
+"Está funcionando en modo de depuración. No use una contraseña valiosa."
 
 #. Type: text
 #. Description
@@ -346,6 +347,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Introduzca la misma contraseña dos veces, de modo que se puede comprobar los "
+"errores de tecleo. Una buena contraseña debe contener una combinación de "
+"letras, números y signos de puntuación, debe tener al menos ocho caracteres "
+"de longitud y se debe cambiar a intervalos regulares."
 
 #. Type: text
 #. Description
@@ -574,7 +579,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:81001
 msgid "Choose a different device to install the bootloader on:"
-msgstr "Elija un dispositivo diferente para instalar el gestor de arranque en:"
+msgstr ""
+"Elija un dispositivo diferente para instalar el gestor de arranque en:"
 
 #. Type: text
 #. Description
@@ -645,20 +651,20 @@ msgstr "El instalador ha fallado"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Lo sentimos; el instalador ha fallado. Por favor, envíe un nuevo informe de "
 "fallo en https://launchpad.net/ubuntu/+source/ubiquity/+filebug (no adjunte "
 "sus detalles a ningún informe de fallo existente) y un desarrollador "
 "atenderá su problema tan pronto como le sea posible. Para ayudar a los "
 "desarrolladores a entender qué ha podido ir mal, incluya los siguientes "
-"detalles en su informe de fallo, y adjunte los archivos /var/log/syslog y /"
-"var/log/partman:"
+"detalles en su informe de fallo, y adjunte los archivos /var/log/syslog y "
+"/var/log/partman:"
 
 #. Type: text
 #. Description
@@ -992,7 +998,8 @@ msgstr "Falló la instalación"
 #: ../ubiquity.templates:139001 ../ubiquity.templates:140001
 #: ../ubiquity.templates:141001 ../ubiquity.templates:142001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr "El instalador encontró un error al copiar los archivos al disco duro:"
+msgstr ""
+"El instalador encontró un error al copiar los archivos al disco duro:"
 
 #. Type: error
 #. Description
@@ -1014,9 +1021,10 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Esto se debe a un CD/DVD o unidad defectuosa. Podría ayudar limpiar el CD/"
-"DVD, grabar el CD/DVD a una velocidad menor, o limpiar la lente de la unidad "
-"de CD/DVD (en tiendas de electrónica puede encontrar sistemas  de limpieza)."
+"Esto se debe a un CD/DVD o unidad defectuosa. Podría ayudar limpiar el "
+"CD/DVD, grabar el CD/DVD a una velocidad menor, o limpiar la lente de la "
+"unidad de CD/DVD (en tiendas de electrónica puede encontrar sistemas  de "
+"limpieza)."
 
 #. Type: error
 #. Description
@@ -1057,7 +1065,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:143001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr "El siguiente archivo no coincide con su copia de origen en el CD/DVD:"
+msgstr ""
+"El siguiente archivo no coincide con su copia de origen en el CD/DVD:"
 
 #. Type: text
 #. Description
@@ -1212,12 +1221,12 @@ msgstr "Los siguientes paquetes están dañados:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Esto puede deberse a que se está usando una imagen antigua del instalador, o "
 "a un error en algunos de los paquetes listados a continuación. Puede "
@@ -1249,8 +1258,8 @@ msgstr "Error migrando documentos y configuraciones"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1323,8 +1332,10 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr "¿Desea que el instalador intente desmontar de nuevo estas particiones?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
+msgstr ""
+"¿Desea que el instalador intente desmontar de nuevo estas particiones?"
 
 #. Type: boolean
 #. Description
@@ -1517,10 +1528,8 @@ msgstr "Continuar con la instalación."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
-msgstr "Falló la instalación"
+msgstr "La instalación ha fallado"
 
 #. Type: text
 #. Description
@@ -1529,23 +1538,24 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
+"El instalador ha encontrado un error del que no se puede recuperar. Se va a "
+"iniciar una sesión de escritorio para que pueda investigar el problema o "
+"intentar la instalación de nuevo."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "El instalador encontró un error al intentar actualizarse:"
+msgstr ""
+"El instalador ha encontrado un error del que no se puede recuperar y va a "
+"reiniciar."
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "Instalar (modo OEM, sólo para fabricantes)"
+msgstr "Modo OEM (sólo para fabricantes)"
 
 #. Type: text
 #. Description
@@ -1555,27 +1565,21 @@ msgstr "Instalar (modo OEM, sólo para fabricantes)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Configuración de red"
+msgstr "Preparar para la configuración OEM"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "Aplicando configuración"
+msgstr "Preparando para la configuración OEM..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "Configuración de red"
+msgstr "Preparado para la configuración OEM"
 
 #. Type: text
 #. Description
@@ -1586,6 +1590,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"Cuando arranque su nuevo sistema, podrá entrar como el usuario «oem», con la "
+"contraseña que indicó anteriormente; este usuario también tiene privilegios "
+"administrativos usando «sudo». De esta forma, podrá realizar cualquier "
+"modificación adicional que necesite su sistema."
 
 #. Type: text
 #. Description
@@ -1595,11 +1603,13 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"Una vez que el sistema esté configurado a su gusto, ejecute «oem-config-"
+"prepare». Esto hará que el sistema elimine el usuario temporal «oem» y "
+"preguntará al usuario final varias cuestiones de configuración la próxima "
+"vez que arranque."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "Desinstalando los paquetes extra..."
+msgstr "Desinstalando paquetes"

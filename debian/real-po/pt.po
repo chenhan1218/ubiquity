@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2010-04-16 10:52+0000\n"
-"Last-Translator: Paulo Dias <paxnubis@gmail.com>\n"
+"PO-Revision-Date: 2010-04-21 22:12+0000\n"
+"Last-Translator: Carlos Manuel <Unknown>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:06+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -80,14 +80,14 @@ msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
 msgstr ""
-"Pode experimentar ${RELEASE} deste ${MEDIUM} sem fazer alterações ao seu "
-"sistema."
+"Pode experimentar o ${RELEASE} a partir do ${MEDIUM} sem fazer alterações ao "
+"seu sistema."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
-msgstr "Tente ${RELEASE}"
+msgstr "Experimente ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -165,7 +165,7 @@ msgid ""
 "this program."
 msgstr ""
 "O processo de instalação pode redimensionar ou apagar partições no seu disco "
-"rígido. <b>Faça um backup integrar de todos os dados importantes</b> antes "
+"rígido. <b>Faça um backup integral de todos os dados importantes</b> antes "
 "de correr este programa."
 
 #. Type: text
@@ -346,6 +346,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Introduza a mesma senha duas vezes, para se ter a certeza que não houve "
+"erros ao escrever. Uma boa senha deverá conter uma mistura de letras, "
+"números e pontuação, deverá ter um comprimento mínimo de oito caracteres e "
+"ser alterada regularmente."
 
 #. Type: text
 #. Description
@@ -572,7 +576,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:81001
 msgid "Choose a different device to install the bootloader on:"
-msgstr "Escolha um outro dispositivo para a instalação da Rotina de Arranque:"
+msgstr ""
+"Escolha um outro dispositivo para a instalação da Rotina de Arranque:"
 
 #. Type: text
 #. Description
@@ -586,7 +591,7 @@ msgstr "Continuar sem instalar agora a Rotina de Arranque:"
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
-"Posteriormente, terá que instalar manualmente a Rotina de arranque para "
+"Posteriormente, terá que instalar manualmente a rotina de arranque para "
 "poder arrancar com o ${RELEASE}."
 
 #. Type: text
@@ -599,7 +604,8 @@ msgstr "Cancelar a instalação."
 #. Description
 #: ../ubiquity.templates:85001
 msgid "This may leave your computer unable to boot."
-msgstr "Esta acção poderá impedir que o seu computador seja capaz de arrancar."
+msgstr ""
+"Esta acção poderá impedir que o seu computador seja capaz de arrancar."
 
 #. Type: text
 #. Description
@@ -643,12 +649,12 @@ msgstr "Ocorreu um erro fatal durante a instalação"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Pedimos desculpa, ocorreu um erro fatal no instalador. Por favor reporte "
 "este erro em https://launchpad.net/ubuntu/+source/ubiquity/+filebug (não "
@@ -1213,12 +1219,12 @@ msgstr "Os seguintes pacotes estão danificados:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Isto pode ter ocorrido por usar uma imagem de instalação antiga ou devido a "
 "um erro em algum dos pacotes listados acima. Mais detalhes podem ser "
@@ -1250,8 +1256,8 @@ msgstr "Erro ao migrar os documentos e as definições"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1321,7 +1327,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr "Você deseja que o instalador tente desmontar as partições novamente?"
 
 #. Type: boolean
@@ -1515,10 +1522,8 @@ msgstr "Continuar com a instalação."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
-msgstr "A Instalação Falhou"
+msgstr "A instalação falhou"
 
 #. Type: text
 #. Description
@@ -1527,23 +1532,22 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
+"O instalador encontrou um erro não recuperável. Irá iniciar agora uma sessão "
+"de trabalho para que você possa investigar o problema ou tentar instalar "
+"novamente."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "O Instalador encontrou um erro ao tentar actualizar-se:"
+msgstr "O instalador encontrou um erro irrecuperável e irá agora reiniciar."
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "Instalar (Modo OEM, apenas para fabricantes)"
+msgstr "Modo OEM (apenas para fabricantes)"
 
 #. Type: text
 #. Description
@@ -1553,27 +1557,21 @@ msgstr "Instalar (Modo OEM, apenas para fabricantes)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Configuração de rede"
+msgstr "Preparar a configuração OEM"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "A aplicar configuração"
+msgstr "A preparar a configuração OEM..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "Configuração de rede"
+msgstr "Pronto para configuração OEM"
 
 #. Type: text
 #. Description
@@ -1584,6 +1582,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"Quando inicializar no novo sistema, poderá fazer login como o utilizador "
+"'oem' e a senha seleccionada anteriormente; este utilizador também tem "
+"privilégios administrativos usando o 'sudo'. Estará então apto para fazer "
+"qualquer modificação adicional que necessite no sistema."
 
 #. Type: text
 #. Description
@@ -1593,11 +1595,13 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"Uma vez tendo o sistema configurado à sua maneira, execute 'oem-config-"
+"prepare'. Isto levará o sistema a apagar o utilizador temporário 'oem' e a "
+"perguntar ao utilizador final várias questões de configuração a próxima vez "
+"que iniciar."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "A remover pacotes extra..."
+msgstr "A remover pacotes"

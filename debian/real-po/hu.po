@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2010-04-10 14:16+0000\n"
-"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
-"Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
-"org>\n"
+"PO-Revision-Date: 2010-04-21 21:27+0000\n"
+"Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
+"Language-Team: Debian L10n Hungarian <debian-l10n-"
+"hungarian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:06+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -33,7 +33,8 @@ msgstr "Törlés és a teljes lemez felhasználása"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr "Telepítés egymás mellé és az indítandó kiválasztása rendszerindításkor"
+msgstr ""
+"Telepítés egymás mellé és az indítandó kiválasztása rendszerindításkor"
 
 #. Type: text
 #. Description
@@ -343,6 +344,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Írja be ugyanazt a jelszót kétszer a gépelési hibák kiszűrése érdekében. A "
+"jó jelszó vegyesen tartalmaz betűket, számokat és írásjeleket, legalább "
+"nyolc karakter hosszú és rendszeresen váltogatni kell."
 
 #. Type: text
 #. Description
@@ -517,7 +521,8 @@ msgstr "Részletek"
 #: ../ubiquity.templates:73001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr "Az új operációs rendszer a következő beállításokkal kerül telepítésre:"
+msgstr ""
+"Az új operációs rendszer a következő beállításokkal kerül telepítésre:"
 
 #. Type: text
 #. Description
@@ -643,19 +648,19 @@ msgstr "A telepítő összeomlott"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
-"Elnézést, a telepítő összeomlott. Küldjön be egy új hibajelentést a https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug oldalon (ne egy meglévő "
-"hibához csatolja), és amint lehetséges egy fejlesztő megvizsgálja a "
+"Elnézést, a telepítő összeomlott. Küldjön be egy új hibajelentést a "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug oldalon (ne egy "
+"meglévő hibához csatolja), és amint lehetséges egy fejlesztő megvizsgálja a "
 "problémát. A fejlesztők munkájának segítése érdekében vegye be a következő "
-"részleteket a hibajelentésbe és csatolja a /var/log/syslog és /var/log/"
-"partman fájlok tartalmát:"
+"részleteket a hibajelentésbe és csatolja a /var/log/syslog és "
+"/var/log/partman fájlok tartalmát:"
 
 #. Type: text
 #. Description
@@ -1210,12 +1215,12 @@ msgstr "A következő csomagok törött állapotban vannak:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Ezt egy régi telepítő-lemezkép használata, vagy a fenti csomagok egyikének "
 "hibája okozhatja. További részletek a /var/log/syslog fájlban találhatók. A "
@@ -1246,8 +1251,8 @@ msgstr "A dokumentumok és beállítások költöztetése meghiúsult"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1313,12 +1318,14 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Please close any applications using these mount points."
-msgstr "Zárjon be minden, a kérdéses csatolási pontokat használó alkalmazást."
+msgstr ""
+"Zárjon be minden, a kérdéses csatolási pontokat használó alkalmazást."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Kívánja, hogy a telepítő újra megpróbálja leválasztani ezeket a partíciókat?"
 
@@ -1513,8 +1520,6 @@ msgstr "Telepítés folytatása."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
 msgstr "A telepítés meghiúsult"
 
@@ -1525,23 +1530,22 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
+"A telepítő helyreállíthatatlan hibát észlelt. Most egy asztali munkamenet "
+"kerül elindításra, így kivizsgálhatja a problémát, vagy újra megpróbálhatja "
+"a telepítést."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "A telepítő frissítésekor hiba történt:"
+msgstr "A telepítő helyreállíthatatlan hibát észlelt, és újraindul."
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "Telepítés (OEM mód, csak gyártók részére)"
+msgstr "OEM mód (csak gyártóknak)"
 
 #. Type: text
 #. Description
@@ -1551,27 +1555,21 @@ msgstr "Telepítés (OEM mód, csak gyártók részére)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Hálózat beállítása"
+msgstr "Az OEM beállítás előkészítése"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "A beállítások alkalmazása"
+msgstr "Az OEM beállítás előkészítése…"
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "Hálózat beállítása"
+msgstr "Az OEM beállításra kész"
 
 #. Type: text
 #. Description
@@ -1582,6 +1580,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"Az új rendszer indításakor elérhető lesz az „oem” felhasználó a korábban "
+"megadott jelszóval. Ez a felhasználó rendszergazdai jogosultságokkal fog "
+"rendelkezni a „sudo” használatával. Így elvégezhetők lesznek a szükséges "
+"további módosítások."
 
 #. Type: text
 #. Description
@@ -1591,11 +1593,13 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"A rendszer megfelelő beállítása után futtassa az „oem-config-prepare” "
+"parancsot. Ennek hatására a rendszer törli az ideiglenes oem felhasználót, "
+"és a következő rendszerindításkor különböző konfigurációs kérdéseket tesz "
+"fel a végfelhasználónak."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "Extra csomagok eltávolítása…"
+msgstr "Csomagok eltávolítása"

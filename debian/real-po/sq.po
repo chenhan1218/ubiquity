@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2010-04-01 02:39+0000\n"
+"PO-Revision-Date: 2010-04-19 00:12+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:05+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -128,16 +128,16 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Ju mund të dëshironi të lexoni <a href=\"release-notes\">shënimet e nisjes</"
-"a> ose <a href=\"update\">të përditësoni këtë instalues</a>."
+"Ju mund të dëshironi të lexoni <a href=\"release-notes\">shënimet e "
+"nisjes</a> ose <a href=\"update\">të përditësoni këtë instalues</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Ju mund të dëshironi të lexoni <a href=\"release-notes\">shënimet e nisjes</"
-"a>."
+"Ju mund të dëshironi të lexoni <a href=\"release-notes\">shënimet e "
+"nisjes</a>."
 
 #. Type: text
 #. Description
@@ -348,6 +348,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Vendosni të njëjtin fjalëkalim dy herë, kështu që mund të kontrollohet për "
+"gabime në shtypje. Një fjalëkalim i mirë duhet të përmbajë një përzierje "
+"shkronjash, numrash dhe shenjash pikësimi, duhet të jetë të paktën me tetë "
+"shifra i gjatë dhe duhet ndërruar me intervale të rregullta."
 
 #. Type: text
 #. Description
@@ -645,12 +649,12 @@ msgstr "Instaluesi u dëmtua"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Na vjen keq, instaluesi u dëmtua. Ju lutemi, dërgoni një raport për defektin "
 "në https://launchpad.net/ubuntu/+source/ubiquity/+filebug (mos i shtoni "
@@ -1210,12 +1214,12 @@ msgstr "Paketat e mëposhtme janë të dëmtuara:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Kjo mund të ketë ndodhur për shkak të përdorimit të një instaluesi të "
 "vjetër, ose për shkak të ndonjë defekti në paketat e mësipërme. Më tepër "
@@ -1247,8 +1251,8 @@ msgstr "Gabim në migrimin e dokumenteve dhe parametrave"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1318,7 +1322,8 @@ msgstr "Ju lutemi mbyllni çdo aplikim që po i përdor këto pika hyrjeje."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr "Doni që instaluesi të përpiqet t'i përdorë këto particione përsëri?"
 
 #. Type: boolean
@@ -1515,10 +1520,8 @@ msgstr "Vazhdo me instalimin."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
-msgstr "Instalimi Dështoi"
+msgstr "Instalimi dështoi"
 
 #. Type: text
 #. Description
@@ -1527,25 +1530,24 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
+"Instaluesi hasi në një gabim të parekuperueshëm. Tani do të nisë një seksion "
+"i desktopit kështu që ju do të mund të hetoni problemin dhe të përpiqeni ta "
+"instaloni përsëri."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
-"Instaluesi hasi në një gabim ndërkohë që po përpiqej të përditësonte "
-"vetveten:"
+"Instaluesi hasi në një gabim të parekuperueshëm dhe do të rinisë në këtë "
+"çast."
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "Instalo (modi OEM, vetëm për prodhues)"
+msgstr "Mënyrë OEM (Vetëm për prodhuesit)"
 
 #. Type: text
 #. Description
@@ -1555,27 +1557,21 @@ msgstr "Instalo (modi OEM, vetëm për prodhues)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Konfigurimi i rrjetit"
+msgstr "Përgatitje për konfigurimin e OEM"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "Aplikim i konfigurimit"
+msgstr "Duke u përgatitur për konfigurimin e OEM..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "Konfigurimi i rrjetit"
+msgstr "Gati për konfigurimin e OEM"
 
 #. Type: text
 #. Description
@@ -1586,6 +1582,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"Kur hyni në sistemin e ri, ju do të jeni në gjendje që të futeni si një "
+"përdorues 'oem' me fjalëkalimin që keni zgjedhur më parë; ky përdorues ka "
+"gjithashtu privilegje administratori kur përdor 'sudo'. Pas kësaj do të jeni "
+"në gjendje që të bëni çdo ndryshim të sistemit që të dëshironi."
 
 #. Type: text
 #. Description
@@ -1595,11 +1595,12 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"Pasi e keni konfiguruar sistemin sipas dëshirës, nisni 'oem-config-prepare'. "
+"Kjo do të bëjë që sistemi ta fshijë përdoruesin e përkohshëm 'oem' dhe ta "
+"pyesë përdoruesin për pyetje të ndryshme konfigurimi herën tjetër që ndizet."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "Duke hequr paketat shtesë..."
+msgstr "Duke hequr paketat"

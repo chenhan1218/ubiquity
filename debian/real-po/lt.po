@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2010-04-13 13:27+0000\n"
+"PO-Revision-Date: 2010-04-19 15:36+0000\n"
 "Last-Translator: Aurimas Fišeras <Unknown>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:06+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -82,7 +82,8 @@ msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
 msgstr ""
-"Galite išbandyti ${RELEASE} iš šio ${MEDIUM} nekeisdami įdiegtos sistemos."
+"Galite saugiai išbandyti ${RELEASE} sistemą iš ${MEDIUM} laikmenos "
+"nekeisdami nieko savo kompiuteryje."
 
 #. Type: text
 #. Description
@@ -104,9 +105,9 @@ msgid ""
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
-"Pasiruošę diegimui?  Atsakykite į kelis klausimus ir ${MEDIUM} turinys bus "
-"įdiegtas į šį kompiuterį, kad galėtumėte naudoti ${RELEASE} pilnu greičiu be "
-"${MEDIUM}."
+"Pasiruošę įdiegimui? Atsakykite į kelis klausimus ir į šį kompiuterį bus "
+"įdiegta Linux sistema, dabar veikianti iš ${MEDIUM}. Įdiegta ${RELEASE} "
+"sistema veiks sparčiau nei naudojant iš ${MEDIUM} laikmenos."
 
 #. Type: text
 #. Description
@@ -135,8 +136,8 @@ msgstr ""
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Jei norite, galite perskaityti  <a href=\"release-notes\">laidos apžvalgą</"
-"a>."
+"Jei norite, galite perskaityti  <a href=\"release-notes\">laidos "
+"apžvalgą</a>."
 
 #. Type: text
 #. Description
@@ -165,8 +166,8 @@ msgid ""
 "this program."
 msgstr ""
 "Diegimo procesas gali pakeisti kietojo disko skirsnių dydį arba juos "
-"pašalinti.  <b>Būtinai padarykite pilną vertingų duomenų atsarginę kopiją</"
-"b> prieš naudodami šią programą."
+"pašalinti.  <b>Būtinai padarykite pilną vertingų duomenų atsarginę "
+"kopiją</b> prieš naudodami šią programą."
 
 #. Type: text
 #. Description
@@ -183,8 +184,8 @@ msgid ""
 "the clock to the correct local time."
 msgstr ""
 "Pasirinkite savo gyvenamąją vietovę, kad sistema galėtų naudoti šalyje "
-"įprastą vaizdavimą, parsiųsti atnaujinimus iš artimų tinklaviečių ir "
-"nustatytų teisingą sistemos laiką."
+"įprastą vaizdavimą (data, valiuta ir kt.), siųsti atnaujinimus iš "
+"artimiausių tinklaviečių ir nustatyti teisingą laiką."
 
 #. Type: text
 #. Description
@@ -214,7 +215,8 @@ msgstr "Kuris išdėstymas labiausiai tinka Jūsų klaviatūrai?"
 #. Description
 #: ../ubiquity.templates:28001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "Rašydami į šį laukelį galite išbandyti parinktą klaviatūros išdėstymą."
+msgstr ""
+"Rašydami į šį laukelį galite išbandyti parinktą klaviatūros išdėstymą."
 
 #. Type: text
 #. Description
@@ -345,6 +347,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Įvesite tą patį slaptažodį dukart, kad būtų galima patikrinti dėl rašymo "
+"klaidų. Saugus slaptažodis bus jei jame bus ir raidės, ir skaičiai, ir "
+"skyrybos bei kiti ženklai, viso turi būt 8 ar daugiau simbolių. Saugumui "
+"užtikrinti slaptažodį reikia periodiškai pakeisti į naują."
 
 #. Type: text
 #. Description
@@ -520,7 +526,8 @@ msgstr "Išsamiau"
 #: ../ubiquity.templates:73001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr "Jūsų naujoji operacinė sistema bus idegta su tokiais nustatymais:"
+msgstr ""
+"Jūsų naujoji operacinė sistema bus įdiegta naudojant tokius nustatymus:"
 
 #. Type: text
 #. Description
@@ -644,19 +651,20 @@ msgstr "Diegimo programa lūžo"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Atsiprašome, tačiau diegimo programoje įvyo klaida ir ji nebegali tęsti. "
-"Užpildykite naują klaidos pranešimą https://launchpad.net/ubuntu/+source/"
-"ubiquity/+filebug (nerašykite komentaro prie jau esamo klaidos pranešimo) ir "
-"problema bus sprendžiama kaip galima greičiau. Kad padėtumėte suprasti, kas "
-"įvyko blogai, įtraukite žemiau rodomą informaciją į klaidos pranešimą ir "
-"prisekite failus /var/log/syslog ir /var/log/partman :"
+"Užpildykite naują klaidos pranešimą "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (nerašykite komentaro "
+"prie jau esamo klaidos pranešimo) ir problema bus sprendžiama kaip galima "
+"greičiau. Kad padėtumėte suprasti, kas įvyko blogai, įtraukite žemiau rodomą "
+"informaciją į klaidos pranešimą ir prisekite failus /var/log/syslog ir "
+"/var/log/partman :"
 
 #. Type: text
 #. Description
@@ -1211,12 +1219,12 @@ msgstr "Šie paketai yra sugadintoje būsenoje:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Tai gali būti dėl to, kad naudojamas senas diegimo programos 'atvaizdis', "
 "arba dėl klaidos kažkuriame iš aukščiau išvardintų programų paketų. "
@@ -1248,14 +1256,14 @@ msgstr "Klaida perkeliant dokumentus ir nuostatas"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Įvyko klaida perkeliant duomenis. Daugiau informacijos rasite /var/log/"
-"syslog. Diegimas bus pratęstas, bet kai kurie ar visi jūsų dokumentai ir "
-"nuostatos galėjo būti neperkelti į įdiegtą sistemą."
+"Įvyko klaida perkeliant duomenis. Daugiau informacijos rasite "
+"/var/log/syslog. Diegimas bus pratęstas, bet kai kurie ar visi jūsų "
+"dokumentai ir nuostatos galėjo būti neperkelti į įdiegtą sistemą."
 
 #. Type: error
 #. Description
@@ -1320,7 +1328,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Ar norite,  kad įdiegimo programa vėl pabandytų atjungti šiuos skirsnius?"
 
@@ -1515,8 +1524,6 @@ msgstr "Tęsti diegimą."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
 msgstr "Įdiegti nepavyko"
 
@@ -1527,23 +1534,23 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
+"Įdiegimo programa susidūrė su nepataisoma klaida. Bus paleistas darbalaukio "
+"seansas, kad galėtumėte išsiaiškinti, kas per problema ir mėginti diegti iš "
+"naujo."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "Diegimo programa susidūrė su klaida mėgindama save atnaujinti:"
+msgstr ""
+"Įdiegimo programa susidūrė su nepataisoma klaida ir bus paleista iš naujo."
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "Įdiegti (OEM režimas, kompiuterių gamintojams bei pardavėjams)"
+msgstr "OEM veiksena (tik gamintojams)"
 
 #. Type: text
 #. Description
@@ -1553,27 +1560,21 @@ msgstr "Įdiegti (OEM režimas, kompiuterių gamintojams bei pardavėjams)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Tinklo nustatymai"
+msgstr "Paruošti OEM konfigūracijai"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "Pritaikoma konfigūracija"
+msgstr "Ruošiama OEM konfigūracijai..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "Tinklo nustatymai"
+msgstr "Pasiruošta OEM konfigūracijai"
 
 #. Type: text
 #. Description
@@ -1584,6 +1585,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"Kai paleisite naująją sistemą, galėsite prie jos prisijungti kaip naudotojas "
+"„oem“ su slaptažodžiu, kurį pasirinkote anksčiau. Šis naudotojas turi "
+"administravimo teises naudojant „sudo“. Prisijungę galėsite atlikti norimus "
+"papildomus pakeitimus sistemoje."
 
 #. Type: text
 #. Description
@@ -1593,11 +1598,12 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"Sukonfigūravę sistemą pagal savo poreikius paleiskite „oem-config-prepare“. "
+"Tai privers sistemą ištrinti laikiną „oem“ naudotoją ir galutinio naudotojo "
+"klaus įvairių konfigūravimo klausimų kitą kartą paleidus sistemą."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "Pašalinami papildomi (nereikalingi) paketai..."
+msgstr "Šalinami paketai"

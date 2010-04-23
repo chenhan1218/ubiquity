@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:06+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -327,6 +327,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Skriv inn same passord to gongar, slik at det kan sjekkast for tastefeil.  "
+"Eit godt passord har ei blanding av bokstavar, tal og spesialteikn, er minst "
+"åtte teikn langt og bør skiftast med jamne mellomrom."
 
 #. Type: text
 #. Description
@@ -566,7 +569,8 @@ msgstr "Fortsett utan ein oppstartslastar."
 #: ../ubiquity.templates:83001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr "Du må installera ein oppstartslastar manuelt for å starte ${RELEASE}."
+msgstr ""
+"Du må installera ein oppstartslastar manuelt for å starte ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -622,12 +626,12 @@ msgstr "Installasjonsprogrammet krasja"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Vi er lei installasjonsprogrammet krasja. Gjer vel å sende inn ei "
 "feilmelding på https://launchpad.net/ubuntu/+source/ubiquity/+filebug (ikkje "
@@ -1188,12 +1192,12 @@ msgstr "Dei følgjande pakkane er ikkje korrekt sett opp:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Dette kan kome av at det vert brukt eit gammalt installasjonsmedium, eller "
 "det kan vere ein feil i nokre av pakkane lista opp ovanfor. Fleire detaljar "
@@ -1225,14 +1229,14 @@ msgstr "Feil under overføring av dokument og instillingar"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Det skjedde ein feil under overføring av data. Fleire detaljar kan finnast "
-"i /var/log/syslog. Installasjonen vil fortsetta, men det kan hende nokre "
-"eller alle dokumenta og innstillingane du valde ikkje er overført til det "
+"Det skjedde ein feil under overføring av data. Fleire detaljar kan finnast i "
+"/var/log/syslog. Installasjonen vil fortsetta, men det kan hende nokre eller "
+"alle dokumenta og innstillingane du valde ikkje er overført til det "
 "installerte systemet."
 
 #. Type: error
@@ -1296,7 +1300,8 @@ msgstr "Venligst lukk programma som brukar desse monteringspunkta."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Vil du at installasjonsprogrammet skal prøva å avmontera desse partisjonane "
 "igjen?"
@@ -1492,10 +1497,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
-msgstr "Installasjonen mislukkast"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1508,21 +1511,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
-"Det oppstod ein feil når installasjonsprogrammet prøvde å oppdatera seg "
-"sjølv;"
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "Installer (OEM modus, for maskinprodusentar)"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1532,27 +1529,21 @@ msgstr "Installer (OEM modus, for maskinprodusentar)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Nettverksoppsett"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "Tek i bruk konfigurasjonen"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "Nettverksoppsett"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1576,7 +1567,5 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "Fjernar ekstrapakkar ..."
+msgstr ""

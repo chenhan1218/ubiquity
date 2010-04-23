@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2010-04-11 01:38+0000\n"
-"Last-Translator: Lê Kiến Trúc <Unknown>\n"
+"PO-Revision-Date: 2010-04-18 15:31+0000\n"
+"Last-Translator: Evan Dandrea <ev@ubuntu.com>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:05+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -127,16 +127,16 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Bạn có thể thích đọc <a href=\"release-notes\">thông tin về phiên bản này</"
-"a> hoặc <a href=\"update\">thông tin để cập nhật trình cài đặt này</a>."
+"Bạn có thể thích đọc <a href=\"release-notes\">thông tin về phiên bản "
+"này</a> hoặc <a href=\"update\">thông tin để cập nhật trình cài đặt này</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Bạn có thể thích đọc <a href=\"release-notes\">thông tin về phiên bản này</"
-"a>."
+"Bạn có thể thích đọc <a href=\"release-notes\">thông tin về phiên bản "
+"này</a>."
 
 #. Type: text
 #. Description
@@ -345,6 +345,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Nhập cùng một mật khẩu hai lần, để nó có thể được kiểm tra nếu bạn gõ lỗi. "
+"Một mật khẩu an toàn sẽ chứa một hỗn hợp các chữ cái, chữ số và dấu chấm "
+"câu, nên có ít nhất tám ký tự, và nên được thay đổi theo chu kỳ."
 
 #. Type: text
 #. Description
@@ -640,12 +643,12 @@ msgstr "Trình cài đặt đã bị hỏng"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Chúng tôi thành thật xin lỗi! Trình cài đặt đã bị hỏng. Vui lòng báo cho "
 "chúng tôi lỗi này tại https://launchpad.net/ubuntu/+source/ubiquity/+filebug "
@@ -1007,9 +1010,9 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Việc này xảy ra thường do lỗi CD/DVD hoặc ổ đĩa. Hãy thử lau CD/DVD, ghi CD/"
-"DVD với tốc độ chậm hơn, hoặc lau chùi mắt đọc CD/DVD (các dụng cụ lau chùi "
-"thường có bán tại các cửa hàng điện tử)"
+"Việc này xảy ra thường do lỗi CD/DVD hoặc ổ đĩa. Hãy thử lau CD/DVD, ghi "
+"CD/DVD với tốc độ chậm hơn, hoặc lau chùi mắt đọc CD/DVD (các dụng cụ lau "
+"chùi thường có bán tại các cửa hàng điện tử)"
 
 #. Type: error
 #. Description
@@ -1038,10 +1041,10 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Việc này xảy ra thường do lỗi CD/DVD hoặc ổ đĩa. Hãy thử lau CD/DVD, ghi CD/"
-"DVD với tốc độ chậm hơn, hoặc lau chùi mắt đọc CD/DVD (các dụng cụ lau chùi "
-"thường có bán tại các cửa hàng điện tử), thử kiểm tra tuổi thọ ổ đĩa, nếu "
-"cần hãy thay thế hoặc dời hệ thống sang chỗ giải nhiệt tốt hơn."
+"Việc này xảy ra thường do lỗi CD/DVD hoặc ổ đĩa. Hãy thử lau CD/DVD, ghi "
+"CD/DVD với tốc độ chậm hơn, hoặc lau chùi mắt đọc CD/DVD (các dụng cụ lau "
+"chùi thường có bán tại các cửa hàng điện tử), thử kiểm tra tuổi thọ ổ đĩa, "
+"nếu cần hãy thay thế hoặc dời hệ thống sang chỗ giải nhiệt tốt hơn."
 
 #. Type: select
 #. Description
@@ -1202,19 +1205,19 @@ msgstr "Những gói dưới đây ở trong trạng thái bị hỏng:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Lỗi có thể do sử dụng một ảnh đĩa của bộ cài đặt cũ, hoặc cũng có thể do lỗi "
-"trong gói cài đặt nào đó liệt kê ở trên. Chi tiết có thể xem ở /var/log/"
-"syslog. Bộ cài đặt sẽ tiếp tục mặc dù có thể không thành công, và sẽ không "
-"thể cài hay gỡ các gói cài đặt khác (có thể cả chính nó) khỏi máy sau khi "
-"cài đặt. Đầu tiên bạn nên kiếm một ảnh đĩa cài đặt mới hơn, hoặc tạm dừng "
-"cài đặt và thông báo lỗi cho nhà phân phối."
+"trong gói cài đặt nào đó liệt kê ở trên. Chi tiết có thể xem ở "
+"/var/log/syslog. Bộ cài đặt sẽ tiếp tục mặc dù có thể không thành công, và "
+"sẽ không thể cài hay gỡ các gói cài đặt khác (có thể cả chính nó) khỏi máy "
+"sau khi cài đặt. Đầu tiên bạn nên kiếm một ảnh đĩa cài đặt mới hơn, hoặc tạm "
+"dừng cài đặt và thông báo lỗi cho nhà phân phối."
 
 #. Type: error
 #. Description
@@ -1238,15 +1241,15 @@ msgstr "Đã gặp lỗi trong khi di chuyển những tài liệu và cấu hì
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Đã gặp lỗi sai trong khi di chuyển số liệu. Thêm chi tiết đã ghi vào /var/"
-"log/syslog. Cuộc cài đặt sẽ tiếp tục, tuy nhiên một số tài liệu và thiết lập "
-"cấu hình mà bạn đã yêu cầu di chuyển có thể sẽ không có trong hệ thống đang "
-"cài đặt."
+"Đã gặp lỗi sai trong khi di chuyển số liệu. Thêm chi tiết đã ghi vào "
+"/var/log/syslog. Cuộc cài đặt sẽ tiếp tục, tuy nhiên một số tài liệu và "
+"thiết lập cấu hình mà bạn đã yêu cầu di chuyển có thể sẽ không có trong hệ "
+"thống đang cài đặt."
 
 #. Type: error
 #. Description
@@ -1309,7 +1312,8 @@ msgstr "Vui lòng đóng các ứng dụng đang sử dụng các điểm gắn 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr "Bạn có muốn chương trình cài đặt cố gỡ bỏ các phân vùng này?"
 
 #. Type: boolean
@@ -1503,10 +1507,8 @@ msgstr "Tiếp tục cài đặt."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
-msgstr "Tiến trình cài đặt đã bị lỗi."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1519,19 +1521,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "Trình cài đặt đã gặp lỗi trong lúc tiến hành tự cập nhật:"
+msgstr ""
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "Cài đặt (chế độ OEM, chỉ dành cho nhà sản xuất)"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1541,27 +1539,21 @@ msgstr "Cài đặt (chế độ OEM, chỉ dành cho nhà sản xuất)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Cấu hình mạng"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "Đang áp dụng cấu hình"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "Cấu hình mạng"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1585,7 +1577,5 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "Đang loại bỏ các gói thừa..."
+msgstr ""

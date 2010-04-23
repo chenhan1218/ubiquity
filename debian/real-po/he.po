@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2010-04-10 19:03+0000\n"
+"PO-Revision-Date: 2010-04-18 15:31+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:05+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -102,8 +102,8 @@ msgid ""
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
-"מוכנים להתקנה? לאחר שתענו על מספר שאלות, ניתן יהיה להתקין את התוכן של ה"
-"${MEDIUM} למחשב זה כדי שתוכלו להפעיל את ${RELEASE} ללא צורך ב${MEDIUM}."
+"מוכנים להתקנה? לאחר שתענו על מספר שאלות, ניתן יהיה להתקין את התוכן של "
+"ה${MEDIUM} למחשב זה כדי שתוכלו להפעיל את ${RELEASE} ללא צורך ב${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -124,8 +124,8 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"יתכן שתרצה לקרוא את <a href=\"release-notes\">הערות ההפצה</a> או <a href="
-"\"update\">לעדכן את תכנית התקנה זו</a>."
+"יתכן שתרצה לקרוא את <a href=\"release-notes\">הערות ההפצה</a> או <a "
+"href=\"update\">לעדכן את תכנית התקנה זו</a>."
 
 #. Type: text
 #. Description
@@ -334,6 +334,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"יש להקליד את אותה הסיסמה פעמיים, כדי שניתן יהיה לבדוק שגיאות בהקלדה. על "
+"סיסמה טובה להכיל ערבוב של אותיות, מספרים וסימני כתב נוספים, להיות בת שמונה "
+"תווים לכל הפחות, ויש להחליפה על בסיס קבוע."
 
 #. Type: text
 #. Description
@@ -431,7 +434,8 @@ msgstr ""
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
-msgstr "אם אין ברצונך ליבא חשבונות, השאר את השדות לא מסומנים ועבור לעמוד הבא."
+msgstr ""
+"אם אין ברצונך ליבא חשבונות, השאר את השדות לא מסומנים ועבור לעמוד הבא."
 
 #. Type: text
 #. Description
@@ -623,18 +627,18 @@ msgstr "תוכנית ההתקנה קרסה"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
-"מצטערים, אך תוכנית ההתקנה קרסה. אנא דווח על התקלה הזו בכתובת https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (הוסף אותה כבאג חדש, ולא לבאג "
-"שכבר קיים) כדי שאחד המפתחים יוכל לפתור את הבעיה הזו בהקדם האפשרי. בכדי לסייע "
-"למפתחים להבין מהו מקור הבעיה, אנא כלול בדיווח את הפרטים הבאים, בנוסף לקבצים /"
-"var/log/syslog ו- /var/log/partman:"
+"מצטערים, אך תוכנית ההתקנה קרסה. אנא דווח על התקלה הזו בכתובת "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (הוסף אותה כבאג חדש, "
+"ולא לבאג שכבר קיים) כדי שאחד המפתחים יוכל לפתור את הבעיה הזו בהקדם האפשרי. "
+"בכדי לסייע למפתחים להבין מהו מקור הבעיה, אנא כלול בדיווח את הפרטים הבאים, "
+"בנוסף לקבצים /var/log/syslog ו- /var/log/partman:"
 
 #. Type: text
 #. Description
@@ -1181,12 +1185,12 @@ msgstr "חבילות אלו נמצאו פגומות:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "זה יכול היה לקרות בשל שימוש בתמונה ישנה של תוכנית ההתקנה, או בגלל באג בכמה "
 "מהחבילות שהוזכרו למעלה. פרטים נוספים יכולים להימצא ב /var/log/syslog. תוכנית "
@@ -1217,8 +1221,8 @@ msgstr "שגיאה בהגירת המסמכים וההגדרות"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1286,7 +1290,8 @@ msgstr "אנא סגור את כל היישומים המשתמשים במחיצו
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr "האם ברצונך שתוכנית ההתקנה תנסה לכבות את המחיצות הללו שוב?"
 
 #. Type: boolean
@@ -1477,10 +1482,8 @@ msgstr "המשך בהתקנה."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
-msgstr "ההתקנה נכשלה"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1493,19 +1496,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "ארעה שגיאה בנסיון לעדכן את תכנית ההתקנה:"
+msgstr ""
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "התקנה (ליצרנים בלבד)"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1515,27 +1514,21 @@ msgstr "התקנה (ליצרנים בלבד)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "תצורת רשת"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "החלת התצורה"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "תצורת רשת"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1559,7 +1552,5 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "מסיר חבילות מיותרות..."
+msgstr ""

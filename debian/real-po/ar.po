@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:06+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -69,8 +69,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"أنت تثبّت في وضع صانع الأنظمة. رجاء أدخل اسما فريدا لهذه المجموعة من الأنظمة. "
-"هذا الاسم سوف يُحفظ في النظام المثبّت وسوف يُستخدم للمساعدة في بلاغات العلل."
+"أنت تثبّت في وضع صانع الأنظمة. رجاء أدخل اسما فريدا لهذه المجموعة من "
+"الأنظمة. هذا الاسم سوف يُحفظ في النظام المثبّت وسوف يُستخدم للمساعدة في "
+"بلاغات العلل."
 
 #. Type: text
 #. Description
@@ -325,6 +326,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"أدخل كلمة السر نفسها مرتين، حتى يمكن التحقق من الأخطاء. يفضل وضع كلمة سر "
+"تتضمن خليطاً من الحروف والأرقام وعلامات الترقيم، و ينبغي أن لا تقل عن ثمانية "
+"حروف، و يفضل تغييرها على فترات منتظمة."
 
 #. Type: text
 #. Description
@@ -614,18 +618,18 @@ msgstr "انهار المثبّت"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
-"نعتذر، انهار المثبّت. الرجاء الابلاغ عن المشكلة في https://launchpad.net/"
-"ubuntu/+source/ubiquity/+filebug (لا ترفق تفاصيلك بأي بلاغ سابق) وسيحاول "
-"المطورون معالجة المشكلة في أقرب وقت ممكن. لمساعدة المطورين لفهم المشكلة. "
-"أرفق البيانات التالية مع تقريرك. وأرفق الملفات ‭/var/log/syslog‬ و ‭/var/log/"
-"partman‬"
+"نعتذر، انهار المثبّت. الرجاء الابلاغ عن المشكلة في "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (لا ترفق تفاصيلك بأي "
+"بلاغ سابق) وسيحاول المطورون معالجة المشكلة في أقرب وقت ممكن. لمساعدة "
+"المطورين لفهم المشكلة. أرفق البيانات التالية مع تقريرك. وأرفق الملفات "
+"‭/var/log/syslog‬ و ‭/var/log/partman‬"
 
 #. Type: text
 #. Description
@@ -1174,16 +1178,16 @@ msgstr "الحزم التالية في حالة معطوبة"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "قد يكون هذا الخطأ ناتج عن استعمال نسخة قديمة من المثبت أو خلل في إحدى الحزم "
-"في القائمه أعلاه.  لمزيد من التفاصيل راجع ‭/var/log/syslog‬. سيحاول المثبت أن "
-"يكمل التثبيت ولكن قد يفشل في إكماله في أي مرحلة وقد لا يمكنك إزاله الحزم "
+"في القائمه أعلاه.  لمزيد من التفاصيل راجع ‭/var/log/syslog‬. سيحاول المثبت "
+"أن يكمل التثبيت ولكن قد يفشل في إكماله في أي مرحلة وقد لا يمكنك إزاله الحزم "
 "الزائده بما فيها هذه الحزمة، يجب أولا أن تحاول أن تجد إصدارة جديده من المثبت "
 "أو أبلغ عن المشكله لموزعك."
 
@@ -1209,8 +1213,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1273,7 +1277,8 @@ msgstr "الرجاء غلق أي تطبيق يستخدم نقاط الوصل ه�
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr "هل تريد من برنامج التثبيت أن يحاول فصل نقاط الوصل هذه مره أخرى؟"
 
 #. Type: boolean
@@ -1461,10 +1466,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
-msgstr "فشل التثبيت"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1477,19 +1480,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "المثبت واجه خطأ أثناء نسخ الملفات للقرص الصلب"
+msgstr ""
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "ثبت (وضع الصانع الأصلي للأجهزة، للصانعين فقط)"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1499,27 +1498,21 @@ msgstr "ثبت (وضع الصانع الأصلي للأجهزة، للصانعي
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "ضبط الشبكة"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "تطبيق التضبيط"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "ضبط الشبكة"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1543,7 +1536,5 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "يزيل الحزم الزائدة..."
+msgstr ""

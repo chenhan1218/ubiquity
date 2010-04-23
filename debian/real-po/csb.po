@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2010-04-14 21:00+0000\n"
+"PO-Revision-Date: 2010-04-18 18:00+0000\n"
 "Last-Translator: Mark Kwidzińsczi <mark@linuxcsb.org>\n"
 "Language-Team: Kashubian <csb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:06+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -113,7 +113,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:15001
 msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr "Pò òdpòwiescë na czile pëtaniów nen kòmpùtr bãdze ju fardich do ùżëcô."
+msgstr ""
+"Pò òdpòwiescë na czile pëtaniów nen kòmpùtr bãdze ju fardich do ùżëcô."
 
 #. Type: text
 #. Description
@@ -135,7 +136,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr "Mòżesz przeczëtac <a href=\"release-notes\">wëdowiédzã ò wëdôwkù</a> ."
+msgstr ""
+"Mòżesz przeczëtac <a href=\"release-notes\">wëdowiédzã ò wëdôwkù</a> ."
 
 #. Type: text
 #. Description
@@ -341,6 +343,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Proszã wpisac dwa razë równą parolã, abë sprôwdzëc, czë ni ma felów. Dobrô "
+"parola mô zamëkac w se lëterë, cyfrë ë interpùnkcjowé céchë, je zestôwkã ni "
+"mni jakno òsmiu céchów ë bëc zjinaczanô regùlarno."
 
 #. Type: text
 #. Description
@@ -578,7 +583,8 @@ msgstr "Biéj dali bez startowi programë."
 #: ../ubiquity.templates:83001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr "Je nót rãczno winstalowac startową programã dlô zrëszeniô ${RELEASE}."
+msgstr ""
+"Je nót rãczno winstalowac startową programã dlô zrëszeniô ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -634,12 +640,12 @@ msgstr "Fela jinstalatora"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Przeprôszajemë, wëstãpiła fela jinstalatora. Prszëmë ò zgłoszenię nowi felë "
 "pòd adresã https://launchpad.net/ubuntu/+source/ubiquity/+filebug (proszëmë "
@@ -1196,12 +1202,12 @@ msgstr "Paczétë niżi są w stónie ùszkòdzeniô:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Mòże tak bëc bez brëkòwanié stôrégò òbrazu jinstalatora abò téż feli w "
 "jednym z paczétów wëżi. Wicy detalów mòże nalézc w katalogù /var/log/syslog. "
@@ -1232,14 +1238,14 @@ msgstr "Fela migracëji dokùmentów ë nastôwów"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Pòkôza sã fela przë przenoszeniu pòdôwków. Wicy detalów mòże nalezc w /var/"
-"log/syslog. Instalacëjô jidze dali, równak dzél abò wszëtczé dokùmentë ë "
-"nastôwë mògą nie bëc przeniosłé do winstalowóny systemë."
+"Pòkôza sã fela przë przenoszeniu pòdôwków. Wicy detalów mòże nalezc w "
+"/var/log/syslog. Instalacëjô jidze dali, równak dzél abò wszëtczé dokùmentë "
+"ë nastôwë mògą nie bëc przeniosłé do winstalowóny systemë."
 
 #. Type: error
 #. Description
@@ -1303,7 +1309,8 @@ msgstr "Proszã zamknąc wszëtczé programë brëkùjącé tich pùnktów mònt
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr "Chcesz bë instalownik spróbòwôł òdmòntowac ne particëje znowa?"
 
 #. Type: boolean
@@ -1495,10 +1502,8 @@ msgstr "Biéj dali z instalacëją."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
-msgstr "Fela instalacëji"
+msgstr "Instalacëjô nie darzëła sã"
 
 #. Type: text
 #. Description
@@ -1511,19 +1516,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "Instalownik pòtkôł felã prze zaktuaknieniu samegò se:"
+msgstr ""
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "Jinstalacëjô (trib OEM, blós dlô producentów)"
+msgstr "Trib OEM (blós dlô producentów)"
 
 #. Type: text
 #. Description
@@ -1533,27 +1534,21 @@ msgstr "Jinstalacëjô (trib OEM, blós dlô producentów)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Kònfigùracëjô sécë"
+msgstr "Przëszëkòwanié do kònfigùracëji OEM"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "Przëjãcé kònfigùracëji"
+msgstr "Przëszëkòwanié do kònfigùracëji OEM..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "Kònfigùracëjô sécë"
+msgstr "Fardich do kònfigùracëji OEM"
 
 #. Type: text
 #. Description
@@ -1577,7 +1572,5 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "Rëmanié dodôwnëch paczétów..."
+msgstr "Rëmanié paczétów"

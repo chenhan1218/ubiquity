@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2010-04-10 14:22+0000\n"
-"Last-Translator: Vadim Nevorotin <malamut@ubuntu.ru>\n"
+"PO-Revision-Date: 2010-04-19 08:36+0000\n"
+"Last-Translator: Vadim Rutkovsky <roignac@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:06+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -130,8 +130,8 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Возможно вы хотите прочитать <a href=\"release-notes\">примечания к выпуску</"
-"a> или <a href=\"update\">обновить этот установщик</a>."
+"Возможно вы хотите прочитать <a href=\"release-notes\">примечания к "
+"выпуску</a> или <a href=\"update\">обновить этот установщик</a>."
 
 #. Type: text
 #. Description
@@ -345,6 +345,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Введите пароль дважды  (для обнаружения возможной ошибки ввода). Безопасный "
+"пароль должен иметь не менее восьми символов и содержать буквы, цифры и "
+"знаки пунктуации. Кроме этого, пароль должен периодически меняться."
 
 #. Type: text
 #. Description
@@ -640,20 +643,20 @@ msgstr "Программа установки аварийно завершил�
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "К сожалению, программа установки аварийно завершилась. Пожалуйста, сообщите "
 "об ошибке на https://launchpad.net/ubuntu/+source/ubiquity/+filebug (не "
 "добавляйте информацию к уже существующим отчетам об ошибках) и разработчики "
 "исправят эту ошибку настолько быстро, насколько это возможно. Чтобы помочь "
 "разработчикам понять, чем вызвана эта ошибка, включите в ваш отчёт "
-"нижеследующую информацию и присоедините к нему файлы /var/log/syslog и /var/"
-"log/partman:"
+"нижеследующую информацию и присоедините к нему файлы /var/log/syslog и "
+"/var/log/partman:"
 
 #. Type: text
 #. Description
@@ -1058,7 +1061,7 @@ msgstr "Следующий файл не соответствует исходн
 #. Description
 #: ../ubiquity.templates:144001
 msgid "Copying installation logs..."
-msgstr "Копирование лога установки..."
+msgstr "Копирование журнала установки..."
 
 #. Type: text
 #. Description
@@ -1207,12 +1210,12 @@ msgstr "Эти пакеты повреждены:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Это могло случиться по причине использования устаревшего установочного "
 "образа или из-за ошибки в некоторых пакетах, перечисленных выше. Более "
@@ -1245,14 +1248,14 @@ msgstr "Ошибка при переносе документов и настр�
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Произошла ошибка при переносе данных. Подробности можно найти в /var/log/"
-"syslog. Установка будет продолжена, но некоторые или все документы и "
-"настройки, не могут быть перенесены в устанавливаемую систему."
+"Произошла ошибка при переносе данных. Подробности можно найти в "
+"/var/log/syslog. Установка будет продолжена, но некоторые или все документы "
+"и настройки, не могут быть перенесены в устанавливаемую систему."
 
 #. Type: error
 #. Description
@@ -1316,7 +1319,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Вы хотите, чтобы установщик еще раз попытался отмонтировать эти разделы?"
 
@@ -1512,10 +1516,8 @@ msgstr "Продолжить установку."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
-msgstr "Ошибка установки"
+msgstr "Установка не удалась"
 
 #. Type: text
 #. Description
@@ -1524,23 +1526,23 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
+"Установщик столкнулся с неисправимой ошибкой. Настольный сеанс будет теперь "
+"выполнен так, чтобы Вы могли исследовать проблему или попробовать установку "
+"снова."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "Программа установки обнаружила ошибку при обновлении:"
+msgstr ""
+"Установщик столкнулся с неисправимой ошибкой, сейчас последует перезагрузка."
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "Установка (режим OEM, только для производителей оборудования)"
+msgstr "Режим OEM (только для производителей)"
 
 #. Type: text
 #. Description
@@ -1550,27 +1552,21 @@ msgstr "Установка (режим OEM, только для производ
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Конфигурация сети"
+msgstr "Подготовка к OEM-конфигурации"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "Применить настройки"
+msgstr "Подготовка к OEM-конфигурации..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "Конфигурация сети"
+msgstr "Система готова для OEM-конфигурации"
 
 #. Type: text
 #. Description
@@ -1581,6 +1577,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"При загрузке в новую систему, Вы сможете войти как пользователь 'oem' с "
+"помощью пароля, выбранного ранее; этот пользователь также имеет "
+"административные привилегии, используя \"sudo\". Таким образом Вы сможете "
+"совершать любые необходимые изменения в системе."
 
 #. Type: text
 #. Description
@@ -1590,11 +1590,13 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"Как только система настроена удовлетворительным для вас образом, запустите "
+"'oem-config-prepare'. В результате система удалит временного пользователя "
+"'oem' и задаст конечному пользователю различные вопросы по конфигурации во "
+"время следующей загрузки."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "Удаление дополнительных пакетов..."
+msgstr "Удаление пакетов"

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2010-04-10 14:26+0000\n"
-"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
+"PO-Revision-Date: 2010-04-22 20:55+0000\n"
+"Last-Translator: Patrick (Petriko) Oudejans <Unknown>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:06+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -126,8 +126,8 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Eble vi volas legi la <a href=\"release-notes\">eldon-notojn</a> aŭ <a href="
-"\"update\">ĝisdatigi ĉi tiun instalilon</a>."
+"Eble vi volas legi la <a href=\"release-notes\">eldon-notojn</a> aŭ <a "
+"href=\"update\">ĝisdatigi ĉi tiun instalilon</a>."
 
 #. Type: text
 #. Description
@@ -211,7 +211,8 @@ msgstr "Kiu aranĝo plej similas al via klavaro?"
 #. Description
 #: ../ubiquity.templates:28001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "Vi povas tajpi en ĉi tiun skatolon por testi vian novan klavararanĝon."
+msgstr ""
+"Vi povas tajpi en ĉi tiun skatolon por testi vian novan klavararanĝon."
 
 #. Type: text
 #. Description
@@ -340,6 +341,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Enskribu la saman pasvorton dufoje, por ke ĝi povu esti kontrolita pri "
+"tajperaroj. Bona pasvorto havu miksaĵon de literoj, nombroj kaj "
+"interpunkcio, havu almenaŭ ok signojn, kaj ŝanĝendas regulintervale."
 
 #. Type: text
 #. Description
@@ -635,18 +639,19 @@ msgstr "La instalilo kraŝis"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
-"Pardonu, la instalilo kraŝis. Bonvolu sendi raporton ĉe https://launchpad."
-"net/ubuntu/+source/ubiquity/+filebug (ne aldonu al jam ekzistanta eraro) kaj "
-"prizorgistoj traktos la problemon, kiam plej frue eblos. Por helpi la "
-"laboron de prizorgistoj, bonvolu priskribi la sekvajn detalojn kaj aldoni la "
-"enhavon de la dosieroj /var/log/syslog kaj /var/log/partman:"
+"Pardonu, la instalilo kraŝis. Bonvolu sendi raporton ĉe "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (ne aldonu al jam "
+"ekzistanta eraro) kaj prizorgistoj traktos la problemon, kiam plej frue "
+"eblos. Por helpi la laboron de prizorgistoj, bonvolu priskribi la sekvajn "
+"detalojn kaj aldoni la enhavon de la dosieroj /var/log/syslog kaj "
+"/var/log/partman:"
 
 #. Type: text
 #. Description
@@ -1200,12 +1205,12 @@ msgstr "La stato de la sekvaj pakoj estas rompita:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "La kaŭzo povas esti malnova instalpakaĵo, aŭ eble iu supre listigita pako "
 "enhavas cimon. Pli da detaloj troviĝas en /var/log/syslog. La instalilo "
@@ -1236,14 +1241,14 @@ msgstr "Eraro dum migrigo de dokumentoj kaj agordoj"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Okazis eraro dum migrigo de datumoj. Pli da detaloj vi povas trovi en /var/"
-"log/syslog. Daŭriĝos la instalado, sed eble kelkaj aŭ ĉiuj dokumentoj kaj "
-"agordoj kiujn vi indikis ne estos kopiataj al la instalata sistemo."
+"Okazis eraro dum migrigo de datumoj. Pli da detaloj vi povas trovi en "
+"/var/log/syslog. Daŭriĝos la instalado, sed eble kelkaj aŭ ĉiuj dokumentoj "
+"kaj agordoj kiujn vi indikis ne estos kopiataj al la instalata sistemo."
 
 #. Type: error
 #. Description
@@ -1305,7 +1310,8 @@ msgstr "Bonvolu fermi ĉiujn aplikaĵojn uzantajn ĉi tiujn surmetingojn."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr "Ĉu vi ŝatus ke la instalilo reklopodu demeti ĉi tiujn subdiskojn?"
 
 #. Type: boolean
@@ -1499,8 +1505,6 @@ msgstr "Daŭrigi la instaladon."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
 msgstr "Instalado malsukcesis"
 
@@ -1511,23 +1515,21 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
+"La instalilon trafis neriparebla eraro. Labortabla seanco nun lanĉiĝos por "
+"ke vi povu esplori la problemon aŭ provi reinstali."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "La instalilo trafis eraron dum ĝi provis ĝisdatigi sin mem:"
+msgstr "La instalilon trafis neriparebla eraro kaj ĝi nun restartiĝos."
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "Instali (OEM-maniero nur por fabrikantoj)"
+msgstr "OEM-reĝimo (nur por produktistoj)"
 
 #. Type: text
 #. Description
@@ -1537,27 +1539,21 @@ msgstr "Instali (OEM-maniero nur por fabrikantoj)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Reteja agordo"
+msgstr "Prepari por agordado de OEM"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "Apliki agordon"
+msgstr "Preparas por agordado de OEM..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "Reteja agordo"
+msgstr "Preta por agordado de OEM"
 
 #. Type: text
 #. Description
@@ -1568,6 +1564,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"Kiam vi praŝargos en la novan sistemon, vi povos ensaluti kiel la uzanto "
+"'oem' per la pasvorto kiun vi elektis pli frue; ĉi tiu uzanto havas ankaŭ "
+"administrajn privilegiojn uzante 'sudo'. Vi tiam povos fari ajnan aldonan "
+"modifon bezonatan de vi por la sistemo."
 
 #. Type: text
 #. Description
@@ -1577,11 +1577,12 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"Kiam la sistemo estas kontentige agordita, plenumu 'oem-config-prepare'. Ĉi "
+"tio kaŭzos ke la sistemo forigos la nuntempan uzanton 'oem' kaj demandos al "
+"la fina uzanto kelkajn agordajn demandojn je la sekva fojo kiam ĝi praŝargas."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "Foriganta ekstrajn pakojn..."
+msgstr "Forigas pakaĵojn"

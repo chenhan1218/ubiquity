@@ -7,26 +7,26 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2009-09-05 19:31+0000\n"
-"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
+"PO-Revision-Date: 2010-04-21 18:21+0000\n"
+"Last-Translator: நவீன் குமார்(கெம்ளின்) <naveenmtp@gmail.com>\n"
 "Language-Team: Tamil <Ubuntu-l10n-tam@lists.ubuntu.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:06+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "மிகப்பெரிய தொடர்ந்த  உபயோகம் இல்லாத இடத்தை உபயோகப்படுத்து."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr ""
+msgstr "முழு  வட்டையும் அழித்து உபயோகபடுத்து."
 
 #. Type: text
 #. Description
@@ -38,7 +38,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr ""
+msgstr "நீங்களாக வகிர்வை குறிப்பிடுங்கள்.(மேம்பட்ட விருப்பம்)"
 
 #. Type: text
 #. Description
@@ -88,7 +88,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Install ${RELEASE}"
-msgstr ""
+msgstr "நிறுவு ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -104,6 +104,8 @@ msgstr ""
 #: ../ubiquity.templates:15001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
+"சில கேள்விகளுக்கு ஒருமுறை பதிலளித்தால்,இந்த கணினியானது உபயோகபடுத்த "
+"தாயாரகிவிடும்."
 
 #. Type: text
 #. Description
@@ -174,7 +176,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Region:"
-msgstr ""
+msgstr "வட்டாரம்"
 
 #. Type: text
 #. Description
@@ -192,7 +194,9 @@ msgstr "எந்த விசைப்பலகை அமைப்பு உங
 #. Description
 #: ../ubiquity.templates:28001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "நீங்கள் புதிய விசைப்பலகை அமைப்பை சோதிக்க இங்கு பெட்டியில் உள்ளீடு செய்து பார்க்கலரம்."
+msgstr ""
+"நீங்கள் புதிய விசைப்பலகை அமைப்பை சோதிக்க இங்கு பெட்டியில் உள்ளீடு செய்து "
+"பார்க்கலரம்."
 
 #. Type: text
 #. Description
@@ -285,8 +289,8 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"ஒரு நபருக்கு மேல் கணினியை பயன் படுத்த வேண்டுமானால் பின்னால் அதிக கணக்குகளை அமைத்துக் "
-"கொள்ளலாம்."
+"ஒரு நபருக்கு மேல் கணினியை பயன் படுத்த வேண்டுமானால் பின்னால் அதிக கணக்குகளை "
+"அமைத்துக் கொள்ளலாம்."
 
 #. Type: text
 #. Description
@@ -370,7 +374,9 @@ msgstr ""
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr "வலைப் பின்னலில் உங்கள் கணினியை மற்றவருக்கு அடையாளம் காட்ட இந்த பெயர் பயனாகும்."
+msgstr ""
+"வலைப் பின்னலில் உங்கள் கணினியை மற்றவருக்கு அடையாளம் காட்ட இந்த பெயர் "
+"பயனாகும்."
 
 #. Type: text
 #. Description
@@ -607,12 +613,12 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 
 #. Type: text
@@ -1140,12 +1146,12 @@ msgstr ""
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 
 #. Type: error
@@ -1170,8 +1176,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1232,7 +1238,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 
 #. Type: boolean
@@ -1418,10 +1425,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installing system"
 msgid "Installation failed"
-msgstr "இங்கு தளம் நிறுவப்படுகிறது"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1490,7 +1495,5 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "கூடுதல் பொதிகள் நீக்கப் படுகின்றன..."
+msgstr ""

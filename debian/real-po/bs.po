@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:05+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -331,6 +331,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Unesite lozinku dva puta kako bi se provjerila na greške u kucanju. Dobra "
+"lozinka treba sadržati mješavinu slova, brojeva i interpunkcijskih znakova i "
+"biti mijenjana u pravilnim intervalima."
 
 #. Type: text
 #. Description
@@ -501,7 +504,8 @@ msgstr "Detalji"
 #: ../ubiquity.templates:73001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr "Vaš novi operativni sistem će se instalirati sa slijedećim postavkama:"
+msgstr ""
+"Vaš novi operativni sistem će se instalirati sa slijedećim postavkama:"
 
 #. Type: text
 #. Description
@@ -622,12 +626,12 @@ msgstr "Program za instaliranje je pukao"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Žao nam je, program za instalaciju je pukao. Molim, javite novi izvještaj o "
 "grešci na https://launchpad.net/ubuntu/+source/ubiquity/+filebug(nemojte "
@@ -1188,16 +1192,16 @@ msgstr "Sljedeći paketi su u neispravnom stanju:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Ovo može biti zato što koristite stari program za instalaciju ilizbog "
-"grešaka u navedenim paketima. Više detalja o ovome možete naćiu datoteci /"
-"var/log/syslog. Program za instalaciju će pokušati da nastaviali može "
+"grešaka u navedenim paketima. Više detalja o ovome možete naćiu datoteci "
+"/var/log/syslog. Program za instalaciju će pokušati da nastaviali može "
 "otkazati u nekom kasnijem trenutku i možda neće moći dainstalira ili ukloni "
 "druge pakete (uključujući i sebe samog) sainstaliranog sistema. Prvo bi "
 "trebalo da pogledata da li postoji novijaverzija programa za instalaciju "
@@ -1225,8 +1229,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1290,7 +1294,8 @@ msgstr "Molim, zatvorite sve aplikacije koje koriste ove tačke montiranja."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Da li želite da program za instalaciju proba da ponovo otkači ove particije?"
 
@@ -1481,10 +1486,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
-msgstr "Instalacija nije uspjela"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1497,20 +1500,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
-"Instaler je naisao na grešku prilikom kopiranja datoteka na tvrdi disk:"
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "Instaliraj (OEM mod, samo za sistem integratore)"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1520,27 +1518,21 @@ msgstr "Instaliraj (OEM mod, samo za sistem integratore)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Konfiguracijar mreže"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "Primjena konfiguracije"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "Konfiguracijar mreže"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1564,7 +1556,5 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "Uklanjam dodatne pakete..."
+msgstr ""

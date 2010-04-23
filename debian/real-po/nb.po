@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2010-04-10 14:23+0000\n"
+"PO-Revision-Date: 2010-04-21 20:15+0000\n"
 "Last-Translator: Kjetil Birkeland Moe <kjetilbi@stud.ntnu.no>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:06+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -80,14 +80,14 @@ msgid ""
 "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
 "your system."
 msgstr ""
-"Du kan forsøke ${RELEASE} fra dette ${MEDIUM} uten å gjøre endringer på "
+"Du kan prøve ut ${RELEASE} fra denne ${MEDIUM} uten å gjøre endringer på "
 "systemet ditt."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "Try ${RELEASE}"
-msgstr "Forsøk ${RELEASE}"
+msgstr "Prøv ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -206,7 +206,7 @@ msgstr "Tastaturutforming"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Hvilken oppsett er mest likt ditt tastatur?"
+msgstr "Hvilket oppsett er mest likt ditt tastatur?"
 
 #. Type: text
 #. Description
@@ -341,6 +341,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Skriv inn det samme passordet to ganger slik at det kan bli sjekket for "
+"stavefeil. Et godt passord inneholder en blanding av bokstaver, tall og "
+"tegn, bør være minst åtte karakterer langt, og bør endres med jevne "
+"mellomrom."
 
 #. Type: text
 #. Description
@@ -579,7 +583,7 @@ msgstr "Fortsett uten oppstartslaster."
 #: ../ubiquity.templates:83001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr "Du må installere en oppstartslaster manuelt forå starte ${RELEASE}."
+msgstr "Du må installere en oppstartslaster manuelt for å starte ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -635,12 +639,12 @@ msgstr "Installasjonsprogrammet krasjet"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Beklager, installasjonsprogrammet krasjet. Vennligst rapporter en "
 "feilmelding på https://launchpad.net/ubuntu/+source/ubiquity/+filebug - uten "
@@ -733,7 +737,7 @@ msgstr "Monteringspunkt"
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:105001
 msgid "Format?"
-msgstr "Formatér?"
+msgstr "Formatere?"
 
 #. Type: text
 #. Description
@@ -915,7 +919,7 @@ msgstr ""
 " Navn: ${FULLNAME}\n"
 " Påloggingsnavn: ${USERNAME}\n"
 " Sted: ${LOCATION}\n"
-" Migreringsssistent:\n"
+" Migreringsassistent:\n"
 " ${MIGRATE}"
 
 #. Type: text
@@ -1203,12 +1207,12 @@ msgstr "Følgende pakker er i en ødelagt tilstand:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Dette kan være fordi det brukes et eldre installasjonsmedium, eller det kan "
 "være på grunn av en feil i noen av pakkene listet over. Flere detaljer kan "
@@ -1241,20 +1245,20 @@ msgstr "Feil ved overføring av dokument og instillinger"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"En feil oppstod under overføring av data. Flere detaljer kan sees i /var/log/"
-"syslog. Installasjonen vil fortsette, men noen eller alle dokumentene du "
-"ønsket er muligens ikke flyttet til det installerte systemet."
+"En feil oppstod under overføring av data. Flere detaljer kan sees i "
+"/var/log/syslog. Installasjonen vil fortsette, men noen eller alle "
+"dokumentene du ønsket er muligens ikke flyttet til det installerte systemet."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:169001
 msgid "Error copying network configuration"
-msgstr "Feil ved kopiering av nettverksinstillingene"
+msgstr "Feil ved kopiering av nettverksinnstillingene"
 
 #. Type: error
 #. Description
@@ -1272,7 +1276,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:173001
 msgid "Calculating files to skip copying..."
-msgstr "Beregner filer for å hoppe over kopiering ..."
+msgstr "Beregner filer som ikke behøver å kopieres ..."
 
 #. Type: title
 #. Description
@@ -1307,21 +1311,23 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Please close any applications using these mount points."
-msgstr "Vennligst lukk alle applikasjoner som bruker disse monteringspunktene."
+msgstr ""
+"Vennligst lukk alle applikasjoner som bruker disse monteringspunktene."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
-"Vil du at installasjonsprogrammet skal prøve å avmontere disse partisjonene "
-"igjen?"
+"Vil du at installasjonsprogrammet skal forsøke å avmontere disse "
+"partisjonene igjen?"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:190001
 msgid "Do you want to return to the partitioner?"
-msgstr "Ønsker du å gå tilbake til partisjoneringsprogrammet?"
+msgstr "Ønsker du å gå tilbake til partisjonsprogrammet?"
 
 #. Type: boolean
 #. Description
@@ -1330,8 +1336,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Noen av partisjonene du har laget er for små. Vennligst lag følgende "
-"partisjon minimum denne størrelsen:"
+"Noen av partisjonene du har laget er for små. Vennligst la følgende "
+"partisjoner minst ha denne størrelsen:"
 
 #. Type: boolean
 #. Description
@@ -1341,7 +1347,7 @@ msgid ""
 "partitions, the installation may fail."
 msgstr ""
 "Hvis du ikke går tilbake til partisjoneringsprogrammet og øker størrelsen på "
-"disse partisjonene, vil installasjonen muligens feile."
+"disse partisjonene, vil installasjonen kunne mislykkes."
 
 #. Type: text
 #. Description
@@ -1353,7 +1359,7 @@ msgstr "Systemkonfigurasjon"
 #. Description
 #: ../ubiquity.templates:192001
 msgid "Choose language"
-msgstr "Velg språk/Choose language"
+msgstr "Velg språk"
 
 #. Type: text
 #. Description
@@ -1395,7 +1401,7 @@ msgstr "Tastatur"
 #. Description
 #: ../ubiquity.templates:199001
 msgid "Disk Setup"
-msgstr "diskoppsett"
+msgstr "Diskoppsett"
 
 #. Type: text
 #. Description
@@ -1413,7 +1419,7 @@ msgstr "Sammendrag"
 #. Description
 #: ../ubiquity.templates:203001
 msgid "installation process"
-msgstr "innstalasjonsprosess"
+msgstr "installasjonsprosess"
 
 #. Type: text
 #. Description
@@ -1511,10 +1517,8 @@ msgstr "Fortsett installasjon."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
-msgstr "Installasjonen feilet"
+msgstr "Installasjon mislyktes"
 
 #. Type: text
 #. Description
@@ -1523,25 +1527,24 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
+"Installasjonsprogrammet ble utsatt for en ugjenkallelig feil. En "
+"skrivebordsøkt vil nå starte slik at du kan undersøke problemet nærmere, "
+"eller forsøke installasjonen på nytt."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
-"Installasjonsprogrammet støtte på en feil mens den prøvde å oppdatere seg "
-"selv:"
+"Installasjonsprogrammet ble utsatt for en ugjenkallelig feil og vil nå "
+"starte på nytt."
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "Installer (OEM modus, for maskinprodusenter)"
+msgstr "OEM modus (for maskinprodusenter)"
 
 #. Type: text
 #. Description
@@ -1551,27 +1554,21 @@ msgstr "Installer (OEM modus, for maskinprodusenter)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Nettverksoppsett"
+msgstr "Gjør klart for OEM-konfigurasjon"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "Bruker konfigurasjonen"
+msgstr "Gjør klart for OEM-konfigurasjon ..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "Nettverksoppsett"
+msgstr "Klar for OEM-konfigurasjon"
 
 #. Type: text
 #. Description
@@ -1582,6 +1579,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"Når du starter opp det nye systemet vil du kunne logge inn som brukeren "
+"'oem' med passordet du satte i under installasjonen; denne brukeren har også "
+"administrative rettigheter via 'sudo'. Du kan gjøre eventuelle endringer du "
+"ønsker i systemet."
 
 #. Type: text
 #. Description
@@ -1591,11 +1592,13 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"Straks systemet er konfigurert slik du ønsker, kjør «oem-config-prepare». "
+"Dette vil få system til å slette den midlertidige «oem»-brukeren og spørre "
+"sluttbrukeren forskjellige konfigurasjonsspørsmål neste gang systemet "
+"starter."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "Fjerner ekstra pakker …"
+msgstr "Fjerner pakker"

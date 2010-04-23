@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2010-04-13 21:40+0000\n"
-"Last-Translator: Joan Duran <jodufi@gmail.com>\n"
+"PO-Revision-Date: 2010-04-20 11:06+0000\n"
+"Last-Translator: David Planella <Unknown>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:05+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -347,6 +347,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Introduïu la mateixa contrasenya dues vegades, a fi de comprovar si hi ha "
+"errors d'escriptura. Una bona contrasenya hauria de contenir una barreja de "
+"lletres, nombres i signes de puntuació, hauria de tenir com a mínim vuit "
+"caràcters de llargada, i s'hauria de canviar sovint."
 
 #. Type: text
 #. Description
@@ -521,7 +525,8 @@ msgstr "Detalls"
 #: ../ubiquity.templates:73001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr "El nou sistema operatiu s'instal·larà ara amb els següents paràmetres:"
+msgstr ""
+"El nou sistema operatiu s'instal·larà ara amb els següents paràmetres:"
 
 #. Type: text
 #. Description
@@ -647,12 +652,12 @@ msgstr "L'instal·lador ha fallat"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Ho sentim: l'instal·lador ha fallat. Seria recomanable que informéssiu "
 "d'aquest error a https://launchpad.net/ubuntu/+source/ubiquity/+filebug "
@@ -1217,12 +1222,12 @@ msgstr "Els paquets següents estan en un estat trencat:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Això pot ser degut al fet que s'estigui utilitzant una imatge d'instal·lació "
 "vella, o bé a un error en algun dels paquets llistats aquí sobre. Podeu "
@@ -1255,8 +1260,8 @@ msgstr "S'ha produït un error en migrar els documents i els paràmetres"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1326,7 +1331,8 @@ msgstr "Tanqueu les aplicacions que emprin aquests punts de muntatge:"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Voleu que l'instal·lador provi de desmuntar aquestes particions una altra "
 "vegada?"
@@ -1522,8 +1528,6 @@ msgstr "Continueu amb l'instal·lació."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
 msgstr "Ha fallat la instal·lació"
 
@@ -1538,19 +1542,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "L'instal·lador ha trobat un error quan intentava actualitzar-se:"
+msgstr ""
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "Instal·la (mode OEM, només per a fabricants)"
+msgstr "Mode OEM (només per a distribuïdors)"
 
 #. Type: text
 #. Description
@@ -1560,27 +1560,21 @@ msgstr "Instal·la (mode OEM, només per a fabricants)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Configuració de xarxa"
+msgstr "Preparació de la configuració per a OEM"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "Aplicació de la configuració"
+msgstr "S'està preparant la configuració per a OEM..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "Configuració de xarxa"
+msgstr "A punt per a la configuració per a OEM"
 
 #. Type: text
 #. Description
@@ -1591,6 +1585,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"Quan arrenqueu el nou sistema, podreu entrar amb l'usuari «oem» amb la "
+"contrasenya que heu seleccionat anteriorment; aquest usuari té privilegis "
+"d'administrador utilitzant «sudo». Llavors, podreu fer qualsevol modificació "
+"que us calgui al sistema."
 
 #. Type: text
 #. Description
@@ -1600,11 +1598,13 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"Un cop s'hagi configurat el sistema amb els paràmetres desitjats, haureu "
+"d'executar l'ordre «oem-config-prepare». Això farà que el sistema suprimeixi "
+"l'usuari «oem» i pregunti sobre diversos paràmetres de configuració a "
+"l'usuari final la propera vegada que es torni a iniciar."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "S'estan suprimint els paquets extra..."
+msgstr "S'estan suprimint els paquets"

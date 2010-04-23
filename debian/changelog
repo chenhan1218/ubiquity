@@ -8,6 +8,7 @@ ubiquity (2.2.21) UNRELEASED; urgency=low
   * Fix broken comparisons against boolean debconf values (LP: #567749).
   * Return with the correct state value when a keyboard map is found
     (LP: #553087).
+  * Update translations from Launchpad.
 
   [ Colin Watson ]
   * Handle new partman/confirm_nooverwrite question properly (LP: #556373).

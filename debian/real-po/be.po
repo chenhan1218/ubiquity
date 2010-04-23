@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2010-04-10 14:19+0000\n"
-"Last-Translator: Alex Nyakhaychyk <nyakhaychyk@gmail.com>\n"
+"PO-Revision-Date: 2010-04-20 08:56+0000\n"
+"Last-Translator: Iryna Nikanchuk <defragbrain@gmail.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:06+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -128,16 +128,16 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Магчыма Вы жадаеце прачытаць <a href=\"release-notes\">нататкі да выпуску</"
-"a> або <a href=\"update\">абнавіць гэты ўсталёўшчык</a>."
+"Магчыма Вы жадаеце прачытаць <a href=\"release-notes\">нататкі да "
+"выпуску</a> або <a href=\"update\">абнавіць гэты ўсталёўшчык</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Магчыма Вы жадаеце прачытаць <a href=\"release-notes\">нататкі да выпуску</"
-"a>."
+"Магчыма Вы жадаеце прачытаць <a href=\"release-notes\">нататкі да "
+"выпуску</a>."
 
 #. Type: text
 #. Description
@@ -344,6 +344,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Увядзіце такі ж самы пароль двойчы, так ён можа быць правераны на памылкі "
+"друку. Добры пароль утрымлівае сумесь літараў, лічбаў і знакаў, даўжынёй "
+"павінен быць не меньш за восем сымбаляў, і павінен рэгулярна зьмяняцца."
 
 #. Type: text
 #. Description
@@ -639,12 +642,12 @@ msgstr "Праграма усталёўкі аварыйна спынена"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Прабачце, праграма усталёўкі аварыйна спынена. Калі ласка, паведамце аб "
 "памылцы на https://launchpad.net/ubuntu/+source/ubiquity/+filebug (не "
@@ -1205,12 +1208,12 @@ msgstr "Наступныя пакункі ў пашкоджаным стане:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Гэта магло здарыцца па прычыне выкарыстаньня састарэлага усталявальнага "
 "вобразу, альбо з прычыны памылкі ў некаторых пакетах, пералічаных вышэй. "
@@ -1244,14 +1247,14 @@ msgstr "Памылка міграцыі дакумэнтаў і наладак"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Узьнікла памылка пры пераносе даньняў. Падрабязнасьці можна знайсьці ў /var/"
-"log/syslog. Усталёўка будзе працягнута, але некаторыя альбо ўсе дакумэнты і "
-"наладкі ня могуць быць перанесены ва ўсталёўваемую сыстэму."
+"Узьнікла памылка пры пераносе даньняў. Падрабязнасьці можна знайсьці ў "
+"/var/log/syslog. Усталёўка будзе працягнута, але некаторыя альбо ўсе "
+"дакумэнты і наладкі ня могуць быць перанесены ва ўсталёўваемую сыстэму."
 
 #. Type: error
 #. Description
@@ -1316,7 +1319,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Ці жадаеце, каб усталёўнік яшчэ раз паспрабаваў адмантаваць гэтыя падзелы?"
 
@@ -1513,10 +1517,8 @@ msgstr "Працяг усталёўкі."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
-msgstr "Інсталяцыя схібіла"
+msgstr "Інсталяцыя скончылася памылкай"
 
 #. Type: text
 #. Description
@@ -1529,19 +1531,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "Праграма ўсталёўкі аднайдавала памылку пры абнаўленьні:"
+msgstr ""
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "Інсталяцыя (Рэжым OEM, толькі для вытворцаў)"
+msgstr "Рэжым OEM (толькі для вытворцаў)"
 
 #. Type: text
 #. Description
@@ -1551,27 +1549,21 @@ msgstr "Інсталяцыя (Рэжым OEM, толькі для вытворц
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Настаўленьні сеціва"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "Ужыць наладкі"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "Настаўленьні сеціва"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1582,6 +1574,9 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"Падчас загрузкі новай сыстэмы вы можаце ўвайсьці праз імя 'oem' і папярэдне "
+"абраны пароль; гэтае імя мае адміністрацыйныя прывілеі праз каманду 'sudo' і "
+"вы можаце дадаткова ўносіць патрэбныя зьмены ў сыстэму."
 
 #. Type: text
 #. Description
@@ -1595,7 +1590,5 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "Выдаленьне дадатковых пакетаў..."
+msgstr "Выдаленьне пакетаў"

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2010-04-10 11:00+0000\n"
-"Last-Translator: Saša Teković <Unknown>\n"
+"PO-Revision-Date: 2010-04-18 15:33+0000\n"
+"Last-Translator: Evan Dandrea <ev@ubuntu.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:06+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -32,7 +32,8 @@ msgstr "Obriši i iskoristi cijeli disk"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr "Instaliraj jednog do drugoga, nudeći odabir prilikom svakog pokretanja"
+msgstr ""
+"Instaliraj jednog do drugoga, nudeći odabir prilikom svakog pokretanja"
 
 #. Type: text
 #. Description
@@ -136,16 +137,16 @@ msgstr ""
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Možda biste htjeli pročitati <a href=\"release-notes\">bilješke izdavanja</"
-"a>."
+"Možda biste htjeli pročitati <a href=\"release-notes\">bilješke "
+"izdavanja</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
 msgstr ""
-"Možda biste htjeli <a href=\"update\">ažurirati ovaj instalacijski program</"
-"a>."
+"Možda biste htjeli <a href=\"update\">ažurirati ovaj instalacijski "
+"program</a>."
 
 #. Type: text
 #. Description
@@ -168,8 +169,8 @@ msgid ""
 "this program."
 msgstr ""
 "Proces instalacije može promijeniti veličinu particija ili ih obrisati s "
-"vašeg tvrdog diska. Svakako <b>napravite sigurnosnu kopiju važnih podataka</"
-"b> prije pokretanja ovog programa."
+"vašeg tvrdog diska. Svakako <b>napravite sigurnosnu kopiju važnih "
+"podataka</b> prije pokretanja ovog programa."
 
 #. Type: text
 #. Description
@@ -348,6 +349,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Upišite istu lozinku dvaput, kako bi se ista mogla provjeriti za greške "
+"prilikom upisivanja. Dobra lozinka će sadržavati mješavinu slova, brojki, "
+"interpunkcijskih znakova, bit će dužine od barem osam znakova i redovito će "
+"se mijenjati."
 
 #. Type: text
 #. Description
@@ -517,7 +522,8 @@ msgstr "Detalji"
 #: ../ubiquity.templates:73001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr "Vaš novi operativni sustav će se instalirati sa sljedećim postavkama:"
+msgstr ""
+"Vaš novi operativni sustav će se instalirati sa sljedećim postavkama:"
 
 #. Type: text
 #. Description
@@ -642,19 +648,19 @@ msgstr "Instalacija se srušila"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Žao nam je; instalacijski program se srušio. Molim, prijavite grešku na "
 "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (nemojte dodavati "
 "vaše detalje u bilo koju postojeću grešku) i vaš će problem biti razmotren "
 "što prije. Kako bi razvojni tim mogao razumjeti što se dogodilo, svakako "
-"dodajte sljedeće detalje u vašu prijavu greške te priložite datoteke /var/"
-"log/syslog i /var/log/partman:"
+"dodajte sljedeće detalje u vašu prijavu greške te priložite datoteke "
+"/var/log/syslog i /var/log/partman:"
 
 #. Type: text
 #. Description
@@ -1013,8 +1019,8 @@ msgid ""
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
 "Ovo je često posljedica neispravnog CD/DVD medija ili uređaja. Možete "
-"pokušati očistiti CD/DVD, snimiti ga manjom brzinom ili očistiti leće na CD/"
-"DVD uređaju."
+"pokušati očistiti CD/DVD, snimiti ga manjom brzinom ili očistiti leće na "
+"CD/DVD uređaju."
 
 #. Type: error
 #. Description
@@ -1208,20 +1214,20 @@ msgstr "Sljedeći paketi su oštećeni:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Mogući uzrok tome može biti stara slika instalacijskog programa ili greška u "
-"nekim iznad navedenim paketima. Više informacija možete pronaći u /var/log/"
-"syslog. Instalacijska procedura će svejedno pokušati nastaviti, no kasnije "
-"može biti neuspješna, te možda neće moći instalirati ili ukloniti ostale "
-"pakete (možda uključujući samu sebe). Najprije biste trebali provjeriti "
-"postoji li novija inačica vaše instalacijske slike. Ako ne uspijete pronaći "
-"novu inačicu, možete prijaviti problem vašem distributeru."
+"nekim iznad navedenim paketima. Više informacija možete pronaći u "
+"/var/log/syslog. Instalacijska procedura će svejedno pokušati nastaviti, no "
+"kasnije može biti neuspješna, te možda neće moći instalirati ili ukloniti "
+"ostale pakete (možda uključujući samu sebe). Najprije biste trebali "
+"provjeriti postoji li novija inačica vaše instalacijske slike. Ako ne "
+"uspijete pronaći novu inačicu, možete prijaviti problem vašem distributeru."
 
 #. Type: error
 #. Description
@@ -1245,8 +1251,8 @@ msgstr "Greška prilikom seljenja dokumenata i postavki"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1317,7 +1323,8 @@ msgstr "Molim, zatvorite aplikacije koje koriste ove točke montiranja."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Želite li da instalacijski program pokuša ponovno odmontirati ove particije?"
 
@@ -1513,10 +1520,8 @@ msgstr "Nastavi s instalacijom."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
-msgstr "Instalacija nije uspjela"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1529,20 +1534,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
-"Instalacijski program je naišao na grešku prilikom pokušaja ažuriranja:"
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "Instalacija (OEM način, samo za proizvođače)"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1552,27 +1552,21 @@ msgstr "Instalacija (OEM način, samo za proizvođače)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Podešavanje mreže"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "Primjena konfiguracije"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "Podešavanje mreže"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1596,7 +1590,5 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "Uklanjanje viška paketa..."
+msgstr ""

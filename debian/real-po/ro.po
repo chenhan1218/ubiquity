@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-04-14 17:23+0100\n"
-"PO-Revision-Date: 2010-04-11 14:19+0000\n"
+"PO-Revision-Date: 2010-04-19 14:47+0000\n"
 "Last-Translator: Claudia Cotună <special4ti@gmail.com>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:05+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -129,8 +129,9 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Dacă doriți, puteți să citiți <a href=\"release-notes\">notele de lansare</"
-"a> sau să <a href=\"update\">actualizați acest program de instalare</a>."
+"Dacă doriți, puteți să citiți <a href=\"release-notes\">notele de "
+"lansare</a> sau să <a href=\"update\">actualizați acest program de "
+"instalare</a>."
 
 #. Type: text
 #. Description
@@ -345,6 +346,10 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Introduceți aceeași parolă de două ori, astfel încât vor putea fi detectate "
+"greșeli în tastare. O parolă sigură conține o combinație de litere, cifre și "
+"semne de punctuație, este de cel puțin opt caractere și este schimbată "
+"periodic."
 
 #. Type: text
 #. Description
@@ -641,19 +646,20 @@ msgstr "Sistemul de instalare a eșuat"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Ne pare rău, dar sistemul de instalare a eșuat. Vă rugăm să raportați "
-"această eroare la adresa https://launchpad.net/ubuntu/+source/ubiquity/"
-"+filebug (nu atașați detaliile niciunei erori existente), iar un programator "
-"va analiza problema în cel mai scurt timp. Pentru a ajuta programatorii în "
-"analizarea problemei, includeți următoarele detalii în raport și atașați "
-"fișierele /var/log/syslog și /var/log/partman:"
+"această eroare la adresa "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (nu atașați detaliile "
+"niciunei erori existente), iar un programator va analiza problema în cel mai "
+"scurt timp. Pentru a ajuta programatorii în analizarea problemei, includeți "
+"următoarele detalii în raport și atașați fișierele /var/log/syslog și "
+"/var/log/partman:"
 
 #. Type: text
 #. Description
@@ -1012,9 +1018,9 @@ msgid ""
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
 "Aceasta se datorează, deseori, unei unități CD/DVD sau unui CD/DVD "
-"nefuncțional(e). Poate fi util să curățați CD/DVD-ul, să inscripționați CD/"
-"DVD-ul la o viteză mai mică sau să curățați lentila inscriptorului de CD/DVD "
-"(pachetele de curățare sunt disponibile, de obicei, la magazinele de "
+"nefuncțional(e). Poate fi util să curățați CD/DVD-ul, să inscripționați "
+"CD/DVD-ul la o viteză mai mică sau să curățați lentila inscriptorului de "
+"CD/DVD (pachetele de curățare sunt disponibile, de obicei, la magazinele de "
 "electronice)."
 
 #. Type: error
@@ -1056,7 +1062,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:143001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr "Următorul fișier nu s-a potrivit cu sursa sa de copiere de pe CD/DVD:"
+msgstr ""
+"Următorul fișier nu s-a potrivit cu sursa sa de copiere de pe CD/DVD:"
 
 #. Type: text
 #. Description
@@ -1211,12 +1218,12 @@ msgstr "Următoarele pachete se află în stare nefuncțională:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Această eroare poate fi cauzată de o imagine veche a programului de "
 "instalare sau de o defecțiune într-unul dintre pachetele listate mai sus. "
@@ -1249,8 +1256,8 @@ msgstr "Eroare la transferarea documentelor și configurărilor"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1321,7 +1328,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Doriți ca programul de instalare să încerce din nou demontarea acestor "
 "partiții?"
@@ -1517,8 +1525,6 @@ msgstr "Continuă instalarea."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
 msgstr "Instalarea a eșuat"
 
@@ -1529,23 +1535,24 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
+"Programul de instalare s-a confruntat cu o eroare iremediabilă. Va fi "
+"lansată acum o sesiune grafică pentru a putea să investigați problema sau să "
+"încercați din nou instalarea."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error while trying to update itself:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "S-a produs o eroare în timpul actualizării programului de instalare:"
+msgstr ""
+"Programul de instalare s-a confruntat cu o eroare iremediabilă și acum va "
+"porni din nou."
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "Instalare (mod OEM, doar pentru producători)"
+msgstr "Mod OEM (doar pentru producători)"
 
 #. Type: text
 #. Description
@@ -1555,27 +1562,21 @@ msgstr "Instalare (mod OEM, doar pentru producători)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Configurare rețea"
+msgstr "Se pregătește configurarea OEM"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "Se aplică configurările"
+msgstr "Se pregătește configurarea OEM..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "Configurare rețea"
+msgstr "Pregătit pentru configurarea OEM"
 
 #. Type: text
 #. Description
@@ -1586,6 +1587,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"Când veți porni noul sistem, veți putea să vă autentificați ca utilizatorul "
+"„oem” cu parola aleasă mai devreme; acest utilizator are, de asemenea, "
+"privilegii de administrare folosind „sudo”. Atunci veți putea face orice fel "
+"de modificări suplimentare care vor fi necesare pentru sistem."
 
 #. Type: text
 #. Description
@@ -1595,11 +1600,13 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"Odată ce sistemul este configurat după preferințele dumneavoastră, lansați "
+"„oem-config-prepare”. Aceasta va face ca sistemul să șteargă utilizatorul "
+"temporar „oem”, iar la următoarea pornire a calculatorului să ofere "
+"utilizatorului final diverse opțiuni de configurare."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "Se elimină pachetele suplimentare..."
+msgstr "Se elimină pachetele"

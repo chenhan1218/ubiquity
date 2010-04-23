@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-16 14:06+0000\n"
+"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -330,6 +330,9 @@ msgid ""
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
 msgstr ""
+"Pasahitz berdina birritan sar ezazu, idazte-akatsak ekiditeko. Pasahitz on "
+"batek hizkiak, zenbakiak eta puntuazio-ikurrak nahastuko ditu, zortzi "
+"karaktere izango ditu gutxienez, eta noizean behin aldatua izan beharko luke."
 
 #. Type: text
 #. Description
@@ -623,20 +626,20 @@ msgstr "Instalatzailearen errorea"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Asko sentitzen dugu, baina instalatzaileak huts egin du. Mesedez, errore-"
-"txosten bat bidali ezazu https://launchpad.net/ubuntu/+source/ubiquity/"
-"+filebug helbidera (ez itzazu zure datuak beste errore-txosten batera "
-"gehitu) eta garatzaileren bat saiatuko da arazoa ahal bezain azkar "
-"konpontzen. Garatzaileei errorea hobe ulertzen laguntzeko, ondorengo datuak "
-"gehitu itzazu zure errore-txostenera, eta baita /var/log/syslog eta /var/log/"
-"partman fitxategiak ere:"
+"txosten bat bidali ezazu "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug helbidera (ez itzazu "
+"zure datuak beste errore-txosten batera gehitu) eta garatzaileren bat "
+"saiatuko da arazoa ahal bezain azkar konpontzen. Garatzaileei errorea hobe "
+"ulertzen laguntzeko, ondorengo datuak gehitu itzazu zure errore-txostenera, "
+"eta baita /var/log/syslog eta /var/log/partman fitxategiak ere:"
 
 #. Type: text
 #. Description
@@ -1192,20 +1195,20 @@ msgstr "Pakete hauek apurtuta daude:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Hau instalatzaile-irudi zahar baten edo goian zerrendatutako paketeren baten "
-"akatsen baten erruz izan daiteke. Xehetasun gehiago aurkituko dituzu '/var/"
-"log/syslog'-n. Aurrera jarraitzen saiatuko da instalatzailea, baina posible "
-"da aurrerago huts egitea, eta ez da beste pakete batzuk (agian bere burua "
-"ezta ere) instalatu edo kentzeko gai izango. Lehenik, zure instalatzaile-"
-"irudiaren bertsio berriak bilatu beharko zenituzke, edo zure hornitzaileari "
-"arazo honen berri eman beharko zenioke."
+"akatsen baten erruz izan daiteke. Xehetasun gehiago aurkituko dituzu "
+"'/var/log/syslog'-n. Aurrera jarraitzen saiatuko da instalatzailea, baina "
+"posible da aurrerago huts egitea, eta ez da beste pakete batzuk (agian bere "
+"burua ezta ere) instalatu edo kentzeko gai izango. Lehenik, zure "
+"instalatzaile-irudiaren bertsio berriak bilatu beharko zenituzke, edo zure "
+"hornitzaileari arazo honen berri eman beharko zenioke."
 
 #. Type: error
 #. Description
@@ -1229,8 +1232,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1296,7 +1299,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Nahi al duzu instalatzailea berriro saiatzea partizio hauek desmuntatzen?"
 
@@ -1487,10 +1491,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001 ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "Installation Failed"
 msgid "Installation failed"
-msgstr "Instalazioak huts egin du"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1503,21 +1505,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy
-#| msgid "The installer encountered an error copying files to the hard disk:"
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
-"Instalatzaileak errore bat aurkitu du fitxategiak disko gogorrera "
-"kopiatzerakoan:"
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "Instalatu (OEM modua, fabritzaileentzat bakarrik)"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1527,27 +1523,21 @@ msgstr "Instalatu (OEM modua, fabritzaileentzat bakarrik)"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "Sare-konfigurazioa"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "Konfigurazioa aplikatzen"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "Sare-konfigurazioa"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1571,7 +1561,5 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "Pakete estrak kentzen..."
+msgstr ""
