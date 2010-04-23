@@ -9,6 +9,10 @@ ubiquity (2.2.21) UNRELEASED; urgency=low
   * Return with the correct state value when a keyboard map is found
     (LP: #553087).
   * Update translations from Launchpad.
+  * Automatic update of included source packages: debian-installer-utils
+    1.72ubuntu5, partman-auto 89ubuntu7, partman-base 139ubuntu6,
+    partman-target 64ubuntu9, tzsetup 1:0.26ubuntu9, user-setup
+    1.28ubuntu7.
 
   [ Colin Watson ]
   * Handle new partman/confirm_nooverwrite question properly (LP: #556373).
