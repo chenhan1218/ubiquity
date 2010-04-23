@@ -65,7 +65,8 @@ class DebconfFetchProgress(FetchProgress):
         self.eta = 0.0
 
     def start(self):
-        self.db.progress('START', 0, 100, self.title)
+        if os.environ['UBIQUITY_FRONTEND'] != 'debconf_ui':
+            self.db.progress('START', 0, 100, self.title)
         if self.info_starting is not None:
             self.db.progress('INFO', self.info_starting)
         self.old_capb = self.db.capb()
@@ -78,7 +79,8 @@ class DebconfFetchProgress(FetchProgress):
     def pulse(self):
         FetchProgress.pulse(self)
         try:
-            self.db.progress('SET', int(self.percent))
+            if os.environ['UBIQUITY_FRONTEND'] != 'debconf_ui':
+                self.db.progress('SET', int(self.percent))
         except debconf.DebconfError:
             return False
         if self.eta != 0.0:
@@ -94,7 +96,8 @@ class DebconfFetchProgress(FetchProgress):
         if self.old_capb is not None:
             self.db.capb(self.old_capb)
             self.old_capb = None
-            self.db.progress('STOP')
+            if os.environ['UBIQUITY_FRONTEND'] != 'debconf_ui':
+                self.db.progress('STOP')
 
 class DebconfInstallProgress(InstallProgress):
     """An object that reports apt's installation progress using debconf."""
@@ -114,7 +117,8 @@ class DebconfInstallProgress(InstallProgress):
                     flags & ~os.O_NONBLOCK)
 
     def startUpdate(self):
-        self.db.progress('START', 0, 100, self.title)
+        if os.environ['UBIQUITY_FRONTEND'] != 'debconf_ui':
+            self.db.progress('START', 0, 100, self.title)
         self.started = True
 
     def error(self, pkg, errormsg):
@@ -127,7 +131,8 @@ class DebconfInstallProgress(InstallProgress):
     def statusChange(self, dummypkg, percent, status):
         self.percent = percent
         self.status = status
-        self.db.progress('SET', int(percent))
+        if os.environ['UBIQUITY_FRONTEND'] != 'debconf_ui':
+            self.db.progress('SET', int(percent))
         self.db.subst(self.info, 'DESCRIPTION', status)
         self.db.progress('INFO', self.info)
 
@@ -211,7 +216,8 @@ class DebconfInstallProgress(InstallProgress):
 
     def finishUpdate(self):
         if self.started:
-            self.db.progress('STOP')
+            if os.environ['UBIQUITY_FRONTEND'] != 'debconf_ui':
+                self.db.progress('STOP')
             self.started = False
 
 class InstallStepError(Exception):
@@ -308,7 +314,18 @@ class Install:
     def next_region(self, size=1):
         self.db.progress('SET', self.count)
         self.progress_region(self.count, self.count + size)
+        self.prev_count = self.count
         self.count += size
+
+    def nested_progress_start(self):
+        if os.environ['UBIQUITY_FRONTEND'] == 'debconf_ui':
+            self.db.progress('STOP')
+
+    def nested_progress_end(self):
+        if os.environ['UBIQUITY_FRONTEND'] == 'debconf_ui':
+            self.db.progress('START', self.start, self.end,
+                             'ubiquity/install/title')
+            self.db.progress('SET', self.prev_count)
 
     def run(self):
         """Run the install stage: copy everything to the target system, then
@@ -316,13 +333,14 @@ class Install:
 
         # Give one extra progress point for each plugin, on the assumption that
         # they don't run long.
-        start = 0
-        end = 22 + len(self.plugins)
+        self.start = 0
+        self.end = 22 + len(self.plugins)
         if self.target != '/':
-            end += 74
+            self.end += 74
+        self.prev_count = 0
         self.count = 1
 
-        self.db.progress('START', start, end, 'ubiquity/install/title')
+        self.db.progress('START', self.start, self.end, 'ubiquity/install/title')
         self.db.progress('INFO', 'ubiquity/install/mounting_source')
 
         try:
@@ -447,7 +465,7 @@ class Install:
             self.db.progress('INFO', 'ubiquity/install/log_files')
             self.copy_logs()
 
-            self.db.progress('SET', end)
+            self.db.progress('SET', self.end)
         finally:
             self.cleanup()
             try:
@@ -1380,6 +1398,7 @@ class Install:
         hardware system in which has been installed on and need some
         automatic configurations to get work."""
 
+        self.nested_progress_start()
         install_misc.chroot_setup(self.target)
         try:
             dbfilter = hw_detect.HwDetect(None, self.db)
@@ -1388,6 +1407,7 @@ class Install:
                 raise InstallStepError("HwDetect failed with code %d" % ret)
         finally:
             install_misc.chroot_cleanup(self.target)
+        self.nested_progress_end()
 
         self.db.progress('INFO', 'ubiquity/install/hardware')
 
@@ -1727,6 +1747,8 @@ class Install:
         self.db.go()
 
     def do_install(self, to_install):
+        self.nested_progress_start()
+
         if self.langpacks:
             self.db.progress('START', 0, 10, 'ubiquity/langpacks/title')
         else:
@@ -1745,6 +1767,7 @@ class Install:
                 'not installing additional packages, since there are broken '
                 'packages: %s' % ', '.join(self.broken_packages(cache)))
             self.db.progress('STOP')
+            self.nested_progress_end()
             return
 
         for pkg in to_install:
@@ -1775,6 +1798,7 @@ class Install:
                     fetchprogress.stop()
                     installprogress.finishUpdate()
                     self.db.progress('STOP')
+                    self.nested_progress_end()
                     return
             except IOError:
                 for line in traceback.format_exc().split('\n'):
@@ -1782,6 +1806,7 @@ class Install:
                 fetchprogress.stop()
                 installprogress.finishUpdate()
                 self.db.progress('STOP')
+                self.nested_progress_end()
                 return
             except SystemError, e:
                 for line in traceback.format_exc().split('\n'):
@@ -1799,6 +1824,8 @@ class Install:
             self.warn_broken_packages(brokenpkgs, commit_error)
 
         self.db.progress('STOP')
+
+        self.nested_progress_end()
 
 
     def expand_dependencies_simple(self, cache, keep, to_remove,
@@ -1913,6 +1940,8 @@ class Install:
 
 
     def do_remove(self, to_remove, recursive=False):
+        self.nested_progress_start()
+
         self.db.progress('START', 0, 5, 'ubiquity/install/title')
         self.db.progress('INFO', 'ubiquity/install/find_removables')
 
@@ -1927,6 +1956,7 @@ class Install:
                 'not processing removals, since there are broken packages: '
                 '%s' % ', '.join(self.broken_packages(cache)))
             self.db.progress('STOP')
+            self.nested_progress_end()
             return
 
         self.get_remove_list(cache, to_remove, recursive)
@@ -1947,6 +1977,7 @@ class Install:
                     fetchprogress.stop()
                     installprogress.finishUpdate()
                     self.db.progress('STOP')
+                    self.nested_progress_end()
                     return
             except SystemError, e:
                 for line in traceback.format_exc().split('\n'):
@@ -1971,6 +2002,8 @@ class Install:
             self.db.go()
 
         self.db.progress('STOP')
+
+        self.nested_progress_end()
 
     def traverse_for_kernel(self, cache, pkg):
         kern = self.get_cache_pkg(cache, pkg)
