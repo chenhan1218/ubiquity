@@ -49,7 +49,7 @@ class PartmanCommit(FilteredCommand):
             return self.succeeded
 
         if question.startswith('partman/confirm'):
-            self.db.set('ubiquity/partman-confirm', question[8:]
+            self.db.set('ubiquity/partman-confirm', question[8:])
             self.preseed(question, 'true')
             return True
 
