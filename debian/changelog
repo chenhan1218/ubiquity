@@ -1,5 +1,6 @@
 ubiquity (2.2.22) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Don't configure the boot loader in oem-config.  By definition, we've
     already succeeded in booting, and repeating the process is at best a
     no-op and at worst harmful.
@@ -7,7 +8,10 @@ ubiquity (2.2.22) UNRELEASED; urgency=low
     - Make sure that progress bars are never nested, as this only works when
       using debconffilter (LP: #530027).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 23 Apr 2010 15:22:57 +0100
+  [ Roman Shtylman ]
+  * Fix for (LP: #568890) show all partitions in advanced dialog
+
+ -- Roman Shtylman <shtylman@gmail.com>  Fri, 23 Apr 2010 13:30:58 -0400
 
 ubiquity (2.2.21) lucid; urgency=low
 
