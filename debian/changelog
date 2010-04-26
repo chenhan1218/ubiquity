@@ -7,6 +7,10 @@ ubiquity (2.2.22) UNRELEASED; urgency=low
   * debconf frontend:
     - Make sure that progress bars are never nested, as this only works when
       using debconffilter (LP: #530027).
+  * Automatic update of included source packages: console-setup
+    1.34ubuntu15, flash-kernel 2.13ubuntu17, hw-detect 1.73ubuntu4,
+    migration-assistant 0.6.5, partman-auto 89ubuntu8, partman-partitioning
+    72ubuntu4.
 
   [ Roman Shtylman ]
   * Fix for (LP: #568890) show all partitions in advanced dialog
