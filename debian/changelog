@@ -1,4 +1,4 @@
-ubiquity (2.2.22) UNRELEASED; urgency=low
+ubiquity (2.2.22) lucid; urgency=low
 
   [ Colin Watson ]
   * Don't configure the boot loader in oem-config.  By definition, we've
@@ -15,7 +15,7 @@ ubiquity (2.2.22) UNRELEASED; urgency=low
   [ Roman Shtylman ]
   * Fix for (LP: #568890) show all partitions in advanced dialog
 
- -- Roman Shtylman <shtylman@gmail.com>  Fri, 23 Apr 2010 13:30:58 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 26 Apr 2010 09:06:00 +0100
 
 ubiquity (2.2.21) lucid; urgency=low
 
