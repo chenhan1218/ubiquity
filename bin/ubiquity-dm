@@ -384,12 +384,15 @@ EndSection
                     subprocess.call(['sh', '-c', error_cmd])
             except debconf.DebconfError:
                 pass
-            try:
-                reboot = db.get('ubiquity/reboot_on_failure') == 'true'
-            except debconf.DebconfError:
-                reboot = False
             
-            if '--automatic' in program and reboot:
+            reboot = False
+            try:
+                if '--automatic' in program:
+                    reboot = db.get('ubiquity/reboot_on_failure') == 'true'
+            except debconf.DebconfError:
+                pass
+            
+            if reboot:
                 question = 'ubiquity/install_failed_reboot'
             else:
                 question = 'ubiquity/install_failed'
