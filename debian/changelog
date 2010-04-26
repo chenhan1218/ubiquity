@@ -5,6 +5,8 @@ ubiquity (2.2.23) UNRELEASED; urgency=low
   * Always run wrap_fix in its entirety, even if the width or height
     hasn't changed, as we may have switched text direction since the
     last run (LP: #560114).
+  * Properly align keyboard_test_label, which was getting cut off in RTL
+    languages with the wrap_fix in place.
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 26 Apr 2010 12:08:59 +0100
 
