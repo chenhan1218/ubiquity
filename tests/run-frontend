@@ -137,7 +137,6 @@ class GtkFrontendTests(CoreFrontendTests, unittest.TestCase):
         widgets = (ui.username, ui.fullname, ui.password,
                    ui.verified_password, ui.hostname)
         cstrs = [x.inactive_message for x in widgets]
-        c = dbfilter.ui.username.inactive_message
         self.frontend.locale = 'es'
         self.frontend.translate_pages(reget=True)
         esstrs = [x.inactive_message for x in widgets]
@@ -145,4 +144,4 @@ class GtkFrontendTests(CoreFrontendTests, unittest.TestCase):
         assert not common, 'Untranslated strings: %s' % ', '.join(common)
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(testRunner=unittest.TextTestRunner(verbosity=2))
