@@ -1,3 +1,9 @@
+ubiquity (2.2.24) UNRELEASED; urgency=low
+
+  * Fix wrongly formatted string (LP: #546971).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 28 Apr 2010 18:34:43 +0100
+
 ubiquity (2.2.23) lucid; urgency=low
 
   * Correctly select the detected timezone (LP: #559647).
