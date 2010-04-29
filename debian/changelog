@@ -1,9 +1,9 @@
-ubiquity (2.2.24) UNRELEASED; urgency=low
+ubiquity (2.2.24) lucid-updates; urgency=low
 
   * Automatic update of included source packages: migration-assistant
     0.6.6.
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 29 Apr 2010 10:35:45 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 29 Apr 2010 10:36:42 +0100
 
 ubiquity (2.2.23) lucid; urgency=low
 
