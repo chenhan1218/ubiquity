@@ -95,7 +95,7 @@ class PageGtk(PageBase):
         self.ready_text.set_buffer(ready_buffer)
 
     def grub_verify_loop(self, widget, okbutton):
-        if widget is not None:
+        if widget is not None and widget.get_property('visible'):
             if validation.check_grub_device(widget.child.get_text()):
                 okbutton.set_sensitive(True)
             else:
