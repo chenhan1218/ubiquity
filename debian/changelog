@@ -1,4 +1,4 @@
-ubiquity (2.2.24) UNRELEASED; urgency=low
+ubiquity (2.3.0) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Fix wrongly formatted string (LP: #546971).
