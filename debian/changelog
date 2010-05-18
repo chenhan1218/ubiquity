@@ -1,4 +1,121 @@
-ubiquity (2.2.17) UNRELEASED; urgency=low
+ubiquity (2.3.0) UNRELEASED; urgency=low
+
+  [ Evan Dandrea ]
+  * Fix wrongly formatted string (LP: #546971).
+
+  [ Colin Watson ]
+  * Only validate the GRUB device entry if it's shown.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 28 Apr 2010 18:34:43 +0100
+
+ubiquity (2.2.24) lucid-updates; urgency=low
+
+  * Automatic update of included source packages: migration-assistant
+    0.6.6.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 29 Apr 2010 10:36:42 +0100
+
+ubiquity (2.2.23) lucid; urgency=low
+
+  * Correctly select the detected timezone (LP: #559647).
+  * Don't reboot on failure if we say we're not going to.
+  * Always run wrap_fix in its entirety, even if the width or height
+    hasn't changed, as we may have switched text direction since the
+    last run (LP: #560114).
+  * Properly align keyboard_test_label, which was getting cut off in RTL
+    languages with the wrap_fix in place.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 26 Apr 2010 17:00:55 +0100
+
+ubiquity (2.2.22) lucid; urgency=low
+
+  [ Colin Watson ]
+  * Don't configure the boot loader in oem-config.  By definition, we've
+    already succeeded in booting, and repeating the process is at best a
+    no-op and at worst harmful.
+  * debconf frontend:
+    - Make sure that progress bars are never nested, as this only works when
+      using debconffilter (LP: #530027).
+  * Automatic update of included source packages: console-setup
+    1.34ubuntu15, flash-kernel 2.13ubuntu17, hw-detect 1.73ubuntu4,
+    migration-assistant 0.6.5, partman-auto 89ubuntu8, partman-partitioning
+    72ubuntu4.
+
+  [ Roman Shtylman ]
+  * Fix for (LP: #568890) show all partitions in advanced dialog
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 26 Apr 2010 09:06:00 +0100
+
+ubiquity (2.2.21) lucid; urgency=low
+
+  [ Evan Dandrea ]
+  * Honor user-setup/force-encrypt-home (LP: #566552).
+  * Check for LTS in the release name (LP: #558488).
+  * Hide the keyboard query dialog when we encounter an error parsing
+    the keymap decision tree (LP: #553087).
+  * Fix broken comparisons against boolean debconf values (LP: #567749).
+  * Return with the correct state value when a keyboard map is found
+    (LP: #553087).
+  * Update translations from Launchpad.
+  * Automatic update of included source packages: debian-installer-utils
+    1.72ubuntu5, partman-auto 89ubuntu7, partman-base 139ubuntu6,
+    partman-target 64ubuntu9, tzsetup 1:0.26ubuntu9, user-setup
+    1.28ubuntu7.
+
+  [ Colin Watson ]
+  * Handle new partman/confirm_nooverwrite question properly (LP: #556373).
+
+  [ Mario Limonciello ]
+  * In OEM user config, don't change the last page's button to "Install"
+    to avoid confusion.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 23 Apr 2010 09:32:43 +0100
+
+ubiquity (2.2.20) lucid; urgency=low
+
+  * Use allow_change_step(False) from the KDE portions of the partman
+    component when necessary (LP: #563309).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 19 Apr 2010 09:21:49 +0100
+
+ubiquity (2.2.19) lucid; urgency=low
+
+  * add support for omap bootloader installation
+
+ -- Oliver Grawert <ogra@ubuntu.com>  Mon, 19 Apr 2010 09:33:15 +0200
+
+ubiquity (2.2.18) lucid; urgency=low
+
+  [ Evan Dandrea ]
+  * Force garbage collection so we don't end up with stray X resources
+    when we kill the X server (LP: #556555).
+  * Fix the Portuguese and Latvian translations of the variable name
+    RELEASE (LP: #564517).
+  * Fix a missing closing bold tag in the Portuguese and Polish
+    translations (LP: #564545).
+  * Fix labels not expanding vertically to fit their text (LP: #560114,
+    LP: #557164, LP: #520898).
+  * Do not translate variable names in the Amharic translation
+    (LP: #564582).
+  * Start the window manager via ck-launch-session so pulseaudio is
+    granted access to the sound devices (LP: #549738).
+  * Update translations from Launchpad.
+  * Automatic update of included source packages: console-setup
+    1.34ubuntu14, flash-kernel 2.13ubuntu16, hw-detect 1.73ubuntu3,
+    partman-auto 89ubuntu6, partman-base 139ubuntu5, partman-ext3
+    58ubuntu3, partman-target 64ubuntu8, user-setup 1.28ubuntu6.
+
+  [ Colin Watson ]
+  * Break out of oem-config-firstboot's main loop if oem-config-wrapper
+    succeeds (LP: #558593).
+  * Quit plymouth before starting either the emergency noninteractive
+    ubiquity frontend in automatic mode, or oem-config's debconf frontend.
+  * Get a controlling terminal before starting bterm, as otherwise bterm
+    won't reliably be able to take console input.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 16 Apr 2010 15:28:19 +0100
+
+ubiquity (2.2.17) lucid; urgency=low
 
   [ Mario Limonciello ]
   * Remove unused install_bottom_eb from GTK frontend's install_window.
@@ -7,8 +124,32 @@ ubiquity (2.2.17) UNRELEASED; urgency=low
   * Catch invalid iterators in on_region_combo_changed (LP: #521851).
   * Don't let not being able to talk to the system bus crash the entire
     language page.
+  * Translate the yes and no buttons on the quit dialog in the KDE
+    frontend (LP: #561876).
+  * Update translations from Launchpad.
+  * Automatic update of included source packages: base-installer
+    1.103ubuntu7, choose-mirror 2.29ubuntu3, partman-base 139ubuntu4,
+    partman-basicfilesystems 63ubuntu4, tzsetup 1:0.26ubuntu8.
 
- -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sun, 11 Apr 2010 00:31:15 -0500
+  [ Colin Watson ]
+  * Skip copy_wallpaper_cache when running as oem-config.
+  * Update finish-install.d/07oem-config-user for new location of KDE's
+    oem-config-prepare .desktop file (LP: #557309).
+  * Restore translations for oem-config-check and oem-config-udeb, lost in
+    oem-config merge.
+  * Display simple progress feedback using debconf-apt-progress while
+    removing oem-config (LP: #558593).
+  * Write locale-gen output from ubiquity-dm to /var/log/installer/dm rather
+    than to the console.
+  * Increase kernel flush times (dirty_writeback_centisecs to 3000, and
+    dirty_expire_centisecs to 6000) during bulk data copying.  Surbhi
+    Palande suggests that this should make it easier for the kernel to pack
+    blocks contiguously, speeding up ureadahead after installation.
+
+  [ Amichai Rothman ]
+  * Fix hang unless mouse is moved (LP: #556376)
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 14 Apr 2010 17:38:36 +0100
 
 ubiquity (2.2.16) lucid; urgency=low
 

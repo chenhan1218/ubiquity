@@ -925,10 +925,11 @@ Description: for internal use; can be preseeded
  have internet access, then packages that are not currently available in
  the apt cache (or livefs) won't be offered if this key is set true.
 
-Template: ubiquity/partman-made-changes
-Type: boolean
-Default: true
-Description: for internal use; record whether partman asked for confirmation of changes
+Template: ubiquity/partman-confirm
+Type: select
+Default: confirm
+Choices: confirm, confirm_nochanges, confirm_nooverwrite
+Description: for internal use; record partman's confirmation question
 
 Template: ubiquity/partman-rebuild-cache
 Type: boolean
@@ -1095,7 +1096,7 @@ Template: ubiquity/text/select_language_label
 Type: text
 _Description:
  Please choose the language to use for the install process. This
-  Language will be the default language for this computer.
+ language will be the default language for this computer.
 
 Template: ubiquity/text/select_language_oem_user_label
 Type: text

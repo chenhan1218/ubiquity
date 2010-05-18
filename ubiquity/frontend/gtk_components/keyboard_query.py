@@ -79,12 +79,18 @@ class KeyboardQuery(gtk.Window):
             raise Exception, 'should not have got here'
 
     def have_key(self, *args):
-        r = self.keyboard_detect.read_step(self.keyboard_detect.present)
-        self.process(r)
+        try:
+            r = self.keyboard_detect.read_step(self.keyboard_detect.present)
+            self.process(r)
+        except:
+            self.hide()
 
     def no_have_key(self, *args):
-        r = self.keyboard_detect.read_step(self.keyboard_detect.not_present)
-        self.process(r)
+        try:
+            r = self.keyboard_detect.read_step(self.keyboard_detect.not_present)
+            self.process(r)
+        except:
+            self.hide()
 
     def key_press_event(self, widget, event):
         # FIXME need to account for possible remapping.  Find the API to translate
@@ -97,7 +103,10 @@ class KeyboardQuery(gtk.Window):
         if code in self.keyboard_detect.keycodes:
             # XKB doesn't support keycodes > 255.
             c = self.keyboard_detect.keycodes[code]
-            r = self.keyboard_detect.read_step(c)
-            self.process(r)
+            try:
+                r = self.keyboard_detect.read_step(c)
+                self.process(r)
+            except:
+                self.hide()
 
 gobject.type_register(KeyboardQuery)

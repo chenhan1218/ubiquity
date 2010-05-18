@@ -92,9 +92,11 @@ class PageGtk(PluginUI):
             return country in self.controller.dbfilter.get_countries_for_region(region)
 
         m = self.region_combo.get_model()
-        iterator = self.region_combo.get_active()
-        got_country = m[iterator][1] == country or \
-                      country_is_in_region(country, m[iterator][2])
+        iterator = self.region_combo.get_active_iter()
+        got_country = False
+        if iterator:
+            got_country = m[iterator][1] == country or \
+                          country_is_in_region(country, m[iterator][2])
         if not got_country:
             iterator = m.get_iter_first()
             while iterator:

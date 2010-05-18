@@ -54,30 +54,17 @@ fi
 for try in $(seq 1 $TRY); do
 	CODE=0
 	if [ "$FRONTEND" = debconf_ui ]; then
-		LANG=en_US.UTF-8 \
-		/usr/sbin/oem-config $DEBUG --only 2>>/var/log/oem-config.log \
+		plymouth quit || true
+		LANG=en_US.UTF-8 FRONTEND="$FRONTEND" \
+		/usr/sbin/oem-config-wrapper $DEBUG --only \
+			2>>/var/log/oem-config.log \
 			|| CODE=$?
 	else
+		FRONTEND="$FRONTEND" \
 		/usr/bin/ubiquity-dm vt7 :0 root \
-			/usr/sbin/oem-config $DEBUG --only || CODE=$?
+			/usr/sbin/oem-config-wrapper $DEBUG --only || CODE=$?
 	fi
 	if [ "$CODE" -eq 0 ]; then
-		# Don't run again.
-		rm -f /var/lib/oem-config/run
-		# Remove the temporary OEM configuration user, if possible.
-		if getent passwd oem >/dev/null; then
-			deluser --quiet --remove-home oem || true
-		fi
-		# Cleanup from anything the early command prepared
-		RET="$(echo GET oem-config/late_command | debconf-communicate)" || true
-		if [ "${RET%% *}" = 0 ]; then
-			command="${RET#* }"
-			log-output sh -c "$command" || true
-		fi
-		RET="$(echo GET oem-config/remove | debconf-communicate)"
-		if [ "${RET#* }" = true ]; then
-			apt-get -y purge ubiquity >>/var/log/oem-config.log 2>&1
-		fi
 		exit 0
 	elif [ "$CODE" -eq 10 ]; then
 		cat <<EOF
