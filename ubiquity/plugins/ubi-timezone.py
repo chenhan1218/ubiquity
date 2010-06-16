@@ -39,7 +39,7 @@ class PageGtk(PluginUI):
             import gtk
             builder = gtk.Builder()
             self.controller.add_builder(builder)
-            builder.add_from_file('/usr/share/ubiquity/gtk/stepLocation.ui')
+            builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepLocation.ui'))
             builder.connect_signals(self)
             self.page = builder.get_object('stepLocation')
             self.region_combo = builder.get_object('timezone_zone_combo')
@@ -128,7 +128,9 @@ class PageGtk(PluginUI):
         import gobject, gtk
         from ubiquity import timezone_map
         self.tzdb = ubiquity.tz.Database()
-        self.tzmap = timezone_map.TimezoneMap(self.tzdb, '/usr/share/ubiquity/pixmaps/timezone')
+        PATH = os.environ.get('UBIQUITY_PATH', False) or '/usr/share/ubiquity'
+        self.tzmap = timezone_map.TimezoneMap(self.tzdb,
+                                        os.path.join(PATH, 'pixmaps/timezone'))
         self.tzmap.connect('city-selected', self.select_city)
         self.map_window.add(self.tzmap)
         self.tzmap.show()

@@ -57,7 +57,7 @@ class PageGtk(PageBase):
         import gtk
         builder = gtk.Builder()
         controller.add_builder(builder)
-        builder.add_from_file('/usr/share/ubiquity/gtk/stepReady.ui')
+        builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepReady.ui'))
         builder.connect_signals(self)
         self.page = builder.get_object('stepReady')
         self.ready_text = builder.get_object('ready_text')

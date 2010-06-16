@@ -68,10 +68,14 @@ from ubiquity.frontend.base import BaseFrontend
 __pychecker__ = 'no-classattr'
 
 # Define global path
-PATH = '/usr/share/ubiquity'
+PATH = os.environ.get('UBIQUITY_PATH', False) or '/usr/share/ubiquity'
+
+# Define global pixmaps location
+PIXMAPS = os.environ.get('PIXMAPS', False) or '/usr/share/pixmaps'
 
 # Define ui path
-UIDIR = os.path.join(PATH, 'gtk')
+UIDIR = os.environ.get('UBIQUITY_GLADE', False) or os.path.join(PATH, 'gtk')
+os.environ['UBIQUITY_GLADE'] = UIDIR
 
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
@@ -226,8 +230,8 @@ class Wizard(BaseFrontend):
         # set custom language
         self.set_locales()
 
-        gtk.window_set_default_icon_from_file('/usr/share/pixmaps/'
-                                              'ubiquity.png')
+        gtk.window_set_default_icon_from_file(os.path.join(PIXMAPS,
+                                              'ubiquity.png'))
 
         # load the main interface
         self.builder.add_from_file('%s/ubiquity.ui' % UIDIR)

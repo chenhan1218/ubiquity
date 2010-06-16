@@ -42,7 +42,7 @@ class PageGtk(PluginUI):
             import gtk
             builder = gtk.Builder()
             self.controller.add_builder(builder)
-            builder.add_from_file('/usr/share/ubiquity/gtk/stepKeyboardConf.ui')
+            builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepKeyboardConf.ui'))
             builder.connect_signals(self)
             self.page = builder.get_object('stepKeyboardConf')
             self.suggested_keymap = builder.get_object('suggested_keymap')

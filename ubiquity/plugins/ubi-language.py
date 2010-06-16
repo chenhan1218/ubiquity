@@ -75,7 +75,7 @@ class PageGtk(PageBase):
         try:
             import gtk
             builder = gtk.Builder()
-            builder.add_from_file('/usr/share/ubiquity/gtk/%s' % ui_file)
+            builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], ui_file))
             builder.connect_signals(self)
             self.controller.add_builder(builder)
             self.page = builder.get_object('stepLanguage')
