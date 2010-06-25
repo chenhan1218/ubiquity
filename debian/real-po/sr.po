@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-04-18 15:32+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian/Cyrillic\n"
@@ -129,16 +129,16 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Можда бисте желели да прочитате <a href=\"release-notes\">белешке о "
-"издању</a> или <a href=\"update\">да ажурирате овај инсталер </a>."
+"Можда бисте желели да прочитате <a href=\"release-notes\">белешке о издању</"
+"a> или <a href=\"update\">да ажурирате овај инсталер </a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Можда бисте  желели да прочитате <a href=\"release-notes\">белешке "
-"издања</a>."
+"Можда бисте  желели да прочитате <a href=\"release-notes\">белешке издања</"
+"a>."
 
 #. Type: text
 #. Description
@@ -149,10 +149,15 @@ msgstr "Можда желите да <a href=\"update\">ажурирате ов�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
 "Ово је пред-издање ${RELEASE} пробног ${MEDIUM} инсталера. То није коначно "
 "издање; оно ће доћи са коначним ${RELEASE} издањем у априлу 2010."
@@ -183,9 +188,9 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
-"Изаберите своју локацију, да би систем могао да користи одговарајуће "
-"ознаке(за дужину, за новац, и сл.), узимао надоградње са интернет страница "
-"близу вас, и подесио часовник на исправно локално време."
+"Изаберите своју локацију, да би систем могао да користи одговарајуће ознаке"
+"(за дужину, за новац, и сл.), узимао надоградње са интернет страница близу "
+"вас, и подесио часовник на исправно локално време."
 
 #. Type: text
 #. Description
@@ -215,8 +220,7 @@ msgstr "Који распоред је најсличнији Вашој тас�
 #. Description
 #: ../ubiquity.templates:28001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
-"Можете уписати нешто у ово поље да бисте испробали распоред тастатуре."
+msgstr "Можете уписати нешто у ово поље да бисте испробали распоред тастатуре."
 
 #. Type: text
 #. Description
@@ -519,8 +523,7 @@ msgstr "Детаљи"
 #: ../ubiquity.templates:73001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
-"Ваш нови оперативни систем ће бити инсталиран са следећим поставкама:"
+msgstr "Ваш нови оперативни систем ће бити инсталиран са следећим поставкама:"
 
 #. Type: text
 #. Description
@@ -644,12 +647,12 @@ msgstr "Инсталер се урушио"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Жао нам је; инсталер се урушио. Молимо вас поднесите извештај о грешци на "
 "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (не прилажите ваше "
@@ -1209,20 +1212,20 @@ msgstr "Следећи пакети су оштећени:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Ово може бити због коришћења старе инсталационе слике или може бити због "
-"грешке у неком од пакета наведених горе. Више детаља је доступно у "
-"/var/log/syslog. Инсталер ће покушати да настави упркос овоме, али може "
-"пасти касније и неће моћи да инсталира или уклони друге пакете (можда не и "
-"самога себе) са инсталираног система. Требало би да прво потражите новију "
-"верзију ваше инсталационе слике или, ако не успете у томе, да пријавите "
-"проблем вашем дистрибутору."
+"грешке у неком од пакета наведених горе. Више детаља је доступно у /var/log/"
+"syslog. Инсталер ће покушати да настави упркос овоме, али може пасти касније "
+"и неће моћи да инсталира или уклони друге пакете (можда не и самога себе) са "
+"инсталираног система. Требало би да прво потражите новију верзију ваше "
+"инсталационе слике или, ако не успете у томе, да пријавите проблем вашем "
+"дистрибутору."
 
 #. Type: error
 #. Description
@@ -1246,13 +1249,13 @@ msgstr "Грешка при пресељавању докумената и по�
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Дошло је до грешке при пресељавању података. Више детаља можете наћи у "
-"/var/log/syslog. Инсталација ће се наставити, али неки или сви подаци и "
+"Дошло је до грешке при пресељавању података. Више детаља можете наћи у /var/"
+"log/syslog. Инсталација ће се наставити, али неки или сви подаци и "
 "подешавања која сте затражили можда неће бити пребачени на инсталирани "
 "систем."
 
@@ -1317,10 +1320,8 @@ msgstr "Молим вас да угасите програме који кори
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
-msgstr ""
-"Желите ли да инсталер још једном проба да искључи ове тачке монтирања?"
+msgid "Would you like the installer to try to unmount these partitions again?"
+msgstr "Желите ли да инсталер још једном проба да искључи ове тачке монтирања?"
 
 #. Type: boolean
 #. Description
@@ -1485,9 +1486,13 @@ msgstr "ЦД"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language to use for the install process. This\n"
+#| " Language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
 msgstr ""
 "Молим одаберите језик који ће бити коришћен током инсталације. То\n"
 " ће бити подразумевани језик на овом рачунару."

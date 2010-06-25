@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-04-18 17:14+0000\n"
 "Last-Translator: Daniel Nylander <yeager@ubuntu.com>\n"
 "Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
@@ -148,10 +148,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
 "Detta är en förhandsutgåva av installationsprogrammet för ${RELEASE} live-"
 "${MEDIUM}. Det är inte en slutgiltig utgåva, vilket kommer att levereras med "
@@ -418,8 +423,7 @@ msgstr "Kräv mitt lösenord för att logga in"
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr ""
-"Kräv mitt lösenord för att logga in och för att dekryptera min hemmapp"
+msgstr "Kräv mitt lösenord för att logga in och för att dekryptera min hemmapp"
 
 #. Type: text
 #. Description
@@ -648,12 +652,12 @@ msgstr "Installationsprogrammet kraschade"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Ursäkta, installationsprogrammet kraschade. Skicka in en ny felrapport på "
 "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (bifoga inte dina "
@@ -1217,12 +1221,12 @@ msgstr "Följande paket är i ett trasigt tillstånd:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Det här kan bero på användningen av en gammal installationsavbild, eller det "
 "kan bero på ett fel i några av de paket som listas ovan. Mer information kan "
@@ -1254,8 +1258,8 @@ msgstr "Fel vid migrering av dokument och inställningar"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1326,8 +1330,7 @@ msgstr "Stäng de program som använder dessa monteringspunkter."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Vill du att installationsprogrammet ska försöka igen att avmontera dessa "
 "partitioner?"
@@ -1497,9 +1500,13 @@ msgstr "CD"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language to use for the install process. This\n"
+#| " Language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
 msgstr ""
 "Välj det språk som ska användas för installationsprocessen.\n"
 " Detta språk kommer att bli standardspråket för denna dator."
@@ -1601,9 +1608,9 @@ msgid ""
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
 "När systemet är konfigurerat enligt dina önskemål kan du köra \"oem-config-"
-"prepare\". Det här gör att systemet tar bort den temporära användaren "
-"\"oem\" och ställer några olika konfigurationsfrågor till slutanvändaren "
-"nästa gång systemet startas upp."
+"prepare\". Det här gör att systemet tar bort den temporära användaren \"oem"
+"\" och ställer några olika konfigurationsfrågor till slutanvändaren nästa "
+"gång systemet startas upp."
 
 #. Type: text
 #. Description

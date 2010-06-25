@@ -34,7 +34,7 @@ try:
     import lsb_release
     _ver = lsb_release.get_distro_information()['RELEASE']
 except:
-    _ver = '10.04'
+    _ver = '10.10'
 _wget_url = 'http://changelogs.ubuntu.com/ubiquity/%s-update-available' % _ver
 
 _release_notes_url_path = '/cdrom/.disk/release_notes_url'

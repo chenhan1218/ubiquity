@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-04-18 15:38+0000\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <debian-l10n-polish@lists.debian.org>\n"
@@ -147,10 +147,15 @@ msgstr "Można <a href=\"update\">zaktualizować ten instalator</a>."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
 "Jest to wersja przedwydaniowa programu instalacyjnego ${MEDIUM} płyty live "
 "${RELEASE}. Nie jest to wydanie finalne ${RELEASE} - pojawi się ono w "
@@ -647,12 +652,12 @@ msgstr "Błąd instalatora"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Przepraszamy, wystąpił błąd instalatora. Prosimy o zgłoszenie nowego błędu "
 "pod adresem https://launchpad.net/ubuntu/+source/ubiquity/+filebug (prosimy "
@@ -993,8 +998,7 @@ msgstr "Instalacja nie powiodła się"
 #: ../ubiquity.templates:139001 ../ubiquity.templates:140001
 #: ../ubiquity.templates:141001 ../ubiquity.templates:142001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
-"Instalator natrafił na błąd podczas kopiowania plików na dysk twardy:"
+msgstr "Instalator natrafił na błąd podczas kopiowania plików na dysk twardy:"
 
 #. Type: error
 #. Description
@@ -1212,16 +1216,16 @@ msgstr "Poniższe pakiety są uszkodzone:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Może być to spowodowane używaniem starego obrazu instalatora lub też błędem "
-"w jednym z powyższych pakietów. Więcej szczegółów można znaleźć w katalogu "
-"/var/log/syslog. Instalator mimo wszystko spróbuje kontynuować, lecz może "
+"w jednym z powyższych pakietów. Więcej szczegółów można znaleźć w katalogu /"
+"var/log/syslog. Instalator mimo wszystko spróbuje kontynuować, lecz może "
 "zawieść podczas jednego z dalszych kroków i nie być w stanie dodać lub "
 "usunąć innych pakietów (włącznie z sobą samym) z instalowanego systemu.  "
 "Najpierw należy poszukać nowego obrazu instalatora lub przekazać ten raport"
@@ -1248,14 +1252,15 @@ msgstr "Błąd migracji dokumentów i ustawień"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Wystąpił błąd podczas przenoszenia danych. Więcej szczegółów można znaleźć w "
-"/var/log/syslog. Instalacja będzie kontynuowania, jednak część lub wszystkie "
-"dokumenty i ustawienia mogły nie zostać przeniesione na instalowany system."
+"Wystąpił błąd podczas przenoszenia danych. Więcej szczegółów można znaleźć "
+"w /var/log/syslog. Instalacja będzie kontynuowania, jednak część lub "
+"wszystkie dokumenty i ustawienia mogły nie zostać przeniesione na "
+"instalowany system."
 
 #. Type: error
 #. Description
@@ -1320,8 +1325,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "Spróbować odmontować te partycje ponownie?"
 
 #. Type: boolean
@@ -1486,9 +1490,13 @@ msgstr "CD"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language to use for the install process. This\n"
+#| " Language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
 msgstr ""
 "Proszę wybrać język dla procesu instalacyjnego. Ten\n"
 " język zostanie ustawiony jako domyślny na tym komputerze."

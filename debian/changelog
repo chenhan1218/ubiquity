@@ -7,6 +7,7 @@ ubiquity (2.3.0) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Only validate the GRUB device entry if it's shown.
   * Add btrfs support.
+  * Add an intro message noting that we're alpha again.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 28 Apr 2010 18:34:43 +0100
 

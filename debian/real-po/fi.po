@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-04-19 04:44+0000\n"
 "Last-Translator: Timo Jyrinki <timo.jyrinki@gmail.com>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
@@ -134,8 +134,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr ""
-"Voit halutessasi lukea <a href=\"release-notes\">julkaisumuistion</a>."
+msgstr "Voit halutessasi lukea <a href=\"release-notes\">julkaisumuistion</a>."
 
 #. Type: text
 #. Description
@@ -147,10 +146,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
 "Tämä on ${RELEASE} -esijulkaisun (${MEDIUM}) asennusohjelma. Se ei ole "
 "asennusohjelman lopullinen versio. Lopullinen ${RELEASE} -julkaisu ilmestyy "
@@ -642,19 +646,19 @@ msgstr "Asennusohjelma kaatui"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
-"Asennusohjelma kaatui, pahoittelut. Raportoi virheestä osoitteessa "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (älä tässä "
-"tapauksessa lisää tietojasi olemassa olevaan virheraporttiin), jotta "
-"kehittäjät voivat puuttua ongelmaan mahdollisimman pian. Jotta kehittäjät "
-"voisivat selvittää mikä meni pieleen, liitä virheraporttiin lokitiedostot "
-"/var/log/syslog ja /var/log/partman:"
+"Asennusohjelma kaatui, pahoittelut. Raportoi virheestä osoitteessa https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (älä tässä tapauksessa lisää "
+"tietojasi olemassa olevaan virheraporttiin), jotta kehittäjät voivat puuttua "
+"ongelmaan mahdollisimman pian. Jotta kehittäjät voisivat selvittää mikä meni "
+"pieleen, liitä virheraporttiin lokitiedostot /var/log/syslog ja /var/log/"
+"partman:"
 
 #. Type: text
 #. Description
@@ -1044,8 +1048,8 @@ msgid ""
 msgstr ""
 "Tämä on usein virheellisen kovalevyn, CD-/DVD-levyn tai -aseman vika. "
 "Kovalevy saattaa olla vanha ja tarvitset uuden kovalevyn. Voit myös kokeilla "
-"siirtää järjestelmääsi viileämpään tilaan. Myös CD-/DVD-levyn puhdistus, CD-"
-"/DVD-levyn polttaminen pienemmällä nopeudella tai CD-/DVD-aseman linssin "
+"siirtää järjestelmääsi viileämpään tilaan. Myös CD-/DVD-levyn puhdistus, CD-/"
+"DVD-levyn polttaminen pienemmällä nopeudella tai CD-/DVD-aseman linssin "
 "puhdistus (puhdistussarjoja myydään usein elektroniikkaliikkeissä) voi "
 "auttaa."
 
@@ -1210,12 +1214,12 @@ msgstr "Seuraavat paketit ovat rikkinäisessä tilassa:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Tämä voi johtua vanhasta asentimesta tai virheestä jossain luetelluista "
 "paketeista. Lisätietoja saattaa olla tiedostossa /var/log/syslog. "
@@ -1247,13 +1251,13 @@ msgstr "Virhe siirrettäessä asiakirjoja ja asetuksia"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Tietoja siirrettäessä tapahtui virhe. Lisätietoja saattaa olla tiedostossa "
-"/var/log/syslog. Asennus jatkuu, mutta joitain pyydetyistä asiakirjoista tai "
+"Tietoja siirrettäessä tapahtui virhe. Lisätietoja saattaa olla tiedostossa /"
+"var/log/syslog. Asennus jatkuu, mutta joitain pyydetyistä asiakirjoista tai "
 "asetuksista ei ole ehkä siirretty asennettavaan järjestelmään."
 
 #. Type: error
@@ -1317,8 +1321,7 @@ msgstr "Sulje kaikki sovellukset, jotka käyttävät näitä liitoskohtia."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "Haluatko asennusohjelman yrittävän osioiden irrottamista uudelleen?"
 
 #. Type: boolean
@@ -1484,9 +1487,13 @@ msgstr "CD-levy"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language to use for the install process. This\n"
+#| " Language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
 msgstr ""
 "Valitse asennuksen aikana käytettävä kieli. Tätä\n"
 " kieltä käytetään tietokoneen oletuskielenä."

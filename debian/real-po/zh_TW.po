@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-04-19 03:48+0000\n"
 "Last-Translator: Cheng-Chia Tseng <Unknown>\n"
-"Language-Team: Debian-user in Chinese [Big5] <debian-chinese-"
-"big5@lists.debian.org>\n"
+"Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
+"debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -69,7 +69,9 @@ msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
-msgstr "您正以系統製造商模式安裝。請為這批系統輸入一個特定名稱。此名稱將會儲存在安裝完成的系統上，並可用來協助錯誤回報。"
+msgstr ""
+"您正以系統製造商模式安裝。請為這批系統輸入一個特定名稱。此名稱將會儲存在安裝"
+"完成的系統上，並可用來協助錯誤回報。"
 
 #. Type: text
 #. Description
@@ -99,8 +101,8 @@ msgid ""
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
-"準備好要安裝了嗎？只要您回答一些問題，這個 live ${MEDIUM} 的內容就能安裝到這台電腦上，這樣您就能全速執行 ${RELEASE} "
-"而不需用到 ${MEDIUM}。"
+"準備好要安裝了嗎？只要您回答一些問題，這個 live ${MEDIUM} 的內容就能安裝到這"
+"台電腦上，這樣您就能全速執行 ${RELEASE} 而不需用到 ${MEDIUM}。"
 
 #. Type: text
 #. Description
@@ -121,7 +123,8 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"您可能希望閱讀<a href=\"release-notes\">發行備註</a>或是<a href=\"update\">更新本安裝程式</a>。"
+"您可能希望閱讀<a href=\"release-notes\">發行備註</a>或是<a href=\"update\">更"
+"新本安裝程式</a>。"
 
 #. Type: text
 #. Description
@@ -138,13 +141,18 @@ msgstr "您可能會希望<a href=\"update\">更新本安裝程式</a>。"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
-"這是 ${RELEASE} live ${MEDIUM} 安裝程式的發行前版本。它不是最終的發行版本；${RELEASE} 的最終發行版會於 2010 "
-"年 4 月發布。"
+"這是 ${RELEASE} live ${MEDIUM} 安裝程式的發行前版本。它不是最終的發行版本；"
+"${RELEASE} 的最終發行版會於 2010 年 4 月發布。"
 
 #. Type: text
 #. Description
@@ -153,7 +161,9 @@ msgid ""
 "The installation process may resize or erase partitions on your hard disk. "
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
-msgstr "這個安裝程序可能會重新調整您硬碟上的分割區大小，或是消除分割區。請確定在執行本程式之前，<b>已經對任何重要資料製作完整備份</b>。"
+msgstr ""
+"這個安裝程序可能會重新調整您硬碟上的分割區大小，或是消除分割區。請確定在執行"
+"本程式之前，<b>已經對任何重要資料製作完整備份</b>。"
 
 #. Type: text
 #. Description
@@ -168,7 +178,9 @@ msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
-msgstr "請選擇您的位置，如此一來系統可以使用適合您的國家的顯示方式、從離您較近的網站取得更新，還有將時鐘設定為正確的當地時刻。"
+msgstr ""
+"請選擇您的位置，如此一來系統可以使用適合您的國家的顯示方式、從離您較近的網站"
+"取得更新，還有將時鐘設定為正確的當地時刻。"
 
 #. Type: text
 #. Description
@@ -324,7 +336,9 @@ msgid ""
 "A good password will contain a mixture of letters, numbers and punctuation, "
 "should be at least eight characters long, and should be changed at regular "
 "intervals."
-msgstr "請輸入相同的密碼兩次，以便檢查是否有輸入錯誤。一個良好的密碼會混有字母、數字、標點符號，應至少為８個字母長，並且定期變更。"
+msgstr ""
+"請輸入相同的密碼兩次，以便檢查是否有輸入錯誤。一個良好的密碼會混有字母、數"
+"字、標點符號，應至少為８個字母長，並且定期變更。"
 
 #. Type: text
 #. Description
@@ -611,17 +625,19 @@ msgstr "安裝程式當掉"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
-"很抱歉，安裝程式發生錯誤。請傳送一份錯誤回報到 "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug\r\n"
-"（請不要附加細節到任何已知的錯誤內），開發人員將會盡快處理這個問題。為了幫助開發人員瞭解何處發生問題，\r\n"
-"請附加下面的細節到你的錯誤回報中，並且附加以下檔案：/var/log/syslog 和 /var/log/partman。"
+"很抱歉，安裝程式發生錯誤。請傳送一份錯誤回報到 https://launchpad.net/ubuntu/"
+"+source/ubiquity/+filebug\r\n"
+"（請不要附加細節到任何已知的錯誤內），開發人員將會盡快處理這個問題。為了幫助"
+"開發人員瞭解何處發生問題，\r\n"
+"請附加下面的細節到你的錯誤回報中，並且附加以下檔案：/var/log/syslog 和 /var/"
+"log/partman。"
 
 #. Type: text
 #. Description
@@ -843,7 +859,9 @@ msgid ""
 "Installation has finished.  You can continue testing Ubuntu now, but until "
 "you restart the computer, any changes you make or documents you save will "
 "not be preserved."
-msgstr "安裝已完成。您現在可以繼續試用 Ubuntu，但是您做的任何變更或儲存的文件都不會保留直到重新啟動電腦。"
+msgstr ""
+"安裝已完成。您現在可以繼續試用 Ubuntu，但是您做的任何變更或儲存的文件都不會保"
+"留直到重新啟動電腦。"
 
 #. Type: text
 #. Description
@@ -959,7 +977,9 @@ msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
-msgstr "這是因為硬碟空間不足以完成到目標硬碟分區的安裝。請重新啟動安裝程式並選擇更大的硬碟分區安裝。"
+msgstr ""
+"這是因為硬碟空間不足以完成到目標硬碟分區的安裝。請重新啟動安裝程式並選擇更大"
+"的硬碟分區安裝。"
 
 #. Type: error
 #. Description
@@ -969,8 +989,9 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"這是多數因為 CD/DVD 光碟或光碟機有問題。清理 CD/DVD、以低速度燒錄 CD/DVD，或是清理 CD/DVD "
-"光碟機的雷射針頭（通常電子產品供應商會提供清潔組）可能解決此問題。"
+"這是多數因為 CD/DVD 光碟或光碟機有問題。清理 CD/DVD、以低速度燒錄 CD/DVD，或"
+"是清理 CD/DVD 光碟機的雷射針頭（通常電子產品供應商會提供清潔組）可能解決此問"
+"題。"
 
 #. Type: error
 #. Description
@@ -979,7 +1000,9 @@ msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
-msgstr "這多數是因為硬碟有問題。檢查硬碟是否太舊而需要更換，或是將系統移至更涼快的環境可能解決此問題。"
+msgstr ""
+"這多數是因為硬碟有問題。檢查硬碟是否太舊而需要更換，或是將系統移至更涼快的環"
+"境可能解決此問題。"
 
 #. Type: error
 #. Description
@@ -997,8 +1020,9 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"這是多數因為 CD/DVD 光碟、光碟機，或是硬碟有問題。清理 CD/DVD、以低速度燒錄 CD/DVD、是清理 CD/DVD "
-"光碟機的雷射針頭（通常電子產品供應商會提供清潔組）、檢查硬碟是否太舊而需要更換，或是將系統移動到更涼快的環境可能解決此問題。"
+"這是多數因為 CD/DVD 光碟、光碟機，或是硬碟有問題。清理 CD/DVD、以低速度燒錄 "
+"CD/DVD、是清理 CD/DVD 光碟機的雷射針頭（通常電子產品供應商會提供清潔組）、檢"
+"查硬碟是否太舊而需要更換，或是將系統移動到更涼快的環境可能解決此問題。"
 
 #. Type: select
 #. Description
@@ -1159,16 +1183,17 @@ msgstr "下列套件處於損毀狀態："
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
-"這問題可能由於使用了舊的安裝程式映像檔，或者是因為上列部份軟體有臭蟲，更多的細節可以在 /var/log/syslog "
-"中找到。安裝程式將會試著繼續執行，但是安裝有可能會再次失敗，而且可能會無法在系統中安裝或移除其他的套件（可能包含安裝程式本身）。您必須找尋較新版本的安裝程"
-"式映像檔，或者回報問題給您的發行版提供者。"
+"這問題可能由於使用了舊的安裝程式映像檔，或者是因為上列部份軟體有臭蟲，更多的"
+"細節可以在 /var/log/syslog 中找到。安裝程式將會試著繼續執行，但是安裝有可能會"
+"再次失敗，而且可能會無法在系統中安裝或移除其他的套件（可能包含安裝程式本"
+"身）。您必須找尋較新版本的安裝程式映像檔，或者回報問題給您的發行版提供者。"
 
 #. Type: error
 #. Description
@@ -1192,13 +1217,13 @@ msgstr "轉移檔案和設定值時發生錯誤"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"轉移資料時發生錯誤。您可以在 /var/log/syslog "
-"找到更多詳細資訊。安裝將會繼續，但是一些或所有您請求的文件與設定值可能不會被轉移到安裝的系統內。"
+"轉移資料時發生錯誤。您可以在 /var/log/syslog 找到更多詳細資訊。安裝將會繼續，"
+"但是一些或所有您請求的文件與設定值可能不會被轉移到安裝的系統內。"
 
 #. Type: error
 #. Description
@@ -1213,7 +1238,9 @@ msgid ""
 "An error occurred while copying the network settings.  The installation will "
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
-msgstr "在複製網路設定的時候發生錯誤。安裝將會繼續，但是網路設定必須要在安裝好的系統內再次設定。"
+msgstr ""
+"在複製網路設定的時候發生錯誤。安裝將會繼續，但是網路設定必須要在安裝好的系統"
+"內再次設定。"
 
 #. Type: text
 #. Description
@@ -1256,8 +1283,7 @@ msgstr "請關閉所有使用這些掛載點的程式。"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "您想要讓安裝程式再次嘗試卸載這些分割區嗎？"
 
 #. Type: boolean
@@ -1419,9 +1445,13 @@ msgstr "CD"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language to use for the install process. This\n"
+#| " Language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
 msgstr ""
 "請選擇要安裝程序使用的語言。此\n"
 " 語言會成為此電腦的預設語言。"
@@ -1454,7 +1484,9 @@ msgstr "安裝程序失敗"
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
-msgstr "安裝程式遭遇到無法補救的錯誤。現在將執行桌面工作階段，這樣一來您可以追查該問題或嘗試再安裝一次。"
+msgstr ""
+"安裝程式遭遇到無法補救的錯誤。現在將執行桌面工作階段，這樣一來您可以追查該問"
+"題或嘗試再安裝一次。"
 
 #. Type: text
 #. Description
@@ -1502,8 +1534,9 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
-"當您開機進入新系統時，您可以依使用者「oem」身份與您先前所選的密碼登入；這個 oem 使用者同時擁有使用 'sudo' "
-"指令的管理特權。您可以將該系統依照您的需求來做額外調整。"
+"當您開機進入新系統時，您可以依使用者「oem」身份與您先前所選的密碼登入；這個 "
+"oem 使用者同時擁有使用 'sudo' 指令的管理特權。您可以將該系統依照您的需求來做"
+"額外調整。"
 
 #. Type: text
 #. Description
@@ -1513,7 +1546,8 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
-"當您完成本系統的設定後，請執行「oem-config-prepare」指令，本指令會刪除暫時的「oem」使用者，並在下次重新開機後詢問用戶相關設定問題。"
+"當您完成本系統的設定後，請執行「oem-config-prepare」指令，本指令會刪除暫時的"
+"「oem」使用者，並在下次重新開機後詢問用戶相關設定問題。"
 
 #. Type: text
 #. Description

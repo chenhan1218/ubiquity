@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-04-21 10:18+0000\n"
 "Last-Translator: Pēteris Krišjānis <pecisk@gmail.com>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
@@ -142,16 +142,20 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:19001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr ""
-"Jūs varētu vēlēties <a href=\"update\">atjaunināt šo instalatoru</a>."
+msgstr "Jūs varētu vēlēties <a href=\"update\">atjaunināt šo instalatoru</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
 "Šis ir ${RELEASE} dzīvā ${MEDIUM} instalatora priekšlaidiens. Šī nav gala "
 "versija; tā nāks ar ${RELEASE} gala versiju 2010. gada aprīlī."
@@ -414,8 +418,7 @@ msgstr "Pieprasīt manu paroli, lai pieteiktos sistēmā"
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr ""
-"Pieprasīt manu paroli, lai pieteiktos sistēmā un atšifrētu mājas mapi"
+msgstr "Pieprasīt manu paroli, lai pieteiktos sistēmā un atšifrētu mājas mapi"
 
 #. Type: text
 #. Description
@@ -641,12 +644,12 @@ msgstr "Instalatora avārija"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Diemžēl instalators avarēja. Lūdzu, izveidojiet jaunu kļūdas ziņojumu "
 "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (nepievienojiet "
@@ -1208,20 +1211,19 @@ msgstr "Šīs pakotnes ir bojātas:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Tā varētu gadīties, ja izmantojat vecu instalatora programmu, vai arī kādā "
-"no instalējamajām pakotnēm ir kļūda. Papildu informācija atrodama "
-"/var/log/syslog žurnāla failā. Instalators mēģinās tomēr turpināt, bet darba "
-"gaitā var rasties kļūmes un, iespējams, vairs neizdosies instalēt vai noņemt "
-"citas pakotnes. Vispirms vajadzētu pārbaudīt, vai nav pieejama jaunāka "
-"instalatora versija, un, ja tādas nav, nosūtīt kļūdas paziņojumu "
-"izplatītājam."
+"no instalējamajām pakotnēm ir kļūda. Papildu informācija atrodama /var/log/"
+"syslog žurnāla failā. Instalators mēģinās tomēr turpināt, bet darba gaitā "
+"var rasties kļūmes un, iespējams, vairs neizdosies instalēt vai noņemt citas "
+"pakotnes. Vispirms vajadzētu pārbaudīt, vai nav pieejama jaunāka instalatora "
+"versija, un, ja tādas nav, nosūtīt kļūdas paziņojumu izplatītājam."
 
 #. Type: error
 #. Description
@@ -1245,13 +1247,13 @@ msgstr "Kļūda pārnesot dokumentus un iestatījumus"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Gadījās kļūda pārnesot lietotāja datus. Papildu informācija atrodama "
-"/var/log/syslog žurnāla failā. Instalēšana turpināsies, bet daži vai visi "
+"Gadījās kļūda pārnesot lietotāja datus. Papildu informācija atrodama /var/"
+"log/syslog žurnāla failā. Instalēšana turpināsies, bet daži vai visi "
 "dokumenti un iestatījumi jūs pieprasījāt varētu nebūt pārnesti uz instalēto "
 "sistēmu."
 
@@ -1317,8 +1319,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "Vai vēlaties, lai instalators mēģinātu vēlreiz atmontēt sadaļas?"
 
 #. Type: boolean
@@ -1482,9 +1483,13 @@ msgstr "CD"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language to use for the install process. This\n"
+#| " Language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
 msgstr ""
 "Lūdzu, izvēlieties valodu, ko izmantot instalēšanas procesā Šī\n"
 " valoda būs arī noklusētā valoda jūsu datorā."

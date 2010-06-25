@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-04-19 08:36+0000\n"
 "Last-Translator: Vadim Rutkovsky <roignac@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
@@ -130,8 +130,8 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Возможно вы хотите прочитать <a href=\"release-notes\">примечания к "
-"выпуску</a> или <a href=\"update\">обновить этот установщик</a>."
+"Возможно вы хотите прочитать <a href=\"release-notes\">примечания к выпуску</"
+"a> или <a href=\"update\">обновить этот установщик</a>."
 
 #. Type: text
 #. Description
@@ -150,10 +150,15 @@ msgstr "Возможно вы хотите <a href=\"update\">обновить �
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
 "Это предварительный выпуск ${RELEASE} текущего ${MEDIUM} установщика. Это не "
 "финальная версия, которая появится в финальной версии ${RELEASE} в апреле "
@@ -643,20 +648,20 @@ msgstr "Программа установки аварийно завершил�
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "К сожалению, программа установки аварийно завершилась. Пожалуйста, сообщите "
 "об ошибке на https://launchpad.net/ubuntu/+source/ubiquity/+filebug (не "
 "добавляйте информацию к уже существующим отчетам об ошибках) и разработчики "
 "исправят эту ошибку настолько быстро, насколько это возможно. Чтобы помочь "
 "разработчикам понять, чем вызвана эта ошибка, включите в ваш отчёт "
-"нижеследующую информацию и присоедините к нему файлы /var/log/syslog и "
-"/var/log/partman:"
+"нижеследующую информацию и присоедините к нему файлы /var/log/syslog и /var/"
+"log/partman:"
 
 #. Type: text
 #. Description
@@ -1210,12 +1215,12 @@ msgstr "Эти пакеты повреждены:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Это могло случиться по причине использования устаревшего установочного "
 "образа или из-за ошибки в некоторых пакетах, перечисленных выше. Более "
@@ -1248,14 +1253,14 @@ msgstr "Ошибка при переносе документов и настр�
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Произошла ошибка при переносе данных. Подробности можно найти в "
-"/var/log/syslog. Установка будет продолжена, но некоторые или все документы "
-"и настройки, не могут быть перенесены в устанавливаемую систему."
+"Произошла ошибка при переносе данных. Подробности можно найти в /var/log/"
+"syslog. Установка будет продолжена, но некоторые или все документы и "
+"настройки, не могут быть перенесены в устанавливаемую систему."
 
 #. Type: error
 #. Description
@@ -1319,8 +1324,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Вы хотите, чтобы установщик еще раз попытался отмонтировать эти разделы?"
 
@@ -1487,9 +1491,13 @@ msgstr "CD"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language to use for the install process. This\n"
+#| " Language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
 msgstr ""
 "Пожалуйста, выберите язык, который будет использован в процессе установки. "
 "Этот\n"

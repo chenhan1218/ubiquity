@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-03-23 16:44+0000\n"
 "Last-Translator: Evan Dandrea <ev@ubuntu.com>\n"
 "Language-Team: Amharic\n"
@@ -139,7 +139,7 @@ msgstr ""
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
 
 #. Type: text
@@ -1407,10 +1407,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language used for the configuration process. This "
+#| "language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
-msgstr ""
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
+msgstr "እባክዎ ቋንቋ ይምረጡ ለማዋቀር እንዲረዳ ፤ ይህ ቋንቋ ነባር የመስሪያ ቋንቋ ይሆናል ለዚህ ኮምፒዩተር"
 
 #. Type: text
 #. Description

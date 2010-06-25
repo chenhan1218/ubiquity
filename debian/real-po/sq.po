@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-04-19 00:12+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
@@ -128,16 +128,16 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Ju mund të dëshironi të lexoni <a href=\"release-notes\">shënimet e "
-"nisjes</a> ose <a href=\"update\">të përditësoni këtë instalues</a>."
+"Ju mund të dëshironi të lexoni <a href=\"release-notes\">shënimet e nisjes</"
+"a> ose <a href=\"update\">të përditësoni këtë instalues</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Ju mund të dëshironi të lexoni <a href=\"release-notes\">shënimet e "
-"nisjes</a>."
+"Ju mund të dëshironi të lexoni <a href=\"release-notes\">shënimet e nisjes</"
+"a>."
 
 #. Type: text
 #. Description
@@ -149,10 +149,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
 "Ky është një version paraprak i instaluesit të ${RELEASE} live ${MEDIUM}. "
 "Nuk është versioni përfundimtar; ai do të vijë me versionin përfundimtar  të "
@@ -649,12 +654,12 @@ msgstr "Instaluesi u dëmtua"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Na vjen keq, instaluesi u dëmtua. Ju lutemi, dërgoni një raport për defektin "
 "në https://launchpad.net/ubuntu/+source/ubiquity/+filebug (mos i shtoni "
@@ -1214,12 +1219,12 @@ msgstr "Paketat e mëposhtme janë të dëmtuara:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Kjo mund të ketë ndodhur për shkak të përdorimit të një instaluesi të "
 "vjetër, ose për shkak të ndonjë defekti në paketat e mësipërme. Më tepër "
@@ -1251,8 +1256,8 @@ msgstr "Gabim në migrimin e dokumenteve dhe parametrave"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1322,8 +1327,7 @@ msgstr "Ju lutemi mbyllni çdo aplikim që po i përdor këto pika hyrjeje."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "Doni që instaluesi të përpiqet t'i përdorë këto particione përsëri?"
 
 #. Type: boolean
@@ -1491,9 +1495,13 @@ msgstr "CD"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language to use for the install process. This\n"
+#| " Language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
 msgstr ""
 "Ju lutemi të zgjidhni gjuhën që do të përdorni në proçesin e instalimit. "
 "Kjo\n"
