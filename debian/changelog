@@ -1,4 +1,4 @@
-ubiquity (2.3.0) UNRELEASED; urgency=low
+ubiquity (2.3.0) maverick; urgency=low
 
   [ Evan Dandrea ]
   * Fix wrongly formatted string (LP: #546971).
@@ -18,7 +18,7 @@ ubiquity (2.3.0) UNRELEASED; urgency=low
   * Add btrfs support.
   * Add an intro message noting that we're alpha again.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 28 Apr 2010 18:34:43 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 30 Jun 2010 08:40:20 +0100
 
 ubiquity (2.2.24) lucid-updates; urgency=low
 
