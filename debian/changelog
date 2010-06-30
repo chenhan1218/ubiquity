@@ -3,6 +3,15 @@ ubiquity (2.3.0) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Fix wrongly formatted string (LP: #546971).
   * Merge testing branch.  Ubiquity now has a test harness in tests/
+  * Automatic update of included source packages: apt-setup
+    1:0.45ubuntu1, base-installer 1.107ubuntu1, choose-mirror
+    2.33ubuntu1, debian-installer-utils 1.75ubuntu1, flash-kernel
+    2.28ubuntu1, migration-assistant 0.6.7, partconf 1.33, partman-auto
+    91ubuntu2, partman-base 141ubuntu1, partman-basicfilesystems
+    63ubuntu6, partman-basicmethods 44, partman-efi 20ubuntu2, partman-
+    ext3 59ubuntu1, partman-newworld 22, partman-partitioning 74ubuntu2,
+    partman-reiserfs 47, partman-target 67ubuntu1, preseed 1.45, yaboot-
+    installer 1.1.16ubuntu1.
 
   [ Colin Watson ]
   * Only validate the GRUB device entry if it's shown.
