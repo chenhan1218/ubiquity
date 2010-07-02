@@ -432,14 +432,203 @@ class LabelledComboBoxEntry(gtk.ComboBoxEntry):
         self.add(l)
 gobject.type_register(LabelledComboBoxEntry)
 
-# FIXME: This doesn't work as is.
-def expo(win):
-    for w in win.get_children():
-        expo(w)
-    cr = win.cairo_create()
-    cr.set_source_rgba(0,0,0,0.5)
-    cr.rectangle(0, 0, *win.get_geometry()[2:4])
-    cr.paint()
+# Modified from John Stowers' client-side-windows demo.
+class GreyableBin(gtk.Bin):
+    __gsignals__ = {
+        "damage_event"  :   "override"
+    }
+    __gtype_name__ = 'GreyableBin'
+
+    def __init__(self):
+        gtk.Bin.__init__(self)
+
+        self.child = None
+        self.offscreen_window = None
+
+        self.unset_flags(gtk.NO_WINDOW)
+
+    def _to_child(self, widget_x, widget_y):
+        return widget_x, widget_y
+
+    def _to_parent(self, offscreen_x, offscreen_y):
+        return offscreen_x, offscreen_y
+
+    def _pick_offscreen_child(self, offscreen_window, widget_x, widget_y):
+        if self.child and self.child.flags() & gtk.VISIBLE:
+            x,y = self._to_child(widget_x, widget_y)
+            ca = self.child.allocation
+            if (x >= 0 and x < ca.width and y >= 0 and y < ca.height):
+                return self.offscreen_window
+        return None
+
+    def _offscreen_window_to_parent(self, offscreen_window, offscreen_x, offscreen_y, parent_x, parent_y):
+        x,y = self._to_parent(offscreen_x, offscreen_y)
+
+    def _offscreen_window_from_parent(self, parent_window, parent_x, parent_y, offscreen_x, offscreen_y):
+        x,y = self._to_child(parent_x, parent_y)
+
+    def do_realize(self):
+        self.set_flags(gtk.REALIZED)
+
+        border_width = self.border_width
+
+        w = self.allocation.width - 2*border_width
+        h = self.allocation.height - 2*border_width
+
+        self.window = gtk.gdk.Window(
+                self.get_parent_window(),
+                x=self.allocation.x + border_width,
+                y=self.allocation.y + border_width,
+                width=w,
+                height=h,
+                window_type=gtk.gdk.WINDOW_CHILD,
+                event_mask=self.get_events() 
+                        | gtk.gdk.EXPOSURE_MASK
+                        | gtk.gdk.POINTER_MOTION_MASK
+                        | gtk.gdk.BUTTON_PRESS_MASK
+                        | gtk.gdk.BUTTON_RELEASE_MASK
+                        | gtk.gdk.SCROLL_MASK
+                        | gtk.gdk.ENTER_NOTIFY_MASK
+                        | gtk.gdk.LEAVE_NOTIFY_MASK,
+                visual=self.get_visual(),
+                colormap=self.get_colormap(),
+                wclass=gtk.gdk.INPUT_OUTPUT)
+
+        self.window.set_user_data(self)
+        self.window.connect("pick-embedded-child", self._pick_offscreen_child)
+
+        if self.child and self.child.flags() & gtk.VISIBLE:
+            w = self.child.allocation.width
+            h = self.child.allocation.height
+
+        self.offscreen_window = gtk.gdk.Window(
+                self.get_root_window(),
+                x=self.allocation.x + border_width,
+                y=self.allocation.y + border_width,
+                width=w,
+                height=h,
+                window_type=gtk.gdk.WINDOW_OFFSCREEN,
+                event_mask=self.get_events() 
+                        | gtk.gdk.EXPOSURE_MASK
+                        | gtk.gdk.POINTER_MOTION_MASK
+                        | gtk.gdk.BUTTON_PRESS_MASK
+                        | gtk.gdk.BUTTON_RELEASE_MASK
+                        | gtk.gdk.SCROLL_MASK
+                        | gtk.gdk.ENTER_NOTIFY_MASK
+                        | gtk.gdk.LEAVE_NOTIFY_MASK,
+                visual=self.get_visual(),
+                colormap=self.get_colormap(),
+                wclass=gtk.gdk.INPUT_OUTPUT)
+        self.offscreen_window.set_user_data(self)
+
+        if self.child:
+            self.child.set_parent_window(self.offscreen_window)
+
+        gtk.gdk.offscreen_window_set_embedder(self.offscreen_window, self.window)
+
+        self.offscreen_window.connect("to-embedder", self._offscreen_window_to_parent)
+        self.offscreen_window.connect("from-embedder", self._offscreen_window_from_parent)
+
+        self.style.attach(self.window)
+        self.style.set_background(self.window, gtk.STATE_NORMAL)
+        self.style.set_background(self.offscreen_window, gtk.STATE_NORMAL)
+
+        self.offscreen_window.show()
+
+    def do_unrealize(self):
+        self.offscreen_window.set_user_data(None)
+        self.offscreen_window = None
+
+    def do_add(self, widget):
+        if not self.child:
+            widget.set_parent_window(self.offscreen_window)
+            widget.set_parent(self)
+            self.child = widget
+        else:
+            print "Cannot have more than one child"
+
+    def do_remove(self, widget):
+        was_visible = widget.flags() & gtk.VISIBLE
+        if self.child == widget:
+            widget.unparent()
+            self.child = None
+            if was_visible and (self.flags() & gtk.VISIBLE):
+                self.queue_resize()
+
+    def do_forall(self, internal, callback, data):
+        if self.child:
+            callback(self.child, data)
+
+    def do_size_request(self, r):
+        cw, ch = 0,0;
+        if self.child and (self.child.flags() & gtk.VISIBLE):
+            cw, ch =  self.child.size_request()
+
+        r.width = self.border_width + cw + 10
+        r.height = self.border_width + ch + 10
+
+    def do_size_allocate(self, allocation):
+        self.allocation = allocation
+
+        border_width = self.border_width
+        w = self.allocation.width - border_width
+        h = self.allocation.height - border_width
+
+        if self.flags() & gtk.REALIZED:
+            self.window.move_resize(
+                            allocation.x + border_width,
+                            allocation.y + border_width,
+                            w,h)
+
+        if self.child and self.child.flags() & gtk.VISIBLE:
+            cw, ch = self.child.get_child_requisition()
+            ca = gtk.gdk.Rectangle(x=0,y=0,width=cw,height=ch)
+
+            if self.flags() & gtk.REALIZED:
+                self.offscreen_window.move_resize(
+                            allocation.x + border_width,
+                            allocation.y + border_width,
+                            cw, ch)
+
+            self.child.size_allocate(ca)
+
+    def do_damage_event(self, eventexpose):
+        #invalidate the whole window
+        self.window.invalidate_rect(None, False)
+        return True
+
+    def do_expose_event(self, event):
+        if self.flags() & gtk.VISIBLE and self.flags() & gtk.MAPPED:
+            if event.window == self.window:
+                pm = gtk.gdk.offscreen_window_get_pixmap(self.offscreen_window)
+                w,h = pm.get_size()
+
+                cr = self.window.cairo_create()
+                cr.save()
+                cr.rectangle(0,0,w,h)
+                cr.clip()
+
+                #paint the offscreen child
+                cr.set_source_pixmap(pm, 0, 0)
+                cr.paint()
+
+                cr.restore()
+                cr.set_source_rgba(0,0,0,0.5)
+                cr.rectangle(0, 0, *event.window.get_geometry()[2:4])
+                cr.paint()
+
+            elif event.window == self.offscreen_window:
+                self.style.paint_flat_box(
+                                event.window,
+                                gtk.STATE_NORMAL, gtk.SHADOW_NONE,
+                                event.area, self, "blah",
+                                0, 0, -1, -1)
+                if self.child:
+                    self.propagate_expose(self.child, event)
+
+        return False
+
+gobject.type_register(GreyableBin)
     
 if __name__ == "__main__":
     options = ('that you have at least 3GB available drive space',
@@ -447,6 +636,7 @@ if __name__ == "__main__":
                'that you are connected to the Internet with an ethernet cable')
     w = gtk.Window()
     w.connect('destroy', gtk.main_quit)
+    #b = GreyableBin()
     a = gtk.VBox()
     a.set_spacing(5)
     a.set_border_width(20)
@@ -492,9 +682,10 @@ if __name__ == "__main__":
     #w2.set_transient_for(w)
     #w2.set_modal(True)
     #w2.show()
+    #w.add(b)
+    #b.add(a)
     w.add(a)
     w.show_all()
-    #w.connect_after('expose-event', lambda w, e: expo(w.window))
     gtk.main()
 
 # TODO: Process layered on top of os-prober (or function) that:
