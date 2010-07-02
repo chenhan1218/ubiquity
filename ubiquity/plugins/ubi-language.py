@@ -63,6 +63,7 @@ class PageBase(PluginUI):
 
 class PageGtk(PageBase):
     plugin_is_language = True
+    plugin_title = 'ubiquity/text/language_heading_label'
 
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller

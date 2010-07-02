@@ -72,10 +72,11 @@ PATH = os.environ.get('UBIQUITY_PATH', False) or '/usr/share/ubiquity'
 
 # Define global pixmaps location
 PIXMAPS = os.environ.get('PIXMAPS', False) or '/usr/share/pixmaps'
-
+ 
 # Define ui path
 UIDIR = os.environ.get('UBIQUITY_GLADE', False) or os.path.join(PATH, 'gtk')
 os.environ['UBIQUITY_GLADE'] = UIDIR
+
 
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
@@ -188,7 +189,6 @@ class Wizard(BaseFrontend):
                 widget.set_property('can-focus', False)
 
         BaseFrontend.__init__(self, distro)
-
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
 
@@ -196,8 +196,7 @@ class Wizard(BaseFrontend):
         self.all_widgets = set()
         self.gconf_previous = {}
         self.thunar_previous = {}
-        self.language_questions = ('live_installer', 'step_label',
-                                   'quit', 'back', 'next',
+        self.language_questions = ('live_installer', 'quit', 'back', 'next',
                                    'warning_dialog', 'warning_dialog_label',
                                    'cancelbutton', 'exitbutton')
         self.current_page = None
@@ -230,8 +229,19 @@ class Wizard(BaseFrontend):
         # set custom language
         self.set_locales()
 
-        gtk.window_set_default_icon_from_file(os.path.join(PIXMAPS,
-                                              'ubiquity.png'))
+        gtk.window_set_default_icon_from_file('/usr/share/pixmaps/'
+                                              'ubiquity.png')
+
+        # This needs to be done before the GtkBuilder objects are created.
+        style = gtk.Menu().rc_get_style()
+        bg = style.bg[gtk.STATE_NORMAL]
+        gtk.rc_parse_string('''
+        style "ubiquity" {
+            GtkProgressBar::min-horizontal-bar-height = 10
+            bg[ACTIVE] = "%s"
+        }
+        class "GtkProgressBar" style "ubiquity"
+        ''' % bg)
 
         # load the main interface
         self.builder.add_from_file('%s/ubiquity.ui' % UIDIR)
@@ -251,6 +261,8 @@ class Wizard(BaseFrontend):
                 mod.ui_class = mod.module.PageGtk
                 mod.controller = Controller(self)
                 mod.ui = mod.ui_class(mod.controller)
+                title = mod.ui.get('plugin_title')
+                mod.title = title or ''
                 widgets = mod.ui.get('plugin_widgets')
                 optional_widgets = mod.ui.get('plugin_optional_widgets')
                 if not found_install:
@@ -485,6 +497,9 @@ class Wizard(BaseFrontend):
             if self.current_page is None:
                 return self.returncode
 
+            title = self.get_string(self.pages[self.pagesindex].title)
+            # TODO: Use attributes instead?  Would save having to hardcode the size in here.
+            self.page_title.set_markup('<span size="xx-large">%s</span>' % title)
             if not self.pages[self.pagesindex].filter_class:
                 # This page is just a UI page
                 self.dbfilter = None
@@ -546,47 +561,39 @@ class Wizard(BaseFrontend):
 
         return self.returncode
 
-    def win_size_req(self, widget, req):
-        s = widget.get_screen()
-        m = s.get_monitor_geometry(0)
-        w = -1
-        h = -1
+    #def win_size_req(self, widget, req):
+    #    s = widget.get_screen()
+    #    m = s.get_monitor_geometry(0)
+    #    w = -1
+    #    h = -1
 
-        # What's the size of the WM border?
-        total_frame = widget.window.get_frame_extents()
-        (cur_x, cur_y, cur_w, cur_h, depth) = widget.window.get_geometry()
-        wm_w = total_frame.width - cur_w
-        wm_h = total_frame.height - cur_h
+    #    # What's the size of the WM border?
+    #    total_frame = widget.window.get_frame_extents()
+    #    (cur_x, cur_y, cur_w, cur_h, depth) = widget.window.get_geometry()
+    #    wm_w = total_frame.width - cur_w
+    #    wm_h = total_frame.height - cur_h
 
-        if req.width > m.width - wm_w:
-            w = m.width - wm_w
-        if req.height > m.height - wm_h:
-            h = m.height - wm_h
+    #    if req.width > m.width - wm_w:
+    #        w = m.width - wm_w
+    #    if req.height > m.height - wm_h:
+    #        h = m.height - wm_h
 
-        widget.set_size_request(w, h)
-        widget.resize(w, h)
+    #    widget.set_size_request(w, h)
+    #    widget.resize(w, h)
 
     def customize_installer(self):
         """Initial UI setup."""
 
-        PIXMAPSDIR = os.path.join(PATH, 'pixmaps', self.distro)
+        style = gtk.Menu().rc_get_style()
+        self.live_installer.set_style(style)
+        self.page_title.set_style(style)
+        self.install_progress_text.set_style(style)
+        self.install_details_expander.set_style(style)
+        #from vte import Terminal
+        #vte = Terminal()
+        #self.install_details_expander.add(vte)
 
-        # set pixmaps
-        if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
-            logo = os.path.join(PIXMAPSDIR, "logo_1280.jpg")
-            photo = os.path.join(PIXMAPSDIR, "photo_1280.jpg")
-        else:
-            logo = os.path.join(PIXMAPSDIR, "logo_1024.jpg")
-            photo = os.path.join(PIXMAPSDIR, "photo_1024.jpg")
-        if not os.path.exists(logo):
-            logo = None
-        if not os.path.exists(photo):
-            photo = None
-
-        self.logo_image.set_from_file(logo)
-        self.photo.set_from_file(photo)
-
-        self.live_installer.connect('size-request', self.win_size_req)
+        #self.live_installer.connect('size-request', self.win_size_req)
 
         if self.oem_config:
             self.live_installer.set_title(self.get_string('oem_config_title'))
@@ -705,10 +712,7 @@ class Wizard(BaseFrontend):
         name = widget.get_name()
 
         if isinstance(widget, gtk.Label):
-            if name == 'step_label':
-                text = text.replace('${INDEX}', str(min(self.user_pageslen, max(1, len(self.history)))))
-                text = text.replace('${TOTAL}', str(self.user_pageslen))
-            elif name == 'ready_text_label' and self.oem_user_config:
+            if name == 'ready_text_label' and self.oem_user_config:
                 text = self.get_string('ready_text_oem_user_label', lang)
             widget.set_markup(text)
 
@@ -1219,7 +1223,6 @@ class Wizard(BaseFrontend):
 
     def on_steps_switch_page (self, unused_notebook, unused_page, current):
         self.current_page = current
-        self.translate_widget(self.step_label)
         name = self.step_name(current)
         if 'UBIQUITY_GREETER' in os.environ:
             if name == 'language':

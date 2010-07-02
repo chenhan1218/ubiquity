@@ -33,6 +33,7 @@ AFTER = 'language'
 WEIGHT = 10
 
 class PageGtk(PluginUI):
+    plugin_title = 'ubiquity/text/timezone_heading_label'
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
         try:
@@ -42,7 +43,7 @@ class PageGtk(PluginUI):
             builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepLocation.ui'))
             builder.connect_signals(self)
             self.page = builder.get_object('stepLocation')
-            self.region_combo = builder.get_object('timezone_zone_combo')
+            #self.region_combo = builder.get_object('timezone_zone_combo')
             self.city_combo = builder.get_object('timezone_city_combo')
             self.map_window = builder.get_object('timezone_map_window')
             self.setup_page()
@@ -60,13 +61,15 @@ class PageGtk(PluginUI):
         self.tzmap.set_time_format(fmt)
 
     def set_timezone(self, timezone):
-        self.fill_timezone_boxes()
+        #self.fill_timezone_boxes()
         self.select_city(None, timezone)
 
     def get_timezone(self):
         i = self.city_combo.get_active()
         m = self.city_combo.get_model()
-        return m[i][1]
+        # FIXME
+        return 'America/New_York'
+        #return m[i][1]
 
     @only_this_page
     def fill_timezone_boxes(self):
@@ -109,20 +112,21 @@ class PageGtk(PluginUI):
 
     def select_city(self, unused_widget, city):
         loc = self.tzdb.get_loc(city)
+        self.tzmap.select_city(city)
         if not loc:
             return
 
-        self.select_country(loc.country)
+        #self.select_country(loc.country)
 
-        m = self.city_combo.get_model()
-        iterator = m.get_iter_first()
-        while iterator:
-            if m[iterator][1] == city:
-                self.city_combo.set_active_iter(iterator)
-                return
-            iterator = m.iter_next(iterator)
-        # We don't have a timezone selection, so don't let the user proceed.
-        self.controller.allow_go_forward(False)
+        #m = self.city_combo.get_model()
+        #iterator = m.get_iter_first()
+        #while iterator:
+        #    if m[iterator][1] == city:
+        #        self.city_combo.set_active_iter(iterator)
+        #        return
+        #    iterator = m.iter_next(iterator)
+        ## We don't have a timezone selection, so don't let the user proceed.
+        #self.controller.allow_go_forward(False)
 
     def setup_page(self):
         import gobject, gtk
@@ -165,50 +169,50 @@ class PageGtk(PluginUI):
                 iterator = m.iter_next(iterator)
             self.controller.allow_go_forward(False)
 
-        renderer = gtk.CellRendererText()
-        self.region_combo.pack_start(renderer, True)
-        self.region_combo.set_text_column(0)
-        list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING)
-        self.region_combo.set_model(list_store)
-        self.region_combo.set_row_separator_func(is_separator)
+        #renderer = gtk.CellRendererText()
+        #self.region_combo.pack_start(renderer, True)
+        #self.region_combo.set_text_column(0)
+        #list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING)
+        #self.region_combo.set_model(list_store)
+        #self.region_combo.set_row_separator_func(is_separator)
 
-        completion = gtk.EntryCompletion()
-        entry = self.region_combo.child
-        entry.connect('changed', queue_entry_changed, self.region_combo)
-        entry.set_completion(completion)
-        completion.set_model(list_store)
-        completion.set_text_column(0)
-        completion.set_inline_completion(True)
-        completion.set_inline_selection(True)
+        #completion = gtk.EntryCompletion()
+        #entry = self.region_combo.child
+        #entry.connect('changed', queue_entry_changed, self.region_combo)
+        #entry.set_completion(completion)
+        #completion.set_model(list_store)
+        #completion.set_text_column(0)
+        #completion.set_inline_completion(True)
+        #completion.set_inline_selection(True)
 
-        renderer = gtk.CellRendererText()
-        self.city_combo.pack_start(renderer, True)
-        self.city_combo.set_text_column(0)
-        city_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
-        self.city_combo.set_model(city_store)
+        #renderer = gtk.CellRendererText()
+        #self.city_combo.pack_start(renderer, True)
+        #self.city_combo.set_text_column(0)
+        #city_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
+        #self.city_combo.set_model(city_store)
 
-        completion = gtk.EntryCompletion()
-        entry = self.city_combo.child
-        entry.set_completion(completion)
-        entry.connect('changed', queue_entry_changed, self.city_combo)
-        completion.set_model(city_store)
-        completion.set_text_column(0)
-        completion.set_inline_completion(True)
-        completion.set_inline_selection(True)
+        #completion = gtk.EntryCompletion()
+        #entry = self.city_combo.child
+        #entry.set_completion(completion)
+        #entry.connect('changed', queue_entry_changed, self.city_combo)
+        #completion.set_model(city_store)
+        #completion.set_text_column(0)
+        #completion.set_inline_completion(True)
+        #completion.set_inline_selection(True)
 
-        def match_func(completion, key, iter):
-            m = completion.get_model()
-            text = m.get_value(iter, 0)
-            if not text:
-                return False
-            text = text.lower()
-            key = key.lower()
-            if text.startswith(key) or text.find('(' + key) != -1:
-                return True
-            else:
-                return False
+        #def match_func(completion, key, iter):
+        #    m = completion.get_model()
+        #    text = m.get_value(iter, 0)
+        #    if not text:
+        #        return False
+        #    text = text.lower()
+        #    key = key.lower()
+        #    if text.startswith(key) or text.find('(' + key) != -1:
+        #        return True
+        #    else:
+        #        return False
 
-        completion.set_match_func(match_func)
+        #completion.set_match_func(match_func)
 
     @only_this_page
     def on_region_combo_changed(self, *args):

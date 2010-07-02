@@ -24,6 +24,9 @@ class KeyboardQuery(gtk.Window):
 
         self.set_title('')
         self.set_modal(True)
+        # TODO if we can allocate the space we'll need ahead of time, we can
+        # use center_on_parent here.
+        self.set_position(gtk.WIN_POS_CENTER_ALWAYS)
         self.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DIALOG)
         self.vbox = gtk.VBox()
 
@@ -96,6 +99,8 @@ class KeyboardQuery(gtk.Window):
         # FIXME need to account for possible remapping.  Find the API to translate
         # kernel keycodes to X keycodes (xkb).
         # MIN_KEYCODE = 8
+
+        # FIXME escape should close the window.
 
         code = event.hardware_keycode - 8
         if code > 255:

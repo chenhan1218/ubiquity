@@ -70,6 +70,7 @@ class PageBase(PluginUI):
         pass
 
 class PageGtk(PageBase):
+    plugin_title = 'ubiquity/text/part_auto_heading_label'
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
         try:
@@ -107,7 +108,6 @@ class PageGtk(PageBase):
             self.partition_button_edit = builder.get_object('partition_button_edit')
             self.partition_button_delete = builder.get_object('partition_button_delete')
             self.partition_button_undo = builder.get_object('partition_button_undo')
-            self.part_advanced_vbox = builder.get_object('part_advanced_vbox')
             self.part_advanced_warning_message = builder.get_object('part_advanced_warning_message')
             self.part_advanced_warning_hbox = builder.get_object('part_advanced_warning_hbox')
             self.part_auto_comment_label = builder.get_object('part_auto_comment_label')
@@ -1022,8 +1022,8 @@ class PageGtk(PageBase):
             sw.child.set_shadow_type(gtk.SHADOW_NONE)
             sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_NEVER)
             sw.show_all()
-            self.part_advanced_vbox.pack_start(sw, expand=False)
-            self.part_advanced_vbox.reorder_child(sw, 0)
+            self.page_advanced.pack_start(sw, expand=False)
+            self.page_advanced.reorder_child(sw, 0)
 
         for item in cache_order:
             if item in disk_cache:

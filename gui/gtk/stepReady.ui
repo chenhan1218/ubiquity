@@ -11,32 +11,6 @@
   <object class="GtkVBox" id="stepReady">
     <property name="visible">True</property>
     <property name="border_width">6</property>
-    <property name="orientation">vertical</property>
-    <child>
-      <object class="GtkLabel" id="ready_heading_label">
-        <property name="visible">True</property>
-        <property name="can_focus">True</property>
-        <property name="xalign">0</property>
-        <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Ready to install&lt;/b&gt;&lt;/big&gt;</property>
-        <property name="use_markup">True</property>
-        <property name="selectable">False</property>
-      </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">False</property>
-        <property name="position">0</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkHSeparator" id="hseparator22">
-        <property name="visible">True</property>
-      </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="padding">6</property>
-        <property name="position">1</property>
-      </packing>
-    </child>
     <child>
       <object class="GtkLabel" id="ready_description_label">
         <property name="visible">True</property>
@@ -44,12 +18,11 @@
         <property name="xalign">0</property>
         <property name="ypad">12</property>
         <property name="label" translatable="yes">Your new operating system will now be installed with the following settings:</property>
-        <property name="selectable">False</property>
       </object>
       <packing>
         <property name="expand">False</property>
         <property name="fill">False</property>
-        <property name="position">2</property>
+        <property name="position">0</property>
       </packing>
     </child>
     <child>
@@ -86,7 +59,7 @@
       </object>
       <packing>
         <property name="padding">6</property>
-        <property name="position">3</property>
+        <property name="position">1</property>
       </packing>
     </child>
     <child>
@@ -107,7 +80,7 @@
       <packing>
         <property name="expand">False</property>
         <property name="fill">False</property>
-        <property name="position">4</property>
+        <property name="position">2</property>
       </packing>
     </child>
   </object>
@@ -128,12 +101,10 @@
           <object class="GtkVBox" id="vbox2">
             <property name="visible">True</property>
             <property name="border_width">5</property>
-            <property name="orientation">vertical</property>
             <property name="spacing">18</property>
             <child>
               <object class="GtkVBox" id="bootloader_vbox">
                 <property name="visible">True</property>
-                <property name="orientation">vertical</property>
                 <property name="spacing">6</property>
                 <child>
                   <object class="GtkLabel" id="bootloader_group_label">
@@ -141,7 +112,6 @@
                     <property name="xalign">0</property>
                     <property name="label" translatable="yes">&lt;b&gt;Boot loader&lt;/b&gt;</property>
                     <property name="use_markup">True</property>
-                    <property name="selectable">False</property>
                     <property name="single_line_mode">True</property>
                   </object>
                   <packing>
@@ -156,7 +126,6 @@
                     <child>
                       <object class="GtkVBox" id="vbox10">
                         <property name="visible">True</property>
-                        <property name="orientation">vertical</property>
                         <property name="spacing">6</property>
                         <child>
                           <object class="GtkCheckButton" id="grub_enable">
@@ -182,7 +151,6 @@
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">Help for GRUB device selection goes here.</property>
                             <property name="wrap">True</property>
-                            <property name="selectable">False</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -215,7 +183,6 @@
             <child>
               <object class="GtkVBox" id="popcon_vbox">
                 <property name="visible">True</property>
-                <property name="orientation">vertical</property>
                 <property name="spacing">6</property>
                 <child>
                   <object class="GtkLabel" id="popcon_group_label">
@@ -223,7 +190,6 @@
                     <property name="xalign">0</property>
                     <property name="label" translatable="yes">&lt;b&gt;Popularity contest&lt;/b&gt;</property>
                     <property name="use_markup">True</property>
-                    <property name="selectable">False</property>
                     <property name="single_line_mode">True</property>
                   </object>
                   <packing>
@@ -258,7 +224,6 @@
               <object class="GtkVBox" id="vbox3">
                 <property name="visible">True</property>
                 <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                <property name="orientation">vertical</property>
                 <property name="spacing">6</property>
                 <child>
                   <object class="GtkLabel" id="proxy_group_label">
@@ -267,7 +232,6 @@
                     <property name="xalign">0</property>
                     <property name="label" translatable="yes">&lt;b&gt;Network proxy&lt;/b&gt;</property>
                     <property name="use_markup">True</property>
-                    <property name="selectable">False</property>
                     <property name="single_line_mode">True</property>
                   </object>
                   <packing>
@@ -293,7 +257,6 @@
                             <property name="xpad">6</property>
                             <property name="label" translatable="yes">HTTP proxy:</property>
                             <property name="justify">right</property>
-                            <property name="selectable">False</property>
                             <property name="single_line_mode">True</property>
                           </object>
                           <packing>
@@ -322,7 +285,6 @@
                             <property name="xpad">6</property>
                             <property name="label" translatable="yes">Port:</property>
                             <property name="justify">right</property>
-                            <property name="selectable">False</property>
                             <property name="single_line_mode">True</property>
                           </object>
                           <packing>

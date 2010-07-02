@@ -35,10 +35,6 @@ Template: ubiquity/text/oem_config_title
 Type: text
 _Description: Install (OEM mode, for manufacturers only)
 
-Template: ubiquity/text/welcome_heading_label
-Type: text
-_Description: Welcome
-
 Template: ubiquity/text/oem_id_label
 Type: text
 _Description:
@@ -114,48 +110,21 @@ Template: ubiquity/text/timezone_heading_label
 Type: text
 _Description: Where are you?
 
-Template: ubiquity/text/timezone_comment_label
-Type: text
-_Description:
- Select your location, so that the system can use appropriate display
- conventions for your country, fetch updates from sites close to you,
- and set the clock to the correct local time.
-
-Template: ubiquity/text/timezone_city_label
-Type: text
-_Description: Time Zone:
-
-Template: ubiquity/text/timezone_zone_label
-Type: text
-_Description: Region:
-
 Template: ubiquity/text/keyboard_heading_label
 Type: text
 _Description: Keyboard layout
 
 Template: ubiquity/text/keyboard_comment_label
 Type: text
-_Description: Which layout is most similar to your keyboard?
+_Description: Choose your keyboard layout:
 
 Template: ubiquity/text/keyboard_test_label
 Type: text
-_Description: You can type into this box to test your new keyboard layout.
+_Description: Type here to test your keyboard
 
-Template: ubiquity/text/suggested_keymap
+Template: ubiquity/text/deduce_layout
 Type: text
-_Description: Suggested option:
-
-Template: ubiquity/text/manual_keymap
-Type: text
-_Description: Choose your own:
-
-Template: ubiquity/text/calculate_keymap
-Type: text
-_Description: Guess keymap:
-
-Template: ubiquity/text/calculate_keymap_button
-Type: text
-_Description: Guess...
+_Description: Figure out keyboard layout
 
 Template: ubiquity/text/keyboard_query_press
 Type: text
@@ -165,47 +134,29 @@ Template: ubiquity/text/keyboard_query_present
 Type: text
 _Description: Is the following key present on your keyboard?
 
-Template: ubiquity/text/keyboard_layout_label
-Type: text
-_Description: Layout:
-
-Template: ubiquity/text/keyboard_variant_label
-Type: text
-_Description: Variant:
-
-Template: ubiquity/text/keyboard_image_label
-Type: text
-_Description: Below is an image of your current layout:
-
 Template: ubiquity/text/userinfo_heading_label
 Type: text
 _Description: Who are you?
 
 Template: ubiquity/text/fullname_label
 Type: text
-_Description: What is your name?
+_Description: Your name:
 
 Template: ubiquity/text/fullname_inactive_label
 Type: text
-_Description: Full Name
+_Description: Your name
 
 Template: ubiquity/text/username_label
 Type: text
-_Description: What name do you want to use to log in?
+_Description: Pick a username:
 
 Template: ubiquity/text/username_inactive_label
 Type: text
 _Description: Username
 
-Template: ubiquity/text/username_extra_label
-Type: text
-_Description:
- If more than one person will use this computer, you can set up multiple
- accounts after installation.
-
 Template: ubiquity/text/password_label
 Type: text
-_Description: Choose a password to keep your account safe.
+_Description: Choose a password:
 
 Template: ubiquity/text/password_inactive_label
 Type: text
@@ -213,53 +164,32 @@ _Description: Password
 
 Template: ubiquity/text/password_again_inactive_label
 Type: text
-_Description: Re-enter password
+_Description: Confirm password
 
+# TODO Get rid of this by filtering out the password?
 Template: ubiquity/text/password_debug_warning_label
 Type: text
 _Description: You are running in debugging mode. Do not use a valuable password!
 
-Template: ubiquity/text/password_extra_label
-Type: text
-_Description:
- Enter the same password twice, so that it can be checked for typing errors.
- A good password will contain a mixture of letters, numbers and punctuation,
- should be at least eight characters long, and should be changed at regular
- intervals.
-
 Template: ubiquity/text/password/too_short
 Type: text
-_Description: Strength: too short
+_Description: Short password
 
 Template: ubiquity/text/password/weak
 Type: text
-_Description: Strength: weak
+_Description: Weak password
 
 Template: ubiquity/text/password/fair
 Type: text
-_Description: Strength: fair
+_Description: Fair password
 
 Template: ubiquity/text/password/good
 Type: text
-_Description: Strength: good
+_Description: Good password
 
 Template: ubiquity/text/password/strong
 Type: text
-_Description: Strength: strong
-
-Template: ubiquity/text/hostname_label
-Type: text
-_Description: What is the name of this computer?
-
-Template: ubiquity/text/hostname_inactive_label
-Type: text
-_Description: Computer Name
-
-Template: ubiquity/text/hostname_extra_label
-Type: text
-_Description:
- This name will be used if you make the computer visible to others on a
- network.
+_Description: Strong password
 
 Template: ubiquity/text/login_auto
 Type: text
@@ -271,11 +201,7 @@ _Description: Require my password to log in
 
 Template: ubiquity/text/login_encrypt
 Type: text
-_Description: Require my password to log in and to decrypt my home folder
-
-Template: ubiquity/text/choose_another_password
-Type: text
-_Description: Choose another password
+_Description: Encrypt my home folder
 
 Template: ubiquity/text/ma_heading_label
 Type: text
@@ -292,7 +218,7 @@ _Description:
 
 Template: ubiquity/text/part_auto_heading_label
 Type: text
-_Description: Prepare disk space
+_Description: Allocate drive space
 
 Template: ubiquity/text/part_auto_comment_label
 Type: text
@@ -343,11 +269,11 @@ Template: ubiquity/text/install_button
 Type: text
 # This is used as a button label, and should be translated as an action.
 # Omit the [ ... ] from the translation.
-_Description: Install[ action ]
+_Description: Install Now[ action ]
 
 Template: ubiquity/text/step_label
 Type: text
-_Description: Step ${INDEX} of ${TOTAL}
+_Description: Step ${INDEX}/${TOTAL}
 
 Template: ubiquity/text/warning_dialog
 Type: title
@@ -425,18 +351,6 @@ _Description:
  soon as possible. To help the developers understand what went wrong,
  include the following detail in your bug report, and attach the files
  /var/log/syslog and /var/log/partman:
-
-Template: ubiquity/text/partition_layout_before
-Type: text
-# Displayed next to a graphical bar depicting the state of the disk before
-# automatic partitioning.
-_Description: Before:
-
-Template: ubiquity/text/partition_layout_after
-Type: text
-# Displayed next to a graphical bar depicting the state of the disk after
-# automatic partitioning.
-_Description: After:
 
 Template: ubiquity/text/partition_button_new_label
 Type: text
@@ -1000,7 +914,7 @@ _Description: System Configuration
 
 Template: ubiquity/text/language_heading_label
 Type: text
-_Description: Choose language
+_Description: Welcome
 
 Template: ubiquity/text/network_heading_label
 Type: text
@@ -1124,3 +1038,41 @@ Template: ubiquity/reboot_on_failure
 Type: boolean
 Default: true
 Description: for internal use; automatically reboot when the install fails.
+
+Template: ubiquity/text/prepare_heading_label
+Type: text
+_Description: Preparing to install ${RELEASE}
+
+# KDE specific
+
+Template: ubiquity/text/keyboard_layout_label
+Type: text
+_Description: Layout:
+
+Template: ubiquity/text/keyboard_variant_label
+Type: text
+_Description: Variant:
+
+Template: ubiquity/text/keyboard_image_label
+Type: text
+_Description: Below is an image of your current layout:
+
+Template: ubiquity/text/timezone_comment_label
+Type: text
+_Description:
+ Select your location, so that the system can use appropriate display
+ conventions for your country, fetch updates from sites close to you,
+ and set the clock to the correct local time.
+
+Template: ubiquity/text/timezone_city_label
+Type: text
+_Description: Time Zone:
+
+Template: ubiquity/text/timezone_zone_label
+Type: text
+_Description: Region:
+
+Template: ubiquity/text/welcome_heading_label
+Type: text
+_Description: Welcome
+
