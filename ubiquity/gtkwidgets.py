@@ -5,6 +5,12 @@ import gobject
 import cairo
 import pango
 
+import dbus
+import glib
+
+from dbus.mainloop.glib import DBusGMainLoop
+DBusGMainLoop(set_as_default=True)
+
 def format_size(size):
     """Format a partition size."""
     if size < 1000:
@@ -629,6 +635,242 @@ class GreyableBin(gtk.Bin):
         return False
 
 gobject.type_register(GreyableBin)
+
+WM = 'com.ubuntu.ubiquity.WirelessManager'
+WM_PATH = '/com/ubuntu/ubiquity/WirelessManager'
+
+# Taken from software-center.
+class CellRendererPixbufWithOverlay(gtk.CellRendererText):
+    """ A CellRenderer with support for a pixbuf and a overlay icon
+    
+    It also supports "markup" and "text" so that orca and friends can
+    read the content out
+    """
+
+
+    # FIXME get these from the icons
+    # offset of the install overlay icon
+    OFFSET_X = 3
+    OFFSET_Y = 3
+
+    # size of the install overlay icon
+    OVERLAY_SIZE = 18
+
+    __gproperties__ = {
+        'overlay' : (bool, 'overlay', 'show an overlay icon', False,
+                     gobject.PARAM_READWRITE),
+        'pixbuf'  : (gtk.gdk.Pixbuf, 'pixbuf', 'pixbuf',
+                     gobject.PARAM_READWRITE)
+    }
+    __gtype_name__ = 'CellRendererPixbufWithOverlay'
+
+    def __init__(self, overlay_icon_name):
+        gtk.CellRendererText.__init__(self)
+        icons = gtk.icon_theme_get_default()
+        self.overlay = False
+        try:
+            self._installed = icons.load_icon(overlay_icon_name,
+                                          self.OVERLAY_SIZE, 0)
+        except glib.GError:
+            # icon not present in theme, probably because running uninstalled
+            self._installed = icons.load_icon('emblem-system',
+                                          self.OVERLAY_SIZE, 0)
+    def do_set_property(self, pspec, value):
+        setattr(self, pspec.name, value)
+
+    def do_get_property(self, pspec):
+        return getattr(self, pspec.name)
+
+    def do_get_size(self, w, cell_area):
+        # FIXME get this from the icon itself
+        width = 22
+        height = 22
+        return (0, 0, width, height)
+    def do_render(self, window, widget, background_area, cell_area,
+                  expose_area, flags):
+
+        # always render icon app icon centered with respect to an unexpanded CellRendererAppView
+        ypad = self.get_property('ypad')
+
+        area = (cell_area.x,
+                cell_area.y+ypad,
+                # FIXME
+                22,
+                22)
+                #AppStore.ICON_SIZE,
+                #AppStore.ICON_SIZE)
+
+        dest_x = cell_area.x
+        dest_y = cell_area.y
+        window.draw_pixbuf(None,
+                           self.pixbuf, # icon
+                           0, 0,            # src pixbuf
+                           dest_x, dest_y,  # dest in window
+                           -1, -1,          # size
+                           0, 0, 0)         # dither
+
+        if self.overlay:
+            dest_x += self.OFFSET_X
+            dest_y += self.OFFSET_Y
+            window.draw_pixbuf(None,
+                               self._installed, # icon
+                               0, 0,            # src pixbuf
+                               dest_x, dest_y,  # dest in window
+                               -1, -1,          # size
+                               0, 0, 0)         # dither
+
+gobject.type_register(CellRendererPixbufWithOverlay)
+
+class WirelessTreeView(gtk.TreeView):
+    __gtype_name__ = 'WirelessTreeView'
+    def __init__(self, bus):
+        self.model = gtk.ListStore(str)
+        gtk.TreeView.__init__(self, self.model)
+
+        self.cache = {}
+        self.bus = bus
+        o = self.bus.get_object(WM, WM_PATH)
+        self.interface = dbus.Interface(o, WM)
+        for ap in self.interface.GetAPs():
+            self.cache[ap] = self.interface.GetProperties(ap)
+            self.model.append([ap])
+        self.bus.add_signal_receiver(self.strength_changed, 'StrengthChanged', WM, WM)
+        self.bus.add_signal_receiver(self.added, 'Added', WM, WM)
+        self.bus.add_signal_receiver(self.removed, 'Removed', WM, WM)
+        self.set_headers_visible(False)
+
+        col = gtk.TreeViewColumn()
+        cell_pixbuf = CellRendererPixbufWithOverlay('nm-secure-lock')
+        cell_pixbuf.set_property('overlay', True)
+        cell = gtk.CellRendererText()
+        col.pack_start(cell_pixbuf, False)
+        col.pack_start(cell, True)
+        col.set_cell_data_func(cell, self.column_data_func, 0)
+        col.set_cell_data_func(cell_pixbuf, self.pixbuf_data_func)
+        self.append_column(col)
+        
+        it = gtk.icon_theme_get_default()
+        self.icons = {}
+        for n in ('wifi-020', 'wifi-040', 'wifi-060', 'wifi-080', 'wifi-100'):
+            ico = it.lookup_icon(n, 22, 0)
+            ico = ico.load_icon()
+            self.icons[n] = ico
+    
+    def do_expose_event(self, event):
+        # TODO if connecting ...
+        # Maybe use redirected windows?  See mirco's post from ages ago.  Might
+        # help for greyed windows as well.
+        cr = self.window.cairo_create()
+        cr.set_source_rgb(0,0,0)
+        cr.rectangle(0, 0, *self.window.get_geometry()[2:4])
+        cr.paint()
+        gtk.TreeView.do_expose_event(self, event)
+
+    def added(self, ap):
+        print 'added', ap
+        self.cache[ap] = self.interface.GetProperties(ap)
+        self.model.append([ap])
+
+    def removed(self, ap):
+        print 'removed', ap
+        iterator = self.model.get_iter_first()
+        while iterator is not None:
+            if self.model.get_value(iterator, 0) == ap:
+                break
+            iterator = self.model.iter_next(iterator)
+        if iterator:
+            self.model.remove(iterator)
+
+    def strength_changed(self, ap, value):
+        print 'changed', self.cache[ap]['Ssid'], value
+        iterator = self.model.get_iter_first()
+        while iterator is not None:
+            if self.model.get_value(iterator, 0) == ap:
+                break
+            iterator = self.model.iter_next(iterator)
+        if ap in self.cache and iterator:
+            self.cache[ap]['Strength'] = value
+            self.model.row_changed(self.model.get_path(iterator), iterator)
+    
+    def get_passphrase(self, ap):
+        return self.cache[ap]['Passphrase']
+
+    def get_locked(self, ap):
+        return self.cache[ap]['Locked']
+
+    def pixbuf_data_func(self, column, cell, model, iterator):
+        ap = model[iterator][0]
+        ap = self.cache[ap]
+        # Need custom icons for wifi on light background.
+        strength = ap['Strength']
+        if strength < 30:
+            icon = 'wifi-020'
+        elif strength < 50:
+            icon = 'wifi-040'
+        elif strength < 70:
+            icon = 'wifi-060'
+        elif strength < 90:
+            icon = 'wifi-080'
+        else:
+            icon = 'wifi-100'
+        cell.set_property('pixbuf', self.icons[icon])
+        cell.set_property('overlay', ap['Locked'])
+
+    def column_data_func(self, layout, cell, model, iterator, column):
+        ap = model[iterator][0]
+        ap = self.cache[ap]
+        cell.set_property('text', ap['Ssid'])
+
+    def do_row_activated(self, path, column):
+        # This should be external to the class, so we can wire it to the entry.
+        # And perhaps that should be part of a container class to simplify
+        # insertion into the ubiquity code / glade.
+        ap = self.model[self.model.get_iter(path)][0]
+        print 'row activated', path, column
+        print 'passphrase', self.cache[ap]['Passphrase']
+        self.interface.Connect(ap)
+    # Need to watch state change so we can enable the next button.
+
+gobject.type_register(WirelessTreeView)
+
+class WirelessWidget(gtk.VBox):
+    __gtype_name__ = 'WirelessWidget'
+    def __init__(self):
+        gtk.VBox.__init__(self, spacing=6)
+        bus = dbus.SessionBus()
+        sw = gtk.ScrolledWindow()
+        sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
+        self.treeview = WirelessTreeView(bus)
+        sw.add(self.treeview)
+        self.pack_start(sw)
+        hbox = gtk.HBox(spacing=6)
+        self.pack_start(hbox, expand=False)
+        # TODO i18n
+        l = gtk.Label('Password:')
+        hbox.pack_start(l)
+        self.entry = gtk.Entry()
+        hbox.pack_start(self.entry)
+        # TODO i18n
+        cb = gtk.CheckButton('Display password')
+        cb.set_active(True)
+        hbox.pack_start(cb)
+        self.treeview.get_selection().connect('changed', self.changed)
+        cb.connect('toggled', self.show_passphrase)
+
+    def show_passphrase(self, cb):
+        self.entry.set_visibility(not self.entry.get_visibility())
+
+    def changed(self, selection):
+        model, iterator = selection.get_selected()
+        if not iterator:
+            return
+        ap = model[iterator][0]
+        passphrase = self.treeview.get_passphrase(ap)
+        self.entry.set_text(passphrase)
+        # if not passphrase and lock set, next.set_sensitive(False)
+
+gobject.type_register(WirelessWidget)
+
     
 if __name__ == "__main__":
     options = ('that you have at least 3GB available drive space',
@@ -646,7 +888,7 @@ if __name__ == "__main__":
     power = StateBox(options[1])
     inet = StateBox(options[2])
     for widget in (space, power, inet):
-        a.pack_start(widget)
+        a.pack_start(widget, expand=False)
 
     # Partition resizing.
     existing_icon = gtk.image_new_from_icon_name('folder', gtk.ICON_SIZE_DIALOG)
@@ -654,22 +896,19 @@ if __name__ == "__main__":
     existing_part = PartitionBox('Files (20 MB)', '', existing_icon)
     new_part = PartitionBox('Ubuntu 10.10', '/dev/sda2 (btrfs)', new_icon)
     hb = ResizeWidget(1024 * 1024 * 100, 1024 * 1024 * 20, 1024 * 1024 * 80, existing_part, new_part)
-    a.pack_start(hb)
+    a.pack_start(hb, expand=False)
     button = gtk.Button('Install')
     def func(*args):
         print 'Size:', hb.get_size()
     button.connect('clicked', func)
-    a.pack_start(button)
+    a.pack_start(button, expand=False)
 
     le = LabelledEntry('A labelled entry')
-    a.pack_start(le)
+    a.pack_start(le, expand=False)
 
     lcbe = LabelledComboBoxEntry()
-    a.pack_start(lcbe)
+    a.pack_start(lcbe, expand=False)
 
-    import dbus
-    from dbus.mainloop.glib import DBusGMainLoop
-    DBusGMainLoop(set_as_default=True)
     bus = dbus.SystemBus()
     upower = bus.get_object('org.freedesktop.UPower', '/org/freedesktop/UPower')
     upower = dbus.Interface(upower, 'org.freedesktop.DBus.Properties')
@@ -684,6 +923,8 @@ if __name__ == "__main__":
     #w2.show()
     #w.add(b)
     #b.add(a)
+    wireless = WirelessWidget()
+    a.pack_start(wireless)
     w.add(a)
     w.show_all()
     gtk.main()
