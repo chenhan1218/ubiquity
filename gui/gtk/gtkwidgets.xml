@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- GLADE_CATALOG_PATH=/home/evan/code GLADE_MODULE_PATH=/home/evan/code/ glade -->
+<glade-catalog name="gtkwidgets" library="gladepython" domain="glade-3" depends="gtk+">
+ <init-function>glade_python_init</init-function>
+
+ <glade-widget-classes>
+   <glade-widget-class title="StylizedFrame" name="StylizedFrame" generic-name="stylizedframe">
+     <!-- ~/source/glade-3-3.7.0.is.3.6.7/plugins/gtk+/gtk+.xml -->
+     <!-- <property themed-icon="True" since="2.16" id="primary-icon-name" custom-layout="False" name="Primary Icon Name">
+			<parameter-spec>
+				<type>GParamString</type>
+			</parameter-spec>
+    </property> -->
+	 </glade-widget-class>
+   <glade-widget-class title="ResizeWidget" name="ResizeWidget" generic-name="resizewidget"/>
+   <glade-widget-class title="PartitionBox" name="PartitionBox" generic-name="partitionbox"/>
+   <glade-widget-class title="StateBox" name="StateBox" generic-name="statebox"/>
+   <glade-widget-class title="LabelledEntry" name="LabelledEntry" generic-name="labelledentry"/>
+   <glade-widget-class title="GreyableBin" name="GreyableBin" generic-name="greyablebin"/>
+ </glade-widget-classes>
+
+ <glade-widget-group name="ubiquity" title="Ubiquity">
+   <glade-widget-class-ref name="StylizedFrame"/>
+   <glade-widget-class-ref name="ResizeWidget"/>
+   <glade-widget-class-ref name="PartitionBox"/>
+   <glade-widget-class-ref name="StateBox"/>
+   <glade-widget-class-ref name="LabelledEntry"/>
+   <glade-widget-class-ref name="GreyableBin"/>
+ </glade-widget-group>
+</glade-catalog>

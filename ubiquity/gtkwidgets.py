@@ -11,6 +11,9 @@ import glib
 from dbus.mainloop.glib import DBusGMainLoop
 DBusGMainLoop(set_as_default=True)
 
+def auto_shrink(widget):
+    widget.resize(*widget.size_request())
+
 def format_size(size):
     """Format a partition size."""
     if size < 1000:
@@ -443,6 +446,10 @@ class GreyableBin(gtk.Bin):
     __gsignals__ = {
         "damage_event"  :   "override"
     }
+    __gproperties__ = {
+        'greyed'  : (gobject.TYPE_BOOLEAN,
+                    'Greyed', 'greyed', False, gobject.PARAM_READWRITE),
+    }
     __gtype_name__ = 'GreyableBin'
 
     def __init__(self):
@@ -450,8 +457,15 @@ class GreyableBin(gtk.Bin):
 
         self.child = None
         self.offscreen_window = None
+        self.greyed = False
 
         self.unset_flags(gtk.NO_WINDOW)
+
+    def do_set_property(self, pspec, value):
+        setattr(self, pspec.name, value)
+
+    def do_get_property(self, pspec):
+        return getattr(self, pspec.name)
 
     def _to_child(self, widget_x, widget_y):
         return widget_x, widget_y
@@ -570,6 +584,8 @@ class GreyableBin(gtk.Bin):
         if self.child and (self.child.flags() & gtk.VISIBLE):
             cw, ch =  self.child.size_request()
 
+        # FIXME: what do we need border_width and an extra
+        # 10px for?
         r.width = self.border_width + cw + 10
         r.height = self.border_width + ch + 10
 
@@ -587,14 +603,13 @@ class GreyableBin(gtk.Bin):
                             w,h)
 
         if self.child and self.child.flags() & gtk.VISIBLE:
-            cw, ch = self.child.get_child_requisition()
-            ca = gtk.gdk.Rectangle(x=0,y=0,width=cw,height=ch)
+            ca = gtk.gdk.Rectangle(x=0,y=0,width=w,height=h)
 
             if self.flags() & gtk.REALIZED:
                 self.offscreen_window.move_resize(
                             allocation.x + border_width,
                             allocation.y + border_width,
-                            cw, ch)
+                            w, h)
 
             self.child.size_allocate(ca)
 
@@ -610,7 +625,8 @@ class GreyableBin(gtk.Bin):
                 w,h = pm.get_size()
 
                 cr = self.window.cairo_create()
-                cr.save()
+                if self.greyed:
+                    cr.save()
                 cr.rectangle(0,0,w,h)
                 cr.clip()
 
@@ -618,10 +634,11 @@ class GreyableBin(gtk.Bin):
                 cr.set_source_pixmap(pm, 0, 0)
                 cr.paint()
 
-                cr.restore()
-                cr.set_source_rgba(0,0,0,0.5)
-                cr.rectangle(0, 0, *event.window.get_geometry()[2:4])
-                cr.paint()
+                if self.greyed:
+                    cr.restore()
+                    cr.set_source_rgba(0,0,0,0.5)
+                    cr.rectangle(0, 0, *event.window.get_geometry()[2:4])
+                    cr.paint()
 
             elif event.window == self.offscreen_window:
                 self.style.paint_flat_box(
@@ -841,8 +858,11 @@ class WirelessWidget(gtk.VBox):
         sw = gtk.ScrolledWindow()
         sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
         self.treeview = WirelessTreeView(bus)
+        box = GreyableBin()
+        box.set_property('greyed', True)
         sw.add(self.treeview)
-        self.pack_start(sw)
+        box.add(sw)
+        self.pack_start(box)
         hbox = gtk.HBox(spacing=6)
         self.pack_start(hbox, expand=False)
         # TODO i18n

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <interface>
   <requires lib="gtk+" version="2.16"/>
-  <!-- interface-requires ubiquitywidgets 0.0 -->
+  <!-- interface-requires gtkwidgets 0.0 -->
   <!-- interface-naming-policy toplevel-contextual -->
   <object class="GtkVBox" id="stepPrepare">
     <property name="visible">True</property>
