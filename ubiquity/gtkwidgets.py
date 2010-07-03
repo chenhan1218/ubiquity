@@ -158,7 +158,7 @@ class ResizeWidget(gtk.HPaned):
         return getattr(self, prop.name.replace('-', '_'))
 
     def do_set_property(self, prop, value):
-        setattr(self, prop.name.replce('-', '_'), value)
+        setattr(self, prop.name.replace('-', '_'), value)
 
     # TODO: Should this be automatically composed of an existing_part and
     # new_part, given that it cannot function without them.  This could then be
