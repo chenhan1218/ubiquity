@@ -135,23 +135,25 @@ class StylizedFrame(gtk.Bin):
 gobject.type_register(StylizedFrame)
 
 # c3032
+# TODO Maintain both 'use entire disk' and 'resize' widgets in
+# a single class exposed to glade.
 class ResizeWidget(gtk.HPaned):
     __gtype_name__ = 'ResizeWidget'
     __gproperties__ = {
-        'part_size'  : (gobject.TYPE_INT,
+        'part_size' : (gobject.TYPE_UINT64,
                     'Partition size',
                     'The size of the partition being resized',
-                    1, 32767, 100, gobject.PARAM_READWRITE),
-        'min_size'   : (gobject.TYPE_INT,
+                    1, 0xFFFFFFFF, 100, gobject.PARAM_READWRITE),
+        'min_size'  : (gobject.TYPE_UINT64,
                     'Minimum size',
                     'The minimum size that the existing partition can be '\
                     'resized to',
-                    0, 32767, 0, gobject.PARAM_READWRITE),
-        'max_size' : (gobject.TYPE_INT,
+                    0, 0xFFFFFFFF, 0, gobject.PARAM_READWRITE),
+        'max_size'  : (gobject.TYPE_UINT64,
                     'Maximum size',
                     'The maximum size that the existing partition can be ' \
                     'resized to',
-                    1, 32767, 100, gobject.PARAM_READWRITE)
+                    1, 0xFFFFFFFF, 100, gobject.PARAM_READWRITE)
     }
     
     def do_get_property(self, prop):
@@ -915,7 +917,7 @@ if __name__ == "__main__":
     new_icon = gtk.image_new_from_icon_name('distributor-logo', gtk.ICON_SIZE_DIALOG)
     existing_part = PartitionBox('Files (20 MB)', '', existing_icon)
     new_part = PartitionBox('Ubuntu 10.10', '/dev/sda2 (btrfs)', new_icon)
-    hb = ResizeWidget(1024 * 1024 * 100, 1024 * 1024 * 20, 1024 * 1024 * 80, existing_part, new_part)
+    hb = ResizeWidget(2**64, 2**64/4, 2**64/1.25, existing_part, new_part)
     a.pack_start(hb, expand=False)
     button = gtk.Button('Install')
     def func(*args):
