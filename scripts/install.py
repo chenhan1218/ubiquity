@@ -349,6 +349,15 @@ class Install:
 
             if self.target != '/':
                 self.next_region(size=74)
+                # We don't later wait() on this pid by design.  There's no
+                # sense waiting for updates to finish downloading when they can
+                # quite easily finish downloading them once inside the new
+                # Ubuntu system.
+                # TODO can we incorporate the bytes copied / bytes total into
+                # the main progress bar?
+                # TODO log to /var/log/installer/debug
+                cmd = ['/usr/share/ubiquity/update-apt-cache']
+                subprocess.Popen(cmd)
                 try:
                     self.copy_all()
                 except EnvironmentError, e:
