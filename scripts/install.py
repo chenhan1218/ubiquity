@@ -356,8 +356,10 @@ class Install:
                 # TODO can we incorporate the bytes copied / bytes total into
                 # the main progress bar?
                 # TODO log to /var/log/installer/debug
-                cmd = ['/usr/share/ubiquity/update-apt-cache']
-                subprocess.Popen(cmd)
+                # TODO make sure KeyboardInterrupt and SystemExit kills this
+                if self.db.get('ubiquity/download_updates') == 'true':
+                    cmd = ['/usr/share/ubiquity/update-apt-cache']
+                    subprocess.Popen(cmd)
                 try:
                     self.copy_all()
                 except EnvironmentError, e:

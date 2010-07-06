@@ -52,6 +52,8 @@ class PageGtk(PluginUI):
             builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPrepare.ui'))
             builder.connect_signals(self)
             self.page = builder.get_object('stepPrepare')
+            self.prepare_download_updates = builder.get_object('prepare_download_updates')
+            self.prepare_nonfree_software = builder.get_object('prepare_nonfree_software')
             try:
                 self.prepare_power_source = builder.get_object('prepare_power_source')
                 self.setup_power_watch()
@@ -82,6 +84,7 @@ class PageGtk(PluginUI):
         power_state_changed()
 
     def setup_network_watch(self):
+        # TODO abstract so we can support connman.
         import dbus
         from dbus.mainloop.glib import DBusGMainLoop
         DBusGMainLoop(set_as_default=True)
@@ -113,3 +116,33 @@ class PageGtk(PluginUI):
             return True
         else:
             self.prepare_network_connection.set_state(self.wget_retcode == 0)
+    
+    def set_download_updates(self, val):
+        self.prepare_download_updates.set_active(val)
+
+    def get_download_updates(self):
+        return self.prepare_download_updates.get_active()
+    
+    def set_use_nonfree(self, val):
+        self.prepare_nonfree_software.set_active(val)
+
+    def get_use_nonfree(self):
+        return self.prepare_nonfree_software.get_active()
+
+
+class Page(Plugin):
+    def prepare(self):
+        # TODO grey out if free software only option is checked?
+        use_nonfree = self.db.get('ubiquity/use_nonfree') == 'true'
+        download_updates = self.db.get('ubiquity/download_updates') == 'true'
+        self.ui.set_download_updates(download_updates)
+        self.ui.set_use_nonfree(use_nonfree)
+        return (['/usr/share/ubiquity/simple-plugins', 'prepare'], ['.*'])
+
+    def ok_handler(self):
+        download_updates = self.ui.get_download_updates()
+        use_nonfree = self.ui.get_use_nonfree()
+        self.preseed_bool('ubiquity/use_nonfree', use_nonfree)
+        self.preseed_bool('ubiquity/download_updates', download_updates)
+        Plugin.ok_handler(self)
+

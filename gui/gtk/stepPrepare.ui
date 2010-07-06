@@ -11,7 +11,7 @@
         <property name="visible">True</property>
         <property name="bottom_padding">10</property>
         <child>
-          <object class="GtkLabel" id="label1">
+          <object class="GtkLabel" id="prepare_best_results">
             <property name="visible">True</property>
             <property name="xalign">0</property>
             <property name="label" translatable="yes">&lt;b&gt;For best results, please ensure:&lt;/b&gt;</property>
@@ -33,7 +33,7 @@
             <property name="visible">True</property>
             <property name="spacing">3</property>
             <child>
-              <object class="StateBox" id="stylizedframe1">
+              <object class="StateBox" id="prepare_sufficient_space">
                 <property name="visible">True</property>
                 <property name="label">that you have at least 3GB available drive space</property>
               </object>
@@ -42,7 +42,7 @@
               </packing>
             </child>
             <child>
-              <object class="StateBox" id="stylizedframe2">
+              <object class="StateBox" id="prepare_power_source">
                 <property name="visible">True</property>
                 <property name="label">that you are plugged in to a power source</property>
               </object>
@@ -51,7 +51,7 @@
               </packing>
             </child>
             <child>
-              <object class="StateBox" id="stylizedframe3">
+              <object class="StateBox" id="prepare_network_connection">
                 <property name="visible">True</property>
                 <property name="label">that you are connected to the Internet with an Ethernet cable</property>
               </object>
@@ -72,7 +72,7 @@
         <property name="visible">True</property>
         <property name="spacing">6</property>
         <child>
-          <object class="GtkLabel" id="label5">
+          <object class="GtkLabel" id="prepare_foss_disclaimer">
             <property name="visible">True</property>
             <property name="xalign">0</property>
             <property name="label" translatable="yes">&lt;b&gt;Ubuntu aims to be free and open-source software.  However, this is not always possible.&lt;/b&gt;</property>
@@ -90,7 +90,7 @@
               <object class="GtkVBox" id="vbox3">
                 <property name="visible">True</property>
                 <child>
-                  <object class="GtkCheckButton" id="checkbutton3">
+                  <object class="GtkCheckButton" id="prepare_nonfree_software">
                     <property name="label" translatable="yes">Please offer me non-open-source software if it is needed for a better experience</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
@@ -102,7 +102,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkCheckButton" id="checkbutton4">
+                  <object class="GtkCheckButton" id="prepare_download_updates">
                     <property name="label" translatable="yes">Download updates while installing</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>

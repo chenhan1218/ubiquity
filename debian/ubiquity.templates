@@ -1043,6 +1043,24 @@ Template: ubiquity/text/prepare_heading_label
 Type: text
 _Description: Preparing to install ${RELEASE}
 
+Template: ubiquity/text/wireless_heading_label
+Type: text
+_Description: Wireless
+
+Template: ubiquity/text/wireless_section_label
+Type: text
+_Description: Please select your wireless network from this list
+
+Template: ubiquity/use_nonfree
+Type: boolean
+Default: false
+Description: for internal use; use non-free software.
+
+Template: ubiquity/download_updates
+Type: boolean
+Default: false
+Description: for internal use; download updates while installing.
+
 # KDE specific
 
 Template: ubiquity/text/keyboard_layout_label
