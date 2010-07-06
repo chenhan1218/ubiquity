@@ -163,6 +163,6 @@ class Manager(dbus.service.Object):
     def StrengthChanged(self, ap, value):
         pass
 
-bus = dbus.SessionBus()
+bus = dbus.SystemBus()
 m = Manager(bus)
 gobject.MainLoop().run()
