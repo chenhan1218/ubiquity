@@ -607,6 +607,7 @@ class Wizard(BaseFrontend):
             self.quit.hide()
 
         if not 'UBIQUITY_AUTOMATIC' in os.environ:
+            # TODO: Don't show until the first page is ready.
             self.live_installer.show()
         self.allow_change_step(False)
 

@@ -135,8 +135,8 @@ class StylizedFrame(gtk.Bin):
 gobject.type_register(StylizedFrame)
 
 # c3032
-# TODO Maintain both 'use entire disk' and 'resize' widgets in
-# a single class exposed to glade.
+# TODO Glade gets really slow when dealing with uint64 properties.
+# Investigate.
 class ResizeWidget(gtk.HPaned):
     __gtype_name__ = 'ResizeWidget'
     __gproperties__ = {

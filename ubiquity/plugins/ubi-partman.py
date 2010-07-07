@@ -57,6 +57,7 @@ class PageBase(PluginUI):
         self.manual_choice = manual_choice
         self.biggest_free_choice = biggest_free_choice
         self.use_device_choice = use_device_choice
+        self.extra_options = extra_options
 
     def get_autopartition_choice(self):
         """Get the selected autopartitioning choice."""
@@ -89,10 +90,15 @@ class PageGtk(PageBase):
             self.page_auto = builder.get_object('stepPartAuto')
             self.page_advanced = builder.get_object('stepPartAdvanced')
             self.resizewidget = builder.get_object('resizewidget')
+            self.partitionbox = builder.get_object('partitionbox')
+            self.partition_container = builder.get_object('partition_container')
             self.part_auto_select_drive = builder.get_object('part_auto_select_drive')
             self.resize_use_free = builder.get_object('resize_use_free')
             self.custom_partitioning = builder.get_object('custom_partitioning')
             self.use_device = builder.get_object('use_device')
+            self.part_auto_allocate_label = builder.get_object('part_auto_allocate_label')
+            self.part_auto_use_entire_disk = builder.get_object('part_auto_use_entire_disk')
+            self.part_auto_use_entire_partition = builder.get_object('part_auto_use_entire_partition')
 
             self.partition_create_mount_combo = builder.get_object('partition_create_mount_combo')
             self.partition_edit_mount_combo = builder.get_object('partition_edit_mount_combo')
@@ -154,6 +160,25 @@ class PageGtk(PageBase):
     def set_disk_layout(self, layout):
         self.disk_layout = layout
 
+    def part_auto_select_drive_changed (self, unused_widget):
+        i = self.part_auto_select_drive.get_active_iter()
+        m = self.part_auto_select_drive.get_model()
+        val = m.get_value(i, 0)
+        if self.resize_use_free.get_active():
+            self.resizewidget.set_property('min_size', 0)
+            self.resizewidget.set_property('max_size', 0)
+            self.resizewidget.set_property('part_size', 0)
+            self.partition_container.set_current_page(0)
+        else:
+            # i18n
+            self.partitionbox.set_property('title', 'Ubuntu')
+            self.partition_container.set_current_page(1)
+            self.part_auto_use_entire_partition.set_sensitive(False)
+            self.part_auto_use_entire_disk.set_sensitive(False)
+            # We don't want to hide it as we want to keep its size allocation.
+            self.part_auto_allocate_label.set_text('')
+            # TODO set extra line and icon
+
     def set_autopartition_choices (self, choices, extra_options, resize_choice,
                                    manual_choice, biggest_free_choice,
                                    use_device_choice):
@@ -181,7 +206,21 @@ class PageGtk(PageBase):
         if biggest_free_choice in choices:
             self.biggest_free_id = extra_options[biggest_free_choice]
 
-        if resize_choice in choices:
+        # use_device_choice always exists in extra_options.
+        # TODO the set of disks that can be formatted and the set of disks that
+        # can be resized may not be the same.  But the set of disks that can be
+        # formatted contains all the disks.
+        m = self.part_auto_select_drive.get_model()
+        for disk in extra_options[use_device_choice]:
+            m.append([disk])
+
+        # TODO somehow remember previous choice on back press.
+        if not resize_choice in choices:
+            self.use_device.set_active(True)
+            self.resize_use_free.hide()
+        else:
+            self.resize_use_free.set_active(True)
+            self.resize_use_free.show()
             self.resize_min_size, self.resize_max_size, \
                 self.resize_pref_size, self.resize_path = \
                     extra_options[resize_choice]
@@ -195,23 +234,31 @@ class PageGtk(PageBase):
             #new_icon = gtk.image_new_from_icon_name('distributor-logo', gtk.ICON_SIZE_DIALOG)
             original.set_property('title', 'Windows')
             new.set_property('title', 'Ubuntu')
-            m = self.part_auto_select_drive.get_model()
-            #m.append([extra_options['']])
 
+        self.part_auto_select_drive.set_active(0)
         # make sure we're on the autopartitioning page
         self.current_page = self.page
 
     def get_autopartition_choice (self):
         import gtk
+        # TODO Check if we're in use entire disk mode on the automatic page.
+        if self.partition_container.get_current_page() == 0:
+            # Resize
+            pass
+        else:
+            # Use disk
+            i = self.part_auto_select_drive.get_active_iter()
+            m = self.part_auto_select_drive.get_model()
+            disk = m.get_value(i, 0)
+            # Is the transliteration necessary?
+            return self.use_device_choice, unicode(disk, 'utf-8', 'replace')
 
         if self.resize_use_free.get_active():
-            # FIXME support multiple disks
+            # FIXME support multiple disks in partman
+            # FIXME support use entire partition in partman
             return self.resize_choice, '%s B' % self.resizewidget.get_size()
         elif self.custom_partitioning.get_active():
             return self.manual_choice, None
-        elif self.use_device.get_active():
-            # FIXME need multiple disk support before this works.
-            return self.use_device_choice, ''
         
         #if choice == self.resize_choice:
         #    # resize_choice should have been hidden otherwise
