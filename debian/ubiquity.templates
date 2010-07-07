@@ -42,11 +42,11 @@ _Description:
  for this batch of systems. This name will be saved on the installed system
  and can be used to help with bug reports.
 
-Template: ubiquity/text/try_text_label
+Template: ubiquity/text/try_install_text_label
 Type: text
 _Description:
- You can try ${RELEASE} from this ${MEDIUM} without making any changes to
- your system.
+ You can try ${RELEASE} without making any changes to your system, or
+ install alongside or instead of your current operating system.
 
 Template: ubiquity/text/try_ubuntu
 Type: text
@@ -55,13 +55,6 @@ _Description: Try ${RELEASE}
 Template: ubiquity/text/install_ubuntu
 Type: text
 _Description: Install ${RELEASE}
-
-Template: ubiquity/text/ready_text_label
-Type: text
-_Description:
- Ready to install?  Once you answer a few questions, the contents of the live
- ${MEDIUM} can be installed on this computer so you can run ${RELEASE} at
- full speed without the ${MEDIUM}.
 
 Template: ubiquity/text/ready_text_oem_user_label
 Type: text

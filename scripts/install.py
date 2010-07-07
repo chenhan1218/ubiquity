@@ -357,6 +357,9 @@ class Install:
                 # the main progress bar?
                 # TODO log to /var/log/installer/debug
                 # TODO make sure KeyboardInterrupt and SystemExit kills this
+                # TODO the install will blow up spectacularly if this is still
+                # holding the apt lock when other apt install tasks run, I
+                # imagine.  Have those spin until the lock is released.
                 if self.db.get('ubiquity/download_updates') == 'true':
                     cmd = ['/usr/share/ubiquity/update-apt-cache']
                     subprocess.Popen(cmd)

@@ -143,17 +143,17 @@ class ResizeWidget(gtk.HPaned):
         'part_size' : (gobject.TYPE_UINT64,
                     'Partition size',
                     'The size of the partition being resized',
-                    1, 0xFFFFFFFF, 100, gobject.PARAM_READWRITE),
+                    1, 2**64-1, 100, gobject.PARAM_READWRITE),
         'min_size'  : (gobject.TYPE_UINT64,
                     'Minimum size',
                     'The minimum size that the existing partition can be '\
                     'resized to',
-                    0, 0xFFFFFFFF, 0, gobject.PARAM_READWRITE),
+                    0, 2**64-1, 0, gobject.PARAM_READWRITE),
         'max_size'  : (gobject.TYPE_UINT64,
                     'Maximum size',
                     'The maximum size that the existing partition can be ' \
                     'resized to',
-                    1, 0xFFFFFFFF, 100, gobject.PARAM_READWRITE)
+                    1, 2**64-1, 100, gobject.PARAM_READWRITE)
     }
     
     def do_get_property(self, prop):
@@ -189,6 +189,7 @@ class ResizeWidget(gtk.HPaned):
         eb = gtk.EventBox()
         eb.add(self.new_part)
         self.pack2(eb, shrink=False)
+        self.show_all()
 
     def do_realize(self):
         # TEST: Make sure the value of the minimum size and maximum size equal
@@ -233,6 +234,18 @@ class ResizeWidget(gtk.HPaned):
 
 
 gobject.type_register(ResizeWidget)
+
+class DiskBox(gtk.HBox):
+    __gtype_name__ = 'DiskBox'
+
+    def add(self, partition, size):
+        gtk.HBox.add(self, partition, expand=False)
+        partition.set_size_request(size, -1)
+
+    def clear(self):
+        self.forall(lambda x: self.remove(x))
+
+gobject.type_register(DiskBox)
 
 class PartitionBox(StylizedFrame):
     __gtype_name__ = 'PartitionBox'
@@ -295,6 +308,7 @@ class PartitionBox(StylizedFrame):
         #self.set_tooltip_text(title)
         # Take up the space that would otherwise be used to create symmetry.
         self.extra.set_markup('<small>%s</small>' % (extra and extra or ' '))
+        self.show_all()
 
     def set_size(self, size):
         size = format_size(size)
@@ -434,11 +448,29 @@ class LabelledEntry(gtk.Entry):
 gobject.type_register(LabelledEntry)
 
 class LabelledComboBoxEntry(gtk.ComboBoxEntry):
+    __gtype_name__ = 'LabelledComboBoxEntry'
+    __gproperties__ = {
+        'label'  : (gobject.TYPE_STRING,
+                    'Label',
+                    None,
+                    'label', gobject.PARAM_READWRITE),
+    }
+
+    def do_get_property(self, prop):
+        if prop.name == 'label':
+            return self.child.get_label()
+        return getattr(self, prop.name)
+
+    def do_set_property(self, prop, value):
+        if prop.name == 'label':
+            self.child.set_label(value)
+            return
+        setattr(self, prop.name, value)
+
     def __init__(self, model=None, column=-1):
         #gtk.ComboBoxEntry.__init__(self, model, column)
         gtk.ComboBox.__init__(self)
         l = LabelledEntry()
-        l.set_label('herrow')
         l.show()
         self.add(l)
 gobject.type_register(LabelledComboBoxEntry)
@@ -485,9 +517,13 @@ class GreyableBin(gtk.Bin):
 
     def _offscreen_window_to_parent(self, offscreen_window, offscreen_x, offscreen_y, parent_x, parent_y):
         x,y = self._to_parent(offscreen_x, offscreen_y)
+        offscreen_x = parent_x
+        offscreen_y = offscreen_x
 
     def _offscreen_window_from_parent(self, parent_window, parent_x, parent_y, offscreen_x, offscreen_y):
         x,y = self._to_child(parent_x, parent_y)
+        offscreen_x = parent_x
+        offscreen_y = offscreen_x
 
     def do_realize(self):
         self.set_flags(gtk.REALIZED)
@@ -557,6 +593,12 @@ class GreyableBin(gtk.Bin):
 
         self.offscreen_window.show()
 
+    def do_child_type(self):
+        #FIXME: This never seems to get called...
+        if self.child:
+            return None
+        return gtk.Widget.__gtype__
+
     def do_unrealize(self):
         self.offscreen_window.set_user_data(None)
         self.offscreen_window = None
@@ -615,8 +657,10 @@ class GreyableBin(gtk.Bin):
 
             self.child.size_allocate(ca)
 
+    # FIXME this does not play well with the automatic partitioning page
+    # (expose events to the max, causes lockup)
     def do_damage_event(self, eventexpose):
-        #invalidate the whole window
+        # invalidate the whole window
         self.window.invalidate_rect(None, False)
         return True
 
@@ -626,13 +670,13 @@ class GreyableBin(gtk.Bin):
                 pm = gtk.gdk.offscreen_window_get_pixmap(self.offscreen_window)
                 w,h = pm.get_size()
 
-                cr = self.window.cairo_create()
+                cr = event.window.cairo_create()
                 if self.greyed:
                     cr.save()
                 cr.rectangle(0,0,w,h)
                 cr.clip()
 
-                #paint the offscreen child
+                # paint the offscreen child
                 cr.set_source_pixmap(pm, 0, 0)
                 cr.paint()
 
@@ -777,8 +821,7 @@ class WirelessTreeView(gtk.TreeView):
     
     def do_expose_event(self, event):
         # TODO if connecting ...
-        # Maybe use redirected windows?  See mirco's post from ages ago.  Might
-        # help for greyed windows as well.
+        # Use an offscreen window to create the overlay.
         cr = self.window.cairo_create()
         cr.set_source_rgb(0,0,0)
         cr.rectangle(0, 0, *self.window.get_geometry()[2:4])
@@ -786,12 +829,10 @@ class WirelessTreeView(gtk.TreeView):
         gtk.TreeView.do_expose_event(self, event)
 
     def added(self, ap):
-        print 'added', ap
         self.cache[ap] = self.interface.GetProperties(ap)
         self.model.append([ap])
 
     def removed(self, ap):
-        print 'removed', ap
         iterator = self.model.get_iter_first()
         while iterator is not None:
             if self.model.get_value(iterator, 0) == ap:
@@ -801,7 +842,6 @@ class WirelessTreeView(gtk.TreeView):
             self.model.remove(iterator)
 
     def strength_changed(self, ap, value):
-        print 'changed', self.cache[ap]['Ssid'], value
         iterator = self.model.get_iter_first()
         while iterator is not None:
             if self.model.get_value(iterator, 0) == ap:
@@ -845,31 +885,34 @@ class WirelessTreeView(gtk.TreeView):
         # And perhaps that should be part of a container class to simplify
         # insertion into the ubiquity code / glade.
         ap = self.model[self.model.get_iter(path)][0]
-        print 'row activated', path, column
-        print 'passphrase', self.cache[ap]['Passphrase']
+        #print 'row activated', path, column
+        #print 'passphrase', self.cache[ap]['Passphrase']
         self.interface.Connect(ap)
     # Need to watch state change so we can enable the next button.
 
 gobject.type_register(WirelessTreeView)
 
+# TODO: Show a helpful note if we don't see any wifi networks and a card is
+# disabled.
 class WirelessWidget(gtk.VBox):
     __gtype_name__ = 'WirelessWidget'
     def __init__(self):
         gtk.VBox.__init__(self, spacing=6)
-        bus = dbus.SessionBus()
+        bus = dbus.SystemBus()
         sw = gtk.ScrolledWindow()
         sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
         self.treeview = WirelessTreeView(bus)
-        box = GreyableBin()
-        box.set_property('greyed', True)
+        #box = GreyableBin()
+        #box.set_property('greyed', False)
         sw.add(self.treeview)
-        box.add(sw)
-        self.pack_start(box)
+        #box.add(sw)
+        #self.pack_start(box)
+        self.pack_start(sw)
         hbox = gtk.HBox(spacing=6)
         self.pack_start(hbox, expand=False)
         # TODO i18n
         l = gtk.Label('Password:')
-        hbox.pack_start(l)
+        hbox.pack_start(l, False)
         self.entry = gtk.Entry()
         hbox.pack_start(self.entry)
         # TODO i18n
@@ -878,6 +921,7 @@ class WirelessWidget(gtk.VBox):
         hbox.pack_start(cb)
         self.treeview.get_selection().connect('changed', self.changed)
         cb.connect('toggled', self.show_passphrase)
+        self.show_all()
 
     def show_passphrase(self, cb):
         self.entry.set_visibility(not self.entry.get_visibility())
@@ -958,8 +1002,6 @@ if __name__ == "__main__":
 
 # TODO: We should be able to construct any widget without passing parameters to
 # its constructor.
-
-# TODO: We need a LabelledComboBoxEntry for the timezone page.
 
 # TODO: Bring in the timezone_map, but keep it in a separate file and make it
 # so the tz database can be None, in which case it just prints the map

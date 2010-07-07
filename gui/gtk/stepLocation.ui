@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <interface>
   <requires lib="gtk+" version="2.16"/>
+  <!-- interface-requires gtkwidgets 0.0 -->
   <!-- interface-naming-policy toplevel-contextual -->
   <object class="GtkVBox" id="stepLocation">
     <property name="visible">True</property>
@@ -23,8 +24,9 @@
         <property name="left_padding">10</property>
         <property name="right_padding">10</property>
         <child>
-          <object class="GtkComboBoxEntry" id="timezone_city_combo">
+          <object class="LabelledComboBoxEntry" id="timezone_city_combo">
             <property name="visible">True</property>
+            <property name="label">[type here to change]</property>
           </object>
         </child>
       </object>

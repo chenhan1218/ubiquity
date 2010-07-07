@@ -261,8 +261,7 @@ class Wizard(BaseFrontend):
                 mod.ui_class = mod.module.PageGtk
                 mod.controller = Controller(self)
                 mod.ui = mod.ui_class(mod.controller)
-                title = mod.ui.get('plugin_title')
-                mod.title = title or ''
+                mod.title = mod.ui.get('plugin_title')
                 widgets = mod.ui.get('plugin_widgets')
                 optional_widgets = mod.ui.get('plugin_optional_widgets')
                 if not found_install:
@@ -497,9 +496,14 @@ class Wizard(BaseFrontend):
             if self.current_page is None:
                 return self.returncode
 
-            title = self.get_string(self.pages[self.pagesindex].title)
-            # TODO: Use attributes instead?  Would save having to hardcode the size in here.
-            self.page_title.set_markup('<span size="xx-large">%s</span>' % title)
+            title = self.pages[self.pagesindex].title
+            if title:
+                title = self.get_string(title)
+                # TODO: Use attributes instead?  Would save having to hardcode the size in here.
+                self.page_title.set_markup('<span size="xx-large">%s</span>' % title)
+                self.title_section.show()
+            else:
+                self.title_section.hide()
             if not self.pages[self.pagesindex].filter_class:
                 # This page is just a UI page
                 self.dbfilter = None
@@ -941,34 +945,6 @@ class Wizard(BaseFrontend):
 
     # Methods
 
-    def switch_progress_windows(self, use_install_window=True):
-        self.debconf_progress_window.hide()
-        if use_install_window:
-            self.old_progress_window = self.debconf_progress_window
-            self.old_progress_info = self.progress_info
-            self.old_progress_bar = self.progress_bar
-            self.old_progress_cancel_button = self.progress_cancel_button
-            
-            self.debconf_progress_window = self.install_progress_window
-            self.progress_info = self.install_progress_info
-            self.progress_bar = self.install_progress_bar
-            self.progress_cancel_button = self.install_progress_cancel_button
-            self.progress_cancel_button.set_label(
-                self.old_progress_cancel_button.get_label())
-            
-            # Set the install window to the (presumably dark) theme colors.
-            a = gtk.Menu().rc_get_style()
-            bg = a.bg[gtk.STATE_NORMAL]
-            fg = a.fg[gtk.STATE_NORMAL]
-            self.install_progress_window.modify_bg(gtk.STATE_NORMAL, bg)
-            self.install_progress_info.modify_fg(gtk.STATE_NORMAL, fg)
-
-        else:
-            self.debconf_progress_window = self.old_progress_window
-            self.progress_info = self.old_progress_info
-            self.progress_bar = self.old_progress_bar
-            self.progress_cancel_button = self.old_progress_cancel_button
-
     def progress_loop(self):
         """prepare, copy and config the system in the core install process."""
         self.installing = True
@@ -976,7 +952,6 @@ class Wizard(BaseFrontend):
         syslog.syslog('progress_loop()')
 
         self.live_installer.hide()
-        self.switch_progress_windows(use_install_window=True)
 
         slideshow_dir = '/usr/share/ubiquity-slideshow'
         slideshow_locale = self.slideshow_get_available_locale(slideshow_dir, self.locale)
@@ -1153,6 +1128,12 @@ class Wizard(BaseFrontend):
         # entering. At present it's a little awkward to define actions that
         # occur upon entering a page without unwanted side-effects when the
         # user tries to go forward but fails due to validation.
+
+        # FIXME UGH.  I don't want this outside of the plugin.
+        if step == 'stepPartAsk' and not self.custom_partitioning.get_active():
+            self.set_current_page(self.steps.page_num(self.stepPartAuto))
+            self.allow_change_step(True)
+            return
         if step == "stepPartAuto":
             self.part_advanced_warning_message.set_text('')
             self.part_advanced_warning_hbox.hide()
@@ -1252,34 +1233,23 @@ class Wizard(BaseFrontend):
         return callback(source, debconf_condition)
 
     def debconf_progress_start (self, progress_min, progress_max, progress_title):
-        if self.progress_position.depth() == 0:
-            if self.current_page is not None:
-                self.debconf_progress_window.set_transient_for(
-                    self.live_installer)
-            else:
-                self.debconf_progress_window.set_transient_for(None)
-        if progress_title is None:
-            progress_title = ""
-        if self.progress_position.depth() == 0:
-            self.debconf_progress_window.set_title(progress_title)
-
         self.progress_position.start(progress_min, progress_max,
                                      progress_title)
-        self.progress_title.set_markup(
-            '<big><b>' +
-            xml.sax.saxutils.escape(self.progress_position.title()) +
-            '</b></big>')
+        #self.progress_title.set_markup(
+        #    '<big><b>' +
+        #    xml.sax.saxutils.escape(self.progress_position.title()) +
+        #    '</b></big>')
         self.debconf_progress_set(0)
         self.progress_info.set_text('')
-        self.debconf_progress_window.show()
+        self.progress_section.show()
 
     def debconf_progress_set (self, progress_val):
         if self.progress_cancelled:
             return False
         self.progress_position.set(progress_val)
         fraction = self.progress_position.fraction()
-        self.progress_bar.set_fraction(fraction)
-        self.progress_bar.set_text('%s%%' % int(fraction * 100))
+        self.install_progress.set_fraction(fraction)
+        #self.install_progress.set_text('%s%%' % int(fraction * 100))
         return True
 
     def debconf_progress_step (self, progress_inc):
@@ -1287,27 +1257,30 @@ class Wizard(BaseFrontend):
             return False
         self.progress_position.step(progress_inc)
         fraction = self.progress_position.fraction()
-        self.progress_bar.set_fraction(fraction)
-        self.progress_bar.set_text('%s%%' % int(fraction * 100))
+        self.install_progress.set_fraction(fraction)
+        #self.install_progress.set_text('%s%%' % int(fraction * 100))
         return True
 
     def debconf_progress_info (self, progress_info):
         if self.progress_cancelled:
             return False
-        self.progress_info.set_markup(
-            '<i>' + xml.sax.saxutils.escape(progress_info) + '</i>')
+        self.install_progress_text.set_label(progress_info)
+        #self.progress_info.set_markup(
+        #    '<i>' + xml.sax.saxutils.escape(progress_info) + '</i>')
         return True
 
     def debconf_progress_stop (self):
         self.progress_cancelled = False
         self.progress_position.stop()
         if self.progress_position.depth() == 0:
-            self.debconf_progress_window.hide()
-        else:
-            self.progress_title.set_markup(
-                '<big><b>' +
-                xml.sax.saxutils.escape(self.progress_position.title()) +
-                '</b></big>')
+            # TODO do we really want to show/hide this?
+            #self.progress_section.hide()
+            pass
+        #else:
+        #    self.progress_title.set_markup(
+        #        '<big><b>' +
+        #        xml.sax.saxutils.escape(self.progress_position.title()) +
+        #        '</b></big>')
 
     def debconf_progress_region (self, region_start, region_end):
         self.progress_position.set_region(region_start, region_end)
@@ -1344,9 +1317,6 @@ class Wizard(BaseFrontend):
 
         if self.installing and not self.installing_no_return:
             # Go back to the partitioner and try again.
-            self.slideshow_frame.hide()
-            self.switch_progress_windows(use_install_window=False)
-            self.live_installer.show()
             self.pagesindex = -1
             for page in self.pages:
                 if page.module.NAME == 'partman':

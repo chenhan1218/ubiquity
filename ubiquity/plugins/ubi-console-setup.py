@@ -75,11 +75,11 @@ class PageGtk(PluginUI):
         # FIXME choppy UI effect
 
         # Necessary to clean up references so self.query is garbage collected.
-        self.query.destroy()
-        self.query = None
+        self.calculate_closed()
 
     def calculate_closed(self, *args):
         self.query.destroy()
+        self.controller._wizard.overlay.set_property('greyed', False)
         self.query = None
 
     def calculate_clicked(self, *args):
@@ -87,9 +87,7 @@ class PageGtk(PluginUI):
         self.query = KeyboardQuery(self.controller._wizard)
         self.query.connect('layout_result', self.calculate_result)
         self.query.connect('delete-event', self.calculate_closed)
-        # FIXME Not working when the window is moved.
-        from ubiquity.gtkwidgets import expo
-        expo(self.controller._wizard.page_section.window)
+        self.controller._wizard.overlay.set_property('greyed', True)
         self.query.run()
 
     def on_keyboardlayoutview_row_activated(self, *args):
