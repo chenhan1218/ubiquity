@@ -211,6 +211,7 @@ class PageGtk(PageBase):
         # can be resized may not be the same.  But the set of disks that can be
         # formatted contains all the disks.
         m = self.part_auto_select_drive.get_model()
+        m.clear()
         for disk in extra_options[use_device_choice]:
             m.append([disk])
 
@@ -240,11 +241,14 @@ class PageGtk(PageBase):
         self.current_page = self.page
 
     def get_autopartition_choice (self):
-        import gtk
-        # TODO Check if we're in use entire disk mode on the automatic page.
+        if self.custom_partitioning.get_active():
+            return self.manual_choice, None
+        
         if self.partition_container.get_current_page() == 0:
             # Resize
-            pass
+            # FIXME support multiple disks in partman
+            # FIXME support use entire partition in partman
+            return self.resize_choice, '%s B' % self.resizewidget.get_size()
         else:
             # Use disk
             i = self.part_auto_select_drive.get_active_iter()
@@ -252,29 +256,6 @@ class PageGtk(PageBase):
             disk = m.get_value(i, 0)
             # Is the transliteration necessary?
             return self.use_device_choice, unicode(disk, 'utf-8', 'replace')
-
-        if self.resize_use_free.get_active():
-            # FIXME support multiple disks in partman
-            # FIXME support use entire partition in partman
-            return self.resize_choice, '%s B' % self.resizewidget.get_size()
-        elif self.custom_partitioning.get_active():
-            return self.manual_choice, None
-        
-        #if choice == self.resize_choice:
-        #    # resize_choice should have been hidden otherwise
-        #    assert self.action_bar.resize != -1
-        #    return choice, '%d B' % self.action_bar.get_size()
-        #elif (choice != self.manual_choice and
-        #      choice in self.autopartition_extras):
-        #    vbox = self.autopartition_extras[choice].child
-        #    for child in vbox.get_children():
-        #        if isinstance(child, gtk.ComboBox):
-        #            return choice, unicode(child.get_active_text(),
-        #                                   'utf-8', 'replace')
-        #    else:
-        #        return choice, None
-        #else:
-        #    return choice, None
 
     # Advanced partitioning page
 
