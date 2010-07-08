@@ -99,6 +99,7 @@ class PageGtk(PageBase):
             self.part_auto_allocate_label = builder.get_object('part_auto_allocate_label')
             self.part_auto_use_entire_disk = builder.get_object('part_auto_use_entire_disk')
             self.part_auto_use_entire_partition = builder.get_object('part_auto_use_entire_partition')
+            self.part_auto_hidden_label = builder.get_object('part_auto_hidden_label')
 
             self.partition_create_mount_combo = builder.get_object('partition_create_mount_combo')
             self.partition_edit_mount_combo = builder.get_object('partition_edit_mount_combo')
@@ -149,6 +150,12 @@ class PageGtk(PageBase):
 
             self.plugin_optional_widgets = [self.page_auto, self.page_advanced]
             self.current_page = self.page
+
+            # Set some parameters that do not change between runs of the plugin
+            name = get_release_name()
+            self.partitionbox.set_property('title', name)
+            # New partition
+            self.resizewidget.get_child2().child.set_property('title', name)
         except Exception, e:
             self.debug('Could not create language page: %s', e)
             self.page = None
@@ -160,26 +167,46 @@ class PageGtk(PageBase):
     def set_disk_layout(self, layout):
         self.disk_layout = layout
 
+    def part_auto_use_entire_disk_clicked(self, unused_widget):
+        if self.use_device.get_active():
+            use_disk = self.controller.get_string('part_auto_use_entire_disk')
+            allocate = self.controller.get_string('part_auto_allocate_label')
+            hidden = self.controller.get_string('part_auto_hidden_label')
+
+            self.resize_use_free.set_active(True)
+            self.part_auto_use_entire_disk.set_label(use_disk)
+            self.part_auto_allocate_label.set_text(allocate)
+            self.part_auto_hidden_label.set_markup(hidden % 5)
+            self.partition_container.set_current_page(0)
+        else:
+            s = self.controller.get_string('part_auto_split_largest_partition')
+            self.use_device.set_active(True)
+            self.part_auto_use_entire_disk.set_label(s)
+            self.part_auto_allocate_label.set_text('')
+            self.part_auto_hidden_label.set_text('')
+            self.partition_container.set_current_page(1)
+
     def part_auto_select_drive_changed (self, unused_widget):
+        # TODO set the %d in partitions hidden label
         i = self.part_auto_select_drive.get_active_iter()
         m = self.part_auto_select_drive.get_model()
         val = m.get_value(i, 0)
         if self.resize_use_free.get_active():
-            self.resizewidget.set_property('min_size', 0)
-            self.resizewidget.set_property('max_size', 0)
-            self.resizewidget.set_property('part_size', 0)
+            # TODO support multiple disks
+            resize_min_size, resize_max_size, \
+                resize_pref_size, resize_path = \
+                    self.extra_options[self.resize_choice]
+            self.resizewidget.set_property('min_size', int(resize_min_size))
+            self.resizewidget.set_property('max_size', int(resize_max_size))
+            self.resizewidget.set_property('part_size', int(resize_pref_size))
             self.partition_container.set_current_page(0)
         else:
-            # i18n
-            # TODO set the icon and the title as properties in the XML.  The
-            # former will require the commented out image support.  See how
-            # GtkImage is implemented in Glade XML.  Use themed-icon?
-            self.partition_container.set_current_page(1)
             self.part_auto_use_entire_partition.set_sensitive(False)
             self.part_auto_use_entire_disk.set_sensitive(False)
             # We don't want to hide it as we want to keep its size allocation.
             self.part_auto_allocate_label.set_text('')
-            # TODO set extra line and icon
+            self.part_auto_hidden_label.set_text('')
+            self.partition_container.set_current_page(1)
 
     def part_auto_hidden_label_activate_link(self, unused_widget, unused):
         self.custom_partitioning.set_active(True)
@@ -193,13 +220,16 @@ class PageGtk(PageBase):
                                            resize_choice, manual_choice,
                                            biggest_free_choice,
                                            use_device_choice)
+        # TODO partman-auto should have another recipe, present whenever resize
+        # is, that simply replaces the partition with Ubuntu.  We'll note this
+        # here, and expose it via the "Use Largest Partition" button.
         print 'set_autopartition_choices'
         print 'choices:', choices
         print 'extra_options:', extra_options
         print 'resize_choice:', resize_choice
         print 'manual_choice:', manual_choice
         print 'biggest_free_choice:', biggest_free_choice
-        print 'use_device_choice', use_device_choice
+        print 'use_device_choice:', use_device_choice
 
         #if resize_choice in choices:
         #    self.resize_min_size, self.resize_max_size, \
@@ -213,9 +243,6 @@ class PageGtk(PageBase):
         # property to the distribution name (from misc.py) and the extra
         # property to the target partition (look up in partman, it could be
         # anything) and target filesystem (again, partman).
-        # We don't care about biggest free anymore.
-        if biggest_free_choice in choices:
-            self.biggest_free_id = extra_options[biggest_free_choice]
 
         # use_device_choice always exists in extra_options.
         # TODO the set of disks that can be formatted and the set of disks that
@@ -233,19 +260,6 @@ class PageGtk(PageBase):
         else:
             self.resize_use_free.set_active(True)
             self.resize_use_free.show()
-            self.resize_min_size, self.resize_max_size, \
-                self.resize_pref_size, self.resize_path = \
-                    extra_options[resize_choice]
-            self.resizewidget.set_property('min_size', int(self.resize_min_size))
-            self.resizewidget.set_property('max_size', int(self.resize_max_size))
-            self.resizewidget.set_property('part_size', int(self.resize_pref_size))
-
-            original = self.resizewidget.get_child1().child
-            new = self.resizewidget.get_child2().child
-            #existing_icon = gtk.image_new_from_icon_name('folder', gtk.ICON_SIZE_DIALOG)
-            #new_icon = gtk.image_new_from_icon_name('distributor-logo', gtk.ICON_SIZE_DIALOG)
-            original.set_property('title', 'Windows')
-            new.set_property('title', 'Ubuntu')
 
         self.part_auto_select_drive.set_active(0)
         # make sure we're on the autopartitioning page

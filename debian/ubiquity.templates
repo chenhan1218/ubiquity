@@ -1054,6 +1054,32 @@ Type: boolean
 Default: false
 Description: for internal use; download updates while installing.
 
+Template: ubiquity/text/part_auto_select_drive_label
+Type: text
+_Description: Select drive:
+
+Template: ubiquity/text/part_auto_allocate_label
+Type: text
+_Description: Allocate drive space by dragging the divider below:
+
+Template: ubiquity/text/part_auto_hidden_label
+Type: text
+_Description:
+ <small>%d smaller partitions are hidden, use the <a href="">advanced
+ partitioning tool</a> for more control</small>
+
+Template: ubiquity/text/part_auto_use_entire_partition
+Type: text
+_Description: Use Entire Partition
+
+Template: ubiquity/text/part_auto_use_entire_disk
+Type: text
+_Description: Use Entire Disk
+
+Template: ubiquity/text/part_auto_split_largest_partition
+Type: text
+_Description: Split Largest Partition
+
 # KDE specific
 
 Template: ubiquity/text/keyboard_layout_label
