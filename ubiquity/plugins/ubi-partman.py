@@ -238,7 +238,7 @@ class PageGtk(PageBase):
                     size = partition[1]
                     break
             assert size is not None, 'Could not find size for %s:\n%s\n%s' % \
-                (resize_path, disk_id, self.disk_layout)
+                (str(resize_path), str(disk_id), str(self.disk_layout))
             self.resizewidget.set_property('part_size', size)
             self.resizewidget.set_pref_size(int(resize_pref_size))
             self.partition_container.set_current_page(0)
