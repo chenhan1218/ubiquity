@@ -176,7 +176,7 @@ class PageGtk(PageBase):
             self.resize_use_free.set_active(True)
             self.part_auto_use_entire_disk.set_label(use_disk)
             self.part_auto_allocate_label.set_text(allocate)
-            self.part_auto_hidden_label.set_markup(hidden % 5)
+            self.set_part_auto_hidden_label()
             self.partition_container.set_current_page(0)
         else:
             s = self.controller.get_string('part_auto_split_largest_partition')
@@ -186,11 +186,29 @@ class PageGtk(PageBase):
             self.part_auto_hidden_label.set_text('')
             self.partition_container.set_current_page(1)
 
-    def part_auto_select_drive_changed (self, unused_widget):
-        # TODO set the %d in partitions hidden label
+    def set_part_auto_hidden_label (self):
+        '''Sets the number of partitions in the "X smaller partitions are
+        hidden" label.  It subtracts one from the total count to account for
+        the partition being resized.'''
+
         i = self.part_auto_select_drive.get_active_iter()
         m = self.part_auto_select_drive.get_model()
         val = m.get_value(i, 0)
+
+        partman_id = self.extra_options[self.use_device_choice][val]
+        disk_id = partman_id.rsplit('/', 1)[1]
+        partition_count = len(self.disk_layout[disk_id]) - 1
+        if partition_count == 0:
+            self.part_auto_hidden_label.set_text('')
+        elif partition_count == 1:
+            hidden = self.controller.get_string('part_auto_hidden_label_one')
+            self.part_auto_hidden_label.set_markup(hidden)
+        else:
+            hidden = self.controller.get_string('part_auto_hidden_label')
+            self.part_auto_hidden_label.set_markup(hidden % partition_count)
+
+    def part_auto_select_drive_changed (self, unused_widget):
+        self.set_part_auto_hidden_label()
         if self.resize_use_free.get_active():
             # TODO support multiple disks
             resize_min_size, resize_max_size, \
@@ -230,6 +248,7 @@ class PageGtk(PageBase):
         print 'manual_choice:', manual_choice
         print 'biggest_free_choice:', biggest_free_choice
         print 'use_device_choice:', use_device_choice
+        print 'disk_layout:', self.disk_layout
 
         #if resize_choice in choices:
         #    self.resize_min_size, self.resize_max_size, \
@@ -1508,7 +1527,7 @@ class Page(Plugin):
 
         elif question == 'partman-auto/select_disk':
             if self.auto_state is not None:
-                self.extra_options[self.auto_state[1]] = self.choices(question)
+                self.extra_options[self.auto_state[1]] = self.choices_display_map(question)
                 # Back up to autopartitioning question.
                 self.succeeded = False
                 return False
