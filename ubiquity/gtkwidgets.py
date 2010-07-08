@@ -218,6 +218,15 @@ class ResizeWidget(gtk.HPaned):
         self.new_part.set_size(percent * self.part_size)
         gtk.HPaned.do_expose_event(self, event)
 
+    def set_pref_size(self, size):
+        s1 = self.existing_part.get_allocation().width
+        s2 = self.new_part.get_allocation().width
+        total = s1 + s2
+
+        percent = (float(size) / float(self.part_size))
+        val = percent * total
+        self.set_position(int(val))
+
     def get_size(self):
         '''Returns the size of the old partition, clipped to the minimum and
            maximum sizes.'''
