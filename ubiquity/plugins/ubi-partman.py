@@ -181,9 +181,10 @@ class PageGtk(PageBase):
             self.part_auto_allocate_label.set_text('')
             # TODO set extra line and icon
 
-    def part_auto_hidden_label_activate_link(self, *args):
-        print 'args', args
-        # TODO go to the advanced partitioning page.
+    def part_auto_hidden_label_activate_link(self, unused_widget, unused):
+        self.custom_partitioning.set_active(True)
+        #self.controller.dbfilter.ok_handler()
+        self.controller.go_forward()
 
     def set_autopartition_choices (self, choices, extra_options, resize_choice,
                                    manual_choice, biggest_free_choice,
@@ -208,6 +209,10 @@ class PageGtk(PageBase):
         #    self.action_bar.set_min(self.resize_min_size)
         #    self.action_bar.set_max(self.resize_max_size)
 
+        # TODO For the entire disk PartitionBox here, we need to set the title
+        # property to the distribution name (from misc.py) and the extra
+        # property to the target partition (look up in partman, it could be
+        # anything) and target filesystem (again, partman).
         # We don't care about biggest free anymore.
         if biggest_free_choice in choices:
             self.biggest_free_id = extra_options[biggest_free_choice]
