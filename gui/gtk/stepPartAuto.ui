@@ -116,6 +116,7 @@
                 <property name="xalign">0</property>
                 <property name="label" translatable="yes">&lt;small&gt;5 smaller partitions are hidden, use the &lt;a href=""&gt;advanced partitioning tool&lt;/a&gt; for more control&lt;/small&gt;</property>
                 <property name="use_markup">True</property>
+                <signal name="activate_link" handler="part_auto_hidden_label_activate_link"/>
               </object>
             </child>
           </object>

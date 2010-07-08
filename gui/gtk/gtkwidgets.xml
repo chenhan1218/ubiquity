@@ -13,7 +13,20 @@
     </property> -->
 	 </glade-widget-class>
    <glade-widget-class title="ResizeWidget" name="ResizeWidget" generic-name="resizewidget"/>
-   <glade-widget-class title="PartitionBox" name="PartitionBox" generic-name="partitionbox"/>
+   <glade-widget-class title="PartitionBox" name="PartitionBox" generic-name="partitionbox">
+       <!-- Probably need all of:
+       <set-property-function>glade_gtk_image_set_property</set-property-function>
+       <get-property-function>glade_gtk_image_get_property</get-property-function>
+       <read-widget-function>glade_gtk_image_read_widget</read-widget-function>
+       <write-widget-function>glade_gtk_image_write_widget</write-widget-function>
+
+       <create-editable-function>glade_gtk_image_create_editable</create-editable-function>
+       -->
+       <!-- See http://library.gnome.org/devel/gladeui/stable/widgetclasses.html -->
+       <!-- http://www.pygtk.org/articles/custom-widgets-glade/Custom_PyGTK_Widgets_in_Glade3-part-2.html
+            (using a custom adaptor) -->
+       <property themed-icon="True" id="icon-name" custom-layout="True" name="Icon Name"/>
+   </glade-widget-class>
    <glade-widget-class title="StateBox" name="StateBox" generic-name="statebox"/>
    <glade-widget-class title="LabelledEntry" name="LabelledEntry" generic-name="labelledentry"/>
    <glade-widget-class title="LabelledComboBoxEntry" name="LabelledComboBoxEntry" generic-name="labelledcomboboxentry"/>

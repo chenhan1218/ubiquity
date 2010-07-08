@@ -253,22 +253,33 @@ class PartitionBox(StylizedFrame):
         'title'  : (gobject.TYPE_STRING,
                     'Title',
                     None,
-                    'Title', gobject.PARAM_READWRITE),
+                    'Title',
+                    gobject.PARAM_READWRITE),
+        'icon-name' : (gobject.TYPE_STRING,
+                    'Icon Name',
+                    None,
+                    'distributor-logo',
+                    gobject.PARAM_READWRITE),
     }
     
     def do_get_property(self, prop):
         if prop.name == 'title':
             return self.ostitle.get_text()
+        elif prop.name == 'icon-name':
+            return self.logo.get_icon_name()
         return getattr(self, prop.name)
 
     def do_set_property(self, prop, value):
         if prop.name == 'title':
             self.ostitle.set_text(value)
             return
+        elif prop.name == 'icon-name':
+            self.logo.set_from_icon_name(value, gtk.ICON_SIZE_DIALOG)
+            return
         setattr(self, prop.name, value)
 
     # TODO: A keyword argument default of a widget seems silly.  Use a string.
-    def __init__(self, title='', extra='', icon=gtk.Image()):
+    def __init__(self, title='', extra='', icon_name='distributor-logo'):
         # 10 px above the topmost element
         # 6 px between the icon and the title
         # 4 px between the title and the extra heading
@@ -276,7 +287,7 @@ class PartitionBox(StylizedFrame):
         # 12 px below the bottom-most element
         StylizedFrame.__init__(self)
         vbox = gtk.VBox()
-        self.logo = icon
+        self.logo = gtk.image_new_from_icon_name(icon_name, gtk.ICON_SIZE_DIALOG)
         align = gtk.Alignment(0.5, 0.5, 0.5, 0.5)
         align.set_padding(10, 0, 0, 0)
         align.add(self.logo)
@@ -957,10 +968,8 @@ if __name__ == "__main__":
         a.pack_start(widget, expand=False)
 
     # Partition resizing.
-    existing_icon = gtk.image_new_from_icon_name('folder', gtk.ICON_SIZE_DIALOG)
-    new_icon = gtk.image_new_from_icon_name('distributor-logo', gtk.ICON_SIZE_DIALOG)
-    existing_part = PartitionBox('Files (20 MB)', '', existing_icon)
-    new_part = PartitionBox('Ubuntu 10.10', '/dev/sda2 (btrfs)', new_icon)
+    existing_part = PartitionBox('Files (20 MB)', '', 'folder')
+    new_part = PartitionBox('Ubuntu 10.10', '/dev/sda2 (btrfs)', 'distributor-logo')
     hb = ResizeWidget(2**64, 2**64/4, 2**64/1.25, existing_part, new_part)
     a.pack_start(hb, expand=False)
     button = gtk.Button('Install')

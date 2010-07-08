@@ -171,13 +171,19 @@ class PageGtk(PageBase):
             self.partition_container.set_current_page(0)
         else:
             # i18n
-            self.partitionbox.set_property('title', 'Ubuntu')
+            # TODO set the icon and the title as properties in the XML.  The
+            # former will require the commented out image support.  See how
+            # GtkImage is implemented in Glade XML.  Use themed-icon?
             self.partition_container.set_current_page(1)
             self.part_auto_use_entire_partition.set_sensitive(False)
             self.part_auto_use_entire_disk.set_sensitive(False)
             # We don't want to hide it as we want to keep its size allocation.
             self.part_auto_allocate_label.set_text('')
             # TODO set extra line and icon
+
+    def part_auto_hidden_label_activate_link(self, *args):
+        print 'args', args
+        # TODO go to the advanced partitioning page.
 
     def set_autopartition_choices (self, choices, extra_options, resize_choice,
                                    manual_choice, biggest_free_choice,
