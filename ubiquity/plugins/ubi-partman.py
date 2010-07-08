@@ -168,6 +168,10 @@ class PageGtk(PageBase):
         self.disk_layout = layout
 
     def part_auto_use_entire_disk_clicked(self, unused_widget):
+        '''The user has clicked on the toggle between "Use Entire Disk" and
+        "Split Largest Partition".  Switch to either the "use entire disk"
+        widget, or the resize widget, respectively.'''
+
         if self.use_device.get_active():
             use_disk = self.controller.get_string('part_auto_use_entire_disk')
             allocate = self.controller.get_string('part_auto_allocate_label')
@@ -186,17 +190,21 @@ class PageGtk(PageBase):
             self.part_auto_hidden_label.set_text('')
             self.partition_container.set_current_page(1)
 
-    def set_part_auto_hidden_label (self):
-        '''Sets the number of partitions in the "X smaller partitions are
-        hidden" label.  It subtracts one from the total count to account for
-        the partition being resized.'''
-
+    def get_current_disk_partman_id (self):
         i = self.part_auto_select_drive.get_active_iter()
         m = self.part_auto_select_drive.get_model()
         val = m.get_value(i, 0)
 
         partman_id = self.extra_options[self.use_device_choice][val]
         disk_id = partman_id.rsplit('/', 1)[1]
+        return disk_id
+
+    def set_part_auto_hidden_label (self):
+        '''Sets the number of partitions in the "X smaller partitions are
+        hidden" label.  It subtracts one from the total count to account for
+        the partition being resized.'''
+
+        disk_id = self.get_current_disk_partman_id()
         partition_count = len(self.disk_layout[disk_id]) - 1
         if partition_count == 0:
             self.part_auto_hidden_label.set_text('')
@@ -208,6 +216,10 @@ class PageGtk(PageBase):
             self.part_auto_hidden_label.set_markup(hidden % partition_count)
 
     def part_auto_select_drive_changed (self, unused_widget):
+        '''The user has selected a different disk drive from the drop down.
+        Update the resize widget and the "use entire disk" widget to reflect
+        this.'''
+
         self.set_part_auto_hidden_label()
         if self.resize_use_free.get_active():
             # TODO support multiple disks
@@ -216,7 +228,20 @@ class PageGtk(PageBase):
                     self.extra_options[self.resize_choice]
             self.resizewidget.set_property('min_size', int(resize_min_size))
             self.resizewidget.set_property('max_size', int(resize_max_size))
-            self.resizewidget.set_property('part_size', int(resize_pref_size))
+
+            size = None
+            disk_id = self.get_current_disk_partman_id()
+            # TODO at some point we should re-evaluate the structure of
+            # self.disk_layout
+            for partition in self.disk_layout[disk_id]:
+                if partition[0] == resize_path:
+                    size = partition[1]
+                    break
+            assert size is not None, 'Could not find size for %s:\n%s\n%s' % \
+                (resize_path, disk_id, self.disk_layout)
+            self.resizewidget.set_property('part_size', size)
+            # TODO set the resize state to this value:
+            #self.resizewidget.set_property('part_size', int(resize_pref_size))
             self.partition_container.set_current_page(0)
         else:
             self.part_auto_use_entire_partition.set_sensitive(False)
