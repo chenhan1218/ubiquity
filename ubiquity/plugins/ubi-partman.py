@@ -49,6 +49,10 @@ class PageBase(PluginUI):
     def set_disk_layout(self, layout):
         pass
 
+    def set_default_filesystem(self, fs):
+        '''The default filesystem used when creating partitions.'''
+        self.default_filesystem = fs
+
     def set_autopartition_choices(self, choices, extra_options,
                                   resize_choice, manual_choice,
                                   biggest_free_choice, use_device_choice):
@@ -215,13 +219,24 @@ class PageGtk(PageBase):
             hidden = self.controller.get_string('part_auto_hidden_label')
             self.part_auto_hidden_label.set_markup(hidden % partition_count)
 
+    def part_ask_option_changed (self, unused_widget):
+        '''The use has selected either the resize or use entire disk option on
+        the ask page.'''
+        if self.resize_use_free.get_active():
+            self.partition_container.set_current_page(0)
+        elif self.use_device.get_active():
+            self.partition_container.set_current_page(1)
+
     def part_auto_select_drive_changed (self, unused_widget):
         '''The user has selected a different disk drive from the drop down.
         Update the resize widget and the "use entire disk" widget to reflect
-        this.'''
+        this.
+        This is initially called in set_autopartition_choices.'''
 
+        # TODO What of all of this can we do asynchronously?
         self.set_part_auto_hidden_label()
         if self.resize_use_free.get_active():
+            # Resize.
             # TODO support multiple disks
             resize_min_size, resize_max_size, \
                 resize_pref_size, resize_path = \
@@ -229,26 +244,48 @@ class PageGtk(PageBase):
             self.resizewidget.set_property('min_size', int(resize_min_size))
             self.resizewidget.set_property('max_size', int(resize_max_size))
 
+            # Lets gather some data.
             size = None
+            fs = None
             disk_id = self.get_current_disk_partman_id()
             # TODO at some point we should re-evaluate the structure of
             # self.disk_layout
             for partition in self.disk_layout[disk_id]:
                 if partition[0] == resize_path:
                     size = partition[1]
+                    fs = partition[3]
                     break
             assert size is not None, 'Could not find size for %s:\n%s\n%s' % \
                 (str(resize_path), str(disk_id), str(self.disk_layout))
+            title = find_in_os_prober(resize_path)
+            if not title:
+                # This is most likely a partition with some files on it.
+                # TODO need to determine the amount of space used by the files.
+                # Use gio.
+                # TODO i18n
+                title = 'Files (%d GB)' % 0
+                self.resizewidget.get_child1().child.set_property('icon-name', 'folder')
+            # TODO See if we can get the filesystem label first in misc.py,
+            # caching lookups.
+            extra = '%s (%s)' % (resize_path, fs)
+
+            self.resizewidget.get_child1().child.set_property('title', title)
+            self.resizewidget.get_child1().child.set_property('extra', extra)
             self.resizewidget.set_property('part_size', size)
             self.resizewidget.set_pref_size(int(resize_pref_size))
             self.partition_container.set_current_page(0)
         else:
+            # Use entire disk.
             self.part_auto_use_entire_partition.set_sensitive(False)
             self.part_auto_use_entire_disk.set_sensitive(False)
             # We don't want to hide it as we want to keep its size allocation.
             self.part_auto_allocate_label.set_text('')
             self.part_auto_hidden_label.set_text('')
             self.partition_container.set_current_page(1)
+
+        ext = '%s (%s)' % (disk_id.replace('=', '/'), self.default_filesystem)
+        self.partitionbox.set_property('extra', ext)
+        self.partitionbox.set_size(0)
 
     def part_auto_hidden_label_activate_link(self, unused_widget, unused):
         self.custom_partitioning.set_active(True)
@@ -274,13 +311,20 @@ class PageGtk(PageBase):
         print 'use_device_choice:', use_device_choice
         print 'disk_layout:', self.disk_layout
 
-        #if resize_choice in choices:
-        #    self.resize_min_size, self.resize_max_size, \
-        #        self.resize_pref_size, self.resize_path = \
-        #            extra_options[resize_choice]
-        #    self.action_bar.set_part_size(self.resize_pref_size)
-        #    self.action_bar.set_min(self.resize_min_size)
-        #    self.action_bar.set_max(self.resize_max_size)
+        # Set the extra field of the partition being created via resizing.
+        if resize_choice in extra_options:
+            # TODO can we put something more useful here than the to-be-created
+            # device node?
+            try:
+                dev = extra_options[resize_choice][3]
+                dev, partnum = re.search(r'(.*\D)(\d+)$', dev).groups()
+                dev = '%s%d' % (dev, int(partnum) + 1)
+            except Exception, e:
+                dev = 'unknown'
+                self.debug('Could not determine new partition number: %s', e)
+                self.debug('extra_options: %s' % str(extra_options))
+            extra = '%s (%s)' % (dev, self.default_filesystem)
+            self.resizewidget.get_child2().child.set_property('extra', extra)
 
         # TODO For the entire disk PartitionBox here, we need to set the title
         # property to the distribution name (from misc.py) and the extra
@@ -1544,6 +1588,7 @@ class Page(Plugin):
                 biggest_free = self.split_devpart(biggest_free)[1]
             self.extra_options[self.biggest_free_desc] = biggest_free
 
+            self.ui.set_default_filesystem(self.db.get('partman/default_filesystem'))
             self.ui.set_autopartition_choices(
                 choices, self.extra_options, self.resize_desc,
                 self.manual_desc, self.biggest_free_desc,

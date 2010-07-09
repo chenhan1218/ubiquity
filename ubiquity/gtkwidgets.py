@@ -269,6 +269,11 @@ class PartitionBox(StylizedFrame):
                     None,
                     'distributor-logo',
                     gobject.PARAM_READWRITE),
+        'extra'  : (gobject.TYPE_STRING,
+                    'Extra Text',
+                    None,
+                    '',
+                    gobject.PARAM_READWRITE),
     }
     
     def do_get_property(self, prop):
@@ -276,14 +281,19 @@ class PartitionBox(StylizedFrame):
             return self.ostitle.get_text()
         elif prop.name == 'icon-name':
             return self.logo.get_icon_name()
+        elif prop.name == 'extra':
+            return self.extra.get_text()
         return getattr(self, prop.name)
 
     def do_set_property(self, prop, value):
         if prop.name == 'title':
-            self.ostitle.set_text(value)
+            self.ostitle.set_markup('<b>%s</b>' % value)
             return
         elif prop.name == 'icon-name':
             self.logo.set_from_icon_name(value, gtk.ICON_SIZE_DIALOG)
+            return
+        elif prop.name == 'extra':
+            self.extra.set_markup('<small>%s</small>' % (value and value or ' '))
             return
         setattr(self, prop.name, value)
 

@@ -38,6 +38,9 @@ WGET_URL = 'http://www.ubuntu.com'
 # preseed the 'install updates' and 'install non-free software' options.  So?
 # Just db_get them.  No need for any other overhead, surely.  Actually, you
 # need the dbfilter for that get.
+
+# TODO: Set the 'have at least 3 GB' from /cdrom/casper/filesystem.size + a
+# fudge factor.
 class PageGtk(PluginUI):
     plugin_title = 'ubiquity/text/prepare_heading_label'
     def __init__(self, controller, *args, **kwargs):
