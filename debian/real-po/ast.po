@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-04-19 10:24+0000\n"
 "Last-Translator: Iñigo Varela <malditoastur@gmail.com>\n"
 "Language-Team: Asturian <ast@li.org>\n"
@@ -148,10 +148,15 @@ msgstr "Ye dable que quieras <a href=\"update\">anovar esti instalador</a>."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
 "Esti ye un instalador en live ${MEDIUM} d'una versión previa a la "
 "espublización de ${RELEASE}. Nun ye una versión final; ésta aportará cola "
@@ -215,8 +220,7 @@ msgstr "¿Cuál ye la distribución más asemeyada a la del so tecláu?"
 #. Description
 #: ../ubiquity.templates:28001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
-"Pue escribir nesti campu pa prebar la so nueva distribución de tecláu."
+msgstr "Pue escribir nesti campu pa prebar la so nueva distribución de tecláu."
 
 #. Type: text
 #. Description
@@ -648,20 +652,20 @@ msgstr "L'instalador falló"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Sentímoslo; l'instalador tien fallao. Por favor, unvíe un nuevu informe de "
 "fallu en https://launchpad.net/ubuntu/+source/ubiquity/+filebug (nun axunte "
 "los sos detáis a nengún informe de fallu esistente) y un desarrollador "
 "atenderá'l so problema tan ceo como-y seya dable. P'aidar a los "
 "desendolcadores a atalantar qué pudo dir mal, incluya los siguientes detáis "
-"nel so informe de fallu, y axunte los ficheros /var/log/syslog y "
-"/var/log/partman:"
+"nel so informe de fallu, y axunte los ficheros /var/log/syslog y /var/log/"
+"partman:"
 
 #. Type: text
 #. Description
@@ -1018,8 +1022,8 @@ msgid ""
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
 "Esto débese a un CD/DVD o unidá defeutuosa. Podría aidar llimpiar el CD/DVD, "
-"grabar el CD/DVD a una velocidá menor, o llimpiar la lente de la unidá de "
-"CD/DVD (en tiendes d'electrónica pue alcontrar sistemes de llimpieza)."
+"grabar el CD/DVD a una velocidá menor, o llimpiar la lente de la unidá de CD/"
+"DVD (en tiendes d'electrónica pue alcontrar sistemes de llimpieza)."
 
 #. Type: error
 #. Description
@@ -1215,12 +1219,12 @@ msgstr "Los siguientes paquetes alcuéntrense nún estáu toyíu:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Esto pue debese a que ta usando una imaxen antigua del instalador, o a un "
 "erru en dalgunos de los paquetes llistaos a continuación. Pue atopar más "
@@ -1252,8 +1256,8 @@ msgstr "Fallu migrando documentos y configuraciones"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1326,8 +1330,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "¿Deseya que l'instalador tente desmontar estes particiones de nueu?"
 
 #. Type: boolean
@@ -1493,9 +1496,13 @@ msgstr "CD"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language to use for the install process. This\n"
+#| " Language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
 msgstr ""
 "Escueyi la llingua a usar nel procesu d'instalación. Esta\n"
 " llingua va ser la predeterminada nesti equipu."

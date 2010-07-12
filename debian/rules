@@ -124,7 +124,8 @@ endif
 		d-i/source/apt-setup/apt-setup \
 		> debian/ubiquity/usr/lib/ubiquity/apt-setup/apt-setup
 	chmod +x debian/ubiquity/usr/lib/ubiquity/apt-setup/apt-setup
-	install d-i/source/apt-setup/finish-install.apt-cdrom-setup \
+
+	install d-i/source/apt-setup/finish-install.d/10apt-cdrom-setup \
 		debian/ubiquity/usr/lib/ubiquity/apt-setup/finish-install
 	if [ -e "d-i/source/base-installer/kernel/$(DEB_HOST_ARCH).sh" ]; then \
 		install -m644 d-i/source/base-installer/kernel/$(DEB_HOST_ARCH).sh \

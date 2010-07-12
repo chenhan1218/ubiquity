@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-04-19 12:18+0000\n"
 "Last-Translator: Emmanuel Sunyer <emmanuel.sunyer@gmail.com>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
@@ -130,8 +130,8 @@ msgid ""
 "href=\"update\">update this installer</a>."
 msgstr ""
 "Vous pouvez éventuellement <a href=\"update\">mettre à jour cet "
-"installateur</a> ou lire les <a href=\"release-notes\">notes de "
-"publication</a>."
+"installateur</a> ou lire les <a href=\"release-notes\">notes de publication</"
+"a>."
 
 #. Type: text
 #. Description
@@ -152,10 +152,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
 "Ceci est une pré version du live ${MEDIUM} ${RELEASE} . Il ne s'agit pas de "
 "la version finale ; celle-ci sera publié en avril 2010."
@@ -656,20 +661,20 @@ msgstr "L'installateur a rencontré une erreur"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Nous sommes désolés, l'installateur a rencontré une erreur. Veuillez "
 "signaler ce bogue sur https://launchpad.net/ubuntu/+source/ubiquity/+filebug "
 "(n'ajoutez pas vos renseignements à un bogue existant) et un développeur "
 "s'occupera du problème le plus rapidement possible. Pour aider le "
 "développeur à appréhender le problème, incluez les renseignements suivants "
-"dans votre rapport et attachez les fichiers /var/log/syslog et "
-"/var/log/partma :"
+"dans votre rapport et attachez les fichiers /var/log/syslog et /var/log/"
+"partma :"
 
 #. Type: text
 #. Description
@@ -1073,8 +1078,8 @@ msgstr ""
 #: ../ubiquity.templates:143001
 msgid "The following file did not match its source copy on the CD/DVD:"
 msgstr ""
-"Le fichier suivant ne correspond pas à sa copie originale présente sur le "
-"CD/DVD :"
+"Le fichier suivant ne correspond pas à sa copie originale présente sur le CD/"
+"DVD :"
 
 #. Type: text
 #. Description
@@ -1229,12 +1234,12 @@ msgstr "Les paquets suivants sont cassés :"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Ceci peut être dû à l'utilisation d'une ancienne image de l'installeur, ou "
 "bien à un bogue dans certains paquets listés ci-dessous. De plus amples "
@@ -1267,8 +1272,8 @@ msgstr "Erreur lors de la migration des documents et paramètres"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1339,8 +1344,7 @@ msgstr "Veuillez fermer les applications utilisant ces points de montage."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Voulez-vous que le programme d'installation essaye à nouveau de démonter ces "
 "partitions?"
@@ -1509,9 +1513,13 @@ msgstr "CD"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language to use for the install process. This\n"
+#| " Language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
 msgstr ""
 "Veuillez choisir la langue à utiliser pendant l'installation. Ce choix\n"
 " déterminera la langue par défaut pour cet ordinateur."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-04-18 15:42+0000\n"
 "Last-Translator: DiegoJ <diegojromerolopez@gmail.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -149,10 +149,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
 "Este es un instalador en live ${MEDIUM} de una versión previa a la "
 "publicación de ${RELEASE}. No es una versión final; ésta llegará con la "
@@ -335,8 +340,7 @@ msgstr "Repita su contraseña"
 #. Description
 #: ../ubiquity.templates:47001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
-"Está funcionando en modo de depuración. No use una contraseña valiosa."
+msgstr "Está funcionando en modo de depuración. No use una contraseña valiosa."
 
 #. Type: text
 #. Description
@@ -579,8 +583,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:81001
 msgid "Choose a different device to install the bootloader on:"
-msgstr ""
-"Elija un dispositivo diferente para instalar el gestor de arranque en:"
+msgstr "Elija un dispositivo diferente para instalar el gestor de arranque en:"
 
 #. Type: text
 #. Description
@@ -651,20 +654,20 @@ msgstr "El instalador ha fallado"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Lo sentimos; el instalador ha fallado. Por favor, envíe un nuevo informe de "
 "fallo en https://launchpad.net/ubuntu/+source/ubiquity/+filebug (no adjunte "
 "sus detalles a ningún informe de fallo existente) y un desarrollador "
 "atenderá su problema tan pronto como le sea posible. Para ayudar a los "
 "desarrolladores a entender qué ha podido ir mal, incluya los siguientes "
-"detalles en su informe de fallo, y adjunte los archivos /var/log/syslog y "
-"/var/log/partman:"
+"detalles en su informe de fallo, y adjunte los archivos /var/log/syslog y /"
+"var/log/partman:"
 
 #. Type: text
 #. Description
@@ -998,8 +1001,7 @@ msgstr "Falló la instalación"
 #: ../ubiquity.templates:139001 ../ubiquity.templates:140001
 #: ../ubiquity.templates:141001 ../ubiquity.templates:142001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
-"El instalador encontró un error al copiar los archivos al disco duro:"
+msgstr "El instalador encontró un error al copiar los archivos al disco duro:"
 
 #. Type: error
 #. Description
@@ -1021,10 +1023,9 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Esto se debe a un CD/DVD o unidad defectuosa. Podría ayudar limpiar el "
-"CD/DVD, grabar el CD/DVD a una velocidad menor, o limpiar la lente de la "
-"unidad de CD/DVD (en tiendas de electrónica puede encontrar sistemas  de "
-"limpieza)."
+"Esto se debe a un CD/DVD o unidad defectuosa. Podría ayudar limpiar el CD/"
+"DVD, grabar el CD/DVD a una velocidad menor, o limpiar la lente de la unidad "
+"de CD/DVD (en tiendas de electrónica puede encontrar sistemas  de limpieza)."
 
 #. Type: error
 #. Description
@@ -1065,8 +1066,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:143001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
-"El siguiente archivo no coincide con su copia de origen en el CD/DVD:"
+msgstr "El siguiente archivo no coincide con su copia de origen en el CD/DVD:"
 
 #. Type: text
 #. Description
@@ -1221,12 +1221,12 @@ msgstr "Los siguientes paquetes están dañados:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Esto puede deberse a que se está usando una imagen antigua del instalador, o "
 "a un error en algunos de los paquetes listados a continuación. Puede "
@@ -1258,8 +1258,8 @@ msgstr "Error migrando documentos y configuraciones"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1332,10 +1332,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
-msgstr ""
-"¿Desea que el instalador intente desmontar de nuevo estas particiones?"
+msgid "Would you like the installer to try to unmount these partitions again?"
+msgstr "¿Desea que el instalador intente desmontar de nuevo estas particiones?"
 
 #. Type: boolean
 #. Description
@@ -1500,9 +1498,13 @@ msgstr "CD"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language to use for the install process. This\n"
+#| " Language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
 msgstr ""
 "Escoja el idioma a usar por el proceso de instalación. Este\n"
 " idioma será el predeterminado en este equipo."

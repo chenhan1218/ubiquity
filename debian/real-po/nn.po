@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-03-23 16:47+0000\n"
 "Last-Translator: Rune Gangstø <runegang@gmail.com>\n"
 "Language-Team: Norwegian nynorsk <i18n-nn@lister.ping.uio.no>\n"
@@ -141,7 +141,7 @@ msgstr ""
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
 
 #. Type: text
@@ -569,8 +569,7 @@ msgstr "Fortsett utan ein oppstartslastar."
 #: ../ubiquity.templates:83001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr ""
-"Du må installera ein oppstartslastar manuelt for å starte ${RELEASE}."
+msgstr "Du må installera ein oppstartslastar manuelt for å starte ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -626,12 +625,12 @@ msgstr "Installasjonsprogrammet krasja"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Vi er lei installasjonsprogrammet krasja. Gjer vel å sende inn ei "
 "feilmelding på https://launchpad.net/ubuntu/+source/ubiquity/+filebug (ikkje "
@@ -1192,12 +1191,12 @@ msgstr "Dei følgjande pakkane er ikkje korrekt sett opp:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Dette kan kome av at det vert brukt eit gammalt installasjonsmedium, eller "
 "det kan vere ein feil i nokre av pakkane lista opp ovanfor. Fleire detaljar "
@@ -1229,14 +1228,14 @@ msgstr "Feil under overføring av dokument og instillingar"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Det skjedde ein feil under overføring av data. Fleire detaljar kan finnast i "
-"/var/log/syslog. Installasjonen vil fortsetta, men det kan hende nokre eller "
-"alle dokumenta og innstillingane du valde ikkje er overført til det "
+"Det skjedde ein feil under overføring av data. Fleire detaljar kan finnast "
+"i /var/log/syslog. Installasjonen vil fortsetta, men det kan hende nokre "
+"eller alle dokumenta og innstillingane du valde ikkje er overført til det "
 "installerte systemet."
 
 #. Type: error
@@ -1300,8 +1299,7 @@ msgstr "Venligst lukk programma som brukar desse monteringspunkta."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Vil du at installasjonsprogrammet skal prøva å avmontera desse partisjonane "
 "igjen?"
@@ -1471,10 +1469,16 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language used for the configuration process. This "
+#| "language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
 msgstr ""
+"Ver vennleg å velje språket for konfigurasjonen. Dette språket vil verte "
+"standardspråk på denne maskina når installasjonen er ferdig."
 
 #. Type: text
 #. Description

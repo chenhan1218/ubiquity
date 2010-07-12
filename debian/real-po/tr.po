@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-04-18 17:52+0000\n"
 "Last-Translator: ubuntuki <Unknown>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
@@ -145,10 +145,15 @@ msgstr "<a href=\"update\">Bu kurucuyu güncellemek</a> isteyebilirsiniz."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
 "Bu çalışan  ${MEDIUM}  kurucusunun  ${RELEASE}  ön-sürümüdür. Bu, Nisan "
 "2010'da  ${RELEASE} son sürümü ile birlikte gelecek olan son sürüm değildir."
@@ -329,8 +334,7 @@ msgstr "Parola (tekrar)"
 #. Description
 #: ../ubiquity.templates:47001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
-"Hata ayıklama kipinde çalışıyorsunuz. Değerli bir parola kullanmayın!"
+msgstr "Hata ayıklama kipinde çalışıyorsunuz. Değerli bir parola kullanmayın!"
 
 #. Type: text
 #. Description
@@ -564,8 +568,7 @@ msgstr "Önyükleyici kurulumu başarısız oldu"
 msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
-msgstr ""
-"Üzgünüz, bir hata oluştu ve belirtilen konumda önyükleyici kurulamadı."
+msgstr "Üzgünüz, bir hata oluştu ve belirtilen konumda önyükleyici kurulamadı."
 
 #. Type: text
 #. Description
@@ -640,19 +643,19 @@ msgstr "Yükleyici çöktü"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
-"Üzgünüz; yükleyici çöktü. Lütfen "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug adresinde bir hata "
-"raporu oluşturun (lütfen mevcut bir hata için bilgi göndermeyin). Bir "
-"programcı en kısa sürede sorununuzu çözecektir. Programcıların neyin yanlış "
-"olduğunu anlayabilmelerine yardım etmek için, lütfen /var/log/syslog ve "
-"/var/log/partman dosyalarını ve şu bilgileri raporunuza ekleyin:"
+"Üzgünüz; yükleyici çöktü. Lütfen https://launchpad.net/ubuntu/+source/"
+"ubiquity/+filebug adresinde bir hata raporu oluşturun (lütfen mevcut bir "
+"hata için bilgi göndermeyin). Bir programcı en kısa sürede sorununuzu "
+"çözecektir. Programcıların neyin yanlış olduğunu anlayabilmelerine yardım "
+"etmek için, lütfen /var/log/syslog ve /var/log/partman dosyalarını ve şu "
+"bilgileri raporunuza ekleyin:"
 
 #. Type: text
 #. Description
@@ -1207,20 +1210,19 @@ msgstr "Şu paketler bozuk durumda:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Bu durum eski bir kurulum dosyası kullandığınızdan veya yukarıda sıralanan "
-"bazı paketlerdeki hatalardan kaynaklanıyor olabilir. Ayrıntılı bilgi "
-"/var/log/syslog dosyasında bulunabilir. Kurulum devam edecek; ancak "
-"ilerleyen bir aşamada başarısız olabilir ve kurulu sistemde (muhtemelen "
-"kendisi de dahil) diğer paketleri yükleyemeyebilir veya kaldıramayabilir. "
-"Öncelikle yükleme dosyanızın yeni sürümlerini aramalı veya sorunu "
-"yayımcısına bildirmelisiniz."
+"bazı paketlerdeki hatalardan kaynaklanıyor olabilir. Ayrıntılı bilgi /var/"
+"log/syslog dosyasında bulunabilir. Kurulum devam edecek; ancak ilerleyen bir "
+"aşamada başarısız olabilir ve kurulu sistemde (muhtemelen kendisi de dahil) "
+"diğer paketleri yükleyemeyebilir veya kaldıramayabilir. Öncelikle yükleme "
+"dosyanızın yeni sürümlerini aramalı veya sorunu yayımcısına bildirmelisiniz."
 
 #. Type: error
 #. Description
@@ -1244,8 +1246,8 @@ msgstr "Belge ve ayarların taşınması hatası"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1314,8 +1316,7 @@ msgstr "Bu bağlama noktalarını kullan uygulamaları lütfen kapatın."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Kurulum programının bu bölümleri yeniden ayırmayı denemesini ister misiniz?"
 
@@ -1482,9 +1483,13 @@ msgstr "CD"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language to use for the install process. This\n"
+#| " Language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
 msgstr ""
 "Lütfen kurulum süreci için kullanılacak dili seçin. Bu\n"
 "Dil bu bilgisayar için varsayılan dil olacaktır."

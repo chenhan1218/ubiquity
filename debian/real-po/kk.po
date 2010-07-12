@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-04-19 10:22+0000\n"
 "Last-Translator: jmb_kz <Unknown>\n"
 "Language-Team: Kazakh\n"
@@ -128,17 +128,17 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Мүмкін сіз <a href=\"release-notes\">осы шығарылымға қосымша "
-"мәліметтерді</a> оқуға не <a href=\"update\">осы орнатушы бағдарламаны "
-"жаңартуыңыз</a> келіп тұрған шығар."
+"Мүмкін сіз <a href=\"release-notes\">осы шығарылымға қосымша мәліметтерді</"
+"a> оқуға не <a href=\"update\">осы орнатушы бағдарламаны жаңартуыңыз</a> "
+"келіп тұрған шығар."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Мүмкін сіз <a href=\"release-notes\">осы шығарылымға қосымша "
-"мәліметтерді</a> оқуға келіп тұрған шығар."
+"Мүмкін сіз <a href=\"release-notes\">осы шығарылымға қосымша мәліметтерді</"
+"a> оқуға келіп тұрған шығар."
 
 #. Type: text
 #. Description
@@ -151,10 +151,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
 "Бұл ${MEDIUM} орнатушының ${RELEASE} алдын ала (предварительный) шығарылымы. "
 "Бұл соңғы нұсқа емес. 2010 жылдың сәуір айында ${RELEASE} финалды нұсқасы "
@@ -418,8 +423,7 @@ msgstr "Жүйеге кіну үшін құпия сөзін сұрау"
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Require my password to log in and to decrypt my home folder"
-msgstr ""
-"Жүйеге кіру үшін және шифрленген үй бумасын ашу үшін құпия сөзін сұрау"
+msgstr "Жүйеге кіру үшін және шифрленген үй бумасын ашу үшін құпия сөзін сұрау"
 
 #. Type: text
 #. Description
@@ -586,8 +590,7 @@ msgstr "Жүктегіш орнатпай жалғастыру."
 #: ../ubiquity.templates:83001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr ""
-"${RELEASE} жүктеу үшін, жүктегішті өзіңіз орнатуыңызға мәжбүр боласыз."
+msgstr "${RELEASE} жүктеу үшін, жүктегішті өзіңіз орнатуыңызға мәжбүр боласыз."
 
 #. Type: text
 #. Description
@@ -599,8 +602,7 @@ msgstr "Орнатылымды болдырмау."
 #. Description
 #: ../ubiquity.templates:85001
 msgid "This may leave your computer unable to boot."
-msgstr ""
-"Осы әрекет кесірінен, сіздің компьютеріңіз мүлдем жүктелінбеуі мүмкін."
+msgstr "Осы әрекет кесірінен, сіздің компьютеріңіз мүлдем жүктелінбеуі мүмкін."
 
 #. Type: text
 #. Description
@@ -644,19 +646,19 @@ msgstr "Орнату бағдарламасы қирап қалды"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Өкінішке орай, орнату бағдарламасының қирауы орын алды. Қате туралы "
 "хабарламаны https://launchpad.net/ubuntu/+source/ubiquity/+filebug адресіне "
 "жіберуді сұраймыз (бұрыннан бар хабарламаларға тіркемеңіз). Өндірушілер "
 "табылған қатені мүмкіндігінше тез жөндеуге тырысады. Қате кетудің себебін "
-"анықтауға көмектесу үшін хабарламаңызбен бірге /var/log/syslog және "
-"/var/log/partman: файлдарын бірге тіркеп жіберуді сұраймыз."
+"анықтауға көмектесу үшін хабарламаңызбен бірге /var/log/syslog және /var/log/"
+"partman: файлдарын бірге тіркеп жіберуді сұраймыз."
 
 #. Type: text
 #. Description
@@ -1209,12 +1211,12 @@ msgstr "Келесі пакеттер зақымданған:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Мұның себебі орнатушының ескі болуы не жоғарыдағы пакеттердің құрамында қате "
 "кездесуінен болуы мүмкін. Толығырақ мәліметті /var/log/syslog файлынан алуға "
@@ -1245,8 +1247,8 @@ msgstr "Құжаттар мен баптаулар көшіру қатесі"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1316,8 +1318,7 @@ msgstr "Осы тіркеу нүктелерін пайдаланып жатқа
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "Осы бөлімдерді тіркеуден шығаруды қайталап көруді қалайсыз ба?"
 
 #. Type: boolean
@@ -1483,9 +1484,13 @@ msgstr "CD диск"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language to use for the install process. This\n"
+#| " Language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
 msgstr ""
 "Орнатым жүру барысында қолданылатын тілді таңдаңыз. Таңдалған\n"
 "тіл, жүйенің негізгі тілі ретінде орнатылатын болады."
