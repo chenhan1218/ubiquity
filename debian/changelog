@@ -1,3 +1,9 @@
+ubiquity (2.3.3) UNRELEASED; urgency=low
+
+  * Fix packaging to install the new pieces introduced for the overhaul.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 12 Jul 2010 16:26:14 -0500
+
 ubiquity (2.3.2) maverick; urgency=low
 
   * Cause 'compat/udpkg --print-os' to always print 'linux' (LP: #600244).
