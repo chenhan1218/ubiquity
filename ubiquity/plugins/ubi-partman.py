@@ -171,24 +171,45 @@ class PageGtk(PageBase):
     def set_disk_layout(self, layout):
         self.disk_layout = layout
 
+    # Automatic partitioning page
+
+    def part_auto_use_entire_partition_clicked(self, unused_widget):
+        '''The user has clicked on 'Use Entire Partition'''
+        self.part_auto_use_entire_partition.set_sensitive(False)
+        self.partition_container.set_current_page(1)
+        s = self.controller.get_string('part_auto_split_largest_partition')
+        self.resize_use_free.set_active(True)
+        self.part_auto_use_entire_disk.set_label(s)
+        # TODO need to set the correct size back and forth between this and
+        # use_entire_disk_clicked.
+
     def part_auto_use_entire_disk_clicked(self, unused_widget):
         '''The user has clicked on the toggle between "Use Entire Disk" and
         "Split Largest Partition".  Switch to either the "use entire disk"
         widget, or the resize widget, respectively.'''
 
-        if self.use_device.get_active():
+        use_entire_part = \
+            self.part_auto_use_entire_partition.get_property('sensitive') == False
+        if self.use_device.get_active() or use_entire_part:
+            # Switch back to resizing.
+            self.resize_use_free.set_active(True)
+
             use_disk = self.controller.get_string('part_auto_use_entire_disk')
             allocate = self.controller.get_string('part_auto_allocate_label')
             hidden = self.controller.get_string('part_auto_hidden_label')
-
-            self.resize_use_free.set_active(True)
             self.part_auto_use_entire_disk.set_label(use_disk)
             self.part_auto_allocate_label.set_text(allocate)
             self.set_part_auto_hidden_label()
             self.partition_container.set_current_page(0)
+
+            # part_auto_use_entire_partition_clicked may have set this
+            # insensitive.
+            self.part_auto_use_entire_partition.set_sensitive(True)
         else:
-            s = self.controller.get_string('part_auto_split_largest_partition')
+            # Switch back to 'use entire disk.'
             self.use_device.set_active(True)
+
+            s = self.controller.get_string('part_auto_split_largest_partition')
             self.part_auto_use_entire_disk.set_label(s)
             self.part_auto_allocate_label.set_text('')
             self.part_auto_hidden_label.set_text('')
@@ -233,21 +254,22 @@ class PageGtk(PageBase):
         this.
         This is initially called in set_autopartition_choices.'''
 
+        disk_id = self.get_current_disk_partman_id()
         # TODO What of all of this can we do asynchronously?
         self.set_part_auto_hidden_label()
-        if self.resize_use_free.get_active():
+        if self.resize_use_free.get_active() and disk_id in self.extra_options[self.resize_choice]:
             # Resize.
-            # TODO support multiple disks
+            # FIXME if disk_id in self.extra_options[self.resize_choice], else
+            # switch to format.
             resize_min_size, resize_max_size, \
                 resize_pref_size, resize_path = \
-                    self.extra_options[self.resize_choice]
+                self.extra_options[self.resize_choice][disk_id][1:]
             self.resizewidget.set_property('min_size', int(resize_min_size))
             self.resizewidget.set_property('max_size', int(resize_max_size))
 
             # Lets gather some data.
             size = None
             fs = None
-            disk_id = self.get_current_disk_partman_id()
             # TODO at some point we should re-evaluate the structure of
             # self.disk_layout
             for partition in self.disk_layout[disk_id]:
@@ -315,6 +337,8 @@ class PageGtk(PageBase):
         if resize_choice in extra_options:
             # TODO can we put something more useful here than the to-be-created
             # device node?
+            # FIXME surely this doesn't belong here, but in the combobox
+            # changed stuff.
             try:
                 dev = extra_options[resize_choice][3]
                 dev, partnum = re.search(r'(.*\D)(\d+)$', dev).groups()
@@ -341,13 +365,15 @@ class PageGtk(PageBase):
             m.append([disk])
 
         # TODO somehow remember previous choice on back press.
-        if not resize_choice in choices:
+        if not resize_choice in extra_options:
             self.use_device.set_active(True)
             self.resize_use_free.hide()
         else:
             self.resize_use_free.set_active(True)
             self.resize_use_free.show()
 
+        # TODO Should make sure we're selecting a drive that can be resized by
+        # default, if one exists.
         self.part_auto_select_drive.set_active(0)
         # make sure we're on the autopartitioning page
         self.current_page = self.page
@@ -356,11 +382,16 @@ class PageGtk(PageBase):
         if self.custom_partitioning.get_active():
             return self.manual_choice, None
         
-        if self.partition_container.get_current_page() == 0:
+        if self.resize_use_free.get_active():
+            disk_id = self.get_current_disk_partman_id()
             # Resize
-            # FIXME support multiple disks in partman
-            # FIXME support use entire partition in partman
-            return self.resize_choice, '%s B' % self.resizewidget.get_size()
+            if self.part_auto_use_entire_partition.get_property('sensitive'):
+                choice = self.extra_options[self.resize_choice][disk_id][0]
+                return choice, '%s B' % self.resizewidget.get_size()
+            # Use entire partition
+            else:
+                choice = self.extra_options['some_partition'][disk_id]
+                return choice, None
         else:
             # Use disk
             i = self.part_auto_select_drive.get_active_iter()
@@ -1509,6 +1540,7 @@ class Page(Plugin):
             self.autopartition_question = question
             choices = self.choices(question)
 
+            mapping = self.choices_display_map(question)
             if self.auto_state is None:
                 self.some_device_desc = \
                     self.description('partman-auto/text/use_device')
@@ -1525,9 +1557,29 @@ class Page(Plugin):
                 self.auto_state[0] += 1
             while self.auto_state[0] < len(choices):
                 self.auto_state[1] = choices[self.auto_state[0]]
+                description_c = mapping[self.auto_state[1]]
                 if (self.auto_state[1] == self.some_device_desc or
                     self.auto_state[1] == self.resize_desc):
                     break
+                # TODO Check what template this comes from instead?
+                # How could we find out if it came from partman-auto/text/some_partition?
+                elif description_c[2:].startswith('resize_use_free'):
+                    replace = description_c.split('__________', 1)[1]
+                    replace = replace.startswith('replace=')
+                    if not replace:
+                        break
+                    else:
+                        #desc = self.description('ubiquity/text/resize_use_free')
+                        desc = 'some_partition'
+                        if desc not in self.extra_options:
+                            self.extra_options[desc] = {}
+                        disk = self.translate_to_c(self.autopartition_question, self.auto_state[1])
+                        disk = re.search('/var/lib/partman/devices/(.*)//', disk).group(1)
+                        self.extra_options[desc][disk] = self.auto_state[1]
+                        # We assume that the partition being replaced is the
+                        # same as the partition being resized for the disk in
+                        # question.
+                        self.auto_state[0] += 1
                 else:
                     self.auto_state[0] += 1
             if self.auto_state[0] < len(choices):
@@ -1579,7 +1631,7 @@ class Page(Plugin):
 
             self.some_device_desc = map_trans(self.some_device_desc, 'ubiquity/text/use_device')
             self.biggest_free_desc = map_trans(self.biggest_free_desc, 'ubiquity/text/biggest_free')
-            self.resize_desc = map_trans(self.resize_desc, 'ubiquity/text/resize_use_free')
+            self.resize_desc = self.description('ubiquity/text/resize_use_free')
             self.manual_desc = map_trans(self.manual_desc, 'ubiquity/text/custom_partitioning')
 
             biggest_free = self.find_script(menu_options, 'biggest_free')
@@ -2079,8 +2131,14 @@ class Page(Plugin):
         elif question == 'partman-partitioning/new_size':
             if self.autopartition_question is not None:
                 if self.auto_state is not None:
-                    self.extra_options[self.auto_state[1]] = \
-                        (self.resize_min_size, self.resize_max_size,
+                    desc = self.description('ubiquity/text/resize_use_free')
+                    if desc not in self.extra_options:
+                        self.extra_options[desc] = {}
+                    disk = self.translate_to_c(self.autopartition_question, self.auto_state[1])
+                    disk = re.search('/var/lib/partman/devices/(.*)//', disk).group(1)
+                    print 'new_size', disk, self.auto_state[1]
+                    self.extra_options[desc][disk] = \
+                        (self.auto_state[1], self.resize_min_size, self.resize_max_size,
                             self.resize_pref_size, self.resize_path)
                     # Back up to autopartitioning question.
                     self.succeeded = False
