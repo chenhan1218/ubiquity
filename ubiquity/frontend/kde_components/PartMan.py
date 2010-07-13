@@ -211,7 +211,8 @@ class PartMan(QWidget):
     def on_partition_create_use_combo_changed (self, *args):
         if not hasattr(self, 'create_use_method_names'):
             return
-        known_filesystems = ('ext4', 'ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
+        known_filesystems = ('ext4', 'ext3', 'ext2',
+                             'btrfs', 'reiserfs', 'jfs', 'xfs',
                              'fat16', 'fat32', 'ntfs', 'uboot')
         text = unicode(self.create_dialog.partition_create_use_combo.currentText())
         if text not in self.create_use_method_names:
@@ -347,7 +348,8 @@ class PartMan(QWidget):
         # If the selected method isn't a filesystem, then selecting a mount
         # point makes no sense. TODO cjwatson 2007-01-31: Unfortunately we
         # have to hardcode the list of known filesystems here.
-        known_filesystems = ('ext4', 'ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
+        known_filesystems = ('ext4', 'ext3', 'ext2',
+                             'btrfs', 'reiserfs', 'jfs', 'xfs',
                              'fat16', 'fat32', 'ntfs', 'uboot')
         text = unicode(self.edit_dialog.partition_edit_use_combo.currentText())
         if text not in self.edit_use_method_names:

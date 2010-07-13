@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-04-22 20:55+0000\n"
 "Last-Translator: Patrick (Petriko) Oudejans <Unknown>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
@@ -126,8 +126,8 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Eble vi volas legi la <a href=\"release-notes\">eldon-notojn</a> aŭ <a "
-"href=\"update\">ĝisdatigi ĉi tiun instalilon</a>."
+"Eble vi volas legi la <a href=\"release-notes\">eldon-notojn</a> aŭ <a href="
+"\"update\">ĝisdatigi ĉi tiun instalilon</a>."
 
 #. Type: text
 #. Description
@@ -144,10 +144,15 @@ msgstr "Eble vi volas <a href=\"update\">ĝisdatigi ĉi tiun instalilon</a>."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
 "Tio ĉi estas testeldono de la viva ${MEDIUM}-instalilo por ${RELEASE}. Ĝi ne "
 "estas la fina eldono; tiu venos kune kun la fina eldono de ${RELEASE} en "
@@ -211,8 +216,7 @@ msgstr "Kiu aranĝo plej similas al via klavaro?"
 #. Description
 #: ../ubiquity.templates:28001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
-"Vi povas tajpi en ĉi tiun skatolon por testi vian novan klavararanĝon."
+msgstr "Vi povas tajpi en ĉi tiun skatolon por testi vian novan klavararanĝon."
 
 #. Type: text
 #. Description
@@ -639,19 +643,18 @@ msgstr "La instalilo kraŝis"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
-"Pardonu, la instalilo kraŝis. Bonvolu sendi raporton ĉe "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (ne aldonu al jam "
-"ekzistanta eraro) kaj prizorgistoj traktos la problemon, kiam plej frue "
-"eblos. Por helpi la laboron de prizorgistoj, bonvolu priskribi la sekvajn "
-"detalojn kaj aldoni la enhavon de la dosieroj /var/log/syslog kaj "
-"/var/log/partman:"
+"Pardonu, la instalilo kraŝis. Bonvolu sendi raporton ĉe https://launchpad."
+"net/ubuntu/+source/ubiquity/+filebug (ne aldonu al jam ekzistanta eraro) kaj "
+"prizorgistoj traktos la problemon, kiam plej frue eblos. Por helpi la "
+"laboron de prizorgistoj, bonvolu priskribi la sekvajn detalojn kaj aldoni la "
+"enhavon de la dosieroj /var/log/syslog kaj /var/log/partman:"
 
 #. Type: text
 #. Description
@@ -1205,12 +1208,12 @@ msgstr "La stato de la sekvaj pakoj estas rompita:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "La kaŭzo povas esti malnova instalpakaĵo, aŭ eble iu supre listigita pako "
 "enhavas cimon. Pli da detaloj troviĝas en /var/log/syslog. La instalilo "
@@ -1241,14 +1244,14 @@ msgstr "Eraro dum migrigo de dokumentoj kaj agordoj"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Okazis eraro dum migrigo de datumoj. Pli da detaloj vi povas trovi en "
-"/var/log/syslog. Daŭriĝos la instalado, sed eble kelkaj aŭ ĉiuj dokumentoj "
-"kaj agordoj kiujn vi indikis ne estos kopiataj al la instalata sistemo."
+"Okazis eraro dum migrigo de datumoj. Pli da detaloj vi povas trovi en /var/"
+"log/syslog. Daŭriĝos la instalado, sed eble kelkaj aŭ ĉiuj dokumentoj kaj "
+"agordoj kiujn vi indikis ne estos kopiataj al la instalata sistemo."
 
 #. Type: error
 #. Description
@@ -1310,8 +1313,7 @@ msgstr "Bonvolu fermi ĉiujn aplikaĵojn uzantajn ĉi tiujn surmetingojn."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "Ĉu vi ŝatus ke la instalilo reklopodu demeti ĉi tiujn subdiskojn?"
 
 #. Type: boolean
@@ -1477,9 +1479,13 @@ msgstr "KD"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language to use for the install process. This\n"
+#| " Language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
 msgstr ""
 "Bonvolu elekti la deziratan lingvon por la instalprocezo.\n"
 " Tiu lingvo estos la defaŭlta lingvo por ĉi tiu komputilo."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-04-19 16:38+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -118,8 +118,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
-"A resposta a estas preguntas só lle debería levar uns poucos minutos."
+msgstr "A resposta a estas preguntas só lle debería levar uns poucos minutos."
 
 #. Type: text
 #. Description
@@ -142,16 +141,20 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:19001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr ""
-"Pode querer <a href=\"release-notes\">actualizar este instalador</a>."
+msgstr "Pode querer <a href=\"release-notes\">actualizar este instalador</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
 "Este é un instalador vivo ${MEDIUM} dunha preedición da edición ${RELEASE}. "
 "Non é unha edición final; que chegará coa publicación final de ${RELEASE} en "
@@ -215,8 +218,7 @@ msgstr "Que distribución de teclas é a máis parecida á do seu teclado?"
 #. Description
 #: ../ubiquity.templates:28001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
-"Pode escribir nesta caixa para probar a nova distribución das teclas."
+msgstr "Pode escribir nesta caixa para probar a nova distribución das teclas."
 
 #. Type: text
 #. Description
@@ -649,19 +651,19 @@ msgstr "Erro no instalador"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
-"Sentímolo; o instalador fallou. Rexistre un novo informe de erro en "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (non xunte os "
-"detalles a ningún erro existente) e un programador atenderá o problema tan "
-"pronto como lle sexa posíbel. Para axudar ao programador a comprender o que "
-"foi mal, inclúa o seguinte detalle no seu informe de erro e xunte os "
-"ficheiros /var/log/syslog e máis /var/log/partman:"
+"Sentímolo; o instalador fallou. Rexistre un novo informe de erro en https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (non xunte os detalles a "
+"ningún erro existente) e un programador atenderá o problema tan pronto como "
+"lle sexa posíbel. Para axudar ao programador a comprender o que foi mal, "
+"inclúa o seguinte detalle no seu informe de erro e xunte os ficheiros /var/"
+"log/syslog e máis /var/log/partman:"
 
 #. Type: text
 #. Description
@@ -1217,16 +1219,16 @@ msgstr "Os seguintes paquetes están rotos:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Isto pode ser debido a unha imaxe de instalación antiga, ou pode ser debido "
-"a un erro nalgún dos paquetes listados arriba. Pode atopar máis detalles en "
-"/var/log/syslog. O instalador tratará de continuar de todos modos, pero pode "
+"a un erro nalgún dos paquetes listados arriba. Pode atopar máis detalles en /"
+"var/log/syslog. O instalador tratará de continuar de todos modos, pero pode "
 "fallar máis tarde, e non ser capaz de instalar ou eliminar outros paquetes "
 "(ata a si mesmo, posibelmente) do sistema instalado. Debería antes buscar "
 "unha versión máis nova da imaxe de instalación, ou mandarlle o informe do "
@@ -1254,15 +1256,15 @@ msgstr "Produciuse un erro ao migrar documentos e configuracións"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Produciuse un erro na migración de datos. Pode atopar máis detalles en "
-"/var/log/syslog. A instalación continuará, pero algúns ou todos os "
-"documentos e configuracións que vostede solicitou non foron transferidos ao "
-"sistema instalado."
+"Produciuse un erro na migración de datos. Pode atopar máis detalles en /var/"
+"log/syslog. A instalación continuará, pero algúns ou todos os documentos e "
+"configuracións que vostede solicitou non foron transferidos ao sistema "
+"instalado."
 
 #. Type: error
 #. Description
@@ -1327,8 +1329,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "Desexa que o instalador tente desmontar outra vez estas particións?"
 
 #. Type: boolean
@@ -1494,9 +1495,13 @@ msgstr "CD"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language to use for the install process. This\n"
+#| " Language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
 msgstr ""
 "Escolla o idioma que usará no proceso de instalación. Este\n"
 " idioma será o predefinido neste computador."
@@ -1596,9 +1601,9 @@ msgid ""
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
 "Unha vez que o seu sistema estea configurado ao seu gusto, execute «oem-"
-"config-prepare». Isto fará que se elimine temporalmente o seu usuario «oem» "
-"e faralle ao usuario final unha serie de preguntas a próxima vez que o "
-"sistema se inicie."
+"config-prepare». Isto fará que se elimine temporalmente o seu usuario «oem» e "
+"faralle ao usuario final unha serie de preguntas a próxima vez que o sistema "
+"se inicie."
 
 #. Type: text
 #. Description

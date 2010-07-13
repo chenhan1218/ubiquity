@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-04-22 14:17+0000\n"
 "Last-Translator: Dooitze de Jong <Unknown>\n"
 "Language-Team: Frisian <fy@li.org>\n"
@@ -126,8 +126,8 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Jo kinne de <a href=\"release-notes\">ferzje-opmerkingen</a>lêze of <a "
-"href=\"update\">dit ynstallaasjeprogramma  bywurkje</a>."
+"Jo kinne de <a href=\"release-notes\">ferzje-opmerkingen</a>lêze of <a href="
+"\"update\">dit ynstallaasjeprogramma  bywurkje</a>."
 
 #. Type: text
 #. Description
@@ -147,7 +147,7 @@ msgstr "Jo kinne <a href=\"update\">dit ynstallaasjeprogramma  bywurkje</a>."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
 
 #. Type: text
@@ -631,12 +631,12 @@ msgstr "Ynstallearder fernield"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Wy binne spitich; de ynstallearder is fernield. Asjebleaft fier in nij "
 "flater rapport yn op https://launchpad.net/ubuntu/+source/ubiquity/+filebug "
@@ -998,9 +998,9 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Dit komt vaak troch in minne CD/DVD skiif as spiler. It kin helpje om de "
-"CD/DVD te reinigjen, om de CD/DVD by in legere snelheid te brânen, as om "
-"CD/DVD spieler lins te reinigjen (Reinigings setsjes binne vaak te krijen by "
+"Dit komt vaak troch in minne CD/DVD skiif as spiler. It kin helpje om de CD/"
+"DVD te reinigjen, om de CD/DVD by in legere snelheid te brânen, as om CD/DVD "
+"spieler lins te reinigjen (Reinigings setsjes binne vaak te krijen by "
 "elektronisyske saken)."
 
 #. Type: error
@@ -1031,9 +1031,9 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Dit komt vaak troch in minne CD/DVD skiif as spiler. It kin helpje om de "
-"CD/DVD te reinigjen, om de CD/DVD by in legere snelheid te brânen, as om "
-"CD/DVD spieler lins te reinigjen (Reinigings setsjes binne vaak te krijen by "
+"Dit komt vaak troch in minne CD/DVD skiif as spiler. It kin helpje om de CD/"
+"DVD te reinigjen, om de CD/DVD by in legere snelheid te brânen, as om CD/DVD "
+"spieler lins te reinigjen (Reinigings setsjes binne vaak te krijen by "
 "elektronisyske saken), as kontrolear as de skiif âld is en ferfangen wurde "
 "moat, as de systeem moat yn in kâlder omjouwing stean."
 
@@ -1196,12 +1196,12 @@ msgstr "De neikommende pakketten binne stikken:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 
 #. Type: error
@@ -1226,8 +1226,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1288,8 +1288,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 
 #. Type: boolean
@@ -1451,10 +1450,16 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language used for the configuration process. This "
+#| "language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
 msgstr ""
+"Kar in taal die brûkt wurd ûnder it ynstelle. Dizze taal sil de standerttaal "
+"wurde op dizze computer."
 
 #. Type: text
 #. Description

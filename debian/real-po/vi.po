@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-04-18 15:31+0000\n"
 "Last-Translator: Evan Dandrea <ev@ubuntu.com>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -127,16 +127,16 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Bạn có thể thích đọc <a href=\"release-notes\">thông tin về phiên bản "
-"này</a> hoặc <a href=\"update\">thông tin để cập nhật trình cài đặt này</a>."
+"Bạn có thể thích đọc <a href=\"release-notes\">thông tin về phiên bản này</"
+"a> hoặc <a href=\"update\">thông tin để cập nhật trình cài đặt này</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Bạn có thể thích đọc <a href=\"release-notes\">thông tin về phiên bản "
-"này</a>."
+"Bạn có thể thích đọc <a href=\"release-notes\">thông tin về phiên bản này</"
+"a>."
 
 #. Type: text
 #. Description
@@ -148,10 +148,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
 "Đây là phiên bản thử của trình cài đặt ${RELEASE} trên live ${MEDIUM}. Đây "
 "chưa phải là phiên bản cuối cùng của ${RELEASE}, sẽ được công bố vào tháng "
@@ -643,12 +648,12 @@ msgstr "Trình cài đặt đã bị hỏng"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Chúng tôi thành thật xin lỗi! Trình cài đặt đã bị hỏng. Vui lòng báo cho "
 "chúng tôi lỗi này tại https://launchpad.net/ubuntu/+source/ubiquity/+filebug "
@@ -1010,9 +1015,9 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Việc này xảy ra thường do lỗi CD/DVD hoặc ổ đĩa. Hãy thử lau CD/DVD, ghi "
-"CD/DVD với tốc độ chậm hơn, hoặc lau chùi mắt đọc CD/DVD (các dụng cụ lau "
-"chùi thường có bán tại các cửa hàng điện tử)"
+"Việc này xảy ra thường do lỗi CD/DVD hoặc ổ đĩa. Hãy thử lau CD/DVD, ghi CD/"
+"DVD với tốc độ chậm hơn, hoặc lau chùi mắt đọc CD/DVD (các dụng cụ lau chùi "
+"thường có bán tại các cửa hàng điện tử)"
 
 #. Type: error
 #. Description
@@ -1041,10 +1046,10 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Việc này xảy ra thường do lỗi CD/DVD hoặc ổ đĩa. Hãy thử lau CD/DVD, ghi "
-"CD/DVD với tốc độ chậm hơn, hoặc lau chùi mắt đọc CD/DVD (các dụng cụ lau "
-"chùi thường có bán tại các cửa hàng điện tử), thử kiểm tra tuổi thọ ổ đĩa, "
-"nếu cần hãy thay thế hoặc dời hệ thống sang chỗ giải nhiệt tốt hơn."
+"Việc này xảy ra thường do lỗi CD/DVD hoặc ổ đĩa. Hãy thử lau CD/DVD, ghi CD/"
+"DVD với tốc độ chậm hơn, hoặc lau chùi mắt đọc CD/DVD (các dụng cụ lau chùi "
+"thường có bán tại các cửa hàng điện tử), thử kiểm tra tuổi thọ ổ đĩa, nếu "
+"cần hãy thay thế hoặc dời hệ thống sang chỗ giải nhiệt tốt hơn."
 
 #. Type: select
 #. Description
@@ -1205,19 +1210,19 @@ msgstr "Những gói dưới đây ở trong trạng thái bị hỏng:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Lỗi có thể do sử dụng một ảnh đĩa của bộ cài đặt cũ, hoặc cũng có thể do lỗi "
-"trong gói cài đặt nào đó liệt kê ở trên. Chi tiết có thể xem ở "
-"/var/log/syslog. Bộ cài đặt sẽ tiếp tục mặc dù có thể không thành công, và "
-"sẽ không thể cài hay gỡ các gói cài đặt khác (có thể cả chính nó) khỏi máy "
-"sau khi cài đặt. Đầu tiên bạn nên kiếm một ảnh đĩa cài đặt mới hơn, hoặc tạm "
-"dừng cài đặt và thông báo lỗi cho nhà phân phối."
+"trong gói cài đặt nào đó liệt kê ở trên. Chi tiết có thể xem ở /var/log/"
+"syslog. Bộ cài đặt sẽ tiếp tục mặc dù có thể không thành công, và sẽ không "
+"thể cài hay gỡ các gói cài đặt khác (có thể cả chính nó) khỏi máy sau khi "
+"cài đặt. Đầu tiên bạn nên kiếm một ảnh đĩa cài đặt mới hơn, hoặc tạm dừng "
+"cài đặt và thông báo lỗi cho nhà phân phối."
 
 #. Type: error
 #. Description
@@ -1241,15 +1246,15 @@ msgstr "Đã gặp lỗi trong khi di chuyển những tài liệu và cấu hì
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Đã gặp lỗi sai trong khi di chuyển số liệu. Thêm chi tiết đã ghi vào "
-"/var/log/syslog. Cuộc cài đặt sẽ tiếp tục, tuy nhiên một số tài liệu và "
-"thiết lập cấu hình mà bạn đã yêu cầu di chuyển có thể sẽ không có trong hệ "
-"thống đang cài đặt."
+"Đã gặp lỗi sai trong khi di chuyển số liệu. Thêm chi tiết đã ghi vào /var/"
+"log/syslog. Cuộc cài đặt sẽ tiếp tục, tuy nhiên một số tài liệu và thiết lập "
+"cấu hình mà bạn đã yêu cầu di chuyển có thể sẽ không có trong hệ thống đang "
+"cài đặt."
 
 #. Type: error
 #. Description
@@ -1312,8 +1317,7 @@ msgstr "Vui lòng đóng các ứng dụng đang sử dụng các điểm gắn 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "Bạn có muốn chương trình cài đặt cố gỡ bỏ các phân vùng này?"
 
 #. Type: boolean
@@ -1479,9 +1483,13 @@ msgstr "CD"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language to use for the install process. This\n"
+#| " Language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
 msgstr ""
 "Hãy chọn ngôn ngữ sử dụng trong quá trình cài đặt.\n"
 "Ngôn ngữ này sẽ là ngôn ngữ mặc định của máy."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-04-20 08:56+0000\n"
 "Last-Translator: Iryna Nikanchuk <defragbrain@gmail.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -128,16 +128,16 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Магчыма Вы жадаеце прачытаць <a href=\"release-notes\">нататкі да "
-"выпуску</a> або <a href=\"update\">абнавіць гэты ўсталёўшчык</a>."
+"Магчыма Вы жадаеце прачытаць <a href=\"release-notes\">нататкі да выпуску</"
+"a> або <a href=\"update\">абнавіць гэты ўсталёўшчык</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Магчыма Вы жадаеце прачытаць <a href=\"release-notes\">нататкі да "
-"выпуску</a>."
+"Магчыма Вы жадаеце прачытаць <a href=\"release-notes\">нататкі да выпуску</"
+"a>."
 
 #. Type: text
 #. Description
@@ -148,10 +148,15 @@ msgstr "Магчыма Вы жадаеце <a href=\"update\">абнавіць �
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
 "Гэта тэставы выпуск ${RELEASE} live ${MEDIUM} усталёўкі. Гэта не фінальны "
 "выпуск! Фінальны выпуск ${RELEASE} з'явіцца ў красавіку 2010 г."
@@ -642,12 +647,12 @@ msgstr "Праграма усталёўкі аварыйна спынена"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Прабачце, праграма усталёўкі аварыйна спынена. Калі ласка, паведамце аб "
 "памылцы на https://launchpad.net/ubuntu/+source/ubiquity/+filebug (не "
@@ -1208,12 +1213,12 @@ msgstr "Наступныя пакункі ў пашкоджаным стане:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Гэта магло здарыцца па прычыне выкарыстаньня састарэлага усталявальнага "
 "вобразу, альбо з прычыны памылкі ў некаторых пакетах, пералічаных вышэй. "
@@ -1247,14 +1252,14 @@ msgstr "Памылка міграцыі дакумэнтаў і наладак"
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Узьнікла памылка пры пераносе даньняў. Падрабязнасьці можна знайсьці ў "
-"/var/log/syslog. Усталёўка будзе працягнута, але некаторыя альбо ўсе "
-"дакумэнты і наладкі ня могуць быць перанесены ва ўсталёўваемую сыстэму."
+"Узьнікла памылка пры пераносе даньняў. Падрабязнасьці можна знайсьці ў /var/"
+"log/syslog. Усталёўка будзе працягнута, але некаторыя альбо ўсе дакумэнты і "
+"наладкі ня могуць быць перанесены ва ўсталёўваемую сыстэму."
 
 #. Type: error
 #. Description
@@ -1319,8 +1324,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Ці жадаеце, каб усталёўнік яшчэ раз паспрабаваў адмантаваць гэтыя падзелы?"
 
@@ -1487,9 +1491,13 @@ msgstr "CD"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language to use for the install process. This\n"
+#| " Language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
 msgstr ""
 "Калі ласка выберыце мову, якая будзе выкарыстоўвацца падчас інсталяцыі. "
 "Гэтая\n"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-03-23 16:52+0000\n"
 "Last-Translator: Miro Glavić <glavicmiro@gmail.com>\n"
 "Language-Team: Bosnian <lokal@linux.org.ba>\n"
@@ -142,7 +142,7 @@ msgstr ""
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
 
 #. Type: text
@@ -504,8 +504,7 @@ msgstr "Detalji"
 #: ../ubiquity.templates:73001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
-"Vaš novi operativni sistem će se instalirati sa slijedećim postavkama:"
+msgstr "Vaš novi operativni sistem će se instalirati sa slijedećim postavkama:"
 
 #. Type: text
 #. Description
@@ -626,12 +625,12 @@ msgstr "Program za instaliranje je pukao"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Žao nam je, program za instalaciju je pukao. Molim, javite novi izvještaj o "
 "grešci na https://launchpad.net/ubuntu/+source/ubiquity/+filebug(nemojte "
@@ -1192,16 +1191,16 @@ msgstr "Sljedeći paketi su u neispravnom stanju:"
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Ovo može biti zato što koristite stari program za instalaciju ilizbog "
-"grešaka u navedenim paketima. Više detalja o ovome možete naćiu datoteci "
-"/var/log/syslog. Program za instalaciju će pokušati da nastaviali može "
+"grešaka u navedenim paketima. Više detalja o ovome možete naćiu datoteci /"
+"var/log/syslog. Program za instalaciju će pokušati da nastaviali može "
 "otkazati u nekom kasnijem trenutku i možda neće moći dainstalira ili ukloni "
 "druge pakete (uključujući i sebe samog) sainstaliranog sistema. Prvo bi "
 "trebalo da pogledata da li postoji novijaverzija programa za instalaciju "
@@ -1229,8 +1228,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1294,8 +1293,7 @@ msgstr "Molim, zatvorite sve aplikacije koje koriste ove tačke montiranja."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Da li želite da program za instalaciju proba da ponovo otkači ove particije?"
 
@@ -1460,10 +1458,16 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language used for the configuration process. This "
+#| "language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
 msgstr ""
+"Odaberite jezik koji će se koristiti za proces konfiguracije, Taj jezik će "
+"biti podrazumijevani jezik za ovaj računar."
 
 #. Type: text
 #. Description

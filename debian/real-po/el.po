@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-04-14 17:23+0100\n"
+"POT-Creation-Date: 2010-06-25 17:10+0100\n"
 "PO-Revision-Date: 2010-04-18 15:32+0000\n"
 "Last-Translator: Μάριος Ζηντίλης <m.zindilis@dmajor.org>\n"
 "Language-Team: <en@li.org>\n"
@@ -127,17 +127,16 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Ίσως θέλετε να διαβάσετε τις <a href=\"release-notes\">σημειώσεις "
-"έκδοσης</a> ή να <a href=\"update\">ενημερώσετε το πρόγραμμα "
-"εγκατάστασης</a>."
+"Ίσως θέλετε να διαβάσετε τις <a href=\"release-notes\">σημειώσεις έκδοσης</"
+"a> ή να <a href=\"update\">ενημερώσετε το πρόγραμμα εγκατάστασης</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Ίσως θέλετε να διαβάσετε τις <a href=\"release-notes\">σημειώσεις "
-"έκδοσης</a>."
+"Ίσως θέλετε να διαβάσετε τις <a href=\"release-notes\">σημειώσεις έκδοσης</"
+"a>."
 
 #. Type: text
 #. Description
@@ -149,10 +148,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2010."
+"October 2010."
 msgstr ""
 "Αυτή είναι μια προέκδοση του προγράμματος εγκατάστασης του ${RELEASE} live "
 "${MEDIUM}. Δεν είναι η τελική έκδοση. Αυτή θα έρθει με την τελική έκδοση του "
@@ -297,8 +301,7 @@ msgstr "Πλήρες όνομα"
 #. Description
 #: ../ubiquity.templates:41001
 msgid "What name do you want to use to log in?"
-msgstr ""
-"Τι όνομα χρήστη θέλετε να χρησιμοποιήσετε για την είσοδο στο σύστημα;"
+msgstr "Τι όνομα χρήστη θέλετε να χρησιμοποιήσετε για την είσοδο στο σύστημα;"
 
 #. Type: text
 #. Description
@@ -508,8 +511,7 @@ msgstr "Προετοιμασία κατατμήσεων"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:70001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
-"Αυτό θα διαγράψει το/τα ${SYSTEMS} και θα εγκαταστήσει το ${RELEASE}."
+msgstr "Αυτό θα διαγράψει το/τα ${SYSTEMS} και θα εγκαταστήσει το ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -657,20 +659,20 @@ msgstr "Η διαδικασία εγκατάστασης απέτυχε"
 #. Description
 #: ../ubiquity.templates:93001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at "
-"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
-"details to any existing bug) and a developer will attend to the problem as "
-"soon as possible. To help the developers understand what went wrong, include "
-"the following detail in your bug report, and attach the files "
-"/var/log/syslog and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
 msgstr ""
 "Λοιπούμαστε, η εγκατάσταση απέτυχε. Παρακαλώ κάντε αναφορά του σφάλματος στο "
 "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (μην επισυνάψετε τις "
 "λεπτομέρειες σε ήδη υπάρχουσα αναφορά) και κάποιος προγραμματιστής θα "
 "επιμεληθεί του προβλήματος το συντομότερο δυνατόν. Για να βοηθήσετε τους "
 "προγραμματιστές να καταλάβουν τι πήγε στραβά συμπεριλάβετε τις ακόλουθες "
-"πληροφορίες στην αναφορά σας και επισυνάψτε τα αρχεία /var/log/syslog και "
-"/var/log/partman:"
+"πληροφορίες στην αναφορά σας και επισυνάψτε τα αρχεία /var/log/syslog και /"
+"var/log/partman:"
 
 #. Type: text
 #. Description
@@ -1066,12 +1068,11 @@ msgid ""
 "replacement, or to move the system to a cooler environment."
 msgstr ""
 "Αυτό συνήθως οφείλεται σε ένα ελαττωματικό δίσκο ή μονάδα δίσκου CD/DVD ή "
-"σκληρό δίσκο. Ίσως βοηθούσε αν καθαρίζατε το δίσκο CD/DVD, αν γράφατε το "
-"CD/DVD σε χαμηλότερη ταχύτητα, αν καθαρίζατε την κεφαλή της μονάδας δίσκου "
-"CD/DVD (συνήθως τα σετ καθαρισμού είναι διαθέσιμα σε καταστήματα "
-"ηλεκτρονικών). Επίσης αν ελέγχατε την παλαιότητα του σκληρού δίσκου και αν "
-"αυτός χρίζει αντικατάστασης ή αν μετακίνούσατε το σύστημα σε ψυχρότερο "
-"περιβάλλον."
+"σκληρό δίσκο. Ίσως βοηθούσε αν καθαρίζατε το δίσκο CD/DVD, αν γράφατε το CD/"
+"DVD σε χαμηλότερη ταχύτητα, αν καθαρίζατε την κεφαλή της μονάδας δίσκου CD/"
+"DVD (συνήθως τα σετ καθαρισμού είναι διαθέσιμα σε καταστήματα ηλεκτρονικών). "
+"Επίσης αν ελέγχατε την παλαιότητα του σκληρού δίσκου και αν αυτός χρίζει "
+"αντικατάστασης ή αν μετακίνούσατε το σύστημα σε ψυχρότερο περιβάλλον."
 
 #. Type: select
 #. Description
@@ -1232,12 +1233,12 @@ msgstr "Τα παρακάτω πακέτα εφαρμογών είναι σε π
 #: ../ubiquity.templates:166001 ../ubiquity.templates:167001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Αυτό ίσως να συμβαίνει λόγω χρήσης παλιού image εγκατάστασης, ή λόγω λάθους "
 "σε κάποια από τα πακέτα που αναφέρονται παρακάτω. Περισσότερες λεπτομέρειες "
@@ -1269,8 +1270,8 @@ msgstr "Σφάλμα μεταφοράς εγγράφων και ρυθμίσεω
 #. Description
 #: ../ubiquity.templates:168001
 msgid ""
-"An error occurred while migrating data.  More details may be found in "
-"/var/log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in /var/"
+"log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1342,8 +1343,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:184001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Θέλετε η εφαρμογή εγκατάστασης, να αποπροσαρτήσει  τις συγκεκριμένες "
 "κατατμήσεις?"
@@ -1515,9 +1515,13 @@ msgstr "CD"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
+#, fuzzy
+#| msgid ""
+#| "Please choose the language to use for the install process. This\n"
+#| " Language will be the default language for this computer."
 msgid ""
-"Please choose the language to use for the install process. This\n"
-" Language will be the default language for this computer."
+"Please choose the language to use for the install process. This language "
+"will be the default language for this computer."
 msgstr ""
 "Παρακαλώ επιλέξτε τη γλώσσα της διαδικασίας εγκατάστασης.\n"
 "Αυτή η γλώσσα θα είναι η προεπιλεγμένη για αυτόν τον υπολογιστή."
