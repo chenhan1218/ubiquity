@@ -1,3 +1,11 @@
+ubiquity (2.3.3) UNRELEASED; urgency=low
+
+  * Disable the "Installing the System" title before Ubiquity comes up
+    in automatic mode to prevent confusion before it actually does damage
+    in case there are any confirmation screens that should come up first.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 13 Jul 2010 11:45:45 -0500
+
 ubiquity (2.3.2) maverick; urgency=low
 
   * Cause 'compat/udpkg --print-os' to always print 'linux' (LP: #600244).
