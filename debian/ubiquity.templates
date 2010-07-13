@@ -1086,6 +1086,11 @@ Template: ubiquity/text/part_auto_split_largest_partition
 Type: text
 _Description: Split Largest Partition
 
+Template: ubiquity/online
+Type: boolean
+# Whether or not there is an Internet connection
+Description: for internal use
+
 # KDE specific
 
 Template: ubiquity/text/keyboard_layout_label

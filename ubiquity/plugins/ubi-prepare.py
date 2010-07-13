@@ -57,6 +57,7 @@ class PageGtk(PluginUI):
             self.page = builder.get_object('stepPrepare')
             self.prepare_download_updates = builder.get_object('prepare_download_updates')
             self.prepare_nonfree_software = builder.get_object('prepare_nonfree_software')
+            # TODO we should set these up and tear them down while on this page.
             try:
                 self.prepare_power_source = builder.get_object('prepare_power_source')
                 self.setup_power_watch()
@@ -109,6 +110,7 @@ class PageGtk(PluginUI):
             gobject.source_remove(self.timeout_id)
         self.timeout_id = gobject.timeout_add(300, self.check_returncode)
 
+    @only_this_page
     def check_returncode(self, *args):
         import subprocess
         if self.wget_retcode is not None or self.wget_proc is None:
@@ -118,7 +120,9 @@ class PageGtk(PluginUI):
         if self.wget_retcode is None:
             return True
         else:
-            self.prepare_network_connection.set_state(self.wget_retcode == 0)
+            state = self.wget_retcode == 0
+            self.prepare_network_connection.set_state(state)
+            self.controller.dbfilter.set_online_state(state)
     
     def set_download_updates(self, val):
         self.prepare_download_updates.set_active(val)
@@ -148,4 +152,7 @@ class Page(Plugin):
         self.preseed_bool('ubiquity/use_nonfree', use_nonfree)
         self.preseed_bool('ubiquity/download_updates', download_updates)
         Plugin.ok_handler(self)
+
+    def set_online_state(self, state):
+        self.preseed_bool('ubiquity/online', state)
 

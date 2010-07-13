@@ -29,13 +29,9 @@ WEIGHT = 10
 # to skip the page.
 # TODO on run(), check for a wireless card, and then for APs.  If none, go to
 # next page.
-# TODO skip if we have an existing connection (ubuntu.com/hiya)?
 class PageGtk(PluginUI):
     plugin_title = 'ubiquity/text/wireless_heading_label'
     def __init__(self, controller, *args, **kwargs):
-        if 'UBIQUITY_AUTOMATIC' in os.environ:
-            self.page = None
-            return
         self.controller = controller
         try:
             import gtk
@@ -44,7 +40,42 @@ class PageGtk(PluginUI):
             builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepWireless.ui'))
             builder.connect_signals(self)
             self.page = builder.get_object('stepWireless')
+            self.wirelesswidget = builder.get_object('wirelesswidget')
         except Exception, e:
             self.debug('Could not create prepare page: %s', e)
             self.page = None
         self.plugin_widgets = self.page
+
+    def set_ssid(self, ssid):
+        self.wirelesswidget.scan()
+        # TODO select ssid
+
+
+class Page(Plugin):
+    def prepare(self):
+        return (['/usr/share/ubiquity/simple-plugins', 'wireless'], ['ubiquity/ssid'])
+
+    def run(self, priority, question):
+        try:
+            # TODO if ubi-prepare sets online question, self.done = True
+            #import dbus
+            #bus = dbus.SystemBus()
+            #o = bus.get_object(WM, WM_PATH)
+            #self.interface = dbus.Interface(o, WM)
+            #if not self.interface.HardwarePresent():
+            #    self.done = True
+            pass
+        except Exception, e:
+            print 'caught exception', e
+            self.done = True
+        # Support key type and key as well
+        #ssid = self.db.get('ubiquity/ssid')
+        #self.ui.set_ssid(ssid)
+
+        return Plugin.run(self, priority, question)
+
+    def ok_handler(self):
+        #ssid = self.ui.get_ssid()
+        #self.preseed('ubiquity/ssid', ssid)
+        Plugin.ok_handler(self)
+

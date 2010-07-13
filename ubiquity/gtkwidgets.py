@@ -822,14 +822,6 @@ class WirelessTreeView(gtk.TreeView):
 
         self.cache = {}
         self.bus = bus
-        o = self.bus.get_object(WM, WM_PATH)
-        self.interface = dbus.Interface(o, WM)
-        for ap in self.interface.GetAPs():
-            self.cache[ap] = self.interface.GetProperties(ap)
-            self.model.append([ap])
-        self.bus.add_signal_receiver(self.strength_changed, 'StrengthChanged', WM, WM)
-        self.bus.add_signal_receiver(self.added, 'Added', WM, WM)
-        self.bus.add_signal_receiver(self.removed, 'Removed', WM, WM)
         self.set_headers_visible(False)
 
         col = gtk.TreeViewColumn()
@@ -848,7 +840,17 @@ class WirelessTreeView(gtk.TreeView):
             ico = it.lookup_icon(n, 22, 0)
             ico = ico.load_icon()
             self.icons[n] = ico
-    
+
+    def scan(self):
+        o = self.bus.get_object(WM, WM_PATH)
+        self.interface = dbus.Interface(o, WM)
+        for ap in self.interface.GetAPs():
+            self.cache[ap] = self.interface.GetProperties(ap)
+            self.model.append([ap])
+        self.bus.add_signal_receiver(self.strength_changed, 'StrengthChanged', WM, WM)
+        self.bus.add_signal_receiver(self.added, 'Added', WM, WM)
+        self.bus.add_signal_receiver(self.removed, 'Removed', WM, WM)
+
     def do_expose_event(self, event):
         # TODO if connecting ...
         # Use an offscreen window to create the overlay.

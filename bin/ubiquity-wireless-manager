@@ -38,6 +38,7 @@ NM_SETTINGS_CONNECTION_SECRETS = 'org.freedesktop.NetworkManagerSettings.Connect
 
 # NOTE We pay attention to existing passphrases and connections because the
 # user may have already connected to the wireless network using the panel.
+
 class Manager(dbus.service.Object):
     def __init__(self, bus):
         self.bus = bus
@@ -56,6 +57,7 @@ class Manager(dbus.service.Object):
             obj = bus.get_object(NM, dev)
             props = dbus.Interface(obj, PROPS)
             if props.Get(NM_DEV, 'DeviceType') == DEVICE_TYPE_WIFI:
+                # TODO set internal property HasHardware to true, watch for changes. 
                 self.devices.append(dev)
                 obj = dbus.Interface(obj, NM_DEV_WIFI)
                 for ap in obj.GetAccessPoints():
