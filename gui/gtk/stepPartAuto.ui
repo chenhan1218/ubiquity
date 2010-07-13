@@ -142,6 +142,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <signal name="clicked" handler="part_auto_use_entire_partition_clicked"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
