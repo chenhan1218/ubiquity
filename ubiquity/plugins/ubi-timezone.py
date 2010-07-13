@@ -88,6 +88,12 @@ class PageGtk(PluginUI):
         for pair in region_pairs:
             m.append(pair)
 
+        # TODO iterate over the regions and *just* add the cities to the model.
+        # TODO maybe keep a drop down for manual selection (with a menu fold
+        # out for each region) and have the standard autocomplete drop down as
+        # well.
+        # gtk-demo has an example of a combobox with a fold out menu.
+
     @only_this_page
     def select_country(self, country):
         def country_is_in_region(country, region):
@@ -429,6 +435,7 @@ class Page(Plugin):
             # first choice in the list.
             if not zone:
                 choices_c = self.choices_untranslated(question)
+                print 'CHOICES_C', choices_c
                 if choices_c:
                     zone = choices_c[0]
             self.ui.set_timezone(zone)
