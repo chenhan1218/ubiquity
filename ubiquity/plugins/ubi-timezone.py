@@ -43,9 +43,7 @@ class PageGtk(PluginUI):
             builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepLocation.ui'))
             builder.connect_signals(self)
             self.page = builder.get_object('stepLocation')
-            #self.region_combo = builder.get_object('timezone_zone_combo')
             self.city_entry = builder.get_object('timezone_city_combo')
-            self.menu_button = builder.get_object('timezone_menu_button')
             self.map_window = builder.get_object('timezone_map_window')
             self.setup_page()
         except Exception, e:
@@ -74,19 +72,11 @@ class PageGtk(PluginUI):
 
     @only_this_page
     def fill_timezone_boxes(self):
-        # TODO use an icon of three grey lines (menu items) for the menu button
-        # instead.
         import gtk, gobject
         tz = self.controller.dbfilter
 
         # Regions are a translated shortlist of regions, followed by full list
         m = gtk.TreeStore(gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING)
-        #self.city_combo.set_model(m)
-        #renderer = gtk.CellRendererText()
-        #self.city_combo.pack_start(renderer, True)
-        #self.city_combo.set_text_column(0)
-        #self.city_combo.set_row_separator_func(is_separator)
-        #self.city_combo.set_wrap_width(1)
 
         lang = os.environ['LANG'].split('_', 1)[0]
         region_pairs = tz.build_shortlist_region_pairs(lang)
@@ -122,11 +112,6 @@ class PageGtk(PluginUI):
                 m.append(i, pair + (None,))
                 #print 'longlist pair', pair
             i = m.iter_next(i)
-
-        def is_separator(m, i):
-            return m[i][0] is None
-        self.menu_button.set_row_separator_func(is_separator)
-        self.menu_button.set_model(m)
 
     @only_this_page
     def select_country(self, country):

@@ -33,7 +33,6 @@
    <glade-widget-class title="GreyableBin" name="GreyableBin" generic-name="greyablebin"/>
    <glade-widget-class title="WirelessWidget" name="WirelessWidget" generic-name="wirelesswidget"/>
    <glade-widget-class title="DiskBox" name="DiskBox" generic-name="diskbox"/>
-   <glade-widget-class title="MenuButton" name="MenuButton" generic-name="menubutton"/>
  </glade-widget-classes>
 
  <glade-widget-group name="ubiquity" title="Ubiquity">
@@ -46,6 +45,5 @@
    <glade-widget-class-ref name="GreyableBin"/>
    <glade-widget-class-ref name="WirelessWidget"/>
    <glade-widget-class-ref name="DiskBox"/>
-   <glade-widget-class-ref name="MenuButton"/>
  </glade-widget-group>
 </glade-catalog>

@@ -24,32 +24,11 @@
         <property name="left_padding">10</property>
         <property name="right_padding">10</property>
         <child>
-          <object class="GtkHBox" id="hbox1">
+          <object class="LabelledEntry" id="timezone_city_entry">
             <property name="visible">True</property>
-            <property name="spacing">6</property>
-            <child>
-              <object class="LabelledEntry" id="timezone_city_entry">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">&#x2022;</property>
-                <property name="label">[type here to change]</property>
-              </object>
-              <packing>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="MenuButton" id="timezone_menu_button">
-                <property name="label" translatable="yes">List</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
+            <property name="can_focus">True</property>
+            <property name="invisible_char">&#x2022;</property>
+            <property name="label">[type here to change]</property>
           </object>
         </child>
       </object>
