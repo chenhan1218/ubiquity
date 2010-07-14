@@ -3,6 +3,7 @@ ubiquity (2.3.3) UNRELEASED; urgency=low
   * Disable the "Installing the System" title before Ubiquity comes up
     in automatic mode to prevent confusion before it actually does damage
     in case there are any confirmation screens that should come up first.
+  * Allow setting a custom title via ubiquity/custom_title_text.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 13 Jul 2010 11:45:45 -0500
 

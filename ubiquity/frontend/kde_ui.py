@@ -300,7 +300,9 @@ class Wizard(BaseFrontend):
         self.stop_debconf()
         self.translate_widgets(reget=True)
 
-        if self.oem_config:
+        if self.custom_title:
+            self.ui.setWindowTitle(self.custom_title)
+        elif self.oem_config:
             self.ui.setWindowTitle(self.get_string('oem_config_title'))
         elif self.oem_user_config:
             self.ui.setWindowTitle(self.get_string('oem_user_config_title'))

@@ -586,7 +586,9 @@ class Wizard(BaseFrontend):
 
         self.live_installer.connect('size-request', self.win_size_req)
 
-        if self.oem_config:
+        if self.custom_title:
+            self.live_installer.set_title(self.custom_title)
+        elif self.oem_config:
             self.live_installer.set_title(self.get_string('oem_config_title'))
         elif self.oem_user_config:
             self.live_installer.set_title(self.get_string('oem_user_config_title'))

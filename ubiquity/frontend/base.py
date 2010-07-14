@@ -111,6 +111,11 @@ class BaseFrontend:
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
           self.oem_user_config = True
 
+        try:
+            self.custom_title = self.db.get('ubiquity/custom_title_text')
+        except debconf.DebconfError:
+            self.custom_title = False
+
         self.oem_config = False
         if not self.oem_user_config:
             try:

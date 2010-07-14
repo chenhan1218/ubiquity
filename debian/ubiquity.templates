@@ -1124,3 +1124,8 @@ Template: ubiquity/reboot_on_failure
 Type: boolean
 Default: true
 Description: for internal use; automatically reboot when the install fails.
+
+Template: ubiquity/custom_title_text
+Type: string
+Description: for internal use; sets a custom title on installation windows.
+
