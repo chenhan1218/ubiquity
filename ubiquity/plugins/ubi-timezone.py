@@ -44,7 +44,8 @@ class PageGtk(PluginUI):
             builder.connect_signals(self)
             self.page = builder.get_object('stepLocation')
             #self.region_combo = builder.get_object('timezone_zone_combo')
-            self.city_combo = builder.get_object('timezone_city_combo')
+            self.city_entry = builder.get_object('timezone_city_combo')
+            self.menu_button = builder.get_object('timezone_menu_button')
             self.map_window = builder.get_object('timezone_map_window')
             self.setup_page()
         except Exception, e:
@@ -61,38 +62,71 @@ class PageGtk(PluginUI):
         self.tzmap.set_time_format(fmt)
 
     def set_timezone(self, timezone):
-        #self.fill_timezone_boxes()
+        self.fill_timezone_boxes()
         self.select_city(None, timezone)
 
     def get_timezone(self):
-        i = self.city_combo.get_active()
-        m = self.city_combo.get_model()
+        #i = self.city_combo.get_active()
+        #m = self.city_combo.get_model()
         # FIXME
         return 'America/New_York'
         #return m[i][1]
 
     @only_this_page
     def fill_timezone_boxes(self):
-        m = self.region_combo.get_model()
+        # TODO use an icon of three grey lines (menu items) for the menu button
+        # instead.
+        import gtk, gobject
         tz = self.controller.dbfilter
 
         # Regions are a translated shortlist of regions, followed by full list
-        m.clear()
+        m = gtk.TreeStore(gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING)
+        #self.city_combo.set_model(m)
+        #renderer = gtk.CellRendererText()
+        #self.city_combo.pack_start(renderer, True)
+        #self.city_combo.set_text_column(0)
+        #self.city_combo.set_row_separator_func(is_separator)
+        #self.city_combo.set_wrap_width(1)
+
         lang = os.environ['LANG'].split('_', 1)[0]
         region_pairs = tz.build_shortlist_region_pairs(lang)
+        print 'region_pairs one', region_pairs
         if region_pairs:
             for pair in region_pairs:
-                m.append(pair)
-            m.append([None, None, None])
+                m.append(None, pair)
+            m.append(None, [None, None, None])
         region_pairs = tz.build_region_pairs()
+        print 'region_pairs two', region_pairs
         for pair in region_pairs:
-            m.append(pair)
+            m.append(None, pair)
 
-        # TODO iterate over the regions and *just* add the cities to the model.
-        # TODO maybe keep a drop down for manual selection (with a menu fold
-        # out for each region) and have the standard autocomplete drop down as
-        # well.
-        # gtk-demo has an example of a combobox with a fold out menu.
+        # cities
+        i = m.get_iter_first()
+        while i:
+            if m[i][1]:
+                countries = [m[i][1]]
+            else:
+                countries = self.controller.dbfilter.get_countries_for_region(m[i][2])
+
+            # TODO once we've ported kde over, have this function return a 3-tuple
+            # TODO make this append just a name and key, since we're building
+            # the entire structure at once. 
+            shortlist, longlist = self.controller.dbfilter.build_timezone_pairs(countries)
+            for pair in shortlist:
+                m.append(i, pair + (None,))
+                #print 'shortlist pair', pair
+            if shortlist:
+                m.append(i, [None, None, None])
+                #print 'divider'
+            for pair in longlist:
+                m.append(i, pair + (None,))
+                #print 'longlist pair', pair
+            i = m.iter_next(i)
+
+        def is_separator(m, i):
+            return m[i][0] is None
+        self.menu_button.set_row_separator_func(is_separator)
+        self.menu_button.set_model(m)
 
     @only_this_page
     def select_country(self, country):

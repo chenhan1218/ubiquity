@@ -969,7 +969,115 @@ class WirelessWidget(gtk.VBox):
 
 gobject.type_register(WirelessWidget)
 
+class MenuButton(gtk.ToggleButton):
+    '''A ToggleButton with a down arrow and label or image that pops up a menu
+    when pressed.
     
+    Gtk.MenuToolButton does not fill the need for this widget because it treats
+    the image or icon and the arrow as separate buttons, whereas this widget
+    packs them together in a single button.'''
+
+    __gtype_name__ = 'MenuButton'
+    __gproperties__ = {
+        'label'  : (gobject.TYPE_STRING,
+                    'Label',
+                    None,
+                    'label', gobject.PARAM_READWRITE),
+    }
+    def __init__(self, label=None, use_underline=True, model=None):
+        gtk.ToggleButton.__init__(self, None, use_underline)
+        self.row_separator_func = None
+        self.model = model
+        self.add(gtk.HBox())
+        self.label = gtk.Label(label)
+        self.icon = gtk.Image()
+        self.icon.set_from_file('/srv/ubiquity/menu.png')
+        arrow = gtk.Arrow(gtk.ARROW_DOWN, gtk.SHADOW_NONE)
+        #self.child.add(self.label)
+        self.child.pack_start(self.icon, expand=False)
+        self.child.pack_start(arrow, expand=False)
+        self.show_all()
+
+        self.menu = gtk.Menu()
+        def func(*args):
+            print 'menu key-press-event', args
+        self.menu.connect('key-press-event', func)
+        self.menu.attach_to_widget(self, self.detached)
+        self.menu.show()
+    def detached(self, *args):
+        print 'should never get here'
+
+    def do_toggled(self):
+        def f(*args):
+            x, y = self.child.window.get_root_origin()
+            x += self.child.allocation.x
+            y += self.child.allocation.y
+            print 'x, y', x, y
+            return (x, y, True)
+        if self.get_active():
+            self.menu.popup(None, None, f, 0, 0)
+        else:
+            self.menu.popdown()
+
+    def do_set_property(self, prop, val):
+        if prop.name == 'label' and val:
+            self.label.set_text(val)
+
+    def do_get_property(self, prop):
+        if prop.name == 'label':
+            self.label.get_text()
+
+    def set_model(self, model):
+        self.model = model
+        self.fill_level(self.menu, None)
+
+    def set_row_separator_func(self, func):
+        self.row_separator_func = func
+
+    def new_menu_item(self, iterator):
+        cv = gtk.CellView()
+        item = gtk.MenuItem()
+        item.add(cv)
+
+        cv.set_model(self.model)
+        path = self.model.get_path(iterator)
+        cv.set_displayed_row(path)
+
+        # TODO move this into its own pack_start function that recurses the
+        # tree?
+        renderer = gtk.CellRendererText()
+        cv.pack_start(renderer, True)
+        # TODO move this into its own add_attribute function that recurses the
+        # tree?
+        cv.add_attribute(renderer, 'text', 0)
+
+        cv.size_request()
+        cv.show()
+
+        return item
+
+    def fill_level(self, menu, parent):
+        if not self.model:
+            return
+        i = self.model.iter_children(parent)
+        while i is not None:
+            item = None
+            if (callable(self.row_separator_func) and
+                self.row_separator_func(self.model, i)):
+                item = gtk.MenuItem()
+            else:
+                item = self.new_menu_item(i)
+            if self.model.iter_has_child(i):
+                submenu = gtk.Menu()
+                submenu.show()
+                item.set_submenu(submenu)
+                self.fill_level(submenu, i)
+            menu.append(item)
+            item.show()
+            i = self.model.iter_next(i)
+
+gobject.type_register(MenuButton)
+
 if __name__ == "__main__":
     options = ('that you have at least 3GB available drive space',
                'that you are plugged in to a power source',
@@ -1021,6 +1129,8 @@ if __name__ == "__main__":
     #b.add(a)
     wireless = WirelessWidget()
     a.pack_start(wireless)
+    mb = MenuButton('Test Menu')
+    a.pack_start(mb)
     w.add(a)
     w.show_all()
     gtk.main()
