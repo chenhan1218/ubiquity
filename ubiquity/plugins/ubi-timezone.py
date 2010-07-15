@@ -46,6 +46,7 @@ class PageGtk(PluginUI):
             self.city_entry = builder.get_object('timezone_city_entry')
             self.map_window = builder.get_object('timezone_map_window')
             self.setup_page()
+            self.timezone = None
         except Exception, e:
             print e
             self.debug('Could not create timezone page: %s', e)
@@ -65,11 +66,7 @@ class PageGtk(PluginUI):
         self.select_city(None, timezone)
 
     def get_timezone(self):
-        #i = self.city_combo.get_active()
-        #m = self.city_combo.get_model()
-        #return m[i][1]
-        # FIXME need to get this from the map.
-        return 'America/New_York'
+        return self.timezone
 
     @only_this_page
     def fill_timezone_boxes(self):
@@ -140,7 +137,10 @@ class PageGtk(PluginUI):
         loc = self.tzdb.get_loc(city)
         self.tzmap.select_city(city)
         if not loc:
-            return
+            self.controller.allow_go_forward(False)
+        else:
+            self.timezone = city
+
 
         #self.select_country(loc.country)
 
@@ -200,7 +200,6 @@ class PageGtk(PluginUI):
                 model = changed.cache[text]
             else:
                 # fetch
-                # FIXME  type_float for lat/lon
                 model = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING,
                                       gobject.TYPE_STRING, gobject.TYPE_STRING,
                                       gobject.TYPE_STRING)
