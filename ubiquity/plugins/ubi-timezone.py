@@ -140,6 +140,7 @@ class PageGtk(PluginUI):
             self.controller.allow_go_forward(False)
         else:
             self.timezone = city
+            self.controller.allow_go_forward(True)
 
 
         #self.select_country(loc.country)
