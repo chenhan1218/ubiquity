@@ -491,6 +491,7 @@ class LabelledEntry(gtk.Entry):
         # XXX don't use self.inactive_color for now as it's too dark.
         layout.set_markup('<span foreground="%s">%s</span>' %
             ('#b8b1a8', self.label))
+        # FIXME RTL support
         if self.persist:
             w = self.get_layout().get_pixel_size()[0] + 6 # padding
         else:
