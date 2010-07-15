@@ -438,22 +438,32 @@ class LabelledEntry(gtk.Entry):
                     'Label',
                     None,
                     'label', gobject.PARAM_READWRITE),
+        'persist' : (gobject.TYPE_BOOLEAN,
+                     'Persist', 'Show the label even when there is text.',
+                     False,
+                     gobject.PARAM_READWRITE),
     }
 
     def do_get_property(self, prop):
         if prop.name == 'label':
             return self.get_label()
-        return getattr(self, prop.name)
+        elif prop.name == 'persist':
+            return self.get_persist()
+        else:
+            return getattr(self, prop.name)
 
     def do_set_property(self, prop, value):
         if prop.name == 'label':
             self.set_label(value)
-            return
-        setattr(self, prop.name, value)
+        elif prop.name == 'persist':
+            self.set_persist(value)
+        else:
+            setattr(self, prop.name, value)
 
-    def __init__(self, label=''):
+    def __init__(self, label='', persist=False):
         gtk.Entry.__init__(self)
         self.label = label
+        self.persist = persist
         self.inactive_color = self.style.fg[gtk.STATE_INSENSITIVE]
 
     def set_label(self, label):
@@ -462,18 +472,30 @@ class LabelledEntry(gtk.Entry):
     def get_label(self):
         return self.label
 
+    def set_persist(self, persist):
+        self.persist = persist
+
+    def get_persist(self):
+        return self.persist
+
     def do_expose_event(self, event):
         gtk.Entry.do_expose_event(self, event)
         # Get the text_area.
         win = self.window.get_children()[0]
-        if self.get_text() or self.is_focus():
+        if self.is_focus():
+            return
+        elif not self.get_persist() and self.get_text():
             return
         gc = win.new_gc()
         layout = self.create_pango_layout('')
         # XXX don't use self.inactive_color for now as it's too dark.
         layout.set_markup('<span foreground="%s">%s</span>' %
             ('#b8b1a8', self.label))
-        win.draw_layout(gc, 1, 1, layout)
+        if self.persist:
+            w = self.get_layout().get_pixel_size()[0] + 6 # padding
+        else:
+            w = 1
+        win.draw_layout(gc, w, 2, layout)
 
 gobject.type_register(LabelledEntry)
 

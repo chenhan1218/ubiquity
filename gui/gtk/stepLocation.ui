@@ -29,6 +29,7 @@
             <property name="can_focus">True</property>
             <property name="invisible_char">&#x2022;</property>
             <property name="label">[type here to change]</property>
+            <property name="persist">True</property>
           </object>
         </child>
       </object>
