@@ -43,10 +43,11 @@ class PageGtk(PluginUI):
             builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepLocation.ui'))
             builder.connect_signals(self)
             self.page = builder.get_object('stepLocation')
-            self.city_entry = builder.get_object('timezone_city_combo')
+            self.city_entry = builder.get_object('timezone_city_entry')
             self.map_window = builder.get_object('timezone_map_window')
             self.setup_page()
         except Exception, e:
+            print e
             self.debug('Could not create timezone page: %s', e)
             self.page = None
         self.plugin_widgets = self.page
@@ -60,15 +61,15 @@ class PageGtk(PluginUI):
         self.tzmap.set_time_format(fmt)
 
     def set_timezone(self, timezone):
-        self.fill_timezone_boxes()
+        #self.fill_timezone_boxes()
         self.select_city(None, timezone)
 
     def get_timezone(self):
         #i = self.city_combo.get_active()
         #m = self.city_combo.get_model()
-        # FIXME
-        return 'America/New_York'
         #return m[i][1]
+        # FIXME need to get this from the map.
+        return 'America/New_York'
 
     @only_this_page
     def fill_timezone_boxes(self):
@@ -76,7 +77,7 @@ class PageGtk(PluginUI):
         tz = self.controller.dbfilter
 
         # Regions are a translated shortlist of regions, followed by full list
-        m = gtk.TreeStore(gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING)
+        m = self.city_entry.get_completion().get_model()
 
         lang = os.environ['LANG'].split('_', 1)[0]
         region_pairs = tz.build_shortlist_region_pairs(lang)
@@ -154,6 +155,11 @@ class PageGtk(PluginUI):
         #self.controller.allow_go_forward(False)
 
     def setup_page(self):
+        # TODO Unfocus the box once selected, after we fill it with the selected entry
+        # TODO When filling with the selected entry, put the '[type here to
+        # change]' message after it (modify LabelledEntry).
+        # TODO Put a frame around the completion to add contrast (LP: #605908)
+        # TODO Make it work
         import gobject, gtk
         from ubiquity import timezone_map
         self.tzdb = ubiquity.tz.Database()
@@ -167,77 +173,89 @@ class PageGtk(PluginUI):
         def is_separator(m, i):
             return m[i][0] is None
 
-        self.timeout_id = 0
+        #def on_entry_changed(entry, model):
+        #    text = entry.get_text().lower()
+        #    if not text:
+        #        self.controller.allow_go_forward(False)
+        #        return
+        #    iterator = model.get_iter_first()
+        #    while iterator:
+        #        country = model.get_value(iterator,0)
+        #        if country is not None:
+        #            country = country.lower()
+        #            if text == country or country.find('(%s)' % text) != -1:
+        #                entry.set_active_iter(iterator)
+        #                self.controller.allow_go_forward(True)
+        #                return
+        #        iterator = m.iter_next(iterator)
+        #    self.controller.allow_go_forward(False)
 
-        # Don't hit on_entry_changed for every key press.
-        def queue_entry_changed(e, widget):
-            self.controller.allow_go_forward(False)
+        def changed(entry):
+            text = entry.get_text()
+            if not text:
+                return
+            #print 'focus', entry.has_focus()
+            # TODO if the completion widget has a selection, return?  How do we determine this?
+            if text in changed.cache:
+                model = changed.cache[text]
+            else:
+                # fetch
+                # FIXME  type_float for lat/lon
+                model = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING,
+                                      gobject.TYPE_STRING, gobject.TYPE_STRING,
+                                      gobject.TYPE_STRING)
+                changed.cache[text] = model
+                # FIXME
+                try:
+                    import urllib2, urllib, json
+                    opener = urllib2.build_opener()
+                    opener.addheaders = [('User-agent', 'Ubiquity/1.0')]
+                    # TODO add &version=1.0 ?
+                    url = opener.open('http://10.0.2.2:8080/?query=%s' % urllib.quote(text))
+                    for result in json.loads(url.read()):
+                        model.append([result['name'],
+                                      result['admin1'],
+                                      result['country'],
+                                      result['longitude'],
+                                      result['latitude']])
+                except Exception, e:
+                    print 'exception:', e
+                    return
+            entry.get_completion().set_model(model)
+        changed.cache = {}
+
+        self.timeout_id = 0
+        def queue_entry_changed(entry):
+            #self.controller.allow_go_forward(False)
             if self.timeout_id:
                 gobject.source_remove(self.timeout_id)
-            self.timeout_id = gobject.timeout_add(300, on_entry_changed, e, widget)
+            self.timeout_id = gobject.timeout_add(300, changed, entry)
 
-        def on_entry_changed(e, widget):
-            text = e.get_text().lower()
-            if not text:
-                self.controller.allow_go_forward(False)
-                return
-            m = widget.get_model()
-            iterator = m.get_iter_first()
-            while iterator:
-                country = m.get_value(iterator,0)
-                if country is not None:
-                    country = country.lower()
-                    if text == country or country.find('(%s)' % text) != -1:
-                        widget.set_active_iter(iterator)
-                        self.controller.allow_go_forward(True)
-                        return
-                iterator = m.iter_next(iterator)
-            self.controller.allow_go_forward(False)
+        self.city_entry.connect('changed', queue_entry_changed)
+        completion = gtk.EntryCompletion()
+        self.city_entry.set_completion(completion)
+        completion.set_inline_completion(True)
+        completion.set_inline_selection(True)
 
-        #renderer = gtk.CellRendererText()
-        #self.region_combo.pack_start(renderer, True)
-        #self.region_combo.set_text_column(0)
-        #list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING)
-        #self.region_combo.set_model(list_store)
-        #self.region_combo.set_row_separator_func(is_separator)
+        def match_selected(completion, model, iterator):
+            # Select on map.
+            lat = float(model[iterator][3])
+            lon = float(model[iterator][4])
+            self.tzmap.select_coords(lat, lon)
+        completion.connect('match-selected', match_selected)
 
-        #completion = gtk.EntryCompletion()
-        #entry = self.region_combo.child
-        #entry.connect('changed', queue_entry_changed, self.region_combo)
-        #entry.set_completion(completion)
-        #completion.set_model(list_store)
-        #completion.set_text_column(0)
-        #completion.set_inline_completion(True)
-        #completion.set_inline_selection(True)
+        def match_func(completion, key, iterator):
+            # We've already determined that it's a match in entry_changed.
+            return True
 
-        #renderer = gtk.CellRendererText()
-        #self.city_combo.pack_start(renderer, True)
-        #self.city_combo.set_text_column(0)
-        #city_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
-        #self.city_combo.set_model(city_store)
-
-        #completion = gtk.EntryCompletion()
-        #entry = self.city_combo.child
-        #entry.set_completion(completion)
-        #entry.connect('changed', queue_entry_changed, self.city_combo)
-        #completion.set_model(city_store)
-        #completion.set_text_column(0)
-        #completion.set_inline_completion(True)
-        #completion.set_inline_selection(True)
-
-        #def match_func(completion, key, iter):
-        #    m = completion.get_model()
-        #    text = m.get_value(iter, 0)
-        #    if not text:
-        #        return False
-        #    text = text.lower()
-        #    key = key.lower()
-        #    if text.startswith(key) or text.find('(' + key) != -1:
-        #        return True
-        #    else:
-        #        return False
-
-        #completion.set_match_func(match_func)
+        def data_func(column, cell, model, iterator):
+            row = model[iterator]
+            text = '%s <small>(%s, %s)</small>' % (row[0], row[1], row[2])
+            cell.set_property('markup', text)
+        cell = gtk.CellRendererText()
+        completion.pack_start(cell)
+        completion.set_match_func(match_func)
+        completion.set_cell_data_func(cell, data_func)
 
     @only_this_page
     def on_region_combo_changed(self, *args):
