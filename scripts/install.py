@@ -1173,12 +1173,18 @@ class Install:
 
     def mark_install(self, cache, pkg):
         cachedpkg = self.get_cache_pkg(cache, pkg)
-        if cachedpkg is not None and not cachedpkg.isInstalled:
+        if cachedpkg is not None:
             apt_error = False
-            try:
-                cachedpkg.markInstall()
-            except SystemError:
-                apt_error = True
+            if cachedpkg.isUpgradable:
+                try:
+                    cachedpkg.markUpgrade()
+                except SystemError:
+                    apt_error = True
+            elif not cachedpkg.isInstalled:
+                try:
+                    cachedpkg.markInstall()
+                except SystemError:
+                    apt_error = True
             if cache._depcache.BrokenCount > 0 or apt_error:
                 brokenpkgs = self.broken_packages(cache)
                 while brokenpkgs:
