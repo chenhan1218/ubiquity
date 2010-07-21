@@ -30,7 +30,8 @@ from ubiquity.misc import *
 from ubiquity import osextras
 
 NAME = 'partman'
-AFTER = 'console_setup'
+AFTER = 'prepare'
+# Needs to come after the wireless page.
 WEIGHT = 11
 # Not useful in oem-config.
 OEM = False

@@ -13,122 +13,163 @@
       <object class="GtkVBox" id="wizard">
         <property name="visible">True</property>
         <child>
-          <object class="GtkAlignment" id="title_section">
+          <object class="GtkNotebook" id="page_mode">
             <property name="visible">True</property>
-            <property name="border_width">20</property>
+            <property name="can_focus">True</property>
+            <property name="show_tabs">False</property>
+            <property name="show_border">False</property>
             <child>
-              <object class="GtkLabel" id="page_title">
-                <property name="visible">True</property>
-                <property name="xalign">0</property>
-                <property name="label" translatable="yes">&lt;span size="xx-large"&gt;Page Title&lt;/span&gt;</property>
-                <property name="use_markup">True</property>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkEventBox" id="page_section">
-            <property name="visible">True</property>
-            <child>
-              <object class="GtkVBox" id="vbox11">
+              <object class="GtkVBox" id="vbox2">
                 <property name="visible">True</property>
                 <child>
-                  <object class="GtkNotebook" id="steps">
+                  <object class="GtkAlignment" id="title_section">
                     <property name="visible">True</property>
-                    <property name="show_tabs">False</property>
-                    <property name="show_border">False</property>
-                    <signal name="switch_page" handler="on_steps_switch_page"/>
+                    <property name="border_width">20</property>
+                    <child>
+                      <object class="GtkLabel" id="page_title">
+                        <property name="visible">True</property>
+                        <property name="xalign">0</property>
+                        <property name="label" translatable="yes">&lt;span size="xx-large"&gt;Page Title&lt;/span&gt;</property>
+                        <property name="use_markup">True</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
+                    <property name="expand">False</property>
                     <property name="position">0</property>
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkAlignment" id="alignment11">
+                  <object class="GtkEventBox" id="page_section">
                     <property name="visible">True</property>
-                    <property name="top_padding">10</property>
-                    <property name="bottom_padding">20</property>
-                    <property name="left_padding">20</property>
-                    <property name="right_padding">10</property>
                     <child>
-                      <object class="GtkHButtonBox" id="navigation_control">
+                      <object class="GtkVBox" id="vbox11">
                         <property name="visible">True</property>
-                        <property name="spacing">6</property>
-                        <property name="layout_style">end</property>
                         <child>
-                          <object class="GtkButton" id="quit">
-                            <property name="label">gtk-quit</property>
+                          <object class="GtkNotebook" id="steps">
                             <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="can_default">True</property>
-                            <property name="receives_default">True</property>
-                            <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
-                            <signal name="clicked" handler="on_quit_clicked"/>
+                            <property name="show_tabs">False</property>
+                            <property name="show_border">False</property>
+                            <signal name="switch_page" handler="on_steps_switch_page"/>
                           </object>
                           <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
                             <property name="position">0</property>
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkButton" id="back">
-                            <property name="label">gtk-go-back</property>
+                          <object class="GtkAlignment" id="alignment11">
                             <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="can_default">True</property>
-                            <property name="receives_default">True</property>
-                            <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
-                            <signal name="clicked" handler="on_back_clicked"/>
+                            <property name="top_padding">10</property>
+                            <property name="bottom_padding">20</property>
+                            <property name="left_padding">20</property>
+                            <property name="right_padding">10</property>
+                            <child>
+                              <object class="GtkHButtonBox" id="navigation_control">
+                                <property name="visible">True</property>
+                                <property name="spacing">6</property>
+                                <property name="layout_style">end</property>
+                                <child>
+                                  <object class="GtkButton" id="quit">
+                                    <property name="label">gtk-quit</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="can_default">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="use_underline">True</property>
+                                    <property name="use_stock">True</property>
+                                    <signal name="clicked" handler="on_quit_clicked"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">False</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="back">
+                                    <property name="label">gtk-go-back</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="can_default">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="use_underline">True</property>
+                                    <property name="use_stock">True</property>
+                                    <signal name="clicked" handler="on_back_clicked"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">False</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="next">
+                                    <property name="label">gtk-go-forward</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="can_default">True</property>
+                                    <property name="has_default">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="use_underline">True</property>
+                                    <property name="use_stock">True</property>
+                                    <signal name="clicked" handler="on_next_clicked"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">False</property>
+                                    <property name="position">2</property>
+                                  </packing>
+                                </child>
+                              </object>
+                            </child>
                           </object>
                           <packing>
                             <property name="expand">False</property>
-                            <property name="fill">False</property>
                             <property name="position">1</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkButton" id="next">
-                            <property name="label">gtk-go-forward</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="can_default">True</property>
-                            <property name="has_default">True</property>
-                            <property name="receives_default">True</property>
-                            <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
-                            <signal name="clicked" handler="on_next_clicked"/>
-                          </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">2</property>
                           </packing>
                         </child>
                       </object>
                     </child>
                   </object>
                   <packing>
-                    <property name="expand">False</property>
                     <property name="position">1</property>
                   </packing>
                 </child>
               </object>
             </child>
+            <child type="tab">
+              <placeholder/>
+            </child>
+            <child>
+              <object class="GtkScrolledWindow" id="webkit_scrolled_window">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="hscrollbar_policy">automatic</property>
+                <property name="vscrollbar_policy">automatic</property>
+                <child>
+                  <placeholder/>
+                </child>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child type="tab">
+              <placeholder/>
+            </child>
           </object>
           <packing>
-            <property name="position">1</property>
+            <property name="position">0</property>
           </packing>
         </child>
         <child>
           <object class="GtkAlignment" id="progress_section">
-            <property name="visible">True</property>
             <property name="border_width">20</property>
             <child>
               <object class="GtkVBox" id="vbox1">
@@ -166,7 +207,7 @@
           </object>
           <packing>
             <property name="expand">False</property>
-            <property name="position">2</property>
+            <property name="position">1</property>
           </packing>
         </child>
       </object>

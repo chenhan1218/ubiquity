@@ -258,7 +258,7 @@ class Install:
             self.target = '/'
             return
 
-        assert os.path.ismount(self.target), 'Failed to mount the target.'
+        assert os.path.ismount(self.target), 'Failed to mount the target: %s' % str(self.target)
 
         self.select_language_packs()
         self.select_ecryptfs()
@@ -480,7 +480,9 @@ class Install:
             self.copy_logs()
 
             self.db.progress('SET', self.end)
+            syslog.syslog('AT THE END')
         finally:
+            syslog.syslog('CLEANUP')
             self.cleanup()
             try:
                 self.db.progress('STOP')

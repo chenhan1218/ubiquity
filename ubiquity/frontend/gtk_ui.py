@@ -215,6 +215,8 @@ class Wizard(BaseFrontend):
         self.history = []
         self.builder = gtk.Builder()
         self.grub_options = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
+        self.finished_installing = False
+        self.finished_pages = False
 
         self.laptop = execute("laptop-detect")
 
@@ -264,8 +266,6 @@ class Wizard(BaseFrontend):
                 mod.title = mod.ui.get('plugin_title')
                 widgets = mod.ui.get('plugin_widgets')
                 optional_widgets = mod.ui.get('plugin_optional_widgets')
-                if not found_install:
-                    found_install = mod.ui.get('plugin_is_install')
                 if widgets or optional_widgets:
                     def fill_out(widget_list):
                         rv = []
@@ -287,10 +287,6 @@ class Wizard(BaseFrontend):
                     self.user_pageslen += len(mod.widgets)
                     self.pageslen += 1
                     self.pages.append(mod)
-
-        #If no plugins declare they are install, then we'll say the last one is
-        if not found_install:
-            self.pages[self.pageslen - 1].ui.plugin_is_install = True
 
         self.toplevels = set()
         for builder in self.builders:
@@ -528,10 +524,6 @@ class Wizard(BaseFrontend):
                 self.pages[self.pagesindex].controller.dbfilter = None
 
             if self.backup or self.dbfilter_handle_status():
-                #TODO: superm1, Jan 2010 is there some kind of way that we are entering this normally?
-                #if self.installing:
-                #    self.progress_loop()
-                #elif
                 if self.current_page is not None and not self.backup:
                     self.process_step()
                     if not self.stay_on_page:
@@ -546,6 +538,22 @@ class Wizard(BaseFrontend):
 
             while gtk.events_pending():
                 gtk.main_iteration()
+
+        #if not self.installing:
+        #    # The core install process has finished before the pages
+        #    # (user went away for a cup of tea).
+        #    print 'postinstall! (in run)'
+        #    #self.start_debconf()
+        #    #dbfilter = postinstall.Install(self)
+        #    #ret = dbfilter.start(auto_process=True)
+        #    # TODO check ret
+
+        # There's still work to do (postinstall).  Lets keep the user
+        # entertained.
+        self.start_slideshow()
+        gtk.main()
+        # postinstall will exit here by calling gtk.main_quit in
+        # find_next_step.
 
         if self.oem_user_config:
             self.quit_installer()
@@ -565,25 +573,46 @@ class Wizard(BaseFrontend):
 
         return self.returncode
 
-    #def win_size_req(self, widget, req):
-    #    s = widget.get_screen()
-    #    m = s.get_monitor_geometry(0)
-    #    w = -1
-    #    h = -1
+    def on_slideshow_link_clicked(self, unused_view, unused_frame, req,
+                                  unused_action, decision):
+        uri = req.get_uri()
+        decision.ignore()
+        subprocess.Popen(['sensible-browser', uri],
+                         close_fds=True, preexec_fn=drop_all_privileges)
+        return True
 
-    #    # What's the size of the WM border?
-    #    total_frame = widget.window.get_frame_extents()
-    #    (cur_x, cur_y, cur_w, cur_h, depth) = widget.window.get_geometry()
-    #    wm_w = total_frame.width - cur_w
-    #    wm_h = total_frame.height - cur_h
+    def start_slideshow(self):
+        print 'starting slideshow'
+        slideshow_dir = '/usr/share/ubiquity-slideshow'
+        slideshow_locale = self.slideshow_get_available_locale(slideshow_dir, self.locale)
+        slideshow_locale = 'c'
+        slideshow_main = slideshow_dir + '/slides/index.html'
 
-    #    if req.width > m.width - wm_w:
-    #        w = m.width - wm_w
-    #    if req.height > m.height - wm_h:
-    #        h = m.height - wm_h
+        slides = 'file://' + slideshow_main
+        if slideshow_locale != 'c': #slideshow will use default automatically
+            slides += '#?locale=' + slideshow_locale
+            ltr = i18n.get_string('default-ltr', slideshow_locale, 'ubiquity/imported')
+            if ltr == 'default:RTL':
+                slides += '?rtl'
 
-    #    widget.set_size_request(w, h)
-    #    widget.resize(w, h)
+        import webkit
+        webview = webkit.WebView()
+        # WebKit puts file URLs in their own domain by default.
+        # This means that anything which checks for the same origin,
+        # such as creating a XMLHttpRequest, will fail unless this
+        # is disabled.
+        # http://www.gitorious.org/webkit/webkit/commit/624b9463c33adbffa7f6705210384d0d7cf122d6
+        s = webview.get_settings()
+        s.set_property('enable-file-access-from-file-uris', True)
+        s.set_property('enable-default-context-menu', False)
+        webview.connect('new-window-policy-decision-requested',
+                        self.on_slideshow_link_clicked)
+
+        self.webkit_scrolled_window.add(webview)
+        webview.open(slides)
+        # TODO do these in a page loaded callback
+        self.page_mode.set_current_page(1)
+        webview.show()
 
     def customize_installer(self):
         """Initial UI setup."""
@@ -594,10 +623,8 @@ class Wizard(BaseFrontend):
         self.install_progress_text.set_style(style)
         self.install_details_expander.set_style(style)
         #from vte import Terminal
-        #vte = Terminal()
-        #self.install_details_expander.add(vte)
-
-        #self.live_installer.connect('size-request', self.win_size_req)
+        #self.vte = Terminal()
+        #self.install_details_expander.add(self.vte)
 
         if self.oem_config:
             self.live_installer.set_title(self.get_string('oem_config_title'))
@@ -899,7 +926,6 @@ class Wizard(BaseFrontend):
                     cur = page.optional_widgets[0]
                 if cur:
                     cur.show()
-                    is_install = page.ui.get('plugin_is_install')
                     break
         if not cur:
             return False
@@ -953,59 +979,6 @@ class Wizard(BaseFrontend):
         syslog.syslog('progress_loop()')
 
         self.live_installer.hide()
-
-        slideshow_dir = '/usr/share/ubiquity-slideshow'
-        slideshow_locale = self.slideshow_get_available_locale(slideshow_dir, self.locale)
-        slideshow_main = slideshow_dir + '/slides/index.html'
-
-        s = self.live_installer.get_screen()
-        sh = s.get_height()
-        sw = s.get_width()
-        fail = None
-
-        if os.path.exists(slideshow_main):
-            if sh >= 600 and sw >= 800:
-                slides = 'file://' + slideshow_main
-                if slideshow_locale != 'c': #slideshow will use default automatically
-                    slides += '#?locale=' + slideshow_locale
-                    ltr = i18n.get_string('default-ltr', slideshow_locale, 'ubiquity/imported')
-                    if ltr == 'default:RTL':
-                        slides += '?rtl'
-                try:
-                    import webkit
-                    webview = webkit.WebView()
-                    # WebKit puts file URLs in their own domain by default.
-                    # This means that anything which checks for the same origin,
-                    # such as creating a XMLHttpRequest, will fail unless this
-                    # is disabled.
-                    # http://www.gitorious.org/webkit/webkit/commit/624b9463c33adbffa7f6705210384d0d7cf122d6
-                    s = webview.get_settings()
-                    s.set_property('enable-file-access-from-file-uris', True)
-                    s.set_property('enable-default-context-menu', False)
-                    webview.open(slides)
-                    self.slideshow_frame.add(webview)
-                    try:
-                        import ConfigParser
-                        cfg = ConfigParser.ConfigParser()
-                        cfg.read(os.path.join(slideshow_dir, 'slideshow.conf'))
-                        config_width = int(cfg.get('Slideshow','width'))
-                        config_height = int(cfg.get('Slideshow','height'))
-                    except:
-                        config_width = 798
-                        config_height = 451
-
-                    webview.set_size_request(config_width, config_height)
-                    webview.connect('new-window-policy-decision-requested',
-                                    self.on_slideshow_link_clicked)
-                    self.slideshow_frame.show_all()
-                except ImportError:
-                    fail = 'Webkit not present.'
-            else:
-                fail = 'Display < 800x600 (%sx%s).' % (sw, sh)
-        else:
-            fail = 'No slides present for %s.' % slideshow_dir
-        if fail:
-            syslog.syslog('Not displaying the slideshow: %s' % fail)
 
         self.debconf_progress_start(
             0, 100, self.get_string('ubiquity/install/title'))
@@ -1138,13 +1111,14 @@ class Wizard(BaseFrontend):
         if step == "stepPartAuto":
             self.part_advanced_warning_message.set_text('')
             self.part_advanced_warning_hbox.hide()
-        if step in ("stepPartAuto", "stepPartAdvanced"):
-            # TODO Ideally this should be done in the base frontend or the
-            # partitioning component itself.
-            options = grub_options()
-            self.grub_options.clear()
-            for opt in options:
-                self.grub_options.append(opt)
+        # TODO move above part commit
+        #if step in ("stepPartAuto", "stepPartAdvanced"):
+        #    # TODO Ideally this should be done in the base frontend or the
+        #    # partitioning component itself.
+        #    options = grub_options()
+        #    self.grub_options.clear()
+        #    for opt in options:
+        #        self.grub_options.append(opt)
 
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
@@ -1163,10 +1137,25 @@ class Wizard(BaseFrontend):
 
         if step.startswith("stepPart"):
             self.previous_partitioning_page = step_num
-
-        # Ready to install
-        if self.pages[self.pagesindex].ui.get('plugin_is_install'):
-            self.progress_loop()
+        if step == 'stepPartAuto':
+            self.quit.hide()
+            f = gtk.gdk.FUNC_RESIZE | gtk.gdk.FUNC_MINIMIZE | gtk.gdk.FUNC_MAXIMIZE | gtk.gdk.FUNC_MOVE
+            self.live_installer.window.set_functions(f)
+            self.allow_change_step(False)
+            self.refresh()
+            #self.installing = True
+            ## TODO handle this asynchronously.  Once done, start the install.
+            #from ubiquity.debconfcommunicator import DebconfCommunicator
+            #db2 = DebconfCommunicator('ubiquity', cloexec=True,
+            #    # debconf-apt-progress, start_debconf()
+            #    env={'DEBCONF_DB_REPLACE': 'configdb',
+            #         'DEBCONF_DB_OVERRIDE':'Pipe{infd:none outfd:none}'})
+            #dbfilter = partman_commit.PartmanCommit(self, db=db2)
+            #dbfilter.run_command(auto_process=True)
+            #print 'past commit'
+            #dbfilter = install.Install(self, db=db2)
+            #dbfilter.start(auto_process=True)
+            #print 'past install'
 
     def on_back_clicked(self, unused_widget):
         """Callback to set previous screen."""
@@ -1194,14 +1183,6 @@ class Wizard(BaseFrontend):
             # debconffilter_done() to be called when the filter exits
         else:
             self.quit_main_loop()
-
-    def on_slideshow_link_clicked(self, unused_view, unused_frame, req,
-                                  unused_action, decision):
-        uri = req.get_uri()
-        decision.ignore()
-        subprocess.Popen(['sensible-browser', uri],
-                         close_fds=True, preexec_fn=drop_all_privileges)
-        return True
 
     def on_steps_switch_page (self, unused_notebook, unused_page, current):
         self.current_page = current
@@ -1298,11 +1279,85 @@ class Wizard(BaseFrontend):
 
 
     def debconffilter_done (self, dbfilter):
+        #print 'debconffilter_done', dbfilter, dir(dbfilter)
+        # when in 'install mode' and all the pages are finished, this returns
+        # false as there's no current page (that is, self.dbfilter is set to
+        # None).
+        self.find_next_step(dbfilter.__module__)
         if BaseFrontend.debconffilter_done(self, dbfilter):
+            print 'quitting main loop'
             self.quit_main_loop()
             return True
         else:
             return False
+
+    def find_next_step(self, filter_name):
+        print 'find_next_step', filter_name
+        last_page = self.pages[-1].module.__name__
+        if filter_name == last_page:
+            self.finished_pages = True
+            if self.finished_installing:
+                print 'postinstall! (from install)'
+                # FIXME remove once we have postinstall
+                gtk.main_quit()
+                #self.start_debconf()
+                #dbfilter = postinstall.Install(self)
+                #ret = dbfilter.start(auto_process=True)
+
+        if filter_name == 'ubi-partman':
+            self.installing = True
+            from ubiquity.debconfcommunicator import DebconfCommunicator
+            self.parallel_db = DebconfCommunicator('ubiquity', cloexec=True,
+            # debconf-apt-progress, start_debconf()
+            env={'DEBCONF_DB_REPLACE': 'configdb',
+                 'DEBCONF_DB_OVERRIDE':'Pipe{infd:none outfd:none}'})
+            dbfilter = partman_commit.PartmanCommit(self, db=self.parallel_db)
+            ret = dbfilter.start(auto_process=True)
+            # TODO check ret
+
+        # FIXME OH DEAR LORD.
+        elif filter_name == 'ubiquity.components.partman_commit':
+            dbfilter = install.Install(self, db=self.parallel_db)
+            ret = dbfilter.start(auto_process=True)
+            # TODO check ret
+
+        elif filter_name == 'ubiquity.components.install':
+            # FIXME needs to check if we've finished the pages?
+            self.installing = False
+            self.finished_installing = True
+            if self.finished_pages:
+                print 'postinstall! (from install)'
+                # FIXME remove once we have postinstall
+                gtk.main_quit()
+                #self.start_debconf()
+                #dbfilter = postinstall.Install(self)
+                #ret = dbfilter.start(auto_process=True)
+
+        elif filter_name == 'postinstall':
+            # FIXME until we have this in place, install.py will fail around
+            # usersetup as it doesn't have much of a database to work with.
+            gtk.main_quit()
+
+        # 'partman_commit' : { 'waiting_on' : ['partman' ], 'parallel' : False or True }
+        # 'Install' : { 'waiting_on' : ['partman_commit'], 'parallel' : True }
+        # 'PostInstall' : { 'waiting_on' : ['Install'], 'parallel' : False }
+        # What follows sounds like it needs that event system Colin was talking
+        # about.  Events would be dependent on component names and would be
+        # satisfied by those components completing (which debconffilter_done
+        # would track.
+        # if self.installing:
+        #   def foo:
+        #       if self.pagesindex >= len(self.pages):
+        #           return True # waiting for the user to finish, keep checking
+        #       else:
+        #           pass # run page install funcs then show the finished dialog
+        #                # might not work well (block ui) in an idle handler.
+        #                # maybe make another if for if we've finished the page
+        #                # installs, then show the finished dialog, returning
+        #                # from here after setting up this component that takes
+        #                # the old code out of scripts/install.py to iterate the
+        #                # page installs.
+        #   glib.idle_add(foo)
 
     def grub_verify_loop(self, widget, okbutton):
         if widget is not None:

@@ -288,6 +288,8 @@ class PageGtk(PageBase):
         if w == self.login_auto and w.get_active():
             self.login_encrypt.set_active(False)
         elif w == self.login_encrypt and w.get_active():
+            # TODO why is this so slow to activate the login_pass radio button
+            # when checking encrypted home?
             self.login_pass.activate()
 
 class PageKde(PageBase):

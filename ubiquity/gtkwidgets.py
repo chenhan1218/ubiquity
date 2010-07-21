@@ -482,7 +482,7 @@ class LabelledEntry(gtk.Entry):
         gtk.Entry.do_expose_event(self, event)
         # Get the text_area.
         win = self.window.get_children()[0]
-        if self.is_focus():
+        if self.has_focus():
             return
         elif not self.get_persist() and self.get_text():
             return
@@ -998,7 +998,7 @@ if __name__ == "__main__":
                'that you are connected to the Internet with an ethernet cable')
     w = gtk.Window()
     w.connect('destroy', gtk.main_quit)
-    #b = GreyableBin()
+    b = GreyableBin()
     a = gtk.VBox()
     a.set_spacing(5)
     a.set_border_width(20)
@@ -1035,17 +1035,16 @@ if __name__ == "__main__":
     bus.add_signal_receiver(power_state_changed, 'Changed', 'org.freedesktop.UPower', 'org.freedesktop.UPower')
     power_state_changed()
     
-    #w2 = gtk.Window()
-    #w2.set_transient_for(w)
-    #w2.set_modal(True)
-    #w2.show()
+    w2 = gtk.Window()
+    w2.set_transient_for(w)
+    w2.set_modal(True)
+    w2.show()
     #w.add(b)
-    #b.add(a)
+    b.set_property('greyed', True)
+    b.add(a)
     wireless = WirelessWidget()
     a.pack_start(wireless)
-    mb = MenuButton('Test Menu')
-    a.pack_start(mb)
-    w.add(a)
+    w.add(b)
     w.show_all()
     gtk.main()
 

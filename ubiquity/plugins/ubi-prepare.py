@@ -154,5 +154,8 @@ class Page(Plugin):
         Plugin.ok_handler(self)
 
     def set_online_state(self, state):
+        # TODO make this a python property of the controller.  It does not need
+        # to be in debconf as preseeding it makes no sense whatsoever and it
+        # never needs to be communicated to a plugin.
         self.preseed_bool('ubiquity/online', state)
 

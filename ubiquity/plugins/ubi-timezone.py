@@ -29,7 +29,7 @@ from ubiquity import i18n
 import ubiquity.tz
 
 NAME = 'timezone'
-AFTER = 'language'
+AFTER = 'partman'
 WEIGHT = 10
 
 class PageGtk(PluginUI):
