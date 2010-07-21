@@ -40,7 +40,8 @@ import warnings
 warnings.filterwarnings("ignore", "apt API not stable yet", FutureWarning)
 import apt_pkg
 from apt.cache import Cache
-from apt.progress import FetchProgress, InstallProgress
+from apt.progress.text import AcquireProgress
+from apt.progress.base import InstallProgress
 from hashlib import md5
 
 sys.path.insert(0, '/usr/lib/ubiquity')
@@ -52,11 +53,11 @@ from ubiquity import plugin_manager
 from ubiquity.casper import get_casper
 from ubiquity.components import apt_setup, hw_detect, check_kernels
 
-class DebconfFetchProgress(FetchProgress):
-    """An object that reports apt's fetching progress using debconf."""
+class DebconfAcquireProgress(AcquireProgress):
+    """An object that reports apt's acquiring progress using debconf."""
 
     def __init__(self, db, title, info_starting, info):
-        FetchProgress.__init__(self)
+        AcquireProgress.__init__(self)
         self.db = db
         self.title = title
         self.info_starting = info_starting
@@ -76,8 +77,13 @@ class DebconfFetchProgress(FetchProgress):
 
     # TODO cjwatson 2006-02-27: implement updateStatus
 
-    def pulse(self):
-        FetchProgress.pulse(self)
+    def pulse(self,owner=None):
+        AcquireProgress.pulse(self,owner)
+        self.percent = (((self.current_bytes + self.current_items) * 100.0) /
+                        float(self.total_bytes + self.total_items))
+        if self.current_cps > 0:
+            self.eta = ((self.total_bytes - self.current_bytes) /
+                        float(self.current_cps))
         try:
             if os.environ['UBIQUITY_FRONTEND'] != 'debconf_ui':
                 self.db.progress('SET', int(self.percent))
@@ -185,7 +191,7 @@ class DebconfInstallProgress(InstallProgress):
 
         res = pm.ResultFailed
         try:
-            res = pm.DoInstall(self.write_stream.fileno())
+            res = pm.do_install(self.write_stream.fileno())
         finally:
             # Reap the status-to-debconf subprocess.
             self.write_stream.close()
@@ -276,17 +282,17 @@ class Install:
             self.generate_blacklist()
 
         apt_pkg.InitConfig()
-        apt_pkg.Config.Set("Dir", self.target)
-        apt_pkg.Config.Set("Dir::State::status",
+        apt_pkg.Config.set("Dir", self.target)
+        apt_pkg.Config.set("Dir::State::status",
                            os.path.join(self.target, 'var/lib/dpkg/status'))
-        apt_pkg.Config.Set("APT::GPGV::TrustedKeyring",
+        apt_pkg.Config.set("APT::GPGV::TrustedKeyring",
                            os.path.join(self.target, 'etc/apt/trusted.gpg'))
-        apt_pkg.Config.Set("Acquire::gpgv::Options::",
+        apt_pkg.Config.set("Acquire::gpgv::Options::",
                            "--ignore-time-conflict")
-        apt_pkg.Config.Set("DPkg::Options::", "--root=%s" % self.target)
+        apt_pkg.Config.set("DPkg::Options::", "--root=%s" % self.target)
         # We don't want apt-listchanges or dpkg-preconfigure, so just clear
         # out the list of pre-installation hooks.
-        apt_pkg.Config.Clear("DPkg::Pre-Install-Pkgs")
+        apt_pkg.Config.clear("DPkg::Pre-Install-Pkgs")
         apt_pkg.InitSystem()
 
     def excepthook(self, exctype, excvalue, exctb):
@@ -598,7 +604,7 @@ class Install:
             pass
         if not use_restricted:
             for pkg in cache.keys():
-                if (cache[pkg].isInstalled and
+                if (cache[pkg].is_installed and
                     cache[pkg].section.startswith('restricted/')):
                     difference.add(pkg)
 
@@ -656,7 +662,7 @@ class Install:
             else:
                 for removedpkg in would_remove:
                     cachedpkg = self.get_cache_pkg(cache, removedpkg)
-                    cachedpkg.markKeep()
+                    cachedpkg.mark_keep()
         difference = confirmed_remove
 
         if len(difference) == 0:
@@ -1175,26 +1181,26 @@ class Install:
         cachedpkg = self.get_cache_pkg(cache, pkg)
         if cachedpkg is not None:
             apt_error = False
-            if cachedpkg.isUpgradable:
+            if cachedpkg.is_upgradable:
                 try:
-                    cachedpkg.markUpgrade()
+                    cachedpkg.mark_upgrade()
                 except SystemError:
                     apt_error = True
-            elif not cachedpkg.isInstalled:
+            elif not cachedpkg.is_installed:
                 try:
-                    cachedpkg.markInstall()
+                    cachedpkg.mark_install()
                 except SystemError:
                     apt_error = True
-            if cache._depcache.BrokenCount > 0 or apt_error:
+            if cache._depcache.broken_count > 0 or apt_error:
                 brokenpkgs = self.broken_packages(cache)
                 while brokenpkgs:
                     for brokenpkg in brokenpkgs:
-                        self.get_cache_pkg(cache, brokenpkg).markKeep()
+                        self.get_cache_pkg(cache, brokenpkg).mark_keep()
                     new_brokenpkgs = self.broken_packages(cache)
                     if brokenpkgs == new_brokenpkgs:
                         break # we can do nothing more
                     brokenpkgs = new_brokenpkgs
-                assert cache._depcache.BrokenCount == 0
+                assert cache._depcache.broken_count == 0
 
 
     def locale_to_language_pack(self, locale):
@@ -1281,7 +1287,7 @@ class Install:
                 # filesystem.
                 toplevel = 'language-support-%s' % lp
                 toplevel_pkg = self.get_cache_pkg(cache, toplevel)
-                if toplevel_pkg and toplevel_pkg.isInstalled:
+                if toplevel_pkg and toplevel_pkg.is_installed:
                     to_install.append(toplevel)
         if all_langpacks and osextras.find_on_path('check-language-support'):
             check_lang = subprocess.Popen(
@@ -1312,7 +1318,7 @@ class Install:
             # be willing to install packages from the package pool on the CD as
             # well.
             to_install = [lp for lp in to_install
-                             if self.get_cache_pkg(cache, lp).isInstalled]
+                             if self.get_cache_pkg(cache, lp).is_installed]
 
         del cache
 
@@ -1344,7 +1350,7 @@ class Install:
                 # worry about it.
                 continue
             cachedpkg = self.get_cache_pkg(cache, pkg)
-            if cachedpkg is None or not cachedpkg.isInstalled:
+            if cachedpkg is None or not cachedpkg.is_installed:
                 incomplete = True
                 break
         if incomplete:
@@ -1729,12 +1735,12 @@ class Install:
 
 
     def broken_packages(self, cache):
-        expect_count = cache._depcache.BrokenCount
+        expect_count = cache._depcache.broken_count
         count = 0
         brokenpkgs = set()
         for pkg in cache.keys():
             try:
-                if cache._depcache.IsInstBroken(cache._cache[pkg]):
+                if cache._depcache.is_inst_broken(cache._cache[pkg]):
                     brokenpkgs.add(pkg)
                     count += 1
             except KeyError:
@@ -1762,13 +1768,13 @@ class Install:
         self.db.progress('INFO', 'ubiquity/install/find_installables')
 
         self.progress_region(0, 1)
-        fetchprogress = DebconfFetchProgress(
+        acquireprogress = DebconfAcquireProgress(
             self.db, 'ubiquity/install/title',
             'ubiquity/install/apt_indices_starting',
             'ubiquity/install/apt_indices')
         cache = Cache()
 
-        if cache._depcache.BrokenCount > 0:
+        if cache._depcache.broken_count > 0:
             syslog.syslog(
                 'not installing additional packages, since there are broken '
                 'packages: %s' % ', '.join(self.broken_packages(cache)))
@@ -1782,14 +1788,14 @@ class Install:
         self.db.progress('SET', 1)
         self.progress_region(1, 10)
         if self.langpacks:
-            fetchprogress = DebconfFetchProgress(
+            acquireprogress = DebconfAcquireProgress(
                 self.db, 'ubiquity/langpacks/title', None,
                 'ubiquity/langpacks/packages')
             installprogress = DebconfInstallProgress(
                 self.db, 'ubiquity/langpacks/title',
                 'ubiquity/install/apt_info')
         else:
-            fetchprogress = DebconfFetchProgress(
+            acquireprogress = DebconfAcquireProgress(
                 self.db, 'ubiquity/install/title', None,
                 'ubiquity/install/fetch_remove')
             installprogress = DebconfInstallProgress(
@@ -1800,8 +1806,8 @@ class Install:
         commit_error = None
         try:
             try:
-                if not cache.commit(fetchprogress, installprogress):
-                    fetchprogress.stop()
+                if not cache.commit(acquireprogress, installprogress):
+                    acquireprogress.stop()
                     installprogress.finishUpdate()
                     self.db.progress('STOP')
                     self.nested_progress_end()
@@ -1809,7 +1815,7 @@ class Install:
             except IOError:
                 for line in traceback.format_exc().split('\n'):
                     syslog.syslog(syslog.LOG_ERR, line)
-                fetchprogress.stop()
+                acquireprogress.stop()
                 installprogress.finishUpdate()
                 self.db.progress('STOP')
                 self.nested_progress_end()
@@ -1823,7 +1829,7 @@ class Install:
         self.db.progress('SET', 10)
 
         cache.open(None)
-        if commit_error or cache._depcache.BrokenCount > 0:
+        if commit_error or cache._depcache.broken_count > 0:
             if commit_error is None:
                 commit_error = ''
             brokenpkgs = self.broken_packages(cache)
@@ -1854,12 +1860,12 @@ class Install:
                 cachedpkg = self.get_cache_pkg(cache, pkg)
                 if cachedpkg is None:
                     continue
-                ver = cachedpkg._pkg.CurrentVer
+                ver = cachedpkg._pkg.current_ver
                 if ver is None:
                     continue
                 for key in keys:
-                    if key in ver.DependsList:
-                        for dep_or in ver.DependsList[key]:
+                    if key in ver.depends_list:
+                        for dep_or in ver.depends_list[key]:
                             # Keep the first element of a disjunction that's
                             # installed; this mirrors what 'apt-get install'
                             # would do if you were installing the package
@@ -1869,11 +1875,11 @@ class Install:
                             # think of where this might have trouble is
                             # "Recommends: foo (>= 2) | bar".
                             for dep in dep_or:
-                                depname = dep.TargetPkg.Name
+                                depname = dep.target_pkg.name
                                 cacheddep = self.get_cache_pkg(cache, depname)
                                 if cacheddep is None:
                                     continue
-                                if cacheddep._pkg.CurrentVer is not None:
+                                if cacheddep._pkg.current_ver is not None:
                                     break
                             else:
                                 continue
@@ -1894,15 +1900,15 @@ class Install:
             removed = set()
             for pkg in to_remove:
                 cachedpkg = self.get_cache_pkg(cache, pkg)
-                if cachedpkg is not None and cachedpkg.isInstalled:
+                if cachedpkg is not None and cachedpkg.is_installed:
                     apt_error = False
                     try:
-                        cachedpkg.markDelete(autoFix=False, purge=True)
+                        cachedpkg.mark_delete(autoFix=False, purge=True)
                     except SystemError:
                         apt_error = True
                     if apt_error:
-                        cachedpkg.markKeep()
-                    elif cache._depcache.BrokenCount > 0:
+                        cachedpkg.mark_keep()
+                    elif cache._depcache.broken_count > 0:
                         # If we're recursively removing packages, or if all
                         # of the broken packages are in the set of packages
                         # to remove anyway, then go ahead and try to remove
@@ -1917,7 +1923,7 @@ class Install:
                                 if cachedpkg2 is not None:
                                     broken_removed_inner.add(pkg2)
                                     try:
-                                        cachedpkg2.markDelete(autoFix=False,
+                                        cachedpkg2.mark_delete(autoFix=False,
                                                               purge=True)
                                     except SystemError:
                                         apt_error = True
@@ -1926,18 +1932,18 @@ class Install:
                             if apt_error or not broken_removed_inner:
                                 break
                             brokenpkgs = self.broken_packages(cache)
-                        if apt_error or cache._depcache.BrokenCount > 0:
+                        if apt_error or cache._depcache.broken_count > 0:
                             # That didn't work. Revert all the removals we
                             # just tried.
                             for pkg2 in broken_removed:
-                                self.get_cache_pkg(cache, pkg2).markKeep()
-                            cachedpkg.markKeep()
+                                self.get_cache_pkg(cache, pkg2).mark_keep()
+                            cachedpkg.mark_keep()
                         else:
                             removed.add(pkg)
                             removed |= broken_removed
                     else:
                         removed.add(pkg)
-                    assert cache._depcache.BrokenCount == 0
+                    assert cache._depcache.broken_count == 0
             if not removed:
                 break
             to_remove -= removed
@@ -1951,13 +1957,13 @@ class Install:
         self.db.progress('START', 0, 5, 'ubiquity/install/title')
         self.db.progress('INFO', 'ubiquity/install/find_removables')
 
-        fetchprogress = DebconfFetchProgress(
+        acquireprogress = DebconfAcquireProgress(
             self.db, 'ubiquity/install/title',
             'ubiquity/install/apt_indices_starting',
             'ubiquity/install/apt_indices')
         cache = Cache()
 
-        if cache._depcache.BrokenCount > 0:
+        if cache._depcache.broken_count > 0:
             syslog.syslog(
                 'not processing removals, since there are broken packages: '
                 '%s' % ', '.join(self.broken_packages(cache)))
@@ -1969,7 +1975,7 @@ class Install:
 
         self.db.progress('SET', 1)
         self.progress_region(1, 5)
-        fetchprogress = DebconfFetchProgress(
+        acquireprogress = DebconfAcquireProgress(
             self.db, 'ubiquity/install/title', None,
             'ubiquity/install/fetch_remove')
         installprogress = DebconfInstallProgress(
@@ -1979,8 +1985,8 @@ class Install:
         commit_error = None
         try:
             try:
-                if not cache.commit(fetchprogress, installprogress):
-                    fetchprogress.stop()
+                if not cache.commit(acquireprogress, installprogress):
+                    acquireprogress.stop()
                     installprogress.finishUpdate()
                     self.db.progress('STOP')
                     self.nested_progress_end()
@@ -1994,7 +2000,7 @@ class Install:
         self.db.progress('SET', 5)
 
         cache.open(None)
-        if commit_error or cache._depcache.BrokenCount > 0:
+        if commit_error or cache._depcache.broken_count > 0:
             if commit_error is None:
                 commit_error = ''
             brokenpkgs = self.broken_packages(cache)
@@ -2016,13 +2022,13 @@ class Install:
         if kern is None:
             return None
         pkc = cache._depcache.GetCandidateVer(kern._pkg)
-        if pkc.DependsList.has_key('Depends'):
-            dependencies = pkc.DependsList['Depends']
+        if pkc.depends_list.has_key('Depends'):
+            dependencies = pkc.depends_list['Depends']
         else:
             # Didn't find.
             return None
         for dep in dependencies:
-            name = dep[0].TargetPkg.Name
+            name = dep[0].target_pkg.name
             if name.startswith('linux-image-2.'):
                 return name
             elif name.startswith('linux-'):
@@ -2086,7 +2092,7 @@ class Install:
             if new_kernel_pkg:
                 cache = Cache()
                 cached_pkg = self.get_cache_pkg(cache, new_kernel_pkg)
-                if cached_pkg is not None and cached_pkg.isInstalled:
+                if cached_pkg is not None and cached_pkg.is_installed:
                     self.kernel_version = new_kernel_version
                 else:
                     remove_kernels = []
@@ -2314,7 +2320,7 @@ class Install:
         if not use_restricted:
             cache = self.restricted_cache
             for pkg in cache.keys():
-                if (cache[pkg].isInstalled and
+                if (cache[pkg].is_installed and
                     cache[pkg].section.startswith('restricted/')):
                     difference.add(pkg)
             del cache
@@ -2364,7 +2370,7 @@ class Install:
         keep.add('oem-config')
 
         cache = Cache()
-        remove = set([pkg for pkg in cache.keys() if cache[pkg].isInstalled])
+        remove = set([pkg for pkg in cache.keys() if cache[pkg].is_installed])
         # Keep packages we explicitly installed.
         keep |= install_misc.query_recorded_installed()
         remove -= self.expand_dependencies_simple(cache, keep, remove)
