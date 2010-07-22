@@ -58,7 +58,7 @@ from ubiquity import filteredcommand, gconftool, i18n, osextras, validation, \
                      wrap_label
 from ubiquity.misc import *
 from ubiquity.plugin import Plugin
-from ubiquity.components import install, partman_commit
+from ubiquity.components import install, plugininstall, partman_commit
 import ubiquity.progressposition
 import ubiquity.frontend.base
 from ubiquity.frontend.base import BaseFrontend
@@ -1284,6 +1284,8 @@ class Wizard(BaseFrontend):
         # false as there's no current page (that is, self.dbfilter is set to
         # None).
         self.find_next_step(dbfilter.__module__)
+        # TODO need to properly handle the parallel steps failing in
+        # BaseFrontend.debconffilter_done.
         if BaseFrontend.debconffilter_done(self, dbfilter):
             print 'quitting main loop'
             self.quit_main_loop()
@@ -1291,20 +1293,17 @@ class Wizard(BaseFrontend):
         else:
             return False
 
-    def find_next_step(self, filter_name):
-        print 'find_next_step', filter_name
+    def find_next_step(self, finished_step):
+        print 'find_next_step', finished_step
         last_page = self.pages[-1].module.__name__
-        if filter_name == last_page:
+        if finished_step == last_page:
             self.finished_pages = True
             if self.finished_installing:
+                dbfilter = plugininstall.Install(self, db=self.parallel_db)
+                dbfilter.start(auto_process=True)
                 print 'postinstall! (from install)'
-                # FIXME remove once we have postinstall
-                gtk.main_quit()
-                #self.start_debconf()
-                #dbfilter = postinstall.Install(self)
-                #ret = dbfilter.start(auto_process=True)
 
-        if filter_name == 'ubi-partman':
+        if finished_step == 'ubi-partman':
             self.installing = True
             from ubiquity.debconfcommunicator import DebconfCommunicator
             self.parallel_db = DebconfCommunicator('ubiquity', cloexec=True,
@@ -1312,52 +1311,26 @@ class Wizard(BaseFrontend):
             env={'DEBCONF_DB_REPLACE': 'configdb',
                  'DEBCONF_DB_OVERRIDE':'Pipe{infd:none outfd:none}'})
             dbfilter = partman_commit.PartmanCommit(self, db=self.parallel_db)
-            ret = dbfilter.start(auto_process=True)
-            # TODO check ret
+            dbfilter.start(auto_process=True)
 
-        # FIXME OH DEAR LORD.
-        elif filter_name == 'ubiquity.components.partman_commit':
+        # FIXME OH DEAR LORD.  Instead of using names, compare dbfilter to
+        # (install, plugininstall, and so on)
+        elif finished_step == 'ubiquity.components.partman_commit':
             dbfilter = install.Install(self, db=self.parallel_db)
-            ret = dbfilter.start(auto_process=True)
-            # TODO check ret
+            dbfilter.start(auto_process=True)
+            print 'install!'
 
-        elif filter_name == 'ubiquity.components.install':
-            # FIXME needs to check if we've finished the pages?
-            self.installing = False
+        elif finished_step == 'ubiquity.components.install':
             self.finished_installing = True
             if self.finished_pages:
+                dbfilter = plugininstall.Install(self, db=self.parallel_db)
+                dbfilter.start(auto_process=True)
                 print 'postinstall! (from install)'
-                # FIXME remove once we have postinstall
-                gtk.main_quit()
-                #self.start_debconf()
-                #dbfilter = postinstall.Install(self)
-                #ret = dbfilter.start(auto_process=True)
 
-        elif filter_name == 'postinstall':
-            # FIXME until we have this in place, install.py will fail around
-            # usersetup as it doesn't have much of a database to work with.
-            gtk.main_quit()
-
-        # 'partman_commit' : { 'waiting_on' : ['partman' ], 'parallel' : False or True }
-        # 'Install' : { 'waiting_on' : ['partman_commit'], 'parallel' : True }
-        # 'PostInstall' : { 'waiting_on' : ['Install'], 'parallel' : False }
-        # What follows sounds like it needs that event system Colin was talking
-        # about.  Events would be dependent on component names and would be
-        # satisfied by those components completing (which debconffilter_done
-        # would track.
-        # if self.installing:
-        #   def foo:
-        #       if self.pagesindex >= len(self.pages):
-        #           return True # waiting for the user to finish, keep checking
-        #       else:
-        #           pass # run page install funcs then show the finished dialog
-        #                # might not work well (block ui) in an idle handler.
-        #                # maybe make another if for if we've finished the page
-        #                # installs, then show the finished dialog, returning
-        #                # from here after setting up this component that takes
-        #                # the old code out of scripts/install.py to iterate the
-        #                # page installs.
-        #   glib.idle_add(foo)
+        elif finished_step == 'ubiquity.components.plugininstall':
+            self.installing = False
+            #gtk.main_quit()
+            self.quit_main_loop()
 
     def grub_verify_loop(self, widget, okbutton):
         if widget is not None:

@@ -2,6 +2,7 @@ ubiquity/*.py usr/lib/ubiquity/ubiquity
 ubiquity/plugins/*.py usr/lib/ubiquity/plugins
 ubiquity/components/__init__.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/install.py usr/lib/ubiquity/ubiquity/components
+ubiquity/components/plugininstall.py usr/lib/ubiquity/ubiquity/components
 ubiquity/frontend/__init__.py usr/lib/ubiquity/ubiquity/frontend
 ubiquity/frontend/base.py usr/lib/ubiquity/ubiquity/frontend
 ubiquity/frontend/noninteractive.py usr/lib/ubiquity/ubiquity/frontend
