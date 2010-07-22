@@ -1279,13 +1279,8 @@ class Wizard(BaseFrontend):
 
 
     def debconffilter_done (self, dbfilter):
-        #print 'debconffilter_done', dbfilter, dir(dbfilter)
-        # when in 'install mode' and all the pages are finished, this returns
-        # false as there's no current page (that is, self.dbfilter is set to
-        # None).
-        self.find_next_step(dbfilter.__module__)
-        # TODO need to properly handle the parallel steps failing in
-        # BaseFrontend.debconffilter_done.
+        if not dbfilter.status:
+            self.find_next_step(dbfilter.__module__)
         if BaseFrontend.debconffilter_done(self, dbfilter):
             print 'quitting main loop'
             self.quit_main_loop()
@@ -1294,6 +1289,8 @@ class Wizard(BaseFrontend):
             return False
 
     def find_next_step(self, finished_step):
+        # TODO need to handle the case where debconffilters launched from here
+        # crash.
         print 'find_next_step', finished_step
         last_page = self.pages[-1].module.__name__
         if finished_step == last_page:
@@ -1303,7 +1300,7 @@ class Wizard(BaseFrontend):
                 dbfilter.start(auto_process=True)
                 print 'postinstall! (from install)'
 
-        if finished_step == 'ubi-partman':
+        elif finished_step == 'ubi-partman':
             self.installing = True
             from ubiquity.debconfcommunicator import DebconfCommunicator
             self.parallel_db = DebconfCommunicator('ubiquity', cloexec=True,
