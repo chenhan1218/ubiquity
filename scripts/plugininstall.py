@@ -48,6 +48,20 @@ from ubiquity import plugin_manager
 from ubiquity.casper import get_casper
 from ubiquity.components import apt_setup, hw_detect, check_kernels
 
+def cleanup_after(func):
+    def wrapper(self):
+        try:
+            func(self)
+        finally:
+            self.cleanup()
+            try:
+                self.db.progress('STOP')
+            except (KeyboardInterrupt, SystemExit):
+                raise
+            except:
+                pass
+    return wrapper
+
 class Install(install_misc.InstallBase):
     def __init__(self):
         self.db = debconf.Debconf()
@@ -100,7 +114,7 @@ class Install(install_misc.InstallBase):
     # separate databases, which means two progress states.  Might need to
     # record the progress position in find_next_step and pick up from there.
     # Ask Colin.
-    # TODO need to wrap in a decorator that does finally: cleanup() and shuts down the progress.
+    @cleanup_after
     def run(self):
         '''Main entry point.'''
         # We pick up where install.py left off.

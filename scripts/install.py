@@ -112,66 +112,53 @@ class Install(install_misc.InstallBase):
         self.db.progress('START', self.start, self.end, 'ubiquity/install/title')
         self.db.progress('INFO', 'ubiquity/install/mounting_source')
 
-        try:
-            if self.source == '/var/lib/ubiquity/source':
-                self.mount_source()
+        if self.source == '/var/lib/ubiquity/source':
+            self.mount_source()
 
-            if self.target != '/':
-                self.next_region(size=74)
-                # We don't later wait() on this pid by design.  There's no
-                # sense waiting for updates to finish downloading when they can
-                # quite easily finish downloading them once inside the new
-                # Ubuntu system.
-                # TODO can we incorporate the bytes copied / bytes total into
-                # the main progress bar?
-                # TODO log to /var/log/installer/debug
-                # TODO make sure KeyboardInterrupt and SystemExit kills this
-                # TODO the install will blow up spectacularly if this is still
-                # holding the apt lock when other apt install tasks run, I
-                # imagine.  Have those spin until the lock is released.
-                if self.db.get('ubiquity/download_updates') == 'true':
-                    cmd = ['/usr/share/ubiquity/update-apt-cache']
-                    subprocess.Popen(cmd)
-                try:
-                    self.copy_all()
-                except EnvironmentError, e:
-                    if e.errno in (errno.ENOENT, errno.EIO, errno.EFAULT,
-                                   errno.ENOTDIR, errno.EROFS):
-                        if e.filename is None:
-                            error_template = 'cd_hd_fault'
-                        elif e.filename.startswith(self.target):
-                            error_template = 'hd_fault'
-                        else:
-                            error_template = 'cd_fault'
-                        error_template = ('ubiquity/install/copying_error/%s' %
-                                          error_template)
-                        self.db.subst(error_template, 'ERROR', str(e))
-                        self.db.input('critical', error_template)
-                        self.db.go()
-                        # Exit code 3 signals to the frontend that we have
-                        # handled this error.
-                        sys.exit(3)
-                    elif e.errno == errno.ENOSPC:
-                        error_template = 'ubiquity/install/copying_error/no_space'
-                        self.db.subst(error_template, 'ERROR', str(e))
-                        self.db.input('critical', error_template)
-                        self.db.go()
-                        sys.exit(3)
+        if self.target != '/':
+            self.next_region(size=74)
+            # We don't later wait() on this pid by design.  There's no
+            # sense waiting for updates to finish downloading when they can
+            # quite easily finish downloading them once inside the new
+            # Ubuntu system.
+            # TODO can we incorporate the bytes copied / bytes total into
+            # the main progress bar?
+            # TODO log to /var/log/installer/debug
+            # TODO make sure KeyboardInterrupt and SystemExit kills this
+            # TODO the install will blow up spectacularly if this is still
+            # holding the apt lock when other apt install tasks run, I
+            # imagine.  Have those spin until the lock is released.
+            if self.db.get('ubiquity/download_updates') == 'true':
+                cmd = ['/usr/share/ubiquity/update-apt-cache']
+                subprocess.Popen(cmd)
+            try:
+                self.copy_all()
+            except EnvironmentError, e:
+                if e.errno in (errno.ENOENT, errno.EIO, errno.EFAULT,
+                               errno.ENOTDIR, errno.EROFS):
+                    if e.filename is None:
+                        error_template = 'cd_hd_fault'
+                    elif e.filename.startswith(self.target):
+                        error_template = 'hd_fault'
                     else:
-                        raise
-        finally:
-            # TODO drop this try finally block
-            # TODO ask ubiquity/install/waiting 'Waiting...'
-            pass
-            #syslog.syslog('CLEANUP')
-            #self.cleanup()
-            #try:
-            #    self.db.progress('STOP')
-            #except (KeyboardInterrupt, SystemExit):
-            #    raise
-            #except:
-            #    pass
-
+                        error_template = 'cd_fault'
+                    error_template = ('ubiquity/install/copying_error/%s' %
+                                      error_template)
+                    self.db.subst(error_template, 'ERROR', str(e))
+                    self.db.input('critical', error_template)
+                    self.db.go()
+                    # Exit code 3 signals to the frontend that we have handled
+                    # this error.
+                    sys.exit(3)
+                elif e.errno == errno.ENOSPC:
+                    error_template = 'ubiquity/install/copying_error/no_space'
+                    self.db.subst(error_template, 'ERROR', str(e))
+                    self.db.input('critical', error_template)
+                    self.db.go()
+                    sys.exit(3)
+                else:
+                    raise
+        # TODO ask ubiquity/install/waiting 'Waiting...'
 
     def find_cd_kernel(self):
         """Find the boot kernel on the CD, if possible."""
