@@ -50,6 +50,12 @@ po/remove-potcdate.sed
 po/stamp-it
 po/*.gmo
 pixmaps/Makefile
+src/Makefile
+src/panel/.deps
+src/panel/.libs
+src/panel/Makefile
+src/panel/panel
+ubiquity/.deps
 ubiquity/.libs
 ubiquity/Makefile
 ubiquity/frontend/*.bak
