@@ -24,9 +24,8 @@
  * with Ubiquity; if not, write to the Free Software Foundation, Inc., 51
  * Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
-#include <gtk/gtk.h>
 /* Mostly stolen from gnome-panel and unity. */
-
+#include <gtk/gtk.h>
 #include <gdk/gdkx.h>
 #include <X11/Xatom.h>
 #include <X11/Xlib.h>

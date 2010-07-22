@@ -323,6 +323,12 @@ EndSection
                     stdin=null, stdout=logfile, stderr=logfile,
                     **maybe_drop_privileges))
 
+            if os.path.exists('/usr/lib/ubiquity/panel'):
+                extras.append(subprocess.Popen(
+                    ['/usr/lib/ubiquity/panel'],
+                    stdin=null, stdout=logfile, stderr=logfile,
+                    **maybe_drop_privileges))
+
             # Accessibility tools
             if accessibility == 'true':
                 fp = open('/proc/cmdline', 'r')
