@@ -371,7 +371,7 @@ class DebconfInstallProgress(InstallProgress):
 
         res = pm.ResultFailed
         try:
-            res = pm.DoInstall(self.write_stream.fileno())
+            res = pm.do_install(self.write_stream.fileno())
         finally:
             # Reap the status-to-debconf subprocess.
             self.write_stream.close()
@@ -447,12 +447,12 @@ def get_cache_pkg(cache, pkg):
         return None
 
 def broken_packages(cache):
-    expect_count = cache._depcache.BrokenCount
+    expect_count = cache._depcache.broken_count
     count = 0
     brokenpkgs = set()
     for pkg in cache.keys():
         try:
-            if cache._depcache.IsInstBroken(cache._cache[pkg]):
+            if cache._depcache.is_inst_broken(cache._cache[pkg]):
                 brokenpkgs.add(pkg)
                 count += 1
         except KeyError:
@@ -464,22 +464,22 @@ def broken_packages(cache):
 
 def mark_install(cache, pkg):
     cachedpkg = get_cache_pkg(cache, pkg)
-    if cachedpkg is not None and not cachedpkg.isInstalled:
+    if cachedpkg is not None and not cachedpkg.is_installed:
         apt_error = False
         try:
             cachedpkg.markInstall()
         except SystemError:
             apt_error = True
-        if cache._depcache.BrokenCount > 0 or apt_error:
+        if cache._depcache.broken_count > 0 or apt_error:
             brokenpkgs = broken_packages(cache)
             while brokenpkgs:
                 for brokenpkg in brokenpkgs:
-                    get_cache_pkg(cache, brokenpkg).markKeep()
+                    get_cache_pkg(cache, brokenpkg).mark_keep()
                 new_brokenpkgs = broken_packages(cache)
                 if brokenpkgs == new_brokenpkgs:
                     break # we can do nothing more
                 brokenpkgs = new_brokenpkgs
-            assert cache._depcache.BrokenCount == 0
+            assert cache._depcache.broken_count == 0
 
 def expand_dependencies_simple(cache, keep, to_remove, recommends=True):
     """Return the list of packages in to_remove that clearly cannot be removed
@@ -500,12 +500,12 @@ def expand_dependencies_simple(cache, keep, to_remove, recommends=True):
             cachedpkg = get_cache_pkg(cache, pkg)
             if cachedpkg is None:
                 continue
-            ver = cachedpkg._pkg.CurrentVer
+            ver = cachedpkg._pkg.current_ver
             if ver is None:
                 continue
             for key in keys:
-                if key in ver.DependsList:
-                    for dep_or in ver.DependsList[key]:
+                if key in ver.depends_list:
+                    for dep_or in ver.depends_list[key]:
                         # Keep the first element of a disjunction that's
                         # installed; this mirrors what 'apt-get install' would
                         # do if you were installing the package from scratch.
@@ -514,11 +514,11 @@ def expand_dependencies_simple(cache, keep, to_remove, recommends=True):
                         # the only case I can think of where this might have
                         # trouble is "Recommends: foo (>= 2) | bar".
                         for dep in dep_or:
-                            depname = dep.TargetPkg.Name
+                            depname = dep.target_pkg.name
                             cacheddep = get_cache_pkg(cache, depname)
                             if cacheddep is None:
                                 continue
-                            if cacheddep._pkg.CurrentVer is not None:
+                            if cacheddep._pkg.current_ver is not None:
                                 break
                         else:
                             continue
@@ -548,15 +548,15 @@ def get_remove_list(cache, to_remove, recursive=False):
         removed = set()
         for pkg in to_remove:
             cachedpkg = get_cache_pkg(cache, pkg)
-            if cachedpkg is not None and cachedpkg.isInstalled:
+            if cachedpkg is not None and cachedpkg.is_installed:
                 apt_error = False
                 try:
-                    cachedpkg.markDelete(autoFix=False, purge=True)
+                    cachedpkg.mark_delete(autoFix=False, purge=True)
                 except SystemError:
                     apt_error = True
                 if apt_error:
-                    cachedpkg.markKeep()
-                elif cache._depcache.BrokenCount > 0:
+                    cachedpkg.mark_keep()
+                elif cache._depcache.broken_count > 0:
                     # If we're recursively removing packages, or if all
                     # of the broken packages are in the set of packages
                     # to remove anyway, then go ahead and try to remove
@@ -571,7 +571,7 @@ def get_remove_list(cache, to_remove, recursive=False):
                             if cachedpkg2 is not None:
                                 broken_removed_inner.add(pkg2)
                                 try:
-                                    cachedpkg2.markDelete(autoFix=False,
+                                    cachedpkg2.mark_delete(autoFix=False,
                                                           purge=True)
                                 except SystemError:
                                     apt_error = True
@@ -580,18 +580,18 @@ def get_remove_list(cache, to_remove, recursive=False):
                         if apt_error or not broken_removed_inner:
                             break
                         brokenpkgs = broken_packages(cache)
-                    if apt_error or cache._depcache.BrokenCount > 0:
+                    if apt_error or cache._depcache.broken_count > 0:
                         # That didn't work. Revert all the removals we
                         # just tried.
                         for pkg2 in broken_removed:
-                            get_cache_pkg(cache, pkg2).markKeep()
-                        cachedpkg.markKeep()
+                            get_cache_pkg(cache, pkg2).mark_keep()
+                        cachedpkg.mark_keep()
                     else:
                         removed.add(pkg)
                         removed |= broken_removed
                 else:
                     removed.add(pkg)
-                assert cache._depcache.BrokenCount == 0
+                assert cache._depcache.broken_count == 0
         if not removed:
             break
         to_remove -= removed
@@ -697,7 +697,7 @@ class InstallBase:
             'ubiquity/install/apt_indices')
         cache = Cache()
 
-        if cache._depcache.BrokenCount > 0:
+        if cache._depcache.broken_count > 0:
             syslog.syslog(
                 'not installing additional packages, since there are broken '
                 'packages: %s' % ', '.join(broken_packages(cache)))
@@ -752,7 +752,7 @@ class InstallBase:
         self.db.progress('SET', 10)
 
         cache.open(None)
-        if commit_error or cache._depcache.BrokenCount > 0:
+        if commit_error or cache._depcache.broken_count > 0:
             if commit_error is None:
                 commit_error = ''
             brokenpkgs = broken_packages(cache)
@@ -841,7 +841,7 @@ class InstallBase:
                 # filesystem.
                 toplevel = 'language-support-%s' % lp
                 toplevel_pkg = get_cache_pkg(cache, toplevel)
-                if toplevel_pkg and toplevel_pkg.isInstalled:
+                if toplevel_pkg and toplevel_pkg.is_installed:
                     to_install.append(toplevel)
         if all_langpacks and osextras.find_on_path('check-language-support'):
             check_lang = subprocess.Popen(
@@ -872,7 +872,7 @@ class InstallBase:
             # be willing to install packages from the package pool on the CD as
             # well.
             to_install = [lp for lp in to_install
-                             if get_cache_pkg(cache, lp).isInstalled]
+                             if get_cache_pkg(cache, lp).is_installed]
 
         del cache
 

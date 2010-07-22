@@ -73,17 +73,17 @@ class Install(install_misc.InstallBase):
             self.generate_blacklist()
 
         apt_pkg.InitConfig()
-        apt_pkg.Config.Set("Dir", self.target)
-        apt_pkg.Config.Set("Dir::State::status",
+        apt_pkg.Config.set("Dir", self.target)
+        apt_pkg.Config.set("Dir::State::status",
                            os.path.join(self.target, 'var/lib/dpkg/status'))
-        apt_pkg.Config.Set("APT::GPGV::TrustedKeyring",
+        apt_pkg.Config.set("APT::GPGV::TrustedKeyring",
                            os.path.join(self.target, 'etc/apt/trusted.gpg'))
-        apt_pkg.Config.Set("Acquire::gpgv::Options::",
+        apt_pkg.Config.set("Acquire::gpgv::Options::",
                            "--ignore-time-conflict")
-        apt_pkg.Config.Set("DPkg::Options::", "--root=%s" % self.target)
+        apt_pkg.Config.set("DPkg::Options::", "--root=%s" % self.target)
         # We don't want apt-listchanges or dpkg-preconfigure, so just clear
         # out the list of pre-installation hooks.
-        apt_pkg.Config.Clear("DPkg::Pre-Install-Pkgs")
+        apt_pkg.Config.clear("DPkg::Pre-Install-Pkgs")
         apt_pkg.InitSystem()
 
     def run(self):
@@ -231,7 +231,7 @@ class Install(install_misc.InstallBase):
             pass
         if not use_restricted:
             for pkg in cache.keys():
-                if (cache[pkg].isInstalled and
+                if (cache[pkg].is_installed and
                     cache[pkg].section.startswith('restricted/')):
                     difference.add(pkg)
 
@@ -289,7 +289,7 @@ class Install(install_misc.InstallBase):
             else:
                 for removedpkg in would_remove:
                     cachedpkg = install_misc.get_cache_pkg(cache, removedpkg)
-                    cachedpkg.markKeep()
+                    cachedpkg.mark_keep()
         difference = confirmed_remove
 
         if len(difference) == 0:

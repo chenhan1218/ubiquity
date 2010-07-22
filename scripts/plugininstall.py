@@ -74,17 +74,17 @@ class Install(install_misc.InstallBase):
             return
 
         apt_pkg.InitConfig()
-        apt_pkg.Config.Set("Dir", self.target)
-        apt_pkg.Config.Set("Dir::State::status",
+        apt_pkg.Config.set("Dir", self.target)
+        apt_pkg.Config.set("Dir::State::status",
                            os.path.join(self.target, 'var/lib/dpkg/status'))
-        apt_pkg.Config.Set("APT::GPGV::TrustedKeyring",
+        apt_pkg.Config.set("APT::GPGV::TrustedKeyring",
                            os.path.join(self.target, 'etc/apt/trusted.gpg'))
-        apt_pkg.Config.Set("Acquire::gpgv::Options::",
+        apt_pkg.Config.set("Acquire::gpgv::Options::",
                            "--ignore-time-conflict")
-        apt_pkg.Config.Set("DPkg::Options::", "--root=%s" % self.target)
+        apt_pkg.Config.set("DPkg::Options::", "--root=%s" % self.target)
         # We don't want apt-listchanges or dpkg-preconfigure, so just clear
         # out the list of pre-installation hooks.
-        apt_pkg.Config.Clear("DPkg::Pre-Install-Pkgs")
+        apt_pkg.Config.clear("DPkg::Pre-Install-Pkgs")
         apt_pkg.InitSystem()
 
         use_restricted = True
@@ -466,7 +466,7 @@ class Install(install_misc.InstallBase):
                 # worry about it.
                 continue
             cachedpkg = install_misc.get_cache_pkg(cache, pkg)
-            if cachedpkg is None or not cachedpkg.isInstalled:
+            if cachedpkg is None or not cachedpkg.is_installed:
                 incomplete = True
                 break
         if incomplete:
@@ -489,13 +489,13 @@ class Install(install_misc.InstallBase):
         if kern is None:
             return None
         pkc = cache._depcache.GetCandidateVer(kern._pkg)
-        if pkc.DependsList.has_key('Depends'):
-            dependencies = pkc.DependsList['Depends']
+        if pkc.depends_list.has_key('Depends'):
+            dependencies = pkc.depends_list['Depends']
         else:
             # Didn't find.
             return None
         for dep in dependencies:
-            name = dep[0].TargetPkg.Name
+            name = dep[0].target_pkg.name
             if name.startswith('linux-image-2.'):
                 return name
             elif name.startswith('linux-'):
@@ -559,7 +559,7 @@ class Install(install_misc.InstallBase):
             if new_kernel_pkg:
                 cache = Cache()
                 cached_pkg = install_misc.get_cache_pkg(cache, new_kernel_pkg)
-                if cached_pkg is not None and cached_pkg.isInstalled:
+                if cached_pkg is not None and cached_pkg.is_installed:
                     self.kernel_version = new_kernel_version
                 else:
                     remove_kernels = []
@@ -822,7 +822,7 @@ class Install(install_misc.InstallBase):
             'ubiquity/install/apt_indices')
         cache = Cache()
 
-        if cache._depcache.BrokenCount > 0:
+        if cache._depcache.broken_count > 0:
             syslog.syslog(
                 'not processing removals, since there are broken packages: '
                 '%s' % ', '.join(install_misc.broken_packages(cache)))
@@ -859,7 +859,7 @@ class Install(install_misc.InstallBase):
         self.db.progress('SET', 5)
 
         cache.open(None)
-        if commit_error or cache._depcache.BrokenCount > 0:
+        if commit_error or cache._depcache.broken_count > 0:
             if commit_error is None:
                 commit_error = ''
             brokenpkgs = install_misc.broken_packages(cache)
@@ -1047,7 +1047,7 @@ class Install(install_misc.InstallBase):
         keep.add('oem-config')
 
         cache = Cache()
-        remove = set([pkg for pkg in cache.keys() if cache[pkg].isInstalled])
+        remove = set([pkg for pkg in cache.keys() if cache[pkg].is_installed])
         # Keep packages we explicitly installed.
         keep |= install_misc.query_recorded_installed()
         remove -= install_misc.expand_dependencies_simple(cache, keep, remove)
@@ -1173,7 +1173,7 @@ class Install(install_misc.InstallBase):
         if not use_restricted:
             cache = self.restricted_cache
             for pkg in cache.keys():
-                if (cache[pkg].isInstalled and
+                if (cache[pkg].is_installed and
                     cache[pkg].section.startswith('restricted/')):
                     difference.add(pkg)
             del cache
