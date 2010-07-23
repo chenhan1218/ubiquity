@@ -940,7 +940,12 @@ class Wizard(BaseFrontend):
 
         self.add_history(page, cur)
         self.set_current_page(num)
+
         if self.pagesindex == 0:
+            self.allow_go_backward(False)
+        elif self.pages[self.pagesindex - 1].module.NAME == 'partman':
+            # We're past partitioning.  Unless the install fails, there is no
+            # going back.
             self.allow_go_backward(False)
         elif 'UBIQUITY_AUTOMATIC' not in os.environ:
             self.allow_go_backward(True)
@@ -1289,8 +1294,8 @@ class Wizard(BaseFrontend):
             return False
 
     def find_next_step(self, finished_step):
-        # TODO need to handle the case where debconffilters launched from here
-        # crash.
+        # TODO need to handle the case where debconffilters launched from
+        # here crash.  Factor code out of dbfilter_handle_status.
         print 'find_next_step', finished_step
         last_page = self.pages[-1].module.__name__
         if finished_step == last_page:
