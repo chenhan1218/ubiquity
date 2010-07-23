@@ -6,12 +6,11 @@
   <object class="GtkAlignment" id="stepPrepare">
     <property name="visible">True</property>
     <property name="top_padding">10</property>
-    <property name="left_padding">10</property>
-    <property name="right_padding">10</property>
+    <property name="left_padding">20</property>
+    <property name="right_padding">20</property>
     <child>
       <object class="GtkVBox" id="step_prepare_vbox">
         <property name="visible">True</property>
-        <property name="border_width">6</property>
         <child>
           <object class="GtkAlignment" id="alignment1">
             <property name="visible">True</property>
@@ -33,7 +32,7 @@
         <child>
           <object class="GtkAlignment" id="alignment7">
             <property name="visible">True</property>
-            <property name="bottom_padding">10</property>
+            <property name="bottom_padding">30</property>
             <child>
               <object class="GtkVBox" id="vbox1">
                 <property name="visible">True</property>

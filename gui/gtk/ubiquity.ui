@@ -61,7 +61,7 @@
                             <property name="top_padding">10</property>
                             <property name="bottom_padding">20</property>
                             <property name="left_padding">20</property>
-                            <property name="right_padding">10</property>
+                            <property name="right_padding">20</property>
                             <child>
                               <object class="GtkHButtonBox" id="navigation_control">
                                 <property name="visible">True</property>
