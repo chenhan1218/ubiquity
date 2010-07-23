@@ -1,5 +1,6 @@
 ubiquity (2.3.3) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
   * Disable the "Installing the System" title before Ubiquity comes up
     in automatic mode to prevent confusion before it actually does damage
     in case there are any confirmation screens that should come up first.
@@ -7,6 +8,13 @@ ubiquity (2.3.3) UNRELEASED; urgency=low
   * If a package that was marked for installation is upgradable (and thus
     already installed), mark it for upgrade. (LP: #604585)
   * install.py: Update APT usage from deprecated functions and variables.
+
+  [ Colin Watson ]
+  * Refactor default boot device calculation, bringing it into sync with
+    grub-installer.  This should ensure that when installing to a removable
+    device we always default to installing GRUB to that same device as well,
+    while leaving the situation for installations to hard disks unchanged
+    (LP: #549756).
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 13 Jul 2010 11:45:45 -0500
 

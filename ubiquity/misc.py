@@ -151,6 +151,69 @@ def grub_options():
             syslog.syslog(syslog.LOG_ERR, line)
     return l
 
+def boot_device():
+    boot = None
+    root = None
+    try:
+        p = PartedServer()
+        for disk in p.disks():
+            p.select_disk(disk)
+            for part in p.partitions():
+                part = part[1]
+                if p.has_part_entry(part, 'mountpoint'):
+                    mp = p.readline_part_entry(part, 'mountpoint')
+                    if mp == '/boot':
+                        boot = disk.replace('=', '/')
+                    elif mp == '/':
+                        root = disk.replace('=', '/')
+    except Exception:
+        import traceback
+        for line in traceback.format_exc().split('\n'):
+            syslog.syslog(syslog.LOG_ERR, line)
+    if boot:
+        return boot
+    return root
+
+def is_removable(device):
+    if device is None:
+        return None
+    device = os.path.realpath(device)
+    devpath = None
+    is_partition = False
+    removable_bus = False
+    subp = subprocess.Popen(['udevadm', 'info', '-q', 'property',
+                             '-n', device],
+                            stdout=subprocess.PIPE)
+    for line in subp.communicate()[0].splitlines():
+        line = line.strip()
+        if line.startswith('DEVPATH='):
+            devpath = line[8:]
+        elif line == 'DEVTYPE=partition':
+            is_partition = True
+        elif line == 'ID_BUS=usb' or line == 'ID_BUS=ieee1394':
+            removable_bus = True
+
+    if devpath is not None:
+        if is_partition:
+            devpath = os.path.dirname(devpath)
+        is_removable = removable_bus
+        try:
+            if open('/sys%s/removable' % devpath).readline().strip() != '0':
+                is_removable = True
+        except IOError:
+            pass
+        if is_removable:
+            try:
+                subp = subprocess.Popen(['udevadm', 'info', '-q', 'name',
+                                         '-p', devpath],
+                                        stdout=subprocess.PIPE)
+                return ('/dev/%s' %
+                        subp.communicate()[0].splitlines()[0].strip())
+            except Exception:
+                pass
+
+    return None
+
 @raise_privileges
 def grub_default():
     """Return the default GRUB installation target."""
@@ -185,31 +248,15 @@ def grub_default():
     if (cdsrc == target or target == '(hd0)') and cdfs and cdfs != 'iso9660':
         # Installing from removable media other than a CD.  Make sure that
         # we don't accidentally install GRUB to it.
-        try:
-            boot = ''
-            root = ''
-            p = PartedServer()
-            for disk in p.disks():
-                p.select_disk(disk)
-                for part in p.partitions():
-                    part = part[1]
-                    if p.has_part_entry(part, 'mountpoint'):
-                        mp = p.readline_part_entry(part, 'mountpoint')
-                        if mp == '/boot':
-                            boot = disk.replace('=', '/')
-                        elif mp == '/':
-                            root = disk.replace('=', '/')
-            if boot or root:
-                if boot:
-                    target = boot
-                else:
-                    target = root
-                return re.sub(r'(/dev/(cciss|ida)/c[0-9]d[0-9]|/dev/[a-z]+).*',
-                              r'\1', target)
-        except Exception:
-            import traceback
-            for line in traceback.format_exc().split('\n'):
-                syslog.syslog(syslog.LOG_ERR, line)
+        boot = boot_device()
+        if boot:
+            target = boot
+        target = re.sub(r'(/dev/(cciss|ida)/c[0-9]d[0-9]|/dev/[a-z]+).*',
+                        r'\1', target)
+
+    bootremovable = is_removable(boot_device())
+    if bootremovable is not None:
+        target = bootremovable
 
     return target
 
