@@ -1,1 +1,1 @@
-SUBDIRS = panel
+SUBDIRS = panel cheese
