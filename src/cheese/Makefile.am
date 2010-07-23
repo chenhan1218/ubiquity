@@ -4,9 +4,6 @@ defs_DATA = cheese.defs
 ACLOCAL_AMFLAGS = -I m4
 
 
-pkgpythondir = $(pyexecdir)
-pkgpyexecdir = $(pyexecdir)
-
 pkgpyexec_LTLIBRARIES = cheese.la
 cheese_la_LDFLAGS = -module -avoid-version -export-symbols-regex initcheese
 cheese_la_LIBADD = $(CHEESE_LIBS)
