@@ -139,6 +139,7 @@ class PageGtk(PluginUI):
         if not loc:
             self.controller.allow_go_forward(False)
         else:
+            self.city_entry.set_text(loc.human_zone)
             self.timezone = city
             self.controller.allow_go_forward(True)
 
