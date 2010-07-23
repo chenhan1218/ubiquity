@@ -492,14 +492,6 @@ class Wizard(BaseFrontend):
             if self.current_page is None:
                 return self.returncode
 
-            title = self.pages[self.pagesindex].title
-            if title:
-                title = self.get_string(title)
-                # TODO: Use attributes instead?  Would save having to hardcode the size in here.
-                self.page_title.set_markup('<span size="xx-large">%s</span>' % title)
-                self.title_section.show()
-            else:
-                self.title_section.hide()
             if not self.pages[self.pagesindex].filter_class:
                 # This page is just a UI page
                 self.dbfilter = None
@@ -925,6 +917,15 @@ class Wizard(BaseFrontend):
                 elif page.optional_widgets:
                     cur = page.optional_widgets[0]
                 if cur:
+                    if page.title:
+                        title = self.get_string(page.title)
+                        # TODO: Use attributes instead?  Would save having to
+                        # hardcode the size in here.
+                        self.page_title.set_markup(
+                            '<span size="xx-large">%s</span>' % title)
+                        self.title_section.show()
+                    else:
+                        self.title_section.hide()
                     cur.show()
                     break
         if not cur:

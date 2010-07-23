@@ -23,7 +23,6 @@
                 <property name="visible">True</property>
                 <child>
                   <object class="GtkAlignment" id="title_section">
-                    <property name="visible">True</property>
                     <property name="border_width">20</property>
                     <child>
                       <object class="GtkLabel" id="page_title">
