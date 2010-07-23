@@ -1228,7 +1228,6 @@ class Wizard(BaseFrontend):
         #    '</b></big>')
         self.debconf_progress_set(0)
         self.progress_info.set_text('')
-        self.progress_section.show()
 
     def debconf_progress_set (self, progress_val):
         if self.progress_cancelled:
@@ -1307,6 +1306,7 @@ class Wizard(BaseFrontend):
 
         elif finished_step == 'ubi-partman':
             self.installing = True
+            self.progress_section.show()
             from ubiquity.debconfcommunicator import DebconfCommunicator
             self.parallel_db = DebconfCommunicator('ubiquity', cloexec=True,
             # debconf-apt-progress, start_debconf()
