@@ -51,6 +51,7 @@ po/stamp-it
 po/*.gmo
 pixmaps/Makefile
 src/Makefile
+src/Makefile.in
 src/cheese/.deps
 src/cheese/.libs
 src/cheese/cheese.c
