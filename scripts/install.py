@@ -158,7 +158,7 @@ class Install(install_misc.InstallBase):
                     sys.exit(3)
                 else:
                     raise
-        # TODO ask ubiquity/install/waiting 'Waiting...'
+        self.db.progress('INFO', 'ubiquity/install/waiting')
 
     def find_cd_kernel(self):
         """Find the boot kernel on the CD, if possible."""
