@@ -919,6 +919,7 @@ class Wizard(BaseFrontend):
                 if cur:
                     if page.title:
                         title = self.get_string(page.title)
+                        title = title.replace('${RELEASE}', get_release_name())
                         # TODO: Use attributes instead?  Would save having to
                         # hardcode the size in here.
                         self.page_title.set_markup(
