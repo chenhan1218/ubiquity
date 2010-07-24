@@ -8,6 +8,9 @@ ubiquity (2.3.3) UNRELEASED; urgency=low
   * If a package that was marked for installation is upgradable (and thus
     already installed), mark it for upgrade. (LP: #604585)
   * install.py: Update APT usage from deprecated functions and variables.
+  * Automatic update of included source packages: bterm-unifont 1.2,
+    flash-kernel 2.28ubuntu4, grub-installer 1.49ubuntu12, partman-auto
+    91ubuntu3.
 
   [ Colin Watson ]
   * Refactor default boot device calculation, bringing it into sync with
