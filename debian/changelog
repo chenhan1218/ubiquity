@@ -1,4 +1,4 @@
-ubiquity (2.3.3) UNRELEASED; urgency=low
+ubiquity (2.3.3) maverick; urgency=low
 
   [ Mario Limonciello ]
   * Disable the "Installing the System" title before Ubiquity comes up
@@ -19,7 +19,7 @@ ubiquity (2.3.3) UNRELEASED; urgency=low
     while leaving the situation for installations to hard disks unchanged
     (LP: #549756).
 
- -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 13 Jul 2010 11:45:45 -0500
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sat, 24 Jul 2010 17:49:20 -0500
 
 ubiquity (2.3.2) maverick; urgency=low
 
