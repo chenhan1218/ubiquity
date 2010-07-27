@@ -208,6 +208,26 @@ static const char* indicators[] = {
 	"/usr/lib/indicators/3/libapplication.so",
 	NULL
 };
+static void
+set_background(GtkWidget *win) {
+	GdkPixbuf *pixbuf;
+	GtkPixmap *pixmap;
+	pixbuf = gdk_pixbuf_new_from_file("/usr/share/themes/Ambiance/gtk-2.0/panel_bg.png", NULL);
+	if (pixbuf) {
+		gdk_pixbuf_render_pixmap_and_mask(pixbuf, &pixmap, NULL, 0);
+		if (pixmap)
+			gdk_window_set_back_pixmap(win->window, pixmap, FALSE);
+		gdk_pixbuf_unref(pixbuf);
+	} else {
+		g_warning("Could not find background image.");
+	}
+}
+
+static gint
+on_expose(GtkWidget* widget, gpointer userdata) {
+	set_background(widget);
+	return FALSE;
+}
 
 // TODO: Support system tray for network-manager.
 int
@@ -217,6 +237,17 @@ main(int argc, char* argv[]) {
 	win = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 	g_signal_connect(win, "realize", G_CALLBACK(on_realize), NULL);
 
+    gtk_rc_parse_string (
+        "style \"panel-menubar-style\"\n"
+        "{\n"
+		"    ythickness = 0\n"
+        "    GtkMenuBar::shadow-type = none\n"
+        "    GtkMenuBar::internal-padding = 0\n"
+        "    GtkWidget::focus-line-width = 0\n"
+        "    GtkWidget::focus-padding = 0\n"
+        "}\n"
+		"widget_class \"*<GtkMenuBar>*\" style \"panel-menubar-style\"");
+
 	GtkWidget* menubar = gtk_menu_bar_new();
 	int i;
 	for(i = 0; indicators[i]; i++) {
@@ -225,6 +256,7 @@ main(int argc, char* argv[]) {
 		}
 	}
 	gtk_container_add(GTK_CONTAINER(win), menubar);
+	g_signal_connect(menubar, "expose-event", G_CALLBACK(on_expose), NULL);
 	gtk_widget_show(menubar);
 	gtk_widget_show(win);
 	gtk_main();
