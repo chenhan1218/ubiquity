@@ -614,9 +614,31 @@ class Wizard(BaseFrontend):
         self.page_title.set_style(style)
         self.install_progress_text.set_style(style)
         self.install_details_expander.set_style(style)
-        #from vte import Terminal
-        #self.vte = Terminal()
-        #self.install_details_expander.add(self.vte)
+        # TODO lazy load
+        from vte import Terminal
+        self.vte = Terminal()
+        self.install_details_sw.add(self.vte)
+        self.vte.fork_command('tail', ['tail', '-f', '/var/log/installer/debug'])
+        self.vte.show()
+        # FIXME shrink the window horizontally instead of locking the window size.
+        self.live_installer.set_property('allow_grow', False)
+        # TODO move this into gtkwidgets as a subclass of GtkExpander.
+        def do_allocate(widget, allocation):
+            child = self.install_details_expander.get_label_widget()
+            a = child.get_allocation()
+            expander_size = widget.style_get_property('expander-size')
+            expander_spacing = widget.style_get_property('expander-spacing')
+            w = allocation.width - expander_size - expander_spacing
+            a = gtk.gdk.Rectangle(a.x, a.y, w, child.size_request()[1])
+            child.size_allocate(a)
+        self.install_details_expander.connect('size-allocate', do_allocate)
+
+        def expand(widget):
+            if widget.get_property('expanded'):
+                self.progress_cancel_button.show()
+            else:
+                self.progress_cancel_button.hide()
+        self.install_details_expander.connect('activate', expand)
 
         if self.oem_config:
             self.live_installer.set_title(self.get_string('oem_config_title'))
@@ -1229,7 +1251,6 @@ class Wizard(BaseFrontend):
         #    xml.sax.saxutils.escape(self.progress_position.title()) +
         #    '</b></big>')
         self.debconf_progress_set(0)
-        self.progress_info.set_text('')
 
     def debconf_progress_set (self, progress_val):
         if self.progress_cancelled:
@@ -1275,9 +1296,9 @@ class Wizard(BaseFrontend):
 
     def debconf_progress_cancellable (self, cancellable):
         if cancellable:
-            self.progress_cancel_button.show()
+            self.progress_cancel_button.set_sensitive(True)
         else:
-            self.progress_cancel_button.hide()
+            self.progress_cancel_button.set_sensitive(False)
             self.progress_cancelled = False
 
     def on_progress_cancel_button_clicked (self, unused_button):

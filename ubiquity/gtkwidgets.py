@@ -348,7 +348,7 @@ class PartitionBox(StylizedFrame):
         # FIXME: Dots are rendered over the frame.
         s = cairo.ImageSurface(cairo.FORMAT_ARGB32, 2, 2)
         cr = cairo.Context(s)
-        cr.set_source_rgb(*gtk_to_cairo_color('#c7c7c6'))
+        cr.set_source_rgb(*gtk_to_cairo_color('#b6b0a9'))
         #cr.set_source_rgb(*gtk_to_cairo_color('black'))
         cr.rectangle(1, 1, 1, 1)
         cr.fill()
