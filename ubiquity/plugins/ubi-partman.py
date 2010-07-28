@@ -105,6 +105,7 @@ class PageGtk(PageBase):
             self.part_auto_use_entire_disk = builder.get_object('part_auto_use_entire_disk')
             self.part_auto_use_entire_partition = builder.get_object('part_auto_use_entire_partition')
             self.part_auto_hidden_label = builder.get_object('part_auto_hidden_label')
+            self.part_advanced_vbox = builder.get_object('part_advanced_vbox')
 
             self.partition_create_mount_combo = builder.get_object('partition_create_mount_combo')
             self.partition_edit_mount_combo = builder.get_object('partition_edit_mount_combo')
@@ -1032,8 +1033,8 @@ class PageGtk(PageBase):
             sw.child.set_shadow_type(gtk.SHADOW_NONE)
             sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_NEVER)
             sw.show_all()
-            self.page_advanced.pack_start(sw, expand=False)
-            self.page_advanced.reorder_child(sw, 0)
+            self.part_advanced_vbox.pack_start(sw, expand=False)
+            self.part_advanced_vbox.reorder_child(sw, 0)
 
         for item in cache_order:
             if item in disk_cache:
