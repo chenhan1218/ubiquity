@@ -63,7 +63,7 @@ class PageBase(PluginUI):
 
 class PageGtk(PageBase):
     plugin_is_language = True
-    plugin_title = None
+    plugin_title = 'ubiquity/text/language_heading_label'
 
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
@@ -83,12 +83,6 @@ class PageGtk(PageBase):
             self.iconview = builder.get_object('language_iconview')
             self.treeview = builder.get_object('language_treeview')
             self.oem_id_entry = builder.get_object('oem_id_entry')
-            self.welcome_title_section = builder.get_object('welcome_title_section')
-            self.welcome_title_label = builder.get_object('welcome_title_label')
-            style = gtk.Menu().rc_get_style()
-            self.welcome_title_section.set_style(style)
-            self.welcome_title_label.set_style(style)
-
             if self.controller.oem_config:
                 builder.get_object('oem_id_vbox').show()
 
