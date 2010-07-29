@@ -751,7 +751,9 @@ class Wizard(BaseFrontend):
 
         elif isinstance(widget, gtk.Window):
             if name == 'live_installer':
-                if self.oem_config:
+                if self.custom_title:
+                    text = self.custom_title
+                elif self.oem_config:
                     text = self.get_string('oem_config_title', lang)
                 elif self.oem_user_config:
                     text = self.get_string('oem_user_config_title', lang)

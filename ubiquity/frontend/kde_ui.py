@@ -597,7 +597,9 @@ class Wizard(BaseFrontend):
             widget.setText(text.replace('_', '&', 1))
 
         elif isinstance(widget, QWidget) and str(name) == "UbiquityUIBase":
-            if self.oem_config:
+            if self.custom_title:
+                text = self.custom_title
+            elif self.oem_config:
                 text = self.get_string('oem_config_title', lang, prefix)
             elif self.oem_user_config:
                 text = self.get_string('oem_user_config_title', lang, prefix)

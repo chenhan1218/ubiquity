@@ -1,3 +1,9 @@
+ubiquity (2.3.4) UNRELEASED; urgency=low
+
+  * Also set the custom title when translating widgets.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 29 Jul 2010 00:05:19 -0500
+
 ubiquity (2.3.3) maverick; urgency=low
 
   [ Mario Limonciello ]
