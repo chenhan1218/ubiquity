@@ -45,8 +45,11 @@ _Description:
 Template: ubiquity/text/try_install_text_label
 Type: text
 _Description:
- You can try ${RELEASE} without making any changes to your system, or
- install alongside or instead of your current operating system.
+ You can try ${RELEASE} without making any changes to your computer,
+ directly from this ${MEDIUM}.
+ .
+ Or if you're ready, you can install ${RELEASE} alongside (or instead of)
+ your current operating system.  This shouldn't take too long.
 
 Template: ubiquity/text/try_ubuntu
 Type: text
@@ -996,7 +999,7 @@ _Description: Error updating installer
 Template: ubiquity/text/USB
 Type: text
 # Translated acronym for Universal Serial Bus.
-_Description: USB
+_Description: USB disk
 
 Template: ubiquity/text/CD
 Type: text

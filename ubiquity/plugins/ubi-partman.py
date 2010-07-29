@@ -158,10 +158,10 @@ class PageGtk(PageBase):
             self.current_page = self.page
 
             # Set some parameters that do not change between runs of the plugin
-            name = get_release_name()
-            self.partitionbox.set_property('title', name)
+            release = misc.get_release()
+            self.partitionbox.set_property('title', release.name)
             # New partition
-            self.resizewidget.get_child2().child.set_property('title', name)
+            self.resizewidget.get_child2().child.set_property('title', release.name)
         except Exception, e:
             self.debug('Could not create language page: %s', e)
             self.page = None
