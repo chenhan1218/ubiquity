@@ -379,8 +379,6 @@ EndSection
 
         reboot = False
         if ret != 0:
-            from ubiquity.debconfcommunicator import DebconfCommunicator
-            import debconf
             db = DebconfCommunicator('ubiquity', cloexec=True)
             try:
                 error_cmd = db.get('ubiquity/failure_command')

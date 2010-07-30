@@ -3,6 +3,7 @@ ubiquity (2.3.4) UNRELEASED; urgency=low
   * Also set the custom title when translating widgets.
   * If there is at least one framebuffer device, fallback to fbdev rather
     than vesa for bulletproof X.
+  * Remove extra imports in ubiquity-dm.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 29 Jul 2010 00:05:19 -0500
 
