@@ -17,6 +17,7 @@ import ubiquity.frontend
 import pwd
 
 from ubiquity import osextras
+from ubiquity.misc import create_bool
 from ubiquity.casper import get_casper
 from ubiquity.debconfcommunicator import DebconfCommunicator
 
@@ -101,6 +102,13 @@ class DM:
             raise AttributeError, ('No frontend available; tried %s' %
                                    ', '.join(frontend_names))
 
+        db = DebconfCommunicator('ubiquity', cloexec=True)
+        try:
+            self.force_failsafe = create_bool(db.get('ubiquity/force_failsafe_graphics'))
+        except debconf.DebconfError:
+            self.force_failsafe = False
+        db.shutdown()
+
     def sigusr1_handler(self, signum, frame):
         self.server_started = True
 
@@ -158,7 +166,9 @@ class DM:
 
         for attempt in ('main', 'failsafe'):
             command = list(servercommand)
-            if attempt == 'failsafe':
+            if attempt == 'main' and self.force_failsafe:
+                continue
+            elif attempt == 'failsafe':
                 # TODO cjwatson 2010-02-11: This is a bodge.  The
                 # duplication is nasty, but fortunately bullet-proof X
                 # actually turns out not to be very complicated nowadays.

@@ -4,6 +4,10 @@ ubiquity (2.3.4) UNRELEASED; urgency=low
   * If there is at least one framebuffer device, fallback to fbdev rather
     than vesa for bulletproof X.
   * Remove extra imports in ubiquity-dm.
+  * Add a new template ubiquity/force_failsafe_graphics intended to force
+    installation to use vesa or fbdev, but not on the target system.  This is
+    primarily intended for systems where the installation kernel has known
+    graphics problems, but you are solving them in a post installation step.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 29 Jul 2010 00:05:19 -0500
 

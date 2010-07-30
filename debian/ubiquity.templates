@@ -1129,3 +1129,7 @@ Template: ubiquity/custom_title_text
 Type: string
 Description: for internal use; sets a custom title on installation windows.
 
+Template: ubiquity/force_failsafe_graphics
+Type: boolean
+Default: false
+Description: for internal use; forces the installation to use vesa or fbdev.
