@@ -168,6 +168,10 @@ class DM:
                 # is working on doing that, but is blocked on a couple of
                 # Upstart bugs; once all that's resolved, we should back
                 # this out.
+                if os.path.exists('/dev/fb0'):
+                    driver = 'fbdev'
+                else:
+                    driver = 'vesa'
                 xorg_conf_failsafe = '/etc/X11/xorg.conf.failsafe'
                 command.extend(['-config', xorg_conf_failsafe])
                 command.extend(['-logfile', '/var/log/Xorg.failsafe.log'])
@@ -177,7 +181,7 @@ class DM:
                     print >>xorg_conf_failsafe_file, '''\
 Section "Device"
 	Identifier	"Configured Video Device"
-	Driver		"vesa"
+	Driver		"%s"
 EndSection
 
 Section "Monitor"
@@ -189,7 +193,7 @@ Section "Screen"
 	Monitor		"Configured Monitor"
 	Device		"Configured Video Device"
 EndSection
-'''
+''' % driver
                     xorg_conf_failsafe_file.close()
 
             server = subprocess.Popen(
