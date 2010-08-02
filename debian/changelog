@@ -11,7 +11,7 @@ ubiquity (2.3.4) UNRELEASED; urgency=low
     graphics problems, but you are solving them in a post installation step.
 
   [ Bilal Akhtar ]
-  * ubiquity/frontend/gtk_ui.py:
+  * debian/ubiquity.templates:
     - Add an underline symbol before the label of the install button
       to make it accessible with the Alt key. (LP: #492825)
 

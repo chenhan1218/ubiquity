@@ -343,7 +343,7 @@ Template: ubiquity/text/install_button
 Type: text
 # This is used as a button label, and should be translated as an action.
 # Omit the [ ... ] from the translation.
-_Description: Install[ action ]
+_Description: _Install[ action ]
 
 Template: ubiquity/text/step_label
 Type: text

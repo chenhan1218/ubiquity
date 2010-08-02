@@ -898,8 +898,7 @@ class Wizard(BaseFrontend):
             return False
 
         if is_install and not self.oem_user_config:
-            self.next.set_use_underline(True)
-            self.next.set_label("_"+self.get_string('install_button'))
+            self.next.set_label(self.get_string('install_button'))
 
         num = self.steps.page_num(cur)
         if num < 0:
