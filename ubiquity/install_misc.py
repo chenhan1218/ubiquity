@@ -29,7 +29,8 @@ from ubiquity import osextras
 import re
 import shutil
 
-from apt.progress import FetchProgress, InstallProgress
+from apt.progress.text import AcquireProgress
+from apt.progress.base import InstallProgress
 import traceback
 import syslog
 import fcntl
@@ -238,11 +239,11 @@ def query_recorded_removed():
         record_file.close()
     return (apt_removed, apt_removed_recursive)
 
-class DebconfFetchProgress(FetchProgress):
+class DebconfAcquireProgress(AcquireProgress):
     """An object that reports apt's fetching progress using debconf."""
 
     def __init__(self, db, title, info_starting, info):
-        FetchProgress.__init__(self)
+        AcquireProgress.__init__(self)
         self.db = db
         self.title = title
         self.info_starting = info_starting
@@ -262,8 +263,14 @@ class DebconfFetchProgress(FetchProgress):
 
     # TODO cjwatson 2006-02-27: implement updateStatus
 
-    def pulse(self):
-        FetchProgress.pulse(self)
+    def pulse(self,owner=None):
+        AcquireProgress.pulse(self,owner)
+        self.percent = (((self.current_bytes + self.current_items) * 100.0) /
+                        float(self.total_bytes + self.total_items))
+        if self.current_cps > 0:
+            self.eta = ((self.total_bytes - self.current_bytes) /
+                        float(self.current_cps))
+
         try:
             if os.environ['UBIQUITY_FRONTEND'] != 'debconf_ui':
                 self.db.progress('SET', int(self.percent))
@@ -691,7 +698,7 @@ class InstallBase:
         self.db.progress('INFO', 'ubiquity/install/find_installables')
 
         self.progress_region(0, 1)
-        fetchprogress = DebconfFetchProgress(
+        fetchprogress = DebconfAcquireProgress(
             self.db, 'ubiquity/install/title',
             'ubiquity/install/apt_indices_starting',
             'ubiquity/install/apt_indices')
@@ -711,14 +718,14 @@ class InstallBase:
         self.db.progress('SET', 1)
         self.progress_region(1, 10)
         if langpacks:
-            fetchprogress = DebconfFetchProgress(
+            fetchprogress = DebconfAcquireProgress(
                 self.db, 'ubiquity/langpacks/title', None,
                 'ubiquity/langpacks/packages')
             installprogress = DebconfInstallProgress(
                 self.db, 'ubiquity/langpacks/title',
                 'ubiquity/install/apt_info')
         else:
-            fetchprogress = DebconfFetchProgress(
+            fetchprogress = DebconfAcquireProgress(
                 self.db, 'ubiquity/install/title', None,
                 'ubiquity/install/fetch_remove')
             installprogress = DebconfInstallProgress(

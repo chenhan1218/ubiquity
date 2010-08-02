@@ -480,8 +480,6 @@ class Wizard(BaseFrontend):
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             self.debconf_progress_start(0, self.pageslen,
                 self.get_string('ubiquity/install/checking'))
-            self.debconf_progress_window.set_title(
-                self.get_string('ubiquity/install/title'))
             self.install_progress_window.set_title(
                 self.get_string('ubiquity/install/title'))
             self.refresh()
@@ -640,7 +638,9 @@ class Wizard(BaseFrontend):
                 self.progress_cancel_button.hide()
         self.install_details_expander.connect('activate', expand)
 
-        if self.oem_config:
+        if self.custom_title:
+            self.live_installer.set_title(self.custom_title)
+        elif self.oem_config:
             self.live_installer.set_title(self.get_string('oem_config_title'))
         elif self.oem_user_config:
             self.live_installer.set_title(self.get_string('oem_user_config_title'))
@@ -801,7 +801,9 @@ class Wizard(BaseFrontend):
 
         elif isinstance(widget, gtk.Window):
             if name == 'live_installer':
-                if self.oem_config:
+                if self.custom_title:
+                    text = self.custom_title
+                elif self.oem_config:
                     text = self.get_string('oem_config_title', lang)
                 elif self.oem_user_config:
                     text = self.get_string('oem_user_config_title', lang)

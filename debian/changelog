@@ -1,9 +1,47 @@
-ubiquity (2.3.3) UNRELEASED; urgency=low
+ubiquity (2.3.4) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
+  * Also set the custom title when translating widgets.
+  * If there is at least one framebuffer device, fallback to fbdev rather
+    than vesa for bulletproof X.
+  * Remove extra imports in ubiquity-dm.
+  * Add a new template ubiquity/force_failsafe_graphics intended to force
+    installation to use vesa or fbdev, but not on the target system.  This is
+    primarily intended for systems where the installation kernel has known
+    graphics problems, but you are solving them in a post installation step.
   * Fix packaging to install the new pieces introduced for the overhaul.
 
- -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 12 Jul 2010 16:26:14 -0500
+  [ Bilal Akhtar ]
+  * debian/ubiquity.templates:
+    - Add an underline symbol before the label of the install button
+      to make it accessible with the Alt key. (LP: #492825)
 
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 29 Jul 2010 00:05:19 -0500
+
+ubiquity (2.3.3) maverick; urgency=low
+
+  [ Mario Limonciello ]
+  * Disable the "Installing the System" title before Ubiquity comes up
+    in automatic mode to prevent confusion before it actually does damage
+    in case there are any confirmation screens that should come up first.
+  * Allow setting a custom title via ubiquity/custom_title_text.
+  * If a package that was marked for installation is upgradable (and thus
+    already installed), mark it for upgrade. (LP: #604585)
+  * install.py: Update APT usage from deprecated functions and variables.
+  * Automatic update of included source packages: bterm-unifont 1.2,
+    flash-kernel 2.28ubuntu4, grub-installer 1.49ubuntu12, partman-auto
+    91ubuntu3.
+
+  [ Colin Watson ]
+  * Refactor default boot device calculation, bringing it into sync with
+    grub-installer.  This should ensure that when installing to a removable
+    device we always default to installing GRUB to that same device as well,
+    while leaving the situation for installations to hard disks unchanged
+    (LP: #549756).
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sat, 24 Jul 2010 17:49:20 -0500
+
+>>>>>>> MERGE-SOURCE
 ubiquity (2.3.2) maverick; urgency=low
 
   * Cause 'compat/udpkg --print-os' to always print 'linux' (LP: #600244).

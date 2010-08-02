@@ -265,7 +265,7 @@ Template: ubiquity/text/install_button
 Type: text
 # This is used as a button label, and should be translated as an action.
 # Omit the [ ... ] from the translation.
-_Description: Install Now[ action ]
+_Description: _Install Now[ action ]
 
 Template: ubiquity/text/step_label
 Type: text
@@ -1131,3 +1131,11 @@ Template: ubiquity/text/welcome_heading_label
 Type: text
 _Description: Welcome
 
+Template: ubiquity/custom_title_text
+Type: string
+Description: for internal use; sets a custom title on installation windows.
+
+Template: ubiquity/force_failsafe_graphics
+Type: boolean
+Default: false
+Description: for internal use; forces the installation to use vesa or fbdev.

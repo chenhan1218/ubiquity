@@ -6,10 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-06-25 17:10+0100\n"
+"POT-Creation-Date: 2010-08-02 11:05-0500\n"
 "PO-Revision-Date: 2010-04-19 16:38+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
+"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -538,7 +539,9 @@ msgstr "Avanzado"
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:75001
-msgid "Install[ action ]"
+#, fuzzy
+#| msgid "Install[ action ]"
+msgid "_Install[ action ]"
 msgstr "Instalar"
 
 #. Type: text
@@ -1601,9 +1604,9 @@ msgid ""
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
 "Unha vez que o seu sistema estea configurado ao seu gusto, execute «oem-"
-"config-prepare». Isto fará que se elimine temporalmente o seu usuario «oem» e "
-"faralle ao usuario final unha serie de preguntas a próxima vez que o sistema "
-"se inicie."
+"config-prepare». Isto fará que se elimine temporalmente o seu usuario «oem» "
+"e faralle ao usuario final unha serie de preguntas a próxima vez que o "
+"sistema se inicie."
 
 #. Type: text
 #. Description

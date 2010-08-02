@@ -17,6 +17,7 @@ import ubiquity.frontend
 import pwd
 
 from ubiquity import osextras
+from ubiquity.misc import create_bool
 from ubiquity.casper import get_casper
 from ubiquity.debconfcommunicator import DebconfCommunicator
 
@@ -101,6 +102,13 @@ class DM:
             raise AttributeError, ('No frontend available; tried %s' %
                                    ', '.join(frontend_names))
 
+        db = DebconfCommunicator('ubiquity', cloexec=True)
+        try:
+            self.force_failsafe = create_bool(db.get('ubiquity/force_failsafe_graphics'))
+        except debconf.DebconfError:
+            self.force_failsafe = False
+        db.shutdown()
+
     def sigusr1_handler(self, signum, frame):
         self.server_started = True
 
@@ -158,7 +166,9 @@ class DM:
 
         for attempt in ('main', 'failsafe'):
             command = list(servercommand)
-            if attempt == 'failsafe':
+            if attempt == 'main' and self.force_failsafe:
+                continue
+            elif attempt == 'failsafe':
                 # TODO cjwatson 2010-02-11: This is a bodge.  The
                 # duplication is nasty, but fortunately bullet-proof X
                 # actually turns out not to be very complicated nowadays.
@@ -168,6 +178,10 @@ class DM:
                 # is working on doing that, but is blocked on a couple of
                 # Upstart bugs; once all that's resolved, we should back
                 # this out.
+                if os.path.exists('/dev/fb0'):
+                    driver = 'fbdev'
+                else:
+                    driver = 'vesa'
                 xorg_conf_failsafe = '/etc/X11/xorg.conf.failsafe'
                 command.extend(['-config', xorg_conf_failsafe])
                 command.extend(['-logfile', '/var/log/Xorg.failsafe.log'])
@@ -177,7 +191,7 @@ class DM:
                     print >>xorg_conf_failsafe_file, '''\
 Section "Device"
 	Identifier	"Configured Video Device"
-	Driver		"vesa"
+	Driver		"%s"
 EndSection
 
 Section "Monitor"
@@ -189,7 +203,7 @@ Section "Screen"
 	Monitor		"Configured Monitor"
 	Device		"Configured Video Device"
 EndSection
-'''
+''' % driver
                     xorg_conf_failsafe_file.close()
 
             server = subprocess.Popen(
@@ -381,8 +395,6 @@ EndSection
 
         reboot = False
         if ret != 0:
-            from ubiquity.debconfcommunicator import DebconfCommunicator
-            import debconf
             db = DebconfCommunicator('ubiquity', cloexec=True)
             try:
                 error_cmd = db.get('ubiquity/failure_command')
