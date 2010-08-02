@@ -10,6 +10,7 @@ ubiquity (2.3.4) UNRELEASED; urgency=low
     primarily intended for systems where the installation kernel has known
     graphics problems, but you are solving them in a post installation step.
   * Fix packaging to install the new pieces introduced for the overhaul.
+  * debian/control: fix build-deps from redesign branch.
 
   [ Bilal Akhtar ]
   * debian/ubiquity.templates:
@@ -44,7 +45,6 @@ ubiquity (2.3.3) maverick; urgency=low
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sat, 24 Jul 2010 17:49:20 -0500
 
->>>>>>> MERGE-SOURCE
 ubiquity (2.3.2) maverick; urgency=low
 
   * Cause 'compat/udpkg --print-os' to always print 'linux' (LP: #600244).
