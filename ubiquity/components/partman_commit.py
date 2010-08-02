@@ -23,8 +23,8 @@ from ubiquity.filteredcommand import FilteredCommand
 from ubiquity.parted_server import PartedServer
 
 class PartmanCommit(FilteredCommand):
-    def __init__(self, frontend=None):
-        FilteredCommand.__init__(self, frontend)
+    def __init__(self, frontend=None, db=None):
+        FilteredCommand.__init__(self, frontend, db)
 
     def prepare(self):
         questions = ['^partman/confirm.*',

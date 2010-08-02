@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+. /usr/share/debconf/confmodule
+if [ "$1" = "prepare" ]; then
+    db_input high ubiquity/use_nonfree || true
+    db_input high ubiquity/download_updates || true
+elif [ "$1" = "wireless" ]; then
+    db_get ubiquity/online
+    if [ "$RET" != true ]; then
+        db_input high ubiquity/ssid || true
+    fi
+fi
+

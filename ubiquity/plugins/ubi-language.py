@@ -63,6 +63,7 @@ class PageBase(PluginUI):
 
 class PageGtk(PageBase):
     plugin_is_language = True
+    plugin_title = 'ubiquity/text/language_heading_label'
 
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
@@ -82,7 +83,6 @@ class PageGtk(PageBase):
             self.iconview = builder.get_object('language_iconview')
             self.treeview = builder.get_object('language_treeview')
             self.oem_id_entry = builder.get_object('oem_id_entry')
-
             if self.controller.oem_config:
                 builder.get_object('oem_id_vbox').show()
 
@@ -104,9 +104,8 @@ class PageGtk(PageBase):
             self.try_ubuntu = builder.get_object('try_ubuntu')
             if not self.only:
                 if not 'UBIQUITY_GREETER' in os.environ:
-                    try_section_vbox = builder.get_object('try_section_vbox')
-                    try_section_vbox and try_section_vbox.hide()
-                    self.install_ubuntu and self.install_ubuntu.hide()
+                    choice_section_vbox = builder.get_object('choice_section_vbox')
+                    choice_section_vbox and choice_section_vbox.hide()
                 else:
                     def inst(*args):
                         self.try_ubuntu.set_sensitive(False)
@@ -114,8 +113,7 @@ class PageGtk(PageBase):
                     self.install_ubuntu.connect('clicked', inst)
                     self.try_ubuntu.connect('clicked',
                         self.on_try_ubuntu_clicked)
-                self.try_text_label = builder.get_object('try_text_label')
-                self.ready_text_label = builder.get_object('ready_text_label')
+                self.try_install_text_label = builder.get_object('try_install_text_label')
                 self.alpha_warning_label = builder.get_object('alpha_warning_label')
                 # We do not want to show the yet to be substituted strings
                 # (${MEDIUM}, etc), so don't show the core of the page until
@@ -271,33 +269,55 @@ class PageGtk(PageBase):
             gtk.widget_set_default_direction(gtk.TEXT_DIR_RTL)
         else:
             gtk.widget_set_default_direction(gtk.TEXT_DIR_LTR)
-        if not self.only:
-            release_name = misc.get_release_name()
-            install_medium = misc.get_install_medium()
-            install_medium = i18n.get_string(install_medium, lang)
-            for widget in (self.try_text_label,
-                           self.try_ubuntu,
-                           self.install_ubuntu,
-                           self.ready_text_label,
-                           self.alpha_warning_label):
-                text = i18n.get_string(gtk.Buildable.get_name(widget), lang)
-                text = text.replace('${RELEASE}', release_name)
-                text = text.replace('${MEDIUM}', install_medium)
-                widget.set_label(text)
 
-            if self.release_notes_label:
-                if self.release_notes_url and self.update_installer:
-                    pass
-                elif self.release_notes_url:
-                    text = i18n.get_string('release_notes_only', lang)
-                    self.release_notes_label.set_markup(text)
-                elif self.update_installer:
-                    text = i18n.get_string('update_installer_only', lang)
-                    self.release_notes_label.set_markup(text)
-                else:
-                    self.release_notes_label.hide()
-            for w in self.page.get_children():
-                w.show()
+        if self.only:
+            # The language page for oem-config doesn't have the fancy greeter.
+            return
+
+        # TODO: Cache these.
+        release = misc.get_release()
+        install_medium = misc.get_install_medium()
+        install_medium = i18n.get_string(install_medium, lang)
+        # Set the release name (Ubuntu 10.04) and medium (USB or CD) where
+        # necessary.
+        for w in (self.try_install_text_label, self.alpha_warning_label):
+            text = i18n.get_string(gtk.Buildable.get_name(w), lang)
+            text = text.replace('${RELEASE}', release.name)
+            text = text.replace('${MEDIUM}', install_medium)
+            w.set_label(text)
+
+        # Big buttons.
+        for w in (self.try_ubuntu, self.install_ubuntu):
+            text = i18n.get_string(gtk.Buildable.get_name(w), lang)
+            text = text.replace('${RELEASE}', release.name)
+            text = text.replace('${MEDIUM}', install_medium)
+            w.get_child().set_markup('<span size="x-large">%s</span>' % text)
+
+        # There doesn't appear to be a way to have a homogeneous layout for a
+        # single row in a GtkTable.
+        try_w = self.try_ubuntu.size_request()[0]
+        install_w = self.install_ubuntu.size_request()[0]
+        if try_w > install_w:
+            self.install_ubuntu.set_size_request(try_w, -1)
+        elif install_w > try_w:
+            self.try_ubuntu.set_size_request(install_w, -1)
+
+        # Either leave the release notes label alone (both release notes and a
+        # critical update are available), set it to just the release notes,
+        # just the critical update, or neither, as appropriate.
+        if self.release_notes_label:
+            if self.release_notes_url and self.update_installer:
+                pass
+            elif self.release_notes_url:
+                text = i18n.get_string('release_notes_only', lang)
+                self.release_notes_label.set_markup(text)
+            elif self.update_installer:
+                text = i18n.get_string('update_installer_only', lang)
+                self.release_notes_label.set_markup(text)
+            else:
+                self.release_notes_label.hide()
+        for w in self.page.get_children():
+            w.show()
 
     def set_oem_id(self, text):
         return self.oem_id_entry.set_text(text)
@@ -467,7 +487,7 @@ class PageKde(PageBase):
         lang = lang.split('.')[0]
         self.controller.translate(lang)
         if not self.only:
-            release_name = misc.get_release_name()
+            release = misc.get_release()
             install_medium = misc.get_install_medium()
             install_medium = i18n.get_string(install_medium, lang)
             for widget in (self.page.try_text_label,
@@ -475,7 +495,7 @@ class PageKde(PageBase):
                            self.page.ready_text_label,
                            self.page.alpha_warning_label):
                 text = widget.text()
-                text = text.replace('${RELEASE}', release_name)
+                text = text.replace('${RELEASE}', release.name)
                 text = text.replace('${MEDIUM}', install_medium)
                 widget.setText(text)
                 

@@ -294,7 +294,16 @@ class TimezoneMap(gtk.Widget):
     def button_press(self, unused_widget, event):
         x = int(event.x)
         y = int(event.y)
+        self.select_xy(x, y)
 
+    def select_coords(self, lat, lon):
+        height = self.background.get_height()
+        width = self.background.get_width()
+        x = convert_longitude_to_x(lon, width)
+        y = convert_latitude_to_y(lat, height)
+        self.select_xy(x, y)
+
+    def select_xy(self, x, y):
         o = self.convert_xy_to_offset(x, y)
         if not o:
             return

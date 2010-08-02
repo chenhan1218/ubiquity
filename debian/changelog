@@ -9,11 +9,15 @@ ubiquity (2.3.4) UNRELEASED; urgency=low
     installation to use vesa or fbdev, but not on the target system.  This is
     primarily intended for systems where the installation kernel has known
     graphics problems, but you are solving them in a post installation step.
+  * Fix packaging to install the new pieces introduced for the overhaul.
 
   [ Bilal Akhtar ]
   * debian/ubiquity.templates:
     - Add an underline symbol before the label of the install button
       to make it accessible with the Alt key. (LP: #492825)
+
+  [ Evan Dandrea ]
+  * Merge maverick-redesign branch.  Fingers crossed.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 29 Jul 2010 00:05:19 -0500
 
@@ -40,6 +44,7 @@ ubiquity (2.3.3) maverick; urgency=low
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sat, 24 Jul 2010 17:49:20 -0500
 
+>>>>>>> MERGE-SOURCE
 ubiquity (2.3.2) maverick; urgency=low
 
   * Cause 'compat/udpkg --print-os' to always print 'linux' (LP: #600244).

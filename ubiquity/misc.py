@@ -298,7 +298,32 @@ def remove_os_prober_cache():
     shutil.rmtree('/var/lib/ubiquity/linux-boot-prober-cache',
                   ignore_errors=True)
 
+from collections import namedtuple
+def get_release():
+    ReleaseInfo = namedtuple('ReleaseInfo', 'name, version')
+    if get_release.release_info is None:
+        try:
+            with open('/cdrom/.disk/info') as fp:
+                line = fp.readline()
+                if line:
+                    line = line.split()
+                    if line[2] == 'LTS':
+                        line[1] += ' LTS'
+                    r = ReleaseInfo(name=line[0], version=line[1])
+        except:
+            syslog.syslog(syslog.LOG_ERR, 'Unable to determine the release.')
+
+        if not get_release.release_info:
+            get_release.release_info = ReleaseInfo(name='Ubuntu', version='')
+    return get_release.release_info
+get_release.release_info = None
+
 def get_release_name():
+    import warnings
+    warnings.warn('get_release_name() is deprecated, '
+                  'use get_release().name instead.',
+                  category=DeprecationWarning)
+    
     if not get_release_name.release_name:
         fp = None
         try:

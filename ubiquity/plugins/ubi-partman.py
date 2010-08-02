@@ -30,7 +30,7 @@ from ubiquity.misc import *
 from ubiquity import osextras
 
 NAME = 'partman'
-AFTER = 'console_setup'
+AFTER = 'prepare'
 WEIGHT = 11
 # Not useful in oem-config.
 OEM = False
@@ -49,13 +49,19 @@ class PageBase(PluginUI):
     def set_disk_layout(self, layout):
         pass
 
+    def set_default_filesystem(self, fs):
+        '''The default filesystem used when creating partitions.'''
+        self.default_filesystem = fs
+
     def set_autopartition_choices(self, choices, extra_options,
                                   resize_choice, manual_choice,
-                                  biggest_free_choice):
+                                  biggest_free_choice, use_device_choice):
         """Set available autopartitioning choices."""
         self.resize_choice = resize_choice
         self.manual_choice = manual_choice
         self.biggest_free_choice = biggest_free_choice
+        self.use_device_choice = use_device_choice
+        self.extra_options = extra_options
 
     def get_autopartition_choice(self):
         """Get the selected autopartitioning choice."""
@@ -70,22 +76,35 @@ class PageBase(PluginUI):
         pass
 
 class PageGtk(PageBase):
+    plugin_title = 'ubiquity/text/part_auto_heading_label'
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
         try:
             import gtk
+            from ubiquity.gtkwidgets import *
             from ubiquity import segmented_bar
             builder = gtk.Builder()
             self.controller.add_builder(builder)
+            builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPartAsk.ui'))
             builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPartAuto.ui'))
             builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPartAdvanced.ui'))
             builder.connect_signals(self)
-            self.page = builder.get_object('stepPartAuto')
+            self.page = builder.get_object('stepPartAsk')
+            self.page_auto = builder.get_object('stepPartAuto')
             self.page_advanced = builder.get_object('stepPartAdvanced')
-            self.autopartition_choices_vbox = builder.get_object('autopartition_choices_vbox')
-            self.part_auto_choices_label = builder.get_object('part_auto_choices_label')
-            self.action_bar_eb = builder.get_object('action_bar_eb')
-            self.before_bar_eb = builder.get_object('before_bar_eb')
+            self.resizewidget = builder.get_object('resizewidget')
+            self.partitionbox = builder.get_object('partitionbox')
+            self.partition_container = builder.get_object('partition_container')
+            self.part_auto_select_drive = builder.get_object('part_auto_select_drive')
+            self.resize_use_free = builder.get_object('resize_use_free')
+            self.custom_partitioning = builder.get_object('custom_partitioning')
+            self.use_device = builder.get_object('use_device')
+            self.part_auto_allocate_label = builder.get_object('part_auto_allocate_label')
+            self.part_auto_use_entire_disk = builder.get_object('part_auto_use_entire_disk')
+            self.part_auto_use_entire_partition = builder.get_object('part_auto_use_entire_partition')
+            self.part_auto_hidden_label = builder.get_object('part_auto_hidden_label')
+            self.part_advanced_vbox = builder.get_object('part_advanced_vbox')
+
             self.partition_create_mount_combo = builder.get_object('partition_create_mount_combo')
             self.partition_edit_mount_combo = builder.get_object('partition_edit_mount_combo')
             self.partition_create_dialog = builder.get_object('partition_create_dialog')
@@ -107,10 +126,8 @@ class PageGtk(PageBase):
             self.partition_button_edit = builder.get_object('partition_button_edit')
             self.partition_button_delete = builder.get_object('partition_button_delete')
             self.partition_button_undo = builder.get_object('partition_button_undo')
-            self.part_advanced_vbox = builder.get_object('part_advanced_vbox')
             self.part_advanced_warning_message = builder.get_object('part_advanced_warning_message')
             self.part_advanced_warning_hbox = builder.get_object('part_advanced_warning_hbox')
-            self.part_auto_comment_label = builder.get_object('part_auto_comment_label')
             self.partition_list_buttonbox = builder.get_object('partition_list_buttonbox')
             self.part_advanced_recalculating_box = builder.get_object('part_advanced_recalculating_box')
             self.part_advanced_recalculating_spinner = builder.get_object('part_advanced_recalculating_spinner')
@@ -135,30 +152,233 @@ class PageGtk(PageBase):
             self.partition_create_mount_combo.child.set_activates_default(True)
             self.partition_edit_mount_combo.child.set_activates_default(True)
 
-            self.action_bar = segmented_bar.SegmentedBarSlider()
-            self.action_bar.h_padding = self.action_bar.bar_height / 2
-            sw = gtk.ScrolledWindow()
-            sw.add_with_viewport(self.action_bar)
-            sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_NEVER)
-            sw.child.set_shadow_type(gtk.SHADOW_NONE)
-            sw.show_all()
-            self.action_bar_eb.add(sw)
-
-            self.before_bar = segmented_bar.SegmentedBar()
-            self.before_bar.h_padding = self.before_bar.bar_height / 2
-            sw = gtk.ScrolledWindow()
-            sw.add_with_viewport(self.before_bar)
-            sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_NEVER)
-            sw.child.set_shadow_type(gtk.SHADOW_NONE)
-            sw.show_all()
-            self.before_bar_eb.add(sw)
-
-            self.plugin_optional_widgets = self.page_advanced
+            self.plugin_optional_widgets = [self.page_auto, self.page_advanced]
             self.current_page = self.page
+
+            # Set some parameters that do not change between runs of the plugin
+            release = misc.get_release()
+            self.partitionbox.set_property('title', release.name)
+            # New partition
+            self.resizewidget.get_child2().child.set_property('title', release.name)
         except Exception, e:
             self.debug('Could not create language page: %s', e)
             self.page = None
         self.plugin_widgets = self.page
+
+    def plugin_get_current_page(self):
+        return self.current_page
+
+    def set_disk_layout(self, layout):
+        self.disk_layout = layout
+
+    # Automatic partitioning page
+
+    def part_auto_use_entire_partition_clicked(self, unused_widget):
+        '''The user has clicked on 'Use Entire Partition'''
+        self.part_auto_use_entire_partition.set_sensitive(False)
+        self.partition_container.set_current_page(1)
+        s = self.controller.get_string('part_auto_split_largest_partition')
+        self.resize_use_free.set_active(True)
+        self.part_auto_use_entire_disk.set_label(s)
+        # TODO need to set the correct size back and forth between this and
+        # use_entire_disk_clicked.
+
+    def part_auto_use_entire_disk_clicked(self, unused_widget):
+        '''The user has clicked on the toggle between "Use Entire Disk" and
+        "Split Largest Partition".  Switch to either the "use entire disk"
+        widget, or the resize widget, respectively.'''
+
+        use_entire_part = \
+            self.part_auto_use_entire_partition.get_property('sensitive') == False
+        if self.use_device.get_active() or use_entire_part:
+            # Switch back to resizing.
+            self.resize_use_free.set_active(True)
+
+            use_disk = self.controller.get_string('part_auto_use_entire_disk')
+            allocate = self.controller.get_string('part_auto_allocate_label')
+            hidden = self.controller.get_string('part_auto_hidden_label')
+            self.part_auto_use_entire_disk.set_label(use_disk)
+            self.part_auto_allocate_label.set_text(allocate)
+            self.set_part_auto_hidden_label()
+            self.partition_container.set_current_page(0)
+
+            # part_auto_use_entire_partition_clicked may have set this
+            # insensitive.
+            self.part_auto_use_entire_partition.set_sensitive(True)
+        else:
+            # Switch back to 'use entire disk.'
+            self.use_device.set_active(True)
+
+            s = self.controller.get_string('part_auto_split_largest_partition')
+            self.part_auto_use_entire_disk.set_label(s)
+            self.part_auto_allocate_label.set_text('')
+            self.part_auto_hidden_label.set_text('')
+            self.partition_container.set_current_page(1)
+
+    def get_current_disk_partman_id (self):
+        i = self.part_auto_select_drive.get_active_iter()
+        m = self.part_auto_select_drive.get_model()
+        val = m.get_value(i, 0)
+
+        partman_id = self.extra_options[self.use_device_choice][val]
+        disk_id = partman_id.rsplit('/', 1)[1]
+        return disk_id
+
+    def set_part_auto_hidden_label (self):
+        '''Sets the number of partitions in the "X smaller partitions are
+        hidden" label.  It subtracts one from the total count to account for
+        the partition being resized.'''
+
+        disk_id = self.get_current_disk_partman_id()
+        partition_count = len(self.disk_layout[disk_id]) - 1
+        if partition_count == 0:
+            self.part_auto_hidden_label.set_text('')
+        elif partition_count == 1:
+            hidden = self.controller.get_string('part_auto_hidden_label_one')
+            self.part_auto_hidden_label.set_markup(hidden)
+        else:
+            hidden = self.controller.get_string('part_auto_hidden_label')
+            self.part_auto_hidden_label.set_markup(hidden % partition_count)
+
+    def part_ask_option_changed (self, unused_widget):
+        '''The use has selected either the resize or use entire disk option on
+        the ask page.'''
+        if self.resize_use_free.get_active():
+            self.partition_container.set_current_page(0)
+        elif self.use_device.get_active():
+            self.partition_container.set_current_page(1)
+
+    def part_auto_select_drive_changed (self, unused_widget):
+        '''The user has selected a different disk drive from the drop down.
+        Update the resize widget and the "use entire disk" widget to reflect
+        this.
+        This is initially called in set_autopartition_choices.'''
+
+        disk_id = self.get_current_disk_partman_id()
+        # TODO What of all of this can we do asynchronously?
+        self.set_part_auto_hidden_label()
+        if self.resize_use_free.get_active() and disk_id in self.extra_options[self.resize_choice]:
+            # Resize.
+            # FIXME if disk_id in self.extra_options[self.resize_choice], else
+            # switch to format.
+            resize_min_size, resize_max_size, \
+                resize_pref_size, resize_path = \
+                self.extra_options[self.resize_choice][disk_id][1:]
+            self.resizewidget.set_property('min_size', int(resize_min_size))
+            self.resizewidget.set_property('max_size', int(resize_max_size))
+
+            # Lets gather some data.
+            size = None
+            fs = None
+            # TODO at some point we should re-evaluate the structure of
+            # self.disk_layout
+            for partition in self.disk_layout[disk_id]:
+                if partition[0] == resize_path:
+                    size = partition[1]
+                    fs = partition[3]
+                    break
+            assert size is not None, 'Could not find size for %s:\n%s\n%s' % \
+                (str(resize_path), str(disk_id), str(self.disk_layout))
+            title = find_in_os_prober(resize_path)
+            if not title:
+                # This is most likely a partition with some files on it.
+                # TODO need to determine the amount of space used by the files.
+                # Use gio.
+                # TODO i18n
+                title = 'Files (%d GB)' % 0
+                self.resizewidget.get_child1().child.set_property('icon-name', 'folder')
+            # TODO See if we can get the filesystem label first in misc.py,
+            # caching lookups.
+            extra = '%s (%s)' % (resize_path, fs)
+
+            self.resizewidget.get_child1().child.set_property('title', title)
+            self.resizewidget.get_child1().child.set_property('extra', extra)
+            self.resizewidget.set_property('part_size', size)
+            self.resizewidget.set_pref_size(int(resize_pref_size))
+            self.partition_container.set_current_page(0)
+        else:
+            # Use entire disk.
+            self.part_auto_use_entire_partition.set_sensitive(False)
+            self.part_auto_use_entire_disk.set_sensitive(False)
+            # We don't want to hide it as we want to keep its size allocation.
+            self.part_auto_allocate_label.set_text('')
+            self.part_auto_hidden_label.set_text('')
+            self.partition_container.set_current_page(1)
+
+        ext = '%s (%s)' % (disk_id.replace('=', '/'), self.default_filesystem)
+        self.partitionbox.set_property('extra', ext)
+        self.partitionbox.set_size(0)
+
+    def part_auto_hidden_label_activate_link(self, unused_widget, unused):
+        self.custom_partitioning.set_active(True)
+        self.controller.go_forward()
+
+    def set_autopartition_choices (self, choices, extra_options, resize_choice,
+                                   manual_choice, biggest_free_choice,
+                                   use_device_choice):
+        PageBase.set_autopartition_choices(self, choices, extra_options,
+                                           resize_choice, manual_choice,
+                                           biggest_free_choice,
+                                           use_device_choice)
+        # Set the extra field of the partition being created via resizing.
+        if resize_choice in extra_options:
+            # TODO can we put something more useful here than the to-be-created
+            # device node?
+            # FIXME surely this doesn't belong here, but in the combobox
+            # changed stuff.
+            try:
+                dev = extra_options[resize_choice][3]
+                dev, partnum = re.search(r'(.*\D)(\d+)$', dev).groups()
+                dev = '%s%d' % (dev, int(partnum) + 1)
+            except Exception, e:
+                dev = 'unknown'
+                self.debug('Could not determine new partition number: %s', e)
+                self.debug('extra_options: %s' % str(extra_options))
+            extra = '%s (%s)' % (dev, self.default_filesystem)
+            self.resizewidget.get_child2().child.set_property('extra', extra)
+
+        m = self.part_auto_select_drive.get_model()
+        m.clear()
+        for disk in extra_options[use_device_choice]:
+            m.append([disk])
+
+        # TODO somehow remember previous choice on back press.
+        if not resize_choice in extra_options:
+            self.use_device.set_active(True)
+            self.resize_use_free.hide()
+        else:
+            self.resize_use_free.set_active(True)
+            self.resize_use_free.show()
+
+        # TODO Should make sure we're selecting a drive that can be resized by
+        # default, if one exists.
+        self.part_auto_select_drive.set_active(0)
+        # make sure we're on the autopartitioning page
+        self.current_page = self.page
+
+    def get_autopartition_choice (self):
+        if self.custom_partitioning.get_active():
+            return self.manual_choice, None
+        
+        if self.resize_use_free.get_active():
+            disk_id = self.get_current_disk_partman_id()
+            # Resize
+            if self.part_auto_use_entire_partition.get_property('sensitive'):
+                choice = self.extra_options[self.resize_choice][disk_id][0]
+                return choice, '%s B' % self.resizewidget.get_size()
+            # Use entire partition
+            else:
+                choice = self.extra_options['some_partition'][disk_id]
+                return choice, None
+        else:
+            # Use disk
+            i = self.part_auto_select_drive.get_active_iter()
+            m = self.part_auto_select_drive.get_model()
+            disk = m.get_value(i, 0)
+            # Is the transliteration necessary?
+            return self.use_device_choice, unicode(disk, 'utf-8', 'replace')
+
+    # Advanced partitioning page
 
     def show_page_advanced(self):
         self.current_page = self.page_advanced
@@ -176,240 +396,6 @@ class PageGtk(PageBase):
         self.partition_list_buttonbox.set_sensitive(True)
         self.part_advanced_recalculating_spinner.stop()
         self.part_advanced_recalculating_box.hide()
-
-    def plugin_get_current_page(self):
-        return self.current_page
-
-    def set_disk_layout(self, layout):
-        self.disk_layout = layout
-
-    def create_bar(self, disk, type=None):
-        if type:
-            b = self.action_bar
-        else:
-            b = self.before_bar
-            ret = []
-            for part in self.disk_layout[disk]:
-                if part[0].startswith('/'):
-                    t = find_in_os_prober(part[0])
-                    if t and t != 'swap':
-                        ret.append(t)
-            if len(ret) == 0:
-                s = self.controller.get_string('ubiquity/text/part_auto_comment_none')
-            elif len(ret) == 1:
-                s = self.controller.get_string('ubiquity/text/part_auto_comment_one')
-                s = s.replace('${OS}', ret[0])
-            else:
-                s = self.controller.get_string('ubiquity/text/part_auto_comment_many')
-            self.part_auto_comment_label.set_text(s)
-        i = 0
-        for part in self.disk_layout[disk]:
-            dev = part[0]
-            size = part[1]
-            if type == self.biggest_free_choice and part[2] == self.biggest_free_id:
-                b.add_segment_rgb(get_release_name(), size, self.release_color)
-            elif dev == 'free':
-                s = self.controller.get_string('ubiquity/text/partition_free_space')
-                b.add_segment_rgb(s, size, b.remainder_color)
-            else:
-                if dev in self.dev_colors:
-                    c = self.dev_colors[dev]
-                else:
-                    c = self.auto_colors[i]
-                    self.dev_colors[dev] = c
-                b.add_segment_rgb(dev, size, c)
-                if dev == self.resize_path and type == self.resize_choice:
-                    self.action_bar.add_segment_rgb(get_release_name(), -1,
-                        self.release_color)
-                i = (i + 1) % len(self.auto_colors)
-
-    def setup_format_warnings(self, extra_options):
-        for extra in extra_options:
-            for k in self.disk_layout:
-                disk = k
-                if disk.startswith('=dev='):
-                    disk = disk[5:]
-                if '(%s)' % disk not in extra:
-                    continue
-                l = []
-                for part in self.disk_layout[k]:
-                    if part[0] == 'free':
-                        continue
-                    ret = find_in_os_prober(part[0])
-                    if ret and ret != 'swap':
-                        l.append(ret)
-                if l:
-                    if len(l) == 1:
-                        l = l[0]
-                    elif len(l) > 1:
-                        l = ', '.join(l)
-                    txt = self.controller.get_string('ubiquity/text/part_format_warning')
-                    txt = txt.replace('${RELEASE}', get_release_name())
-                    txt = txt.replace('${SYSTEMS}', l)
-                    self.format_warnings[extra] = txt
-
-    def set_autopartition_choices (self, choices, extra_options, resize_choice,
-                                   manual_choice, biggest_free_choice):
-        PageBase.set_autopartition_choices(self, choices, extra_options,
-                                           resize_choice, manual_choice,
-                                           biggest_free_choice)
-        import gtk
-        # FIXME: ick
-        from ubiquity.frontend.gtk_ui import process_labels
-
-        if resize_choice in choices:
-            self.resize_min_size, self.resize_max_size, \
-                self.resize_pref_size, self.resize_path = \
-                    extra_options[resize_choice]
-            self.action_bar.set_part_size(self.resize_pref_size)
-            self.action_bar.set_min(self.resize_min_size)
-            self.action_bar.set_max(self.resize_max_size)
-        if biggest_free_choice in choices:
-            self.biggest_free_id = extra_options[biggest_free_choice]
-
-        for child in self.autopartition_choices_vbox.get_children():
-            self.autopartition_choices_vbox.remove(child)
-
-        text = self.controller.get_string('ubiquity/text/part_auto_choices_label')
-        text = text.replace('${RELEASE}', get_release_name())
-        self.part_auto_choices_label.set_text(text)
-
-        firstbutton = None
-        extra_combo = None
-        for choice in choices:
-            button = gtk.RadioButton(firstbutton, choice, False)
-            if firstbutton is None:
-                firstbutton = button
-            self.autopartition_choices_vbox.add(button)
-
-            if choice in extra_options and choice != biggest_free_choice:
-                alignment = gtk.Alignment(xscale=1, yscale=1)
-                alignment.set_padding(0, 0, 12, 0)
-
-                if choice not in [resize_choice, manual_choice]:
-                    extra_combo = gtk.combo_box_new_text()
-                    vbox = gtk.VBox(spacing=6)
-                    alignment.add(vbox)
-                    vbox.add(extra_combo)
-                    for extra in extra_options[choice]:
-                        extra_combo.append_text(extra)
-                    a = gtk.Alignment(xscale=1, yscale=1)
-                    a.set_padding(0, 0, 12, 0)
-                    a.hide()
-                    self.format_warning_align = a
-                    label = gtk.Label()
-                    label.set_alignment(0, 0)
-                    label.set_line_wrap(True)
-                    process_labels(label)
-                    self.format_warning = label
-                    hbox = gtk.HBox(spacing=6)
-                    img = gtk.Image()
-                    img.set_from_icon_name('gtk-dialog-warning', gtk.ICON_SIZE_BUTTON)
-                    hbox.pack_start(img, expand=False, fill=False)
-                    hbox.pack_start(label)
-                    a.add(hbox)
-                    vbox.add(a)
-
-                    self.setup_format_warnings(extra_options[choice])
-                    extra_combo.connect('changed', self.on_extra_combo_changed)
-                    extra_combo.set_active(0)
-                self.autopartition_choices_vbox.pack_start(alignment,
-                                                   expand=False, fill=False)
-                self.autopartition_extras[choice] = alignment
-                alignment.set_sensitive(False)
-            button.connect('toggled', self.on_autopartition_toggled, extra_combo)
-
-        if firstbutton is not None:
-            firstbutton.set_active(True)
-            self.on_autopartition_toggled(firstbutton, extra_combo)
-        self.autopartition_choices_vbox.show_all()
-        if extra_combo:
-            self.on_extra_combo_changed(extra_combo)
-
-        # make sure we're on the autopartitioning page
-        self.current_page = self.page
-
-    def get_autopartition_choice (self):
-        import gtk
-        for button in self.autopartition_choices_vbox.get_children():
-            if isinstance(button, gtk.Button):
-                if button.get_active():
-                    choice = unicode(button.get_label(), 'utf-8', 'replace')
-                    break
-        else:
-            raise AssertionError, "no active autopartitioning choice"
-
-        if choice == self.resize_choice:
-            # resize_choice should have been hidden otherwise
-            assert self.action_bar.resize != -1
-            return choice, '%d B' % self.action_bar.get_size()
-        elif (choice != self.manual_choice and
-              choice in self.autopartition_extras):
-            vbox = self.autopartition_extras[choice].child
-            for child in vbox.get_children():
-                if isinstance(child, gtk.ComboBox):
-                    return choice, unicode(child.get_active_text(),
-                                           'utf-8', 'replace')
-            else:
-                return choice, None
-        else:
-            return choice, None
-
-    def on_extra_combo_changed (self, widget):
-        txt = widget.get_active_text()
-        for k in self.disk_layout:
-            disk = k
-            if disk.startswith('=dev='):
-                disk = disk[5:]
-            if '(%s)' % disk in txt:
-                self.before_bar.remove_all()
-                self.create_bar(k)
-                break
-        if txt in self.format_warnings:
-            self.format_warning.set_text(self.format_warnings[txt])
-            self.format_warning_align.show_all()
-        else:
-            self.format_warning_align.hide()
-
-    def on_autopartition_toggled (self, widget, extra_combo):
-        """Update autopartitioning screen when a button is selected."""
-
-        choice = unicode(widget.get_label(), 'utf-8', 'replace')
-        if choice is not None and choice in self.autopartition_extras:
-            element = self.autopartition_extras[choice]
-            if widget.get_active():
-                element.set_sensitive(True)
-            else:
-                element.set_sensitive(False)
-
-        if widget.get_active():
-            self.action_bar.remove_all()
-            if choice == self.manual_choice:
-                self.action_bar.add_segment_rgb(self.manual_choice, -1, \
-                    self.release_color)
-            elif choice == self.resize_choice:
-                self.action_bar.set_device(self.resize_path)
-                for k in self.disk_layout:
-                    for p in self.disk_layout[k]:
-                        if self.resize_path == p[0]:
-                            self.before_bar.remove_all()
-                            self.create_bar(k)
-                            self.create_bar(k, type=choice)
-                            return
-            elif choice == self.biggest_free_choice:
-                self.action_bar.set_device(None)
-                for k in self.disk_layout:
-                    for p in self.disk_layout[k]:
-                        if self.biggest_free_id == p[2]:
-                            self.before_bar.remove_all()
-                            self.create_bar(k)
-                            self.create_bar(k, type=choice)
-                            return
-            else:
-                # Use entire disk.
-                self.action_bar.add_segment_rgb(get_release_name(), -1, \
-                    self.release_color)
-                self.on_extra_combo_changed(extra_combo)
 
     def partman_column_name (self, unused_column, cell, model, iterator):
         partition = model[iterator][1]
@@ -1088,10 +1074,11 @@ class PageKde(PageBase):
 
     def set_autopartition_choices (self, choices, extra_options,
                                    resize_choice, manual_choice,
-                                   biggest_free_choice):
+                                   biggest_free_choice, use_device_choice):
         PageBase.set_autopartition_choices(self, choices, extra_options,
                                                resize_choice, manual_choice,
-                                               biggest_free_choice)
+                                               biggest_free_choice,
+                                               use_device_choice)
 
         self.partAuto.setupChoices(choices, extra_options,
                                    resize_choice, manual_choice,
@@ -1532,6 +1519,7 @@ class Page(Plugin):
             self.autopartition_question = question
             choices = self.choices(question)
 
+            mapping = self.choices_display_map(question)
             if self.auto_state is None:
                 self.some_device_desc = \
                     self.description('partman-auto/text/use_device')
@@ -1548,9 +1536,29 @@ class Page(Plugin):
                 self.auto_state[0] += 1
             while self.auto_state[0] < len(choices):
                 self.auto_state[1] = choices[self.auto_state[0]]
+                description_c = mapping[self.auto_state[1]]
                 if (self.auto_state[1] == self.some_device_desc or
                     self.auto_state[1] == self.resize_desc):
                     break
+                # TODO Check what template this comes from instead?
+                # How could we find out if it came from partman-auto/text/some_partition?
+                elif description_c[2:].startswith('resize_use_free'):
+                    replace = description_c.split('__________', 1)[1]
+                    replace = replace.startswith('replace=')
+                    if not replace:
+                        break
+                    else:
+                        #desc = self.description('ubiquity/text/resize_use_free')
+                        desc = 'some_partition'
+                        if desc not in self.extra_options:
+                            self.extra_options[desc] = {}
+                        disk = self.translate_to_c(self.autopartition_question, self.auto_state[1])
+                        disk = re.search('/var/lib/partman/devices/(.*)//', disk).group(1)
+                        self.extra_options[desc][disk] = self.auto_state[1]
+                        # We assume that the partition being replaced is the
+                        # same as the partition being resized for the disk in
+                        # question.
+                        self.auto_state[0] += 1
                 else:
                     self.auto_state[0] += 1
             if self.auto_state[0] < len(choices):
@@ -1602,7 +1610,7 @@ class Page(Plugin):
 
             self.some_device_desc = map_trans(self.some_device_desc, 'ubiquity/text/use_device')
             self.biggest_free_desc = map_trans(self.biggest_free_desc, 'ubiquity/text/biggest_free')
-            self.resize_desc = map_trans(self.resize_desc, 'ubiquity/text/resize_use_free')
+            self.resize_desc = self.description('ubiquity/text/resize_use_free')
             self.manual_desc = map_trans(self.manual_desc, 'ubiquity/text/custom_partitioning')
 
             biggest_free = self.find_script(menu_options, 'biggest_free')
@@ -1611,13 +1619,15 @@ class Page(Plugin):
                 biggest_free = self.split_devpart(biggest_free)[1]
             self.extra_options[self.biggest_free_desc] = biggest_free
 
+            self.ui.set_default_filesystem(self.db.get('partman/default_filesystem'))
             self.ui.set_autopartition_choices(
                 choices, self.extra_options, self.resize_desc,
-                self.manual_desc, self.biggest_free_desc)
+                self.manual_desc, self.biggest_free_desc,
+                self.some_device_desc)
 
         elif question == 'partman-auto/select_disk':
             if self.auto_state is not None:
-                self.extra_options[self.auto_state[1]] = self.choices(question)
+                self.extra_options[self.auto_state[1]] = self.choices_display_map(question)
                 # Back up to autopartitioning question.
                 self.succeeded = False
                 return False
@@ -2100,8 +2110,14 @@ class Page(Plugin):
         elif question == 'partman-partitioning/new_size':
             if self.autopartition_question is not None:
                 if self.auto_state is not None:
-                    self.extra_options[self.auto_state[1]] = \
-                        (self.resize_min_size, self.resize_max_size,
+                    desc = self.description('ubiquity/text/resize_use_free')
+                    if desc not in self.extra_options:
+                        self.extra_options[desc] = {}
+                    disk = self.translate_to_c(self.autopartition_question, self.auto_state[1])
+                    disk = re.search('/var/lib/partman/devices/(.*)//', disk).group(1)
+                    print 'new_size', disk, self.auto_state[1]
+                    self.extra_options[desc][disk] = \
+                        (self.auto_state[1], self.resize_min_size, self.resize_max_size,
                             self.resize_pref_size, self.resize_path)
                     # Back up to autopartitioning question.
                     self.succeeded = False
@@ -2236,6 +2252,7 @@ class Page(Plugin):
         return Plugin.run(self, priority, question)
 
     def ok_handler(self):
+        # TODO how do we ask this question again (for the resize page)?
         if self.current_question.endswith('automatically_partition'):
             (autopartition_choice, self.extra_choice) = \
                 self.ui.get_autopartition_choice()

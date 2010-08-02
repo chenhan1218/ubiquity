@@ -70,7 +70,7 @@ class PartAuto(QWidget):
                 child.setParent(None)
                 del child
 
-        release_name = get_release_name()
+        release_name = get_release().name
 
         bId = 0
         for choice in choices:
