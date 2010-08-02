@@ -1,5 +1,6 @@
 ubiquity (2.3.4) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
   * Also set the custom title when translating widgets.
   * If there is at least one framebuffer device, fallback to fbdev rather
     than vesa for bulletproof X.
@@ -8,6 +9,11 @@ ubiquity (2.3.4) UNRELEASED; urgency=low
     installation to use vesa or fbdev, but not on the target system.  This is
     primarily intended for systems where the installation kernel has known
     graphics problems, but you are solving them in a post installation step.
+
+  [ Bilal Akhtar ]
+  * ubiquity/frontend/gtk_ui.py:
+    - Add an underline symbol before the label of the install button
+      to make it accessible with the Alt key. (LP: #492825)
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 29 Jul 2010 00:05:19 -0500
 
