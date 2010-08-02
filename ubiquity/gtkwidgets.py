@@ -940,8 +940,6 @@ class WirelessTreeView(gtk.TreeView):
         # And perhaps that should be part of a container class to simplify
         # insertion into the ubiquity code / glade.
         ap = self.model[self.model.get_iter(path)][0]
-        #print 'row activated', path, column
-        #print 'passphrase', self.cache[ap]['Passphrase']
         self.interface.Connect(ap)
     # Need to watch state change so we can enable the next button.
 

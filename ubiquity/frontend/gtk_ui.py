@@ -529,15 +529,6 @@ class Wizard(BaseFrontend):
             while gtk.events_pending():
                 gtk.main_iteration()
 
-        #if not self.installing:
-        #    # The core install process has finished before the pages
-        #    # (user went away for a cup of tea).
-        #    print 'postinstall! (in run)'
-        #    #self.start_debconf()
-        #    #dbfilter = postinstall.Install(self)
-        #    #ret = dbfilter.start(auto_process=True)
-        #    # TODO check ret
-
         # There's still work to do (postinstall).  Lets keep the user
         # entertained.
         self.start_slideshow()
@@ -572,7 +563,6 @@ class Wizard(BaseFrontend):
         return True
 
     def start_slideshow(self):
-        print 'starting slideshow'
         slideshow_dir = '/usr/share/ubiquity-slideshow'
         slideshow_locale = self.slideshow_get_available_locale(slideshow_dir, self.locale)
         slideshow_locale = 'c'
@@ -1142,14 +1132,13 @@ class Wizard(BaseFrontend):
         if step == "stepPartAuto":
             self.part_advanced_warning_message.set_text('')
             self.part_advanced_warning_hbox.hide()
-        # TODO move above part commit
-        #if step in ("stepPartAuto", "stepPartAdvanced"):
-        #    # TODO Ideally this should be done in the base frontend or the
-        #    # partitioning component itself.
-        #    options = grub_options()
-        #    self.grub_options.clear()
-        #    for opt in options:
-        #        self.grub_options.append(opt)
+        if step in ("stepPartAuto", "stepPartAdvanced"):
+            # TODO Ideally this should be done in the base frontend or the
+            # partitioning component itself.
+            options = grub_options()
+            self.grub_options.clear()
+            for opt in options:
+                self.grub_options.append(opt)
 
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
@@ -1174,19 +1163,6 @@ class Wizard(BaseFrontend):
             self.live_installer.window.set_functions(f)
             self.allow_change_step(False)
             self.refresh()
-            #self.installing = True
-            ## TODO handle this asynchronously.  Once done, start the install.
-            #from ubiquity.debconfcommunicator import DebconfCommunicator
-            #db2 = DebconfCommunicator('ubiquity', cloexec=True,
-            #    # debconf-apt-progress, start_debconf()
-            #    env={'DEBCONF_DB_REPLACE': 'configdb',
-            #         'DEBCONF_DB_OVERRIDE':'Pipe{infd:none outfd:none}'})
-            #dbfilter = partman_commit.PartmanCommit(self, db=db2)
-            #dbfilter.run_command(auto_process=True)
-            #print 'past commit'
-            #dbfilter = install.Install(self, db=db2)
-            #dbfilter.start(auto_process=True)
-            #print 'past install'
 
     def on_back_clicked(self, unused_widget):
         """Callback to set previous screen."""
@@ -1248,10 +1224,6 @@ class Wizard(BaseFrontend):
     def debconf_progress_start (self, progress_min, progress_max, progress_title):
         self.progress_position.start(progress_min, progress_max,
                                      progress_title)
-        #self.progress_title.set_markup(
-        #    '<big><b>' +
-        #    xml.sax.saxutils.escape(self.progress_position.title()) +
-        #    '</b></big>')
         self.debconf_progress_set(0)
 
     def debconf_progress_set (self, progress_val):
@@ -1260,7 +1232,6 @@ class Wizard(BaseFrontend):
         self.progress_position.set(progress_val)
         fraction = self.progress_position.fraction()
         self.install_progress.set_fraction(fraction)
-        #self.install_progress.set_text('%s%%' % int(fraction * 100))
         return True
 
     def debconf_progress_step (self, progress_inc):
@@ -1269,29 +1240,17 @@ class Wizard(BaseFrontend):
         self.progress_position.step(progress_inc)
         fraction = self.progress_position.fraction()
         self.install_progress.set_fraction(fraction)
-        #self.install_progress.set_text('%s%%' % int(fraction * 100))
         return True
 
     def debconf_progress_info (self, progress_info):
         if self.progress_cancelled:
             return False
         self.install_progress_text.set_label(progress_info)
-        #self.progress_info.set_markup(
-        #    '<i>' + xml.sax.saxutils.escape(progress_info) + '</i>')
         return True
 
     def debconf_progress_stop (self):
         self.progress_cancelled = False
         self.progress_position.stop()
-        if self.progress_position.depth() == 0:
-            # TODO do we really want to show/hide this?
-            #self.progress_section.hide()
-            pass
-        #else:
-        #    self.progress_title.set_markup(
-        #        '<big><b>' +
-        #        xml.sax.saxutils.escape(self.progress_position.title()) +
-        #        '</b></big>')
 
     def debconf_progress_region (self, region_start, region_end):
         self.progress_position.set_region(region_start, region_end)
@@ -1311,7 +1270,6 @@ class Wizard(BaseFrontend):
         if not dbfilter.status:
             self.find_next_step(dbfilter.__module__)
         if BaseFrontend.debconffilter_done(self, dbfilter):
-            print 'quitting main loop'
             self.quit_main_loop()
             return True
         else:
@@ -1320,14 +1278,12 @@ class Wizard(BaseFrontend):
     def find_next_step(self, finished_step):
         # TODO need to handle the case where debconffilters launched from
         # here crash.  Factor code out of dbfilter_handle_status.
-        print 'find_next_step', finished_step
         last_page = self.pages[-1].module.__name__
         if finished_step == last_page:
             self.finished_pages = True
             if self.finished_installing:
                 dbfilter = plugininstall.Install(self, db=self.parallel_db)
                 dbfilter.start(auto_process=True)
-                print 'postinstall! (from install)'
 
         elif finished_step == 'ubi-partman':
             self.installing = True
@@ -1340,19 +1296,16 @@ class Wizard(BaseFrontend):
             dbfilter = partman_commit.PartmanCommit(self, db=self.parallel_db)
             dbfilter.start(auto_process=True)
 
-        # FIXME OH DEAR LORD.  Instead of using names, compare dbfilter to
-        # (install, plugininstall, and so on)
+        # FIXME OH DEAR LORD.  Use isinstance.
         elif finished_step == 'ubiquity.components.partman_commit':
             dbfilter = install.Install(self, db=self.parallel_db)
             dbfilter.start(auto_process=True)
-            print 'install!'
 
         elif finished_step == 'ubiquity.components.install':
             self.finished_installing = True
             if self.finished_pages:
                 dbfilter = plugininstall.Install(self, db=self.parallel_db)
                 dbfilter.start(auto_process=True)
-                print 'postinstall! (from install)'
 
         elif finished_step == 'ubiquity.components.plugininstall':
             self.installing = False

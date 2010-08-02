@@ -31,7 +31,6 @@ from ubiquity import osextras
 
 NAME = 'partman'
 AFTER = 'prepare'
-# Needs to come after the wireless page.
 WEIGHT = 11
 # Not useful in oem-config.
 OEM = False
@@ -76,14 +75,13 @@ class PageBase(PluginUI):
         """Update the manual partitioner display."""
         pass
 
-# FIXME
-from ubiquity.gtkwidgets import *
 class PageGtk(PageBase):
     plugin_title = 'ubiquity/text/part_auto_heading_label'
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
         try:
             import gtk
+            from ubiquity.gtkwidgets import *
             from ubiquity import segmented_bar
             builder = gtk.Builder()
             self.controller.add_builder(builder)
@@ -313,7 +311,6 @@ class PageGtk(PageBase):
 
     def part_auto_hidden_label_activate_link(self, unused_widget, unused):
         self.custom_partitioning.set_active(True)
-        #self.controller.dbfilter.ok_handler()
         self.controller.go_forward()
 
     def set_autopartition_choices (self, choices, extra_options, resize_choice,
@@ -323,18 +320,6 @@ class PageGtk(PageBase):
                                            resize_choice, manual_choice,
                                            biggest_free_choice,
                                            use_device_choice)
-        # TODO partman-auto should have another recipe, present whenever resize
-        # is, that simply replaces the partition with Ubuntu.  We'll note this
-        # here, and expose it via the "Use Largest Partition" button.
-        print 'set_autopartition_choices'
-        print 'choices:', choices
-        print 'extra_options:', extra_options
-        print 'resize_choice:', resize_choice
-        print 'manual_choice:', manual_choice
-        print 'biggest_free_choice:', biggest_free_choice
-        print 'use_device_choice:', use_device_choice
-        print 'disk_layout:', self.disk_layout
-
         # Set the extra field of the partition being created via resizing.
         if resize_choice in extra_options:
             # TODO can we put something more useful here than the to-be-created
@@ -352,15 +337,6 @@ class PageGtk(PageBase):
             extra = '%s (%s)' % (dev, self.default_filesystem)
             self.resizewidget.get_child2().child.set_property('extra', extra)
 
-        # TODO For the entire disk PartitionBox here, we need to set the title
-        # property to the distribution name (from misc.py) and the extra
-        # property to the target partition (look up in partman, it could be
-        # anything) and target filesystem (again, partman).
-
-        # use_device_choice always exists in extra_options.
-        # TODO the set of disks that can be formatted and the set of disks that
-        # can be resized may not be the same.  But the set of disks that can be
-        # formatted contains all the disks.
         m = self.part_auto_select_drive.get_model()
         m.clear()
         for disk in extra_options[use_device_choice]:
