@@ -47,8 +47,8 @@ class PageGtk(PluginUI):
             self.map_window = builder.get_object('timezone_map_window')
             self.setup_page()
             self.timezone = None
+            self.zones = []
         except Exception, e:
-            print e
             self.debug('Could not create timezone page: %s', e)
             self.page = None
         self.plugin_widgets = self.page
@@ -62,76 +62,11 @@ class PageGtk(PluginUI):
         self.tzmap.set_time_format(fmt)
 
     def set_timezone(self, timezone):
-        #self.fill_timezone_boxes()
+        self.zones = self.controller.dbfilter.build_timezone_list()
         self.select_city(None, timezone)
 
     def get_timezone(self):
         return self.timezone
-
-    @only_this_page
-    def fill_timezone_boxes(self):
-        import gtk, gobject
-        tz = self.controller.dbfilter
-
-        # Regions are a translated shortlist of regions, followed by full list
-        m = self.city_entry.get_completion().get_model()
-
-        lang = os.environ['LANG'].split('_', 1)[0]
-        region_pairs = tz.build_shortlist_region_pairs(lang)
-        print 'region_pairs one', region_pairs
-        if region_pairs:
-            for pair in region_pairs:
-                m.append(None, pair)
-            m.append(None, [None, None, None])
-        region_pairs = tz.build_region_pairs()
-        print 'region_pairs two', region_pairs
-        for pair in region_pairs:
-            m.append(None, pair)
-
-        # cities
-        i = m.get_iter_first()
-        while i:
-            if m[i][1]:
-                countries = [m[i][1]]
-            else:
-                countries = self.controller.dbfilter.get_countries_for_region(m[i][2])
-
-            # TODO once we've ported kde over, have this function return a 3-tuple
-            # TODO make this append just a name and key, since we're building
-            # the entire structure at once. 
-            shortlist, longlist = self.controller.dbfilter.build_timezone_pairs(countries)
-            for pair in shortlist:
-                m.append(i, pair + (None,))
-                #print 'shortlist pair', pair
-            if shortlist:
-                m.append(i, [None, None, None])
-                #print 'divider'
-            for pair in longlist:
-                m.append(i, pair + (None,))
-                #print 'longlist pair', pair
-            i = m.iter_next(i)
-
-    @only_this_page
-    def select_country(self, country):
-        def country_is_in_region(country, region):
-            if not region: return False
-            return country in self.controller.dbfilter.get_countries_for_region(region)
-
-        m = self.region_combo.get_model()
-        iterator = self.region_combo.get_active_iter()
-        got_country = False
-        if iterator:
-            got_country = m[iterator][1] == country or \
-                          country_is_in_region(country, m[iterator][2])
-        if not got_country:
-            iterator = m.get_iter_first()
-            while iterator:
-                if m[iterator][0] is not None and \
-                   m[iterator][1] == country or \
-                   country_is_in_region(country, m[iterator][2]):
-                    self.region_combo.set_active_iter(iterator)
-                    break
-                iterator = m.iter_next(iterator)
 
     def select_city(self, unused_widget, city):
         loc = self.tzdb.get_loc(city)
@@ -143,25 +78,8 @@ class PageGtk(PluginUI):
             self.timezone = city
             self.controller.allow_go_forward(True)
 
-
-        #self.select_country(loc.country)
-
-        #m = self.city_combo.get_model()
-        #iterator = m.get_iter_first()
-        #while iterator:
-        #    if m[iterator][1] == city:
-        #        self.city_combo.set_active_iter(iterator)
-        #        return
-        #    iterator = m.iter_next(iterator)
-        ## We don't have a timezone selection, so don't let the user proceed.
-        #self.controller.allow_go_forward(False)
-
     def setup_page(self):
-        # TODO Unfocus the box once selected, after we fill it with the selected entry
-        # TODO When filling with the selected entry, put the '[type here to
-        # change]' message after it (modify LabelledEntry).
         # TODO Put a frame around the completion to add contrast (LP: #605908)
-        # TODO Make it work
         import gobject, gtk
         from ubiquity import timezone_map
         self.tzdb = ubiquity.tz.Database()
@@ -175,28 +93,10 @@ class PageGtk(PluginUI):
         def is_separator(m, i):
             return m[i][0] is None
 
-        #def on_entry_changed(entry, model):
-        #    text = entry.get_text().lower()
-        #    if not text:
-        #        self.controller.allow_go_forward(False)
-        #        return
-        #    iterator = model.get_iter_first()
-        #    while iterator:
-        #        country = model.get_value(iterator,0)
-        #        if country is not None:
-        #            country = country.lower()
-        #            if text == country or country.find('(%s)' % text) != -1:
-        #                entry.set_active_iter(iterator)
-        #                self.controller.allow_go_forward(True)
-        #                return
-        #        iterator = m.iter_next(iterator)
-        #    self.controller.allow_go_forward(False)
-
         def changed(entry):
             text = entry.get_text()
             if not text:
                 return
-            #print 'focus', entry.has_focus()
             # TODO if the completion widget has a selection, return?  How do we determine this?
             if text in changed.cache:
                 model = changed.cache[text]
@@ -206,13 +106,29 @@ class PageGtk(PluginUI):
                                       gobject.TYPE_STRING, gobject.TYPE_STRING,
                                       gobject.TYPE_STRING)
                 changed.cache[text] = model
-                # FIXME
+                # TODO benchmark this
+                results = [(name, self.tzdb.get_loc(city))
+                            for (name, city) in
+                                [(x[0], x[1]) for x in self.zones
+                                    if x[0].lower().split('(', 1)[-1] \
+                                                    .startswith(text.lower())]]
+                for result in results:
+                    print 'result', result
+                    # We use name rather than loc.human_zone for i18n.
+                    # TODO this looks pretty awful for US results:
+                    # United States (New York) (United States)
+                    # Might want to match the debconf format.
+                    name, loc = result
+                    model.append([name, '', loc.human_country,
+                                  loc.latitude, loc.longitude])
+
                 try:
                     import urllib2, urllib, json
                     opener = urllib2.build_opener()
                     opener.addheaders = [('User-agent', 'Ubiquity/1.0')]
                     # TODO add &version=1.0 ?
-                    url = opener.open('http://10.0.2.2:8080/?query=%s' % urllib.quote(text))
+                    url = opener.open('http://10.0.2.2:8080/?query=%s' % \
+                                      urllib.quote(text))
                     for result in json.loads(url.read()):
                         model.append([result['name'],
                                       result['admin1'],
@@ -221,7 +137,9 @@ class PageGtk(PluginUI):
                                       result['latitude']])
                 except Exception, e:
                     print 'exception:', e
-                    return
+                    # TODO because we don't return here, we could cache a
+                    # result that doesn't include the geonames results because
+                    # of a network error.
             entry.get_completion().set_model(model)
         changed.cache = {}
 
@@ -240,61 +158,30 @@ class PageGtk(PluginUI):
 
         def match_selected(completion, model, iterator):
             # Select on map.
+            print 'selecting match', model[iterator][0]
             lat = float(model[iterator][3])
             lon = float(model[iterator][4])
             self.tzmap.select_coords(lat, lon)
         completion.connect('match-selected', match_selected)
 
         def match_func(completion, key, iterator):
+            print 'match func', key, completion.get_model()[iterator]
             # We've already determined that it's a match in entry_changed.
             return True
 
         def data_func(column, cell, model, iterator):
             row = model[iterator]
-            text = '%s <small>(%s, %s)</small>' % (row[0], row[1], row[2])
+            if row[1]:
+                # The result came from geonames, and thus has an administrative
+                # zone attached to it.
+                text = '%s <small>(%s, %s)</small>' % (row[0], row[1], row[2])
+            else:
+                text = '%s <small>(%s)</small>' % (row[0], row[2])
             cell.set_property('markup', text)
         cell = gtk.CellRendererText()
         completion.pack_start(cell)
         completion.set_match_func(match_func)
         completion.set_cell_data_func(cell, data_func)
-
-    @only_this_page
-    def on_region_combo_changed(self, *args):
-        i = self.region_combo.get_active()
-        m = self.region_combo.get_model()
-        if i is None or i < 0:
-            return
-        if m[i][1]:
-            countries = [m[i][1]]
-        else:
-            countries = self.controller.dbfilter.get_countries_for_region(m[i][2])
-
-        m = self.city_combo.get_model()
-        m.clear()
-
-        shortlist, longlist = self.controller.dbfilter.build_timezone_pairs(countries)
-        for pair in shortlist:
-            m.append(pair)
-        if shortlist:
-            m.append([None, None])
-        for pair in longlist:
-            m.append(pair)
-
-        default = len(countries) == 1 and self.controller.dbfilter.get_default_for_region(countries[0])
-        if default:
-            self.select_city(None, default)
-        else:
-            self.city_combo.set_active_iter(m.get_iter_first())
-
-    def on_city_combo_changed(self, *args):
-        i = self.city_combo.get_active()
-        if i < 0:
-            # There's no selection yet.
-            return
-
-        zone = self.get_timezone()
-        self.tzmap.select_city(zone)
-        self.controller.allow_go_forward(True)
 
 class PageKde(PluginUI):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_timezone'
@@ -504,6 +391,25 @@ class Page(Plugin):
         self.regions[region] = codes
         return codes
 
+    # Returns ['timezone', ...]
+    def build_timezone_list(self):
+        total = []
+        continents = self.choices_untranslated('localechooser/continentlist')
+        for continent in continents:
+            country_codes = self.choices_untranslated('localechooser/countrylist/%s' % continent.replace(' ', '_'))
+            for c in country_codes:
+                shortlist = self.build_shortlist_timezone_pairs(c, sort=False)
+                longlist = self.build_longlist_timezone_pairs(c, sort=False)
+                shortcopy = shortlist[:]
+                # TODO set() | set() instead.
+                for short_item in shortcopy:
+                    for long_item in longlist:
+                        if short_item[1] == long_item[1]:
+                            shortlist.remove(short_item)
+                            break
+                total += shortlist + longlist
+        return total
+
     # Returns [('translated country name', None, 'region code')...] list
     def build_region_pairs(self):
         continents = self.choices_display_map('localechooser/continentlist')
@@ -561,7 +467,7 @@ class Page(Plugin):
 
         return (shortlist, longlist)
 
-    def build_shortlist_timezone_pairs(self, country_code):
+    def build_shortlist_timezone_pairs(self, country_code, sort=True):
         try:
             shortlist = self.choices_display_map('tzsetup/country/%s' % country_code)
             for pair in shortlist.items():
@@ -569,7 +475,8 @@ class Page(Plugin):
                 if pair[1] == 'other':
                     del shortlist[pair[0]]
             shortlist = shortlist.items()
-            shortlist.sort(key=self.collation_key)
+            if sort:
+                shortlist.sort(key=self.collation_key)
             return shortlist
         except debconf.DebconfError:
             return []
