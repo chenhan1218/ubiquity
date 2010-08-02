@@ -113,7 +113,6 @@ class PageGtk(PluginUI):
                                     if x[0].lower().split('(', 1)[-1] \
                                                     .startswith(text.lower())]]
                 for result in results:
-                    print 'result', result
                     # We use name rather than loc.human_zone for i18n.
                     # TODO this looks pretty awful for US results:
                     # United States (New York) (United States)
@@ -158,14 +157,12 @@ class PageGtk(PluginUI):
 
         def match_selected(completion, model, iterator):
             # Select on map.
-            print 'selecting match', model[iterator][0]
             lat = float(model[iterator][3])
             lon = float(model[iterator][4])
             self.tzmap.select_coords(lat, lon)
         completion.connect('match-selected', match_selected)
 
         def match_func(completion, key, iterator):
-            print 'match func', key, completion.get_model()[iterator]
             # We've already determined that it's a match in entry_changed.
             return True
 
@@ -360,7 +357,6 @@ class Page(Plugin):
             # first choice in the list.
             if not zone:
                 choices_c = self.choices_untranslated(question)
-                print 'CHOICES_C', choices_c
                 if choices_c:
                     zone = choices_c[0]
             self.ui.set_timezone(zone)
