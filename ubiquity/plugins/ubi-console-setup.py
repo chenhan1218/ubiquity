@@ -45,7 +45,7 @@ class PageGtk(PluginUI):
             self.keyboardlayoutview = builder.get_object('keyboardlayoutview')
             self.keyboardvariantview = builder.get_object('keyboardvariantview')
             self.calculate_keymap_button = builder.get_object('deduce_layout')
-            self.keyboard_test = builder.get_object('test_label')
+            self.keyboard_test = builder.get_object('keyboard_test')
             self.calculate_keymap_button.connect('clicked', self.calculate_clicked)
         except Exception, e:
             self.debug('Could not create keyboard page: %s', e)
