@@ -161,7 +161,7 @@ class PageGtk(PageBase):
             # New partition
             self.resizewidget.get_child2().child.set_property('title', release.name)
         except Exception, e:
-            self.debug('Could not create language page: %s', e)
+            self.debug('Could not create partman page: %s', e)
             self.page = None
         self.plugin_widgets = self.page
 
