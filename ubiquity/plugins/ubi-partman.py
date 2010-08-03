@@ -81,7 +81,7 @@ class PageGtk(PageBase):
         self.controller = controller
         try:
             import gtk
-            from ubiquity.gtkwidgets import *
+            from ubiquity.gtkwidgets import ResizeWidget, PartitionBox
             from ubiquity import segmented_bar
             builder = gtk.Builder()
             self.controller.add_builder(builder)
@@ -2115,7 +2115,6 @@ class Page(Plugin):
                         self.extra_options[desc] = {}
                     disk = self.translate_to_c(self.autopartition_question, self.auto_state[1])
                     disk = re.search('/var/lib/partman/devices/(.*)//', disk).group(1)
-                    print 'new_size', disk, self.auto_state[1]
                     self.extra_options[desc][disk] = \
                         (self.auto_state[1], self.resize_min_size, self.resize_max_size,
                             self.resize_pref_size, self.resize_path)
