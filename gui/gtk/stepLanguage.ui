@@ -128,21 +128,6 @@
                 <property name="visible">True</property>
                 <property name="spacing">12</property>
                 <child>
-                  <object class="GtkLabel" id="alpha_warning_label">
-                    <property name="visible">True</property>
-                    <property name="xalign">0</property>
-                    <property name="yalign">0</property>
-                    <property name="label" translatable="yes">This is a pre-release of the Ubuntu live CD installer. It is not a final release; that will come with the final release of Ubuntu 10.04 in April 2010.
-
-The installation process may resize or erase partitions on your hard disk. Be sure to &lt;b&gt;take a full backup of any valuable data&lt;/b&gt; before running this program.</property>
-                    <property name="use_markup">True</property>
-                    <property name="wrap">True</property>
-                  </object>
-                  <packing>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
                   <object class="GtkLabel" id="release_notes_label">
                     <property name="can_focus">True</property>
                     <property name="xalign">0</property>
@@ -155,7 +140,7 @@ The installation process may resize or erase partitions on your hard disk. Be su
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">False</property>
-                    <property name="position">1</property>
+                    <property name="position">0</property>
                   </packing>
                 </child>
                 <child>
@@ -203,7 +188,7 @@ The installation process may resize or erase partitions on your hard disk. Be su
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">False</property>
-                    <property name="position">2</property>
+                    <property name="position">1</property>
                   </packing>
                 </child>
               </object>

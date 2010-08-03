@@ -102,6 +102,10 @@ _Description:
  Be sure to <b>take a full backup of any valuable data</b> before running
  this program.
 
+Template: ubiquity/text/warning_heading_label
+Type: text
+_Description: Warning
+
 Template: ubiquity/text/timezone_heading_label
 Type: text
 _Description: Where are you?

@@ -114,7 +114,6 @@ class PageGtk(PageBase):
                     self.try_ubuntu.connect('clicked',
                         self.on_try_ubuntu_clicked)
                 self.try_install_text_label = builder.get_object('try_install_text_label')
-                self.alpha_warning_label = builder.get_object('alpha_warning_label')
                 # We do not want to show the yet to be substituted strings
                 # (${MEDIUM}, etc), so don't show the core of the page until
                 # it's ready.
@@ -180,10 +179,6 @@ class PageGtk(PageBase):
         self.install_ubuntu.set_sensitive(False)
         self.controller._wizard.current_page = None
         self.controller.dbfilter.ok_handler()
-
-    def set_alpha_warning(self, show):
-        if not show and not self.only:
-            self.alpha_warning_label.hide()
 
     def set_language_choices(self, choices, choice_map):
         import gtk, gobject
@@ -280,11 +275,11 @@ class PageGtk(PageBase):
         install_medium = i18n.get_string(install_medium, lang)
         # Set the release name (Ubuntu 10.04) and medium (USB or CD) where
         # necessary.
-        for w in (self.try_install_text_label, self.alpha_warning_label):
-            text = i18n.get_string(gtk.Buildable.get_name(w), lang)
-            text = text.replace('${RELEASE}', release.name)
-            text = text.replace('${MEDIUM}', install_medium)
-            w.set_label(text)
+        w = self.try_install_text_label
+        text = i18n.get_string(gtk.Buildable.get_name(w), lang)
+        text = text.replace('${RELEASE}', release.name)
+        text = text.replace('${MEDIUM}', install_medium)
+        w.set_label(text)
 
         # Big buttons.
         for w in (self.try_ubuntu, self.install_ubuntu):
