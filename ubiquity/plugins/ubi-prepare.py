@@ -59,6 +59,7 @@ class PageGtk(PluginUI):
             self.page = builder.get_object('stepPrepare')
             self.prepare_download_updates = builder.get_object('prepare_download_updates')
             self.prepare_nonfree_software = builder.get_object('prepare_nonfree_software')
+            self.prepare_sufficient_space = builder.get_object('prepare_sufficient_space')
             # TODO we should set these up and tear them down while on this page.
             try:
                 self.prepare_power_source = builder.get_object('prepare_power_source')
@@ -142,6 +143,9 @@ class PageGtk(PluginUI):
     def get_use_nonfree(self):
         return self.prepare_nonfree_software.get_active()
 
+    def set_sufficient_space(self, state):
+        self.prepare_sufficient_space.set_state(state)
+
 
 class Page(Plugin):
     def prepare(self):
@@ -151,6 +155,30 @@ class Page(Plugin):
         self.ui.set_download_updates(download_updates)
         self.ui.set_use_nonfree(use_nonfree)
         return (['/usr/share/ubiquity/simple-plugins', 'prepare'], ['.*'])
+
+    def big_enough(self):
+        # Default to 3 GB
+        size = 3 * 1024 * 1024 * 1024
+        try:
+            with open('/cdrom/casper/filesystem.size') as fp:
+                size = int(fp.readline())
+        except Exception, e:
+            self.debug('Could not determine squashfs size: %s' % e)
+        # TODO substitute into the template for the state box.
+        min_disk_size = size * 1.20 # fudge factor.
+        with misc.raised_privileges():
+            proc = subprocess.Popen(['parted_devices'], stdout=subprocess.PIPE)
+            devices = proc.communicate()[0].rstrip('\n').split('\n')
+            ret = False
+            for device in devices:
+                if int(device.split('\t')[1]) > min_disk_size:
+                    ret = True
+                    break
+        return ret
+
+    def run(self, priority, question):
+        self.ui.set_sufficient_space(self.big_enough())
+        Plugin.run(self, priority, question)
 
     def ok_handler(self):
         download_updates = self.ui.get_download_updates()
