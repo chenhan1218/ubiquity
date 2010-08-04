@@ -11,6 +11,7 @@ ubiquity (2.3.4) UNRELEASED; urgency=low
     graphics problems, but you are solving them in a post installation step.
   * Fix packaging to install the new pieces introduced for the overhaul.
   * debian/control: fix build-deps from redesign branch.
+  * install two new png files for the language page in the gtk frontend.
 
   [ Bilal Akhtar ]
   * debian/ubiquity.templates:
