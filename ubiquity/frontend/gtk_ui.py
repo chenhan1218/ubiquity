@@ -153,6 +153,13 @@ class Controller(ubiquity.frontend.base.Controller):
             self._wizard.live_installer.show()
         self._wizard.refresh()
 
+    def toggle_progress_section(self):
+        if self._wizard.progress_section.get_property('visible'):
+            self._wizard.progress_section.hide()
+        else:
+            self._wizard.progress_section.show()
+        self._wizard.refresh()
+
     def get_string(self, name, lang=None, prefix=None):
         return self._wizard.get_string(name, lang, prefix)
 
@@ -485,6 +492,7 @@ class Wizard(BaseFrontend):
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             self.debconf_progress_start(0, self.pageslen,
                 self.get_string('ubiquity/install/checking'))
+            self.debconf_progress_cancellable(False)
             self.install_progress_window.set_title(
                 self.get_string('ubiquity/install/title'))
             self.refresh()
@@ -596,6 +604,7 @@ class Wizard(BaseFrontend):
         self.webkit_scrolled_window.add(webview)
         webview.open(slides)
         # TODO do these in a page loaded callback
+        self.page_mode.show()
         self.page_mode.set_current_page(1)
         webview.show()
 
@@ -642,9 +651,11 @@ class Wizard(BaseFrontend):
             self.live_installer.set_icon_name("preferences-system")
             self.quit.hide()
 
-        if not 'UBIQUITY_AUTOMATIC' in os.environ:
-            # TODO: Don't show until the first page is ready.
-            self.live_installer.show()
+        if 'UBIQUITY_AUTOMATIC' in os.environ:
+            #hide the notebook until the first page is ready
+            self.page_mode.hide()
+            self.progress_section.show()
+        self.live_installer.show()
         self.allow_change_step(False)
 
         if hasattr(self, 'stepPartAuto'):
@@ -922,6 +933,7 @@ class Wizard(BaseFrontend):
         # migration-assistant.
         self.backup = False
         self.live_installer.show()
+        self.page_mode.show()
         cur = None
         is_install = False
         for page in self.pages:
@@ -1230,6 +1242,7 @@ class Wizard(BaseFrontend):
         self.progress_position.start(progress_min, progress_max,
                                      progress_title)
         self.debconf_progress_set(0)
+        self.debconf_progress_info(progress_title)
 
     def debconf_progress_set (self, progress_val):
         if self.progress_cancelled:
