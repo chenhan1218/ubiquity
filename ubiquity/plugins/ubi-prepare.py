@@ -19,7 +19,9 @@
 
 from ubiquity.gtkwidgets import *
 from ubiquity.plugin import *
+from ubiquity import misc, install_misc, osextras
 import os
+import subprocess
 
 NAME = 'prepare'
 AFTER = 'language'
@@ -112,7 +114,6 @@ class PageGtk(PluginUI):
 
     @only_this_page
     def check_returncode(self, *args):
-        import subprocess
         if self.wget_retcode is not None or self.wget_proc is None:
             self.wget_proc = subprocess.Popen(
                 ['wget', '-q', WGET_URL, '--timeout=15'])
@@ -131,7 +132,12 @@ class PageGtk(PluginUI):
         return self.prepare_download_updates.get_active()
     
     def set_use_nonfree(self, val):
-        self.prepare_nonfree_software.set_active(val)
+        if osextras.find_on_path('jockey-text'):
+            self.prepare_nonfree_software.set_active(val)
+        else:
+            self.debug('Could not find jockey-text on the executable path.')
+            self.prepare_nonfree_software.set_active(False)
+            self.prepare_nonfree_software.set_sensitive(False)
 
     def get_use_nonfree(self):
         return self.prepare_nonfree_software.get_active()
@@ -151,6 +157,15 @@ class Page(Plugin):
         use_nonfree = self.ui.get_use_nonfree()
         self.preseed_bool('ubiquity/use_nonfree', use_nonfree)
         self.preseed_bool('ubiquity/download_updates', download_updates)
+        if use_nonfree:
+            with misc.raised_privileges():
+                # Install non-free drivers (Broadcom STA).
+                proc = subprocess.Popen(['jockey-text', '-a'])
+                proc.communicate()
+                # Install ubuntu-restricted-addons.
+                self.preseed_bool('apt-setup/universe', True)
+                install_misc.record_installed(['ubuntu-restricted-addons'])
+
         Plugin.ok_handler(self)
 
     def set_online_state(self, state):
@@ -158,4 +173,3 @@ class Page(Plugin):
         # to be in debconf as preseeding it makes no sense whatsoever and it
         # never needs to be communicated to a plugin.
         self.preseed_bool('ubiquity/online', state)
-
