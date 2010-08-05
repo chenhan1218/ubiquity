@@ -581,6 +581,10 @@ class Wizard(BaseFrontend):
         slideshow_locale = 'c'
         slideshow_main = slideshow_dir + '/slides/index.html'
 
+        if not os.path.exists(slideshow_main):
+            self.page_mode.hide()
+            return
+
         slides = 'file://' + slideshow_main
         if slideshow_locale != 'c': #slideshow will use default automatically
             slides += '#?locale=' + slideshow_locale
