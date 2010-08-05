@@ -830,7 +830,7 @@ class Install(install_misc.InstallBase):
         self.db.progress('START', 0, 5, 'ubiquity/install/title')
         self.db.progress('INFO', 'ubiquity/install/find_removables')
 
-        fetchprogress = install_misc.DebconfFetchProgress(
+        fetchprogress = install_misc.DebconfAcquireProgress(
             self.db, 'ubiquity/install/title',
             'ubiquity/install/apt_indices_starting',
             'ubiquity/install/apt_indices')
@@ -848,7 +848,7 @@ class Install(install_misc.InstallBase):
 
         self.db.progress('SET', 1)
         self.progress_region(1, 5)
-        fetchprogress = install_misc.DebconfFetchProgress(
+        fetchprogress = install_misc.DebconfAcquireProgress(
             self.db, 'ubiquity/install/title', None,
             'ubiquity/install/fetch_remove')
         installprogress = install_misc.DebconfInstallProgress(

@@ -16,6 +16,7 @@ ubiquity (2.3.4) UNRELEASED; urgency=low
   * Add a new controller function to allow disabling the progress_section
     of the Window for pages it doesn't make sense on that might be shown
     in automatic mode before the partitioner comes.
+  * Update some DebconfFetchProgress calls to DebconfAcquireProgress calls.
 
   [ Bilal Akhtar ]
   * debian/ubiquity.templates:
