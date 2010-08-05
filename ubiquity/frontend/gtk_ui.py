@@ -950,7 +950,7 @@ class Wizard(BaseFrontend):
                 if cur:
                     if page.title:
                         title = self.get_string(page.title)
-                        title = title.replace('${RELEASE}', get_release_name())
+                        title = title.replace('${RELEASE}', get_release().name)
                         # TODO: Use attributes instead?  Would save having to
                         # hardcode the size in here.
                         self.page_title.set_markup(
@@ -1398,7 +1398,7 @@ class Wizard(BaseFrontend):
 
     def bootloader_dialog (self, current_device):
         l = self.skip_label.get_label()
-        l = l.replace('${RELEASE}', get_release_name())
+        l = l.replace('${RELEASE}', get_release().name)
         self.skip_label.set_label(l)
         self.grub_new_device_entry.child.set_text(current_device)
         self.grub_new_device_entry.child.grab_focus()
