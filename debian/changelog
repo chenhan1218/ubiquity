@@ -27,6 +27,7 @@ ubiquity (2.3.4) UNRELEASED; urgency=low
   * Update deprecated use of get_release_name() to get_release().name.
   * Mark timezone to come after both partman and language so that it shows
     up in oem-config too.
+  * Only run plugininstall after the last page in oem mode.
 
   [ Bilal Akhtar ]
   * debian/ubiquity.templates:

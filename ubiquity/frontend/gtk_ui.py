@@ -1300,6 +1300,10 @@ class Wizard(BaseFrontend):
             if self.finished_installing:
                 dbfilter = plugininstall.Install(self, db=self.parallel_db)
                 dbfilter.start(auto_process=True)
+            elif self.oem_user_config:
+                self.progress_section.show()
+                dbfilter = plugininstall.Install(self)
+                dbfilter.start(auto_process=True)
 
         elif finished_step == 'ubi-partman':
             self.installing = True
