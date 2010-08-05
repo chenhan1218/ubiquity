@@ -29,7 +29,8 @@ from ubiquity import i18n
 import ubiquity.tz
 
 NAME = 'timezone'
-AFTER = 'partman'
+#after partman for default install, but language for oem install
+AFTER = ['partman', 'language']
 WEIGHT = 10
 
 class PageGtk(PluginUI):
