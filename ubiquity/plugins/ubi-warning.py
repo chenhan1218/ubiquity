@@ -28,6 +28,7 @@ from ubiquity import misc
 NAME = 'warning'
 BEFORE = 'prepare'
 WEIGHT = 10
+OEM = False
 
 class PageBase(PluginUI):
     def set_alpha_warning(self, show):

@@ -21,6 +21,9 @@ ubiquity (2.3.4) UNRELEASED; urgency=low
   * Update some DebconfFetchProgress calls to DebconfAcquireProgress calls.
   * Run success cmd after plugininstall finishes.
   * Correct a few more deprecated apt calls.
+  * Don't show the warning page or the prepare page in oem-config for now.
+    The prepare page might make sense to re-enable, but will need a little
+    different wording if so.
 
   [ Bilal Akhtar ]
   * debian/ubiquity.templates:

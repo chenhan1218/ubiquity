@@ -26,6 +26,7 @@ import subprocess
 NAME = 'prepare'
 AFTER = 'language'
 WEIGHT = 10
+OEM = False
 
 UPOWER = 'org.freedesktop.UPower'
 UPOWER_PATH = '/org/freedesktop/UPower'
