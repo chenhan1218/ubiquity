@@ -337,7 +337,7 @@ class DebconfInstallProgress(InstallProgress):
             # child
             self.write_stream.close()
             try:
-                while self.updateInterface():
+                while self.update_interface():
                     pass
             except (KeyboardInterrupt, SystemExit):
                 pass # we're going to exit anyway
@@ -474,7 +474,7 @@ def mark_install(cache, pkg):
     if cachedpkg is not None and not cachedpkg.is_installed:
         apt_error = False
         try:
-            cachedpkg.markInstall()
+            cachedpkg.mark_install()
         except SystemError:
             apt_error = True
         if cache._depcache.broken_count > 0 or apt_error:

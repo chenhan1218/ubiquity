@@ -19,6 +19,8 @@ ubiquity (2.3.4) UNRELEASED; urgency=low
   * Move the call to unmount_source back into install.py, it's only really
     used there for file copy, not by plugins.
   * Update some DebconfFetchProgress calls to DebconfAcquireProgress calls.
+  * Run success cmd after plugininstall finishes.
+  * Correct a few more deprecated apt calls.
 
   [ Bilal Akhtar ]
   * debian/ubiquity.templates:

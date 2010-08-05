@@ -1065,8 +1065,6 @@ class Wizard(BaseFrontend):
         # just to make sure
         self.debconf_progress_window.hide()
 
-        self.run_success_cmd()
-
         #in case there are extra pages
         self.back.hide()
         self.quit.hide()
@@ -1327,6 +1325,7 @@ class Wizard(BaseFrontend):
 
         elif finished_step == 'ubiquity.components.plugininstall':
             self.installing = False
+            self.run_success_cmd()
             #gtk.main_quit()
             self.quit_main_loop()
 
