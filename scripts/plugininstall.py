@@ -83,7 +83,6 @@ class Install(install_misc.InstallBase):
         self.plugins = [x for x in modules if hasattr(x, 'Install')]
 
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
-            self.source = None
             self.target = '/'
             return
 
@@ -1405,9 +1404,6 @@ class Install(install_misc.InstallBase):
                          '00AllowUnauthenticated'):
             osextras.unlink_force(os.path.join(
                 self.target, 'etc/apt/apt.conf.d', apt_conf))
-
-        if self.source == '/var/lib/ubiquity/source':
-            self.umount_source()
 
 if __name__ == '__main__':
     install = Install()

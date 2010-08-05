@@ -16,6 +16,8 @@ ubiquity (2.3.4) UNRELEASED; urgency=low
   * Add a new controller function to allow disabling the progress_section
     of the Window for pages it doesn't make sense on that might be shown
     in automatic mode before the partitioner comes.
+  * Move the call to unmount_source back into install.py, it's only really
+    used there for file copy, not by plugins.
   * Update some DebconfFetchProgress calls to DebconfAcquireProgress calls.
 
   [ Bilal Akhtar ]
