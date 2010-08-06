@@ -77,6 +77,7 @@ class PageBase(PluginUI):
 
 class PageGtk(PageBase):
     plugin_title = 'ubiquity/text/part_auto_heading_label'
+    plugin_is_install = True
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
         try:

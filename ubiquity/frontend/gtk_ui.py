@@ -273,6 +273,8 @@ class Wizard(BaseFrontend):
                 mod.title = mod.ui.get('plugin_title')
                 widgets = mod.ui.get('plugin_widgets')
                 optional_widgets = mod.ui.get('plugin_optional_widgets')
+                if not found_install:
+                    found_install = mod.ui.get('plugin_is_install')
                 if widgets or optional_widgets:
                     def fill_out(widget_list):
                         rv = []
@@ -294,6 +296,10 @@ class Wizard(BaseFrontend):
                     self.user_pageslen += len(mod.widgets)
                     self.pageslen += 1
                     self.pages.append(mod)
+
+        #If no plugins declare they are install, then we'll say the last one is
+        if not found_install:
+            self.pages[self.pageslen - 1].ui.plugin_is_install = True
 
         self.toplevels = set()
         for builder in self.builders:
@@ -963,12 +969,16 @@ class Wizard(BaseFrontend):
                     else:
                         self.title_section.hide()
                     cur.show()
+                    is_install = page.ui.get('plugin_is_install')
                     break
         if not cur:
             return False
 
         if is_install and not self.oem_user_config:
             self.next.set_label(self.get_string('install_button'))
+        else:
+            self.next.set_label("gtk-go-forward")
+            self.translate_widget(self.next)
 
         num = self.steps.page_num(cur)
         if num < 0:
