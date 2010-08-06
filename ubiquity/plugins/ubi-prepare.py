@@ -146,12 +146,13 @@ class PageGtk(PluginUI):
 
     def set_sufficient_space(self, state):
         self.prepare_sufficient_space.set_state(state)
+
+    def set_sufficient_space_text(self, space):
+        self.prepare_sufficient_space.set_property('label', space)
     
     def plugin_translate(self, lang):
-        space = self.controller.get_string('prepare_sufficient_space', lang)
         power = self.controller.get_string('prepare_power_source', lang)
         ether = self.controller.get_string('prepare_network_connection', lang)
-        self.prepare_sufficient_space.set_property('label', space)
         self.prepare_power_source.set_property('label', power)
         self.prepare_network_connection.set_property('label', ether)
 
@@ -162,9 +163,19 @@ class Page(Plugin):
         download_updates = self.db.get('ubiquity/download_updates') == 'true'
         self.ui.set_download_updates(download_updates)
         self.ui.set_use_nonfree(use_nonfree)
+        self.setup_sufficient_space()
         return (['/usr/share/ubiquity/simple-plugins', 'prepare'], ['.*'])
 
-    def big_enough(self):
+    def setup_sufficient_space(self):
+        # TODO move into prepare.
+        size = self.min_size()
+        self.db.subst('ubiquity/text/prepare_sufficient_space', 'SIZE', misc.format_size(size))
+        space = self.description('ubiquity/text/prepare_sufficient_space')
+        self.ui.set_sufficient_space(self.big_enough(size))
+        self.ui.set_sufficient_space_text(space)
+        self.ui.plugin_translate(None)
+
+    def min_size(self):
         # Default to 3 GB
         size = 3 * 1024 * 1024 * 1024
         try:
@@ -174,19 +185,18 @@ class Page(Plugin):
             self.debug('Could not determine squashfs size: %s' % e)
         # TODO substitute into the template for the state box.
         min_disk_size = size * 1.20 # fudge factor.
+        return min_disk_size
+
+    def big_enough(self, size):
         with misc.raised_privileges():
             proc = subprocess.Popen(['parted_devices'], stdout=subprocess.PIPE)
             devices = proc.communicate()[0].rstrip('\n').split('\n')
             ret = False
             for device in devices:
-                if int(device.split('\t')[1]) > min_disk_size:
+                if int(device.split('\t')[1]) > size:
                     ret = True
                     break
         return ret
-
-    def run(self, priority, question):
-        self.ui.set_sufficient_space(self.big_enough())
-        Plugin.run(self, priority, question)
 
     def ok_handler(self):
         download_updates = self.ui.get_download_updates()
