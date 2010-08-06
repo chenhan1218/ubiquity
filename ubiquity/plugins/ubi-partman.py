@@ -218,6 +218,8 @@ class PageGtk(PageBase):
 
     def get_current_disk_partman_id (self):
         i = self.part_auto_select_drive.get_active_iter()
+        if not i:
+            return None
         m = self.part_auto_select_drive.get_model()
         val = m.get_value(i, 0)
 
@@ -256,6 +258,8 @@ class PageGtk(PageBase):
         This is initially called in set_autopartition_choices.'''
 
         disk_id = self.get_current_disk_partman_id()
+        if not disk_id:
+            return
         # TODO What of all of this can we do asynchronously?
         self.set_part_auto_hidden_label()
         if self.resize_use_free.get_active() and disk_id in self.extra_options[self.resize_choice]:
