@@ -1102,6 +1102,39 @@ Type: boolean
 # Whether or not there is an Internet connection
 Description: for internal use
 
+Template: ubiquity/text/prepare_best_results
+Type: text
+_Description: For best results, please ensure:
+
+Template: ubiquity/text/prepare_sufficient_space
+Type: text
+_Description: that you have at least ${SIZE} available drive space
+
+Template: ubiquity/text/prepare_power_source
+Type: text
+_Description: that you are plugged in to a power source
+
+Template: ubiquity/text/prepare_network_connection
+Type: text
+_Description: that you are connected to the Internet with an Ethernet cable
+
+Template: ubiquity/text/prepare_foss_disclaimer
+Type: text
+_Description:
+ Ubuntu aims to be free and open-source software.  However, this is not
+ always possible.
+
+Template: ubiquity/text/prepare_nonfree_software
+Type: text
+_Description:
+ Please off me non-open-source software if it is needed for a better
+ experience
+
+Template: ubiquity/text/prepare_download_updates
+Type: text
+_Description:
+ Download updates while installing
+
 # KDE specific
 
 Template: ubiquity/text/keyboard_layout_label

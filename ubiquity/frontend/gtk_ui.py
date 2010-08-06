@@ -797,7 +797,10 @@ class Wizard(BaseFrontend):
                 attrs.insert(pango.AttrScale(pango.SCALE_SMALL, 0, textlen))
                 widget.set_attributes(attrs)
             elif ('group_label' in name or 'warning_label' in name or
-                  name in ('drives_label', 'partition_method_label')):
+                  name in ('prepare_best_results',
+                           'prepare_foss_disclaimer',
+                           'drives_label',
+                           'partition_method_label')):
                 attrs = pango.AttrList()
                 attrs.insert(pango.AttrWeight(pango.WEIGHT_BOLD, 0, textlen))
                 widget.set_attributes(attrs)
