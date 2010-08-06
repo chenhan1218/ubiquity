@@ -640,7 +640,12 @@ class Wizard(BaseFrontend):
             a = child.get_allocation()
             expander_size = widget.style_get_property('expander-size')
             expander_spacing = widget.style_get_property('expander-spacing')
-            w = allocation.width - expander_size - expander_spacing
+            border_width = widget.get_property('border-width')
+            foucs_width = widget.style_get_property('focus-line-width')
+            focus_pad = widget.style_get_property('focus-padding')
+
+            w = allocation.width - 2 * border_width - expander_size - \
+                2 * expander_spacing - 2 * focus_pad # - 2 * focus_width
             a = gtk.gdk.Rectangle(a.x, a.y, w, child.size_request()[1])
             child.size_allocate(a)
         self.install_details_expander.connect('size-allocate', do_allocate)
