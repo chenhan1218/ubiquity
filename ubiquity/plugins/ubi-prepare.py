@@ -146,7 +146,14 @@ class PageGtk(PluginUI):
 
     def set_sufficient_space(self, state):
         self.prepare_sufficient_space.set_state(state)
-
+    
+    def plugin_translate(self, lang):
+        space = self.controller.get_string('prepare_sufficient_space', lang)
+        power = self.controller.get_string('prepare_power_source', lang)
+        ether = self.controller.get_string('prepare_network_connection', lang)
+        self.prepare_sufficient_space.set_property('label', space)
+        self.prepare_power_source.set_property('label', power)
+        self.prepare_network_connection.set_property('label', ether)
 
 class Page(Plugin):
     def prepare(self):
