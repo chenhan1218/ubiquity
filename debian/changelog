@@ -38,6 +38,8 @@ ubiquity (2.3.4) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Merge maverick-redesign branch.  Fingers crossed.
+  * Automatic update of included source packages: clock-setup
+    0.103ubuntu1.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 29 Jul 2010 00:05:19 -0500
 
