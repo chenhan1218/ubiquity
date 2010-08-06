@@ -210,6 +210,7 @@ class Page(Plugin):
                 proc.communicate()
                 # Install ubuntu-restricted-addons.
                 self.preseed_bool('apt-setup/universe', True)
+                self.preseed_bool('apt-setup/multiverse', True)
                 install_misc.record_installed(['ubuntu-restricted-addons'])
 
         Plugin.ok_handler(self)
