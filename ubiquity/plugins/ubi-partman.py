@@ -296,6 +296,18 @@ class PageGtk(PageBase):
             self.resizewidget.get_child1().child.set_property('extra', extra)
             self.resizewidget.set_property('part_size', size)
             self.resizewidget.set_pref_size(int(resize_pref_size))
+
+            # Set the extra field of the partition being created via resizing.
+            try:
+                dev, partnum = re.search(r'(.*\D)(\d+)$', resize_path).groups()
+                dev = '%s%d' % (dev, int(partnum) + 1)
+            except Exception, e:
+                dev = 'unknown'
+                self.debug('Could not determine new partition number: %s', e)
+                self.debug('extra_options: %s' % str(extra_options))
+            extra = '%s (%s)' % (dev, self.default_filesystem)
+            self.resizewidget.get_child2().child.set_property('extra', extra)
+
             self.partition_container.set_current_page(0)
         else:
             # Use entire disk.
@@ -321,22 +333,6 @@ class PageGtk(PageBase):
                                            resize_choice, manual_choice,
                                            biggest_free_choice,
                                            use_device_choice)
-        # Set the extra field of the partition being created via resizing.
-        if resize_choice in extra_options:
-            # TODO can we put something more useful here than the to-be-created
-            # device node?
-            # FIXME surely this doesn't belong here, but in the combobox
-            # changed stuff.
-            try:
-                dev = extra_options[resize_choice][3]
-                dev, partnum = re.search(r'(.*\D)(\d+)$', dev).groups()
-                dev = '%s%d' % (dev, int(partnum) + 1)
-            except Exception, e:
-                dev = 'unknown'
-                self.debug('Could not determine new partition number: %s', e)
-                self.debug('extra_options: %s' % str(extra_options))
-            extra = '%s (%s)' % (dev, self.default_filesystem)
-            self.resizewidget.get_child2().child.set_property('extra', extra)
 
         m = self.part_auto_select_drive.get_model()
         m.clear()
