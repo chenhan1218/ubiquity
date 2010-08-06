@@ -1,4 +1,4 @@
-ubiquity (2.3.4) UNRELEASED; urgency=low
+ubiquity (2.3.4) maverick; urgency=low
 
   [ Mario Limonciello ]
   * Also set the custom title when translating widgets.
@@ -41,7 +41,7 @@ ubiquity (2.3.4) UNRELEASED; urgency=low
   * Automatic update of included source packages: clock-setup
     0.103ubuntu1.
 
- -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 29 Jul 2010 00:05:19 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 06 Aug 2010 14:15:17 -0400
 
 ubiquity (2.3.3) maverick; urgency=low
 
