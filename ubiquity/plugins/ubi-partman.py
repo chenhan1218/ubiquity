@@ -336,8 +336,23 @@ class PageGtk(PageBase):
 
         m = self.part_auto_select_drive.get_model()
         m.clear()
+        selected = False
         for disk in extra_options[use_device_choice]:
-            m.append([disk])
+            i = m.append([disk])
+
+            # TODO move to ask page choice processing, so we don't set the
+            # combobox to sdb when we're formatting?
+
+            # Make sure that we're setting the disk combo box to a disk that
+            # can be resized, should one exist, so that selecting resize and
+            # proceeding defaults to a resizable disk.
+            disk_id = extra_options[use_device_choice][disk].rsplit('/', 1)[1]
+            if disk_id in extra_options[resize_choice] and not selected:
+                selected = True
+                self.part_auto_select_drive.set_active_iter(i)
+        if not selected:
+            # No resizeable disks.  Select the first one.
+            self.part_auto_select_drive.set_active(0)
 
         # TODO somehow remember previous choice on back press.
         if not resize_choice in extra_options:
@@ -347,9 +362,6 @@ class PageGtk(PageBase):
             self.resize_use_free.set_active(True)
             self.resize_use_free.show()
 
-        # TODO Should make sure we're selecting a drive that can be resized by
-        # default, if one exists.
-        self.part_auto_select_drive.set_active(0)
         # make sure we're on the autopartitioning page
         self.current_page = self.page
 
