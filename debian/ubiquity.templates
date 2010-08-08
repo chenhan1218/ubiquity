@@ -1133,7 +1133,7 @@ _Description:
 Template: ubiquity/text/prepare_nonfree_software
 Type: text
 _Description:
- Please off me non-open-source software if it is needed for a better
+ Please offer me non-open-source software if it is needed for a better
  experience
 
 Template: ubiquity/text/prepare_download_updates
