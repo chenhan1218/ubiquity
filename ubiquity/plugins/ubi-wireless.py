@@ -17,7 +17,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-from ubiquity.gtkwidgets import *
 from ubiquity.plugin import *
 import os
 
@@ -32,6 +31,7 @@ WEIGHT = 10
 class PageGtk(PluginUI):
     plugin_title = 'ubiquity/text/wireless_heading_label'
     def __init__(self, controller, *args, **kwargs):
+        from ubiquity.gtkwidgets import WirelessWidget
         self.controller = controller
         try:
             import gtk

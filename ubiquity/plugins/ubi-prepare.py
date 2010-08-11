@@ -17,7 +17,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-from ubiquity.gtkwidgets import *
 from ubiquity.plugin import *
 from ubiquity import misc, install_misc, osextras
 import os
@@ -47,6 +46,7 @@ WGET_URL = 'http://www.ubuntu.com'
 class PageGtk(PluginUI):
     plugin_title = 'ubiquity/text/prepare_heading_label'
     def __init__(self, controller, *args, **kwargs):
+        from ubiquity.gtkwidgets import StateBox
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             self.page = None
             return

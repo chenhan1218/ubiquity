@@ -1,5 +1,6 @@
 ubiquity (2.3.5) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
   * Drop the (now) unused install_window and references to it.
   * Don't start the ubiquity panel on xfwm4.  It doesn't appear to work properly
     for now even with the proper indicators installed.
@@ -11,7 +12,11 @@ ubiquity (2.3.5) UNRELEASED; urgency=low
   * depends on python-vte for GTK frontend (LP: #616272)
   * depends on python-webkit for GTK frontend (LP: #616275)
 
- -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 10 Aug 2010 20:26:07 -0500
+  [ Jonathan Riddell ]
+  * In ubi-wireless.py and ubi-prepare.py only load gtkwidgets.py when
+    creating the GTKPage, else KDE frontend breaks
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 11 Aug 2010 18:02:35 +0100
 
 ubiquity (2.3.4) maverick; urgency=low
 
