@@ -1,4 +1,4 @@
-ubiquity (2.3.5) UNRELEASED; urgency=low
+ubiquity (2.3.5) maverick; urgency=low
 
   [ Mario Limonciello ]
   * Drop the (now) unused install_window and references to it.
