@@ -1,3 +1,9 @@
+ubiquity (2.3.5) UNRELEASED; urgency=low
+
+  * Drop the (now) unused install_window and references to it.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 10 Aug 2010 20:26:07 -0500
+
 ubiquity (2.3.4) maverick; urgency=low
 
   [ Mario Limonciello ]

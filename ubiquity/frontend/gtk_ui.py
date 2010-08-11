@@ -255,9 +255,6 @@ class Wizard(BaseFrontend):
         # load the main interface
         self.builder.add_from_file('%s/ubiquity.ui' % UIDIR)
         
-        # load the main install window
-        self.builder.add_from_file('%s/install_window.ui' % UIDIR)
-
         self.builders = [self.builder]
         self.pages = []
         self.pagesindex = 0
@@ -499,8 +496,6 @@ class Wizard(BaseFrontend):
             self.debconf_progress_start(0, self.pageslen,
                 self.get_string('ubiquity/install/checking'))
             self.debconf_progress_cancellable(False)
-            self.install_progress_window.set_title(
-                self.get_string('ubiquity/install/title'))
             self.refresh()
 
         self.set_current_page(0)
