@@ -9,6 +9,7 @@ ubiquity (2.3.5) UNRELEASED; urgency=low
   * Correct the text in the stepLanguage widgets to reflect ${RELEASE}
     rather than hardcoding to Ubuntu.
   * depends on python-vte for GTK frontend (LP: #616272)
+  * depends on python-webkit for GTK frontend (LP: #616275)
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 10 Aug 2010 20:26:07 -0500
 
