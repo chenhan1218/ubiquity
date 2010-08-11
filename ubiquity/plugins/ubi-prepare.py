@@ -25,7 +25,7 @@ import subprocess
 
 NAME = 'prepare'
 AFTER = 'language'
-WEIGHT = 10
+WEIGHT = 11
 OEM = False
 
 UPOWER = 'org.freedesktop.UPower'
