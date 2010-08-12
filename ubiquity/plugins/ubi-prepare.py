@@ -156,6 +156,80 @@ class PageGtk(PluginUI):
         self.prepare_power_source.set_property('label', power)
         self.prepare_network_connection.set_property('label', ether)
 
+class PageKde(PluginUI):
+    plugin_title = 'ubiquity/text/prepare_heading_label'
+    def __init__(self, controller, *args, **kwargs):
+        #from ubiquity.gtkwidgets import StateBox
+        if 'UBIQUITY_AUTOMATIC' in os.environ:
+            self.page = None
+            return
+        self.controller = controller
+        try:
+            from PyQt4 import uic
+            from PyQt4.QtGui import QLabel, QWidget
+            self.page = uic.loadUi('/usr/share/ubiquity/qt/stepPrepare.ui')
+            self.prepare_download_updates = self.page.prepare_download_updates
+            self.prepare_nonfree_software = self.page.prepare_nonfree_software
+            self.prepare_sufficient_space = self.StateBox(self.page)
+            """
+            # TODO we should set these up and tear them down while on this page.
+            try:
+                self.prepare_power_source = builder.get_object('prepare_power_source')
+                self.setup_power_watch()
+            except Exception, e:
+                # TODO use an inconsistent state?
+                print 'unable to set up power source watch:', e
+            try:
+                self.prepare_network_connection = builder.get_object('prepare_network_connection')
+                self.setup_network_watch()
+            except Exception, e:
+                print 'unable to set up network connection watch:', e
+            """
+        except Exception, e:
+            import sys
+            print >>sys.stderr,"Could not create prepare page:", str(e)
+            self.debug('Could not create prepare page: %s', e)
+            self.page = None
+        self.plugin_widgets = self.page
+
+    def set_download_updates(self, val):
+        self.prepare_download_updates.setChecked(val)
+
+    def set_use_nonfree(self, val):
+        if osextras.find_on_path('jockey-text'):
+            self.prepare_nonfree_software.setChecked(val)
+        else:
+            self.debug('Could not find jockey-text on the executable path.')
+            self.prepare_nonfree_software.setChecked(False)
+            self.prepare_nonfree_software.setEnabled(False)
+
+    def set_sufficient_space(self, state):
+        pass
+        ##FIXME self.prepare_sufficient_space.set_state(state)
+
+    def set_sufficient_space_text(self, space):
+        pass
+        ##FIXMEself.prepare_sufficient_space.set_property('label', space)
+
+    def plugin_translate(self, lang):
+        pass
+        """FIXME
+        power = self.controller.get_string('prepare_power_source', lang)
+        ether = self.controller.get_string('prepare_network_connection', lang)
+        self.prepare_power_source.set_property('label', power)
+        self.prepare_network_connection.set_property('label', ether)
+        """
+
+    from PyQt4 import uic
+    from PyQt4.QtGui import QLabel, QWidget
+
+    class StateBox(QWidget):
+        def __init__(self, parent):
+            from PyQt4 import uic
+            from PyQt4.QtGui import QLabel, QWidget
+            QWidget.__init__(self, parent)
+            label = QLabel("hello", self)
+
 class Page(Plugin):
     def prepare(self):
         # TODO grey out if free software only option is checked?
