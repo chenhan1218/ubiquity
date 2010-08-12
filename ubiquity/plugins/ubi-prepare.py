@@ -170,7 +170,8 @@ class PageKde(PluginUI):
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepPrepare.ui')
             self.prepare_download_updates = self.page.prepare_download_updates
             self.prepare_nonfree_software = self.page.prepare_nonfree_software
-            self.prepare_sufficient_space = self.StateBox(self.page)
+            self.prepare_sufficient_space = self.StateBox("that you have at least 3GB available drive space", self.page)
+            self.page.vbox1.addWidget(self.prepare_sufficient_space)
             """
             # TODO we should set these up and tear them down while on this page.
             try:
@@ -204,12 +205,10 @@ class PageKde(PluginUI):
             self.prepare_nonfree_software.setEnabled(False)
 
     def set_sufficient_space(self, state):
-        pass
-        ##FIXME self.prepare_sufficient_space.set_state(state)
+        self.prepare_sufficient_space.set_state(state)
 
     def set_sufficient_space_text(self, space):
-        pass
-        ##FIXMEself.prepare_sufficient_space.set_property('label', space)
+        self.prepare_sufficient_space.set_text(space)
 
     def plugin_translate(self, lang):
         pass
@@ -224,11 +223,33 @@ class PageKde(PluginUI):
     from PyQt4.QtGui import QLabel, QWidget
 
     class StateBox(QWidget):
-        def __init__(self, parent):
+        def __init__(self, text, parent):
             from PyQt4 import uic
-            from PyQt4.QtGui import QLabel, QWidget
+            from PyQt4.QtGui import QLabel, QWidget, QHBoxLayout, QPixmap
             QWidget.__init__(self, parent)
-            label = QLabel("hello", self)
+            layout = QHBoxLayout(self)
+            self.setLayout(layout)
+            self.image = QLabel(self)
+            self.image.setPixmap(QPixmap("/usr/share/icons/oxygen/32x32/actions/dialog-ok.png"))
+            layout.addWidget(self.image)
+            self.label = QLabel(text, self)
+            layout.addWidget(self.label)
+            layout.addStretch()
+            self.status = True
+
+        def set_state(self, state):
+            from PyQt4.QtGui import QLabel, QWidget, QHBoxLayout, QPixmap
+            self.status = state
+            if state:
+                self.image.setPixmap(QPixmap("/usr/share/icons/oxygen/32x32/actions/dialog-ok.png"))
+            else:
+                self.image.setPixmap(QPixmap("/usr/share/icons/oxygen/32x32/actions/dialog-cancel.png"))
+
+        def get_state(self):
+            return self.status
+
+        def set_text(self, text):
+            self.label.setText(text)
 
 class Page(Plugin):
     def prepare(self):
