@@ -288,14 +288,10 @@ class PageKde(PluginUI):
         self.prepare_sufficient_space.set_text(space)
 
     def plugin_translate(self, lang):
-        ##FIXME why doesn't this work? AttributeError: Controller instance has no attribute 'get_string'
-        #power = self.controller.get_string('prepare_power_source', lang)
-        #ether = self.controller.get_string('prepare_network_connection', lang)
-        #self.prepare_power_source.set_text(power)
-        #self.prepare_network_connection.set_text(ether)
-        print "controller: " + str(self.controller)
-        self.prepare_power_source.set_text("that you are plugged in to a power source")
-        self.prepare_network_connection.set_text("that you are connected to the Internet with an Ethernet cable")
+        power = self.controller.get_string('prepare_power_source', lang)
+        ether = self.controller.get_string('prepare_network_connection', lang)
+        self.prepare_power_source.set_text(power)
+        self.prepare_network_connection.set_text(ether)
 
     from PyQt4 import uic
     from PyQt4.QtGui import QLabel, QWidget

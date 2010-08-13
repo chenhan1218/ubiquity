@@ -147,6 +147,9 @@ class Controller(ubiquity.frontend.base.Controller):
             self._wizard.ui.show()
         self._wizard.refresh()
 
+    def get_string(self, name, lang=None, prefix=None):
+        return self._wizard.get_string(name, lang, prefix)
+
 class Wizard(BaseFrontend):
 
     def __init__(self, distro):
