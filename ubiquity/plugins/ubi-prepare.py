@@ -265,6 +265,10 @@ class PageKde(PluginUI):
     def set_download_updates(self, val):
         self.prepare_download_updates.setChecked(val)
 
+    def get_download_updates(self):
+        from PyQt4.QtCore import Qt
+        return self.prepare_download_updates.checkState() == Qt.Checked
+    
     def set_use_nonfree(self, val):
         if osextras.find_on_path('jockey-text'):
             self.prepare_nonfree_software.setChecked(val)
@@ -272,6 +276,10 @@ class PageKde(PluginUI):
             self.debug('Could not find jockey-text on the executable path.')
             self.prepare_nonfree_software.setChecked(False)
             self.prepare_nonfree_software.setEnabled(False)
+
+    def get_use_nonfree(self):
+        from PyQt4.QtCore import Qt
+        return self.prepare_nonfree_software.checkState() == Qt.Checked
 
     def set_sufficient_space(self, state):
         self.prepare_sufficient_space.set_state(state)
@@ -285,6 +293,7 @@ class PageKde(PluginUI):
         #ether = self.controller.get_string('prepare_network_connection', lang)
         #self.prepare_power_source.set_text(power)
         #self.prepare_network_connection.set_text(ether)
+        print "controller: " + str(self.controller)
         self.prepare_power_source.set_text("that you are plugged in to a power source")
         self.prepare_network_connection.set_text("that you are connected to the Internet with an Ethernet cable")
 
