@@ -1,3 +1,10 @@
+ubiquity (2.3.6) UNRELEASED; urgency=low
+
+  * Redirect console blanking setterm command to /dev/console so it is effective
+    with upstart.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 13 Aug 2010 18:10:03 -0500
+
 ubiquity (2.3.5) maverick; urgency=low
 
   [ Mario Limonciello ]
