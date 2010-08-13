@@ -70,6 +70,30 @@ class PreparePageBase(PluginUI):
         self.wget_proc = None
         self.network_change()
 
+    @only_this_page
+    def check_returncode(self, *args):
+        if self.wget_retcode is not None or self.wget_proc is None:
+            self.wget_proc = subprocess.Popen(
+                ['wget', '-q', WGET_URL, '--timeout=15'])
+        self.wget_retcode = self.wget_proc.poll()
+        if self.wget_retcode is None:
+            return True
+        else:
+            state = self.wget_retcode == 0
+            self.prepare_network_connection.set_state(state)
+            self.controller.dbfilter.set_online_state(state)
+
+    def set_sufficient_space(self, state):
+        self.prepare_sufficient_space.set_state(state)
+
+    def set_sufficient_space_text(self, space):
+        self.prepare_sufficient_space.set_property('label', space)
+
+    def plugin_translate(self, lang):
+        power = self.controller.get_string('prepare_power_source', lang)
+        ether = self.controller.get_string('prepare_network_connection', lang)
+        self.prepare_power_source.set_property('label', power)
+        self.prepare_network_connection.set_property('label', ether)
 
 class PageGtk(PreparePageBase):
     def __init__(self, controller, *args, **kwargs):
@@ -115,19 +139,6 @@ class PageGtk(PreparePageBase):
             gobject.source_remove(self.timeout_id)
         self.timeout_id = gobject.timeout_add(300, self.check_returncode)
 
-    @only_this_page
-    def check_returncode(self, *args):
-        if self.wget_retcode is not None or self.wget_proc is None:
-            self.wget_proc = subprocess.Popen(
-                ['wget', '-q', WGET_URL, '--timeout=15'])
-        self.wget_retcode = self.wget_proc.poll()
-        if self.wget_retcode is None:
-            return True
-        else:
-            state = self.wget_retcode == 0
-            self.prepare_network_connection.set_state(state)
-            self.controller.dbfilter.set_online_state(state)
-    
     def set_download_updates(self, val):
         self.prepare_download_updates.set_active(val)
 
@@ -145,20 +156,9 @@ class PageGtk(PreparePageBase):
     def get_use_nonfree(self):
         return self.prepare_nonfree_software.get_active()
 
-    def set_sufficient_space(self, state):
-        self.prepare_sufficient_space.set_state(state)
-
-    def set_sufficient_space_text(self, space):
-        self.prepare_sufficient_space.set_property('label', space)
-    
-    def plugin_translate(self, lang):
-        power = self.controller.get_string('prepare_power_source', lang)
-        ether = self.controller.get_string('prepare_network_connection', lang)
-        self.prepare_power_source.set_property('label', power)
-        self.prepare_network_connection.set_property('label', ether)
-
 class PageKde(PreparePageBase):
     def __init__(self, controller, *args, **kwargs):
+        from ubiquity.qtwidgets import StateBox
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             self.page = None
             return
@@ -169,20 +169,20 @@ class PageKde(PreparePageBase):
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepPrepare.ui')
             self.prepare_download_updates = self.page.prepare_download_updates
             self.prepare_nonfree_software = self.page.prepare_nonfree_software
-            self.prepare_sufficient_space = self.StateBox(self.page)
+            self.prepare_sufficient_space = StateBox(self.page)
             self.page.vbox1.addWidget(self.prepare_sufficient_space)
             # TODO we should set these up and tear them down while on this page.
             try:
                 import dbus.mainloop.qt
                 dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
-                self.prepare_power_source = self.StateBox(self.page)
+                self.prepare_power_source = StateBox(self.page)
                 self.page.vbox1.addWidget(self.prepare_power_source)
                 self.setup_power_watch()
             except Exception, e:
                 # TODO use an inconsistent state?
                 print 'unable to set up power source watch:', e
             try:
-                self.prepare_network_connection = self.StateBox(self.page)
+                self.prepare_network_connection = StateBox(self.page)
                 self.page.vbox1.addWidget(self.prepare_network_connection)
                 self.setup_network_watch()
             except Exception, e:
@@ -195,9 +195,6 @@ class PageKde(PreparePageBase):
         self.plugin_widgets = self.page
 
     def network_change(self, state=None):
-        import sys
-        print >> sys.stderr, "network_change()"
-        
         from PyQt4.QtCore import QTimer, SIGNAL
         if state and (state != 4 and state != 3):
             print >> sys.stderr, "network_change rreturning()"
@@ -208,23 +205,6 @@ class PageKde(PreparePageBase):
         self.timer.connect(self.timer, SIGNAL("timeout()"), self.check_returncode)
         self.timer.start(300)
 
-    @only_this_page
-    def check_returncode(self, *args):
-        import sys
-        print >> sys.stderr, "check_returncode()"
-        if self.wget_retcode is not None or self.wget_proc is None:
-            self.wget_proc = subprocess.Popen(
-                ['wget', '-q', WGET_URL, '--timeout=15', '-O', 'index.html'])
-        self.wget_retcode = self.wget_proc.poll()
-        if self.wget_retcode is None:
-            print >> sys.stderr, "check_returncode() returning None"
-            return True
-        else:
-            state = self.wget_retcode == 0
-            print >> sys.stderr, "check_returncode() + state " + str(state)
-            self.prepare_network_connection.set_state(state)
-            self.controller.dbfilter.set_online_state(state)
-    
     def set_download_updates(self, val):
         self.prepare_download_updates.setChecked(val)
 
@@ -243,50 +223,6 @@ class PageKde(PreparePageBase):
     def get_use_nonfree(self):
         from PyQt4.QtCore import Qt
         return self.prepare_nonfree_software.checkState() == Qt.Checked
-
-    def set_sufficient_space(self, state):
-        self.prepare_sufficient_space.set_state(state)
-
-    def set_sufficient_space_text(self, space):
-        self.prepare_sufficient_space.set_text(space)
-
-    def plugin_translate(self, lang):
-        power = self.controller.get_string('prepare_power_source', lang)
-        ether = self.controller.get_string('prepare_network_connection', lang)
-        self.prepare_power_source.set_text(power)
-        self.prepare_network_connection.set_text(ether)
-
-    from PyQt4 import uic
-    from PyQt4.QtGui import QLabel, QWidget
-
-    class StateBox(QWidget):
-        def __init__(self, parent, text=''):
-            from PyQt4 import uic
-            from PyQt4.QtGui import QLabel, QWidget, QHBoxLayout, QPixmap
-            QWidget.__init__(self, parent)
-            layout = QHBoxLayout(self)
-            self.setLayout(layout)
-            self.image = QLabel(self)
-            self.image.setPixmap(QPixmap("/usr/share/icons/oxygen/32x32/actions/dialog-ok.png"))
-            layout.addWidget(self.image)
-            self.label = QLabel(text, self)
-            layout.addWidget(self.label)
-            layout.addStretch()
-            self.status = True
-
-        def set_state(self, state):
-            from PyQt4.QtGui import QLabel, QWidget, QHBoxLayout, QPixmap
-            self.status = state
-            if state:
-                self.image.setPixmap(QPixmap("/usr/share/icons/oxygen/32x32/actions/dialog-ok.png"))
-            else:
-                self.image.setPixmap(QPixmap("/usr/share/icons/oxygen/32x32/actions/dialog-cancel.png"))
-
-        def get_state(self):
-            return self.status
-
-        def set_text(self, text):
-            self.label.setText(text)
 
 class Page(Plugin):
     def prepare(self):
