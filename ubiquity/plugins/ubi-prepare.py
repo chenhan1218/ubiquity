@@ -170,22 +170,25 @@ class PageKde(PluginUI):
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepPrepare.ui')
             self.prepare_download_updates = self.page.prepare_download_updates
             self.prepare_nonfree_software = self.page.prepare_nonfree_software
-            self.prepare_sufficient_space = self.StateBox("that you have at least 3GB available drive space", self.page)
+            self.prepare_sufficient_space = self.StateBox(self.page)
             self.page.vbox1.addWidget(self.prepare_sufficient_space)
-            """
             # TODO we should set these up and tear them down while on this page.
+            """
             try:
-                self.prepare_power_source = builder.get_object('prepare_power_source')
+                self.prepare_power_source = self.StateBox(self.page)
+                self.page.vbox1.addWidget(self.prepare_power_source)
                 self.setup_power_watch()
             except Exception, e:
                 # TODO use an inconsistent state?
                 print 'unable to set up power source watch:', e
+            """
             try:
-                self.prepare_network_connection = builder.get_object('prepare_network_connection')
+                self.prepare_network_connection = self.StateBox(self.page)
+                self.page.vbox1.addWidget(self.prepare_network_connection)
+                self.prepare_network_connection.set_text("that you are connected to the Internet with an Ethernet cable")
                 self.setup_network_watch()
             except Exception, e:
                 print 'unable to set up network connection watch:', e
-            """
         except Exception, e:
             import sys
             print >>sys.stderr,"Could not create prepare page:", str(e)
@@ -193,6 +196,57 @@ class PageKde(PluginUI):
             self.page = None
         self.plugin_widgets = self.page
 
+    def setup_network_watch(self):
+        import sys
+        print >> sys.stderr, "setup_network_watch()"
+        # TODO abstract so we can support connman.
+        ##import dbus
+        ##from dbus.mainloop.glib import DBusGMainLoop
+        import dbus
+        import dbus.mainloop.qt
+        ##DBusGMainLoop(set_as_default=True)
+        dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
+        bus = dbus.SystemBus()
+        bus.add_signal_receiver(self.network_change, 'DeviceNoLongerActive',
+                                NM, NM, NM_PATH)
+        bus.add_signal_receiver(self.network_change, 'StateChange',
+                                NM, NM, NM_PATH)
+        self.timeout_id = None
+        self.wget_retcode = None
+        self.wget_proc = None
+        self.network_change()
+
+    def network_change(self, state=None):
+        import sys
+        print >> sys.stderr, "network_change()"
+        
+        from PyQt4.QtCore import QTimer, SIGNAL
+        if state and (state != 4 and state != 3):
+            print >> sys.stderr, "network_change rreturning()"
+            return
+        print >> sys.stderr, "network_change setting timer()"
+        QTimer.singleShot(300, self.check_returncode)
+        self.timer = QTimer(self.page)
+        self.timer.connect(self.timer, SIGNAL("timeout()"), self.check_returncode)
+        self.timer.start(300)
+
+    @only_this_page
+    def check_returncode(self, *args):
+        import sys
+        print >> sys.stderr, "check_returncode()"
+        if self.wget_retcode is not None or self.wget_proc is None:
+            self.wget_proc = subprocess.Popen(
+                ['wget', '-q', WGET_URL, '--timeout=15'])
+        self.wget_retcode = self.wget_proc.poll()
+        if self.wget_retcode is None:
+            print >> sys.stderr, "check_returncode() returning None"
+            return True
+        else:
+            state = self.wget_retcode == 0
+            print >> sys.stderr, "check_returncode() + state " + str(state)
+            self.prepare_network_connection.set_state(state)
+            self.controller.dbfilter.set_online_state(state)
+    
     def set_download_updates(self, val):
         self.prepare_download_updates.setChecked(val)
 
@@ -223,7 +277,7 @@ class PageKde(PluginUI):
     from PyQt4.QtGui import QLabel, QWidget
 
     class StateBox(QWidget):
-        def __init__(self, text, parent):
+        def __init__(self, parent, text=''):
             from PyQt4 import uic
             from PyQt4.QtGui import QLabel, QWidget, QHBoxLayout, QPixmap
             QWidget.__init__(self, parent)
