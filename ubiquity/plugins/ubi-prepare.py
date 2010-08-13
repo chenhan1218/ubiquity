@@ -173,7 +173,10 @@ class PageKde(PluginUI):
             self.prepare_sufficient_space = self.StateBox(self.page)
             self.page.vbox1.addWidget(self.prepare_sufficient_space)
             # TODO we should set these up and tear them down while on this page.
-            """
+            import dbus
+            import dbus.mainloop.qt
+            ##DBusGMainLoop(set_as_default=True)
+            dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
             try:
                 self.prepare_power_source = self.StateBox(self.page)
                 self.page.vbox1.addWidget(self.prepare_power_source)
@@ -181,11 +184,9 @@ class PageKde(PluginUI):
             except Exception, e:
                 # TODO use an inconsistent state?
                 print 'unable to set up power source watch:', e
-            """
             try:
                 self.prepare_network_connection = self.StateBox(self.page)
                 self.page.vbox1.addWidget(self.prepare_network_connection)
-                self.prepare_network_connection.set_text("that you are connected to the Internet with an Ethernet cable")
                 self.setup_network_watch()
             except Exception, e:
                 print 'unable to set up network connection watch:', e
@@ -196,6 +197,20 @@ class PageKde(PluginUI):
             self.page = None
         self.plugin_widgets = self.page
 
+    def setup_power_watch(self):
+        import dbus
+        #import dbus.mainloop.qt
+        ##DBusGMainLoop(set_as_default=True)
+        #dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
+        bus = dbus.SystemBus()
+        upower = bus.get_object(UPOWER, UPOWER_PATH)
+        upower = dbus.Interface(upower, PROPS)
+        def power_state_changed():
+            self.prepare_power_source.set_state(
+                upower.Get(UPOWER_PATH, 'OnBattery') == False)
+        bus.add_signal_receiver(power_state_changed, 'Changed', UPOWER, UPOWER)
+        power_state_changed()
+
     def setup_network_watch(self):
         import sys
         print >> sys.stderr, "setup_network_watch()"
@@ -203,9 +218,9 @@ class PageKde(PluginUI):
         ##import dbus
         ##from dbus.mainloop.glib import DBusGMainLoop
         import dbus
-        import dbus.mainloop.qt
+        #import dbus.mainloop.qt
         ##DBusGMainLoop(set_as_default=True)
-        dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
+        #dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
         bus = dbus.SystemBus()
         bus.add_signal_receiver(self.network_change, 'DeviceNoLongerActive',
                                 NM, NM, NM_PATH)
@@ -265,13 +280,13 @@ class PageKde(PluginUI):
         self.prepare_sufficient_space.set_text(space)
 
     def plugin_translate(self, lang):
-        pass
-        """FIXME
-        power = self.controller.get_string('prepare_power_source', lang)
-        ether = self.controller.get_string('prepare_network_connection', lang)
-        self.prepare_power_source.set_property('label', power)
-        self.prepare_network_connection.set_property('label', ether)
-        """
+        ##FIXME why doesn't this work? AttributeError: Controller instance has no attribute 'get_string'
+        #power = self.controller.get_string('prepare_power_source', lang)
+        #ether = self.controller.get_string('prepare_network_connection', lang)
+        #self.prepare_power_source.set_text(power)
+        #self.prepare_network_connection.set_text(ether)
+        self.prepare_power_source.set_text("that you are plugged in to a power source")
+        self.prepare_network_connection.set_text("that you are connected to the Internet with an Ethernet cable")
 
     from PyQt4 import uic
     from PyQt4.QtGui import QLabel, QWidget
