@@ -20,7 +20,9 @@
 from ubiquity.plugin import *
 from ubiquity import misc, install_misc, osextras
 import os
+import sys
 import subprocess
+import dbus
 
 NAME = 'prepare'
 AFTER = 'language'
@@ -43,8 +45,33 @@ WGET_URL = 'http://www.ubuntu.com'
 
 # TODO: Set the 'have at least 3 GB' from /cdrom/casper/filesystem.size + a
 # fudge factor.
-class PageGtk(PluginUI):
+class PreparePageBase(PluginUI):
     plugin_title = 'ubiquity/text/prepare_heading_label'
+
+    def setup_power_watch(self):
+        bus = dbus.SystemBus()
+        upower = bus.get_object(UPOWER, UPOWER_PATH)
+        upower = dbus.Interface(upower, PROPS)
+        def power_state_changed():
+            self.prepare_power_source.set_state(
+                upower.Get(UPOWER_PATH, 'OnBattery') == False)
+        bus.add_signal_receiver(power_state_changed, 'Changed', UPOWER, UPOWER)
+        power_state_changed()
+
+    def setup_network_watch(self):
+        # TODO abstract so we can support connman.
+        bus = dbus.SystemBus()
+        bus.add_signal_receiver(self.network_change, 'DeviceNoLongerActive',
+                                NM, NM, NM_PATH)
+        bus.add_signal_receiver(self.network_change, 'StateChange',
+                                NM, NM, NM_PATH)
+        self.timeout_id = None
+        self.wget_retcode = None
+        self.wget_proc = None
+        self.network_change()
+
+
+class PageGtk(PreparePageBase):
     def __init__(self, controller, *args, **kwargs):
         from ubiquity.gtkwidgets import StateBox
         if 'UBIQUITY_AUTOMATIC' in os.environ:
@@ -63,6 +90,8 @@ class PageGtk(PluginUI):
             self.prepare_sufficient_space = builder.get_object('prepare_sufficient_space')
             # TODO we should set these up and tear them down while on this page.
             try:
+                from dbus.mainloop.glib import DBusGMainLoop
+                DBusGMainLoop(set_as_default=True)
                 self.prepare_power_source = builder.get_object('prepare_power_source')
                 self.setup_power_watch()
             except Exception, e:
@@ -77,34 +106,6 @@ class PageGtk(PluginUI):
             self.debug('Could not create prepare page: %s', e)
             self.page = None
         self.plugin_widgets = self.page
-
-    def setup_power_watch(self):
-        import dbus
-        from dbus.mainloop.glib import DBusGMainLoop
-        DBusGMainLoop(set_as_default=True)
-        bus = dbus.SystemBus()
-        upower = bus.get_object(UPOWER, UPOWER_PATH)
-        upower = dbus.Interface(upower, PROPS)
-        def power_state_changed():
-            self.prepare_power_source.set_state(
-                upower.Get(UPOWER_PATH, 'OnBattery') == False)
-        bus.add_signal_receiver(power_state_changed, 'Changed', UPOWER, UPOWER)
-        power_state_changed()
-
-    def setup_network_watch(self):
-        # TODO abstract so we can support connman.
-        import dbus
-        from dbus.mainloop.glib import DBusGMainLoop
-        DBusGMainLoop(set_as_default=True)
-        bus = dbus.SystemBus()
-        bus.add_signal_receiver(self.network_change, 'DeviceNoLongerActive',
-                                NM, NM, NM_PATH)
-        bus.add_signal_receiver(self.network_change, 'StateChange',
-                                NM, NM, NM_PATH)
-        self.timeout_id = None
-        self.wget_retcode = None
-        self.wget_proc = None
-        self.network_change()
 
     def network_change(self, state=None):
         import gobject
@@ -156,10 +157,8 @@ class PageGtk(PluginUI):
         self.prepare_power_source.set_property('label', power)
         self.prepare_network_connection.set_property('label', ether)
 
-class PageKde(PluginUI):
-    plugin_title = 'ubiquity/text/prepare_heading_label'
+class PageKde(PreparePageBase):
     def __init__(self, controller, *args, **kwargs):
-        #from ubiquity.gtkwidgets import StateBox
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             self.page = None
             return
@@ -173,11 +172,9 @@ class PageKde(PluginUI):
             self.prepare_sufficient_space = self.StateBox(self.page)
             self.page.vbox1.addWidget(self.prepare_sufficient_space)
             # TODO we should set these up and tear them down while on this page.
-            import dbus
-            import dbus.mainloop.qt
-            ##DBusGMainLoop(set_as_default=True)
-            dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
             try:
+                import dbus.mainloop.qt
+                dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
                 self.prepare_power_source = self.StateBox(self.page)
                 self.page.vbox1.addWidget(self.prepare_power_source)
                 self.setup_power_watch()
@@ -196,40 +193,6 @@ class PageKde(PluginUI):
             self.debug('Could not create prepare page: %s', e)
             self.page = None
         self.plugin_widgets = self.page
-
-    def setup_power_watch(self):
-        import dbus
-        #import dbus.mainloop.qt
-        ##DBusGMainLoop(set_as_default=True)
-        #dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
-        bus = dbus.SystemBus()
-        upower = bus.get_object(UPOWER, UPOWER_PATH)
-        upower = dbus.Interface(upower, PROPS)
-        def power_state_changed():
-            self.prepare_power_source.set_state(
-                upower.Get(UPOWER_PATH, 'OnBattery') == False)
-        bus.add_signal_receiver(power_state_changed, 'Changed', UPOWER, UPOWER)
-        power_state_changed()
-
-    def setup_network_watch(self):
-        import sys
-        print >> sys.stderr, "setup_network_watch()"
-        # TODO abstract so we can support connman.
-        ##import dbus
-        ##from dbus.mainloop.glib import DBusGMainLoop
-        import dbus
-        #import dbus.mainloop.qt
-        ##DBusGMainLoop(set_as_default=True)
-        #dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
-        bus = dbus.SystemBus()
-        bus.add_signal_receiver(self.network_change, 'DeviceNoLongerActive',
-                                NM, NM, NM_PATH)
-        bus.add_signal_receiver(self.network_change, 'StateChange',
-                                NM, NM, NM_PATH)
-        self.timeout_id = None
-        self.wget_retcode = None
-        self.wget_proc = None
-        self.network_change()
 
     def network_change(self, state=None):
         import sys
@@ -251,7 +214,7 @@ class PageKde(PluginUI):
         print >> sys.stderr, "check_returncode()"
         if self.wget_retcode is not None or self.wget_proc is None:
             self.wget_proc = subprocess.Popen(
-                ['wget', '-q', WGET_URL, '--timeout=15'])
+                ['wget', '-q', WGET_URL, '--timeout=15', '-O', 'index.html'])
         self.wget_retcode = self.wget_proc.poll()
         if self.wget_retcode is None:
             print >> sys.stderr, "check_returncode() returning None"
