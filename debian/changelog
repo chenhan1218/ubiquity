@@ -11,6 +11,8 @@ ubiquity (2.3.6) UNRELEASED; urgency=low
     ubiquity styles.
   * Add missing imports for LabelledEntry, causing timezone and console_setup to
     not function in oem-config mode.
+  * Fix the partitioner trying to offer resize options in the GUI when it shouldn't.
+    (LP: #617729)
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 13 Aug 2010 18:10:03 -0500
 

@@ -262,7 +262,9 @@ class PageGtk(PageBase):
             return
         # TODO What of all of this can we do asynchronously?
         self.set_part_auto_hidden_label()
-        if self.resize_use_free.get_active() and disk_id in self.extra_options[self.resize_choice]:
+        if self.resize_choice in self.extra_options and \
+           self.resize_use_free.get_active() and \
+           disk_id in self.extra_options[self.resize_choice]:
             # Resize.
             # FIXME if disk_id in self.extra_options[self.resize_choice], else
             # switch to format.
@@ -350,9 +352,10 @@ class PageGtk(PageBase):
             # Make sure that we're setting the disk combo box to a disk that
             # can be resized, should one exist, so that selecting resize and
             # proceeding defaults to a resizable disk.
-            disk_id = extra_options[use_device_choice][disk].rsplit('/', 1)[1]
-            if disk_id in extra_options[resize_choice] and not selected:
-                selected = True
+            if resize_choice in extra_options:
+                disk_id = extra_options[use_device_choice][disk].rsplit('/', 1)[1]
+                if disk_id in extra_options[resize_choice] and not selected:
+                    selected = True
                 self.part_auto_select_drive.set_active_iter(i)
         if not selected:
             # No resizeable disks.  Select the first one.
