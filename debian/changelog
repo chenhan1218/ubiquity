@@ -5,6 +5,7 @@ ubiquity (2.3.6) UNRELEASED; urgency=low
   * Show the proper derivative name for prepare_foss_disclaimer on stepPrepare.
   * Fallback to NM icons if the wifi icons don't load (such as humanity missing).  
     If still fail, don't crash, just don't show icons.  (LP: #617696)
+  * Pass the output of wget calls into /dev/null to prevent files popping up in ~.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 13 Aug 2010 18:10:03 -0500
 
