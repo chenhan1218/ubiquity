@@ -13,6 +13,8 @@ ubiquity (2.3.6) UNRELEASED; urgency=low
     not function in oem-config mode.
   * Fix the partitioner trying to offer resize options in the GUI when it shouldn't.
     (LP: #617729)
+  * Revert additional changes to gtk_ui from r4183 that were causing the window to
+    constantly resize and the auto partitioner to break.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 13 Aug 2010 18:10:03 -0500
 

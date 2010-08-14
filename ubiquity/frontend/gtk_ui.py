@@ -974,7 +974,6 @@ class Wizard(BaseFrontend):
                     cur.show()
                     is_install = page.ui.get('plugin_is_install')
                     break
-        # for step in self.steps, if step != cur, hide
         if not cur:
             return False
 
@@ -989,11 +988,6 @@ class Wizard(BaseFrontend):
             print >>sys.stderr, 'Invalid page found for %s: %s' % (n, str(cur))
             return False
 
-        # TODO Okay, this is crazy.  It makes lots of small windows.  Perhaps
-        # just hide the language page once we're done with it.
-        for p in self.steps.get_children():
-            if p != cur:
-                p.hide()
         self.add_history(page, cur)
         self.set_current_page(num)
 
