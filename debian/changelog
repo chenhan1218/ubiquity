@@ -2,6 +2,7 @@ ubiquity (2.3.6) UNRELEASED; urgency=low
 
   * Redirect console blanking setterm command to /dev/console so it is effective
     with upstart.
+  * Show the proper derivative name for prepare_foss_disclaimer on stepPrepare.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 13 Aug 2010 18:10:03 -0500
 

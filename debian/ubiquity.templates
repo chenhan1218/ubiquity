@@ -1121,7 +1121,7 @@ _Description: that you are connected to the Internet with an Ethernet cable
 Template: ubiquity/text/prepare_foss_disclaimer
 Type: text
 _Description:
- Ubuntu aims to be free and open-source software.  However, this is not
+ ${RELEASE} aims to be free and open-source software.  However, this is not
  always possible.
 
 Template: ubiquity/text/prepare_foss_disclaimer_extra_label
