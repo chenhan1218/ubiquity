@@ -9,6 +9,8 @@ ubiquity (2.3.6) UNRELEASED; urgency=low
   * If available, run xfsettingsd in ubiquity only mode.
   * ubiquity-dm: wait for gsd to fork to prevent a race condition in setting
     ubiquity styles.
+  * Add missing imports for LabelledEntry, causing timezone and console_setup to
+    not function in oem-config mode.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 13 Aug 2010 18:10:03 -0500
 
