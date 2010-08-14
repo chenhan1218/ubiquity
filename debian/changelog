@@ -7,6 +7,8 @@ ubiquity (2.3.6) UNRELEASED; urgency=low
     If still fail, don't crash, just don't show icons.  (LP: #617696)
   * Pass the output of wget calls into /dev/null to prevent files popping up in ~.
   * If available, run xfsettingsd in ubiquity only mode.
+  * ubiquity-dm: wait for gsd to fork to prevent a race condition in setting
+    ubiquity styles.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 13 Aug 2010 18:10:03 -0500
 
