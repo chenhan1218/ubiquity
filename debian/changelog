@@ -3,6 +3,8 @@ ubiquity (2.3.6) UNRELEASED; urgency=low
   * Redirect console blanking setterm command to /dev/console so it is effective
     with upstart.
   * Show the proper derivative name for prepare_foss_disclaimer on stepPrepare.
+  * Fallback to NM icons if the wifi icons don't load (such as humanity missing).  
+    If still fail, don't crash, just don't show icons.  (LP: #617696)
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 13 Aug 2010 18:10:03 -0500
 
