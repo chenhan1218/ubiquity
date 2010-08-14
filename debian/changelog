@@ -1,4 +1,4 @@
-ubiquity (2.3.6) UNRELEASED; urgency=low
+ubiquity (2.3.6) maverick; urgency=low
 
   * Redirect console blanking setterm command to /dev/console so it is effective
     with upstart.
@@ -18,7 +18,7 @@ ubiquity (2.3.6) UNRELEASED; urgency=low
   * Automatic update of included source packages: flash-kernel
     2.28ubuntu5.
 
- -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 13 Aug 2010 18:10:03 -0500
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sat, 14 Aug 2010 18:48:52 -0500
 
 ubiquity (2.3.5) maverick; urgency=low
 
