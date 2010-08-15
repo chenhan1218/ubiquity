@@ -1315,6 +1315,7 @@ class Wizard(BaseFrontend):
         if finished_step == last_page:
             self.finished_pages = True
             if self.finished_installing or self.oem_user_config:
+                self.progress_section.show()
                 dbfilter = plugininstall.Install(self)
                 dbfilter.start(auto_process=True)
 
