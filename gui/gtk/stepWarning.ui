@@ -4,7 +4,7 @@
   <!-- interface-naming-policy project-wide -->
   <object class="GtkAlignment" id="stepWarning">
     <property name="visible">True</property>
-    <property name="xscale">0.25</property>
+    <property name="xscale">0</property>
     <child>
       <object class="GtkLabel" id="alpha_warning_label">
         <property name="visible">True</property>
