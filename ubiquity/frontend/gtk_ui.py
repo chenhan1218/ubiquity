@@ -1314,11 +1314,7 @@ class Wizard(BaseFrontend):
         last_page = self.pages[-1].module.__name__
         if finished_step == last_page:
             self.finished_pages = True
-            if self.finished_installing:
-                dbfilter = plugininstall.Install(self, db=self.parallel_db)
-                dbfilter.start(auto_process=True)
-            elif self.oem_user_config:
-                self.progress_section.show()
+            if self.finished_installing or self.oem_user_config:
                 dbfilter = plugininstall.Install(self)
                 dbfilter.start(auto_process=True)
 
@@ -1341,7 +1337,7 @@ class Wizard(BaseFrontend):
         elif finished_step == 'ubiquity.components.install':
             self.finished_installing = True
             if self.finished_pages:
-                dbfilter = plugininstall.Install(self, db=self.parallel_db)
+                dbfilter = plugininstall.Install(self)
                 dbfilter.start(auto_process=True)
 
         elif finished_step == 'ubiquity.components.plugininstall':

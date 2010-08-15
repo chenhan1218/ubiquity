@@ -4,6 +4,7 @@ ubiquity (2.3.7) UNRELEASED; urgency=low
   * Hide the language plugin page if in greeter mode and advancing to keep the
     other pages from growing. (which seems what Evan was trying to do in r4183)
   * Fix the cut off text on the warning page. (LP: #615034)
+  * For plugininstall, use the actual debconf database, not the parallel database.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sat, 14 Aug 2010 22:57:57 -0500
 
