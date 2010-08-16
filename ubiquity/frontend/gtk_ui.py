@@ -961,15 +961,17 @@ class Wizard(BaseFrontend):
                 elif page.optional_widgets:
                     cur = page.optional_widgets[0]
                 if cur:
+                    title = None
                     if page.title:
                         title = self.get_string(page.title)
-                        title = title.replace('${RELEASE}', get_release().name)
-                        # TODO: Use attributes instead?  Would save having to
-                        # hardcode the size in here.
-                        self.page_title.set_markup(
-                            '<span size="xx-large">%s</span>' % title)
-                        self.title_section.show()
-                    else:
+                        if title:
+                            title = title.replace('${RELEASE}', get_release().name)
+                            # TODO: Use attributes instead?  Would save having to
+                            # hardcode the size in here.
+                            self.page_title.set_markup(
+                                '<span size="xx-large">%s</span>' % title)
+                            self.title_section.show()
+                    if not page.title or not title:
                         self.title_section.hide()
                     cur.show()
                     is_install = page.ui.get('plugin_is_install')

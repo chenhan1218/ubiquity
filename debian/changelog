@@ -1,3 +1,10 @@
+ubiquity (2.3.8) UNRELEASED; urgency=low
+
+  * If a plugin declares a title, but it's not fetched properly from debconf,
+    hide the title bar rather than crash.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 16 Aug 2010 10:36:25 -0500
+
 ubiquity (2.3.7) maverick; urgency=low
 
   * Don't show the warning text in ubi-warning until after it's translated.
