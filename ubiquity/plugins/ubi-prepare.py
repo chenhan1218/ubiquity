@@ -112,6 +112,7 @@ class PageGtk(PreparePageBase):
             self.prepare_download_updates = builder.get_object('prepare_download_updates')
             self.prepare_nonfree_software = builder.get_object('prepare_nonfree_software')
             self.prepare_sufficient_space = builder.get_object('prepare_sufficient_space')
+            self.prepare_foss_disclaimer = builder.get_object('prepare_foss_disclaimer')
             # TODO we should set these up and tear them down while on this page.
             try:
                 from dbus.mainloop.glib import DBusGMainLoop
@@ -155,6 +156,16 @@ class PageGtk(PreparePageBase):
 
     def get_use_nonfree(self):
         return self.prepare_nonfree_software.get_active()
+
+    def plugin_translate(self, lang):
+        PreparePageBase.plugin_translate(self, lang)
+        release = misc.get_release()
+        from ubiquity import i18n
+        import gtk
+        for widget in [self.prepare_foss_disclaimer]:
+            text = i18n.get_string(gtk.Buildable.get_name(widget), lang)
+            text = text.replace('${RELEASE}', release.name)
+            widget.set_label(text)
 
 class PageKde(PreparePageBase):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_prepare'
@@ -227,12 +238,15 @@ class PageKde(PreparePageBase):
 
     def plugin_translate(self, lang):
         PreparePageBase.plugin_translate(self, lang)
-        #gtk does the ${RELEASE} replace in gtk_ui but we do it per plugin because our title widget is per plugin
+        #gtk does the ${RELEASE} replace for the title in gtk_ui but we do it per plugin because our title widget is per plugin
+        #also add Bold here (not sure how the gtk side keeps that formatting)
         release = misc.get_release()
-        for widget in (self.page.prepare_heading_label, self.page.prepare_foss_disclaimer):
+        for widget in (self.page.prepare_heading_label, self.page.prepare_best_results, self.page.prepare_foss_disclaimer):
             text = widget.text()
             text = text.replace('${RELEASE}', release.name)
-            self.page.prepare_heading_label.setText(text)
+            text = text.replace('Ubuntu', 'Kubuntu')
+            text = "<b>" + text + "</b>"
+            widget.setText(text)
 
 class Page(Plugin):
     def prepare(self):

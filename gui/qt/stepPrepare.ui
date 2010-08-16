@@ -19,6 +19,9 @@
      <property name="text">
       <string>&lt;b&gt;For best results, please ensure:&lt;/b&gt;</string>
      </property>
+     <property name="textFormat">
+      <enum>Qt::RichText</enum>
+     </property>
     </widget>
    </item>
    <item row="2" column="0">
@@ -28,6 +31,12 @@
     <widget class="QLabel" name="prepare_foss_disclaimer">
      <property name="text">
       <string>&lt;qt&gt;${RELEASE} aims to be free and open-source software.&lt;br /&gt;However, this is not always possible.&lt;/span&gt;&lt;/qt&gt;</string>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::RichText</enum>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
      </property>
     </widget>
    </item>
