@@ -1,9 +1,15 @@
 from PyQt4 import uic
-from PyQt4.QtGui import QLabel, QWidget, QHBoxLayout, QPixmap
+from PyQt4.QtCore import Qt
+from PyQt4.QtGui import QLabel, QWidget, QHBoxLayout, QPixmap, QFrame, QPalette
 
-class StateBox(QWidget):
+class StateBox(QFrame):
     def __init__(self, parent, text=''):
-        QWidget.__init__(self, parent)
+        QFrame.__init__(self, parent)
+        self.setFrameStyle(QFrame.StyledPanel|QFrame.Sunken)
+        self.setAutoFillBackground(True)
+        palette = self.palette()
+        palette.setColor(QPalette.Window, Qt.white)
+        self.setPalette(palette)
         layout = QHBoxLayout(self)
         self.setLayout(layout)
         self.image = QLabel(self)
