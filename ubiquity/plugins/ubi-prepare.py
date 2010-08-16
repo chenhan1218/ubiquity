@@ -74,7 +74,7 @@ class PreparePageBase(PluginUI):
     def check_returncode(self, *args):
         if self.wget_retcode is not None or self.wget_proc is None:
             self.wget_proc = subprocess.Popen(
-                ['wget', '-q', WGET_URL, '--timeout=15'])
+                ['wget', '-q', WGET_URL, '--timeout=15', '-O', '/dev/null'])
         self.wget_retcode = self.wget_proc.poll()
         if self.wget_retcode is None:
             return True
@@ -157,6 +157,7 @@ class PageGtk(PreparePageBase):
         return self.prepare_nonfree_software.get_active()
 
 class PageKde(PreparePageBase):
+    plugin_breadcrumb = 'ubiquity/text/breadcrumb_prepare'
     def __init__(self, controller, *args, **kwargs):
         from ubiquity.qtwidgets import StateBox
         if 'UBIQUITY_AUTOMATIC' in os.environ:
@@ -223,6 +224,15 @@ class PageKde(PreparePageBase):
     def get_use_nonfree(self):
         from PyQt4.QtCore import Qt
         return self.prepare_nonfree_software.checkState() == Qt.Checked
+
+    def plugin_translate(self, lang):
+        PreparePageBase.plugin_translate(self, lang)
+        #gtk does the ${RELEASE} replace in gtk_ui but we do it per plugin because our title widget is per plugin
+        release = misc.get_release()
+        for widget in (self.page.prepare_heading_label, self.page.prepare_foss_disclaimer):
+            text = widget.text()
+            text = text.replace('${RELEASE}', release.name)
+            self.page.prepare_heading_label.setText(text)
 
 class Page(Plugin):
     def prepare(self):
