@@ -96,6 +96,7 @@ class PreparePageBase(PluginUI):
         self.prepare_network_connection.set_property('label', ether)
 
 class PageGtk(PreparePageBase):
+    restricted_package_name = 'ubuntu-restricted-addons'
     def __init__(self, controller, *args, **kwargs):
         from ubiquity.gtkwidgets import StateBox
         if 'UBIQUITY_AUTOMATIC' in os.environ:
@@ -169,6 +170,8 @@ class PageGtk(PreparePageBase):
 
 class PageKde(PreparePageBase):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_prepare'
+    restricted_package_name = 'kubuntu-restricted-extras'
+
     def __init__(self, controller, *args, **kwargs):
         from ubiquity.qtwidgets import StateBox
         if 'UBIQUITY_AUTOMATIC' in os.environ:
@@ -303,7 +306,7 @@ class Page(Plugin):
                 # Install ubuntu-restricted-addons.
                 self.preseed_bool('apt-setup/universe', True)
                 self.preseed_bool('apt-setup/multiverse', True)
-                install_misc.record_installed(['ubuntu-restricted-addons'])
+                install_misc.record_installed([self.ui.restricted_package_name])
 
         Plugin.ok_handler(self)
 
