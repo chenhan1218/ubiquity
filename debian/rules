@@ -217,7 +217,7 @@ endif
 
 BINARY_INDEP_OPTIONS := -i
 ifdef UBIQUITY_NO_GTK
-BINARY_INDEP_OPTIONS += -Nubiquity-frontend-gtk -Noem-config-gtk
+BINARY_INDEP_OPTIONS += -Noem-config-gtk
 endif
 ifdef UBIQUITY_NO_KDE
 BINARY_INDEP_OPTIONS += -Nubiquity-frontend-kde -Noem-config-kde
@@ -239,16 +239,20 @@ binary-indep: install
 	dh_strip
 	dh_compress
 	dh_fixperms
-	DH_OPTIONS= dh_pycentral -pubiquity-frontend-gtk \
-				 -pubiquity-frontend-kde
+	DH_OPTIONS= dh_pycentral -i
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol -- -Vmangled-version='$(MANGLED_VERSION)'
 	dh_md5sums
 	dh_builddeb
 
+BINARY_ARCH_OPTIONS := -a
+ifdef UBIQUITY_NO_GTK
+BINARY_ARCH_OPTIONS += -Nubiquity-frontend-gtk
+endif
+
 # Build architecture-dependent files here.
-binary-arch: DH_OPTIONS=-a
+binary-arch: DH_OPTIONS=$(BINARY_ARCH_OPTIONS)
 binary-arch: install
 	dh_testdir
 	dh_testroot
@@ -275,7 +279,7 @@ binary-arch: install
 	dh_strip
 	dh_compress
 	dh_fixperms
-	dh_pycentral
+	DH_OPTIONS= dh_pycentral -a
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol -- -V'console-setup-depends=$(console-setup-depends)' -Vmangled-version='$(MANGLED_VERSION)'

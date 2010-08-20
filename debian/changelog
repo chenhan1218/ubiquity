@@ -6,6 +6,8 @@ ubiquity (2.3.8) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Update d-i/update-control for Dpkg::Deps changes in dpkg 1.15.6.
+  * Make ubiquity-frontend-gtk Architecture: any, due to
+    /usr/lib/ubiquity/panel (LP: #616581).
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 16 Aug 2010 10:36:25 -0500
 
