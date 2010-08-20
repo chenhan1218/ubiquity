@@ -11,8 +11,7 @@ sub first_dep ($) {
 		$inner = $deps[0];
 	}
 	unless ($inner->isa('Dpkg::Deps::Simple')) {
-		die sprintf "Couldn't reduce %s to a simple dependency!\n",
-			    $inner->dump();
+		die sprintf "Couldn't reduce $inner to a simple dependency!\n";
 	}
 	return $inner;
 }
@@ -51,7 +50,7 @@ my @basebd = (
     'xkb-data-i18n',
 );
 my $basebd = join ', ', @basebd;
-my $parsed = Dpkg::Deps::parse($basebd, reduce_arch => 1);
+my $parsed = Dpkg::Deps::deps_parse($basebd, reduce_arch => 1);
 for my $bd ($parsed->get_deps()) {
 	my $firstbd = first_dep($bd);
 	$builddeps{$firstbd->{package}} = $firstbd;
@@ -63,7 +62,7 @@ for my $source (<source/*/debian/control>) {
 	open SOURCE, '<', $source or die "can't open $source: $!";
 	while (<SOURCE>) {
 		if (/^Build-Depends(?:-Indep)?:\s*(.*)/i) {
-			$parsed = Dpkg::Deps::parse($1, reduce_arch => 1);
+			$parsed = Dpkg::Deps::deps_parse($1, reduce_arch => 1);
 			for my $bd ($parsed->get_deps()) {
 				# Reduce any or-ed dependencies to the first
 				# alternative.
@@ -81,7 +80,7 @@ for my $source (<source/*/debian/control>) {
 }
 
 my $builddeps =
-	join ', ', map { $builddeps{$_}->dump() } sort keys %builddeps;
+	join ', ', map { "$builddeps{$_}" } sort keys %builddeps;
 open IN, '<', $control or die "can't open $control: $!";
 open OUT, '>', "$control.tmp" or die "can't open $control.tmp for writing: $!";
 foreach (<IN>) {
