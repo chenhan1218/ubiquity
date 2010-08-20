@@ -58,6 +58,7 @@ clean: check
 	dh_auto_clean
 	dh_clean
 	rm -f debian/kbdnames.gz
+	rm -rf build-locale
 
 	$(MAKE) -C d-i check
 
