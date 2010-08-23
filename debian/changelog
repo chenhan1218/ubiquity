@@ -10,7 +10,10 @@ ubiquity (2.3.8) UNRELEASED; urgency=low
     /usr/lib/ubiquity/panel (LP: #616581).
   * Remove build-locale on clean.
 
- -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 16 Aug 2010 10:36:25 -0500
+  [ Jonathan Riddell ]
+  * Add prepare page to KDE frontend
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 23 Aug 2010 11:08:34 +0100
 
 ubiquity (2.3.7) maverick; urgency=low
 

@@ -20,7 +20,9 @@
 from ubiquity.plugin import *
 from ubiquity import misc, install_misc, osextras, i18n
 import os
+import sys
 import subprocess
+import dbus
 
 NAME = 'prepare'
 AFTER = 'language'
@@ -43,8 +45,58 @@ WGET_URL = 'http://www.ubuntu.com'
 
 # TODO: Set the 'have at least 3 GB' from /cdrom/casper/filesystem.size + a
 # fudge factor.
-class PageGtk(PluginUI):
+class PreparePageBase(PluginUI):
     plugin_title = 'ubiquity/text/prepare_heading_label'
+
+    def setup_power_watch(self):
+        bus = dbus.SystemBus()
+        upower = bus.get_object(UPOWER, UPOWER_PATH)
+        upower = dbus.Interface(upower, PROPS)
+        def power_state_changed():
+            self.prepare_power_source.set_state(
+                upower.Get(UPOWER_PATH, 'OnBattery') == False)
+        bus.add_signal_receiver(power_state_changed, 'Changed', UPOWER, UPOWER)
+        power_state_changed()
+
+    def setup_network_watch(self):
+        # TODO abstract so we can support connman.
+        bus = dbus.SystemBus()
+        bus.add_signal_receiver(self.network_change, 'DeviceNoLongerActive',
+                                NM, NM, NM_PATH)
+        bus.add_signal_receiver(self.network_change, 'StateChange',
+                                NM, NM, NM_PATH)
+        self.timeout_id = None
+        self.wget_retcode = None
+        self.wget_proc = None
+        self.network_change()
+
+    @only_this_page
+    def check_returncode(self, *args):
+        if self.wget_retcode is not None or self.wget_proc is None:
+            self.wget_proc = subprocess.Popen(
+                ['wget', '-q', WGET_URL, '--timeout=15', '-O', '/dev/null'])
+        self.wget_retcode = self.wget_proc.poll()
+        if self.wget_retcode is None:
+            return True
+        else:
+            state = self.wget_retcode == 0
+            self.prepare_network_connection.set_state(state)
+            self.controller.dbfilter.set_online_state(state)
+
+    def set_sufficient_space(self, state):
+        self.prepare_sufficient_space.set_state(state)
+
+    def set_sufficient_space_text(self, space):
+        self.prepare_sufficient_space.set_property('label', space)
+
+    def plugin_translate(self, lang):
+        power = self.controller.get_string('prepare_power_source', lang)
+        ether = self.controller.get_string('prepare_network_connection', lang)
+        self.prepare_power_source.set_property('label', power)
+        self.prepare_network_connection.set_property('label', ether)
+
+class PageGtk(PreparePageBase):
+    restricted_package_name = 'ubuntu-restricted-addons'
     def __init__(self, controller, *args, **kwargs):
         from ubiquity.gtkwidgets import StateBox
         if 'UBIQUITY_AUTOMATIC' in os.environ:
@@ -58,12 +110,14 @@ class PageGtk(PluginUI):
             builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPrepare.ui'))
             builder.connect_signals(self)
             self.page = builder.get_object('stepPrepare')
-            self.prepare_foss_disclaimer  = builder.get_object('prepare_foss_disclaimer')
             self.prepare_download_updates = builder.get_object('prepare_download_updates')
             self.prepare_nonfree_software = builder.get_object('prepare_nonfree_software')
             self.prepare_sufficient_space = builder.get_object('prepare_sufficient_space')
+            self.prepare_foss_disclaimer = builder.get_object('prepare_foss_disclaimer')
             # TODO we should set these up and tear them down while on this page.
             try:
+                from dbus.mainloop.glib import DBusGMainLoop
+                DBusGMainLoop(set_as_default=True)
                 self.prepare_power_source = builder.get_object('prepare_power_source')
                 self.setup_power_watch()
             except Exception, e:
@@ -79,34 +133,6 @@ class PageGtk(PluginUI):
             self.page = None
         self.plugin_widgets = self.page
 
-    def setup_power_watch(self):
-        import dbus
-        from dbus.mainloop.glib import DBusGMainLoop
-        DBusGMainLoop(set_as_default=True)
-        bus = dbus.SystemBus()
-        upower = bus.get_object(UPOWER, UPOWER_PATH)
-        upower = dbus.Interface(upower, PROPS)
-        def power_state_changed():
-            self.prepare_power_source.set_state(
-                upower.Get(UPOWER_PATH, 'OnBattery') == False)
-        bus.add_signal_receiver(power_state_changed, 'Changed', UPOWER, UPOWER)
-        power_state_changed()
-
-    def setup_network_watch(self):
-        # TODO abstract so we can support connman.
-        import dbus
-        from dbus.mainloop.glib import DBusGMainLoop
-        DBusGMainLoop(set_as_default=True)
-        bus = dbus.SystemBus()
-        bus.add_signal_receiver(self.network_change, 'DeviceNoLongerActive',
-                                NM, NM, NM_PATH)
-        bus.add_signal_receiver(self.network_change, 'StateChange',
-                                NM, NM, NM_PATH)
-        self.timeout_id = None
-        self.wget_retcode = None
-        self.wget_proc = None
-        self.network_change()
-
     def network_change(self, state=None):
         import gobject
         if state and (state != 4 and state != 3):
@@ -115,19 +141,6 @@ class PageGtk(PluginUI):
             gobject.source_remove(self.timeout_id)
         self.timeout_id = gobject.timeout_add(300, self.check_returncode)
 
-    @only_this_page
-    def check_returncode(self, *args):
-        if self.wget_retcode is not None or self.wget_proc is None:
-            self.wget_proc = subprocess.Popen(
-                ['wget', '-q', WGET_URL, '--timeout=15', '-O', '/dev/null'])
-        self.wget_retcode = self.wget_proc.poll()
-        if self.wget_retcode is None:
-            return True
-        else:
-            state = self.wget_retcode == 0
-            self.prepare_network_connection.set_state(state)
-            self.controller.dbfilter.set_online_state(state)
-    
     def set_download_updates(self, val):
         self.prepare_download_updates.set_active(val)
 
@@ -145,21 +158,98 @@ class PageGtk(PluginUI):
     def get_use_nonfree(self):
         return self.prepare_nonfree_software.get_active()
 
-    def set_sufficient_space(self, state):
-        self.prepare_sufficient_space.set_state(state)
-
-    def set_sufficient_space_text(self, space):
-        self.prepare_sufficient_space.set_property('label', space)
-    
     def plugin_translate(self, lang):
-        power = self.controller.get_string('prepare_power_source', lang)
-        ether = self.controller.get_string('prepare_network_connection', lang)
-        self.prepare_power_source.set_property('label', power)
-        self.prepare_network_connection.set_property('label', ether)
+        PreparePageBase.plugin_translate(self, lang)
         release = misc.get_release()
-        text = i18n.get_string('prepare_foss_disclaimer', lang)
-        text = text.replace('${RELEASE}', '%s' % release.name)
-        self.prepare_foss_disclaimer.set_markup(text)
+        from ubiquity import i18n
+        import gtk
+        for widget in [self.prepare_foss_disclaimer]:
+            text = i18n.get_string(gtk.Buildable.get_name(widget), lang)
+            text = text.replace('${RELEASE}', release.name)
+            widget.set_label(text)
+
+class PageKde(PreparePageBase):
+    plugin_breadcrumb = 'ubiquity/text/breadcrumb_prepare'
+    restricted_package_name = 'kubuntu-restricted-extras'
+
+    def __init__(self, controller, *args, **kwargs):
+        from ubiquity.qtwidgets import StateBox
+        if 'UBIQUITY_AUTOMATIC' in os.environ:
+            self.page = None
+            return
+        self.controller = controller
+        try:
+            from PyQt4 import uic
+            from PyQt4.QtGui import QLabel, QWidget
+            self.page = uic.loadUi('/usr/share/ubiquity/qt/stepPrepare.ui')
+            self.prepare_download_updates = self.page.prepare_download_updates
+            self.prepare_nonfree_software = self.page.prepare_nonfree_software
+            self.prepare_sufficient_space = StateBox(self.page)
+            self.page.vbox1.addWidget(self.prepare_sufficient_space)
+            # TODO we should set these up and tear them down while on this page.
+            try:
+                import dbus.mainloop.qt
+                dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
+                self.prepare_power_source = StateBox(self.page)
+                self.page.vbox1.addWidget(self.prepare_power_source)
+                self.setup_power_watch()
+            except Exception, e:
+                # TODO use an inconsistent state?
+                print 'unable to set up power source watch:', e
+            try:
+                self.prepare_network_connection = StateBox(self.page)
+                self.page.vbox1.addWidget(self.prepare_network_connection)
+                self.setup_network_watch()
+            except Exception, e:
+                print 'unable to set up network connection watch:', e
+        except Exception, e:
+            import sys
+            print >>sys.stderr,"Could not create prepare page:", str(e)
+            self.debug('Could not create prepare page: %s', e)
+            self.page = None
+        self.plugin_widgets = self.page
+
+    def network_change(self, state=None):
+        from PyQt4.QtCore import QTimer, SIGNAL
+        if state and (state != 4 and state != 3):
+            print >> sys.stderr, "network_change rreturning()"
+            return
+        print >> sys.stderr, "network_change setting timer()"
+        QTimer.singleShot(300, self.check_returncode)
+        self.timer = QTimer(self.page)
+        self.timer.connect(self.timer, SIGNAL("timeout()"), self.check_returncode)
+        self.timer.start(300)
+
+    def set_download_updates(self, val):
+        self.prepare_download_updates.setChecked(val)
+
+    def get_download_updates(self):
+        from PyQt4.QtCore import Qt
+        return self.prepare_download_updates.checkState() == Qt.Checked
+    
+    def set_use_nonfree(self, val):
+        if osextras.find_on_path('jockey-text'):
+            self.prepare_nonfree_software.setChecked(val)
+        else:
+            self.debug('Could not find jockey-text on the executable path.')
+            self.prepare_nonfree_software.setChecked(False)
+            self.prepare_nonfree_software.setEnabled(False)
+
+    def get_use_nonfree(self):
+        from PyQt4.QtCore import Qt
+        return self.prepare_nonfree_software.checkState() == Qt.Checked
+
+    def plugin_translate(self, lang):
+        PreparePageBase.plugin_translate(self, lang)
+        #gtk does the ${RELEASE} replace for the title in gtk_ui but we do it per plugin because our title widget is per plugin
+        #also add Bold here (not sure how the gtk side keeps that formatting)
+        release = misc.get_release()
+        for widget in (self.page.prepare_heading_label, self.page.prepare_best_results, self.page.prepare_foss_disclaimer):
+            text = widget.text()
+            text = text.replace('${RELEASE}', release.name)
+            text = text.replace('Ubuntu', 'Kubuntu')
+            text = "<b>" + text + "</b>"
+            widget.setText(text)
 
 class Page(Plugin):
     def prepare(self):
@@ -216,7 +306,7 @@ class Page(Plugin):
                 # Install ubuntu-restricted-addons.
                 self.preseed_bool('apt-setup/universe', True)
                 self.preseed_bool('apt-setup/multiverse', True)
-                install_misc.record_installed(['ubuntu-restricted-addons'])
+                install_misc.record_installed([self.ui.restricted_package_name])
 
         Plugin.ok_handler(self)
 

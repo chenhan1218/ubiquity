@@ -936,6 +936,10 @@ Template: ubiquity/text/breadcrumb_language
 Type: text
 _Description: Language
 
+Template: ubiquity/text/breadcrumb_prepare
+Type: text
+_Description: Prepare
+
 Template: ubiquity/text/breadcrumb_timezone
 Type: text
 _Description: Timezone
