@@ -9,6 +9,7 @@ ubiquity (2.3.8) UNRELEASED; urgency=low
   * Make ubiquity-frontend-gtk Architecture: any, due to
     /usr/lib/ubiquity/panel (LP: #616581).
   * Remove build-locale on clean.
+  * Update build rules for changes in debian-installer-utils 1.78.
 
   [ Jonathan Riddell ]
   * Add prepare page to KDE frontend

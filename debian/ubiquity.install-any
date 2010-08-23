@@ -51,7 +51,6 @@ d-i/source/debian-installer-utils/block-attr bin
 d-i/source/debian-installer-utils/chroot-setup.sh lib
 d-i/source/debian-installer-utils/debconf-get bin
 d-i/source/debian-installer-utils/in-target bin
-d-i/source/debian-installer-utils/list-devices bin
 d-i/source/debian-installer-utils/log-output bin
 d-i/source/debian-installer-utils/mapdevfs bin
 d-i/source/debian-installer-utils/register-module bin

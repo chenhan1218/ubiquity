@@ -16,6 +16,7 @@ $(warning Version $(VERSION) in debian/changelog does not match $(AC_VERSION) in
 endif
 
 DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
+DEB_HOST_ARCH_OS ?= $(shell dpkg-architecture -qDEB_HOST_ARCH_OS)
 
 PYTHON := $(shell pyversions -r)
 
@@ -190,6 +191,8 @@ endif
 		debian/ubiquity/usr/lib/ubiquity/user-setup/user-setup-ask \
 		> debian/ubiquity/usr/lib/ubiquity/user-setup/user-setup-ask-oem
 	chmod +x debian/ubiquity/usr/lib/ubiquity/user-setup/user-setup-ask-oem
+	install d-i/source/debian-installer-utils/list-devices-$(DEB_HOST_ARCH_OS) \
+		debian/ubiquity/bin/list-devices
 	install d-i/source/debian-installer-utils/post-base-installer.d/10register-module \
 		debian/ubiquity/usr/lib/ubiquity/debian-installer-utils/register-module.post-base-installer
 	sed -e 's,/target/,/,g;s,/target,/,g' \
