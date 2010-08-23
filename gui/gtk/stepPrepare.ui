@@ -80,7 +80,7 @@
               <object class="GtkLabel" id="prepare_foss_disclaimer">
                 <property name="visible">True</property>
                 <property name="xalign">0</property>
-                <property name="label" translatable="yes">&lt;b&gt;Ubuntu aims to be free and open-source software.  However, this is not always possible.&lt;/b&gt;</property>
+                <property name="label" translatable="yes">&lt;b&gt;${RELEASE} aims to be free and open-source software.  However, this is not always possible.&lt;/b&gt;</property>
                 <property name="use_markup">True</property>
               </object>
               <packing>

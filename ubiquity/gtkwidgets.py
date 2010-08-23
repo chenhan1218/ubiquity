@@ -859,10 +859,19 @@ class WirelessTreeView(gtk.TreeView):
         
         it = gtk.icon_theme_get_default()
         self.icons = {}
-        for n in ('wifi-020', 'wifi-040', 'wifi-060', 'wifi-080', 'wifi-100'):
-            ico = it.lookup_icon(n, 22, 0)
-            ico = ico.load_icon()
-            self.icons[n] = ico
+        map = {'wifi-020': 'nm-signal-00',
+               'wifi-040': 'nm-signal-25',
+               'wifi-060': 'nm-signal-50',
+               'wifi-080': 'nm-signal-75',
+               'wifi-100': 'nm-signal-100'}
+        for n in map:
+            if it.has_icon(n):
+                ico = it.lookup_icon(n, 22, 0)
+            else:
+                ico = it.lookup_icon(map[n], 22, 0)
+            if ico:
+                ico = ico.load_icon()
+                self.icons[n] = ico
 
     def scan(self):
         o = self.bus.get_object(WM, WM_PATH)
@@ -927,7 +936,8 @@ class WirelessTreeView(gtk.TreeView):
             icon = 'wifi-080'
         else:
             icon = 'wifi-100'
-        cell.set_property('pixbuf', self.icons[icon])
+        if self.icons.has_key(icon):
+            cell.set_property('pixbuf', self.icons[icon])
         cell.set_property('overlay', ap['Locked'])
 
     def column_data_func(self, layout, cell, model, iterator, column):

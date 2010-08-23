@@ -54,6 +54,11 @@ class PageGtk(PageBase):
         except Exception, e:
             self.debug('Could not create warning page: %s', e)
             self.page = None
+        # We do not want to show the yet to be substituted strings
+        # (${MEDIUM}, etc), so don't show the core of the page until
+        # it's ready.
+        for w in self.page.get_children():
+            w.hide()
         self.plugin_widgets = self.page
 
     def plugin_translate(self, lang):
@@ -68,3 +73,5 @@ class PageGtk(PageBase):
                 (release.name, release.version))
         text = text.replace('${MEDIUM}', install_medium)
         self.alpha_warning_label.set_markup(text)
+        for w in self.page.get_children():
+            w.show()

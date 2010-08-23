@@ -332,8 +332,16 @@ EndSection
                 **maybe_drop_privileges)
 
             if os.path.exists('/usr/lib/gnome-settings-daemon/gnome-settings-daemon'):
-                extras.append(subprocess.Popen(
+                proc = subprocess.Popen(
                     ['/usr/lib/gnome-settings-daemon/gnome-settings-daemon'],
+                    stdin=null, stdout=logfile, stderr=logfile,
+                    **maybe_drop_privileges)
+                proc.wait()
+                extras.append(proc)
+
+            if os.path.exists('/usr/bin/xfsettingsd'):
+                extras.append(subprocess.Popen(
+                    ['/usr/bin/xfsettingsd'],
                     stdin=null, stdout=logfile, stderr=logfile,
                     **maybe_drop_privileges))
 

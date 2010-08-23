@@ -961,20 +961,21 @@ class Wizard(BaseFrontend):
                 elif page.optional_widgets:
                     cur = page.optional_widgets[0]
                 if cur:
+                    title = None
                     if page.title:
                         title = self.get_string(page.title)
-                        title = title.replace('${RELEASE}', get_release().name)
-                        # TODO: Use attributes instead?  Would save having to
-                        # hardcode the size in here.
-                        self.page_title.set_markup(
-                            '<span size="xx-large">%s</span>' % title)
-                        self.title_section.show()
-                    else:
+                        if title:
+                            title = title.replace('${RELEASE}', get_release().name)
+                            # TODO: Use attributes instead?  Would save having to
+                            # hardcode the size in here.
+                            self.page_title.set_markup(
+                                '<span size="xx-large">%s</span>' % title)
+                            self.title_section.show()
+                    if not page.title or not title:
                         self.title_section.hide()
                     cur.show()
                     is_install = page.ui.get('plugin_is_install')
                     break
-        # for step in self.steps, if step != cur, hide
         if not cur:
             return False
 
@@ -989,11 +990,6 @@ class Wizard(BaseFrontend):
             print >>sys.stderr, 'Invalid page found for %s: %s' % (n, str(cur))
             return False
 
-        # TODO Okay, this is crazy.  It makes lots of small windows.  Perhaps
-        # just hide the language page once we're done with it.
-        for p in self.steps.get_children():
-            if p != cur:
-                p.hide()
         self.add_history(page, cur)
         self.set_current_page(num)
 
@@ -1320,10 +1316,7 @@ class Wizard(BaseFrontend):
         last_page = self.pages[-1].module.__name__
         if finished_step == last_page:
             self.finished_pages = True
-            if self.finished_installing:
-                dbfilter = plugininstall.Install(self, db=self.parallel_db)
-                dbfilter.start(auto_process=True)
-            elif self.oem_user_config:
+            if self.finished_installing or self.oem_user_config:
                 self.progress_section.show()
                 dbfilter = plugininstall.Install(self)
                 dbfilter.start(auto_process=True)
@@ -1347,7 +1340,7 @@ class Wizard(BaseFrontend):
         elif finished_step == 'ubiquity.components.install':
             self.finished_installing = True
             if self.finished_pages:
-                dbfilter = plugininstall.Install(self, db=self.parallel_db)
+                dbfilter = plugininstall.Install(self)
                 dbfilter.start(auto_process=True)
 
         elif finished_step == 'ubiquity.components.plugininstall':

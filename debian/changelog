@@ -1,3 +1,52 @@
+ubiquity (2.3.8) UNRELEASED; urgency=low
+
+  [ Mario Limonciello ]
+  * If a plugin declares a title, but it's not fetched properly from debconf,
+    hide the title bar rather than crash.
+
+  [ Colin Watson ]
+  * Update d-i/update-control for Dpkg::Deps changes in dpkg 1.15.6.
+  * Make ubiquity-frontend-gtk Architecture: any, due to
+    /usr/lib/ubiquity/panel (LP: #616581).
+  * Remove build-locale on clean.
+
+  [ Jonathan Riddell ]
+  * Add prepare page to KDE frontend
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 23 Aug 2010 11:08:34 +0100
+
+ubiquity (2.3.7) maverick; urgency=low
+
+  * Don't show the warning text in ubi-warning until after it's translated.
+  * Hide the language plugin page if in greeter mode and advancing to keep the
+    other pages from growing. (which seems what Evan was trying to do in r4183)
+  * Fix the cut off text on the warning page. (LP: #615034)
+  * For plugininstall, use the actual debconf database, not the parallel database.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sun, 15 Aug 2010 02:34:50 -0500
+
+ubiquity (2.3.6) maverick; urgency=low
+
+  * Redirect console blanking setterm command to /dev/console so it is effective
+    with upstart.
+  * Show the proper derivative name for prepare_foss_disclaimer on stepPrepare.
+  * Fallback to NM icons if the wifi icons don't load (such as humanity missing).  
+    If still fail, don't crash, just don't show icons.  (LP: #617696)
+  * Pass the output of wget calls into /dev/null to prevent files popping up in ~.
+  * If available, run xfsettingsd in ubiquity only mode.
+  * ubiquity-dm: wait for gsd to fork to prevent a race condition in setting
+    ubiquity styles.
+  * Add missing imports for LabelledEntry, causing timezone and console_setup to
+    not function in oem-config mode.
+  * Fix the partitioner trying to offer resize options in the GUI when it shouldn't.
+    (LP: #617729)
+  * Revert additional changes to gtk_ui from r4183 that were causing the window to
+    constantly resize and the auto partitioner to break.
+  * Automatic update of included source packages: flash-kernel
+    2.28ubuntu5.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sat, 14 Aug 2010 18:48:52 -0500
+
 ubiquity (2.3.5) maverick; urgency=low
 
   [ Mario Limonciello ]

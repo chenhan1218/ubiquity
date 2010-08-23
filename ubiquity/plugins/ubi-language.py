@@ -109,6 +109,7 @@ class PageGtk(PageBase):
                 else:
                     def inst(*args):
                         self.try_ubuntu.set_sensitive(False)
+                        self.page.hide()
                         self.controller.go_forward()
                     self.install_ubuntu.connect('clicked', inst)
                     self.try_ubuntu.connect('clicked',
@@ -161,7 +162,7 @@ class PageGtk(PageBase):
         import subprocess
         if self.wget_retcode is not None or self.wget_proc is None:
             self.wget_proc = subprocess.Popen(
-                ['wget', '-q', _wget_url, '--timeout=15'])
+                ['wget', '-q', _wget_url, '--timeout=15', '-O', '/dev/null'])
         self.wget_retcode = self.wget_proc.poll()
         if self.wget_retcode is None:
             return True
