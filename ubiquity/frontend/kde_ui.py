@@ -1181,11 +1181,52 @@ class Wizard(BaseFrontend):
             self.socketNotifierRead.activated.disconnect(self.watch_debconf_fd_helper_read)
         except Exception:
             pass # May not be connected if it's a trivial dbfilter
+        if not dbfilter.status:
+            self.find_next_step(dbfilter.__module__)
         if BaseFrontend.debconffilter_done(self, dbfilter):
             self.app.exit()
             return True
         else:
             return False
+
+    def find_next_step(self, finished_step):
+        # TODO need to handle the case where debconffilters launched from
+        # here crash.  Factor code out of dbfilter_handle_status.
+        last_page = self.pages[-1].module.__name__
+        if finished_step == last_page:
+            self.finished_pages = True
+            if self.finished_installing or self.oem_user_config:
+                self.progress_section.show()
+                dbfilter = plugininstall.Install(self)
+                dbfilter.start(auto_process=True)
+
+        elif finished_step == 'ubi-partman':
+            self.installing = True
+            ##self.progress_section.show()
+            from ubiquity.debconfcommunicator import DebconfCommunicator
+            self.parallel_db = DebconfCommunicator('ubiquity', cloexec=True,
+            # debconf-apt-progress, start_debconf()
+            env={'DEBCONF_DB_REPLACE': 'configdb',
+                 'DEBCONF_DB_OVERRIDE':'Pipe{infd:none outfd:none}'})
+            dbfilter = partman_commit.PartmanCommit(self, db=self.parallel_db)
+            dbfilter.start(auto_process=True)
+
+        # FIXME OH DEAR LORD.  Use isinstance.
+        elif finished_step == 'ubiquity.components.partman_commit':
+            dbfilter = install.Install(self, db=self.parallel_db)
+            dbfilter.start(auto_process=True)
+
+        elif finished_step == 'ubiquity.components.install':
+            self.finished_installing = True
+            if self.finished_pages:
+                dbfilter = plugininstall.Install(self)
+                dbfilter.start(auto_process=True)
+
+        elif finished_step == 'ubiquity.components.plugininstall':
+            self.installing = False
+            self.run_success_cmd()
+            #gtk.main_quit()
+            self.quit_main_loop()
 
     def installation_medium_mounted (self, message):
         self.ui.part_advanced_warning_message.setText(message)
