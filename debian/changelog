@@ -16,6 +16,7 @@ ubiquity (2.3.8) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Add new non-free option text from Michael Forrest.
+  * Do not show the skip button by default.
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 23 Aug 2010 11:08:34 +0100
 

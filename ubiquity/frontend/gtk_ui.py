@@ -650,7 +650,7 @@ class Wizard(BaseFrontend):
                 self.progress_cancel_button.show()
             else:
                 self.progress_cancel_button.hide()
-        self.install_details_expander.connect('activate', expand)
+        self.install_details_expander.connect_after('activate', expand)
 
         if self.custom_title:
             self.live_installer.set_title(self.custom_title)

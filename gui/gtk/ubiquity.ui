@@ -204,7 +204,6 @@
                         <child>
                           <object class="GtkButton" id="progress_cancel_button">
                             <property name="label" translatable="yes">_Skip</property>
-                            <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="use_underline">True</property>
