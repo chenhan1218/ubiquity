@@ -24,7 +24,7 @@ class KeyboardQuery(gtk.Window):
 
         self.set_title(' ')
         self.set_keep_above(True)
-        #self.set_modal(True)
+        self.set_modal(True)
         # TODO if we can allocate the space we'll need ahead of time, we can
         # use center_on_parent here.
         self.set_position(gtk.WIN_POS_CENTER_ALWAYS)

@@ -17,6 +17,8 @@ ubiquity (2.3.8) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Add new non-free option text from Michael Forrest.
   * Do not show the skip button by default.
+  * Make the keyboard guesser window modal again, making it closeable
+    and accepting of input.
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 23 Aug 2010 11:08:34 +0100
 
