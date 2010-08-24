@@ -107,6 +107,24 @@
                       </packing>
                     </child>
                     <child>
+                      <object class="GtkAlignment" id="alignment2">
+                        <property name="visible">True</property>
+                        <property name="left_padding">22</property>
+                        <child>
+                          <object class="GtkLabel" id="prepare_foss_disclaimer_extra_label">
+                            <property name="visible">True</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;small&gt;The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 audio decoding technology licensed from Faunhofer IIS and Thomson.&lt;/small&gt;</property>
+                            <property name="use_markup">True</property>
+                            <property name="wrap">True</property>
+                          </object>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                    <child>
                       <object class="GtkCheckButton" id="prepare_download_updates">
                         <property name="label" translatable="yes">Download updates while installing</property>
                         <property name="visible">True</property>
@@ -115,7 +133,7 @@
                         <property name="draw_indicator">True</property>
                       </object>
                       <packing>
-                        <property name="position">1</property>
+                        <property name="position">2</property>
                       </packing>
                     </child>
                   </object>
@@ -123,18 +141,6 @@
               </object>
               <packing>
                 <property name="position">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="prepare_foss_disclaimer_extra_label">
-                <property name="visible">True</property>
-                <property name="xalign">0</property>
-                <property name="label" translatable="yes">&lt;small&gt;The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 audio decoding technology licensed from Faunhofer IIS and Thomson.&lt;/small&gt;</property>
-                <property name="use_markup">True</property>
-                <property name="wrap">True</property>
-              </object>
-              <packing>
-                <property name="position">2</property>
               </packing>
             </child>
           </object>
