@@ -793,7 +793,6 @@ class Wizard(BaseFrontend):
                 widget.set_attributes(attrs)
             elif ('group_label' in name or 'warning_label' in name or
                   name in ('prepare_best_results',
-                           'prepare_foss_disclaimer',
                            'drives_label',
                            'partition_method_label')):
                 attrs = pango.AttrList()
