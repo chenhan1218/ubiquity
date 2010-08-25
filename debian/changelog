@@ -19,6 +19,7 @@ ubiquity (2.3.8) UNRELEASED; urgency=low
   * Do not show the skip button by default.
   * Make the keyboard guesser window modal again, making it closeable
     and accepting of input.
+  * Add back ready_text_label for the KDE frontend.
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 23 Aug 2010 11:08:34 +0100
 

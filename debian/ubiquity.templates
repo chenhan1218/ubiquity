@@ -1146,6 +1146,15 @@ Type: text
 _Description:
  Download updates while installing
 
+Template: ubiquity/force_failsafe_graphics
+Type: boolean
+Default: false
+Description: for internal use; forces the installation to use vesa or fbdev.
+
+Template: ubiquity/custom_title_text
+Type: string
+Description: for internal use; sets a custom title on installation windows.
+
 # KDE specific
 
 Template: ubiquity/text/keyboard_layout_label
@@ -1179,11 +1188,9 @@ Template: ubiquity/text/welcome_heading_label
 Type: text
 _Description: Welcome
 
-Template: ubiquity/custom_title_text
-Type: string
-Description: for internal use; sets a custom title on installation windows.
-
-Template: ubiquity/force_failsafe_graphics
-Type: boolean
-Default: false
-Description: for internal use; forces the installation to use vesa or fbdev.
+Template: ubiquity/text/ready_text_label
+Type: text
+_Description:
+ Ready to install?  Once you answer a few questions, the contents of the live
+ ${MEDIUM} can be installed on this computer so you can run ${RELEASE} at
+ full speed without the ${MEDIUM}.
