@@ -13,9 +13,12 @@ ubiquity (2.3.8) UNRELEASED; urgency=low
 
   [ Jonathan Riddell ]
   * Add prepare page to KDE frontend
-  * Update Language page to closer follow GTK layout
+  * Update KDE Language page to closer follow GTK layout
   * pixmaps/cd_in_tray.png moves to ubiquity.install-any and ubiquity replaces old
     ubiquity-frontend-gtk
+  * In debian/rules move usr/lib/ubiquity/ubiquity/cheese* back to
+    ubiquity-frontend-gtk package, including it in ubiquity package brings in a lot
+    of Gnome dependencies
 
   [ Evan Dandrea ]
   * Add new non-free option text from Michael Forrest.
