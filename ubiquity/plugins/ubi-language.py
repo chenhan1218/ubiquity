@@ -353,20 +353,25 @@ class PageKde(PageBase):
 
         try:
             from PyQt4 import uic
-            from PyQt4.QtGui import QLabel, QWidget
+            from PyQt4.QtGui import QLabel, QWidget, QPixmap
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLanguage.ui')
             self.combobox = self.page.language_combobox
             self.combobox.currentIndexChanged[str].connect(self.on_language_selection_changed)
-            
-            def inst(*args):
-                self.try_ubuntu.setEnabled(False)
-                self.controller.go_forward()
-            self.page.begin_install_button.clicked.connect(inst)
-            self.page.try_ubuntu.clicked.connect(self.on_try_ubuntu_clicked)
-
             if not self.controller.oem_config:
                 self.page.oem_id_label.hide()
                 self.page.oem_id_entry.hide()
+            
+            def inst(*args):
+                self.page.try_ubuntu.setEnabled(False)
+                self.controller.go_forward()
+            self.page.install_ubuntu.clicked.connect(inst)
+            self.page.try_ubuntu.clicked.connect(self.on_try_ubuntu_clicked)
+            picture1 = QPixmap("/usr/share/ubiquity/pixmaps/cd_in_tray.png")
+            self.page.image1.setPixmap(picture1)
+            self.page.image1.resize(picture1.size())
+            picture2 = QPixmap("/usr/share/ubiquity/pixmaps/kubuntu_installed.png")
+            self.page.image2.setPixmap(picture2)
+            self.page.image2.resize(picture2.size())
 
             self.release_notes_url = ''
             try:
@@ -386,8 +391,10 @@ class PageKde(PageBase):
 
             if not 'UBIQUITY_GREETER' in os.environ:
                 self.page.try_ubuntu.hide()
-                self.page.try_text_label.hide()
-                self.page.begin_install_button.hide()
+                self.page.try_install_text_label.hide()
+                self.page.install_ubuntu.hide()
+                self.page.image1.hide()
+                self.page.image2.hide()
 
             if self.only:
                 self.page.alpha_warning_label.hide()
@@ -412,7 +419,7 @@ class PageKde(PageBase):
         # Spinning cursor.
         self.controller.allow_change_step(False)
         # Queue quit.
-        self.page.begin_install_button.setEnabled(False)
+        self.page.install_ubuntu.setEnabled(False)
         self.controller._wizard.current_page = None
         self.controller.dbfilter.ok_handler()
 
@@ -462,7 +469,7 @@ class PageKde(PageBase):
         
         if not self.only and 'UBIQUITY_GREETER' in os.environ:
             self.page.try_ubuntu.setEnabled(True)
-            self.page.begin_install_button.setEnabled(True)
+            self.page.install_ubuntu.setEnabled(True)
 
     def get_language(self):
         lang = self.selected_language()
@@ -486,9 +493,9 @@ class PageKde(PageBase):
             release = misc.get_release()
             install_medium = misc.get_install_medium()
             install_medium = i18n.get_string(install_medium, lang)
-            for widget in (self.page.try_text_label,
+            for widget in (self.page.try_install_text_label,
                            self.page.try_ubuntu,
-                           self.page.ready_text_label,
+                           self.page.install_ubuntu,
                            self.page.alpha_warning_label):
                 text = widget.text()
                 text = text.replace('${RELEASE}', release.name)
