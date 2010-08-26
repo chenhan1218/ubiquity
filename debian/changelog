@@ -36,6 +36,9 @@ ubiquity (2.3.8) UNRELEASED; urgency=low
   * Add back ready_text_label for the KDE frontend.
   * Add parallel operation support to the KDE frontend, with help from
     Jonathan Riddell.
+  * Automatic update of included source packages: debian-installer-utils
+    1.79ubuntu1, flash-kernel 2.28ubuntu8, partman-auto 91ubuntu4,
+    partman-uboot 4, user-setup 1.28ubuntu8.
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 23 Aug 2010 11:08:34 +0100
 
