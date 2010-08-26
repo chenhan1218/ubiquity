@@ -582,7 +582,6 @@ class Wizard(BaseFrontend):
     def start_slideshow(self):
         slideshow_dir = '/usr/share/ubiquity-slideshow'
         slideshow_locale = self.slideshow_get_available_locale(slideshow_dir, self.locale)
-        slideshow_locale = 'c'
         slideshow_main = slideshow_dir + '/slides/index.html'
 
         if not os.path.exists(slideshow_main):

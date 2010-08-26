@@ -1066,6 +1066,7 @@ class PageGtk(PageBase):
 
 class PageKde(PageBase):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_partition'
+    plugin_is_install = True
 
     def __init__(self, controller, *args, **kwargs):
         PageBase.__init__(self)
