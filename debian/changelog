@@ -1,4 +1,4 @@
-ubiquity (2.3.8) UNRELEASED; urgency=low
+ubiquity (2.3.8) maverick; urgency=low
 
   [ Mario Limonciello ]
   * If a plugin declares a title, but it's not fetched properly from debconf,
@@ -41,7 +41,7 @@ ubiquity (2.3.8) UNRELEASED; urgency=low
     partman-uboot 4, user-setup 1.28ubuntu8.
   * Update translations from Launchpad.
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 23 Aug 2010 11:08:34 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 26 Aug 2010 20:50:32 +0100
 
 ubiquity (2.3.7) maverick; urgency=low
 
