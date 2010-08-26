@@ -19,6 +19,8 @@ ubiquity (2.3.8) UNRELEASED; urgency=low
   * In debian/rules move usr/lib/ubiquity/ubiquity/cheese* back to
     ubiquity-frontend-gtk package, including it in ubiquity package brings in a lot
     of Gnome dependencies
+  * In ubi-language.py check if release notes can be accessed as well as checking
+    for upgrade available and show correct label as appropriate
 
   [ Evan Dandrea ]
   * Add new non-free option text from Michael Forrest.

@@ -96,6 +96,7 @@ class PageGtk(PageBase):
                     release_notes = open(_release_notes_url_path)
                     self.release_notes_url = release_notes.read().rstrip('\n')
                     release_notes.close()
+                    self.release_notes_found = True
                 except (KeyboardInterrupt, SystemExit):
                     raise
                 except:
@@ -148,6 +149,8 @@ class PageGtk(PageBase):
         self.timeout_id = None
         self.wget_retcode = None
         self.wget_proc = None
+        self.wget_retcode_release_notes = None
+        self.wget_proc_release_notes = None
         self.network_change()
 
     def network_change(self, state=None):
@@ -157,6 +160,7 @@ class PageGtk(PageBase):
         if self.timeout_id:
             gobject.source_remove(self.timeout_id)
         self.timeout_id = gobject.timeout_add(300, self.check_returncode)
+        self.timeout_id = gobject.timeout_add(300, self.check_returncode_release_notes)
 
     def check_returncode(self, *args):
         import subprocess
@@ -168,9 +172,25 @@ class PageGtk(PageBase):
             return True
         else:
             if self.wget_retcode == 0:
-                self.release_notes_label.show()
+                self.update_installer = True
             else:
-                self.release_notes_label.hide()
+                self.update_installer = False
+            self.update_release_notes_label()
+
+    def check_returncode_release_notes(self, *args):
+        import subprocess
+        if self.wget_retcode_release_notes is not None or self.wget_proc_release_notes is None:
+            self.wget_proc_release_notes = subprocess.Popen(
+                ['wget', '-q', self.release_notes_url, '--timeout=15', '-O', '/dev/null'])
+        self.wget_retcode_release_notes = self.wget_proc_release_notes.poll()
+        if self.wget_retcode_release_notes is None:
+            return True
+        else:
+            if self.wget_retcode_release_notes == 0:
+                self.release_notes_found = True
+            else:
+                self.release_notes_found = False
+            self.update_release_notes_label()
 
     @only_this_page
     def on_try_ubuntu_clicked(self, *args):
@@ -298,22 +318,33 @@ class PageGtk(PageBase):
         elif install_w > try_w:
             self.try_ubuntu.set_size_request(install_w, -1)
 
+        self.update_release_notes_label()
+        for w in self.page.get_children():
+            w.show()
+
+    def update_release_notes_label(self):
+        print "update_release_notes_label()"
+        lang = self.get_language()
+        if not lang:
+            return
+        # strip encoding; we use UTF-8 internally no matter what
+        lang = lang.split('.')[0]
         # Either leave the release notes label alone (both release notes and a
         # critical update are available), set it to just the release notes,
         # just the critical update, or neither, as appropriate.
         if self.release_notes_label:
-            if self.release_notes_url and self.update_installer:
-                pass
-            elif self.release_notes_url:
+            if self.release_notes_found and self.update_installer:
+                self.release_notes_label.show()
+            elif self.release_notes_found:
                 text = i18n.get_string('release_notes_only', lang)
                 self.release_notes_label.set_markup(text)
+                self.release_notes_label.show()
             elif self.update_installer:
                 text = i18n.get_string('update_installer_only', lang)
                 self.release_notes_label.set_markup(text)
+                self.release_notes_label.show()
             else:
                 self.release_notes_label.hide()
-        for w in self.page.get_children():
-            w.show()
 
     def set_oem_id(self, text):
         return self.oem_id_entry.set_text(text)
@@ -381,6 +412,7 @@ class PageKde(PageBase):
                 release_notes = open(_release_notes_url_path)
                 self.release_notes_url = release_notes.read().rstrip('\n')
                 release_notes.close()
+                self.release_notes_found = True
             except (KeyboardInterrupt, SystemExit):
                 raise
             except:
@@ -439,6 +471,8 @@ class PageKde(PageBase):
         self.timeout_id = None
         self.wget_retcode = None
         self.wget_proc = None
+        self.wget_retcode_release_notes = None
+        self.wget_proc_release_notes = None
         self.network_change()
 
     def network_change(self, state=None):
@@ -449,6 +483,7 @@ class PageKde(PageBase):
         QTimer.singleShot(300, self.check_returncode)
         self.timer = QTimer(self.page)
         self.timer.connect(self.timer, SIGNAL("timeout()"), self.check_returncode)
+        self.timer.connect(self.timer, SIGNAL("timeout()"), self.check_returncode_release_notes)
         self.timer.start(300)
 
     def check_returncode(self, *args):
@@ -461,9 +496,25 @@ class PageKde(PageBase):
             return True
         else:
             if self.wget_retcode == 0:
-                self.page.release_notes_label.show()
+                self.update_installer = True
             else:
-                self.page.release_notes_label.hide()
+                self.update_installer = False
+            self.update_release_notes_label()
+
+    def check_returncode_release_notes(self, *args):
+        import subprocess
+        if self.wget_retcode_release_notes is not None or self.wget_proc_release_notes is None:
+            self.wget_proc_release_notes = subprocess.Popen(
+                ['wget', '-q', self.release_notes_url, '--timeout=15', '-O', '/dev/null'])
+        self.wget_retcode_release_notes = self.wget_proc_release_notes.poll()
+        if self.wget_retcode_release_notes is None:
+            return True
+        else:
+            if self.wget_retcode_release_notes == 0:
+                self.release_notes_found = True
+            else:
+                self.release_notes_found = False
+            self.update_release_notes_label()
 
     @only_this_page
     def on_try_ubuntu_clicked(self, *args):
@@ -554,23 +605,33 @@ class PageKde(PageBase):
                 text = text.replace('Ubuntu', 'Kubuntu')
                 widget.setText(text)
                 
+        self.update_release_notes_label()
+        for w in self.widgetHidden:
+            w.show()
+        self.widgetHidden = []
+
+    def update_release_notes_label(self):
+        lang = self.selected_language()
+        if not lang:
+            return
+        # strip encoding; we use UTF-8 internally no matter what
+        lang = lang.split('.')[0]
         # Either leave the release notes label alone (both release notes and a
         # critical update are available), set it to just the release notes,
         # just the critical update, or neither, as appropriate.
         if self.page.release_notes_label:
-            if self.release_notes_url and self.update_installer:
-                pass
-            elif self.release_notes_url:
+            if self.release_notes_found and self.update_installer:
+                self.page.release_notes_label.show()
+            elif self.release_notes_found:
                 text = i18n.get_string('release_notes_only', lang)
                 self.page.release_notes_label.setText(text)
+                self.page.release_notes_label.show()
             elif self.update_installer:
                 text = i18n.get_string('update_installer_only', lang)
                 self.page.release_notes_label.setText(text)
+                self.page.release_notes_label.show()
             else:
                 self.page.release_notes_label.hide()
-        for w in self.widgetHidden:
-            w.show()
-        self.widgetHidden = []
 
     def set_oem_id(self, text):
         return self.page.oem_id_entry.setText(text)
