@@ -7,6 +7,8 @@ ubiquity (2.3.8) UNRELEASED; urgency=low
     (LP: #615104, #615035)
   * Make sure finished_label reflects the derivative name rather than
     hardcoding to "Ubuntu".
+  * Set the buttons on the second autopartitioning screen appropriately
+    to the choices on the first.
 
   [ Colin Watson ]
   * Update d-i/update-control for Dpkg::Deps changes in dpkg 1.15.6.
