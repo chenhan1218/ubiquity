@@ -557,8 +557,11 @@ class Wizard(BaseFrontend):
             if ('UBIQUITY_ONLY' in os.environ or
                 'UBIQUITY_GREETER' in os.environ):
                 txt = self.get_string('ubiquity/finished_restart_only')
-                self.finished_label.set_label(txt)
                 self.quit_button.hide()
+            else:
+                txt = self.finished_label.get_label()
+                txt = txt.replace('${RELEASE}', get_release().name)
+            self.finished_label.set_label(txt)
             with raised_privileges():
                 open('/var/run/reboot-required', "w").close()
             self.finished_dialog.set_keep_above(True)
