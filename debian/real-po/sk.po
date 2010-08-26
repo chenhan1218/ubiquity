@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-08-06 14:13-0400\n"
+"POT-Creation-Date: 2010-08-26 19:46+0100\n"
 "PO-Revision-Date: 2010-04-18 15:34+0000\n"
 "Last-Translator: Evan Dandrea <ev@ubuntu.com>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -46,7 +46,7 @@ msgstr "Určiť oblasti ručne (pokročilé)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:185001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:186001
 msgid "Install"
 msgstr "Inštalovať"
 
@@ -774,10 +774,15 @@ msgstr "Port:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:109001
+#, fuzzy
+#| msgid ""
+#| "Installation has finished.  You can continue testing Ubuntu now, but "
+#| "until you restart the computer, any changes you make or documents you "
+#| "save will not be preserved."
 msgid ""
-"Installation has finished.  You can continue testing Ubuntu now, but until "
-"you restart the computer, any changes you make or documents you save will "
-"not be preserved."
+"Installation has finished.  You can continue testing ${RELEASE} now, but "
+"until you restart the computer, any changes you make or documents you save "
+"will not be preserved."
 msgstr ""
 "Inštalácia je dokončená. Teraz môžete pokračovať v skúšaní Ubuntu, ale pokým "
 "nereštartujete počítač, nezachovajú sa žiadne zmeny, ktoré urobíte ani "
@@ -1264,7 +1269,7 @@ msgstr "Nastavenie systému"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001 ../ubiquity.templates:231001
+#: ../ubiquity.templates:175001 ../ubiquity.templates:234001
 msgid "Welcome"
 msgstr "Vitajte"
 
@@ -1295,104 +1300,110 @@ msgstr "Jazyk"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:180001
+msgid "Prepare"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:181001
 msgid "Timezone"
 msgstr "Časové pásmo"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:181001
+#: ../ubiquity.templates:182001
 msgid "Keyboard"
 msgstr "Klávesnica"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:183001
 msgid "Disk Setup"
 msgstr "Nastavenie disku"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:184001
 msgid "User Info"
 msgstr "Informácie o používateľovi"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:185001
 msgid "Summary"
 msgstr "Zhrnutie"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:186001
+#: ../ubiquity.templates:187001
 msgid "installation process"
 msgstr "proces inštalácie"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:188001
+#: ../ubiquity.templates:189001
 msgid "Checking for installer updates"
 msgstr "Kontrolujú sa aktualizácie inštalátora"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:190001
 msgid "Reading package information"
 msgstr "Čítajú sa informácie o balíkoch"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:191001
 msgid "Updating package information"
 msgstr "Aktualizujú sa informácie o balíkoch"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:192001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "${INDEX}. súbor z ${TOTAL} pri ${SPEED}/s"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:193001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "${INDEX}. súbor z ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:194001
 msgid "Installing update"
 msgstr "Inštaluje sa aktualizácia"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:195001
 msgid "Error updating installer"
 msgstr "Chyba pri aktualizácii inštalátora"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:195001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr "Inštalátor pri pokuse aktualizovať sa narazil na chybu:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:196001
 msgid "USB disk"
 msgstr ""
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:197001
 msgid "CD"
 msgstr "CD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:198001
 #, fuzzy
 #| msgid ""
 #| "Please choose the language to use for the install process. This\n"
@@ -1406,7 +1417,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
+#: ../ubiquity.templates:199001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1416,7 +1427,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:200001
 msgid "Continue with installation."
 msgstr "Pokračovať v inštalácii."
 
@@ -1424,13 +1435,13 @@ msgstr "Pokračovať v inštalácii."
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001 ../ubiquity.templates:201001
+#: ../ubiquity.templates:201001 ../ubiquity.templates:202001
 msgid "Installation failed"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:201001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1438,13 +1449,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:202001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:203001
+#: ../ubiquity.templates:204001
 #, fuzzy
 #| msgid "Install ${RELEASE}"
 msgid "Preparing to install ${RELEASE}"
@@ -1452,31 +1463,31 @@ msgstr "Nainštalovat ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:204001
+#: ../ubiquity.templates:205001
 msgid "Wireless"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:205001
+#: ../ubiquity.templates:206001
 msgid "Please select your wireless network from this list"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:208001
+#: ../ubiquity.templates:209001
 msgid "Select drive:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:209001
+#: ../ubiquity.templates:210001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:210001
+#: ../ubiquity.templates:211001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
@@ -1485,7 +1496,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:211001
+#: ../ubiquity.templates:212001
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
@@ -1493,7 +1504,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:213001
 #, fuzzy
 #| msgid "Create partition"
 msgid "Use Entire Partition"
@@ -1501,13 +1512,13 @@ msgstr "Vytvoriť oblasť"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:213001
+#: ../ubiquity.templates:214001
 msgid "Use Entire Disk"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:214001
+#: ../ubiquity.templates:215001
 #, fuzzy
 #| msgid "Edit a partition"
 msgid "Split Largest Partition"
@@ -1515,79 +1526,79 @@ msgstr "Upraviť oblasť"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:216001
+#: ../ubiquity.templates:217001
 msgid "For best results, please ensure:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:217001
+#: ../ubiquity.templates:218001
 msgid "that you have at least ${SIZE} available drive space"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:218001
+#: ../ubiquity.templates:219001
 msgid "that you are plugged in to a power source"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:219001
-msgid "that you are connected to the Internet with an Ethernet cable"
-msgstr ""
-
-#. Type: text
-#. Description
 #: ../ubiquity.templates:220001
-msgid ""
-"Ubuntu aims to be free and open-source software.  However, this is not "
-"always possible."
+msgid "that you are connected to the Internet"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid ""
-"The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 audio "
-"decoding technology licensed from Faunhofer IIS and Thomson."
+"${RELEASE} supports MP3 playback, Flash content, wifi hardware, and similar "
+"functionality through third party software, not all of which is open "
+"source.  This software is subject to the license terms included with the "
+"software's documentation."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid ""
-"Please off me non-open-source software if it is needed for a better "
-"experience"
+"The following notice applies to the Fluendo MP3 plugin: \"MPEG Layer-3 audio "
+"decoding technology licensed from Fraunhofer IIS and Thomson.\""
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
+msgid "Tick this box to install the software for this functionality."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:224001
 msgid "Download updates while installing"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:225001
+#: ../ubiquity.templates:228001
 msgid "Layout:"
 msgstr "Rozloženie:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:226001
+#: ../ubiquity.templates:229001
 msgid "Variant:"
 msgstr "Variant:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:227001
+#: ../ubiquity.templates:230001
 msgid "Below is an image of your current layout:"
 msgstr "Dolu je náhľad vášho aktuálneho rozloženia:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:231001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1599,15 +1610,27 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:232001
 msgid "Time Zone:"
 msgstr "Časové pásmo:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:233001
 msgid "Region:"
 msgstr "Región:"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:235001
+msgid ""
+"Ready to install?  Once you answer a few questions, the contents of the live "
+"${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
+"full speed without the ${MEDIUM}."
+msgstr ""
+"Ste pripravený na inštaláciu? Potom ako zodpoviete niekoľko otázok sa obsah "
+"tohto live ${MEDIUM} nainštaluje na tento počítač a budete môcť spúšťať "
+"${RELEASE} v plnej rýchlosti bez tohto ${MEDIUM}."
 
 #. Type: title
 #. Description
@@ -1664,15 +1687,6 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Ste pripravený na inštaláciu? Potom ako zodpoviete niekoľko otázok sa "
-#~ "obsah tohto live ${MEDIUM} nainštaluje na tento počítač a budete môcť "
-#~ "spúšťať ${RELEASE} v plnej rýchlosti bez tohto ${MEDIUM}."
 
 #~ msgid "Which layout is most similar to your keyboard?"
 #~ msgstr "Ktoré rozloženie je najviac podobné vašej klávesnici?"
