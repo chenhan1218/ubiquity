@@ -374,6 +374,9 @@ class PageKde(PageBase):
             self.page.image2.resize(picture2.size())
 
             self.release_notes_url = ''
+            self.update_installer = True
+            if self.controller.oem_config or auto_update.already_updated():
+                self.update_installer = False
             try:
                 release_notes = open(_release_notes_url_path)
                 self.release_notes_url = release_notes.read().rstrip('\n')
@@ -398,7 +401,7 @@ class PageKde(PageBase):
 
             if self.only:
                 self.page.alpha_warning_label.hide()
-
+            self.setup_network_watch()
             # We do not want to show the yet to be substituted strings
             # (${MEDIUM}, etc), so don't show the core of the page until
             # it's ready.
@@ -413,6 +416,54 @@ class PageKde(PageBase):
             self.page = None
 
         self.plugin_widgets = self.page
+
+    #FIXME these three functions duplicate lots from GTK page above and from ubi-prepare.py
+    def setup_network_watch(self):
+        import dbus
+        from dbus.mainloop.glib import DBusGMainLoop
+        try:
+            import dbus.mainloop.qt
+            dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
+            bus = dbus.SystemBus()
+            bus.add_signal_receiver(self.network_change,
+                                    'DeviceNoLongerActive',
+                                    'org.freedesktop.NetworkManager',
+                                    'org.freedesktop.NetworkManager',
+                                    '/org/freedesktop/NetworkManager')
+            bus.add_signal_receiver(self.network_change, 'StateChange',
+                                    'org.freedesktop.NetworkManager',
+                                    'org.freedesktop.NetworkManager',
+                                    '/org/freedesktop/NetworkManager')
+        except dbus.DBusException:
+            return
+        self.timeout_id = None
+        self.wget_retcode = None
+        self.wget_proc = None
+        self.network_change()
+
+    def network_change(self, state=None):
+        import sys
+        from PyQt4.QtCore import QTimer, SIGNAL
+        if state and (state != 4 and state != 3):
+            return
+        QTimer.singleShot(300, self.check_returncode)
+        self.timer = QTimer(self.page)
+        self.timer.connect(self.timer, SIGNAL("timeout()"), self.check_returncode)
+        self.timer.start(300)
+
+    def check_returncode(self, *args):
+        import subprocess
+        if self.wget_retcode is not None or self.wget_proc is None:
+            self.wget_proc = subprocess.Popen(
+                ['wget', '-q', _wget_url, '--timeout=15', '-O', '/dev/null'])
+        self.wget_retcode = self.wget_proc.poll()
+        if self.wget_retcode is None:
+            return True
+        else:
+            if self.wget_retcode == 0:
+                self.page.release_notes_label.show()
+            else:
+                self.page.release_notes_label.hide()
 
     @only_this_page
     def on_try_ubuntu_clicked(self, *args):
@@ -503,6 +554,20 @@ class PageKde(PageBase):
                 text = text.replace('Ubuntu', 'Kubuntu')
                 widget.setText(text)
                 
+        # Either leave the release notes label alone (both release notes and a
+        # critical update are available), set it to just the release notes,
+        # just the critical update, or neither, as appropriate.
+        if self.page.release_notes_label:
+            if self.release_notes_url and self.update_installer:
+                pass
+            elif self.release_notes_url:
+                text = i18n.get_string('release_notes_only', lang)
+                self.page.release_notes_label.setText(text)
+            elif self.update_installer:
+                text = i18n.get_string('update_installer_only', lang)
+                self.page.release_notes_label.setText(text)
+            else:
+                self.page.release_notes_label.hide()
         for w in self.widgetHidden:
             w.show()
         self.widgetHidden = []

@@ -212,9 +212,7 @@ class PageKde(PreparePageBase):
     def network_change(self, state=None):
         from PyQt4.QtCore import QTimer, SIGNAL
         if state and (state != 4 and state != 3):
-            print >> sys.stderr, "network_change rreturning()"
             return
-        print >> sys.stderr, "network_change setting timer()"
         QTimer.singleShot(300, self.check_returncode)
         self.timer = QTimer(self.page)
         self.timer.connect(self.timer, SIGNAL("timeout()"), self.check_returncode)
