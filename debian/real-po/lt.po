@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-08-26 19:46+0100\n"
-"PO-Revision-Date: 2010-04-19 15:36+0000\n"
+"POT-Creation-Date: 2010-08-06 14:13-0400\n"
+"PO-Revision-Date: 2010-08-17 15:53+0000\n"
 "Last-Translator: Aurimas Fišeras <Unknown>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: lt\n"
-"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
+"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: lt\n"
 
 #. Type: text
 #. Description
@@ -48,7 +48,7 @@ msgstr "Pasirinkti skirsnius pačiam (patyrusiems)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:186001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:185001
 msgid "Install"
 msgstr "Linux sistemos įdiegimas"
 
@@ -73,16 +73,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-#, fuzzy
-#| msgid ""
-#| "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
-#| "your system."
 msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"Galite saugiai išbandyti ${RELEASE} sistemą iš ${MEDIUM} laikmenos "
-"nekeisdami nieko savo kompiuteryje."
 
 #. Type: text
 #. Description
@@ -131,8 +125,8 @@ msgstr ""
 #: ../ubiquity.templates:16001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Jei norite, galite perskaityti  <a href=\"release-notes\">laidos apžvalgą</"
-"a>."
+"Jei norite, galite perskaityti  <a href=\"release-notes\">laidos "
+"apžvalgą</a>."
 
 #. Type: text
 #. Description
@@ -144,18 +138,11 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2010."
 msgstr ""
-"Tai yra ${RELEASE} ${MEDIUM} diegimo programa.  Tai nėra galutinė laida; "
-"galutinė ${RELEASE} laida bus išleista 2010 m. balandį."
 
 #. Type: text
 #. Description
@@ -166,14 +153,14 @@ msgid ""
 "this program."
 msgstr ""
 "Diegimo procesas gali pakeisti kietojo disko skirsnių dydį arba juos "
-"pašalinti.  <b>Būtinai padarykite pilną vertingų duomenų atsarginę kopiją</"
-"b> prieš naudodami šią programą."
+"pašalinti.  <b>Būtinai padarykite pilną vertingų duomenų atsarginę "
+"kopiją</b> prieš naudodami šią programą."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Warning"
-msgstr ""
+msgstr "Dėmesio"
 
 #. Type: text
 #. Description
@@ -190,10 +177,8 @@ msgstr "Klaviatūros išdėstymas"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Choose your keyboard layout:"
-msgstr "Klaviatūros išdėstymas"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -204,10 +189,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure out keyboard layout"
-msgstr "Klaviatūros išdėstymas"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -230,24 +213,20 @@ msgstr "Kas jūs esate?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name:"
-msgstr "Kompiuterio pavadinimas"
+msgstr "Jūsų vardas:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name"
-msgstr "Kompiuterio pavadinimas"
+msgstr "Jūsų vardas"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Pick a username:"
-msgstr ""
+msgstr "Pasirinkite naudotojo vardą:"
 
 #. Type: text
 #. Description
@@ -258,10 +237,8 @@ msgstr "Naudotojo vardas"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Choose a password:"
-msgstr "Įvesti saugesnį slaptažodį"
+msgstr "Pasirinkite slaptažodį:"
 
 #. Type: text
 #. Description
@@ -272,10 +249,8 @@ msgstr "Slaptažodis"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Confirm password"
-msgstr "Pakartokite slaptažodį"
+msgstr "Patvirtinkite slaptažodį"
 
 #. Type: text
 #. Description
@@ -288,42 +263,32 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Short password"
-msgstr "Įvesti saugesnį slaptažodį"
+msgstr "Trumpas slaptažodis"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
-#, fuzzy
-#| msgid "Password"
 msgid "Weak password"
-msgstr "Slaptažodis"
+msgstr "Silpnas slaptažodis"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
-#, fuzzy
-#| msgid "Password"
 msgid "Fair password"
-msgstr "Slaptažodis"
+msgstr "Neblogas slaptažodis"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
-#, fuzzy
-#| msgid "Password"
 msgid "Good password"
-msgstr "Slaptažodis"
+msgstr "Geras slaptažodis"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Strong password"
-msgstr "Pakartokite slaptažodį"
+msgstr "Stiprus slaptažodis"
 
 #. Type: text
 #. Description
@@ -341,7 +306,7 @@ msgstr "Reikalauti mano slaptažodžio prisijungiant"
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "Užšifruoti mano namų aplanką"
 
 #. Type: text
 #. Description
@@ -454,18 +419,14 @@ msgstr "Išsamiau..."
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:59001
-#, fuzzy
-#| msgid "Install[ action ]"
 msgid "_Install Now[ action ]"
-msgstr "Įdiegti"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr "${INDEX} žingsnis iš ${TOTAL}"
+msgstr "Žingsnis ${INDEX}/${TOTAL}"
 
 #. Type: title
 #. Description
@@ -569,19 +530,20 @@ msgstr "Diegimo programa lūžo"
 #. Description
 #: ../ubiquity.templates:77001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Atsiprašome, tačiau diegimo programoje įvyo klaida ir ji nebegali tęsti. "
-"Užpildykite naują klaidos pranešimą https://launchpad.net/ubuntu/+source/"
-"ubiquity/+filebug (nerašykite komentaro prie jau esamo klaidos pranešimo) ir "
-"problema bus sprendžiama kaip galima greičiau. Kad padėtumėte suprasti, kas "
-"įvyko blogai, įtraukite žemiau rodomą informaciją į klaidos pranešimą ir "
-"prisekite failus /var/log/syslog ir /var/log/partman :"
+"Užpildykite naują klaidos pranešimą "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (nerašykite komentaro "
+"prie jau esamo klaidos pranešimo) ir problema bus sprendžiama kaip galima "
+"greičiau. Kad padėtumėte suprasti, kas įvyko blogai, įtraukite žemiau rodomą "
+"informaciją į klaidos pranešimą ir prisekite failus /var/log/syslog ir "
+"/var/log/partman :"
 
 #. Type: text
 #. Description
@@ -783,15 +745,10 @@ msgstr "Prievadas:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:109001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
-"Installation has finished.  You can continue testing ${RELEASE} now, but "
-"until you restart the computer, any changes you make or documents you save "
-"will not be preserved."
+"Installation has finished.  You can continue testing Ubuntu now, but until "
+"you restart the computer, any changes you make or documents you save will "
+"not be preserved."
 msgstr ""
 "Įdiegimas baigtas. Galite toliau naudotis demonstracine Linux versija, "
 "tačiau visa Jūsų sukurta ar atsisiųsta informacija, dokumentai bei "
@@ -1125,12 +1082,12 @@ msgstr "Šie paketai yra sugadintoje būsenoje:"
 #: ../ubiquity.templates:148001 ../ubiquity.templates:149001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Tai gali būti dėl to, kad naudojamas senas diegimo programos 'atvaizdis', "
 "arba dėl klaidos kažkuriame iš aukščiau išvardintų programų paketų. "
@@ -1162,14 +1119,14 @@ msgstr "Klaida perkeliant dokumentus ir nuostatas"
 #. Description
 #: ../ubiquity.templates:150001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Įvyko klaida perkeliant duomenis. Daugiau informacijos rasite /var/log/"
-"syslog. Diegimas bus pratęstas, bet kai kurie ar visi jūsų dokumentai ir "
-"nuostatos galėjo būti neperkelti į įdiegtą sistemą."
+"Įvyko klaida perkeliant duomenis. Daugiau informacijos rasite "
+"/var/log/syslog. Diegimas bus pratęstas, bet kai kurie ar visi jūsų "
+"dokumentai ir nuostatos galėjo būti neperkelti į įdiegtą sistemą."
 
 #. Type: error
 #. Description
@@ -1240,7 +1197,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Ar norite,  kad įdiegimo programa vėl pabandytų atjungti šiuos skirsnius?"
 
@@ -1280,7 +1238,7 @@ msgstr "Sistemos konfigūracija"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001 ../ubiquity.templates:234001
+#: ../ubiquity.templates:175001 ../ubiquity.templates:231001
 msgid "Welcome"
 msgstr "Sveiki!"
 
@@ -1311,124 +1269,114 @@ msgstr "Kalba"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:180001
-msgid "Prepare"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:181001
 msgid "Timezone"
 msgstr "Laiko juosta"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:181001
 msgid "Keyboard"
 msgstr "Klaviatūra"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:182001
 msgid "Disk Setup"
 msgstr "Disko konfigūracija"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:183001
 msgid "User Info"
 msgstr "Informacija apie naudotoją"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:184001
 msgid "Summary"
 msgstr "Santrauka"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:186001
 msgid "installation process"
 msgstr "diegimo procesas"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:188001
 msgid "Checking for installer updates"
 msgstr "Ieškoma diegimo programos atnaujinimų"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:189001
 msgid "Reading package information"
 msgstr "Skaitoma paketų informacija"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:190001
 msgid "Updating package information"
 msgstr "Atnaujinama paketų informacija"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:191001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "Failas ${INDEX} iš ${TOTAL} ${SPEED}/s"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:192001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "Failas ${INDEX} iš ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:193001
 msgid "Installing update"
 msgstr "Diegiamas atnaujinimas"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "Error updating installer"
 msgstr "Klaida atnaujinant diegimo programą"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr "Diegimo programa susidūrė su klaida mėgindama save atnaujinti:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:195001
 msgid "USB disk"
-msgstr ""
+msgstr "USB diskas"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:196001
 msgid "CD"
 msgstr "CD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
-#, fuzzy
-#| msgid ""
-#| "Please choose the language to use for the install process. This\n"
-#| " Language will be the default language for this computer."
+#: ../ubiquity.templates:197001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Prašome pasirinkti kalbą diegimo procesui. Ši\n"
-" kalba bus pagrindinė šio kompiuterio kalba."
+"Pasirinkite kalbą, kuri bus naudojama įdiegimo proceso metu. Ši kalba bus "
+"numatytoji šio kompiuterio kalba."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:198001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1438,7 +1386,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:199001
 msgid "Continue with installation."
 msgstr "Tęsti diegimą."
 
@@ -1446,13 +1394,13 @@ msgstr "Tęsti diegimą."
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001 ../ubiquity.templates:202001
+#: ../ubiquity.templates:200001 ../ubiquity.templates:201001
 msgid "Installation failed"
 msgstr "Įdiegti nepavyko"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:200001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1463,46 +1411,44 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:202001
+#: ../ubiquity.templates:201001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
 "Įdiegimo programa susidūrė su nepataisoma klaida ir bus paleista iš naujo."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
+#: ../ubiquity.templates:203001
 msgid "Preparing to install ${RELEASE}"
-msgstr "Įdiegti ${RELEASE}"
+msgstr "Ruošiamasi įdiegti ${RELEASE}"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:204001
+msgid "Wireless"
+msgstr "Belaidis"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
-msgid "Wireless"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:206001
 msgid "Please select your wireless network from this list"
-msgstr ""
+msgstr "Pasirinkite savo belaidį tinklą iš šio sąrašo"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:209001
+#: ../ubiquity.templates:208001
 msgid "Select drive:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:210001
+#: ../ubiquity.templates:209001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:211001
+#: ../ubiquity.templates:210001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
@@ -1511,7 +1457,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:211001
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
@@ -1519,101 +1465,99 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:213001
-#, fuzzy
-#| msgid "Create partition"
+#: ../ubiquity.templates:212001
 msgid "Use Entire Partition"
-msgstr "Sukurti skirsnį"
+msgstr "Naudoti visą skirsnį"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:213001
+msgid "Use Entire Disk"
+msgstr "Naudoti visą diską"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
-msgid "Use Entire Disk"
-msgstr ""
+msgid "Split Largest Partition"
+msgstr "Padalinti didžiausią skirsnį"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
-#, fuzzy
-#| msgid "Edit a partition"
-msgid "Split Largest Partition"
-msgstr "Taisyti skirsnį"
+#: ../ubiquity.templates:216001
+msgid "For best results, please ensure:"
+msgstr "Siekdami geriausio rezultato, garantuokite:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
-msgid "For best results, please ensure:"
-msgstr ""
+msgid "that you have at least ${SIZE} available drive space"
+msgstr "kad turite mažiausiai ${SIZE} laisvos vietos diske"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-msgid "that you have at least ${SIZE} available drive space"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:219001
 msgid "that you are plugged in to a power source"
 msgstr ""
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:219001
+msgid "that you are connected to the Internet with an Ethernet cable"
+msgstr ""
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:220001
-msgid "that you are connected to the Internet"
+msgid ""
+"Ubuntu aims to be free and open-source software.  However, this is not "
+"always possible."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid ""
-"${RELEASE} supports MP3 playback, Flash content, wifi hardware, and similar "
-"functionality through third party software, not all of which is open "
-"source.  This software is subject to the license terms included with the "
-"software's documentation."
+"The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 audio "
+"decoding technology licensed from Faunhofer IIS and Thomson."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid ""
-"The following notice applies to the Fluendo MP3 plugin: \"MPEG Layer-3 audio "
-"decoding technology licensed from Fraunhofer IIS and Thomson.\""
+"Please off me non-open-source software if it is needed for a better "
+"experience"
 msgstr ""
+"Pasiūlykite man ne atviro kodo programinę įrangą, jei ji reikalinga geresnei "
+"patirčiai"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
-msgid "Tick this box to install the software for this functionality."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:224001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "Įdiegimo metu atsiųsti atnaujinimuis"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:225001
 msgid "Layout:"
 msgstr "Išdėstymas:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:226001
 msgid "Variant:"
 msgstr "Variantas:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:227001
 msgid "Below is an image of your current layout:"
 msgstr "Žemiau yra jūsų dabartinio klaviatūros išdėstymo atvaizdis:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:231001
+#: ../ubiquity.templates:228001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1625,27 +1569,15 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232001
+#: ../ubiquity.templates:229001
 msgid "Time Zone:"
 msgstr "Laiko zona:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:233001
+#: ../ubiquity.templates:230001
 msgid "Region:"
 msgstr "Regionas:"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:235001
-msgid ""
-"Ready to install?  Once you answer a few questions, the contents of the live "
-"${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
-"full speed without the ${MEDIUM}."
-msgstr ""
-"Pasiruošę įdiegimui? Atsakykite į kelis klausimus ir į šį kompiuterį bus "
-"įdiegta Linux sistema, dabar veikianti iš ${MEDIUM}. Įdiegta ${RELEASE} "
-"sistema veiks sparčiau nei naudojant iš ${MEDIUM} laikmenos."
 
 #. Type: title
 #. Description
@@ -1717,23 +1649,8 @@ msgstr "Šalinami paketai"
 #~ msgstr ""
 #~ "Rašydami į šį laukelį galite išbandyti parinktą klaviatūros išdėstymą."
 
-#~ msgid "Suggested option:"
-#~ msgstr "Siūlomas variantas:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Pasirinkite kitą išdėstymą:"
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Parinkti išdėstymą automatiškai:"
-
-#~ msgid "Guess..."
-#~ msgstr "Atspėti..."
-
 #~ msgid "What is your name?"
 #~ msgstr "Koks jūsų vardas?"
-
-#~ msgid "Full Name"
-#~ msgstr "Vardas ir pavardė"
 
 #~ msgid "What name do you want to use to log in?"
 #~ msgstr "Kokiu vardu jūs norite registruotis sistemoje?"
@@ -1745,35 +1662,6 @@ msgstr "Šalinami paketai"
 #~ "Jeigu šiuo kompiuteriu naudosis keli žmonės, galėsite sukurti galimybę "
 #~ "prisijungti keliems naudotojams po to, kai įdiegsite sistemą."
 
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Jūsų duomenų saugumo užtikrinimui įveskite slaptažodį."
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Įvesite tą patį slaptažodį dukart, kad būtų galima patikrinti dėl rašymo "
-#~ "klaidų. Saugus slaptažodis bus jei jame bus ir raidės, ir skaičiai, ir "
-#~ "skyrybos bei kiti ženklai, viso turi būt 8 ar daugiau simbolių. Saugumui "
-#~ "užtikrinti slaptažodį reikia periodiškai pakeisti į naują."
-
-#~ msgid "Strength: too short"
-#~ msgstr "Saugumas: per trumpas"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Saugumas: silpnas"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Saugumas: neblogas"
-
-#~ msgid "Strength: good"
-#~ msgstr "Saugumas: geras"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Saugumas: stiprus"
-
 #~ msgid "What is the name of this computer?"
 #~ msgstr "Koks yra šio kompiuterio vardas?"
 
@@ -1784,12 +1672,14 @@ msgstr "Šalinami paketai"
 #~ "Šis vardas bus naudojamas, jei padarysite kompiuterį matomą vietiniame "
 #~ "tinkle ar internete."
 
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Reikalauti slaptažodžio prisijungiant ir iššifruojant mano namų katalogą"
-
 #~ msgid "Prepare disk space"
 #~ msgstr "Paruošti disko vietą"
+
+#~ msgid "Suggested option:"
+#~ msgstr "Siūlomas variantas:"
+
+#~ msgid "Choose your own:"
+#~ msgstr "Pasirinkite kitą išdėstymą:"
 
 #~ msgid "Before:"
 #~ msgstr "Dabar:"
@@ -1800,5 +1690,36 @@ msgstr "Šalinami paketai"
 #~ msgid "Choose language"
 #~ msgstr "Pasirinkite kalbą / Choose language"
 
+#~ msgid "Choose a password to keep your account safe."
+#~ msgstr "Jūsų duomenų saugumo užtikrinimui įveskite slaptažodį."
+
 #~ msgid "USB"
 #~ msgstr "USB"
+
+#~ msgid "Guess..."
+#~ msgstr "Atspėti..."
+
+#~ msgid "Require my password to log in and to decrypt my home folder"
+#~ msgstr ""
+#~ "Reikalauti slaptažodžio prisijungiant ir iššifruojant mano namų katalogą"
+
+#~ msgid "Strength: strong"
+#~ msgstr "Saugumas: stiprus"
+
+#~ msgid "Strength: good"
+#~ msgstr "Saugumas: geras"
+
+#~ msgid "Strength: weak"
+#~ msgstr "Saugumas: silpnas"
+
+#~ msgid "Strength: fair"
+#~ msgstr "Saugumas: neblogas"
+
+#~ msgid "Strength: too short"
+#~ msgstr "Saugumas: per trumpas"
+
+#~ msgid "Full Name"
+#~ msgstr "Vardas ir pavardė"
+
+#~ msgid "Guess keymap:"
+#~ msgstr "Parinkti išdėstymą automatiškai:"

@@ -39,6 +39,7 @@ ubiquity (2.3.8) UNRELEASED; urgency=low
   * Automatic update of included source packages: debian-installer-utils
     1.79ubuntu1, flash-kernel 2.28ubuntu8, partman-auto 91ubuntu4,
     partman-uboot 4, user-setup 1.28ubuntu8.
+  * Update translations from Launchpad.
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 23 Aug 2010 11:08:34 +0100
 

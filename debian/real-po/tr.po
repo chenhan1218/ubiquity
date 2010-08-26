@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-08-26 19:46+0100\n"
-"PO-Revision-Date: 2010-04-18 17:52+0000\n"
+"POT-Creation-Date: 2010-08-06 14:13-0400\n"
+"PO-Revision-Date: 2010-08-13 09:48+0000\n"
 "Last-Translator: ubuntuki <Unknown>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
-"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
+"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: \n"
 
 #. Type: text
 #. Description
@@ -46,7 +46,7 @@ msgstr "Bölümleri elle belirt (gelişmiş)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:186001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:185001
 msgid "Install"
 msgstr "Kur"
 
@@ -71,16 +71,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-#, fuzzy
-#| msgid ""
-#| "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
-#| "your system."
 msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"Sisteminize hiçbir değişiklik yapmadan bu ${MEDIUM} kaynağından ${RELEASE} "
-"deneyebilirsiniz."
+"${RELEASE}sız bilgisayarınızda hiçbir değişiklik yapmadan deneyebilirsiniz, "
+"doğrudan buradan ${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -89,6 +85,8 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
+"Veya hazırsanız, Mevcut işletim sisteminiz yanında (veya yerine) ${RELEASE} "
+"yükleyebilirsiniz. Bu çok uzun sürmemelidir."
 
 #. Type: text
 #. Description
@@ -140,18 +138,14 @@ msgstr "<a href=\"update\">Bu kurucuyu güncellemek</a> isteyebilirsiniz."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2010."
 msgstr ""
-"Bu çalışan  ${MEDIUM}  kurucusunun  ${RELEASE}  ön-sürümüdür. Bu, Nisan "
-"2010'da  ${RELEASE} son sürümü ile birlikte gelecek olan son sürüm değildir."
+"Bu, ${RELEASE} çalışan ${MEDIUM} kurulum aracının bir ön sürümüdür. Kararlı "
+"sürüm değildir; bu aracın kararlı sürümü ${RELEASE} ile birlikte Ekim "
+"2010'da gelecektir."
 
 #. Type: text
 #. Description
@@ -169,7 +163,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Warning"
-msgstr ""
+msgstr "Uyarı"
 
 #. Type: text
 #. Description
@@ -186,24 +180,20 @@ msgstr "Klavye düzeni"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Choose your keyboard layout:"
-msgstr "Klavye düzeni"
+msgstr "Klavye düzeninizi seçin:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Klavyenizi denemek için buraya yazın"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure out keyboard layout"
-msgstr "Klavye düzeni"
+msgstr "Klavye düzenini anlamak"
 
 #. Type: text
 #. Description
@@ -226,24 +216,20 @@ msgstr "Kimsiniz?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name:"
-msgstr "Bilgisayar Adı"
+msgstr "Adınız:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name"
-msgstr "Bilgisayar Adı"
+msgstr "Adınız"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Pick a username:"
-msgstr ""
+msgstr "Bir kullanıcı adı seçin:"
 
 #. Type: text
 #. Description
@@ -254,10 +240,8 @@ msgstr "Kullanıcı Adı"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Choose a password:"
-msgstr "Başka bir parola seçin"
+msgstr "Bir parola seçin:"
 
 #. Type: text
 #. Description
@@ -268,56 +252,45 @@ msgstr "Parola"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Confirm password"
-msgstr "Parola (tekrar)"
+msgstr "Parolayı doğrulayın"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "Hata ayıklama kipinde çalışıyorsunuz. Değerli bir parola kullanmayın!"
+msgstr ""
+"Hata ayıklama kipinde çalışıyorsunuz. Değerli bir parola kullanmayın!"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Short password"
-msgstr "Başka bir parola seçin"
+msgstr "Kısa parola"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
-#, fuzzy
-#| msgid "Password"
 msgid "Weak password"
-msgstr "Parola"
+msgstr "Zayıf parola"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
-#, fuzzy
-#| msgid "Password"
 msgid "Fair password"
-msgstr "Parola"
+msgstr "Parola zayıf"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
-#, fuzzy
-#| msgid "Password"
 msgid "Good password"
-msgstr "Parola"
+msgstr "İyi parola"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Strong password"
-msgstr "Parola (tekrar)"
+msgstr "Sağlam parola"
 
 #. Type: text
 #. Description
@@ -335,7 +308,7 @@ msgstr "Giriş yapmak için parola iste"
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "Ev dizinimi şifrele"
 
 #. Type: text
 #. Description
@@ -368,7 +341,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Allocate drive space"
-msgstr ""
+msgstr "Sürücü alanını böl"
 
 #. Type: text
 #. Description
@@ -446,18 +419,14 @@ msgstr "Gelişmiş..."
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:59001
-#, fuzzy
-#| msgid "Install[ action ]"
 msgid "_Install Now[ action ]"
-msgstr "Yükle[ eylem ]"
+msgstr "_Şimdi Yükle[ action ]"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr "Adım ${INDEX} / ${TOTAL}"
+msgstr "Adım ${INDEX}/${TOTAL}"
 
 #. Type: title
 #. Description
@@ -483,7 +452,8 @@ msgstr "Önyükleyici kurulumu başarısız oldu"
 msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
-msgstr "Üzgünüz, bir hata oluştu ve belirtilen konumda önyükleyici kurulamadı."
+msgstr ""
+"Üzgünüz, bir hata oluştu ve belirtilen konumda önyükleyici kurulamadı."
 
 #. Type: text
 #. Description
@@ -558,19 +528,19 @@ msgstr "Yükleyici çöktü"
 #. Description
 #: ../ubiquity.templates:77001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
-"Üzgünüz; yükleyici çöktü. Lütfen https://launchpad.net/ubuntu/+source/"
-"ubiquity/+filebug adresinde bir hata raporu oluşturun (lütfen mevcut bir "
-"hata için bilgi göndermeyin). Bir programcı en kısa sürede sorununuzu "
-"çözecektir. Programcıların neyin yanlış olduğunu anlayabilmelerine yardım "
-"etmek için, lütfen /var/log/syslog ve /var/log/partman dosyalarını ve şu "
-"bilgileri raporunuza ekleyin:"
+"Üzgünüz; yükleyici çöktü. Lütfen "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug adresinde bir hata "
+"raporu oluşturun (lütfen mevcut bir hata için bilgi göndermeyin). Bir "
+"programcı en kısa sürede sorununuzu çözecektir. Programcıların neyin yanlış "
+"olduğunu anlayabilmelerine yardım etmek için, lütfen /var/log/syslog ve "
+"/var/log/partman dosyalarını ve şu bilgileri raporunuza ekleyin:"
 
 #. Type: text
 #. Description
@@ -767,20 +737,15 @@ msgstr "HTTP yetkili sunucu:"
 #. Description
 #: ../ubiquity.templates:108001
 msgid "Port:"
-msgstr "Bağlantı kapısı:"
+msgstr "Kapı:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:109001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
-"Installation has finished.  You can continue testing ${RELEASE} now, but "
-"until you restart the computer, any changes you make or documents you save "
-"will not be preserved."
+"Installation has finished.  You can continue testing Ubuntu now, but until "
+"you restart the computer, any changes you make or documents you save will "
+"not be preserved."
 msgstr ""
 "Kurulum bitti. Ubuntu'yu sınamayı sürdürebilirsiniz ancak bilgisayarınızı "
 "yeniden başlatmadan yaptığınız değişiklikler ya da kaydettiğiniz belgeler "
@@ -1114,19 +1079,20 @@ msgstr "Şu paketler bozuk durumda:"
 #: ../ubiquity.templates:148001 ../ubiquity.templates:149001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Bu durum eski bir kurulum dosyası kullandığınızdan veya yukarıda sıralanan "
-"bazı paketlerdeki hatalardan kaynaklanıyor olabilir. Ayrıntılı bilgi /var/"
-"log/syslog dosyasında bulunabilir. Kurulum devam edecek; ancak ilerleyen bir "
-"aşamada başarısız olabilir ve kurulu sistemde (muhtemelen kendisi de dahil) "
-"diğer paketleri yükleyemeyebilir veya kaldıramayabilir. Öncelikle yükleme "
-"dosyanızın yeni sürümlerini aramalı veya sorunu yayımcısına bildirmelisiniz."
+"bazı paketlerdeki hatalardan kaynaklanıyor olabilir. Ayrıntılı bilgi "
+"/var/log/syslog dosyasında bulunabilir. Kurulum devam edecek; ancak "
+"ilerleyen bir aşamada başarısız olabilir ve kurulu sistemde (muhtemelen "
+"kendisi de dahil) diğer paketleri yükleyemeyebilir veya kaldıramayabilir. "
+"Öncelikle yükleme dosyanızın yeni sürümlerini aramalı veya sorunu "
+"yayımcısına bildirmelisiniz."
 
 #. Type: error
 #. Description
@@ -1150,8 +1116,8 @@ msgstr "Belge ve ayarların taşınması hatası"
 #. Description
 #: ../ubiquity.templates:150001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1186,7 +1152,7 @@ msgstr "Kopyalamada atlanacak dosyalar hesaplanıyor"
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "Hazır!"
 
 #. Type: title
 #. Description
@@ -1226,7 +1192,8 @@ msgstr "Bu bağlama noktalarını kullan uygulamaları lütfen kapatın."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Kurulum programının bu bölümleri yeniden ayırmayı denemesini ister misiniz?"
 
@@ -1266,7 +1233,7 @@ msgstr "Sistem Yapılandırması"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001 ../ubiquity.templates:234001
+#: ../ubiquity.templates:175001 ../ubiquity.templates:231001
 msgid "Welcome"
 msgstr "Hoş Geldiniz"
 
@@ -1297,124 +1264,114 @@ msgstr "Dil"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:180001
-msgid "Prepare"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:181001
 msgid "Timezone"
 msgstr "Saat Dilimi"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:181001
 msgid "Keyboard"
 msgstr "Klavye"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:182001
 msgid "Disk Setup"
 msgstr "Disk Yapılandırması"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:183001
 msgid "User Info"
 msgstr "Kullanıcı Bilgisi"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:184001
 msgid "Summary"
 msgstr "Özet"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:186001
 msgid "installation process"
 msgstr "kurulum süreci"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:188001
 msgid "Checking for installer updates"
 msgstr "Yükleyici için güncellemeler kontrol ediliyor"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:189001
 msgid "Reading package information"
 msgstr "Paket bilgisi okunuyor"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:190001
 msgid "Updating package information"
 msgstr "Paket bilgisi güncelleniyor"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:191001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "Dosya ${DİZİN} of ${TOTAL} at ${HIZ}/s"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:192001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "Dosya ${DİZİN} ${TOPLAM}'ın"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:193001
 msgid "Installing update"
 msgstr "Güncelleme kuruluyor"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "Error updating installer"
 msgstr "Yükleyici güncelleme hatası"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr "Yükleyici kendini güncellerken bir hatayla karşılaştı:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:195001
 msgid "USB disk"
-msgstr ""
+msgstr "USB disk"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:196001
 msgid "CD"
 msgstr "CD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
-#, fuzzy
-#| msgid ""
-#| "Please choose the language to use for the install process. This\n"
-#| " Language will be the default language for this computer."
+#: ../ubiquity.templates:197001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Lütfen kurulum süreci için kullanılacak dili seçin. Bu\n"
-"Dil bu bilgisayar için varsayılan dil olacaktır."
+"Lütfen, kurulum sırasında kullanılacak dili seçin. Bu dil, aynı zamanda "
+"bilgisayarınız için varsayılan dil olarak kullanılacak."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:198001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1424,7 +1381,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:199001
 msgid "Continue with installation."
 msgstr "Kuruluma devam et."
 
@@ -1432,13 +1389,13 @@ msgstr "Kuruluma devam et."
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001 ../ubiquity.templates:202001
+#: ../ubiquity.templates:200001 ../ubiquity.templates:201001
 msgid "Installation failed"
 msgstr "Kurulum başarısız oldu"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:200001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1448,7 +1405,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:202001
+#: ../ubiquity.templates:201001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
 "Yükleyici kaldırılamaz bir hatayla karşılaştı ve şimdi sistem "
@@ -1456,150 +1413,154 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
+#: ../ubiquity.templates:203001
 msgid "Preparing to install ${RELEASE}"
-msgstr "${RELEASE} Kur"
+msgstr "${RELEASE} kurmaya hazırlanılıyor"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:204001
+msgid "Wireless"
+msgstr "Kablosuz"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
-msgid "Wireless"
-msgstr ""
+msgid "Please select your wireless network from this list"
+msgstr "Lütfen listeden kablosuz ağınızı seçin"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
-msgid "Please select your wireless network from this list"
-msgstr ""
+#: ../ubiquity.templates:208001
+msgid "Select drive:"
+msgstr "Sürücü seçin:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
-msgid "Select drive:"
-msgstr ""
+msgid "Allocate drive space by dragging the divider below:"
+msgstr "Aşağıdaki bölücüyü sürükleyerek sürücü alanını bölün:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:210001
-msgid "Allocate drive space by dragging the divider below:"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:211001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>%d daha küçük bölümler gizlidir, daha fazla hakimiyet için <a "
+"href=\"\">Gelişmiş Bölümleme Aracı</a></small> kullanın."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:211001
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>1 daha küçük bölüm gizlidir, daha fazla hakimiyet için <a "
+"href=\"\">Gelişmiş Bölümleme Aracı</a></small> kullanın."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:212001
+msgid "Use Entire Partition"
+msgstr "Bölümün Tamamını Kullan"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:213001
-#, fuzzy
-#| msgid "Create partition"
-msgid "Use Entire Partition"
-msgstr "Bölüm oluştur"
+msgid "Use Entire Disk"
+msgstr "Diskin Tamamını Kullan"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
-msgid "Use Entire Disk"
-msgstr ""
+msgid "Split Largest Partition"
+msgstr "En geniş bölümü kullan"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
-#, fuzzy
-#| msgid "Edit a partition"
-msgid "Split Largest Partition"
-msgstr "Bölümü düzenle"
+#: ../ubiquity.templates:216001
+msgid "For best results, please ensure:"
+msgstr "En iyi sonuç için, emin olun:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
-msgid "For best results, please ensure:"
-msgstr ""
+msgid "that you have at least ${SIZE} available drive space"
+msgstr "En az ${SIZE} kullanılabilir disk alanınız var"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-msgid "that you have at least ${SIZE} available drive space"
-msgstr ""
+msgid "that you are plugged in to a power source"
+msgstr "Bir güç kaynağına taktınız"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
-msgid "that you are plugged in to a power source"
-msgstr ""
+msgid "that you are connected to the Internet with an Ethernet cable"
+msgstr "İnternete bir Ethernet kablosu ile bağlandınız"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:220001
-msgid "that you are connected to the Internet"
+msgid ""
+"Ubuntu aims to be free and open-source software.  However, this is not "
+"always possible."
 msgstr ""
+"Ubuntu ücretsiz ve açık-kaynak yazılım olmayı amaçlar. Ancak, bu her zaman "
+"mümkün değildir."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid ""
-"${RELEASE} supports MP3 playback, Flash content, wifi hardware, and similar "
-"functionality through third party software, not all of which is open "
-"source.  This software is subject to the license terms included with the "
-"software's documentation."
+"The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 audio "
+"decoding technology licensed from Faunhofer IIS and Thomson."
 msgstr ""
+"Şu not Fluendo MP3 eklentisi için gösterilmektedir: MPEG Layer-3 ses kod "
+"çözücü teknolojisi Faunhofer IIS ve Thomson lisansı altındadır."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid ""
-"The following notice applies to the Fluendo MP3 plugin: \"MPEG Layer-3 audio "
-"decoding technology licensed from Fraunhofer IIS and Thomson.\""
+"Please off me non-open-source software if it is needed for a better "
+"experience"
 msgstr ""
+"İyi deneyim gerektiren yerlerde açık kaynak olmayan yazılımları benim için "
+"engelle"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
-msgid "Tick this box to install the software for this functionality."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:224001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "Güncellemeleri kurulum sırasında indir"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:225001
 msgid "Layout:"
 msgstr "Yerleşim:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:226001
 msgid "Variant:"
 msgstr "Değişik biçim:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:227001
 msgid "Below is an image of your current layout:"
 msgstr "Aşağıdaki geçerli yerleşimin bir görüntüsüdür:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:231001
+#: ../ubiquity.templates:228001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1611,27 +1572,15 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232001
+#: ../ubiquity.templates:229001
 msgid "Time Zone:"
 msgstr "Zaman Dilimi:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:233001
+#: ../ubiquity.templates:230001
 msgid "Region:"
 msgstr "Bölge:"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:235001
-msgid ""
-"Ready to install?  Once you answer a few questions, the contents of the live "
-"${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
-"full speed without the ${MEDIUM}."
-msgstr ""
-"Kurmaya hazır mısınız? Bir kaç soruyu yanıtladıktan sonra, çalışan ${MEDIUM} "
-"içeriği bu bilgisayara kurulabilir böylelikle ${MEDIUM} olmadan da "
-"${RELEASE} ile tam hızla çalıştırabilirsiniz."
 
 #. Type: title
 #. Description
@@ -1709,17 +1658,8 @@ msgstr "Paketler kaldırılıyor"
 #~ msgid "Choose your own:"
 #~ msgstr "Kendinizinkini seçin:"
 
-#~ msgid "Guess keymap:"
-#~ msgstr "Genel Haritayı Tahmin Et:"
-
-#~ msgid "Guess..."
-#~ msgstr "Tahmin Et..."
-
 #~ msgid "What is your name?"
 #~ msgstr "Adınız nedir?"
-
-#~ msgid "Full Name"
-#~ msgstr "Tam İsim"
 
 #~ msgid "What name do you want to use to log in?"
 #~ msgstr "Oturum açmak için hangi adı kullanmak istersiniz?"
@@ -1734,32 +1674,6 @@ msgstr "Paketler kaldırılıyor"
 #~ msgid "Choose a password to keep your account safe."
 #~ msgstr "Hesabınızı güvenli tutmak için bir şifre seçin."
 
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Aynı parolayı iki kere girin, böylelikle yazım hatalarına karşı da "
-#~ "denetlenmiş olur. İyi bir parola, harflerin, sayıların ve noktalama "
-#~ "işaretlerinin bir karışımını içermelidir; En az sekiz karakter "
-#~ "uzunluğunda olmalıdır; Belirli aralıklarla değiştirilmelidir."
-
-#~ msgid "Strength: too short"
-#~ msgstr "Güç: çok kısa"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Güç: zayıf"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Güç: orta"
-
-#~ msgid "Strength: good"
-#~ msgstr "Güç: iyi"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Güç: güçlü"
-
 #~ msgid "What is the name of this computer?"
 #~ msgstr "Bu bilgisayarın adı nedir?"
 
@@ -1769,9 +1683,6 @@ msgstr "Paketler kaldırılıyor"
 #~ msgstr ""
 #~ "Bilgisayarı ağınızdaki diğer kişilere görünür hale getirirseniz bu ad "
 #~ "kullanılacaktır."
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr "Giriş yapmak ve ev klasörümün şifresini çözmek için parola iste"
 
 #~ msgid "Prepare disk space"
 #~ msgstr "Disk alanı hazırla"
@@ -1785,5 +1696,32 @@ msgstr "Paketler kaldırılıyor"
 #~ msgid "Choose language"
 #~ msgstr "Dil seçin / Choose language"
 
+#~ msgid "Require my password to log in and to decrypt my home folder"
+#~ msgstr "Giriş yapmak ve ev klasörümün şifresini çözmek için parola iste"
+
 #~ msgid "USB"
 #~ msgstr "USB"
+
+#~ msgid "Guess..."
+#~ msgstr "Tahmin Et..."
+
+#~ msgid "Guess keymap:"
+#~ msgstr "Genel Haritayı Tahmin Et:"
+
+#~ msgid "Full Name"
+#~ msgstr "Tam İsim"
+
+#~ msgid "Strength: too short"
+#~ msgstr "Güç: çok kısa"
+
+#~ msgid "Strength: weak"
+#~ msgstr "Güç: zayıf"
+
+#~ msgid "Strength: strong"
+#~ msgstr "Güç: güçlü"
+
+#~ msgid "Strength: good"
+#~ msgstr "Güç: iyi"
+
+#~ msgid "Strength: fair"
+#~ msgstr "Güç: orta"

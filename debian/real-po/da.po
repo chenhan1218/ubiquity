@@ -6,16 +6,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-08-26 19:46+0100\n"
-"PO-Revision-Date: 2010-04-19 12:05+0000\n"
+"POT-Creation-Date: 2010-08-06 14:13-0400\n"
+"PO-Revision-Date: 2010-08-15 23:49+0000\n"
 "Last-Translator: AJenbo <anders@jenbo.dk>\n"
-"Language-Team: <en@li.org>\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
-"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
+"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: \n"
+"X-Poedit-Language: Danish\n"
 
 #. Type: text
 #. Description
@@ -46,7 +47,7 @@ msgstr "Angiv partitioner manuelt (avanceret)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:186001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:185001
 msgid "Install"
 msgstr "Installation"
 
@@ -71,16 +72,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-#, fuzzy
-#| msgid ""
-#| "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
-#| "your system."
 msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"Du kan prøve ${RELEASE} fra denne ${MEDIUM} uden at lave ændre ved dit "
-"system."
+"Du kan prøve ${RELEASE}, direkte fra din ${MEDIUM}, uden at lave nogen "
+"ændringer ved dit system."
 
 #. Type: text
 #. Description
@@ -89,6 +86,8 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
+"Eller hvis du er klar, kan du installere ${RELEASE} ved siden af (eller i "
+"stedet for) dit nuværende styresystem. Dette burde ikke tage særlig lang tid."
 
 #. Type: text
 #. Description
@@ -142,19 +141,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2010."
 msgstr ""
-"Dette er en præ-udgivelse af ${RELEASE}-installationen på live-${MEDIUM}. "
-"Det er ikke en endelig udgivelses, som vil komme med den endelige version af "
-"${RELEASE} i april 2010."
+"Dette er en præudgivelse af ${RELEASE} live${MEDIUM}-installationsprogram. "
+"Det er ikke en endelig udgave; den kommer med den endelige udgivelse af "
+"${RELEASE} i oktober 2010."
 
 #. Type: text
 #. Description
@@ -172,7 +166,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Warning"
-msgstr ""
+msgstr "Advarsel"
 
 #. Type: text
 #. Description
@@ -189,24 +183,20 @@ msgstr "Tastaturlayout"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Choose your keyboard layout:"
-msgstr "Tastaturlayout"
+msgstr "Vælge dit tastaturlayout:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Skriv her for at teste dit tastatur"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure out keyboard layout"
-msgstr "Tastaturlayout"
+msgstr "Udregn tastaturlayout"
 
 #. Type: text
 #. Description
@@ -229,24 +219,20 @@ msgstr "Hvem er du?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name:"
-msgstr "Computernavn"
+msgstr "Dit navn:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name"
-msgstr "Computernavn"
+msgstr "Dit navn"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Pick a username:"
-msgstr ""
+msgstr "Vælg et brugernavn:"
 
 #. Type: text
 #. Description
@@ -257,10 +243,8 @@ msgstr "Brugernavn"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Choose a password:"
-msgstr "Vælg en anden adgangskode"
+msgstr "Vælg en adgangskode:"
 
 #. Type: text
 #. Description
@@ -271,10 +255,8 @@ msgstr "Adgangskode"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Confirm password"
-msgstr "Indtast adgangskoden igen"
+msgstr "Bekræft adgangskode"
 
 #. Type: text
 #. Description
@@ -286,42 +268,32 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Short password"
-msgstr "Vælg en anden adgangskode"
+msgstr "Kort adgangskode"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
-#, fuzzy
-#| msgid "Password"
 msgid "Weak password"
-msgstr "Adgangskode"
+msgstr "Svag adgangskode"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
-#, fuzzy
-#| msgid "Password"
 msgid "Fair password"
-msgstr "Adgangskode"
+msgstr "Rimelig adgangskode"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
-#, fuzzy
-#| msgid "Password"
 msgid "Good password"
-msgstr "Adgangskode"
+msgstr "God adgangskode"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Strong password"
-msgstr "Indtast adgangskoden igen"
+msgstr "Stærk adgangskode"
 
 #. Type: text
 #. Description
@@ -339,7 +311,7 @@ msgstr "Kræv min adgangskode for at logge ind"
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "Krypter min hjemmemappe"
 
 #. Type: text
 #. Description
@@ -370,7 +342,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Allocate drive space"
-msgstr ""
+msgstr "Tildel drevplads"
 
 #. Type: text
 #. Description
@@ -449,18 +421,14 @@ msgstr "Avanceret..."
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:59001
-#, fuzzy
-#| msgid "Install[ action ]"
 msgid "_Install Now[ action ]"
-msgstr "Installer[ action ]"
+msgstr "_Instáller nu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr "Skridt ${INDEX} af ${TOTAL}"
+msgstr "Trin ${INDEX}/${TOTAL}"
 
 #. Type: title
 #. Description
@@ -565,19 +533,19 @@ msgstr "Installationen mislykkedes"
 #. Description
 #: ../ubiquity.templates:77001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Vi beklager, installationsprogrammet gik ned. Udfyld venligst en bug rapport "
 "på https://launchpad.net/ubuntu/+source/ubiquity/+filebug (Du skal ikke "
 "tilføje detaljer til andre eksisterende fejl.) og en udvikler vil kigge på "
 "problemet så hurtigt som muligt. For at hjælpe udviklerne med at forstå hvad "
-"der kig galt inkluder  følgende oplysninger, og vedhæft filerne /var/log/"
-"syslog og var/log/partman:"
+"der kig galt inkluder  følgende oplysninger, og vedhæft filerne "
+"/var/log/syslog og var/log/partman:"
 
 #. Type: text
 #. Description
@@ -779,15 +747,10 @@ msgstr "Port:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:109001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
-"Installation has finished.  You can continue testing ${RELEASE} now, but "
-"until you restart the computer, any changes you make or documents you save "
-"will not be preserved."
+"Installation has finished.  You can continue testing Ubuntu now, but until "
+"you restart the computer, any changes you make or documents you save will "
+"not be preserved."
 msgstr ""
 "Installationen er færdig. Du kan fortsætte med at afprøve Ubuntu nu, men "
 "hvis du laver ændringer eller gemmer dokumenter, før du genstarter "
@@ -1122,12 +1085,12 @@ msgstr "Følgende pakker er i en beskadiget tilstand:"
 #: ../ubiquity.templates:148001 ../ubiquity.templates:149001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Dette kan skyldes, at du bruger et gammelt installationsaftryk, eller at der "
 "er en fejl i nogle af pakkerne, som er listet ovenfor. Yderligere detaljer "
@@ -1160,13 +1123,13 @@ msgstr "Fejl under overførsel af dokumenter og indstillinger"
 #. Description
 #: ../ubiquity.templates:150001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Der opstod en fejl under overførsel af data. Flere oplysninger kan findes i /"
-"var/log/syslog. Installationen vil fortsætte, men nogle eller alle de "
+"Der opstod en fejl under overførsel af data. Flere oplysninger kan findes i "
+"/var/log/syslog. Installationen vil fortsætte, men nogle eller alle de "
 "dokumenter og indstillinger, du anmodede om, er muligvis ikke blevet "
 "overført til det installerede system."
 
@@ -1198,7 +1161,7 @@ msgstr "Beregner hvilke filer, der skal springes over under kopiering..."
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "Klar, når du er..."
 
 #. Type: title
 #. Description
@@ -1238,7 +1201,8 @@ msgstr "Luk venligst alle programmer, som bruger disse monteringspunkter."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Ønsker du at installationsprogrammet skal prøve at afmontere disse "
 "partitioner igen?"
@@ -1279,7 +1243,7 @@ msgstr "Systemopsætning"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001 ../ubiquity.templates:234001
+#: ../ubiquity.templates:175001 ../ubiquity.templates:231001
 msgid "Welcome"
 msgstr "Velkommen"
 
@@ -1310,90 +1274,84 @@ msgstr "Sprog"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:180001
-msgid "Prepare"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:181001
 msgid "Timezone"
 msgstr "Tidszone"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:181001
 msgid "Keyboard"
 msgstr "Tastatur"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:182001
 msgid "Disk Setup"
 msgstr "Diskopsætning"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:183001
 msgid "User Info"
 msgstr "Brugerinformation"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:184001
 msgid "Summary"
 msgstr "Oversigt"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:186001
 msgid "installation process"
 msgstr "installationsproces"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:188001
 msgid "Checking for installer updates"
 msgstr "Søger efter opdateringer til installation"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:189001
 msgid "Reading package information"
 msgstr "Læser pakkeinformation"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:190001
 msgid "Updating package information"
 msgstr "Opdaterer pakkeinformation"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:191001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "Fil ${INDEX} af ${TOTAL} med ${SPEED}/s"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:192001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "Fil ${INDEX} af ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:193001
 msgid "Installing update"
 msgstr "Installerer opdatering"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "Error updating installer"
 msgstr "Fejl ved opdatering af installationen"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr ""
 "Installationen stødte på en fejl under forsøget på at opdatere sig selv:"
@@ -1401,35 +1359,30 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:195001
 msgid "USB disk"
-msgstr ""
+msgstr "USB-disk"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:196001
 msgid "CD"
 msgstr "cd"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
-#, fuzzy
-#| msgid ""
-#| "Please choose the language to use for the install process. This\n"
-#| " Language will be the default language for this computer."
+#: ../ubiquity.templates:197001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Vælg venligst det sprog, der skal bruges under installationsprocessen. "
-"Dette\n"
-" Dette sprog vil blive standardsproget for denne computer."
+"Vælg venligst det sprog der skal benyttes til installationsprocessen. Dette "
+"sprog vil blive standardsproget for denne computer."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:198001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1439,7 +1392,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:199001
 msgid "Continue with installation."
 msgstr "Fortsæt med installationen."
 
@@ -1447,13 +1400,13 @@ msgstr "Fortsæt med installationen."
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001 ../ubiquity.templates:202001
+#: ../ubiquity.templates:200001 ../ubiquity.templates:201001
 msgid "Installation failed"
 msgstr "Fejl under installationen"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:200001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1464,7 +1417,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:202001
+#: ../ubiquity.templates:201001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
 "Installationsprogrammet stødte på en fejl og kan ikke fortsætte. Systemet "
@@ -1472,150 +1425,154 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
+#: ../ubiquity.templates:203001
 msgid "Preparing to install ${RELEASE}"
-msgstr "Installér ${RELEASE}"
+msgstr "Gør klar til at installere ${RELEASE}"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:204001
+msgid "Wireless"
+msgstr "Trådløst"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
-msgid "Wireless"
-msgstr ""
+msgid "Please select your wireless network from this list"
+msgstr "Vælg venligst dit trådløse netværk fra denne liste"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
-msgid "Please select your wireless network from this list"
-msgstr ""
+#: ../ubiquity.templates:208001
+msgid "Select drive:"
+msgstr "Vælg drev:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
-msgid "Select drive:"
-msgstr ""
+msgid "Allocate drive space by dragging the divider below:"
+msgstr "Tildel drevplads ved at trække deleren herunder:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:210001
-msgid "Allocate drive space by dragging the divider below:"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:211001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>%d mindre partitioner er skjulte, benyt det <a href=\"\">avanceret "
+"partitioneringsværktøj</a> for bedre kontrol</small>"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:211001
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>1 mindre partition er skjult, benyt det <a href=\"\">avanceret "
+"partitioneringsværktøj</a> for bedre kontrol</small>"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:212001
+msgid "Use Entire Partition"
+msgstr "Brug hele partitionen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:213001
-#, fuzzy
-#| msgid "Create partition"
-msgid "Use Entire Partition"
-msgstr "Opret partition"
+msgid "Use Entire Disk"
+msgstr "Brug hele disken"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
-msgid "Use Entire Disk"
-msgstr ""
+msgid "Split Largest Partition"
+msgstr "Opdel den største partition"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
-#, fuzzy
-#| msgid "Edit a partition"
-msgid "Split Largest Partition"
-msgstr "Redigér en partition"
+#: ../ubiquity.templates:216001
+msgid "For best results, please ensure:"
+msgstr "For det bedste resultat sikr dig følgende:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
-msgid "For best results, please ensure:"
-msgstr ""
+msgid "that you have at least ${SIZE} available drive space"
+msgstr "at du har mindst ${SIZE} tilgængelig diskplads"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-msgid "that you have at least ${SIZE} available drive space"
-msgstr ""
+msgid "that you are plugged in to a power source"
+msgstr "at du har et strømkabel tilsluttet"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
-msgid "that you are plugged in to a power source"
-msgstr ""
+msgid "that you are connected to the Internet with an Ethernet cable"
+msgstr "at du er tilsluttet internettet via et fast kabel"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:220001
-msgid "that you are connected to the Internet"
+msgid ""
+"Ubuntu aims to be free and open-source software.  However, this is not "
+"always possible."
 msgstr ""
+"Ubuntu går efter at være fri software med åben kildetekst. Dette er dog ikke "
+"altid muligt."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid ""
-"${RELEASE} supports MP3 playback, Flash content, wifi hardware, and similar "
-"functionality through third party software, not all of which is open "
-"source.  This software is subject to the license terms included with the "
-"software's documentation."
+"The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 audio "
+"decoding technology licensed from Faunhofer IIS and Thomson."
 msgstr ""
+"Den følgende notits vedrører Fluendo MP3-udvidelsesmodulet: MPEG Layer-3 lyd "
+"afkodningsteknologi licenseret fra Faunhofer IIS og Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid ""
-"The following notice applies to the Fluendo MP3 plugin: \"MPEG Layer-3 audio "
-"decoding technology licensed from Fraunhofer IIS and Thomson.\""
+"Please off me non-open-source software if it is needed for a better "
+"experience"
 msgstr ""
+"Tilbyd mig ikke-åben-kildetekst software hvis det er nødvendigt for en bedre "
+"oplevelse"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
-msgid "Tick this box to install the software for this functionality."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:224001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "Hent opdateringer mens der installeres"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:225001
 msgid "Layout:"
 msgstr "Layout:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:226001
 msgid "Variant:"
 msgstr "Variant:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:227001
 msgid "Below is an image of your current layout:"
 msgstr "Nedenfor er et billede af dit nuværende layout:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:231001
+#: ../ubiquity.templates:228001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1627,27 +1584,15 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232001
+#: ../ubiquity.templates:229001
 msgid "Time Zone:"
 msgstr "Tidszone:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:233001
+#: ../ubiquity.templates:230001
 msgid "Region:"
 msgstr "Region:"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:235001
-msgid ""
-"Ready to install?  Once you answer a few questions, the contents of the live "
-"${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
-"full speed without the ${MEDIUM}."
-msgstr ""
-"Klar til at installere? Når du har besvaret et par spørgsmål, kan indholdet "
-"af denne live-${MEDIUM} installeres på denne computer, så du kan køre "
-"${RELEASE} ved fuld hastighed, uden ${MEDIUM}'en."
 
 #. Type: title
 #. Description
@@ -1724,17 +1669,8 @@ msgstr "Fjerner pakker"
 #~ msgid "Choose your own:"
 #~ msgstr "Vælg din egen:"
 
-#~ msgid "Guess keymap:"
-#~ msgstr "Gæt tastaturopsætning:"
-
-#~ msgid "Guess..."
-#~ msgstr "Gæt..."
-
 #~ msgid "What is your name?"
 #~ msgstr "Hvad er dit navn?"
-
-#~ msgid "Full Name"
-#~ msgstr "Fulde navn"
 
 #~ msgid "What name do you want to use to log in?"
 #~ msgstr "Hvilket navn vil du bruge til at logge ind med?"
@@ -1743,37 +1679,22 @@ msgstr "Fjerner pakker"
 #~ "If more than one person will use this computer, you can set up multiple "
 #~ "accounts after installation."
 #~ msgstr ""
-#~ "Hvis der er flere end én person der skal bruge denne computer kan du "
-#~ "oprette flere brugerkonti efter installationen."
+#~ "Hvis der er flere end én person der skal bruge denne computer kan du oprette "
+#~ "flere brugerkonti efter installationen."
 
 #~ msgid "Choose a password to keep your account safe."
 #~ msgstr "Vælg et password der skal beskytte din brugerkonto."
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
 #~ msgstr ""
 #~ "Indtast den samme adgangskode to gange, så den kan blive tjekket for "
 #~ "tastefejl. En god adgangskode indeholder en blanding af bogstaver, tal og "
 #~ "andre tegn, den bør være mindst otte tegn lang, og den bør udskiftes med "
 #~ "jævne mellemrum."
-
-#~ msgid "Strength: too short"
-#~ msgstr "Styrke: For kort"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Styrke: Svag"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Styrke: Nogenlunde"
-
-#~ msgid "Strength: good"
-#~ msgstr "Styrke: God"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Styrke: Stærk"
 
 #~ msgid "What is the name of this computer?"
 #~ msgstr "Hvad er navnet på denne computer?"
@@ -1785,12 +1706,6 @@ msgstr "Fjerner pakker"
 #~ "Dette navn vil blive brugt, hvis du gør computeren synlig for andre på "
 #~ "netværket."
 
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr "Kræv min adgangskode for at logge ind og dekryptere min hjemmemappe"
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Klargør diskområde"
-
 #~ msgid "Before:"
 #~ msgstr "Før:"
 
@@ -1800,5 +1715,44 @@ msgstr "Fjerner pakker"
 #~ msgid "Choose language"
 #~ msgstr "Vælg sprog/Choose language"
 
+#~ msgid "Require my password to log in and to decrypt my home folder"
+#~ msgstr "Kræv min adgangskode for at logge ind og dekryptere min hjemmemappe"
+
+#~ msgid "Prepare disk space"
+#~ msgstr "Klargør diskområde"
+
+#~ msgid "Guess..."
+#~ msgstr "Gæt..."
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the live "
+#~ "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
+#~ "full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "Klar til at installere? Når du har besvaret et par spørgsmål, kan indholdet "
+#~ "af denne live-${MEDIUM} installeres på denne computer, så du kan køre "
+#~ "${RELEASE} ved fuld hastighed, uden ${MEDIUM}'en."
+
+#~ msgid "Guess keymap:"
+#~ msgstr "Gæt tastaturopsætning:"
+
 #~ msgid "USB"
 #~ msgstr "USB"
+
+#~ msgid "Full Name"
+#~ msgstr "Fulde navn"
+
+#~ msgid "Strength: good"
+#~ msgstr "Styrke: God"
+
+#~ msgid "Strength: fair"
+#~ msgstr "Styrke: Nogenlunde"
+
+#~ msgid "Strength: strong"
+#~ msgstr "Styrke: Stærk"
+
+#~ msgid "Strength: too short"
+#~ msgstr "Styrke: For kort"
+
+#~ msgid "Strength: weak"
+#~ msgstr "Styrke: Svag"

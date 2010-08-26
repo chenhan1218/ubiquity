@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-08-26 19:46+0100\n"
-"PO-Revision-Date: 2010-04-20 14:19+0000\n"
-"Last-Translator: Fumihito YOSHIDA <hito@kugutsu.org>\n"
+"POT-Creation-Date: 2010-08-06 14:13-0400\n"
+"PO-Revision-Date: 2010-08-19 18:06+0000\n"
+"Last-Translator: Shushi Kurose <md81bird@hitaki.net>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
-"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
+"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: \n"
 
 #. Type: text
 #. Description
@@ -46,7 +46,7 @@ msgstr "手動でパーティションを設定する（高度な知識が必要
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:186001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:185001
 msgid "Install"
 msgstr "インストール"
 
@@ -66,22 +66,15 @@ msgid ""
 msgstr ""
 "PC製造業者用のOEMモードでインストールします。\r\n"
 "このPCのシリーズ (または製造ロット) を示す固有の名前を入力してください。\r\n"
-"この名前はインストールされたシステムに保存され、バグレポート時の情報として使"
-"用できます。"
+"この名前はインストールされたシステムに保存され、バグレポート時の情報として使用できます。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-#, fuzzy
-#| msgid ""
-#| "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
-#| "your system."
 msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"現在のシステムに変更を加えることなく ${MEDIUM} から ${RELEASE} を試すことがで"
-"きます。"
 
 #. Type: text
 #. Description
@@ -107,9 +100,7 @@ msgstr "${RELEASE} をインストールする"
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr ""
-"いくつかの質問に答えるだけで、このコンピュータをすぐに利用することができま"
-"す。"
+msgstr "いくつかの質問に答えるだけで、このコンピュータをすぐに利用することができます。"
 
 #. Type: text
 #. Description
@@ -131,32 +122,22 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:16001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr ""
-"お望みならば <a href=\"release-notes\">リリースノート</a> をご覧ください。"
+msgstr "お望みならば <a href=\"release-notes\">リリースノート</a> をご覧ください。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr ""
-"お望みならば <a href=\"update\">このインストーラをアップデート</a> してくださ"
-"い。"
+msgstr "お望みならば <a href=\"update\">このインストーラをアップデート</a> してください。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2010."
 msgstr ""
-"${RELEASE} ライブ ${MEDIUM} インストーラのプレリリース版です。最終リリースで"
-"はありません。${RELEASE} の最終リリースは2010年4月になります。"
 
 #. Type: text
 #. Description
@@ -166,15 +147,14 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
-"インストールの過程でハードディスクをリサイズ、消去することがあります。このプ"
-"ログラムの利用の前に <b>重要なデータをすべてバックアップする</b> ように心掛け"
-"てください。"
+"インストールの過程でハードディスクをリサイズ、消去することがあります。このプログラムの利用の前に <b>重要なデータをすべてバックアップする</b> "
+"ように心掛けてください。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Warning"
-msgstr ""
+msgstr "警告"
 
 #. Type: text
 #. Description
@@ -191,10 +171,8 @@ msgstr "キーボードレイアウト"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Choose your keyboard layout:"
-msgstr "キーボードレイアウト"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -205,10 +183,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure out keyboard layout"
-msgstr "キーボードレイアウト"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -231,18 +207,14 @@ msgstr "あなたの情報を入力してください"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name:"
-msgstr "コンピュータ名"
+msgstr "あなたの名前:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name"
-msgstr "コンピュータ名"
+msgstr "あなたの名前"
 
 #. Type: text
 #. Description
@@ -259,10 +231,8 @@ msgstr "ユーザ名"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Choose a password:"
-msgstr "他のパスワードを選ぶ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -273,58 +243,44 @@ msgstr "パスワード"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Confirm password"
-msgstr "パスワードの再入力"
+msgstr "パスワードの確認"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
-"デバッグモードで起動しています。普段利用しているパスワードを入力しないでくだ"
-"さい!"
+msgstr "デバッグモードで起動しています。普段利用しているパスワードを入力しないでください!"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Short password"
-msgstr "他のパスワードを選ぶ"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
-#, fuzzy
-#| msgid "Password"
 msgid "Weak password"
-msgstr "パスワード"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
-#, fuzzy
-#| msgid "Password"
 msgid "Fair password"
-msgstr "パスワード"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
-#, fuzzy
-#| msgid "Password"
 msgid "Good password"
-msgstr "パスワード"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Strong password"
-msgstr "パスワードの再入力"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -357,8 +313,7 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"インポートしたいアカウントをすべて選択してください。それらのアカウントのド"
-"キュメントと設定が、インストール完了後に利用できるようになります。"
+"インポートしたいアカウントをすべて選択してください。それらのアカウントのドキュメントと設定が、インストール完了後に利用できるようになります。"
 
 #. Type: text
 #. Description
@@ -366,9 +321,7 @@ msgstr ""
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
-msgstr ""
-"どのアカウントもインポートしたくなければ、何も選択せずに次のページへ進んで下"
-"さい。"
+msgstr "どのアカウントもインポートしたくなければ、何も選択せずに次のページへ進んで下さい。"
 
 #. Type: text
 #. Description
@@ -386,8 +339,7 @@ msgstr "どのようにディスクを分割しますか？"
 #. Description
 #: ../ubiquity.templates:49001
 msgid "This computer has no operating systems on it."
-msgstr ""
-"このコンピュータにはオペレーティングシステムがインストールされていません。"
+msgstr "このコンピュータにはオペレーティングシステムがインストールされていません。"
 
 #. Type: text
 #. Description
@@ -399,9 +351,7 @@ msgstr "このコンピュータには ${OS} がインストールされてい�
 #. Description
 #: ../ubiquity.templates:51001
 msgid "This computer has several operating systems on it."
-msgstr ""
-"このコンピュータには複数のオペレーティングシステムがインストールされていま"
-"す。"
+msgstr "このコンピュータには複数のオペレーティングシステムがインストールされています。"
 
 #. Type: text
 #. Description
@@ -454,18 +404,14 @@ msgstr "拡張..."
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:59001
-#, fuzzy
-#| msgid "Install[ action ]"
 msgid "_Install Now[ action ]"
-msgstr "インストール"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr "ステップ ${INDEX} / ${TOTAL}"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -491,9 +437,7 @@ msgstr "ブートローダのインストールに失敗しました"
 msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
-msgstr ""
-"申し訳ありません、エラーが発生したため指定の位置にブートローダをインストール"
-"することができませんでした。"
+msgstr "申し訳ありません、エラーが発生したため指定の位置にブートローダをインストールすることができませんでした。"
 
 #. Type: text
 #. Description
@@ -512,9 +456,7 @@ msgstr "ブートローダなしで続けます。"
 #: ../ubiquity.templates:67001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr ""
-"${RELEASE} を起動するには、手動でブートローダをインストールする必要がありま"
-"す。"
+msgstr "${RELEASE} を起動するには、手動でブートローダをインストールする必要があります。"
 
 #. Type: text
 #. Description
@@ -570,18 +512,17 @@ msgstr "インストーラがクラッシュしました"
 #. Description
 #: ../ubiquity.templates:77001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
-"インストーラがクラッシュしました。新たにバグレポートを https://launchpad.net/"
-"ubuntu/+source/ubiquity/+filebug に書き込んでください (既存のバグのコメントと"
-"して、あなたが見つけたバグを報告しないでください)。開発者ができる限り早く問題"
-"に対処します。開発者が問題点を理解しやすいように、次の点をバグレポートに含め"
-"てください。また、 /var/log/syslog と /var/log/partmanを添付してください。"
+"インストーラがクラッシュしました。新たにバグレポートを "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug に書き込んでください "
+"(既存のバグのコメントとして、あなたが見つけたバグを報告しないでください)。開発者ができる限り早く問題に対処します。開発者が問題点を理解しやすいように、次"
+"の点をバグレポートに含めてください。また、 /var/log/syslog と /var/log/partmanを添付してください。"
 
 #. Type: text
 #. Description
@@ -694,8 +635,7 @@ msgstr "パーティションを作成"
 #. Description
 #: ../ubiquity.templates:93001 ../ubiquity.templates:100001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
-"新しいパーティションのサイズをメガバイト(1000000バイト)単位で指定する："
+msgstr "新しいパーティションのサイズをメガバイト(1000000バイト)単位で指定する："
 
 #. Type: text
 #. Description
@@ -784,19 +724,13 @@ msgstr "ポート番号:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:109001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
-"Installation has finished.  You can continue testing ${RELEASE} now, but "
-"until you restart the computer, any changes you make or documents you save "
-"will not be preserved."
+"Installation has finished.  You can continue testing Ubuntu now, but until "
+"you restart the computer, any changes you make or documents you save will "
+"not be preserved."
 msgstr ""
-"インストールが完了しました。このままUbuntuの試用を続けることもできますが、一"
-"度コンピュータを再起動しない限り、手動で行った変更や作成したドキュメントはす"
-"べて保存されません。"
+"インストールが完了しました。このままUbuntuの試用を続けることもできますが、一度コンピュータを再起動しない限り、手動で行った変更や作成したドキュメント"
+"はすべて保存されません。"
 
 #. Type: text
 #. Description
@@ -818,9 +752,7 @@ msgstr "続ける"
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
-msgstr ""
-"インストールは完了しました。新しくインストールしたものを使うにはコンピュータ"
-"の再起動が必要です。"
+msgstr "インストールは完了しました。新しくインストールしたものを使うにはコンピュータの再起動が必要です。"
 
 #. Type: note
 #. Description
@@ -915,8 +847,7 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"インストールに必要なハードディスクの空き容量が不足しています。インストーラを"
-"立ち上げ直し、充分な空き容量を持ったパーティションを選択してください。"
+"インストールに必要なハードディスクの空き容量が不足しています。インストーラを立ち上げ直し、充分な空き容量を持ったパーティションを選択してください。"
 
 #. Type: error
 #. Description
@@ -926,9 +857,8 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"多くの場合、CD/DVDかドライブの問題です。CD/DVDのホコリを取り除くか、CD/DVDを"
-"低速で焼き直すか、CD/DVDドライブのレンズを掃除すれば解決するかもしれません"
-"（電気店に行けば、ドライブレンズの掃除キットが販売されています）。"
+"多くの場合、CD/DVDかドライブの問題です。CD/DVDのホコリを取り除くか、CD/DVDを低速で焼き直すか、CD/DVDドライブのレンズを掃除すれば解"
+"決するかもしれません（電気店に行けば、ドライブレンズの掃除キットが販売されています）。"
 
 #. Type: error
 #. Description
@@ -938,9 +868,8 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"多くの場合、ハードディスクの問題です。ハードディスクが古く置き換える必要があ"
-"るかどうかを確認するか、より低温の環境に移動して動作させると解決するかもしれ"
-"ません。"
+"多くの場合、ハードディスクの問題です。ハードディスクが古く置き換える必要があるかどうかを確認するか、より低温の環境に移動して動作させると解決するかもしれま"
+"せん。"
 
 #. Type: error
 #. Description
@@ -958,11 +887,9 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"多くの場合、CD/DVDかドライブ、もしくはハードディスクの問題です。CD/DVDのホコ"
-"リを取り除く、CD/DVDを低速で焼き直す、CD/DVDドライブのレンズを掃除する（電気"
-"店に行けば、ドライブレンズの掃除キットが販売されています）、ハードディスクが"
-"古く置き換える必要があるかどうかを確認する、より低温の環境に移動して動作させ"
-"る、などを実行するとと解決するかもしれません。"
+"多くの場合、CD/DVDかドライブ、もしくはハードディスクの問題です。CD/DVDのホコリを取り除く、CD/DVDを低速で焼き直す、CD/DVDドライブの"
+"レンズを掃除する（電気店に行けば、ドライブレンズの掃除キットが販売されています）、ハードディスクが古く置き換える必要があるかどうかを確認する、より低温の環"
+"境に移動して動作させる、などを実行するとと解決するかもしれません。"
 
 #. Type: select
 #. Description
@@ -1123,21 +1050,18 @@ msgstr "次のパッケージは壊れています："
 #: ../ubiquity.templates:148001 ../ubiquity.templates:149001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
-"このエラーは、古いインストールイメージを使用したか、上記のパッケージのバグに"
-"よって発生した可能性があります。\r\n"
+"このエラーは、古いインストールイメージを使用したか、上記のパッケージのバグによって発生した可能性があります。\r\n"
 "より詳細な情報は、/var/log/syslog を確認してください。\r\n"
-"インストーラはインストールを続行しますが、この先で失敗する可能性があり、イン"
-"ストール済みのPCから他のパッケージ（上記のパッケージもおそらく含まれます）の"
+"インストーラはインストールを続行しますが、この先で失敗する可能性があり、インストール済みのPCから他のパッケージ（上記のパッケージもおそらく含まれます）の"
 "インストールや削除ができなくなる可能性があります。\r\n"
-"まず最新のインストールイメージを探した上で、それでも失敗するなら問題点を製造"
-"元に報告してください。"
+"まず最新のインストールイメージを探した上で、それでも失敗するなら問題点を製造元に報告してください。"
 
 #. Type: error
 #. Description
@@ -1161,15 +1085,14 @@ msgstr "documents and settings の移行エラー"
 #. Description
 #: ../ubiquity.templates:150001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"データの移行中にエラーが発生しました。さらに詳しい内容は /var/log/syslog で確"
-"認できるでしょう。インストールは継続しますが、要求された一部またはすべての "
-"documents and settings は、インストールしたシステムに転送されていないかもしれ"
-"ません。"
+"データの移行中にエラーが発生しました。さらに詳しい内容は /var/log/syslog "
+"で確認できるでしょう。インストールは継続しますが、要求された一部またはすべての documents and settings "
+"は、インストールしたシステムに転送されていないかもしれません。"
 
 #. Type: error
 #. Description
@@ -1185,8 +1108,7 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
-"ネットワーク設定のコピー中にエラーが発生しました。インストールは継続します"
-"が、システムのインストール後に再度ネットワークの設定を行う必要があります。"
+"ネットワーク設定のコピー中にエラーが発生しました。インストールは継続しますが、システムのインストール後に再度ネットワークの設定を行う必要があります。"
 
 #. Type: text
 #. Description
@@ -1225,24 +1147,21 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"インストーラは、パーティションテーブルへの変更を反映する必要がありますが、以"
-"下のマウントポイントのパーティションがアンマウントされていない為に実行できま"
-"せん:"
+"インストーラは、パーティションテーブルへの変更を反映する必要がありますが、以下のマウントポイントのパーティションがアンマウントされていない為に実行できませ"
+"ん:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
 msgid "Please close any applications using these mount points."
-msgstr ""
-"これらのマウントポイントを使用しているアプリケーションを終了して下さい。"
+msgstr "これらのマウントポイントを使用しているアプリケーションを終了して下さい。"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr ""
-"再度、インストーラによるこれらのパーティションのアンマウントを実行してよいで"
-"すか?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
+msgstr "再度、インストーラによるこれらのパーティションのアンマウントを実行してよいですか?"
 
 #. Type: boolean
 #. Description
@@ -1256,9 +1175,7 @@ msgstr "partitionerに戻りますか？"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
-msgstr ""
-"作成したパーティションのいくつかが小さすぎます。以下のパーティションを少なく"
-"ともこの大きさにしてください:"
+msgstr "作成したパーティションのいくつかが小さすぎます。以下のパーティションを少なくともこの大きさにしてください:"
 
 #. Type: boolean
 #. Description
@@ -1266,9 +1183,7 @@ msgstr ""
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
-msgstr ""
-"もしpartitionerに戻らず、これらパーティションのサイズが増えているならば、イン"
-"ストールに失敗しているかもしれません。"
+msgstr "もしpartitionerに戻らず、これらパーティションのサイズが増えているならば、インストールに失敗しているかもしれません。"
 
 #. Type: text
 #. Description
@@ -1280,7 +1195,7 @@ msgstr "システム設定"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001 ../ubiquity.templates:234001
+#: ../ubiquity.templates:175001 ../ubiquity.templates:231001
 msgid "Welcome"
 msgstr "ようこそ"
 
@@ -1311,134 +1226,120 @@ msgstr "言語"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:180001
-msgid "Prepare"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:181001
 msgid "Timezone"
 msgstr "タイムゾーン"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:181001
 msgid "Keyboard"
 msgstr "キーボード"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:182001
 msgid "Disk Setup"
 msgstr "ディスクのセットアップ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:183001
 msgid "User Info"
 msgstr "ユーザ情報"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:184001
 msgid "Summary"
 msgstr "要約"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:186001
 msgid "installation process"
 msgstr "インストール処理"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:188001
 msgid "Checking for installer updates"
 msgstr "インストーラのアップデートを確認しています"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:189001
 msgid "Reading package information"
 msgstr "パッケージ情報を取得しています"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:190001
 msgid "Updating package information"
 msgstr "パッケージ情報をアップデートしています"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:191001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:192001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:193001
 msgid "Installing update"
 msgstr "アップデートをインストールしています"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "Error updating installer"
 msgstr "アップデートインストーラのエラー"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr "インストーラのアップデートを行う間にエラーが発生しました:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:195001
 msgid "USB disk"
-msgstr ""
+msgstr "USB ディスク"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:196001
 msgid "CD"
 msgstr "CD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
-#, fuzzy
-#| msgid ""
-#| "Please choose the language to use for the install process. This\n"
-#| " Language will be the default language for this computer."
+#: ../ubiquity.templates:197001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
-msgstr ""
-"インストールプロセスで使用する言語を選択してください。\n"
-"この言語はこのコンピュータでのデフォルトの言語に設定されます。"
+msgstr "インストール時に利用する言語を選択してください。この言語はこのコンピュータのデフォルトの言語として設定されます。"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:198001
+msgid ""
+"Please choose the language used for the configuration process. This language "
+"will be the default language for this computer."
+msgstr "設定作業で利用する言語を選択してください。この言語はこのコンピュータのデフォルトの言語として設定されます。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:199001
-msgid ""
-"Please choose the language used for the configuration process. This language "
-"will be the default language for this computer."
-msgstr ""
-"設定作業で利用する言語を選択してください。この言語はこのコンピュータのデフォ"
-"ルトの言語として設定されます。"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:200001
 msgid "Continue with installation."
 msgstr "インストールを続けます。"
 
@@ -1446,59 +1347,58 @@ msgstr "インストールを続けます。"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001 ../ubiquity.templates:202001
+#: ../ubiquity.templates:200001 ../ubiquity.templates:201001
 msgid "Installation failed"
-msgstr ""
+msgstr "インストールに失敗しました"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:200001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
+"インストーラに回復不能なエラーが発生しました。問題を調査したり、再度インストールを試すことができるようデスクトップセッションを実行したままにします。"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:202001
+#: ../ubiquity.templates:201001
 msgid "The installer encountered an unrecoverable error and will now reboot."
+msgstr "インストーラに回復不能なエラーが発生しました。再起動します。"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:203001
+msgid "Preparing to install ${RELEASE}"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
-msgid "Preparing to install ${RELEASE}"
-msgstr "${RELEASE} をインストールする"
+msgid "Wireless"
+msgstr "無線"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
-msgid "Wireless"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:206001
 msgid "Please select your wireless network from this list"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:209001
+#: ../ubiquity.templates:208001
 msgid "Select drive:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:210001
+#: ../ubiquity.templates:209001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:211001
+#: ../ubiquity.templates:210001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
@@ -1507,7 +1407,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:211001
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
@@ -1515,140 +1415,123 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:213001
-#, fuzzy
-#| msgid "Create partition"
+#: ../ubiquity.templates:212001
 msgid "Use Entire Partition"
-msgstr "パーティションを作成"
+msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:214001
+#: ../ubiquity.templates:213001
 msgid "Use Entire Disk"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
-#, fuzzy
-#| msgid "Edit a partition"
+#: ../ubiquity.templates:214001
 msgid "Split Largest Partition"
-msgstr "パーティションを編集"
+msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:217001
+#: ../ubiquity.templates:216001
 msgid "For best results, please ensure:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:218001
+#: ../ubiquity.templates:217001
 msgid "that you have at least ${SIZE} available drive space"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:219001
+#: ../ubiquity.templates:218001
 msgid "that you are plugged in to a power source"
 msgstr ""
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:219001
+msgid "that you are connected to the Internet with an Ethernet cable"
+msgstr ""
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:220001
-msgid "that you are connected to the Internet"
+msgid ""
+"Ubuntu aims to be free and open-source software.  However, this is not "
+"always possible."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid ""
-"${RELEASE} supports MP3 playback, Flash content, wifi hardware, and similar "
-"functionality through third party software, not all of which is open "
-"source.  This software is subject to the license terms included with the "
-"software's documentation."
+"The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 audio "
+"decoding technology licensed from Faunhofer IIS and Thomson."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid ""
-"The following notice applies to the Fluendo MP3 plugin: \"MPEG Layer-3 audio "
-"decoding technology licensed from Fraunhofer IIS and Thomson.\""
+"Please off me non-open-source software if it is needed for a better "
+"experience"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
-msgid "Tick this box to install the software for this functionality."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:224001
 msgid "Download updates while installing"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:225001
 msgid "Layout:"
 msgstr "レイアウト:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:226001
 msgid "Variant:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:227001
 msgid "Below is an image of your current layout:"
 msgstr "以下は現在のレイアウトの画像です:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:231001
+#: ../ubiquity.templates:228001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
-"現在地を選択してください。現在地を選択すると、国ごとの慣習に合わせた適切な表"
-"示をしたり、近くのサイトからアップデートを取得したり、時計を正確な現地時間に"
-"合わせることができます。"
+"現在地を選択してください。現在地を選択すると、国ごとの慣習に合わせた適切な表示をしたり、近くのサイトからアップデートを取得したり、時計を正確な現地時間に合"
+"わせることができます。"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232001
+#: ../ubiquity.templates:229001
 msgid "Time Zone:"
 msgstr "タイムゾーン:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:233001
+#: ../ubiquity.templates:230001
 msgid "Region:"
 msgstr "地域："
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:235001
-msgid ""
-"Ready to install?  Once you answer a few questions, the contents of the live "
-"${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
-"full speed without the ${MEDIUM}."
-msgstr ""
-"インストールしてもいいですか？いくつかの質問に回答すると live ${MEDIUM} の内"
-"容はこのコンピュータにインストールされ ${MEDIUM} を使わずに本来の速度で "
-"${RELEASE} を動かすことができます。"
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
 msgid "OEM mode (for manufacturers only)"
-msgstr ""
+msgstr "OEMモード（メーカー向け専用）"
 
 #. Type: text
 #. Description
@@ -1683,6 +1566,9 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"新しいシステムで起動した時、'oem'ユーザとして最初に選択したパスワードでログインすることができます。このユーザは'sudo'を使うことで管理に必要な特"
+"権を扱うことができます。\r\n"
+"これにより、必要な追加や変更をシステムに加えることができます。"
 
 #. Type: text
 #. Description
@@ -1692,20 +1578,21 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"システムを満足のいく状態に設定したら、'oem-config-prepare' を実行してください。\r\n"
+"この操作により一時的に作成した 'oem' ユーザが削除され、\r\n"
+"次にPCが起動する際にエンドユーザにいくつかの設定に関する質問を行います。"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
 msgid "Removing packages"
-msgstr ""
+msgstr "パッケージを削除しています"
 
 #~ msgid "Which layout is most similar to your keyboard?"
 #~ msgstr "どのレイアウトがお使いのキーボードに最も近いですか？"
 
 #~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "この入力欄を使って、選択したキーボードレイアウトのテストをすることができま"
-#~ "す。"
+#~ msgstr "この入力欄を使って、選択したキーボードレイアウトのテストをすることができます。"
 
 #~ msgid "Suggested option:"
 #~ msgstr "既定値："
@@ -1713,68 +1600,8 @@ msgstr ""
 #~ msgid "Choose your own:"
 #~ msgstr "自分で選択する："
 
-#~ msgid "Guess keymap:"
-#~ msgstr "キーマップを推測:"
-
-#~ msgid "Guess..."
-#~ msgstr "推測..."
-
-#~ msgid "What is your name?"
-#~ msgstr "あなたの名前を入力してください"
-
-#~ msgid "Full Name"
-#~ msgstr "氏名"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "ログインに使う名前を入力してください"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "このコンピュータを2人以上で使う場合は、インストール後に複数のアカウントを"
-#~ "セットアップすることができます。"
-
 #~ msgid "Choose a password to keep your account safe."
 #~ msgstr "アカウントを安全に保つために、パスワードを入力してください。"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "同じパスワードを2回入力して、入力に間違いがないことを確かめてください。望"
-#~ "ましいパスワードは、文字・数字・記号が混在した8文字以上の文字列を含むもの"
-#~ "です。また、定期的に変更を行ってください。"
-
-#~ msgid "Strength: too short"
-#~ msgstr "パスワードの強さ: 短すぎ"
-
-#~ msgid "Strength: weak"
-#~ msgstr "パスワードの強さ: 弱い"
-
-#~ msgid "Strength: fair"
-#~ msgstr "パスワードの強さ: まずまず"
-
-#~ msgid "Strength: good"
-#~ msgstr "パスワードの強さ: 良好"
-
-#~ msgid "Strength: strong"
-#~ msgstr "パスワードの強さ: 強い"
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "このコンピュータの名前を入力してください"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "この名前は、ネットワーク上の他のコンピュータからこのコンピュータを見えるよ"
-#~ "う設定したときに使われます。"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr "ログイン時およびホーム・フォルダの復号化時にパスワードを要求する"
 
 #~ msgid "Prepare disk space"
 #~ msgstr "ディスクの準備"
@@ -1788,5 +1615,68 @@ msgstr ""
 #~ msgid "Choose language"
 #~ msgstr "言語の選択/Choose language"
 
+#~ msgid "Require my password to log in and to decrypt my home folder"
+#~ msgstr "ログイン時およびホーム・フォルダの復号化時にパスワードを要求する"
+
+#~ msgid "What is the name of this computer?"
+#~ msgstr "このコンピュータの名前を入力してください"
+
+#~ msgid "What is your name?"
+#~ msgstr "あなたの名前を入力してください"
+
+#~ msgid "What name do you want to use to log in?"
+#~ msgstr "ログインに使う名前を入力してください"
+
+#~ msgid "Guess keymap:"
+#~ msgstr "キーマップを推測:"
+
+#~ msgid "Full Name"
+#~ msgstr "氏名"
+
+#~ msgid "Strength: strong"
+#~ msgstr "パスワードの強さ: 強い"
+
+#~ msgid "Strength: too short"
+#~ msgstr "パスワードの強さ: 短すぎ"
+
+#~ msgid "Strength: weak"
+#~ msgstr "パスワードの強さ: 弱い"
+
 #~ msgid "USB"
 #~ msgstr "USB"
+
+#~ msgid "Strength: good"
+#~ msgstr "パスワードの強さ: 良好"
+
+#~ msgid "Strength: fair"
+#~ msgstr "パスワードの強さ: まずまず"
+
+#~ msgid ""
+#~ "If more than one person will use this computer, you can set up multiple "
+#~ "accounts after installation."
+#~ msgstr "このコンピュータを2人以上で使う場合は、インストール後に複数のアカウントをセットアップすることができます。"
+
+#~ msgid ""
+#~ "This name will be used if you make the computer visible to others on a "
+#~ "network."
+#~ msgstr "この名前は、ネットワーク上の他のコンピュータからこのコンピュータを見えるよう設定したときに使われます。"
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the live "
+#~ "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
+#~ "full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "インストールしてもいいですか？いくつかの質問に回答すると live ${MEDIUM} の内容はこのコンピュータにインストールされ ${MEDIUM} "
+#~ "を使わずに本来の速度で ${RELEASE} を動かすことができます。"
+
+#~ msgid "Guess..."
+#~ msgstr "推測..."
+
+#~ msgid ""
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
+#~ msgstr ""
+#~ "同じパスワードを2回入力して、入力に間違いがないことを確かめてください。望ましいパスワードは、文字・数字・記号が混在した8文字以上の文字列を含むものです。"
+#~ "また、定期的に変更を行ってください。"

@@ -6,22 +6,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-08-26 19:46+0100\n"
-"PO-Revision-Date: 2010-04-22 20:55+0000\n"
+"POT-Creation-Date: 2010-08-06 14:13-0400\n"
+"PO-Revision-Date: 2010-08-18 16:42+0000\n"
 "Last-Translator: Patrick (Petriko) Oudejans <Unknown>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: eo\n"
-"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
+"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: eo\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr "Uzu la plej grandan seninterrompan spacon"
+msgstr "Uzi la plej grandan seninterrompan spacon"
 
 #. Type: text
 #. Description
@@ -33,20 +33,20 @@ msgstr "Viŝi kaj uzi la tutan diskon"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr "Instalu ilin unu apud la alia, elektonte inter ili ĉiun komenciĝon."
+msgstr "Instali ilin unu apud la alia, elektonte inter ili ĉiun komenciĝon."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr "Specifu diskpartojn mane (progresinte)"
+msgstr "Specifi diskpartojn mane (progresinte)"
 
 #. Type: text
 #. Description
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:186001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:185001
 msgid "Install"
 msgstr "Instali"
 
@@ -71,16 +71,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-#, fuzzy
-#| msgid ""
-#| "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
-#| "your system."
 msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"Eblas elprovi ${RELEASE}-n per ĉi tiu ${MEDIUM} sen ŝanĝi vian sistemon iel "
-"ajn."
+"Vi povas elprovi ${RELEASE}-on sen fari ajnan ŝanĝon al via komputilo, rekte "
+"per tiu ĉi ${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -89,6 +85,8 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
+"Aŭ se vi pretas, vi povas instali ${RELEASE}-on apud (aŭ anstataŭ) via nuna "
+"operaciumo. Kutime tio daŭras nelonge."
 
 #. Type: text
 #. Description
@@ -121,8 +119,8 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Eble vi volas legi la <a href=\"release-notes\">eldon-notojn</a> aŭ <a href="
-"\"update\">ĝisdatigi ĉi tiun instalilon</a>."
+"Eble vi volas legi la <a href=\"release-notes\">eldon-notojn</a> aŭ <a "
+"href=\"update\">ĝisdatigi ĉi tiun instalilon</a>."
 
 #. Type: text
 #. Description
@@ -139,19 +137,14 @@ msgstr "Eble vi volas <a href=\"update\">ĝisdatigi ĉi tiun instalilon</a>."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2010."
 msgstr ""
-"Tio ĉi estas testeldono de la viva ${MEDIUM}-instalilo por ${RELEASE}. Ĝi ne "
-"estas la fina eldono; tiu venos kune kun la fina eldono de ${RELEASE} en "
-"aprilo 2010."
+"Tio ĉi estas antaŭ-eldono de la viva ${MEDIUM}-instalilo de ${RELEASE}. Ĝi "
+"ne estas definitiva eldono; tiu venos kun la fina eldono de ${RELEASE} en "
+"oktobro 2010"
 
 #. Type: text
 #. Description
@@ -169,7 +162,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Warning"
-msgstr ""
+msgstr "Averto"
 
 #. Type: text
 #. Description
@@ -186,24 +179,20 @@ msgstr "Klavararanĝo"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Choose your keyboard layout:"
-msgstr "Klavararanĝo"
+msgstr "Elektu vian klavarfasonon:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Tajpu tie ĉi por testi vian klavaron"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure out keyboard layout"
-msgstr "Klavararanĝo"
+msgstr "Eltrovi klavarfasonon"
 
 #. Type: text
 #. Description
@@ -226,38 +215,32 @@ msgstr "Kiu vi estas?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name:"
-msgstr "Komputila nomo"
+msgstr "Via nomo:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name"
-msgstr "Komputila nomo"
+msgstr "Via nomo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Pick a username:"
-msgstr ""
+msgstr "Elektu uzantnomon:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Username"
-msgstr "Uzantnomo"
+msgstr "Uzantonomo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Choose a password:"
-msgstr "Elektu alian pasvorton"
+msgstr "Elektu pasvorton:"
 
 #. Type: text
 #. Description
@@ -268,10 +251,8 @@ msgstr "Pasvorto"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Confirm password"
-msgstr "Reentajpu pasvorton"
+msgstr "Konfirmi pasvorton"
 
 #. Type: text
 #. Description
@@ -282,42 +263,32 @@ msgstr "Vi rulas en sencimiga reĝimo. Ne uzu multvaloran pasvorton!"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Short password"
-msgstr "Elektu alian pasvorton"
+msgstr "Mallonga pasvorto"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
-#, fuzzy
-#| msgid "Password"
 msgid "Weak password"
-msgstr "Pasvorto"
+msgstr "Malforta pasvorto"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
-#, fuzzy
-#| msgid "Password"
 msgid "Fair password"
-msgstr "Pasvorto"
+msgstr "Iom bona pasvorto"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
-#, fuzzy
-#| msgid "Password"
 msgid "Good password"
-msgstr "Pasvorto"
+msgstr "Bona pasvorto"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Strong password"
-msgstr "Reentajpu pasvorton"
+msgstr "Forta pasvorto"
 
 #. Type: text
 #. Description
@@ -335,7 +306,7 @@ msgstr "Postuli mian pasvorton por ensaluti"
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "Ĉifri dosieron 'hejmujo'"
 
 #. Type: text
 #. Description
@@ -367,7 +338,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Allocate drive space"
-msgstr ""
+msgstr "Atribui disklokon"
 
 #. Type: text
 #. Description
@@ -444,18 +415,14 @@ msgstr "Por progresantoj..."
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:59001
-#, fuzzy
-#| msgid "Install[ action ]"
 msgid "_Install Now[ action ]"
-msgstr "Instalu"
+msgstr "_Instali nun"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr "Paŝo ${INDEX} el ${TOTAL}"
+msgstr "Paŝo ${INDEX}/${TOTAL}"
 
 #. Type: title
 #. Description
@@ -558,18 +525,19 @@ msgstr "La instalilo kraŝis"
 #. Description
 #: ../ubiquity.templates:77001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
-"Pardonu, la instalilo kraŝis. Bonvolu sendi raporton ĉe https://launchpad."
-"net/ubuntu/+source/ubiquity/+filebug (ne aldonu al jam ekzistanta eraro) kaj "
-"prizorgistoj traktos la problemon, kiam plej frue eblos. Por helpi la "
-"laboron de prizorgistoj, bonvolu priskribi la sekvajn detalojn kaj aldoni la "
-"enhavon de la dosieroj /var/log/syslog kaj /var/log/partman:"
+"Pardonu, la instalilo kraŝis. Bonvolu sendi raporton ĉe "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (ne aldonu al jam "
+"ekzistanta eraro) kaj prizorgistoj traktos la problemon, kiam plej frue "
+"eblos. Por helpi la laboron de prizorgistoj, bonvolu priskribi la sekvajn "
+"detalojn kaj aldoni la enhavon de la dosieroj /var/log/syslog kaj "
+"/var/log/partman:"
 
 #. Type: text
 #. Description
@@ -730,7 +698,7 @@ msgstr "Altnivelaj Opcioj"
 #. Description
 #: ../ubiquity.templates:102001
 msgid "Boot loader"
-msgstr "Komenciga ŝargilo"
+msgstr "Praŝargilo"
 
 #. Type: text
 #. Description
@@ -771,15 +739,10 @@ msgstr "Pordo:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:109001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
-"Installation has finished.  You can continue testing ${RELEASE} now, but "
-"until you restart the computer, any changes you make or documents you save "
-"will not be preserved."
+"Installation has finished.  You can continue testing Ubuntu now, but until "
+"you restart the computer, any changes you make or documents you save will "
+"not be preserved."
 msgstr ""
 "La instalado finiĝis. Vi povas kontinui testi Ubunton nun, sed ĝis kiam vi "
 "rekomencos la komputilon, neniuj ŝanĝoj, kiujn vi faras aŭ dokumentoj, kiujn "
@@ -1112,12 +1075,12 @@ msgstr "La stato de la sekvaj pakoj estas rompita:"
 #: ../ubiquity.templates:148001 ../ubiquity.templates:149001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "La kaŭzo povas esti malnova instalpakaĵo, aŭ eble iu supre listigita pako "
 "enhavas cimon. Pli da detaloj troviĝas en /var/log/syslog. La instalilo "
@@ -1148,14 +1111,14 @@ msgstr "Eraro dum migrigo de dokumentoj kaj agordoj"
 #. Description
 #: ../ubiquity.templates:150001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Okazis eraro dum migrigo de datumoj. Pli da detaloj vi povas trovi en /var/"
-"log/syslog. Daŭriĝos la instalado, sed eble kelkaj aŭ ĉiuj dokumentoj kaj "
-"agordoj kiujn vi indikis ne estos kopiataj al la instalata sistemo."
+"Okazis eraro dum migrigo de datumoj. Pli da detaloj vi povas trovi en "
+"/var/log/syslog. Daŭriĝos la instalado, sed eble kelkaj aŭ ĉiuj dokumentoj "
+"kaj agordoj kiujn vi indikis ne estos kopiataj al la instalata sistemo."
 
 #. Type: error
 #. Description
@@ -1184,7 +1147,7 @@ msgstr "Kalkulado de nekopiendaj dosieroj..."
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "Preta se vi pretas..."
 
 #. Type: title
 #. Description
@@ -1223,7 +1186,8 @@ msgstr "Bonvolu fermi ĉiujn aplikaĵojn uzantajn ĉi tiujn surmetingojn."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr "Ĉu vi ŝatus ke la instalilo reklopodu demeti ĉi tiujn subdiskojn?"
 
 #. Type: boolean
@@ -1262,7 +1226,7 @@ msgstr "Sistemkonfigurado"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001 ../ubiquity.templates:234001
+#: ../ubiquity.templates:175001 ../ubiquity.templates:231001
 msgid "Welcome"
 msgstr "Bonvenon"
 
@@ -1293,124 +1257,114 @@ msgstr "Lingvo"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:180001
-msgid "Prepare"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:181001
 msgid "Timezone"
 msgstr "Tempozono"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:181001
 msgid "Keyboard"
 msgstr "Klavaro"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:182001
 msgid "Disk Setup"
 msgstr "Agordi Diskon"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:183001
 msgid "User Info"
 msgstr "Informoj de uzanto"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:184001
 msgid "Summary"
 msgstr "Resumo"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:186001
 msgid "installation process"
 msgstr "Instalado"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:188001
 msgid "Checking for installer updates"
 msgstr "Serĉas ĝisdatigojn de la instalilo"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:189001
 msgid "Reading package information"
 msgstr "Legas pakaĵinformojn"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:190001
 msgid "Updating package information"
 msgstr "Ĝisdatigas pakaĵinformojn"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:191001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "Dosiero ${INDEX} el ${TOTAL} je ${SPEED}/s"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:192001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "Dosiero ${INDEX} el ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:193001
 msgid "Installing update"
 msgstr "Instalas ĝisdatigon"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "Error updating installer"
 msgstr "Eraro dum ĝisdatigo de instalilo"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr "La instalilo trafis eraron dum ĝi provis ĝisdatigi sin mem:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:195001
 msgid "USB disk"
-msgstr ""
+msgstr "USB-memorilo"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:196001
 msgid "CD"
 msgstr "KD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
-#, fuzzy
-#| msgid ""
-#| "Please choose the language to use for the install process. This\n"
-#| " Language will be the default language for this computer."
+#: ../ubiquity.templates:197001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Bonvolu elekti la deziratan lingvon por la instalprocezo.\n"
-" Tiu lingvo estos la defaŭlta lingvo por ĉi tiu komputilo."
+"Bonvolu elekti la uzotan lingvon por la instalprocezo. Tiu lingvo estos la "
+"defaŭlta lingvo por tiu ĉi komputilo."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:198001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1420,7 +1374,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:199001
 msgid "Continue with installation."
 msgstr "Daŭrigi la instaladon."
 
@@ -1428,13 +1382,13 @@ msgstr "Daŭrigi la instaladon."
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001 ../ubiquity.templates:202001
+#: ../ubiquity.templates:200001 ../ubiquity.templates:201001
 msgid "Installation failed"
 msgstr "Instalado malsukcesis"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:200001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1444,156 +1398,160 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:202001
+#: ../ubiquity.templates:201001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr "La instalilon trafis neriparebla eraro kaj ĝi nun restartiĝos."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
+#: ../ubiquity.templates:203001
 msgid "Preparing to install ${RELEASE}"
-msgstr "Instali ${RELEASE}-n"
+msgstr "Preparas por instalo de ${RELEASE}"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:204001
+msgid "Wireless"
+msgstr "Sendrata reto"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
-msgid "Wireless"
-msgstr ""
+msgid "Please select your wireless network from this list"
+msgstr "Bonvolu elekti vian sendratan reton el tiu ĉi listo"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
-msgid "Please select your wireless network from this list"
-msgstr ""
+#: ../ubiquity.templates:208001
+msgid "Select drive:"
+msgstr "Elekti diskon"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
-msgid "Select drive:"
-msgstr ""
+msgid "Allocate drive space by dragging the divider below:"
+msgstr "Atribuu disklokon ŝovante la suban dividilon:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:210001
-msgid "Allocate drive space by dragging the divider below:"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:211001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>%d malpli grandaj subdiskoj estas kaŝataj. Uzu la <a "
+"href=\"\">porspertulan diskpartigilon</a> por pli da kontrolo</small>"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:211001
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>1 malpli granda subdisko estas kaŝata. Uzu la <a "
+"href=\"\">porspertulan diskpartigilon</a> por pli da kontrolo</small>"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:212001
+msgid "Use Entire Partition"
+msgstr "Uzi tutan subdiskon"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:213001
-#, fuzzy
-#| msgid "Create partition"
-msgid "Use Entire Partition"
-msgstr "Kreu diskpartigon"
+msgid "Use Entire Disk"
+msgstr "Uzi tutan diskon"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
-msgid "Use Entire Disk"
-msgstr ""
+msgid "Split Largest Partition"
+msgstr "Dividi plej grandan subdiskon"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
-#, fuzzy
-#| msgid "Edit a partition"
-msgid "Split Largest Partition"
-msgstr "Redaktu diskpartigon"
+#: ../ubiquity.templates:216001
+msgid "For best results, please ensure:"
+msgstr "Por la plej bonaj rezultoj, bonvolu certiĝi:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
-msgid "For best results, please ensure:"
-msgstr ""
+msgid "that you have at least ${SIZE} available drive space"
+msgstr "ke vi havas almenaŭ ${SIZE} da disponebla diskloko"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-msgid "that you have at least ${SIZE} available drive space"
-msgstr ""
+msgid "that you are plugged in to a power source"
+msgstr "ke la komputilo estas konektita al elektro"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
-msgid "that you are plugged in to a power source"
-msgstr ""
+msgid "that you are connected to the Internet with an Ethernet cable"
+msgstr "ke vi estas konektita al la interreto per eterreta kablo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:220001
-msgid "that you are connected to the Internet"
+msgid ""
+"Ubuntu aims to be free and open-source software.  However, this is not "
+"always possible."
 msgstr ""
+"Ubuntu celas esti libera kaj malfermitkoda programaro. Bedaŭrinde tio ne "
+"ĉiam eblas."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid ""
-"${RELEASE} supports MP3 playback, Flash content, wifi hardware, and similar "
-"functionality through third party software, not all of which is open "
-"source.  This software is subject to the license terms included with the "
-"software's documentation."
+"The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 audio "
+"decoding technology licensed from Faunhofer IIS and Thomson."
 msgstr ""
+"La sekva noto koncernas la MP3-kromprogramon de Fluendo: MPEG Layer-3-"
+"sondmalkodiga teknologio sub permesilo de Faunhofer ISS kaj Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid ""
-"The following notice applies to the Fluendo MP3 plugin: \"MPEG Layer-3 audio "
-"decoding technology licensed from Fraunhofer IIS and Thomson.\""
+"Please off me non-open-source software if it is needed for a better "
+"experience"
 msgstr ""
+"Bonvolu prezenti al mi nemalfermitkodan programaron se tio necesas por pli "
+"bona uzosperto"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
-msgid "Tick this box to install the software for this functionality."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:224001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "Elŝuti ĝisdatigojn dum instalado"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:225001
 msgid "Layout:"
 msgstr "Fasono:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:226001
 msgid "Variant:"
 msgstr "Variaĵo"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:227001
 msgid "Below is an image of your current layout:"
 msgstr "Sube estas bildo de via nuna fasono:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:231001
+#: ../ubiquity.templates:228001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1605,27 +1563,15 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232001
+#: ../ubiquity.templates:229001
 msgid "Time Zone:"
 msgstr "Tempozono:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:233001
+#: ../ubiquity.templates:230001
 msgid "Region:"
 msgstr "Regiono:"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:235001
-msgid ""
-"Ready to install?  Once you answer a few questions, the contents of the live "
-"${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
-"full speed without the ${MEDIUM}."
-msgstr ""
-"Ĉu preta por instali? Respondinte kelkajn demandojn, la enhavo de la viva "
-"${MEDIUM} povas esti instalata al tiu ĉi komputilo por ke vi povu ruli "
-"${RELEASE}-n plenrapide sen la ${MEDIUM}."
 
 #. Type: title
 #. Description
@@ -1697,23 +1643,8 @@ msgstr "Forigas pakaĵojn"
 #~ msgstr ""
 #~ "Vi povas tajpi en ĉi tiun skatolon por testi vian novan klavararanĝon."
 
-#~ msgid "Suggested option:"
-#~ msgstr "Sugestita elekto:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Elektu vian propran:"
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Divenu klavarfasonon:"
-
-#~ msgid "Guess..."
-#~ msgstr "Diveni..."
-
 #~ msgid "What is your name?"
 #~ msgstr "Kio estas via nomo?"
-
-#~ msgid "Full Name"
-#~ msgstr "Plena nomo"
 
 #~ msgid "What name do you want to use to log in?"
 #~ msgstr "Kion uzantnomon vi volas uzi por ensaluti?"
@@ -1728,31 +1659,6 @@ msgstr "Forigas pakaĵojn"
 #~ msgid "Choose a password to keep your account safe."
 #~ msgstr "Elektu pasvorton por sekurigi vian konton."
 
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Enskribu la saman pasvorton dufoje, por ke ĝi povu esti kontrolita pri "
-#~ "tajperaroj. Bona pasvorto havu miksaĵon de literoj, nombroj kaj "
-#~ "interpunkcio, havu almenaŭ ok signojn, kaj ŝanĝendas regulintervale."
-
-#~ msgid "Strength: too short"
-#~ msgstr "Forto: tro malgranda"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Forto: malforta"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Forto: sufiĉa"
-
-#~ msgid "Strength: good"
-#~ msgstr "Forto: bona"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Forto: forta"
-
 #~ msgid "What is the name of this computer?"
 #~ msgstr "Kio estas la nomo de ĉi tiu komputilo?"
 
@@ -1760,12 +1666,8 @@ msgstr "Forigas pakaĵojn"
 #~ "This name will be used if you make the computer visible to others on a "
 #~ "network."
 #~ msgstr ""
-#~ "Ĉi tiu nomo estos uzata se vi videbligus ĉi tiun komputilon al la aliaj "
-#~ "je la reto."
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Postuli mian pasvorton por ensaluti kaj por malĉifri mian hejm-dosierujon"
+#~ "Ĉi tiu nomo estos uzata se vi videbligus ĉi tiun komputilon al la aliaj je "
+#~ "la reto."
 
 #~ msgid "Prepare disk space"
 #~ msgstr "Pretigu diskan spacon"
@@ -1776,8 +1678,51 @@ msgstr "Forigas pakaĵojn"
 #~ msgid "After:"
 #~ msgstr "Poste:"
 
+#~ msgid "Suggested option:"
+#~ msgstr "Sugestita elekto:"
+
+#~ msgid "Choose your own:"
+#~ msgstr "Elektu vian propran:"
+
 #~ msgid "Choose language"
 #~ msgstr "Elekti lingvon/Choose language"
 
+#~ msgid "Require my password to log in and to decrypt my home folder"
+#~ msgstr ""
+#~ "Postuli mian pasvorton por ensaluti kaj por malĉifri mian hejm-dosierujon"
+
+#~ msgid "Guess keymap:"
+#~ msgstr "Divenu klavarfasonon:"
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the live "
+#~ "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
+#~ "full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "Ĉu preta por instali? Respondinte kelkajn demandojn, la enhavo de la viva "
+#~ "${MEDIUM} povas esti instalata al tiu ĉi komputilo por ke vi povu ruli "
+#~ "${RELEASE}-n plenrapide sen la ${MEDIUM}."
+
+#~ msgid "Guess..."
+#~ msgstr "Diveni..."
+
 #~ msgid "USB"
 #~ msgstr "USB"
+
+#~ msgid "Strength: good"
+#~ msgstr "Forto: bona"
+
+#~ msgid "Strength: fair"
+#~ msgstr "Forto: sufiĉa"
+
+#~ msgid "Strength: strong"
+#~ msgstr "Forto: forta"
+
+#~ msgid "Strength: too short"
+#~ msgstr "Forto: tro malgranda"
+
+#~ msgid "Strength: weak"
+#~ msgstr "Forto: malforta"
+
+#~ msgid "Full Name"
+#~ msgstr "Plena nomo"

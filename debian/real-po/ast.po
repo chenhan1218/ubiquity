@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-08-26 19:46+0100\n"
-"PO-Revision-Date: 2010-04-19 10:24+0000\n"
+"POT-Creation-Date: 2010-08-06 14:13-0400\n"
+"PO-Revision-Date: 2010-08-18 09:11+0000\n"
 "Last-Translator: Iñigo Varela <malditoastur@gmail.com>\n"
 "Language-Team: Asturian <ast@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ast\n"
-"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
+"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: ast\n"
 
 #. Type: text
 #. Description
@@ -47,7 +47,7 @@ msgstr "Especificar particiones manualmente (avanzáu)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:186001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:185001
 msgid "Install"
 msgstr "Instalar"
 
@@ -72,16 +72,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-#, fuzzy
-#| msgid ""
-#| "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
-#| "your system."
 msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"Puedes probar ${RELEASE} dende ${MEDIUM} ensin facer dengún cambéu nel "
-"equipu."
+"Puedes probar ${RELEASE} ensin facer dengún cambéu nel equipu, direutamente "
+"dende esti ${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -90,6 +86,8 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
+"O si tas llistu, puedes instalar ${RELEASE} xunto al (o en llugar del) to "
+"sistema operativu actual. Nun va llevar munchu tiempu."
 
 #. Type: text
 #. Description
@@ -143,19 +141,14 @@ msgstr "Ye dable que quieras <a href=\"update\">anovar esti instalador</a>."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2010."
 msgstr ""
-"Esti ye un instalador en live ${MEDIUM} d'una versión previa a la "
-"espublización de ${RELEASE}. Nun ye una versión final; ésta aportará cola "
-"espublización final de ${RELEASE} n'abril de 2010."
+"Esto ye un llanzamientu previu del instalador live ${MEDIUM} de ${RELEASE}. "
+"Nun ye una versión final, qu'apaecerá col llanzamientu final de ${RELEASE} "
+"n'ochobre de 2010."
 
 #. Type: text
 #. Description
@@ -173,7 +166,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Warning"
-msgstr ""
+msgstr "Avisu"
 
 #. Type: text
 #. Description
@@ -190,24 +183,20 @@ msgstr "Distribución del tecláu"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Choose your keyboard layout:"
-msgstr "Distribución del tecláu"
+msgstr "Esbilla la distribución de tecláu:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Escribi equí pa comprobar el tecláu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure out keyboard layout"
-msgstr "Distribución del tecláu"
+msgstr "Determinar el tipu de tecláu"
 
 #. Type: text
 #. Description
@@ -230,24 +219,20 @@ msgstr "¿Quién yes?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name:"
-msgstr "Nome del equipu"
+msgstr "El to nome:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name"
-msgstr "Nome del equipu"
+msgstr "El to nome"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Pick a username:"
-msgstr ""
+msgstr "Introduz un nome d'usuariu:"
 
 #. Type: text
 #. Description
@@ -258,10 +243,8 @@ msgstr "Nome d'usuariu"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Choose a password:"
-msgstr "Escueyi otra clave"
+msgstr "Introduz una contraseña:"
 
 #. Type: text
 #. Description
@@ -272,10 +255,8 @@ msgstr "Contraseña"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Confirm password"
-msgstr "Repite la contraseña"
+msgstr "Confirmar  contraseña:"
 
 #. Type: text
 #. Description
@@ -288,42 +269,32 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Short password"
-msgstr "Escueyi otra clave"
+msgstr "Contraseña curtia"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
-#, fuzzy
-#| msgid "Password"
 msgid "Weak password"
-msgstr "Contraseña"
+msgstr "Contraseña feble"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
-#, fuzzy
-#| msgid "Password"
 msgid "Fair password"
-msgstr "Contraseña"
+msgstr "Contraseña aceutable"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
-#, fuzzy
-#| msgid "Password"
 msgid "Good password"
-msgstr "Contraseña"
+msgstr "Contraseña bona"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Strong password"
-msgstr "Repite la contraseña"
+msgstr "Contraseña fuerte"
 
 #. Type: text
 #. Description
@@ -341,7 +312,7 @@ msgstr "Pidir la mio contraseña p'aniciar sesión"
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "Cifrar la mio carpeta principal"
 
 #. Type: text
 #. Description
@@ -373,7 +344,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Allocate drive space"
-msgstr ""
+msgstr "Asignar espaciu en discu"
 
 #. Type: text
 #. Description
@@ -451,18 +422,14 @@ msgstr "Avanzáu..."
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:59001
-#, fuzzy
-#| msgid "Install[ action ]"
 msgid "_Install Now[ action ]"
-msgstr "Instalar"
+msgstr "_Instalar agora"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr "Pasu ${INDEX} de ${TOTAL}"
+msgstr "Pasu ${INDEX}/${TOTAL}"
 
 #. Type: title
 #. Description
@@ -566,20 +533,20 @@ msgstr "L'instalador falló"
 #. Description
 #: ../ubiquity.templates:77001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Sentímoslo; l'instalador tien fallao. Por favor, unvíe un nuevu informe de "
 "fallu en https://launchpad.net/ubuntu/+source/ubiquity/+filebug (nun axunte "
 "los sos detáis a nengún informe de fallu esistente) y un desarrollador "
 "atenderá'l so problema tan ceo como-y seya dable. P'aidar a los "
 "desendolcadores a atalantar qué pudo dir mal, incluya los siguientes detáis "
-"nel so informe de fallu, y axunte los ficheros /var/log/syslog y /var/log/"
-"partman:"
+"nel so informe de fallu, y axunte los ficheros /var/log/syslog y "
+"/var/log/partman:"
 
 #. Type: text
 #. Description
@@ -781,15 +748,10 @@ msgstr "Puertu:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:109001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
-"Installation has finished.  You can continue testing ${RELEASE} now, but "
-"until you restart the computer, any changes you make or documents you save "
-"will not be preserved."
+"Installation has finished.  You can continue testing Ubuntu now, but until "
+"you restart the computer, any changes you make or documents you save will "
+"not be preserved."
 msgstr ""
 "La instalación finó. Puede siguir agora coles prebes d'Ubuntu, hasta que "
 "reanicie l'equipu, cualesquier cambéu que faiga o documentu qu'atroxe, nun "
@@ -925,8 +887,8 @@ msgid ""
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
 "Esto débese a un CD/DVD o unidá defeutuosa. Podría aidar llimpiar el CD/DVD, "
-"grabar el CD/DVD a una velocidá menor, o llimpiar la lente de la unidá de CD/"
-"DVD (en tiendes d'electrónica pue alcontrar sistemes de llimpieza)."
+"grabar el CD/DVD a una velocidá menor, o llimpiar la lente de la unidá de "
+"CD/DVD (en tiendes d'electrónica pue alcontrar sistemes de llimpieza)."
 
 #. Type: error
 #. Description
@@ -1122,12 +1084,12 @@ msgstr "Los siguientes paquetes alcuéntrense nún estáu toyíu:"
 #: ../ubiquity.templates:148001 ../ubiquity.templates:149001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Esto pue debese a que ta usando una imaxen antigua del instalador, o a un "
 "erru en dalgunos de los paquetes llistaos a continuación. Pue atopar más "
@@ -1159,8 +1121,8 @@ msgstr "Fallu migrando documentos y configuraciones"
 #. Description
 #: ../ubiquity.templates:150001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1197,7 +1159,7 @@ msgstr "Calculando ficheros pa escluyir del copiáu..."
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "Preparáu cuando tú lo teas..."
 
 #. Type: title
 #. Description
@@ -1239,7 +1201,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr "¿Deseya que l'instalador tente desmontar estes particiones de nueu?"
 
 #. Type: boolean
@@ -1278,7 +1241,7 @@ msgstr "Configuración Sistema"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001 ../ubiquity.templates:234001
+#: ../ubiquity.templates:175001 ../ubiquity.templates:231001
 msgid "Welcome"
 msgstr "Bienveníu"
 
@@ -1309,124 +1272,114 @@ msgstr "Llingua"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:180001
-msgid "Prepare"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:181001
 msgid "Timezone"
 msgstr "Estaya horaria"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:181001
 msgid "Keyboard"
 msgstr "Tecláu"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:182001
 msgid "Disk Setup"
 msgstr "Configuración Discu"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:183001
 msgid "User Info"
 msgstr "Información d'usuariu"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:184001
 msgid "Summary"
 msgstr "Resume"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:186001
 msgid "installation process"
 msgstr "procesu instalación"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:188001
 msgid "Checking for installer updates"
 msgstr "Comprobando pa instalar anovamientos"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:189001
 msgid "Reading package information"
 msgstr "Lleendo información de paquete"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:190001
 msgid "Updating package information"
 msgstr "Anovando la información del paquete"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:191001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "Ficheru ${INDEX} de ${TOTAL} a ${SPEED}/s"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:192001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "Ficheru ${INDEX} de ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:193001
 msgid "Installing update"
 msgstr "Instalando anovamientu"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "Error updating installer"
 msgstr "Fallu anovando l'instalador"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr "L'instalador alcontró un fallu al intentar anovase:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:195001
 msgid "USB disk"
-msgstr ""
+msgstr "Discu USB"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:196001
 msgid "CD"
 msgstr "CD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
-#, fuzzy
-#| msgid ""
-#| "Please choose the language to use for the install process. This\n"
-#| " Language will be the default language for this computer."
+#: ../ubiquity.templates:197001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Escueyi la llingua a usar nel procesu d'instalación. Esta\n"
-" llingua va ser la predeterminada nesti equipu."
+"Por favor, esbilla la llingua a usar nel procesu d'instalación. Esta llingua "
+"ye la que va aplicase por defeutu nel equipu."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:198001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1436,7 +1389,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:199001
 msgid "Continue with installation."
 msgstr "Continúa cola instalación."
 
@@ -1444,13 +1397,13 @@ msgstr "Continúa cola instalación."
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001 ../ubiquity.templates:202001
+#: ../ubiquity.templates:200001 ../ubiquity.templates:201001
 msgid "Installation failed"
 msgstr "Falló la instalación"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:200001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1461,157 +1414,160 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:202001
+#: ../ubiquity.templates:201001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
 "L'instalador alcontró un fallu del que nun puede recuperase y va reaniciase."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
+#: ../ubiquity.templates:203001
 msgid "Preparing to install ${RELEASE}"
-msgstr "Instalar ${RELEASE}"
+msgstr "Tresnando pa instalar ${RELEASE}"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:204001
+msgid "Wireless"
+msgstr "Rede Inalámbrica"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
-msgid "Wireless"
-msgstr ""
+msgid "Please select your wireless network from this list"
+msgstr "Esbilla la rede inalámbrica d'esta llista"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
-msgid "Please select your wireless network from this list"
-msgstr ""
+#: ../ubiquity.templates:208001
+msgid "Select drive:"
+msgstr "Seleiciona la unidá:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
-msgid "Select drive:"
-msgstr ""
+msgid "Allocate drive space by dragging the divider below:"
+msgstr "Asigna l'espaciu en discu arrastrando'l siguiente divisor:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:210001
-msgid "Allocate drive space by dragging the divider below:"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:211001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>hai %d particiones anubríes más pequeñes, usa la <a "
+"href=\"\">ferramienta de particionáu avanzáu</a> pa un mayor control</small>"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:211001
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>hai 1 partición anubrida más pequeña, usa la <a href=\"\">ferramienta "
+"de particionáu avanzáu</a> pa mayor control</small>"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:212001
+msgid "Use Entire Partition"
+msgstr "Usar tola partición"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:213001
-#, fuzzy
-#| msgid "Create partition"
-msgid "Use Entire Partition"
-msgstr "Facer partición"
+msgid "Use Entire Disk"
+msgstr "Usar tol discu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
-msgid "Use Entire Disk"
-msgstr ""
+msgid "Split Largest Partition"
+msgstr "Dixebrar la partición más grande"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
-#, fuzzy
-#| msgid "Edit a partition"
-msgid "Split Largest Partition"
-msgstr "Remanar una partición"
+#: ../ubiquity.templates:216001
+msgid "For best results, please ensure:"
+msgstr "Pa tener meyores resultaos, asegúrate de:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
-msgid "For best results, please ensure:"
-msgstr ""
+msgid "that you have at least ${SIZE} available drive space"
+msgstr "que tienes polo mesnos ${SIZE} disponibles d'espaciu nel discu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-msgid "that you have at least ${SIZE} available drive space"
-msgstr ""
+msgid "that you are plugged in to a power source"
+msgstr "que tas coneutáu a una fonte d'enerxía eléctrica"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
-msgid "that you are plugged in to a power source"
-msgstr ""
+msgid "that you are connected to the Internet with an Ethernet cable"
+msgstr "que tas coneutáu a Internet con un cable Ethernet"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:220001
-msgid "that you are connected to the Internet"
+msgid ""
+"Ubuntu aims to be free and open-source software.  However, this is not "
+"always possible."
 msgstr ""
+"Ubuntu tien como oxetivu ser software llibre y de códigu abiertu. Sicasí, "
+"esto non siempres ye posible."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid ""
-"${RELEASE} supports MP3 playback, Flash content, wifi hardware, and similar "
-"functionality through third party software, not all of which is open "
-"source.  This software is subject to the license terms included with the "
-"software's documentation."
+"The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 audio "
+"decoding technology licensed from Faunhofer IIS and Thomson."
 msgstr ""
+"El siguiente avisu aplícase pal complementu MP3 Fluendo: teunoloxía de "
+"decodificación d'audio MPEG Layer-3 con llicencia de Faunhofer IIS and "
+"Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid ""
-"The following notice applies to the Fluendo MP3 plugin: \"MPEG Layer-3 audio "
-"decoding technology licensed from Fraunhofer IIS and Thomson.\""
-msgstr ""
+"Please off me non-open-source software if it is needed for a better "
+"experience"
+msgstr "Ufrime software propietariu si se necesita pa una esperiencia meyor"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
-msgid "Tick this box to install the software for this functionality."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:224001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "Descargar anovamientos mentes s'instala"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:225001
 msgid "Layout:"
 msgstr "Distribución:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:226001
 msgid "Variant:"
 msgstr "Variante:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:227001
 msgid "Below is an image of your current layout:"
 msgstr "Abaxo amuésase una imaxe de la distribución actual:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:231001
+#: ../ubiquity.templates:228001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1623,27 +1579,15 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232001
+#: ../ubiquity.templates:229001
 msgid "Time Zone:"
 msgstr "Estaya horaria:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:233001
+#: ../ubiquity.templates:230001
 msgid "Region:"
 msgstr "Rexón:"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:235001
-msgid ""
-"Ready to install?  Once you answer a few questions, the contents of the live "
-"${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
-"full speed without the ${MEDIUM}."
-msgstr ""
-"Preparáu pa instalar?  Una vegada tengas contestao a unes entrugues, los "
-"conteníos en ${MEDIUM} van instalase nel equipu y podrás executar ${RELEASE} "
-"normalmente, ensin ${MEDIUM}."
 
 #. Type: title
 #. Description
@@ -1709,84 +1653,37 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Desaniciando paquetes"
 
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "¿Cuál ye la distribución más asemeyada a la del so tecláu?"
+#~ msgid "What name do you want to use to log in?"
+#~ msgstr "¿Qué nome-y prestaría usar p'aniciar sesión?"
 
 #~ msgid "You can type into this box to test your new keyboard layout."
 #~ msgstr ""
 #~ "Pue escribir nesti campu pa prebar la so nueva distribución de tecláu."
 
-#~ msgid "Suggested option:"
-#~ msgstr "Opción suxerida:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Escoyer la de so:"
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Aldovinar el mapa de tecláu:"
-
-#~ msgid "Guess..."
-#~ msgstr "Aldovinar..."
+#~ msgid "Which layout is most similar to your keyboard?"
+#~ msgstr "¿Cuál ye la distribución más asemeyada a la del so tecláu?"
 
 #~ msgid "What is your name?"
 #~ msgstr "¿Cuál ye'l so nome?"
 
-#~ msgid "Full Name"
-#~ msgstr "Nome completu"
+#~ msgid "Choose your own:"
+#~ msgstr "Escoyer la de so:"
 
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "¿Qué nome-y prestaría usar p'aniciar sesión?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Si esti equipu va a usase por más d'una persona, tendrá de configurar "
-#~ "delles cuentes dempués de la instalación."
+#~ msgid "Suggested option:"
+#~ msgstr "Opción suxerida:"
 
 #~ msgid "Choose a password to keep your account safe."
 #~ msgstr "Escueyi una contraseña pa caltener la to cuenta segura."
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Inxerte la mesma contraseña dos vegaes, d'esti mou pueden comprobase los "
-#~ "errores de tecléu. Una bona contraseña contién un entemezu de lletres, "
-#~ "númberos y signos, tien de tener a lo menos d'ocho carauteres de "
-#~ "llonxitú, y hai de camudala a intervalos regulares."
-
-#~ msgid "Strength: too short"
-#~ msgstr "Fortaleza: enforma curtia"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Fortaleza: feble"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Fortaleza: normal"
-
-#~ msgid "Strength: good"
-#~ msgstr "Fortaleza: bona"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Fortaleza: fuerte"
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "¿Cuál ye'l nome d'esti equipu?"
-
-#~ msgid ""
 #~ "This name will be used if you make the computer visible to others on a "
 #~ "network."
 #~ msgstr ""
-#~ "Esti nome usaráse pa facer columbrable/deteutable esti equipu a otros de "
-#~ "la rede."
+#~ "Esti nome usaráse pa facer columbrable/deteutable esti equipu a otros de la "
+#~ "rede."
 
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Pidir la mio contraseña p'aniciar sesión y descifrar la mio carpeta "
-#~ "personal"
+#~ msgid "What is the name of this computer?"
+#~ msgstr "¿Cuál ye'l nome d'esti equipu?"
 
 #~ msgid "Prepare disk space"
 #~ msgstr "Tresnar l'espaciu del discu"
@@ -1800,5 +1697,49 @@ msgstr "Desaniciando paquetes"
 #~ msgid "Choose language"
 #~ msgstr "Escueyi la llingua"
 
+#~ msgid ""
+#~ "If more than one person will use this computer, you can set up multiple "
+#~ "accounts after installation."
+#~ msgstr ""
+#~ "Si esti equipu va a usase por más d'una persona, tendrá de configurar delles "
+#~ "cuentes dempués de la instalación."
+
+#~ msgid "Require my password to log in and to decrypt my home folder"
+#~ msgstr ""
+#~ "Pidir la mio contraseña p'aniciar sesión y descifrar la mio carpeta personal"
+
 #~ msgid "USB"
 #~ msgstr "USB"
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the live "
+#~ "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
+#~ "full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "Preparáu pa instalar?  Una vegada tengas contestao a unes entrugues, los "
+#~ "conteníos en ${MEDIUM} van instalase nel equipu y podrás executar ${RELEASE} "
+#~ "normalmente, ensin ${MEDIUM}."
+
+#~ msgid "Guess..."
+#~ msgstr "Aldovinar..."
+
+#~ msgid "Guess keymap:"
+#~ msgstr "Aldovinar el mapa de tecláu:"
+
+#~ msgid "Strength: fair"
+#~ msgstr "Fortaleza: normal"
+
+#~ msgid "Strength: strong"
+#~ msgstr "Fortaleza: fuerte"
+
+#~ msgid "Strength: good"
+#~ msgstr "Fortaleza: bona"
+
+#~ msgid "Strength: too short"
+#~ msgstr "Fortaleza: enforma curtia"
+
+#~ msgid "Strength: weak"
+#~ msgstr "Fortaleza: feble"
+
+#~ msgid "Full Name"
+#~ msgstr "Nome completu"

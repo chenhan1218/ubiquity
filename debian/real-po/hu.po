@@ -6,23 +6,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-08-26 19:46+0100\n"
-"PO-Revision-Date: 2010-04-21 21:27+0000\n"
+"POT-Creation-Date: 2010-08-06 14:13-0400\n"
+"PO-Revision-Date: 2010-08-26 00:14+0000\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
-"Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
-"org>\n"
+"Language-Team: Debian L10n Hungarian <debian-l10n-"
+"hungarian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
-"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
+"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: \n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr "ar"
+msgstr "A legnagyobb összefüggő szabad hely használata"
 
 #. Type: text
 #. Description
@@ -34,7 +34,8 @@ msgstr "Törlés és a teljes lemez felhasználása"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr "Telepítés egymás mellé és az indítandó kiválasztása rendszerindításkor"
+msgstr ""
+"Telepítés egymás mellé és az indítandó kiválasztása rendszerindításkor"
 
 #. Type: text
 #. Description
@@ -47,7 +48,7 @@ msgstr "Partíciók saját kezű megadása (haladóknak)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:186001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:185001
 msgid "Install"
 msgstr "Telepítés"
 
@@ -72,16 +73,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-#, fuzzy
-#| msgid ""
-#| "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
-#| "your system."
 msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"A(z) ${RELEASE} kipróbálása a számítógép módosítása nélkül, erről az "
-"adathordozóról: ${MEDIUM}"
 
 #. Type: text
 #. Description
@@ -142,18 +137,14 @@ msgstr "<a href=\"update\">Frissítheti ezt a telepítőt</a>."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2010."
 msgstr ""
-"Ez a(z) ${RELEASE} live ${MEDIUM} telepítőjének előzetes kiadása. Ez nem a "
-"végleges kiadás! Az a(z) ${RELEASE} részeként érkezik 2010 áprilisában."
+"Ez a(z) ${RELEASE} live ${MEDIUM} telepítő előzetes kiadása. Még nem a "
+"végleges kiadás, az a(z) ${RELEASE} végleges kiadásával fog érkezni 2010 "
+"októberében."
 
 #. Type: text
 #. Description
@@ -188,10 +179,8 @@ msgstr "Billentyűzetkiosztás"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Choose your keyboard layout:"
-msgstr "Billentyűzetkiosztás"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -202,10 +191,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure out keyboard layout"
-msgstr "Billentyűzetkiosztás"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -228,24 +215,20 @@ msgstr "Kicsoda Ön?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name:"
-msgstr "Számítógép neve"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name"
-msgstr "Számítógép neve"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Pick a username:"
-msgstr ""
+msgstr "Válasszon felhasználónevet:"
 
 #. Type: text
 #. Description
@@ -256,10 +239,8 @@ msgstr "Felhasználónév"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Choose a password:"
-msgstr "Válasszon másik jelszót"
+msgstr "Válasszon jelszót:"
 
 #. Type: text
 #. Description
@@ -270,10 +251,8 @@ msgstr "Jelszó"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Confirm password"
-msgstr "Jelszó újra"
+msgstr "Jelszó ellenőrzése"
 
 #. Type: text
 #. Description
@@ -284,42 +263,32 @@ msgstr "A rendszer hibakereső módban fut! Ne használjon „értékes” jelsz
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Short password"
-msgstr "Válasszon másik jelszót"
+msgstr "Rövid jelszó"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
-#, fuzzy
-#| msgid "Password"
 msgid "Weak password"
-msgstr "Jelszó"
+msgstr "Gyenge jelszó"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
-#, fuzzy
-#| msgid "Password"
 msgid "Fair password"
-msgstr "Jelszó"
+msgstr "Közepes jelszó"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
-#, fuzzy
-#| msgid "Password"
 msgid "Good password"
-msgstr "Jelszó"
+msgstr "Jó jelszó"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Strong password"
-msgstr "Jelszó újra"
+msgstr "Erős jelszó"
 
 #. Type: text
 #. Description
@@ -435,7 +404,8 @@ msgstr "Részletek"
 #: ../ubiquity.templates:57001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr "Az új operációs rendszer a következő beállításokkal kerül telepítésre:"
+msgstr ""
+"Az új operációs rendszer a következő beállításokkal kerül telepítésre:"
 
 #. Type: text
 #. Description
@@ -448,18 +418,14 @@ msgstr "Haladó…"
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:59001
-#, fuzzy
-#| msgid "Install[ action ]"
 msgid "_Install Now[ action ]"
-msgstr "Telepítés"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr "${INDEX}. lépés (Összesen: ${TOTAL})"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -565,19 +531,19 @@ msgstr "A telepítő összeomlott"
 #. Description
 #: ../ubiquity.templates:77001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
-"Elnézést, a telepítő összeomlott. Küldjön be egy új hibajelentést a https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug oldalon (ne egy meglévő "
-"hibához csatolja), és amint lehetséges egy fejlesztő megvizsgálja a "
+"Elnézést, a telepítő összeomlott. Küldjön be egy új hibajelentést a "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug oldalon (ne egy "
+"meglévő hibához csatolja), és amint lehetséges egy fejlesztő megvizsgálja a "
 "problémát. A fejlesztők munkájának segítése érdekében vegye be a következő "
-"részleteket a hibajelentésbe és csatolja a /var/log/syslog és /var/log/"
-"partman fájlok tartalmát:"
+"részleteket a hibajelentésbe és csatolja a /var/log/syslog és "
+"/var/log/partman fájlok tartalmát:"
 
 #. Type: text
 #. Description
@@ -738,13 +704,13 @@ msgstr "Speciális beállítások"
 #. Description
 #: ../ubiquity.templates:102001
 msgid "Boot loader"
-msgstr "Rendszertöltő"
+msgstr "Rendszerbetöltő"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:103001
 msgid "Install boot loader"
-msgstr "Rendszertöltő telepítése"
+msgstr "Rendszerbetöltő telepítése"
 
 #. Type: text
 #. Description
@@ -779,15 +745,10 @@ msgstr "Port:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:109001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
-"Installation has finished.  You can continue testing ${RELEASE} now, but "
-"until you restart the computer, any changes you make or documents you save "
-"will not be preserved."
+"Installation has finished.  You can continue testing Ubuntu now, but until "
+"you restart the computer, any changes you make or documents you save will "
+"not be preserved."
 msgstr ""
 "A telepítés befejeződött. Folytathatja az Ubuntu tesztelését, de ha "
 "újraindítja a számítógépét, a végrehajtott változtatások és az elmentett "
@@ -1038,7 +999,7 @@ msgstr "Gépnév beállítása…"
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Configuring boot loader..."
-msgstr "A rendszerindító konfigurálása…"
+msgstr "A rendszerbetöltő konfigurálása…"
 
 #. Type: text
 #. Description
@@ -1121,12 +1082,12 @@ msgstr "A következő csomagok törött állapotban vannak:"
 #: ../ubiquity.templates:148001 ../ubiquity.templates:149001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Ezt egy régi telepítő-lemezkép használata, vagy a fenti csomagok egyikének "
 "hibája okozhatja. További részletek a /var/log/syslog fájlban találhatók. A "
@@ -1157,8 +1118,8 @@ msgstr "A dokumentumok és beállítások költöztetése meghiúsult"
 #. Description
 #: ../ubiquity.templates:150001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1230,12 +1191,14 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167001
 msgid "Please close any applications using these mount points."
-msgstr "Zárjon be minden, a kérdéses csatolási pontokat használó alkalmazást."
+msgstr ""
+"Zárjon be minden, a kérdéses csatolási pontokat használó alkalmazást."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Kívánja, hogy a telepítő újra megpróbálja leválasztani ezeket a partíciókat?"
 
@@ -1275,7 +1238,7 @@ msgstr "Rendszerbeállítás"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001 ../ubiquity.templates:234001
+#: ../ubiquity.templates:175001 ../ubiquity.templates:231001
 msgid "Welcome"
 msgstr "Üdvözöljük"
 
@@ -1306,124 +1269,114 @@ msgstr "Nyelv"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:180001
-msgid "Prepare"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:181001
 msgid "Timezone"
 msgstr "Időzóna"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:181001
 msgid "Keyboard"
 msgstr "Billentyűzet"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:182001
 msgid "Disk Setup"
 msgstr "Lemezbeállítások"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:183001
 msgid "User Info"
 msgstr "Felhasználói adatok"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:184001
 msgid "Summary"
 msgstr "Összegzés"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:186001
 msgid "installation process"
 msgstr "telepítési folyamat"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:188001
 msgid "Checking for installer updates"
 msgstr "Telepítőfrissítések keresése"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:189001
 msgid "Reading package information"
 msgstr "Csomaginformációk olvasása"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:190001
 msgid "Updating package information"
 msgstr "Csomaginformációk frissítése"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:191001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "${INDEX}. fájl, összesen: ${TOTAL} (${SPEED}/s)"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:192001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "${INDEX}. fájl, összesen: ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:193001
 msgid "Installing update"
 msgstr "Frissítés telepítése"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "Error updating installer"
 msgstr "A telepítő frissítésekor hiba történt"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr "A telepítő frissítésekor hiba történt:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:195001
 msgid "USB disk"
-msgstr ""
+msgstr "USB-meghajtó"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:196001
 msgid "CD"
 msgstr "CD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
-#, fuzzy
-#| msgid ""
-#| "Please choose the language to use for the install process. This\n"
-#| " Language will be the default language for this computer."
+#: ../ubiquity.templates:197001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Válassza ki a telepítés során használandó nyelvet.\n"
-"Ez lesz a telepített rendszer alapértelmezett nyelve is."
+"Válassza ki a telepítés során használandó nyelvet. Ez lesz a telepített "
+"rendszer alapértelmezett nyelve is."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:198001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1433,7 +1386,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:199001
 msgid "Continue with installation."
 msgstr "Telepítés folytatása."
 
@@ -1441,13 +1394,13 @@ msgstr "Telepítés folytatása."
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001 ../ubiquity.templates:202001
+#: ../ubiquity.templates:200001 ../ubiquity.templates:201001
 msgid "Installation failed"
 msgstr "A telepítés meghiúsult"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:200001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1458,45 +1411,43 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:202001
+#: ../ubiquity.templates:201001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr "A telepítő helyreállíthatatlan hibát észlelt, és újraindul."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
+#: ../ubiquity.templates:203001
 msgid "Preparing to install ${RELEASE}"
-msgstr "A(z) ${RELEASE} telepítése"
+msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:205001
+#: ../ubiquity.templates:204001
 msgid "Wireless"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
+#: ../ubiquity.templates:205001
 msgid "Please select your wireless network from this list"
-msgstr ""
+msgstr "Válassza ki a vezeték nélküli hálózatát a listából"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:208001
+msgid "Select drive:"
+msgstr "Válasszon meghajtót:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
-msgid "Select drive:"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:210001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:211001
+#: ../ubiquity.templates:210001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
@@ -1505,7 +1456,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:211001
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
@@ -1513,101 +1464,97 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:213001
-#, fuzzy
-#| msgid "Create partition"
+#: ../ubiquity.templates:212001
 msgid "Use Entire Partition"
-msgstr "Partíció létrehozása"
+msgstr "Teljes partició használata"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:214001
+#: ../ubiquity.templates:213001
 msgid "Use Entire Disk"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
-#, fuzzy
-#| msgid "Edit a partition"
+#: ../ubiquity.templates:214001
 msgid "Split Largest Partition"
-msgstr "Egy partíció szerkesztése"
+msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:217001
+#: ../ubiquity.templates:216001
 msgid "For best results, please ensure:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:218001
+#: ../ubiquity.templates:217001
 msgid "that you have at least ${SIZE} available drive space"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:219001
+#: ../ubiquity.templates:218001
 msgid "that you are plugged in to a power source"
 msgstr ""
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:219001
+msgid "that you are connected to the Internet with an Ethernet cable"
+msgstr ""
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:220001
-msgid "that you are connected to the Internet"
+msgid ""
+"Ubuntu aims to be free and open-source software.  However, this is not "
+"always possible."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid ""
-"${RELEASE} supports MP3 playback, Flash content, wifi hardware, and similar "
-"functionality through third party software, not all of which is open "
-"source.  This software is subject to the license terms included with the "
-"software's documentation."
+"The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 audio "
+"decoding technology licensed from Faunhofer IIS and Thomson."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid ""
-"The following notice applies to the Fluendo MP3 plugin: \"MPEG Layer-3 audio "
-"decoding technology licensed from Fraunhofer IIS and Thomson.\""
+"Please off me non-open-source software if it is needed for a better "
+"experience"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
-msgid "Tick this box to install the software for this functionality."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:224001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "Frissítések letöltése a telepítés közben"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:225001
 msgid "Layout:"
 msgstr "Elrendezés:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:226001
 msgid "Variant:"
 msgstr "Változat:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:227001
 msgid "Below is an image of your current layout:"
 msgstr "Ez a kép a jelenlegi billentyűzetkiosztást ábrázolja:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:231001
+#: ../ubiquity.templates:228001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1619,27 +1566,15 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232001
+#: ../ubiquity.templates:229001
 msgid "Time Zone:"
 msgstr "Időzóna:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:233001
+#: ../ubiquity.templates:230001
 msgid "Region:"
 msgstr "Régió:"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:235001
-msgid ""
-"Ready to install?  Once you answer a few questions, the contents of the live "
-"${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
-"full speed without the ${MEDIUM}."
-msgstr ""
-"Készen áll a telepítésre? Pár kérdés megválaszolása után telepítheti "
-"számítógépére a live ${MEDIUM} tartalmát, ezután a számítógép teljes "
-"kapacitását kihasználva futtatható a(z) ${RELEASE}."
 
 #. Type: title
 #. Description
@@ -1708,27 +1643,14 @@ msgstr "Csomagok eltávolítása"
 #~ msgid "Which layout is most similar to your keyboard?"
 #~ msgstr "Melyik kiosztás hasonlít legjobban a billentyűzetére?"
 
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "Az új billentyűzetkiosztás tesztelése érdekében írjon ebbe a szövegmezőbe."
-
 #~ msgid "Suggested option:"
 #~ msgstr "Javasolt beállítás:"
 
 #~ msgid "Choose your own:"
 #~ msgstr "Egyéni használata:"
 
-#~ msgid "Guess keymap:"
-#~ msgstr "Kiosztás felderítése:"
-
-#~ msgid "Guess..."
-#~ msgstr "Felderítés…"
-
 #~ msgid "What is your name?"
 #~ msgstr "Mi a neve?"
-
-#~ msgid "Full Name"
-#~ msgstr "Teljes név"
 
 #~ msgid "What name do you want to use to log in?"
 #~ msgstr "Milyen felhasználói nevet szeretne használni a bejelentkezéshez?"
@@ -1744,29 +1666,14 @@ msgstr "Csomagok eltávolítása"
 #~ msgstr "Válasszon jelszót, hogy biztonságban lehessen felhasználói fiókja."
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
 #~ msgstr ""
-#~ "Írja be ugyanazt a jelszót kétszer a gépelési hibák kiszűrése érdekében. "
-#~ "A jó jelszó vegyesen tartalmaz betűket, számokat és írásjeleket, legalább "
+#~ "Írja be ugyanazt a jelszót kétszer a gépelési hibák kiszűrése érdekében. A "
+#~ "jó jelszó vegyesen tartalmaz betűket, számokat és írásjeleket, legalább "
 #~ "nyolc karakter hosszú és rendszeresen váltogatni kell."
-
-#~ msgid "Strength: too short"
-#~ msgstr "Erősség: túl rövid"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Erősség: gyenge"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Erősség: elég jó"
-
-#~ msgid "Strength: good"
-#~ msgstr "Erősség: megfelelő"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Erősség: biztonságos"
 
 #~ msgid "What is the name of this computer?"
 #~ msgstr "Mi a neve ennek a számítógépnek?"
@@ -1777,10 +1684,6 @@ msgstr "Csomagok eltávolítása"
 #~ msgstr ""
 #~ "Ez a név akkor lesz használatban, ha láthatóvá teszi a számítógépet egy "
 #~ "hálózaton."
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Jelszó megkövetelése a bejelentkezéshez és saját mappám visszafejtéséhez"
 
 #~ msgid "Prepare disk space"
 #~ msgstr "Lemezhely előkészítése"
@@ -1794,5 +1697,46 @@ msgstr "Csomagok eltávolítása"
 #~ msgid "Choose language"
 #~ msgstr "Válasszon nyelvet/Choose language"
 
+#~ msgid "Require my password to log in and to decrypt my home folder"
+#~ msgstr ""
+#~ "Jelszó megkövetelése a bejelentkezéshez és saját mappám visszafejtéséhez"
+
+#~ msgid "Strength: too short"
+#~ msgstr "Erősség: túl rövid"
+
+#~ msgid "Strength: good"
+#~ msgstr "Erősség: megfelelő"
+
+#~ msgid "Strength: fair"
+#~ msgstr "Erősség: elég jó"
+
+#~ msgid "Strength: weak"
+#~ msgstr "Erősség: gyenge"
+
+#~ msgid "Full Name"
+#~ msgstr "Teljes név"
+
+#~ msgid "Strength: strong"
+#~ msgstr "Erősség: biztonságos"
+
 #~ msgid "USB"
 #~ msgstr "USB"
+
+#~ msgid "Guess..."
+#~ msgstr "Felderítés…"
+
+#~ msgid "Guess keymap:"
+#~ msgstr "Kiosztás felderítése:"
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the live "
+#~ "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
+#~ "full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "Készen áll a telepítésre? Pár kérdés megválaszolása után telepítheti "
+#~ "számítógépére a live ${MEDIUM} tartalmát, ezután a számítógép teljes "
+#~ "kapacitását kihasználva futtatható a(z) ${RELEASE}."
+
+#~ msgid "You can type into this box to test your new keyboard layout."
+#~ msgstr ""
+#~ "Az új billentyűzetkiosztás tesztelése érdekében írjon ebbe a szövegmezőbe."

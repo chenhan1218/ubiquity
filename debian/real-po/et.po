@@ -6,49 +6,48 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-08-26 19:46+0100\n"
-"PO-Revision-Date: 2010-04-21 19:27+0000\n"
+"POT-Creation-Date: 2010-08-06 14:13-0400\n"
+"PO-Revision-Date: 2010-08-21 16:16+0000\n"
 "Last-Translator: mahfiaz <mahfiaz@gmail.com>\n"
 "Language-Team: Eesti <linuxiabi@hot.ee>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
-"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
+"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: \n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr "Kasuta ketta suurimat vaba ala"
+msgstr "Kasutatakse suurimat järjestikust vaba ruumi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr "Tühjenda ketas ja kasuta kogu vaba ruumi"
+msgstr "Andmed kettalt kustutatakse ja kasutatakse kogu vaba ruumi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
 msgstr ""
-"Paigalda süsteemid üksteise kõrvale nii, et käivitamisel saab valida, "
-"missugust kasutada"
+"Süsteemid paigaldatakse kõrvuti, igal käivitamisel küsitakse kumba kasutada."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr "Määra partitsioonid käsitsi (keeruline)"
+msgstr "Partitsioonide käsitsi määramine (keeruline)"
 
 #. Type: text
 #. Description
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:186001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:185001
 msgid "Install"
 msgstr "Paigaldamine"
 
@@ -73,16 +72,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-#, fuzzy
-#| msgid ""
-#| "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
-#| "your system."
 msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"Sa võid käivitada ja proovida ${RELEASE} väljalaset ${MEDIUM} pealt ilma "
-"süsteemi muudatusi tegemata."
+"Sa võid proovida ${RELEASE} ilma oma arvutisse mingeid muudatusi tegemata, "
+"otse sellelt ${MEDIUM}-lt."
 
 #. Type: text
 #. Description
@@ -91,6 +86,8 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
+"Kui sa oled valmis, võid paigaldada ${RELEASE} oma praeguse "
+"operatsioonisüsteemi kõrvale (või asemele). See ei tohiks võtta kaua."
 
 #. Type: text
 #. Description
@@ -143,18 +140,13 @@ msgstr "Soovi korral võid <a href=\"update\">uuendada paigaldajat</a>."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2010."
 msgstr ""
-"See on ${RELEASE} eelväljalaske live-paigaldaja ${MEDIUM}. See ei ole "
-"${RELEASE} lõplik väljalase, see tuleb aprillis 2010."
+"See on ${RELEASE} eelväljalaske proovi-${MEDIUM} paigaldaja. See ei ole "
+"lõplik väljalase; see saabub koos ${RELEASE} väljalaskega oktoobris 2010."
 
 #. Type: text
 #. Description
@@ -172,7 +164,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Warning"
-msgstr ""
+msgstr "Hoiatus"
 
 #. Type: text
 #. Description
@@ -189,24 +181,20 @@ msgstr "Klahvistiku asetus"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Choose your keyboard layout:"
-msgstr "Klahvistiku asetus"
+msgstr "Vali klaviatuuripaigutus:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Klaviatuuri proovimiseks sisesta siia"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure out keyboard layout"
-msgstr "Klahvistiku asetus"
+msgstr "Tuvasta klaviatuuripaigutus"
 
 #. Type: text
 #. Description
@@ -229,24 +217,20 @@ msgstr "Kes sa oled?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name:"
-msgstr "Arvuti nimi"
+msgstr "Sinu nimi:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name"
-msgstr "Arvuti nimi"
+msgstr "Sinu nimi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Pick a username:"
-msgstr ""
+msgstr "Vali kasutajanimi:"
 
 #. Type: text
 #. Description
@@ -257,10 +241,8 @@ msgstr "Kasutajanimi"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Choose a password:"
-msgstr "Vali mõni teine parool"
+msgstr "Vali parool:"
 
 #. Type: text
 #. Description
@@ -271,10 +253,8 @@ msgstr "Parool"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Confirm password"
-msgstr "Parool uuesti"
+msgstr "Parooli kinnitus"
 
 #. Type: text
 #. Description
@@ -285,42 +265,32 @@ msgstr "Arvuti töötab vigade silumise režiimis. Ära kasuta olulist parooli!"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Short password"
-msgstr "Vali mõni teine parool"
+msgstr "Parool on lühike"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
-#, fuzzy
-#| msgid "Password"
 msgid "Weak password"
-msgstr "Parool"
+msgstr "Parool on nõrk"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
-#, fuzzy
-#| msgid "Password"
 msgid "Fair password"
-msgstr "Parool"
+msgstr "Parool on paras"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
-#, fuzzy
-#| msgid "Password"
 msgid "Good password"
-msgstr "Parool"
+msgstr "Parool on hea"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Strong password"
-msgstr "Parool uuesti"
+msgstr "Parool on kindel"
 
 #. Type: text
 #. Description
@@ -338,7 +308,7 @@ msgstr "Sisselogimiseks küsitakse parooli"
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "Kodukataloog krüpteeritakse"
 
 #. Type: text
 #. Description
@@ -370,7 +340,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Allocate drive space"
-msgstr ""
+msgstr "Kettaruumi määramine"
 
 #. Type: text
 #. Description
@@ -447,18 +417,14 @@ msgstr "Üksikasjad..."
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:59001
-#, fuzzy
-#| msgid "Install[ action ]"
 msgid "_Install Now[ action ]"
-msgstr "Paigalda"
+msgstr "_Paigalda kohe"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr "${INDEX}. samm ${TOTAL}-st"
+msgstr "Samm ${INDEX}/${TOTAL}"
 
 #. Type: title
 #. Description
@@ -561,18 +527,18 @@ msgstr "Paigaldaja krahhis"
 #. Description
 #: ../ubiquity.templates:77001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
-"Vabandust - paigaldaja krahhis. Veast raporteeri aadressil https://launchpad."
-"net/ubuntu/+source/ubiquity/+filebug (ära lisa oma teadet juba olemas "
-"olevale veateatele) ja arendaja vaatab selle probleemi üle nii pea kui "
-"võimalik. Et aidata arendajatel vea põhjustest aru saada, lisa raportile "
-"failid /var/log/syslog ja /var/log/partman ning järgnev teave:"
+"Vabandust - paigaldaja krahhis. Veast raporteeri aadressil "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (ära lisa oma teadet "
+"juba olemas olevale veateatele) ja arendaja vaatab selle probleemi üle nii "
+"pea kui võimalik. Et aidata arendajatel vea põhjustest aru saada, lisa "
+"raportile failid /var/log/syslog ja /var/log/partman ning järgnev teave:"
 
 #. Type: text
 #. Description
@@ -774,15 +740,10 @@ msgstr "Port:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:109001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
-"Installation has finished.  You can continue testing ${RELEASE} now, but "
-"until you restart the computer, any changes you make or documents you save "
-"will not be preserved."
+"Installation has finished.  You can continue testing Ubuntu now, but until "
+"you restart the computer, any changes you make or documents you save will "
+"not be preserved."
 msgstr ""
 "Paigaldamine on lõppenud. Sa võid küll jätkata Ubuntu proovimist, kuid "
 "seadistusi ja loodud dokumente pole võimalik hakata püsivalt säilitama enne, "
@@ -952,8 +913,8 @@ msgid ""
 "replacement, or to move the system to a cooler environment."
 msgstr ""
 "Selle põhjus on tihti vigane CD-/DVD-plaat, -lugeja või riknenud kõvaketas. "
-"Võib aidata plaadi puhastamine, plaadi kirjutamine aeglasemal kiirusel, CD-/"
-"DVD-lugeja läätse puhastamine (puhastuskomplekte müüakse "
+"Võib aidata plaadi puhastamine, plaadi kirjutamine aeglasemal kiirusel, CD-"
+"/DVD-lugeja läätse puhastamine (puhastuskomplekte müüakse "
 "elektroonikapoodides), kõvaketta hooldus ja vajadusel asendamine või ka "
 "arvuti paigutamine jahedamasse keskkonda."
 
@@ -1116,12 +1077,12 @@ msgstr "Vigaseks osutusid järgmised paketid:"
 #: ../ubiquity.templates:148001 ../ubiquity.templates:149001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "See võib juhtuda kui kasutada vana paigaldajatõmmist, või on tegemist veaga "
 "mõnes eeltoodud paketis. Täpsem info leidub failis /var/log/syslog. "
@@ -1153,8 +1114,8 @@ msgstr "Tõrge dokumentide ja sätete ületoomisel"
 #. Description
 #: ../ubiquity.templates:150001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1189,7 +1150,7 @@ msgstr "Mittevajalike failide tuvastamine..."
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "Kui sa oled valmis..."
 
 #. Type: title
 #. Description
@@ -1229,8 +1190,10 @@ msgstr "Palun sulge kõik rakendused, mis kasutavad neid liitepunkte."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr "Kas paigaldaja peaks proovima neid kettajagusid uuesti lahti ühendada?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
+msgstr ""
+"Kas paigaldaja peaks proovima neid kettajagusid uuesti lahti ühendada?"
 
 #. Type: boolean
 #. Description
@@ -1268,7 +1231,7 @@ msgstr "Süsteemi seadistus"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001 ../ubiquity.templates:234001
+#: ../ubiquity.templates:175001 ../ubiquity.templates:231001
 msgid "Welcome"
 msgstr "Tere tulemast"
 
@@ -1299,124 +1262,114 @@ msgstr "Keel"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:180001
-msgid "Prepare"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:181001
 msgid "Timezone"
 msgstr "Ajavöönd"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:181001
 msgid "Keyboard"
 msgstr "Klaviatuur"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:182001
 msgid "Disk Setup"
 msgstr "Kettaseadistus"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:183001
 msgid "User Info"
 msgstr "Kasutaja andmed"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:184001
 msgid "Summary"
 msgstr "Kokkuvõte"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:186001
 msgid "installation process"
 msgstr "paigaldusprotsess"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:188001
 msgid "Checking for installer updates"
 msgstr "Paigaldaja uuenduste kontroll"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:189001
 msgid "Reading package information"
 msgstr "Paketiloendi lugemine"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:190001
 msgid "Updating package information"
 msgstr "Paketiloendi uuendamine"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:191001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "Fail ${INDEX}/${TOTAL} kiirusel ${SPEED}/s"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:192001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "Fail ${INDEX}/${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:193001
 msgid "Installing update"
 msgstr "Uuenduse paigaldamine"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "Error updating installer"
 msgstr "Tõrge paigaldaja uuendamisel"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr "Paigaldajas esines iseenda uuendamisel tõrge:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:195001
 msgid "USB disk"
-msgstr ""
+msgstr "USB-pulk"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:196001
 msgid "CD"
 msgstr "CD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
-#, fuzzy
-#| msgid ""
-#| "Please choose the language to use for the install process. This\n"
-#| " Language will be the default language for this computer."
+#: ../ubiquity.templates:197001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Vali keel, mida kasutada paigalduse läbiviimisel.\n"
-" See keel jääb sinu süsteemi vaikimisi keeleks."
+"Palun vali, mis keeles tahad paigaldada. Sellest keelest saab sinu arvuti "
+"vaikimisi keel."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:198001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1426,7 +1379,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:199001
 msgid "Continue with installation."
 msgstr "Jätka paigaldusega."
 
@@ -1434,13 +1387,13 @@ msgstr "Jätka paigaldusega."
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001 ../ubiquity.templates:202001
+#: ../ubiquity.templates:200001 ../ubiquity.templates:201001
 msgid "Installation failed"
 msgstr "Paigaldamine nurjus"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:200001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1450,189 +1403,180 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:202001
+#: ../ubiquity.templates:201001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr "Paigaldajas esines möödapääsmatu tõrge, kohe tehakse taaskäivitus."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
+#: ../ubiquity.templates:203001
 msgid "Preparing to install ${RELEASE}"
-msgstr "Paigalda ${RELEASE}"
+msgstr "${RELEASE} paigalduse ettevalmistamine"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:204001
+msgid "Wireless"
+msgstr "Raadiovõrk"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
-msgid "Wireless"
-msgstr ""
+msgid "Please select your wireless network from this list"
+msgstr "Palun vali nimekirjast oma raadiovõrgu seade"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
-msgid "Please select your wireless network from this list"
-msgstr ""
+#: ../ubiquity.templates:208001
+msgid "Select drive:"
+msgstr "Vali ketas:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
-msgid "Select drive:"
-msgstr ""
+msgid "Allocate drive space by dragging the divider below:"
+msgstr "Eralda ruumi lohistades alumist eraldajat:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:210001
-msgid "Allocate drive space by dragging the divider below:"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:211001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>%d väiksemad partitsioonid on varjatud, täpsemaks muutmiseks kasuta "
+"<a href=\"\">keerulisemat partitsioneerimise vahendit</a></small>"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:211001
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>1 väiksem partitsioon on varjatud, täpsemalt saab seadistada <a "
+"href=\"\">partitsiooneerimise tööriistaga</a></small>"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:212001
+msgid "Use Entire Partition"
+msgstr "Kasutatakse kogu partitsiooni"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:213001
-#, fuzzy
-#| msgid "Create partition"
-msgid "Use Entire Partition"
-msgstr "Loo kettajagu"
+msgid "Use Entire Disk"
+msgstr "Kasutatakse kogu ketast"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
-msgid "Use Entire Disk"
-msgstr ""
+msgid "Split Largest Partition"
+msgstr "Tükeldatakse suurim partitsioon"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
-#, fuzzy
-#| msgid "Edit a partition"
-msgid "Split Largest Partition"
-msgstr "Muuda kettajagu"
+#: ../ubiquity.templates:216001
+msgid "For best results, please ensure:"
+msgstr "Õnnestumiseks veendu, et:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
-msgid "For best results, please ensure:"
-msgstr ""
+msgid "that you have at least ${SIZE} available drive space"
+msgstr "sul on vähemalt ${SIZE} vaba kettaruumi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-msgid "that you have at least ${SIZE} available drive space"
-msgstr ""
+msgid "that you are plugged in to a power source"
+msgstr "arvuti on ühendatud vooluvõrku"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
-msgid "that you are plugged in to a power source"
-msgstr ""
+msgid "that you are connected to the Internet with an Ethernet cable"
+msgstr "sa oled ühendatud võrgukaabli kaudu internetti"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:220001
-msgid "that you are connected to the Internet"
+msgid ""
+"Ubuntu aims to be free and open-source software.  However, this is not "
+"always possible."
 msgstr ""
+"Ubuntu tahab olla tasuta ja avatud koodiga. Kahjuks ei ole see alati "
+"võimalik."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid ""
-"${RELEASE} supports MP3 playback, Flash content, wifi hardware, and similar "
-"functionality through third party software, not all of which is open "
-"source.  This software is subject to the license terms included with the "
-"software's documentation."
+"The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 audio "
+"decoding technology licensed from Faunhofer IIS and Thomson."
 msgstr ""
+"Järgnev märkus kehtib Fluendo MP3 plugina kohta: MPEG Layer-3 audio "
+"dekodeerimise tehnoloogia, mille litsentsi omavad Faunhofer IIS ja Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid ""
-"The following notice applies to the Fluendo MP3 plugin: \"MPEG Layer-3 audio "
-"decoding technology licensed from Fraunhofer IIS and Thomson.\""
+"Please off me non-open-source software if it is needed for a better "
+"experience"
 msgstr ""
+"Palun paku mulle mitte-vabavara, kui see on vajalik paremaks "
+"kasutuskogemuseks"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
-msgid "Tick this box to install the software for this functionality."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:224001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "Uuenduste allalaadimine paigaldamisel"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:225001
 msgid "Layout:"
 msgstr "Asetus"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:226001
 msgid "Variant:"
 msgstr "Variant:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:227001
 msgid "Below is an image of your current layout:"
 msgstr "Allpool on sinu praeguse klahvistikuasetuse kujutis"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:231001
+#: ../ubiquity.templates:228001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
 "Vali oma asukoht, et süsteem teaks kasutada sinu riigis kehtivaid "
-"vorminõudeid, laadida uuendusi lähimatest serveritest ning määrata kellaaja "
-"vastavalt kohalikule ajale."
+"vorminõudeid, laadida uuendusi lähimatest serveritest ning määrata kella "
+"kohaliku aja järgi."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232001
+#: ../ubiquity.templates:229001
 msgid "Time Zone:"
 msgstr "Ajavöönd:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:233001
+#: ../ubiquity.templates:230001
 msgid "Region:"
 msgstr "Regioon:"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:235001
-msgid ""
-"Ready to install?  Once you answer a few questions, the contents of the live "
-"${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
-"full speed without the ${MEDIUM}."
-msgstr ""
-"Oled sa valmis paigaldama? Selleks, et paigaldada praegu ${MEDIUM} pealt "
-"käivitatud operatsioonisüsteem sellesse arvutisse, tuleb vastata mõnele "
-"küsimusele. Kui ${RELEASE} väljalaske paigaldamine on lõppenud, saad "
-"edaspidi kasutada seda täiskiirusel ja vajamata käivitamiseks ${MEDIUM}'d."
 
 #. Type: title
 #. Description
@@ -1696,11 +1640,20 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Pakettide eemaldamine"
 
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Milline klahvide asetus sobib sinu klaviatuuriga kõige paremini?"
+#~ msgid "What is your name?"
+#~ msgstr "Mis su nimi on?"
 
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr "Klahvide asetuse proovimiseks võid siia kasti trükkida."
+#~ msgid "Choose a password to keep your account safe."
+#~ msgstr "Vali parool, et arvuti kasutamine oleks turvaline."
+
+#~ msgid "What is the name of this computer?"
+#~ msgstr "Mis on selle arvuti nimi?"
+
+#~ msgid "Before:"
+#~ msgstr "Enne:"
+
+#~ msgid "After:"
+#~ msgstr "Pärast:"
 
 #~ msgid "Suggested option:"
 #~ msgstr "Soovitatav valik:"
@@ -1708,20 +1661,21 @@ msgstr "Pakettide eemaldamine"
 #~ msgid "Choose your own:"
 #~ msgstr "Vali endale sobiv:"
 
-#~ msgid "Guess keymap:"
-#~ msgstr "Klahvistikuasetuse aimamine:"
+#~ msgid ""
+#~ "This name will be used if you make the computer visible to others on a "
+#~ "network."
+#~ msgstr ""
+#~ "Seda nime kasutatakse siis, kui sa avad ligipääsu oma arvutile võrgu kaudu."
 
-#~ msgid "Guess..."
-#~ msgstr "Aima..."
-
-#~ msgid "What is your name?"
-#~ msgstr "Mis su nimi on?"
-
-#~ msgid "Full Name"
-#~ msgstr "Täisnimi"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Mis nime tahad sisselogimisel kasutada?"
+#~ msgid ""
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
+#~ msgstr ""
+#~ "Kirjavigade välistamiseks sisesta parool kaks korda. Hea parool sisaldab "
+#~ "tähti, numbreid ja kirjavahemärke ning on vähemalt kaheksa märki pikk. "
+#~ "Parooli on soovitatav regulaarselt muuta."
 
 #~ msgid ""
 #~ "If more than one person will use this computer, you can set up multiple "
@@ -1730,18 +1684,32 @@ msgstr "Pakettide eemaldamine"
 #~ "Kui arvutit hakkab kasutama rohkem kui üks inimene, siis saad ka pärast "
 #~ "paigaldust kasutajakontosid juurde luua."
 
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Vali parool, et arvuti kasutamine oleks turvaline."
+#~ msgid "What name do you want to use to log in?"
+#~ msgstr "Mis nime tahad sisselogimisel kasutada?"
 
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Kirjavigade välistamiseks sisesta parool kaks korda. Hea parool sisaldab "
-#~ "tähti, numbreid ja kirjavahemärke ning on vähemalt kaheksa märki pikk. "
-#~ "Parooli on soovitatav regulaarselt muuta."
+#~ msgid "Choose language"
+#~ msgstr "Vali keel/Choose language"
+
+#~ msgid "Which layout is most similar to your keyboard?"
+#~ msgstr "Milline klahvide asetus sobib sinu klaviatuuriga kõige paremini?"
+
+#~ msgid "Prepare disk space"
+#~ msgstr "Ketta ettevalmistamine"
+
+#~ msgid "Require my password to log in and to decrypt my home folder"
+#~ msgstr "Sisselogimiseks ja kodukataloogi lahtikrüptimiseks küsitakse parooli"
+
+#~ msgid "USB"
+#~ msgstr "USB"
+
+#~ msgid "Strength: good"
+#~ msgstr "Tugevus: hea"
+
+#~ msgid "Strength: fair"
+#~ msgstr "Tugevus: paras"
+
+#~ msgid "Strength: strong"
+#~ msgstr "Tugevus: kindel"
 
 #~ msgid "Strength: too short"
 #~ msgstr "Tugevus: liiga lühike"
@@ -1749,40 +1717,14 @@ msgstr "Pakettide eemaldamine"
 #~ msgid "Strength: weak"
 #~ msgstr "Tugevus: nõrk"
 
-#~ msgid "Strength: fair"
-#~ msgstr "Tugevus: paras"
+#~ msgid "You can type into this box to test your new keyboard layout."
+#~ msgstr "Klahvide asetuse proovimiseks võid siia kasti trükkida."
 
-#~ msgid "Strength: good"
-#~ msgstr "Tugevus: hea"
+#~ msgid "Full Name"
+#~ msgstr "Täisnimi"
 
-#~ msgid "Strength: strong"
-#~ msgstr "Tugevus: kindel"
+#~ msgid "Guess..."
+#~ msgstr "Aima..."
 
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Mis on selle arvuti nimi?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Seda nime kasutatakse siis, kui sa avad ligipääsu oma arvutile võrgu "
-#~ "kaudu."
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Sisselogimiseks ja kodukataloogi lahtikrüptimiseks küsitakse parooli"
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Ketta ettevalmistamine"
-
-#~ msgid "Before:"
-#~ msgstr "Enne:"
-
-#~ msgid "After:"
-#~ msgstr "Pärast:"
-
-#~ msgid "Choose language"
-#~ msgstr "Vali keel/Choose language"
-
-#~ msgid "USB"
-#~ msgstr "USB"
+#~ msgid "Guess keymap:"
+#~ msgstr "Klahvistikuasetuse aimamine:"

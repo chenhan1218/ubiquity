@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-08-26 19:46+0100\n"
-"PO-Revision-Date: 2010-04-19 14:54+0000\n"
+"POT-Creation-Date: 2010-08-06 14:13-0400\n"
+"PO-Revision-Date: 2010-08-13 19:32+0000\n"
 "Last-Translator: cumulus007 <cumulus0007@gmail.com>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
-"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
+"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: nl\n"
 
 #. Type: text
 #. Description
@@ -47,7 +47,7 @@ msgstr "Partities handmatig specificeren (geavanceerd)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:186001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:185001
 msgid "Install"
 msgstr "Installeren"
 
@@ -72,16 +72,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-#, fuzzy
-#| msgid ""
-#| "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
-#| "your system."
 msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"U kunt ${RELEASE} vanaf de ${MEDIUM} uitproberen zonder wijzigingen aan te "
-"brengen aan uw computer."
+"Wanneer u ${RELEASE} uitprobeert vanaf deze ${MEDIUM}, verandert er helemaal "
+"niets aan uw computer."
 
 #. Type: text
 #. Description
@@ -90,6 +86,9 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
+"Klaar om te installeren? U kunt ${RELEASE} naast (of in plaats van) uw "
+"huidige besturingssysteem installeren. Doorgaans duurt dit niet langer dan "
+"een halfuur."
 
 #. Type: text
 #. Description
@@ -114,7 +113,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Answering the questions should only take a few minutes."
-msgstr "Het beantwoorden van de vragen neemt slechts enkele minuten in beslag."
+msgstr ""
+"Het beantwoorden van de vragen neemt slechts enkele minuten in beslag."
 
 #. Type: text
 #. Description
@@ -123,8 +123,8 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"U kunt de <a href=\"release-notes\">uitgave-opmerkingen</a> lezen of <a href="
-"\"update\">dit installatieprogramma bijwerken</a>."
+"U kunt de <a href=\"release-notes\">uitgave-opmerkingen</a> lezen of <a "
+"href=\"update\">dit installatieprogramma bijwerken</a>."
 
 #. Type: text
 #. Description
@@ -141,19 +141,14 @@ msgstr "U kunt <a href=\"update\">dit installatieprogramma bijwerken</a>."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2010."
 msgstr ""
-"Dit is een testuitgave van het ${MEDIUM}-installatieprogramma voor "
-"${RELEASE}. Dit is niet de uiteindelijke uitgave; de uiteindelijke uitgave "
-"zal worden meegeleverd met ${RELEASE} in april 2010."
+"Dit is een pre-uitgave van het live-${MEDIUM}-installatieprogramma van "
+"${RELEASE}. Dit is geen definitieve uitgave; de uiteindelijke uitgave zal "
+"beschikbaar zijn bij de uitgave van ${RELEASE} in oktober 2010."
 
 #. Type: text
 #. Description
@@ -171,7 +166,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Warning"
-msgstr ""
+msgstr "Waarschuwing"
 
 #. Type: text
 #. Description
@@ -188,24 +183,20 @@ msgstr "Toetsenbordindeling"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Choose your keyboard layout:"
-msgstr "Toetsenbordindeling"
+msgstr "Kies uw toetsenbordindeling:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Typ hier om uw toetsenbord te testen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure out keyboard layout"
-msgstr "Toetsenbordindeling"
+msgstr "Indeling raden"
 
 #. Type: text
 #. Description
@@ -228,24 +219,20 @@ msgstr "Wie bent u?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name:"
-msgstr "Computernaam"
+msgstr "Uw naam:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name"
-msgstr "Computernaam"
+msgstr "Uw naam"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Pick a username:"
-msgstr ""
+msgstr "Kies een gebruikersnaam:"
 
 #. Type: text
 #. Description
@@ -256,10 +243,8 @@ msgstr "Gebruikersnaam"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Choose a password:"
-msgstr "Kies een nieuw wachtwoord"
+msgstr "Kies een wachtwoord:"
 
 #. Type: text
 #. Description
@@ -270,10 +255,8 @@ msgstr "Wachtwoord"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Confirm password"
-msgstr "Wachtwoord opnieuw invoeren"
+msgstr "Wachtwoord bevestigen"
 
 #. Type: text
 #. Description
@@ -285,42 +268,32 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Short password"
-msgstr "Kies een nieuw wachtwoord"
+msgstr "Kort wachtwoord"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
-#, fuzzy
-#| msgid "Password"
 msgid "Weak password"
-msgstr "Wachtwoord"
+msgstr "Zwak wachtwoord"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
-#, fuzzy
-#| msgid "Password"
 msgid "Fair password"
-msgstr "Wachtwoord"
+msgstr "Degelijk wachtwoord"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
-#, fuzzy
-#| msgid "Password"
 msgid "Good password"
-msgstr "Wachtwoord"
+msgstr "Goed wachtwoord"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Strong password"
-msgstr "Wachtwoord opnieuw invoeren"
+msgstr "Sterk wachtwoord"
 
 #. Type: text
 #. Description
@@ -338,7 +311,7 @@ msgstr "Mijn wachtwoord vragen om aan te melden"
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "Mijn persoonlijke map versleutelen"
 
 #. Type: text
 #. Description
@@ -371,7 +344,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Allocate drive space"
-msgstr ""
+msgstr "Schijfruimte toewijzen"
 
 #. Type: text
 #. Description
@@ -450,18 +423,14 @@ msgstr "Geavanceerd…"
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:59001
-#, fuzzy
-#| msgid "Install[ action ]"
 msgid "_Install Now[ action ]"
-msgstr "Installeren"
+msgstr "Nu _installeren"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr "Stap ${INDEX} van ${TOTAL}"
+msgstr "Stap ${INDEX}/${TOTAL}"
 
 #. Type: title
 #. Description
@@ -566,12 +535,12 @@ msgstr "Installatieprogramma is vastgelopen"
 #. Description
 #: ../ubiquity.templates:77001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Excuses, het installatieprogramma is vastgelopen. Dien een foutenrapport in "
 "op https://launchpad.net/ubuntu/+source/ubiquity/+filebug (voeg niet uw "
@@ -780,15 +749,10 @@ msgstr "Poort:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:109001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
-"Installation has finished.  You can continue testing ${RELEASE} now, but "
-"until you restart the computer, any changes you make or documents you save "
-"will not be preserved."
+"Installation has finished.  You can continue testing Ubuntu now, but until "
+"you restart the computer, any changes you make or documents you save will "
+"not be preserved."
 msgstr ""
 "De installatie is voltooid. U kunt Ubuntu verder blijven testen, maar "
 "wijzigingen en documenten zullen niet opgeslagen worden totdat u de computer "
@@ -1127,12 +1091,12 @@ msgstr "De volgende pakketten zijn momenteel in een gebroken staat:"
 #: ../ubiquity.templates:148001 ../ubiquity.templates:149001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Dit kan komen doordat u een oud installatieprogramma gebruikt, of door een "
 "fout in enkele van de hierboven weergegeven pakketten. Meer details zijn te "
@@ -1165,8 +1129,8 @@ msgstr "Fout bij migreren van documenten en instellingen"
 #. Description
 #: ../ubiquity.templates:150001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1203,7 +1167,7 @@ msgstr "Bestanden berekenen om over te slaan tijdens kopiëren…"
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "Gereed wanneer u dat bent…"
 
 #. Type: title
 #. Description
@@ -1243,7 +1207,8 @@ msgstr "Sluit alle toepassingen die deze koppelpunten gebruiken."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Wilt u dat het installatieprogramma probeert deze partities opnieuw te "
 "ontkoppelen?"
@@ -1284,7 +1249,7 @@ msgstr "Systeemconfiguratie"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001 ../ubiquity.templates:234001
+#: ../ubiquity.templates:175001 ../ubiquity.templates:231001
 msgid "Welcome"
 msgstr "Welkom"
 
@@ -1315,90 +1280,84 @@ msgstr "Taal"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:180001
-msgid "Prepare"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:181001
 msgid "Timezone"
 msgstr "Tijdzone"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:181001
 msgid "Keyboard"
 msgstr "Toetsenbord"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:182001
 msgid "Disk Setup"
 msgstr "Schijfconfiguratie"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:183001
 msgid "User Info"
 msgstr "Gebruikersinformatie"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:184001
 msgid "Summary"
 msgstr "Samenvatting"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:186001
 msgid "installation process"
 msgstr "installatieproces"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:188001
 msgid "Checking for installer updates"
 msgstr "Controleren op updates voor installatieprogramma"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:189001
 msgid "Reading package information"
 msgstr "Pakketinformatie lezen"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:190001
 msgid "Updating package information"
 msgstr "Pakketinformatie bijwerken"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:191001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "Bestand ${INDEX} van ${TOTAL} met ${SPEED}/s"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:192001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "Bestand ${INDEX} van ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:193001
 msgid "Installing update"
 msgstr "Update installeren"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "Error updating installer"
 msgstr "Fout bij bijwerken van installatieprogramma"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr ""
 "In het installatieprogramma is een fout opgetreden terwijl het zichzelf "
@@ -1407,34 +1366,30 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:195001
 msgid "USB disk"
-msgstr ""
+msgstr "USB-schijf"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:196001
 msgid "CD"
 msgstr "cd"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
-#, fuzzy
-#| msgid ""
-#| "Please choose the language to use for the install process. This\n"
-#| " Language will be the default language for this computer."
+#: ../ubiquity.templates:197001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Kies de gewenste taal voor het installatieproces. Deze\n"
-" Taal zal de standaardtaal voor deze computer worden."
+"Kies de te gebruiken taal voor het installatieproces. Deze taal zal de "
+"standaardtaal worden voor deze computer."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:198001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1444,7 +1399,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:199001
 msgid "Continue with installation."
 msgstr "Doorgaan met installatie."
 
@@ -1452,13 +1407,13 @@ msgstr "Doorgaan met installatie."
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001 ../ubiquity.templates:202001
+#: ../ubiquity.templates:200001 ../ubiquity.templates:201001
 msgid "Installation failed"
 msgstr "Installatie mislukt"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:200001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1469,7 +1424,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:202001
+#: ../ubiquity.templates:201001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
 "In het installatieprogramma is een onherstelbare fout opgetreden, en zal nu "
@@ -1477,150 +1432,154 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
+#: ../ubiquity.templates:203001
 msgid "Preparing to install ${RELEASE}"
-msgstr "${RELEASE} installeren"
+msgstr "Voorbereiden op de installatie van ${RELEASE}"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:204001
+msgid "Wireless"
+msgstr "Draadloos"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
-msgid "Wireless"
-msgstr ""
+msgid "Please select your wireless network from this list"
+msgstr "Kies uw draadloze netwerk uit deze lijst"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
-msgid "Please select your wireless network from this list"
-msgstr ""
+#: ../ubiquity.templates:208001
+msgid "Select drive:"
+msgstr "Schijf kiezen:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
-msgid "Select drive:"
-msgstr ""
+msgid "Allocate drive space by dragging the divider below:"
+msgstr "Wijs schijfruimte toe door met de verdeler te slepen:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:210001
-msgid "Allocate drive space by dragging the divider below:"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:211001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>%d kleinere partities worden niet getoond, gebruik het <a "
+"href=\"\">uitgebreide partitioneringshulpmiddel</a> voor meer info</small>"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:211001
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>Één kleinere partitie wordt niet getoond, gebruik het <a "
+"href=\"\">uitgebreide partitioneringshulpmiddel</a> voor meer info</small>"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:212001
+msgid "Use Entire Partition"
+msgstr "Gehele partitie gebruiken"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:213001
-#, fuzzy
-#| msgid "Create partition"
-msgid "Use Entire Partition"
-msgstr "Partitie aanmaken"
+msgid "Use Entire Disk"
+msgstr "Gehele schijf gebruiken"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
-msgid "Use Entire Disk"
-msgstr ""
+msgid "Split Largest Partition"
+msgstr "Grootste partitie verdelen"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
-#, fuzzy
-#| msgid "Edit a partition"
-msgid "Split Largest Partition"
-msgstr "Een partitie bewerken"
+#: ../ubiquity.templates:216001
+msgid "For best results, please ensure:"
+msgstr "Doe het volgende voor het beste resultaat:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
-msgid "For best results, please ensure:"
-msgstr ""
+msgid "that you have at least ${SIZE} available drive space"
+msgstr "zorg voor ten minste ${SIZE} beschikbare schijfruimte"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-msgid "that you have at least ${SIZE} available drive space"
-msgstr ""
+msgid "that you are plugged in to a power source"
+msgstr "zorg dat de acculader is aangesloten"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
-msgid "that you are plugged in to a power source"
-msgstr ""
+msgid "that you are connected to the Internet with an Ethernet cable"
+msgstr "zorg dat u met het internet bent verbonden met een Ethernet-kabel"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:220001
-msgid "that you are connected to the Internet"
+msgid ""
+"Ubuntu aims to be free and open-source software.  However, this is not "
+"always possible."
 msgstr ""
+"Ubuntu streeft naar een vrij en opensource karakter. Dit is helaas niet "
+"altijd mogelijk."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid ""
-"${RELEASE} supports MP3 playback, Flash content, wifi hardware, and similar "
-"functionality through third party software, not all of which is open "
-"source.  This software is subject to the license terms included with the "
-"software's documentation."
+"The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 audio "
+"decoding technology licensed from Faunhofer IIS and Thomson."
 msgstr ""
+"Het volgende is van toepassing op de Fluendo MP3-plug-in: MPEG Layer-3-"
+"audiodecoderingstechnologie onder licentie van Faunhofer ISS en Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid ""
-"The following notice applies to the Fluendo MP3 plugin: \"MPEG Layer-3 audio "
-"decoding technology licensed from Fraunhofer IIS and Thomson.\""
+"Please off me non-open-source software if it is needed for a better "
+"experience"
 msgstr ""
+"Bied software aan die niet opensource is voor meer mogelijkheden en een "
+"betere computerervaring"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
-msgid "Tick this box to install the software for this functionality."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:224001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "Updates downloaden tijdens de installatie"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:225001
 msgid "Layout:"
 msgstr "Indeling:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:226001
 msgid "Variant:"
 msgstr "Variant:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:227001
 msgid "Below is an image of your current layout:"
 msgstr "Dit is een afbeelding van uw huidige indeling:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:231001
+#: ../ubiquity.templates:228001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1632,27 +1591,15 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232001
+#: ../ubiquity.templates:229001
 msgid "Time Zone:"
 msgstr "Tijdzone:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:233001
+#: ../ubiquity.templates:230001
 msgid "Region:"
 msgstr "Regio:"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:235001
-msgid ""
-"Ready to install?  Once you answer a few questions, the contents of the live "
-"${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
-"full speed without the ${MEDIUM}."
-msgstr ""
-"Klaar om te installeren? Zodra u een aantal vragen heeft beantwoord, kan de "
-"inhoud van de live-${MEDIUM} op deze computer geïnstalleerd worden, zodat u "
-"${RELEASE} op volle snelheid zonder ${MEDIUM} kunt gebruiken."
 
 #. Type: title
 #. Description
@@ -1718,31 +1665,15 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Pakketten verwijderen"
 
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Welke indeling lijkt het meest op die van uw toetsenbord?"
-
 #~ msgid "You can type into this box to test your new keyboard layout."
 #~ msgstr ""
-#~ "U kunt iets in dit veld invoeren om de gekozen toetsenbordindeling te "
-#~ "testen."
+#~ "U kunt iets in dit veld invoeren om de gekozen toetsenbordindeling te testen."
 
 #~ msgid "Suggested option:"
 #~ msgstr "Voorgestelde keuze:"
 
 #~ msgid "Choose your own:"
 #~ msgstr "Zelf kiezen:"
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Toetsenbordindeling raden:"
-
-#~ msgid "Guess..."
-#~ msgstr "Raden…"
-
-#~ msgid "What is your name?"
-#~ msgstr "Hoe heet u?"
-
-#~ msgid "Full Name"
-#~ msgstr "Volledige naam"
 
 #~ msgid "What name do you want to use to log in?"
 #~ msgstr "Welke naam wilt u gebruiken om aan te melden?"
@@ -1757,46 +1688,8 @@ msgstr "Pakketten verwijderen"
 #~ msgid "Choose a password to keep your account safe."
 #~ msgstr "Kies een wachtwoord om uw account te beveiligen."
 
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Voer hetzelfde wachtwoord twee keer in, zodat het op typefouten "
-#~ "gecontroleerd kan worden. Een goed wachtwoord bevat zowel letters als "
-#~ "cijfers en leestekens, en is minstens acht karakters lang. Het is "
-#~ "aangeraden om het wachtwoord regelmatig te veranderen."
-
-#~ msgid "Strength: too short"
-#~ msgstr "Sterkte: te kort"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Sterkte: zwak"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Sterkte: redelijk"
-
-#~ msgid "Strength: good"
-#~ msgstr "Sterkte: goed"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Sterkte: sterk"
-
 #~ msgid "What is the name of this computer?"
 #~ msgstr "Wat is de naam van deze computer?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Deze naam zal gebruikt worden als u uw computer zichtbaar maakt voor "
-#~ "anderen op een netwerk."
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Mijn wachtwoord vragen om aan te melden en om mijn persoonlijke map te "
-#~ "ontsleutelen"
 
 #~ msgid "Prepare disk space"
 #~ msgstr "Schijfruimte voorbereiden"
@@ -1810,5 +1703,56 @@ msgstr "Pakketten verwijderen"
 #~ msgid "Choose language"
 #~ msgstr "Taal kiezen"
 
+#~ msgid "Require my password to log in and to decrypt my home folder"
+#~ msgstr ""
+#~ "Mijn wachtwoord vragen om aan te melden en om mijn persoonlijke map te "
+#~ "ontsleutelen"
+
+#~ msgid "What is your name?"
+#~ msgstr "Hoe heet u?"
+
+#~ msgid ""
+#~ "This name will be used if you make the computer visible to others on a "
+#~ "network."
+#~ msgstr ""
+#~ "Deze naam zal gebruikt worden als u uw computer zichtbaar maakt voor anderen "
+#~ "op een netwerk."
+
 #~ msgid "USB"
 #~ msgstr "USB"
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the live "
+#~ "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
+#~ "full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "Klaar om te installeren? Zodra u een aantal vragen heeft beantwoord, kan de "
+#~ "inhoud van de live-${MEDIUM} op deze computer geïnstalleerd worden, zodat u "
+#~ "${RELEASE} op volle snelheid zonder ${MEDIUM} kunt gebruiken."
+
+#~ msgid "Guess keymap:"
+#~ msgstr "Toetsenbordindeling raden:"
+
+#~ msgid "Full Name"
+#~ msgstr "Volledige naam"
+
+#~ msgid "Strength: good"
+#~ msgstr "Sterkte: goed"
+
+#~ msgid "Strength: fair"
+#~ msgstr "Sterkte: redelijk"
+
+#~ msgid "Strength: strong"
+#~ msgstr "Sterkte: sterk"
+
+#~ msgid "Strength: too short"
+#~ msgstr "Sterkte: te kort"
+
+#~ msgid "Strength: weak"
+#~ msgstr "Sterkte: zwak"
+
+#~ msgid "Which layout is most similar to your keyboard?"
+#~ msgstr "Welke indeling lijkt het meest op die van uw toetsenbord?"
+
+#~ msgid "Guess..."
+#~ msgstr "Raden…"

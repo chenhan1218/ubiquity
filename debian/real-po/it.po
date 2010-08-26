@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-08-26 19:46+0100\n"
-"PO-Revision-Date: 2010-04-18 19:09+0000\n"
+"POT-Creation-Date: 2010-08-06 14:13-0400\n"
+"PO-Revision-Date: 2010-08-19 19:41+0000\n"
 "Last-Translator: Milo Casagrande <milo@casagrande.name>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
-"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
+"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: it\n"
 
 #. Type: text
 #. Description
@@ -46,7 +46,7 @@ msgstr "Specifica manualmente le partizioni (avanzato)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:186001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:185001
 msgid "Install"
 msgstr "Installa"
 
@@ -72,16 +72,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-#, fuzzy
-#| msgid ""
-#| "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
-#| "your system."
 msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"È possibile provare ${RELEASE} da questo supporto (${MEDIUM}) senza "
-"apportare modifiche al proprio sistema."
+"È possibile provare ${RELEASE} direttamente da questo supporto (${MEDIUM}) "
+"senza apportare alcuna modifica al proprio computer."
 
 #. Type: text
 #. Description
@@ -90,6 +86,9 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
+"Oppure è possibile installare ${RELEASE} a fianco dell'attuale sistema "
+"operativo o sostituendolo. Questa operazione non dovrebbe richiedere troppo "
+"tempo."
 
 #. Type: text
 #. Description
@@ -130,7 +129,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:16001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr "È possibile leggere le <a href=\"release-notes\">note di rilascio</a>."
+msgstr ""
+"È possibile leggere le <a href=\"release-notes\">note di rilascio</a>."
 
 #. Type: text
 #. Description
@@ -142,11 +142,6 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
@@ -154,7 +149,7 @@ msgid ""
 msgstr ""
 "Questa è una versione di pre-rilascio del programma d'installazione Live "
 "${MEDIUM} di ${RELEASE}. Non è la versione finale di ${RELEASE}, prevista "
-"per aprile 2010."
+"per ottobre 2010."
 
 #. Type: text
 #. Description
@@ -172,7 +167,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Warning"
-msgstr ""
+msgstr "Attenzione"
 
 #. Type: text
 #. Description
@@ -189,24 +184,20 @@ msgstr "Disposizione della tastiera"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Choose your keyboard layout:"
-msgstr "Disposizione della tastiera"
+msgstr "Scegliere la disposizione della tastiera:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Digitare qui per provare la tastiera"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure out keyboard layout"
-msgstr "Disposizione della tastiera"
+msgstr "Ipotizza disposizione"
 
 #. Type: text
 #. Description
@@ -229,24 +220,20 @@ msgstr "Informazioni personali"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name:"
-msgstr "Nome del computer"
+msgstr "Nome proprio:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name"
-msgstr "Nome del computer"
+msgstr "Nome e cognome"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Pick a username:"
-msgstr ""
+msgstr "Scegliere un nome utente:"
 
 #. Type: text
 #. Description
@@ -257,10 +244,8 @@ msgstr "Nome utente"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Choose a password:"
-msgstr "Scegliere un'altra password"
+msgstr "Scegliere una password:"
 
 #. Type: text
 #. Description
@@ -271,56 +256,45 @@ msgstr "Password"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Confirm password"
-msgstr "Reinserire la password"
+msgstr "Confermare la password"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "Esecuzione in modalità debug. Non utilizzare una password importante!"
+msgstr ""
+"Esecuzione in modalità debug. Non utilizzare una password importante!"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Short password"
-msgstr "Scegliere un'altra password"
+msgstr "Password corta"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
-#, fuzzy
-#| msgid "Password"
 msgid "Weak password"
-msgstr "Password"
+msgstr "Password fragile"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
-#, fuzzy
-#| msgid "Password"
 msgid "Fair password"
-msgstr "Password"
+msgstr "Password discreta"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
-#, fuzzy
-#| msgid "Password"
 msgid "Good password"
-msgstr "Password"
+msgstr "Password buona"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Strong password"
-msgstr "Reinserire la password"
+msgstr "Password robusta"
 
 #. Type: text
 #. Description
@@ -338,7 +312,7 @@ msgstr "Richiedere la password personale per accedere"
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "Cifrare la cartella personale"
 
 #. Type: text
 #. Description
@@ -370,7 +344,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Allocate drive space"
-msgstr ""
+msgstr "Allocazione spazio su disco"
 
 #. Type: text
 #. Description
@@ -448,18 +422,14 @@ msgstr "Avanzato..."
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:59001
-#, fuzzy
-#| msgid "Install[ action ]"
 msgid "_Install Now[ action ]"
-msgstr "Installa"
+msgstr "_Installa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr "Passo ${INDEX} di ${TOTAL}"
+msgstr "Passo ${INDEX}/${TOTAL}"
 
 #. Type: title
 #. Description
@@ -564,12 +534,12 @@ msgstr "Il programma di installazione è andato in crash"
 #. Description
 #: ../ubiquity.templates:77001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 "Il programma di installazione è andato in crash. Segnalare un bug "
 "all'indirizzo «https://launchpad.net/ubuntu/+source/ubiquity/+filebug» (non "
@@ -778,15 +748,10 @@ msgstr "Porta:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:109001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
-"Installation has finished.  You can continue testing ${RELEASE} now, but "
-"until you restart the computer, any changes you make or documents you save "
-"will not be preserved."
+"Installation has finished.  You can continue testing Ubuntu now, but until "
+"you restart the computer, any changes you make or documents you save will "
+"not be preserved."
 msgstr ""
 "L'installazione è stata completata ed è possibile continuare a provare "
 "Ubuntu. Però, per poter mantenere i cambiamenti apportati e i documenti "
@@ -1121,12 +1086,12 @@ msgstr "I seguenti pacchetti sono danneggiati:"
 #: ../ubiquity.templates:148001 ../ubiquity.templates:149001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 "Questo può essere causato da una vecchia immagine di installazione o da un "
 "bug in alcuni dei pacchetti sopra elencati. Ulteriori dettagli possono "
@@ -1159,8 +1124,8 @@ msgstr "Errore nel migrare i documenti e le impostazioni"
 #. Description
 #: ../ubiquity.templates:150001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1197,7 +1162,7 @@ msgstr "Calcolo dei file da non copiare..."
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "Pronti per continuare..."
 
 #. Type: title
 #. Description
@@ -1237,7 +1202,8 @@ msgstr "Chiudere qualsiasi applicazione che stia usando tali punti di mount."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Lasciare che il programma di installazione provi nuovamente a smontare "
 "queste partizioni?"
@@ -1278,7 +1244,7 @@ msgstr "Configurazione del sistema"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001 ../ubiquity.templates:234001
+#: ../ubiquity.templates:175001 ../ubiquity.templates:231001
 msgid "Welcome"
 msgstr "Benvenuti"
 
@@ -1309,90 +1275,84 @@ msgstr "Lingua"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:180001
-msgid "Prepare"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:181001
 msgid "Timezone"
 msgstr "Fuso orario"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:181001
 msgid "Keyboard"
 msgstr "Tastiera"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:182001
 msgid "Disk Setup"
 msgstr "Impostazione disco"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:183001
 msgid "User Info"
 msgstr "Informazioni utente"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:184001
 msgid "Summary"
 msgstr "Riepilogo"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:186001
 msgid "installation process"
 msgstr "processo di installazione"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:188001
 msgid "Checking for installer updates"
 msgstr "Controllo aggiornamenti del programma d'installazione"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:189001
 msgid "Reading package information"
 msgstr "Lettura informazioni sui pacchetti"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:190001
 msgid "Updating package information"
 msgstr "Aggiornamento informazioni sui pacchetti"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:191001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "File ${INDEX} su ${TOTAL} a ${SPEED}/s"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:192001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "File ${INDEX} su ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:193001
 msgid "Installing update"
 msgstr "Installazione aggiornamento"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "Error updating installer"
 msgstr "Errore nell'aggiornare il programma d'installazione"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr ""
 "Si è verirficato un errore nell'aggiornare il programma d'installazione:"
@@ -1400,34 +1360,30 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:195001
 msgid "USB disk"
-msgstr ""
+msgstr "Disco USB"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:196001
 msgid "CD"
 msgstr "CD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
-#, fuzzy
-#| msgid ""
-#| "Please choose the language to use for the install process. This\n"
-#| " Language will be the default language for this computer."
+#: ../ubiquity.templates:197001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Scegliere la lingua da usare per il processo d'installazione.\n"
-"La lingua scelta diverrà quella predefinita per il computer."
+"Scegliere la lingua da usare per il processo d'installazione. La lingua "
+"scelta diverrà quella predefinita per il computer."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:198001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1437,7 +1393,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:199001
 msgid "Continue with installation."
 msgstr "Continua l'installazione."
 
@@ -1445,13 +1401,13 @@ msgstr "Continua l'installazione."
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001 ../ubiquity.templates:202001
+#: ../ubiquity.templates:200001 ../ubiquity.templates:201001
 msgid "Installation failed"
 msgstr "Installazione non riuscita"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:200001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1462,7 +1418,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:202001
+#: ../ubiquity.templates:201001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
 "Il programma d'installazione ha incontrato un errore. Verrà riavviato il "
@@ -1470,150 +1426,156 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
+#: ../ubiquity.templates:203001
 msgid "Preparing to install ${RELEASE}"
-msgstr "Installa ${RELEASE}"
+msgstr "Preparazione all'installazione di ${RELEASE}"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:204001
+msgid "Wireless"
+msgstr "Rete senza fili"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
-msgid "Wireless"
-msgstr ""
+msgid "Please select your wireless network from this list"
+msgstr "Selezionare la rete senza fili dall'elenco"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
-msgid "Please select your wireless network from this list"
-msgstr ""
+#: ../ubiquity.templates:208001
+msgid "Select drive:"
+msgstr "Selezionare il disco:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
-msgid "Select drive:"
-msgstr ""
+msgid "Allocate drive space by dragging the divider below:"
+msgstr "Allocare lo spazio sul disco trascinando la barra sottostante:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:210001
-msgid "Allocate drive space by dragging the divider below:"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:211001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>%d partizioni più piccole risultano nascoste, usare lo <a "
+"href=\"\">strumento avanzato di partizionamento</a> per un controllo più "
+"preciso</small>"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:211001
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>Una partizione più piccola risulta nascosta, usare lo <a "
+"href=\"\">strumento avanzato di partizionamento</a> per un controllo più "
+"preciso</small>"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:212001
+msgid "Use Entire Partition"
+msgstr "Usa partizione intera"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:213001
-#, fuzzy
-#| msgid "Create partition"
-msgid "Use Entire Partition"
-msgstr "Crea partizione"
+msgid "Use Entire Disk"
+msgstr "Usa disco intero"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
-msgid "Use Entire Disk"
-msgstr ""
+msgid "Split Largest Partition"
+msgstr "Dividere la partizione più grande"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
-#, fuzzy
-#| msgid "Edit a partition"
-msgid "Split Largest Partition"
-msgstr "Modifica una partizione"
+#: ../ubiquity.templates:216001
+msgid "For best results, please ensure:"
+msgstr "Per un risultato migliore, assicurarsi di:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
-msgid "For best results, please ensure:"
-msgstr ""
+msgid "that you have at least ${SIZE} available drive space"
+msgstr "avere almeno ${SIZE} di spazio libero sul disco"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-msgid "that you have at least ${SIZE} available drive space"
-msgstr ""
+msgid "that you are plugged in to a power source"
+msgstr "di essere collegati alla rete elettrica"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
-msgid "that you are plugged in to a power source"
-msgstr ""
+msgid "that you are connected to the Internet with an Ethernet cable"
+msgstr "di essere collegati a Internet attraverso una connessione via cavo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:220001
-msgid "that you are connected to the Internet"
+msgid ""
+"Ubuntu aims to be free and open-source software.  However, this is not "
+"always possible."
 msgstr ""
+"L'obiettivo di Ubuntu è quello di essere composto da software libero e open "
+"source. Questo non è però sempre possibile."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid ""
-"${RELEASE} supports MP3 playback, Flash content, wifi hardware, and similar "
-"functionality through third party software, not all of which is open "
-"source.  This software is subject to the license terms included with the "
-"software's documentation."
+"The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 audio "
+"decoding technology licensed from Faunhofer IIS and Thomson."
 msgstr ""
+"Il seguente avviso si applica solamente al plugin MP3 di Fluendo: tecnologia "
+"di decodifica audio MPEG Layer-3 concessa in licenza da Fraunhofer IIS e "
+"Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid ""
-"The following notice applies to the Fluendo MP3 plugin: \"MPEG Layer-3 audio "
-"decoding technology licensed from Fraunhofer IIS and Thomson.\""
+"Please off me non-open-source software if it is needed for a better "
+"experience"
 msgstr ""
+"Scaricare software non open source se necessario per un'esperienza migliore"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
-msgid "Tick this box to install the software for this functionality."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:224001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "Scaricare gli aggiornamenti durante l'installazione"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:225001
 msgid "Layout:"
 msgstr "Disposizione:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:226001
 msgid "Variant:"
 msgstr "Variante:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:227001
 msgid "Below is an image of your current layout:"
 msgstr "Di seguito è disponibile un'immagine della disposizione attuale:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:231001
+#: ../ubiquity.templates:228001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1626,27 +1588,15 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232001
+#: ../ubiquity.templates:229001
 msgid "Time Zone:"
 msgstr "Fuso orario:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:233001
+#: ../ubiquity.templates:230001
 msgid "Region:"
 msgstr "Regione:"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:235001
-msgid ""
-"Ready to install?  Once you answer a few questions, the contents of the live "
-"${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
-"full speed without the ${MEDIUM}."
-msgstr ""
-"Pronti per l'installazione? Una volta risposto a poche semplici domande, "
-"quanto presente sul Live ${MEDIUM} sarà installato nel computer, in modo da "
-"utilizzare ${RELEASE} al meglio senza l'utilizzo del supporto ${MEDIUM}."
 
 #. Type: title
 #. Description
@@ -1717,8 +1667,8 @@ msgstr "Rimozione dei pacchetti"
 
 #~ msgid "You can type into this box to test your new keyboard layout."
 #~ msgstr ""
-#~ "È possibile digitare in questa casella per verificare la nuova "
-#~ "disposizione della tastiera."
+#~ "È possibile digitare in questa casella per verificare la nuova disposizione "
+#~ "della tastiera."
 
 #~ msgid "Suggested option:"
 #~ msgstr "Opzione suggerita:"
@@ -1726,56 +1676,22 @@ msgstr "Rimozione dei pacchetti"
 #~ msgid "Choose your own:"
 #~ msgstr "Scelta personale:"
 
-#~ msgid "Guess keymap:"
-#~ msgstr "Disposizione ipotizzata:"
-
-#~ msgid "Guess..."
-#~ msgstr "Ricava..."
-
 #~ msgid "What is your name?"
 #~ msgstr "Indicare il proprio nome:"
-
-#~ msgid "Full Name"
-#~ msgstr "Nome completo"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Indicare il nome utente da usare per l'accesso:"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Se il computer è usato da più persone, è possibile attivare altri account "
-#~ "terminata l'installazione."
 
 #~ msgid "Choose a password to keep your account safe."
 #~ msgstr "Scegliere una password per mantenere il proprio account sicuro:"
 
 #~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
 #~ msgstr ""
 #~ "Digitare la stessa password due volte per controllare eventuali errori di "
-#~ "digitazione. Una buona password solitamente contiene lettere, numeri e "
-#~ "segni di punteggiatura, è lunga almeno otto caratteri e dovrebbe essere "
-#~ "modificata a intervalli regolari."
-
-#~ msgid "Strength: too short"
-#~ msgstr "Affidabilità: troppo corta"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Affidabilità: fragile"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Affidabilità: discreta"
-
-#~ msgid "Strength: good"
-#~ msgstr "Affidabilità: buona"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Affidabilità: robusta"
+#~ "digitazione. Una buona password solitamente contiene lettere, numeri e segni "
+#~ "di punteggiatura, è lunga almeno otto caratteri e dovrebbe essere modificata "
+#~ "a intervalli regolari."
 
 #~ msgid "What is the name of this computer?"
 #~ msgstr "Indicare il nome del computer:"
@@ -1786,11 +1702,6 @@ msgstr "Rimozione dei pacchetti"
 #~ msgstr ""
 #~ "Questo nome verrà usato per rendere il computer visibile ad altri "
 #~ "all'interno di una rete."
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Richiedere la password personale per accedere e per decifrare la cartella "
-#~ "home"
 
 #~ msgid "Prepare disk space"
 #~ msgstr "Preparazione spazio su disco"
@@ -1804,5 +1715,53 @@ msgstr "Rimozione dei pacchetti"
 #~ msgid "Choose language"
 #~ msgstr "Selezionare la lingua"
 
+#~ msgid "Require my password to log in and to decrypt my home folder"
+#~ msgstr ""
+#~ "Richiedere la password personale per accedere e per decifrare la cartella "
+#~ "home"
+
+#~ msgid "What name do you want to use to log in?"
+#~ msgstr "Indicare il nome utente da usare per l'accesso:"
+
 #~ msgid "USB"
 #~ msgstr "USB"
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the live "
+#~ "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
+#~ "full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "Pronti per l'installazione? Una volta risposto a poche semplici domande, "
+#~ "quanto presente sul Live ${MEDIUM} sarà installato nel computer, in modo da "
+#~ "utilizzare ${RELEASE} al meglio senza l'utilizzo del supporto ${MEDIUM}."
+
+#~ msgid "Full Name"
+#~ msgstr "Nome completo"
+
+#~ msgid "Guess..."
+#~ msgstr "Ricava..."
+
+#~ msgid "Guess keymap:"
+#~ msgstr "Disposizione ipotizzata:"
+
+#~ msgid "Strength: good"
+#~ msgstr "Affidabilità: buona"
+
+#~ msgid "Strength: strong"
+#~ msgstr "Affidabilità: robusta"
+
+#~ msgid "Strength: too short"
+#~ msgstr "Affidabilità: troppo corta"
+
+#~ msgid "Strength: weak"
+#~ msgstr "Affidabilità: fragile"
+
+#~ msgid ""
+#~ "If more than one person will use this computer, you can set up multiple "
+#~ "accounts after installation."
+#~ msgstr ""
+#~ "Se il computer è usato da più persone, è possibile attivare altri account "
+#~ "terminata l'installazione."
+
+#~ msgid "Strength: fair"
+#~ msgstr "Affidabilità: discreta"

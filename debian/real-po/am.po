@@ -6,22 +6,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-08-26 19:46+0100\n"
-"PO-Revision-Date: 2010-03-23 16:44+0000\n"
+"POT-Creation-Date: 2010-08-06 14:13-0400\n"
+"PO-Revision-Date: 2010-04-25 06:46+0000\n"
 "Last-Translator: Evan Dandrea <ev@ubuntu.com>\n"
 "Language-Team: Amharic\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
-"X-Launchpad-Export-Date: 2010-04-14 16:16+0000\n"
+"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: \n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr "መጠቀም የተገኘውን ሰፊ ባዶ ቦታ"
+msgstr "የተገኘውን ሰፊ ተከታታይ ሰፊ ባዶ ቦታ ተጠቀም"
 
 #. Type: text
 #. Description
@@ -46,7 +46,7 @@ msgstr "መወስን ክፍልፋዩችን በእጅ (የረቀቀ)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:186001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:185001
 msgid "Install"
 msgstr "መግጠም"
 
@@ -166,10 +166,8 @@ msgstr "የፊደል ገበታ አቀማመጥ"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Choose your keyboard layout:"
-msgstr "የፊደል ገበታ አቀማመጥ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -180,10 +178,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure out keyboard layout"
-msgstr "የፊደል ገበታ አቀማመጥ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -230,10 +226,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Choose a password:"
-msgstr "ሌላ የመግቢያ ቃል ይምረጡ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -244,10 +238,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Confirm password"
-msgstr "ሌላ የመግቢያ ቃል ይምረጡ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -258,34 +250,26 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Short password"
-msgstr "ሌላ የመግቢያ ቃል ይምረጡ"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Weak password"
-msgstr "ሌላ የመግቢያ ቃል ይምረጡ"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Fair password"
-msgstr "ሌላ የመግቢያ ቃል ይምረጡ"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Good password"
-msgstr "ሌላ የመግቢያ ቃል ይምረጡ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -414,18 +398,14 @@ msgstr "የረቀቀ"
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:59001
-#, fuzzy
-#| msgid "Install[ action ]"
 msgid "_Install Now[ action ]"
-msgstr "ይግጠሙ"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr "ደረጃ ${INDEX} of ${TOTAL}"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -526,12 +506,12 @@ msgstr "መግጠሙ ተጋጭቷል"
 #. Description
 #: ../ubiquity.templates:77001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 
 #. Type: text
@@ -734,15 +714,10 @@ msgstr "ፖርት"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:109001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
-"Installation has finished.  You can continue testing ${RELEASE} now, but "
-"until you restart the computer, any changes you make or documents you save "
-"will not be preserved."
+"Installation has finished.  You can continue testing Ubuntu now, but until "
+"you restart the computer, any changes you make or documents you save will "
+"not be preserved."
 msgstr ""
 "መግጠሙ ተጠናቋል ፤ ኡቡንቱን መሞከር መቀጠል ይችላሉ ፤ ነገር ግን ኮምፒዩተሩን  አጥፍቶ ማብራት ያስፈልጋል አዲሱን "
 "አገጣጠም ለመጠቀም ፤ ያለበለዚያ ማናቸውም ያስቀመጡዋቸው  ሰነዶች ላይገኙ ይችላሉ"
@@ -781,13 +756,13 @@ msgid ""
 " Migration Assistant:\n"
 " ${MIGRATE}"
 msgstr ""
-" ቋንቋ: ${LANGUAGE}\n"
-" የፊደል ገበታ አቀራረብ: ${KEYMAP}\n"
-" ስም: ${FULLNAME}\n"
-" የመግቢያ ስም: ${USERNAME}\n"
-" አካባቢ: ${LOCATION}\n"
-" የመፍለስ እርዳታ:\n"
-" ${MIGRATE}"
+" ቋንቋ: ${LANGUAGE}\\n\n"
+"የፊደል ገበታ አቀራረብ: ${KEYMAP}\\n\n"
+"ስም: ${FULLNAME}\\n\n"
+"የመግቢያ ስም: ${USERNAME}\\n\n"
+"አካባቢ: ${LOCATION}\\n\n"
+"የመፍለስ እርዳታ:\\n\n"
+"${MIGRATE}"
 
 #. Type: text
 #. Description
@@ -1006,7 +981,7 @@ msgstr "ለማስወገድ ጥቅሎችን በመመርመር ላይ"
 #. Description
 #: ../ubiquity.templates:142001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "በማውረድ ላይ ጥቅሎችን (${TIME} የቀረው)..."
+msgstr "የቀሩ ጥቅሎችን በማውረድ ላይ... የቀረው ጊዜ(${TIME} ..."
 
 #. Type: text
 #. Description
@@ -1018,7 +993,7 @@ msgstr "በማውረድ ላይ የጥቅሎችን ዝርዝር..."
 #. Description
 #: ../ubiquity.templates:144001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "በማውረድ ላይ የጥቅሎችን ዝርዝር (${TIME} የቀረው)..."
+msgstr "የጥቅሎችን ዝርዝር በማውረድ ላይ... የቀረው ጊዜ(${TIME} ..."
 
 #. Type: error
 #. Description
@@ -1059,12 +1034,12 @@ msgstr "እነዚህ ጥቅሎች ሰባራ ናቸው"
 #: ../ubiquity.templates:148001 ../ubiquity.templates:149001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 
 #. Type: error
@@ -1089,8 +1064,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:150001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1132,7 +1107,7 @@ msgstr "የቋንቋ ጥቅሎችን በመትከል ላይ"
 #. Description
 #: ../ubiquity.templates:158001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "የቋንቋን ጥቅል በማውረድ ላይ (${TIME} ቀርቷል)..."
+msgstr "የቋንቋ ጥቅሎችን በማውረድ ላይ... የቀረው ጊዜ(${TIME} ..."
 
 #. Type: boolean
 #. Description
@@ -1157,7 +1132,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 
 #. Type: boolean
@@ -1192,7 +1168,7 @@ msgstr "ሲስተሙን ማዋቀር"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001 ../ubiquity.templates:234001
+#: ../ubiquity.templates:175001 ../ubiquity.templates:231001
 msgid "Welcome"
 msgstr "እንኳን ደህና መጡ"
 
@@ -1223,122 +1199,112 @@ msgstr "ቋንቋ"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:180001
-msgid "Prepare"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:181001
 msgid "Timezone"
 msgstr "የሰአት ክልል"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:181001
 msgid "Keyboard"
 msgstr "የፊደል ገበታ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:182001
 msgid "Disk Setup"
 msgstr "ዲስክ ማሰናዳት"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:183001
 msgid "User Info"
 msgstr "የተጠቃሚ መረጃ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:184001
 msgid "Summary"
 msgstr "ማጠቃለያ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:186001
 msgid "installation process"
 msgstr "የአገጣጠም ሂደት"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:188001
 msgid "Checking for installer updates"
 msgstr "በመመርመር ላይ ማሻሻያዎችን ለመግጠም"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:189001
 msgid "Reading package information"
 msgstr "የጥቅል መረጃን በማንበብ ላይ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:190001
 msgid "Updating package information"
 msgstr "የጥቅል መረጃን በማሻሻል ላይ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:191001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:192001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:193001
 msgid "Installing update"
 msgstr "ማሻሻያውን በመግጠም ላይ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "Error updating installer"
 msgstr "ማሻሻያውን በመግጠም ላይ ስህተት ተፈጥሯል"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr "መግጠሚያው ችግር ገጥሞታል ራሱን ማሻሻል ሲሞክር:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:195001
 msgid "USB disk"
 msgstr ""
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:196001
 msgid "CD"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
-#, fuzzy
-#| msgid ""
-#| "Please choose the language used for the configuration process. This "
-#| "language will be the default language for this computer."
+#: ../ubiquity.templates:197001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
-msgstr "እባክዎ ቋንቋ ይምረጡ ለማዋቀር እንዲረዳ ፤ ይህ ቋንቋ ነባር የመስሪያ ቋንቋ ይሆናል ለዚህ ኮምፒዩተር"
+msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:198001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1346,7 +1312,7 @@ msgstr "እባክዎ ቋንቋ ይምረጡ ለማዋቀር እንዲረዳ ፤ 
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:199001
 msgid "Continue with installation."
 msgstr ""
 
@@ -1354,15 +1320,13 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001 ../ubiquity.templates:202001
-#, fuzzy
-#| msgid "Installation Failed"
+#: ../ubiquity.templates:200001 ../ubiquity.templates:201001
 msgid "Installation failed"
-msgstr "መግጠሙ ወድቋል"
+msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:200001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1370,47 +1334,43 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:202001
-#, fuzzy
-#| msgid "The installer encountered an error while trying to update itself:"
+#: ../ubiquity.templates:201001
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "መግጠሚያው ችግር ገጥሞታል ራሱን ማሻሻል ሲሞክር:"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:203001
+msgid "Preparing to install ${RELEASE}"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
-msgid "Preparing to install ${RELEASE}"
-msgstr "መግጠም ${RELEASE}"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:205001
 msgid "Wireless"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
+#: ../ubiquity.templates:205001
 msgid "Please select your wireless network from this list"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:209001
+#: ../ubiquity.templates:208001
 msgid "Select drive:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:210001
+#: ../ubiquity.templates:209001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:211001
+#: ../ubiquity.templates:210001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
@@ -1419,7 +1379,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:211001
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
@@ -1427,101 +1387,97 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:213001
-#, fuzzy
-#| msgid "Create partition"
+#: ../ubiquity.templates:212001
 msgid "Use Entire Partition"
-msgstr "ክፍልፋይ መፍጠር"
+msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:214001
+#: ../ubiquity.templates:213001
 msgid "Use Entire Disk"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
-#, fuzzy
-#| msgid "Edit a partition"
+#: ../ubiquity.templates:214001
 msgid "Split Largest Partition"
-msgstr "ክፍልፋዮችን ማረም"
+msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:217001
+#: ../ubiquity.templates:216001
 msgid "For best results, please ensure:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:218001
+#: ../ubiquity.templates:217001
 msgid "that you have at least ${SIZE} available drive space"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:219001
+#: ../ubiquity.templates:218001
 msgid "that you are plugged in to a power source"
 msgstr ""
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:219001
+msgid "that you are connected to the Internet with an Ethernet cable"
+msgstr ""
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:220001
-msgid "that you are connected to the Internet"
+msgid ""
+"Ubuntu aims to be free and open-source software.  However, this is not "
+"always possible."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid ""
-"${RELEASE} supports MP3 playback, Flash content, wifi hardware, and similar "
-"functionality through third party software, not all of which is open "
-"source.  This software is subject to the license terms included with the "
-"software's documentation."
+"The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 audio "
+"decoding technology licensed from Faunhofer IIS and Thomson."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid ""
-"The following notice applies to the Fluendo MP3 plugin: \"MPEG Layer-3 audio "
-"decoding technology licensed from Fraunhofer IIS and Thomson.\""
+"Please off me non-open-source software if it is needed for a better "
+"experience"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
-msgid "Tick this box to install the software for this functionality."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:224001
 msgid "Download updates while installing"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:225001
 msgid "Layout:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:226001
 msgid "Variant:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:227001
 msgid "Below is an image of your current layout:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:231001
+#: ../ubiquity.templates:228001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1532,33 +1488,22 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232001
+#: ../ubiquity.templates:229001
 msgid "Time Zone:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:233001
+#: ../ubiquity.templates:230001
 msgid "Region:"
 msgstr "አካባቢ"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:235001
-msgid ""
-"Ready to install?  Once you answer a few questions, the contents of the live "
-"${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
-"full speed without the ${MEDIUM}."
-msgstr ""
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
-#| msgid "Install (OEM mode, for manufacturers only)"
 msgid "OEM mode (for manufacturers only)"
-msgstr "መግጠም"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1568,27 +1513,21 @@ msgstr "መግጠም"
 #. will typically only be displayed to OEMs themselves, so you don't have to
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Prepare for OEM configuration"
-msgstr "ኔትዎርክን ማዋቀር"
+msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
-#| msgid "Applying configuration"
 msgid "Preparing for OEM configuration..."
-msgstr "አወቃቀሩን መተግበር"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
-#| msgid "Network configuration"
 msgid "Ready for OEM configuration"
-msgstr "ኔትዎርክን ማዋቀር"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1612,16 +1551,11 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Removing packages"
-msgstr "ተጨማሪ ጥቅሎችን ማስወገድ"
+msgstr ""
 
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "የትኛውን የፊደል ገበታ አቀማመጥ ይመርጣሉ"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr "በሳጥኑ ውስጥ በመጽፍ የፊደል ገበታ አቀማመጡን ይሞክሩ"
+#~ msgid "What is your name?"
+#~ msgstr "ስምዎት ማነው?"
 
 #~ msgid "Suggested option:"
 #~ msgstr "የተጠቆመው ምርጫ"
@@ -1629,27 +1563,30 @@ msgstr "ተጨማሪ ጥቅሎችን ማስወገድ"
 #~ msgid "Choose your own:"
 #~ msgstr "የራሶትን ይምረጡ"
 
-#~ msgid "What is your name?"
-#~ msgstr "ስምዎት ማነው?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "በምን ስም መጠቀም ይፈልጋሉ ኮምፒዩትሩን ሲጠቀሙ"
+#~ msgid "Choose a password to keep your account safe."
+#~ msgstr "ይምረጡ የመግቢያ ቃል የእርስዎን ደህንነት ለመጠበቅ"
 
 #~ msgid ""
 #~ "If more than one person will use this computer, you can set up multiple "
 #~ "accounts after installation."
 #~ msgstr "ከአንድ ስው በላይ በዚህ ኮምፒዩተር ተጠቃሚ ከሆነ መግጠሙ እንዳለቀ የተለያየ መግቢያ ማስናዳት ይችላሉ"
 
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "ይምረጡ የመግቢያ ቃል የእርስዎን ደህንነት ለመጠበቅ"
+#~ msgid "What name do you want to use to log in?"
+#~ msgstr "በምን ስም መጠቀም ይፈልጋሉ ኮምፒዩትሩን ሲጠቀሙ"
 
-#~ msgid "What is the name of this computer?"
-#~ msgstr "የዚህ ኮምፒዩተር ስም ማነው?"
+#~ msgid "You can type into this box to test your new keyboard layout."
+#~ msgstr "በሳጥኑ ውስጥ በመጽፍ የፊደል ገበታ አቀማመጡን ይሞክሩ"
+
+#~ msgid "Which layout is most similar to your keyboard?"
+#~ msgstr "የትኛውን የፊደል ገበታ አቀማመጥ ይመርጣሉ"
 
 #~ msgid ""
 #~ "This name will be used if you make the computer visible to others on a "
 #~ "network."
 #~ msgstr "ይህ ስም ይሆናል ለሌሎች የሚታየው ኔትዎርክ በሚጠቀሙበት ጊዜ"
+
+#~ msgid "What is the name of this computer?"
+#~ msgstr "የዚህ ኮምፒዩተር ስም ማነው?"
 
 #~ msgid "Prepare disk space"
 #~ msgstr "የዲስክ ቦታ ማስናዳት"

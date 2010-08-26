@@ -6,17 +6,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-08-26 19:46+0100\n"
-"PO-Revision-Date: 2010-04-10 14:25+0000\n"
+"POT-Creation-Date: 2010-08-06 14:13-0400\n"
+"PO-Revision-Date: 2010-04-25 06:46+0000\n"
 "Last-Translator: Sanu <sanoojkp@rediffmail.com>\n"
-"Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc-"
-"discuss@googlegroups.com>\n"
+"Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം "
+"Computing|കമ്പ്യൂട്ടിങ്ങ് <smc-discuss@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
-"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
+"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: \n"
 
 #. Type: text
 #. Description
@@ -34,7 +34,9 @@ msgstr "മുഴുവന്‍ ഡിസ്കും  മായ്ചതിന
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install them side by side, choosing between them each startup"
-msgstr "ഓരോ തവണയും തുടക്കത്തില്‍ തിരഞ്ഞെടുക്കാവുന്ന വിധം, ഇവ അടുത്തടുത്തായി ഇന്‍സ്റ്റാള്‍ ചെയ്യുക"
+msgstr ""
+"ഓരോ തവണയും തുടക്കത്തില്‍ തിരഞ്ഞെടുക്കാവുന്ന വിധം, ഇവ അടുത്തടുത്തായി "
+"ഇന്‍സ്റ്റാള്‍ ചെയ്യുക"
 
 #. Type: text
 #. Description
@@ -47,7 +49,7 @@ msgstr "ഡിസ്ക് വിഭജനം സ്വയം നിര്‍വ
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:186001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:185001
 msgid "Install"
 msgstr "ഇന്‍സ്റ്റാള്‍"
 
@@ -65,23 +67,18 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"താങ്കള്‍ കമ്പ്യൂട്ടര്‍ സജ്ജീകരിക്കുന്നത് നിര്‍മ്മാതാക്കളുടെ ശൈലിയിലാണ്. ദയവായി ഈ ശ്രേണിയിലുള്ള "
-"കമ്പ്യൂട്ടറുകള്‍ക്ക് ഒരു അതുല്യനാമം നല്‍കുക. ഈ പേര് സജ്ജമാക്കിയ കമ്പ്യൂട്ടറില്‍ സൂക്ഷിക്കുകയും പിഴവുകള്‍ "
-"പരിഹരിക്കുന്നതിന് പിന്നീട് ഉപയോഗിക്കുകയും ചെയ്യാവുന്നതാണ്."
+"താങ്കള്‍ കമ്പ്യൂട്ടര്‍ സജ്ജീകരിക്കുന്നത് നിര്‍മ്മാതാക്കളുടെ ശൈലിയിലാണ്. "
+"ദയവായി ഈ ശ്രേണിയിലുള്ള കമ്പ്യൂട്ടറുകള്‍ക്ക് ഒരു അതുല്യനാമം നല്‍കുക. ഈ പേര് "
+"സജ്ജമാക്കിയ കമ്പ്യൂട്ടറില്‍ സൂക്ഷിക്കുകയും പിഴവുകള്‍ പരിഹരിക്കുന്നതിന് "
+"പിന്നീട് ഉപയോഗിക്കുകയും ചെയ്യാവുന്നതാണ്."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-#, fuzzy
-#| msgid ""
-#| "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
-#| "your system."
 msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"നിങ്ങള്‍ക്ക് ${RELEASE} ഈ ${MEDIUM} ഉപയോഗിച്ച് പരീക്ഷിക്കാവുന്നതാണ്, ഇതിനായി കമ്പ്യൂട്ടറില്‍ "
-"മാറ്റങ്ങള്‍ ഒന്നും  വരുത്തേണ്ടതില്ല."
 
 #. Type: text
 #. Description
@@ -107,13 +104,15 @@ msgstr "ഇന്‍സ്റ്റാള്‍ ${RELEASE}"
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Once you answer a few questions, this computer will be ready to use."
-msgstr "ഏതാനും ചോദ്യങ്ങള്‍ക്ക് ഉത്തരം നല്‍കുന്നതോടെ, ഈ കംപ്യൂട്ടര്‍ ഉപയോഗക്ഷമമാവുന്നതാണ്."
+msgstr ""
+"ഏതാനും ചോദ്യങ്ങള്‍ക്ക് ഉത്തരം നല്‍കുന്നതോടെ, ഈ കംപ്യൂട്ടര്‍ "
+"ഉപയോഗക്ഷമമാവുന്നതാണ്."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Answering the questions should only take a few minutes."
-msgstr "ഉത്തരങ്ങള്‍ കുറഞ്ഞ നിമിഷം കൊണ്ട് നല്‍കുവാന്‍ സാധിക്കുന്നതാണ്"
+msgstr "ചോദ്യങ്ങള്‍ക്ക് ഉത്തരം നല്‍കാന്‍ കുറച്ച് സമയം മതി."
 
 #. Type: text
 #. Description
@@ -122,18 +121,24 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
+"നിങ്ങള്‍ <a href=\"release-notes\">വിതരണ കുറിപ്പുകള്‍</a>വായിക്കുന്നതില്‍ "
+"തല്പരനായിരിക്കും. അല്ലെങ്കില്‍ <a href=\"update\"> സജ്ജീകരണ സംവിധാനം "
+"പുതുക്കുക</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
+"നിങ്ങള്‍ <a href=\"release-notes\">വിതരണ കുറിപ്പുകള്‍</a>വായിക്കുന്നതില്‍ "
+"തല്പരനായിരിക്കും."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
 msgstr ""
+"<a href=\"update\"> സജ്ജീകരണ സംവിധാനം പുതുക്കുന്നതില്‍</a> തല്പരനായിരിക്കും."
 
 #. Type: text
 #. Description
@@ -174,10 +179,8 @@ msgstr "കീബോര്‍ഡ് ലേയൌട്ട്"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Choose your keyboard layout:"
-msgstr "കീബോര്‍ഡ് ലേയൌട്ട്"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -188,10 +191,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure out keyboard layout"
-msgstr "കീബോര്‍ഡ് ലേയൌട്ട്"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -258,7 +259,8 @@ msgstr ""
 #: ../ubiquity.templates:36001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
-"താങ്കള്‍ പ്രശ്നപരിഹാര സമ്പ്രദായത്തിലാണ് പ്രവര്‍ത്തിക്കുന്നത്. വിലപ്പെട്ട രഹസ്യവാക്കുകള്‍ ഉപയോഗിക്കരുത്!"
+"താങ്കള്‍ പ്രശ്നപരിഹാര സമ്പ്രദായത്തിലാണ് പ്രവര്‍ത്തിക്കുന്നത്. വിലപ്പെട്ട "
+"രഹസ്യവാക്കുകള്‍ ഉപയോഗിക്കരുത്!"
 
 #. Type: text
 #. Description
@@ -417,10 +419,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr "Step ${INDEX} of ${TOTAL}"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -521,12 +521,12 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:77001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
 
 #. Type: text
@@ -730,9 +730,9 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:109001
 msgid ""
-"Installation has finished.  You can continue testing ${RELEASE} now, but "
-"until you restart the computer, any changes you make or documents you save "
-"will not be preserved."
+"Installation has finished.  You can continue testing Ubuntu now, but until "
+"you restart the computer, any changes you make or documents you save will "
+"not be preserved."
 msgstr ""
 
 #. Type: text
@@ -1038,12 +1038,12 @@ msgstr ""
 #: ../ubiquity.templates:148001 ../ubiquity.templates:149001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
 
 #. Type: error
@@ -1068,8 +1068,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:150001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
@@ -1136,7 +1136,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 
 #. Type: boolean
@@ -1171,7 +1172,7 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001 ../ubiquity.templates:234001
+#: ../ubiquity.templates:175001 ../ubiquity.templates:231001
 msgid "Welcome"
 msgstr "സ്വാഗതം"
 
@@ -1202,110 +1203,104 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:180001
-msgid "Prepare"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:181001
 msgid "Timezone"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:181001
 msgid "Keyboard"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:182001
 msgid "Disk Setup"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:183001
 msgid "User Info"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:184001
 msgid "Summary"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:186001
 msgid "installation process"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:188001
 msgid "Checking for installer updates"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:189001
 msgid "Reading package information"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:190001
 msgid "Updating package information"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:191001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:192001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:193001
 msgid "Installing update"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "Error updating installer"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr ""
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:195001
 msgid "USB disk"
 msgstr ""
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:196001
 msgid "CD"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
+#: ../ubiquity.templates:197001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
@@ -1313,15 +1308,17 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:198001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
+"സജ്ജീകരണ സമയത്ത് ഉപയോഗിക്കുന്നതിനായി ഒരു ഭാഷ തെരഞ്ഞെടുക്കുക. ഇതു പിന്നീട് ഈ "
+"കമ്പ്യൂട്ടറിന്റെ ഭാഷയായി ഉപയോഗിക്കപ്പെടുന്നതാണ്."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:199001
 msgid "Continue with installation."
 msgstr ""
 
@@ -1329,13 +1326,13 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001 ../ubiquity.templates:202001
+#: ../ubiquity.templates:200001 ../ubiquity.templates:201001
 msgid "Installation failed"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:200001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1343,45 +1340,43 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:202001
+#: ../ubiquity.templates:201001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
+#: ../ubiquity.templates:203001
 msgid "Preparing to install ${RELEASE}"
-msgstr "ഇന്‍സ്റ്റാള്‍ ${RELEASE}"
+msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:205001
+#: ../ubiquity.templates:204001
 msgid "Wireless"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
+#: ../ubiquity.templates:205001
 msgid "Please select your wireless network from this list"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:209001
+#: ../ubiquity.templates:208001
 msgid "Select drive:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:210001
+#: ../ubiquity.templates:209001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:211001
+#: ../ubiquity.templates:210001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
@@ -1390,7 +1385,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:211001
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
@@ -1398,101 +1393,97 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:213001
-#, fuzzy
-#| msgid "Prepare partitions"
+#: ../ubiquity.templates:212001
 msgid "Use Entire Partition"
-msgstr "പാര്‍ട്ടീഷനുകള്‍ തയ്യാറാക്കുക"
+msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:214001
+#: ../ubiquity.templates:213001
 msgid "Use Entire Disk"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
-#, fuzzy
-#| msgid "Prepare partitions"
+#: ../ubiquity.templates:214001
 msgid "Split Largest Partition"
-msgstr "പാര്‍ട്ടീഷനുകള്‍ തയ്യാറാക്കുക"
+msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:217001
+#: ../ubiquity.templates:216001
 msgid "For best results, please ensure:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:218001
+#: ../ubiquity.templates:217001
 msgid "that you have at least ${SIZE} available drive space"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:219001
+#: ../ubiquity.templates:218001
 msgid "that you are plugged in to a power source"
 msgstr ""
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:219001
+msgid "that you are connected to the Internet with an Ethernet cable"
+msgstr ""
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:220001
-msgid "that you are connected to the Internet"
+msgid ""
+"Ubuntu aims to be free and open-source software.  However, this is not "
+"always possible."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid ""
-"${RELEASE} supports MP3 playback, Flash content, wifi hardware, and similar "
-"functionality through third party software, not all of which is open "
-"source.  This software is subject to the license terms included with the "
-"software's documentation."
+"The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 audio "
+"decoding technology licensed from Faunhofer IIS and Thomson."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid ""
-"The following notice applies to the Fluendo MP3 plugin: \"MPEG Layer-3 audio "
-"decoding technology licensed from Fraunhofer IIS and Thomson.\""
+"Please off me non-open-source software if it is needed for a better "
+"experience"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
-msgid "Tick this box to install the software for this functionality."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:224001
 msgid "Download updates while installing"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:225001
 msgid "Layout:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:226001
 msgid "Variant:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:227001
 msgid "Below is an image of your current layout:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:231001
+#: ../ubiquity.templates:228001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1501,27 +1492,15 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232001
+#: ../ubiquity.templates:229001
 msgid "Time Zone:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:233001
+#: ../ubiquity.templates:230001
 msgid "Region:"
 msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:235001
-msgid ""
-"Ready to install?  Once you answer a few questions, the contents of the live "
-"${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
-"full speed without the ${MEDIUM}."
-msgstr ""
-"ഇന്‍സ്റ്റാള്‍ ചെയ്യാന്‍ തയ്യാറാണോ? ഏതാനും ചില ചോദ്യങ്ങള്‍ക്ക് ഉത്തരം നല്‍കുന്നതോടെ, ഈ തത്സമയ "
-"${MEDIUM} യുടെ ഉള്ളടക്കം നിങ്ങളുടെ കംപ്യൂട്ടറില്‍ ഇന്‍സ്റ്റാള്‍ ചെയ്യപ്പെടുകയും, അതോടെ ${MEDIUM} "
-"ഇല്ലാതെ തന്നെ നിങ്ങള്‍ക്ക് ${RELEASE} അതിവേഗം പ്രവര്‍ത്തിപ്പിക്കാന്‍ സാധിക്കുകയും ചെയ്യും."
 
 #. Type: title
 #. Description
@@ -1583,26 +1562,40 @@ msgstr ""
 #~ msgstr "ഏത് ലേയൌട്ടിനാണ് നിങ്ങളുടെ കീബോര്‍ഡുമായി കൂടുതല്‍ സാമ്യം?"
 
 #~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr "പുതിയ കീബോര്‍ഡ് രൂപകല്പന പരിശോധിക്കുവാന്‍ ഈ ചതുരത്തില്‍ ടൈപ് ചെയ്യുക."
+#~ msgstr ""
+#~ "പുതിയ കീബോര്‍ഡ് രൂപകല്പന പരിശോധിക്കുവാന്‍ ഈ ചതുരത്തില്‍ ടൈപ് ചെയ്യുക."
 
 #~ msgid "What is your name?"
 #~ msgstr "നിങ്ങളുടെ പേരെന്താണ്?"
 
 #~ msgid "What name do you want to use to log in?"
-#~ msgstr "എന്ത് പേര് വെച്ചാണ് നിങ്ങള്‍ അകത്ത് കടക്കുവാന്‍ (log in) ഉദ്ദേശിക്കുന്നത്?"
+#~ msgstr ""
+#~ "എന്ത് പേര് വെച്ചാണ് നിങ്ങള്‍ അകത്ത് കടക്കുവാന്‍ (log in) ഉദ്ദേശിക്കുന്നത്?"
 
 #~ msgid ""
 #~ "If more than one person will use this computer, you can set up multiple "
 #~ "accounts after installation."
 #~ msgstr ""
-#~ "ഒന്നിലധികം ആളുകള്‍ ഈ കമ്പ്യൂട്ടര്‍ ഉപയോഗിക്കുവാന്‍ താല്പര്യപ്പെടുന്നുണ്ടെങ്കില്‍, സജ്ജീകരണം "
-#~ "പൂര്‍ത്തിയായതിനു ശേഷം അനേകം അംഗത്വങ്ങള്‍ ഒരുക്കാവുന്നതാണ്"
+#~ "ഒന്നിലധികം ആളുകള്‍ ഈ കമ്പ്യൂട്ടര്‍ ഉപയോഗിക്കുവാന്‍ "
+#~ "താല്പര്യപ്പെടുന്നുണ്ടെങ്കില്‍, സജ്ജീകരണം പൂര്‍ത്തിയായതിനു ശേഷം അനേകം "
+#~ "അംഗത്വങ്ങള്‍ ഒരുക്കാവുന്നതാണ്"
 
 #~ msgid "Choose a password to keep your account safe."
-#~ msgstr "നിങ്ങ്~അളുടെ അക്കൌണ്ട് സുരക്ഷിതമാക്കുവാന്‍ ഒരു പാസ്സ്‍വേഡ് കൊടുക്കുക."
+#~ msgstr ""
+#~ "നിങ്ങ്~അളുടെ അക്കൌണ്ട് സുരക്ഷിതമാക്കുവാന്‍ ഒരു പാസ്സ്‍വേഡ് കൊടുക്കുക."
 
 #~ msgid "What is the name of this computer?"
 #~ msgstr "ഈ കംപ്യൂട്ടറിന്റെ പേരെന്താണ്?"
 
 #~ msgid "Choose language"
 #~ msgstr "ഭാഷ തിരഞ്ഞെടുക്കുക/Choose language"
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the live "
+#~ "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
+#~ "full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "ഇന്‍സ്റ്റാള്‍ ചെയ്യാന്‍ തയ്യാറാണോ? ഏതാനും ചില ചോദ്യങ്ങള്‍ക്ക് ഉത്തരം "
+#~ "നല്‍കുന്നതോടെ, ഈ തത്സമയ ${MEDIUM} യുടെ ഉള്ളടക്കം നിങ്ങളുടെ കംപ്യൂട്ടറില്‍ "
+#~ "ഇന്‍സ്റ്റാള്‍ ചെയ്യപ്പെടുകയും, അതോടെ ${MEDIUM} ഇല്ലാതെ തന്നെ നിങ്ങള്‍ക്ക് "
+#~ "${RELEASE} അതിവേഗം പ്രവര്‍ത്തിപ്പിക്കാന്‍ സാധിക്കുകയും ചെയ്യും."

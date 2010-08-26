@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-08-26 19:46+0100\n"
-"PO-Revision-Date: 2010-04-22 12:16+0000\n"
-"Last-Translator: Guanglin Du <dugl@petrochina.com.cn>\n"
+"POT-Creation-Date: 2010-08-06 14:13-0400\n"
+"PO-Revision-Date: 2010-08-17 02:58+0000\n"
+"Last-Translator: ZhengPeng Hou <zhengpeng-hou@ubuntu.com>\n"
 "Language-Team: Simplified Chinese <debian-chinese-gb@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
-"X-Launchpad-Export-Date: 2010-04-23 08:12+0000\n"
+"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: \n"
 
 #. Type: text
 #. Description
@@ -46,7 +46,7 @@ msgstr "手动指定分区(高级)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:186001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:185001
 msgid "Install"
 msgstr "安装"
 
@@ -63,22 +63,15 @@ msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
-msgstr ""
-"您正在以制造商模式进行安装。请为这批系统输入一个独有的名称。该名称将被保存在"
-"已安装的系统中，并且用于帮助提交错误报告。"
+msgstr "您正在以制造商模式进行安装。请为这批系统输入一个独有的名称。该名称将被保存在已安装的系统中，并且用于帮助提交错误报告。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
-#, fuzzy
-#| msgid ""
-#| "You can try ${RELEASE} from this ${MEDIUM} without making any changes to "
-#| "your system."
 msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
-msgstr ""
-"您可以在这张 ${MEDIUM} 上试用 ${RELEASE}，这不会对您的系统做出任何修改。"
+msgstr "您可以直接从此 ${MEDIUM} 尝试 ${RELEASE}，而不用对您的电脑作任何更改。"
 
 #. Type: text
 #. Description
@@ -86,7 +79,7 @@ msgstr ""
 msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
-msgstr ""
+msgstr "如果您已经准备完毕，您可以与现有系统并存（或者替代）方式将${RELEASE} 安装到您的电脑上。此过程无需耗时太久。"
 
 #. Type: text
 #. Description
@@ -110,7 +103,7 @@ msgstr "在回答一些问题以后，这台电脑就可以使用了。"
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Answering the questions should only take a few minutes."
-msgstr "回答这些问题仅需要几分钟时间。"
+msgstr "回答这些问题只需要花费您几分钟的时间。"
 
 #. Type: text
 #. Description
@@ -119,8 +112,7 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"您可能希望阅读 <a href=\"release-notes\">发行注记</a> 或者 <a href=\"update"
-"\">更新安装程序</a>。"
+"您可能希望阅读 <a href=\"release-notes\">发行注记</a> 或者 <a href=\"update\">更新安装程序</a>。"
 
 #. Type: text
 #. Description
@@ -137,18 +129,13 @@ msgstr "您可能希望 <a href=\"update\">更新安装程序</a>。"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2010."
 msgstr ""
-"这是一个与发行的 ${RELEASE} Live ${MEDIUM} 安装程序。这并不是最终的发行版本；"
-"最终正式发行的 ${RELEASE} 将会在 2010 年 4 月发布。"
+"这是${RELEASE} 的 Live ${MEDIUM} 的预览版安装程序，它还不是最终版本， 最终版会在2010年十月 ${RELEASE} "
+"发布时一并推出。"
 
 #. Type: text
 #. Description
@@ -157,15 +144,13 @@ msgid ""
 "The installation process may resize or erase partitions on your hard disk. "
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
-msgstr ""
-"安装进程中可能会在您的硬盘上改变分区大小或者擦除分区。请确保在开始运行这个程"
-"序之前 <b>备份所有重要数据</b>。"
+msgstr "安装进程中可能会在您的硬盘上改变分区大小或者擦除分区。请确保在开始运行这个程序之前 <b>备份所有重要数据</b>。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Warning"
-msgstr ""
+msgstr "警告"
 
 #. Type: text
 #. Description
@@ -182,24 +167,20 @@ msgstr "键盘布局"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Choose your keyboard layout:"
-msgstr "键盘布局"
+msgstr "选择您的键盘布局"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "在这里输入以测试您的键盘"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure out keyboard layout"
-msgstr "键盘布局"
+msgstr "决定键盘布局"
 
 #. Type: text
 #. Description
@@ -222,24 +203,20 @@ msgstr "您是谁？"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name:"
-msgstr "计算机名"
+msgstr "您的姓名："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Computer Name"
 msgid "Your name"
-msgstr "计算机名"
+msgstr "您的姓名"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Pick a username:"
-msgstr ""
+msgstr "选择一个用户名"
 
 #. Type: text
 #. Description
@@ -250,10 +227,8 @@ msgstr "用户名"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Choose a password:"
-msgstr "选择另一个密码"
+msgstr "选择一个密码"
 
 #. Type: text
 #. Description
@@ -264,10 +239,8 @@ msgstr "密码"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Confirm password"
-msgstr "再次输入密码"
+msgstr "确认密码"
 
 #. Type: text
 #. Description
@@ -278,42 +251,32 @@ msgstr "您正在以调试模式运行。请勿使用重要密码！"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Choose another password"
 msgid "Short password"
-msgstr "选择另一个密码"
+msgstr "密码强度：过短"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
-#, fuzzy
-#| msgid "Password"
 msgid "Weak password"
-msgstr "密码"
+msgstr "密码强度：过弱"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
-#, fuzzy
-#| msgid "Password"
 msgid "Fair password"
-msgstr "密码"
+msgstr "密码强度：合理"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
-#, fuzzy
-#| msgid "Password"
 msgid "Good password"
-msgstr "密码"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Re-enter password"
 msgid "Strong password"
-msgstr "再次输入密码"
+msgstr "密码强度：强度"
 
 #. Type: text
 #. Description
@@ -331,7 +294,7 @@ msgstr "登录时需要密码"
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "加密我的目录"
 
 #. Type: text
 #. Description
@@ -359,13 +322,13 @@ msgstr "如果您不希望导入任何帐户，那么请不要选中任何东西
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Allocate drive space"
-msgstr ""
+msgstr "分配磁盘空间"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48001
 msgid "How do you want to partition the disk?"
-msgstr "您希望如何对硬盘分区？"
+msgstr "您希望如何对硬盘进行分区？"
 
 #. Type: text
 #. Description
@@ -423,31 +386,27 @@ msgstr "详情"
 #: ../ubiquity.templates:57001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr "您的新操作系统将会使用下列选项安装："
+msgstr "您的新操作系统将采用以下设置进行安装："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Advanced..."
-msgstr "高级..."
+msgstr "高级的..."
 
 #. Type: text
 #. Description
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:59001
-#, fuzzy
-#| msgid "Install[ action ]"
 msgid "_Install Now[ action ]"
-msgstr "安装"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
-#, fuzzy
-#| msgid "Step ${INDEX} of ${TOTAL}"
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr "第 ${INDEX} 步(共 ${TOTAL} 步)"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -548,17 +507,17 @@ msgstr "安装程序崩溃"
 #. Description
 #: ../ubiquity.templates:77001
 msgid ""
-"We're sorry; the installer crashed. Please file a new bug report at https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
-"to any existing bug) and a developer will attend to the problem as soon as "
-"possible. To help the developers understand what went wrong, include the "
-"following detail in your bug report, and attach the files /var/log/syslog "
-"and /var/log/partman:"
+"We're sorry; the installer crashed. Please file a new bug report at "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your "
+"details to any existing bug) and a developer will attend to the problem as "
+"soon as possible. To help the developers understand what went wrong, include "
+"the following detail in your bug report, and attach the files "
+"/var/log/syslog and /var/log/partman:"
 msgstr ""
-"对不起，安装程序已崩溃。请前往 https://launchpad.net/ubuntu/+source/ubiquity/"
-"+filebug?no-redirect 提交一个新的错误报告(请不要附加到已有的 bug 上)，开发者"
-"会尽快处理这个问题。为了让开发者更好的明白问题所在，请将下列信息包含在报告"
-"中，并且将 /var/log/syslog 和 /var/log/partman 作为附件上传："
+"对不起，安装程序已崩溃。请前往 https://launchpad.net/ubuntu/+source/ubiquity/+filebug?no-"
+"redirect 提交一个新的错误报告(请不要附加到已有的 bug "
+"上)，开发者会尽快处理这个问题。为了让开发者更好的明白问题所在，请将下列信息包含在报告中，并且将 /var/log/syslog 和 "
+"/var/log/partman 作为附件上传："
 
 #. Type: text
 #. Description
@@ -760,18 +719,11 @@ msgstr "端口："
 #. Type: text
 #. Description
 #: ../ubiquity.templates:109001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
-"Installation has finished.  You can continue testing ${RELEASE} now, but "
-"until you restart the computer, any changes you make or documents you save "
-"will not be preserved."
-msgstr ""
-"安装已经完成。您可以继续测试 Ubuntu，但是重启前任何您做的更改以及保存的文档都"
-"不会保留。"
+"Installation has finished.  You can continue testing Ubuntu now, but until "
+"you restart the computer, any changes you make or documents you save will "
+"not be preserved."
+msgstr "安装已经完成。您可以继续测试 Ubuntu，但是重启前任何您做的更改以及保存的文档都不会保留。"
 
 #. Type: text
 #. Description
@@ -887,9 +839,7 @@ msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
-msgstr ""
-"目标分区上没有足够磁盘空间供安装使用。请重新运行安装程序并选择一个更大的分区"
-"进行安装。"
+msgstr "目标分区上没有足够磁盘空间供安装使用。请重新运行安装程序并选择一个更大的分区进行安装。"
 
 #. Type: error
 #. Description
@@ -899,8 +849,8 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"这常归咎于错误的 CD/DVD 盘片或者驱动器。也许清洁盘片、用低速来刻录 CD/DVD 或"
-"者清洁 CD/DVD 驱动器的镜头会有帮助(清洁工具通常可以从电子供应商那里得到)。"
+"这常归咎于错误的 CD/DVD 盘片或者驱动器。也许清洁盘片、用低速来刻录 CD/DVD 或者清洁 CD/DVD "
+"驱动器的镜头会有帮助(清洁工具通常可以从电子供应商那里得到)。"
 
 #. Type: error
 #. Description
@@ -909,9 +859,7 @@ msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
-msgstr ""
-"这通常是由于硬盘盘片错误造成的。以下措施可能有助于解决问题：检查硬盘是否太旧"
-"而需要更换，或者把硬盘放置到散热良好的环境中。"
+msgstr "这通常是由于硬盘盘片错误造成的。以下措施可能有助于解决问题：检查硬盘是否太旧而需要更换，或者把硬盘放置到散热良好的环境中。"
 
 #. Type: error
 #. Description
@@ -929,10 +877,8 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"这通常是由于 CD/DVD 盘片或驱动器有问题，或是硬盘错误造成的。以下措施可能有助"
-"于解决问题：清洁盘片、低速刻录或者清洁 CD/DVD 驱动器镜头(清洁工具通常可在电子"
-"设备供应商处获得)、检查硬盘是否太旧而需要更换或者把硬盘放置到散热良好的环境"
-"中。"
+"这通常是由于 CD/DVD 盘片或驱动器有问题，或是硬盘错误造成的。以下措施可能有助于解决问题：清洁盘片、低速刻录或者清洁 CD/DVD "
+"驱动器镜头(清洁工具通常可在电子设备供应商处获得)、检查硬盘是否太旧而需要更换或者把硬盘放置到散热良好的环境中。"
 
 #. Type: select
 #. Description
@@ -1093,18 +1039,16 @@ msgstr "下列软件包已损坏："
 #: ../ubiquity.templates:148001 ../ubiquity.templates:149001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in /var/log/"
-"syslog. The installer will try to continue anyway, but may fail at a later "
-"point, and will not be able to install or remove other packages (possibly "
-"including itself) from the installed system. You should first look for newer "
-"versions of your installer image, or failing that report the problem to your "
-"distributor."
+"in some of the packages listed above. More details may be found in "
+"/var/log/syslog. The installer will try to continue anyway, but may fail at "
+"a later point, and will not be able to install or remove other packages "
+"(possibly including itself) from the installed system. You should first look "
+"for newer versions of your installer image, or failing that report the "
+"problem to your distributor."
 msgstr ""
-"这个错误可能是由于您使用了一个旧的安装镜像所造成，也可能是由上面所列出的某些"
-"包中的错误所造成。您可以在“/var/log/syslog”中找到更多细节。安装程序将继续运"
-"行，但有可能会安装失败，而且会造成您无法在已经安装的系统中安装或删除其他的包"
-"(可能包括这个程序自身)。建议使用一个新版本的安装镜像，或把这个问题报告给程序"
-"的发布者。"
+"这个错误可能是由于您使用了一个旧的安装镜像所造成，也可能是由上面所列出的某些包中的错误所造成。您可以在“/var/log/syslog”中找到更多细节。安"
+"装程序将继续运行，但有可能会安装失败，而且会造成您无法在已经安装的系统中安装或删除其他的包(可能包括这个程序自身)。建议使用一个新版本的安装镜像，或把这个"
+"问题报告给程序的发布者。"
 
 #. Type: error
 #. Description
@@ -1128,13 +1072,13 @@ msgstr "迁移文档和设置时发生错误"
 #. Description
 #: ../ubiquity.templates:150001
 msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
+"An error occurred while migrating data.  More details may be found in "
+"/var/log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"在迁移数据时发生了一个错误。更多细节请参阅 /var/log/syslog。安装程序将会继"
-"续，但是您请求的部分或者全部文档或者设置可能不会迁移到新安装的系统上。"
+"在迁移数据时发生了一个错误。更多细节请参阅 "
+"/var/log/syslog。安装程序将会继续，但是您请求的部分或者全部文档或者设置可能不会迁移到新安装的系统上。"
 
 #. Type: error
 #. Description
@@ -1149,9 +1093,7 @@ msgid ""
 "An error occurred while copying the network settings.  The installation will "
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
-msgstr ""
-"在复制网络设置时发生一个错误。安装程序将会继续，但是您必须在新安装的系统上再"
-"次设置网络配置。"
+msgstr "在复制网络设置时发生一个错误。安装程序将会继续，但是您必须在新安装的系统上再次设置网络配置。"
 
 #. Type: text
 #. Description
@@ -1200,7 +1142,8 @@ msgstr "请关闭所有正在使用这些挂载点的应用程序。"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:167001
-msgid "Would you like the installer to try to unmount these partitions again?"
+msgid ""
+"Would you like the installer to try to unmount these partitions again?"
 msgstr "您是否想让安装程序再次尝试卸载这些分区？"
 
 #. Type: boolean
@@ -1235,7 +1178,7 @@ msgstr "系统设置"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001 ../ubiquity.templates:234001
+#: ../ubiquity.templates:175001 ../ubiquity.templates:231001
 msgid "Welcome"
 msgstr "欢迎"
 
@@ -1266,124 +1209,112 @@ msgstr "语言"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:180001
-msgid "Prepare"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:181001
 msgid "Timezone"
 msgstr "时区"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:181001
 msgid "Keyboard"
 msgstr "键盘"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:182001
 msgid "Disk Setup"
 msgstr "磁盘配置"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:183001
 msgid "User Info"
 msgstr "用户信息"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:184001
 msgid "Summary"
 msgstr "概要"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:186001
 msgid "installation process"
 msgstr "安装进程"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:188001
 msgid "Checking for installer updates"
 msgstr "正在检查安装程序更新"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:189001
 msgid "Reading package information"
 msgstr "正在读取软件包信息"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:190001
 msgid "Updating package information"
 msgstr "正在更新软件包信息"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:191001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "文件 ${INDEX} 共 ${TOTAL}，下载速度 ${SPEED}/s"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:192001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "文件 ${INDEX} 共 ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:193001
 msgid "Installing update"
 msgstr "正在安装更新"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "Error updating installer"
 msgstr "升级安装程序时发生错误"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr "安装程序在尝试自我更新时发生一个错误："
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:195001
 msgid "USB disk"
-msgstr ""
+msgstr "USB 磁盘"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:196001
 msgid "CD"
 msgstr "CD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
-#, fuzzy
-#| msgid ""
-#| "Please choose the language to use for the install process. This\n"
-#| " Language will be the default language for this computer."
+#: ../ubiquity.templates:197001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
-msgstr ""
-"请选择安装过程中使用的语言。这\n"
-" 个语言将会成为这台计算机的默认语言。"
+msgstr "请选择安装过程中使用的语言。这个语言将成为这个计算机的默认语言。"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:198001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1391,7 +1322,7 @@ msgstr "请选择配置阶段中所使用的语言，该语言将会成为这台
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:199001
 msgid "Continue with installation."
 msgstr "继续安装。"
 
@@ -1399,61 +1330,57 @@ msgstr "继续安装。"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001 ../ubiquity.templates:202001
+#: ../ubiquity.templates:200001 ../ubiquity.templates:201001
 msgid "Installation failed"
 msgstr "安装失败"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:200001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
-msgstr ""
-"安装程序遇到了不可修复的错误。现在将会运行一个桌面会话以便您可以探究问题所在"
-"或尝试再次安装。"
+msgstr "安装程序遇到了不可修复的错误。现在将会运行一个桌面会话以便您可以探究问题所在或尝试再次安装。"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:202001
+#: ../ubiquity.templates:201001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr "安装程序遇到了一个不可修复的错误，且现在需要重新引导。"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
+#: ../ubiquity.templates:203001
 msgid "Preparing to install ${RELEASE}"
-msgstr "安装 ${RELEASE}"
+msgstr "准备安装 ${RELEASE}"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:204001
+msgid "Wireless"
+msgstr "无线"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
-msgid "Wireless"
-msgstr ""
+msgid "Please select your wireless network from this list"
+msgstr "请从列表中选择您的无线网络"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
-msgid "Please select your wireless network from this list"
-msgstr ""
+#: ../ubiquity.templates:208001
+msgid "Select drive:"
+msgstr "选择磁盘"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
-msgid "Select drive:"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:210001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:211001
+#: ../ubiquity.templates:210001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
@@ -1462,7 +1389,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:211001
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
@@ -1470,132 +1397,114 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:213001
-#, fuzzy
-#| msgid "Create partition"
+#: ../ubiquity.templates:212001
 msgid "Use Entire Partition"
-msgstr "创建分区"
+msgstr "使用整个分区"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:213001
+msgid "Use Entire Disk"
+msgstr "使用整个磁盘"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
-msgid "Use Entire Disk"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:215001
-#, fuzzy
-#| msgid "Edit a partition"
 msgid "Split Largest Partition"
-msgstr "编辑一个分区"
+msgstr "分割最大的分区"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:217001
+#: ../ubiquity.templates:216001
 msgid "For best results, please ensure:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:218001
+#: ../ubiquity.templates:217001
 msgid "that you have at least ${SIZE} available drive space"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:219001
+#: ../ubiquity.templates:218001
 msgid "that you are plugged in to a power source"
 msgstr ""
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:219001
+msgid "that you are connected to the Internet with an Ethernet cable"
+msgstr ""
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:220001
-msgid "that you are connected to the Internet"
+msgid ""
+"Ubuntu aims to be free and open-source software.  However, this is not "
+"always possible."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid ""
-"${RELEASE} supports MP3 playback, Flash content, wifi hardware, and similar "
-"functionality through third party software, not all of which is open "
-"source.  This software is subject to the license terms included with the "
-"software's documentation."
+"The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 audio "
+"decoding technology licensed from Faunhofer IIS and Thomson."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid ""
-"The following notice applies to the Fluendo MP3 plugin: \"MPEG Layer-3 audio "
-"decoding technology licensed from Fraunhofer IIS and Thomson.\""
+"Please off me non-open-source software if it is needed for a better "
+"experience"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
-msgid "Tick this box to install the software for this functionality."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:224001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "安装中下载更新"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:225001
 msgid "Layout:"
 msgstr "布局："
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:226001
 msgid "Variant:"
 msgstr "变种："
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:227001
 msgid "Below is an image of your current layout:"
 msgstr "下面是您当前布局的图像："
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:231001
+#: ../ubiquity.templates:228001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
-msgstr ""
-"请选择您的位置，以便于系统使用符合您所在国家习惯的显示信息，从离您较近的站点"
-"接受更新，并且设置正确的本地时间。"
+msgstr "请选择您的位置，以便于系统使用符合您所在国家习惯的显示信息，从离您较近的站点接受更新，并且设置正确的本地时间。"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232001
+#: ../ubiquity.templates:229001
 msgid "Time Zone:"
 msgstr "时区："
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:233001
+#: ../ubiquity.templates:230001
 msgid "Region:"
 msgstr "地区："
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:235001
-msgid ""
-"Ready to install?  Once you answer a few questions, the contents of the live "
-"${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
-"full speed without the ${MEDIUM}."
-msgstr ""
-"准备好安装了吗？一旦您完成回答几个问题，这张 Live ${MEDIUM} 上的内容就可以被"
-"安装到这台计算机上。这样您便可以不再需要这张 ${MEDIUM}，并且以全速来运行 "
-"${RELEASE}。"
 
 #. Type: title
 #. Description
@@ -1637,8 +1546,8 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
-"重启进入新的系统之后，您将能够以'oem'用户的身份，用刚才所选定的密码登录；此用"
-"户也有运行 'sudo' 的管理权限。您将可以根据需要对系统作任何进一步的修改。"
+"重启进入新的系统之后，您将能够以'oem'用户的身份，用刚才所选定的密码登录；此用户也有运行 'sudo' "
+"的管理权限。您将可以根据需要对系统作任何进一步的修改。"
 
 #. Type: text
 #. Description
@@ -1648,8 +1557,8 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
-"一旦按您的需要配置好系统，请执行 ‘oem-config-prepare' 。这将导致系统删除临时"
-"用户 'oem' ，并在下一次启动时询问最终用户各种配置问题。"
+"一旦按您的需要配置好系统，请执行 ‘oem-config-prepare' 。这将导致系统删除临时用户 'oem' "
+"，并在下一次启动时询问最终用户各种配置问题。"
 
 #. Type: text
 #. Description
@@ -1657,78 +1566,11 @@ msgstr ""
 msgid "Removing packages"
 msgstr "正在删除软件包"
 
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "最适合您的键盘布局？"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr "您可以在框内测试您的新键盘布局。"
-
-#~ msgid "Suggested option:"
-#~ msgstr "建议的选项："
-
-#~ msgid "Choose your own:"
-#~ msgstr "选择您的："
-
-#~ msgid "Guess keymap:"
-#~ msgstr "猜测键盘布局："
-
-#~ msgid "Guess..."
-#~ msgstr "猜测..."
-
-#~ msgid "What is your name?"
-#~ msgstr "您的名字是？"
-
-#~ msgid "Full Name"
-#~ msgstr "全名"
-
 #~ msgid "What name do you want to use to log in?"
 #~ msgstr "您想用什么名字作为登录名？"
 
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr "如果有多个用户使用本计算机，您可以在完成安装后建立多个帐户。"
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "选择一个密码来确保您的帐户安全。"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "输入两次相同的密码，以避免输入错误。好的密码应该混合字母、数字和标点，长度"
-#~ "至少 8 位，并且需要定期更换。"
-
-#~ msgid "Strength: too short"
-#~ msgstr "强度：太短"
-
-#~ msgid "Strength: weak"
-#~ msgstr "强度：弱"
-
-#~ msgid "Strength: fair"
-#~ msgstr "强度：一般"
-
-#~ msgid "Strength: good"
-#~ msgstr "强度：好"
-
-#~ msgid "Strength: strong"
-#~ msgstr "强度：强"
-
 #~ msgid "What is the name of this computer?"
 #~ msgstr "这台计算机的名称是什么？"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr "如果您让网络上的其他人看到这台计算机，那么将使用这个名称。"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr "登录时需要密码并且加密我的主目录"
-
-#~ msgid "Prepare disk space"
-#~ msgstr "准备硬盘空间"
 
 #~ msgid "Before:"
 #~ msgstr "之前："
@@ -1736,8 +1578,81 @@ msgstr "正在删除软件包"
 #~ msgid "After:"
 #~ msgstr "之后："
 
+#~ msgid ""
+#~ "If more than one person will use this computer, you can set up multiple "
+#~ "accounts after installation."
+#~ msgstr "如果有多个用户使用本计算机，您可以在完成安装后建立多个帐户。"
+
+#~ msgid "Prepare disk space"
+#~ msgstr "准备硬盘空间"
+
 #~ msgid "Choose language"
 #~ msgstr "选择语言"
 
+#~ msgid "Choose your own:"
+#~ msgstr "选择您的："
+
+#~ msgid "You can type into this box to test your new keyboard layout."
+#~ msgstr "您可以在框内测试您的新键盘布局。"
+
+#~ msgid "What is your name?"
+#~ msgstr "您的名字是？"
+
+#~ msgid "Suggested option:"
+#~ msgstr "建议的选项："
+
+#~ msgid "Choose a password to keep your account safe."
+#~ msgstr "选择一个密码来确保您的帐户安全。"
+
+#~ msgid "Which layout is most similar to your keyboard?"
+#~ msgstr "最适合您的键盘布局？"
+
+#~ msgid "Require my password to log in and to decrypt my home folder"
+#~ msgstr "登录时需要密码并且加密我的主目录"
+
+#~ msgid ""
+#~ "This name will be used if you make the computer visible to others on a "
+#~ "network."
+#~ msgstr "如果您让网络上的其他人看到这台计算机，那么将使用这个名称。"
+
+#~ msgid ""
+#~ "Enter the same password twice, so that it can be checked for typing errors. "
+#~ "A good password will contain a mixture of letters, numbers and punctuation, "
+#~ "should be at least eight characters long, and should be changed at regular "
+#~ "intervals."
+#~ msgstr "输入两次相同的密码，以避免输入错误。好的密码应该混合字母、数字和标点，长度至少 8 位，并且需要定期更换。"
+
+#~ msgid "Guess keymap:"
+#~ msgstr "猜测键盘布局："
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the live "
+#~ "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
+#~ "full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "准备好安装了吗？一旦您完成回答几个问题，这张 Live ${MEDIUM} 上的内容就可以被安装到这台计算机上。这样您便可以不再需要这张 "
+#~ "${MEDIUM}，并且以全速来运行 ${RELEASE}。"
+
+#~ msgid "Guess..."
+#~ msgstr "猜测..."
+
 #~ msgid "USB"
 #~ msgstr "USB"
+
+#~ msgid "Strength: good"
+#~ msgstr "强度：好"
+
+#~ msgid "Strength: fair"
+#~ msgstr "强度：一般"
+
+#~ msgid "Strength: strong"
+#~ msgstr "强度：强"
+
+#~ msgid "Strength: weak"
+#~ msgstr "强度：弱"
+
+#~ msgid "Full Name"
+#~ msgstr "全名"
+
+#~ msgid "Strength: too short"
+#~ msgstr "强度：太短"
