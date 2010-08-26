@@ -3,6 +3,8 @@ ubiquity (2.3.8) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * If a plugin declares a title, but it's not fetched properly from debconf,
     hide the title bar rather than crash.
+  * Don't use "Ethernet" when indicating a user is connected to the network.
+    (LP: #615104, #615035)
 
   [ Colin Watson ]
   * Update d-i/update-control for Dpkg::Deps changes in dpkg 1.15.6.

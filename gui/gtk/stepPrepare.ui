@@ -58,7 +58,7 @@
                 <child>
                   <object class="StateBox" id="prepare_network_connection">
                     <property name="visible">True</property>
-                    <property name="label">that you are connected to the Internet with an Ethernet cable</property>
+                    <property name="label">that you are connected to the Internet</property>
                   </object>
                   <packing>
                     <property name="position">2</property>

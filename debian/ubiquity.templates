@@ -1120,7 +1120,7 @@ _Description: that you are plugged in to a power source
 
 Template: ubiquity/text/prepare_network_connection
 Type: text
-_Description: that you are connected to the Internet with an Ethernet cable
+_Description: that you are connected to the Internet
 
 Template: ubiquity/text/prepare_foss_disclaimer
 Type: text
