@@ -6,6 +6,7 @@ ubiquity (2.3.9) UNRELEASED; urgency=low
     result, matching the GTK behavior.
   * Drop privileges before setting the background in the Qt portion of
     ubiquity-dm, otherwise .kde/share/config will be created as root.
+  * Beta freeze exception (LP: #625472).
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 27 Aug 2010 11:18:46 +0100
 
