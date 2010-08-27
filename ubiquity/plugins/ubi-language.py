@@ -452,7 +452,6 @@ class PageKde(PageBase):
     #FIXME these three functions duplicate lots from GTK page above and from ubi-prepare.py
     def setup_network_watch(self):
         import dbus
-        from dbus.mainloop.glib import DBusGMainLoop
         try:
             import dbus.mainloop.qt
             dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
