@@ -187,6 +187,9 @@ class Wizard(BaseFrontend):
         finally:
             regain_privileges_save()
 
+        import dbus.mainloop.qt
+        dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
+
         self.ui = UbiquityUI()
 
         # handle smaller screens (old school eee pc

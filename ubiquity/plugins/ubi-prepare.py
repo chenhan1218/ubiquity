@@ -188,8 +188,6 @@ class PageKde(PreparePageBase):
             self.page.vbox1.addWidget(self.prepare_sufficient_space)
             # TODO we should set these up and tear them down while on this page.
             try:
-                import dbus.mainloop.qt
-                dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
                 self.prepare_power_source = StateBox(self.page)
                 self.page.vbox1.addWidget(self.prepare_power_source)
                 self.setup_power_watch()

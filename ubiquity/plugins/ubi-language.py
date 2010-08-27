@@ -453,8 +453,6 @@ class PageKde(PageBase):
     def setup_network_watch(self):
         import dbus
         try:
-            import dbus.mainloop.qt
-            dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
             bus = dbus.SystemBus()
             bus.add_signal_receiver(self.network_change,
                                     'DeviceNoLongerActive',
