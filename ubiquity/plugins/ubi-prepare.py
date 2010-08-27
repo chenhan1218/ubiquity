@@ -82,6 +82,7 @@ class PreparePageBase(PluginUI):
             state = self.wget_retcode == 0
             self.prepare_network_connection.set_state(state)
             self.controller.dbfilter.set_online_state(state)
+            return False
 
     def set_sufficient_space(self, state):
         self.prepare_sufficient_space.set_state(state)
@@ -215,6 +216,12 @@ class PageKde(PreparePageBase):
         self.timer = QTimer(self.page)
         self.timer.connect(self.timer, SIGNAL("timeout()"), self.check_returncode)
         self.timer.start(300)
+
+    def check_returncode(self, *args):
+        from PyQt4.QtCore import SIGNAL
+        if not super(PageKde, self).check_returncode(args):
+            self.timer.disconnect(self.timer, SIGNAL("timeout()"),
+                self.check_returncode)
 
     def set_download_updates(self, val):
         self.prepare_download_updates.setChecked(val)

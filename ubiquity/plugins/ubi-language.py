@@ -176,6 +176,7 @@ class PageGtk(PageBase):
             else:
                 self.update_installer = False
             self.update_release_notes_label()
+            return False
 
     def check_returncode_release_notes(self, *args):
         import subprocess
@@ -191,6 +192,7 @@ class PageGtk(PageBase):
             else:
                 self.release_notes_found = False
             self.update_release_notes_label()
+            return False
 
     @only_this_page
     def on_try_ubuntu_clicked(self, *args):
@@ -485,6 +487,7 @@ class PageKde(PageBase):
 
     def check_returncode(self, *args):
         import subprocess
+        from PyQt4.QtCore import SIGNAL
         if self.wget_retcode is not None or self.wget_proc is None:
             self.wget_proc = subprocess.Popen(
                 ['wget', '-q', _wget_url, '--timeout=15', '-O', '/dev/null'])
@@ -497,9 +500,12 @@ class PageKde(PageBase):
             else:
                 self.update_installer = False
             self.update_release_notes_label()
+            self.timer.disconnect(self.timer, SIGNAL("timeout()"),
+                self.check_returncode)
 
     def check_returncode_release_notes(self, *args):
         import subprocess
+        from PyQt4.QtCore import SIGNAL
         if self.wget_retcode_release_notes is not None or self.wget_proc_release_notes is None:
             self.wget_proc_release_notes = subprocess.Popen(
                 ['wget', '-q', self.release_notes_url, '--timeout=15', '-O', '/dev/null'])
@@ -512,6 +518,8 @@ class PageKde(PageBase):
             else:
                 self.release_notes_found = False
             self.update_release_notes_label()
+            self.timer.disconnect(self.timer, SIGNAL("timeout()"),
+                self.check_returncode_release_notes)
 
     @only_this_page
     def on_try_ubuntu_clicked(self, *args):

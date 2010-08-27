@@ -2,6 +2,8 @@ ubiquity (2.3.9) UNRELEASED; urgency=low
 
   * Do not set up the Qt DBus main loop twice.  This was crashing on the
     prepare page.
+  * Stop Qt callbacks on the prepare and language pages once we have a
+    result, matching the GTK behavior.
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 27 Aug 2010 11:18:46 +0100
 
