@@ -366,6 +366,8 @@ EndSection
                 fp.close()
         elif self.frontend == 'kde_ui':
             # Don't show the background image in v1 accessibility profile.
+            os.setegid(self.gid)
+            os.seteuid(self.uid)
             path = '/usr/share/wallpapers/Ethais/contents/images/1920x1200.png'
             with open('/proc/cmdline', 'r') as fp:
                 if (os.access(path, os.R_OK)
@@ -388,6 +390,8 @@ EndSection
                     # Force garbage collection so we don't end up with stray X
                     # resources when we kill the X server (LP: #556555).
                     del a
+            os.seteuid(0)
+            os.setegid(0)
 
             subprocess.call(
                 ['kwriteconfig', '--file', 'kwinrc', '--group', 'Compositing',
