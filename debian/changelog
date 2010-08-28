@@ -1,4 +1,4 @@
-ubiquity (2.3.9) UNRELEASED; urgency=low
+ubiquity (2.3.9) maverick; urgency=low
 
   * Do not set up the Qt DBus main loop twice.  This was crashing on the
     prepare page.
@@ -8,7 +8,7 @@ ubiquity (2.3.9) UNRELEASED; urgency=low
     ubiquity-dm, otherwise .kde/share/config will be created as root.
   * Beta freeze exception (LP: #625472).
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 27 Aug 2010 11:18:46 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 27 Aug 2010 19:14:08 +0100
 
 ubiquity (2.3.8) maverick; urgency=low
 
