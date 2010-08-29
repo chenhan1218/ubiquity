@@ -1305,6 +1305,16 @@ class Wizard(BaseFrontend):
     def debconffilter_done (self, dbfilter):
         if not dbfilter.status:
             self.find_next_step(dbfilter.__module__)
+        elif dbfilter.__module__ in ('ubiquity.components.install',
+                                     'ubiquity.components.plugininstall'):
+            # We don't want to try to retry a failing step here, because it
+            # will have the same set of inputs, and thus likely the same
+            # result.
+            # TODO: We may want to call return_to_partitioning after the crash
+            # dialog instead.
+            self.crash_dialog.run()
+            self.crash_dialog.hide()
+            sys.exit(1)
         if BaseFrontend.debconffilter_done(self, dbfilter):
             self.quit_main_loop()
             return True

@@ -1,3 +1,10 @@
+ubiquity (2.3.10) UNRELEASED; urgency=low
+
+  * Handle crashes in parallel debconffilters by failing the
+    installation.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Sun, 29 Aug 2010 22:04:44 +0100
+
 ubiquity (2.3.9) maverick; urgency=low
 
   * Do not set up the Qt DBus main loop twice.  This was crashing on the

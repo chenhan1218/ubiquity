@@ -1100,6 +1100,18 @@ class Wizard(BaseFrontend):
         self.app.processEvents()
         if not dbfilter.status:
             self.find_next_step(dbfilter.__module__)
+        elif dbfilter.__module__ in ('ubiquity.components.install',
+                                     'ubiquity.components.plugininstall'):
+            # We don't want to try to retry a failing step here, because it
+            # will have the same set of inputs, and thus likely the same
+            # result.
+            # TODO: We may want to call return_to_partitioning after the crash
+            # dialog instead.
+            dialog = QDialog(self.ui)
+            uic.loadUi("%s/crashdialog.ui" % UIDIR, dialog)
+            dialog.beastie_url.setOpenExternalLinks(True)
+            dialog.exec_()
+            sys.exit(1)
         if BaseFrontend.debconffilter_done(self, dbfilter):
             self.app.exit()
             return True
