@@ -278,7 +278,10 @@ def get_languages(current_language_index=-1, only_installable=False):
             i += 1
             continue
 
-        if only_installable and code != 'C':
+        if only_installable:
+            if code == 'C':
+                i += 1
+                continue
             pkg_name = 'language-pack-%s' % code
             #special case these
             if pkg_name.endswith('_CN'):
