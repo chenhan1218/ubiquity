@@ -75,6 +75,9 @@ class PageBase(PluginUI):
         """Update the manual partitioner display."""
         pass
 
+    def get_grub_choice(self):
+        return grub_default()
+
 class PageGtk(PageBase):
     plugin_title = 'ubiquity/text/part_auto_heading_label'
     plugin_is_install = True
@@ -90,9 +93,15 @@ class PageGtk(PageBase):
             builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPartAuto.ui'))
             builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPartAdvanced.ui'))
             builder.connect_signals(self)
+
             self.page = builder.get_object('stepPartAsk')
             self.page_auto = builder.get_object('stepPartAuto')
             self.page_advanced = builder.get_object('stepPartAdvanced')
+
+            # Grub options
+            self.grub_device_entry = builder.get_object('grub_device_entry')
+
+            # Automatic page
             self.resizewidget = builder.get_object('resizewidget')
             self.partitionbox = builder.get_object('partitionbox')
             self.partition_container = builder.get_object('partition_container')
@@ -106,6 +115,7 @@ class PageGtk(PageBase):
             self.part_auto_hidden_label = builder.get_object('part_auto_hidden_label')
             self.part_advanced_vbox = builder.get_object('part_advanced_vbox')
 
+            # Advanced page
             self.partition_create_mount_combo = builder.get_object('partition_create_mount_combo')
             self.partition_edit_mount_combo = builder.get_object('partition_edit_mount_combo')
             self.partition_create_dialog = builder.get_object('partition_create_dialog')
@@ -336,6 +346,31 @@ class PageGtk(PageBase):
     def part_auto_hidden_label_activate_link(self, unused_widget, unused):
         self.custom_partitioning.set_active(True)
         self.controller.go_forward()
+
+    def set_grub_options(self):
+        import gtk, gobject
+        options = grub_options()
+        default = os.path.realpath(grub_default())
+        l = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
+        self.grub_device_entry.set_model(l)
+        selected = False
+        for opt in options:
+            i = l.append(opt)
+            if opt[0] == default:
+                self.grub_device_entry.set_active_iter(i)
+                selected = True
+        if not selected:
+            i = l.append([default, default])
+            self.grub_device_entry.set_active_iter(i)
+        #self.grub_device_entry.child.set_text(grub_default())
+
+    def get_grub_choice(self):
+        i = self.grub_device_entry.get_active_iter()
+        if i:
+            return self.grub_device_entry.get_model().get_value(i, 0)
+        else:
+            self.debug('No active iterator for grub device entry.')
+            return grub_default()
 
     def set_autopartition_choices (self, choices, extra_options, resize_choice,
                                    manual_choice, biggest_free_choice,
@@ -1056,6 +1091,7 @@ class PageGtk(PageBase):
                     c = self.auto_colors[i]
                     txt = '%s (%s)' % (path, fs)
                 partition_bar.add_segment_rgb(txt, size, c)
+        self.set_grub_options()
         sel = self.partition_list_treeview.get_selection()
         if sel.count_selected_rows() == 0:
             sel.select_path(0)
@@ -2286,6 +2322,7 @@ class Page(Plugin):
         else:
             self.finish_partitioning = True
         self.succeeded = True
+        self.preseed('grub-installer/bootdev', self.ui.get_grub_choice())
         self.exit_ui_loops()
 
     # TODO cjwatson 2006-11-01: Do we still need this?
