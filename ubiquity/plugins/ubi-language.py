@@ -707,6 +707,9 @@ class Page(Plugin):
             self.ui.set_language_choices(sorted_choices,
                                          language_display_map)
             self.ui.set_language(current_language)
+            if len(sorted_choices) == 1:
+                self.done = True
+                return True
         return Plugin.run(self, priority, question)
 
     def cancel_handler(self):
