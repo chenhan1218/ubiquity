@@ -1,3 +1,9 @@
+ubiquity (2.3.12) UNRELEASED; urgency=low
+
+  * Argh.  Missing import.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 31 Aug 2010 21:21:22 +0100
+
 ubiquity (2.3.11) maverick; urgency=low
 
   * Fix hostname error in KDE frontend (LP: #627489).  Guard against
