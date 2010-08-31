@@ -1,10 +1,10 @@
-ubiquity (2.3.11) UNRELEASED; urgency=low
+ubiquity (2.3.11) maverick; urgency=low
 
   * Fix hostname error in KDE frontend (LP: #627489).  Guard against
     invalid hostnames in the GTK frontend.
   * Create a new pipe for update-apt-cache.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 31 Aug 2010 18:56:58 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 31 Aug 2010 19:38:00 +0100
 
 ubiquity (2.3.10) maverick; urgency=low
 
