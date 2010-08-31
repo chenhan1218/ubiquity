@@ -5,6 +5,8 @@ ubiquity (2.3.10) UNRELEASED; urgency=low
     installation.
   * Add a grub target device combobox on the GTK and KDE advanced
     partitioning pages.
+  * Bootloader handling is now done in ubi-partman.  Do not overwrite it
+    with the default selection in plugininstall.
 
   [ Mario Limonciello ]
   * Add a new script that uses python-aptdaemon-gtk for oem-config removal.
