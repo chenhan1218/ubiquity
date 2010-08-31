@@ -37,6 +37,7 @@ WEIGHT = 10
 
 class PageBase(PluginUI):
     def __init__(self):
+        self.laptop = execute("laptop-detect")
         self.allow_password_empty = False
 
     def set_fullname(self, value):
@@ -90,6 +91,17 @@ class PageBase(PluginUI):
     def password_error(self, msg):
         """The selected password was bad."""
         raise NotImplementedError('password_error')
+
+    def hostname_error(self, msg):
+        """ The hostname had an error """
+        raise NotImplementedError('hostname_error')
+
+    def get_hostname(self):
+        """Get the selected hostname."""
+        raise NotImplementedError('get_hostname')
+
+    def set_hostname(self, hostname):
+        raise NotImplementedError('set_hostname')
 
     def clear_errors(self):
         pass
@@ -209,6 +221,20 @@ class PageGtk(PageBase):
         self.password_strength.hide()
         self.password_error.set_text(msg)
         self.password_error.show()
+
+    def get_hostname (self):
+        if self.controller.oem_config:
+            user = 'oem'
+        else:
+            user = self.username.get_text()
+            user = re.sub(r'\W', '', user)
+        if self.laptop:
+            return '%s-laptop' % user
+        else:
+            return '%s-desktop' % user
+
+    def set_hostname (self):
+        pass
 
     def clear_errors(self):
         self.username_error.hide()
@@ -341,6 +367,7 @@ class PageKde(PageBase):
 
         self.page.fullname.textChanged[str].connect(self.on_fullname_changed)
         self.page.username.textChanged[str].connect(self.on_username_changed)
+        self.page.hostname.textChanged[str].connect(self.on_hostname_changed)
         #self.page.password.textChanged[str].connect(self.on_password_changed)
         #self.page.verified_password.textChanged[str].connect(self.on_verified_password_changed)
 
@@ -356,6 +383,16 @@ class PageKde(PageBase):
             self.page.username.blockSignals(False)
 
     def on_username_changed(self):
+        if not self.hostname_edited:
+            if self.laptop:
+                hostname_suffix = '-laptop'
+            else:
+                hostname_suffix = '-desktop'
+
+            self.page.hostname.blockSignals(True)
+            self.page.hostname.setText(unicode(self.page.username.text()).strip() + hostname_suffix)
+            self.page.hostname.blockSignals(False)
+
         self.username_edited = (self.page.username.text() != '')
 
     def on_password_changed(self):
@@ -363,6 +400,9 @@ class PageKde(PageBase):
 
     def on_verified_password_changed(self):
         pass
+
+    def on_hostname_changed(self):
+        self.hostname_edited = (self.page.hostname.text() != '')
 
     def set_fullname(self, value):
         self.page.fullname.setText(unicode(value, "UTF-8"))
@@ -409,13 +449,26 @@ class PageKde(PageBase):
         self.page.password_error_image.show()
         self.page.password_error_reason.show()
 
+    def hostname_error(self, msg):
+        self.page.hostname_error_reason.setText(msg)
+        self.page.hostname_error_image.show()
+        self.page.hostname_error_reason.show()
+
+    def get_hostname (self):
+        return unicode(self.page.hostname.text())
+
+    def set_hostname (self, value):
+        self.page.hostname.setText(value)
+
     def clear_errors(self):
         self.page.fullname_error_image.hide()
         self.page.username_error_image.hide()
         self.page.password_error_image.hide()
+        self.page.hostname_error_image.hide()
 
         self.page.username_error_reason.hide()
         self.page.password_error_reason.hide()
+        self.page.hostname_error_reason.hide()
 
 class PageDebconf(PageBase):
     plugin_title = 'ubiquity/text/userinfo_heading_label'
@@ -490,6 +543,15 @@ class PageNoninteractive(PageBase):
         self.password = getpass.getpass('Password: ')
         self.verifiedpassword = getpass.getpass('Password again: ')
 
+    def set_hostname(self, name):
+        pass
+
+    def get_hostname(self):
+        """Get the selected hostname."""
+        # We set a default in install.py in case it isn't preseeded but when we
+        # preseed, we are looking for None anyhow.
+        return ''
+
     def clear_errors(self):
         pass
 
@@ -498,6 +560,18 @@ class Page(Plugin):
         if ('UBIQUITY_FRONTEND' not in os.environ or
             os.environ['UBIQUITY_FRONTEND'] != 'debconf_ui'):
             self.preseed_bool('user-setup/allow-password-weak', True)
+            if self.ui.get_hostname() == '':
+                try:
+                    seen = self.db.fget('netcfg/get_hostname', 'seen') == 'true'
+                    if seen:
+                        hostname = self.db.get('netcfg/get_hostname')
+                        domain = self.db.get('netcfg/get_domain')
+                        if hostname and domain:
+                            hostname = '%s.%s' % (hostname, domain)
+                        if hostname != '':
+                            self.ui.set_hostname(hostname)
+                except debconf.DebconfError:
+                    pass
             if self.ui.get_fullname() == '':
                 try:
                     fullname = self.db.get('passwd/user-fullname')
@@ -531,8 +605,6 @@ class Page(Plugin):
             empty = False
         self.ui.set_allow_password_empty(empty)
         
-        self.laptop = execute("laptop-detect")
-
         # We need to call info_loop as we switch to the page so the next button
         # gets disabled.
         self.ui.info_loop(None)
@@ -581,14 +653,25 @@ class Page(Plugin):
         self.preseed_bool('passwd/auto-login', auto_login)
         self.preseed_bool('user-setup/encrypt-home', encrypt_home)
 
-        if self.db.fget('netcfg/get_hostname', 'seen') != 'true':
-            # Do we need to transliterate this at all?
-            if self.laptop:
-                hostname = '%s-laptop' % username
+        hostname = self.ui.get_hostname()
+
+        # check if the hostname had errors
+        error_msg = validation.check_hostname(hostname)
+
+        # showing warning message is error is set
+        if len(error_msg) != 0:
+            self.ui.hostname_error(error_msg)
+            self.done = False
+            self.enter_ui_loop()
+            return
+
+        if hostname is not None and hostname != '':
+            hd = hostname.split('.', 1)
+            self.preseed('netcfg/get_hostname', hd[0])
+            if len(hd) > 1:
+                self.preseed('netcfg/get_domain', hd[1])
             else:
-                hostname = '%s-desktop' % username
-            self.preseed('netcfg/get_hostname', hostname)
-            self.preseed('netcfg/get_domain', '')
+                self.preseed('netcfg/get_domain', '')
 
         Plugin.ok_handler(self)
 
