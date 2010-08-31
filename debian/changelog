@@ -3,8 +3,8 @@ ubiquity (2.3.10) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Handle crashes in parallel debconffilters by failing the
     installation.
-  * Add a grub target device combobox on the GTK advanced partitioning
-    page.
+  * Add a grub target device combobox on the GTK and KDE advanced
+    partitioning pages.
 
   [ Mario Limonciello ]
   * Add a new script that uses python-aptdaemon-gtk for oem-config removal.

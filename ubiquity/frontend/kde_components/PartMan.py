@@ -443,3 +443,18 @@ class PartMan(QWidget):
             return
         self.ctrlr.allow_change_step(False)
         self.ctrlr.dbfilter.undo()
+
+    def setGrubOptions(self, options, default):
+        self.grub_device_entry.clear()
+        for opt in options:
+           self.grub_device_entry.addItem(opt[0]);
+
+        index = self.grub_device_entry.findText(default)
+        if (index == -1):
+            self.grub_device_entry.addItem(default)
+            index = self.grub_device_entry.count() - 1
+            # select the target device
+        self.grub_device_entry.setCurrentIndex(index)
+
+    def getGrubChoice(self):
+        return unicode(self.grub_device_entry.currentText())

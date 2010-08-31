@@ -362,7 +362,6 @@ class PageGtk(PageBase):
         if not selected:
             i = l.append([default, default])
             self.grub_device_entry.set_active_iter(i)
-        #self.grub_device_entry.child.set_text(grub_default())
 
     def get_grub_choice(self):
         i = self.grub_device_entry.get_active_iter()
@@ -1130,6 +1129,18 @@ class PageKde(PageBase):
         self.disk_layout = layout
         self.partAuto.setDiskLayout(layout)
 
+    def set_grub_options(self):
+        options = grub_options()
+        default = os.path.realpath(grub_default())
+        self.partMan.setGrubOptions(options, default)
+
+    def get_grub_choice(self):
+        choice = self.partMan.getGrubChoice()
+        if choice:
+            return choice
+        else:
+            return grub_default()
+
     def set_autopartition_choices (self, choices, extra_options,
                                    resize_choice, manual_choice,
                                    biggest_free_choice, use_device_choice):
@@ -1149,6 +1160,7 @@ class PageKde(PageBase):
 
     def update_partman (self, disk_cache, partition_cache, cache_order):
         self.partMan.update(disk_cache, partition_cache, cache_order)
+        self.set_grub_options()
         # make sure we're on the advanced partitioning page
         self.show_page_advanced()
 
