@@ -1,4 +1,4 @@
-ubiquity (2.3.10) UNRELEASED; urgency=low
+ubiquity (2.3.10) maverick; urgency=low
 
   [ Evan Dandrea ]
   * Handle crashes in parallel debconffilters by failing the
@@ -15,7 +15,7 @@ ubiquity (2.3.10) UNRELEASED; urgency=low
   * If running with only installable languages, don't offer "No Localization"
   * If only one language is available, mark the language page as complete.
 
- -- Evan Dandrea <evand@ubuntu.com>  Sun, 29 Aug 2010 22:04:44 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 31 Aug 2010 12:19:00 +0100
 
 ubiquity (2.3.9) maverick; urgency=low
 
