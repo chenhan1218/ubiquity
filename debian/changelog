@@ -1,3 +1,9 @@
+ubiquity (2.3.13) UNRELEASED; urgency=low
+
+  * When using xfsettingsd, set the background to black first.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 31 Aug 2010 18:57:18 -0500
+
 ubiquity (2.3.12) maverick; urgency=low
 
   * Argh.  Missing import.

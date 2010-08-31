@@ -341,6 +341,10 @@ EndSection
 
             if os.path.exists('/usr/bin/xfsettingsd'):
                 extras.append(subprocess.Popen(
+                    ['xsetroot', '-solid', 'black'],
+                    stdin=null, stdout=logfile, stderr=logfile,
+                    **maybe_drop_privileges))
+                extras.append(subprocess.Popen(
                     ['/usr/bin/xfsettingsd'],
                     stdin=null, stdout=logfile, stderr=logfile,
                     **maybe_drop_privileges))
