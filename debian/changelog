@@ -1,8 +1,8 @@
-ubiquity (2.3.12) UNRELEASED; urgency=low
+ubiquity (2.3.12) maverick; urgency=low
 
   * Argh.  Missing import.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 31 Aug 2010 21:21:22 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 31 Aug 2010 21:31:02 +0100
 
 ubiquity (2.3.11) maverick; urgency=low
 
