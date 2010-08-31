@@ -1,6 +1,7 @@
 from PyQt4 import uic
 from PyQt4.QtCore import Qt
 from PyQt4.QtGui import QLabel, QWidget, QHBoxLayout, QPixmap, QFrame, QPalette
+import sys
 
 class StateBox(QFrame):
     def __init__(self, parent, text=''):
