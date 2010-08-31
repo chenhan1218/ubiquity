@@ -235,22 +235,11 @@ class Wizard(BaseFrontend):
         """Set text to be displayed in the installation summary."""
         pass
 
-    def set_summary_device(self, device):
-        """Set the GRUB device. A hack until we have something better."""
-        if device is not None:
-            if not device.startswith('(') and not device.startswith('/dev/'):
-                device = '/dev/%s' % device
-        self.summary_device = device
-
     # called from ubiquity.components.install
     def get_grub(self):
         # Always return true as there's no UI to disable it.
         # FIXME: Better to grab grub-installer/skip out of debconf?
         return True
-
-    def get_summary_device(self):
-        """Get the selected GRUB device."""
-        return self.summary_device
 
     def set_popcon(self, participate):
         """Set whether to participate in popularity-contest."""

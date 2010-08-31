@@ -43,8 +43,6 @@ class Controller:
         # For summary and install.
         self.get_grub = wizard.get_grub
         self.set_grub = wizard.set_grub
-        self.get_summary_device = wizard.get_summary_device
-        self.set_summary_device = wizard.set_summary_device
         self.get_popcon = wizard.get_popcon
         self.set_popcon = wizard.set_popcon
         self.set_proxy_host = wizard.set_proxy_host
@@ -94,7 +92,6 @@ class BaseFrontend:
         self.dbfilter_status = None
         self.resize_choice = None
         self.manual_choice = None
-        self.summary_device = None
         self.grub_en = None
         self.popcon = None
         self.locale = None
@@ -329,10 +326,6 @@ class BaseFrontend:
 
     # ubiquity.components.summary
 
-    def set_summary_device(self, device):
-        """Set the GRUB device. A hack until we have something better."""
-        self.summary_device = device
-
     def set_grub(self, enable):
         """Sets whether we will be installing GRUB."""
         self.grub_en = enable
@@ -341,10 +334,6 @@ class BaseFrontend:
     def get_grub(self):
         """Returns whether we will be installing GRUB."""
         return self.grub_en
-
-    def get_summary_device(self):
-        """Get the selected GRUB device."""
-        return self.summary_device
 
     def get_popcon(self):
         return self.popcon
