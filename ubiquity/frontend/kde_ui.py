@@ -291,7 +291,6 @@ class Wizard(BaseFrontend):
         self.progressDialog = ProgressDialog(0, 0, self.ui)
         self.finished_installing = False
         self.finished_pages = False
-        self.quitting = False
 
         self.laptop = execute("laptop-detect")
 
@@ -458,7 +457,7 @@ class Wizard(BaseFrontend):
 
             self.app.processEvents()
 
-        if not self.quitting:
+        if self.current_page is not None:
             borderCSS = "border-width: 6px; border-image: " \
                         "url(/usr/share/ubiquity/qt/images/label_border.png) " \
                         "6px;"
@@ -913,7 +912,6 @@ class Wizard(BaseFrontend):
         response = KMessageBox.questionYesNo(*args)
         if response == KMessageBox.Yes:
             self.current_page = None
-            self.quitting = True
             self.quit()
             return True
         else:

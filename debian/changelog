@@ -7,6 +7,8 @@ ubiquity (2.3.10) UNRELEASED; urgency=low
     partitioning pages.
   * Bootloader handling is now done in ubi-partman.  Do not overwrite it
     with the default selection in plugininstall.
+  * Get rid of the quitting state variable and use the existing
+    current_page construct (LP: #627284).
 
   [ Mario Limonciello ]
   * Add a new script that uses python-aptdaemon-gtk for oem-config removal.
