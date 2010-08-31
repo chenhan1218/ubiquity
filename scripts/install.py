@@ -130,7 +130,8 @@ class Install(install_misc.InstallBase):
             # imagine.  Have those spin until the lock is released.
             if self.db.get('ubiquity/download_updates') == 'true':
                 cmd = ['/usr/share/ubiquity/update-apt-cache']
-                subprocess.Popen(cmd)
+                subprocess.Popen(cmd, stdin=subprocess.PIPE,
+                                 stdout=subprocess.PIPE)
             try:
                 self.copy_all()
             except EnvironmentError, e:
