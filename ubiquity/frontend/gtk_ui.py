@@ -417,6 +417,21 @@ class Wizard(BaseFrontend):
                 pass
         return previous
 
+    def disable_logout_indicator(self):
+        logout_key = '/apps/indicator-session/suppress_logout_menuitem'
+        self.gconf_previous[logout_key] = gconftool.get(logout_key)
+        if self.gconf_previous[logout_key] != 'true':
+            gconftool.set(logout_key, 'bool', 'true')
+        atexit.register(self.enable_logout_indicator)
+
+    def enable_logout_indicator(self):
+        logout_key = '/apps/indicator-session/suppress_logout_menuitem'
+        if self.gconf_previous[logout_key] == '':
+            gconftool.unset(logout_key)
+        elif self.gconf_previous[logout_key] != 'true':
+            gconftool.set(logout_key, 'bool',
+                          self.gconf_previous[logout_key])
+
     # Disable gnome-volume-manager automounting to avoid problems during
     # partitioning.
     def disable_volume_manager(self):
@@ -427,7 +442,6 @@ class Wizard(BaseFrontend):
         media_automount = '/apps/nautilus/preferences/media_automount'
         media_automount_open = '/apps/nautilus/preferences/media_automount_open'
         media_autorun_never = '/apps/nautilus/preferences/media_autorun_never'
-        self.gconf_previous = {}
         for gconf_key in (gvm_automount_drives, gvm_automount_media,
                           volumes_visible,
                           media_automount, media_automount_open):
@@ -484,6 +498,9 @@ class Wizard(BaseFrontend):
             sys.exit(1)
 
         self.disable_volume_manager()
+
+        if 'UBIQUITY_ONLY' in os.environ:
+            self.disable_logout_indicator()
 
         # show interface
         self.allow_change_step(True)

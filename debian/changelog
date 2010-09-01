@@ -7,6 +7,7 @@ ubiquity (2.3.14) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Provides indicator-renderer (LP: #616165)
+  * Don't show logout option in only-ubiquity mode(s) (LP: #618744)
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 01 Sep 2010 17:12:37 +0100
 
