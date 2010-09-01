@@ -1211,7 +1211,9 @@ class Wizard(BaseFrontend):
             self.previous_partitioning_page = step_num
         if step == 'stepPartAuto':
             self.quit.hide()
-            f = gtk.gdk.FUNC_RESIZE | gtk.gdk.FUNC_MINIMIZE | gtk.gdk.FUNC_MAXIMIZE | gtk.gdk.FUNC_MOVE
+            f = gtk.gdk.FUNC_RESIZE | gtk.gdk.FUNC_MAXIMIZE | gtk.gdk.FUNC_MOVE
+            if not 'UBIQUITY_ONLY' in os.environ:
+                f |= gtk.gdk.FUNC_MINIMIZE
             self.live_installer.window.set_functions(f)
             self.allow_change_step(False)
             self.refresh()
