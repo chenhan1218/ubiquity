@@ -46,7 +46,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, ubiquity (= ${bi
 Suggests: gnome-control-center
 Conflicts: ubuntu-express-frontend-gtk, espresso-frontend-gtk, ubiquity (<< 2.3.8)
 Replaces: ubuntu-express-frontend-gtk, espresso-frontend-gtk, ubiquity (<< 2.3.8)
-Provides: ubiquity-frontend-${mangled-version}
+Provides: ubiquity-frontend-${mangled-version}, indicator-renderer
 XB-Python-Version: ${python:Versions}
 Description: GTK+ frontend for Ubiquity live installer
  This package provides a GTK+-based user interface frontend for the Ubiquity

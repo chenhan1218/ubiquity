@@ -1,8 +1,12 @@
 ubiquity (2.3.14) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * KDE frontend:
     - If the slideshow doesn't exist, hide self.ui.pageMode rather than
       self.page_mode (LP: #627549).
+
+  [ Mario Limonciello ]
+  * Provides indicator-renderer (LP: #616165)
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 01 Sep 2010 17:12:37 +0100
 
