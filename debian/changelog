@@ -1,6 +1,8 @@
 ubiquity (2.3.13) UNRELEASED; urgency=low
 
   * When using xfsettingsd, set the background to black first.
+  * Set release_notes_found to False initially to prevent a scenario it gets 
+    accessed before being set when offline.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 31 Aug 2010 18:57:18 -0500
 
