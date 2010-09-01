@@ -507,7 +507,7 @@ class Wizard(BaseFrontend):
                                                                self.locale)
         slideshow_main = slideshow_dir + '/slides/index.html'
         if not os.path.exists(slideshow_main):
-            self.page_mode.hide()
+            self.ui.pageMode.hide()
             return
 
         slides = 'file://' + slideshow_main

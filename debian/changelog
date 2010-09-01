@@ -1,3 +1,11 @@
+ubiquity (2.3.14) UNRELEASED; urgency=low
+
+  * KDE frontend:
+    - If the slideshow doesn't exist, hide self.ui.pageMode rather than
+      self.page_mode (LP: #627549).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 01 Sep 2010 17:12:37 +0100
+
 ubiquity (2.3.13) maverick; urgency=low
 
   [ Mario Limonciello ]
