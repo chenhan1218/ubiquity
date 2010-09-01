@@ -259,12 +259,13 @@ class PageGtk(PageBase):
         if self.resize_use_free.get_active():
             self.partition_container.set_current_page(0)
             s = self.controller.get_string('part_auto_use_entire_disk')
+            self.part_auto_use_entire_disk.set_label(s)
         elif self.use_device.get_active():
             self.partition_container.set_current_page(1)
             self.part_auto_allocate_label.set_text('')
             self.part_auto_hidden_label.set_text('')
             s = self.controller.get_string('part_auto_split_largest_partition')
-        self.part_auto_use_entire_disk.set_label(s)
+            self.part_auto_use_entire_disk.set_label(s)
 
     def part_auto_select_drive_changed (self, unused_widget):
         '''The user has selected a different disk drive from the drop down.

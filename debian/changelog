@@ -1,8 +1,13 @@
 ubiquity (2.3.13) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
   * When using xfsettingsd, set the background to black first.
   * Set release_notes_found to False initially to prevent a scenario it gets 
     accessed before being set when offline.
+
+  [ Evan Dandrea ]
+  * Only set the label on the 'use entire disk' button if we're not
+    going into the advanced partitioner (LP: #625258).
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 31 Aug 2010 18:57:18 -0500
 
