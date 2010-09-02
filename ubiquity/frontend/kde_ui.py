@@ -297,6 +297,9 @@ class Wizard(BaseFrontend):
         # set default language
         self.locale = i18n.reset_locale(self)
 
+        self.socketNotifierRead = {}
+        self.socketNotifierWrite = {}
+        self.socketNotifierException = {}
         self.debconf_callbacks = {}    # array to keep callback functions needed by debconf file descriptors
 
         self.ui.setWindowIcon(KIcon("ubiquity"))
@@ -1004,34 +1007,51 @@ class Wizard(BaseFrontend):
             self.ui.navigation.show()
 
     def watch_debconf_fd (self, from_debconf, process_input):
-        self.debconf_fd_counter = 0
-        self.socketNotifierRead = QSocketNotifier(from_debconf, QSocketNotifier.Read, self.app)
-        self.socketNotifierRead.activated[int].connect(self.watch_debconf_fd_helper_read)
+        self.socketNotifierRead[from_debconf] = QSocketNotifier(from_debconf, QSocketNotifier.Read, self.app)
+        self.socketNotifierRead[from_debconf].activated[int].connect(self.watch_debconf_fd_helper_read)
 
-        self.socketNotifierWrite = QSocketNotifier(from_debconf, QSocketNotifier.Write, self.app)
-        self.socketNotifierWrite.activated[int].connect(self.watch_debconf_fd_helper_write)
+        self.socketNotifierWrite[from_debconf] = QSocketNotifier(from_debconf, QSocketNotifier.Write, self.app)
+        self.socketNotifierWrite[from_debconf].activated[int].connect(self.watch_debconf_fd_helper_write)
 
-        self.socketNotifierException = QSocketNotifier(from_debconf, QSocketNotifier.Exception, self.app)
-        self.socketNotifierException.activated[int].connect(self.watch_debconf_fd_helper_exception)
+        self.socketNotifierException[from_debconf] = QSocketNotifier(from_debconf, QSocketNotifier.Exception, self.app)
+        self.socketNotifierException[from_debconf].activated[int].connect(self.watch_debconf_fd_helper_exception)
 
         self.debconf_callbacks[from_debconf] = process_input
-        self.current_debconf_fd = from_debconf
+
+    def watch_debconf_fd_helper_disconnect (self, source):
+        del self.debconf_callbacks[source]
+        self.socketNotifierRead[source].activated[int].disconnect(self.watch_debconf_fd_helper_read)
+        self.socketNotifierWrite[source].activated[int].disconnect(self.watch_debconf_fd_helper_write)
+        self.socketNotifierException[source].activated[int].disconnect(self.watch_debconf_fd_helper_exception)
+        del self.socketNotifierRead[source]
+        del self.socketNotifierWrite[source]
+        del self.socketNotifierException[source]
 
     def watch_debconf_fd_helper_read (self, source):
-        self.debconf_fd_counter += 1
         debconf_condition = 0
         debconf_condition |= filteredcommand.DEBCONF_IO_IN
-        self.debconf_callbacks[source](source, debconf_condition)
+        callback = self.debconf_callbacks[source]
+        if not callback(source, debconf_condition):
+            # The parallel dbfilter code in debconffilter_done could re-open
+            # this fd before we reach this point.
+            if callback == self.debconf_callbacks[source]:
+                self.watch_debconf_fd_helper_disconnect(source)
 
     def watch_debconf_fd_helper_write(self, source):
         debconf_condition = 0
         debconf_condition |= filteredcommand.DEBCONF_IO_OUT
-        self.debconf_callbacks[source](source, debconf_condition)
+        callback = self.debconf_callbacks[source]
+        if not callback(source, debconf_condition):
+            if callback == self.debconf_callbacks[source]:
+                self.watch_debconf_fd_helper_disconnect(source)
 
     def watch_debconf_fd_helper_exception(self, source):
         debconf_condition = 0
         debconf_condition |= filteredcommand.DEBCONF_IO_ERR
-        self.debconf_callbacks[source](source, debconf_condition)
+        callback = self.debconf_callbacks[source]
+        if not callback(source, debconf_condition):
+            if callback == self.debconf_callbacks[source]:
+                self.watch_debconf_fd_helper_disconnect(source)
 
     def debconf_progress_start (self, progress_min, progress_max, progress_title):
         self.progress_position.start(progress_min, progress_max,

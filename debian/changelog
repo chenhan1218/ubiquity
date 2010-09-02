@@ -20,6 +20,8 @@ ubiquity (2.3.13) maverick; urgency=low
   [ Evan Dandrea ]
   * Only set the label on the 'use entire disk' button if we're not
     going into the advanced partitioner (LP: #625258).
+  * Disconnect and destroy QSocketNotifiers when the dbfilter finishes.
+    Thanks Colin Watson (LP: #625586).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 01 Sep 2010 10:31:32 +0100
 
