@@ -33,6 +33,7 @@ import fcntl
 import traceback
 import syslog
 import gzip
+import contextlib
 import debconf
 import warnings
 warnings.filterwarnings("ignore", "apt API not stable yet", FutureWarning)
@@ -414,6 +415,25 @@ class Install(install_misc.InstallBase):
               AutoDetect "false";
             }""")
         apt_conf_nmc.close()
+
+        cdfs = ''
+        with contextlib.closing(open('/proc/mounts')) as fp:
+            for line in fp:
+                line = line.split()
+                if line[1] == '/cdrom':
+                    cdfs = line[2]
+                    break
+        if cdfs != 'iso9660':
+            # On non-read-only media, including filesystem statistics in the
+            # apt-cdrom database entry is unreliable.  This will render the
+            # database entry useless after installation, but that's OK since
+            # we're probably going to remove the cdrom: entry from
+            # sources.list anyway.  This file will be left in place until
+            # the end of the install.
+            apt_conf_identcdrom = open(os.path.join(
+                self.target, 'etc/apt/apt.conf.d/00IdentCDROM'), 'w')
+            print >>apt_conf_identcdrom, 'Debug::identcdrom "true";'
+            apt_conf_identcdrom.close()
 
         # This will be reindexed after installation based on the full
         # installed sources.list.
@@ -1401,7 +1421,7 @@ class Install(install_misc.InstallBase):
                         env=env)
 
         for apt_conf in ('00NoMountCDROM', '00IgnoreTimeConflict',
-                         '00AllowUnauthenticated'):
+                         '00AllowUnauthenticated', '00IdentCDROM'):
             osextras.unlink_force(os.path.join(
                 self.target, 'etc/apt/apt.conf.d', apt_conf))
 

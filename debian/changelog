@@ -4,6 +4,11 @@ ubiquity (2.3.14) UNRELEASED; urgency=low
   * KDE frontend:
     - If the slideshow doesn't exist, hide self.ui.pageMode rather than
       self.page_mode (LP: #627549).
+  * Set Debug::identcdrom=true for apt-cdrom if installing from a
+    non-ISO9660 filesystem, since otherwise apt-cdrom will include the free
+    blocks count of /cdrom in its database which is unreliable on read-write
+    filesystems, especially USB images with persistence enabled.  Thanks to
+    Manoj Iyer for patient testing (LP: #627672).
 
   [ Mario Limonciello ]
   * Provides indicator-renderer (LP: #616165)
