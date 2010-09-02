@@ -1007,6 +1007,8 @@ class Wizard(BaseFrontend):
             self.ui.navigation.show()
 
     def watch_debconf_fd (self, from_debconf, process_input):
+        if from_debconf in self.debconf_callbacks:
+            self.watch_debconf_fd_helper_disconnect(from_debconf)
         self.socketNotifierRead[from_debconf] = QSocketNotifier(from_debconf, QSocketNotifier.Read, self.app)
         self.socketNotifierRead[from_debconf].activated[int].connect(self.watch_debconf_fd_helper_read)
 
