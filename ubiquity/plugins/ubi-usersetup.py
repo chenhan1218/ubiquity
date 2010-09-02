@@ -35,6 +35,24 @@ NAME = 'usersetup'
 AFTER = 'console_setup'
 WEIGHT = 10
 
+def check_hostname(hostname):
+    """Returns a newline separated string of reasons why the hostname is
+    invalid."""
+    # TODO: i18n
+    e = []
+    for result in validation.check_hostname(unicode(hostname)):
+        if result == validation.HOSTNAME_LENGTH:
+            e.append("The hostname must be between 1 and 63 characters long.")
+        elif result == validation.HOSTNAME_BADCHAR:
+            e.append("The hostname may only contain letters, digits, hyphens, "
+                     "and dots.")
+        elif result == validation.HOSTNAME_BADHYPHEN:
+            e.append("The hostname may not start or end with a hyphen.")
+        elif result == validation.HOSTNAME_BADDOTS:
+            e.append('The hostname may not start or end with a dot, '
+                     'or contain the sequence "..".')
+    return "\n".join(e)
+
 class PageBase(PluginUI):
     def __init__(self):
         self.laptop = execute("laptop-detect")
@@ -656,7 +674,7 @@ class Page(Plugin):
         hostname = self.ui.get_hostname()
 
         # check if the hostname had errors
-        error_msg = validation.check_hostname(hostname)
+        error_msg = check_hostname(hostname)
 
         # showing warning message is error is set
         if len(error_msg) != 0:
