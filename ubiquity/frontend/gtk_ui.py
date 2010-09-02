@@ -345,6 +345,7 @@ class Wizard(BaseFrontend):
                     for c in self.all_children(toplevel):
                         widgets.append((c, None))
         self.translate_widgets(lang=lang, widgets=widgets, reget=False)
+        self.set_page_title(current_page, lang)
 
         # Allow plugins to provide a hook for translation.
         for p in pages:
@@ -762,6 +763,9 @@ class Wizard(BaseFrontend):
             if p.ui.get('plugin_is_language'):
                 children = reduce(lambda x,y: x + self.all_children(y), p.all_widgets, [])
                 core_names.extend([prefix+'/'+c.get_name() for c in children])
+                title = p.ui.get('plugin_title')
+                if title:
+                    core_names.extend([title])
             prefixes.append(prefix)
         i18n.get_translations(languages=languages, core_names=core_names, extra_prefixes=prefixes)
 
@@ -979,18 +983,7 @@ class Wizard(BaseFrontend):
                 elif page.optional_widgets:
                     cur = page.optional_widgets[0]
                 if cur:
-                    title = None
-                    if page.title:
-                        title = self.get_string(page.title)
-                        if title:
-                            title = title.replace('${RELEASE}', get_release().name)
-                            # TODO: Use attributes instead?  Would save having to
-                            # hardcode the size in here.
-                            self.page_title.set_markup(
-                                '<span size="xx-large">%s</span>' % title)
-                            self.title_section.show()
-                    if not page.title or not title:
-                        self.title_section.hide()
+                    self.set_page_title(page)
                     cur.show()
                     is_install = page.ui.get('plugin_is_install')
                     break
@@ -1020,6 +1013,21 @@ class Wizard(BaseFrontend):
         elif 'UBIQUITY_AUTOMATIC' not in os.environ:
             self.allow_go_backward(True)
         return True
+
+    def set_page_title(self, page, lang=None):
+        """Fetches and/or retranslates a page title"""
+        title = None
+        if page.title:
+            title = self.get_string(page.title, lang)
+            if title:
+                title = title.replace('${RELEASE}', get_release().name)
+                # TODO: Use attributes instead?  Would save having to
+                # hardcode the size in here.
+                self.page_title.set_markup(
+                    '<span size="xx-large">%s</span>' % title)
+                self.title_section.show()
+        if not page.title or not title:
+            self.title_section.hide()
 
     def set_focus(self):
         # Make sure that something reasonable has the focus.  If the first
