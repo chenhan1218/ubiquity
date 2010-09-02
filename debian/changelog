@@ -8,6 +8,10 @@ ubiquity (2.3.14) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Provides indicator-renderer (LP: #616165)
 
+  [ Evan Dandrea ]
+  * Disconnect and destroy QSocketNotifiers when the dbfilter finishes.
+    Thanks Colin Watson (LP: #625586).
+
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 01 Sep 2010 17:12:37 +0100
 
 ubiquity (2.3.13) maverick; urgency=low
@@ -20,8 +24,6 @@ ubiquity (2.3.13) maverick; urgency=low
   [ Evan Dandrea ]
   * Only set the label on the 'use entire disk' button if we're not
     going into the advanced partitioner (LP: #625258).
-  * Disconnect and destroy QSocketNotifiers when the dbfilter finishes.
-    Thanks Colin Watson (LP: #625586).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 01 Sep 2010 10:31:32 +0100
 
