@@ -28,6 +28,7 @@ from ubiquity.plugin import *
 from ubiquity import parted_server
 from ubiquity.misc import *
 from ubiquity import osextras
+from ubiquity.install_misc import archdetect
 
 NAME = 'partman'
 AFTER = 'prepare'
@@ -99,6 +100,7 @@ class PageGtk(PageBase):
             self.page_advanced = builder.get_object('stepPartAdvanced')
 
             # Grub options
+            self.bootloader_vbox = builder.get_object('bootloader_vbox')
             self.grub_device_entry = builder.get_object('grub_device_entry')
 
             # Automatic page
@@ -350,6 +352,7 @@ class PageGtk(PageBase):
 
     def set_grub_options(self):
         import gtk, gobject
+        self.bootloader_vbox.show()
         options = grub_options()
         default = os.path.realpath(grub_default())
         l = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
@@ -1091,7 +1094,6 @@ class PageGtk(PageBase):
                     c = self.auto_colors[i]
                     txt = '%s (%s)' % (path, fs)
                 partition_bar.add_segment_rgb(txt, size, c)
-        self.set_grub_options()
         sel = self.partition_list_treeview.get_selection()
         if sel.count_selected_rows() == 0:
             sel.select_path(0)
@@ -1161,7 +1163,6 @@ class PageKde(PageBase):
 
     def update_partman (self, disk_cache, partition_cache, cache_order):
         self.partMan.update(disk_cache, partition_cache, cache_order)
-        self.set_grub_options()
         # make sure we're on the advanced partitioning page
         self.show_page_advanced()
 
@@ -1223,6 +1224,12 @@ class Page(Plugin):
         self.bad_auto_size = False
         self.description_cache = {}
         self.local_progress = False
+
+        self.install_bootloader = False
+        if self.db.get('ubiquity/install_bootloader') == 'true':
+            arch, subarch = archdetect()
+            if arch in ('amd64', 'i386', 'lpia'):
+                self.install_bootloader = True
 
         questions = ['^partman-auto/.*automatically_partition$',
                      '^partman-auto/select_disk$',
@@ -1747,6 +1754,7 @@ class Page(Plugin):
                         self.progress_stop()
                         self.frontend.refresh()
                         self.ui.show_page_advanced()
+                        self.maybe_update_grub()
                         self.ui.update_partman(
                             self.disk_cache, self.partition_cache,
                             self.cache_order)
@@ -1875,6 +1883,7 @@ class Page(Plugin):
                         self.update_partitions = None
                         self.building_cache = False
                         self.progress_stop()
+                        self.maybe_update_grub()
                         self.ui.update_partman(
                             self.disk_cache, self.partition_cache,
                             self.cache_order)
@@ -1882,6 +1891,7 @@ class Page(Plugin):
                 devpart = self.creating_partition['devpart']
                 if devpart in self.partition_cache:
                     self.ui.show_page_advanced()
+                    self.maybe_update_grub()
                     self.ui.update_partman(
                         self.disk_cache, self.partition_cache,
                         self.cache_order)
@@ -1889,6 +1899,7 @@ class Page(Plugin):
                 devpart = self.editing_partition['devpart']
                 if devpart in self.partition_cache:
                     self.ui.show_page_advanced()
+                    self.maybe_update_grub()
                     self.ui.update_partman(
                         self.disk_cache, self.partition_cache,
                         self.cache_order)
@@ -2335,7 +2346,8 @@ class Page(Plugin):
         else:
             self.finish_partitioning = True
         self.succeeded = True
-        self.preseed('grub-installer/bootdev', self.ui.get_grub_choice())
+        if self.install_bootloader:
+            self.preseed('grub-installer/bootdev', self.ui.get_grub_choice())
         self.exit_ui_loops()
 
     # TODO cjwatson 2006-11-01: Do we still need this?
@@ -2414,6 +2426,10 @@ class Page(Plugin):
         else:
             Plugin.progress_stop(self)
             self.local_progress = False
+
+    def maybe_update_grub(self):
+        if self.install_bootloader:
+            self.ui.set_grub_options()
 
 # Notes:
 #

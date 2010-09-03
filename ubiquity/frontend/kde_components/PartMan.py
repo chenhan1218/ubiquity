@@ -31,6 +31,7 @@ class PartMan(QWidget):
 
         uic.loadUi(os.path.join(_uidir,'stepPartMan.ui'), self)
         self.part_advanced_warning_hbox.setVisible(False)
+        self.part_advanced_bootloader_frame.setVisible(False)
 
         self.partition_tree_model = PartitionModel(self.ctrlr, self.partition_list_treeview)
         self.partition_list_treeview.setModel(self.partition_tree_model)
@@ -445,6 +446,7 @@ class PartMan(QWidget):
         self.ctrlr.dbfilter.undo()
 
     def setGrubOptions(self, options, default):
+        self.part_advanced_bootloader_frame.setVisible(True)
         self.grub_device_entry.clear()
         for opt in options:
            self.grub_device_entry.addItem(opt[0]);

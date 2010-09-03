@@ -752,8 +752,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkVBox" id="vbox2">
-            <property name="visible">True</property>
+          <object class="GtkVBox" id="bootloader_vbox">
             <property name="spacing">6</property>
             <child>
               <object class="GtkLabel" id="bootloader_group_label">

@@ -1,9 +1,14 @@
 ubiquity (2.3.16) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
   * Don't show logout option in only-ubiquity mode(s) (LP: #618744)
   * Don't show a minimize option in only-ubiquity mode(s) (LP: #627656)
   * Translate the page_title of the language page when languages are
     swapped.
+
+  [ Evan Dandrea ]
+  * Do not generate or show the bootloader options if we're on x86, or
+    bootloader installation is explicitly disabled (LP: #628582).
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 03 Sep 2010 01:48:50 -0500
 
