@@ -62,7 +62,6 @@ class PageGtk(PageBase):
         self.plugin_widgets = self.page
 
     def plugin_translate(self, lang):
-        import gtk
         release = misc.get_release()
         install_medium = misc.get_install_medium()
         install_medium = i18n.get_string(install_medium, lang)

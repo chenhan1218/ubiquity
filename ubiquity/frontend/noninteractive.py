@@ -24,13 +24,11 @@
 # with Ubiquity; if not, write to the Free Software Foundation, Inc., 51
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-import syslog
-
-import gobject
-
 import os
 import sys
 import signal
+
+import gobject
 
 from ubiquity import filteredcommand, i18n
 from ubiquity.misc import *

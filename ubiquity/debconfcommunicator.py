@@ -19,7 +19,6 @@
 
 from subprocess import *
 import fcntl
-import os
 
 import debconf
 from ubiquity import misc

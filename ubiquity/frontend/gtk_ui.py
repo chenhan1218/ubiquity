@@ -38,7 +38,6 @@ import traceback
 import syslog
 import atexit
 import signal
-import xml.sax.saxutils
 import gettext
 
 import dbus
@@ -52,9 +51,7 @@ import gobject
 gobject.threads_init()
 import glib
 
-import debconf
-
-from ubiquity import filteredcommand, gconftool, i18n, osextras, validation, \
+from ubiquity import filteredcommand, gconftool, i18n, validation, \
                      wrap_label
 from ubiquity.misc import *
 from ubiquity.plugin import Plugin
@@ -656,7 +653,7 @@ class Wizard(BaseFrontend):
             expander_size = widget.style_get_property('expander-size')
             expander_spacing = widget.style_get_property('expander-spacing')
             border_width = widget.get_property('border-width')
-            foucs_width = widget.style_get_property('focus-line-width')
+            focus_width = widget.style_get_property('focus-line-width')
             focus_pad = widget.style_get_property('focus-padding')
 
             w = allocation.width - 2 * border_width - expander_size - \

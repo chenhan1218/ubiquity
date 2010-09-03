@@ -21,7 +21,6 @@
 import os
 
 from ubiquity.filteredcommand import FilteredCommand
-from ubiquity import misc
 
 class Install(FilteredCommand):
     def prepare(self, unfiltered=False):

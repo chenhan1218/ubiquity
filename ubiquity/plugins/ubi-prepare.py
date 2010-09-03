@@ -162,7 +162,6 @@ class PageGtk(PreparePageBase):
     def plugin_translate(self, lang):
         PreparePageBase.plugin_translate(self, lang)
         release = misc.get_release()
-        from ubiquity import i18n
         import gtk
         for widget in [self.prepare_foss_disclaimer]:
             text = i18n.get_string(gtk.Buildable.get_name(widget), lang)
@@ -202,7 +201,6 @@ class PageKde(PreparePageBase):
             except Exception, e:
                 print 'unable to set up network connection watch:', e
         except Exception, e:
-            import sys
             print >>sys.stderr,"Could not create prepare page:", str(e)
             self.debug('Could not create prepare page: %s', e)
             self.page = None

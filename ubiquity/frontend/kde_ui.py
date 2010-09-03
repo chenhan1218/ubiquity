@@ -26,12 +26,9 @@
 
 import sys
 import os
-import subprocess
 import traceback
 import syslog
 import atexit
-import signal
-import gettext
 import dbus
 
 # kde gui specifics
@@ -45,9 +42,7 @@ from PyKDE4.kdecore import *
 from ubiquity.frontend.kde_components.ProgressDialog import *
 from ubiquity.frontend.kde_components.SqueezeLabel import *
 
-import debconf
-
-from ubiquity import filteredcommand, i18n, validation, parted_server
+from ubiquity import filteredcommand, i18n
 from ubiquity.misc import *
 from ubiquity.plugin import Plugin
 from ubiquity.components import partman_commit, install, plugininstall

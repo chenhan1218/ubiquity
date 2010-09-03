@@ -10,6 +10,9 @@ ubiquity (2.3.16) UNRELEASED; urgency=low
   * Do not generate or show the bootloader options if we're on x86, or
     bootloader installation is explicitly disabled (LP: #628582).
 
+  [ Colin Watson ]
+  * Remove a number of unused or duplicate imports.
+
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 03 Sep 2010 01:48:50 -0500
 
 ubiquity (2.3.15) maverick; urgency=low

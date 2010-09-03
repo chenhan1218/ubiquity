@@ -476,7 +476,6 @@ class PageKde(PageBase):
         self.network_change()
 
     def network_change(self, state=None):
-        import sys
         from PyQt4.QtCore import QTimer, SIGNAL
         if state and (state != 4 and state != 3):
             return

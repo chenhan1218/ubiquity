@@ -23,8 +23,6 @@
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 ##################################################################################
 
-import sys
-
 from PyQt4 import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *

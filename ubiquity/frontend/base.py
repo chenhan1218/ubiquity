@@ -26,7 +26,6 @@ import syslog
 import debconf
 from ubiquity.debconfcommunicator import DebconfCommunicator
 from ubiquity.misc import drop_privileges, execute_root
-from ubiquity.components import install
 from ubiquity import i18n
 from ubiquity import plugin_manager
 
