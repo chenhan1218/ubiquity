@@ -33,6 +33,8 @@ NAME = 'timezone'
 AFTER = ['partman', 'language']
 WEIGHT = 10
 
+_geoname_url = 'http://geoname-lookup.ubuntu.com/?query=%s'
+
 class PageGtk(PluginUI):
     plugin_title = 'ubiquity/text/timezone_heading_label'
     def __init__(self, controller, *args, **kwargs):
@@ -128,8 +130,7 @@ class PageGtk(PluginUI):
                     opener = urllib2.build_opener()
                     opener.addheaders = [('User-agent', 'Ubiquity/1.0')]
                     # TODO add &version=1.0 ?
-                    url = opener.open('http://10.0.2.2:8080/?query=%s' % \
-                                      urllib.quote(text))
+                    url = opener.open(_geoname_url % urllib.quote(text))
                     for result in json.loads(url.read()):
                         model.append([result['name'],
                                       result['admin1'],

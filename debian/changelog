@@ -9,6 +9,7 @@ ubiquity (2.3.16) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Do not generate or show the bootloader options if we're on x86, or
     bootloader installation is explicitly disabled (LP: #628582).
+  * Add correct URL for the Geonames service.
 
   [ Colin Watson ]
   * Remove a number of unused or duplicate imports.
