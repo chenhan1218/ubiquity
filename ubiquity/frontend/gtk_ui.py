@@ -345,6 +345,7 @@ class Wizard(BaseFrontend):
                     for c in self.all_children(toplevel):
                         widgets.append((c, None))
         self.translate_widgets(lang=lang, widgets=widgets, reget=False)
+        self.set_page_title(current_page, lang)
 
         # Allow plugins to provide a hook for translation.
         for p in pages:
@@ -417,6 +418,21 @@ class Wizard(BaseFrontend):
                 pass
         return previous
 
+    def disable_logout_indicator(self):
+        logout_key = '/apps/indicator-session/suppress_logout_menuitem'
+        self.gconf_previous[logout_key] = gconftool.get(logout_key)
+        if self.gconf_previous[logout_key] != 'true':
+            gconftool.set(logout_key, 'bool', 'true')
+        atexit.register(self.enable_logout_indicator)
+
+    def enable_logout_indicator(self):
+        logout_key = '/apps/indicator-session/suppress_logout_menuitem'
+        if self.gconf_previous[logout_key] == '':
+            gconftool.unset(logout_key)
+        elif self.gconf_previous[logout_key] != 'true':
+            gconftool.set(logout_key, 'bool',
+                          self.gconf_previous[logout_key])
+
     # Disable gnome-volume-manager automounting to avoid problems during
     # partitioning.
     def disable_volume_manager(self):
@@ -427,7 +443,6 @@ class Wizard(BaseFrontend):
         media_automount = '/apps/nautilus/preferences/media_automount'
         media_automount_open = '/apps/nautilus/preferences/media_automount_open'
         media_autorun_never = '/apps/nautilus/preferences/media_autorun_never'
-        self.gconf_previous = {}
         for gconf_key in (gvm_automount_drives, gvm_automount_media,
                           volumes_visible,
                           media_automount, media_automount_open):
@@ -484,6 +499,9 @@ class Wizard(BaseFrontend):
             sys.exit(1)
 
         self.disable_volume_manager()
+
+        if 'UBIQUITY_ONLY' in os.environ:
+            self.disable_logout_indicator()
 
         # show interface
         self.allow_change_step(True)
@@ -745,6 +763,9 @@ class Wizard(BaseFrontend):
             if p.ui.get('plugin_is_language'):
                 children = reduce(lambda x,y: x + self.all_children(y), p.all_widgets, [])
                 core_names.extend([prefix+'/'+c.get_name() for c in children])
+                title = p.ui.get('plugin_title')
+                if title:
+                    core_names.extend([title])
             prefixes.append(prefix)
         i18n.get_translations(languages=languages, core_names=core_names, extra_prefixes=prefixes)
 
@@ -962,18 +983,7 @@ class Wizard(BaseFrontend):
                 elif page.optional_widgets:
                     cur = page.optional_widgets[0]
                 if cur:
-                    title = None
-                    if page.title:
-                        title = self.get_string(page.title)
-                        if title:
-                            title = title.replace('${RELEASE}', get_release().name)
-                            # TODO: Use attributes instead?  Would save having to
-                            # hardcode the size in here.
-                            self.page_title.set_markup(
-                                '<span size="xx-large">%s</span>' % title)
-                            self.title_section.show()
-                    if not page.title or not title:
-                        self.title_section.hide()
+                    self.set_page_title(page)
                     cur.show()
                     is_install = page.ui.get('plugin_is_install')
                     break
@@ -1003,6 +1013,21 @@ class Wizard(BaseFrontend):
         elif 'UBIQUITY_AUTOMATIC' not in os.environ:
             self.allow_go_backward(True)
         return True
+
+    def set_page_title(self, page, lang=None):
+        """Fetches and/or retranslates a page title"""
+        title = None
+        if page.title:
+            title = self.get_string(page.title, lang)
+            if title:
+                title = title.replace('${RELEASE}', get_release().name)
+                # TODO: Use attributes instead?  Would save having to
+                # hardcode the size in here.
+                self.page_title.set_markup(
+                    '<span size="xx-large">%s</span>' % title)
+                self.title_section.show()
+        if not page.title or not title:
+            self.title_section.hide()
 
     def set_focus(self):
         # Make sure that something reasonable has the focus.  If the first
@@ -1194,7 +1219,9 @@ class Wizard(BaseFrontend):
             self.previous_partitioning_page = step_num
         if step == 'stepPartAuto':
             self.quit.hide()
-            f = gtk.gdk.FUNC_RESIZE | gtk.gdk.FUNC_MINIMIZE | gtk.gdk.FUNC_MAXIMIZE | gtk.gdk.FUNC_MOVE
+            f = gtk.gdk.FUNC_RESIZE | gtk.gdk.FUNC_MAXIMIZE | gtk.gdk.FUNC_MOVE
+            if not 'UBIQUITY_ONLY' in os.environ:
+                f |= gtk.gdk.FUNC_MINIMIZE
             self.live_installer.window.set_functions(f)
             self.allow_change_step(False)
             self.refresh()
