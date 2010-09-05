@@ -620,6 +620,17 @@ class Wizard(BaseFrontend):
         s = webview.get_settings()
         s.set_property('enable-file-access-from-file-uris', True)
         s.set_property('enable-default-context-menu', False)
+        try:
+            import ConfigParser
+            cfg = ConfigParser.ConfigParser()
+            cfg.read(os.path.join(slideshow_dir, 'slideshow.conf'))
+            config_width = int(cfg.get('Slideshow','width'))
+            config_height = int(cfg.get('Slideshow','height'))
+        except:
+            config_width = 752
+            config_height = 442
+
+        webview.set_size_request(config_width, config_height)
         webview.connect('new-window-policy-decision-requested',
                         self.on_slideshow_link_clicked)
 

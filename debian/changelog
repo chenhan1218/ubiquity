@@ -5,6 +5,8 @@ ubiquity (2.3.16) UNRELEASED; urgency=low
   * Don't show a minimize option in only-ubiquity mode(s) (LP: #627656)
   * Translate the page_title of the language page when languages are
     swapped.
+  * Restore functionality to set the GTK slideshow size based on a 
+    configuration file that was lost in r4123.1.37.
 
   [ Evan Dandrea ]
   * Do not generate or show the bootloader options if we're on x86, or
