@@ -39,6 +39,7 @@ import syslog
 import atexit
 import signal
 import gettext
+import ConfigParser
 
 import dbus
 import pygtk
@@ -391,7 +392,6 @@ class Wizard(BaseFrontend):
         else:
             thunar_dir = os.path.expanduser('~/.config/Thunar')
         if os.path.isdir(thunar_dir):
-            import ConfigParser
             thunar_volmanrc = '%s/volmanrc' % thunar_dir
             parser = ConfigParser.RawConfigParser()
             parser.optionxform = str # case-sensitive
@@ -595,13 +595,12 @@ class Wizard(BaseFrontend):
         return True
 
     def start_slideshow(self):
-        slideshow_dir = '/usr/share/ubiquity-slideshow'
-        slideshow_locale = self.slideshow_get_available_locale(slideshow_dir, self.locale)
-        slideshow_main = slideshow_dir + '/slides/index.html'
-
-        if not os.path.exists(slideshow_main):
+        if not self.slideshow:
             self.page_mode.hide()
             return
+
+        slideshow_locale = self.slideshow_get_available_locale(self.slideshow, self.locale)
+        slideshow_main = self.slideshow + '/slides/index.html'
 
         slides = 'file://' + slideshow_main
         if slideshow_locale != 'c': #slideshow will use default automatically
@@ -620,17 +619,7 @@ class Wizard(BaseFrontend):
         s = webview.get_settings()
         s.set_property('enable-file-access-from-file-uris', True)
         s.set_property('enable-default-context-menu', False)
-        try:
-            import ConfigParser
-            cfg = ConfigParser.ConfigParser()
-            cfg.read(os.path.join(slideshow_dir, 'slideshow.conf'))
-            config_width = int(cfg.get('Slideshow','width'))
-            config_height = int(cfg.get('Slideshow','height'))
-        except:
-            config_width = 752
-            config_height = 442
-
-        webview.set_size_request(config_width, config_height)
+        
         webview.connect('new-window-policy-decision-requested',
                         self.on_slideshow_link_clicked)
 
@@ -707,6 +696,21 @@ class Wizard(BaseFrontend):
         renderer = gtk.CellRendererText()
         self.grub_new_device_entry.pack_start(renderer, True)
         self.grub_new_device_entry.add_attribute(renderer, 'text', 1)
+
+        #Parse the slideshow size early to prevent the window from growing
+        self.slideshow = '/usr/share/ubiquity-slideshow'
+        if os.path.exists(self.slideshow):
+            try:
+                cfg = ConfigParser.ConfigParser()
+                cfg.read(os.path.join(self.slideshow, 'slideshow.conf'))
+                config_width = int(cfg.get('Slideshow','width'))
+                config_height = int(cfg.get('Slideshow','height'))
+            except:
+                config_width = 752
+                config_height = 442
+            self.webkit_scrolled_window.set_size_request(config_width, config_height)
+        else:
+            self.slideshow = None
 
         # set initial bottom bar status
         self.allow_go_backward(False)
