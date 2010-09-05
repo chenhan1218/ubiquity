@@ -1,4 +1,4 @@
-ubiquity (2.3.16) UNRELEASED; urgency=low
+ubiquity (2.3.16) maverick; urgency=low
 
   [ Mario Limonciello ]
   * Don't show logout option in only-ubiquity mode(s) (LP: #618744)
@@ -21,7 +21,7 @@ ubiquity (2.3.16) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Remove a number of unused or duplicate imports.
 
- -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 03 Sep 2010 01:48:50 -0500
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sun, 05 Sep 2010 01:40:01 -0500
 
 ubiquity (2.3.15) maverick; urgency=low
 
