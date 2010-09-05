@@ -6,7 +6,7 @@ clock-setup 0.103ubuntu1
 console-setup 1.34ubuntu15
 debian-installer-utils 1.79ubuntu1
 flash-kernel 2.28ubuntu8
-grub-installer 1.49ubuntu12
+grub-installer 1.55ubuntu1
 hw-detect 1.73ubuntu4
 kboot-installer 0.0.1ubuntu9
 localechooser 2.12ubuntu3
@@ -16,10 +16,10 @@ partconf 1.33
 partman-auto 91ubuntu4
 partman-auto-loop 0ubuntu18
 partman-base 141ubuntu1
-partman-basicfilesystems 63ubuntu6
+partman-basicfilesystems 63ubuntu7
 partman-basicmethods 44
 partman-btrfs 2
-partman-efi 20ubuntu2
+partman-efi 21ubuntu1
 partman-ext3 59ubuntu1
 partman-jfs 30
 partman-newworld 22

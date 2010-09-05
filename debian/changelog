@@ -9,6 +9,9 @@ ubiquity (2.3.16) UNRELEASED; urgency=low
     configuration file that was lost in r4123.1.37.
   * Parse the slideshow size when the GTK frontend first starts to
     prevent the window resizing later.
+  * Automatic update of included source packages: grub-installer
+    1.55ubuntu1, partman-basicfilesystems 63ubuntu7, partman-efi
+    21ubuntu1.
 
   [ Evan Dandrea ]
   * Do not generate or show the bootloader options if we're on x86, or
