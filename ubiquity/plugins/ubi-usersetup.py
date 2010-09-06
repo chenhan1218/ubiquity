@@ -286,7 +286,8 @@ class PageGtk(PageBase):
         else:
             self.fullname_ok.hide()
 
-        if self.username.get_text():
+        text = self.username.get_text()
+        if re.match('^[a-z][-a-z0-9_]*$', text):
             self.username_ok.show()
         else:
             self.username_ok.hide()
