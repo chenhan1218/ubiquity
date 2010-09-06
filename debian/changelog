@@ -7,6 +7,9 @@ ubiquity (2.3.17) UNRELEASED; urgency=low
     (LP: #631046).
   * Re-use the valid username check from user-setup in the GTK UI
     (LP: #631046).
+  * Do not cut off the text of the Try and Install buttons by setting
+    their width to just the largest initial width of the two
+    (LP: #629437).
 
   [ Colin Watson ]
   * Factor out common /proc/mounts handling into a new

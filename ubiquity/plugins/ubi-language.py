@@ -314,12 +314,16 @@ class PageGtk(PageBase):
 
         # There doesn't appear to be a way to have a homogeneous layout for a
         # single row in a GtkTable.
+            self.try_ubuntu.set_size_request(-1, -1)
+            self.install_ubuntu.set_size_request(-1, -1)
         try_w = self.try_ubuntu.size_request()[0]
         install_w = self.install_ubuntu.size_request()[0]
         if try_w > install_w:
+            self.try_ubuntu.set_size_request(try_w, -1)
             self.install_ubuntu.set_size_request(try_w, -1)
         elif install_w > try_w:
             self.try_ubuntu.set_size_request(install_w, -1)
+            self.install_ubuntu.set_size_request(install_w, -1)
 
         self.update_release_notes_label()
         for w in self.page.get_children():
