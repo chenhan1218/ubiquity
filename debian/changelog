@@ -1,3 +1,10 @@
+ubiquity (2.3.17) UNRELEASED; urgency=low
+
+  * Fetch the translations for the release_notes_only and
+    update_installer_only strings (LP: #629627).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 06 Sep 2010 11:43:54 +0100
+
 ubiquity (2.3.16) maverick; urgency=low
 
   [ Mario Limonciello ]

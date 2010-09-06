@@ -337,6 +337,8 @@ class PageGtk(PageBase):
         # just the critical update, or neither, as appropriate.
         if self.release_notes_label:
             if self.release_notes_found and self.update_installer:
+                text = i18n.get_string('release_notes_label', lang)
+                self.release_notes_label.set_markup(text)
                 self.release_notes_label.show()
             elif self.release_notes_found:
                 text = i18n.get_string('release_notes_only', lang)
@@ -626,6 +628,8 @@ class PageKde(PageBase):
         # just the critical update, or neither, as appropriate.
         if self.page.release_notes_label:
             if self.release_notes_found and self.update_installer:
+                text = i18n.get_string('release_notes_label', lang)
+                self.page.release_notes_label.setText(text)
                 self.page.release_notes_label.show()
             elif self.release_notes_found:
                 text = i18n.get_string('release_notes_only', lang)
