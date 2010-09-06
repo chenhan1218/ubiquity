@@ -214,6 +214,18 @@ def is_removable(device):
 
     return None
 
+def mount_info(path):
+    """Return the filesystem name and type used for a given mountpoint."""
+    fsname = ''
+    fstype = ''
+    with contextlib.closing(open('/proc/mounts')) as fp:
+        for line in fp:
+            line = line.split()
+            if line[1] == path:
+                fsname = line[0]
+                fstype = line[2]
+    return fsname, fstype
+
 @raise_privileges
 def grub_default():
     """Return the default GRUB installation target."""
@@ -236,15 +248,7 @@ def grub_default():
     if target is None:
         target = '(hd0)'
 
-    cdsrc = ''
-    cdfs = ''
-    with contextlib.closing(open('/proc/mounts')) as fp:
-        for line in fp:
-            line = line.split()
-            if line[1] == '/cdrom':
-                cdsrc = line[0]
-                cdfs = line[2]
-                break
+    cdsrc, cdfs = mount_info('/cdrom')
     if (cdsrc == target or target == '(hd0)') and cdfs and cdfs != 'iso9660':
         # Installing from removable media other than a CD.  Make sure that
         # we don't accidentally install GRUB to it.

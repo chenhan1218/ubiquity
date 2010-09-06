@@ -1,11 +1,16 @@
 ubiquity (2.3.17) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Fetch the translations for the release_notes_only and
     update_installer_only strings (LP: #629627).
   * Don't use the same name for the error method and GTK label
     (LP: #631046).
   * Re-use the valid username check from user-setup in the GTK UI
     (LP: #631046).
+
+  [ Colin Watson ]
+  * Factor out common /proc/mounts handling into a new
+    ubiquity.misc.mount_info function.
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 06 Sep 2010 11:43:54 +0100
 

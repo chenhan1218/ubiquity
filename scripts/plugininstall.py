@@ -33,7 +33,6 @@ import fcntl
 import traceback
 import syslog
 import gzip
-import contextlib
 import debconf
 import warnings
 warnings.filterwarnings("ignore", "apt API not stable yet", FutureWarning)
@@ -416,13 +415,7 @@ class Install(install_misc.InstallBase):
             }""")
         apt_conf_nmc.close()
 
-        cdfs = ''
-        with contextlib.closing(open('/proc/mounts')) as fp:
-            for line in fp:
-                line = line.split()
-                if line[1] == '/cdrom':
-                    cdfs = line[2]
-                    break
+        cdsrc, cdfs = misc.mount_info('/cdrom')
         if cdfs != 'iso9660':
             # On non-read-only media, including filesystem statistics in the
             # apt-cdrom database entry is unreliable.  This will render the
