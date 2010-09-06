@@ -212,7 +212,7 @@ static void
 set_background(GtkWidget *win) {
 	GdkPixbuf *pixbuf;
 	GtkPixmap *pixmap;
-	pixbuf = gdk_pixbuf_new_from_file("/usr/share/themes/Ambiance/gtk-2.0/panel_bg.png", NULL);
+	pixbuf = gdk_pixbuf_new_from_file("/usr/share/themes/Ambiance/gtk-2.0/apps/img/panel.png", NULL);
 	if (pixbuf) {
 		gdk_pixbuf_render_pixmap_and_mask(pixbuf, &pixmap, NULL, 0);
 		if (pixmap)
@@ -259,6 +259,7 @@ main(int argc, char* argv[]) {
 	g_signal_connect(menubar, "expose-event", G_CALLBACK(on_expose), NULL);
 	gtk_widget_show(menubar);
 	gtk_widget_show(win);
+	gdk_window_process_updates(win->window, TRUE);
 	gtk_main();
 	return 0;
 }

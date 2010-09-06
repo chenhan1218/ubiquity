@@ -10,6 +10,8 @@ ubiquity (2.3.17) UNRELEASED; urgency=low
   * Do not cut off the text of the Try and Install buttons by setting
     their width to just the largest initial width of the two
     (LP: #629437).
+  * Update the panel to use the new location for the panel background,
+    and force a redraw when setting it.
 
   [ Colin Watson ]
   * Factor out common /proc/mounts handling into a new
