@@ -185,7 +185,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkLabel" id="password_error">
+          <object class="GtkLabel" id="password_error_label">
             <property name="xalign">0</property>
             <property name="label" translatable="yes">&lt;small&gt;&lt;span color="darkred"&gt;Passwords do not match&lt;/span&gt;&lt;/small&gt;</property>
             <property name="use_markup">True</property>
@@ -266,7 +266,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkLabel" id="username_error">
+          <object class="GtkLabel" id="username_error_label">
             <property name="xalign">0</property>
             <property name="label" translatable="yes">&lt;small&gt;&lt;span color="darkred"&gt;You must enter a username&lt;/span&gt;&lt;/small&gt;</property>
             <property name="use_markup">True</property>

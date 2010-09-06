@@ -153,8 +153,8 @@ class PageGtk(PageBase):
         self.login_auto = builder.get_object('login_auto')
         self.login_encrypt = builder.get_object('login_encrypt')
         self.login_pass = builder.get_object('login_pass')
-        self.username_error = builder.get_object('username_error')
-        self.password_error = builder.get_object('password_error')
+        self.username_error_label = builder.get_object('username_error_label')
+        self.password_error_label = builder.get_object('password_error_label')
         self.login_vbox = builder.get_object('login_vbox')
 
         self.username_ok = builder.get_object('username_ok')
@@ -232,13 +232,13 @@ class PageGtk(PageBase):
 
     def username_error(self, msg):
         self.username_ok.hide()
-        self.username_error.set_text(msg)
-        self.username_error.show()
+        self.username_error_label.set_text(msg)
+        self.username_error_label.show()
 
     def password_error(self, msg):
         self.password_strength.hide()
-        self.password_error.set_text(msg)
-        self.password_error.show()
+        self.password_error_label.set_text(msg)
+        self.password_error_label.show()
 
     def get_hostname (self):
         if self.controller.oem_config:
@@ -255,8 +255,8 @@ class PageGtk(PageBase):
         pass
 
     def clear_errors(self):
-        self.username_error.hide()
-        self.password_error.hide()
+        self.username_error_label.hide()
+        self.password_error_label.hide()
 
     # Callback functions.
 
@@ -302,10 +302,10 @@ class PageGtk(PageBase):
                 # TODO Cache, use a custom string.
                 #txt = self.controller.get_string('user-setup/password-mismatch')
                 txt = '<small><span foreground="darkred"><b>Passwords do not match</b></span></small>'
-                self.password_error.set_markup(txt)
-                self.password_error.show()
+                self.password_error_label.set_markup(txt)
+                self.password_error_label.show()
         else:
-            self.password_error.hide()
+            self.password_error_label.hide()
 
         if allow_empty:
             self.password_strength.hide()
