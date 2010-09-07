@@ -85,6 +85,10 @@ class PreparePageBase(PluginUI):
             return False
 
     def set_sufficient_space(self, state):
+        if not state:
+            # There's either no drives present, or not enough free space.
+            # Either way, we cannot continue.
+            self.controller.allow_go_forward(False)
         self.prepare_sufficient_space.set_state(state)
 
     def set_sufficient_space_text(self, space):
@@ -289,7 +293,7 @@ class Page(Plugin):
             devices = proc.communicate()[0].rstrip('\n').split('\n')
             ret = False
             for device in devices:
-                if int(device.split('\t')[1]) > size:
+                if device and int(device.split('\t')[1]) > size:
                     ret = True
                     break
         return ret

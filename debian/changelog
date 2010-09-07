@@ -18,6 +18,10 @@ ubiquity (2.3.17) UNRELEASED; urgency=low
     (LP: #628964).
   * Do not look for a full path on non-paths when getting the default
     grub target.
+  * Fix a crash when there are no disks present on the system
+    (LP: #631766).
+  * Don't let the user continue if there are no disks present, or if
+    there isn't enough free space on any of them to install.
 
   [ Colin Watson ]
   * Factor out common /proc/mounts handling into a new
