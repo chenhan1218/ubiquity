@@ -246,6 +246,8 @@ class PageGtk(PageBase):
         else:
             user = self.username.get_text()
             user = re.sub(r'\W', '', user)
+            if not user:
+                user = 'ubuntu'
         if self.laptop:
             return '%s-laptop' % user
         else:

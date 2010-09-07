@@ -12,6 +12,8 @@ ubiquity (2.3.17) UNRELEASED; urgency=low
     (LP: #629437).
   * Update the panel to use the new location for the panel background,
     and force a redraw when setting it.
+  * If the username only contains non-alphanumeric characters, set the
+    hostname to ubuntu-{laptop,desktop}.
 
   [ Colin Watson ]
   * Factor out common /proc/mounts handling into a new
