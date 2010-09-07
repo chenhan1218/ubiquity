@@ -157,6 +157,7 @@ class PageGtk(PageBase):
             self.resize_pref_size = None
             self.resize_path = ''
             self.new_size_scale = None
+            self.use_entire_disk = False
             # FIXME: Grab this from the GTK theme.
             self.release_color = 'D07316'
             self.auto_colors = ['3465a4', '73d216', 'f57900']
@@ -191,7 +192,6 @@ class PageGtk(PageBase):
         self.part_auto_use_entire_partition.set_sensitive(False)
         self.partition_container.set_current_page(1)
         s = self.controller.get_string('part_auto_split_largest_partition')
-        self.resize_use_free.set_active(True)
         self.part_auto_use_entire_disk.set_label(s)
         # TODO need to set the correct size back and forth between this and
         # use_entire_disk_clicked.
@@ -202,11 +202,9 @@ class PageGtk(PageBase):
         widget, or the resize widget, respectively.'''
 
         use_entire_part = \
-            self.part_auto_use_entire_partition.get_property('sensitive') == False
+            not self.part_auto_use_entire_partition.get_property('sensitive')
         if self.use_device.get_active() or use_entire_part:
             # Switch back to resizing.
-            self.resize_use_free.set_active(True)
-
             use_disk = self.controller.get_string('part_auto_use_entire_disk')
             allocate = self.controller.get_string('part_auto_allocate_label')
             hidden = self.controller.get_string('part_auto_hidden_label')
@@ -214,19 +212,17 @@ class PageGtk(PageBase):
             self.part_auto_allocate_label.set_text(allocate)
             self.set_part_auto_hidden_label()
             self.partition_container.set_current_page(0)
-
             # part_auto_use_entire_partition_clicked may have set this
             # insensitive.
             self.part_auto_use_entire_partition.set_sensitive(True)
         else:
             # Switch back to 'use entire disk.'
-            self.use_device.set_active(True)
-
+            self.initialize_use_disk_mode()
+            # And give the user a way to get back to resizing, unlike when
+            # we're in 'use entire disk' mode.
             s = self.controller.get_string('part_auto_split_largest_partition')
             self.part_auto_use_entire_disk.set_label(s)
-            self.part_auto_allocate_label.set_text('')
-            self.part_auto_hidden_label.set_text('')
-            self.partition_container.set_current_page(1)
+            self.part_auto_use_entire_disk.set_sensitive(True)
 
     def get_current_disk_partman_id (self):
         i = self.part_auto_select_drive.get_active_iter()
@@ -245,6 +241,8 @@ class PageGtk(PageBase):
         the partition being resized.'''
 
         disk_id = self.get_current_disk_partman_id()
+        if not disk_id:
+            return
         partition_count = len(self.disk_layout[disk_id]) - 1
         if partition_count == 0:
             self.part_auto_hidden_label.set_text('')
@@ -258,16 +256,83 @@ class PageGtk(PageBase):
     def part_ask_option_changed (self, unused_widget):
         '''The use has selected either the resize or use entire disk option on
         the ask page.'''
-        if self.resize_use_free.get_active():
-            self.partition_container.set_current_page(0)
-            s = self.controller.get_string('part_auto_use_entire_disk')
-            self.part_auto_use_entire_disk.set_label(s)
-        elif self.use_device.get_active():
-            self.partition_container.set_current_page(1)
-            self.part_auto_allocate_label.set_text('')
-            self.part_auto_hidden_label.set_text('')
-            s = self.controller.get_string('part_auto_split_largest_partition')
-            self.part_auto_use_entire_disk.set_label(s)
+        self.part_auto_select_drive_changed(None)
+
+    def initialize_resize_mode(self):
+        self.use_entire_disk = False
+        disk_id = self.get_current_disk_partman_id()
+        if not disk_id:
+            return
+
+        resize_min_size, resize_max_size, resize_pref_size, resize_path = \
+            self.extra_options[self.resize_choice][disk_id][1:]
+        self.resizewidget.set_property('min_size', int(resize_min_size))
+        self.resizewidget.set_property('max_size', int(resize_max_size))
+
+        # Lets gather some data.
+        size, fs = None, None
+        # TODO at some point we should re-evaluate the structure of
+        # self.disk_layout
+        for partition in self.disk_layout[disk_id]:
+            if partition[0] == resize_path:
+                size = partition[1]
+                fs = partition[3]
+                break
+        assert size is not None, 'Could not find size for %s:\n%s\n%s' % \
+            (str(resize_path), str(disk_id), str(self.disk_layout))
+        title = find_in_os_prober(resize_path)
+        if not title:
+            # This is most likely a partition with some files on it.
+            # TODO need to determine the amount of space used by the files.
+            # Use gio.
+            # TODO i18n
+            title = 'Files (%d GB)' % 0
+            self.resizewidget.get_child1().child.set_property('icon-name', 'folder')
+        # TODO See if we can get the filesystem label first in misc.py,
+        # caching lookups.
+        extra = '%s (%s)' % (resize_path, fs)
+
+        self.resizewidget.get_child1().child.set_property('title', title)
+        self.resizewidget.get_child1().child.set_property('extra', extra)
+        self.resizewidget.set_property('part_size', size)
+        self.resizewidget.set_pref_size(int(resize_pref_size))
+
+        # Set the extra field of the partition being created via resizing.
+        try:
+            dev, partnum = re.search(r'(.*\D)(\d+)$', resize_path).groups()
+            dev = '%s%d' % (dev, int(partnum) + 1)
+        except Exception, e:
+            dev = 'unknown'
+            self.debug('Could not determine new partition number: %s', e)
+            self.debug('extra_options: %s' % str(self.extra_options))
+        extra = '%s (%s)' % (dev, self.default_filesystem)
+        self.resizewidget.get_child2().child.set_property('extra', extra)
+
+        self.partition_container.set_current_page(0)
+        self.part_auto_use_entire_partition.set_sensitive(True)
+        self.part_auto_use_entire_disk.set_sensitive(True)
+        s = self.controller.get_string('part_auto_use_entire_disk')
+        self.part_auto_use_entire_disk.set_label(s)
+
+    def initialize_use_disk_mode(self):
+        '''The selected partman ID will now be completely formatted if the user
+        presses next.'''
+
+        self.use_entire_disk = True
+        disk_id = self.get_current_disk_partman_id()
+        if not disk_id:
+            return
+        # Use entire disk.
+        self.part_auto_use_entire_partition.set_sensitive(False)
+        self.part_auto_use_entire_disk.set_sensitive(False)
+        # We don't want to hide it as we want to keep its size allocation.
+        self.part_auto_allocate_label.set_text('')
+        self.part_auto_hidden_label.set_text('')
+        self.partition_container.set_current_page(1)
+        # Set the filesystem and size of the partition.
+        ext = '%s (%s)' % (disk_id.replace('=', '/'), self.default_filesystem)
+        self.partitionbox.set_property('extra', ext)
+        self.partitionbox.set_size(0)
 
     def part_auto_select_drive_changed (self, unused_widget):
         '''The user has selected a different disk drive from the drop down.
@@ -275,76 +340,17 @@ class PageGtk(PageBase):
         this.
         This is initially called in set_autopartition_choices.'''
 
+        self.set_part_auto_hidden_label()
         disk_id = self.get_current_disk_partman_id()
         if not disk_id:
             return
-        # TODO What of all of this can we do asynchronously?
-        self.set_part_auto_hidden_label()
-        if self.resize_choice in self.extra_options and \
-           self.resize_use_free.get_active() and \
-           disk_id in self.extra_options[self.resize_choice]:
+        if (self.resize_choice in self.extra_options and
+           self.resize_use_free.get_active() and
+           disk_id in self.extra_options[self.resize_choice]):
             # Resize.
-            # FIXME if disk_id in self.extra_options[self.resize_choice], else
-            # switch to format.
-            resize_min_size, resize_max_size, \
-                resize_pref_size, resize_path = \
-                self.extra_options[self.resize_choice][disk_id][1:]
-            self.resizewidget.set_property('min_size', int(resize_min_size))
-            self.resizewidget.set_property('max_size', int(resize_max_size))
-
-            # Lets gather some data.
-            size = None
-            fs = None
-            # TODO at some point we should re-evaluate the structure of
-            # self.disk_layout
-            for partition in self.disk_layout[disk_id]:
-                if partition[0] == resize_path:
-                    size = partition[1]
-                    fs = partition[3]
-                    break
-            assert size is not None, 'Could not find size for %s:\n%s\n%s' % \
-                (str(resize_path), str(disk_id), str(self.disk_layout))
-            title = find_in_os_prober(resize_path)
-            if not title:
-                # This is most likely a partition with some files on it.
-                # TODO need to determine the amount of space used by the files.
-                # Use gio.
-                # TODO i18n
-                title = 'Files (%d GB)' % 0
-                self.resizewidget.get_child1().child.set_property('icon-name', 'folder')
-            # TODO See if we can get the filesystem label first in misc.py,
-            # caching lookups.
-            extra = '%s (%s)' % (resize_path, fs)
-
-            self.resizewidget.get_child1().child.set_property('title', title)
-            self.resizewidget.get_child1().child.set_property('extra', extra)
-            self.resizewidget.set_property('part_size', size)
-            self.resizewidget.set_pref_size(int(resize_pref_size))
-
-            # Set the extra field of the partition being created via resizing.
-            try:
-                dev, partnum = re.search(r'(.*\D)(\d+)$', resize_path).groups()
-                dev = '%s%d' % (dev, int(partnum) + 1)
-            except Exception, e:
-                dev = 'unknown'
-                self.debug('Could not determine new partition number: %s', e)
-                self.debug('extra_options: %s' % str(extra_options))
-            extra = '%s (%s)' % (dev, self.default_filesystem)
-            self.resizewidget.get_child2().child.set_property('extra', extra)
-
-            self.partition_container.set_current_page(0)
+            self.initialize_resize_mode()
         else:
-            # Use entire disk.
-            self.part_auto_use_entire_partition.set_sensitive(False)
-            self.part_auto_use_entire_disk.set_sensitive(False)
-            # We don't want to hide it as we want to keep its size allocation.
-            self.part_auto_allocate_label.set_text('')
-            self.part_auto_hidden_label.set_text('')
-            self.partition_container.set_current_page(1)
-
-        ext = '%s (%s)' % (disk_id.replace('=', '/'), self.default_filesystem)
-        self.partitionbox.set_property('extra', ext)
-        self.partitionbox.set_size(0)
+            self.initialize_use_disk_mode()
 
     def part_auto_hidden_label_activate_link(self, unused_widget, unused):
         self.custom_partitioning.set_active(True)
@@ -421,7 +427,7 @@ class PageGtk(PageBase):
         if self.custom_partitioning.get_active():
             return self.manual_choice, None
         
-        if self.resize_use_free.get_active():
+        if self.resize_use_free.get_active() and not self.use_entire_disk:
             disk_id = self.get_current_disk_partman_id()
             # Resize
             if self.part_auto_use_entire_partition.get_property('sensitive'):
@@ -431,13 +437,15 @@ class PageGtk(PageBase):
             else:
                 choice = self.extra_options['some_partition'][disk_id]
                 return choice, None
-        else:
+        if self.use_device.get_active() or self.use_entire_disk:
             # Use disk
             i = self.part_auto_select_drive.get_active_iter()
             m = self.part_auto_select_drive.get_model()
             disk = m.get_value(i, 0)
-            # Is the transliteration necessary?
+            # Is the encoding necessary?
             return self.use_device_choice, unicode(disk, 'utf-8', 'replace')
+        else:
+            raise AssertionError, "Couldn't get autopartition choice"
 
     # Advanced partitioning page
 
