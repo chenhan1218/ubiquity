@@ -17,6 +17,10 @@ ubiquity (2.3.17) UNRELEASED; urgency=low
   * Factor out common /proc/mounts handling into a new
     ubiquity.misc.mount_info function.
 
+  [ Mario Limonciello ]
+  * Adjust the fudge factor for showing languages on oem-config page
+    due to the changes to the default window size being much bigger.
+
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 06 Sep 2010 11:43:54 +0100
 
 ubiquity (2.3.16) maverick; urgency=low
