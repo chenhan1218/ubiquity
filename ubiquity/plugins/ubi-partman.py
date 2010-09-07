@@ -354,7 +354,9 @@ class PageGtk(PageBase):
         import gtk, gobject
         self.bootloader_vbox.show()
         options = grub_options()
-        default = os.path.realpath(grub_default())
+        default = grub_default()
+        if default.startswith('/'):
+            default = os.path.realpath(default)
         l = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
         self.grub_device_entry.set_model(l)
         selected = False
@@ -364,7 +366,7 @@ class PageGtk(PageBase):
                 self.grub_device_entry.set_active_iter(i)
                 selected = True
         if not selected:
-            i = l.append([default, default])
+            i = l.append([default, ''])
             self.grub_device_entry.set_active_iter(i)
 
     def get_grub_choice(self):
@@ -1134,7 +1136,9 @@ class PageKde(PageBase):
 
     def set_grub_options(self):
         options = grub_options()
-        default = os.path.realpath(grub_default())
+        default = grub_default()
+        if default.startswith('/'):
+            default = os.path.realpath(default)
         self.partMan.setGrubOptions(options, default)
 
     def get_grub_choice(self):

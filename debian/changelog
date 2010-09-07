@@ -16,6 +16,8 @@ ubiquity (2.3.17) UNRELEASED; urgency=low
     hostname to ubuntu-{laptop,desktop}.
   * Replace RELEASE with the release name in the KDE UI finished dialog
     (LP: #628964).
+  * Do not look for a full path on non-paths when getting the default
+    grub target.
 
   [ Colin Watson ]
   * Factor out common /proc/mounts handling into a new
