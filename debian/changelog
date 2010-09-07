@@ -20,6 +20,9 @@ ubiquity (2.3.17) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Adjust the fudge factor for showing languages on oem-config page
     due to the changes to the default window size being much bigger.
+  * During oem-config's removal of ubiquity, remove other ubiquity
+    related items that might have potentially still been on the system
+    from a live-helper generated image.
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 06 Sep 2010 11:43:54 +0100
 
