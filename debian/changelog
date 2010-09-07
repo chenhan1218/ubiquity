@@ -14,6 +14,8 @@ ubiquity (2.3.17) UNRELEASED; urgency=low
     and force a redraw when setting it.
   * If the username only contains non-alphanumeric characters, set the
     hostname to ubuntu-{laptop,desktop}.
+  * Replace RELEASE with the release name in the KDE UI finished dialog
+    (LP: #628964).
 
   [ Colin Watson ]
   * Factor out common /proc/mounts handling into a new

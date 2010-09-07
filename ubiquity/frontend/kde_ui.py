@@ -481,6 +481,7 @@ class Wizard(BaseFrontend):
                 if ('UBIQUITY_ONLY' in os.environ or
                     'UBIQUITY_GREETER' in os.environ):
                     quitText = self.get_string('ubiquity/finished_restart_only')
+                quitText = quitText.replace('${RELEASE}', get_release().name)
                 messageBox = QMessageBox(QMessageBox.Question, titleText,
                                          quitText, QMessageBox.NoButton,
                                          self.ui)
