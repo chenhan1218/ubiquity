@@ -23,6 +23,8 @@ ubiquity (2.3.17) UNRELEASED; urgency=low
   * During oem-config's removal of ubiquity, remove other ubiquity
     related items that might have potentially still been on the system
     from a live-helper generated image.
+  * Refactor mount_info to also report ro/rw, and let plugininstall
+    key off that instead.
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 06 Sep 2010 11:43:54 +0100
 

@@ -415,8 +415,8 @@ class Install(install_misc.InstallBase):
             }""")
         apt_conf_nmc.close()
 
-        cdsrc, cdfs = misc.mount_info('/cdrom')
-        if cdfs != 'iso9660':
+        cdsrc, type, writable = misc.mount_info('/cdrom')
+        if writable == 'rw':
             # On non-read-only media, including filesystem statistics in the
             # apt-cdrom database entry is unreliable.  This will render the
             # database entry useless after installation, but that's OK since
