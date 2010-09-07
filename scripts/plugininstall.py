@@ -783,7 +783,7 @@ class Install(install_misc.InstallBase):
             arch, subarch = install_misc.archdetect()
 
             try:
-                if arch in ('amd64', 'i386', 'lpia'):
+                if arch in ('amd64', 'i386'):
                     from ubiquity.components import grubinstaller
                     while 1:
                         dbfilter = grubinstaller.GrubInstaller(None, self.db)
@@ -1175,7 +1175,7 @@ class Install(install_misc.InstallBase):
 
         arch, subarch = install_misc.archdetect()
 
-        if arch in ('amd64', 'i386', 'lpia'):
+        if arch in ('amd64', 'i386'):
             if 'grub' not in keep:
                 difference.add('grub')
             if 'grub-pc' not in keep:

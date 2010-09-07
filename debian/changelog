@@ -28,6 +28,7 @@ ubiquity (2.3.17) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Factor out common /proc/mounts handling into a new
     ubiquity.misc.mount_info function.
+  * Remove lpia architecture support.
 
   [ Mario Limonciello ]
   * Adjust the fudge factor for showing languages on oem-config page

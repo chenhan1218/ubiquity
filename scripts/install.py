@@ -234,7 +234,7 @@ class Install(install_misc.InstallBase):
         # at file copy time, we should figure out why grub still fails when
         # apt-install-direct is present during configure_bootloader (code
         # removed).
-        if arch in ('amd64', 'i386', 'lpia'):
+        if arch in ('amd64', 'i386'):
             keep.add('grub')
             keep.add('grub-pc')
         elif (arch == 'armel' and

@@ -1240,7 +1240,7 @@ class Page(Plugin):
         self.install_bootloader = False
         if self.db.get('ubiquity/install_bootloader') == 'true':
             arch, subarch = archdetect()
-            if arch in ('amd64', 'i386', 'lpia'):
+            if arch in ('amd64', 'i386'):
                 self.install_bootloader = True
 
         questions = ['^partman-auto/.*automatically_partition$',
