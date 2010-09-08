@@ -252,14 +252,13 @@ create_tray(GtkWidget* parent) {
 	data->screen = screen;
 	data->screen_num = gdk_screen_get_number (screen);
 	data->tray = na_tray_new_for_screen (screen, GTK_ORIENTATION_HORIZONTAL);
-	gtk_box_pack_start (GTK_BOX (parent), GTK_WIDGET (data->tray), TRUE, TRUE, 0);
+	gtk_box_pack_end (GTK_BOX (parent), GTK_WIDGET (data->tray), FALSE, FALSE, 0);
 
 	data->box = GTK_BIN (GTK_BIN (data->tray)->child)->child;
 	gtk_widget_show_all (parent);
 	return data;
 }
 
-// TODO: Support system tray for network-manager.
 int
 main(int argc, char* argv[]) {
 	GtkWidget *win;
