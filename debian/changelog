@@ -28,7 +28,8 @@ ubiquity (2.3.17) UNRELEASED; urgency=low
     partman-auto.
     - Use the already existent ubiquity variants of the d-i "Guided -" strings
       (LP: #628864).
-    - Fix the automatic resize option failing to appear (LP: #628897).
+    - Fix the automatic resize option failing to appear
+      (LP: #628897, LP: #628815).
     - Use a combobox to select which disk to use on all options that support
       multiple disks, not just the "use entire disk" option.
   * Add notification area support in the panel.
