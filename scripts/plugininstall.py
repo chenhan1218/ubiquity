@@ -788,7 +788,10 @@ class Install(install_misc.InstallBase):
                     while 1:
                         dbfilter = grubinstaller.GrubInstaller(None, self.db)
                         ret = dbfilter.run_command(auto_process=True)
-                        if ret != 0:
+                        if subarch == 'efi' and ret != 0:
+                            raise install_misc.InstallStepError(
+                                "GrubInstaller failed with code %d" % ret)
+                        elif ret != 0:
                             old_bootdev = self.db.get('grub-installer/bootdev')
                             bootdev = 'ubiquity/install/new-bootdev'
                             self.db.fset(bootdev, 'seen', 'false')
@@ -1176,12 +1179,10 @@ class Install(install_misc.InstallBase):
         arch, subarch = install_misc.archdetect()
 
         if arch in ('amd64', 'i386'):
-            if 'grub' not in keep:
-                difference.add('grub')
-            if 'grub-pc' not in keep:
-                difference.add('grub-pc')
-            if 'lilo' not in keep:
-                difference.add('lilo')
+            for pkg in ('grub', 'grub-pc', 'grub-efi', 'grub-efi-amd64',
+                        'lilo'):
+                if pkg not in keep:
+                    difference.add(pkg)
 
         cache = Cache()
         difference -= install_misc.expand_dependencies_simple(cache, keep, difference)

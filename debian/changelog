@@ -29,6 +29,8 @@ ubiquity (2.3.17) UNRELEASED; urgency=low
   * Factor out common /proc/mounts handling into a new
     ubiquity.misc.mount_info function.
   * Remove lpia architecture support.
+  * Handle grub-efi when installing on amd64/efi or i386/efi
+    subarchitectures (LP: #632642).
 
   [ Mario Limonciello ]
   * Adjust the fudge factor for showing languages on oem-config page
