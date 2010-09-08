@@ -31,6 +31,7 @@ ubiquity (2.3.17) UNRELEASED; urgency=low
     - Fix the automatic resize option failing to appear (LP: #628897).
     - Use a combobox to select which disk to use on all options that support
       multiple disks, not just the "use entire disk" option.
+  * Add notification area support in the panel.
 
   [ Colin Watson ]
   * Factor out common /proc/mounts handling into a new

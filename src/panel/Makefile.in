@@ -56,7 +56,9 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(pkglibdir)"
 PROGRAMS = $(pkglib_PROGRAMS)
-am_panel_OBJECTS = panel.$(OBJEXT)
+am_panel_OBJECTS = fixedtip.$(OBJEXT) na-marshal.$(OBJEXT) \
+	na-tray.$(OBJEXT) na-tray-child.$(OBJEXT) \
+	na-tray-manager.$(OBJEXT) panel.$(OBJEXT)
 panel_OBJECTS = $(am_panel_OBJECTS)
 panel_LDADD = $(LDADD)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
@@ -239,7 +241,19 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CPPFLAGS = $(PANEL_CFLAGS)
 AM_LDFLAGS = $(PANEL_LIBS)
-panel_SOURCES = panel.c
+panel_SOURCES = \
+		fixedtip.h              \
+		fixedtip.c              \
+		na-marshal.c            \
+		na-marshal.h            \
+		na-tray.c               \
+		na-tray.h               \
+		na-tray-child.c         \
+		na-tray-child.h         \
+		na-tray-manager.c       \
+		na-tray-manager.h       \
+		panel.c
+
 all: all-am
 
 .SUFFIXES:
@@ -327,6 +341,11 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/fixedtip.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/na-marshal.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/na-tray-child.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/na-tray-manager.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/na-tray.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/panel.Po@am__quote@
 
 .c.o:
