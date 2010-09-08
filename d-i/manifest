@@ -29,7 +29,6 @@ partman-target 67ubuntu1
 partman-uboot 4
 partman-xfs 44
 preseed 1.45
-silo-installer 1.16ubuntu1
 tzsetup 1:0.26ubuntu9
 user-setup 1.28ubuntu8
 yaboot-installer 1.1.16ubuntu1
