@@ -53,6 +53,8 @@ ubiquity (2.3.17) UNRELEASED; urgency=low
     key off that instead.
   * Set the panel indicators to show up on the right to match the rest
     of the desktop (LP: #632592)
+  * Automatic update of included source packages: grub-installer
+    1.55ubuntu3.
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 06 Sep 2010 11:43:54 +0100
 
