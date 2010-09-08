@@ -201,11 +201,11 @@ on_realize(GtkWidget *win, gpointer data) {
 }
 
 static const char* indicators[] = {
-	"/usr/lib/indicators/3/libsoundmenu.so",
 	// Reboot, shut down, ...
 	"/usr/lib/indicators/3/libsession.so",
 	// Bluetooth
 	"/usr/lib/indicators/3/libapplication.so",
+	"/usr/lib/indicators/3/libsoundmenu.so",
 	NULL
 };
 static void
@@ -249,6 +249,7 @@ main(int argc, char* argv[]) {
 		"widget_class \"*<GtkMenuBar>*\" style \"panel-menubar-style\"");
 
 	GtkWidget* menubar = gtk_menu_bar_new();
+	gtk_menu_bar_set_pack_direction(menubar, GTK_PACK_DIRECTION_RTL);
 	int i;
 	for(i = 0; indicators[i]; i++) {
 		if (!load_module(indicators[i], menubar)) {
