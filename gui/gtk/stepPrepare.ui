@@ -75,32 +75,43 @@
         <child>
           <object class="GtkVBox" id="vbox2">
             <property name="visible">True</property>
-            <property name="spacing">6</property>
             <child>
-              <object class="GtkLabel" id="prepare_foss_disclaimer">
+              <object class="GtkCheckButton" id="prepare_download_updates">
+                <property name="label" translatable="yes">Download updates while installing</property>
                 <property name="visible">True</property>
-                <property name="xalign">0</property>
-                <property name="label" translatable="yes">${RELEASE} supports MP3 playback, Flash content, wifi hardware, and similar functionality through third party software, not all of which is open source. This software is subject to the license terms included with the software's documentation.</property>
-                <property name="wrap">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="draw_indicator">True</property>
               </object>
               <packing>
                 <property name="position">0</property>
               </packing>
             </child>
             <child>
-              <object class="GtkAlignment" id="alignment6">
+              <object class="GtkVBox" id="vbox3">
                 <property name="visible">True</property>
-                <property name="left_padding">6</property>
+                <property name="spacing">6</property>
                 <child>
-                  <object class="GtkVBox" id="vbox3">
+                  <object class="GtkLabel" id="prepare_foss_disclaimer">
                     <property name="visible">True</property>
-                    <property name="spacing">6</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">${RELEASE} uses third-party software to display Flash, MP3 and other media, and to work with some wireless hardware. Some of this software is closed-source. The software is subject to the license terms included with the software's documentation.</property>
+                    <property name="wrap">True</property>
+                  </object>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkAlignment" id="alignment6">
+                    <property name="visible">True</property>
+                    <property name="left_padding">6</property>
                     <child>
                       <object class="GtkVBox" id="vbox4">
                         <property name="visible">True</property>
                         <child>
                           <object class="GtkCheckButton" id="prepare_nonfree_software">
-                            <property name="label" translatable="yes">Tick this box to install the software for this functionality.</property>
+                            <property name="label" translatable="yes">Install this third-party software</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
@@ -113,12 +124,13 @@
                         <child>
                           <object class="GtkAlignment" id="alignment2">
                             <property name="visible">True</property>
-                            <property name="left_padding">22</property>
+                            <property name="left_padding">23</property>
                             <child>
                               <object class="GtkLabel" id="prepare_foss_disclaimer_extra_label">
                                 <property name="visible">True</property>
                                 <property name="xalign">0</property>
-                                <property name="label" translatable="yes">&lt;small&gt;The following notice applies to the Fluendo MP3 plugin: "MPEG Layer-3 audio decoding technology licensed from Fraunhofer IIS and Thomson."&lt;/small&gt;</property>
+                                <property name="yalign">0</property>
+                                <property name="label" translatable="yes">&lt;small&gt;Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed from Fraunhofer IIS and Thomson.&lt;/small&gt;</property>
                                 <property name="use_markup">True</property>
                                 <property name="wrap">True</property>
                               </object>
@@ -129,26 +141,15 @@
                           </packing>
                         </child>
                       </object>
-                      <packing>
-                        <property name="position">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkCheckButton" id="prepare_download_updates">
-                        <property name="label" translatable="yes">Download updates while installing</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">False</property>
-                        <property name="draw_indicator">True</property>
-                      </object>
-                      <packing>
-                        <property name="position">1</property>
-                      </packing>
                     </child>
                   </object>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
                 </child>
               </object>
               <packing>
+                <property name="expand">False</property>
                 <property name="position">1</property>
               </packing>
             </child>
