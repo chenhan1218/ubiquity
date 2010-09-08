@@ -24,6 +24,13 @@ ubiquity (2.3.17) UNRELEASED; urgency=low
     there isn't enough free space on any of them to install.
   * Fix UI bugs in the automatic partitioner page.  Better handle
     determining what the desired partitioning recipe is (LP: #630450).
+  * Update the KDE partitioning UI to reflect changes to ubi-partman and
+    partman-auto.
+    - Use the already existent ubiquity variants of the d-i "Guided -" strings
+      (LP: #628864).
+    - Fix the automatic resize option failing to appear (LP: #628897).
+    - Use a combobox to select which disk to use on all options that support
+      multiple disks, not just the "use entire disk" option.
 
   [ Colin Watson ]
   * Factor out common /proc/mounts handling into a new

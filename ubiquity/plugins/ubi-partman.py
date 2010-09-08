@@ -1166,7 +1166,7 @@ class PageKde(PageBase):
 
         self.partAuto.setupChoices(choices, extra_options,
                                    resize_choice, manual_choice,
-                                   biggest_free_choice)
+                                   biggest_free_choice, use_device_choice)
 
         self.current_page = self.page
 
