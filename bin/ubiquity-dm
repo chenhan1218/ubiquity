@@ -355,6 +355,11 @@ EndSection
                     stdin=null, stdout=logfile, stderr=logfile,
                     **maybe_drop_privileges))
 
+            if osextras.find_on_path('nm-applet'):
+                extras.append(subprocess.Popen(
+                    ['nm-applet'],
+                    stdin=null, stdout=logfile, stderr=logfile,
+                    **maybe_drop_privileges))
             # Accessibility tools
             if accessibility == 'true':
                 fp = open('/proc/cmdline', 'r')

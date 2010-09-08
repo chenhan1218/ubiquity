@@ -34,6 +34,7 @@ ubiquity (2.3.17) UNRELEASED; urgency=low
       multiple disks, not just the "use entire disk" option.
   * Add notification area support in the panel.
   * Drop ia64 and sparc.
+  * Run nm-applet in the ubiquity GTK session.
 
   [ Colin Watson ]
   * Factor out common /proc/mounts handling into a new
