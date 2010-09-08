@@ -1,4 +1,4 @@
-ubiquity (2.3.17) UNRELEASED; urgency=low
+ubiquity (2.3.17) maverick; urgency=low
 
   [ Evan Dandrea ]
   * Fetch the translations for the release_notes_only and
@@ -56,7 +56,7 @@ ubiquity (2.3.17) UNRELEASED; urgency=low
   * Automatic update of included source packages: grub-installer
     1.55ubuntu3.
 
- -- Evan Dandrea <evand@ubuntu.com>  Mon, 06 Sep 2010 11:43:54 +0100
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 08 Sep 2010 14:43:59 -0500
 
 ubiquity (2.3.16) maverick; urgency=low
 
