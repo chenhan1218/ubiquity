@@ -2,6 +2,8 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
 
   * Improve the text on the prepare page, based on input from Matthew
     Paul Thomas, Amanda Brock, and Andrew Sinclair.
+  * Translate latitude and longitude from the Geonames service to its
+    respective Olsen timezone database entry.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 08 Sep 2010 22:06:51 +0100
 
