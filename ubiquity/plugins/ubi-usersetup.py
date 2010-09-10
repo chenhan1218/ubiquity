@@ -432,6 +432,8 @@ class PageKde(PageBase):
             new_username = unicode(self.page.fullname.text()).split(' ')[0]
             new_username = new_username.encode('ascii', 'ascii_transliterate').lower()
             self.page.username.setText(new_username)
+            self.on_username_changed()
+            self.username_edited = False
             self.page.username.blockSignals(False)
 
     def on_username_changed(self):

@@ -17,6 +17,8 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
     (LP: #626299).
   * Use dmidecode to get a more unique suffix for the hostname
     (LP: #628087).
+  * Also generate a sample hostname when generating a sample username
+    (LP: #634279).
 
   [ Mario Limonciello ]
   * Restore the functionality of the noninteractive frontend.
