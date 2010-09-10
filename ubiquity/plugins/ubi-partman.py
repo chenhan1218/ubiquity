@@ -81,7 +81,6 @@ class PageBase(PluginUI):
 
 class PageGtk(PageBase):
     plugin_title = 'ubiquity/text/part_auto_heading_label'
-    plugin_is_install = True
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
         try:
@@ -180,6 +179,10 @@ class PageGtk(PageBase):
         self.plugin_widgets = self.page
 
     def plugin_get_current_page(self):
+        if self.current_page == self.page:
+            self.plugin_is_install = False
+        else:
+            self.plugin_is_install = True
         return self.current_page
 
     def set_disk_layout(self, layout):

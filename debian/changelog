@@ -19,6 +19,8 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
     (LP: #628087).
   * Also generate a sample hostname when generating a sample username
     (LP: #634279).
+  * Only set the next button to 'Install Now' when not on the first
+    partitioning page.
 
   [ Mario Limonciello ]
   * Restore the functionality of the noninteractive frontend.

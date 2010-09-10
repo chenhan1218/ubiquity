@@ -1199,10 +1199,12 @@ class Wizard(BaseFrontend):
         # user tries to go forward but fails due to validation.
 
         # FIXME UGH.  I don't want this outside of the plugin.
-        if step == 'stepPartAsk' and not self.custom_partitioning.get_active():
-            self.set_current_page(self.steps.page_num(self.stepPartAuto))
-            self.allow_change_step(True)
-            return
+        if step == 'stepPartAsk':
+            self.next.set_label(self.get_string('install_button'))
+            if not self.custom_partitioning.get_active():
+                self.set_current_page(self.steps.page_num(self.stepPartAuto))
+                self.allow_change_step(True)
+                return
         if step == "stepPartAuto":
             self.part_advanced_warning_message.set_text('')
             self.part_advanced_warning_hbox.hide()
