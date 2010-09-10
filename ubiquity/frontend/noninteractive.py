@@ -32,7 +32,7 @@ import gobject
 
 from ubiquity import filteredcommand, i18n
 from ubiquity.misc import *
-from ubiquity.components import install, partman_commit
+from ubiquity.components import install, plugininstall, partman_commit
 from ubiquity.plugin import Plugin
 import ubiquity.progressposition
 import ubiquity.frontend.base
@@ -102,6 +102,14 @@ class Wizard(BaseFrontend):
         self.start_debconf()
         dbfilter = install.Install(self)
         ret = dbfilter.run_command(auto_process=True)
+        if ret == 0:
+            dbfilter = plugininstall.Install(self)
+            ret = dbfilter.run_command(auto_process=True)
+        if ret == 0:
+            self.run_success_cmd()
+            print >>self.console, 'Installation complete.'
+            if self.get_reboot():
+                execute("reboot")
         if ret != 0:
             if ret == 3:
                 # error already handled by Install
@@ -116,12 +124,7 @@ class Wizard(BaseFrontend):
                 tbfile.close()
                 raise RuntimeError, ("Install failed with exit code %s\n%s" %
                                      (ret, realtb))
-        else:
-            self.run_success_cmd()
-            print >>self.console, 'Installation complete.'
-            if self.get_reboot():
-                execute("reboot")
-
+            
     def watch_debconf_fd(self, from_debconf, process_input):
         """Event loop interface to debconffilter.
 
