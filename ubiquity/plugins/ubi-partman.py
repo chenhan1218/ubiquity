@@ -231,7 +231,7 @@ class PageGtk(PageBase):
         m = self.part_auto_select_drive.get_model()
         val = m.get_value(i, 0)
 
-        partman_id = self.extra_options[self.use_device_choice][val]
+        partman_id = self.extra_options[self.use_device_choice][val][0]
         disk_id = partman_id.rsplit('/', 1)[1]
         return disk_id
 
@@ -339,7 +339,14 @@ class PageGtk(PageBase):
         # Set the filesystem and size of the partition.
         ext = '%s (%s)' % (disk_id.replace('=', '/'), self.default_filesystem)
         self.partitionbox.set_property('extra', ext)
-        self.partitionbox.set_size(0)
+        # Set the size of the disk.
+        i = self.part_auto_select_drive.get_active_iter()
+        if not i:
+            return
+        m = self.part_auto_select_drive.get_model()
+        val = m.get_value(i, 0)
+        size = self.extra_options[self.use_device_choice][val][1]
+        self.partitionbox.set_size(size)
 
     def part_auto_select_drive_changed (self, unused_widget):
         '''The user has selected a different disk drive from the drop down.
@@ -411,7 +418,7 @@ class PageGtk(PageBase):
             # can be resized, should one exist, so that selecting resize and
             # proceeding defaults to a resizable disk.
             if resize_choice in extra_options:
-                disk_id = extra_options[use_device_choice][disk].rsplit('/', 1)[1]
+                disk_id = extra_options[use_device_choice][disk][0].rsplit('/', 1)[1]
                 if disk_id in extra_options[resize_choice] and not selected:
                     selected = True
                 self.part_auto_select_drive.set_active_iter(i)
@@ -1724,7 +1731,20 @@ class Page(Plugin):
 
         elif question == 'partman-auto/select_disk':
             if self.auto_state is not None:
-                self.extra_options[self.auto_state[1]] = self.choices_display_map(question)
+                disks = {}
+                choices = self.choices(question)
+                choices_c = self.choices_untranslated(question)
+                with raised_privileges():
+                    for i in range(len(choices)):
+                        size = 0
+                        # It seemingly doesn't make sense to go through parted
+                        # server when all it would be doing is constructing the
+                        # path that we already have.
+                        with open(os.path.join(choices_c[i], 'size')) as fp:
+                            size = fp.readline()
+                        size = int(size)
+                        disks[choices[i]] = (choices_c[i], size)
+                self.extra_options[self.auto_state[1]] = disks
                 # Back up to autopartitioning question.
                 self.succeeded = False
                 return False

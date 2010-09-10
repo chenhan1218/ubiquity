@@ -94,6 +94,7 @@ class PartAuto(QWidget):
                     extra_options[resize_choice][disk_id]
 
                 for text, path in extra_options[use_device_choice].items():
+                    path = path[0]
                     if path.rsplit('/', 1)[1] == disk_id:
                         bar_frame = QFrame()
                         bar_frame.setLayout(QVBoxLayout())
@@ -129,6 +130,7 @@ class PartAuto(QWidget):
 
         disks = []
         for text, path in extra_options[use_device_choice].items():
+            path = path[0]
             bar_frame = QFrame()
             bar_frame.setLayout(QVBoxLayout())
             bar_frame.setVisible(False)
@@ -179,7 +181,7 @@ class PartAuto(QWidget):
             # resize choice should have been hidden otherwise
             assert self.resizeSize is not None
             comboText = unicode(self.part_auto_disk_box.currentText())
-            disk_id = self.extra_options[self.useDeviceChoice][comboText]
+            disk_id = self.extra_options[self.useDeviceChoice][comboText][0]
             disk_id = disk_id.rsplit('/', 1)[1]
             option = self.extra_options[choice][disk_id][0]
             return option, '%d B' % self.resizeSize
