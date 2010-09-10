@@ -20,7 +20,7 @@ _Description: Erase and use the entire disk
 
 Template: ubiquity/text/resize_use_free
 Type: text
-_Description: Install them side by side, choosing between them each startup
+_Description: Install alongside other operating systems
 
 Template: ubiquity/text/custom_partitioning
 Type: text
