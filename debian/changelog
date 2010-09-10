@@ -5,6 +5,7 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
     Paul Thomas, Amanda Brock, and Andrew Sinclair.
   * Translate latitude and longitude from the Geonames service to its
     respective Olsen timezone database entry.
+  * Add back the hostname entry (LP: #628087).
 
   [ Mario Limonciello ]
   * Restore the functionality of the noninteractive frontend.

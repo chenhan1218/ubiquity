@@ -166,6 +166,14 @@ Template: ubiquity/text/password_again_inactive_label
 Type: text
 _Description: Confirm password
 
+Template: ubiquity/text/hostname_label
+Type: text
+_Description: Your computer's name:
+
+Template: ubiquity/text/hostname_extra_label
+Type: text
+_Description: The name it uses when it talks to other computers.
+
 # TODO Get rid of this by filtering out the password?
 Template: ubiquity/text/password_debug_warning_label
 Type: text
