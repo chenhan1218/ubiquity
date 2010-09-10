@@ -280,14 +280,21 @@ class PageGtk(PageBase):
                 break
         assert size is not None, 'Could not find size for %s:\n%s\n%s' % \
             (str(resize_path), str(disk_id), str(self.disk_layout))
+
         title = find_in_os_prober(resize_path)
+        icon = self.resizewidget.get_child1().child
         if not title:
             # This is most likely a partition with some files on it.
-            # TODO need to determine the amount of space used by the files.
-            # Use gio.
             # TODO i18n
-            title = 'Files (%d GB)' % 0
-            self.resizewidget.get_child1().child.set_property('icon-name', 'folder')
+            title = 'Files (%s)' % format_size(resize_min_size)
+            icon.set_property('icon-name', 'folder')
+        else:
+            # TODO Get generic Windows icon from Otto, look for 'windows'.
+            if 'buntu' in title.lower():
+                icon.set_property('icon-name', 'distributor-logo')
+            else:
+                icon.set_property('icon-name', 'block-device')
+
         # TODO See if we can get the filesystem label first in misc.py,
         # caching lookups.
         extra = '%s (%s)' % (resize_path, fs)

@@ -6,6 +6,10 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
   * Translate latitude and longitude from the Geonames service to its
     respective Olsen timezone database entry.
   * Add back the hostname entry (LP: #628087).
+  * Use a block device icon for cases where we cannot detect the
+    operating system on a partition.
+  * Set the amount of used space on a partition that we presume contains
+    no operating system (LP: #626299).
 
   [ Mario Limonciello ]
   * Restore the functionality of the noninteractive frontend.
