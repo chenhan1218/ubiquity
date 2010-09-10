@@ -27,7 +27,7 @@
 import os, re
 
 from ubiquity import validation
-from ubiquity.misc import execute, execute_root
+from ubiquity.misc import execute, execute_root, dmimodel
 from ubiquity.plugin import *
 import debconf
 
@@ -54,7 +54,12 @@ def check_hostname(hostname):
 
 class PageBase(PluginUI):
     def __init__(self):
-        self.laptop = execute("laptop-detect")
+        self.suffix = '-%s' % dmimodel()
+        if not self.suffix:
+            if execute("laptop-detect"):
+                self.suffix = '-laptop'
+            else:
+                self.suffix = '-desktop'
         self.allow_password_empty = False
 
     def set_fullname(self, value):
@@ -181,10 +186,7 @@ class PageGtk(PageBase):
             self.username.set_editable(False)
             self.username.set_sensitive(False)
             self.username_edited = True
-            if self.laptop:
-                self.hostname.set_text('oem-laptop')
-            else:
-                self.hostname.set_text('oem-desktop')
+            self.hostname.set_text('oem%s' % self.suffix)
             self.hostname_edited = True
             self.login_vbox.hide()
             # The UserSetup component takes care of preseeding passwd/user-uid.
@@ -288,14 +290,10 @@ class PageGtk(PageBase):
             self.username.handler_unblock(self.username_changed_id)
         elif (widget is not None and widget.get_name() == 'username' and
               not self.hostname_edited):
-            if self.laptop:
-                hostname_suffix = '-laptop'
-            else:
-                hostname_suffix = '-desktop'
             self.hostname.handler_block(self.hostname_changed_id)
             t = widget.get_text()
             if t:
-                self.hostname.set_text(re.sub(r'\W', '', t) + hostname_suffix)
+                self.hostname.set_text(re.sub(r'\W', '', t) + self.suffix)
             self.hostname.handler_unblock(self.hostname_changed_id)
 
         # Do some initial validation.  We have to process all the widgets so we
@@ -405,10 +403,7 @@ class PageKde(PageBase):
             self.username_edited = True
             self.hostname_edited = True
 
-            if self.laptop:
-                self.page.hostname.setText('oem-laptop')
-            else:
-                self.page.hostname.setText('oem-desktop')
+            self.page.hostname.setText('oem%s' % self.suffix)
 
             # The UserSetup component takes care of preseeding passwd/user-uid.
             execute_root('apt-install', 'oem-config-kde')
@@ -441,13 +436,8 @@ class PageKde(PageBase):
 
     def on_username_changed(self):
         if not self.hostname_edited:
-            if self.laptop:
-                hostname_suffix = '-laptop'
-            else:
-                hostname_suffix = '-desktop'
-
             self.page.hostname.blockSignals(True)
-            self.page.hostname.setText(unicode(self.page.username.text()).strip() + hostname_suffix)
+            self.page.hostname.setText(unicode(self.page.username.text()).strip() + self.suffix)
             self.page.hostname.blockSignals(False)
 
         self.username_edited = (self.page.username.text() != '')

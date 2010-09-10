@@ -15,6 +15,8 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
   * Use the correct string for the resize partition option.
   * Set the size of the disk on the automatic partitioning page
     (LP: #626299).
+  * Use dmidecode to get a more unique suffix for the hostname
+    (LP: #628087).
 
   [ Mario Limonciello ]
   * Restore the functionality of the noninteractive frontend.
