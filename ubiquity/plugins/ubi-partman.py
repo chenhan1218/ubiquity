@@ -337,7 +337,16 @@ class PageGtk(PageBase):
         self.part_auto_use_entire_disk.set_sensitive(False)
         # We don't want to hide it as we want to keep its size allocation.
         self.part_auto_allocate_label.set_text('')
-        self.part_auto_hidden_label.set_text('')
+        # Set the number of partitions that will be deleted.
+        partition_count = len(self.disk_layout[disk_id])
+        if partition_count == 0:
+            self.part_auto_hidden_label.set_text('')
+        elif partition_count == 1:
+            deleted = self.controller.get_string('part_auto_deleted_label_one')
+            self.part_auto_hidden_label.set_markup(deleted)
+        else:
+            deleted = self.controller.get_string('part_auto_deleted_label')
+            self.part_auto_hidden_label.set_markup(deleted % partition_count)
         self.partition_container.set_current_page(1)
         # Set the filesystem and size of the partition.
         ext = '%s (%s)' % (disk_id.replace('=', '/'), self.default_filesystem)

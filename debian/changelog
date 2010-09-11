@@ -23,6 +23,8 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
     partitioning page.
   * Fix transposed latitude and longitude in geonames lookup.
   * Provide a version parameter to the geoname lookup.
+  * Show the number of partitions that will be deleted when in 'use
+    entire disk' mode.
 
   [ Mario Limonciello ]
   * Restore the functionality of the noninteractive frontend.
