@@ -24,6 +24,12 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Restore the functionality of the noninteractive frontend.
+  * Disable GVFS fuse daemon while in ubiquity-dm
+  * Remove oem user with userdel rather than deluser (the latter didn't support
+    doing it while oem was logged in) (LP: #624888)
+  * Run oem-config-wrapper as the user oem rather than root.
+    - Fixes issues with pulseaudio applet not working
+    - Prevents root terminals from ctrl-alt-t (LP: #594233)
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 08 Sep 2010 22:06:51 +0100
 

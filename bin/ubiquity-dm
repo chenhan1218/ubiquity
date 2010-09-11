@@ -242,6 +242,7 @@ EndSection
         # Give ubiquity a UID and GID that it can drop privileges to.
         os.environ['SUDO_UID'] = str(self.uid)
         os.environ['SUDO_GID'] = str(self.gid)
+        os.environ['GVFS_DISABLE_FUSE' ] = '1'
 
         # Session bus, apparently needed by most interfaces now
         if ('DBUS_SESSION_BUS_ADDRESS' not in os.environ and
