@@ -1085,6 +1085,10 @@ Template: ubiquity/text/part_auto_allocate_label
 Type: text
 _Description: Allocate drive space by dragging the divider below:
 
+Template: ubiquity/text/part_auto_allocate_entire_label
+Type: text
+_Description: The entire disk will be used:
+
 Template: ubiquity/text/part_auto_hidden_label
 Type: text
 _Description:

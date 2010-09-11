@@ -26,6 +26,7 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
   * Show the number of partitions that will be deleted when in 'use
     entire disk' mode.
   * Remove Pango markup from the debconf templates where possible.
+  * Properly set the partition widget description label.
 
   [ Mario Limonciello ]
   * Restore the functionality of the noninteractive frontend.

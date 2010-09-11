@@ -323,6 +323,8 @@ class PageGtk(PageBase):
         self.part_auto_use_entire_disk.set_sensitive(True)
         s = self.controller.get_string('part_auto_use_entire_disk')
         self.part_auto_use_entire_disk.set_label(s)
+        allocate = self.controller.get_string('part_auto_allocate_label')
+        self.part_auto_allocate_label.set_text(allocate)
 
     def initialize_use_disk_mode(self):
         '''The selected partman ID will now be completely formatted if the user
@@ -336,7 +338,8 @@ class PageGtk(PageBase):
         self.part_auto_use_entire_partition.set_sensitive(False)
         self.part_auto_use_entire_disk.set_sensitive(False)
         # We don't want to hide it as we want to keep its size allocation.
-        self.part_auto_allocate_label.set_text('')
+        entire = self.controller.get_string('part_auto_allocate_entire_label')
+        self.part_auto_allocate_label.set_text(entire)
         # Set the number of partitions that will be deleted.
         partition_count = len(self.disk_layout[disk_id])
         if partition_count == 0:
