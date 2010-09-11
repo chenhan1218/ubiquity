@@ -851,6 +851,11 @@ class Wizard(BaseFrontend):
                 attrs = pango.AttrList()
                 attrs.insert(pango.AttrWeight(pango.WEIGHT_BOLD, 0, textlen))
                 widget.set_attributes(attrs)
+            elif 'part_auto_hidden_label' in name or 'part_auto_deleted_label' in name:
+                attrs = pango.AttrList()
+                attrs.insert(pango.AttrScale(pango.SCALE_SMALL, 0, textlen))
+                attrs.insert(pango.AttrWeight(pango.WEIGHT_BOLD, 0, textlen))
+                widget.set_attributes(attrs)
 
         elif isinstance(widget, gtk.Button):
             # TODO evand 2007-06-26: LP #122141 causes a crash unless we keep a

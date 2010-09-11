@@ -1088,26 +1088,26 @@ _Description: Allocate drive space by dragging the divider below:
 Template: ubiquity/text/part_auto_hidden_label
 Type: text
 _Description:
- <small>%d smaller partitions are hidden, use the <a href="">advanced
- partitioning tool</a> for more control</small>
+ %d smaller partitions are hidden, use the <a href="">advanced
+ partitioning tool</a> for more control
 
 Template: ubiquity/text/part_auto_hidden_label_one
 Type: text
 _Description:
- <small>1 smaller partition is hidden, use the <a href="">advanced
- partitioning tool</a> for more control</small>
+ 1 smaller partition is hidden, use the <a href="">advanced
+ partitioning tool</a> for more control
 
 Template: ubiquity/text/part_auto_deleted_label
 Type: text
 _Description:
- <small>%d partitions will be deleted, use the <a href="">advanced
- partitioning tool</a> for more control</small>
+ %d partitions will be deleted, use the <a href="">advanced
+ partitioning tool</a> for more control
 
 Template: ubiquity/text/part_auto_deleted_label_one
 Type: text
 _Description:
- <small>1 partition will be deleted, use the <a href="">advanced
- partitioning tool</a> for more control</small>
+ 1 partition will be deleted, use the <a href="">advanced
+ partitioning tool</a> for more control
 
 Template: ubiquity/text/part_auto_use_entire_partition
 Type: text
