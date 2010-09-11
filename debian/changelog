@@ -22,6 +22,7 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
   * Only set the next button to 'Install Now' when not on the first
     partitioning page.
   * Fix transposed latitude and longitude in geonames lookup.
+  * Provide a version parameter to the geoname lookup.
 
   [ Mario Limonciello ]
   * Restore the functionality of the noninteractive frontend.

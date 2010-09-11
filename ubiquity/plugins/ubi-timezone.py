@@ -26,6 +26,7 @@ import PyICU
 
 from ubiquity.plugin import *
 from ubiquity import i18n
+from ubiquity import misc
 import ubiquity.tz
 
 NAME = 'timezone'
@@ -33,7 +34,7 @@ NAME = 'timezone'
 AFTER = ['partman', 'language']
 WEIGHT = 10
 
-_geoname_url = 'http://geoname-lookup.ubuntu.com/?query=%s'
+_geoname_url = 'http://geoname-lookup.ubuntu.com/?query=%s&release=%s'
 
 class PageGtk(PluginUI):
     plugin_title = 'ubiquity/text/timezone_heading_label'
@@ -129,8 +130,8 @@ class PageGtk(PluginUI):
                     import urllib2, urllib, json
                     opener = urllib2.build_opener()
                     opener.addheaders = [('User-agent', 'Ubiquity/1.0')]
-                    # TODO add &version=1.0 ?
-                    url = opener.open(_geoname_url % urllib.quote(text))
+                    url = opener.open(_geoname_url %
+                        (urllib.quote(text), misc.get_release().version))
                     for result in json.loads(url.read()):
                         model.append([result['name'],
                                       result['admin1'],
