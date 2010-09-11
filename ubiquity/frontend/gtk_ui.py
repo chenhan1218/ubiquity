@@ -415,6 +415,20 @@ class Wizard(BaseFrontend):
                 pass
         return previous
 
+    def disable_terminal(self):
+        terminal_key = '/apps/metacity/global_keybindings/run_command_terminal'
+        self.gconf_previous[terminal_key] = gconftool.get(terminal_key)
+        gconftool.set(terminal_key, 'string', 'disabled')
+        atexit.register(self.enable_terminal)
+
+    def enable_terminal(self):
+        terminal_key = '/apps/metacity/global_keybindings/run_command_terminal'
+        if self.gconf_previous[terminal_key] == '':
+            gconftool.unset(terminal_key)
+        else:
+            gconftool.set(terminal_key, 'string',
+                          self.gconf_previous[terminal_key])
+
     def disable_logout_indicator(self):
         logout_key = '/apps/indicator-session/suppress_logout_menuitem'
         self.gconf_previous[logout_key] = gconftool.get(logout_key)
@@ -499,6 +513,8 @@ class Wizard(BaseFrontend):
 
         if 'UBIQUITY_ONLY' in os.environ:
             self.disable_logout_indicator()
+            if not 'UBIQUITY_DEBUG' in os.environ:
+                self.disable_terminal()
 
         # show interface
         self.allow_change_step(True)
