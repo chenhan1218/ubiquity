@@ -135,8 +135,8 @@ class PageGtk(PluginUI):
                         model.append([result['name'],
                                       result['admin1'],
                                       result['country'],
-                                      result['longitude'],
-                                      result['latitude']])
+                                      result['latitude'],
+                                      result['longitude']])
                 except Exception, e:
                     print 'exception:', e
                     # TODO because we don't return here, we could cache a
