@@ -2,7 +2,8 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Improve the text on the prepare page, based on input from Matthew
-    Paul Thomas, Amanda Brock, and Andrew Sinclair.
+    Paul Thomas, Amanda Brock, and Andrew Sinclair
+    (LP: #635269, LP: #635260).
   * Translate latitude and longitude from the Geonames service to its
     respective Olsen timezone database entry.
   * Add back the hostname entry (LP: #628087).
