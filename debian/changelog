@@ -28,6 +28,8 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
     entire disk' mode.
   * Remove Pango markup from the debconf templates where possible.
   * Properly set the partition widget description label.
+  * Use a GtkMenuBar rather than a GtkMenu as the source of the dark
+    styling to match recent changes to the default theme.
 
   [ Mario Limonciello ]
   * Restore the functionality of the noninteractive frontend.

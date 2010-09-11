@@ -240,7 +240,7 @@ class Wizard(BaseFrontend):
                                               'ubiquity.png')
 
         # This needs to be done before the GtkBuilder objects are created.
-        style = gtk.Menu().rc_get_style()
+        style = gtk.MenuBar().rc_get_style()
         bg = style.bg[gtk.STATE_NORMAL]
         gtk.rc_parse_string('''
         style "ubiquity" {
@@ -649,7 +649,7 @@ class Wizard(BaseFrontend):
     def customize_installer(self):
         """Initial UI setup."""
 
-        style = gtk.Menu().rc_get_style()
+        style = gtk.MenuBar().rc_get_style()
         self.live_installer.set_style(style)
         self.page_title.set_style(style)
         self.install_progress_text.set_style(style)
