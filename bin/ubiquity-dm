@@ -23,6 +23,21 @@ from ubiquity.debconfcommunicator import DebconfCommunicator
 
 background = '/usr/share/backgrounds/warty-final-ubuntu.png'
 
+def ck_open_session(uid):
+    import dbus
+    bus = dbus.SystemBus ()
+    manager_obj = bus.get_object ('org.freedesktop.ConsoleKit',
+            '/org/freedesktop/ConsoleKit/Manager')
+    manager = dbus.Interface (manager_obj, 'org.freedesktop.ConsoleKit.Manager')
+    params = dbus.Array ([], signature = "(sv)")
+    params.append(("unix-user", dbus.Int32(uid)))
+    params.append(("session-type", dbus.String("")))
+    params.append(("x11-display", dbus.String(os.environ['DISPLAY'])))
+    params.append(("x11-display-device", dbus.String('/dev/tty7')))
+    params.append(("is-local", dbus.Boolean(True)))
+    cookie = manager.OpenSessionWithParameters(params)
+    os.environ['XDG_SESSION_COOKIE'] = cookie
+
 def set_locale():
     db = DebconfCommunicator('ubiquity', cloexec=True)
     locale = ''
@@ -244,6 +259,8 @@ EndSection
         os.environ['SUDO_GID'] = str(self.gid)
         os.environ['GVFS_DISABLE_FUSE' ] = '1'
 
+        ck_open_session(self.uid)
+
         # Session bus, apparently needed by most interfaces now
         if ('DBUS_SESSION_BUS_ADDRESS' not in os.environ and
             osextras.find_on_path('dbus-launch')):
@@ -326,8 +343,6 @@ EndSection
                 raise MissingProgramError, \
                     ("No window manager found (tried metacity, xfwm4, "
                      "matchbox-window-manager)")
-            if osextras.find_on_path('ck-launch-session'):
-                wm_cmd.insert(0, 'ck-launch-session')
             wm = subprocess.Popen(wm_cmd,
                 stdin=null, stdout=logfile, stderr=logfile,
                 **maybe_drop_privileges)
