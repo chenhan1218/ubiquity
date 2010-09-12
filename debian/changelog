@@ -42,6 +42,8 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
     - Prevents root terminals from ctrl-alt-t (LP: #594233)
   * Disable general terminals from ctrl-alt-t unless running in debug mode.
     (LP: #594233)
+  * Grab focus of the slideshow when it starts, keeping focus off the expander
+    in automatic mode.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 08 Sep 2010 22:06:51 +0100
 

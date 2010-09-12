@@ -645,6 +645,7 @@ class Wizard(BaseFrontend):
         self.page_mode.show()
         self.page_mode.set_current_page(1)
         webview.show()
+        webview.grab_focus()
 
     def customize_installer(self):
         """Initial UI setup."""
