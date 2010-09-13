@@ -261,13 +261,13 @@ class PageGtk(PageBase):
             model = self.iconview.get_model()
             items = self.iconview.get_selected_items()
             if not items:
-                return 'C'
+                return None
             iterator = model.get_iter(items[0])
         else:
             selection = self.treeview.get_selection()
             (model, iterator) = selection.get_selected()
         if iterator is None:
-            return 'C'
+            return None
         else:
             value = unicode(model.get_value(iterator, 0))
             return self.language_choice_map[value][1]
@@ -277,6 +277,7 @@ class PageGtk(PageBase):
 
     def on_language_selection_changed(self, *args, **kwargs):
         lang = self.get_language()
+        self.controller.allow_go_forward(bool(lang))
         if not lang:
             return
         # strip encoding; we use UTF-8 internally no matter what

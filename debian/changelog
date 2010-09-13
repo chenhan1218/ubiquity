@@ -44,6 +44,8 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
     (LP: #594233)
   * Grab focus of the slideshow when it starts, keeping focus off the expander
     in automatic mode.
+  * Don't allow progressing past the language page unless a valid language is
+    picked.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 08 Sep 2010 22:06:51 +0100
 
