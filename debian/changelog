@@ -31,6 +31,8 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
   * Use a GtkMenuBar rather than a GtkMenu as the source of the dark
     styling to match recent changes to the default theme.
   * Properly start a ConsoleKit session (LP: #631538).
+  * Fix the spacing on the automatic partitioning page.
+    gui/gtk/stepPartAuto.ui
 
   [ Mario Limonciello ]
   * Restore the functionality of the noninteractive frontend.
