@@ -5,7 +5,7 @@
   <!-- interface-naming-policy toplevel-contextual -->
   <object class="GtkTable" id="stepUserInfo">
     <property name="visible">True</property>
-    <property name="border_width">6</property>
+    <property name="border_width">20</property>
     <property name="n_rows">6</property>
     <property name="n_columns">2</property>
     <property name="column_spacing">6</property>

@@ -5,7 +5,7 @@
   <!-- interface-naming-policy toplevel-contextual -->
   <object class="GtkAlignment" id="stepPrepare">
     <property name="visible">True</property>
-    <property name="top_padding">10</property>
+    <property name="top_padding">20</property>
     <property name="left_padding">20</property>
     <property name="right_padding">20</property>
     <child>
@@ -14,7 +14,7 @@
         <child>
           <object class="GtkAlignment" id="alignment1">
             <property name="visible">True</property>
-            <property name="bottom_padding">10</property>
+            <property name="bottom_padding">14</property>
             <child>
               <object class="GtkLabel" id="prepare_best_results">
                 <property name="visible">True</property>
@@ -32,11 +32,11 @@
         <child>
           <object class="GtkAlignment" id="alignment7">
             <property name="visible">True</property>
-            <property name="bottom_padding">30</property>
+            <property name="bottom_padding">10</property>
             <child>
               <object class="GtkVBox" id="vbox1">
                 <property name="visible">True</property>
-                <property name="spacing">6</property>
+                <property name="spacing">7</property>
                 <child>
                   <object class="StateBox" id="prepare_sufficient_space">
                     <property name="visible">True</property>
@@ -75,6 +75,7 @@
         <child>
           <object class="GtkVBox" id="vbox2">
             <property name="visible">True</property>
+            <property name="spacing">12</property>
             <child>
               <object class="GtkCheckButton" id="prepare_download_updates">
                 <property name="label" translatable="yes">Download updates while installing</property>
@@ -103,44 +104,38 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkAlignment" id="alignment6">
+                  <object class="GtkVBox" id="vbox4">
                     <property name="visible">True</property>
-                    <property name="left_padding">6</property>
                     <child>
-                      <object class="GtkVBox" id="vbox4">
+                      <object class="GtkCheckButton" id="prepare_nonfree_software">
+                        <property name="label" translatable="yes">Install this third-party software</property>
                         <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="draw_indicator">True</property>
+                      </object>
+                      <packing>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkAlignment" id="alignment2">
+                        <property name="visible">True</property>
+                        <property name="left_padding">24</property>
                         <child>
-                          <object class="GtkCheckButton" id="prepare_nonfree_software">
-                            <property name="label" translatable="yes">Install this third-party software</property>
+                          <object class="GtkLabel" id="prepare_foss_disclaimer_extra_label">
                             <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="receives_default">False</property>
-                            <property name="draw_indicator">True</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">0</property>
+                            <property name="label" translatable="yes">&lt;small&gt;Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed from Fraunhofer IIS and Thomson.&lt;/small&gt;</property>
+                            <property name="use_markup">True</property>
+                            <property name="wrap">True</property>
                           </object>
-                          <packing>
-                            <property name="position">0</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkAlignment" id="alignment2">
-                            <property name="visible">True</property>
-                            <property name="left_padding">23</property>
-                            <child>
-                              <object class="GtkLabel" id="prepare_foss_disclaimer_extra_label">
-                                <property name="visible">True</property>
-                                <property name="xalign">0</property>
-                                <property name="yalign">0</property>
-                                <property name="label" translatable="yes">&lt;small&gt;Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed from Fraunhofer IIS and Thomson.&lt;/small&gt;</property>
-                                <property name="use_markup">True</property>
-                                <property name="wrap">True</property>
-                              </object>
-                            </child>
-                          </object>
-                          <packing>
-                            <property name="position">1</property>
-                          </packing>
                         </child>
                       </object>
+                      <packing>
+                        <property name="position">1</property>
+                      </packing>
                     </child>
                   </object>
                   <packing>

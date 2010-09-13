@@ -12,8 +12,8 @@
   <object class="GtkAlignment" id="stepPartAuto">
     <property name="visible">True</property>
     <property name="top_padding">20</property>
-    <property name="left_padding">22</property>
-    <property name="right_padding">28</property>
+    <property name="left_padding">20</property>
+    <property name="right_padding">20</property>
     <child>
       <object class="GtkVBox" id="vbox2">
         <property name="visible">True</property>
