@@ -1,4 +1,4 @@
-ubiquity (2.3.18) UNRELEASED; urgency=low
+ubiquity (2.3.18) maverick; urgency=low
 
   [ Evan Dandrea ]
   * Improve the text on the prepare page, based on input from Matthew
@@ -21,7 +21,7 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
   * Also generate a sample hostname when generating a sample username
     (LP: #634279).
   * Only set the next button to 'Install Now' when not on the first
-    partitioning page.
+    partitioning page (LP: #636392).
   * Fix transposed latitude and longitude in geonames lookup.
   * Provide a version parameter to the geoname lookup.
   * Show the number of partitions that will be deleted when in 'use
@@ -51,7 +51,7 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
   * Don't allow progressing past the language page unless a valid language is
     picked.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 08 Sep 2010 22:06:51 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 13 Sep 2010 18:14:20 +0100
 
 ubiquity (2.3.17) maverick; urgency=low
 
