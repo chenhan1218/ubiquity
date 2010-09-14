@@ -1156,7 +1156,7 @@ _Description:
  ${RELEASE} uses third-party software to display Flash, MP3 and other media,
  and to work with some wireless hardware. Some of this software is
  closed-source. The software is subject to the license terms included with
- the software’s documentation.  
+ the software's documentation.  
 
 Template: ubiquity/text/prepare_foss_disclaimer_extra_label
 Type: text
