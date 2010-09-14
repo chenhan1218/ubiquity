@@ -91,21 +91,7 @@ class Install(install_misc.InstallBase):
         configure it as necessary."""
 
         self.start = 0
-
-        # Load plugins so we can get a total progress count.
-        # FIXME Evil and time consuming.  Get rid of it when possible.
-        from ubiquity import plugin_manager
-        modules = plugin_manager.load_plugins()
-        modules = plugin_manager.order_plugins(modules)
-        plugins = [x for x in modules if hasattr(x, 'Install')]
-
-        # Give one extra progress point for each plugin, on the assumption that
-        # they don't run long.
-        self.end = 22 + len(plugins)
-        del plugins
-
-        if self.target != '/':
-            self.end += 74
+        self.end = 74
         self.prev_count = 0
         self.count = 1
 

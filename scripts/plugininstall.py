@@ -117,9 +117,15 @@ class Install(install_misc.InstallBase):
     def run(self):
         '''Main entry point.'''
         # We pick up where install.py left off.
-        self.prev_count = 74
-        self.count = 74
-        self.end = 22 + len(self.plugins)
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            self.prev_count = 0
+        else:
+            self.prev_count = 74
+        self.count = self.prev_count
+        self.start = self.prev_count
+        self.end = self.start + 22 + len(self.plugins)
+
+        self.db.progress('START', self.start, self.end, 'ubiquity/install/title')
 
         self.next_region()
         self.db.progress('INFO', 'ubiquity/install/network')
