@@ -229,6 +229,7 @@ class Wizard(BaseFrontend):
         self.grub_options = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
         self.finished_installing = False
         self.finished_pages = False
+        self.parallel_db = None
 
         # To get a "busy mouse":
         self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
@@ -521,7 +522,6 @@ class Wizard(BaseFrontend):
             dialog = gtk.MessageDialog(self.live_installer, gtk.DIALOG_MODAL,
                                        gtk.MESSAGE_ERROR, gtk.BUTTONS_CLOSE,
                                        title)
-            dialog.set_has_separator(False)
             dialog.run()
             sys.exit(1)
 
@@ -943,7 +943,6 @@ class Wizard(BaseFrontend):
                             (gtk.STOCK_QUIT, gtk.RESPONSE_CLOSE,
                              'Continue anyway', 1,
                              'Try again', 2))
-        dialog.set_has_separator(False)
         self.dbfilter_status = None
         label = gtk.Label(text)
         label.set_line_wrap(True)
@@ -1424,6 +1423,9 @@ class Wizard(BaseFrontend):
             self.installing = True
             self.progress_section.show()
             from ubiquity.debconfcommunicator import DebconfCommunicator
+            if self.parallel_db is not None:
+                # Partitioning failed and we're coming back through again.
+                self.parallel_db.shutdown()
             self.parallel_db = DebconfCommunicator('ubiquity', cloexec=True,
             # debconf-apt-progress, start_debconf()
             env={'DEBCONF_DB_REPLACE': 'configdb',
@@ -1461,6 +1463,9 @@ class Wizard(BaseFrontend):
         """
 
         if self.installing and not self.installing_no_return:
+            # Stop the currently displayed page.
+            if self.dbfilter is not None:
+                self.dbfilter.cancel_handler()
             # Go back to the partitioner and try again.
             self.pagesindex = -1
             for page in self.pages:
@@ -1468,14 +1473,17 @@ class Wizard(BaseFrontend):
                     self.pagesindex = self.pages.index(page)
                     break
             if self.pagesindex == -1: return
+
             self.start_debconf()
             ui = self.pages[self.pagesindex].ui
             self.dbfilter = self.pages[self.pagesindex].filter_class(self, ui=ui)
-            self.set_current_page(self.previous_partitioning_page)
+            self.allow_change_step(False)
+            self.dbfilter.start(auto_process=True)
             self.next.set_label("gtk-go-forward")
             self.translate_widget(self.next)
-            self.backup = True
             self.installing = False
+            self.progress_section.hide()
+            self.quit.show()
 
     def error_dialog (self, title, msg, fatal=True):
         # TODO: cancel button as well if capb backup
@@ -1493,7 +1501,6 @@ class Wizard(BaseFrontend):
             msg = title
         dialog = gtk.MessageDialog(transient, gtk.DIALOG_MODAL,
                                    gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
-        dialog.set_has_separator(False)
         dialog.set_title(title)
         dialog.run()
         self.allow_change_step(saved_allowed_change_step)
@@ -1559,7 +1566,6 @@ class Wizard(BaseFrontend):
             text = str(text)
             buttons.extend((text, len(buttons) / 2 + 1))
         dialog = gtk.Dialog(title, transient, gtk.DIALOG_MODAL, tuple(buttons))
-        dialog.set_has_separator(False)
         vbox = gtk.VBox()
         vbox.set_border_width(5)
         label = gtk.Label(msg)

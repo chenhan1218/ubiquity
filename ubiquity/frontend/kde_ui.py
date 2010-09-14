@@ -286,6 +286,7 @@ class Wizard(BaseFrontend):
         self.progressDialog = ProgressDialog(0, 0, self.ui)
         self.finished_installing = False
         self.finished_pages = False
+        self.parallel_db = None
 
         self.laptop = execute("laptop-detect")
 
@@ -1151,6 +1152,9 @@ class Wizard(BaseFrontend):
             self.ui.progressBar.show()
             self.installing = True
             from ubiquity.debconfcommunicator import DebconfCommunicator
+            if self.parallel_db is not None:
+                # Partitioning failed and we're coming back through again.
+                self.parallel_db.shutdown()
             self.parallel_db = DebconfCommunicator('ubiquity', cloexec=True,
             # debconf-apt-progress, start_debconf()
             env={'DEBCONF_DB_REPLACE': 'configdb',
@@ -1182,8 +1186,10 @@ class Wizard(BaseFrontend):
         stage, then errors can safely return us to partitioning.
         """
         if self.installing and not self.installing_no_return:
+            # Stop the currently displayed page.
+            if self.dbfilter is not None:
+                self.dbfilter.cancel_handler()
             # Go back to the partitioner and try again.
-            #self.live_installer.show()
             self.pagesindex = -1
             for page in self.pages:
                 if page.module.NAME == 'partman':
@@ -1193,12 +1199,14 @@ class Wizard(BaseFrontend):
             self.start_debconf()
             ui = self.pages[self.pagesindex].ui
             self.dbfilter = self.pages[self.pagesindex].filter_class(self, ui=ui)
-            self.set_current_page(self.previous_partitioning_page)
+            self.allow_change_step(False)
+            self.dbfilter.start(auto_process=True)
             self.ui.next.setText(self.get_string("next").replace('_', '&', 1))
             self.ui.next.setIcon(self.forwardIcon)
             self.translate_widget(self.ui.next)
-            self.backup = True
             self.installing = False
+            self.ui.progressBar.hide()
+            self.ui.quit.show()
 
     def error_dialog (self, title, msg, fatal=True):
         self.run_automation_error_cmd()

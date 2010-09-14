@@ -41,6 +41,8 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
   * Show a spinning cursor on the X root window in addition to the
     ubiquity window, so it's clear that the installer is loading the
     next page even when the cursor is off the main window.
+  * Make return_to_partitioning work with parallel debconf instances
+    (LP: #637706).
 
   [ Mario Limonciello ]
   * Restore the functionality of the noninteractive frontend.
