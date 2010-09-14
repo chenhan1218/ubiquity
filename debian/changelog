@@ -60,6 +60,9 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
   [ Colin Watson ]
   * GTK frontend: Make user-setup entry boxes activate the Forward button
     when Enter is pressed.
+  * Revert Debug::identcdrom=true for writable USB media; with changes in
+    apt 0.8.3ubuntu3, this is sufficient for stable apt-cdrom identification
+    of writable USB media (LP: #628290).
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 13 Sep 2010 18:14:20 +0100
 

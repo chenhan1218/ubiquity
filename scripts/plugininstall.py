@@ -415,19 +415,6 @@ class Install(install_misc.InstallBase):
             }""")
         apt_conf_nmc.close()
 
-        cdsrc, type, writable = misc.mount_info('/cdrom')
-        if writable == 'rw':
-            # On non-read-only media, including filesystem statistics in the
-            # apt-cdrom database entry is unreliable.  This will render the
-            # database entry useless after installation, but that's OK since
-            # we're probably going to remove the cdrom: entry from
-            # sources.list anyway.  This file will be left in place until
-            # the end of the install.
-            apt_conf_identcdrom = open(os.path.join(
-                self.target, 'etc/apt/apt.conf.d/00IdentCDROM'), 'w')
-            print >>apt_conf_identcdrom, 'Debug::identcdrom "true";'
-            apt_conf_identcdrom.close()
-
         # This will be reindexed after installation based on the full
         # installed sources.list.
         try:
@@ -1415,7 +1402,7 @@ class Install(install_misc.InstallBase):
                         env=env)
 
         for apt_conf in ('00NoMountCDROM', '00IgnoreTimeConflict',
-                         '00AllowUnauthenticated', '00IdentCDROM'):
+                         '00AllowUnauthenticated'):
             osextras.unlink_force(os.path.join(
                 self.target, 'etc/apt/apt.conf.d', apt_conf))
 
