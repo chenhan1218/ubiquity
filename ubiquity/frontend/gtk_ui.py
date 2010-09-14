@@ -107,6 +107,8 @@ def set_root_cursor(cursor=None):
     win = gtk.gdk.get_default_root_window()
     if win:
         win.set_cursor(cursor)
+    while gtk.events_pending():
+        gtk.main_iteration()
 
 class Controller(ubiquity.frontend.base.Controller):
     def __init__(self, wizard):
