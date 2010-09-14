@@ -767,7 +767,8 @@ class Install(install_misc.InstallBase):
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
             return
 
-        install_bootloader = self.db.get('ubiquity/install_bootloader')
+        install_bootloader = self.db.get('ubiquity/install_bootloader') \
+                and 'UBIQUITY_NO_BOOTLOADER' not in os.environ
         if install_bootloader == "true":
             misc.execute('mount', '--bind', '/proc', self.target + '/proc')
             misc.execute('mount', '--bind', '/sys', self.target + '/sys')

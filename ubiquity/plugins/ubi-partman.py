@@ -1270,7 +1270,8 @@ class Page(Plugin):
         self.local_progress = False
 
         self.install_bootloader = False
-        if self.db.get('ubiquity/install_bootloader') == 'true':
+        if (self.db.get('ubiquity/install_bootloader') == 'true' and
+                'UBIQUITY_NO_BOOTLOADER' not in os.environ):
             arch, subarch = archdetect()
             if arch in ('amd64', 'i386'):
                 self.install_bootloader = True
