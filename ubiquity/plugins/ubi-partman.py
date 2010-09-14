@@ -293,8 +293,10 @@ class PageGtk(PageBase):
             title = 'Files (%s)' % format_size(resize_min_size)
             icon.set_property('icon-name', 'folder')
         else:
-            # TODO Get generic Windows icon from Otto, look for 'windows'.
-            if 'buntu' in title.lower():
+            if 'windows' in title.lower():
+                PATH = os.environ.get('UBIQUITY_PATH', False) or '/usr/share/ubiquity'
+                icon.logo.set_from_file(os.path.join(PATH, 'pixmaps', 'windows_square.png'))
+            elif 'buntu' in title.lower():
                 icon.set_property('icon-name', 'distributor-logo')
             else:
                 icon.set_property('icon-name', 'block-device')

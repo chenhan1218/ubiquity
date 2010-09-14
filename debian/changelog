@@ -43,6 +43,7 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
     next page even when the cursor is off the main window.
   * Make return_to_partitioning work with parallel debconf instances
     (LP: #637706).
+  * Added a Windows icon for the resize widget.  Thanks Otto Greenslade!
 
   [ Mario Limonciello ]
   * Restore the functionality of the noninteractive frontend.
