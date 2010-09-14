@@ -4,7 +4,10 @@ set -e
 . /usr/share/debconf/confmodule
 if [ "$1" = "prepare" ]; then
     db_input high ubiquity/use_nonfree || true
-    db_input high ubiquity/download_updates || true
+    db_get ubiquity/use_nonfree
+    if [ "$RET" = "true" ]; then
+        jockey-text -a
+    fi
 elif [ "$1" = "wireless" ]; then
     db_get ubiquity/online
     if [ "$RET" != true ]; then

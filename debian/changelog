@@ -1,4 +1,4 @@
-ubiquity (2.3.18) maverick; urgency=low
+ubiquity (2.3.18) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Improve the text on the prepare page, based on input from Matthew
@@ -35,6 +35,8 @@ ubiquity (2.3.18) maverick; urgency=low
     gui/gtk/stepPartAuto.ui
   * Correct layout based on suggestions from Matthew Paul Thomas.
   * Correct layout on keyboard guesser.
+  * Run the Jockey backend with an in-memory debconf database, and run
+    the frontend asynchronously (LP: #627822).
 
   [ Mario Limonciello ]
   * Restore the functionality of the noninteractive frontend.
