@@ -74,3 +74,7 @@ class PageGtk(PageBase):
         self.alpha_warning_label.set_markup(text)
         for w in self.page.get_children():
             w.show()
+
+class Page(Plugin):
+    def prepare(self):
+        return (['/usr/share/ubiquity/simple-plugins', 'warning'], ['ubiquity/show_alpha_warning'])
