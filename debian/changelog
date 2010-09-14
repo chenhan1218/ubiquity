@@ -37,6 +37,10 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
   * Correct layout on keyboard guesser.
   * Run the Jockey backend with an in-memory debconf database, and run
     the frontend asynchronously (LP: #627822).
+  * Don't show the GTK frontend until it's done constructing the UI.
+  * Show a spinning cursor on the X root window in addition to the
+    ubiquity window, so it's clear that the installer is loading the
+    next page even when the cursor is off the main window.
 
   [ Mario Limonciello ]
   * Restore the functionality of the noninteractive frontend.

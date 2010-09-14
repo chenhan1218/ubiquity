@@ -101,6 +101,13 @@ def process_labels(w):
             w.connect_after('size-allocate', wrap_fix)
         w.set_property('can-focus', False)
 
+def set_root_cursor(cursor=None):
+    if cursor is None:
+        cursor = gtk.gdk.Cursor(gtk.gdk.ARROW)
+    win = gtk.gdk.get_default_root_window()
+    if win:
+        win.set_cursor(cursor)
+
 class Controller(ubiquity.frontend.base.Controller):
     def __init__(self, wizard):
         ubiquity.frontend.base.Controller.__init__(self, wizard)
@@ -223,15 +230,17 @@ class Wizard(BaseFrontend):
         self.finished_installing = False
         self.finished_pages = False
 
+        # To get a "busy mouse":
+        self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
+        set_root_cursor(self.watch)
+        atexit.register(set_root_cursor)
+
         self.laptop = execute("laptop-detect")
 
         # set default language
         self.locale = i18n.reset_locale(self)
 
         gobject.timeout_add(30000, self.poke_screensaver)
-
-        # To get a "busy mouse":
-        self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
 
         # set custom language
         self.set_locales()
@@ -363,6 +372,13 @@ class Wizard(BaseFrontend):
         if (issubclass(exctype, KeyboardInterrupt) or
             issubclass(exctype, SystemExit)):
             return
+
+        # Restore the default cursor if we were using a spinning cursor on the
+        # root window.
+        try:
+            set_root_cursor()
+        except Exception:
+            pass
 
         tbtext = ''.join(traceback.format_exception(exctype, excvalue, exctb))
         syslog.syslog(syslog.LOG_ERR,
@@ -699,7 +715,7 @@ class Wizard(BaseFrontend):
             #hide the notebook until the first page is ready
             self.page_mode.hide()
             self.progress_section.show()
-        self.live_installer.show()
+            self.live_installer.show()
         self.allow_change_step(False)
 
         if hasattr(self, 'stepPartAuto'):
@@ -893,6 +909,7 @@ class Wizard(BaseFrontend):
             cursor = self.watch
         if self.live_installer.window:
             self.live_installer.window.set_cursor(cursor)
+            set_root_cursor(cursor)
         self.back.set_sensitive(allowed and self.allowed_go_backward)
         self.next.set_sensitive(allowed and self.allowed_go_forward)
         self.allowed_change_step = allowed
@@ -1003,7 +1020,12 @@ class Wizard(BaseFrontend):
         # need to be asked, otherwise you wont be able to back up past
         # migration-assistant.
         self.backup = False
+        visible = self.live_installer.get_property('visible')
         self.live_installer.show()
+        # Work around a bug in the wrap_fix code whereby the layout does not
+        # get properly rendered due to the window not being visible.
+        if not visible:
+            self.live_installer.resize_children()
         self.page_mode.show()
         cur = None
         is_install = False
@@ -1181,6 +1203,7 @@ class Wizard(BaseFrontend):
 
         # Let the user know we're shutting down.
         self.finished_dialog.window.set_cursor(self.watch)
+        set_root_cursor(self.watch)
         self.quit_button.set_sensitive(False)
         self.reboot_button.set_sensitive(False)
         self.refresh()
