@@ -614,6 +614,7 @@ class Wizard(BaseFrontend):
             with raised_privileges():
                 open('/var/run/reboot-required', "w").close()
             self.finished_dialog.set_keep_above(True)
+            set_root_cursor()
             self.finished_dialog.run()
         elif self.get_reboot():
             self.reboot()
