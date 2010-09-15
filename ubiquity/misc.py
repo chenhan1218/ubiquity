@@ -142,6 +142,8 @@ def grub_options():
                     continue
                 if os.path.exists(p.part_entry(part[1], 'format')):
                     pass
+                if part[4] == 'free':
+                    continue
                 elif part[5] in oslist.keys():
                     ostype = oslist[part[5]]
                 l.append([part[5], ostype])
