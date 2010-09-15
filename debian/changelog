@@ -49,6 +49,8 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
     (-b, --no-bootloader) (LP: #615033).
   * Do not show 'free space' partitions in the bootloader target
     combobox (LP: #615033).
+  * Meet the Geonames.org CC license requirements by adding 'Geonames.org'
+    to the map.
 
   [ Mario Limonciello ]
   * Restore the functionality of the noninteractive frontend.

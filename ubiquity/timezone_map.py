@@ -643,6 +643,18 @@ class TimezoneMap(gtk.Widget):
             cr.show_text(time_text)
             cr.stroke()
 
+        # Fufill the CC by Attribution license requirements for the Geonames lookup
+        text = 'Geonames.org'
+        xbearing, ybearing, width, height, xadvance, yadvance = \
+            cr.text_extents(text)
+        cr.select_font_face('Sans', cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
+        cr.set_font_size(12.0)
+        cr.set_source_rgba(1, 1, 1, 0.5)
+        cr.move_to(self.allocation.width - xadvance + xbearing - 5,
+                   self.allocation.height - height - ybearing - 5)
+        cr.show_text(text)
+        cr.stroke()
+
     def timeout(self):
         self.queue_draw()
         return True
