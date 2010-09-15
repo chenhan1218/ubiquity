@@ -140,10 +140,11 @@ def grub_options():
                 ostype = ''
                 if part[4] == 'linux-swap':
                     continue
-                if os.path.exists(p.part_entry(part[1], 'format')):
-                    pass
                 if part[4] == 'free':
                     continue
+                if os.path.exists(p.part_entry(part[1], 'format')):
+                    # Don't bother looking for an OS type.
+                    pass
                 elif part[5] in oslist.keys():
                     ostype = oslist[part[5]]
                 l.append([part[5], ostype])
