@@ -46,7 +46,7 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
   * Added a Windows icon for the resize widget.  Thanks Otto Greenslade!
   * Disable the alpha warning, albeit late.
   * Add a command line option to not install a bootloader
-    (-b, --no-bootloader).
+    (-b, --no-bootloader) (LP: #615033).
   * Do not show 'free space' partitions in the bootloader target
     combobox (LP: #615033).
 
