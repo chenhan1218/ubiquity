@@ -55,6 +55,7 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
     packages, since those are installed with just the live CD's
     sources.list (LP: #638073).
   * Disable the wireless plugin for now.  It's not ready for release.
+  * Make use of the new connectivity check page.
 
   [ Mario Limonciello ]
   * Restore the functionality of the noninteractive frontend.
