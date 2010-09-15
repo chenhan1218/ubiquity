@@ -1,4 +1,4 @@
-ubiquity (2.3.18) UNRELEASED; urgency=low
+ubiquity (2.3.18) maverick; urgency=low
 
   [ Evan Dandrea ]
   * Improve the text on the prepare page, based on input from Matthew
@@ -83,7 +83,7 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
     apt 0.8.3ubuntu3, this is sufficient for stable apt-cdrom identification
     of writable USB media (LP: #628290).
 
- -- Evan Dandrea <evand@ubuntu.com>  Mon, 13 Sep 2010 18:14:20 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 15 Sep 2010 13:28:55 +0100
 
 ubiquity (2.3.17) maverick; urgency=low
 
