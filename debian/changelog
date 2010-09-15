@@ -56,6 +56,8 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
     sources.list (LP: #638073).
   * Disable the wireless plugin for now.  It's not ready for release.
   * Make use of the new connectivity check page.
+  * Automatic update of included source packages: apt-setup
+    1:0.45ubuntu2, hw-detect 1.73ubuntu5.
 
   [ Mario Limonciello ]
   * Restore the functionality of the noninteractive frontend.
