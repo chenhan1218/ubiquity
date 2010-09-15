@@ -54,6 +54,7 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
   * Install the restricted package independent of the apt-installed
     packages, since those are installed with just the live CD's
     sources.list (LP: #638073).
+  * Disable the wireless plugin for now.  It's not ready for release.
 
   [ Mario Limonciello ]
   * Restore the functionality of the noninteractive frontend.
