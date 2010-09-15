@@ -51,6 +51,9 @@ ubiquity (2.3.18) UNRELEASED; urgency=low
     combobox (LP: #615033).
   * Meet the Geonames.org CC license requirements by adding 'Geonames.org'
     to the map.
+  * Install the restricted package independent of the apt-installed
+    packages, since those are installed with just the live CD's
+    sources.list (LP: #638073).
 
   [ Mario Limonciello ]
   * Restore the functionality of the noninteractive frontend.

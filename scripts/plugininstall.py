@@ -1010,6 +1010,10 @@ class Install(install_misc.InstallBase):
         if found_cdrom:
             os.rename("%s.apt-setup" % sources_list, sources_list)
 
+        if self.db.get('ubiquity/use_nonfree') == 'true':
+            package = self.db.get('ubiquity/nonfree_package')
+            self.do_install([package])
+
         # TODO cjwatson 2007-08-09: python reimplementation of
         # oem-config/finish-install.d/07oem-config-user. This really needs
         # to die in a great big chemical fire and call the same shell script

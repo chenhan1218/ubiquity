@@ -311,7 +311,8 @@ class Page(Plugin):
                 # Install ubuntu-restricted-addons.
                 self.preseed_bool('apt-setup/universe', True)
                 self.preseed_bool('apt-setup/multiverse', True)
-                install_misc.record_installed([self.ui.restricted_package_name])
+                self.preseed('ubiquity/nonfree_package',
+                    self.ui.restricted_package_name)
                 bus = dbus.SystemBus()
                 obj = bus.get_object(JOCKEY, JOCKEY_PATH)
                 i = dbus.Interface(obj, JOCKEY)
