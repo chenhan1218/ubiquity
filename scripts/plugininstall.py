@@ -75,7 +75,7 @@ class Install(install_misc.InstallBase):
         if os.path.exists('/var/lib/ubiquity/langpacks'):
             with open('/var/lib/ubiquity/langpacks') as langpacks:
                 for line in langpacks:
-                    self.langpacks.add(line.strip())
+                    self.langpacks.append(line.strip())
 
         # Load plugins
         modules = plugin_manager.load_plugins()

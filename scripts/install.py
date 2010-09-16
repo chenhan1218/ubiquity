@@ -65,7 +65,7 @@ class Install(install_misc.InstallBase):
 
         assert os.path.ismount(self.target), 'Failed to mount the target: %s' % str(self.target)
 
-        self.select_language_packs()
+        self.select_language_packs(save=True)
         self.select_ecryptfs()
         if self.db.get('ubiquity/install/generate-blacklist') == 'true':
             self.db.progress('START', 0, 100, 'ubiquity/install/title')

@@ -1,3 +1,9 @@
+ubiquity (2.3.19) UNRELEASED; urgency=low
+
+  * Make sure /var/lib/ubiquity/langpacks gets generated (LP: #630924).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 15 Sep 2010 17:31:32 +0100
+
 ubiquity (2.3.18) maverick; urgency=low
 
   [ Evan Dandrea ]
