@@ -1,4 +1,4 @@
-ubiquity (2.3.19) UNRELEASED; urgency=low
+ubiquity (2.3.19) maverick; urgency=low
 
   * Make sure /var/lib/ubiquity/langpacks gets generated (LP: #630924).
   * Fall back to root if the regular user cannot be found in
@@ -8,7 +8,7 @@ ubiquity (2.3.19) UNRELEASED; urgency=low
   * Set a the respective timezone, both internally and visually, when an
     entry is selected from the geonames autocompletion.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 15 Sep 2010 17:31:32 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 16 Sep 2010 13:22:19 +0100
 
 ubiquity (2.3.18) maverick; urgency=low
 
