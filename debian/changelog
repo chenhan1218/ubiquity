@@ -2,7 +2,7 @@ ubiquity (2.3.19) UNRELEASED; urgency=low
 
   * Make sure /var/lib/ubiquity/langpacks gets generated (LP: #630924).
   * Fall back to root if the regular user cannot be found in
-    ubiquity-dm.
+    ubiquity-dm (LP: #640386).
   * Properly handle dmimodel() returning the null string.
   * Fix bootloader installation test (LP: #640341).
   * Set a the respective timezone, both internally and visually, when an
