@@ -716,6 +716,7 @@ class TimezoneMap(gtk.Widget):
             print 'Exception caught with the Olsen database color map.', str(e)
         if city:
             self.select_city(city)
+            self.emit('city-selected', city)
         else:
             height = self.background.get_height()
             width = self.background.get_width()

@@ -80,6 +80,7 @@ class PageGtk(PluginUI):
             self.controller.allow_go_forward(False)
         else:
             self.city_entry.set_text(loc.human_zone)
+            self.city_entry.set_position(-1)
             self.timezone = city
             self.controller.allow_go_forward(True)
 
@@ -148,7 +149,6 @@ class PageGtk(PluginUI):
 
         self.timeout_id = 0
         def queue_entry_changed(entry):
-            #self.controller.allow_go_forward(False)
             if self.timeout_id:
                 gobject.source_remove(self.timeout_id)
             self.timeout_id = gobject.timeout_add(300, changed, entry)
@@ -164,6 +164,10 @@ class PageGtk(PluginUI):
             lat = float(model[iterator][3])
             lon = float(model[iterator][4])
             self.tzmap.select_coords(lat, lon)
+
+            self.city_entry.set_text(model[iterator][0])
+            self.city_entry.set_position(-1)
+            return True
         completion.connect('match-selected', match_selected)
 
         def match_func(completion, key, iterator):

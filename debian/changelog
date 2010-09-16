@@ -5,6 +5,8 @@ ubiquity (2.3.19) UNRELEASED; urgency=low
     ubiquity-dm.
   * Properly handle dmimodel() returning the null string.
   * Fix bootloader installation test (LP: #640341).
+  * Set a the respective timezone, both internally and visually, when an
+    entry is selected from the geonames autocompletion.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 15 Sep 2010 17:31:32 +0100
 
