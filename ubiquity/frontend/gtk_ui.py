@@ -779,6 +779,39 @@ class Wizard(BaseFrontend):
                 f |= gtk.gdk.FUNC_CLOSE
             widget.window.set_functions(f)
 
+    def lockdown_environment(self):
+        atexit.register(self.unlock_environment)
+        for key in ('/apps/indicator-session/suppress_logout_menuitem',
+                    '/apps/indicator-session/suppress_logout_restart_menuitem',
+                    '/apps/indicator-session/suppress_restart_menuitem',
+                    '/apps/indicator-session/suppress_shutdown_menuitem'):
+            val = gconftool.get(key)
+            if val:
+                self.gconf_previous[key] = val
+            gconftool.set(key, 'bool', 'true')
+
+        self.quit.hide()
+        f = gtk.gdk.FUNC_RESIZE | gtk.gdk.FUNC_MAXIMIZE | gtk.gdk.FUNC_MOVE
+        if not 'UBIQUITY_ONLY' in os.environ:
+            f |= gtk.gdk.FUNC_MINIMIZE
+        self.live_installer.window.set_functions(f)
+        self.allow_change_step(False)
+        self.refresh()
+
+    def unlock_environment(self):
+        for key in ('/apps/indicator-session/suppress_logout_menuitem',
+                    '/apps/indicator-session/suppress_logout_restart_menuitem',
+                    '/apps/indicator-session/suppress_restart_menuitem',
+                    '/apps/indicator-session/suppress_shutdown_menuitem'):
+            if key in self.gconf_previous:
+                gconftool.set(key, 'bool', self.gconf_previous[key])
+        self.quit.show()
+        f = gtk.gdk.FUNC_RESIZE | gtk.gdk.FUNC_MAXIMIZE | \
+            gtk.gdk.FUNC_MOVE | gtk.gdk.FUNC_CLOSE
+        if not 'UBIQUITY_ONLY' in os.environ:
+            f |= gtk.gdk.FUNC_MINIMIZE
+        self.refresh()
+
     def set_locales(self):
         """internationalization config. Use only once."""
 
@@ -1280,14 +1313,6 @@ class Wizard(BaseFrontend):
 
         if step.startswith("stepPart"):
             self.previous_partitioning_page = step_num
-        if step == 'stepPartAuto':
-            self.quit.hide()
-            f = gtk.gdk.FUNC_RESIZE | gtk.gdk.FUNC_MAXIMIZE | gtk.gdk.FUNC_MOVE
-            if not 'UBIQUITY_ONLY' in os.environ:
-                f |= gtk.gdk.FUNC_MINIMIZE
-            self.live_installer.window.set_functions(f)
-            self.allow_change_step(False)
-            self.refresh()
 
     def on_back_clicked(self, unused_widget):
         """Callback to set previous screen."""
@@ -1424,6 +1449,7 @@ class Wizard(BaseFrontend):
 
         elif finished_step == 'ubi-partman':
             self.installing = True
+            self.lockdown_environment()
             self.progress_section.show()
             from ubiquity.debconfcommunicator import DebconfCommunicator
             if self.parallel_db is not None:
@@ -1486,7 +1512,7 @@ class Wizard(BaseFrontend):
             self.translate_widget(self.next)
             self.installing = False
             self.progress_section.hide()
-            self.quit.show()
+            self.unlock_environment()
 
     def error_dialog (self, title, msg, fatal=True):
         # TODO: cancel button as well if capb backup

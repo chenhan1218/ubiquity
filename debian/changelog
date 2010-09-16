@@ -5,6 +5,10 @@ ubiquity (2.3.20) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Call gconftool-2 --set with --config-source.
+  * Better lock down the installer environment when past partitioning.
+  * Lock down the installer environment when at partitioning commit,
+    rather than just after automatic partitioning (and not manual
+    partitioning) (LP: #640604).
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 16 Sep 2010 10:08:25 -0500
 
