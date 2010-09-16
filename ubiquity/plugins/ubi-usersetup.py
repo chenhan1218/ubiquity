@@ -54,8 +54,10 @@ def check_hostname(hostname):
 
 class PageBase(PluginUI):
     def __init__(self):
-        self.suffix = '-%s' % dmimodel()
-        if not self.suffix:
+        self.suffix = dmimodel()
+        if self.suffix:
+            self.suffix = '-%s' % self.suffix
+        else:
             if execute("laptop-detect"):
                 self.suffix = '-laptop'
             else:
