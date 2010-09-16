@@ -1,3 +1,10 @@
+ubiquity (2.3.20) UNRELEASED; urgency=low
+
+  [ Sebastian Heinlein ]
+  * Rework oem-config-gtk to use a mainloop (LP: #637517)
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 16 Sep 2010 10:08:25 -0500
+
 ubiquity (2.3.19) maverick; urgency=low
 
   * Make sure /var/lib/ubiquity/langpacks gets generated (LP: #630924).
