@@ -4,6 +4,7 @@ ubiquity (2.3.19) UNRELEASED; urgency=low
   * Fall back to root if the regular user cannot be found in
     ubiquity-dm.
   * Properly handle dmimodel() returning the null string.
+  * Fix bootloader installation test (LP: #640341).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 15 Sep 2010 17:31:32 +0100
 
