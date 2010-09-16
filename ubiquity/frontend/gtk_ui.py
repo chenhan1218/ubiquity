@@ -784,7 +784,8 @@ class Wizard(BaseFrontend):
         for key in ('/apps/indicator-session/suppress_logout_menuitem',
                     '/apps/indicator-session/suppress_logout_restart_menuitem',
                     '/apps/indicator-session/suppress_restart_menuitem',
-                    '/apps/indicator-session/suppress_shutdown_menuitem'):
+                    '/apps/indicator-session/suppress_shutdown_menuitem',
+                    '/desktop/gnome/lockdown/disable_user_switching'):
             val = gconftool.get(key)
             if val:
                 self.gconf_previous[key] = val
@@ -802,7 +803,8 @@ class Wizard(BaseFrontend):
         for key in ('/apps/indicator-session/suppress_logout_menuitem',
                     '/apps/indicator-session/suppress_logout_restart_menuitem',
                     '/apps/indicator-session/suppress_restart_menuitem',
-                    '/apps/indicator-session/suppress_shutdown_menuitem'):
+                    '/apps/indicator-session/suppress_shutdown_menuitem',
+                    '/desktop/gnome/lockdown/disable_user_switching'):
             if key in self.gconf_previous:
                 gconftool.set(key, 'bool', self.gconf_previous[key])
         self.quit.show()
