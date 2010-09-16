@@ -889,7 +889,7 @@ class InstallBase:
                 langpacks_file = '/var/lib/ubiquity/langpacks'
                 if not os.path.exists(os.path.dirname(langpacks_file)):
                     os.makedirs(os.path.dirname(langpacks_file))
-                with open(langpacks_file, 'a') as langpacks:
+                with open(langpacks_file, 'w') as langpacks:
                     for pkg in to_install:
                         print >>langpacks, pkg
                 return []
