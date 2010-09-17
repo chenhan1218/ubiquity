@@ -195,7 +195,6 @@ class PageKde(PreparePageBase):
         self.controller = controller
         try:
             from PyQt4 import uic
-            from PyQt4.QtGui import QLabel, QWidget
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepPrepare.ui')
             self.prepare_download_updates = self.page.prepare_download_updates
             self.prepare_nonfree_software = self.page.prepare_nonfree_software

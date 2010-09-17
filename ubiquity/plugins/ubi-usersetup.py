@@ -382,7 +382,6 @@ class PageKde(PageBase):
         self.controller = controller
 
         from PyQt4 import uic
-        from PyQt4.QtGui import QDialog
         from PyKDE4.kdeui import KIconLoader
 
         self.plugin_widgets = uic.loadUi('/usr/share/ubiquity/qt/stepUserSetup.ui')

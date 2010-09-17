@@ -394,7 +394,7 @@ class PageKde(PageBase):
 
         try:
             from PyQt4 import uic
-            from PyQt4.QtGui import QLabel, QWidget, QPixmap
+            from PyQt4.QtGui import QWidget, QPixmap
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLanguage.ui')
             self.combobox = self.page.language_combobox
             self.combobox.currentIndexChanged[str].connect(self.on_language_selection_changed)
