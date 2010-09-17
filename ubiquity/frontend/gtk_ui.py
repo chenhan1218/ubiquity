@@ -807,7 +807,8 @@ class Wizard(BaseFrontend):
                     '/desktop/gnome/lockdown/disable_user_switching'):
             if key in self.gconf_previous:
                 gconftool.set(key, 'bool', self.gconf_previous[key])
-        self.quit.show()
+        if not self.oem_user_config:
+            self.quit.show()
         f = gtk.gdk.FUNC_RESIZE | gtk.gdk.FUNC_MAXIMIZE | \
             gtk.gdk.FUNC_MOVE | gtk.gdk.FUNC_CLOSE
         if not 'UBIQUITY_ONLY' in os.environ:
