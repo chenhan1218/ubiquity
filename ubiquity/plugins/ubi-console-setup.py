@@ -37,7 +37,6 @@ class PageGtk(plugin.PluginUI):
         self.current_layout = None
         try:
             import gtk
-            from ubiquity.gtkwidgets import LabelledEntry
             builder = gtk.Builder()
             self.controller.add_builder(builder)
             builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepKeyboardConf.ui'))

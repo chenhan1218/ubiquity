@@ -148,7 +148,6 @@ class PageGtk(PageBase):
         self.hostname_edited = False
 
         import gtk
-        from ubiquity.gtkwidgets import LabelledEntry
         builder = gtk.Builder()
         self.controller.add_builder(builder)
         builder.add_from_file('/usr/share/ubiquity/gtk/stepUserInfo.ui')
