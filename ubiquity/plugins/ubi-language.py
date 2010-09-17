@@ -20,7 +20,7 @@
 import os
 import debconf
 
-from ubiquity.plugin import *
+from ubiquity import plugin
 from ubiquity import i18n
 from ubiquity import misc
 from ubiquity import auto_update
@@ -39,7 +39,7 @@ _wget_url = 'http://changelogs.ubuntu.com/ubiquity/%s-update-available' % _ver
 
 _release_notes_url_path = '/cdrom/.disk/release_notes_url'
 
-class PageBase(PluginUI):
+class PageBase(plugin.PluginUI):
     def set_language_choices(self, unused_choices, choice_map):
         """Called with language choices and a map to localised names."""
         self.language_choice_map = dict(choice_map)
@@ -195,7 +195,7 @@ class PageGtk(PageBase):
             self.update_release_notes_label()
             return False
 
-    @only_this_page
+    @plugin.only_this_page
     def on_try_ubuntu_clicked(self, *args):
         # Spinning cursor.
         self.controller.allow_change_step(False)
@@ -528,7 +528,7 @@ class PageKde(PageBase):
             self.timer.disconnect(self.timer, SIGNAL("timeout()"),
                 self.check_returncode_release_notes)
 
-    @only_this_page
+    @plugin.only_this_page
     def on_try_ubuntu_clicked(self, *args):
         # Spinning cursor.
         self.controller.allow_change_step(False)
@@ -672,7 +672,7 @@ class PageNoninteractive(PageBase):
         """Get the current selected language."""
         return self.language
 
-class Page(Plugin):
+class Page(plugin.Plugin):
     def prepare(self, unfiltered=False):
         self.language_question = None
         self.initial_language = None
@@ -719,11 +719,11 @@ class Page(Plugin):
             if len(sorted_choices) == 1:
                 self.done = True
                 return True
-        return Plugin.run(self, priority, question)
+        return plugin.Plugin.run(self, priority, question)
 
     def cancel_handler(self):
         self.ui.controller.translate(just_me=False, not_me=True) # undo effects of UI translation
-        Plugin.cancel_handler(self)
+        plugin.Plugin.cancel_handler(self)
 
     def ok_handler(self):
         if self.language_question is not None:
@@ -734,15 +734,15 @@ class Page(Plugin):
                 self.db.reset('debian-installer/country')
         if self.ui.controller.oem_config:
             self.preseed('oem-config/id', self.ui.get_oem_id())
-        Plugin.ok_handler(self)
+        plugin.Plugin.ok_handler(self)
 
     def cleanup(self):
-        Plugin.cleanup(self)
+        plugin.Plugin.cleanup(self)
         i18n.reset_locale(self.frontend)
         self.frontend.stop_debconf()
         self.ui.controller.translate(just_me=False, not_me=True, reget=True)
 
-class Install(InstallPlugin):
+class Install(plugin.InstallPlugin):
     def prepare(self, unfiltered=False):
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
             return (['/usr/lib/ubiquity/localechooser-apply'], [])
@@ -753,7 +753,7 @@ class Install(InstallPlugin):
 
     def install(self, target, progress, *args, **kwargs):
         progress.info('ubiquity/install/locales')
-        rv = InstallPlugin.install(self, target, progress, *args, **kwargs)
+        rv = plugin.InstallPlugin.install(self, target, progress, *args, **kwargs)
         if not rv:
             # fontconfig configuration needs to be adjusted based on the
             # selected locale (from language-selector-common.postinst). Ignore

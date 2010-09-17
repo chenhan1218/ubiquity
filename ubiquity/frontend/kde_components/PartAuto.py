@@ -2,39 +2,39 @@
 
 import os
 from PyQt4 import uic
-from PyQt4.QtGui import *
+from PyQt4 import QtGui
 
 from ubiquity.frontend.kde_components.PartitionBar import PartitionsBar
-from ubiquity.misc import *
+from ubiquity import misc
 
 _uidir="/usr/share/ubiquity/qt/"
 
 def addBars(parent, before_bar, after_bar):
-    frame = QWidget(parent)
-    frame.setLayout(QVBoxLayout())
+    frame = QtGui.QWidget(parent)
+    frame.setLayout(QtGui.QVBoxLayout())
     frame.layout().setSpacing(0)
 
     # TODO
-    #frame.layout().addWidget(QLabel(get_string('ubiquity/text/partition_layout_before')))
-    frame.layout().addWidget(QLabel("Before:"))
+    #frame.layout().addWidget(QtGui.QLabel(get_string('ubiquity/text/partition_layout_before')))
+    frame.layout().addWidget(QtGui.QLabel("Before:"))
     frame.layout().addWidget(before_bar)
-    #frame.layout().addWidget(QLabel(get_string('ubiquity/text/partition_layout_after')))
-    frame.layout().addWidget(QLabel("After:"))
+    #frame.layout().addWidget(QtGui.QLabel(get_string('ubiquity/text/partition_layout_after')))
+    frame.layout().addWidget(QtGui.QLabel("After:"))
     frame.layout().addWidget(after_bar)
 
     parent.layout().addWidget(frame)
     return frame
 
-class PartAuto(QWidget):
+class PartAuto(QtGui.QWidget):
 
     def __init__(self):
-        QWidget.__init__(self)
+        QtGui.QWidget.__init__(self)
 
         uic.loadUi(os.path.join(_uidir,'stepPartAuto.ui'), self)
 
         self.diskLayout = None
 
-        self.autopartition_buttongroup = QButtonGroup(self)
+        self.autopartition_buttongroup = QtGui.QButtonGroup(self)
         self.autopartition_buttongroup.buttonClicked[int].connect(
             self.on_button_toggled)
         self.part_auto_disk_box.currentIndexChanged[int].connect(
@@ -67,21 +67,21 @@ class PartAuto(QWidget):
 
         # remove any previous autopartition selections
         for child in self.autopart_selection_frame.children():
-            if isinstance(child, QWidget):
+            if isinstance(child, QtGui.QWidget):
                 child.setParent(None)
                 del child
 
         for child in self.barsFrame.children():
-            if isinstance(child, QWidget):
+            if isinstance(child, QtGui.QWidget):
                 self.barsFrame.layout().removeWidget(child)
                 child.setParent(None)
                 del child
 
-        release_name = get_release().name
+        release_name = misc.get_release().name
 
         bId = 0
         if resize_choice in extra_options:
-            button = QRadioButton(resize_choice, self.autopart_selection_frame)
+            button = QtGui.QRadioButton(resize_choice, self.autopart_selection_frame)
             self.autopart_selection_frame.layout().addWidget(button)
             self.autopartition_buttongroup.addButton(button, bId)
             self.autopartitionTexts.append(resize_choice)
@@ -96,8 +96,8 @@ class PartAuto(QWidget):
                 for text, path in extra_options[use_device_choice].items():
                     path = path[0]
                     if path.rsplit('/', 1)[1] == disk_id:
-                        bar_frame = QFrame()
-                        bar_frame.setLayout(QVBoxLayout())
+                        bar_frame = QtGui.QFrame()
+                        bar_frame.setLayout(QtGui.QVBoxLayout())
                         bar_frame.setVisible(False)
                         bar_frame.layout().setSpacing(0)
                         self.barsFrame.layout().addWidget(bar_frame)
@@ -122,7 +122,7 @@ class PartAuto(QWidget):
         # TODO biggest_free_choice
 
         # Use entire disk.
-        button = QRadioButton(use_device_choice, self.autopart_selection_frame)
+        button = QtGui.QRadioButton(use_device_choice, self.autopart_selection_frame)
         self.autopartitionTexts.append(use_device_choice)
         self.autopart_selection_frame.layout().addWidget(button)
         self.autopartition_buttongroup.addButton(button, bId)
@@ -131,8 +131,8 @@ class PartAuto(QWidget):
         disks = []
         for text, path in extra_options[use_device_choice].items():
             path = path[0]
-            bar_frame = QFrame()
-            bar_frame.setLayout(QVBoxLayout())
+            bar_frame = QtGui.QFrame()
+            bar_frame.setLayout(QtGui.QVBoxLayout())
             bar_frame.setVisible(False)
             bar_frame.layout().setSpacing(0)
             self.barsFrame.layout().addWidget(bar_frame)
@@ -156,7 +156,7 @@ class PartAuto(QWidget):
 
         # Manual partitioning.
 
-        button = QRadioButton(manual_choice, self.autopart_selection_frame)
+        button = QtGui.QRadioButton(manual_choice, self.autopart_selection_frame)
         self.autopartitionTexts.append(manual_choice)
         self.autopart_selection_frame.layout().addWidget(button)
         self.autopartition_buttongroup.addButton(button, bId)

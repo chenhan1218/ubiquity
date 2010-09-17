@@ -31,7 +31,7 @@ import signal
 import gobject
 
 from ubiquity import filteredcommand, i18n
-from ubiquity.misc import *
+from ubiquity import misc
 from ubiquity.components import install, plugininstall, partman_commit
 from ubiquity.plugin import Plugin
 import ubiquity.progressposition
@@ -43,7 +43,7 @@ class Wizard(BaseFrontend):
     def __init__(self, distro):
         BaseFrontend.__init__(self, distro)
 
-        with raised_privileges():
+        with misc.raised_privileges():
             self.console = open('/dev/console', 'w')
         if not self.console:
             self.console = sys.stdout # better than crashing
@@ -64,7 +64,7 @@ class Wizard(BaseFrontend):
         i18n.reset_locale(self)
 
         if self.oem_config:
-            execute_root('apt-install', 'oem-config-gtk')
+            misc.execute_root('apt-install', 'oem-config-gtk')
 
     def run(self):
         """Main entry point."""
@@ -109,7 +109,7 @@ class Wizard(BaseFrontend):
             self.run_success_cmd()
             print >>self.console, 'Installation complete.'
             if self.get_reboot():
-                execute("reboot")
+                misc.execute("reboot")
         if ret != 0:
             if ret == 3:
                 # error already handled by Install

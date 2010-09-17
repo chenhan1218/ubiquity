@@ -24,9 +24,9 @@ import signal
 
 import debconf
 
-from ubiquity.plugin import *
+from ubiquity import plugin
 from ubiquity import parted_server
-from ubiquity.misc import *
+from ubiquity import misc
 from ubiquity import osextras
 from ubiquity.install_misc import archdetect
 
@@ -36,9 +36,9 @@ WEIGHT = 11
 # Not useful in oem-config.
 OEM = False
 
-class PageBase(PluginUI):
+class PageBase(plugin.PluginUI):
     def __init__(self, *args, **kwargs):
-        PluginUI.__init__(self)
+        plugin.PluginUI.__init__(self)
         self.resize_choice = None
         self.manual_choice = None
         self.biggest_free_choice = None
@@ -77,7 +77,7 @@ class PageBase(PluginUI):
         pass
 
     def get_grub_choice(self):
-        return grub_default()
+        return misc.grub_default()
 
 class PageGtk(PageBase):
     plugin_title = 'ubiquity/text/part_auto_heading_label'
@@ -170,7 +170,7 @@ class PageGtk(PageBase):
             self.current_page = self.page
 
             # Set some parameters that do not change between runs of the plugin
-            release = get_release()
+            release = misc.get_release()
             self.partitionbox.set_property('title', release.name)
             # New partition
             self.resizewidget.get_child2().child.set_property('title', release.name)
@@ -285,12 +285,12 @@ class PageGtk(PageBase):
         assert size is not None, 'Could not find size for %s:\n%s\n%s' % \
             (str(resize_path), str(disk_id), str(self.disk_layout))
 
-        title = find_in_os_prober(resize_path)
+        title = misc.find_in_os_prober(resize_path)
         icon = self.resizewidget.get_child1().child
         if not title:
             # This is most likely a partition with some files on it.
             # TODO i18n
-            title = 'Files (%s)' % format_size(resize_min_size)
+            title = 'Files (%s)' % misc.format_size(resize_min_size)
             icon.set_property('icon-name', 'folder')
         else:
             if 'windows' in title.lower():
@@ -391,8 +391,8 @@ class PageGtk(PageBase):
     def set_grub_options(self):
         import gtk, gobject
         self.bootloader_vbox.show()
-        options = grub_options()
-        default = grub_default()
+        options = misc.grub_options()
+        default = misc.grub_default()
         if default.startswith('/'):
             default = os.path.realpath(default)
         l = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
@@ -413,7 +413,7 @@ class PageGtk(PageBase):
             return self.grub_device_entry.get_model().get_value(i, 0)
         else:
             self.debug('No active iterator for grub device entry.')
-            return grub_default()
+            return misc.grub_default()
 
     def set_autopartition_choices (self, choices, extra_options, resize_choice,
                                    manual_choice, biggest_free_choice,
@@ -529,7 +529,7 @@ class PageGtk(PageBase):
         else:
             cell.set_property('text', partition['method'])
 
-    @only_this_page
+    @plugin.only_this_page
     def partman_column_mountpoint (self, unused_column, cell, model, iterator):
         partition = model[iterator][1]
         mountpoint = self.controller.dbfilter.get_current_mountpoint(partition)
@@ -552,7 +552,7 @@ class PageGtk(PageBase):
             cell.set_property('active', False)
             cell.set_property('activatable', False)
 
-    @only_this_page
+    @plugin.only_this_page
     def partman_column_format_toggled (self, unused_cell, path, user_data):
         if not self.controller.allowed_change_step():
             return
@@ -587,7 +587,7 @@ class PageGtk(PageBase):
             size_mb = int(partition['resize_min_size']) / 1000000
             cell.set_property('text', '%d MB' % size_mb)
 
-    @only_this_page
+    @plugin.only_this_page
     def partman_popup (self, widget, event):
         import gtk
         if not self.controller.allowed_change_step():
@@ -643,7 +643,7 @@ class PageGtk(PageBase):
             time = 0
         partition_list_menu.popup(None, None, None, button, time)
 
-    @only_this_page
+    @plugin.only_this_page
     def partman_create_dialog (self, devpart, partition):
         import gtk, gobject
         if not self.controller.allowed_change_step():
@@ -735,7 +735,7 @@ class PageGtk(PageBase):
                 str(self.partition_create_size_spinbutton.get_value()),
                 prilog, place, method, mountpoint)
 
-    @only_this_page
+    @plugin.only_this_page
     def on_partition_create_use_combo_changed (self, combobox):
         model = combobox.get_model()
         iterator = combobox.get_active_iter()
@@ -754,7 +754,7 @@ class PageGtk(PageBase):
                     self.controller.dbfilter.default_mountpoint_choices(fs):
                     mount_model.append([mp])
 
-    @only_this_page
+    @plugin.only_this_page
     def partman_edit_dialog (self, devpart, partition):
         import gtk, gobject
         if not self.controller.allowed_change_step():
@@ -873,7 +873,7 @@ class PageGtk(PageBase):
                     edits['fmt'] = 'dummy'
                 self.controller.dbfilter.edit_partition(devpart, **edits)
 
-    @only_this_page
+    @plugin.only_this_page
     def on_partition_edit_use_combo_changed (self, combobox):
         model = combobox.get_model()
         iterator = combobox.get_active_iter()
@@ -910,7 +910,7 @@ class PageGtk(PageBase):
             self.partman_popup(widget, event)
             return True
 
-    @only_this_page
+    @plugin.only_this_page
     def on_partition_list_treeview_key_press_event (self, widget, event):
         import gtk
         if event.type != gtk.gdk.KEY_PRESS:
@@ -929,7 +929,7 @@ class PageGtk(PageBase):
         self.partman_popup(widget, None)
         return True
 
-    @only_this_page
+    @plugin.only_this_page
     def on_partition_list_treeview_selection_changed (self, selection):
         self.partition_button_new_label.set_sensitive(False)
         self.partition_button_new.set_sensitive(False)
@@ -961,7 +961,7 @@ class PageGtk(PageBase):
                 self.partition_button_delete.set_sensitive(True)
         self.partition_button_undo.set_sensitive(True)
 
-    @only_this_page
+    @plugin.only_this_page
     def on_partition_list_treeview_row_activated (self, treeview,
                                                   path, unused_view_column):
         if not self.controller.allowed_change_step():
@@ -999,7 +999,7 @@ class PageGtk(PageBase):
             partition = model[iterator][1]
         return (devpart, partition)
 
-    @only_this_page
+    @plugin.only_this_page
     def on_partition_list_new_label_activate (self, unused_widget):
         if not self.controller.allowed_change_step():
             return
@@ -1015,7 +1015,7 @@ class PageGtk(PageBase):
         devpart, partition = self.partition_list_get_selection()
         self.partman_edit_dialog(devpart, partition)
 
-    @only_this_page
+    @plugin.only_this_page
     def on_partition_list_delete_activate (self, unused_widget):
         if not self.controller.allowed_change_step():
             return
@@ -1023,7 +1023,7 @@ class PageGtk(PageBase):
         devpart, partition = self.partition_list_get_selection()
         self.controller.dbfilter.delete_partition(devpart)
 
-    @only_this_page
+    @plugin.only_this_page
     def on_partition_list_undo_activate (self, unused_widget):
         if not self.controller.allowed_change_step():
             return
@@ -1175,8 +1175,8 @@ class PageKde(PageBase):
         self.partAuto.setDiskLayout(layout)
 
     def set_grub_options(self):
-        options = grub_options()
-        default = grub_default()
+        options = misc.grub_options()
+        default = misc.grub_default()
         if default.startswith('/'):
             default = os.path.realpath(default)
         self.partMan.setGrubOptions(options, default)
@@ -1186,7 +1186,7 @@ class PageKde(PageBase):
         if choice:
             return choice
         else:
-            return grub_default()
+            return misc.grub_default()
 
     def set_autopartition_choices (self, choices, extra_options,
                                    resize_choice, manual_choice,
@@ -1226,12 +1226,12 @@ PARTITION_PLACE_END = 1
 class PartmanOptionError(LookupError):
     pass
 
-class Page(Plugin):
+class Page(plugin.Plugin):
     def prepare(self):
         self.some_device_desc = ''
         self.resize_desc = ''
         self.manual_desc = ''
-        with raised_privileges():
+        with misc.raised_privileges():
             # If an old parted_server is still running, clean it up.
             if os.path.exists('/var/run/parted_server.pid'):
                 try:
@@ -1382,7 +1382,7 @@ class Page(Plugin):
         try:
             return self.description_cache[question]
         except KeyError:
-            description = Plugin.description(self, question)
+            description = plugin.Plugin.description(self, question)
             self.description_cache[question] = description
             return description
 
@@ -1583,9 +1583,9 @@ class Page(Plugin):
                 self.editing_partition['bad_mountpoint'] = True
         self.frontend.error_dialog(self.description(question),
                                    self.extended_description(question))
-        return Plugin.error(self, priority, question)
+        return plugin.Plugin.error(self, priority, question)
 
-    @raise_privileges
+    @misc.raise_privileges
     def freeze_choices(self, menu):
         """Stop recalculating choices for a given menu. This is used to
         improve performance while rebuilding the cache. Be careful not to
@@ -1595,7 +1595,7 @@ class Page(Plugin):
         self.debug('Partman: Freezing choices for %s', menu)
         open('/lib/partman/%s/no_show_choices' % menu, 'w').close
 
-    @raise_privileges
+    @misc.raise_privileges
     def thaw_choices(self, menu):
         """Reverse the effects of freeze_choices."""
         self.debug('Partman: Thawing choices for %s', menu)
@@ -1696,7 +1696,7 @@ class Page(Plugin):
                     del choices[choices.index(self.resize_desc)]
                 except ValueError:
                     pass
-            with raised_privileges():
+            with misc.raised_privileges():
                 # {'/dev/sda' : ('/dev/sda1', 24973242, '32256-2352430079'), ...
                 # TODO evand 2009-04-16: We should really use named tuples
                 # here.
@@ -1753,7 +1753,7 @@ class Page(Plugin):
                 disks = {}
                 choices = self.choices(question)
                 choices_c = self.choices_untranslated(question)
-                with raised_privileges():
+                with misc.raised_privileges():
                     for i in range(len(choices)):
                         size = 0
                         # It seemingly doesn't make sense to go through parted
@@ -1818,7 +1818,7 @@ class Page(Plugin):
                             self.cache_order)
                 else:
                     self.debug('Partman: Building cache')
-                    regain_privileges()
+                    misc.regain_privileges()
                     parted = parted_server.PartedServer()
                     matches = self.find_script(menu_options, 'partition_tree')
 
@@ -1910,7 +1910,7 @@ class Page(Plugin):
                             'name': info[6]
                         }
 
-                    drop_privileges()
+                    misc.drop_privileges()
                     # We want to immediately show the UI.
                     self.ui.show_page_advanced()
                     self.frontend.set_page(NAME)
@@ -1985,7 +1985,7 @@ class Page(Plugin):
             self.undoing = False
             self.finish_partitioning = False
 
-            Plugin.run(self, priority, question)
+            plugin.Plugin.run(self, priority, question)
 
             if self.finish_partitioning or self.done:
                 if self.succeeded:
@@ -2113,7 +2113,7 @@ class Page(Plugin):
 
                 assert state[0] == 'partman/choose_partition'
 
-                with raised_privileges():
+                with misc.raised_privileges():
                     parted = parted_server.PartedServer()
 
                     parted.select_disk(partition['dev'])
@@ -2354,7 +2354,7 @@ class Page(Plugin):
             if priority == 'critical' or priority == 'high':
                 self.frontend.error_dialog(self.description(question),
                                            self.extended_description(question))
-                return Plugin.error(self, priority, question)
+                return plugin.Plugin.error(self, priority, question)
             else:
                 return True
 
@@ -2388,7 +2388,7 @@ class Page(Plugin):
                 self.preseed(question, 'false', seen=False)
             return True
 
-        return Plugin.run(self, priority, question)
+        return plugin.Plugin.run(self, priority, question)
 
     def ok_handler(self):
         # TODO how do we ask this question again (for the resize page)?
@@ -2463,7 +2463,7 @@ class Page(Plugin):
             self.ui.progress_start(self.description(progress_title))
         else:
             self.local_progress = True
-            Plugin.progress_start(self, progress_min, progress_max, progress_title)
+            plugin.Plugin.progress_start(self, progress_min, progress_max, progress_title)
 
     def progress_info(self, progress_title, progress_info):
         if (progress_info != 'partman-partitioning/progress_resizing' and
@@ -2476,13 +2476,13 @@ class Page(Plugin):
             # so always return True.
             return True
         else:
-            Plugin.progress_info(self, progress_title, progress_info)
+            plugin.Plugin.progress_info(self, progress_title, progress_info)
 
     def progress_stop(self):
         if not self.local_progress and hasattr(self.ui, 'progress_stop'):
             self.ui.progress_stop()
         else:
-            Plugin.progress_stop(self)
+            plugin.Plugin.progress_stop(self)
             self.local_progress = False
 
     def maybe_update_grub(self):

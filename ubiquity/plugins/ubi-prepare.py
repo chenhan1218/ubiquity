@@ -17,7 +17,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-from ubiquity.plugin import *
+from ubiquity import plugin
 from ubiquity import misc, install_misc, osextras, i18n
 from hashlib import md5
 import os
@@ -50,7 +50,7 @@ WGET_HASH = '4589f42e1546aa47ca181e5d949d310b'
 
 # TODO: Set the 'have at least 3 GB' from /cdrom/casper/filesystem.size + a
 # fudge factor.
-class PreparePageBase(PluginUI):
+class PreparePageBase(plugin.PluginUI):
     plugin_title = 'ubiquity/text/prepare_heading_label'
 
     def setup_power_watch(self):
@@ -75,7 +75,7 @@ class PreparePageBase(PluginUI):
         self.wget_proc = None
         self.network_change()
 
-    @only_this_page
+    @plugin.only_this_page
     def check_returncode(self, *args):
         if self.wget_retcode is not None or self.wget_proc is None:
             self.wget_proc = subprocess.Popen(
@@ -267,7 +267,7 @@ class PageKde(PreparePageBase):
             text = "<b>" + text + "</b>"
             widget.setText(text)
 
-class Page(Plugin):
+class Page(plugin.Plugin):
     def prepare(self):
         # TODO grey out if free software only option is checked?
         use_nonfree = self.db.get('ubiquity/use_nonfree') == 'true'
@@ -329,7 +329,7 @@ class Page(Plugin):
                 env['DEBCONF_DB_REPLACE'] = 'configdb'
                 env['DEBCONF_DB_OVERRIDE'] = 'Pipe{infd:none outfd:none}'
                 subprocess.Popen(['/usr/share/jockey/jockey-backend', '--timeout=120'], env=env)
-        Plugin.ok_handler(self)
+        plugin.Plugin.ok_handler(self)
 
     def set_online_state(self, state):
         # We maintain this state in debconf so that plugins, specficially the

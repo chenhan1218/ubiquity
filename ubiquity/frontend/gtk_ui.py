@@ -53,8 +53,7 @@ gobject.threads_init()
 import glib
 
 from ubiquity import filteredcommand, gconftool, i18n, validation, \
-                     wrap_label
-from ubiquity.misc import *
+                     wrap_label, misc
 from ubiquity.plugin import Plugin
 from ubiquity.components import install, plugininstall, partman_commit
 import ubiquity.progressposition
@@ -232,7 +231,7 @@ class Wizard(BaseFrontend):
         set_root_cursor(self.watch)
         atexit.register(set_root_cursor)
 
-        self.laptop = execute("laptop-detect")
+        self.laptop = misc.execute("laptop-detect")
 
         # set default language
         self.locale = i18n.reset_locale(self)
@@ -601,9 +600,9 @@ class Wizard(BaseFrontend):
                 self.quit_button.hide()
             else:
                 txt = self.finished_label.get_label()
-                txt = txt.replace('${RELEASE}', get_release().name)
+                txt = txt.replace('${RELEASE}', misc.get_release().name)
             self.finished_label.set_label(txt)
-            with raised_privileges():
+            with misc.raised_privileges():
                 open('/var/run/reboot-required', "w").close()
             self.finished_dialog.set_keep_above(True)
             set_root_cursor()
@@ -618,7 +617,7 @@ class Wizard(BaseFrontend):
         uri = req.get_uri()
         decision.ignore()
         subprocess.Popen(['sensible-browser', uri],
-                         close_fds=True, preexec_fn=drop_all_privileges)
+                         close_fds=True, preexec_fn=misc.drop_all_privileges)
         return True
 
     def start_slideshow(self):
@@ -1097,7 +1096,7 @@ class Wizard(BaseFrontend):
         if page.title:
             title = self.get_string(page.title, lang)
             if title:
-                title = title.replace('${RELEASE}', get_release().name)
+                title = title.replace('${RELEASE}', misc.get_release().name)
                 # TODO: Use attributes instead?  Would save having to
                 # hardcode the size in here.
                 self.page_title.set_markup(
@@ -1152,7 +1151,7 @@ class Wizard(BaseFrontend):
                                          '/org/gnome/SessionManager')
             manager.RequestReboot()
         else:
-            execute_root("reboot")
+            misc.execute_root("reboot")
 
     def quit_installer(self, *args):
         """quit installer cleanly."""
@@ -1209,7 +1208,7 @@ class Wizard(BaseFrontend):
         if step in ("stepPartAuto", "stepPartAdvanced"):
             # TODO Ideally this should be done in the base frontend or the
             # partitioning component itself.
-            options = grub_options()
+            options = misc.grub_options()
             self.grub_options.clear()
             for opt in options:
                 self.grub_options.append(opt)
@@ -1459,7 +1458,7 @@ class Wizard(BaseFrontend):
 
     def bootloader_dialog (self, current_device):
         l = self.skip_label.get_label()
-        l = l.replace('${RELEASE}', get_release().name)
+        l = l.replace('${RELEASE}', misc.get_release().name)
         self.skip_label.set_label(l)
         self.grub_new_device_entry.child.set_text(current_device)
         self.grub_new_device_entry.child.grab_focus()

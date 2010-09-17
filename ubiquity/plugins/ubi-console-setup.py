@@ -21,7 +21,7 @@
 import re
 import os
 
-from ubiquity.plugin import *
+from ubiquity import plugin
 from ubiquity import keyboard_names
 from ubiquity import misc
 from ubiquity import osextras
@@ -30,7 +30,7 @@ NAME = 'console_setup'
 AFTER = 'timezone'
 WEIGHT = 10
 
-class PageGtk(PluginUI):
+class PageGtk(plugin.PluginUI):
     plugin_title = 'ubiquity/text/keyboard_heading_label'
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
@@ -60,7 +60,7 @@ class PageGtk(PluginUI):
         test_label = self.controller.get_string('keyboard_test_label', lang)
         self.keyboard_test.set_label(test_label)
 
-    @only_this_page
+    @plugin.only_this_page
     def calculate_result(self, w, keymap):
         l = self.controller.dbfilter.get_locale()
         keymap = keymap.split(':')
@@ -95,7 +95,7 @@ class PageGtk(PluginUI):
     def on_keyboardlayoutview_row_activated(self, *args):
         self.controller.go_forward()
 
-    @only_this_page
+    @plugin.only_this_page
     def on_keyboard_layout_selected(self, *args):
         layout = self.get_keyboard()
         if layout is not None:
@@ -105,7 +105,7 @@ class PageGtk(PluginUI):
     def on_keyboardvariantview_row_activated(self, *args):
         self.controller.go_forward()
 
-    @only_this_page
+    @plugin.only_this_page
     def on_keyboard_variant_selected(self, *args):
         layout = self.get_keyboard()
         variant = self.get_keyboard_variant()
@@ -195,7 +195,7 @@ def utf8(str):
         return str
     return unicode(str, 'utf-8')
 
-class PageKde(PluginUI):
+class PageKde(plugin.PluginUI):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_keyboard'
 
     def __init__(self, controller, *args, **kwargs):
@@ -220,7 +220,7 @@ class PageKde(PluginUI):
             self.page = None
         self.plugin_widgets = self.page
 
-    @only_this_page
+    @plugin.only_this_page
     def on_keyboard_layout_selected(self, *args):
         layout = self.get_keyboard()
         l = self.controller.dbfilter.get_locale()
@@ -237,7 +237,7 @@ class PageKde(PluginUI):
             self.current_layout = layout
             self.controller.dbfilter.change_layout(layout)
 
-    @only_this_page
+    @plugin.only_this_page
     def on_keyboard_variant_selected(self, *args):
         layout = self.get_keyboard()
         variant = self.get_keyboard_variant()
@@ -264,7 +264,7 @@ class PageKde(PluginUI):
         if self.current_layout is not None:
             self.set_keyboard(self.current_layout)
 
-    @only_this_page
+    @plugin.only_this_page
     def set_keyboard (self, layout):
         from PyQt4.QtCore import QString
         index = self.page.keyboard_layout_combobox.findText(QString(utf8(layout)))
@@ -289,7 +289,7 @@ class PageKde(PluginUI):
         for choice in sorted(choices):
             self.page.keyboard_variant_combobox.addItem(QString(utf8(choice)))
 
-    @only_this_page
+    @plugin.only_this_page
     def set_keyboard_variant(self, variant):
         from PyQt4.QtCore import QString
         index = self.page.keyboard_variant_combobox.findText(QString(utf8(variant)))
@@ -313,10 +313,10 @@ class PageKde(PluginUI):
 
         return unicode(self.page.keyboard_variant_combobox.currentText())
 
-class PageDebconf(PluginUI):
+class PageDebconf(plugin.PluginUI):
     plugin_title = 'ubiquity/text/keyboard_heading_label'
 
-class PageNoninteractive(PluginUI):
+class PageNoninteractive(plugin.PluginUI):
     def set_keyboard_choices(self, choices):
         """Set the available keyboard layout choices."""
         pass
@@ -340,7 +340,7 @@ class PageNoninteractive(PluginUI):
     def get_keyboard_variant(self):
         return self.keyboard_variant
 
-class Page(Plugin):
+class Page(plugin.Plugin):
     def prepare(self, unfiltered=False):
         self.preseed('console-setup/ask_detect', 'false')
 
@@ -411,7 +411,7 @@ class Page(Plugin):
                 self.db.fget('console-setup/layoutcode', 'seen') == 'true'):
                 return True
             else:
-                return Plugin.run(self, priority, question)
+                return plugin.Plugin.run(self, priority, question)
         elif question.startswith('console-setup/unsupported_'):
             response = self.frontend.question_dialog(
                 self.description(question),
@@ -436,7 +436,7 @@ class Page(Plugin):
         variant = self.ui.get_keyboard_variant()
         if variant is not None:
             self.preseed('console-setup/variant', variant)
-        return Plugin.ok_handler(self)
+        return plugin.Plugin.ok_handler(self)
 
     # TODO cjwatson 2006-09-07: This is duplication from console-setup, but
     # currently difficult to avoid; we need to apply the keymap immediately
@@ -671,17 +671,17 @@ class Page(Plugin):
             options_list = []
         self.apply_real_keyboard(model, layout, variant, options_list)
 
-        Plugin.cleanup(self)
+        plugin.Plugin.cleanup(self)
 
         if layout == '':
             return
 
         self.rewrite_xorg_conf(model, layout, variant, options)
 
-class Install(InstallPlugin):
+class Install(plugin.InstallPlugin):
     def prepare(self, unfiltered=False):
         return (['/usr/share/ubiquity/console-setup-apply'], [])
 
     def install(self, target, progress, *args, **kwargs):
         progress.info('ubiquity/install/keyboard')
-        return InstallPlugin.install(self, target, progress, *args, **kwargs)
+        return plugin.InstallPlugin.install(self, target, progress, *args, **kwargs)
