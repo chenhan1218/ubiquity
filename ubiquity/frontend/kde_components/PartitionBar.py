@@ -78,7 +78,6 @@ class PartitionsBar(QtGui.QWidget):
         sunkenFrameStyle.state = QtGui.QStyle.State_Sunken
 
         h = self.bar_height
-        h_2 = self.bar_height/2
         effective_width = self.width() - 1
 
         path = QtGui.QPainterPath()
@@ -190,8 +189,6 @@ class PartitionsBar(QtGui.QWidget):
             part = self.resize_part
             xloc = resize_handle_x
             self.resize_loc = xloc
-            side = 1
-            arr_dist = 5
 
             painter.setPen(QtCore.Qt.NoPen)
             painter.setBrush(QtCore.Qt.black)

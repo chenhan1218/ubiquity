@@ -37,7 +37,6 @@ import subprocess
 import traceback
 import syslog
 import atexit
-import signal
 import gettext
 import ConfigParser
 
@@ -680,7 +679,7 @@ class Wizard(BaseFrontend):
             expander_size = widget.style_get_property('expander-size')
             expander_spacing = widget.style_get_property('expander-spacing')
             border_width = widget.get_property('border-width')
-            focus_width = widget.style_get_property('focus-line-width')
+            #focus_width = widget.style_get_property('focus-line-width')
             focus_pad = widget.style_get_property('focus-padding')
 
             w = allocation.width - 2 * border_width - expander_size - \
@@ -1028,7 +1027,7 @@ class Wizard(BaseFrontend):
     def pop_history(self):
         if len(self.history) < 2:
             return self.pagesindex
-        old_entry = self.history.pop()
+        self.history.pop()
         return self.pages.index(self.history[-1][0])
 
     def set_page(self, n):
@@ -1240,8 +1239,6 @@ class Wizard(BaseFrontend):
 
         # Enabling next button
         self.allow_go_forward(True)
-        # Setting actual step
-        step = self.step_name(self.steps.get_current_page())
 
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()

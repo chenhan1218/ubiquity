@@ -18,7 +18,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 from ubiquity import plugin
-from ubiquity import misc, install_misc, osextras, i18n
+from ubiquity import misc, osextras, i18n
 from hashlib import md5
 import os
 import sys

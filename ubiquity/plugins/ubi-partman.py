@@ -86,8 +86,6 @@ class PageGtk(PageBase):
         self.controller = controller
         try:
             import gtk
-            from ubiquity.gtkwidgets import ResizeWidget, PartitionBox
-            from ubiquity import segmented_bar
             builder = gtk.Builder()
             self.controller.add_builder(builder)
             builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPartAsk.ui'))
@@ -211,7 +209,6 @@ class PageGtk(PageBase):
             # Switch back to resizing.
             use_disk = self.controller.get_string('part_auto_use_entire_disk')
             allocate = self.controller.get_string('part_auto_allocate_label')
-            hidden = self.controller.get_string('part_auto_hidden_label')
             self.part_auto_use_entire_disk.set_label(use_disk)
             self.part_auto_allocate_label.set_text(allocate)
             self.set_part_auto_hidden_label()

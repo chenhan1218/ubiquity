@@ -9,11 +9,7 @@ import sys
 CHEESE_LIBPATH = '../.libs'
 sys.path.insert(0,CHEESE_LIBPATH)
 import cheese as CH
-import glib
-import gobject
 import gtk
-import gst
-import pygst
 
 import gettext
 import locale
@@ -25,11 +21,7 @@ def init_i18n() :
     locale.setlocale(locale.LC_ALL, '')
     gettext.bindtextdomain(GETTEXT_PACKAGE, PACKAGE_LOCALEDIR)
     gettext.textdomain(GETTEXT_PACKAGE)
-    lang = gettext.translation(GETTEXT_PACKAGE, PACKAGE_LOCALEDIR)
-    _ = lang.gettext
     gettext.install(GETTEXT_PACKAGE, PACKAGE_LOCALEDIR)
-
-
 
 def destroy(*args):
     """ Callback function that is activated when the program is destoyed """

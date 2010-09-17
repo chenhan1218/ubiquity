@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from PyQt4.QtCore import Qt, QRectF
 from PyQt4.QtGui import QWidget, QFont, QPainter, QPen, QPainterPath, QColor
-from PyQt4.QtSvg import QSvgRenderer
-from PyQt4 import uic
 
 import subprocess
 import sys
@@ -181,7 +179,6 @@ class Keyboard(QWidget):
             w1 = remaining_widths[1]
             x2 = remaining_x[2]
             y2 = .5 + kw*2 + space*2
-            w2 = remaining_widths[2]
 
             # this is some serious crap... but it has to be so
             # maybe one day keyboards won't look like this...

@@ -322,12 +322,6 @@ class Wizard(BaseFrontend):
             self.ui.install_process_label.hide()
             self.ui.breadcrumb_install.hide()
 
-        iconLoader = kdeui.KIconLoader()
-        warningIcon = iconLoader.loadIcon("dialog-warning", kdeui.KIconLoader.Desktop)
-
-        # TODO move to plugin
-        #self.ui.part_advanced_warning_image.setPixmap(warningIcon)
-
         self.forwardIcon = kdeui.KIcon("go-next")
         self.ui.next.setIcon(self.forwardIcon)
 
@@ -900,7 +894,6 @@ class Wizard(BaseFrontend):
     def on_quit_clicked(self):
         warning_dialog_label = self.get_string("warning_dialog_label")
         abortTitle = self.get_string("warning_dialog")
-        continueButtonText = self.get_string("continue")
         yes = self.get_string('yes', prefix='ubiquity/imported')
         no = self.get_string('no', prefix='ubiquity/imported')
         if yes and no:
@@ -970,8 +963,6 @@ class Wizard(BaseFrontend):
 
         # Enabling next button
         self.allow_go_forward(True)
-        # Setting actual step
-        step = self.step_name(self.get_current_page())
         self.ui.setCursor(QtGui.QCursor(QtCore.Qt.WaitCursor))
 
         if self.dbfilter is not None:
