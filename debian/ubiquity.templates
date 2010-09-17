@@ -59,11 +59,6 @@ Template: ubiquity/text/install_ubuntu
 Type: text
 _Description: Install ${RELEASE}
 
-Template: ubiquity/text/ready_text_oem_user_label
-Type: text
-_Description:
- Once you answer a few questions, this computer will be ready to use.
-
 Template: ubiquity/text/duration_text_label
 Type: text
 _Description: Answering the questions should only take a few minutes.
@@ -1222,10 +1217,3 @@ _Description: Region:
 Template: ubiquity/text/welcome_heading_label
 Type: text
 _Description: Welcome
-
-Template: ubiquity/text/ready_text_label
-Type: text
-_Description:
- Ready to install?  Once you answer a few questions, the contents of the live
- ${MEDIUM} can be installed on this computer so you can run ${RELEASE} at
- full speed without the ${MEDIUM}.

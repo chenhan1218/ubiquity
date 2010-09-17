@@ -655,8 +655,6 @@ class Wizard(BaseFrontend):
             if name == 'step_label':
                 text = text.replace('${INDEX}', str(self.pagesindex+1))
                 text = text.replace('${TOTAL}', str(self.user_pageslen))
-            elif name == 'ready_text_label' and self.oem_user_config:
-                text = self.get_string('ready_text_oem_user_label', lang, prefix)
             elif name == 'select_language_label' and self.oem_user_config:
                 text = self.get_string('select_language_oem_user_label', lang, prefix)
 
