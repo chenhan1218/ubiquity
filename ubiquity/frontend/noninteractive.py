@@ -230,27 +230,6 @@ class Wizard(BaseFrontend):
     def allow_go_forward(self, allow):
         pass
 
-    # ubiquity.components.summary
-
-    def set_summary_text(self, text):
-        """Set text to be displayed in the installation summary."""
-        pass
-
-    # called from ubiquity.components.install
-    def get_grub(self):
-        # Always return true as there's no UI to disable it.
-        # FIXME: Better to grab grub-installer/skip out of debconf?
-        return True
-
-    def set_popcon(self, participate):
-        """Set whether to participate in popularity-contest."""
-        self.popcon = participate
-
-    # called from ubiquity.components.install
-    def get_popcon(self):
-        """Get whether to participate in popularity-contest."""
-        return self.popcon
-
     # General facilities for components.
 
     def error_dialog(self, title, msg, fatal=True):

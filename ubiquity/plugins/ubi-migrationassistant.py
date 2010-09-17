@@ -24,7 +24,7 @@ from ubiquity.plugin import *
 from ubiquity.misc import *
 
 NAME = 'migrationassistant'
-BEFORE = 'summary'
+AFTER = 'usersetup'
 WEIGHT = 10
 # Not useful in oem-config.
 OEM = False

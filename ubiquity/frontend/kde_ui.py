@@ -974,11 +974,6 @@ class Wizard(BaseFrontend):
         step = self.step_name(self.get_current_page())
         self.ui.setCursor(QCursor(Qt.WaitCursor))
 
-        if str(step) == "summary":
-            self.ui.next.setText(self.get_string("next").replace('_', '&', 1))
-            self.ui.next.setIcon(self.forwardIcon)
-            self.translate_widget(self.ui.next)
-
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
             # expect recursive main loops to be exited and

@@ -466,37 +466,9 @@ Template: ubiquity/text/partition_edit_size_label
 Type: text
 _Description: New partition size in megabytes (1000000 bytes):
 
-Template: ubiquity/text/advanced_dialog
-Type: text
-_Description: Advanced Options
-
 Template: ubiquity/text/bootloader_group_label
 Type: text
 _Description: Boot loader
-
-Template: ubiquity/text/grub_enable
-Type: text
-_Description: Install boot loader
-
-Template: ubiquity/text/popcon_group_label
-Type: text
-_Description: Popularity contest
-
-Template: ubiquity/text/popcon_checkbutton
-Type: text
-_Description: Participate in the package usage survey
-
-Template: ubiquity/text/proxy_group_label
-Type: text
-_Description: Network proxy
-
-Template: ubiquity/text/proxy_host_label
-Type: text
-_Description: HTTP proxy:
-
-Template: ubiquity/text/proxy_port_label
-Type: text
-_Description: Port:
 
 Template: ubiquity/text/finished_label
 Type: text
@@ -520,20 +492,6 @@ Type: text
 _Description:
  Installation is complete. You need to restart the computer in order to use
  the new installation.
-
-Template: ubiquity/summary
-Type: note
-#flag:translate!:3
-_Description: Ready to install
-  Language: ${LANGUAGE}
-  Keyboard layout: ${KEYMAP}
-  Name: ${FULLNAME}
-  Login name: ${USERNAME}
-  Location: ${LOCATION}
-  Migration Assistant:
-  ${MIGRATE}
- .
- ${PARTMAN_CHANGES}
 
 Template: ubiquity/install/checking
 Type: text
@@ -962,10 +920,6 @@ _Description: Disk Setup
 Template: ubiquity/text/breadcrumb_user
 Type: text
 _Description: User Info
-
-Template: ubiquity/text/breadcrumb_summary
-Type: text
-_Description: Summary
 
 Template: ubiquity/text/breadcrumb_install
 Type: text

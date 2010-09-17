@@ -191,8 +191,6 @@ string_questions = {
     'closebutton1': 'ubiquity/imported/close',
     'cancelbutton1': 'ubiquity/imported/cancel',
     'okbutton1': 'ubiquity/imported/ok',
-    'advanced_cancelbutton': 'ubiquity/imported/cancel',
-    'advanced_okbutton': 'ubiquity/imported/ok',
 }
 
 string_extended = set('grub_device_label')
