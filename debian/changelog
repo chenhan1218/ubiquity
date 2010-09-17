@@ -10,6 +10,7 @@ ubiquity (2.3.20) UNRELEASED; urgency=low
     rather than just after automatic partitioning (and not manual
     partitioning) (LP: #640604).
   * Do not show the quit button in OEM mode.
+  * Depend on aptdaemon (LP: #641051).
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 16 Sep 2010 10:08:25 -0500
 
