@@ -775,7 +775,7 @@ class Wizard(BaseFrontend):
             'UBIQUITY_ONLY' in os.environ or
             'UBIQUITY_GREETER' in os.environ):
             f = gtk.gdk.FUNC_RESIZE | gtk.gdk.FUNC_MAXIMIZE | gtk.gdk.FUNC_MOVE
-            if not self.oem_user_config and not 'progress' in widget.get_name():
+            if not self.oem_user_config:
                 f |= gtk.gdk.FUNC_CLOSE
             widget.window.set_functions(f)
 
@@ -1521,13 +1521,9 @@ class Wizard(BaseFrontend):
         # buttons. Cursor handling should be controllable independently.
         saved_allowed_change_step = self.allowed_change_step
         self.allow_change_step(True)
-        if self.current_page is not None:
-            transient = self.live_installer
-        else:
-            transient = self.debconf_progress_window
         if not msg:
             msg = title
-        dialog = gtk.MessageDialog(transient, gtk.DIALOG_MODAL,
+        dialog = gtk.MessageDialog(self.live_installer, gtk.DIALOG_MODAL,
                                    gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
         dialog.set_title(title)
         dialog.run()
@@ -1575,10 +1571,6 @@ class Wizard(BaseFrontend):
         # buttons. Cursor handling should be controllable independently.
         saved_allowed_change_step = self.allowed_change_step
         self.allow_change_step(True)
-        if self.current_page is not None:
-            transient = self.live_installer
-        else:
-            transient = self.debconf_progress_window
         if not msg:
             msg = title
         buttons = []
@@ -1593,7 +1585,7 @@ class Wizard(BaseFrontend):
             # subtype of str, which unicode isn't.
             text = str(text)
             buttons.extend((text, len(buttons) / 2 + 1))
-        dialog = gtk.Dialog(title, transient, gtk.DIALOG_MODAL, tuple(buttons))
+        dialog = gtk.Dialog(title, self.live_installer, gtk.DIALOG_MODAL, tuple(buttons))
         vbox = gtk.VBox()
         vbox.set_border_width(5)
         label = gtk.Label(msg)
