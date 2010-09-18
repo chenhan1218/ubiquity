@@ -114,7 +114,6 @@ class PreparePageBase(plugin.PluginUI):
 class PageGtk(PreparePageBase):
     restricted_package_name = 'ubuntu-restricted-addons'
     def __init__(self, controller, *args, **kwargs):
-        from ubiquity.gtkwidgets import StateBox
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             self.page = None
             return

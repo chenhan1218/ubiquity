@@ -52,6 +52,7 @@ gobject.threads_init()
 import glib
 
 from ubiquity import filteredcommand, gconftool, i18n, validation, misc
+from ubiquity import gtkwidgets
 from ubiquity.plugin import Plugin
 from ubiquity.components import install, plugininstall, partman_commit
 import ubiquity.progressposition
