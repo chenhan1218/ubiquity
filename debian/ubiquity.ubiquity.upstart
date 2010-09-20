@@ -11,7 +11,11 @@ start on (starting gdm
 	  or starting kdm
 	  or starting xdm
 	  or starting uxlaunch)
-stop on runlevel [06]
+stop on (runlevel [06]
+	 or stopping gdm
+	 or stopping kdm
+	 or stopping xdm
+	 or stopping uxlaunch)
 
 task
 normal exit 0 1
