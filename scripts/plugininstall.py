@@ -402,6 +402,8 @@ class Install(install_misc.InstallBase):
             target_cdrom = os.path.join(self.target, 'cdrom')
             misc.execute('umount', target_cdrom)
             if not os.path.exists(target_cdrom):
+                if os.path.lexists(target_cdrom):
+                    os.unlink(target_cdrom)
                 os.mkdir(target_cdrom)
             misc.execute('mount', '--bind', '/cdrom', target_cdrom)
 
