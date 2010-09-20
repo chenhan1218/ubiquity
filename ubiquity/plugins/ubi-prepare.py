@@ -130,6 +130,7 @@ class PageGtk(PreparePageBase):
             self.prepare_nonfree_software = builder.get_object('prepare_nonfree_software')
             self.prepare_sufficient_space = builder.get_object('prepare_sufficient_space')
             self.prepare_foss_disclaimer = builder.get_object('prepare_foss_disclaimer')
+            self.prepare_foss_disclaimer_extra = builder.get_object('prepare_foss_disclaimer_extra_label')
             # TODO we should set these up and tear them down while on this page.
             try:
                 from dbus.mainloop.glib import DBusGMainLoop
@@ -163,13 +164,19 @@ class PageGtk(PreparePageBase):
     def get_download_updates(self):
         return self.prepare_download_updates.get_active()
     
+    def set_allow_nonfree(self, allow):
+        if not allow:
+            self.prepare_nonfree_software.set_active(False)
+            self.prepare_nonfree_software.set_property('visible', False)
+            self.prepare_foss_disclaimer.set_property('visible', False)
+            self.prepare_foss_disclaimer_extra.set_property('visible', False)
+
     def set_use_nonfree(self, val):
         if osextras.find_on_path('jockey-text'):
             self.prepare_nonfree_software.set_active(val)
         else:
             self.debug('Could not find jockey-text on the executable path.')
-            self.prepare_nonfree_software.set_active(False)
-            self.prepare_nonfree_software.set_sensitive(False)
+            self.set_allow_nonfree(False)
 
     def get_use_nonfree(self):
         return self.prepare_nonfree_software.get_active()
@@ -199,6 +206,7 @@ class PageKde(PreparePageBase):
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepPrepare.ui')
             self.prepare_download_updates = self.page.prepare_download_updates
             self.prepare_nonfree_software = self.page.prepare_nonfree_software
+            self.prepare_foss_disclaimer = self.page.prepare_foss_disclaimer
             self.prepare_sufficient_space = StateBox(self.page)
             self.page.vbox1.addWidget(self.prepare_sufficient_space)
             # TODO we should set these up and tear them down while on this page.
@@ -243,13 +251,18 @@ class PageKde(PreparePageBase):
         from PyQt4.QtCore import Qt
         return self.prepare_download_updates.checkState() == Qt.Checked
     
+    def set_allow_nonfree(self, allow):
+        if not allow:
+            self.prepare_nonfree_software.setChecked(False)
+            self.prepare_nonfree_software.setVisible(False)
+            self.prepare_foss_disclaimer.setVisible(False)
+
     def set_use_nonfree(self, val):
         if osextras.find_on_path('jockey-text'):
             self.prepare_nonfree_software.setChecked(val)
         else:
             self.debug('Could not find jockey-text on the executable path.')
-            self.prepare_nonfree_software.setChecked(False)
-            self.prepare_nonfree_software.setEnabled(False)
+            self.set_allow_nonfree(False)
 
     def get_use_nonfree(self):
         from PyQt4.QtCore import Qt
@@ -269,11 +282,15 @@ class PageKde(PreparePageBase):
 
 class Page(Plugin):
     def prepare(self):
-        # TODO grey out if free software only option is checked?
-        use_nonfree = self.db.get('ubiquity/use_nonfree') == 'true'
+        if (self.db.get('apt-setup/restricted') == 'false' or
+            self.db.get('apt-setup/multiverse') == 'false'):
+            self.ui.set_allow_nonfree(False)
+        else:
+            use_nonfree = self.db.get('ubiquity/use_nonfree') == 'true'
+            self.ui.set_use_nonfree(use_nonfree)
+
         download_updates = self.db.get('ubiquity/download_updates') == 'true'
         self.ui.set_download_updates(download_updates)
-        self.ui.set_use_nonfree(use_nonfree)
         self.setup_sufficient_space()
         return (['/usr/share/ubiquity/simple-plugins', 'prepare'], ['ubiquity/use_nonfree'])
 
