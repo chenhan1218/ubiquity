@@ -17,6 +17,7 @@ ubiquity (2.3.20) UNRELEASED; urgency=low
     are disabled via preseed (LP: #641676).
   * Install kubuntu-restricted-addons, not kubuntu-restricted-extras
     (LP: #643614).
+  * Clear hostname error when fixed (LP: #640661).
 
   [ Colin Watson ]
   * Stop ubiquity and oem-config when stopping display managers.  This

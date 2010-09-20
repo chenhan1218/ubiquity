@@ -354,6 +354,9 @@ class PageGtk(PageBase):
                 self.hostname_error(error_msg)
                 complete = False
                 self.hostname_ok.hide()
+            else:
+                self.hostname_ok.show()
+                self.hostname_error_label.hide()
         else:
             complete = False
             self.hostname_ok.hide()
