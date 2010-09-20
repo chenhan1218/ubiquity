@@ -8,7 +8,7 @@ ubiquity (2.3.20) UNRELEASED; urgency=low
   * Better lock down the installer environment when past partitioning.
   * Lock down the installer environment when at partitioning commit,
     rather than just after automatic partitioning (and not manual
-    partitioning) (LP: #640604).
+    partitioning) (LP: #640604, LP: #641897).
   * Do not show the quit button in OEM mode.
   * Depend on aptdaemon (LP: #641051).
   * Fix the skip download button (LP: #628311).
