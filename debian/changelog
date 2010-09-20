@@ -15,6 +15,7 @@ ubiquity (2.3.20) UNRELEASED; urgency=low
   * Make the '[type here to change]' string translatable (LP: #642989).
   * Disable the non-free software option if multiverse and restricted
     are disabled via preseed (LP: #641676).
+  * Install kubuntu-restricted-addons, not kubuntu-restricted-extras.
 
   [ Colin Watson ]
   * Stop ubiquity and oem-config when stopping display managers.  This

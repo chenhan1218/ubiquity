@@ -192,7 +192,7 @@ class PageGtk(PreparePageBase):
 
 class PageKde(PreparePageBase):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_prepare'
-    restricted_package_name = 'kubuntu-restricted-extras'
+    restricted_package_name = 'kubuntu-restricted-addons'
 
     def __init__(self, controller, *args, **kwargs):
         from ubiquity.qtwidgets import StateBox
