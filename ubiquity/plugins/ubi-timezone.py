@@ -65,6 +65,9 @@ class PageGtk(PluginUI):
         else:
             fmt = c.get_string('ubiquity/imported/24-hour', lang)
         self.tzmap.set_time_format(fmt)
+        inactive = self.controller.get_string(
+            'timezone_city_entry_inactive_label', lang)
+        self.city_entry.set_label(inactive)
 
     def set_timezone(self, timezone):
         self.zones = self.controller.dbfilter.build_timezone_list()

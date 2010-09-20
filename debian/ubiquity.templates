@@ -1219,6 +1219,10 @@ Template: ubiquity/text/timezone_zone_label
 Type: text
 _Description: Region:
 
+Template: ubiquity/text/timezone_city_entry_inactive_label
+Type: text
+_Description: [type here to change]
+
 Template: ubiquity/text/welcome_heading_label
 Type: text
 _Description: Welcome

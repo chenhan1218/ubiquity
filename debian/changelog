@@ -12,6 +12,7 @@ ubiquity (2.3.20) UNRELEASED; urgency=low
   * Do not show the quit button in OEM mode.
   * Depend on aptdaemon (LP: #641051).
   * Fix the skip download button (LP: #628311).
+  * Make the '[type here to change]' string translatable (LP: #642989).
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 16 Sep 2010 10:08:25 -0500
 
