@@ -1,4 +1,4 @@
-ubiquity (2.3.20) UNRELEASED; urgency=low
+ubiquity (2.4.0) UNRELEASED; urgency=low
 
   [ Sebastian Heinlein ]
   * Rework oem-config-gtk to use a mainloop (LP: #637517)
