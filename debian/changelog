@@ -19,6 +19,8 @@ ubiquity (2.3.20) UNRELEASED; urgency=low
     (LP: #643614).
   * Clear hostname error when fixed (LP: #640661).
   * Deal with broken /cdrom symlinks (LP: #642274).
+  * Disable locking the screen and switching users in the installer
+    session (LP: #644016).
 
   [ Colin Watson ]
   * Stop ubiquity and oem-config when stopping display managers.  This

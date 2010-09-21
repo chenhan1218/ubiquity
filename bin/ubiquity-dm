@@ -302,7 +302,11 @@ EndSection
                 subprocess.call(
                     ['gconftool-2', '--config-source', gconf_dir,
                      '--type', 'int', '--set',
-                     '/apps/metacity/general/num_workspaces', '1'],
+                     '/apps/metacity/general/num_workspaces', '1',
+                     '--type', 'boolean', '--set',
+                     '/desktop/gnome/lockdown/disable_user_switching', 'true',
+                     '--type', 'boolean', '--set',
+                     '/desktop/gnome/lockdown/disable_lock_screen', 'true'],
                     stdin=null, stdout=logfile, stderr=logfile,
                     preexec_fn=self.drop_privileges)
                 subp = subprocess.Popen(
