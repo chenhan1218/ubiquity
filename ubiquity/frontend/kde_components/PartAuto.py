@@ -117,7 +117,7 @@ class PartAuto(QWidget):
                             min_size, max_size, pref_size, release_name)
                         after_bar.partitionResized.connect(self.on_partitionResized)
                         addBars(bar_frame, before_bar, after_bar)
-        self.disks.append(disks)
+            self.disks.append(disks)
 
         # TODO biggest_free_choice
 

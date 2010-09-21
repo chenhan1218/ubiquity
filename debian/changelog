@@ -4,6 +4,8 @@ ubiquity (2.4.1) UNRELEASED; urgency=low
     boxes on the user setup page.
   * Do not show the prepare page by means of hiding the language page
     before the former is ready.
+  * Fix a crash in the KDE partitioning page when no partitions are
+    available for resizing (LP: #644407).
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 21 Sep 2010 15:51:27 +0100
 
