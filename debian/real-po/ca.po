@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-09-15 13:27+0100\n"
-"PO-Revision-Date: 2010-05-07 07:33+0000\n"
+"POT-Creation-Date: 2010-09-21 10:02+0100\n"
+"PO-Revision-Date: 2010-09-20 13:19+0000\n"
 "Last-Translator: David Planella <david.planella@ubuntu.com>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: ca\n"
 
@@ -33,7 +33,7 @@ msgstr "Esborra el disc i utilitza'l per complet"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "Instal·la'l juntament amb els altres sistemes operatius"
 
 #. Type: text
 #. Description
@@ -48,7 +48,7 @@ msgstr "Especificació manual de les particions (avançat)"
 #. Description
 #: ../ubiquity.templates:7001 ../ubiquity.templates:189001
 msgid "Install"
-msgstr "Instal·la"
+msgstr "Instal·lació"
 
 #. Type: text
 #. Description
@@ -75,6 +75,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
+"Podeu provar ${RELEASE} sense fer cap canvi al vostre ordinador, directament "
+"des d'aquest ${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -83,18 +85,21 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
+"O si ja esteu a punt, podeu instal·lar ${RELEASE} juntament amb el vostre "
+"sistema operatiu actual (o bé reemplaçant-lo). Això no hauria de trigar "
+"gaire temps."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Try ${RELEASE}"
-msgstr "Proveu ${RELEASE}"
+msgstr "Vull provar ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "Install ${RELEASE}"
-msgstr "Instal·leu ${RELEASE}"
+msgstr "Instal·la ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -140,6 +145,10 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2010."
 msgstr ""
+"Aquesta es una versió prèvia de l'instal·lador de la versió ${RELEASE} "
+"mitjançant un ${MEDIUM} autònom. No és una versió definitiva; aquesta "
+"arribarà quan s'alliberi la versió final de la distribució ${RELEASE} a "
+"l'Octubre de 2010."
 
 #. Type: text
 #. Description
@@ -157,7 +166,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Warning"
-msgstr ""
+msgstr "Avís"
 
 #. Type: text
 #. Description
@@ -175,27 +184,25 @@ msgstr "Disposició de teclat"
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your keyboard layout:"
-msgstr ""
+msgstr "Trieu la vostra distribució de teclat:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Escriviu aquí per provar el vostre teclat"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "Disposició de teclat"
+msgstr "Endevina la disposició del teclat"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Figure out keyboard layout"
-msgstr ""
+msgstr "Esbrina la disposició del teclat"
 
 #. Type: text
 #. Description
@@ -219,19 +226,19 @@ msgstr "Qui sou?"
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Your name:"
-msgstr ""
+msgstr "El vostre nom:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Your name"
-msgstr ""
+msgstr "El vostre nom"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Pick a username:"
-msgstr ""
+msgstr "Trieu un nom d'usuari:"
 
 #. Type: text
 #. Description
@@ -243,7 +250,7 @@ msgstr "﻿Nom d'usuari"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Choose a password:"
-msgstr ""
+msgstr "Trieu una contrasenya:"
 
 #. Type: text
 #. Description
@@ -255,21 +262,19 @@ msgstr "Contrasenya"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Confirm password"
-msgstr ""
+msgstr "Confirmeu la contrasenya"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Setting computer name..."
 msgid "Your computer's name:"
-msgstr "S'està establint el nom de l'ordinador..."
+msgstr "El nom del vostre ordinador:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "El nom que utilitza quan es comunica amb altres ordinadors."
 
 #. Type: text
 #. Description
@@ -281,31 +286,31 @@ msgstr "Esteu en mode de depuració. No utilitzeu una contrasenya important!"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Short password"
-msgstr ""
+msgstr "La contrasenya és massa curta"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Weak password"
-msgstr ""
+msgstr "La contrasenya és massa dèbil"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Fair password"
-msgstr ""
+msgstr "La contrasenya és acceptable"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Good password"
-msgstr ""
+msgstr "La contrasenya és bona"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Strong password"
-msgstr ""
+msgstr "La contrasenya és forta"
 
 #. Type: text
 #. Description
@@ -323,7 +328,7 @@ msgstr "Fes que calgui una contrasenya per a entrar"
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "Encripta la meva carpeta personal"
 
 #. Type: text
 #. Description
@@ -356,7 +361,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Allocate drive space"
-msgstr ""
+msgstr "Reserva espai de disc"
 
 #. Type: text
 #. Description
@@ -434,13 +439,13 @@ msgstr "Avançat..."
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:62001
 msgid "_Install Now[ action ]"
-msgstr ""
+msgstr "_Instal·la'l ara"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr ""
+msgstr "Pas ${INDEX}/${TOTAL}"
 
 #. Type: title
 #. Description
@@ -760,19 +765,14 @@ msgstr "Port:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"Ha finalitzat la instal·lació. Podeu continuar provant l'Ubuntu, però fins "
-"que no reinicieu l'ordinador no es preservaran ni els canvis que feu, ni els "
-"documents que deseu."
+"Ha finalitzat la instal·lació. Podeu continuar provant ${RELEASE}, però fins "
+"que no reinicieu l'ordinador no es desarà cap canvi que feu ni tampoc cap "
+"document."
 
 #. Type: text
 #. Description
@@ -1181,7 +1181,7 @@ msgstr "S'estan calculant els fitxers per a ometre en copiar..."
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "Tot a punt..."
 
 #. Type: title
 #. Description
@@ -1261,7 +1261,7 @@ msgstr "Configuració del sistema"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001 ../ubiquity.templates:241001
+#: ../ubiquity.templates:178001 ../ubiquity.templates:242001
 msgid "Welcome"
 msgstr "Benvingut"
 
@@ -1293,7 +1293,7 @@ msgstr "Llengua"
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Prepare"
-msgstr ""
+msgstr "Prepara"
 
 #. Type: text
 #. Description
@@ -1384,7 +1384,7 @@ msgstr "L'instal·lador ha trobat un error quan intentava actualitzar-se:"
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:199001
 msgid "USB disk"
-msgstr ""
+msgstr "Disc USB"
 
 #. Type: text
 #. Description
@@ -1400,6 +1400,8 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
+"Trieu la llengua que s'utilitzarà en el procés d'instal·lació. Aquesta serà "
+"la predeterminada per a aquest ordinador."
 
 #. Type: text
 #. Description
@@ -1447,37 +1449,37 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:207001
 msgid "Preparing to install ${RELEASE}"
-msgstr ""
+msgstr "S'està preparant per instal·lar la versió ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:208001
 msgid "Wireless"
-msgstr ""
+msgstr "Xarxa sense fils"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
 msgid "Please select your wireless network from this list"
-msgstr ""
+msgstr "Seleccioneu la xarxa sense fils d'aquesta llista"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:213001
 msgid "Select drive:"
-msgstr ""
+msgstr "Seleccioneu la unitat:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
 msgid "Allocate drive space by dragging the divider below:"
-msgstr ""
+msgstr "Reserveu espai de disc arrossegant el divisor de més avall:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:215001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "S'utilitzarà el disc sencer:"
 
 #. Type: text
 #. Description
@@ -1487,6 +1489,8 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"Hi ha %d particions menors ocultes. Utilitzeu l'<a href=\"\">eina de "
+"partiment avançat</a> per tenir-ne més control"
 
 #. Type: text
 #. Description
@@ -1495,6 +1499,8 @@ msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"Hi ha una partició menor oculta. Utilitzeu l'<a href=\"\">eina de partiment "
+"avançat</a> per tenir-ne més control"
 
 #. Type: text
 #. Description
@@ -1504,6 +1510,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"Se suprimiran %d particions. Utilitzeu l'<a href=\"\">eina de partiment "
+"avançat</a> per tenir-ne més control"
 
 #. Type: text
 #. Description
@@ -1512,48 +1520,50 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"Se suprimirà una partició. Utilitzeu l'<a href=\"\">eina de partiment "
+"avançat</a> per tenir-ne més control"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:220001
 msgid "Use Entire Partition"
-msgstr ""
+msgstr "Utilitza tota la partició"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "Utilitza el disc sencer"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid "Split Largest Partition"
-msgstr ""
+msgstr "Parteix la partició més gran"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
 msgid "For best results, please ensure that this computer:"
-msgstr ""
+msgstr "Per obtenir els millors resultats, assegureu-vos que aquest ordinador:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
 msgid "has at least ${SIZE} available drive space"
-msgstr ""
+msgstr "Tingui com a mínim ${SIZE} d'espai de disc disponible"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
 msgid "is plugged in to a power source"
-msgstr ""
+msgstr "Estigui connectat a la xarxa elèctrica"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "Estigui connectat a Internet"
 
 #. Type: text
 #. Description
@@ -1564,6 +1574,11 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} utilitza programari de terceres parts per permetre la reproducció "
+"dels formats Flash, MP3 i d'altres, així com per permetre el funcionament de "
+"cert maquinari de xarxa sense fil. Algunes d'aquestes aplicacions no són "
+"programari lliure, i estan sotmeses a les condicions de llicència incloses "
+"en la seva documentació."
 
 #. Type: text
 #. Description
@@ -1572,18 +1587,21 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
+"El connector MP3 de Fluendo inclou tecnologia de descodificació d'àudio en "
+"format MPEG Layer 3 sota les condicions de llicència de l'Institut "
+"Fraunhofer i de Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "Instal·la el programari de terceres parts"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:231001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "Baixa actualitzacions durant la instaŀlació"
 
 #. Type: text
 #. Description
@@ -1629,12 +1647,22 @@ msgstr "Regió:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:241001
+msgid "[type here to change]"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:243001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+"Esteu a punt per instal·lar? Un cop hàgiu respost a unes poques preguntes, "
+"el contingut del ${MEDIUM} autònom es podrà instal·lar en aquest ordinador "
+"de manera que podreu executar ${RELEASE} a velocitat màxima sense fer servir "
+"el ${MEDIUM}."
 
 #. Type: title
 #. Description

@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-09-15 13:27+0100\n"
+"POT-Creation-Date: 2010-09-21 10:02+0100\n"
 "PO-Revision-Date: 2010-04-25 06:36+0000\n"
 "Last-Translator: Shiva Pokharel <shiva@mpp.org.np>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: ne\n"
 
@@ -179,10 +179,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "किबोर्ड ढाँचा"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -253,10 +251,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Setting computer name..."
 msgid "Your computer's name:"
-msgstr "कम्प्युटरको नाम मिलाउदै ...."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1187,7 +1183,7 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001 ../ubiquity.templates:241001
+#: ../ubiquity.templates:178001 ../ubiquity.templates:242001
 msgid "Welcome"
 msgstr "स्वागतम"
 
@@ -1548,7 +1544,13 @@ msgstr "क्षेत्र"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:241001
+msgid "[type here to change]"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:243001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
@@ -1611,9 +1613,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr ""
 
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "यिनीहरुलाई साथ साथै स्थापना गर्नुहोस्  , सुरूवातमा छान्न मिल्ने गरी"
-
 #~ msgid "Choose a password to keep your account safe."
 #~ msgstr "आफ्नो खाता सुरक्षित राख्न पासवर्ड छान्नुहोस् ।"
 
@@ -1625,6 +1624,9 @@ msgstr ""
 #~ "network."
 #~ msgstr ""
 #~ "यदि तपाईंले यो कम्प्युरलाई सञ्जालमा देखिने बनाउनुभयो भने यो नाम प्रयोग गरिने छ ।"
+
+#~ msgid "Install them side by side, choosing between them each startup"
+#~ msgstr "यिनीहरुलाई साथ साथै स्थापना गर्नुहोस्  , सुरूवातमा छान्न मिल्ने गरी"
 
 #~ msgid "Which layout is most similar to your keyboard?"
 #~ msgstr "तपाईको कुञ्जीपटसँग सबैभन्दा मिल्दो जुल्दो कुञ्जीपट ढाँचा कुन हो ?"

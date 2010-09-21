@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-09-15 13:27+0100\n"
-"PO-Revision-Date: 2010-04-29 04:12+0000\n"
-"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
+"POT-Creation-Date: 2010-09-21 10:02+0100\n"
+"PO-Revision-Date: 2010-09-11 21:36+0000\n"
+"Last-Translator: Mauro Tiago Correia Soares <Unknown>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: pt\n"
 
@@ -21,7 +21,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr "Usar o maior espaço livre contínuo"
+msgstr "Utilizar o maior espaço contínuo livre"
 
 #. Type: text
 #. Description
@@ -66,7 +66,7 @@ msgid ""
 msgstr ""
 "Está a instalar o sistema em modo de fabricante. Por favor introduza um nome "
 "único para este conjunto de sistemas. Este nome ficará guardado no sistema "
-"instalado e podendo ser utilizado para ajudar nos relatórios de erros."
+"instalado e pode ser utilizado para ajudar nos relatórios de erros."
 
 #. Type: text
 #. Description
@@ -75,6 +75,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
+"Pode experimentar o ${RELEASE} sem efectuar qualquer alteração no seu "
+"computador directamente através deste ${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -83,6 +85,8 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
+"Ou se estiver pronto, pode instalar ${RELEASE} a par (ou em vez de) o seu "
+"sistema operativo actual. Isto não deve demorar muito tempo."
 
 #. Type: text
 #. Description
@@ -141,6 +145,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2010."
 msgstr ""
+"Esta é uma versão prévia do instalador dp ${RELEASE} live ${MEDIUM}. Não se "
+"trata da versão final; a qual virá com a versão final do ${RELEASE} em "
+"Outubro de 2010."
 
 #. Type: text
 #. Description
@@ -158,7 +165,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Warning"
-msgstr ""
+msgstr "Aviso"
 
 #. Type: text
 #. Description
@@ -176,27 +183,25 @@ msgstr "Disposição de teclado"
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your keyboard layout:"
-msgstr ""
+msgstr "Escolha a sua disposição do teclado"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Escreva aqui para testar o seu teclado"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "Disposição de teclado"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Figure out keyboard layout"
-msgstr ""
+msgstr "Descobrir a disposição do teclado"
 
 #. Type: text
 #. Description
@@ -220,31 +225,31 @@ msgstr "Quem é você?"
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Your name:"
-msgstr ""
+msgstr "O seu nome:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Your name"
-msgstr ""
+msgstr "O seu nome"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Pick a username:"
-msgstr ""
+msgstr "Escolha um nome de utilizador:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Username"
-msgstr "Nome de Utilizador"
+msgstr "Nome do Utilizador"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Choose a password:"
-msgstr ""
+msgstr "Escolha uma palavra-passe:"
 
 #. Type: text
 #. Description
@@ -256,15 +261,13 @@ msgstr "Senha"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Confirm password"
-msgstr ""
+msgstr "Confirme a palavra-passe"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Setting computer name..."
 msgid "Your computer's name:"
-msgstr "A definir o nome do computador..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -284,31 +287,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Short password"
-msgstr ""
+msgstr "Palavra-passe curta"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Weak password"
-msgstr ""
+msgstr "Palavra-passe fraca"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Fair password"
-msgstr ""
+msgstr "Palavra-passe razoável"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Good password"
-msgstr ""
+msgstr "Palavra-passe boa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Strong password"
-msgstr ""
+msgstr "Palavra-passe forte"
 
 #. Type: text
 #. Description
@@ -326,7 +329,7 @@ msgstr "Pedir a minha senha para iniciar sessão"
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "Encriptar a minha pasta home"
 
 #. Type: text
 #. Description
@@ -358,7 +361,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Allocate drive space"
-msgstr ""
+msgstr "Disponibilizar espaço no disco"
 
 #. Type: text
 #. Description
@@ -423,7 +426,7 @@ msgstr "Detalhes"
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
-"O seu novo sistema operativo será instalado com as definições seguintes:"
+"O seu novo sistema operativo será instalado com as seguintes definições:"
 
 #. Type: text
 #. Description
@@ -437,13 +440,13 @@ msgstr "Avançado..."
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:62001
 msgid "_Install Now[ action ]"
-msgstr ""
+msgstr "_Instalar Agora[ action ]"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr ""
+msgstr "Passo ${INDEX}/${TOTAL}"
 
 #. Type: title
 #. Description
@@ -477,13 +480,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:68001
 msgid "Choose a different device to install the bootloader on:"
-msgstr "Escolha um outro dispositivo para a instalação da Rotina de Arranque:"
+msgstr "Escolha outro dispositivo para a instalação da Rotina de Arranque:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Continue without a bootloader."
-msgstr "Continuar sem instalar agora a Rotina de Arranque:"
+msgstr "Continuar sem instalar a Rotina de Arranque:"
 
 #. Type: text
 #. Description
@@ -504,7 +507,7 @@ msgstr "Cancelar a instalação."
 #. Description
 #: ../ubiquity.templates:72001
 msgid "This may leave your computer unable to boot."
-msgstr "Esta acção poderá impedir que o seu computador seja capaz de arrancar."
+msgstr "Esta acção poderá impedir o arranque do seu computador."
 
 #. Type: text
 #. Description
@@ -762,19 +765,14 @@ msgstr "Porta:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"A instalação terminou. Pode continuar a testar o Ubuntu, mas até que "
-"reinicie o computador, quaisquer documentos ou alterações que guarde serão "
-"perdidos."
+"A instalação terminou. Pode continuar a testar o ${RELEASE} mas, assim que o "
+"seu computador seja desligado, quaisquer alterações feitas ou documentos que "
+"grave irão ser perdidos."
 
 #. Type: text
 #. Description
@@ -1181,7 +1179,7 @@ msgstr "A calcular ficheiros que podem ser ignorados..."
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "Pronto assim que você estiver..."
 
 #. Type: title
 #. Description
@@ -1260,7 +1258,7 @@ msgstr "Configuração do Sistema"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001 ../ubiquity.templates:241001
+#: ../ubiquity.templates:178001 ../ubiquity.templates:242001
 msgid "Welcome"
 msgstr "Bem-vindo"
 
@@ -1292,7 +1290,7 @@ msgstr "Idioma"
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Prepare"
-msgstr ""
+msgstr "Preparar"
 
 #. Type: text
 #. Description
@@ -1383,7 +1381,7 @@ msgstr "O Instalador encontrou um erro ao tentar actualizar-se:"
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:199001
 msgid "USB disk"
-msgstr ""
+msgstr "Disco USB"
 
 #. Type: text
 #. Description
@@ -1399,6 +1397,8 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
+"Por favor escolha uma linguagem para o processo de instalação. Esta "
+"linguagem será a linguagem pré-definida neste computador."
 
 #. Type: text
 #. Description
@@ -1445,31 +1445,31 @@ msgstr "O instalador encontrou um erro irrecuperável e irá agora reiniciar."
 #. Description
 #: ../ubiquity.templates:207001
 msgid "Preparing to install ${RELEASE}"
-msgstr ""
+msgstr "A preparar para instalar ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:208001
 msgid "Wireless"
-msgstr ""
+msgstr "Rede Sem-Fios"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
 msgid "Please select your wireless network from this list"
-msgstr ""
+msgstr "Por favor seleccione a sua rede wireless desta lista"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:213001
 msgid "Select drive:"
-msgstr ""
+msgstr "Escolha o disco:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
 msgid "Allocate drive space by dragging the divider below:"
-msgstr ""
+msgstr "Reparta o espaço no disco ao arrastar o divisor abaixo:"
 
 #. Type: text
 #. Description
@@ -1515,19 +1515,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:220001
 msgid "Use Entire Partition"
-msgstr ""
+msgstr "Utilizar a Totatlidade da Partição"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "Utilizar a Totatlidade do Disco"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid "Split Largest Partition"
-msgstr ""
+msgstr "Dividir a Maior Partição"
 
 #. Type: text
 #. Description
@@ -1581,7 +1581,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:231001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "Descarregar as actualizações enquanto a instalação ocorre"
 
 #. Type: text
 #. Description
@@ -1627,7 +1627,13 @@ msgstr "Região:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:241001
+msgid "[type here to change]"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:243001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "

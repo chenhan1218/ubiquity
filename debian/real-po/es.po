@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-09-15 13:27+0100\n"
-"PO-Revision-Date: 2010-08-23 11:07+0000\n"
-"Last-Translator: Ricardo Pérez López <ricpelo@gmail.com>\n"
+"POT-Creation-Date: 2010-09-21 10:02+0100\n"
+"PO-Revision-Date: 2010-09-16 18:01+0000\n"
+"Last-Translator: Paco Molinero <paco@byasl.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: \n"
 
@@ -33,7 +33,7 @@ msgstr "Borrar y usar el disco entero"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "Instalar junto a otros sistemas operativos"
 
 #. Type: text
 #. Description
@@ -195,10 +195,8 @@ msgstr "Escriba aquí para comprobar el teclado"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Figure out keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "Determinar el tipo de teclado"
+msgstr "Determinar la distribución de teclado"
 
 #. Type: text
 #. Description
@@ -269,16 +267,14 @@ msgstr "Confirme la contraseña"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Your name:"
 msgid "Your computer's name:"
-msgstr "Su nombre:"
+msgstr "El nombre de su equipo:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "El nombre que usa cuando habla con otros equipos."
 
 #. Type: text
 #. Description
@@ -770,19 +766,14 @@ msgstr "Puerto:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"La instalación ha finalizado. Ahora puede seguir probando Ubuntu, pero hasta "
-"que no reinicie el equipo, no se conservará ningún cambio que haga ni ningún "
-"documento que guarde."
+"La instalación ha terminado.  Puede continuar probando ${RELEASE} ahora, "
+"pero hasta que no reinicie el equipo, cualquier cambio que haga o documento "
+"que guarde no se conservará."
 
 #. Type: text
 #. Description
@@ -1267,7 +1258,7 @@ msgstr "Configuración del sistema"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001 ../ubiquity.templates:241001
+#: ../ubiquity.templates:178001 ../ubiquity.templates:242001
 msgid "Welcome"
 msgstr "Bienvenido/a"
 
@@ -1299,7 +1290,7 @@ msgstr "Idioma"
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Prepare"
-msgstr ""
+msgstr "Preparar"
 
 #. Type: text
 #. Description
@@ -1486,63 +1477,49 @@ msgstr "Asigne el espacio en disco arrastrando el siguiente divisor:"
 #. Description
 #: ../ubiquity.templates:215001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "Se usará el disco entero:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:216001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
+#, no-c-format
 msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>%d particiones más pequeñas están ocultas, use la <a href="
-"\"\">herramienta de particionado avanzado</a> para un mayor control</small>"
+"%d pequeñas particiones están ocultas, use la <a href=\"\">herramienta "
+"avanzada de particionado</a> para tener más control"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
-#, fuzzy
-#| msgid ""
-#| "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
 msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>1 partición más pequeña oculta, use la <a href=\"\">herramienta de "
-"particionado avanzado</a> para mayor control</small>"
+"1 pequeña partición está oculta, use la <a href=\"\">herramienta avanzada de "
+"particionado</a> para tener más control"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
+#, no-c-format
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>%d particiones más pequeñas están ocultas, use la <a href="
-"\"\">herramienta de particionado avanzado</a> para un mayor control</small>"
+"%d particiones se eliminarán, use la <a href=\"\">herramienta avanzada de "
+"particionado</a> para tener más control"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
-#, fuzzy
-#| msgid ""
-#| "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>1 partición más pequeña oculta, use la <a href=\"\">herramienta de "
-"particionado avanzado</a> para mayor control</small>"
+"1 pequeña se eliminará, use la <a href=\"\">herramienta avanzada de "
+"particionado</a> para tener más control"
 
 #. Type: text
 #. Description
@@ -1565,32 +1542,26 @@ msgstr "Dividir la partición más grande"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid "For best results, please ensure:"
 msgid "For best results, please ensure that this computer:"
-msgstr "Para obtener mejores resultados, asegúrese de:"
+msgstr "Para tener los mejores resultados, asegúrese que este equipo:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
-#, fuzzy
-#| msgid "that you have at least ${SIZE} available drive space"
 msgid "has at least ${SIZE} available drive space"
-msgstr "que al menos tiene ${SIZE} disponibles de espacio en el disco"
+msgstr "tiene al menos ${SIZE} de espacio de disco disponible"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
-#, fuzzy
-#| msgid "that you are plugged in to a power source"
 msgid "is plugged in to a power source"
-msgstr "que está conectado a una fuente de energía"
+msgstr "está conectado a una toma de corriente"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "está conectado a Internet"
 
 #. Type: text
 #. Description
@@ -1601,27 +1572,26 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} usa software de terceros para mostrar Flash, MP3 y otros archivos "
+"multimedia y para trabajar con algunos dispositivos inalámbricos. Parte de "
+"este software es de código cerrado. El software está sujeto a los términos "
+"de la licencia incluida con la documentación del software."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001
-#, fuzzy
-#| msgid ""
-#| "The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 "
-#| "audio decoding technology licensed from Faunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
-"El siguiente aviso aplica para el complemento MP3 Fluendo: tecnología de "
-"decodificación de audio MPEG Layer-3 con licencia de Faunhofer IIS and "
-"Thomson."
+"El complemento Fluendo MP3 incluye la tecnología de decodificación de audio "
+"MPEG Layer-3 licenciada por Fraunhofer IIS y Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "Instalar este software de terceros"
 
 #. Type: text
 #. Description
@@ -1673,7 +1643,13 @@ msgstr "Región:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:241001
+msgid "[type here to change]"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:243001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
@@ -1747,26 +1723,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Desinstalando paquetes"
 
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr ""
-#~ "Instalarlo junto a los otros, eligiendo entre ellos al arrancar el equipo"
-
-#~ msgid "that you are connected to the Internet with an Ethernet cable"
-#~ msgstr "que está conectado a Internet con un cable Ethernet"
-
-#~ msgid ""
-#~ "Ubuntu aims to be free and open-source software.  However, this is not "
-#~ "always possible."
-#~ msgstr ""
-#~ "Ubuntu tiene como objetivo ser software libre y de código abierto. Sin "
-#~ "embargo, esto no es siempre posible."
-
-#~ msgid ""
-#~ "Please off me non-open-source software if it is needed for a better "
-#~ "experience"
-#~ msgstr ""
-#~ "Ofrecerme software propietario si se necesita para una experiencia mejor"
-
 #~ msgid "Which layout is most similar to your keyboard?"
 #~ msgstr "¿Cuál es la distribución más parecida a la de su teclado?"
 
@@ -1811,6 +1767,10 @@ msgstr "Desinstalando paquetes"
 
 #~ msgid "Choose language"
 #~ msgstr "Escoja el idioma"
+
+#~ msgid "Install them side by side, choosing between them each startup"
+#~ msgstr ""
+#~ "Instalarlo junto a los otros, eligiendo entre ellos al arrancar el equipo"
 
 #~ msgid "USB"
 #~ msgstr "USB"
@@ -1861,3 +1821,19 @@ msgstr "Desinstalando paquetes"
 
 #~ msgid "Strength: strong"
 #~ msgstr "Fortaleza: fuerte"
+
+#~ msgid "that you are connected to the Internet with an Ethernet cable"
+#~ msgstr "que está conectado a Internet con un cable Ethernet"
+
+#~ msgid ""
+#~ "Ubuntu aims to be free and open-source software.  However, this is not "
+#~ "always possible."
+#~ msgstr ""
+#~ "Ubuntu tiene como objetivo ser software libre y de código abierto. Sin "
+#~ "embargo, esto no es siempre posible."
+
+#~ msgid ""
+#~ "Please off me non-open-source software if it is needed for a better "
+#~ "experience"
+#~ msgstr ""
+#~ "Ofrecerme software propietario si se necesita para una experiencia mejor"

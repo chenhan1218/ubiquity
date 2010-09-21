@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-09-15 13:27+0100\n"
-"PO-Revision-Date: 2010-08-23 12:46+0000\n"
-"Last-Translator: MinSoo Kim <misol@korea.ac.kr>\n"
+"POT-Creation-Date: 2010-09-21 10:02+0100\n"
+"PO-Revision-Date: 2010-09-19 09:40+0000\n"
+"Last-Translator: Seung Soo, Ha <sungsuha@gmail.com>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: ko\n"
 
@@ -33,7 +33,7 @@ msgstr "이전 파티션을 삭제하고 디스크전체를 사용"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "다른 운영체제에 더불어 설치하기"
 
 #. Type: text
 #. Description
@@ -189,10 +189,8 @@ msgstr "키보드를 시험하기 위해서 여기에 타이핑 해보십시오"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Figure out keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "키보드 배열 파악"
+msgstr "키보드 구성 알아내기"
 
 #. Type: text
 #. Description
@@ -263,16 +261,14 @@ msgstr "비밀번호 확인"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Your name:"
 msgid "Your computer's name:"
-msgstr "이름:"
+msgstr "컴퓨터 이름"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "다른 컴퓨터와 의사소통할 때 사용하는 이름"
 
 #. Type: text
 #. Description
@@ -758,18 +754,14 @@ msgstr "포트:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"설치가 완료되었습니다. 다시 시작하기 전에 우분투를 계속 테스트 해볼 수 있습니"
-"다. 하지만 변경한 사항이나 저장한 문서들은 보존되지 않습니다."
+"설치가 완료되었습니다. 이제 ${RELEASE}을(를) 체험할 수 있습니다. 하지만, 컴퓨"
+"터를 재부팅하기 전까지 저장하는 문서를 포함해서, 어떤 변경도 보존되지 않을 것"
+"입니다."
 
 #. Type: text
 #. Description
@@ -1166,7 +1158,7 @@ msgstr "복사하지 않을 파일 계산중 ..."
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "준비되었나요?"
 
 #. Type: title
 #. Description
@@ -1244,7 +1236,7 @@ msgstr "시스템 설정"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001 ../ubiquity.templates:241001
+#: ../ubiquity.templates:178001 ../ubiquity.templates:242001
 msgid "Welcome"
 msgstr "환영합니다"
 
@@ -1276,7 +1268,7 @@ msgstr "언어"
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Prepare"
-msgstr ""
+msgstr "준비"
 
 #. Type: text
 #. Description
@@ -1460,63 +1452,49 @@ msgstr "아래 칸막이를 드래그 해서 디스크 드라이브 공간을 �
 #. Description
 #: ../ubiquity.templates:215001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "하드 디스크 전체를 사용하기:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:216001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
+#, no-c-format
 msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>%d개의 더 작은 파티션이 숨겨집니다. 더 자세한 설정을 하려면 <a href="
-"\"\">고급 파티션 도구</a>를 이용하십시오.</small>"
+"%d개의 작은 파티션들은 여기에서 보이지 않도록 했습니다. 기타 설정을 위해서는 "
+"<a href=\"\">고급 파티션 도구</a>을 사용하세요."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
-#, fuzzy
-#| msgid ""
-#| "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
 msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>1개의 더 작은 파티션이 숨겨집니다. 더 자세한 설정을 하려면 <a href="
-"\"\">고급 파티션 도구</a>를 이용하십시오.</small>"
+"하나의 작은 파티션을 여기에서 보이지 않도록 했습니다. 기타 설정을 위해서는 "
+"<a href=\"\">고급 파티션 도구</a>을 사용하세요"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
+#, no-c-format
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>%d개의 더 작은 파티션이 숨겨집니다. 더 자세한 설정을 하려면 <a href="
-"\"\">고급 파티션 도구</a>를 이용하십시오.</small>"
+"%d개의 파티션을 삭제하게 됩니다.  기타 설정을 위해서는 <a href=\"\">고급 파티"
+"션 도구</a>을 사용하세요"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
-#, fuzzy
-#| msgid ""
-#| "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>1개의 더 작은 파티션이 숨겨집니다. 더 자세한 설정을 하려면 <a href="
-"\"\">고급 파티션 도구</a>를 이용하십시오.</small>"
+"1개의 파티션을 삭제하게 됩니다.  기타 설정을 위해서는 <a href=\"\">고급 파티"
+"션 도구</a>을 사용하세요"
 
 #. Type: text
 #. Description
@@ -1539,32 +1517,26 @@ msgstr "가장 큰 파티션 나누기"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid "For best results, please ensure:"
 msgid "For best results, please ensure that this computer:"
-msgstr "최상의 결과를 위해서 확인하십시오:"
+msgstr "최적의 결과를 위해서, 컴퓨터에 대해 다음 항목을 확인하세요:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
-#, fuzzy
-#| msgid "that you have at least ${SIZE} available drive space"
 msgid "has at least ${SIZE} available drive space"
-msgstr "최소한 ${SIZE}의 디스크 공간이 확보되어 있는지"
+msgstr "적어도 ${SIZE} 의 하드 드라이브 용량 확보"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
-#, fuzzy
-#| msgid "that you are plugged in to a power source"
 msgid "is plugged in to a power source"
-msgstr "전원에 연결되어 있는지"
+msgstr "안정적인 전원에 연결"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "인터넷에 연결"
 
 #. Type: text
 #. Description
@@ -1575,26 +1547,25 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE}은 플래시, MP3나 기타 매체를 표시하기 위해 제3자가 제공한 소프트웨"
+"어를 사용합니다. 이들 소프트웨어는 폐쇄 소프트웨어(closed-source)입니다. 해"
+"당 소프트웨어들은 각각의 사용자 계약을 따릅니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001
-#, fuzzy
-#| msgid ""
-#| "The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 "
-#| "audio decoding technology licensed from Faunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
-"다음 알림은 Fluendo MP3 플러그인: Faunhofer IIS and Thomson으로 부터 사용권"
-"을 획득한 MPEG Layer-3 오디오 디코딩 기술에 적용됩니다."
+"Fluendo MP3 플러그인은 Fraunhofer IIS and Thomson에서 라이센싱된 MPEG Layer-3"
+"(MP3) 오디오 재생 기술을 사용합니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "이 소프트웨어 설치하기"
 
 #. Type: text
 #. Description
@@ -1645,7 +1616,13 @@ msgstr "지역:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:241001
+msgid "[type here to change]"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:243001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
@@ -1717,19 +1694,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "패키지를 삭제합니다"
 
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "나란히 설치하고, 시작할 때 선택하기"
-
-#~ msgid "that you are connected to the Internet with an Ethernet cable"
-#~ msgstr "이더넷 케이블을 통해 인터넷에 연결되어 있는지"
-
-#~ msgid ""
-#~ "Ubuntu aims to be free and open-source software.  However, this is not "
-#~ "always possible."
-#~ msgstr ""
-#~ "우분투는 자유 오픈 소스 소프트웨어를 지향합니다. 그러나 항상 가능하지는 않"
-#~ "습니다."
-
 #~ msgid "Which layout is most similar to your keyboard?"
 #~ msgstr "당신의 키보드와 가장 비슷한 배치는 어떤 것입니까?"
 
@@ -1757,6 +1721,9 @@ msgstr "패키지를 삭제합니다"
 #~ msgid "Require my password to log in and to decrypt my home folder"
 #~ msgstr ""
 #~ "로그인할때 암호를 입력하고, 암호화된 개인 폴더에도 접근할 수 있게 합니다."
+
+#~ msgid "Install them side by side, choosing between them each startup"
+#~ msgstr "나란히 설치하고, 시작할 때 선택하기"
 
 #~ msgid ""
 #~ "If more than one person will use this computer, you can set up multiple "
@@ -1820,3 +1787,13 @@ msgstr "패키지를 삭제합니다"
 
 #~ msgid "Full Name"
 #~ msgstr "영문으로 자신의 이름을 입력하세요."
+
+#~ msgid "that you are connected to the Internet with an Ethernet cable"
+#~ msgstr "이더넷 케이블을 통해 인터넷에 연결되어 있는지"
+
+#~ msgid ""
+#~ "Ubuntu aims to be free and open-source software.  However, this is not "
+#~ "always possible."
+#~ msgstr ""
+#~ "우분투는 자유 오픈 소스 소프트웨어를 지향합니다. 그러나 항상 가능하지는 않"
+#~ "습니다."

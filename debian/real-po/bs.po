@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-09-15 13:27+0100\n"
-"PO-Revision-Date: 2010-04-29 04:15+0000\n"
+"POT-Creation-Date: 2010-09-21 10:02+0100\n"
+"PO-Revision-Date: 2010-08-27 21:03+0000\n"
 "Last-Translator: Miro Glavić <glavicmiro@gmail.com>\n"
 "Language-Team: Bosnian <lokal@linux.org.ba>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: bs\n"
 
@@ -187,10 +187,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "Raspored tastature"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -261,10 +259,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Setting computer name..."
 msgid "Your computer's name:"
-msgstr "Postavljam ime računara..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -759,18 +755,11 @@ msgstr "Port:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"Instalacija je završena.  Možete nastaviti da testirate Ubuntu sada, ali dok "
-"ne ponovo pokrenete računar vaše promjene na dokumentima neće biti sačuvane."
 
 #. Type: text
 #. Description
@@ -1253,7 +1242,7 @@ msgstr "Konfiguracija sistema"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001 ../ubiquity.templates:241001
+#: ../ubiquity.templates:178001 ../ubiquity.templates:242001
 msgid "Welcome"
 msgstr "Dobrodošli"
 
@@ -1622,12 +1611,21 @@ msgstr "Regija:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:241001
+msgid "[type here to change]"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:243001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+"Spremni za instalaciju? Nakon sto odgovorite na nekoliko pitanja, sadržaj "
+"ovog live ${MEDIUM} može biti instaliran na vaš računar tako da možete "
+"pokrenuti ${RELEASE} punom brzinom."
 
 #. Type: title
 #. Description
@@ -1693,10 +1691,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Uklanjanje paketa"
 
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr ""
-#~ "Instaliraj ih istovremeno s izborom između njih pri svakom podizanju"
-
 #~ msgid "Which layout is most similar to your keyboard?"
 #~ msgstr "Koji raspored je najsličniji Vašoj tastaturi?"
 
@@ -1732,6 +1726,10 @@ msgstr "Uklanjanje paketa"
 
 #~ msgid "Choose language"
 #~ msgstr "Izaberite jezik/Choose language"
+
+#~ msgid "Install them side by side, choosing between them each startup"
+#~ msgstr ""
+#~ "Instaliraj ih istovremeno s izborom između njih pri svakom podizanju"
 
 #~ msgid "Require my password to log in and to decrypt my home folder"
 #~ msgstr ""

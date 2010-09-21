@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-09-15 13:27+0100\n"
-"PO-Revision-Date: 2010-08-15 11:09+0000\n"
+"POT-Creation-Date: 2010-09-21 10:02+0100\n"
+"PO-Revision-Date: 2010-08-28 13:46+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: \n"
 
@@ -181,27 +181,25 @@ msgstr "Zgjidh një tastierë"
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your keyboard layout:"
-msgstr ""
+msgstr "Zgjidhni daljen e tastirës suaj:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Shtypni këtu për të testuar tastierën tuaj"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "Zgjidh një tastierë"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Figure out keyboard layout"
-msgstr ""
+msgstr "Gjeni daljen e tastierës"
 
 #. Type: text
 #. Description
@@ -237,7 +235,7 @@ msgstr "Emri juaj"
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Pick a username:"
-msgstr ""
+msgstr "Zgjidhni një emër përdoruesi:"
 
 #. Type: text
 #. Description
@@ -249,7 +247,7 @@ msgstr "Emri i përdoruesit"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Choose a password:"
-msgstr ""
+msgstr "Zgjidhni një fjalëkalim:"
 
 #. Type: text
 #. Description
@@ -266,10 +264,8 @@ msgstr "Konfirmo fjalëkalimin"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Your name:"
 msgid "Your computer's name:"
-msgstr "Emri juaj:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -289,31 +285,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Short password"
-msgstr ""
+msgstr "Fjalëkalim i shkurtër"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Weak password"
-msgstr ""
+msgstr "Fjalëkalim i dobët"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Fair password"
-msgstr ""
+msgstr "Fjalëkalim i mirë"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Good password"
-msgstr ""
+msgstr "Fjalëkalim shumë i mirë"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Strong password"
-msgstr ""
+msgstr "Fjalëkalim i fortë"
 
 #. Type: text
 #. Description
@@ -331,7 +327,7 @@ msgstr "Kërko fjalëkalimin tim për të hyrë"
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "Kripto dosjen time shtëpi"
 
 #. Type: text
 #. Description
@@ -363,7 +359,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Allocate drive space"
-msgstr ""
+msgstr "Lësho hapësirë në disk"
 
 #. Type: text
 #. Description
@@ -441,13 +437,13 @@ msgstr "I Avancuar"
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:62001
 msgid "_Install Now[ action ]"
-msgstr ""
+msgstr "_Instalo Tani[ action ]"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr ""
+msgstr "Hap ${INDEX}/${TOTAL}"
 
 #. Type: title
 #. Description
@@ -766,19 +762,11 @@ msgstr "Porti:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"Instalimi përfundoi. Ju mund të vazhdoni ta testoni Ubuntu-n tani, por për "
-"sa kohë që nuk rindizni kompjuterin, çdo ndryshim që bëni apo dokumenta që "
-"ruani nuk do të regjistrohen."
 
 #. Type: text
 #. Description
@@ -1181,7 +1169,7 @@ msgstr "Po llogarisim skedarët që do lëmë pa kopjuar..."
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "Gati kur të jeni edhe ju gati..."
 
 #. Type: title
 #. Description
@@ -1259,7 +1247,7 @@ msgstr "Konfigurimi i sistemit"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001 ../ubiquity.templates:241001
+#: ../ubiquity.templates:178001 ../ubiquity.templates:242001
 msgid "Welcome"
 msgstr "Mirësevini"
 
@@ -1291,7 +1279,7 @@ msgstr "Gjuha"
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Prepare"
-msgstr ""
+msgstr "Përgatit"
 
 #. Type: text
 #. Description
@@ -1384,7 +1372,7 @@ msgstr ""
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:199001
 msgid "USB disk"
-msgstr ""
+msgstr "USB disk"
 
 #. Type: text
 #. Description
@@ -1450,7 +1438,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:207001
 msgid "Preparing to install ${RELEASE}"
-msgstr ""
+msgstr "Duke u përgatitur për të instaluar ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -1462,19 +1450,19 @@ msgstr "Wireless (pa fije)"
 #. Description
 #: ../ubiquity.templates:209001
 msgid "Please select your wireless network from this list"
-msgstr ""
+msgstr "Ju lutemi të zgjidhni rrjetin tuaj wireless nga kjo listë"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:213001
 msgid "Select drive:"
-msgstr ""
+msgstr "Zgjidh draivin:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
 msgid "Allocate drive space by dragging the divider below:"
-msgstr ""
+msgstr "Krijo hapësirë duke zvarritur ndarësin këtu poshtë:"
 
 #. Type: text
 #. Description
@@ -1520,19 +1508,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:220001
 msgid "Use Entire Partition"
-msgstr ""
+msgstr "Përdor të gjithë Particionin"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "Përdor të gjithë Diskun"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid "Split Largest Partition"
-msgstr ""
+msgstr "Nda Particionin më të Madh"
 
 #. Type: text
 #. Description
@@ -1586,7 +1574,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:231001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "Shkarko përditësiet gjatë instalimit"
 
 #. Type: text
 #. Description
@@ -1632,7 +1620,13 @@ msgstr "Krahina:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:241001
+msgid "[type here to change]"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:243001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "

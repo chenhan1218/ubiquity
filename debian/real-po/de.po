@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-09-15 13:27+0100\n"
-"PO-Revision-Date: 2010-04-29 04:14+0000\n"
-"Last-Translator: Jochen Skulj <jochen@jochenskulj.de>\n"
+"POT-Creation-Date: 2010-09-21 10:02+0100\n"
+"PO-Revision-Date: 2010-09-16 16:07+0000\n"
+"Last-Translator: Moritz Baumann <Unknown>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: \n"
 
@@ -33,7 +33,7 @@ msgstr "Löschen und das gesamte Medium verwenden"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "Neben anderen Betriebssystemen installieren"
 
 #. Type: text
 #. Description
@@ -76,6 +76,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
+"Sie können ${RELEASE} direkt von diesem Speichermedium (${MEDIUM}) "
+"ausprobieren, ohne dass etwas an Ihrem Rechner verändert wird."
 
 #. Type: text
 #. Description
@@ -84,6 +86,8 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
+"Wenn Sie möchten, können Sie ${RELEASE} auch neben (oder anstatt) Ihres "
+"bisherigen Betriebssystems installieren. Dies dauert nur einige Minuten."
 
 #. Type: text
 #. Description
@@ -144,6 +148,10 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2010."
 msgstr ""
+"Dies ist eine Vorveröffentlichung des ${MEDIUM}-Live-Installationsprogramms "
+"von ${RELEASE}. Dies ist keine finale Veröffentlichung; diese wird mit der "
+"finalen Veröffentlichung von ${RELEASE} im Oktober 2010 veröffentlicht "
+"werden."
 
 #. Type: text
 #. Description
@@ -162,7 +170,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Warning"
-msgstr ""
+msgstr "Warnung"
 
 #. Type: text
 #. Description
@@ -180,27 +188,25 @@ msgstr "Tastenbelegung"
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your keyboard layout:"
-msgstr ""
+msgstr "Wählen Sie Ihre Tastaturbelegung:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Geben Sie hier etwas ein, um Ihre Tastaturbelegung zu überprüfen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "Tastenbelegung"
+msgstr "Tastaturbelegung herausfinden"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Figure out keyboard layout"
-msgstr ""
+msgstr "Tastaturbelegung automatisch erkennen"
 
 #. Type: text
 #. Description
@@ -224,19 +230,19 @@ msgstr "Wer sind Sie?"
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Your name:"
-msgstr ""
+msgstr "Ihr Name:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Your name"
-msgstr ""
+msgstr "Ihr Name"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Pick a username:"
-msgstr ""
+msgstr "Wählen Sie einen Benutzernamen:"
 
 #. Type: text
 #. Description
@@ -248,7 +254,7 @@ msgstr "Benutzername"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Choose a password:"
-msgstr ""
+msgstr "Wählen Sie ein Passwort:"
 
 #. Type: text
 #. Description
@@ -260,21 +266,20 @@ msgstr "Passwort"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Confirm password"
-msgstr ""
+msgstr "Passwort bestätigen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Setting computer name..."
 msgid "Your computer's name:"
-msgstr "Rechnername wird gesetzt ..."
+msgstr "Name Ihres Rechners:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
 msgstr ""
+"Der Name, der bei der Kommunikation mit anderen Rechnern verwendet wird."
 
 #. Type: text
 #. Description
@@ -288,31 +293,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Short password"
-msgstr ""
+msgstr "Passwort zu kurz"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Weak password"
-msgstr ""
+msgstr "Schwaches Passwort"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Fair password"
-msgstr ""
+msgstr "Ausreichendes Passwort"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Good password"
-msgstr ""
+msgstr "Gutes Passwort"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Strong password"
-msgstr ""
+msgstr "Starkes Passwort"
 
 #. Type: text
 #. Description
@@ -330,7 +335,7 @@ msgstr "Passwort zum Anmelden abfragen"
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "Meine persönlichen Dateien verschlüsseln"
 
 #. Type: text
 #. Description
@@ -363,7 +368,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Allocate drive space"
-msgstr ""
+msgstr "Festplattenspeicher zuweisen"
 
 #. Type: text
 #. Description
@@ -443,13 +448,13 @@ msgstr "Erweitert …"
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:62001
 msgid "_Install Now[ action ]"
-msgstr ""
+msgstr "Jetzt _installieren"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr ""
+msgstr "Schritt ${INDEX}/${TOTAL}"
 
 #. Type: title
 #. Description
@@ -770,19 +775,14 @@ msgstr "Port:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"Die Installation wurde beendet. Sie können Ubuntu nun weiter ausprobieren, "
-"allerdings gehen alle Änderungen oder gespeicherte Dokumente bei einem "
-"Neustart des Rechners verloren."
+"Die Installation ist abgeschlossen. Sie können ${RELEASE} jetzt weiter "
+"testen, aber alle Änderungen, die Sie bis zu einem Neustart des Systems "
+"durchführen, werden nicht gespeichert."
 
 #. Type: text
 #. Description
@@ -1189,7 +1189,7 @@ msgstr "Beim Kopiervorgang zu überspringende Dateien werden berechnet ..."
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "Fertig, sobald Sie es sind …"
 
 #. Type: title
 #. Description
@@ -1271,7 +1271,7 @@ msgstr "Systemeinrichtung"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001 ../ubiquity.templates:241001
+#: ../ubiquity.templates:178001 ../ubiquity.templates:242001
 msgid "Welcome"
 msgstr "Willkommen"
 
@@ -1303,7 +1303,7 @@ msgstr "Sprache"
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Prepare"
-msgstr ""
+msgstr "Vorbereiten"
 
 #. Type: text
 #. Description
@@ -1396,7 +1396,7 @@ msgstr ""
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:199001
 msgid "USB disk"
-msgstr ""
+msgstr "USB-Medium"
 
 #. Type: text
 #. Description
@@ -1412,6 +1412,8 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
+"Bitte wählen sie die Sprache, die Sie für die Installation verwenden "
+"möchten. Diese wird die vorgegebene Sprache auf diesem Rechner."
 
 #. Type: text
 #. Description
@@ -1460,37 +1462,39 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:207001
 msgid "Preparing to install ${RELEASE}"
-msgstr ""
+msgstr "Installation von ${RELEASE} wird vorbereitet"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:208001
 msgid "Wireless"
-msgstr ""
+msgstr "Funknetzwerk"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
 msgid "Please select your wireless network from this list"
-msgstr ""
+msgstr "Bitte wählen Sie Ihr Funknetzwerk aus dieser Liste"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:213001
 msgid "Select drive:"
-msgstr ""
+msgstr "Laufwerk wählen:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr ""
+"Weisen Sie den Festplattenspeicher zu, indem Sie unten stehendes Element an "
+"die entsprechende Position ziehen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:215001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "Die gesamte Festplatte wird verwendet:"
 
 #. Type: text
 #. Description
@@ -1500,6 +1504,9 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d kleinere Partitionen sind versteckt. Verwenden Sie das <a href="
+"\"\">erweiterte Partitionierungswerkzeug</a> für weitere "
+"Einstellungsmöglichkeiten"
 
 #. Type: text
 #. Description
@@ -1508,6 +1515,9 @@ msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 kleinere Partition ist versteckt. Verwenden Sie das <a href="
+"\"\">erweiterte Partitionierungswerkzeug</a> für weitere "
+"Einstellungsmöglichkeiten"
 
 #. Type: text
 #. Description
@@ -1517,6 +1527,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d Partitionen werden gelöscht. Verwenden Sie das <a href=\"\">erweiterte "
+"Partitionierungswerkzeug</a> für weitere Einstellungsmöglichkeiten"
 
 #. Type: text
 #. Description
@@ -1525,48 +1537,51 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 Partition wird gelöscht. Verwenden Sie das <a href=\"\">erweiterte "
+"Partitionierungswerkzeug</a> für weitere Einstellungsmöglichkeiten"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:220001
 msgid "Use Entire Partition"
-msgstr ""
+msgstr "Die gesamte Partition verwenden"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "Die gesamte Festplatte verwenden"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid "Split Largest Partition"
-msgstr ""
+msgstr "Die größte Partition aufteilen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
 msgid "For best results, please ensure that this computer:"
 msgstr ""
+"Für eine optimale Installation sollten Sie sicherstellen, dass Ihr Rechner:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
 msgid "has at least ${SIZE} available drive space"
-msgstr ""
+msgstr "über mindestens ${SIZE} freien Festplattenspeicher verfügt"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
 msgid "is plugged in to a power source"
-msgstr ""
+msgstr "an die Steckdose angeschlossen ist"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "mit dem Internet verbunden ist"
 
 #. Type: text
 #. Description
@@ -1577,6 +1592,10 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} verwendet Drittanbieter-Software, um Flash, MP3 und andere Medien "
+"wiederzugeben sowie für die Steuerung einiger WLAN-Hardware-Komponenten. "
+"Einige dieser Programme sind nicht quelloffen. Diese Software unterliegt den "
+"in ihrer Dokumentation enthaltenen Lizenzbestimmungen."
 
 #. Type: text
 #. Description
@@ -1585,18 +1604,20 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
+"Das Fluendo-MP3-Plugin enthält einen »MPEG Layer-3«-Audiodekoder, der vom "
+"Fraunhofer IIS und von Thomson lizensiert wurde."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "Drittanbieter-Software installieren"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:231001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "Aktualisierungen während der Installation herunterladen"
 
 #. Type: text
 #. Description
@@ -1642,12 +1663,22 @@ msgstr "Region:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:241001
+msgid "[type here to change]"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:243001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+"Bereit für die Installation? Sobald Sie einige Fragen beantwortet haben, "
+"kann der Inhalt des Live-Systems (${MEDIUM}) auf diesem Rechner installiert "
+"werden, so dass Sie ${RELEASE} ohne ${MEDIUM} mit voller Geschwindigkeit "
+"nutzen können."
 
 #. Type: title
 #. Description
@@ -1713,10 +1744,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Pakete werden entfernt"
 
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr ""
-#~ "Nebeneinander installieren und bei jedem Start zwischen diesen wählen"
-
 #~ msgid "Choose your own:"
 #~ msgstr "Wählen Sie selbst:"
 
@@ -1750,6 +1777,10 @@ msgstr "Pakete werden entfernt"
 
 #~ msgid "Choose language"
 #~ msgstr "Sprache wählen/Choose language"
+
+#~ msgid "Install them side by side, choosing between them each startup"
+#~ msgstr ""
+#~ "Nebeneinander installieren und bei jedem Start zwischen diesen wählen"
 
 #~ msgid "Require my password to log in and to decrypt my home folder"
 #~ msgstr ""

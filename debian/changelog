@@ -21,6 +21,7 @@ ubiquity (2.3.20) UNRELEASED; urgency=low
   * Deal with broken /cdrom symlinks (LP: #642274).
   * Disable locking the screen and switching users in the installer
     session (LP: #644016).
+  * Update translations from Launchpad.
 
   [ Colin Watson ]
   * Stop ubiquity and oem-config when stopping display managers.  This

@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-09-15 13:27+0100\n"
-"PO-Revision-Date: 2010-07-23 21:41+0000\n"
+"POT-Creation-Date: 2010-09-21 10:02+0100\n"
+"PO-Revision-Date: 2010-08-29 15:07+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: he\n"
 
@@ -54,7 +54,7 @@ msgstr "התקנה"
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "התקנה (ליצרנים בלבד)"
+msgstr "התקנה (מצב OEM, ליצרנים בלבד)"
 
 #. Type: text
 #. Description
@@ -74,6 +74,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
+"ניתן לנסות להשתמש ב־${RELEASE} מבלי לערוך שינויים כלשהם במחשבך, ישירות מה־"
+"${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -82,6 +84,8 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
+"או אם התכוננת לכך, ניתן להתקין את ${RELEASE} לצד (או במקום) מערכת ההפעלה "
+"הנוכחית שלך. פעולה זו לא אמורה לארוך זמן רב במיוחד."
 
 #. Type: text
 #. Description
@@ -114,20 +118,20 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"יתכן שברצונך לקרוא את <a href=\"release-notes\">הערות ההפצה</a> או <a href="
-"\"update\">לעדכן את תכנית התקנה זו</a>."
+"מומלץ לקרוא את <a href=\"release-notes\">הערות ההפצה</a> או את <a href="
+"\"update\">עדכון תכנית התקנה זו</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr "יתכן שברצונך לעיין ב<a href=\"release-notes\">הערות ההפצה</a>."
+msgstr "מומלץ לעיין ב<a href=\"release-notes\">הערות ההפצה</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr "יתכן שברצונך ל<a href=\"update\">עדכן תכנית התקנה זו</a>."
+msgstr "מומלץ לעיין ב<a href=\"update\">עדכון תכנית התקנה זו</a>."
 
 #. Type: text
 #. Description
@@ -155,45 +159,43 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Warning"
-msgstr ""
+msgstr "אזהרה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Where are you?"
-msgstr "איפה אתם?"
+msgstr "מהו מיקומך?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Keyboard layout"
-msgstr "פריסת מקלדת"
+msgstr "פריסת המקלדת"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your keyboard layout:"
-msgstr ""
+msgstr "נא לבחור את פריסת המקלדת שלך:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "ניתן להקליד כאן כדי לבדוק את המקלדת שלך"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "פריסת מקלדת"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Figure out keyboard layout"
-msgstr ""
+msgstr "זיהוי פריסת המקלדת"
 
 #. Type: text
 #. Description
@@ -211,25 +213,25 @@ msgstr "האם התו הבא קיים על גבי המקלדת שלך?"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Who are you?"
-msgstr "מי את/ה?"
+msgstr "מי הנ״ל?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Your name:"
-msgstr ""
+msgstr "השם שלך:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Your name"
-msgstr ""
+msgstr "השם שלך"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Pick a username:"
-msgstr ""
+msgstr "נא לבחור שם משתמש:"
 
 #. Type: text
 #. Description
@@ -241,27 +243,25 @@ msgstr "שם המשתמש"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Choose a password:"
-msgstr ""
+msgstr "נא לבחור ססמה:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Password"
-msgstr "סיסמה"
+msgstr "ססמה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Confirm password"
-msgstr ""
+msgstr "אישור הססמה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Setting computer name..."
 msgid "Your computer's name:"
-msgstr "מגדיר את שם המחשב..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -273,61 +273,61 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:39001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "אתה נמצא כרגע במצב ניסוי. היזהר לא להכניס סיסמאות חשובות!"
+msgstr "כרגע מופעל מצב ניפוי שגיאות. לא מומלץ להשתמש בססמאות בעלות ערך!"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Short password"
-msgstr ""
+msgstr "ססמה קצרה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Weak password"
-msgstr ""
+msgstr "ססמה חלשה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Fair password"
-msgstr ""
+msgstr "ססמה סבירה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Good password"
-msgstr ""
+msgstr "ססמה טובה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Strong password"
-msgstr ""
+msgstr "ססמה חזקה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Log in automatically"
-msgstr "התחבר אוטומטית"
+msgstr "כניסה אוטומטית"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Require my password to log in"
-msgstr "בקש את סיסמתי כדי להתחבר"
+msgstr "ססמתי תידרש כדי להיכנס"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "הצפנת תיקיית הבית שלי"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Migrate documents and settings"
-msgstr "העבר את documents and settings"
+msgstr "יבוא תיקיית documents and settings"
 
 #. Type: text
 #. Description
@@ -336,8 +336,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"בחר את החשבונות אותם תרצה לייבא. המסמכים וההגדרות של חשבונות אלו יהיו זמינים "
-"לאחר השלמת ההתקנה."
+"נא לבחור את החשבונות אותם ברצונך לייבא. התיקיות שתחת documents and settings "
+"של חשבונות אלו יהיו זמינים לאחר השלמת ההתקנה."
 
 #. Type: text
 #. Description
@@ -345,19 +345,20 @@ msgstr ""
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
-msgstr "אם אין ברצונך ליבא חשבונות, השאר את השדות לא מסומנים ועבור לעמוד הבא."
+msgstr ""
+"אם אין ברצונך ליבא חשבונות, ניתן להשאיר את השדות לא מסומנים ולעבור לעמוד הבא."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Allocate drive space"
-msgstr ""
+msgstr "הקצאת מקום בכונן"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "How do you want to partition the disk?"
-msgstr "באיזו דרך תרצו לחלק את הכונן למחיצות?"
+msgstr "באיזו דרך ברצונך לחלק את הכונן למחיצות?"
 
 #. Type: text
 #. Description
@@ -369,7 +370,7 @@ msgstr "במחשב זה לא מותקנות כלל מערכות הפעלה."
 #. Description
 #: ../ubiquity.templates:53001
 msgid "This computer has ${OS} on it."
-msgstr "במחשב זה מותקנת ${OS}"
+msgstr "במחשב זה מותקנת ${OS}."
 
 #. Type: text
 #. Description
@@ -387,7 +388,7 @@ msgstr "היכן ברצונך להתקין את ${RELEASE}?"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Prepare partitions"
-msgstr "הכנת מחיצות"
+msgstr "הכנת המחיצות"
 
 #. Type: text
 #. Description
@@ -402,7 +403,7 @@ msgstr "פעולה זו תמחק את ${SYSTEMS} ותתקין את ${RELEASE}."
 #. Description
 #: ../ubiquity.templates:58001 ../ubiquity.templates:116001
 msgid "Ready to install"
-msgstr "מוכן להתקנה"
+msgstr "המערכת מוכנה להתקנה"
 
 #. Type: text
 #. Description
@@ -429,25 +430,25 @@ msgstr "מתקדם..."
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:62001
 msgid "_Install Now[ action ]"
-msgstr ""
+msgstr "ה_תקנה כעת"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr ""
+msgstr "שלב ${INDEX}/${TOTAL}"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Quit the installation?"
-msgstr "לצאת מההתקנה?"
+msgstr "האם לצאת מההתקנה?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Do you really want to quit the installation now?"
-msgstr "האם אתה בטוח שברצונך לצאת מההתקנה כעת?"
+msgstr "האם באמת ברצונך לצאת מההתקנה כעת?"
 
 #. Type: text
 #. Description
@@ -462,13 +463,14 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
-"מצטערים, ארעה שגיאה ובגללה לא היה ניתן להתקין את מנהל האתחול במיקום שסופק."
+"אירעה שגיאה שבגללה לא היה ניתן להתקין את מנהל האתחול במיקום שסופק, עמך "
+"הסליחה."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
 msgid "Choose a different device to install the bootloader on:"
-msgstr "בחר התקן שונה שעליו יותקן מנהל האתחול:"
+msgstr "נא לבחור התקן אחר שעליו יותקן מנהל האתחול:"
 
 #. Type: text
 #. Description
@@ -481,13 +483,13 @@ msgstr "המשך ללא מנהל אתחול."
 #: ../ubiquity.templates:70001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr "תצטרך להתקין ידנית מנהל אתחול כדי להפעיל את ${RELEASE}."
+msgstr "עליך להתקין ידנית מנהל אתחול כדי להפעיל את ${RELEASE}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:71001
 msgid "Cancel the installation."
-msgstr "בטל את ההתקנה."
+msgstr "ביטול ההתקנה."
 
 #. Type: text
 #. Description
@@ -505,7 +507,7 @@ msgstr "כיצד ברצונך להמשיך?"
 #. Description
 #: ../ubiquity.templates:74001
 msgid "Skip"
-msgstr "דלג"
+msgstr "דילוג"
 
 #. Type: title
 #. Description
@@ -517,13 +519,13 @@ msgstr "ההתקנה הושלמה"
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Continue Testing"
-msgstr "המשך בדיקה"
+msgstr "המשך בבדיקה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Restart Now"
-msgstr "הפעל מחדש כעת"
+msgstr "הפעלה מחדש כעת"
 
 #. Type: text
 #. Description
@@ -531,7 +533,7 @@ msgstr "הפעל מחדש כעת"
 #. Description
 #: ../ubiquity.templates:78001 ../ubiquity.templates:79001
 msgid "Installer crashed"
-msgstr "תוכנית ההתקנה קרסה"
+msgstr "תכנית ההתקנה קרסה"
 
 #. Type: text
 #. Description
@@ -544,18 +546,18 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
-"מצטערים, אך תוכנית ההתקנה קרסה. אנא דווח על התקלה הזו בכתובת https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (הוסף אותה כבאג חדש, ולא לבאג "
-"שכבר קיים) כדי שאחד המפתחים יוכל לפתור את הבעיה הזו בהקדם האפשרי. בכדי לסייע "
-"למפתחים להבין מהו מקור הבעיה, אנא כלול בדיווח את הפרטים הבאים, בנוסף לקבצים /"
-"var/log/syslog ו- /var/log/partman:"
+"תכנית ההתקנה קרסה, עמך הסליחה. נא לדווח על תקלה זו בכתובת https://launchpad."
+"net/ubuntu/+source/ubiquity/+filebug (יש להוסיף אותה כבאג חדש, ולא לבאג שכבר "
+"קיים) כדי שאחד המפתחים יוכל לפתור בעיה זו בהקדם האפשרי. כדי לסייע למפתחים "
+"להבין מהו מקור הבעיה, מומלץ לכלול את הפרטים הבאים בדיווח התקלה שלך ולהוסיף "
+"את הקבצים ‎/var/log/syslog ו־‎/var/log/partman:"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:81001
 msgid "New Partition Table..."
-msgstr "טבלת מחיצות חדשה"
+msgstr "טבלת מחיצות חדשה..."
 
 #. Type: text
 #. Description
@@ -583,7 +585,7 @@ msgstr "מחיקה"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:85001
 msgid "Revert"
-msgstr "שיחזור"
+msgstr "החזרה"
 
 #. Type: text
 #. Description
@@ -618,7 +620,7 @@ msgstr "נקודת עיגון"
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:90001
 msgid "Format?"
-msgstr "לפרמט?"
+msgstr "האם לפרמט?"
 
 #. Type: text
 #. Description
@@ -653,7 +655,7 @@ msgstr "לא ידוע"
 #. Description
 #: ../ubiquity.templates:95001
 msgid "Create partition"
-msgstr "צור מחיצה"
+msgstr "יצירת מחיצה"
 
 #. Type: text
 #. Description
@@ -661,7 +663,7 @@ msgstr "צור מחיצה"
 #. Description
 #: ../ubiquity.templates:96001 ../ubiquity.templates:103001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr "גודל המחיצה החדשה במגה-בתים (megabyte=1000000bytes):"
+msgstr "גודל המחיצה החדשה במגה־בתים (מגה־בית=1000000 בתים):"
 
 #. Type: text
 #. Description
@@ -691,13 +693,13 @@ msgstr "לוגית"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Edit partition"
-msgstr "ערוך מחיצה"
+msgstr "עריכת מחיצה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:102001
 msgid "Edit a partition"
-msgstr "ערוך מחיצה"
+msgstr "עריכת מחיצה"
 
 #. Type: text
 #. Description
@@ -709,13 +711,13 @@ msgstr "אפשרויות מתקדמות"
 #. Description
 #: ../ubiquity.templates:105001
 msgid "Boot loader"
-msgstr "טעינה באתחול"
+msgstr "מנהל אתחול"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:106001
 msgid "Install boot loader"
-msgstr "התקן מערכת טעינה"
+msgstr "התקנת מנהל אתחול"
 
 #. Type: text
 #. Description
@@ -727,41 +729,36 @@ msgstr "תחרות פופולריות"
 #. Description
 #: ../ubiquity.templates:108001
 msgid "Participate in the package usage survey"
-msgstr "השתתף בסקר השימוש בחבילות"
+msgstr "השתתפות בסקר השימוש בחבילות"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:109001
 msgid "Network proxy"
-msgstr "Network proxy"
+msgstr "מתווך רשת"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
 msgid "HTTP proxy:"
-msgstr "HTTP proxy:"
+msgstr "מתווך HTTP:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:111001
 msgid "Port:"
-msgstr "יציאה:"
+msgstr "פתחה:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"ההתקנה הסתיימה. ניתן להמשיך ולבחון את אובונטו כעת, אך עד לאיתחול המחשב, כל "
-"השינוייםשנערכו או המסמכים שנשמרו על ידיך לא ישארו."
+"ההתקנה הסתיימה. ניתן להמשיך ולבדוק את ${RELEASE} כעת, אך עד להפעלת המחשב "
+"מחדש, כל השינויים שערכת או מסמכים ששמרת לא יוצגו עם הפעלת המערכת."
 
 #. Type: text
 #. Description
@@ -783,7 +780,7 @@ msgstr "המשך"
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
-msgstr "ההתקנה הושלמה. עליך לאתחל את המחשב על מנת להשתמש בהתקנה החדשה."
+msgstr "ההתקנה הושלמה. עליך להפעיל את המחשב מחדש כדי להשתמש בהתקנה החדשה."
 
 #. Type: note
 #. Description
@@ -798,48 +795,48 @@ msgid ""
 " ${MIGRATE}"
 msgstr ""
 " שפה: ${LANGUAGE}\n"
-" סידור המקשים במקלדת: ${KEYMAP}\n"
+" פריסת המקלדת: ${KEYMAP}\n"
 " שם: ${FULLNAME}\n"
 " שם משתמש: ${USERNAME}\n"
 " מיקום: ${LOCATION}\n"
-"עזרה ביבוא:\n"
+" מסייע היבוא:\n"
 " ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:117001
 msgid "Verifying the installation configuration..."
-msgstr "מוודא את תצורת ההתקנה..."
+msgstr "תצורת ההתקנה מתאמתת כעת..."
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:118001
 msgid "Installing system"
-msgstr "מתקין את המערכת"
+msgstr "המערכת בהליכי התקנה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:119001
 msgid "Finding the distribution to copy..."
-msgstr "מוצא את ההפצה להעתקה.."
+msgstr "בחיפוש אחר ההפצה להעתקה..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:121001
 msgid "Scanning files..."
-msgstr "סורק קבצים..."
+msgstr "קבצים נסרקים..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:122001
 msgid "Copying files..."
-msgstr "מעתיק קבצים..."
+msgstr "קבצים מועתקים..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Almost finished copying files..."
-msgstr "כמעט הסתיימה העתקת הקבצים..."
+msgstr "העתקת הקבצים כמעט והסתיימה..."
 
 #. Type: error
 #. Description
@@ -868,7 +865,7 @@ msgstr "ההתקנה נכשלה"
 #: ../ubiquity.templates:124001 ../ubiquity.templates:125001
 #: ../ubiquity.templates:126001 ../ubiquity.templates:127001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr "ההתקנה נתקלה בשגיאה בעת העתקת הקבצים אל הדיסק הקשיח:"
+msgstr "ההתקנה נתקלה בשגיאה הבאה בעת העתקת הקבצים אל הכונן הקשיח:"
 
 #. Type: error
 #. Description
@@ -878,8 +875,8 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"תקלה זו נגרמה מכיוון שאין מספיק מקום לסיים את ההתקנה במחיצה שצויינה על הדיסק "
-"הקשיח. אנא הרץ את ההתקנה מחדש ובחר מחיצה גדולה יותר להתקנה."
+"תקלה זו נגרמה שאין די מקום להשלמת ההתקנה במחיצת היעד. נא להריץ את תכנית "
+"ההתקנה שוב ולבחור במחיצה גדולה יותר להתקנה."
 
 #. Type: error
 #. Description
@@ -889,9 +886,9 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"תקלה זו נגרמת בדרך כלל כתוצאה מכונן או תקליטור ה-CD/DVD פגום. נסה לנקות את ה-"
-"CD/DVD, צרוב את ה-CD/DVD במהירות נמוכה יותר או נקה את עינו האופטית של הכונן "
-"(ערכות ניקיון ניתן להשיג לרוב בחנויות אלקטרוניקה)."
+"תקלה זו נגרמת לרוב עקב דיסק התקנה פגום. יתכן שניקוי הדיסק, צריבתו במהירות "
+"נמוכה יותר או ניקוי עינית הכונן (ניתן להשיג ערכות ניקוי במגוון חנויות "
+"אלקטרוניקה) עלולים לסייע בפתרון הבעיה."
 
 #. Type: error
 #. Description
@@ -901,8 +898,8 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"תקלה זו נגרמת בדרך כלל כתוצאה מבעיה בכונן הקשיח. בדוק האם הכונן ישן וזקוק "
-"להחלפה או העבר את המערכת לסביבה קרירה יותר."
+"תקלה זו נגרמת לרוב עקב כונן פגום. בדיקת ותק הכונן והחלפתו במידת הצורך או "
+"העברת המחשב לסביבה קרירה יותר עלולים לסייע בפתרון הבעיה."
 
 #. Type: error
 #. Description
@@ -920,130 +917,130 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"תקלה זו נגרמת בדרך כלל כתוצאה מכונן או תקליטור ה-CD/DVD פגום. נסה לנקות את ה-"
-"CD/DVD, צרוב את ה-CD/DVD במהירות נמוכה יותר או נקה את עינו האופטית של הכונן "
-"(ערכות ניקיון ניתן להשיג לרוב בחנויות אלקטרוניקה), בדוק האם הכונן ישן וזקוק "
-"להחלפה או העבר את המערכת לסביבה קרירה יותר."
+"תקלה זו נגרמת עקב כונן דיסקים או דיסק פגומים או כונן קשיח פגום. יתכן שניקיון "
+"הדיסק, צריבת הדיסק במהירות נמוכה יותר, ניקוי עינית כונן הדיסקים (ניתן להשיג "
+"ערכות ניקוי במגוון חנויות אלקטרוניקה), בדיקת ותק הכונן והחלפתו במידת הצורך "
+"או העברת המחשב לסביבה קרירה יותר עלולים לסייע בפתרון הבעיה."
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:128001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr "הקובץ הבא אינו תואם לעותק המקור שלו בתקליטור/DVD:"
+msgstr "הקובץ הבא אינו תואם לעותק המקור שלו בדיסק:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Copying installation logs..."
-msgstr "מעתיק רישומי התקנה..."
+msgstr "יומני ההתקנה מועתקים..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:130001
 msgid "Configuring target system..."
-msgstr "מגדיר מיקום מערכת..."
+msgstr "מערכת היעד מוגדרת..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:131001
 msgid "Configuring system locales..."
-msgstr "מגדיר הגדרות מקומיות..."
+msgstr "המערכת מוגדרת בהתאם לאזור..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Configuring apt..."
-msgstr "מגדיר את apt..."
+msgstr "apt מוגדר..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Configuring time zone..."
-msgstr "מגדיר איזור זמן..."
+msgstr "אזור הזמן מוגדר..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Configuring keyboard..."
-msgstr "מגדיר את המקלדת..."
+msgstr "המקלדת מוגדרת..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:135001
 msgid "Creating user..."
-msgstr "יוצר משתמש..."
+msgstr "נוצר משתמש..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:136001
 msgid "Importing documents and settings..."
-msgstr "מייבא קבצים ומאפיינים..."
+msgstr "התיקיית documents and settings מיובאת..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Configuring hardware..."
-msgstr "מגדיר את החומרה..."
+msgstr "החומרה מוגדרת"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Configuring network..."
-msgstr "מגדיר רשת..."
+msgstr "הרשת מוגדרת"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:139001
 msgid "Setting computer name..."
-msgstr "מגדיר את שם המחשב..."
+msgstr "שם המחשב מוגדר..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:140001
 msgid "Configuring boot loader..."
-msgstr "מגדיר את מנהל ההפעלה..."
+msgstr "מנהל האתחול מוגדר..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:141001
 msgid "Installing additional packages..."
-msgstr "מתקין חבילות נוספות..."
+msgstr "חבילות נוספות מותקנות..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:142001
 msgid "Checking for packages to install..."
-msgstr "בודק אילו חבילות להתקין..."
+msgstr "החבילות להתקנה נבדקות..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:143001
 msgid "Removing extra packages..."
-msgstr "מסיר חבילות מיותרות..."
+msgstr "חבילות מיותרות מוסרות..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:144001
 msgid "Checking for packages to remove..."
-msgstr "מחפש חבילות להסרה..."
+msgstr "חבילות להסרה נבדקות..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:145001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "מוריד חבילות (${TIME} נותרו)..."
+msgstr "החבילות מתקבלות (נותרו ${TIME})..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:146001
 msgid "Downloading package lists..."
-msgstr "מוריד רשימת חבילות..."
+msgstr "רשימות החבילות מתקבלות..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:147001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "מוריד רשימת חבילות (${TIME} נותרו)..."
+msgstr "רשימות החבילות מתקבלות (נותרו ${TIME})..."
 
 #. Type: error
 #. Description
@@ -1061,7 +1058,7 @@ msgstr "שגיאה בהסרת ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:151001
 msgid "Error while installing packages"
-msgstr "שאיגה במהלך התקנת החבילות"
+msgstr "שגיאה במהלך התקנת החבילות"
 
 #. Type: error
 #. Description
@@ -1091,30 +1088,30 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
-"זה יכול היה לקרות בשל שימוש בתמונה ישנה של תוכנית ההתקנה, או בגלל באג בכמה "
-"מהחבילות שהוזכרו למעלה. פרטים נוספים יכולים להימצא ב /var/log/syslog. תוכנית "
-"ההתקנה תנסה להמשיך בכל זאת, אבל אולי היא תיכשל בשלב מאוחר יותר ולא תוכל "
-"להתקין או להסיר חבילות אחרות (כנראה גם את תוכנית ההתקנה עצמה) מהמערכת "
-"שהותקנה. תחילה, עליך לחפש גרסאות חדשות של התמונה של תוכנית ההתקנה או לדווח "
-"על הבעייה למפיץ התוכנה."
+"יתכן שתקלה זו נגמרה עקב תמונת התקנה ישנה או עקב תקלה באחת מהחבילות המופיעות "
+"להלן. ניתן למצוא פרטים נוספים בקובץ ‎/var/log/syslog. תכנית ההתקנה תנסה "
+"להמשיך בכול זאת, אך יתכן שהיא תיכשל בשלב מאוחר יותר ולא ניתן יהיה להתקין או "
+"להסיר חבילות אחרות (כולל את עצמה ככל הנראה) מהמערכת המותקנת. ראשית עליך "
+"לבדוק האם ישנה גרסאות חדשות יותר של תמונת תכנית ההתקנה או הגשת דוח תקלות על "
+"התקלה למפיץ שלך."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:152001
 msgid "Error while removing packages"
-msgstr "שאיגה במהלך הסרת חבילות"
+msgstr "שגיאה במהלך הסרת חבילות"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:152001
 msgid "An error occurred while removing packages:"
-msgstr "שגיאה קרתה במהלך הסרת החבילות:"
+msgstr "אירעה שגיאה במהלך הסרת החבילות:"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
 msgid "Error migrating documents and settings"
-msgstr "שגיאה בהגירת המסמכים וההגדרות"
+msgstr "שגיאה בהגירת documents and settings"
 
 #. Type: error
 #. Description
@@ -1125,9 +1122,9 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"אירעה טעות בזמן העברת המידע. יתכן שיהיו פרטים נוספים ב־/var/log/syslog. "
-"ההתקנה תמשך, אבל יתכן שחלק או כל המסמכים וההגדרות שביקשת לא יועברו למערכת "
-"המותקנת."
+"אירעה שגיאה במשך העברת המידע. יתכן שיהיו פרטים נוספים בקובץ ‎/var/log/syslog. "
+"ההתקנה תימשך אך יתכן שחלק או כל התוכן של התיקייה documents and settings "
+"שביקשת לא יועברו למערכת המותקנת."
 
 #. Type: error
 #. Description
@@ -1143,38 +1140,38 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
-"אירעה שגיאה בזמן העתקת הגדרות הרשת. ההתקנה תמשך, אבל יהיה צורך להגדיר מחדש "
-"את הגדרות הרשת במערכת המותקנת"
+"אירעה שגיאה בזמן העתקת הגדרות הרשת. ההתקנה תימשך אך יהיה צורך להגדיר מחדש את "
+"הגדרות הרשת במערכת המותקנת."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:158001
 msgid "Calculating files to skip copying..."
-msgstr "מחשב קבצים כדי לדלג על ההעתקה..."
+msgstr "הקבצים בחישוב כדי לדלג על ההעתקה..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "ממתינים לפקודתך..."
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:160001
 msgid "Installing language packs"
-msgstr "מתקין את חבילות השפה"
+msgstr "חבילות השפה מותקנות"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "מוריד חבילת שפה (${TIME} נותר)..."
+msgstr "חבילות השפה מתקבלות (נותרו ${TIME})..."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:170001
 msgid "Failed to unmount partitions"
-msgstr "כישלון בביטול עגינת המחיצות."
+msgstr "ארע כשל בביטול עגינת המחיצות."
 
 #. Type: boolean
 #. Description
@@ -1183,26 +1180,26 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"תוכנית ההתקנה צריכה לבצע שינויים לטבלת המחיצות שבכונן הקשיח, אך אין באפשרותה "
-"לעשות כן בגלל שלא ניתן לכבות כמה מחיצות אשר נמצאות במיקומים הבאים:"
+"על תכנית ההתקנה לבצע את השינויים לטבלאות המחיצות אך אינה יכולה לעשות זאת "
+"כיוון שהמחיצות בנקודות העגינה הבאות אינן ניתנות לניתוק:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:170001
 msgid "Please close any applications using these mount points."
-msgstr "אנא סגור את כל היישומים המשתמשים במחיצות שבמיקומים אלו."
+msgstr "נא לסגור את כל היישומים המשתמשים בנקודות עגינה אלו."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:170001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr "האם ברצונך שתוכנית ההתקנה תנסה לכבות את המחיצות הללו שוב?"
+msgstr "האם ברצונך שתכנית ההתקנה תנסה לנתק מחיצות אלה שוב?"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:176001
 msgid "Do you want to return to the partitioner?"
-msgstr "האם ברצונך לחזור ליוצר המחיצות?"
+msgstr "האם ברצונך לחזור לעורך המחיצות?"
 
 #. Type: boolean
 #. Description
@@ -1211,7 +1208,7 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"חלק מהמחיצות שיצרת קטנות מדי. אנא וודא שהמחיצות הבאות הן לפחות בגודל הזה:"
+"חלק מהמחיצות שיצרת קטנות מדי. נא לוודא שהמחיצות הבאות הן לפחות בגודל זה:"
 
 #. Type: boolean
 #. Description
@@ -1220,7 +1217,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
-"אם לא תחזור ליוצר המחיצות ותקטין את גודלן של מחיצות אלו, תהליך ההתקנה יכשל."
+"אם לא תחזרו אל עורך המחיצות ותגדילו את גודל המחיצות הללו, ההתקנה עלולה "
+"להיכשל."
 
 #. Type: text
 #. Description
@@ -1232,21 +1230,21 @@ msgstr "תצורת מערכת"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001 ../ubiquity.templates:241001
+#: ../ubiquity.templates:178001 ../ubiquity.templates:242001
 msgid "Welcome"
-msgstr "ברוכים הבאים"
+msgstr "ברוך בואך"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:179001
 msgid "Network configuration"
-msgstr "תצורת רשת"
+msgstr "תצורת הרשת"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:180001
 msgid "Software selection"
-msgstr "בחירת תוכנה"
+msgstr "בחירת תוכנות"
 
 #. Type: text
 #. Description
@@ -1264,7 +1262,7 @@ msgstr "שפה"
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Prepare"
-msgstr ""
+msgstr "הכנות"
 
 #. Type: text
 #. Description
@@ -1282,13 +1280,13 @@ msgstr "מקלדת"
 #. Description
 #: ../ubiquity.templates:186001
 msgid "Disk Setup"
-msgstr "הגדרת דיסק"
+msgstr "הגדרת כונן"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:187001
 msgid "User Info"
-msgstr "פרטי משתמש"
+msgstr "פרטי המשתמש"
 
 #. Type: text
 #. Description
@@ -1300,31 +1298,31 @@ msgstr "תקציר"
 #. Description
 #: ../ubiquity.templates:190001
 msgid "installation process"
-msgstr "תהליך התקנה"
+msgstr "תהליך ההתקנה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:192001
 msgid "Checking for installer updates"
-msgstr "בודק האם ישנם עדכונים לתכנית ההתקנה"
+msgstr "בחיפוש אחר עדכונים לתכנית ההתקנה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:193001
 msgid "Reading package information"
-msgstr "קורא את נתוני החבילות"
+msgstr "נתוני החבילות נקראים"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:194001
 msgid "Updating package information"
-msgstr "מעדכן את נתוני החבילות"
+msgstr "נתוני החבילות מתעדכנים"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:195001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "קובץ ${INDEX} מתוך ${TOTAL} ב־${SPEED}/שנייה"
+msgstr "קובץ ${INDEX} מתוך ${TOTAL} במהירות של ${SPEED} לשנייה"
 
 #. Type: text
 #. Description
@@ -1336,7 +1334,7 @@ msgstr "קובץ ${INDEX} מתוך ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:197001
 msgid "Installing update"
-msgstr "מתקין עדכון"
+msgstr "עדכון מותקן"
 
 #. Type: text
 #. Description
@@ -1348,21 +1346,21 @@ msgstr "שגיאה בעדכון תכנית ההתקנה"
 #. Description
 #: ../ubiquity.templates:198001
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "ארעה שגיאה בנסיון לעדכן את תכנית ההתקנה:"
+msgstr "ארעה שגיאה בניסיון לעדכן את תכנית ההתקנה:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:199001
 msgid "USB disk"
-msgstr ""
+msgstr "כונן USB"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
 #: ../ubiquity.templates:200001
 msgid "CD"
-msgstr "תקליטור"
+msgstr "דיסק"
 
 #. Type: text
 #. Description
@@ -1381,7 +1379,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"יש לבחור את השפה הרצויה לתהליך ההגדרות. שפה זו תהיה שפת ברירת המחדל במחשב."
+"יש לבחור את השפה הרצויה לתהליך התצורה. שפה זו תהיה שפת ברירת המחדל של מחשב "
+"זה."
 
 #. Type: text
 #. Description
@@ -1405,43 +1404,43 @@ msgid ""
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
 "ההתקנה נתקלה בשגיאה שאינה ניתנת לטיפול. כעת תעלה הפעלה של שולחן העבודה כדי "
-"שניתן יהיה לחקור מהי הטעות או כדי לנסות להתקין שוב."
+"שניתן יהיה לחקור מהי התקלה או כדי לנסות להתקין שוב."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "תכנית ההתקנה נתקלה בשגיאה שאינה ניתנת לפתרון והמחשב יאותחל כעת."
+msgstr "תכנית ההתקנה נתקלה בשגיאה שאינה ניתנת לפתרון והמחשב יופעל מחדש כעת."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:207001
 msgid "Preparing to install ${RELEASE}"
-msgstr ""
+msgstr "בהכנה להתקנת ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:208001
 msgid "Wireless"
-msgstr ""
+msgstr "אלחוטי"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
 msgid "Please select your wireless network from this list"
-msgstr ""
+msgstr "נא לבחור את הרשת האלחוטית שלך מהרשימה שלהלן"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:213001
 msgid "Select drive:"
-msgstr ""
+msgstr "בחירת כונן:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
 msgid "Allocate drive space by dragging the divider below:"
-msgstr ""
+msgstr "ניתן להקצות מקום בכונן על ידי גרירת החוצץ שלהלן:"
 
 #. Type: text
 #. Description
@@ -1487,19 +1486,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:220001
 msgid "Use Entire Partition"
-msgstr ""
+msgstr "שימוש במחיצה כולה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "שימוש בכונן כולו"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid "Split Largest Partition"
-msgstr ""
+msgstr "פיצול המחיצה הגדולה ביותר"
 
 #. Type: text
 #. Description
@@ -1553,7 +1552,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:231001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "הורדת עדכונים במהלך ההתקנה"
 
 #. Type: text
 #. Description
@@ -1565,7 +1564,7 @@ msgstr "פריסה:"
 #. Description
 #: ../ubiquity.templates:236001
 msgid "Variant:"
-msgstr "וריאציה:"
+msgstr "הגוון:"
 
 #. Type: text
 #. Description
@@ -1581,8 +1580,8 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
-"בחר את מיקומך, כך שהמערכת תוכל להשתמש בתצוגות המתאימות לארצך, תמשוך עדכונים "
-"מאתרים קרובים, ותגדיר את השעון לזמן המקומי המדויק."
+"נא לבחור את מיקומך, כדי שהמערכת תוכל להשתמש במוסכמות המתאימות לארצך, תמשוך "
+"עדכונים מאתרים קרובים, ותגדיר את השעון לזמן המקומי המדויק."
 
 #. Type: text
 #. Description
@@ -1598,14 +1597,20 @@ msgstr "אזור:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:241001
+msgid "[type here to change]"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:243001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
-"מוכנים להתקנה? לאחר שתענו על מספר שאלות, ניתן יהיה להתקין את התוכן של ה"
-"${MEDIUM} למחשב זה כדי שתוכלו להפעיל את ${RELEASE} ללא צורך ב${MEDIUM}."
+"מוכנים להתקנה? לאחר שתענו על מספר שאלות, ניתן יהיה להתקין את התוכן של ה־"
+"${MEDIUM} למחשב זה כדי שתוכלו להפעיל את ${RELEASE} ללא צורך ב־${MEDIUM}."
 
 #. Type: title
 #. Description
@@ -1647,8 +1652,8 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
-"לאחר אתחול המחשב עם המערכת החדשה, ניתן להתחבר בתור משתמש 'oem' עם שם המשתמש "
-"והסיסמה שנבחרה קודם לכן; למשתמש זה הרשאות לניהול המערכת הניתנות על ידי שימוש "
+"לאחר הפעלת המחשב עם המערכת החדשה, ניתן להתחבר בתור משתמש 'oem' עם שם המשתמש "
+"והססמה שנבחרו קודם לכן; למשתמש זה הרשאות לניהול המערכת הניתנות על ידי שימוש "
 "בפקודה 'sudo'. הרשאות אלה יאפשרו למשתמש לבצע שינויים נוספים במערכת כרצונו."
 
 #. Type: text
@@ -1669,37 +1674,11 @@ msgstr ""
 msgid "Removing packages"
 msgstr "החבילות מוסרות"
 
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "ביצוע התקנה זה לצד זה, עם אפשרות בחירה בכל הפעלה"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "איזו פריסה היא הדומה ביותר למקלדת בה אתה משתמש?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr "תוכל להקליד בתיבה זו על מנת לבחון את פריסת המקלדת החדשה שלך."
-
 #~ msgid "What is your name?"
 #~ msgstr "מה שמך?"
 
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "באיזה שם ברצונך להשתמש כדי להיכנס למערכת?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "אם יותר מאדם אחד ישתמש במחשב זה, תוכל להוסיף משתמשים נוספים לאחר ההתקנה."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "בחר סיסמה כדי לשמור על חשבונך בטוח."
-
 #~ msgid "What is the name of this computer?"
 #~ msgstr "איך קוראים למחשב הזה?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr "בשם זה יעשה שימוש אם תבחר לחבר את המחשב לרשת המקומית."
 
 #~ msgid "Before:"
 #~ msgstr "לפני:"
@@ -1710,24 +1689,8 @@ msgstr "החבילות מוסרות"
 #~ msgid "Suggested option:"
 #~ msgstr "אפשרות מומלצת:"
 
-#~ msgid "Choose your own:"
-#~ msgstr "בחר את שלך:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "יש להקליד את אותה הסיסמה פעמיים, כדי שניתן יהיה לבדוק שגיאות בהקלדה. על "
-#~ "סיסמה טובה להכיל ערבוב של אותיות, מספרים וסימני כתב נוספים, להיות בת "
-#~ "שמונה תווים לכל הפחות, ויש להחליפה על בסיס קבוע."
-
 #~ msgid "Choose language"
 #~ msgstr "בחירת שפה/Choose language"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr "בקש את סיסמתי כדי להתחבר וכדי לפענח את תיקיית הבית שלי"
 
 #~ msgid "Guess keymap:"
 #~ msgstr "ניחוש מפת התווים:"
@@ -1738,9 +1701,6 @@ msgstr "החבילות מוסרות"
 #~ msgid "USB"
 #~ msgstr "USB"
 
-#~ msgid "Prepare disk space"
-#~ msgstr "פינוי שטח בדיסק"
-
 #~ msgid "Strength: good"
 #~ msgstr "חוזק: טוב"
 
@@ -1749,9 +1709,6 @@ msgstr "החבילות מוסרות"
 
 #~ msgid "Strength: strong"
 #~ msgstr "חוזק: חזק"
-
-#~ msgid "Strength: too short"
-#~ msgstr "חוזק: קצר מדי"
 
 #~ msgid "Strength: weak"
 #~ msgstr "חוזק: חלש"

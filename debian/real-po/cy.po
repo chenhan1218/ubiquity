@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-09-15 13:27+0100\n"
-"PO-Revision-Date: 2010-04-25 12:37+0000\n"
+"POT-Creation-Date: 2010-09-21 10:02+0100\n"
+"PO-Revision-Date: 2010-09-07 16:26+0000\n"
 "Last-Translator: danielt998 <daniel@fearnley.net>\n"
 "Language-Team: Welsh <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: cy\n"
 
@@ -153,7 +153,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Warning"
-msgstr ""
+msgstr "Rhybudd"
 
 #. Type: text
 #. Description
@@ -182,10 +182,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "Cynllun bysellfwrdd"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -215,13 +213,13 @@ msgstr "Pwy ydych chi?"
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Your name:"
-msgstr ""
+msgstr "Eich enw:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Your name"
-msgstr ""
+msgstr "Eich enw"
 
 #. Type: text
 #. Description
@@ -233,19 +231,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Username"
-msgstr ""
+msgstr "Enw Cyfrif"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Choose a password:"
-msgstr ""
+msgstr "Dewiswch cyfrinair"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Password"
-msgstr ""
+msgstr "Cyfrinair"
 
 #. Type: text
 #. Description
@@ -270,42 +268,44 @@ msgstr ""
 #: ../ubiquity.templates:39001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
+"Rydych yn rhedeg mewn modd dadfygio. Peidiwch â defnyddio cyfrinair "
+"gwerthfawr!"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Short password"
-msgstr ""
+msgstr "Cyfrinair byr"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Weak password"
-msgstr ""
+msgstr "Cyfrinair gwan"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Fair password"
-msgstr ""
+msgstr "Cyfrinair deg"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Good password"
-msgstr ""
+msgstr "Cyfrinair da"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Strong password"
-msgstr ""
+msgstr "Cyfrinair cryf"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Log in automatically"
-msgstr ""
+msgstr "Mewngofnodi'n awtomatig"
 
 #. Type: text
 #. Description
@@ -323,7 +323,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Migrate documents and settings"
-msgstr ""
+msgstr "Mudo dogfennau a gosodiadau"
 
 #. Type: text
 #. Description
@@ -332,6 +332,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Dewiswch unrhyw gyfrifon hoffwch fewnforio. Fydd y dogfennau a gosodiadau am "
+"y cyfrifon hyn ar gael ar ôl i'r gosod gorffen."
 
 #. Type: text
 #. Description
@@ -340,6 +342,8 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"Os nad ydych yn dymuno mewnforio unrhyw ddogfennau, dewiswch dim byd ac ewch "
+"i'r tudalen nesaf."
 
 #. Type: text
 #. Description
@@ -351,44 +355,44 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:51001
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "Sut ydych eisiau ymrannu'r disg?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "This computer has no operating systems on it."
-msgstr ""
+msgstr "Nid oes system weithredu ar y cyfrifiadur hwn."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "This computer has ${OS} on it."
-msgstr ""
+msgstr "Mae gan y cyfrifiadur hwn ${OS} arni."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "This computer has several operating systems on it."
-msgstr ""
+msgstr "Mae gan y cyfrifiadur hwn mwy nag un system weithredu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Where do you want to put ${RELEASE}?"
-msgstr ""
+msgstr "Ble ydych eisiau rhoi ${RELEASE}?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Prepare partitions"
-msgstr ""
+msgstr "Paratoi ymraniadau"
 
 #. Type: text
 #. Description
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:57001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr ""
+msgstr "Bydd hwn yn dileu ${SYSTEMS} a gosod ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -396,13 +400,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:58001 ../ubiquity.templates:116001
 msgid "Ready to install"
-msgstr ""
+msgstr "Barod i gosod"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Details"
-msgstr ""
+msgstr "Manylion"
 
 #. Type: text
 #. Description
@@ -410,12 +414,13 @@ msgstr ""
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
+"Bydd eich system weithredu yn cael ei osod nawr gyda'r gosodiadau canlynol:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Advanced..."
-msgstr ""
+msgstr "Uwch..."
 
 #. Type: text
 #. Description
@@ -435,13 +440,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Quit the installation?"
-msgstr ""
+msgstr "Gadael y gosodi?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Do you really want to quit the installation now?"
-msgstr ""
+msgstr "Ydych chi wirioneddol eisiau gadael y gosodi nawr?"
 
 #. Type: text
 #. Description
@@ -498,25 +503,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:74001
 msgid "Skip"
-msgstr ""
+msgstr "Neidio"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:75001
 msgid "Installation Complete"
-msgstr ""
+msgstr "Gosodi wedi cwblhau"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Continue Testing"
-msgstr ""
+msgstr "Parhau i Profi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Restart Now"
-msgstr ""
+msgstr "Ailgychwyn Nawr"
 
 #. Type: text
 #. Description
@@ -524,7 +529,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:78001 ../ubiquity.templates:79001
 msgid "Installer crashed"
-msgstr ""
+msgstr "Mae'r sefydlwr wedi stopio gweithio."
 
 #. Type: text
 #. Description
@@ -537,6 +542,12 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"Rydym yn flin; stopiodd y sefydlwr i gweithio. Ffeiliwch cofnod nam newydd "
+"yn https://launchpad.net/ubuntu/+source/ubiquity/+filebug (peidiwch atodi "
+"eich manylion i cofnod nam parod) a bydd  datblygwr yn mynychu i'r problem "
+"cyn gynted ag syn posib. I helpu'r datblygwyr deall beth aeth o le, dyla "
+"eich cofnod nam cynnwys y manylion canlynol, ac atodwch y ffeiliau /var/log/"
+"syslog a /var/log/partman:"
 
 #. Type: text
 #. Description
@@ -550,14 +561,14 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:82001
 msgid "Add..."
-msgstr ""
+msgstr "Ychwanegu..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:83001
 msgid "Change..."
-msgstr ""
+msgstr "Newid..."
 
 #. Type: text
 #. Description
@@ -571,7 +582,7 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:85001
 msgid "Revert"
-msgstr ""
+msgstr "Dychwelyd"
 
 #. Type: text
 #. Description
@@ -584,7 +595,7 @@ msgstr ""
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:87001
 msgid "Device"
-msgstr ""
+msgstr "Dyfais"
 
 #. Type: text
 #. Description
@@ -599,7 +610,7 @@ msgstr ""
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:89001
 msgid "Mount point"
-msgstr ""
+msgstr "Pwynt clymu"
 
 #. Type: text
 #. Description
@@ -613,7 +624,7 @@ msgstr ""
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:91001
 msgid "Size"
-msgstr ""
+msgstr "Maint"
 
 #. Type: text
 #. Description
@@ -628,7 +639,7 @@ msgstr ""
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:93001
 msgid "free space"
-msgstr ""
+msgstr "Lle rhydd"
 
 #. Type: text
 #. Description
@@ -641,7 +652,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:95001
 msgid "Create partition"
-msgstr ""
+msgstr "Creu ymraniad"
 
 #. Type: text
 #. Description
@@ -649,7 +660,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:96001 ../ubiquity.templates:103001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "Maint ymraniad newydd mewn megabeitiau (1000000 beit):"
 
 #. Type: text
 #. Description
@@ -679,7 +690,7 @@ msgstr "Rhesymegol"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Edit partition"
-msgstr ""
+msgstr "Newid ymraniad"
 
 #. Type: text
 #. Description
@@ -691,7 +702,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:104001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Opsiynau Uwch"
 
 #. Type: text
 #. Description
@@ -709,31 +720,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:107001
 msgid "Popularity contest"
-msgstr ""
+msgstr "Cystadleuaeth poblogrwydd"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:108001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Cymryd rhan yn yr arolwg defnydd pecyn"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:109001
 msgid "Network proxy"
-msgstr ""
+msgstr "Dirprwy rhwydwaith"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "Dirprwy HTTP:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:111001
 msgid "Port:"
-msgstr ""
+msgstr "Porth:"
 
 #. Type: text
 #. Description
@@ -765,6 +776,8 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
+"Wedi gosod Ubuntu. Mae'n rhaid ailgychwyn y cyfrifiadur er mwyn defnyddio'r "
+"gosodiad newydd."
 
 #. Type: note
 #. Description
@@ -778,6 +791,13 @@ msgid ""
 " Migration Assistant:\n"
 " ${MIGRATE}"
 msgstr ""
+" Iaith: ${LANGUAGE}\n"
+" Cynllun bysellfwrdd: ${KEYMAP}\n"
+" Enw: ${FULLNAME}\n"
+" Enw defnyddiwr: ${USERNAME}\n"
+" Lleoliad: ${LOCATION}\n"
+" Cynorthwyydd Mudiad:\n"
+"${MIGRATE}"
 
 #. Type: text
 #. Description
@@ -789,25 +809,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:118001
 msgid "Installing system"
-msgstr ""
+msgstr "Gosod y system"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:119001
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "Chwilio am y dosbarthiad i gopio"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:121001
 msgid "Scanning files..."
-msgstr ""
+msgstr "Sganio ffeiliau..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:122001
 msgid "Copying files..."
-msgstr ""
+msgstr "Copio ffeiliau..."
 
 #. Type: text
 #. Description
@@ -829,7 +849,7 @@ msgstr ""
 #: ../ubiquity.templates:126001 ../ubiquity.templates:127001
 #: ../ubiquity.templates:128001
 msgid "Installation Failed"
-msgstr ""
+msgstr "Methodd y Gosod"
 
 #. Type: error
 #. Description
@@ -842,7 +862,7 @@ msgstr ""
 #: ../ubiquity.templates:124001 ../ubiquity.templates:125001
 #: ../ubiquity.templates:126001 ../ubiquity.templates:127001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
+msgstr "Wnaeth y gosodwr wynebu gwall yn copio ffeiliau i'r disg caled:"
 
 #. Type: error
 #. Description
@@ -852,6 +872,8 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"Mae hwn oherwydd nid oes digon o lle disg i'r gosod cwblhau ar y rhaniad "
+"targed. Redwch y gosodwr eto a dewiswch rhaniad fwy i gosod arno."
 
 #. Type: error
 #. Description
@@ -861,6 +883,10 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
+"Mae hwn yn aml wedi achosi gan disg neu gyrrwr CD/DVD gwallus. Gallau bod yn "
+"help i glanhau'r CD/DVD, i llosgi'r CD/DVD ar cyflymder is, neu i glanhau "
+"lens y gyrrwr CD/DVD (mae pecynnau golchi yn aml argael o cyflenwyr "
+"electroneg)."
 
 #. Type: error
 #. Description
@@ -870,6 +896,9 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
+"Mae hwn yn aml wedi achosi gan disg caled gwallus. Gallau bod yn help i "
+"gwirio os yw'r disg caled yn hen ac yn angen newid, neu i symud y system i "
+"amgylchedd fwy oer."
 
 #. Type: error
 #. Description
@@ -887,24 +916,29 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
+"Mae hwn yn aml wedi achosi gan disg neu gyrrwr CD/DVD gwallus neu disg caled "
+"gwallus. Gallau bod yn help i glanhau'r CD/DVD, i llosgi'r CD/DVD ar "
+"cyflymder is, i glanhau lens y gyrrwr CD/DVD (mae pecynnau golchi yn aml "
+"argael o cyflenwyr electroneg),  i gwirio os yw'r disg caled yn hen ac yn "
+"angen newid, neu i symud y system i amgylchedd fwy oer."
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:128001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "Nid oedd y ffeil canlynol yn cyfateb i'w ffynhonell copio ar y CD/DVD:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "Copïo logiau gosod..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:130001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "Ffurfweddi system targed..."
 
 #. Type: text
 #. Description
@@ -916,13 +950,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Configuring apt..."
-msgstr ""
+msgstr "Ffurfweddi apt..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Configuring time zone..."
-msgstr ""
+msgstr "Ffurfweddi rhanbarth amser..."
 
 #. Type: text
 #. Description
@@ -934,7 +968,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:135001
 msgid "Creating user..."
-msgstr ""
+msgstr "Creu defnyddiwr..."
 
 #. Type: text
 #. Description
@@ -946,7 +980,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Configuring hardware..."
-msgstr ""
+msgstr "Ffurfweddi caledwedd..."
 
 #. Type: text
 #. Description
@@ -958,7 +992,7 @@ msgstr "Yn cyflunio'r rhwydwaith..."
 #. Description
 #: ../ubiquity.templates:139001
 msgid "Setting computer name..."
-msgstr ""
+msgstr "Gosod enw'r cyfrifiadur..."
 
 #. Type: text
 #. Description
@@ -970,67 +1004,67 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:141001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "Gosod pecynnau ychwanegol..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:142001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "Gwirio am pecynnau i gosod..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:143001
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "Yn dileu pecynnau ychwanegol..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:144001
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "Gwirio am pecynnau i dileu..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:145001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "Lawrllwytho'r pecynnau (${TIME} ar ol)..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:146001
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Lawrllwytho rhestr pecynnau"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:147001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "Lawrllwytho rhestr pecynnau (${TIME} ar ol)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:149001
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "Gwall yn gosod ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:150001
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "Gwall yn dileu ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:151001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "Gwall tra'n gosod pecynnau"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:151001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "Digwyddodd gwall tra'n gosod pecynnau:"
 
 #. Type: error
 #. Description
@@ -1038,7 +1072,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:151001 ../ubiquity.templates:152001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "Mae'r pecynnau canlynol mewn cyflwr torriedig"
 
 #. Type: error
 #. Description
@@ -1054,12 +1088,19 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"Gall hwn wedi cael ei achosi gan ddefnyddio delwedd gosod hen, neu efallai "
+"oherwydd nam mewn rhai o'r pecynnau wedi'u rhestri uchod. Mi allwch "
+"ddarganfod fwy o fanylion yn /var/log/syslog. Bydd y gosodwr yn ceisio "
+"parhau beth bynnag, ond mi allai fethu'n hwyrach, ac ni fuasai'n gallu gosod "
+"neu dadosod pecynnau eraill (efallai ei hunan hefyd) o'r system gosodiedig. "
+"Dylsech edrych am fersiynau mwy diweddar o'ch delwedd gosod yn gyntaf, neu, "
+"wedi methu hynny, adroddwch y problem i'ch dosbarthydd."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:152001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "Gwall tra'n dileu pecynnau"
 
 #. Type: error
 #. Description
@@ -1102,7 +1143,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:158001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "Cyfrifo ffeiliau i sgipio copïo..."
 
 #. Type: text
 #. Description
@@ -1114,13 +1155,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:160001
 msgid "Installing language packs"
-msgstr ""
+msgstr "Yn gosod pecynnau iaith"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
+msgstr "Lawrllwtho pecynnau iaith (${TIME} ar ol)..."
 
 #. Type: boolean
 #. Description
@@ -1146,13 +1187,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:170001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr ""
+msgstr "Ydych chi'n eisiau i'r gosodwr ceisio dadfowntio'r rhaniadau yma eto?"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:176001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "Ydych chi'n eisiau dychwelyd i'r rhaniadydd?"
 
 #. Type: boolean
 #. Description
@@ -1180,7 +1221,7 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001 ../ubiquity.templates:241001
+#: ../ubiquity.templates:178001 ../ubiquity.templates:242001
 msgid "Welcome"
 msgstr "Croeso"
 
@@ -1206,7 +1247,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:182001
 msgid "Language"
-msgstr ""
+msgstr "Iaith"
 
 #. Type: text
 #. Description
@@ -1218,13 +1259,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Timezone"
-msgstr ""
+msgstr "Cylchfa amser"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
 msgid "Keyboard"
-msgstr ""
+msgstr "Bysellfwrdd"
 
 #. Type: text
 #. Description
@@ -1236,13 +1277,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:187001
 msgid "User Info"
-msgstr ""
+msgstr "Gwybodaeth Ddefnyddwyr"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
 msgid "Summary"
-msgstr ""
+msgstr "Crynodeb"
 
 #. Type: text
 #. Description
@@ -1368,7 +1409,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:208001
 msgid "Wireless"
-msgstr ""
+msgstr "Diwifr"
 
 #. Type: text
 #. Description
@@ -1541,7 +1582,13 @@ msgstr "Rhanbarth:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:241001
+msgid "[type here to change]"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:243001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "

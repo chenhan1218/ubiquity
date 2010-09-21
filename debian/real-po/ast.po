@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-09-15 13:27+0100\n"
-"PO-Revision-Date: 2010-08-18 09:11+0000\n"
+"POT-Creation-Date: 2010-09-21 10:02+0100\n"
+"PO-Revision-Date: 2010-09-17 13:07+0000\n"
 "Last-Translator: Iñigo Varela <malditoastur@gmail.com>\n"
 "Language-Team: Asturian <ast@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: ast\n"
 
@@ -34,7 +34,7 @@ msgstr "Desaniciar y usar el discu enteru"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "Instalar con otros sistemes operativos"
 
 #. Type: text
 #. Description
@@ -172,7 +172,7 @@ msgstr "Avisu"
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Where are you?"
-msgstr "¿Aú s'afaya?"
+msgstr "¿Aú t'afayes?"
 
 #. Type: text
 #. Description
@@ -195,10 +195,8 @@ msgstr "Escribi equí pa comprobar el tecláu"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Figure out keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "Determinar el tipu de tecláu"
+msgstr "Afitar la distribución del tecláu"
 
 #. Type: text
 #. Description
@@ -269,16 +267,14 @@ msgstr "Confirmar  contraseña:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Your name:"
 msgid "Your computer's name:"
-msgstr "El to nome:"
+msgstr "El nome del to equipu:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "El nome qu'uses al falar con otros equipos."
 
 #. Type: text
 #. Description
@@ -770,19 +766,14 @@ msgstr "Puertu:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"La instalación finó. Puede siguir agora coles prebes d'Ubuntu, hasta que "
-"reanicie l'equipu, cualesquier cambéu que faiga o documentu qu'atroxe, nun "
-"se caltendrá."
+"La instalación finó. Puedes siguir probando ${RELEASE} agora, pero fasta que "
+"nun reanicies l'equipu, nun van caltenese los cambeos que faigas o los "
+"documentos que guardes."
 
 #. Type: text
 #. Description
@@ -1267,7 +1258,7 @@ msgstr "Configuración Sistema"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001 ../ubiquity.templates:241001
+#: ../ubiquity.templates:178001 ../ubiquity.templates:242001
 msgid "Welcome"
 msgstr "Bienveníu"
 
@@ -1299,7 +1290,7 @@ msgstr "Llingua"
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Prepare"
-msgstr ""
+msgstr "Preparar"
 
 #. Type: text
 #. Description
@@ -1455,7 +1446,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:207001
 msgid "Preparing to install ${RELEASE}"
-msgstr "Tresnando pa instalar ${RELEASE}"
+msgstr "Preparándose pa instalar ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -1485,63 +1476,49 @@ msgstr "Asigna l'espaciu en discu arrastrando'l siguiente divisor:"
 #. Description
 #: ../ubiquity.templates:215001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "Va usase'l discu ensembre:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:216001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
+#, no-c-format
 msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>hai %d particiones anubríes más pequeñes, usa la <a href="
-"\"\">ferramienta de particionáu avanzáu</a> pa un mayor control</small>"
+"%d pequeñes particiones tán tapecíes, usa'l <a href=\"\">preséu avanzáu de "
+"particionáu</a> pa tener más control"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
-#, fuzzy
-#| msgid ""
-#| "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
 msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>hai 1 partición anubrida más pequeña, usa la <a href=\"\">ferramienta "
-"de particionáu avanzáu</a> pa mayor control</small>"
+"1 partición pequeña ta tapecida, usa'l <a href=\"\">preséu avanzáu de "
+"particionáu</a> pa tener más control"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
+#, no-c-format
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>hai %d particiones anubríes más pequeñes, usa la <a href="
-"\"\">ferramienta de particionáu avanzáu</a> pa un mayor control</small>"
+"%d particiones van desaniciase, usa'l <a href=\"\">preséu avanzáu de "
+"particionáu</a> pa tener más control"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
-#, fuzzy
-#| msgid ""
-#| "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>hai 1 partición anubrida más pequeña, usa la <a href=\"\">ferramienta "
-"de particionáu avanzáu</a> pa mayor control</small>"
+"1 partición va desaniciase, usa'l<a href=\"\">preséu avanzáu de particionáu</"
+"a> pa tener más control"
 
 #. Type: text
 #. Description
@@ -1564,32 +1541,26 @@ msgstr "Dixebrar la partición más grande"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid "For best results, please ensure:"
 msgid "For best results, please ensure that this computer:"
-msgstr "Pa tener meyores resultaos, asegúrate de:"
+msgstr "Pa tener los meyores resultaos, asegúrate qu'esti equipu:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
-#, fuzzy
-#| msgid "that you have at least ${SIZE} available drive space"
 msgid "has at least ${SIZE} available drive space"
-msgstr "que tienes polo mesnos ${SIZE} disponibles d'espaciu nel discu"
+msgstr "tienes polo menos ${SIZE} d'espaciu de discu disponible"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
-#, fuzzy
-#| msgid "that you are plugged in to a power source"
 msgid "is plugged in to a power source"
-msgstr "que tas coneutáu a una fonte d'enerxía eléctrica"
+msgstr "tas coneutáu a una toma de corriente"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "tas coneutáu a Internet"
 
 #. Type: text
 #. Description
@@ -1600,33 +1571,32 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} usa software de terceros p'amosar Flash, MP3 y otros ficheros "
+"multimedia y pa trabayar con dellos dispositivos inalámbricos. Parte d'esti "
+"software ye de códigu zarráu. El software ta baxo a los términos de la "
+"llicencia incluyida cola documentación del software."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001
-#, fuzzy
-#| msgid ""
-#| "The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 "
-#| "audio decoding technology licensed from Faunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
-"El siguiente avisu aplícase pal complementu MP3 Fluendo: teunoloxía de "
-"decodificación d'audio MPEG Layer-3 con llicencia de Faunhofer IIS and "
-"Thomson."
+"El complementu Fluendo MP3 inclúi la teunoloxía de decodificación d'audio "
+"MPEG Layer-3 rexistrada por Fraunhofer IIS y Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "Instalar esti software de terceros"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:231001
 msgid "Download updates while installing"
-msgstr "Descargar anovamientos mentes s'instala"
+msgstr "Descargar anovamientos mientres s'instala"
 
 #. Type: text
 #. Description
@@ -1672,7 +1642,13 @@ msgstr "Rexón:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:241001
+msgid "[type here to change]"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:243001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
@@ -1705,7 +1681,7 @@ msgstr "Tresnar pa la configuración OEM"
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
 msgid "Preparing for OEM configuration..."
-msgstr "Tresnando pa la configuración OEM..."
+msgstr "Preparándose pa la configuración OEM..."
 
 #. Type: text
 #. Description
@@ -1748,21 +1724,6 @@ msgstr "Desaniciando paquetes"
 
 #~ msgid "Install them side by side, choosing between them each startup"
 #~ msgstr "Instalalu xunto a los otros, escoyendo ente ellos en cada aniciu."
-
-#~ msgid "that you are connected to the Internet with an Ethernet cable"
-#~ msgstr "que tas coneutáu a Internet con un cable Ethernet"
-
-#~ msgid ""
-#~ "Ubuntu aims to be free and open-source software.  However, this is not "
-#~ "always possible."
-#~ msgstr ""
-#~ "Ubuntu tien como oxetivu ser software llibre y de códigu abiertu. Sicasí, "
-#~ "esto non siempres ye posible."
-
-#~ msgid ""
-#~ "Please off me non-open-source software if it is needed for a better "
-#~ "experience"
-#~ msgstr "Ufrime software propietariu si se necesita pa una esperiencia meyor"
 
 #~ msgid "What name do you want to use to log in?"
 #~ msgstr "¿Qué nome-y prestaría usar p'aniciar sesión?"
@@ -1846,3 +1807,18 @@ msgstr "Desaniciando paquetes"
 
 #~ msgid "Full Name"
 #~ msgstr "Nome completu"
+
+#~ msgid ""
+#~ "Ubuntu aims to be free and open-source software.  However, this is not "
+#~ "always possible."
+#~ msgstr ""
+#~ "Ubuntu tien como oxetivu ser software llibre y de códigu abiertu. Sicasí, "
+#~ "esto non siempres ye posible."
+
+#~ msgid "that you are connected to the Internet with an Ethernet cable"
+#~ msgstr "que tas coneutáu a Internet con un cable Ethernet"
+
+#~ msgid ""
+#~ "Please off me non-open-source software if it is needed for a better "
+#~ "experience"
+#~ msgstr "Ufrime software propietariu si se necesita pa una esperiencia meyor"

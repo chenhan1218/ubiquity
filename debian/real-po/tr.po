@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-09-15 13:27+0100\n"
-"PO-Revision-Date: 2010-08-13 09:48+0000\n"
-"Last-Translator: ubuntuki <Unknown>\n"
+"POT-Creation-Date: 2010-09-21 10:02+0100\n"
+"PO-Revision-Date: 2010-09-16 08:44+0000\n"
+"Last-Translator: E Karaca <Unknown>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: \n"
 
@@ -33,7 +33,7 @@ msgstr "Diskin tümünü temizle ve kullan"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "Diğer işletim sistemlerinin yanına kur."
 
 #. Type: text
 #. Description
@@ -120,14 +120,14 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Okumak isteyebilirsiniz, <a href=\"sürüm-notları\">sürüm notları</a> veya <a "
+"Okumak isteyebilirsiniz, <a href=\"surum-notları\">sürüm notları</a> veya <a "
 "href=\"update\">bu kurucuyu güncelle</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr "Okumak isteyebilirsiniz, <a href=\"sürüm-notları\">sürüm notları</a>"
+msgstr "Okumak isteyebilirsiniz, <a href=\"surum-notları\">sürüm notları</a>"
 
 #. Type: text
 #. Description
@@ -175,7 +175,7 @@ msgstr "Neredesiniz?"
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Keyboard layout"
-msgstr "Klavye düzeni"
+msgstr "Klavye yerleşimi"
 
 #. Type: text
 #. Description
@@ -192,10 +192,8 @@ msgstr "Klavyenizi denemek için buraya yazın"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Figure out keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "Klavye düzenini anlamak"
+msgstr "Klavye yerleşimini hesapla"
 
 #. Type: text
 #. Description
@@ -266,16 +264,14 @@ msgstr "Parolayı doğrulayın"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Your name:"
 msgid "Your computer's name:"
-msgstr "Adınız:"
+msgstr "Bilgisayarınızın adı:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "Bu isim diğer bilgisayarlarla kurulan iletişim esnasında kullanılır."
 
 #. Type: text
 #. Description
@@ -762,19 +758,14 @@ msgstr "Kapı:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"Kurulum bitti. Ubuntu'yu sınamayı sürdürebilirsiniz ancak bilgisayarınızı "
-"yeniden başlatmadan yaptığınız değişiklikler ya da kaydettiğiniz belgeler "
-"saklanmayacak."
+"Kurulum bitti. ${RELEASE} sürümünü sınamaya devam edebilirsiniz, ancak "
+"bilgisayarınızı yeniden başlatana kadar, yaptığınız değişiklikler ve "
+"kaydettiğiniz belgeler saklanmayacak."
 
 #. Type: text
 #. Description
@@ -1256,7 +1247,7 @@ msgstr "Sistem Yapılandırması"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001 ../ubiquity.templates:241001
+#: ../ubiquity.templates:178001 ../ubiquity.templates:242001
 msgid "Welcome"
 msgstr "Hoş Geldiniz"
 
@@ -1288,7 +1279,7 @@ msgstr "Dil"
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Prepare"
-msgstr ""
+msgstr "Hazırla"
 
 #. Type: text
 #. Description
@@ -1474,63 +1465,49 @@ msgstr "Aşağıdaki bölücüyü sürükleyerek sürücü alanını bölün:"
 #. Description
 #: ../ubiquity.templates:215001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "Parçalnmamış (bölümlenmemiş) disk kullanılacak"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:216001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
+#, no-c-format
 msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>%d daha küçük bölümler gizlidir, daha fazla hakimiyet için <a href="
-"\"\">Gelişmiş Bölümleme Aracı</a></small> kullanın."
+"%d daha küçük bölümler gizli, daha fazla kontrol için <a href=\"\">gelişmiş "
+"bölümleme aracı</a>nı kullanın."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
-#, fuzzy
-#| msgid ""
-#| "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
 msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>1 daha küçük bölüm gizlidir, daha fazla hakimiyet için <a href="
-"\"\">Gelişmiş Bölümleme Aracı</a></small> kullanın."
+"1 tane daha küçük bölümler gizli, daha fazla kontrol için <a href="
+"\"\">gelişmiş bölümleme aracı</a>nı kullanın."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
+#, no-c-format
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>%d daha küçük bölümler gizlidir, daha fazla hakimiyet için <a href="
-"\"\">Gelişmiş Bölümleme Aracı</a></small> kullanın."
+"%d bölümleri silinecek, daha fazla kontrol için <a href=\"\">gelişmiş "
+"bölümleme aracı</a>nı kullanın."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
-#, fuzzy
-#| msgid ""
-#| "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>1 daha küçük bölüm gizlidir, daha fazla hakimiyet için <a href="
-"\"\">Gelişmiş Bölümleme Aracı</a></small> kullanın."
+"1 bölüm silinecek, daha fazla kontrol için <a href=\"\">gelişmiş bölümleme "
+"aracı</a>nı kullanın."
 
 #. Type: text
 #. Description
@@ -1553,32 +1530,26 @@ msgstr "En geniş bölümü kullan"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid "For best results, please ensure:"
 msgid "For best results, please ensure that this computer:"
-msgstr "En iyi sonuç için, emin olun:"
+msgstr "En iyi sonuçlar için, bilgisayarı emniyete alın."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
-#, fuzzy
-#| msgid "that you have at least ${SIZE} available drive space"
 msgid "has at least ${SIZE} available drive space"
-msgstr "En az ${SIZE} kullanılabilir disk alanınız var"
+msgstr "en az ${SIZE} boş disk alanı mevcut."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
-#, fuzzy
-#| msgid "that you are plugged in to a power source"
 msgid "is plugged in to a power source"
-msgstr "Bir güç kaynağına taktınız"
+msgstr "güç kaynağına takılı."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "İnternete bağlı."
 
 #. Type: text
 #. Description
@@ -1589,26 +1560,25 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} Flash, MP3 ve diğer medyaları oynatmak üçüncü parti yazılımları "
+"kullanır. Bunların bir kısmı kapalı kaynak yazılımlarıdr. Söz konusu "
+"yazılımlar, yazılımın ilgili belgelerinde geçen lisans kurallarına tabidir."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001
-#, fuzzy
-#| msgid ""
-#| "The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 "
-#| "audio decoding technology licensed from Faunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
-"Şu not Fluendo MP3 eklentisi için gösterilmektedir: MPEG Layer-3 ses kod "
-"çözücü teknolojisi Faunhofer IIS ve Thomson lisansı altındadır."
+"Fluendo MP3 eklentisi, Fraunhofer IIS ve Thomson tarafından lisanslanmış "
+"MPEG Layer-3 ses kodlama teknolojisini içerir."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "Üçüncü parti bu yazılımı kur."
 
 #. Type: text
 #. Description
@@ -1660,12 +1630,21 @@ msgstr "Bölge:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:241001
+msgid "[type here to change]"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:243001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+"Kurmaya hazır mısınız? Bir kaç soruyu yanıtladıktan sonra, çalışan ${MEDIUM} "
+"içeriği bu bilgisayara kurulabilir hale gelecektir. Böylelikle ${MEDIUM} "
+"olmadan da ${RELEASE} ile tam hızda çalıştırabilirsiniz."
 
 #. Type: title
 #. Description
@@ -1733,23 +1712,6 @@ msgstr "Paketler kaldırılıyor"
 
 #~ msgid "Install them side by side, choosing between them each startup"
 #~ msgstr "Yan yana kur, açılışta aralarından biri seçilebilsin"
-
-#~ msgid "that you are connected to the Internet with an Ethernet cable"
-#~ msgstr "İnternete bir Ethernet kablosu ile bağlandınız"
-
-#~ msgid ""
-#~ "Ubuntu aims to be free and open-source software.  However, this is not "
-#~ "always possible."
-#~ msgstr ""
-#~ "Ubuntu ücretsiz ve açık-kaynak yazılım olmayı amaçlar. Ancak, bu her "
-#~ "zaman mümkün değildir."
-
-#~ msgid ""
-#~ "Please off me non-open-source software if it is needed for a better "
-#~ "experience"
-#~ msgstr ""
-#~ "İyi deneyim gerektiren yerlerde açık kaynak olmayan yazılımları benim "
-#~ "için engelle"
 
 #~ msgid "Which layout is most similar to your keyboard?"
 #~ msgstr "Klavyenize en yakın düzen hangisi?"
@@ -1830,3 +1792,20 @@ msgstr "Paketler kaldırılıyor"
 
 #~ msgid "Strength: fair"
 #~ msgstr "Güç: orta"
+
+#~ msgid "that you are connected to the Internet with an Ethernet cable"
+#~ msgstr "İnternete bir Ethernet kablosu ile bağlandınız"
+
+#~ msgid ""
+#~ "Ubuntu aims to be free and open-source software.  However, this is not "
+#~ "always possible."
+#~ msgstr ""
+#~ "Ubuntu ücretsiz ve açık-kaynak yazılım olmayı amaçlar. Ancak, bu her "
+#~ "zaman mümkün değildir."
+
+#~ msgid ""
+#~ "Please off me non-open-source software if it is needed for a better "
+#~ "experience"
+#~ msgstr ""
+#~ "İyi deneyim gerektiren yerlerde açık kaynak olmayan yazılımları benim "
+#~ "için engelle"

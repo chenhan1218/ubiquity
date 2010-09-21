@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-09-15 13:27+0100\n"
-"PO-Revision-Date: 2010-04-25 06:46+0000\n"
+"POT-Creation-Date: 2010-09-21 10:02+0100\n"
+"PO-Revision-Date: 2010-08-27 20:00+0000\n"
 "Last-Translator: Sanu <sanoojkp@rediffmail.com>\n"
 "Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc-"
 "discuss@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: \n"
 
@@ -183,10 +183,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "കീബോര്‍ഡ് ലേയൌട്ട്"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -257,10 +255,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Setting computer name..."
 msgid "Your computer's name:"
-msgstr "കംപ്യൂട്ടര്‍ നാമകരണം നടത്തിക്കൊണ്ടിരിക്കുന്നു..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1184,7 +1180,7 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001 ../ubiquity.templates:241001
+#: ../ubiquity.templates:178001 ../ubiquity.templates:242001
 msgid "Welcome"
 msgstr "സ്വാഗതം"
 
@@ -1545,7 +1541,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:241001
+msgid "[type here to change]"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:243001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
@@ -1611,9 +1613,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr ""
 
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "ഓരോ തവണയും തുടക്കത്തില്‍ തിരഞ്ഞെടുക്കാവുന്ന വിധം, ഇവ അടുത്തടുത്തായി ഇന്‍സ്റ്റാള്‍ ചെയ്യുക"
-
 #~ msgid "Which layout is most similar to your keyboard?"
 #~ msgstr "ഏത് ലേയൌട്ടിനാണ് നിങ്ങളുടെ കീബോര്‍ഡുമായി കൂടുതല്‍ സാമ്യം?"
 
@@ -1641,3 +1640,6 @@ msgstr ""
 
 #~ msgid "Choose language"
 #~ msgstr "ഭാഷ തിരഞ്ഞെടുക്കുക/Choose language"
+
+#~ msgid "Install them side by side, choosing between them each startup"
+#~ msgstr "ഓരോ തവണയും തുടക്കത്തില്‍ തിരഞ്ഞെടുക്കാവുന്ന വിധം, ഇവ അടുത്തടുത്തായി ഇന്‍സ്റ്റാള്‍ ചെയ്യുക"

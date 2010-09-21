@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-09-15 13:27+0100\n"
-"PO-Revision-Date: 2010-08-25 19:25+0000\n"
+"POT-Creation-Date: 2010-09-21 10:02+0100\n"
+"PO-Revision-Date: 2010-09-19 12:15+0000\n"
 "Last-Translator: Adrian Guniš <andygun696@gmail.com>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: cs\n"
 
@@ -33,7 +33,7 @@ msgstr "Smazat a použít celý disk"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "Nainstalovat vedle ostatních operačních systémů"
 
 #. Type: text
 #. Description
@@ -195,10 +195,8 @@ msgstr "Zde můžete vyzkoušet nastavení klávesnice"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Figure out keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "Odhadnout rozložení klávesnice"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -269,16 +267,14 @@ msgstr "Potvrďte heslo"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Your name:"
 msgid "Your computer's name:"
-msgstr "Vaše jméno:"
+msgstr "Název počítače:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "Název se používá při komunikaci s ostatními počítači."
 
 #. Type: text
 #. Description
@@ -766,18 +762,13 @@ msgstr "Port:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"Instalace byla dokončena. Můžete nyní pokračovat ve zkoušení Ubuntu, ale až "
-"do restartu počítače nebudou uchovány žádné změny, které uděláte, nebo "
+"Instalace byla dokončena. Nyní můžete pokračovat ve zkoušení ${RELEASE}, ale "
+"až do restartu počítače nebudou uchovány žádné změny, které uděláte, nebo "
 "dokumenty, které uložíte."
 
 #. Type: text
@@ -1256,7 +1247,7 @@ msgstr "Nastavení systému"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001 ../ubiquity.templates:241001
+#: ../ubiquity.templates:178001 ../ubiquity.templates:242001
 msgid "Welcome"
 msgstr "Vítejte"
 
@@ -1288,7 +1279,7 @@ msgstr "Jazyk"
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Prepare"
-msgstr ""
+msgstr "Připravit"
 
 #. Type: text
 #. Description
@@ -1472,63 +1463,49 @@ msgstr "Tažením rozdělovače přidělte místo na disku:"
 #. Description
 #: ../ubiquity.templates:215001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "Bude použit celý disk:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:216001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
+#, no-c-format
 msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>%d menší oddíly jsou skryté, pro lepší kontrolu použijte <a href="
-"\"\">pokročilý nástroj na dělení disků</a> </small>"
+"%d menší oddíly jsou skryty, pro lepší správu použijte <a href="
+"\"\">pokročilý nástroj na dělení disků</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
-#, fuzzy
-#| msgid ""
-#| "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
 msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>1 menší oddíl je skrytý, pro lepší kontrolu použijte <a href="
-"\"\">pokročilý nástroj na dělení disků</a> </small>"
+"1 menší oddíl je skrytý, pro lepší správu použijte <a href=\"\">pokročilý "
+"nástroj na dělení disků</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
+#, no-c-format
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>%d menší oddíly jsou skryté, pro lepší kontrolu použijte <a href="
-"\"\">pokročilý nástroj na dělení disků</a> </small>"
+"%d oddíly budou smazány, pro lepší správu použijte <a href=\"\">pokročilý "
+"nástroj na dělení disků</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
-#, fuzzy
-#| msgid ""
-#| "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>1 menší oddíl je skrytý, pro lepší kontrolu použijte <a href="
-"\"\">pokročilý nástroj na dělení disků</a> </small>"
+"1 oddíl bude smazán, pro lepší správu použijte <a href=\"\">pokročilý "
+"nástroj na dělení disků</a>"
 
 #. Type: text
 #. Description
@@ -1551,32 +1528,26 @@ msgstr "Rozdělit největší oddíl"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid "For best results, please ensure:"
 msgid "For best results, please ensure that this computer:"
-msgstr "Abyste dosáhli nejlepších výsledků, zajistěte:"
+msgstr "Pro bezproblémovou instalaci zajistěte u tohoto počítače, aby:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
-#, fuzzy
-#| msgid "that you have at least ${SIZE} available drive space"
 msgid "has at least ${SIZE} available drive space"
-msgstr "abyste měli alespoň ${SIZE} volného místa na disku"
+msgstr "měl k dispozici aspoň ${SIZE} úložného prostoru"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
-#, fuzzy
-#| msgid "that you are plugged in to a power source"
 msgid "is plugged in to a power source"
-msgstr "abyste byli připojeni ke zdroji napájení"
+msgstr "byl připojen ke zdroji napájení"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "byl připojen k Internetu"
 
 #. Type: text
 #. Description
@@ -1587,27 +1558,26 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} používá software třetích stran k přehrávání Flash, MP3 a dalších "
+"médií a zajištění funkčnosti některého bezdrátového hardwaru. V některých "
+"případech se jedná o software s uzavřeným zdrojovým kódem. Tento software je "
+"předmětem licenčních podmínek obsažených v dokumentaci k softwaru."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001
-#, fuzzy
-#| msgid ""
-#| "The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 "
-#| "audio decoding technology licensed from Faunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
-"Následující upozornění se vztahuje na zásuvný modul Fluendo MP3: technologie "
-"dekódování zvuku MPEG Layer-3 licencovaná institucí Faunhofer IIS a "
-"společností Thomson."
+"Zásuvný modul Fluendo MP3 zahrnuje technologii pro dekódování zvuku MPEG "
+"Layer-3 licencovanou od Fraunhofer IIS a Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "Nainstalovat software třetích stran"
 
 #. Type: text
 #. Description
@@ -1659,7 +1629,13 @@ msgstr "Oblast:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:241001
+msgid "[type here to change]"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:243001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
@@ -1734,16 +1710,6 @@ msgstr "Odstraňování balíků"
 
 #~ msgid "Install them side by side, choosing between them each startup"
 #~ msgstr "Nainstalovat je vedle sebe a vybírat mezi nimi při každém spuštění"
-
-#~ msgid "that you are connected to the Internet with an Ethernet cable"
-#~ msgstr "abyste byli připojeni k Internetu přes Ethernetový kabel"
-
-#~ msgid ""
-#~ "Ubuntu aims to be free and open-source software.  However, this is not "
-#~ "always possible."
-#~ msgstr ""
-#~ "Ubuntu klade důraz na svobodný a otevřený software. Nicméně, toto není "
-#~ "vždy možné."
 
 #~ msgid "Which layout is most similar to your keyboard?"
 #~ msgstr "Které rozložení se nejvíce podobá vaší klávesnici?"
@@ -1835,3 +1801,13 @@ msgstr "Odstraňování balíků"
 
 #~ msgid "Strength: weak"
 #~ msgstr "Síla: slabé"
+
+#~ msgid "that you are connected to the Internet with an Ethernet cable"
+#~ msgstr "abyste byli připojeni k Internetu přes Ethernetový kabel"
+
+#~ msgid ""
+#~ "Ubuntu aims to be free and open-source software.  However, this is not "
+#~ "always possible."
+#~ msgstr ""
+#~ "Ubuntu klade důraz na svobodný a otevřený software. Nicméně, toto není "
+#~ "vždy možné."

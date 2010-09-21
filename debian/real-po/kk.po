@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-09-15 13:27+0100\n"
-"PO-Revision-Date: 2010-04-29 04:14+0000\n"
-"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
+"POT-Creation-Date: 2010-09-21 10:02+0100\n"
+"PO-Revision-Date: 2010-09-16 14:13+0000\n"
+"Last-Translator: jmb_kz <Unknown>\n"
 "Language-Team: Kazakh\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: \n"
 
@@ -75,6 +75,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
+"Өзіңіздің жүйеңізге ешбір тәуекелсіз ақ, ${MEDIUM} дискідегі ${RELEASE} "
+"қолданып көре аласыз."
 
 #. Type: text
 #. Description
@@ -162,7 +164,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Warning"
-msgstr ""
+msgstr "Назар аударыңыз"
 
 #. Type: text
 #. Description
@@ -180,27 +182,25 @@ msgstr "Пернетақта тілі"
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your keyboard layout:"
-msgstr ""
+msgstr "Пернетақта тілін таңдаңыз:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Пернетақтаны тексеру үшін, осы жерге теріңіз"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "Пернетақта тілі"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Figure out keyboard layout"
-msgstr ""
+msgstr "Пернетақта тілін анықтау"
 
 #. Type: text
 #. Description
@@ -224,19 +224,19 @@ msgstr "Өзіңізді таныстырыңыз"
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Your name:"
-msgstr ""
+msgstr "Сіздің атыңыз:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Your name"
-msgstr ""
+msgstr "Сіздің атыңыз"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Pick a username:"
-msgstr ""
+msgstr "Пайдаланушы аты:"
 
 #. Type: text
 #. Description
@@ -248,7 +248,7 @@ msgstr "Пайдаланушы аты"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Choose a password:"
-msgstr ""
+msgstr "Құпия сөз:"
 
 #. Type: text
 #. Description
@@ -260,15 +260,13 @@ msgstr "Құпия сөз"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Confirm password"
-msgstr ""
+msgstr "Құпия сөзді растаңыз"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Setting computer name..."
 msgid "Your computer's name:"
-msgstr "Компьютер атын тағайындау..."
+msgstr "Сіздің компьютеріңіздің аты:"
 
 #. Type: text
 #. Description
@@ -286,31 +284,31 @@ msgstr "Жүйе жөндеу режимінде жегілген. Шын пар
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Short password"
-msgstr ""
+msgstr "Қысқа құпия сөз"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Weak password"
-msgstr ""
+msgstr "Әлсіз құпия сөз"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Fair password"
-msgstr ""
+msgstr "Жарайтын (нормальный) құпия сөз"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Good password"
-msgstr ""
+msgstr "Жақсы құпия сөз"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Strong password"
-msgstr ""
+msgstr "Берік құпия сөз"
 
 #. Type: text
 #. Description
@@ -328,7 +326,7 @@ msgstr "Жүйеге кіру үшін құпия сөзін сұрау"
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "Жеке үй бумасын шифрлеу"
 
 #. Type: text
 #. Description
@@ -436,13 +434,13 @@ msgstr "Қосымша..."
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:62001
 msgid "_Install Now[ action ]"
-msgstr ""
+msgstr "Қазір _орнату"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr ""
+msgstr "Қадам: ${INDEX}/${TOTAL}"
 
 #. Type: title
 #. Description
@@ -759,17 +757,12 @@ msgstr "Порты:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"Орнатылым аяқталды. Сіз Ubuntu-мен әрі қарай осы сессияда жұмыс істей "
+"Орнатылым аяқталды. Сіз ${RELEASE} әрі қарай осы сессияда жұмыс істей "
 "аласыз, бірақ қайта жүктеуге жіберген кезде жасалған әрекеттер және құжаттар "
 "жойылады."
 
@@ -1173,7 +1166,7 @@ msgstr "Қарастырылмайтын файлдарды есептеп жа�
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "Сіз дайын болған кезде..."
 
 #. Type: title
 #. Description
@@ -1251,7 +1244,7 @@ msgstr "Жүйенің конфигурациясы"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001 ../ubiquity.templates:241001
+#: ../ubiquity.templates:178001 ../ubiquity.templates:242001
 msgid "Welcome"
 msgstr "Қош келдіңіз"
 
@@ -1283,7 +1276,7 @@ msgstr "Тіл"
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Prepare"
-msgstr ""
+msgstr "Дайындау"
 
 #. Type: text
 #. Description
@@ -1374,7 +1367,7 @@ msgstr "Орнатылым бағдарламасын өз-өзін жаңарт
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:199001
 msgid "USB disk"
-msgstr ""
+msgstr "USB диск"
 
 #. Type: text
 #. Description
@@ -1390,6 +1383,8 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
+"Орнатым жүру барысында қолданылатын тілді таңдаңыз. Таңдалған тіл, жүйенің "
+"негізгі тілі ретінде орнатылатын болады."
 
 #. Type: text
 #. Description
@@ -1444,19 +1439,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:208001
 msgid "Wireless"
-msgstr ""
+msgstr "Сымсыз желі"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
 msgid "Please select your wireless network from this list"
-msgstr ""
+msgstr "ТІзімнен өзіңіздің сымсыз желіні таңдаңыз"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:213001
 msgid "Select drive:"
-msgstr ""
+msgstr "Дискті таңдаңыз:"
 
 #. Type: text
 #. Description
@@ -1508,19 +1503,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:220001
 msgid "Use Entire Partition"
-msgstr ""
+msgstr "Ағымдағы бөлімді толығымен қолдану"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "Ағымдағы дискіні толық қолдану"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid "Split Largest Partition"
-msgstr ""
+msgstr "Ең үлкен бөлімді бөлу"
 
 #. Type: text
 #. Description
@@ -1574,7 +1569,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:231001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "Орнатылым кезінде жаңартуларды жүктеп алу"
 
 #. Type: text
 #. Description
@@ -1620,7 +1615,13 @@ msgstr "Аймақ:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:241001
+msgid "[type here to change]"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:243001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
@@ -1694,10 +1695,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Пакеттер жойылуда"
 
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr ""
-#~ "Оларды толығымен орнатып, әрбір жүктелгенде жуктелінетінін таңдайсыз"
-
 #~ msgid "What is your name?"
 #~ msgstr "Атыңыз кім?"
 
@@ -1736,6 +1733,10 @@ msgstr "Пакеттер жойылуда"
 
 #~ msgid "Suggested option:"
 #~ msgstr "Қосымша мүмкіндіктер:"
+
+#~ msgid "Install them side by side, choosing between them each startup"
+#~ msgstr ""
+#~ "Оларды толығымен орнатып, әрбір жүктелгенде жуктелінетінін таңдайсыз"
 
 #~ msgid "Require my password to log in and to decrypt my home folder"
 #~ msgstr ""

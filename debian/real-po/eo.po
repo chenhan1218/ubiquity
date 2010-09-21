@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-09-15 13:27+0100\n"
-"PO-Revision-Date: 2010-08-18 16:42+0000\n"
+"POT-Creation-Date: 2010-09-21 10:02+0100\n"
+"PO-Revision-Date: 2010-09-08 20:35+0000\n"
 "Last-Translator: Patrick (Petriko) Oudejans <Unknown>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: eo\n"
 
@@ -191,10 +191,8 @@ msgstr "Tajpu tie ĉi por testi vian klavaron"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Figure out keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "Eltrovi klavarfasonon"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -265,10 +263,8 @@ msgstr "Konfirmi pasvorton"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Your name:"
 msgid "Your computer's name:"
-msgstr "Via nomo:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -760,19 +756,13 @@ msgstr "Pordo:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"La instalado finiĝis. Vi povas kontinui testi Ubunton nun, sed ĝis kiam vi "
-"rekomencos la komputilon, neniuj ŝanĝoj, kiujn vi faras aŭ dokumentoj, kiujn "
-"vi savas, estos konservataj."
+"La instalo nun pretas. Vi nun povas daŭrigi la testadon de ${RELEASE}, sed "
+"antaŭ la relanĉo de la komputilo, neniu ŝanĝo aŭ dokumento estos konservata."
 
 #. Type: text
 #. Description
@@ -1251,7 +1241,7 @@ msgstr "Sistemkonfigurado"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001 ../ubiquity.templates:241001
+#: ../ubiquity.templates:178001 ../ubiquity.templates:242001
 msgid "Welcome"
 msgstr "Bonvenon"
 
@@ -1283,7 +1273,7 @@ msgstr "Lingvo"
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Prepare"
-msgstr ""
+msgstr "Preparu"
 
 #. Type: text
 #. Description
@@ -1472,58 +1462,36 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:216001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
+#, no-c-format
 msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>%d malpli grandaj subdiskoj estas kaŝataj. Uzu la <a href="
-"\"\">porspertulan diskpartigilon</a> por pli da kontrolo</small>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
-#, fuzzy
-#| msgid ""
-#| "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
 msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>1 malpli granda subdisko estas kaŝata. Uzu la <a href="
-"\"\">porspertulan diskpartigilon</a> por pli da kontrolo</small>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
+#, no-c-format
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>%d malpli grandaj subdiskoj estas kaŝataj. Uzu la <a href="
-"\"\">porspertulan diskpartigilon</a> por pli da kontrolo</small>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
-#, fuzzy
-#| msgid ""
-#| "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>1 malpli granda subdisko estas kaŝata. Uzu la <a href="
-"\"\">porspertulan diskpartigilon</a> por pli da kontrolo</small>"
 
 #. Type: text
 #. Description
@@ -1546,26 +1514,20 @@ msgstr "Dividi plej grandan subdiskon"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid "For best results, please ensure:"
 msgid "For best results, please ensure that this computer:"
-msgstr "Por la plej bonaj rezultoj, bonvolu certiĝi:"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
-#, fuzzy
-#| msgid "that you have at least ${SIZE} available drive space"
 msgid "has at least ${SIZE} available drive space"
-msgstr "ke vi havas almenaŭ ${SIZE} da disponebla diskloko"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
-#, fuzzy
-#| msgid "that you are plugged in to a power source"
 msgid "is plugged in to a power source"
-msgstr "ke la komputilo estas konektita al elektro"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1586,16 +1548,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001
-#, fuzzy
-#| msgid ""
-#| "The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 "
-#| "audio decoding technology licensed from Faunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
-"La sekva noto koncernas la MP3-kromprogramon de Fluendo: MPEG Layer-3-"
-"sondmalkodiga teknologio sub permesilo de Faunhofer ISS kaj Thomson."
 
 #. Type: text
 #. Description
@@ -1653,7 +1609,13 @@ msgstr "Regiono:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:241001
+msgid "[type here to change]"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:243001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
@@ -1725,26 +1687,6 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Forigas pakaĵojn"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "Instali ilin unu apud la alia, elektonte inter ili ĉiun komenciĝon."
-
-#~ msgid "that you are connected to the Internet with an Ethernet cable"
-#~ msgstr "ke vi estas konektita al la interreto per eterreta kablo"
-
-#~ msgid ""
-#~ "Ubuntu aims to be free and open-source software.  However, this is not "
-#~ "always possible."
-#~ msgstr ""
-#~ "Ubuntu celas esti libera kaj malfermitkoda programaro. Bedaŭrinde tio ne "
-#~ "ĉiam eblas."
-
-#~ msgid ""
-#~ "Please off me non-open-source software if it is needed for a better "
-#~ "experience"
-#~ msgstr ""
-#~ "Bonvolu prezenti al mi nemalfermitkodan programaron se tio necesas por "
-#~ "pli bona uzosperto"
 
 #~ msgid "Which layout is most similar to your keyboard?"
 #~ msgstr "Kiu aranĝo plej similas al via klavaro?"
@@ -1827,3 +1769,23 @@ msgstr "Forigas pakaĵojn"
 
 #~ msgid "Full Name"
 #~ msgstr "Plena nomo"
+
+#~ msgid "Install them side by side, choosing between them each startup"
+#~ msgstr "Instali ilin unu apud la alia, elektonte inter ili ĉiun komenciĝon."
+
+#~ msgid ""
+#~ "Please off me non-open-source software if it is needed for a better "
+#~ "experience"
+#~ msgstr ""
+#~ "Bonvolu prezenti al mi nemalfermitkodan programaron se tio necesas por "
+#~ "pli bona uzosperto"
+
+#~ msgid "that you are connected to the Internet with an Ethernet cable"
+#~ msgstr "ke vi estas konektita al la interreto per eterreta kablo"
+
+#~ msgid ""
+#~ "Ubuntu aims to be free and open-source software.  However, this is not "
+#~ "always possible."
+#~ msgstr ""
+#~ "Ubuntu celas esti libera kaj malfermitkoda programaro. Bedaŭrinde tio ne "
+#~ "ĉiam eblas."

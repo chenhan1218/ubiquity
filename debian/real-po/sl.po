@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-09-15 13:27+0100\n"
-"PO-Revision-Date: 2010-08-21 21:36+0000\n"
-"Last-Translator: Andrej Znidarsic <andrej.znidarsic@gmail.com>\n"
+"POT-Creation-Date: 2010-09-21 10:02+0100\n"
+"PO-Revision-Date: 2010-09-17 19:26+0000\n"
+"Last-Translator: Klemen Košir <klemen913@gmail.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: sl\n"
 
@@ -34,7 +34,7 @@ msgstr "Izbriši in uporabi celoten disk"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "Namesti poleg drugih operacijskih sistemov"
 
 #. Type: text
 #. Description
@@ -55,7 +55,7 @@ msgstr "Namesti"
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "Namesti (način OEM; samo za proizvajalce)"
+msgstr "Namesti (način OEM, samo za proizvajalce)"
 
 #. Type: text
 #. Description
@@ -66,7 +66,7 @@ msgid ""
 "and can be used to help with bug reports."
 msgstr ""
 "Nameščanje poteka v načinu za proizvajalce računalniških sistemov. Vnesite "
-"edinstveno ime za to vrsto sistemov. Shranjeno bo na nameščenem sistemu in "
+"edinstveno ime za to skupino sistemov. Shranjeno bo na nameščenem sistemu in "
 "je lahko v pomoč pri javljanju napak."
 
 #. Type: text
@@ -76,8 +76,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"${RELEASE} lahko preizkusite brez sprememb na svojemu računalniku, "
-"neposredno s tega ${MEDIUM}."
+"${RELEASE} lahko preizkusite brez sprememb na računalniku, neposredno s tega "
+"${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -86,8 +86,8 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
-"Če ste pripravljeni, lahko namestite ${RELEASE} poleg (ali namesto) svojega "
-"trenutnega operacijskega sistema. To ne bi smelo vzeti veliko časa."
+"Če pa ste pripravljeni, lahko namestite ${RELEASE} poleg (ali namesto) "
+"svojega trenutnega operacijskega sistema. To ne bi smelo vzeti veliko časa."
 
 #. Type: text
 #. Description
@@ -106,13 +106,14 @@ msgstr "Namesti ${RELEASE}"
 #: ../ubiquity.templates:13001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
-"Ko odgovorite na nekaj vprašanj, bo vaš računalnik pripravljen za uporabo."
+"Ko boste odgovorili na nekaj vprašanj, bo vaš računalnik pripravljen za "
+"uporabo."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Answering the questions should only take a few minutes."
-msgstr "Odgovarjanje na vprašanja vam bo vzelo le nekaj minut."
+msgstr "Odgovarjanje vam bo vzelo le nekaj minut."
 
 #. Type: text
 #. Description
@@ -144,8 +145,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2010."
 msgstr ""
-"To je predizdaja ${RELEASE} z živim namestilnikom na ${MEDIUM}. Ne gre za "
-"dokončno izdajo; ta bo izdana oktobra 2010 kot ${RELEASE}."
+"To je predizdaja namestilnika živega ${MEDIUM}-ja ${RELEASE}. To ni dokončna "
+"izdaja; ta bo izdana oktobra 2010."
 
 #. Type: text
 #. Description
@@ -156,8 +157,8 @@ msgid ""
 "this program."
 msgstr ""
 "Namestitveno opravilo lahko spremeni velikost razdelkov ali jih izbriše z "
-"vašega trdega diska. Pred zagonom programa poskrbite za <b>polno varnostno "
-"kopijo vseh pomembnih podatkov</b>."
+"vašega trdega diska. Pred zagonom tega programa poskrbite za <b>polno "
+"varnostno kopijo vseh pomembnih podatkov</b>."
 
 #. Type: text
 #. Description
@@ -169,13 +170,13 @@ msgstr "Opozorilo"
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Where are you?"
-msgstr "Kje ste?"
+msgstr "Kje se nahajate?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Keyboard layout"
-msgstr "Razporeditev tipkovnice"
+msgstr "Razporeditev tipk"
 
 #. Type: text
 #. Description
@@ -187,27 +188,25 @@ msgstr "Izberite svojo razporeditev tipkovnice:"
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Type here to test your keyboard"
-msgstr "Tipkajte sem za preizkus svoje tipkovnice"
+msgstr "Ze preizkus svoje tipkovnice lahko tukaj vnesete besedilo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Figure out keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "Ugotovite katero razporeditev tipkovnice imate"
+msgstr "Ugotovi razpored tipkovnice"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Figure out keyboard layout"
-msgstr "Ugotovite katero razporeditev tipkovnice imate"
+msgstr "Ugotovite razporeditev tipkovnice"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Please press one of the following keys:"
-msgstr "Pritisnite eno od naslednjih tipk:"
+msgstr "Pritisnite eno izmed naslednjih tipk:"
 
 #. Type: text
 #. Description
@@ -266,16 +265,15 @@ msgstr "Potrdite geslo"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Your name:"
 msgid "Your computer's name:"
-msgstr "Vaše ime:"
+msgstr "Ime vašega računalnika:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
 msgstr ""
+"Ime, ki ga računalnik uporablja pri pogovarjanju z drugimi računalniki."
 
 #. Type: text
 #. Description
@@ -318,7 +316,7 @@ msgstr "Močno geslo"
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Log in automatically"
-msgstr "Samodejna prijava"
+msgstr "Prijavi samodejno"
 
 #. Type: text
 #. Description
@@ -336,7 +334,7 @@ msgstr "Šifriraj mojo domačo mapo"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Migrate documents and settings"
-msgstr "Preselitev dokumentov in nastavitev"
+msgstr "Preseli dokumente in nastavitve"
 
 #. Type: text
 #. Description
@@ -345,7 +343,7 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Izberite vse račune, ki jih želite uvoziti. Dokumenti in nastavitve izbranih "
+"Izberite račune, ki jih želite uvoziti. Dokumenti in nastavitve izbranih "
 "računov bodo na voljo po končani namestitvi."
 
 #. Type: text
@@ -374,7 +372,7 @@ msgstr "Kako želite razdeliti disk?"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "This computer has no operating systems on it."
-msgstr "Na tem računalniku ni operacijskega sistema."
+msgstr "Na tem računalniku ni operacijskih sistemov."
 
 #. Type: text
 #. Description
@@ -398,7 +396,7 @@ msgstr "Kam želite namestiti ${RELEASE}?"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Prepare partitions"
-msgstr "Priprava razdelkov"
+msgstr "Pripravi razdelke"
 
 #. Type: text
 #. Description
@@ -458,7 +456,7 @@ msgstr "Ali želite zapustiti namestitev?"
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Do you really want to quit the installation now?"
-msgstr "Ali res želite zapustiti namestitev sedaj?"
+msgstr "Ali res želite zapustiti namestitev?"
 
 #. Type: text
 #. Description
@@ -473,8 +471,8 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
-"Oprostite, prišlo je do napake, zaradi katere ni bilo mogoče namestiti "
-"zagonskega nalagalnika na navedeno mesto."
+"Žal je prišlo do napake, zaradi katere ni bilo mogoče namestiti zagonskega "
+"nalagalnika na navedeno mesto."
 
 #. Type: text
 #. Description
@@ -535,7 +533,7 @@ msgstr "Nadaljuj s preizkusom"
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Restart Now"
-msgstr "Znova zaženi sedaj"
+msgstr "Ponovno zaženi sedaj"
 
 #. Type: text
 #. Description
@@ -556,12 +554,12 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
-"Žal nam je; namestilnik se je sesul. Prosimo, javite napako na https://"
-"launchpad.net/ubuntu/+source/ubiquity/+filebug (ne prilagajte svojih "
+"Opravičujemo se, namestilnik se je sesul. Prosimo, če lahko javite napako na "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (ne prilagajte svojih "
 "podatkov k že obstoječim hroščem) in razvijalci se bodo posvetili težavi, "
-"takoj ko bo mogoče. Da bodo razvijalci lažje razumeli, kaj je šlo narobe, k "
-"svojemu poročilu priložite datoteki /var/log/syslog in /var/log/partman in v "
-"poročilo vključite naslednje podrobnosti:"
+"takoj ko bo mogoče. Da bi razvijalci lažje razumeli, kaj je šlo narobe, k "
+"svojemu poročilu priložite datoteki /var/log/syslog in /var/log/partman ter "
+"v poročilo vključite naslednje podrobnosti:"
 
 #. Type: text
 #. Description
@@ -674,7 +672,7 @@ msgstr "Ustvari razdelek"
 #. Description
 #: ../ubiquity.templates:96001 ../ubiquity.templates:103001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr "Nova velikost razdelka v megabajtih (1 000 000 bajtov):"
+msgstr "Nova velikost razdelka v megabajtih (1.000.000 bajtov):"
 
 #. Type: text
 #. Description
@@ -692,7 +690,7 @@ msgstr "Konec"
 #. Description
 #: ../ubiquity.templates:99001
 msgid "Primary"
-msgstr "Primarni"
+msgstr "Osnovni"
 
 #. Type: text
 #. Description
@@ -763,19 +761,14 @@ msgstr "Vrata:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"Namestitev je končana. S preizkušanjem Ubuntuja lahko nadaljujete, vendar se "
-"do ponovnega zagona računalnika vaše spremembe in shranjeni dokumenti ne "
-"bodo ohranili."
+"Namestitev se je končala. Lahko nadaljujete s preizkušanjem ${RELEASE}, toda "
+"do ponovnega zagona računalnika vaše spremembe ali shranjeni dokumenti ne "
+"bodo ohranjeni."
 
 #. Type: text
 #. Description
@@ -798,7 +791,7 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Namestitev je končana. Za uporabo novo nameščenega sistema, morate znova "
+"Namestitev je končana. Za uporabo novo nameščenega sistema morate znova "
 "zagnati računalnik."
 
 #. Type: note
@@ -871,7 +864,7 @@ msgstr "Kopiranje datotek je skoraj končano ..."
 #: ../ubiquity.templates:126001 ../ubiquity.templates:127001
 #: ../ubiquity.templates:128001
 msgid "Installation Failed"
-msgstr "Namestitev je spodletela"
+msgstr "Namestitev ni uspela"
 
 #. Type: error
 #. Description
@@ -884,7 +877,7 @@ msgstr "Namestitev je spodletela"
 #: ../ubiquity.templates:124001 ../ubiquity.templates:125001
 #: ../ubiquity.templates:126001 ../ubiquity.templates:127001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr "Namestilnik je naletel na napako med kopiranju datotek na trdi disk:"
+msgstr "Namestilnik je naletel na napako med kopiranjem datotek na trdi disk:"
 
 #. Type: error
 #. Description
@@ -1117,7 +1110,7 @@ msgstr ""
 "v /var/log/syslog. Ne glede na to se bo namestitev nadaljevala, čeprav lahko "
 "spodleti tudi kasneje, ne da bi se namestili ali odstranili predvideni "
 "paketi (morda vključno z namestilnikom) v nameščenem sistemu. Najprej "
-"preverite, če obstajajo novejše različice vašega namestilnika, v nasprotnem "
+"preverite, če obstajajo novejše različice odtisa namestilnika, v nasprotnem "
 "primeru pa napako javite svojemu dobavitelju odtisa namestilnika."
 
 #. Type: error
@@ -1130,13 +1123,13 @@ msgstr "Napaka med odstranjevanjem paketov"
 #. Description
 #: ../ubiquity.templates:152001
 msgid "An error occurred while removing packages:"
-msgstr "Med odstranjevanjem programskih paketov je prišlo do napake:"
+msgstr "Med odstranjevanjem paketov je prišlo do napake:"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
 msgid "Error migrating documents and settings"
-msgstr "Napaka med seljenjem dokumentov in nastavitev."
+msgstr "Napaka med selitvijo dokumentov in nastavitev"
 
 #. Type: error
 #. Description
@@ -1147,10 +1140,10 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Prišlo je do napake med selitvijo dokumentov in nastavitev. Več podrobnosti "
-"se morda nahaja v /var/log/syslog. Namestitev se bo nadaljevala, toda "
-"nekateri ali celo vsi zahtevani dokumenti in nastavitve morda niso bile "
-"preneseni na nov sistem."
+"Prišlo je do napake med selitvijo dokumentov in nastavitev. Podrobnosti so "
+"navedene v /var/log/syslog. Namestitev se bo nadaljevala, toda nekateri ali "
+"celo vsi zahtevani dokumenti in nastavitve morda ne bodo preneseni v novi "
+"sistem."
 
 #. Type: error
 #. Description
@@ -1167,7 +1160,7 @@ msgid ""
 "installed system."
 msgstr ""
 "Prišlo je do napake med kopiranjem nastavitev omrežja.  Namestitev se bo "
-"nadaljevala, toda na novemu sistemu bo potrebno ponovno nastaviti omrežne "
+"nadaljevala, vendar bo treba na novem sistemu ponovno urediti omrežne "
 "nastavitve."
 
 #. Type: text
@@ -1180,7 +1173,7 @@ msgstr "Preračunavanje, katerih datotek ni treba kopirati ..."
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "Ko boste pripravljeni ..."
 
 #. Type: title
 #. Description
@@ -1208,8 +1201,7 @@ msgid ""
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
 "Namestilnik bi moral zapisati spremembe preglednice razdelkov, vendar to ni "
-"bilo mogoče, ker ni bilo mogoče odklopiti razdelkov z naslednjih priklopnih "
-"točk:"
+"bilo mogoče, ker ni mogoče odklopiti razdelkov z naslednjih priklopnih točk:"
 
 #. Type: boolean
 #. Description
@@ -1221,7 +1213,7 @@ msgstr "Zaprite vse programe, ki uporabljajo te priklopne točke."
 #. Description
 #: ../ubiquity.templates:170001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr "Ali naj namestilnik poskusi znova odklopiti te razdelke?"
+msgstr "Ali naj namestilnik znova poskusi odklopiti te razdelke?"
 
 #. Type: boolean
 #. Description
@@ -1236,8 +1228,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Nekateri od ustvarjenih razdelkov so premajhni. Povečajte naslednje razdelke "
-"vsaj na:"
+"Nekateri od ustvarjenih razdelkov so premajhni. Poskrbite, da bodo razdelki "
+"veliki vsaj:"
 
 #. Type: boolean
 #. Description
@@ -1253,13 +1245,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:177001
 msgid "System Configuration"
-msgstr "Sistemske nastavitve"
+msgstr "Nastavitve sistema"
 
 #. Type: text
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001 ../ubiquity.templates:241001
+#: ../ubiquity.templates:178001 ../ubiquity.templates:242001
 msgid "Welcome"
 msgstr "Dobrodošli"
 
@@ -1273,7 +1265,7 @@ msgstr "Nastavitve omrežja"
 #. Description
 #: ../ubiquity.templates:180001
 msgid "Software selection"
-msgstr "Izbira programov"
+msgstr "Izbira programske opreme"
 
 #. Type: text
 #. Description
@@ -1291,7 +1283,7 @@ msgstr "Jezik"
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Prepare"
-msgstr ""
+msgstr "Pripravi"
 
 #. Type: text
 #. Description
@@ -1333,7 +1325,7 @@ msgstr "opravilo namestitve"
 #. Description
 #: ../ubiquity.templates:192001
 msgid "Checking for installer updates"
-msgstr "Preverjanje za posodobitve namestilnika"
+msgstr "Preverjanje posodobitev namestilnika"
 
 #. Type: text
 #. Description
@@ -1351,19 +1343,19 @@ msgstr "Posodabljanje podatkov o paketih"
 #. Description
 #: ../ubiquity.templates:195001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Datoteka ${INDEX} od ${TOTAL}-ih pri ${SPEED}/s"
+msgstr "${INDEX}. datoteka od ${TOTAL} pri ${SPEED}/s"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:196001
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "Datoteka ${INDEX} od ${TOTAL}-ih"
+msgstr "${INDEX}. datoteka od ${TOTAL}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:197001
 msgid "Installing update"
-msgstr "Nameščanje posodobitev"
+msgstr "Nameščanje posodobitve"
 
 #. Type: text
 #. Description
@@ -1375,14 +1367,14 @@ msgstr "Napaka med posodabljanjem namestilnika"
 #. Description
 #: ../ubiquity.templates:198001
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "V namestilniku je prišlo do napake med poskusom posodabljanja:"
+msgstr "Pri posodabljanju namestilnika je prišlo do napake:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:199001
 msgid "USB disk"
-msgstr "USB disk"
+msgstr "Disk USB"
 
 #. Type: text
 #. Description
@@ -1398,7 +1390,7 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Izberite jezik za namestitev. Izbrani jezik bo tudi privzeti jezik na tem "
+"Izberite jezik namestitve. Izbrani jezik bo tudi privzeti jezik na tem "
 "računalniku."
 
 #. Type: text
@@ -1408,8 +1400,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Izberite jezik za nastavljanje nastavitev. Isti jezik bo tudi privzeti jezik "
-"na tem računalniku."
+"Izberite jezik procesa nastavljanja. Izbrani jezik bo tudi privzeti jezik na "
+"tem računalniku."
 
 #. Type: text
 #. Description
@@ -1432,15 +1424,15 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
-"V namestilniku je prišlo do nepopravljive napake. Sedaj bo zagnana seja "
-"namizja zato da lahko raziščete težavo ali znova poskusite z namestitvijo."
+"V namestilniku je prišlo do nepopravljive napake. Zagnana bo seja namizja, "
+"da boste lahko raziskali težavo ali ponovno poskusili namestiti sistem."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
-"V namestilniku je prišlo do nepopravljive napake zato se bo znova zagnal."
+"V namestilniku je prišlo do nepopravljive napake, zato se bo ponovno zagnal."
 
 #. Type: text
 #. Description
@@ -1470,75 +1462,61 @@ msgstr "Izberite pogon:"
 #. Description
 #: ../ubiquity.templates:214001
 msgid "Allocate drive space by dragging the divider below:"
-msgstr "Dodelite prostor na disku z vlečenjem ločilnika spodaj:"
+msgstr "Prostor na disku dodelite tako, da povlečete spodnji ločilnik:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:215001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "Uporabljen bo celoten disk:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:216001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
+#, no-c-format
 msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>%d manjših razdelkov je skritih. Za več nadzora uporabite <a href=''' "
-"'''>napredno orodje za ustvarjanje razdelkov</a></small>"
+"%d manjših razdelkov je skritih. Za več nadzora uporabite <a href="
+"\"\">napredno orodje razdeljevanja</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
-#, fuzzy
-#| msgid ""
-#| "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
 msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>1 manjši razdelek je skrit. Za več nadzora uporabite <a href=''' "
-"'''>napredno orodje za ustvarjanje razdelkov</a></small>"
+"1 manjši razdelek je skrit. Za več nadzora uporabite <a href=\"\">napredno "
+"orodje razdeljevanja</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
+#, no-c-format
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>%d manjših razdelkov je skritih. Za več nadzora uporabite <a href=''' "
-"'''>napredno orodje za ustvarjanje razdelkov</a></small>"
+"%d razdelkov bo izbrisanih. Za več nadzora uporabite <a href=\"\">napredno "
+"orodje razdeljevanja</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
-#, fuzzy
-#| msgid ""
-#| "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>1 manjši razdelek je skrit. Za več nadzora uporabite <a href=''' "
-"'''>napredno orodje za ustvarjanje razdelkov</a></small>"
+"1 razdelek bo izbrisan. Za več nadzora uporabite <a href=\"\">napredno "
+"orodje razdeljevanja</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:220001
 msgid "Use Entire Partition"
-msgstr "Uporabi celotni razdelek"
+msgstr "Uporabi celoten razdelek"
 
 #. Type: text
 #. Description
@@ -1555,32 +1533,26 @@ msgstr "Razdeli največji razdelek"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid "For best results, please ensure:"
 msgid "For best results, please ensure that this computer:"
-msgstr "Za najboljše rezultate se prosim prepričajte:"
+msgstr "Za najboljše rezultate se prepričajte, da ta računalnik:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
-#, fuzzy
-#| msgid "that you have at least ${SIZE} available drive space"
 msgid "has at least ${SIZE} available drive space"
-msgstr "da imate na voljo vsaj ${SIZE} prostora na disku"
+msgstr "ima vsaj %{SIZE} razpoložljivega prostora na disku"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
-#, fuzzy
-#| msgid "that you are plugged in to a power source"
 msgid "is plugged in to a power source"
-msgstr "da je vaš računalnik priklopljen v električno omrežje"
+msgstr "je vklopljen v električno omrežje"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "je povezan na internet"
 
 #. Type: text
 #. Description
@@ -1591,26 +1563,26 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} uporablja programe tretjih oseb za prikaz Flash, MP3 in druge "
+"večpredstavnosti ter delo z nekatero brezžično strojno opremo. Nekateri od "
+"teh programov so zaprtokodni. Programi so izdani pod licenčnimi pogoji, ki "
+"so vključeni v njihovi dokumentaciji."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001
-#, fuzzy
-#| msgid ""
-#| "The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 "
-#| "audio decoding technology licensed from Faunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
-"Naslednja opomba velja za vstavek Fluendo MP3: Tehnologija dekodiranja zvoka "
-"MPEG Layer-3 je licencirana od podjetja Faunhofer USS and Thomson."
+"Fluendo MP3 vstavek vključuje tehnologijo dekodiranja zvoka MPEG Layer-3, "
+"licencirano od podjetja Fraunhofer IIS and Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "Namesti te programe tretjih oseb"
 
 #. Type: text
 #. Description
@@ -1634,7 +1606,7 @@ msgstr "Različica:"
 #. Description
 #: ../ubiquity.templates:237001
 msgid "Below is an image of your current layout:"
-msgstr "Spodaj je slika vaše trenutne razporeditve tipk:"
+msgstr "Spodaj je slika vaše trenutne razporeditve:"
 
 #. Type: text
 #. Description
@@ -1644,7 +1616,7 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
-"Izberite mesto, kjer se nahajate, da bo lahko sistem uporabil način prikaza, "
+"Izberite mesto, kjer se nahajate, da bo sistem lahko uporabil način prikaza, "
 "ki velja v vaši državi, pridobival posodobitve s spletišč v vaši bližini in "
 "nastavil uro na pravilen krajevni čas."
 
@@ -1662,12 +1634,21 @@ msgstr "Regija:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:241001
+msgid "[type here to change]"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:243001
 msgid ""
 "Ready to install?  Once you answer a few questions, the contents of the live "
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+"Pripravljeni na namestitev? Ko odgovorite na nekaj vprašanj, se bo vsebina z "
+"živega ${MEDIUM}-ja namestila na ta računalnik. Nato boste lahko uporabljali "
+"${RELEASE} s polno hitrostjo brez ${MEDIUM}-ja."
 
 #. Type: title
 #. Description
@@ -1692,7 +1673,7 @@ msgstr "Pripravi za nastavitev OEM"
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
 msgid "Preparing for OEM configuration..."
-msgstr "Pripravljanje za nastavitev OEM ..."
+msgstr "Pripravljanje na nastavitev OEM ..."
 
 #. Type: text
 #. Description
@@ -1709,10 +1690,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
-"Ko se novi sistem zažene, se boste lahko prijavili kot uporabnik 'oem' s "
+"Ob zagonu v novi sistem se boste lahko prijavili kot uporabnik 'oem' s "
 "predhodno izbranim geslom. Ta uporabnik ima tudi skrbniške pravice, ki so "
-"dostopni z uporabo ukaza »sudo«. Tako boste lahko opravili dodatne spremembe "
-"nastavitev svojega sistema."
+"dostopne z uporabo ukaza »sudo«, tako da boste lahko opravili morebitne "
+"dodatne spremembe sistema."
 
 #. Type: text
 #. Description
@@ -1722,35 +1703,15 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
-"Ko je sistem nastavljen, zaženite 'oem-config-prepare'. S tem boste "
-"izbrisali začasnega uporabnika 'oem' in ob ponovnemu zagonu ne bo več "
-"vprašanj."
+"Ko boste sistem nastavili po svojih željah, zaženite 'oem-config-prepare', "
+"da bo sistem izbrisal začasnega uporabnika 'oem' in ob naslednjem zagonu "
+"končnemu uporabniku postavil še nekaj vprašanj."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Odstranjevanje paketov"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "Namesti ju drugega ob drugem z možnostjo izbire pri zagonu"
-
-#~ msgid "that you are connected to the Internet with an Ethernet cable"
-#~ msgstr "da ste povezani v medmrežje z eternet kablom"
-
-#~ msgid ""
-#~ "Ubuntu aims to be free and open-source software.  However, this is not "
-#~ "always possible."
-#~ msgstr ""
-#~ "Ubuntu poskuša biti prosta in odprtokodna programska oprema. Vendar to ni "
-#~ "vedno mogoče."
-
-#~ msgid ""
-#~ "Please off me non-open-source software if it is needed for a better "
-#~ "experience"
-#~ msgstr ""
-#~ "Ponudi mi ne odprtokodno programsko opremo, če je zahtevana za boljšo "
-#~ "izkušnjo"
 
 #~ msgid "What is your name?"
 #~ msgstr "Kako vam je ime?"
@@ -1816,3 +1777,20 @@ msgstr "Odstranjevanje paketov"
 
 #~ msgid "Strength: weak"
 #~ msgstr "Moč: šibko"
+
+#~ msgid "that you are connected to the Internet with an Ethernet cable"
+#~ msgstr "da ste povezani v medmrežje z eternet kablom"
+
+#~ msgid ""
+#~ "Ubuntu aims to be free and open-source software.  However, this is not "
+#~ "always possible."
+#~ msgstr ""
+#~ "Ubuntu poskuša biti prosta in odprtokodna programska oprema. Vendar to ni "
+#~ "vedno mogoče."
+
+#~ msgid ""
+#~ "Please off me non-open-source software if it is needed for a better "
+#~ "experience"
+#~ msgstr ""
+#~ "Ponudi mi ne odprtokodno programsko opremo, če je zahtevana za boljšo "
+#~ "izkušnjo"
