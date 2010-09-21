@@ -111,7 +111,6 @@ class PageGtk(PageBase):
                 else:
                     def inst(*args):
                         self.try_ubuntu.set_sensitive(False)
-                        self.page.hide()
                         self.controller.go_forward()
                     self.install_ubuntu.connect('clicked', inst)
                     self.try_ubuntu.connect('clicked',

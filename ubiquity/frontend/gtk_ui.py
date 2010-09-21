@@ -1067,6 +1067,12 @@ class Wizard(BaseFrontend):
         self.page_mode.show()
         cur = None
         is_install = False
+        if 'UBIQUITY_GREETER' in os.environ:
+            for page in self.pages:
+                if page.module.NAME == 'language':
+                    # The greeter page is quite large.  Hide it upon leaving.
+                    page.ui.page.hide()
+                    break
         for page in self.pages:
             if page.module.NAME == n:
                 # Now ask ui class which page we want to be showing right now
