@@ -3,6 +3,7 @@
 
 import os
 import pwd
+import grp
 import re
 import subprocess
 import syslog
@@ -28,14 +29,30 @@ def is_swap(device):
 
 _dropped_privileges = 0
 
+def set_groups_for_uid(uid):
+    if uid == os.geteuid() or uid == os.getuid():
+        return
+    user = pwd.getpwuid(uid).pw_name
+    try:
+        os.setgroups([g.gr_gid for g in grp.getgrall() if user in g.gr_mem])
+    except OSError:
+        import traceback
+        for line in traceback.format_exc().split('\n'):
+            syslog.syslog(syslog.LOG_ERR, line)
+
 def drop_all_privileges():
     # gconf needs both the UID and effective UID set.
     global _dropped_privileges
-    if 'SUDO_GID' in os.environ:
-        gid = int(os.environ['SUDO_GID'])
+    uid = os.environ.get('SUDO_UID')
+    gid = os.environ.get('SUDO_GID')
+    if uid is not None:
+        uid = int(uid)
+        set_groups_for_uid(uid)
+    if gid is not None:
+        gid = int(gid)
         os.setregid(gid, gid)
-    if 'SUDO_UID' in os.environ:
-        uid = int(os.environ['SUDO_UID'])
+    if uid is not None:
+        uid = int(uid)
         os.setreuid(uid, uid)
         os.environ['HOME'] = pwd.getpwuid(uid).pw_dir
     _dropped_privileges = None
@@ -44,11 +61,15 @@ def drop_privileges():
     global _dropped_privileges
     assert _dropped_privileges is not None
     if _dropped_privileges == 0:
-        if 'SUDO_GID' in os.environ:
-            gid = int(os.environ['SUDO_GID'])
+        uid = os.environ.get('SUDO_UID')
+        gid = os.environ.get('SUDO_GID')
+        if uid is not None:
+            uid = int(uid)
+            set_groups_for_uid(uid)
+        if gid is not None:
+            gid = int(gid)
             os.setegid(gid)
-        if 'SUDO_UID' in os.environ:
-            uid = int(os.environ['SUDO_UID'])
+        if uid is not None:
             os.seteuid(uid)
     _dropped_privileges += 1
 
@@ -59,17 +80,22 @@ def regain_privileges():
     if _dropped_privileges == 0:
         os.seteuid(0)
         os.setegid(0)
+        os.setgroups([])
 
 def drop_privileges_save():
     """Drop the real UID/GID as well, and hide them in saved IDs."""
     # At the moment, we only know how to handle this when effective
     # privileges were already dropped.
     assert _dropped_privileges is not None and _dropped_privileges > 0
-    if 'SUDO_GID' in os.environ:
-        gid = int(os.environ['SUDO_GID'])
+    uid = os.environ.get('SUDO_UID')
+    gid = os.environ.get('SUDO_GID')
+    if uid is not None:
+        uid = int(uid)
+        set_groups_for_uid(uid)
+    if gid is not None:
+        gid = int(gid)
         osextras.setresgid(gid, gid, 0)
-    if 'SUDO_UID' in os.environ:
-        uid = int(os.environ['SUDO_UID'])
+    if uid is not None:
         osextras.setresuid(uid, uid, 0)
 
 def regain_privileges_save():
@@ -77,6 +103,7 @@ def regain_privileges_save():
     assert _dropped_privileges is not None and _dropped_privileges > 0
     osextras.setresuid(0, -1, 0)
     osextras.setresgid(0, -1, 0)
+    os.setgroups([])
 
 @contextlib.contextmanager
 def raised_privileges():
