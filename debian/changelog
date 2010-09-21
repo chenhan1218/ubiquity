@@ -1,3 +1,10 @@
+ubiquity (2.4.1) UNRELEASED; urgency=low
+
+  * Fix the installer window growing and shrinking when typing in the
+    boxes on the user setup page.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 21 Sep 2010 15:51:27 +0100
+
 ubiquity (2.4.0) maverick; urgency=low
 
   [ Sebastian Heinlein ]

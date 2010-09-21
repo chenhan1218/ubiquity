@@ -40,15 +40,17 @@ def check_hostname(hostname):
     invalid."""
     # TODO: i18n
     e = []
+    # Ahem.  We can cheat here by inserting newlines where needed.  Hopefully
+    # by the time we translate this, GTK+ will have decent layout management.
     for result in validation.check_hostname(unicode(hostname)):
         if result == validation.HOSTNAME_LENGTH:
             e.append("Must be between 1 and 63 characters long.")
         elif result == validation.HOSTNAME_BADCHAR:
-            e.append("May only contain letters, digits, hyphens, and dots.")
+            e.append("May only contain letters, digits,\nhyphens, and dots.")
         elif result == validation.HOSTNAME_BADHYPHEN:
             e.append("May not start or end with a hyphen.")
         elif result == validation.HOSTNAME_BADDOTS:
-            e.append('May not start or end with a dot, '
+            e.append('May not start or end with a dot,\n'
                      'or contain the sequence "..".')
     return "\n".join(e)
 
@@ -172,6 +174,15 @@ class PageGtk(PageBase):
         self.fullname_ok = builder.get_object('fullname_ok')
         self.password_ok = builder.get_object('password_ok')
         self.password_strength = builder.get_object('password_strength')
+
+        # Dodgy hack to let us center the contents of the page without it
+        # moving as elements appear and disappear, specifically the full name
+        # okay check icon and the hostname error messages.
+        paddingbox = builder.get_object('paddingbox')
+        def func(box):
+            box.parent.child_set_property(box, 'expand', False)
+            box.set_size_request(box.get_allocation().width / 2, -1)
+        paddingbox.connect('realize', func)
 
         # Some signals need to be connected by hand so that we have the
         # handler ids.
