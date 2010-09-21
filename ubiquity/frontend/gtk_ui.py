@@ -678,7 +678,9 @@ class Wizard(BaseFrontend):
         from vte import Terminal
         self.vte = Terminal()
         self.install_details_sw.add(self.vte)
-        self.vte.fork_command('tail', ['tail', '-f', '/var/log/installer/debug'])
+        self.vte.fork_command('tail',
+                             ['tail', '-f', '/var/log/installer/debug',
+                                      '-f', '/var/log/syslog', '-q'])
         self.vte.show()
         # FIXME shrink the window horizontally instead of locking the window size.
         self.live_installer.set_property('allow_grow', False)

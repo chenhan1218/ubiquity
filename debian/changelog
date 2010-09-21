@@ -8,6 +8,8 @@ ubiquity (2.4.1) UNRELEASED; urgency=low
     available for resizing (LP: #644407).
   * Call setgroups() when raising and dropping privileges.  Thanks Colin
     Watson!
+  * Also tail syslog in the installer details pane, since that's where
+    the action is.
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 21 Sep 2010 15:51:27 +0100
 
