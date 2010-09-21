@@ -1,4 +1,4 @@
-ubiquity (2.4.0) UNRELEASED; urgency=low
+ubiquity (2.4.0) maverick; urgency=low
 
   [ Sebastian Heinlein ]
   * Rework oem-config-gtk to use a mainloop (LP: #637517)
@@ -28,7 +28,7 @@ ubiquity (2.4.0) UNRELEASED; urgency=low
     should guarantee that X has exited by the time we try to start plymouth
     on shutdown (LP: #628630).
 
- -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 16 Sep 2010 10:08:25 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 21 Sep 2010 10:09:28 +0100
 
 ubiquity (2.3.19) maverick; urgency=low
 
