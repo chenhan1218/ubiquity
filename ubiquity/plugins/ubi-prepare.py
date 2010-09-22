@@ -301,7 +301,6 @@ class Page(Plugin):
         space = self.description('ubiquity/text/prepare_sufficient_space')
         self.ui.set_sufficient_space(self.big_enough(size))
         self.ui.set_sufficient_space_text(space)
-        self.ui.plugin_translate(None)
 
     def min_size(self):
         # Default to 3 GB

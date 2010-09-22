@@ -589,6 +589,17 @@ class Wizard(BaseFrontend):
                 #for c in self.all_children(toplevel):
                     #widgets.append((c, None))
         self.translate_widgets(lang=lang, widgets=widgets, reget=reget)
+        # Allow plugins to provide a hook for translation.
+        for p in pages:
+            # There's no sense retranslating the page we're leaving.
+            if not_current and p == current_page:
+                continue
+            if hasattr(p.ui, 'plugin_translate'):
+                try:
+                    p.ui.plugin_translate(lang or self.locale)
+                except Exception, e:
+                    print >>sys.stderr, 'Could not translate page (%s): %s' \
+                                        % (p.module.NAME, str(e))
 
     # translates widget text based on the object names
     # widgets is a list of (widget, prefix) pairs
