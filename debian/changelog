@@ -13,8 +13,7 @@ ubiquity (2.4.1) UNRELEASED; urgency=low
     the action is.
 
   [ Didier Roche ]
-  * debian/control: depends on latest libindicator-dev for ABI change
-    (LP: #637692)
+  * depends on latest libindicator-dev for ABI change (LP: #637692)
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 21 Sep 2010 15:51:27 +0100
 
