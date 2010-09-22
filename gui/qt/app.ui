@@ -307,6 +307,9 @@
             </property>
             <widget class="QWidget" name="page_7">
              <layout class="QVBoxLayout" name="verticalLayout_2">
+              <property name="margin">
+               <number>0</number>
+              </property>
               <item>
                <widget class="QWidget" name="content_widget" native="true">
                 <property name="sizePolicy">
@@ -316,7 +319,7 @@
                  </sizepolicy>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout">
-                 <property name="leftMargin">
+                 <property name="margin">
                   <number>0</number>
                  </property>
                  <item>
