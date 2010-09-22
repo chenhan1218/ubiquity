@@ -1,5 +1,6 @@
 ubiquity (2.4.1) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Fix the installer window growing and shrinking when typing in the
     boxes on the user setup page.
   * Do not show the prepare page by means of hiding the language page
@@ -10,6 +11,10 @@ ubiquity (2.4.1) UNRELEASED; urgency=low
     Watson!
   * Also tail syslog in the installer details pane, since that's where
     the action is.
+
+  [ Didier Roche ]
+  * debian/control: depends on latest libindicator-dev for ABI change
+    (LP: #637692)
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 21 Sep 2010 15:51:27 +0100
 
