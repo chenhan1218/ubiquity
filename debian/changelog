@@ -14,8 +14,10 @@ ubiquity (2.4.1) UNRELEASED; urgency=low
 
   [ Jonathan Riddell ]
   * In gui/qt/app.ui remove unnecessary margin, (LP: #628883)
+  * KDE UI, Change button next between 'install now' and 'next'
+    depending on partition mode, (LP: #628882)
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 22 Sep 2010 14:07:54 +0100
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 22 Sep 2010 15:00:01 +0100
 
 ubiquity (2.4.0) maverick; urgency=low
 

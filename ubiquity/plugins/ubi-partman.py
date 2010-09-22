@@ -1157,7 +1157,7 @@ class PageKde(PageBase):
         from ubiquity.frontend.kde_components.PartAuto import PartAuto
         from ubiquity.frontend.kde_components.PartMan import PartMan
 
-        self.partAuto = PartAuto()
+        self.partAuto = PartAuto(self.controller)
         self.partMan = PartMan(self.controller)
 
         self.page = self.partAuto

@@ -145,6 +145,14 @@ class Controller(ubiquity.frontend.base.Controller):
     def get_string(self, name, lang=None, prefix=None):
         return self._wizard.get_string(name, lang, prefix)
 
+    def setNextButtonTextInstallNow(self, checked):
+        self._wizard.ui.next.setText(self.get_string('install_button').replace('_', '&', 1))
+        self._wizard.ui.next.setIcon(self._wizard.applyIcon)
+
+    def setNextButtonTextNext(self, checked):
+        self._wizard.ui.next.setText(self.get_string('next').replace('_', '&', 1))
+        self._wizard.ui.next.setIcon(self._wizard.forwardIcon)
+
 class Wizard(BaseFrontend):
 
     def __init__(self, distro):

@@ -27,8 +27,9 @@ def addBars(parent, before_bar, after_bar):
 
 class PartAuto(QWidget):
 
-    def __init__(self):
+    def __init__(self, controller):
         QWidget.__init__(self)
+        self.controller = controller
 
         uic.loadUi(os.path.join(_uidir,'stepPartAuto.ui'), self)
 
@@ -85,6 +86,7 @@ class PartAuto(QWidget):
             self.autopart_selection_frame.layout().addWidget(button)
             self.autopartition_buttongroup.addButton(button, bId)
             self.autopartitionTexts.append(resize_choice)
+            button.clicked.connect(self.controller.setNextButtonTextInstallNow)
             bId += 1
 
             disks = []
@@ -126,6 +128,7 @@ class PartAuto(QWidget):
         self.autopartitionTexts.append(use_device_choice)
         self.autopart_selection_frame.layout().addWidget(button)
         self.autopartition_buttongroup.addButton(button, bId)
+        button.clicked.connect(self.controller.setNextButtonTextInstallNow)
         bId += 1
 
         disks = []
@@ -160,6 +163,7 @@ class PartAuto(QWidget):
         self.autopartitionTexts.append(manual_choice)
         self.autopart_selection_frame.layout().addWidget(button)
         self.autopartition_buttongroup.addButton(button, bId)
+        button.clicked.connect(self.controller.setNextButtonTextNext)
         self.disks.append([])
 
         #select the first button
