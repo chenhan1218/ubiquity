@@ -1,7 +1,11 @@
 ubiquity (2.4.2) UNRELEASED; urgency=low
 
+  [ Jonathon Riddell ]
   * gui/qt/stepLanguage.ui: nicer icons and better layout on
     language page (LP: #628808)
+
+  [ Mario Limonciello ]
+  * Set the LANG before running oem-config-remove.
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 23 Sep 2010 13:13:29 +0100
 

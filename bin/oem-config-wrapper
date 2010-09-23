@@ -22,6 +22,11 @@ if [ "${RET%% *}" = 0 ]; then
 fi
 RET="$(echo GET oem-config/remove | debconf-communicate)"
 if [ "${RET#* }" = true ]; then
+	#mandb postinst doesn't like not knowing the locale
+	if [ -r /etc/default/locale ]; then
+		. /etc/default/locale
+		export LANG LANGUAGE
+	fi
 	# We're about to pull the rug out from under our own feet, so this
 	# has to run very late.
 	case $FRONTEND in
