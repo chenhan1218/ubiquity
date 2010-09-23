@@ -1,4 +1,4 @@
-ubiquity (2.4.1) UNRELEASED; urgency=low
+ubiquity (2.4.1) maverick; urgency=low
 
   [ Evan Dandrea ]
   * Fix the installer window growing and shrinking when typing in the
@@ -22,7 +22,7 @@ ubiquity (2.4.1) UNRELEASED; urgency=low
   * KDE UI, Change button next between 'install now' and 'next'
     depending on partition mode, (LP: #628882)
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 22 Sep 2010 15:00:01 +0100
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 23 Sep 2010 10:49:53 +0100
 
 ubiquity (2.4.0) maverick; urgency=low
 
