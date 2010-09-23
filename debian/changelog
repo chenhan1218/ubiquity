@@ -14,6 +14,8 @@ ubiquity (2.4.1) UNRELEASED; urgency=low
   * Correctly use the plugin_translate hook in the KDE frontend
     (LP: #645092).
   * Update translations from Launchpad.
+  * Automatic update of included source packages: base-installer
+    1.107ubuntu2.
 
   [ Jonathan Riddell ]
   * In gui/qt/app.ui remove unnecessary margin, (LP: #628883)
