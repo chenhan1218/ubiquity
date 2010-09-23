@@ -406,10 +406,10 @@ class PageKde(PageBase):
                 self.controller.go_forward()
             self.page.install_ubuntu.clicked.connect(inst)
             self.page.try_ubuntu.clicked.connect(self.on_try_ubuntu_clicked)
-            picture1 = QPixmap("/usr/share/ubiquity/pixmaps/cd_in_tray.png")
+            picture1 = QPixmap("/usr/share/ubiquity/pixmaps/kubuntu-live-session.png")
             self.page.image1.setPixmap(picture1)
             self.page.image1.resize(picture1.size())
-            picture2 = QPixmap("/usr/share/ubiquity/pixmaps/kubuntu_installed.png")
+            picture2 = QPixmap("/usr/share/ubiquity/pixmaps/kubuntu-install.png")
             self.page.image2.setPixmap(picture2)
             self.page.image2.resize(picture2.size())
 

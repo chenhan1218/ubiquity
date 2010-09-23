@@ -44,8 +44,8 @@ Package: ubiquity-frontend-gtk
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, ubiquity (= ${binary:Version}), python-dbus, python-gtk2 (>= 2.17.0-0ubuntu2), iso-codes, x-window-manager, gksu, python-vte, python-webkit
 Suggests: gnome-control-center
-Conflicts: ubuntu-express-frontend-gtk, espresso-frontend-gtk, ubiquity (<< 2.3.8)
-Replaces: ubuntu-express-frontend-gtk, espresso-frontend-gtk, ubiquity (<< 2.3.8)
+Conflicts: ubuntu-express-frontend-gtk, espresso-frontend-gtk, ubiquity (<< 2.4.2)
+Replaces: ubuntu-express-frontend-gtk, espresso-frontend-gtk, ubiquity (<< 2.4.2)
 Provides: ubiquity-frontend-${mangled-version}, indicator-renderer
 XB-Python-Version: ${python:Versions}
 Description: GTK+ frontend for Ubiquity live installer
