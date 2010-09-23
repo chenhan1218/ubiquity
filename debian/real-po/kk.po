@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-16 14:13+0000\n"
-"Last-Translator: jmb_kz <Unknown>\n"
+"PO-Revision-Date: 2010-09-23 09:17+0000\n"
+"Last-Translator: Evan Dandrea <ev@ubuntu.com>\n"
 "Language-Team: Kazakh\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
+"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: \n"
 
 #. Type: text
 #. Description
@@ -33,7 +33,7 @@ msgstr "Дискінің бәрін жойып, толығымен қолдан�
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "Басқа операциялық жүйелер қасында орнату"
 
 #. Type: text
 #. Description
@@ -194,7 +194,7 @@ msgstr "Пернетақтаны тексеру үшін, осы жерге те
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Figure Out Keyboard Layout"
-msgstr ""
+msgstr "Пернетақта тілін таңдау"
 
 #. Type: text
 #. Description
@@ -272,7 +272,7 @@ msgstr "Сіздің компьютеріңіздің аты:"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "Басқа компьютермен басланысатын кезде қолданылатын атыңыз."
 
 #. Type: text
 #. Description
@@ -356,7 +356,7 @@ msgstr "Импорттайтын ештеңе жоқ болса, келесі б
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Allocate drive space"
-msgstr ""
+msgstr "Қатқыл дискіні бөлу"
 
 #. Type: text
 #. Description
@@ -1457,13 +1457,13 @@ msgstr "Дискті таңдаңыз:"
 #. Description
 #: ../ubiquity.templates:214001
 msgid "Allocate drive space by dragging the divider below:"
-msgstr ""
+msgstr "Төмендегі бөлгішті (раз) жылжыту арқылы қатқыл дискіні бөлу:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:215001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "Қатқыл диск толығымен қолданылатын болады:"
 
 #. Type: text
 #. Description
@@ -1527,19 +1527,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:225001
 msgid "has at least ${SIZE} available drive space"
-msgstr ""
+msgstr "ең аз дегенде ${SIZE} дискілік орын бар"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
 msgid "is plugged in to a power source"
-msgstr ""
+msgstr "электр желіге қосылған (портативті құрылғыларға маңызды)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "интернетке қосылған"
 
 #. Type: text
 #. Description
@@ -1563,7 +1563,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "Осы үшінші жақты (third-party) бағдарламаны орнату"
 
 #. Type: text
 #. Description

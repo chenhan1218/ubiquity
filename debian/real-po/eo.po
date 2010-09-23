@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-08 20:35+0000\n"
-"Last-Translator: Patrick (Petriko) Oudejans <Unknown>\n"
+"PO-Revision-Date: 2010-09-23 09:19+0000\n"
+"Last-Translator: Evan Dandrea <ev@ubuntu.com>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
+"Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
+"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: eo\n"
 
 #. Type: text
 #. Description
@@ -33,7 +33,7 @@ msgstr "Viŝi kaj uzi la tutan diskon"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "Instali apud aliaj operaciumoj"
 
 #. Type: text
 #. Description
@@ -192,7 +192,7 @@ msgstr "Tajpu tie ĉi por testi vian klavaron"
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Figure Out Keyboard Layout"
-msgstr ""
+msgstr "Eltrovi klavarfasonon"
 
 #. Type: text
 #. Description
@@ -264,13 +264,13 @@ msgstr "Konfirmi pasvorton"
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Your computer's name:"
-msgstr ""
+msgstr "Nomo de via komputilo:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "La nomo kiun ĝi uzas por alparoli aliajn komputilojn."
 
 #. Type: text
 #. Description
@@ -1457,7 +1457,7 @@ msgstr "Atribuu disklokon ŝovante la suban dividilon:"
 #. Description
 #: ../ubiquity.templates:215001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "La tuta disko estos uzata:"
 
 #. Type: text
 #. Description
@@ -1467,6 +1467,8 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d malpli grandaj subdiskoj estas kaŝataj, uzu la <a href=\"\">progresintan "
+"dispartigilon</a> por pli da stirebloj"
 
 #. Type: text
 #. Description
@@ -1475,6 +1477,8 @@ msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 malpli granda subdisko estas kaŝata, uzu la <a href=\"\">progresintan "
+"dispartigilon</a> por pli da stirebloj"
 
 #. Type: text
 #. Description
@@ -1484,6 +1488,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d subdiskoj estas viŝotaj, uzu la <a href=\"\">progresintan dispartigilon</"
+"a> por pli da stirebloj"
 
 #. Type: text
 #. Description
@@ -1492,6 +1498,8 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 subdisko estas viŝota, uzu la <a href=\"\">progresintan dispartigilon</a> "
+"por pli da stirebloj"
 
 #. Type: text
 #. Description
@@ -1515,25 +1523,25 @@ msgstr "Dividi plej grandan subdiskon"
 #. Description
 #: ../ubiquity.templates:224001
 msgid "For best results, please ensure that this computer:"
-msgstr ""
+msgstr "Por plej bonaj rezultoj, estu certa ke tiu ĉi komputilo:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
 msgid "has at least ${SIZE} available drive space"
-msgstr ""
+msgstr "havas almenaŭ ${SIZE} da uzebla diskloko"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
 msgid "is plugged in to a power source"
-msgstr ""
+msgstr "estas ligita al elektro"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "estas konektita al la interreto"
 
 #. Type: text
 #. Description
@@ -1544,6 +1552,10 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} uzas programaron de ekstera liveranto por montri Flash, MP3 kaj "
+"aliajn aŭdvidaĵojn, kaj por povi funkcii per kelkaj sendrataj aparatoj. "
+"Kelkaj el tiuj programoj estas fermitkodaj. La programaro havas permesilojn "
+"liveratajn kun la dokumentado de la programaro."
 
 #. Type: text
 #. Description
@@ -1552,12 +1564,14 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
+"Fluendo MP3-kromprogramo inkluzivas MPEG tavolo-3 aŭdmalkodan teknologion "
+"permesitan de Fraunhofer IIS kaj Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "Instali tiun programaron de ekstera liveranto"
 
 #. Type: text
 #. Description

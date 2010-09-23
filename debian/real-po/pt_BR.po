@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-18 21:54+0000\n"
+"PO-Revision-Date: 2010-09-23 09:15+0000\n"
 "Last-Translator: André Gondim <andregondim@ubuntu.com>\n"
 "Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
 "org>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
+"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: pt_BR\n"
 
 #. Type: text
 #. Description
@@ -1582,8 +1582,8 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
-"O plugin Fluendo MP3 inclui tecnologia de decodificação de áudio MPEG layer-"
-"3 licenciada da Fraunhofer IIS e Thomson."
+"O plugin Fluendo MP3 inclui tecnologia de decodificação de áudio MPEG "
+"layer-3 licenciada da Fraunhofer IIS e Thomson."
 
 #. Type: text
 #. Description

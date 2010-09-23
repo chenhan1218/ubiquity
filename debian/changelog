@@ -13,6 +13,7 @@ ubiquity (2.4.1) UNRELEASED; urgency=low
     the action is.
   * Correctly use the plugin_translate hook in the KDE frontend
     (LP: #645092).
+  * Update translations from Launchpad.
 
   [ Jonathan Riddell ]
   * In gui/qt/app.ui remove unnecessary margin, (LP: #628883)

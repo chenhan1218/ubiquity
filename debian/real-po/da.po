@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-16 13:47+0000\n"
+"PO-Revision-Date: 2010-09-23 09:13+0000\n"
 "Last-Translator: TLE <k.nielsen81@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
+"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: \n"
 "X-Poedit-Language: Danish\n"
 
 #. Type: text
@@ -76,7 +76,7 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"Du kan prøve ${RELEASE}, direkte fra din ${MEDIUM}, uden at lave nogen "
+"Du kan prøve ${RELEASE} direkte fra din ${MEDIUM} uden at lave nogen "
 "ændringer ved dit system."
 
 #. Type: text
@@ -1192,7 +1192,7 @@ msgstr "Installerer sprogpakker"
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Downloader sprogpakker (${TIME} remaining)..."
+msgstr "Henter sprogpakker (${TIME} tilbage)..."
 
 #. Type: boolean
 #. Description
@@ -1317,7 +1317,7 @@ msgstr "Diskopsætning"
 #. Description
 #: ../ubiquity.templates:187001
 msgid "User Info"
-msgstr "Brugerinformation"
+msgstr "Brugerinfo"
 
 #. Type: text
 #. Description

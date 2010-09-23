@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-18 02:50+0000\n"
+"PO-Revision-Date: 2010-09-23 09:24+0000\n"
 "Last-Translator: Xhacker Liu <liu.dongyuan@gmail.com>\n"
 "Language-Team: Simplified Chinese <debian-chinese-gb@lists.debian.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
+"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: \n"
 
 #. Type: text
 #. Description
@@ -319,7 +319,7 @@ msgstr "登录时需要密码"
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Encrypt my home folder"
-msgstr "加密我的目录"
+msgstr "加密我的主目录"
 
 #. Type: text
 #. Description
@@ -1414,7 +1414,7 @@ msgstr "请从列表中选择您的无线网络"
 #. Description
 #: ../ubiquity.templates:213001
 msgid "Select drive:"
-msgstr "选择磁盘"
+msgstr "选择磁盘："
 
 #. Type: text
 #. Description

@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: debian_real-po_ubiquity-debconf-km\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-20 07:06+0000\n"
+"PO-Revision-Date: 2010-09-23 04:39+0000\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <en@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-21 08:41+0000\n"
+"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: \n"
 
 #. Type: text
 #. Description
@@ -34,7 +34,7 @@ msgstr "លុប​ និង​ប្រើ​ថាស​ទាំង​ម�
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "ដំឡើង​រួម​ជា​មួយ​នឹង​ប្រព័ន្ធ​ប្រតិបត្តិការ​ផ្សេង"
 
 #. Type: text
 #. Description
@@ -192,7 +192,7 @@ msgstr "វាយ​ទីនេះ ដើម្បី​សាក​ល្ប�
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Figure Out Keyboard Layout"
-msgstr ""
+msgstr "ស្វែងយល់​អំពីប្លង់​ក្ដារចុច"
 
 #. Type: text
 #. Description
@@ -264,13 +264,13 @@ msgstr "បញ្ជាក់​ពាក្យ​សម្ងាត់"
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Your computer's name:"
-msgstr ""
+msgstr "ឈ្មោះ​កុំព្យូទ័រ​របស់​អ្នក"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "ឈ្មោះ វា​ប្រើ​នៅពេល​វា​​ទាក់ទង​ជា​មួយ​កុំព្យូទ័រ​ផ្សេង ។"
 
 #. Type: text
 #. Description
@@ -1447,7 +1447,7 @@ msgstr "បម្រុង​ទុក​ទំហំ​ដ្រាយ​ដោ
 #. Description
 #: ../ubiquity.templates:215001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "ថាស​ទាំង​មូល​នឹង​ត្រូវ​បានប្រើ ៖"
 
 #. Type: text
 #. Description
@@ -1457,6 +1457,8 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"ភាគ​ថាស​តូចជាង %d នឹង​ត្រូវ​បានលាក់ ប្រើ <a href=\"\">កម្មវិធី​ចែកភាគ​ថាស​កម្រិត​ខ្ពស់</a> ដើម្បី​ការ​"
+"ត្រួតពិនិត្យ​បន្ថែម​ទៀត"
 
 #. Type: text
 #. Description
@@ -1465,6 +1467,8 @@ msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"ភាគ​ថាស​តូចជាង ១ ត្រូវ​បាន​លាក់ ប្រើ <a href=\"\">កម្មវិធី​ចែកភាគថាស​កម្រិត​ខ្ពស់</a> ដើម្បី​ការ​"
+"ត្រួតពិនិត្យ​បន្ថែម​ទៀត"
 
 #. Type: text
 #. Description
@@ -1474,6 +1478,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"ភាគ​ថាស %d នឹង​ត្រូវ​បានលុប ប្រើ <a href=\"\">កម្មវិធី​ចែកភាគ​ថាស​កម្រិត​ខ្ពស់</a> ដើម្បី​ការ​"
+"ត្រួតពិនិត្យ​បន្ថែម​ទៀត"
 
 #. Type: text
 #. Description
@@ -1482,6 +1488,8 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"ភាគ​ថាស ១ នឹង​ត្រូវបានលុប ប្រើ <a href=\"\">កម្មវិធី​ចែកភាគ​ថាស​កម្រិត​ខ្ពស់​</a> ដើម្បី​ការ​ត្រួតពិនិត្យ​"
+"បន្ថែម​ទៀត"
 
 #. Type: text
 #. Description
@@ -1505,25 +1513,25 @@ msgstr "ពុះ​ភាគ​ថាស​ដែល​ធំ​បំផុត
 #. Description
 #: ../ubiquity.templates:224001
 msgid "For best results, please ensure that this computer:"
-msgstr ""
+msgstr "ដើម្បី​ទទួលបានលទ្ធផល​ល្អបំផុត សូម​ប្រាកដ​ថា​កុំព្យូទ័រ​នេះ ៖"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
 msgid "has at least ${SIZE} available drive space"
-msgstr ""
+msgstr "មាន​ទំហំ​ដែល​អាច​ប្រើ​បានយ៉ាង​ហោចណាស់ ${SIZE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
 msgid "is plugged in to a power source"
-msgstr ""
+msgstr "ត្រូវ​បាន​ដោត​ទៅប្រភពថាមពល"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "ត្រូវ​បាន​តភ្ជាប់​​អ៊ីនធឺណិត"
 
 #. Type: text
 #. Description
@@ -1534,6 +1542,9 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} ប្រើ​កម្មវិធី​ភាគី​ទីបី ដើម្បី​បង្ហាញ Flash, MP3 និង​មេឌៀ​ផ្សេងៗ​ទៀត ហើយ​ដំណើរការ​ជា​មួយ​នឹង​"
+"ផ្នែក​រឹង​ឥតខ្សែ ។ កម្មវិធី​មួយ​ចំនួន​ជា​កម្មវិធី​គិត​ថ្លៃ ។ កម្មវិធី​​មាន​កម្មវិធីសិទ្ធិ ដែល​រួម​ទាំង​ឯកសារ​របស់​"
+"កម្មវិធីផង ។"
 
 #. Type: text
 #. Description
@@ -1542,12 +1553,14 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
+"កម្មវិធី​ជំនួយ Fluendo MP3 រួម​មាន​កា​រអ៊ីនកូដ​អូឌីយ៉ូ MPEG Layer-3 ដែល​បាន​ទទួល​អាជ្ញាប័ណ្ណ​ពី "
+"Fraunhofer IIS and Thomson ។"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "ដំឡើង​កម្មវិធី​ភាគី​ទីបី​នេះ"
 
 #. Type: text
 #. Description
