@@ -7,6 +7,10 @@ ubiquity (2.4.2) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Set the LANG before running oem-config-remove.
 
+  [ Evan Dandrea ]
+  * Don't let Jockey's automatic driver installation failing cause the
+    entire prepare page to fail.
+
  -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 23 Sep 2010 13:13:29 +0100
 
 ubiquity (2.4.1) maverick; urgency=low
