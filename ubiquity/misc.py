@@ -101,8 +101,8 @@ def drop_privileges_save():
 def regain_privileges_save():
     """Recover our real UID/GID after calling drop_privileges_save."""
     assert _dropped_privileges is not None and _dropped_privileges > 0
-    osextras.setresuid(0, -1, 0)
-    osextras.setresgid(0, -1, 0)
+    osextras.setresuid(0, 0, 0)
+    osextras.setresgid(0, 0, 0)
     os.setgroups([])
 
 @contextlib.contextmanager

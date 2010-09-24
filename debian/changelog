@@ -12,6 +12,8 @@ ubiquity (2.4.2) UNRELEASED; urgency=low
     entire prepare page to fail.
   * Make sure $LANGUAGE gets set in the parallel debconf child process,
     so that we get translated descriptions (LP: #646109).
+  * Set the effective UID in regain_privileges_save so we don't try to
+    setgroups([]) as a regular user (LP: #646827).
 
   [ Didier Roche ]
   * depends on latest libindicator-dev for ABI change (LP: #637692)
