@@ -10,6 +10,8 @@ ubiquity (2.4.2) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Don't let Jockey's automatic driver installation failing cause the
     entire prepare page to fail.
+  * Make sure $LANGUAGE gets set in the parallel debconf child process,
+    so that we get translated descriptions (LP: #646109).
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 23 Sep 2010 13:13:29 +0100
 

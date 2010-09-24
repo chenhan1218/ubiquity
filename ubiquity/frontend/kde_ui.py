@@ -1174,10 +1174,12 @@ class Wizard(BaseFrontend):
             if self.parallel_db is not None:
                 # Partitioning failed and we're coming back through again.
                 self.parallel_db.shutdown()
-            self.parallel_db = DebconfCommunicator('ubiquity', cloexec=True,
+            env = os.environ.copy()
             # debconf-apt-progress, start_debconf()
-            env={'DEBCONF_DB_REPLACE': 'configdb',
-                 'DEBCONF_DB_OVERRIDE':'Pipe{infd:none outfd:none}'})
+            env['DEBCONF_DB_REPLACE'] = 'configdb'
+            env['DEBCONF_DB_OVERRIDE'] = 'Pipe{infd:none outfd:none}'
+            self.parallel_db = DebconfCommunicator('ubiquity', cloexec=True,
+                                                   env=env)
             dbfilter = partman_commit.PartmanCommit(self, db=self.parallel_db)
             dbfilter.start(auto_process=True)
 
