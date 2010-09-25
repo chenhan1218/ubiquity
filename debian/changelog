@@ -20,7 +20,7 @@ ubiquity (2.4.2) UNRELEASED; urgency=low
     setgroups([]) as a regular user (LP: #646827).
 
   [ Didier Roche ]
-  * depends on latest libindicator-dev for ABI change (LP: #637692)
+  * depends on latest libindicator-dev for ABI change (LP: #637692, #647739)
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 23 Sep 2010 13:13:29 +0100
 
