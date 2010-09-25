@@ -10,6 +10,8 @@ ubiquity (2.4.2) UNRELEASED; urgency=low
     (LP: #641478)
   * Raise privileges when running the language page in only-installable
     mode. (LP: #647792)
+  * Automatic update of included source packages: flash-kernel
+    2.28ubuntu10.
 
   [ Evan Dandrea ]
   * Don't let Jockey's automatic driver installation failing cause the
