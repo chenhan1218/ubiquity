@@ -8,6 +8,8 @@ ubiquity (2.4.2) UNRELEASED; urgency=low
   * Set the LANG before running oem-config-remove.
   * Prevent a crash of debconf-communicate when removing oem-config.
     (LP: #641478)
+  * Raise privileges when running the language page in only-installable
+    mode. (LP: #647792)
 
   [ Evan Dandrea ]
   * Don't let Jockey's automatic driver installation failing cause the
