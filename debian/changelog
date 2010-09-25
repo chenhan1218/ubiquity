@@ -1,4 +1,4 @@
-ubiquity (2.4.2) UNRELEASED; urgency=low
+ubiquity (2.4.2) maverick; urgency=low
 
   [ Jonathon Riddell ]
   * gui/qt/stepLanguage.ui: nicer icons and better layout on
@@ -24,7 +24,7 @@ ubiquity (2.4.2) UNRELEASED; urgency=low
   [ Didier Roche ]
   * depends on latest libindicator-dev for ABI change (LP: #637692, #647739)
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 23 Sep 2010 13:13:29 +0100
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sat, 25 Sep 2010 18:24:06 -0500
 
 ubiquity (2.4.1) maverick; urgency=low
 
