@@ -22,6 +22,8 @@ if [ "${RET%% *}" = 0 ]; then
 fi
 RET="$(echo GET oem-config/remove | debconf-communicate)"
 if [ "${RET#* }" = true ]; then
+	#debconf crashes with this set (LP: #641478)
+	unset DBUS_SESSION_BUS_ADDRESS
 	#mandb postinst doesn't like not knowing the locale
 	if [ -r /etc/default/locale ]; then
 		. /etc/default/locale
