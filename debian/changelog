@@ -1,9 +1,9 @@
-ubiquity (2.4.3) UNRELEASED; urgency=low
+ubiquity (2.4.3) maverick; urgency=low
 
   * pixmaps/cd_in_tray.png has moved back to ubiquity-frontend-gtk.  Remove
     it from ubiquity.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 27 Sep 2010 12:35:07 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 27 Sep 2010 12:55:43 +0100
 
 ubiquity (2.4.2) maverick; urgency=low
 
