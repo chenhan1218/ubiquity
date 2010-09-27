@@ -213,11 +213,12 @@ on_realize(GtkWidget *win, gpointer data) {
 }
 
 static const char* indicators[] = {
+	//TODO: dynamically fill in the ABI version at build time
 	// Reboot, shut down, ...
-	"/usr/lib/indicators/3/libsession.so",
+	"/usr/lib/indicators/4/libsession.so",
 	// Bluetooth
-	"/usr/lib/indicators/3/libapplication.so",
-	"/usr/lib/indicators/3/libsoundmenu.so",
+	"/usr/lib/indicators/4/libapplication.so",
+	"/usr/lib/indicators/4/libsoundmenu.so",
 	NULL
 };
 static void

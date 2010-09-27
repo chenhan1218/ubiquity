@@ -1,3 +1,9 @@
+ubiquity (2.4.4) UNRELEASED; urgency=low
+
+  * manually update indicators ABI in panel source.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 27 Sep 2010 16:15:44 -0500
+
 ubiquity (2.4.3) maverick; urgency=low
 
   * pixmaps/cd_in_tray.png has moved back to ubiquity-frontend-gtk.  Remove
