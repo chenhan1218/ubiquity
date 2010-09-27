@@ -1,4 +1,4 @@
-ubiquity (2.4.4) UNRELEASED; urgency=low
+ubiquity (2.4.4) maverick; urgency=low
 
   * manually update indicators ABI in panel source.
 
