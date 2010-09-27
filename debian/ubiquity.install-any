@@ -16,7 +16,6 @@ compat/update-dev usr/lib/ubiquity/compat
 scripts/* usr/share/ubiquity
 pixmaps/world_map-960.png usr/share/ubiquity/pixmaps
 pixmaps/earth.jpg usr/share/ubiquity/pixmaps
-pixmaps/cd_in_tray.png usr/share/ubiquity/pixmaps
 bin/ubiquity-dm usr/bin
 
 # apt-setup
