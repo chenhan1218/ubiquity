@@ -180,6 +180,8 @@ class PageGtk(PageBase):
 
     def check_returncode_release_notes(self, *args):
         import subprocess
+        if not self.release_notes_url:
+            return False
         if self.wget_retcode_release_notes is not None or self.wget_proc_release_notes is None:
             self.wget_proc_release_notes = subprocess.Popen(
                 ['wget', '-q', self.release_notes_url, '--timeout=15', '-O', '/dev/null'])

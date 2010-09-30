@@ -1,3 +1,10 @@
+ubiquity (2.4.5) UNRELEASED; urgency=low
+
+  * If a derivative doesn't provide a release notes URL on the media, don't show
+    the release notes label (LP: #651800)
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 30 Sep 2010 00:46:59 -0500
+
 ubiquity (2.4.4) maverick; urgency=low
 
   * manually update indicators ABI in panel source.
