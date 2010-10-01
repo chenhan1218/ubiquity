@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-23 09:16+0000\n"
+"PO-Revision-Date: 2010-09-29 15:23+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -33,7 +33,7 @@ msgstr "מחיקה ושימוש בכונן כולו"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "התקנה לצד מערכות הפעלה אחרות"
 
 #. Type: text
 #. Description
@@ -109,7 +109,7 @@ msgstr "מרגע המענה על מספר שאלות, המחשב יהיה מוכ
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Answering the questions should only take a few minutes."
-msgstr "המענה לשאלות לא ייקח יותר מכמה דקות."
+msgstr "המענה לשאלות לא ייקח יותר ממספר דקות."
 
 #. Type: text
 #. Description
@@ -189,7 +189,7 @@ msgstr "ניתן להקליד כאן כדי לבדוק את המקלדת שלך"
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Figure Out Keyboard Layout"
-msgstr ""
+msgstr "זיהוי פריסת המקלדת"
 
 #. Type: text
 #. Description
@@ -261,13 +261,13 @@ msgstr "אישור הססמה"
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Your computer's name:"
-msgstr ""
+msgstr "שם המחשב שלך:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "השם שישמש את המחשב בעת דיבור עם מחשבים אחרים."
 
 #. Type: text
 #. Description
@@ -1092,7 +1092,7 @@ msgstr ""
 "להלן. ניתן למצוא פרטים נוספים בקובץ ‎/var/log/syslog. תכנית ההתקנה תנסה "
 "להמשיך בכול זאת, אך יתכן שהיא תיכשל בשלב מאוחר יותר ולא ניתן יהיה להתקין או "
 "להסיר חבילות אחרות (כולל את עצמה ככל הנראה) מהמערכת המותקנת. ראשית עליך "
-"לבדוק האם ישנה גרסאות חדשות יותר של תמונת תכנית ההתקנה או הגשת דוח תקלות על "
+"לבדוק האם ישנה גרסאות חדשות יותר של תמונת תכנית ההתקנה או להגיש דוח תקלות על "
 "התקלה למפיץ שלך."
 
 #. Type: error
@@ -1446,7 +1446,7 @@ msgstr "ניתן להקצות מקום בכונן על ידי גרירת החו�
 #. Description
 #: ../ubiquity.templates:215001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "ייעשה שימוש בכונן כולו:"
 
 #. Type: text
 #. Description
@@ -1456,6 +1456,8 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d מחיצות קטנות יותר מוסתרות, יש להשתמש ב<a href=\"\">כלי המחיצות המתקדם</a> "
+"לשליטה טובה יותר"
 
 #. Type: text
 #. Description
@@ -1464,6 +1466,8 @@ msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"מחיצה אחת קטנה יותר מוסתרת, יש להשתמש ב<a href=\"\">כלי המחיצות המתקדם</a> "
+"לשליטה טובה יותר"
 
 #. Type: text
 #. Description
@@ -1473,6 +1477,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d מחיצות יימחקו, יש להשתמש ב<a href=\"\">כלי המחיצות המתקדם</a> לשליטה טובה "
+"יותר"
 
 #. Type: text
 #. Description
@@ -1481,6 +1487,8 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"מחיצה אחת תימחק, יש להשתמש ב<a href=\"\">כלי המחיצות המתקדם</a> לשליטה טובה "
+"יותר"
 
 #. Type: text
 #. Description
@@ -1504,25 +1512,25 @@ msgstr "פיצול המחיצה הגדולה ביותר"
 #. Description
 #: ../ubiquity.templates:224001
 msgid "For best results, please ensure that this computer:"
-msgstr ""
+msgstr "לתוצאות המיטביות, יש לוודא כי מחשב זה:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
 msgid "has at least ${SIZE} available drive space"
-msgstr ""
+msgstr "יש לפחות ${SIZE} פנויים בכונן הקשיח"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
 msgid "is plugged in to a power source"
-msgstr ""
+msgstr "מחובר למקור חשמל"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "מחובר לאינטרנט"
 
 #. Type: text
 #. Description
@@ -1533,6 +1541,9 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} עושה שימוש בתכנת צד שלישי כדי להציג Flash, MP3 וסוגי מדיה נוספים "
+"וגם כדי לעבוד עם חומרה אלחוטית. חלק מתוכנות אלו הנן בקוד סגור. התוכנות "
+"כפופות לתנאי הרישוי הכלולים בתיעוד שלהן."
 
 #. Type: text
 #. Description
@@ -1541,12 +1552,14 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
+"תוסף ה־MP3 מבית Fluendo מכיל טכנולוגיה לקידוד שמע במבנה MPEG Layer-3 המוגנת "
+"ברישיון על ידי Fraunhofer IIS ו־Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "התקנת תכנת צד שלישי זו"
 
 #. Type: text
 #. Description
@@ -1599,7 +1612,7 @@ msgstr "אזור:"
 #. Description
 #: ../ubiquity.templates:241001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[יש להקליד כאן כדי לשנות]"
 
 #. Type: text
 #. Description
@@ -1673,45 +1686,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "החבילות מוסרות"
-
-#~ msgid "What is your name?"
-#~ msgstr "מה שמך?"
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "איך קוראים למחשב הזה?"
-
-#~ msgid "Before:"
-#~ msgstr "לפני:"
-
-#~ msgid "After:"
-#~ msgstr "אחרי:"
-
-#~ msgid "Suggested option:"
-#~ msgstr "אפשרות מומלצת:"
-
-#~ msgid "Choose language"
-#~ msgstr "בחירת שפה/Choose language"
-
-#~ msgid "Guess keymap:"
-#~ msgstr "ניחוש מפת התווים:"
-
-#~ msgid "Guess..."
-#~ msgstr "ניחוש..."
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Strength: good"
-#~ msgstr "חוזק: טוב"
-
-#~ msgid "Strength: fair"
-#~ msgstr "חוזק: הוגן"
-
-#~ msgid "Strength: strong"
-#~ msgstr "חוזק: חזק"
-
-#~ msgid "Strength: weak"
-#~ msgstr "חוזק: חלש"
-
-#~ msgid "Full Name"
-#~ msgstr "שם מלא"

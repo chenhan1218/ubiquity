@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-23 09:14+0000\n"
+"PO-Revision-Date: 2010-09-25 20:31+0000\n"
 "Last-Translator: Bruno Patri <bruno.patri@gmail.com>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1589,9 +1589,9 @@ msgid ""
 "software's documentation."
 msgstr ""
 "${RELEASE} utilise des logiciels tiers pour lire les formats Flash, MP3 et "
-"d'autres formats multimédia, et pour faire fonctionner certains matériels "
-"pour les réseaux sans fil. Certains de ces logiciels sont propriétaires. "
-"Leur licence est disponible dans leur documentation."
+"d'autres formats multimédia, ainsi que pour faire fonctionner certains "
+"matériels pour les réseaux sans fil. Certains de ces logiciels sont "
+"propriétaires. Leur licence est disponible dans leur documentation."
 
 #. Type: text
 #. Description
@@ -1662,7 +1662,7 @@ msgstr "Région :"
 #. Description
 #: ../ubiquity.templates:241001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[tapez ici pour le changer]"
 
 #. Type: text
 #. Description
@@ -1739,66 +1739,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Suppression des paquets"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr ""
-#~ "Installer les deux côte à côte, le choix s'effectuant à chaque démarrage"
-
-#~ msgid "Suggested option:"
-#~ msgstr "Option suggérée :"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Choisissez la votre :"
-
-#~ msgid "What is your name?"
-#~ msgstr "Quel est votre nom ?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Si plus d'une personne sont amenées à utiliser cet ordinateur, vous "
-#~ "pourrez créer d'autres comptes après l'installation."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Choisissez un mot de passe pour protéger votre compte utilisateur."
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr "Ce nom sera utilisé pour identifier l'ordinateur sur un réseau."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Préparation de l'espace disque"
-
-#~ msgid "Before:"
-#~ msgstr "Avant :"
-
-#~ msgid "After:"
-#~ msgstr "Après :"
-
-#~ msgid "Choose language"
-#~ msgstr "Choisir la langue"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Quel nom voulez-vous utiliser pour ouvrir votre session ?"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Demander mon mot de passe pour ouvrir une session et déchiffrer mon "
-#~ "dossier personnel"
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Quel est le nom de cet ordinateur ?"
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Détecter la disposition du clavier :"
-
-#~ msgid "Guess..."
-#~ msgstr "Détection..."
-
-#~ msgid "Full Name"
-#~ msgstr "Nom complet"

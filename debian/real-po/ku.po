@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1646,67 +1646,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr ""
-#~ "Li kêleka hev saz bike da ku di destpêkirinê de dikaribî yekê jê hilbijêrî"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Kîjan zêdetir dişibe klavyeya te?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr "Ji bo ceribandina klavyeyê tu dikarî di vê qutîkê de binivîsî."
-
-#~ msgid "Suggested option:"
-#~ msgstr "Pêşniyar:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Hilbijartina te:"
-
-#~ msgid "What is your name?"
-#~ msgstr "Navê te çi ye?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Ji bo têketinê tu dixwazî kîjan navî bi kar bînî?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Heke ji yekê zêdetir kes vê komputerê bikar bînin, tu dikarî piştî "
-#~ "sazkirinê ji bo pir kesan hesaban mîheng bikî."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Ji bo ewlekariya hesaba xwe nasnavekê (password) hilbijêre."
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Heman şîfreyê du caran têkevê, bi vî awayî dê rastbûna wê bê "
-#~ "kontrolkirin. Şîfreyeke baş ji gelek tîpan, reqeman û nîşaneyan pêk tê; "
-#~ "herî kêm heşt curetîp e; dem bi dem tê guhertin."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Navê vê komputerê çi ye?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Heke ev komputer li ser torê ji bo kesên din were vekirin, ev nav dê bê "
-#~ "bikaranîn."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Cîyê dîskê amade bike"
-
-#~ msgid "Before:"
-#~ msgstr "Berê:"
-
-#~ msgid "After:"
-#~ msgstr "Peyde:"
-
-#~ msgid "Choose language"
-#~ msgstr "Ziman hilbijêre/Choose language"

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-23 09:21+0000\n"
-"Last-Translator: Iñigo Varela <malditoastur@gmail.com>\n"
+"PO-Revision-Date: 2010-09-24 08:53+0000\n"
+"Last-Translator: Xandru Martino <Unknown>\n"
 "Language-Team: Asturian <ast@li.org>\n"
 "Language: ast\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1644,7 +1644,7 @@ msgstr "Rexón:"
 #. Description
 #: ../ubiquity.templates:241001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[escribi equí pa camudar]"
 
 #. Type: text
 #. Description
@@ -1721,104 +1721,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Desaniciando paquetes"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "Instalalu xunto a los otros, escoyendo ente ellos en cada aniciu."
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "¿Qué nome-y prestaría usar p'aniciar sesión?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "Pue escribir nesti campu pa prebar la so nueva distribución de tecláu."
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "¿Cuál ye la distribución más asemeyada a la del so tecláu?"
-
-#~ msgid "What is your name?"
-#~ msgstr "¿Cuál ye'l so nome?"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Escoyer la de so:"
-
-#~ msgid "Suggested option:"
-#~ msgstr "Opción suxerida:"
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Escueyi una contraseña pa caltener la to cuenta segura."
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Esti nome usaráse pa facer columbrable/deteutable esti equipu a otros de "
-#~ "la rede."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "¿Cuál ye'l nome d'esti equipu?"
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Tresnar l'espaciu del discu"
-
-#~ msgid "Before:"
-#~ msgstr "Enantes:"
-
-#~ msgid "After:"
-#~ msgstr "Dempués:"
-
-#~ msgid "Choose language"
-#~ msgstr "Escueyi la llingua"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Si esti equipu va a usase por más d'una persona, tendrá de configurar "
-#~ "delles cuentes dempués de la instalación."
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Pidir la mio contraseña p'aniciar sesión y descifrar la mio carpeta "
-#~ "personal"
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Guess..."
-#~ msgstr "Aldovinar..."
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Aldovinar el mapa de tecláu:"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Fortaleza: normal"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Fortaleza: fuerte"
-
-#~ msgid "Strength: good"
-#~ msgstr "Fortaleza: bona"
-
-#~ msgid "Strength: too short"
-#~ msgstr "Fortaleza: enforma curtia"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Fortaleza: feble"
-
-#~ msgid "Full Name"
-#~ msgstr "Nome completu"
-
-#~ msgid ""
-#~ "Ubuntu aims to be free and open-source software.  However, this is not "
-#~ "always possible."
-#~ msgstr ""
-#~ "Ubuntu tien como oxetivu ser software llibre y de códigu abiertu. Sicasí, "
-#~ "esto non siempres ye posible."
-
-#~ msgid "that you are connected to the Internet with an Ethernet cable"
-#~ msgstr "que tas coneutáu a Internet con un cable Ethernet"
-
-#~ msgid ""
-#~ "Please off me non-open-source software if it is needed for a better "
-#~ "experience"
-#~ msgstr "Ufrime software propietariu si se necesita pa una esperiencia meyor"

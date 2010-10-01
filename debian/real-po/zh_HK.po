@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-08-24 05:39+0000\n"
-"Last-Translator: Tom K. C. Chiu <Unknown>\n"
+"PO-Revision-Date: 2010-09-24 05:01+0000\n"
+"Last-Translator: Roy Chan <roy.chan@linux.org.hk>\n"
 "Language-Team: Chinese (Hong Kong) <zh_HK@li.org>\n"
 "Language: zh_HK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -34,7 +34,7 @@ msgstr "清除所有資料，使用整個硬碟"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "安裝且與其它作業系統並存"
 
 #. Type: text
 #. Description
@@ -84,6 +84,8 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
+"或是若您已準備就緒，您可以將 ${RELEASE} 和您目前的操作系統安裝在一起 (甚至取"
+"代)。這不會花上許久時間。"
 
 #. Type: text
 #. Description
@@ -186,8 +188,6 @@ msgstr "在這裡輸入以測試您的鍵盤"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Figure out keyboard layout"
 msgid "Figure Out Keyboard Layout"
 msgstr "推測鍵盤配置"
 
@@ -243,7 +243,7 @@ msgstr "使用者名稱"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Choose a password:"
-msgstr ""
+msgstr "請設定一組密碼"
 
 #. Type: text
 #. Description
@@ -255,57 +255,55 @@ msgstr "密碼"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Confirm password"
-msgstr ""
+msgstr "確認密碼"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Your name:"
 msgid "Your computer's name:"
-msgstr "您的姓名："
+msgstr "您的電腦名稱："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "當它與其他電腦溝通時所使用的名稱。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "你正在除錯模式下. 別使用重要的密碼！"
+msgstr "您正在以除錯模式執行。請不要別使用重要的密碼！"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Short password"
-msgstr ""
+msgstr "密碼稍短"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Weak password"
-msgstr ""
+msgstr "密碼強度不足"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Fair password"
-msgstr ""
+msgstr "密碼強度尚可"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Good password"
-msgstr ""
+msgstr "密碼強度佳"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Strong password"
-msgstr ""
+msgstr "密碼強度足夠"
 
 #. Type: text
 #. Description
@@ -317,13 +315,13 @@ msgstr "自動登入"
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Require my password to log in"
-msgstr "需要密碼以登入"
+msgstr "需要我的密碼才能登入"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "將我的個人資料夾加密"
 
 #. Type: text
 #. Description
@@ -351,7 +349,7 @@ msgstr "如果你不想匯入任何帳戶，請選擇不匯入，並且進行下
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Allocate drive space"
-msgstr ""
+msgstr "分配磁碟機空間"
 
 #. Type: text
 #. Description
@@ -429,13 +427,13 @@ msgstr "進階..."
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:62001
 msgid "_Install Now[ action ]"
-msgstr ""
+msgstr "立刻安裝(_I)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr ""
+msgstr "步驟 ${INDEX}/${TOTAL}"
 
 #. Type: title
 #. Description
@@ -727,13 +725,13 @@ msgstr "人氣統計"
 #. Description
 #: ../ubiquity.templates:108001
 msgid "Participate in the package usage survey"
-msgstr "參與套件使用調查"
+msgstr "參與套件使用普查"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:109001
 msgid "Network proxy"
-msgstr "網路代理伺服器"
+msgstr "網絡代理伺服器"
 
 #. Type: text
 #. Description
@@ -750,17 +748,13 @@ msgstr "連接埠："
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"完成安裝。您現可試用 Ubuntu，但在重新開機之前，電腦並不會儲存各項修改及檔案。"
+"安裝程序已完成。您現在可以繼續測試 ${RELEASE}，但您所做出的任何變更或您所儲存"
+"的文件，都只會保留到您重新啟動電腦之前為止。"
 
 #. Type: text
 #. Description
@@ -1150,7 +1144,7 @@ msgstr "正在計算可以跳過而不用複製的檔案..."
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "準備好了嗎？您應該已經..."
 
 #. Type: title
 #. Description
@@ -1254,7 +1248,7 @@ msgstr "語言"
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Prepare"
-msgstr ""
+msgstr "準備"
 
 #. Type: text
 #. Description
@@ -1345,7 +1339,7 @@ msgstr "安裝程式嘗試更新自身的時候發生錯誤："
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:199001
 msgid "USB disk"
-msgstr ""
+msgstr "USB 磁碟"
 
 #. Type: text
 #. Description
@@ -1360,7 +1354,7 @@ msgstr "CD"
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
-msgstr ""
+msgstr "請選擇安裝過程中要使用的語言。該語言將設為本電腦的預設語言。"
 
 #. Type: text
 #. Description
@@ -1382,7 +1376,7 @@ msgstr "繼續安裝。"
 #. Description
 #: ../ubiquity.templates:204001 ../ubiquity.templates:205001
 msgid "Installation failed"
-msgstr ""
+msgstr "安裝失敗"
 
 #. Type: text
 #. Description
@@ -1391,48 +1385,50 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
+"安裝程式遭遇到無法補救的錯誤。現在將執行桌面工作階段，這樣一來您可以追查該問"
+"題或嘗試再安裝一次。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr ""
+msgstr "安裝程式遭遇到無法補救的錯誤，現在將重新開機。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:207001
 msgid "Preparing to install ${RELEASE}"
-msgstr ""
+msgstr "正在準備安裝 ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:208001
 msgid "Wireless"
-msgstr ""
+msgstr "無線網絡"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
 msgid "Please select your wireless network from this list"
-msgstr ""
+msgstr "請從此清單內選取您的無線網絡"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:213001
 msgid "Select drive:"
-msgstr ""
+msgstr "選取磁碟機："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
 msgid "Allocate drive space by dragging the divider below:"
-msgstr ""
+msgstr "藉由拖曳下方的分隔棒來分配磁碟機空間："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:215001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "整部磁碟將會被使用："
 
 #. Type: text
 #. Description
@@ -1442,6 +1438,7 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d 較小的分割區將被隱藏，使用<a href=\"\">進階分割工具</a>來進行更多控制"
 
 #. Type: text
 #. Description
@@ -1450,6 +1447,7 @@ msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 個較小的分割區被隱藏，使用<a href=\"\">進階分割工具</a>來進行更多控制"
 
 #. Type: text
 #. Description
@@ -1458,7 +1456,7 @@ msgstr ""
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
-msgstr ""
+msgstr "%d 分割區將被刪除，使用<a href=\"\">進階分割工具</a>來進行更多控制"
 
 #. Type: text
 #. Description
@@ -1466,49 +1464,49 @@ msgstr ""
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
-msgstr ""
+msgstr "1 個分割區將被刪除，使用<a href=\"\">進階分割工具</a>來進行更多控制"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:220001
 msgid "Use Entire Partition"
-msgstr ""
+msgstr "使用整個分割區"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "使用整個磁碟"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid "Split Largest Partition"
-msgstr ""
+msgstr "切割最大的分割區"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
 msgid "For best results, please ensure that this computer:"
-msgstr ""
+msgstr "為了達到最好的結果，請確認此電腦："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
 msgid "has at least ${SIZE} available drive space"
-msgstr ""
+msgstr "有最少 ${SIZE} 的可用磁碟空間"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
 msgid "is plugged in to a power source"
-msgstr ""
+msgstr "有接上電源"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "有連接至互聯網"
 
 #. Type: text
 #. Description
@@ -1519,6 +1517,8 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} 使用第三方軟件以播放 Flash、MP3 及其他媒體，以及使用某些無線硬件。"
+"此軟件中某些為封閉原始碼軟件。此軟件受到包含在軟件文件中的許可證條款限制。"
 
 #. Type: text
 #. Description
@@ -1527,18 +1527,20 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
+"Fluendo MP3 擴充套件包含 MPEG Layer-3 音訊解碼技術，由 Fraunhofer IIS and "
+"Thomson 授權。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "安裝此第三方軟件"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:231001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "當安裝時下載更新"
 
 #. Type: text
 #. Description
@@ -1585,7 +1587,7 @@ msgstr "地區:"
 #. Description
 #: ../ubiquity.templates:241001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[按此改變]"
 
 #. Type: text
 #. Description
@@ -1603,7 +1605,7 @@ msgstr ""
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
 msgid "OEM mode (for manufacturers only)"
-msgstr ""
+msgstr "OEM 模式 (僅供製造商使用)"
 
 #. Type: text
 #. Description
@@ -1614,20 +1616,20 @@ msgstr ""
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
 msgid "Prepare for OEM configuration"
-msgstr ""
+msgstr "為 OEM 組態進行準備"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
 msgid "Preparing for OEM configuration..."
-msgstr ""
+msgstr "為 OEM 組態進行準備中..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
 msgid "Ready for OEM configuration"
-msgstr ""
+msgstr "OEM 組態準備就緒"
 
 #. Type: text
 #. Description
@@ -1638,6 +1640,9 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"當您開機進入新系統時，您可以依使用者「oem」身份與您先前所選的密碼登入；這個 "
+"oem 使用者同時擁有使用 'sudo' 指令的管理特權。您可以將該系統依照您的需求來做"
+"額外調整。"
 
 #. Type: text
 #. Description
@@ -1647,96 +1652,11 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"一旦您完成該系統的設定後，請執行 'oem-config-prepare' 指令。此指令會讓系統刪"
+"除臨時的「oem」使用者，並在下次重新開機後詢問使用者一些設定上的問題。"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
 msgid "Removing packages"
-msgstr ""
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "並列安裝，每次開機時選擇"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "哪一種鍵盤排列方式最接近您使用的鍵盤？"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr "您可以在此處測試您新選擇的鍵盤排列方式。"
-
-#~ msgid "What is your name?"
-#~ msgstr "您的名字是？"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "您要使用什麼名稱登入？"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr "如果多於一個人使用這部電腦，您可以安裝後增加多個帳戶。"
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "請選一個密碼以確保您的帳戶安全."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "您要為這台電腦取什麼名字？"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr "如果您設定讓別人能在網路上看到這台電腦，將會是這個名字。"
-
-#~ msgid "Prepare disk space"
-#~ msgstr "預備磁碟空間"
-
-#~ msgid "Choose language"
-#~ msgstr "選擇語言"
-
-#~ msgid "Choose your own:"
-#~ msgstr "自行選擇："
-
-#~ msgid "After:"
-#~ msgstr "之後："
-
-#~ msgid "Before:"
-#~ msgstr "之前："
-
-#~ msgid "Suggested option:"
-#~ msgstr "建議選項"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr "需要密碼方能登入及解密家目錄"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "再填密碼，以防打錯。好密碼應俱具文字、數字與符號，最少八位，並定時更改。"
-
-#~ msgid "Guess..."
-#~ msgstr "猜測..."
-
-#~ msgid "Guess keymap:"
-#~ msgstr "猜測鍵盤對應："
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Strength: fair"
-#~ msgstr "密碼強度：尚可"
-
-#~ msgid "Strength: weak"
-#~ msgstr "密碼強度：太弱"
-
-#~ msgid "Strength: good"
-#~ msgstr "密碼強度：良好"
-
-#~ msgid "Strength: strong"
-#~ msgstr "密碼強度：堅固"
-
-#~ msgid "Strength: too short"
-#~ msgstr "密碼強度：太短"
-
-#~ msgid "Full Name"
-#~ msgstr "全名"
+msgstr "移除套件中"

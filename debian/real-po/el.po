@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-23 09:18+0000\n"
+"PO-Revision-Date: 2010-09-25 22:43+0000\n"
 "Last-Translator: sterios prosiniklis <steriosprosiniklis@gmail.com>\n"
 "Language-Team: <en@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1665,7 +1665,7 @@ msgstr "Περιοχή:"
 #. Description
 #: ../ubiquity.templates:241001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[πληκτρολογήστε  εδώ για αλλαγή]"
 
 #. Type: text
 #. Description
@@ -1742,101 +1742,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Αφαίρεση πακέτων"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "Μπορείτε να πληκτρολογείτε σε αυτό το πλαίσιο για να δοκιμάσετε τη νέα "
-#~ "διάταξη του πληκτρολογίου σας."
-
-#~ msgid "Suggested option:"
-#~ msgstr "Προτεινόμενη επιλογή:"
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Επιλέξτε ένα κωδικό για να διατηρήσετε το λογαριασμό σας ασφαλή."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Ποιο είναι το όνομα του υπολογιστή;"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Αυτό το όνομα θα χρησιμοποιηθεί αν κάνετε τον υπολογιστή σας ορατό μέσα "
-#~ "σε ένα δίκτυο,"
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Προετοιμασία χώρου στο δίσκο"
-
-#~ msgid "Before:"
-#~ msgstr "Πριν:"
-
-#~ msgid "After:"
-#~ msgstr "Μετά:"
-
-#
-# File: ../localechooser.templates-in, line: 1001
-#~ msgid "Choose language"
-#~ msgstr "Επιλογή Γλώσσας / Choose language"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Ποια διάταξη είναι παρόμοια με το πληκτρολόγιό σας;"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Επιλέξτε μόνοι σας:"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr ""
-#~ "Τι όνομα χρήστη θέλετε να χρησιμοποιήσετε για την είσοδο στο σύστημα;"
-
-#~ msgid "What is your name?"
-#~ msgstr "Ποιο είναι το όνομά σας;"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Αν αυτόν τον υπολογιστή θα χρησιμοποιεί παραπάνω από ένα άτομο, τότε "
-#~ "μπορείτε να δημιουργήσετε πολλαπλούς λογαριασμούς χρηστών μετά την "
-#~ "εγκατάσταση."
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Απαίτηση κωδικού για την είσοδο και αποκρυπτογράφηση προσωπικού φακέλου"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Πληκτρολογήστε τον ίδιο κωδικό δύο φορές, ώστε να γίνει έλεγχος για "
-#~ "σφάλματα πληκτρολόγησης. Ένας καλός κωδικός περιλαμβάνει ανάμεικτα "
-#~ "γράμματα, αριθμούς και σύμβολα, θα πρέπει να είναι τουλάχιστον οκτώ (8) "
-#~ "χαρακτήρες σε μέγεθος και να τον αλλάζετε σε τακτά χρονικά διαστήματα."
-
-#~ msgid "Full Name"
-#~ msgstr "Πλήρες όνομα"
-
-#~ msgid "Strength: good"
-#~ msgstr "Ισχύς: καλό"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Ισχύς: μέτριο"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Ισχύς: δυνατό"
-
-#~ msgid "Strength: too short"
-#~ msgstr "Ισχύς: πολύ σύντομο"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Ισχύς: αδύναμο"
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Guess..."
-#~ msgstr "Υπολογισμός..."
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Υπολογισμός χάρτη πλήκτρων:"

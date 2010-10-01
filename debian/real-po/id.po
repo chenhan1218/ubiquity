@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1677,82 +1677,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr ""
-#~ "Pasang paket-paket tersebut satu persatu, pilih salah satunya setiap kali"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Susunan yang mana yang paling mirip dengan papan ketik anda?"
-
-#~ msgid "Suggested option:"
-#~ msgstr "Pilihan yang disarankan:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Pilih sendiri:"
-
-#~ msgid "What is your name?"
-#~ msgstr "Siapakah nama anda?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Nama apakah yang ingin anda gunakan untuk melakukan log in?"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Masukkan kata sandi yang sama dua kali, sehingga dapat diperiksa apabila "
-#~ "terjadi kesalahan pengetikan. Sebuah kata sandi yang baik sebaiknya "
-#~ "merupakan kombinasi dari huruf, angka, dan tanda baca, setidaknya terdiri "
-#~ "dari minimal delapan karakter, dan sebaiknya sering diganti secara "
-#~ "berkala."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Apakah nama komputer ini?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Nama ini akan digunakan jika anda membuat komputer ini tampak bagi "
-#~ "komputer lainnya dalam suatu jaringan."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Mempersiapkan ruang disk"
-
-#~ msgid "Before:"
-#~ msgstr "Sebelum:"
-
-#~ msgid "After:"
-#~ msgstr "Setelah:"
-
-#~ msgid "Choose language"
-#~ msgstr "Pilih bahasa"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Memerlukan kata sandiku untuk log masuk dan membuka penyandian folder "
-#~ "rumahku"
-
-#~ msgid "Full Name"
-#~ msgstr "Nama Lengkap"
-
-#~ msgid "Strength: good"
-#~ msgstr "Kekuatan: baik"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Kekuatan: cukup"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Kekuatan: kuat"
-
-#~ msgid "Strength: too short"
-#~ msgstr "Kekuatan: terlalu pendek"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Kekuatan: lemah"
-
-#~ msgid "USB"
-#~ msgstr "USB"

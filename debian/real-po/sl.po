@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-23 09:21+0000\n"
-"Last-Translator: Klemen Košir <klemen913@gmail.com>\n"
+"PO-Revision-Date: 2010-09-23 10:06+0000\n"
+"Last-Translator: Andrej Znidarsic <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1636,7 +1636,7 @@ msgstr "Regija:"
 #. Description
 #: ../ubiquity.templates:241001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[tipkajte tukaj za spremembo]"
 
 #. Type: text
 #. Description
@@ -1712,85 +1712,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Odstranjevanje paketov"
-
-#~ msgid "What is your name?"
-#~ msgstr "Kako vam je ime?"
-
-#~ msgid "Choose language"
-#~ msgstr "Izberite jezik"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Če bo računalnik uporabljalo več ljudi, lahko po namestitvi nastavite "
-#~ "dodatne račune."
-
-#~ msgid "Choose your own:"
-#~ msgstr "Izberite svojo:"
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Vnesite geslo za varovanje svojega računa."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Kako naj se imenuje ta računalnik?"
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Pripravi prostor na disku"
-
-#~ msgid "Before:"
-#~ msgstr "Prej:"
-
-#~ msgid "After:"
-#~ msgstr "Potem:"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Katero ime želite uporabljati pri prijavi?"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Svoje geslo vnesite dvakrat, da ne bi prišlo do morebitnih napak pri "
-#~ "tipkanju. Dobro geslo naj bo sestavljeno iz mešanice črk, številk in "
-#~ "ločil, dolgo naj bo vsaj osem znakov in naj se redno menja."
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Full Name"
-#~ msgstr "Polno ime"
-
-#~ msgid "Strength: good"
-#~ msgstr "Moč: dobro"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Moč: solidno"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Moč: močno"
-
-#~ msgid "Strength: too short"
-#~ msgstr "Moč: prekratko"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Moč: šibko"
-
-#~ msgid "that you are connected to the Internet with an Ethernet cable"
-#~ msgstr "da ste povezani v medmrežje z eternet kablom"
-
-#~ msgid ""
-#~ "Ubuntu aims to be free and open-source software.  However, this is not "
-#~ "always possible."
-#~ msgstr ""
-#~ "Ubuntu poskuša biti prosta in odprtokodna programska oprema. Vendar to ni "
-#~ "vedno mogoče."
-
-#~ msgid ""
-#~ "Please off me non-open-source software if it is needed for a better "
-#~ "experience"
-#~ msgstr ""
-#~ "Ponudi mi ne odprtokodno programsko opremo, če je zahtevana za boljšo "
-#~ "izkušnjo"

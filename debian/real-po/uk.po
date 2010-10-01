@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-23 09:21+0000\n"
-"Last-Translator: Evan Dandrea <ev@ubuntu.com>\n"
+"PO-Revision-Date: 2010-09-27 08:29+0000\n"
+"Last-Translator: Sergiy Gavrylov <sergiovana@bigmir.net>\n"
 "Language-Team: uk <>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -33,7 +33,7 @@ msgstr "Стерти все і використати весь диск"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "Встановити поряд з іншими операційними системами"
 
 #. Type: text
 #. Description
@@ -266,7 +266,7 @@ msgstr "Підтвердіть пароль"
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Your computer's name:"
-msgstr ""
+msgstr "Назва вашого комп'ютера:"
 
 #. Type: text
 #. Description
@@ -1530,7 +1530,7 @@ msgstr "Розділити найбільший розділ"
 #. Description
 #: ../ubiquity.templates:224001
 msgid "For best results, please ensure that this computer:"
-msgstr ""
+msgstr "Для найкращих результатів, переконайтеся, що цей комп'ютер:"
 
 #. Type: text
 #. Description
@@ -1548,7 +1548,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "під'єднаний до Інтернету"
 
 #. Type: text
 #. Description
@@ -1702,80 +1702,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Вилучення пакунків"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Яка розкладка найбільш підходить до вашої клавіатури?"
-
-#~ msgid "Suggested option:"
-#~ msgstr "Пропоновані параметри:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Вибрати власний:"
-
-#~ msgid "What is your name?"
-#~ msgstr "Ваше ім'я?"
-
-#~ msgid "Before:"
-#~ msgstr "До:"
-
-#~ msgid "After:"
-#~ msgstr "Після:"
-
-#~ msgid "Choose language"
-#~ msgstr "Вибрати мову/Choose language"
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Виберіть пароль для захисту свого облікового запису."
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Введіть пароль двічі, щоб уникнути помилок. Безпечний пароль має містити "
-#~ "літери, цифри та знаки пунктуації, довжиною не менше восьми символів, "
-#~ "також бажано регулярно змінювати його."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Підготовка дискового простору"
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Guess..."
-#~ msgstr "Визначення..."
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Визначити розкладку:"
-
-#~ msgid "Strength: good"
-#~ msgstr "Захищеність: добра"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Захищеність: непогана"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Захищеність: найкраща"
-
-#~ msgid "Strength: too short"
-#~ msgstr "Захищеність: слаба"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Захищеність: середня"
-
-#~ msgid "Full Name"
-#~ msgstr "Повне ім'я"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "Встановити їх поруч, вибираючи кожного разу яку з них запустити"
-
-#~ msgid "that you are connected to the Internet with an Ethernet cable"
-#~ msgstr "що ви під'єднані до Інтернету за допомогою Ethernet-кабелю"
-
-#~ msgid ""
-#~ "Ubuntu aims to be free and open-source software.  However, this is not "
-#~ "always possible."
-#~ msgstr ""
-#~ "Ubuntu ставить за мету бути вільним та відкритим програмним "
-#~ "забезпеченням. Проте, це не завжди можливо."

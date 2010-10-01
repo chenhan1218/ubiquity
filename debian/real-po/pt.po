@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1706,99 +1706,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "A remover pacotes"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "Instale-os lado a lado, escolhendo um a cada arranque"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "Pode escrever nesta caixa para testar a sua nova disposição de teclado."
-
-#~ msgid "Suggested option:"
-#~ msgstr "Opção sugerida:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Escolha a sua:"
-
-#~ msgid "What is your name?"
-#~ msgstr "Qual é o seu nome?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Que nome deseja utilizar para efectuar o início de sessão?"
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Escolha uma senha para manter a sua conta segura."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Qual o nome deste computador?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Este nome será usado se tornar o computador visível para outros numa rede."
-
-#~ msgid "Before:"
-#~ msgstr "Antes:"
-
-#~ msgid "After:"
-#~ msgstr "Depois:"
-
-#~ msgid "Choose language"
-#~ msgstr "Escolher idioma/Choose language"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Qual é a disposição das teclas mais semelhante ao seu teclado?"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Introduza a mesma senha duas vezes, para se ter a certeza que não houve "
-#~ "erros ao escrever. Uma boa senha deverá conter uma mistura de letras, "
-#~ "números e pontuação, deverá ter um comprimento mínimo de oito caracteres "
-#~ "e ser alterada regularmente."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Preparar o espaço em disco"
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Guess..."
-#~ msgstr "Adivinhar..."
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Adivinhar o mapeamento de teclas:"
-
-#~ msgid "Strength: good"
-#~ msgstr "Qualidade: boa"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Qualidade: razoável"
-
-#~ msgid "Strength: too short"
-#~ msgstr "Qualidade: muito curta"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Qualidade: fraca"
-
-#~ msgid "Full Name"
-#~ msgstr "Nome Completo"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Pedir a minha senha para iniciar sessão e para decifrar a minha pasta "
-#~ "pessoal"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Se não for o único a utilizar este computador, pode definir mais contas "
-#~ "após a instalação."
-
-#~ msgid "Strength: strong"
-#~ msgstr "Qualidade: forte"

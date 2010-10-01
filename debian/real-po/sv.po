@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-23 09:24+0000\n"
+"PO-Revision-Date: 2010-09-24 03:57+0000\n"
 "Last-Translator: Daniel Nylander <yeager@ubuntu.com>\n"
 "Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1649,7 +1649,7 @@ msgstr "Region:"
 #. Description
 #: ../ubiquity.templates:241001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[skriv här för att ändra]"
 
 #. Type: text
 #. Description
@@ -1726,116 +1726,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Tar bort paket"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "Installera dem sida vid sida, välj mellan dem vid varje uppstart"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Vilken layout passar bäst för ditt tangentbord?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "Du kan skriva i den här rutan för att testa din nya tangentbordslayout."
-
-#~ msgid "Suggested option:"
-#~ msgstr "Föreslaget alternativ:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Välj din egen:"
-
-#~ msgid "What is your name?"
-#~ msgstr "Vad heter du?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Vilket namn vill du använda för att logga in?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Om fler än en person kommer att använda den här datorn kan du konfigurera "
-#~ "flera konton efter installationen."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Välj ett lösenord för att hålla ditt konto säkert."
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Ange samma lösenord två gånger så att det kan kontrolleras för "
-#~ "inmatningsfel. Ett bra lösenord innehåller en blandning av bokstäver, "
-#~ "siffror och skiljetecken, bör vara minst åtta tecken långt samt bör "
-#~ "ändras med jämna mellanrum."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Vad är namnet på den här datorn?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Det här namnet kommer att användas om du gör datorn synlig för andra på "
-#~ "ett nätverk."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Förbered diskutrymme"
-
-#~ msgid "Before:"
-#~ msgstr "Före:"
-
-#~ msgid "After:"
-#~ msgstr "Efter:"
-
-#~ msgid "Choose language"
-#~ msgstr "Välj språk/Choose language"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Kräv mitt lösenord för att logga in och för att dekryptera min hemmapp"
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Guess..."
-#~ msgstr "Gissa..."
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Gissa tangentbordslayout:"
-
-#~ msgid "Full Name"
-#~ msgstr "Fullständigt namn"
-
-#~ msgid "Strength: good"
-#~ msgstr "Styrka: bra"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Styrka: medelbra"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Styrka: starkt"
-
-#~ msgid "Strength: too short"
-#~ msgstr "Styrka: för kort"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Styrka: svagt"
-
-#~ msgid "that you are connected to the Internet with an Ethernet cable"
-#~ msgstr "att du är ansluten till Internet med en Ethernet-kabel"
-
-#~ msgid ""
-#~ "Ubuntu aims to be free and open-source software.  However, this is not "
-#~ "always possible."
-#~ msgstr ""
-#~ "Ubuntus mål är att vara fri programvara baserad på öppen källkod. Dock är "
-#~ "det inte alltid möjligt."
-
-#~ msgid ""
-#~ "Please off me non-open-source software if it is needed for a better "
-#~ "experience"
-#~ msgstr ""
-#~ "Erbjud mig program utan öppen källkod om det behövs för att få en bättre "
-#~ "upplevelse"

@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1605,39 +1605,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "ਕਿਹੜੀ ਤਰਤੀਬ ਤੁਹਾਡੇ ਕੀਬੋਰਡ ਦੇ ਨਾਲ ਸਭ ਤੋਂ ਜਿਅਾਦਾ ਮੇਲ ਖਾਂਦੀ ਹੈ?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr "ਤੁਸੀਂ ੲਿਸ ਖਾਨੇ ਵਿਚ ਟਾੲੀਪ ਕਰਕੇ ਅਾਪਣੇ ਕੀਬੋਰਡ ਦੀ ਨਵੀਂ ਤਰਤੀਬ ਨੂੰ ਜਾਂਚ ਸਕਦੇ ਹੋ।"
-
-#~ msgid "What is your name?"
-#~ msgstr "ਤੁਹਾਡਾ ਨਾਂ ਕੀ ਹੈ ?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "ਤੁਸੀਂ ਲੌਗਿਨ ਕਰਣ ਲੲੀ ਕਿਹੜਾ ਨਾਂ ਵਰਤਣਾ ਚਾਂਓਦੇ ਹੋ?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "ਜੇ ੲਿਕ ਤੋਂ ਜਿਅਾਦਾ ਵਿਅਕਤੀਅਾਂ ਨੇ ੲਿਸ ਕੰਮਪੂਟਰ ਦਾ ੲਿਸਤੇਮਾਲ ਕਰਨਾ ਹੈ ਤਾਂ ਤੁਸੀਂ ੲਿਸ ਗਤੀਵੀਧੀ "
-#~ "ਤੋਂ ਬਾਅਦ ਗੁਣਾਂ ਖਾਤੇ ਬਣਾ ਸਕਦੇ ਹੋ।"
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "ਅਾਪਣੇ ਖਾਤੇ ਦੀ ਰਾਖ ਲੲੀ ੲਿਕ ਸਫਲਸ਼ਬਦ ਚੁਣੋ।"
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "ੲਿਸ ਕੰਮਪੂਟਰ ਦਾ ਕੀ ਨਾਂ ਹੈ?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr "ੲਿਸ ਨਾਂ ਨੂੰ ਵਰਤਿਅਾ ਜਾੲੇਗਾ ਜੇ ਤੁਸੀਂ ਕੰਮਪੂਟਰ ਨੂੰ ਕਿਸੇ ਨੈਟਵਰਕ ੳੁਤੇ ਦਿਖਾਂਓਦੇ ਹੋ।"
-
-#~ msgid "Prepare disk space"
-#~ msgstr "ਡਿਸਕ ਜਗ੍ਹਾ ਤਿਅਾਰ ਕਰੋ"
-
-#~ msgid "Choose language"
-#~ msgstr "ਭਾਸ਼ਾ ਚੁਣੋ/Choose language"

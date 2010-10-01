@@ -1,7 +1,11 @@
 ubiquity (2.4.5) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
   * If a derivative doesn't provide a release notes URL on the media, don't show
     the release notes label (LP: #651800)
+
+  [ Colin Watson ]
+  * Update translations from Launchpad (LP: #652395).
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 30 Sep 2010 00:46:59 -0500
 

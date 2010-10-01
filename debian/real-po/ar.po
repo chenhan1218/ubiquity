@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-04-29 04:13+0000\n"
+"PO-Revision-Date: 2010-09-29 10:20+0000\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -33,7 +33,7 @@ msgstr "امسح القرص واستخدمه كاملا"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "ثبّت بجوار أنظمة تشغيل أخرى"
 
 #. Type: text
 #. Description
@@ -73,7 +73,7 @@ msgstr ""
 msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
-msgstr ""
+msgstr "يمكنك تجربة ${RELEASE} من دون أي تعديل في حاسوبك، مباشرة من ${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -82,6 +82,8 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
+"أو إذا كنت مستعدا، يمكنك تثبيت ${RELEASE} بجانب (او بدلا من) نظام التشغيل "
+"الحالي. لا يأخذ هذا الكثير من الوقت."
 
 #. Type: text
 #. Description
@@ -114,18 +116,20 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
+"ربما ترغب بقراءة <a href=\"release-notes\">ملاحظات الإصدار</a> أو <a href="
+"\"update\">تحديث هذا المثبت</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr ""
+msgstr "ربما ترغب بقراءة <a href=\"release-notes\">ملاحظات الإصدار</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr ""
+msgstr "ربما ترغب <a href=\"update\">بتحديث المثبت</a>."
 
 #. Type: text
 #. Description
@@ -135,6 +139,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2010."
 msgstr ""
+"هذه إصدارة أولية من مثبت${MEDIUM}  ${RELEASE} الحي. ليست الإصدارة النهائية "
+"التي ستأتي مع إصدارة ${RELEASE} النهائية في أكتوبر 2010."
 
 #. Type: text
 #. Description
@@ -144,12 +150,14 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
+"عملية التثبيت قد تمسح أو تصغر أجزاء القرص الصلب. تأكد من <b>أخذ نسخة "
+"احتياطية من أية بيانات ذات قيمة </b> قبل تشغيل هذا البرنامج."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Warning"
-msgstr ""
+msgstr "تحذير"
 
 #. Type: text
 #. Description
@@ -167,37 +175,37 @@ msgstr "تخطيط لوحة المفاتيح"
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your keyboard layout:"
-msgstr ""
+msgstr "اختر تخطيط لوحة المفاتيح:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "اكتب هنا لتجربة لوحة المفاتيح"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Figure Out Keyboard Layout"
-msgstr ""
+msgstr "حدد تخطيط لوحة المفاتيح"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Figure out keyboard layout"
-msgstr ""
+msgstr "حدد تخطيط لوحة المفاتيح"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Please press one of the following keys:"
-msgstr ""
+msgstr "رجاء اضغط على أحد المفاتيح التالية:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Is the following key present on your keyboard?"
-msgstr ""
+msgstr "هل هذا المفتاح موجود على لوحة مفاتيحك؟"
 
 #. Type: text
 #. Description
@@ -209,55 +217,55 @@ msgstr "من أنت؟"
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Your name:"
-msgstr ""
+msgstr "اسمك:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Your name"
-msgstr ""
+msgstr "اسمك"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Pick a username:"
-msgstr ""
+msgstr "اختر اسم مستخدم:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Username"
-msgstr ""
+msgstr "اسم المستخدم"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Choose a password:"
-msgstr ""
+msgstr "اختر كلمة سر:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Password"
-msgstr ""
+msgstr "كلمة السر"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Confirm password"
-msgstr ""
+msgstr "أكد كلمة السر"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Your computer's name:"
-msgstr ""
+msgstr "اسم الحاسوب"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "يستخدم هذا الاسم للتواصل مع الحواسيب الأخرى"
 
 #. Type: text
 #. Description
@@ -269,31 +277,31 @@ msgstr "أنت الآن تعمل في وضع تتبع الأخطاء. لا تس�
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Short password"
-msgstr ""
+msgstr "كلمة السر قصيره"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Weak password"
-msgstr ""
+msgstr "كلمة السر ضعيفة"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Fair password"
-msgstr ""
+msgstr "كلمة السر معتدلة"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Good password"
-msgstr ""
+msgstr "كلمة السر جيدة"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Strong password"
-msgstr ""
+msgstr "كلمة السر قوية"
 
 #. Type: text
 #. Description
@@ -311,7 +319,7 @@ msgstr "استخدم كلمة سر للولوج"
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "عمّ مجلد المنزل"
 
 #. Type: text
 #. Description
@@ -342,7 +350,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Allocate drive space"
-msgstr ""
+msgstr "خصص مساحة القرص"
 
 #. Type: text
 #. Description
@@ -420,13 +428,13 @@ msgstr "متقدم..."
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:62001
 msgid "_Install Now[ action ]"
-msgstr ""
+msgstr "_ثبت الآن"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr ""
+msgstr "خطوة ${INDEX}\\${TOTAL}"
 
 #. Type: title
 #. Description
@@ -444,7 +452,7 @@ msgstr "أتريد حقا مغادرة التثبيت الآن؟"
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Bootloader install failed"
-msgstr ""
+msgstr "فشل تثبيت محمل الإقلاع"
 
 #. Type: text
 #. Description
@@ -452,44 +460,44 @@ msgstr ""
 msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
-msgstr ""
+msgstr "آسف، حدث خطأ وتعذّر تثبيت محمل الإقلاع في الموقع المحدد."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
 msgid "Choose a different device to install the bootloader on:"
-msgstr ""
+msgstr "اختر قرصا آخر لتثبيت محمل الإقلاع عليه:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Continue without a bootloader."
-msgstr ""
+msgstr "تابع دون محمل إقلاع."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:70001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr ""
+msgstr "ستحتاج لتثبيت محمل الإقلاع يدويا لبدء ${RELEASE}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:71001
 msgid "Cancel the installation."
-msgstr ""
+msgstr "ألغ التثبيت."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "قد يترك ذلك جهازك غير قابل للإقلاع."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:73001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "كيف تريد المتابعة؟"
 
 #. Type: text
 #. Description
@@ -579,7 +587,7 @@ msgstr "اعكس"
 #. Description
 #: ../ubiquity.templates:86001
 msgid "Recalculating partitions..."
-msgstr ""
+msgstr "يعيد حساب الأجزاء..."
 
 #. Type: text
 #. Description
@@ -745,6 +753,8 @@ msgid ""
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
+"اكتمل التثبيت. يمكنك متابعة تجريب ${RELEASE} الآن، لكن لن تحفظ أي من "
+"التغييرات التي ستقوم بها حتى إعادة التشغيل."
 
 #. Type: text
 #. Description
@@ -794,7 +804,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:117001
 msgid "Verifying the installation configuration..."
-msgstr ""
+msgstr "يتحقق من إعدادات التثبيت..."
 
 #. Type: title
 #. Description
@@ -1098,7 +1108,7 @@ msgstr "حدث خطأ أثناء حذف الحزم:"
 #. Description
 #: ../ubiquity.templates:153001
 msgid "Error migrating documents and settings"
-msgstr ""
+msgstr "خطأ في نقل المستندات والإعدادات"
 
 #. Type: error
 #. Description
@@ -1109,12 +1119,15 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"حدث خطأ في نقل البيانات. قد تجد مزيدا من التفاصيل في /var/log/syslog. سيستمر "
+"التثبيت، لكن بعض أو كل المستندات والإعدادات التي طلبتها لم تنقل إلى النظام "
+"المثبت."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Error copying network configuration"
-msgstr ""
+msgstr "خطأ في نسخ إعدادات الشبكة"
 
 #. Type: error
 #. Description
@@ -1124,6 +1137,8 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"حدث خطأ في نسخ اإعدادات الشبكة. سيستمر التثبيت، لكن يجب ضبط إعدادات الشبكة "
+"بعد تثبيت النظام."
 
 #. Type: text
 #. Description
@@ -1135,7 +1150,7 @@ msgstr "يحسب الملفات التي سيتخطى نسخها..."
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "هل أنت مستعد..."
 
 #. Type: title
 #. Description
@@ -1190,6 +1205,7 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
+"بعض الأجزاء التي عملتها صغيرة جدا. اجعل الأجزاء التالية بهذا الحجم على الأقل:"
 
 #. Type: boolean
 #. Description
@@ -1241,7 +1257,7 @@ msgstr "اللغة"
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Prepare"
-msgstr ""
+msgstr "إعداد"
 
 #. Type: text
 #. Description
@@ -1283,63 +1299,63 @@ msgstr "عملية التثبيت"
 #. Description
 #: ../ubiquity.templates:192001
 msgid "Checking for installer updates"
-msgstr ""
+msgstr "يلتمس تحديثات المثبت"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:193001
 msgid "Reading package information"
-msgstr ""
+msgstr "يقرأ معلومات الحزم"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:194001
 msgid "Updating package information"
-msgstr ""
+msgstr "يُحدث معلومات الحزم"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:195001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr ""
+msgstr "ملف ${INDEX} من ${TOTAL} بسرعة ${SPEED}\\ث"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:196001
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "ملف ${INDEX} من ${TOTAL}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:197001
 msgid "Installing update"
-msgstr ""
+msgstr "يثبت التحديث"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:198001
 msgid "Error updating installer"
-msgstr ""
+msgstr "خطأ في تحديث المثبت"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:198001
 msgid "The installer encountered an error while trying to update itself:"
-msgstr ""
+msgstr "واجه المثبت خطأ أثناء محاولته تحديث نفسه:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:199001
 msgid "USB disk"
-msgstr ""
+msgstr "قرص USB"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
 #: ../ubiquity.templates:200001
 msgid "CD"
-msgstr ""
+msgstr "اسطوانة"
 
 #. Type: text
 #. Description
@@ -1347,7 +1363,7 @@ msgstr ""
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
-msgstr ""
+msgstr "اختر لغة لاستخدامها في عملية التثبيت، ستكون هي لغة الحاسوب المبدئية."
 
 #. Type: text
 #. Description
@@ -1363,7 +1379,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:203001
 msgid "Continue with installation."
-msgstr ""
+msgstr "تابع التثبيت."
 
 #. Type: text
 #. Description
@@ -1371,7 +1387,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:204001 ../ubiquity.templates:205001
 msgid "Installation failed"
-msgstr ""
+msgstr "فشل التثبيت"
 
 #. Type: text
 #. Description
@@ -1380,48 +1396,50 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
+"واجه المثبت خطأ غير قابل للإصلاح. ستشغل جلسة سطح مكتب الآن حيث يمكنك التحقق "
+"من المشكلة أو تجربة التثبيت مرة أخرى."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr ""
+msgstr "واجه المثبت خطأ غير قابل للإصلاح و سيعيد التشغيل الآن."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:207001
 msgid "Preparing to install ${RELEASE}"
-msgstr ""
+msgstr "يحضّر لتثبيت ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:208001
 msgid "Wireless"
-msgstr ""
+msgstr "لاسلكي"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
 msgid "Please select your wireless network from this list"
-msgstr ""
+msgstr "اختر الشبكة اللاسلكية من هذه القائمة"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:213001
 msgid "Select drive:"
-msgstr ""
+msgstr "اختر القرص:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
 msgid "Allocate drive space by dragging the divider below:"
-msgstr ""
+msgstr "خصصمساحة القرص بسحب الفاصل أدناه:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:215001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "سيُستخدم القرص بأكمله:"
 
 #. Type: text
 #. Description
@@ -1431,6 +1449,8 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d من الأجزاء الصغيرة لا تظهر هنا، استخدم <a href=\"\">أداة التقسم المتقدمة</"
+"a> لمزيد من التحكم"
 
 #. Type: text
 #. Description
@@ -1439,6 +1459,8 @@ msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"جزء صغير لا يظهر هنا، استخدم <a href=\"\">أداة التقسم المتقدمة</a> لمزيد من "
+"التحكم"
 
 #. Type: text
 #. Description
@@ -1448,6 +1470,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d من الأجزاء ستُحذف، استخدم <a href=\"\">أداة التقسم المتقدمة</a> لمزيد من "
+"التحكم"
 
 #. Type: text
 #. Description
@@ -1456,48 +1480,49 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"جزء سيُحذف، استخدم <a href=\"\">أداة التقسم المتقدمة</a> لمزيد من التحكم"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:220001
 msgid "Use Entire Partition"
-msgstr ""
+msgstr "استخدم الجزء كله"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "استخدم القرص كله"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid "Split Largest Partition"
-msgstr ""
+msgstr "اقسم الجزء الأكبر"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
 msgid "For best results, please ensure that this computer:"
-msgstr ""
+msgstr "لأفضل النتائج، تأكد من أن هذا الحاسوب:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
 msgid "has at least ${SIZE} available drive space"
-msgstr ""
+msgstr "به على الأقل ${SIZE} مساحة خالية"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
 msgid "is plugged in to a power source"
-msgstr ""
+msgstr "موصل بمقبس التيار"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "موصل بالإنترنت"
 
 #. Type: text
 #. Description
@@ -1508,6 +1533,9 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"تستخدم ${RELEASE} برمجيات خارجية لتشغيل الفلاش، و MP3 وغيرها من الوسائط، "
+"ولتعمل مع بعض بطاقات الشبكة اللاسلكية. بعض هذه البرمجيات غير حرة، وتخضع "
+"للرخص الموضحة في وثائقها."
 
 #. Type: text
 #. Description
@@ -1516,36 +1544,38 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
+"ملحقة فلوندو MP3 تشتمل على تقنية فك تركيز MPEG-3 مرخصة من Fraunhofer IIS و "
+"Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "ثبت هذه البرامج الخارجية"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:231001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "نزّل التحديثات أثناء التثبيت"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:235001
 msgid "Layout:"
-msgstr ""
+msgstr "التخطيط:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
 msgid "Variant:"
-msgstr ""
+msgstr "النوع:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:237001
 msgid "Below is an image of your current layout:"
-msgstr ""
+msgstr "في الأسفل صورة للتخطيط الحالي:"
 
 #. Type: text
 #. Description
@@ -1562,7 +1592,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:239001
 msgid "Time Zone:"
-msgstr ""
+msgstr "المنطقة الزّمنيّة:"
 
 #. Type: text
 #. Description
@@ -1574,7 +1604,7 @@ msgstr "الإقليم:"
 #. Description
 #: ../ubiquity.templates:241001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[اكتب هنا لتغييرها]"
 
 #. Type: text
 #. Description
@@ -1584,13 +1614,16 @@ msgid ""
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+"جاهز للتثبيت؟ بعد إجابتك عن بضعة أسئلة، ستتمكن من تثبيت محتوى ${MEDIUM} الحي "
+"على هذا الحاسوب حيث سيمكنك تشغيل ${RELEASE} بالسرعة الكاملة دون أن تحتاج "
+"${MEDIUM}."
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
 msgid "OEM mode (for manufacturers only)"
-msgstr ""
+msgstr "وضع الصانع الأصلي (للصانعين فقط)"
 
 #. Type: text
 #. Description
@@ -1601,20 +1634,20 @@ msgstr ""
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
 msgid "Prepare for OEM configuration"
-msgstr ""
+msgstr "حضّر لتضبيط المصنع"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
 msgid "Preparing for OEM configuration..."
-msgstr ""
+msgstr "يجهز لتضبيط المصنع..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
 msgid "Ready for OEM configuration"
-msgstr ""
+msgstr "مستعد لتضبيط المصنع"
 
 #. Type: text
 #. Description
@@ -1625,6 +1658,9 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"عند إقلاعك إلى النظام الجديد، سيمكنك الدخول إلى النظام بحساب المستخدم  'oem' "
+"وبكلمة السر التى اخترتها سابقا، هذا المستخدم له صلاحيات إدارية باستخدام "
+"'sudo' . عندئذ سيمكنك عمل التعديلات التى تريدها بالنظام."
 
 #. Type: text
 #. Description
@@ -1634,73 +1670,12 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"فور إعداد النظام حسب رغبتك. شغّل 'oem-config-prepare' .هذا سيجعل النظام يحذف "
+"المستخدم المؤقت 'oem' ويسأل المستخدم النهائي أسئلة إعداد مختلفة عند الإقلاع "
+"القادم للنظام."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
 msgid "Removing packages"
-msgstr ""
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "ثبتها جنبا إلى جنب مع الاختيار بينهم عند بدء التشغيل"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "ما هو التخطيط الأكثر شبهًا بلوحة مفاتيحك؟"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr "يمكنك الكتابة في هذا الصندوق لاختبار تخطيط لوحة المفاتيح الجديد."
-
-#~ msgid "What is your name?"
-#~ msgstr "ما اسمك؟"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "ما الاسم الذي تريد استخدامه للولوج إلى النظام؟"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "إن كان هناك أكثر من شخص سيستخدم هذا الحاسوب فيمكنك إضافة حسابات متعددة "
-#~ "بعد الانتهاء من عملية التثبيت"
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "اختر كلمة سر لحماية حسابك."
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "أدخل كلمة السر نفسها مرتين، حتى يمكن التحقق من الأخطاء. يفضل وضع كلمة سر "
-#~ "تتضمن خليطاً من الحروف والأرقام وعلامات الترقيم، و ينبغي أن لا تقل عن "
-#~ "ثمانية حروف، و يفضل تغييرها على فترات منتظمة."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "ما اسم هذا الحاسوب؟"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr "سيستخدم هذا الاسم إذا جعلت هذا الحاسوب مرئيا للآخرين على الشبكة."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "تحضير مساحة القرص"
-
-#~ msgid "Before:"
-#~ msgstr "قبل:"
-
-#~ msgid "After:"
-#~ msgstr "بعد:"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr "استخدم كلمة سر للولوج وتظهير المجلد المنزل"
-
-#~ msgid "Choose your own:"
-#~ msgstr "اختر واحدا آخر:"
-
-#~ msgid "Suggested option:"
-#~ msgstr "الاختيار المقترح:"
-
-#~ msgid "Choose language"
-#~ msgstr "اختر اللغة"
+msgstr "يحذف الحزم"

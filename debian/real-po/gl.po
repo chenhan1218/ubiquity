@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-23 09:17+0000\n"
-"Last-Translator: Evan Dandrea <ev@ubuntu.com>\n"
+"PO-Revision-Date: 2010-09-25 23:49+0000\n"
+"Last-Translator: Fran Diéguez <Unknown>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -75,8 +75,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"Pode probar $(RELEASE) sen facer ningún cambio no seu equipo, directamente "
-"desde este $(MEDIUM)"
+"Pode probar ${RELEASE} sen facer ningún cambio no seu equipo, directamente "
+"desde este ${MEDIUM}"
 
 #. Type: text
 #. Description
@@ -1642,7 +1642,7 @@ msgstr "Rexión:"
 #. Description
 #: ../ubiquity.templates:241001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[teclee aquí para cambiar]"
 
 #. Type: text
 #. Description
@@ -1719,113 +1719,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Eliminando paquetes"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Escolla a súa:"
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Preparar o espazo no disco"
-
-#~ msgid "Before:"
-#~ msgstr "Antes:"
-
-#~ msgid "After:"
-#~ msgstr "Despois:"
-
-#~ msgid "Suggested option:"
-#~ msgstr "Opción suxerida:"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Se este computador vai ser usado por máis dunha persoa, pode configurar "
-#~ "varias contas despois da instalación."
-
-#~ msgid "What is your name?"
-#~ msgstr "Como se chama?"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Escriba dúas veces o mesmo contrasinal para comprobar que non se equivoca "
-#~ "ao escribilo. Un contrasinal bon contén unha mestura de letras, números e "
-#~ "signos de puntuación, ha de ter cando menos oito caracteres e habería que "
-#~ "modificalo a intervalos regulares."
-
-#~ msgid "Choose language"
-#~ msgstr "Escolla un idioma/Choose language"
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Guess..."
-#~ msgstr "Adiviñar..."
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Adiviñar o mapa do teclado:"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "Pode escribir nesta caixa para probar a nova distribución das teclas."
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Que distribución de teclas é a máis parecida á do seu teclado?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Que nome quere usar para iniciar a sesión?"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Requirir o meu contrasinal para iniciar a sesión e descrifrar o meu "
-#~ "cartafol de usuario"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Este nome será usado por se quere facer visíbel o seu computador nunha "
-#~ "rede."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Escolla un contrasinal para asegurar a súa conta."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Como se chama este computador?"
-
-#~ msgid "Full Name"
-#~ msgstr "Nome completo"
-
-#~ msgid "Strength: good"
-#~ msgstr "Fortaleza: boa"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Fortaleza: normal"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Fortaleza: forte"
-
-#~ msgid "Strength: too short"
-#~ msgstr "Fortaleza: demasiado curta"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Fortaleza: débil"
-
-#~ msgid "that you are connected to the Internet with an Ethernet cable"
-#~ msgstr "Que está conectado a Internet cun cable Ethernet"
-
-#~ msgid ""
-#~ "Ubuntu aims to be free and open-source software.  However, this is not "
-#~ "always possible."
-#~ msgstr ""
-#~ "Ubuntu ten como obxectivo ser software libre e de código aberto. Porén, "
-#~ "isto non sempre é posibel."
-
-#~ msgid ""
-#~ "Please off me non-open-source software if it is needed for a better "
-#~ "experience"
-#~ msgstr ""
-#~ "Ofrecerme software privativo se se necesita para unha mellor experiencia"

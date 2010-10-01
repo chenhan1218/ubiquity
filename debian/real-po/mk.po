@@ -8,13 +8,13 @@ msgstr ""
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
 "PO-Revision-Date: 2010-04-25 06:31+0000\n"
-"Last-Translator: Арангел Ангов <ufo@linux.net.mk>\n"
+"Last-Translator: Arangel Angov <ufo@linux.net.mk>\n"
 "Language-Team: Macedonian <ossm-members@hedona.on.net.mk>\n"
 "Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1627,50 +1627,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr ""
-#~ "Кој распоред на копчињата на тастатурата е најсличен со Вашата тастатура?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "Можете да пишувате во ова поле за да го тестирате новиот распоред на "
-#~ "копчињата на тастатурата."
-
-#~ msgid "What is your name?"
-#~ msgstr "Кое е Вашето име?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Кое име сакате да го користите за најава?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Ако повеќе од една личност го користи овој компјутер, можете да поставите "
-#~ "повеќе сметки по инсталацијата."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Одберете лозинка за да ја обезбедите Вашата сметка."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Кое е името на овој компјутер?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Ова име ќе се користи ако овозможите Вашиот компјутер да биде достапен "
-#~ "преку мрежа."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Припремам простор на дискот"
-
-#~ msgid "Before:"
-#~ msgstr "Пред:"
-
-#~ msgid "After:"
-#~ msgstr "Потоа"
-
-#~ msgid "Choose language"
-#~ msgstr "Одбери јазик / Choose language"

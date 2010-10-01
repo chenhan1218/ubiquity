@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1600,24 +1600,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "bu nekke ngu bëre ñoy njariño ordinateur bi , di nga lenn mën yokk bo "
-#~ "santie jumtukay bi ba noppii"
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Tanal mot de pass ndax sa cont woor"
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Louy tourou ordinateur bi?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr "Tour bou ñeneen ñi di guiss si réso bi"
-
-#~ msgid "Choose language"
-#~ msgstr "Tannal aw lakk/Choose language"

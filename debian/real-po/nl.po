@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-23 09:18+0000\n"
+"PO-Revision-Date: 2010-09-25 08:57+0000\n"
 "Last-Translator: Redmar <redmar@ubuntu-nl.org>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -27,13 +27,13 @@ msgstr "Grootste aaneengesloten vrije ruimte gebruiken"
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr "Leegmaken en de gehele schijf gebruiken"
+msgstr "De gehele schijf wissen en gebruiken"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "Installeer naast bestaande besturingssystemen"
 
 #. Type: text
 #. Description
@@ -156,7 +156,7 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
-"Het installatieprogramma kan partities op uw harde schijf wissen of van "
+"Het installatieprogramma kan partities op uw harde schijf wissen of de "
 "grootte wijzigen. Zorg dat u een <b>reservekopie heeft van waardevolle "
 "gegevens</b> alvorens u de installatie start."
 
@@ -194,13 +194,13 @@ msgstr "Typ hier om uw toetsenbord te testen"
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Figure Out Keyboard Layout"
-msgstr ""
+msgstr "Toetsenbordindeling bepalen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Figure out keyboard layout"
-msgstr "Indeling raden"
+msgstr "Toetsenbordindeling bepalen"
 
 #. Type: text
 #. Description
@@ -266,13 +266,15 @@ msgstr "Wachtwoord bevestigen"
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Your computer's name:"
-msgstr ""
+msgstr "Naam voor us computer:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
 msgstr ""
+"De naam die uw computer gebruikt wanneer gecommuniceerd wordt met andere "
+"computers."
 
 #. Type: text
 #. Description
@@ -1485,7 +1487,7 @@ msgstr "Wijs schijfruimte toe door met de verdeler te slepen:"
 #. Description
 #: ../ubiquity.templates:215001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "De gehele schijf zal gebruikt worden:"
 
 #. Type: text
 #. Description
@@ -1495,6 +1497,8 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d kleinere partities zijn verborgen, gebruik het <a href=\"\">geavanceerde "
+"partitioneringshulpmiddel</a> voor meer controle"
 
 #. Type: text
 #. Description
@@ -1503,6 +1507,8 @@ msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 kleinere partitie is verborgen, gebruik het <a href=\"\">geavanceerde "
+"partitioneringshulpmiddel</a> voor meer controle"
 
 #. Type: text
 #. Description
@@ -1512,6 +1518,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d partities zullen worden verwijderd, gebruik het <a href=\"\">geavanceerde "
+"partitioneringshulpmiddel</a> voor meer controle"
 
 #. Type: text
 #. Description
@@ -1520,6 +1528,8 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 partitie zal worden verwijderd, gebruik het <a href=\"\">geavanceerde "
+"partitioneringshulpmiddel</a> voor meer controle"
 
 #. Type: text
 #. Description
@@ -1543,25 +1553,25 @@ msgstr "Grootste partitie verdelen"
 #. Description
 #: ../ubiquity.templates:224001
 msgid "For best results, please ensure that this computer:"
-msgstr ""
+msgstr "Voor het beste resultaat zorgt u er best voor dat deze computer:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
 msgid "has at least ${SIZE} available drive space"
-msgstr ""
+msgstr "minimaal ${SIZE} vrije schijfruimte heeft"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
 msgid "is plugged in to a power source"
-msgstr ""
+msgstr "op een stroomvoorziening aangesloten is"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "verbonden is met het internet"
 
 #. Type: text
 #. Description
@@ -1572,6 +1582,10 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} gebruikt software van derden voor het afspelen van Flash, MP3 en "
+"andere media, en om met sommige draadloze netwerkhardware te werken. Een "
+"deel van deze software is closed-source. Deze software is onderhevig aan de "
+"licentievoorwaarden die opgenomen zijn in de documentatie ervan."
 
 #. Type: text
 #. Description
@@ -1580,12 +1594,14 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
+"De Fluendo MP3 plugin bevat technologie voor MPEG Layer-3 audio-decodering "
+"onder licentie van Fraunhofer IIS en Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "Deze software van derden installeren"
 
 #. Type: text
 #. Description
@@ -1639,7 +1655,7 @@ msgstr "Regio:"
 #. Description
 #: ../ubiquity.templates:241001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[type hier om te veranderen]"
 
 #. Type: text
 #. Description
@@ -1716,108 +1732,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Pakketten verwijderen"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "U kunt iets in dit veld invoeren om de gekozen toetsenbordindeling te "
-#~ "testen."
-
-#~ msgid "Suggested option:"
-#~ msgstr "Voorgestelde keuze:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Zelf kiezen:"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Welke naam wilt u gebruiken om aan te melden?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Als meer dan één persoon deze computer gebruikt, kunt u na de installatie "
-#~ "bijkomende gebruikers aanmaken."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Kies een wachtwoord om uw account te beveiligen."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Wat is de naam van deze computer?"
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Schijfruimte voorbereiden"
-
-#~ msgid "Before:"
-#~ msgstr "Voor:"
-
-#~ msgid "After:"
-#~ msgstr "Na:"
-
-#~ msgid "Choose language"
-#~ msgstr "Taal kiezen"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr ""
-#~ "Ze naast elkaar installeren, met een keuzemogelijkheid bij het opstarten"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Mijn wachtwoord vragen om aan te melden en om mijn persoonlijke map te "
-#~ "ontsleutelen"
-
-#~ msgid "What is your name?"
-#~ msgstr "Hoe heet u?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Deze naam zal gebruikt worden als u uw computer zichtbaar maakt voor "
-#~ "anderen op een netwerk."
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Toetsenbordindeling raden:"
-
-#~ msgid "Full Name"
-#~ msgstr "Volledige naam"
-
-#~ msgid "Strength: good"
-#~ msgstr "Sterkte: goed"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Sterkte: redelijk"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Sterkte: sterk"
-
-#~ msgid "Strength: too short"
-#~ msgstr "Sterkte: te kort"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Sterkte: zwak"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Welke indeling lijkt het meest op die van uw toetsenbord?"
-
-#~ msgid "Guess..."
-#~ msgstr "Raden…"
-
-#~ msgid "that you are connected to the Internet with an Ethernet cable"
-#~ msgstr "zorg dat u met het internet bent verbonden met een Ethernet-kabel"
-
-#~ msgid ""
-#~ "Ubuntu aims to be free and open-source software.  However, this is not "
-#~ "always possible."
-#~ msgstr ""
-#~ "Ubuntu streeft naar een vrij en opensource karakter. Dit is helaas niet "
-#~ "altijd mogelijk."
-
-#~ msgid ""
-#~ "Please off me non-open-source software if it is needed for a better "
-#~ "experience"
-#~ msgstr ""
-#~ "Bied software aan die niet opensource is voor meer mogelijkheden en een "
-#~ "betere computerervaring"

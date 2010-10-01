@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-05-10 08:00+0000\n"
-"Last-Translator: Alan <Unknown>\n"
+"PO-Revision-Date: 2010-08-27 21:01+0000\n"
+"Last-Translator: Evan Dandrea <ev@ubuntu.com>\n"
 "Language-Team: Breton <br@li.org>\n"
 "Language: br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -190,10 +190,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "Aozadur ar c'hlavier"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -264,10 +262,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Setting computer name..."
 msgid "Your computer's name:"
-msgstr "O lakaat anv an urzhiataer..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -763,19 +759,11 @@ msgstr "Porzh :"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"Echu eo ar staliadur. Gallout a rit kenderc'hel da brouadiñ Ubuntu, "
-"koulskoude ne vo ket enrollet an teulioù pe ar c'hemmoù graet ganeoc'h keit "
-"ha na vo ket adloc'het."
 
 #. Type: text
 #. Description
@@ -1648,6 +1636,9 @@ msgid ""
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+"Prest da staliañ ? Ur wech ma vo respontet da goulennoù zo e c'hello bezañ "
+"staliet endalc'had an/ar ${MEDIUM} arveradus hep staliadur. Neuze e vez "
+"loc'het ${RELEASE} gant e dizh reizh hep an/ar ${MEDIUM}."
 
 #. Type: title
 #. Description
@@ -1712,60 +1703,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Dilamadur ar pakadoù"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr ""
-#~ "Staliañ anezho kichen-ha-kichen, gallout a reot dibab unan el loc'hadur"
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Petra eo anv an urzhiataer-mañ ?"
-
-#~ msgid "Suggested option:"
-#~ msgstr "Dibarzh kinniget :"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Diuzit ho hini:"
-
-#~ msgid "Choose language"
-#~ msgstr "Dibabit ur yezh"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Mar bez muioc'h eget un den oc'h ober gant an urzhiataer-mañ, e c'hellot "
-#~ "krouiñ meur a gont all war-lerc'h ar staliañ."
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Peseurt anv a fell deoc'h ober gantañ evit en em gennaskañ ?"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Peseurt aozadur a zo tostoc'h ouzh ho klavier ?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "Gallout a rit bizskrivañ un dra bennak e-barzh ar voest-se evit prouadiñ "
-#~ "aozadur nevez ho klavier."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Dibabit ur ger-tremen evit mirout ho kont asur."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Prientiñ egor ar gantenn"
-
-#~ msgid "Before:"
-#~ msgstr "A-raok :"
-
-#~ msgid "After:"
-#~ msgstr "War-lerc'h :"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Ger-tremen rekis evit en em gennaskañ ha disifrañ ma zeuliad personel"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Graet e vo gant an anv-mañ mar bez lakaet an urzhiataer da vezañ hewel "
-#~ "evit ar re all war ur rouedad."

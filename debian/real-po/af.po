@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -177,10 +177,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "Sleutelbord-uitleg"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -251,10 +249,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Setting computer name..."
 msgid "Your computer's name:"
-msgstr "Stel rekenaarnaam..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1612,41 +1608,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Watter uitleg lyk mees soos jou sleutelbord?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr "Jy kan in hierdie boks tik om jou nuwe sleutelborduitleg te toets."
-
-#~ msgid "What is your name?"
-#~ msgstr "Wat is jou naam?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Watter naam gebruik jy om aan te teken?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "As meer as een persoon hierdie rekenaar gaan gebruik, kan jy verdere "
-#~ "rekeninge na installasie opstel."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Kies 'n wagwoord om jou rekening veilig te hou."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Wat is die naam van hierdie rekenaar?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Hierdie naam sal gebruik word as jy hierdie rekenaar sigbaar maak vir "
-#~ "ander op die netwerk."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Maak skyf-spasie gereed"
-
-#~ msgid "Choose language"
-#~ msgstr "Kies taal"

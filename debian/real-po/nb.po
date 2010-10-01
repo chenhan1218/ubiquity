@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-08-21 11:24+0000\n"
+"PO-Revision-Date: 2010-09-23 16:09+0000\n"
 "Last-Translator: Kjetil Birkeland Moe <kjetil@skifremme.com>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -33,13 +33,13 @@ msgstr "Slett og bruk hele disken"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "Installer i tillegg til andre operativsystem"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr "Spesifiser partisjoner manuelt (avansert)"
+msgstr "Angi partisjoner manuelt (avansert)"
 
 #. Type: text
 #. Description
@@ -75,8 +75,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"Du kan forsøke ${RELEASE} uten å lagre noen endringer til din maskin, "
-"directe fra ${MEDIUM}."
+"Du kan kjøre ${RELEASE} rett fra ${MEDIUM}en uten å gjøre noen endringer på "
+"datamaskinen."
 
 #. Type: text
 #. Description
@@ -85,9 +85,8 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
-"Eller om du allerede er klar, kan du installere ${RELEASE} ved siden av "
-"(eller i stedet for) det nåværende operativsystemet. Dette skal ikke ta "
-"spesielt lang tid."
+"Du kan også installere ${RELEASE} i tillegg til (eller i stedet for) det "
+"eksisterende operativsystemet."
 
 #. Type: text
 #. Description
@@ -147,8 +146,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2010."
 msgstr ""
-"Dette er en forhåndsutgivelse av ${RELEASE} 'live' ${MEDIUM}. Den er ikke en "
-"endelig utgivelse; denne vil slippes først med ${RELEASE} i oktober 2010."
+"Dette er en forhåndsutgivelse av ${RELEASE} 'live' ${MEDIUM} og ikke en "
+"fullstendig utgivelse; denne vil slippes først som ${RELEASE} i oktober 2010."
 
 #. Type: text
 #. Description
@@ -159,8 +158,7 @@ msgid ""
 "this program."
 msgstr ""
 "Installasjonen kan endre størrelse eller slette partisjoner på harddisken. "
-"Pass på å <b>ta en sikkerhetskopi av alle viktige data</b> før du kjører "
-"dette programmet."
+"Sørg for å <b>ha kopi av viktige data</b> før du kjører dette programmet."
 
 #. Type: text
 #. Description
@@ -172,7 +170,7 @@ msgstr "Advarsel"
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Where are you?"
-msgstr "Hvor bor du?"
+msgstr "Hvor holder du til?"
 
 #. Type: text
 #. Description
@@ -195,16 +193,14 @@ msgstr "Skriv her for å prøve tastaturet"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Figure out keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "Bestem tastaturutforming"
+msgstr "Undersøk tastaturoppsett"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Figure out keyboard layout"
-msgstr "Bestem tastaturutforming"
+msgstr "Finn tastaturutforming"
 
 #. Type: text
 #. Description
@@ -269,16 +265,14 @@ msgstr "Bekreft passord"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Your name:"
 msgid "Your computer's name:"
-msgstr "Ditt navn:"
+msgstr "Navnet på denne datamaskinen:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "Navnet den bruker når den snakker med andre datamaskiner."
 
 #. Type: text
 #. Description
@@ -766,19 +760,13 @@ msgstr "Port:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"Installasjonen er ferdig. Du kan fortsette med å teste Ubuntu slik som nå, "
-"men inntil du starter maskinen din på nytt vil verken endringer du gjør "
-"eller dokumenter du lagrer bli bevart."
+"Installasjonen er fullført. Du kan fortsette å teste ${RELEASE} nå, men "
+"endringer vil først kunne lagres etter at du har startet på nytt."
 
 #. Type: text
 #. Description
@@ -1297,7 +1285,7 @@ msgstr "Språk"
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Prepare"
-msgstr ""
+msgstr "Se til"
 
 #. Type: text
 #. Description
@@ -1486,63 +1474,49 @@ msgstr "Fordele plassen ved å flytte deleren nedenfor:"
 #. Description
 #: ../ubiquity.templates:215001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "Hele disken blir brukt:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:216001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
+#, no-c-format
 msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>%d mindre partisjoner er skjult, benytt <a href=\"\">Avansert "
-"Partisjonsverkøy</a> for flere valg</small>"
+"%d mindre partisjoner vises ikke. Bruk <a href=\"\">avansert "
+"partisjonsverktøy</a> for flere muligheter"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
-#, fuzzy
-#| msgid ""
-#| "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
 msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>1 liten partisjon er skjult, benytt <a href=\"\">Avansert "
-"Partisjonsverkøy</a> for flere valg</small>"
+"1 mindre partisjon vises ikke. Bruk <a href=\"\">avansert partisjonsverktøy</"
+"a> for flere muligheter"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
+#, no-c-format
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>%d mindre partisjoner er skjult, benytt <a href=\"\">Avansert "
-"Partisjonsverkøy</a> for flere valg</small>"
+"%d partisjoner vil slettes, bruk <a href=\"\">avansert partisjonsverktøy</a> "
+"for flere muligheter"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
-#, fuzzy
-#| msgid ""
-#| "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control</small>"
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"<small>1 liten partisjon er skjult, benytt <a href=\"\">Avansert "
-"Partisjonsverkøy</a> for flere valg</small>"
+"%d partisjon slettes. Bruk <a href=\"\">advanced partitioning tool</a> for "
+"bedre kontroll."
 
 #. Type: text
 #. Description
@@ -1565,32 +1539,26 @@ msgstr "Del den største partisjonen"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid "For best results, please ensure:"
 msgid "For best results, please ensure that this computer:"
-msgstr "For de beste resultatene, pass på:"
+msgstr "For best resultat, venligst forsikre deg om at denne datamaskinen:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
-#, fuzzy
-#| msgid "that you have at least ${SIZE} available drive space"
 msgid "has at least ${SIZE} available drive space"
-msgstr "at du har minst ${SIZE} tilgjengelig harddiskplass"
+msgstr "har minimum ${SIZE} ledig harddiskplass"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
-#, fuzzy
-#| msgid "that you are plugged in to a power source"
 msgid "is plugged in to a power source"
-msgstr "at datamaskinen er tilkoblet en god strømkilde"
+msgstr "er koblet til en strømkilde"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "er koblet til Internett"
 
 #. Type: text
 #. Description
@@ -1601,26 +1569,26 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} bruker tredjeparts programvare til visning av Flash, MP3, andre "
+"media, og med noen trådløse nettverkskort. Noe av denne programvaren er "
+"lukket-kildekode. Programvaren er underlagt lisensvilkårene inkludert i den "
+"aktuelle programvarens dokumentasjon."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001
-#, fuzzy
-#| msgid ""
-#| "The following notice applies to the Fluendo MP3 plugin: MPEG Layer-3 "
-#| "audio decoding technology licensed from Faunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
-"Den følgende meldingen gjelder Fluendo MP3-utvidelsen: MPEG Layer-3 "
-"lydteknologi er lisensiert fra Fraunhofer IIS og Thomson."
+"Programtillegget Fluendo MP3 inkluderer MPEG Layer-3 lyddekoding lisensiert "
+"fra Fraunhofer IIS og Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "Installer tredjeparts programvare"
 
 #. Type: text
 #. Description
@@ -1644,7 +1612,7 @@ msgstr "Variant:"
 #. Description
 #: ../ubiquity.templates:237001
 msgid "Below is an image of your current layout:"
-msgstr "Under vises et bilde av det nåværende utseende:"
+msgstr "Nedenfor vises et bilde av det nåværende utseendet:"
 
 #. Type: text
 #. Description
@@ -1673,7 +1641,7 @@ msgstr "Område:"
 #. Description
 #: ../ubiquity.templates:241001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[skriv her for å endre]"
 
 #. Type: text
 #. Description
@@ -1750,103 +1718,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Fjerner pakker"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "Installer dem side ved side, og velg mellom dem ved hver oppstart"
-
-#~ msgid "that you are connected to the Internet with an Ethernet cable"
-#~ msgstr "at du er koblet til internett med nettverkskabel"
-
-#~ msgid ""
-#~ "Ubuntu aims to be free and open-source software.  However, this is not "
-#~ "always possible."
-#~ msgstr ""
-#~ "Ubuntu har som mål å være gratis og åpen kildekode. Derimot er ikke dette "
-#~ "alltid mulig."
-
-#~ msgid ""
-#~ "Please off me non-open-source software if it is needed for a better "
-#~ "experience"
-#~ msgstr ""
-#~ "Vis programvare som ikke er åpen kildekode hvis dette er nødvendig for en "
-#~ "bedre opplevelse"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr "Her kan du skrive for å teste tastaturoppsettet."
-
-#~ msgid "What is your name?"
-#~ msgstr "Hva heter du?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Hvilket navn vil du bruke for å logge inn?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Du kan sette opp flere brukerkontoer etter installasjon dersom mer enn en "
-#~ "person skal bruk datamaskinen."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Velg et passord for å holde din brukerkonto sikker."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Hva er navnet på denne datamaskinen?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Navnet blir brukt dersom du gjør datamaskinen synlig for andre i et "
-#~ "nettverk."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Klargjør diskplass"
-
-#~ msgid "Before:"
-#~ msgstr "Før"
-
-#~ msgid "After:"
-#~ msgstr "Etter"
-
-#~ msgid "Suggested option:"
-#~ msgstr "Foreslått valg:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Velg din egen:"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr "Krev passord for å logge inn og dekryptere hjemmemappen"
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Gjett tastaturoppsett:"
-
-#~ msgid "Guess..."
-#~ msgstr "Gjett..."
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Styrke: passelig"
-
-#~ msgid "Strength: too short"
-#~ msgstr "Styrke: for kort"
-
-#~ msgid "Full Name"
-#~ msgstr "Fullt navn"
-
-#~ msgid "Strength: good"
-#~ msgstr "Styrke: god"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Styrke: svak"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Styrke: sterk"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Hvilket oppsett er mest likt ditt tastatur?"
-
-#~ msgid "Choose language"
-#~ msgstr "Velg språk"

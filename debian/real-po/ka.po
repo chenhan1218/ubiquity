@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1644,68 +1644,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "ორივეს დაყენება, და მათი გაშვება სიტემის ყოველი გაშვების დროს"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr ""
-#~ "რომელი კლავიატურის განლაგება არის ყველაზე მსგავსი თქვენს კლავიატურასთან?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "თქვენი კლავიატურის განლაგების შესამოწმებლად, აკრიფეთ რაიმე ტექსტი მოცემულ "
-#~ "ფანჯარაში."
-
-#~ msgid "Suggested option:"
-#~ msgstr "შესაძლო პარამეტრი:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "საკუთარი ვარიანტის ამორჩევა:"
-
-#~ msgid "What is your name?"
-#~ msgstr "თქვენი სახელი?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "სისტემაში შესვლისას რომელი სახელი გამოვიყენოთ?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "თუ მოცემულ კომპიუტერს ერთზე მეტი ადამიანი გამოიყენებს, სისტემის დაყენების "
-#~ "პროცესის დასრულების შემდეგ თქვენ შეგეძლებათ ახალი ანგარიშების დამატება."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "პაროლის ამორჩევა ანგარიშის დასაცავად."
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "საჭიროა ერთი და იმავე პაროლის ორჯერ შეყვანა, რათა შემოწმდეს აკრეფვის "
-#~ "შეცდომებზე. კარგი პაროლი შეიცავს ასოებს, ციფრებს და პუნკტუაციას, აგრეთვე "
-#~ "უნდა შეიცავდეს მინიმუმ 8 სიმბოლოს, და უნდა შეიცვალოს რეგულარულად."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "რა უნდა იყოს ამ კომპიუტერის სახელი?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "თუ კომპიუტერს ხილულს გახდით, კომპიუტერი ქსელში მოცემული სახელით გამოჩნება."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "დისკზე ადგილის მომზადება"
-
-#~ msgid "Before:"
-#~ msgstr "ამჟამად:"
-
-#~ msgid "After:"
-#~ msgstr "შემდეგ:"
-
-#~ msgid "Choose language"
-#~ msgstr "ენის ამორჩევა / Choose language"

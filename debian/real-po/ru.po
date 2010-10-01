@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1715,103 +1715,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Удаление пакетов"
-
-#~ msgid "What is your name?"
-#~ msgstr "Как вас зовут?"
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Подготовка дискового пространства"
-
-#~ msgid "After:"
-#~ msgstr "После:"
-
-#~ msgid "Choose language"
-#~ msgstr "Выбор языка / Choose language"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Выбрать свою:"
-
-#~ msgid "Suggested option:"
-#~ msgstr "Предлагаемая раскладка:"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "Для проверки выбранной раскладки напечатайте что-нибудь в этом поле."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Выберите пароль для вашей учётной записи."
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Это название будет использовано, если вы сделаете компьютер видимым в "
-#~ "сети."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Название этого компьютера?"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Введите пароль дважды  (для обнаружения возможной ошибки ввода). "
-#~ "Безопасный пароль должен иметь не менее восьми символов и содержать "
-#~ "буквы, цифры и знаки пунктуации. Кроме этого, пароль должен периодически "
-#~ "меняться."
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Определить раскладку:"
-
-#~ msgid "Guess..."
-#~ msgstr "Определение..."
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Если этот компьютер используется несколькими людьми, вы сможете создать "
-#~ "дополнительные учётные записи после установки."
-
-#~ msgid "Strength: too short"
-#~ msgstr "Надёжность пароля: слишком короткий"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Надёжность пароля: слишком слабый"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Надёжность пароля: достаточный"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Надёжность пароля: устойчивый"
-
-#~ msgid "Strength: good"
-#~ msgstr "Надёжность пароля: хороший"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Какая раскладка больше подходит для вашей клавиатуры?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Какое имя вы хотите использовать для входа в систему?"
-
-#~ msgid "that you are connected to the Internet with an Ethernet cable"
-#~ msgstr "что Вы подключены к интернету с помощью кабеля Ethernet"
-
-#~ msgid ""
-#~ "Ubuntu aims to be free and open-source software.  However, this is not "
-#~ "always possible."
-#~ msgstr ""
-#~ "Ubuntu стремится быть свободным и иметь открытый исходный код. Однако, "
-#~ "это не всегда возможно."
-
-#~ msgid ""
-#~ "Please off me non-open-source software if it is needed for a better "
-#~ "experience"
-#~ msgstr ""
-#~ "Предложите мне ПО с закрытым исходным кодом, если это необходимо для "
-#~ "лучшей работы системы"

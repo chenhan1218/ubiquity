@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1612,52 +1612,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "What is your name?"
-#~ msgstr "ስምዎት ማነው?"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "መግጠም ጎን ለጎን ፤ በመምረጥ እንዲጀምር ከሁለቱ መካከል"
-
-#~ msgid "Suggested option:"
-#~ msgstr "የተጠቆመው ምርጫ"
-
-#~ msgid "Choose your own:"
-#~ msgstr "የራሶትን ይምረጡ"
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "ይምረጡ የመግቢያ ቃል የእርስዎን ደህንነት ለመጠበቅ"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr "ከአንድ ስው በላይ በዚህ ኮምፒዩተር ተጠቃሚ ከሆነ መግጠሙ እንዳለቀ የተለያየ መግቢያ ማስናዳት ይችላሉ"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "በምን ስም መጠቀም ይፈልጋሉ ኮምፒዩትሩን ሲጠቀሙ"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr "በሳጥኑ ውስጥ በመጽፍ የፊደል ገበታ አቀማመጡን ይሞክሩ"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "የትኛውን የፊደል ገበታ አቀማመጥ ይመርጣሉ"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr "ይህ ስም ይሆናል ለሌሎች የሚታየው ኔትዎርክ በሚጠቀሙበት ጊዜ"
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "የዚህ ኮምፒዩተር ስም ማነው?"
-
-#~ msgid "Prepare disk space"
-#~ msgstr "የዲስክ ቦታ ማስናዳት"
-
-#~ msgid "Before:"
-#~ msgstr "በፊት"
-
-#~ msgid "After:"
-#~ msgstr "በኋላ፦"
-
-#~ msgid "Choose language"
-#~ msgstr "ቋንቋ ይምረጡ"

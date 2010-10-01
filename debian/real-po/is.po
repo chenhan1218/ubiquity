@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-04-30 12:14+0000\n"
+"PO-Revision-Date: 2010-09-17 07:29+0000\n"
 "Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
 "Language-Team: Icelandic <debian-user-icelandic@lists.debian.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -33,7 +33,7 @@ msgstr "Eyða og nota allan diskinn"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "Setja upp við hlið annarra stýrikerfa"
 
 #. Type: text
 #. Description
@@ -75,6 +75,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
+"Þú getur prófað ${RELEASE} beint af þessum ${MEDIUM} diski. án þess að gera "
+"neinar breytingar á tölvunni þinni."
 
 #. Type: text
 #. Description
@@ -83,6 +85,9 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
+"Nú, eða ef þú ert undir það búin(n) þá geturðu sett ${RELEASE} upp við hlið "
+"(eða í staðinn fyrir) stýrikerfið sem þú ert með núna.  Þetta ætti ekki að "
+"taka langan tíma."
 
 #. Type: text
 #. Description
@@ -156,7 +161,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Warning"
-msgstr ""
+msgstr "Aðvörun"
 
 #. Type: text
 #. Description
@@ -174,7 +179,7 @@ msgstr "Lyklaborðið"
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your keyboard layout:"
-msgstr ""
+msgstr "Veldu hér uppsetningu á lyklaborði:"
 
 #. Type: text
 #. Description
@@ -185,10 +190,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "Lyklaborðið"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -218,7 +221,7 @@ msgstr "Upplýsingar"
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Your name:"
-msgstr ""
+msgstr "Nafnið þitt:"
 
 #. Type: text
 #. Description
@@ -259,10 +262,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Setting computer name..."
 msgid "Your computer's name:"
-msgstr "Stilli nafn tölvu..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -757,18 +758,11 @@ msgstr "Hlið:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"Uppsetningu er lokið. Þú getur haldið áfram að prufa Ubuntu en engar "
-"breytingar verða vistaðar fyrr en þú endurræsir tölvuna."
 
 #. Type: text
 #. Description
@@ -1631,6 +1625,10 @@ msgid ""
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+"Tilbúinn fyrir uppsetningu?  Eftir að þú hefur svarað nokkrum spurningum, "
+"verður hægt að setja efnið á þessum ${MEDIUM} prófunardiski (LiveMedium) upp "
+"á þessa tölvu þannig að þú getir keyrt ${RELEASE} á fullum hraða án "
+"${MEDIUM} disksins."
 
 #. Type: title
 #. Description
@@ -1695,74 +1693,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Fjarlægi pakka"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr ""
-#~ "Setja upp hlið við hlið, þá geturðu valið á milli þeirra þegar þú ræsir "
-#~ "tölvuna"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Hvaða skipulag líkist lyklaborðinu þínu mest?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "Hér geturðu látið reyna á stillingarnar þínar með því að skrifa eitthvað."
-
-#~ msgid "Suggested option:"
-#~ msgstr "Líklegur valkostur:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Velja þitt eigið:"
-
-#~ msgid "What is your name?"
-#~ msgstr "Hvað heitirðu?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Með hvaða nafni viltu skrá þig inn?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Það er hægt að búa til aðganga fyrir aðra notendur seinna, ef fleiri koma "
-#~ "til með að nota þessa tölvu."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Veldu lykilorð fyrir notandaaðganginn þinn."
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Skrifaðu sama lykilorðið tvisvar svo hægt sé að forðast villur. Gott "
-#~ "lykilorð inniheldur t.d. blöndu af bókstöfum, númerum og greinarmerkjum. "
-#~ "Það ætti að vera að minnsta kosti átta stafir, og sniðugt er að breyta "
-#~ "því reglulega."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Hvað á tölvan að heita?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Þetta nafn birtist þegar ef þú ákveður að gera þessa tölvu sýnilega öðrum "
-#~ "á netkerfi."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Plássið á diskinum"
-
-#~ msgid "Before:"
-#~ msgstr "Fyrir:"
-
-#~ msgid "After:"
-#~ msgstr "Eftir:"
-
-#~ msgid "Choose language"
-#~ msgstr "Velja tungumál"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Biðja um lykilorð til að skrá notendur inn eða til að afkóða heimamöppuna"

@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-23 09:24+0000\n"
-"Last-Translator: mahfiaz <mahfiaz@gmail.com>\n"
+"PO-Revision-Date: 2010-09-30 15:57+0000\n"
+"Last-Translator: Merike <Unknown>\n"
 "Language-Team: Eesti <linuxiabi@hot.ee>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -33,7 +33,7 @@ msgstr "Andmed kettalt kustutatakse ja kasutatakse kogu vaba ruumi"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "Teiste operatsioonisüsteemide kõrvale paigaldamine"
 
 #. Type: text
 #. Description
@@ -193,7 +193,7 @@ msgstr "Klaviatuuri proovimiseks sisesta siia"
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Figure Out Keyboard Layout"
-msgstr ""
+msgstr "Klaviatuuripaigutuse tuvastamine"
 
 #. Type: text
 #. Description
@@ -265,13 +265,13 @@ msgstr "Parooli kinnitus"
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Your computer's name:"
-msgstr ""
+msgstr "Sinu arvuti nimi:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "Selle arvuti nimi, kui see räägib teiste arvutitega."
 
 #. Type: text
 #. Description
@@ -762,6 +762,8 @@ msgid ""
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
+"Paigaldus on lõppenud. Sa võid jätkata praegu ${RELEASE} proovimist, kuid "
+"kuni taaskäivitamiseni ei säili ükski salvestatud dokument ega muudatus."
 
 #. Type: text
 #. Description
@@ -1275,7 +1277,7 @@ msgstr "Keel"
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Prepare"
-msgstr ""
+msgstr "Ettevalmistus"
 
 #. Type: text
 #. Description
@@ -1459,7 +1461,7 @@ msgstr "Eralda ruumi lohistades alumist eraldajat:"
 #. Description
 #: ../ubiquity.templates:215001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "Kasutatakse kogu ketast:"
 
 #. Type: text
 #. Description
@@ -1469,6 +1471,8 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%s väiksemat partitsiooni on varjatud, nende muutmiseks kasuta <a href="
+"\"\">täpsema partitsioneerimise vahendit</a>"
 
 #. Type: text
 #. Description
@@ -1477,6 +1481,8 @@ msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 väiksem partitsioon on varjatud, selle muutmiseks kasuta <a href="
+"\"\">täpsema partitsioneerimise vahendit</a>"
 
 #. Type: text
 #. Description
@@ -1486,6 +1492,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d partitsiooni kustutatakse, üksikasjalikuks juhtimiseks kasuta <a href="
+"\"\">täpsema partitsioneerimise vahendit</a>"
 
 #. Type: text
 #. Description
@@ -1494,6 +1502,8 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 partitsioon kustutatakse, üksikasjalikuks juhtimiseks kasuta <a href="
+"\"\">täpsema partitsioneerimise vahendit</a>"
 
 #. Type: text
 #. Description
@@ -1517,25 +1527,25 @@ msgstr "Tükeldatakse suurim partitsioon"
 #. Description
 #: ../ubiquity.templates:224001
 msgid "For best results, please ensure that this computer:"
-msgstr ""
+msgstr "Parima tulemuse kindlustamiseks veendu, et:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
 msgid "has at least ${SIZE} available drive space"
-msgstr ""
+msgstr "arvutil on vähemalt ${SIZE} vaba kettaruumi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
 msgid "is plugged in to a power source"
-msgstr ""
+msgstr "arvuti on ühendatud vooluvõrku"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "arvuti on ühendatud internetti"
 
 #. Type: text
 #. Description
@@ -1546,6 +1556,10 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} kasutab kolmanda osapoole tarkvara Flashi, MP3 ja muu meedia "
+"kuvamiseks ning mõnede juhtmevabade seadmete kasutamiseks. Osa sellest "
+"tarkvarast on kinnise lähtekoodiga. Tarkvara kohta kehtivad litsentsi "
+"tingimused, mis on kaasa pandud tarkvara dokumentatsioonis."
 
 #. Type: text
 #. Description
@@ -1554,12 +1568,14 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
+"Fluendo MP3 plugin sisaldab MPEG Layer-3 audio dekodeerimise tehnoloogiat, "
+"mille on litsentseerinud Fraunhofer IIS ja Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "Paigalda see kolmanda osapoole tarkvara"
 
 #. Type: text
 #. Description
@@ -1613,7 +1629,7 @@ msgstr "Regioon:"
 #. Description
 #: ../ubiquity.templates:241001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[muutmiseks sisesta siia]"
 
 #. Type: text
 #. Description
@@ -1689,116 +1705,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Pakettide eemaldamine"
-
-#~ msgid "What is your name?"
-#~ msgstr "Mis su nimi on?"
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Vali parool, et arvuti kasutamine oleks turvaline."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Mis on selle arvuti nimi?"
-
-#~ msgid "Before:"
-#~ msgstr "Enne:"
-
-#~ msgid "After:"
-#~ msgstr "Pärast:"
-
-#~ msgid "Suggested option:"
-#~ msgstr "Soovitatav valik:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Vali endale sobiv:"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Seda nime kasutatakse siis, kui sa avad ligipääsu oma arvutile võrgu "
-#~ "kaudu."
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Kirjavigade välistamiseks sisesta parool kaks korda. Hea parool sisaldab "
-#~ "tähti, numbreid ja kirjavahemärke ning on vähemalt kaheksa märki pikk. "
-#~ "Parooli on soovitatav regulaarselt muuta."
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Kui arvutit hakkab kasutama rohkem kui üks inimene, siis saad ka pärast "
-#~ "paigaldust kasutajakontosid juurde luua."
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Mis nime tahad sisselogimisel kasutada?"
-
-#~ msgid "Choose language"
-#~ msgstr "Vali keel/Choose language"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Milline klahvide asetus sobib sinu klaviatuuriga kõige paremini?"
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Ketta ettevalmistamine"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Sisselogimiseks ja kodukataloogi lahtikrüptimiseks küsitakse parooli"
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Strength: good"
-#~ msgstr "Tugevus: hea"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Tugevus: paras"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Tugevus: kindel"
-
-#~ msgid "Strength: too short"
-#~ msgstr "Tugevus: liiga lühike"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Tugevus: nõrk"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr "Klahvide asetuse proovimiseks võid siia kasti trükkida."
-
-#~ msgid "Full Name"
-#~ msgstr "Täisnimi"
-
-#~ msgid "Guess..."
-#~ msgstr "Aima..."
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Klahvistikuasetuse aimamine:"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr ""
-#~ "Süsteemid paigaldatakse kõrvuti, igal käivitamisel küsitakse kumba "
-#~ "kasutada."
-
-#~ msgid "that you are connected to the Internet with an Ethernet cable"
-#~ msgstr "sa oled ühendatud võrgukaabli kaudu internetti"
-
-#~ msgid ""
-#~ "Please off me non-open-source software if it is needed for a better "
-#~ "experience"
-#~ msgstr ""
-#~ "Palun paku mulle mitte-vabavara, kui see on vajalik paremaks "
-#~ "kasutuskogemuseks"
-
-#~ msgid ""
-#~ "Ubuntu aims to be free and open-source software.  However, this is not "
-#~ "always possible."
-#~ msgstr ""
-#~ "Ubuntu tahab olla tasuta ja avatud koodiga. Kahjuks ei ole see alati "
-#~ "võimalik."

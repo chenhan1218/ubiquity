@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1657,77 +1657,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "Prepare disk space"
-#~ msgstr "ডিস্কে ফাঁকা স্থান প্রস্তুত করুন"
-
-#~ msgid "Choose your own:"
-#~ msgstr "নিজে নির্বাচন করুন:"
-
-#~ msgid "Before:"
-#~ msgstr "পূর্বে:"
-
-#~ msgid "After:"
-#~ msgstr "পরে:"
-
-#~ msgid "Choose language"
-#~ msgstr "ভাষা বেছে নিন"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "প্রতিবার স্টার্টআপের সময়ে বেছে নেয়ার মত করে এদেরকে পাশাপাশি ইনস্টল করুন"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "আপনি কী নামে লগ ইন করতে চান?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr "আপনি এই বক্সে টাইপ করে আপনার নতুন কীবোর্ড বিন্যাস পরীক্ষা করতে পারেন"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "কোন কীবোর্ড বিন্যাস আপনার কীবোর্ডের সাথে সবচেয়ে সামঞ্জস্যপূর্ণ?"
-
-#~ msgid "What is your name?"
-#~ msgstr "আপনার নাম কী?"
-
-#~ msgid "Suggested option:"
-#~ msgstr "বিকল্প পরামর্শ:"
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "আপনার অ্যাকাউন্টটি নিরাপদ রাখতে একটি পাসওয়ার্ড বা শব্দচাবি নির্বাচন করুন।"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "যদি একাধিক ব্যবহারকারী এই কম্পিউটার ব্যবহার করে, তবে আপনি ইনস্টল করার পরও "
-#~ "একাধিক অ্যাকাউন্ট তৈরী করতে পারবেন।"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "লগ ইন এবং আমার হোম ফোল্ডারকে পাঠোদ্ধার করে খুলতে আমার পাসওয়র্ড দরকার হবে"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "যদি আপনি কোনো নেটওয়র্কে এই কম্পিউটার অন্যদের কাছে দৃশ্যমান করেন তবে এই নামই "
-#~ "ব্যবহৃত হবে"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "একই পাসওয়র্ড/শব্দচাবি দুইবার প্রবেশ করান; এতে টাইপিংজনিত ত্রুটি থাকলে সেটা ধরা "
-#~ "পড়বে। একটা ভাল পাসওয়র্ডের বৈশিষ্ট হল - এটা অক্ষর, সংখ্যা এবং চিহ্ন মিশিয়ে তৈরী "
-#~ "হবে, এবং, অন্তত আট অক্ষর লম্বা হবে; এছাড়া নিয়মিত বিরতিতে এটাকে পরিবর্তন করা "
-#~ "উচিত।"
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "এই কম্পিউটারের নাম কী?"
-
-#~ msgid "Guess..."
-#~ msgstr "অনুমান করুন..."
-
-#~ msgid "USB"
-#~ msgstr "ইউএসবি"

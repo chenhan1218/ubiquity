@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-23 09:17+0000\n"
-"Last-Translator: Evan Dandrea <ev@ubuntu.com>\n"
+"PO-Revision-Date: 2010-09-28 14:01+0000\n"
+"Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -33,7 +33,7 @@ msgstr "Ištrinti viską diske - naudoti visą diską"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "Įdiegti šalia kitų operacinių sistemų"
 
 #. Type: text
 #. Description
@@ -266,7 +266,7 @@ msgstr "Patvirtinkite slaptažodį"
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Your computer's name:"
-msgstr ""
+msgstr "Jūsų kompiuterio vardas:"
 
 #. Type: text
 #. Description
@@ -1476,7 +1476,7 @@ msgstr "Paskirstykite laikmenos vietą tempdami žemiau esantį skyriklį:"
 #. Description
 #: ../ubiquity.templates:215001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "Bus naudojama visa laikmena:"
 
 #. Type: text
 #. Description
@@ -1494,6 +1494,8 @@ msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 mažesnis skirsnis yra nerodomas, naudokite <a href=\"\">skirstymo įrankį "
+"patyrusiems</a> jei norite pats sutvarkyti skirsnius."
 
 #. Type: text
 #. Description
@@ -1503,6 +1505,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d skirsniai bus ištrinti, naudokite <a href=\"\">skirstymo įrankį "
+"patyrusiems</a> jei norite pats sutvarkyti skirsnius."
 
 #. Type: text
 #. Description
@@ -1511,6 +1515,8 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 skirsnis bus ištrintas, naudokite <a href=\"\">skirstymo įrankį "
+"patyrusiems</a> jei norite pats sutvarkyti skirsnius."
 
 #. Type: text
 #. Description
@@ -1534,25 +1540,25 @@ msgstr "Padalinti didžiausią skirsnį"
 #. Description
 #: ../ubiquity.templates:224001
 msgid "For best results, please ensure that this computer:"
-msgstr ""
+msgstr "Prašome įsitikinti, kad šis kompiuteris:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
 msgid "has at least ${SIZE} available drive space"
-msgstr ""
+msgstr "turi nemažiau nei ${SIZE} laisvos vietos"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
 msgid "is plugged in to a power source"
-msgstr ""
+msgstr "yra prijungtas prie elektros šaltinio"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "yra prijungtas prie interneto"
 
 #. Type: text
 #. Description
@@ -1706,97 +1712,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Šalinami paketai"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Kuris išdėstymas labiausiai tinka Jūsų klaviatūrai?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "Rašydami į šį laukelį galite išbandyti parinktą klaviatūros išdėstymą."
-
-#~ msgid "What is your name?"
-#~ msgstr "Koks jūsų vardas?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Kokiu vardu jūs norite registruotis sistemoje?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Jeigu šiuo kompiuteriu naudosis keli žmonės, galėsite sukurti galimybę "
-#~ "prisijungti keliems naudotojams po to, kai įdiegsite sistemą."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Koks yra šio kompiuterio vardas?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Šis vardas bus naudojamas, jei padarysite kompiuterį matomą vietiniame "
-#~ "tinkle ar internete."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Paruošti disko vietą"
-
-#~ msgid "Suggested option:"
-#~ msgstr "Siūlomas variantas:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Pasirinkite kitą išdėstymą:"
-
-#~ msgid "Before:"
-#~ msgstr "Dabar:"
-
-#~ msgid "After:"
-#~ msgstr "Po įdiegimo:"
-
-#~ msgid "Choose language"
-#~ msgstr "Pasirinkite kalbą / Choose language"
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Jūsų duomenų saugumo užtikrinimui įveskite slaptažodį."
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Guess..."
-#~ msgstr "Atspėti..."
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Reikalauti slaptažodžio prisijungiant ir iššifruojant mano namų katalogą"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Saugumas: stiprus"
-
-#~ msgid "Strength: good"
-#~ msgstr "Saugumas: geras"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Saugumas: silpnas"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Saugumas: neblogas"
-
-#~ msgid "Strength: too short"
-#~ msgstr "Saugumas: per trumpas"
-
-#~ msgid "Full Name"
-#~ msgstr "Vardas ir pavardė"
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Parinkti išdėstymą automatiškai:"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr ""
-#~ "Šalia esamos sistemos - norimą OS pasirinksite įjungę kompiuterį "
-#~ "(šliaužikliu apačioje nustatykite skirsnio dydį)"
-
-#~ msgid ""
-#~ "Please off me non-open-source software if it is needed for a better "
-#~ "experience"
-#~ msgstr ""
-#~ "Pasiūlykite man ne atviro kodo programinę įrangą, jei ji reikalinga "
-#~ "geresnei patirčiai"

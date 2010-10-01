@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1698,102 +1698,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Duke hequr paketat"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "Instaloji krah për krah, duke zgjedhur midis tyre në çdo ndezje"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Cila tastierë i përngjanë më së shumti tastierës suaj?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "Mund të shkruani në këtë kuti teksti për të provuar hartën e re të "
-#~ "tastierës."
-
-#~ msgid "Suggested option:"
-#~ msgstr "Opsioni i Sugjeruar:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Zgjidhni tuajin:"
-
-#~ msgid "What is your name?"
-#~ msgstr "Si e keni emrin?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Çfarë emri dëshironi të përdorni për login?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Nëse kompjuteri do të përdoret nga më tepër se një person, ju mund të "
-#~ "krijoni llogari të shumëfishta pas installimit."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Zgjedhni një fjalëkalim për të mbrojtur llogarinë tuaj."
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Vendosni të njëjtin fjalëkalim dy herë, kështu që mund të kontrollohet "
-#~ "për gabime në shtypje. Një fjalëkalim i mirë duhet të përmbajë një "
-#~ "përzierje shkronjash, numrash dhe shenjash pikësimi, duhet të jetë të "
-#~ "paktën me tetë shifra i gjatë dhe duhet ndërruar me intervale të "
-#~ "rregullta."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Si e ka emrin ky kompjuter?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Ky emër do të përdoret nqs ua vini në dispozicion kompjuterin të tjerëve "
-#~ "në rrjet."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Pregadit hapësirë në disk"
-
-#~ msgid "Before:"
-#~ msgstr "Më Parë"
-
-#~ msgid "After:"
-#~ msgstr "Më Pas"
-
-#~ msgid "Choose language"
-#~ msgstr "Zgjidh gjuhën/Choose language"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Kërko fjalëkalimin tim për të hyrë dhe për të dekriptuar dosjen time "
-#~ "shtëpi"
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Guess..."
-#~ msgstr "Gjeje..."
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Gjej hartën e butonave:"
-
-#~ msgid "Full Name"
-#~ msgstr "Emri i Plotë"
-
-#~ msgid "Strength: good"
-#~ msgstr "Fuqia: e mirë"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Fuqia: mesatare"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Fuqia: e fortë"
-
-#~ msgid "Strength: too short"
-#~ msgstr "Forca: shumë e shkurtër"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Fuqia: e dobët"

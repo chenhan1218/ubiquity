@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1612,34 +1612,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "ഏത് ലേയൌട്ടിനാണ് നിങ്ങളുടെ കീബോര്‍ഡുമായി കൂടുതല്‍ സാമ്യം?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr "പുതിയ കീബോര്‍ഡ് രൂപകല്പന പരിശോധിക്കുവാന്‍ ഈ ചതുരത്തില്‍ ടൈപ് ചെയ്യുക."
-
-#~ msgid "What is your name?"
-#~ msgstr "നിങ്ങളുടെ പേരെന്താണ്?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "എന്ത് പേര് വെച്ചാണ് നിങ്ങള്‍ അകത്ത് കടക്കുവാന്‍ (log in) ഉദ്ദേശിക്കുന്നത്?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "ഒന്നിലധികം ആളുകള്‍ ഈ കമ്പ്യൂട്ടര്‍ ഉപയോഗിക്കുവാന്‍ താല്പര്യപ്പെടുന്നുണ്ടെങ്കില്‍, സജ്ജീകരണം "
-#~ "പൂര്‍ത്തിയായതിനു ശേഷം അനേകം അംഗത്വങ്ങള്‍ ഒരുക്കാവുന്നതാണ്"
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "നിങ്ങ്~അളുടെ അക്കൌണ്ട് സുരക്ഷിതമാക്കുവാന്‍ ഒരു പാസ്സ്‍വേഡ് കൊടുക്കുക."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "ഈ കംപ്യൂട്ടറിന്റെ പേരെന്താണ്?"
-
-#~ msgid "Choose language"
-#~ msgstr "ഭാഷ തിരഞ്ഞെടുക്കുക/Choose language"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "ഓരോ തവണയും തുടക്കത്തില്‍ തിരഞ്ഞെടുക്കാവുന്ന വിധം, ഇവ അടുത്തടുത്തായി ഇന്‍സ്റ്റാള്‍ ചെയ്യുക"

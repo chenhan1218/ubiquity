@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-23 09:16+0000\n"
-"Last-Translator: Evan Dandrea <ev@ubuntu.com>\n"
+"PO-Revision-Date: 2010-09-29 16:50+0000\n"
+"Last-Translator: Yiğit Ateş <Unknown>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -33,7 +33,7 @@ msgstr "Diskin tümünü temizle ve kullan"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr "Diğer işletim sistemlerinin yanına kur."
+msgstr "Diğer işletim sistemlerinin yanına kur"
 
 #. Type: text
 #. Description
@@ -54,7 +54,7 @@ msgstr "Kur"
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "Yükle (OEM kipi, sadece üreticiler için)"
+msgstr "Kur (OEM kipi, yalnızca üreticiler için)"
 
 #. Type: text
 #. Description
@@ -64,9 +64,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"Şu an sistem üreticisi kipinde yükleme yapıyorsunuz. Lütfen bu toplu sistem "
-"kümesi için benzersiz bir isim girin. Girdiğiniz isim yüklenen sistemde "
-"saklanacak ve hata raporlarında kullanılabilir."
+"Şu an, sistem üreticisi kipinde yükleme yapıyorsunuz. Lütfen, bu toplu "
+"sistem kümesi için benzersiz bir ad girin. Girdiğiniz ad kurulan sistemde "
+"saklanacaktır ve hata raporlarında kullanılabilir."
 
 #. Type: text
 #. Description
@@ -75,8 +75,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"${RELEASE}sız bilgisayarınızda hiçbir değişiklik yapmadan deneyebilirsiniz, "
-"doğrudan buradan ${MEDIUM}."
+"${RELEASE} sürümünü, bilgisayarınızda hiçbir değişiklik yapmadan; doğrudan "
+"${MEDIUM} üzerinden deneyebilirsiniz."
 
 #. Type: text
 #. Description
@@ -85,14 +85,14 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
-"Veya hazırsanız, Mevcut işletim sisteminiz yanında (veya yerine) ${RELEASE} "
-"yükleyebilirsiniz. Bu çok uzun sürmemelidir."
+"Veya hazırsanız, mevcut işletim sisteminizin yanına (veya yerine) ${RELEASE} "
+"sürümünü yükleyebilirsiniz. Bu işlem çok uzun sürmemelidir."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Try ${RELEASE}"
-msgstr "${RELEASE} Dene"
+msgstr "${RELEASE} Sürümünü Dene"
 
 #. Type: text
 #. Description
@@ -105,13 +105,13 @@ msgstr "${RELEASE} Kur"
 #: ../ubiquity.templates:13001
 msgid "Once you answer a few questions, this computer will be ready to use."
 msgstr ""
-"Bu bilgisayar, siz birkaç soru cevapladıktan sonra kullanıma hazır olacak."
+"Birkaç soruyu yanıtladıktan sonra bilgisayarınız kullanıma hazır olacak."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Answering the questions should only take a few minutes."
-msgstr "Soruları yanıtlamak sadece birkaç dakikanızı alacaktır."
+msgstr "Soruları yanıtlamak, yalnızca birkaç dakikanızı alacaktır."
 
 #. Type: text
 #. Description
@@ -120,20 +120,23 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Okumak isteyebilirsiniz, <a href=\"surum-notları\">sürüm notları</a> veya <a "
-"href=\"update\">bu kurucuyu güncelle</a>."
+"<a href=\"release-notes\">Sürüm notları</a> veya <a href=\"update\">yükleme "
+"aracını güncelleme</a> bağlantılarını incelemek isteyebilirsiniz."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr "Okumak isteyebilirsiniz, <a href=\"surum-notları\">sürüm notları</a>"
+msgstr ""
+"<a href=\"release-notes\">Sürüm notları</a>'nı okumak isteyebilirsiniz."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr "<a href=\"update\">Bu kurucuyu güncellemek</a> isteyebilirsiniz."
+msgstr ""
+"<a href=\"update\">Yükleme aracını güncelleme</a> bağlantsını okumak "
+"isteyebilirsiniz."
 
 #. Type: text
 #. Description
@@ -155,7 +158,7 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
-"Bu kurulum süreci sabit diskinizi  bölümlerini yeniden boyutlandırabilir "
+"Bu kurulum süreci- sabit diskinizin bölümlerini yeniden boyutlandırabilir "
 "veya silebilir. Bu programı çalıştırmadan önce<b>tüm değerli verilerinizi "
 "yedeklediğinize</b> emin olun."
 
@@ -175,7 +178,7 @@ msgstr "Neredesiniz?"
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Keyboard layout"
-msgstr "Klavye yerleşimi"
+msgstr "Klavye düzeni"
 
 #. Type: text
 #. Description
@@ -193,13 +196,13 @@ msgstr "Klavyenizi denemek için buraya yazın"
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Figure Out Keyboard Layout"
-msgstr "Klavye yerleşimini hesapla"
+msgstr "Klavye Düzenini Denetleyin"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Figure out keyboard layout"
-msgstr "Klavye düzenini anlamak"
+msgstr "Klavye düzenini denetleyin"
 
 #. Type: text
 #. Description
@@ -211,7 +214,7 @@ msgstr "Lütfen aşağıdaki tuşlardan birine basın:"
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Is the following key present on your keyboard?"
-msgstr "Aşağıdaki tuş klavyeniz üzerinde gösteriliyor mu?"
+msgstr "Aşağıdaki tuş klavyeniz, üzerinde gösteriliyor mu?"
 
 #. Type: text
 #. Description
@@ -271,7 +274,7 @@ msgstr "Bilgisayarınızın adı:"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr "Bu isim diğer bilgisayarlarla kurulan iletişim esnasında kullanılır."
+msgstr "Bu ad, diğer bilgisayarlarla kurulan iletişim esnasında kullanılır."
 
 #. Type: text
 #. Description
@@ -295,7 +298,7 @@ msgstr "Zayıf parola"
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Fair password"
-msgstr "Parola zayıf"
+msgstr "Orta düzeyde bir parola"
 
 #. Type: text
 #. Description
@@ -307,7 +310,7 @@ msgstr "İyi parola"
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Strong password"
-msgstr "Sağlam parola"
+msgstr "Güçlü parola"
 
 #. Type: text
 #. Description
@@ -340,8 +343,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Transfer etmek istediğiniz herhangi bir hesabı seçin. Bu hesapların "
-"belgeleri ve ayarları  kurulum tamamlandıktan sonra kullanıma hazır "
+"İçeri aktarmak istediğiniz herhangi bir hesabı seçin. Bu hesapların "
+"belgeleri ve ayarları, kurulum tamamlandıktan sonra kullanıma hazır "
 "olacaktır."
 
 #. Type: text
@@ -351,20 +354,20 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"Herhangi bir hesap içe aktarmak istemiyorsanız hiçbirşeyi seçmeden bir "
+"Herhangi bir hesap içe aktarmak istemiyorsanız, hiçbir şeyi seçmeden bir "
 "sonraki sayfaya geçin."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Allocate drive space"
-msgstr "Sürücü alanını böl"
+msgstr "Sürücü alanı ayır"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "How do you want to partition the disk?"
-msgstr "Diski nasıl bölümlemek istiyorsunuz?"
+msgstr "Diskinizi nasıl bölümlendirmek istiyorsunuz?"
 
 #. Type: text
 #. Description
@@ -376,13 +379,13 @@ msgstr "Bu bilgisayarda yüklü işletim sistemi bulunmuyor."
 #. Description
 #: ../ubiquity.templates:53001
 msgid "This computer has ${OS} on it."
-msgstr "Bu bilgisayarda ${OS} bulunuyor."
+msgstr "Bu bilgisayarda ${OS} işletim sistemi bulunuyor."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "This computer has several operating systems on it."
-msgstr "Bu bilgisayarda birkaç işletim sistemi bulunuyor."
+msgstr "Bu bilgisayarda birden fazla işletim sistemi bulunuyor."
 
 #. Type: text
 #. Description
@@ -402,7 +405,8 @@ msgstr "Bölümleri hazırla"
 #: ../ubiquity.templates:57001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
 msgstr ""
-"Bu, ${SYSTEMS} sistem(ler)ini silecek ve ${RELEASE} dağıtımını yükleyecek."
+"Bu işlem, ${SYSTEMS} sistem(ler)ini silecek ve ${RELEASE} sürümünü "
+"yükleyecek."
 
 #. Type: text
 #. Description
@@ -423,7 +427,7 @@ msgstr "Ayrıntılar"
 #: ../ubiquity.templates:60001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr "Yeni işletim sisteminiz aşağıdaki özelliklerle  kurulacaktır:"
+msgstr "Yeni işletim sisteminiz, aşağıdaki ayarlarla kurulacaktır:"
 
 #. Type: text
 #. Description
@@ -449,13 +453,13 @@ msgstr "Adım ${INDEX}/${TOTAL}"
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Quit the installation?"
-msgstr "Yüklemeden çıkılsın mı ?"
+msgstr "Kurulumdan çıkılsın mı?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Do you really want to quit the installation now?"
-msgstr "Yükleme işleminden gerçekten vazgeçmek istiyor musunuz?"
+msgstr "Kurulum işleminden gerçekten çıkmak istiyor musunuz?"
 
 #. Type: text
 #. Description
@@ -488,7 +492,9 @@ msgstr "Önyükleyici olmadan devam edin."
 #: ../ubiquity.templates:70001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr "${RELEASE}'i başlatmak için elle bir önyükleyici kurmanız gerekiyor."
+msgstr ""
+"${RELEASE} sürümünü başlatabilmek için elle bir önyükleyici kurmanız "
+"gerekiyor."
 
 #. Type: text
 #. Description
@@ -500,7 +506,7 @@ msgstr "Kurulumu iptal et."
 #. Description
 #: ../ubiquity.templates:72001
 msgid "This may leave your computer unable to boot."
-msgstr "Bu bilgisayarınızın açılmamasına sebep olabilir."
+msgstr "Bu işlem, bilgisayarınızın açılmamasına neden olabilir."
 
 #. Type: text
 #. Description
@@ -524,7 +530,7 @@ msgstr "Kurulum Tamamlandı"
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Continue Testing"
-msgstr "Sınamayı sürdür"
+msgstr "Sınamayı Sürdür"
 
 #. Type: text
 #. Description
@@ -551,12 +557,12 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
-"Üzgünüz; yükleyici çöktü. Lütfen https://launchpad.net/ubuntu/+source/"
-"ubiquity/+filebug adresinde bir hata raporu oluşturun (lütfen mevcut bir "
-"hata için bilgi göndermeyin). Bir programcı en kısa sürede sorununuzu "
-"çözecektir. Programcıların neyin yanlış olduğunu anlayabilmelerine yardım "
-"etmek için, lütfen /var/log/syslog ve /var/log/partman dosyalarını ve şu "
-"bilgileri raporunuza ekleyin:"
+"Üzgünüz; yükleyici çöktü. Lütfen, https://launchpad.net/ubuntu/+source/"
+"ubiquity/+filebug bağlantısında bir hata raporu oluşturun (lütfen mevcut bir "
+"hata için rapor göndermeyin). Bir programcı en kısa sürede sorununuzla "
+"ilgilenecektir. Programcıların neyin yanlış olduğunu anlayabilmelerine "
+"yardım etmek için, lütfen /var/log/syslog ve /var/log/partman dosyalarını ve "
+"şu bilgileri raporunuza ekleyin:"
 
 #. Type: text
 #. Description
@@ -597,7 +603,7 @@ msgstr "Geri al"
 #. Description
 #: ../ubiquity.templates:86001
 msgid "Recalculating partitions..."
-msgstr "Disk bölümleri hesaplanıyor..."
+msgstr "Disk bölümleri yeniden hesaplanıyor..."
 
 #. Type: text
 #. Description
@@ -612,7 +618,7 @@ msgstr "Aygıt"
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:88001
 msgid "Type"
-msgstr "Tip"
+msgstr "Tür"
 
 #. Type: text
 #. Description
@@ -717,13 +723,13 @@ msgstr "Gelişmiş Seçenekler"
 #. Description
 #: ../ubiquity.templates:105001
 msgid "Boot loader"
-msgstr "Açılış yükleyicisi"
+msgstr "Önyükleyici"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:106001
 msgid "Install boot loader"
-msgstr "Ön yükleyici kur"
+msgstr "Önyükleyici kur"
 
 #. Type: text
 #. Description
@@ -735,25 +741,25 @@ msgstr "Yaygınlık araştırması"
 #. Description
 #: ../ubiquity.templates:108001
 msgid "Participate in the package usage survey"
-msgstr "Paket kullanım anketine katıl"
+msgstr "Paket kullanım araştırmasına katıl"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:109001
 msgid "Network proxy"
-msgstr "Ağ yetkili sunucu"
+msgstr "Ağ vekili"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
 msgid "HTTP proxy:"
-msgstr "HTTP yetkili sunucu:"
+msgstr "HTTP vekili:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:111001
 msgid "Port:"
-msgstr "Kapı:"
+msgstr "Bağlantı Noktası:"
 
 #. Type: text
 #. Description
@@ -763,7 +769,7 @@ msgid ""
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"Kurulum bitti. ${RELEASE} sürümünü sınamaya devam edebilirsiniz, ancak "
+"Kurulum bitti. ${RELEASE} sürümünü sınamaya devam edebilirsiniz; ancak "
 "bilgisayarınızı yeniden başlatana kadar, yaptığınız değişiklikler ve "
 "kaydettiğiniz belgeler saklanmayacak."
 
@@ -861,7 +867,7 @@ msgstr "Dosyaların kopyalanması neredeyse bitti..."
 #: ../ubiquity.templates:126001 ../ubiquity.templates:127001
 #: ../ubiquity.templates:128001
 msgid "Installation Failed"
-msgstr "Kurulum Başarısız"
+msgstr "Kurulum Başarısız Oldu"
 
 #. Type: error
 #. Description
@@ -896,10 +902,10 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Bu sorun genellikle hatalı bir CD/DVD ya da CD/DVD sürücüsü yüzünden olur. "
-"CD/DVD'yi temizlemek, daha yavaş bir hızda tekrar yazdırmak ya da "
-"sürücünüzün merceğini temizlemek bu durumda yardımcı olabilir. (Temizleme "
-"gereçleri çoğunlukla elektronik malzemeler satan yerlerden temin edilebilir.)"
+"Bu sorun, genellikle hatalı bir CD/DVD ya da CD/DVD sürücüsü yüzünden "
+"oluşur. CD/DVD'yi temizlemek, daha yavaş bir hızda yeniden yazdırmak ya da "
+"sürücünüzün merceğini temizlemek sorunu giderebilir (Temizleme gereçleri "
+"çoğunlukla elektronik malzemeler satan yerlerden temin edilebilir)."
 
 #. Type: error
 #. Description
@@ -909,10 +915,10 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Bu sorun genellikle sorunlu bir sabit disk yüzünden görülür. Sabit "
+"Bu sorun, genellikle sorunlu bir sabit disk yüzünden oluşur. Sabit "
 "diskinizin eski olup olmadığını ya da değiştirilmesi gerekip gerekmediğini "
-"kontrol etmek, veya bilgisayarınızı daha serin bir ortama taşımak yardımcı "
-"olabilir."
+"denetlemek veya bilgisayarınızı daha serin bir ortama taşımak sorunu "
+"giderebilir."
 
 #. Type: error
 #. Description
@@ -930,17 +936,17 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Bu sorun genellikle hatalı bir CD/DVD, CD/DVD sürücüsü ya da sabit sürücünüz "
-"yüzünden görülür. CD/DVD'yi temizlemek, daha yavaş bir hızda tekrar "
+"Bu sorun, genellikle hatalı bir CD/DVD sürücüsü ya da sabit sürücünüz "
+"yüzünden oluşur. CD/DVD'yi temizlemek, daha yavaş bir hızda yeniden "
 "yazdırmak, sürücünüzün merceğini temizlemek, sabit sürücünüzün eski olup "
-"olmadığını ya da değiştirilmesi gerekip gerekmediğini kontrol etmek, veya "
-"bilgisayarınızı daha serin bir ortama taşımak yardımcı olabilir."
+"olmadığını ya da değiştirilmesi gerekip gerekmediğini denetlemek veya "
+"bilgisayarınızı daha serin bir ortama taşımak sorunu giderebilir."
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:128001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr "Aşağıdaki dosya CD/DVD üzerindeki kaynak kopyası ile eşleşmedi:"
+msgstr "Aşağıdaki dosya, CD/DVD üzerindeki kaynak kopyası ile eşleşmedi:"
 
 #. Type: text
 #. Description
@@ -952,13 +958,13 @@ msgstr "Kurulum kayıtları kopyalanıyor..."
 #. Description
 #: ../ubiquity.templates:130001
 msgid "Configuring target system..."
-msgstr "Hedef sistem yapılandırılıyor."
+msgstr "Hedef sistem yapılandırılıyor..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:131001
 msgid "Configuring system locales..."
-msgstr "Sistem alanları yapılandırılıyor..."
+msgstr "Sistem yerelleri yapılandırılıyor..."
 
 #. Type: text
 #. Description
@@ -982,7 +988,7 @@ msgstr "Klavye yapılandırılıyor..."
 #. Description
 #: ../ubiquity.templates:135001
 msgid "Creating user..."
-msgstr "Kullanıcı yaratılıyor..."
+msgstr "Kullanıcı oluşturuluyor..."
 
 #. Type: text
 #. Description
@@ -1006,13 +1012,13 @@ msgstr "Ağ yapılandırılıyor..."
 #. Description
 #: ../ubiquity.templates:139001
 msgid "Setting computer name..."
-msgstr "Bilgisayar ismi ayarlanıyor..."
+msgstr "Bilgisayar adı ayarlanıyor..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:140001
 msgid "Configuring boot loader..."
-msgstr "Açılış yükleyicisi yapılandırılıyor..."
+msgstr "Önyükleyici yapılandırılıyor..."
 
 #. Type: text
 #. Description
@@ -1024,7 +1030,7 @@ msgstr "Ek paketler yükleniyor..."
 #. Description
 #: ../ubiquity.templates:142001
 msgid "Checking for packages to install..."
-msgstr "Yükleme için gerekli paketler kontrol ediliyor..."
+msgstr "Yükleme için gerekli paketler denetleniyor..."
 
 #. Type: text
 #. Description
@@ -1060,19 +1066,19 @@ msgstr "Paket listeleri indiriliyor (${TIME} kaldı)..."
 #. Description
 #: ../ubiquity.templates:149001
 msgid "Error installing ${PACKAGE}"
-msgstr "${PACKAGE} kurulmada hata"
+msgstr "${PACKAGE} paketi kurulamıyor"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:150001
 msgid "Error removing ${PACKAGE}"
-msgstr "${PACKAGE} kaldırmada hata"
+msgstr "${PACKAGE} paketi kaldırılamıyor"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:151001
 msgid "Error while installing packages"
-msgstr "Paketler yüklenirken hata"
+msgstr "Paketler yüklenirken bir hata oluştu"
 
 #. Type: error
 #. Description
@@ -1086,7 +1092,7 @@ msgstr "Paketler yüklenirken bir hata oluştu:"
 #. Description
 #: ../ubiquity.templates:151001 ../ubiquity.templates:152001
 msgid "The following packages are in a broken state:"
-msgstr "Şu paketler bozuk durumda:"
+msgstr "İzleyen paketler bozuk durumda:"
 
 #. Type: error
 #. Description
@@ -1102,7 +1108,7 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
-"Bu durum eski bir kurulum dosyası kullandığınızdan veya yukarıda sıralanan "
+"Bu durum, eski bir kurulum dosyası kullanmanızdan veya yukarıda sıralanan "
 "bazı paketlerdeki hatalardan kaynaklanıyor olabilir. Ayrıntılı bilgi /var/"
 "log/syslog dosyasında bulunabilir. Kurulum devam edecek; ancak ilerleyen bir "
 "aşamada başarısız olabilir ve kurulu sistemde (muhtemelen kendisi de dahil) "
@@ -1113,7 +1119,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:152001
 msgid "Error while removing packages"
-msgstr "Paketler kaldırılırken hata"
+msgstr "Paketler kaldırılırken bir hata oluştu"
 
 #. Type: error
 #. Description
@@ -1125,7 +1131,7 @@ msgstr "Paketler kaldırılırken bir hata oluştu:"
 #. Description
 #: ../ubiquity.templates:153001
 msgid "Error migrating documents and settings"
-msgstr "Belge ve ayarların taşınması hatası"
+msgstr "Belge ve ayarlar aktarılırken bir hata oluştu"
 
 #. Type: error
 #. Description
@@ -1136,8 +1142,8 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Veri tşınırken bir hata meydana geldi. Daha fazla detay /var/log/syslog "
-"içerisinde bulunabilir. Kurulum devam edecek; fakat size gereken belge ve "
+"Veri aktarılırken bir hata oluştudu. Daha fazla ayrıntıyı /var/log/syslog "
+"içerisinde bulabilirsiniz. Kurulum devam edecek; fakat size gereken belge ve "
 "ayarların bazıları ya da tümü yerleşik sisteme yüklenmemiş olabilir."
 
 #. Type: error
@@ -1154,20 +1160,20 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
-"Ağ ayarlarını kopyalarken bir hata meydana geldi. Kurulum devam edecek; "
-"fakat ağ yapılandırmasının yerleşik sistemde tekrar kurulması gerekecektir."
+"Ağ ayarları kopyalanırken bir hata oluştu. Kurulum devam edecek; fakat ağ "
+"yapılandırmasının yerleşik sistemde yeniden kurulumu gerekecektir."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:158001
 msgid "Calculating files to skip copying..."
-msgstr "Kopyalamada atlanacak dosyalar hesaplanıyor"
+msgstr "Kopyalamada atlanacak dosyalar hesaplanıyor..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Ready when you are..."
-msgstr "Hazır!"
+msgstr "Hazır..."
 
 #. Type: title
 #. Description
@@ -1185,7 +1191,7 @@ msgstr "Dil paketleri indiriliyor (${TIME} kaldı)..."
 #. Description
 #: ../ubiquity.templates:170001
 msgid "Failed to unmount partitions"
-msgstr "Bölümlerin dosya sisteminden ayrılması işlemi başarısız"
+msgstr "Bölümler dosya sisteminden ayrılamadı"
 
 #. Type: boolean
 #. Description
@@ -1194,8 +1200,8 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"Kurulum programının değişiklikleri bölümleme tablosuna işlemesi gerekiyor "
-"ancak bunu yapamıyor çünkü şu bağlama noktalarındaki bölümler dosya "
+"Kurulum programının, değişiklikleri bölümleme tablosuna işlemesi gerekiyor "
+"ancak bunu yapamıyor; çünkü şu bağlama noktalarındaki bölümler dosya "
 "sisteminden ayırılamıyor:"
 
 #. Type: boolean
@@ -1215,7 +1221,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:176001
 msgid "Do you want to return to the partitioner?"
-msgstr "Bölücüye geri dönmek istiyor musun?"
+msgstr "Bölümlendiriciye geri dönmek istiyor musunuz?"
 
 #. Type: boolean
 #. Description
@@ -1224,8 +1230,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Oluşturduğunuz bölümlerden bazıları çok küçük. Lütfen aşağıdaki bölümleri en "
-"az bu büyüklükte yapın:"
+"Oluşturduğunuz bölümlerden bazıları çok küçük. Lütfen izleyen bölümleri en "
+"az şu büyüklükte oluşturun:"
 
 #. Type: boolean
 #. Description
@@ -1234,7 +1240,7 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
-"Eğer disk bölücüye geri gitmez ve bu disk bölümlerinin kapasitesini "
+"Eğer bölümlendiriciye geri dönüp, bu disk bölümlerinin kapasitesini "
 "arttırmazsanız kurulum başarısız olabilir."
 
 #. Type: text
@@ -1249,7 +1255,7 @@ msgstr "Sistem Yapılandırması"
 #. Description
 #: ../ubiquity.templates:178001 ../ubiquity.templates:242001
 msgid "Welcome"
-msgstr "Hoş Geldiniz"
+msgstr "Hoşgeldiniz"
 
 #. Type: text
 #. Description
@@ -1285,7 +1291,7 @@ msgstr "Hazırla"
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Timezone"
-msgstr "Saat Dilimi"
+msgstr "Zaman dilimi"
 
 #. Type: text
 #. Description
@@ -1321,7 +1327,7 @@ msgstr "kurulum süreci"
 #. Description
 #: ../ubiquity.templates:192001
 msgid "Checking for installer updates"
-msgstr "Yükleyici için güncellemeler kontrol ediliyor"
+msgstr "Yükleyici için güncellemeler denetleniyor"
 
 #. Type: text
 #. Description
@@ -1396,8 +1402,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Yapılandırma işlemi için kullanılacak dili seçin. Bu dil, bu bilgisayarda "
-"kullanılacak olan öntanımlı dil olacak."
+"Yapılandırma işlemi için kullanılacak dili seçin. Bu dil, aynı zamanda "
+"bilgisayarınız için varsayılan dil olarak kullanılacak."
 
 #. Type: text
 #. Description
@@ -1420,22 +1426,22 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
-"Yükleyici kurtarılamaz bir hatayla karşılaştı. Problemi incelemeniz ya da "
-"yeniden kurmayı denemeniz için masaüstü oturumu şimdi işletilebilecek."
+"Yükleyici, geri dönülemez bir hatayla karşılaştı. Sorunu incelemeniz ya da "
+"yeniden kurmayı denemeniz için masaüstü oturumu şimdi çalıştırılacak."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
-"Yükleyici kaldırılamaz bir hatayla karşılaştı ve şimdi sistem "
-"yenidenyüklenecek."
+"Yükleyici, geri dönülemez bir hatayla karşılaştı ve şimdi yeniden "
+"başlatılacak."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:207001
 msgid "Preparing to install ${RELEASE}"
-msgstr "${RELEASE} kurmaya hazırlanılıyor"
+msgstr "${RELEASE} sürümü kurulumu için hazırlanılıyor"
 
 #. Type: text
 #. Description
@@ -1459,13 +1465,13 @@ msgstr "Sürücü seçin:"
 #. Description
 #: ../ubiquity.templates:214001
 msgid "Allocate drive space by dragging the divider below:"
-msgstr "Aşağıdaki bölücüyü sürükleyerek sürücü alanını bölün:"
+msgstr "Aşağıdaki ayracı sürükleyerek sürücü alanını ayırın:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:215001
 msgid "The entire disk will be used:"
-msgstr "Parçalnmamış (bölümlenmemiş) disk kullanılacak"
+msgstr "Tüm disk kullanılacak:"
 
 #. Type: text
 #. Description
@@ -1475,8 +1481,8 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"%d daha küçük bölümler gizli, daha fazla kontrol için <a href=\"\">gelişmiş "
-"bölümleme aracı</a>nı kullanın."
+"%d daha küçük bölümler gizli, daha fazla denetim için <a href=\"\">gelişmiş "
+"bölümleme aracı</a>nı kullanın"
 
 #. Type: text
 #. Description
@@ -1485,8 +1491,8 @@ msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"1 tane daha küçük bölümler gizli, daha fazla kontrol için <a href="
-"\"\">gelişmiş bölümleme aracı</a>nı kullanın."
+"1 daha küçük bölüm gizli, daha fazla denetim için <a href=\"\">gelişmiş "
+"bölümleme aracı</a>nı kullanın"
 
 #. Type: text
 #. Description
@@ -1496,8 +1502,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"%d bölümleri silinecek, daha fazla kontrol için <a href=\"\">gelişmiş "
-"bölümleme aracı</a>nı kullanın."
+"%d bölüm silinecek, daha fazla denetim için <a href=\"\">gelişmiş bölümleme "
+"aracı</a>nı kullanın"
 
 #. Type: text
 #. Description
@@ -1506,7 +1512,7 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"1 bölüm silinecek, daha fazla kontrol için <a href=\"\">gelişmiş bölümleme "
+"1 bölüm silinecek, daha fazla denetim için <a href=\"\">gelişmiş bölümleme "
 "aracı</a>nı kullanın."
 
 #. Type: text
@@ -1525,31 +1531,31 @@ msgstr "Diskin Tamamını Kullan"
 #. Description
 #: ../ubiquity.templates:222001
 msgid "Split Largest Partition"
-msgstr "En geniş bölümü kullan"
+msgstr "En Geniş Bölümü Bölümlendir"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
 msgid "For best results, please ensure that this computer:"
-msgstr "En iyi sonuçlar için, bilgisayarı emniyete alın."
+msgstr "En iyi sonuç için, bilgisayarınızın şunları sağladığına emin olun:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
 msgid "has at least ${SIZE} available drive space"
-msgstr "en az ${SIZE} boş disk alanı mevcut."
+msgstr "en az ${SIZE} boş disk alanı mevcut"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
 msgid "is plugged in to a power source"
-msgstr "güç kaynağına takılı."
+msgstr "güç kaynağına bağlı"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
-msgstr "İnternete bağlı."
+msgstr "internete bağlı"
 
 #. Type: text
 #. Description
@@ -1560,9 +1566,10 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
-"${RELEASE} Flash, MP3 ve diğer medyaları oynatmak üçüncü parti yazılımları "
-"kullanır. Bunların bir kısmı kapalı kaynak yazılımlarıdr. Söz konusu "
-"yazılımlar, yazılımın ilgili belgelerinde geçen lisans kurallarına tabidir."
+"${RELEASE} sürümü; Flash, MP3 ve diğer ortamları oynatmak için üçüncü parti "
+"yazılımları kullanır. Bunların bir kısmı kapalı kaynaklı yazılımlardır. Söz "
+"konusu yazılımlar, yazılımın ilgili belgelerinde geçen lisans kurallarına "
+"tabidir."
 
 #. Type: text
 #. Description
@@ -1578,7 +1585,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Install this third-party software"
-msgstr "Üçüncü parti bu yazılımı kur."
+msgstr "Bu üçüncü parti yazılımı kur."
 
 #. Type: text
 #. Description
@@ -1590,7 +1597,7 @@ msgstr "Güncellemeleri kurulum sırasında indir"
 #. Description
 #: ../ubiquity.templates:235001
 msgid "Layout:"
-msgstr "Yerleşim:"
+msgstr "Düzen:"
 
 #. Type: text
 #. Description
@@ -1632,7 +1639,7 @@ msgstr "Bölge:"
 #. Description
 #: ../ubiquity.templates:241001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[değiştirmek için buraya yazın]"
 
 #. Type: text
 #. Description
@@ -1642,16 +1649,16 @@ msgid ""
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
-"Kurmaya hazır mısınız? Bir kaç soruyu yanıtladıktan sonra, çalışan ${MEDIUM} "
-"içeriği bu bilgisayara kurulabilir hale gelecektir. Böylelikle ${MEDIUM} "
-"olmadan da ${RELEASE} ile tam hızda çalıştırabilirsiniz."
+"Kurulum için hazır mısınız? Birkaç soruyu yanıtladıktan sonra, çalışan "
+"${MEDIUM} içeriği bu bilgisayara kurulabilir hale gelecektir. Böylelikle "
+"${MEDIUM} olmadan da ${RELEASE} sürümünü tam hızda çalıştırabilirsiniz."
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
 msgid "OEM mode (for manufacturers only)"
-msgstr "OEM kipi (sadece üreticiler için)"
+msgstr "OEM kipi (yalnızca üreticiler için)"
 
 #. Type: text
 #. Description
@@ -1669,7 +1676,7 @@ msgstr "OEM yapılandırması için hazırla"
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
 msgid "Preparing for OEM configuration..."
-msgstr "OEM yapılandırması için hazırlanıyor..."
+msgstr "OEM yapılandırması için hazırlanılıyor..."
 
 #. Type: text
 #. Description
@@ -1688,8 +1695,8 @@ msgid ""
 msgstr ""
 "Yeni sistemi başlattığınızda, daha önce seçtiğiniz şifreyle 'oem' "
 "kullanıcısı olarak giriş yapabileceksiniz; bu 'oem' kullanıcısı ayrıca "
-"'sudo' kullanmada yönetimsel önceliklere sahip olacaktır. Böylece "
-"sisteminizin gerektirdiği herhangi ek değişiklikleri yapabileceksiniz."
+"'sudo' kullanımında yönetimsel önceliklere sahiptir. Bu sayede, sisteminizin "
+"gerektirdiği ek değişiklikleri uygulayabilirsiniz."
 
 #. Type: text
 #. Description
@@ -1699,113 +1706,13 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
-"Sistem isteklerinizi karşılayacak şekilde ayarlandıktan sonra 'oem-config-"
-"prepare'i çalıştırın. Bu, sistemin geçici 'oem' kullanıcısını silmesine ve "
-"sistemin bir sonraki yeniden başlatılmasında son kullanıcıya çeşitli "
-"yapılandırma soruları sormasına neden olacaktır."
+"Sistem, isteklerinizi karşılayacak şekilde ayarlandıktan sonra 'oem-config-"
+"prepare' komutunu çalıştırın. Bu, sistemin geçici 'oem' kullanıcısını "
+"silmesine ve sistemin bir sonraki yeniden başlatımında son kullanıcıya "
+"çeşitli yapılandırma soruları yöneltmesini sağlayacaktır."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Paketler kaldırılıyor"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "Yan yana kur, açılışta aralarından biri seçilebilsin"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Klavyenize en yakın düzen hangisi?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr "Yeni klavye düzeninizi denemek için bu kutuya yazabilirsiniz."
-
-#~ msgid "Suggested option:"
-#~ msgstr "Önerilen seçenek:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Kendinizinkini seçin:"
-
-#~ msgid "What is your name?"
-#~ msgstr "Adınız nedir?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Oturum açmak için hangi adı kullanmak istersiniz?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Eğer bu bilgisayarı birden fazla kişi kullanacak ise, kurulumdan sonra "
-#~ "birden fazla hesap ayarlayabilirsiniz."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Hesabınızı güvenli tutmak için bir şifre seçin."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Bu bilgisayarın adı nedir?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Bilgisayarı ağınızdaki diğer kişilere görünür hale getirirseniz bu ad "
-#~ "kullanılacaktır."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Disk alanı hazırla"
-
-#~ msgid "Before:"
-#~ msgstr "Önce:"
-
-#~ msgid "After:"
-#~ msgstr "Sonra:"
-
-#~ msgid "Choose language"
-#~ msgstr "Dil seçin / Choose language"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr "Giriş yapmak ve ev klasörümün şifresini çözmek için parola iste"
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Guess..."
-#~ msgstr "Tahmin Et..."
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Genel Haritayı Tahmin Et:"
-
-#~ msgid "Full Name"
-#~ msgstr "Tam İsim"
-
-#~ msgid "Strength: too short"
-#~ msgstr "Güç: çok kısa"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Güç: zayıf"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Güç: güçlü"
-
-#~ msgid "Strength: good"
-#~ msgstr "Güç: iyi"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Güç: orta"
-
-#~ msgid "that you are connected to the Internet with an Ethernet cable"
-#~ msgstr "İnternete bir Ethernet kablosu ile bağlandınız"
-
-#~ msgid ""
-#~ "Ubuntu aims to be free and open-source software.  However, this is not "
-#~ "always possible."
-#~ msgstr ""
-#~ "Ubuntu ücretsiz ve açık-kaynak yazılım olmayı amaçlar. Ancak, bu her "
-#~ "zaman mümkün değildir."
-
-#~ msgid ""
-#~ "Please off me non-open-source software if it is needed for a better "
-#~ "experience"
-#~ msgstr ""
-#~ "İyi deneyim gerektiren yerlerde açık kaynak olmayan yazılımları benim "
-#~ "için engelle"

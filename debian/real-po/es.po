@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-23 09:28+0000\n"
+"PO-Revision-Date: 2010-09-23 21:21+0000\n"
 "Last-Translator: Paco Molinero <paco@byasl.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1722,118 +1722,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Desinstalando paquetes"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "¿Cuál es la distribución más parecida a la de su teclado?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "Puede escribir en este recuadro para probar su nueva distribución de "
-#~ "teclado:"
-
-#~ msgid "Suggested option:"
-#~ msgstr "Opción sugerida:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Seleccione la suya:"
-
-#~ msgid "What is your name?"
-#~ msgstr "¿Cómo se llama?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "¿Qué nombre desea usar para iniciar sesión?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Si este equipo va a ser usado por más de una persona, podrá configurar "
-#~ "varias cuentas después de la instalación."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Escoja una contraseña para mantener su cuenta segura."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "¿Cuál es el nombre de este equipo?"
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Preparar el espacio del disco"
-
-#~ msgid "Before:"
-#~ msgstr "Antes:"
-
-#~ msgid "After:"
-#~ msgstr "Después:"
-
-#~ msgid "Choose language"
-#~ msgstr "Escoja el idioma"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr ""
-#~ "Instalarlo junto a los otros, eligiendo entre ellos al arrancar el equipo"
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Solicitar mi contraseña para iniciar sesión y descifrar mi carpeta "
-#~ "personal"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Este nombre se usará si hace que el equipo sea visible a otros equipos de "
-#~ "la red."
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Introduzca la misma contraseña dos veces, de modo que se puede comprobar "
-#~ "los errores de tecleo. Una buena contraseña debe contener una combinación "
-#~ "de letras, números y signos de puntuación, debe tener al menos ocho "
-#~ "caracteres de longitud y se debe cambiar a intervalos regulares."
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Deducir el mapa de teclado:"
-
-#~ msgid "Guess..."
-#~ msgstr "Deducir..."
-
-#~ msgid "Full Name"
-#~ msgstr "Nombre completo"
-
-#~ msgid "Strength: too short"
-#~ msgstr "Fortaleza: demasiado corta"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Fortaleza: débil"
-
-#~ msgid "Strength: good"
-#~ msgstr "Fortaleza: buena"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Fortaleza: normal"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Fortaleza: fuerte"
-
-#~ msgid "that you are connected to the Internet with an Ethernet cable"
-#~ msgstr "que está conectado a Internet con un cable Ethernet"
-
-#~ msgid ""
-#~ "Ubuntu aims to be free and open-source software.  However, this is not "
-#~ "always possible."
-#~ msgstr ""
-#~ "Ubuntu tiene como objetivo ser software libre y de código abierto. Sin "
-#~ "embargo, esto no es siempre posible."
-
-#~ msgid ""
-#~ "Please off me non-open-source software if it is needed for a better "
-#~ "experience"
-#~ msgstr ""
-#~ "Ofrecerme software propietario si se necesita para una experiencia mejor"

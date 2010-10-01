@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-23 09:19+0000\n"
+"PO-Revision-Date: 2010-09-30 19:08+0000\n"
 "Last-Translator: Adrian Guniš <andygun696@gmail.com>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -238,7 +238,7 @@ msgstr "Vaše jméno"
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Pick a username:"
-msgstr "Vybrat uživatelské jméno:"
+msgstr "Vyberte uživatelské jméno:"
 
 #. Type: text
 #. Description
@@ -1631,7 +1631,7 @@ msgstr "Oblast:"
 #. Description
 #: ../ubiquity.templates:241001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[klikněte zde pro změnu]"
 
 #. Type: text
 #. Description
@@ -1707,107 +1707,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Odstraňování balíků"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "Nainstalovat je vedle sebe a vybírat mezi nimi při každém spuštění"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Které rozložení se nejvíce podobá vaší klávesnici?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "Do tohoto pole můžete psát, abyste si vyzkoušeli nové rozložení "
-#~ "klávesnice."
-
-#~ msgid "Suggested option:"
-#~ msgstr "Navržená možnost:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Zvolit svoje vlastní:"
-
-#~ msgid "What is your name?"
-#~ msgstr "Jaké je vaše jméno?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Jaké jméno chcete použít pro přihlášení?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Pokud bude tento počítač používat více než jedna osoba, můžete nastavit "
-#~ "více účtů po instalaci."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Vyberte heslo, abyste udrželi svůj účet v bezpečí."
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Vložte stejné heslo dvakrát, aby mohlo být ověřeno na překlepy. Dobré "
-#~ "heslo by mělo obsahovat směs písmen, číslic a interpunkce. Mělo by být "
-#~ "nejméně 8 znaků dlouhé a měli byste jej pravidelně měnit."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Připravte si místo na disku"
-
-#~ msgid "Before:"
-#~ msgstr "Před:"
-
-#~ msgid "After:"
-#~ msgstr "Po:"
-
-#~ msgid "Choose language"
-#~ msgstr "Vybrat jazyk/Choose language"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr "Požadovat mé heslo pro přihlášení a rozšifrování mé domovské složky"
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Odhadnout ze stisknutých kláves:"
-
-#~ msgid "Guess..."
-#~ msgstr "Odhadnout..."
-
-#~ msgid "Full Name"
-#~ msgstr "Celé jméno"
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Jaký je název tohoto počítače?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Tento název bude použit, pokud počítač zpřístupníte ostatním na síti."
-
-#~ msgid "Strength: fair"
-#~ msgstr "Síla: docela dobré"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Síla: silné"
-
-#~ msgid "Strength: good"
-#~ msgstr "Síla: dobré"
-
-#~ msgid "Strength: too short"
-#~ msgstr "Síla: příliš krátké"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Síla: slabé"
-
-#~ msgid "that you are connected to the Internet with an Ethernet cable"
-#~ msgstr "abyste byli připojeni k Internetu přes Ethernetový kabel"
-
-#~ msgid ""
-#~ "Ubuntu aims to be free and open-source software.  However, this is not "
-#~ "always possible."
-#~ msgstr ""
-#~ "Ubuntu klade důraz na svobodný a otevřený software. Nicméně, toto není "
-#~ "vždy možné."

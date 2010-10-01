@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-23 09:15+0000\n"
+"PO-Revision-Date: 2010-09-27 07:41+0000\n"
 "Last-Translator: Shushi Kurose <md81bird@hitaki.net>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -175,7 +175,7 @@ msgstr "警告"
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Where are you?"
-msgstr "どこにお住まいですか？"
+msgstr "どこに住んでいますか？"
 
 #. Type: text
 #. Description
@@ -834,7 +834,7 @@ msgstr "インストールの設定を検証しています"
 #. Description
 #: ../ubiquity.templates:118001
 msgid "Installing system"
-msgstr "システムをインストール中"
+msgstr "システムをインストールしています"
 
 #. Type: text
 #. Description
@@ -1028,7 +1028,7 @@ msgstr "ブートローダを設定しています..."
 #. Description
 #: ../ubiquity.templates:141001
 msgid "Installing additional packages..."
-msgstr "追加パッケージのインストール中..."
+msgstr "追加パッケージをインストールしています..."
 
 #. Type: text
 #. Description
@@ -1646,7 +1646,7 @@ msgstr "地域："
 #. Description
 #: ../ubiquity.templates:241001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[変更するにはここに入力]"
 
 #. Type: text
 #. Description
@@ -1723,98 +1723,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "パッケージを削除しています"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "それぞれ別のものとしてインストールし、起動時にどれを起動するか選択"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "どのレイアウトがお使いのキーボードに最も近いですか？"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "この入力欄を使って、選択したキーボードレイアウトのテストをすることができま"
-#~ "す。"
-
-#~ msgid "Suggested option:"
-#~ msgstr "既定値："
-
-#~ msgid "Choose your own:"
-#~ msgstr "自分で選択する："
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "アカウントを安全に保つために、パスワードを入力してください。"
-
-#~ msgid "Prepare disk space"
-#~ msgstr "ディスクの準備"
-
-#~ msgid "Before:"
-#~ msgstr "前 :"
-
-#~ msgid "After:"
-#~ msgstr "後 :"
-
-#~ msgid "Choose language"
-#~ msgstr "言語の選択/Choose language"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr "ログイン時およびホーム・フォルダの復号化時にパスワードを要求する"
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "このコンピュータの名前を入力してください"
-
-#~ msgid "What is your name?"
-#~ msgstr "あなたの名前を入力してください"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "ログインに使う名前を入力してください"
-
-#~ msgid "Guess keymap:"
-#~ msgstr "キーマップを推測:"
-
-#~ msgid "Full Name"
-#~ msgstr "氏名"
-
-#~ msgid "Strength: strong"
-#~ msgstr "パスワードの強さ: 強い"
-
-#~ msgid "Strength: too short"
-#~ msgstr "パスワードの強さ: 短すぎ"
-
-#~ msgid "Strength: weak"
-#~ msgstr "パスワードの強さ: 弱い"
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Strength: good"
-#~ msgstr "パスワードの強さ: 良好"
-
-#~ msgid "Strength: fair"
-#~ msgstr "パスワードの強さ: まずまず"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "このコンピュータを2人以上で使う場合は、インストール後に複数のアカウントを"
-#~ "セットアップすることができます。"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "この名前は、ネットワーク上の他のコンピュータからこのコンピュータを見えるよ"
-#~ "う設定したときに使われます。"
-
-#~ msgid "Guess..."
-#~ msgstr "推測..."
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "同じパスワードを2回入力して、入力に間違いがないことを確かめてください。望"
-#~ "ましいパスワードは、文字・数字・記号が混在した8文字以上の文字列を含むもの"
-#~ "です。また、定期的に変更を行ってください。"

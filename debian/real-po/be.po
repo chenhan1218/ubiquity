@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1712,96 +1712,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Выдаленьне пакетаў"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Якая раскладка найбольш падобная да тваёй раскладкі?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "Можаш пісаць ў гэтым вакне каб пратэставаць новую раскладку клявіятуры."
-
-#~ msgid "Suggested option:"
-#~ msgstr "Прапанаваная опцыя:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Ваш выбар:"
-
-#~ msgid "What is your name?"
-#~ msgstr "Як цябе клічуць?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Якую назву хочаш ужываць ў часе ўваходу ў сыстэму?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Калі некалькі асобаў будуць карыстацца кампутарам, можна дадаць некалькі "
-#~ "контаў пасьля заканчэньня ўсталёўкі."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Пастаў пароль, каб твой конт быў бясьпечны."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Як будзе называцца гэты кампутар?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr "Назва будзе ўжывацца, калі зробіш гэты кампутар бачным ў сеціве."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Падрыхтоўка месца на дыску"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "Усталёўваць разам, выбіраць патрэбнае пры кожным уключэньні."
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Увядзіце такі ж самы пароль двойчы, так ён можа быць правераны на памылкі "
-#~ "друку. Добры пароль утрымлівае сумесь літараў, лічбаў і знакаў, даўжынёй "
-#~ "павінен быць не меньш за восем сымбаляў, і павінен рэгулярна зьмяняцца."
-
-#~ msgid "Before:"
-#~ msgstr "Перад:"
-
-#~ msgid "After:"
-#~ msgstr "Пасьля:"
-
-#~ msgid "Choose language"
-#~ msgstr "Выбраць мову/Choose language"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Патрабуецца мой пароль для ўвахода і адкрыцьця зашыфраванай хатняй тэчкі"
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Guess..."
-#~ msgstr "Выяўленьне..."
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Выявіць расклад:"
-
-#~ msgid "Strength: too short"
-#~ msgstr "Складанасьць: надта кароткі"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Складанасьць: надта просты"
-
-#~ msgid "Full Name"
-#~ msgstr "Поўнае імя"
-
-#~ msgid "Strength: good"
-#~ msgstr "Складанасьць: добрая"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Складанасьць: мінімальная"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Складанасьць: надзейная"

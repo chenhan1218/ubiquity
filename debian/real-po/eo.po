@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-23 09:19+0000\n"
-"Last-Translator: Evan Dandrea <ev@ubuntu.com>\n"
+"PO-Revision-Date: 2010-09-25 10:35+0000\n"
+"Last-Translator: Patrick (Petriko) Oudejans <Unknown>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1625,7 +1625,7 @@ msgstr "Regiono:"
 #. Description
 #: ../ubiquity.templates:241001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[tajpu ĉi tie por ŝanĝi]"
 
 #. Type: text
 #. Description
@@ -1701,105 +1701,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Forigas pakaĵojn"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Kiu aranĝo plej similas al via klavaro?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "Vi povas tajpi en ĉi tiun skatolon por testi vian novan klavararanĝon."
-
-#~ msgid "What is your name?"
-#~ msgstr "Kio estas via nomo?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Kion uzantnomon vi volas uzi por ensaluti?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Se pli ol unu persono uzos ĉi tiun komputilon, vi povas establi plurajn "
-#~ "kontojn post la instalado."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Elektu pasvorton por sekurigi vian konton."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Kio estas la nomo de ĉi tiu komputilo?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Ĉi tiu nomo estos uzata se vi videbligus ĉi tiun komputilon al la aliaj "
-#~ "je la reto."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Pretigu diskan spacon"
-
-#~ msgid "Before:"
-#~ msgstr "Antaũe:"
-
-#~ msgid "After:"
-#~ msgstr "Poste:"
-
-#~ msgid "Suggested option:"
-#~ msgstr "Sugestita elekto:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Elektu vian propran:"
-
-#~ msgid "Choose language"
-#~ msgstr "Elekti lingvon/Choose language"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Postuli mian pasvorton por ensaluti kaj por malĉifri mian hejm-dosierujon"
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Divenu klavarfasonon:"
-
-#~ msgid "Guess..."
-#~ msgstr "Diveni..."
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Strength: good"
-#~ msgstr "Forto: bona"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Forto: sufiĉa"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Forto: forta"
-
-#~ msgid "Strength: too short"
-#~ msgstr "Forto: tro malgranda"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Forto: malforta"
-
-#~ msgid "Full Name"
-#~ msgstr "Plena nomo"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "Instali ilin unu apud la alia, elektonte inter ili ĉiun komenciĝon."
-
-#~ msgid ""
-#~ "Please off me non-open-source software if it is needed for a better "
-#~ "experience"
-#~ msgstr ""
-#~ "Bonvolu prezenti al mi nemalfermitkodan programaron se tio necesas por "
-#~ "pli bona uzosperto"
-
-#~ msgid "that you are connected to the Internet with an Ethernet cable"
-#~ msgstr "ke vi estas konektita al la interreto per eterreta kablo"
-
-#~ msgid ""
-#~ "Ubuntu aims to be free and open-source software.  However, this is not "
-#~ "always possible."
-#~ msgstr ""
-#~ "Ubuntu celas esti libera kaj malfermitkoda programaro. Bedaŭrinde tio ne "
-#~ "ĉiam eblas."

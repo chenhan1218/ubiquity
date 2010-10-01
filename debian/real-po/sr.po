@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1687,99 +1687,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Уклањам пакете"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Који распоред је најсличнији Вашој тастатури?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Уколико ће више особа користити овај рачунар, можете поставити више "
-#~ "корисничких налога након инсталације."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Одаберите лозинку како бисте заштитили свој кориснички налог."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Које је име овог рачунара?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr "Под овим ће именом други у мрежи видети ваш рачунар."
-
-#~ msgid "Before:"
-#~ msgstr "Пре:"
-
-#~ msgid "After:"
-#~ msgstr "После:"
-
-#~ msgid "Suggested option:"
-#~ msgstr "Препоручене опције:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Изаберите своје:"
-
-#~ msgid "Choose language"
-#~ msgstr "Изаберите језик"
-
-#~ msgid "USB"
-#~ msgstr "УСБ"
-
-#~ msgid "What is your name?"
-#~ msgstr "Како се зовете?"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Захтевај  лозинку за пријављивање и за дешифровање мог личног "
-#~ "директоријума."
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Под којим корисничким именом желите да се пријављујете?"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Унесите исту лозинку два пута, како би се избегле грешке у куцању. Добра "
-#~ "лозинка треба да садржати комбинацију слова, бројева и интерпункцијских "
-#~ "знакова, да није краћа од осам знакова и треба да се мења редовно."
-
-#~ msgid "Strength: good"
-#~ msgstr "Јачина: добра"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Јачина: солидна"
-
-#~ msgid "Strength: too short"
-#~ msgstr "Јачина: исувише кратка"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Јачина: слаба"
-
-#~ msgid "Full Name"
-#~ msgstr "Пуно име"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Јачина: јака"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr ""
-#~ "Инсталирајте их један поред другог, бирајући између њих приликом сваког "
-#~ "покретања"
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Откриј распоред тастатуре:"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "Можете уписати нешто у ово поље да бисте испробали распоред тастатуре."
-
-#~ msgid "Guess..."
-#~ msgstr "Откриј..."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Припремање простора на диску"

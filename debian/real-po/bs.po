@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-23 09:25+0000\n"
-"Last-Translator: Miro Glavić <glavicmiro@gmail.com>\n"
+"PO-Revision-Date: 2010-09-25 19:32+0000\n"
+"Last-Translator: megaribi <Unknown>\n"
 "Language-Team: Bosnian <lokal@linux.org.ba>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -33,7 +33,7 @@ msgstr "Obriši i koristi cijeli disk"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "Instaliraj zajedno s drugim operativnim sistemom"
 
 #. Type: text
 #. Description
@@ -75,6 +75,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
+"Možete probati ${RELEASE} bez izmjene na vašem računaru, direktno s ovog "
+"${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -83,6 +85,8 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
+"Ili kada ste spremni možete instalirati ${RELEASE} zajedno s ili umjesto "
+"vašeg trenutnog OS. To ne bi trebalo trajati predugo."
 
 #. Type: text
 #. Description
@@ -141,6 +145,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2010."
 msgstr ""
+"Ovo je predizdanje ${RELEASE} verzije ${MEDIUM} instalera. Ovo nije finalna "
+"verzija, ona će biti objavljena sa ${RELEASE} u Oktobru 2010."
 
 #. Type: text
 #. Description
@@ -158,7 +164,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Warning"
-msgstr ""
+msgstr "Upozorenje"
 
 #. Type: text
 #. Description
@@ -176,25 +182,25 @@ msgstr "Raspored tastature"
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Choose your keyboard layout:"
-msgstr ""
+msgstr "Odaberi raspored tastature"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Kucajte ovdje za test vaše tastature"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Figure Out Keyboard Layout"
-msgstr ""
+msgstr "Odredite raspored tastature"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Figure out keyboard layout"
-msgstr ""
+msgstr "Odredi raspored tastature"
 
 #. Type: text
 #. Description
@@ -218,19 +224,19 @@ msgstr "Ko ste Vi?"
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Your name:"
-msgstr ""
+msgstr "Vaše ime:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Your name"
-msgstr ""
+msgstr "Vaše ime"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Pick a username:"
-msgstr ""
+msgstr "Odaberite ime:"
 
 #. Type: text
 #. Description
@@ -242,7 +248,7 @@ msgstr "Korisničko ime"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Choose a password:"
-msgstr ""
+msgstr "Pdaberite lozinku:"
 
 #. Type: text
 #. Description
@@ -254,19 +260,19 @@ msgstr "Šifra"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Confirm password"
-msgstr ""
+msgstr "Potvrda lozinke"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Your computer's name:"
-msgstr ""
+msgstr "Ime kompjutera"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "Ime koje on koristi kada razgovara s drugim kompjuterima"
 
 #. Type: text
 #. Description
@@ -280,31 +286,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Short password"
-msgstr ""
+msgstr "Kratka lozinka"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Weak password"
-msgstr ""
+msgstr "Slaba lozinka"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Fair password"
-msgstr ""
+msgstr "Prosječna lozinka"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Good password"
-msgstr ""
+msgstr "Dobra lozinka"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Strong password"
-msgstr ""
+msgstr "Jaka lozinka"
 
 #. Type: text
 #. Description
@@ -322,7 +328,7 @@ msgstr "Zahtijevaj moju lozinku za prijavu."
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "Kriptografisanje mog početnog direktorija"
 
 #. Type: text
 #. Description
@@ -354,7 +360,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Allocate drive space"
-msgstr ""
+msgstr "Alociraj prostor na disku"
 
 #. Type: text
 #. Description
@@ -432,13 +438,13 @@ msgstr "Napredno..."
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:62001
 msgid "_Install Now[ action ]"
-msgstr ""
+msgstr "_Instaliraj sada"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr ""
+msgstr "Korak ${INDEX}/${TOTAL}"
 
 #. Type: title
 #. Description
@@ -760,6 +766,9 @@ msgid ""
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
+"Instalacija je završena. Možete nastaviti testirati ${RELEASE} sada, ali "
+"kada restartujete računar, sve izmjene koje ste napravili ili dokumente koje "
+"ste snimili neće biti sačuvane."
 
 #. Type: text
 #. Description
@@ -1162,7 +1171,7 @@ msgstr "Proračun datoteka radi preskakanja kopiranja..."
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "Spreman dok vi ..."
 
 #. Type: title
 #. Description
@@ -1274,7 +1283,7 @@ msgstr "Jezik"
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Prepare"
-msgstr ""
+msgstr "Pripremi"
 
 #. Type: text
 #. Description
@@ -1365,7 +1374,7 @@ msgstr "Instalacijski sistem naišao na grešku pri pokušaju da se nadogradi:"
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:199001
 msgid "USB disk"
-msgstr ""
+msgstr "USB disk"
 
 #. Type: text
 #. Description
@@ -1381,6 +1390,8 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
+"Molim odaberite jezik za instalacijski proces. Jezik će biti podrazumijevani "
+"jezik za ovaj kompjuter."
 
 #. Type: text
 #. Description
@@ -1429,37 +1440,37 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:207001
 msgid "Preparing to install ${RELEASE}"
-msgstr ""
+msgstr "Priprema za instalaciju ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:208001
 msgid "Wireless"
-msgstr ""
+msgstr "Bežično"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
 msgid "Please select your wireless network from this list"
-msgstr ""
+msgstr "Odabrite vašu bežičnu mrežu iz ove liste."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:213001
 msgid "Select drive:"
-msgstr ""
+msgstr "Odaberite disk"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
 msgid "Allocate drive space by dragging the divider below:"
-msgstr ""
+msgstr "Alocirajte prostor na disku prevlačući djelilac."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:215001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "Cijeli disk će se koristiti"
 
 #. Type: text
 #. Description
@@ -1469,6 +1480,8 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d manjih particija je sakriveno, koristite <a href=\"\">napredni alat za "
+"particioniranje</a> za više kontrole"
 
 #. Type: text
 #. Description
@@ -1477,6 +1490,8 @@ msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 manja particija je sakrivena, koristite <a href=\"\">napredni alat za "
+"particioniranje</a> za više kontrole"
 
 #. Type: text
 #. Description
@@ -1486,6 +1501,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d particija će biti obrisano, koristite <a href=\"\">napredni alat za "
+"particioniranje</a> za više kontrole"
 
 #. Type: text
 #. Description
@@ -1494,48 +1511,50 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 particija će biti obrisana, koristite <a href=\"\">napredni alat za "
+"particioniranje</a> za više kontrole"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:220001
 msgid "Use Entire Partition"
-msgstr ""
+msgstr "Koristi cijelu particiju"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "Koristi cijeli disk"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid "Split Largest Partition"
-msgstr ""
+msgstr "Razdvoji najveću particiju"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
 msgid "For best results, please ensure that this computer:"
-msgstr ""
+msgstr "Za najbolje rezultate osigurajte da ovaj kompjuter"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
 msgid "has at least ${SIZE} available drive space"
-msgstr ""
+msgstr "ima bar ${SIZE} raspoloživog prostora na disku"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
 msgid "is plugged in to a power source"
-msgstr ""
+msgstr "je priključen na izvor napajanja"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "je priljučen na Internet"
 
 #. Type: text
 #. Description
@@ -1546,6 +1565,10 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} koristi dodatne programe da prikaže Flash, MP3 i druge medije i "
+"za rad s bežičnim uređajima. Neki od ovih programa su zatvorenog koda. "
+"Softver treba da se slaže sa uslovima licenci uključenim u softversku "
+"dokumentaciju."
 
 #. Type: text
 #. Description
@@ -1554,18 +1577,20 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
+"Fluendo MP3 dodatak uključuje MPEG Layer-3 tehnologiju audio dekodiranja "
+"licenciranu od Fraunhofer IIS i Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "Instaliraj ovaj dodatni softver"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:231001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "Preuzmi ažuriranja pri instalaciji"
 
 #. Type: text
 #. Description
@@ -1613,7 +1638,7 @@ msgstr "Regija:"
 #. Description
 #: ../ubiquity.templates:241001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[unesi ovdje za izmjene]"
 
 #. Type: text
 #. Description
@@ -1690,70 +1715,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Uklanjanje paketa"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Koji raspored je najsličniji Vašoj tastaturi?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr "Možete pisati u ovo polje kako biste testirali raspored tastature"
-
-#~ msgid "What is your name?"
-#~ msgstr "Koje je Vaše ime?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Koje korisničko ime želite koristiti?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Ukoliko će više osoba koristiti ovaj računar, možete postaviti više "
-#~ "korisničkih raćuna nakon instalacije."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Odaberite šifru kako biste osigurali svoj korisnički račun."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Koje je ime ovog računara?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr "Pod ovim će imenom drugi u mreži vidjeti vaš računar."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Pripremi prostor na disku"
-
-#~ msgid "Choose language"
-#~ msgstr "Izaberite jezik/Choose language"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr ""
-#~ "Instaliraj ih istovremeno s izborom između njih pri svakom podizanju"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Zahtijevaj moju lozinku za prijavu i dekriptografisanje osnovnog "
-#~ "direktorija."
-
-#~ msgid "Choose your own:"
-#~ msgstr "Izaberite sami:"
-
-#~ msgid "Suggested option:"
-#~ msgstr "Preporučena opcija:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Unesite lozinku dva puta kako bi se provjerila na greške u kucanju. Dobra "
-#~ "lozinka treba sadržati mješavinu slova, brojeva i interpunkcijskih "
-#~ "znakova i biti mijenjana u pravilnim intervalima."
-
-#~ msgid "Before:"
-#~ msgstr "Prije:"
-
-#~ msgid "After:"
-#~ msgstr "Nakon:"

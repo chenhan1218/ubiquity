@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-04-29 04:17+0000\n"
+"PO-Revision-Date: 2010-08-27 20:52+0000\n"
 "Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
 "Language-Team: Malay <ms@li.org>\n"
 "Language: ms\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -189,10 +189,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "Susunatur papan kekunci"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -263,10 +261,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Setting computer name..."
 msgid "Your computer's name:"
-msgstr "Menetapkan nama komputer..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -765,19 +761,11 @@ msgstr "Port:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
-#, fuzzy
-#| msgid ""
-#| "Installation has finished.  You can continue testing Ubuntu now, but "
-#| "until you restart the computer, any changes you make or documents you "
-#| "save will not be preserved."
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"Proses pemasangan selesai. Anda boleh mencuba Ubuntu sekarang tetapi "
-"sehingga anda ulang-mula komputer, sebarang perubahan yang dilakukan atau "
-"dokumen yang disimpan tidak akan di dilindungi"
 
 #. Type: text
 #. Description
@@ -1645,6 +1633,9 @@ msgid ""
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+"Sedia untuk memasang?  Selepas anda telah menjawab beberapa persoalan, isi-"
+"isi dari ${MEDIUM} semasa boleh dipasang pada komputer ini supaya anda boleh "
+"jalankan ${RELEASE} pada kelajuan penuh tanpa ${MEDIUM}."
 
 #. Type: title
 #. Description
@@ -1710,72 +1701,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Membuang pakej-pakej"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "Pasang mereka seiringan, pilih antara mereka disetiap permulaan"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Susunatur mana yang paling serupa dengan papan kekunci anda?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "Anda boleh menaip di dalam kekotak ini untuk menguji susunatur papan "
-#~ "kekunci anda"
-
-#~ msgid "Suggested option:"
-#~ msgstr "Pilihan dicadangkan:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Pilihan sendiri:"
-
-#~ msgid "What is your name?"
-#~ msgstr "Apakah nama anda?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Apakah nama yang anda ingin gunakan untuk daftar masuk?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Jika terdapat lebih daripada seorang yang akan menggunakan komputer ini, "
-#~ "anda boleh menetapkannya selepas proses pemasangan."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Pilih kata laluan untuk keselamatan akaun anda."
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Masukkan katalaluan yang sama sebanyak dua kali, supaya ralat menaip "
-#~ "dapat diperiksa. Katalaluan yang baik mengandungi gabungan huruf, nombor "
-#~ "dan simbol-simbol, kata laluan haruslah sekurang-kurangnya sepanjang "
-#~ "lapan abjad dan kerap ditukar pada sela masa tertentu."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Apakah nama komputer ini?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Nama ini akan digunakan jika anda memaparkan komputer ini kepada pengguna "
-#~ "lain dalam rangkaian"
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Sediakan ruang cakera"
-
-#~ msgid "Before:"
-#~ msgstr "Sebelum:"
-
-#~ msgid "After:"
-#~ msgstr "Selepas:"
-
-#~ msgid "Choose language"
-#~ msgstr "Pilih bahasa"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr "Memerlukan password untuk masuk dan membuka folder home"

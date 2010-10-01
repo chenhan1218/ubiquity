@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-23 09:24+0000\n"
+"PO-Revision-Date: 2010-09-25 10:45+0000\n"
 "Last-Translator: Xhacker Liu <liu.dongyuan@gmail.com>\n"
 "Language-Team: Simplified Chinese <debian-chinese-gb@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1585,7 +1585,7 @@ msgstr "地区："
 #. Description
 #: ../ubiquity.templates:241001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[在此输入以更改]"
 
 #. Type: text
 #. Description
@@ -1658,91 +1658,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "正在删除软件包"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "分别安装它们，在启动时从中选择"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "您想用什么名字作为登录名？"
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "这台计算机的名称是什么？"
-
-#~ msgid "Before:"
-#~ msgstr "之前："
-
-#~ msgid "After:"
-#~ msgstr "之后："
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr "如果有多个用户使用本计算机，您可以在完成安装后建立多个帐户。"
-
-#~ msgid "Prepare disk space"
-#~ msgstr "准备硬盘空间"
-
-#~ msgid "Choose language"
-#~ msgstr "选择语言"
-
-#~ msgid "Choose your own:"
-#~ msgstr "选择您的："
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr "您可以在框内测试您的新键盘布局。"
-
-#~ msgid "What is your name?"
-#~ msgstr "您的名字是？"
-
-#~ msgid "Suggested option:"
-#~ msgstr "建议的选项："
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "选择一个密码来确保您的帐户安全。"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "最适合您的键盘布局？"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr "登录时需要密码并且加密我的主目录"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr "如果您让网络上的其他人看到这台计算机，那么将使用这个名称。"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "输入两次相同的密码，以避免输入错误。好的密码应该混合字母、数字和标点，长度"
-#~ "至少 8 位，并且需要定期更换。"
-
-#~ msgid "Guess keymap:"
-#~ msgstr "猜测键盘布局："
-
-#~ msgid "Guess..."
-#~ msgstr "猜测..."
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#~ msgid "Strength: good"
-#~ msgstr "强度：好"
-
-#~ msgid "Strength: fair"
-#~ msgstr "强度：一般"
-
-#~ msgid "Strength: strong"
-#~ msgstr "强度：强"
-
-#~ msgid "Strength: weak"
-#~ msgstr "强度：弱"
-
-#~ msgid "Full Name"
-#~ msgstr "全名"
-
-#~ msgid "Strength: too short"
-#~ msgstr "强度：太短"

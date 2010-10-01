@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-23 09:21+0000\n"
-"Last-Translator: Evan Dandrea <ev@ubuntu.com>\n"
+"PO-Revision-Date: 2010-09-28 18:05+0000\n"
+"Last-Translator: helix84 <Unknown>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1632,7 +1632,7 @@ msgstr "Región:"
 #. Description
 #: ../ubiquity.templates:241001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[zmeníte písaním sem]"
 
 #. Type: text
 #. Description
@@ -1708,100 +1708,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Odstraňujú sa balíky"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Ktoré rozloženie je najviac podobné vašej klávesnici?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "Skúste niečo napísať, aby ste si overili vaše nové rozloženie klávesnice."
-
-#~ msgid "What is your name?"
-#~ msgstr "Ako sa voláte?"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Aké prihlasovacie meno chcete používať?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Ak bude tento počítač používať viacero používateľov, ich účty môžete "
-#~ "vytvoriť a nastaviť po inštalácii."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Zvoľte heslo na zabezpečenie svojho účtu."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Aký názov priradíte tomuto počítaču?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Tento názov sa použije vtedy, ak ho sprístupníte ostatným používateľom na "
-#~ "sieti."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Pripravuje sa diskový priestor"
-
-#~ msgid "Before:"
-#~ msgstr "Pred:"
-
-#~ msgid "After:"
-#~ msgstr "Po:"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr ""
-#~ "Nainštalovať ich vedľa seba a pri každom spustení si medzi nimi zvolím"
-
-#~ msgid "Suggested option:"
-#~ msgstr "Navrhovaná voľba:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Zvoľte vlastné:"
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Zadajte rovnaké heslo dvakrát kvôli kontrole preklepov. Dobré heslo "
-#~ "obsahuje zmes písmen, číslic, interpunkčných znamienok, malo by mať aspoň "
-#~ "osem znakov a malo by sa pravidelne meniť."
-
-#~ msgid "Choose language"
-#~ msgstr "Nastavenie jazyka/Choose language"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Vyžadovať moje heslo na prihlásenie a dešifrovanie môjho domovského "
-#~ "priečinka"
-
-#~ msgid "Guess..."
-#~ msgstr "Odhadnúť..."
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Odhadnúť rozloženie kláves"
-
-#~ msgid "Strength: too short"
-#~ msgstr "Sila: príliš krátke"
-
-#~ msgid "Full Name"
-#~ msgstr "Celé meno"
-
-#~ msgid "Strength: good"
-#~ msgstr "Sila: dobré"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Sila: dostatočné"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Sila: silné"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Sila: slabé"
-
-#~ msgid "USB"
-#~ msgstr "USB"

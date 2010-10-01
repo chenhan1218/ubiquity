@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-09-23 09:16+0000\n"
+"PO-Revision-Date: 2010-09-27 08:24+0000\n"
 "Last-Translator: Timo Jyrinki <timo.jyrinki@gmail.com>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1639,7 +1639,7 @@ msgstr "Alue:"
 #. Description
 #: ../ubiquity.templates:241001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[kirjoita tähän vaihtaaksesi]"
 
 #. Type: text
 #. Description
@@ -1715,116 +1715,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Poistetaan paketteja"
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr ""
-#~ "Asenna rinnakkain, valitsemismahdollisuus jokaisella käynnistyskerralla"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Mikä asettelu on lähinnä käyttämääsi näppäimistöä?"
-
-#~ msgid "Suggested option:"
-#~ msgstr "Ehdotettu valinta:"
-
-#~ msgid "Choose your own:"
-#~ msgstr "Valitse oma:"
-
-#~ msgid "What is your name?"
-#~ msgstr "Mikä on nimesi?"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "Jos useampi kuin yksi ihminen käyttää tätä tietokonetta, voit luoda lisää "
-#~ "käyttäjätilejä asennuksen jälkeen."
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Valitse salasana pitääksesi käyttäjätilisi turvallisena."
-
-#~ msgid ""
-#~ "Enter the same password twice, so that it can be checked for typing "
-#~ "errors. A good password will contain a mixture of letters, numbers and "
-#~ "punctuation, should be at least eight characters long, and should be "
-#~ "changed at regular intervals."
-#~ msgstr ""
-#~ "Syötä sama salasana kahdesti, jotta mahdolliset kirjoitusvirheet "
-#~ "huomataan. Hyvä salasana muodostuu kirjainten, numeroiden ja "
-#~ "erikoismerkkien sekoituksesta, on vähintään kahdeksanmerkkinen, ja "
-#~ "vaihdetaan säännöllisesti."
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Mikä on tämän tietokoneen nimi?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr "Nimeä käytetään jos asetat tietokoneesi muiden näkyville verkossa."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Levytilan valmistelu"
-
-#~ msgid "Before:"
-#~ msgstr "Ennen:"
-
-#~ msgid "After:"
-#~ msgstr "Jälkeen:"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "Vaadi salasana sisäänkirjautumiseen ja kotikansion salauksen purkamiseen"
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Mitä nimeä haluat käyttää koneelle kirjautumiseen?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr ""
-#~ "Voit koettaa valitsemaasi näppäimistöasettelua kirjoittamalla alla "
-#~ "olevaan kenttään."
-
-#~ msgid "Choose language"
-#~ msgstr "Valitse kieli/Choose language"
-
-#~ msgid "USB"
-#~ msgstr "USB-muisti"
-
-#~ msgid "Guess..."
-#~ msgstr "Arvaa..."
-
-#~ msgid "Guess keymap:"
-#~ msgstr "Arvaa näppäimistöasettelu:"
-
-#~ msgid "Full Name"
-#~ msgstr "Koko nimi"
-
-#~ msgid "Strength: too short"
-#~ msgstr "Vahvuus: liian lyhyt"
-
-#~ msgid "Strength: weak"
-#~ msgstr "Vahvuus: heikko"
-
-#~ msgid "Strength: good"
-#~ msgstr "Vahvuus: hyvä"
-
-#~ msgid "Strength: strong"
-#~ msgstr "Vahvuus: vahva"
-
-#~ msgid "Strength: fair"
-#~ msgstr "Vahvuus: kelvollinen"
-
-#~ msgid "that you are connected to the Internet with an Ethernet cable"
-#~ msgstr "että olet yhteydessä Internetiin Ethernet-kaapelilla"
-
-#~ msgid ""
-#~ "Ubuntu aims to be free and open-source software.  However, this is not "
-#~ "always possible."
-#~ msgstr ""
-#~ "Ubuntu pyrkii olemaan vapaa ja avointa lähdekoodia. Tämä ei kuitenkaan "
-#~ "aina ole mahdollista."
-
-#~ msgid ""
-#~ "Please off me non-open-source software if it is needed for a better "
-#~ "experience"
-#~ msgstr ""
-#~ "Tarjoa minulle myös muita kuin avoimen lähdekoodin ohjelmistoja, mikäli "
-#~ "se on tarpeellista paremman käyttökokemuksen saavuttamiseksi"

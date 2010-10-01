@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-23 09:36+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1600,15 +1600,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr "या चौकटीत छापून आपण आपल्या कळपट्टीची चाचणी  घेऊ शकता."
-
-#~ msgid "What is your name?"
-#~ msgstr "आपलं नाव काय आहे?"
-
-#~ msgid "Prepare disk space"
-#~ msgstr "डिस्कवर जागा तयार करा"
-
-#~ msgid "Choose language"
-#~ msgstr "भाषा निवडा/Choose language"

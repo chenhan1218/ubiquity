@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-09-21 10:02+0100\n"
-"PO-Revision-Date: 2010-04-29 12:24+0000\n"
-"Last-Translator: Dooitze de Jong <Unknown>\n"
+"PO-Revision-Date: 2010-08-27 21:02+0000\n"
+"Last-Translator: Evan Dandrea <ev@ubuntu.com>\n"
 "Language-Team: Frisian <fy@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-26 18:48+0000\n"
+"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -184,10 +184,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Figure Out Keyboard Layout"
-msgstr "Kaaiplanke yndieling"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -258,10 +256,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
-#| msgid "Setting computer name..."
 msgid "Your computer's name:"
-msgstr "Namme fan de computer ynstelle"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1596,6 +1592,10 @@ msgid ""
 "${MEDIUM} can be installed on this computer so you can run ${RELEASE} at "
 "full speed without the ${MEDIUM}."
 msgstr ""
+"Klear foar it ynstallearjen? At jo klear binnen mei it antwurdzjen op in "
+"pear fragen, kinne jo de ynhâld fan de ${MEDIUM} ynstallearje op dizze "
+"computer, dan kinne jo dizze ferzje, ${RELEASE} op hege snelheid brûke "
+"sonder de ${MEDIUM}.."
 
 #. Type: title
 #. Description
@@ -1652,61 +1652,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "Install them side by side, choosing between them each startup"
-#~ msgstr "Ynstallearje se nijst elkoar , mei in kar bei it oandwaan"
-
-#~ msgid "Which layout is most similar to your keyboard?"
-#~ msgstr "Hokker yndieling liket it measte op jo kaaiboerd?"
-
-#~ msgid "You can type into this box to test your new keyboard layout."
-#~ msgstr "Jo kinne yn dit fak type om de kaaiplankeyndieling ût te besykjen."
-
-#~ msgid "What is your name?"
-#~ msgstr "Wat is jo namme?"
-
-#~ msgid "What is the name of this computer?"
-#~ msgstr "Wat sil de namme wurde fan dizze computer?"
-
-#~ msgid ""
-#~ "This name will be used if you make the computer visible to others on a "
-#~ "network."
-#~ msgstr ""
-#~ "Dizze namme sil brûkt wurde om de kompjûter sichtber te meitsjen oan "
-#~ "oaren op in netwurk."
-
-#~ msgid "Prepare disk space"
-#~ msgstr "Tariede skiif rûmte"
-
-#~ msgid "After:"
-#~ msgstr "Nei:"
-
-#~ msgid ""
-#~ "If more than one person will use this computer, you can set up multiple "
-#~ "accounts after installation."
-#~ msgstr ""
-#~ "As mear dan ien persoan dizze kompjûter brûke sille, kinne jo meardere "
-#~ "akkounts ynstelle nei de ynstallaasje."
-
-#~ msgid "What name do you want to use to log in?"
-#~ msgstr "Hokker namme wolle jo brûke om jo oan ta melden?"
-
-#~ msgid "Choose a password to keep your account safe."
-#~ msgstr "Kies in wachtwurd om jo akkount feilich te hâlden."
-
-#~ msgid "Before:"
-#~ msgstr "Foar:"
-
-#~ msgid "Guess..."
-#~ msgstr "Ride..."
-
-#~ msgid "Choose your own:"
-#~ msgstr "Zelf kieze:"
-
-#~ msgid "Suggested option:"
-#~ msgstr "Foarstelde kar"
-
-#~ msgid "Require my password to log in and to decrypt my home folder"
-#~ msgstr ""
-#~ "My in wachtwurd freegje om yn te loggen en myn persoanlike map te "
-#~ "ûntsiferjen"
