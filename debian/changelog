@@ -6,6 +6,7 @@ ubiquity (2.4.5) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Update translations from Launchpad (LP: #652395).
+  * Automatic update of included source packages: partman-base 141ubuntu2.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 30 Sep 2010 00:46:59 -0500
 
