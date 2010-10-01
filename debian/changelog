@@ -1,4 +1,4 @@
-ubiquity (2.4.5) UNRELEASED; urgency=low
+ubiquity (2.4.5) maverick; urgency=low
 
   [ Mario Limonciello ]
   * If a derivative doesn't provide a release notes URL on the media, don't show
@@ -8,7 +8,7 @@ ubiquity (2.4.5) UNRELEASED; urgency=low
   * Update translations from Launchpad (LP: #652395).
   * Automatic update of included source packages: partman-base 141ubuntu2.
 
- -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 30 Sep 2010 00:46:59 -0500
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 01 Oct 2010 10:17:57 +0100
 
 ubiquity (2.4.4) maverick; urgency=low
 
