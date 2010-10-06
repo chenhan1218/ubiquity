@@ -258,6 +258,30 @@ def mount_info(path):
                 writable = line[3].split(',')[0]
     return fsname, fstype, writable
 
+def udevadm_info(args):
+    fullargs = ['udevadm', 'info', '-q', 'property']
+    fullargs.extend(args)
+    udevadm = {}
+    subp = subprocess.Popen(fullargs, stdout=subprocess.PIPE)
+    for line in subp.communicate()[0].splitlines():
+        line = line.strip()
+        if '=' not in line:
+            continue
+        name, value = line.split('=', 1)
+        udevadm[name] = value
+    return udevadm
+
+def partition_to_disk(partition):
+    """Convert a partition device to its disk device, if any."""
+    udevadm_part = udevadm_info(['-n', partition])
+    if ('DEVPATH' not in udevadm_part or
+        udevadm_part.get('DEVTYPE') != 'partition'):
+        return partition
+
+    disk_syspath = '/sys%s' % udevadm_part['DEVPATH'].rsplit('/', 1)[0]
+    udevadm_disk = udevadm_info(['-p', disk_syspath])
+    return udevadm_disk.get('DEVNAME', partition)
+
 @raise_privileges
 def grub_default():
     """Return the default GRUB installation target."""
@@ -267,32 +291,45 @@ def grub_default():
     # grub-installer is run.  Pursuant to that, we intentionally run this in
     # the installer root as /target might not yet be available.
 
+    bootremovable = is_removable(boot_device())
+    if bootremovable is not None:
+        return bootremovable
+
     subp = subprocess.Popen(['grub-mkdevicemap', '--no-floppy', '-m', '-'],
                             stdout=subprocess.PIPE)
     devices = subp.communicate()[0].splitlines()
     target = None
     if devices:
         try:
-            target = devices[0].split('\t')[1]
-        except IndexError:
+            target = os.path.realpath(devices[0].split('\t')[1])
+        except (IndexError, OSError):
             pass
     # last resort
     if target is None:
         target = '(hd0)'
 
     cdsrc, cdfs, type = mount_info('/cdrom')
-    if (cdsrc == target or target == '(hd0)') and cdfs and cdfs != 'iso9660':
+    cdsrc = partition_to_disk(cdsrc)
+    try:
+        # The target is usually under /dev/disk/by-id/, so string equality
+        # is insufficient.
+        same = os.path.samefile(cdsrc, target)
+    except OSError:
+        same = False
+    if (same or target == '(hd0)') and cdfs and cdfs != 'iso9660':
         # Installing from removable media other than a CD.  Make sure that
         # we don't accidentally install GRUB to it.
         boot = boot_device()
-        if boot:
-            target = boot
-        target = re.sub(r'(/dev/(cciss|ida)/c[0-9]d[0-9]|/dev/[a-z]+).*',
-                        r'\1', target)
-
-    bootremovable = is_removable(boot_device())
-    if bootremovable is not None:
-        target = bootremovable
+        try:
+            if boot:
+                target = boot
+            else:
+                # Try the next disk along (which can't also be the CD source).
+                target = os.path.realpath(devices[1].split('\t')[1])
+            target = re.sub(r'(/dev/(cciss|ida)/c[0-9]d[0-9]|/dev/[a-z]+).*',
+                            r'\1', target)
+        except (IndexError, OSError):
+            pass
 
     return target
 
