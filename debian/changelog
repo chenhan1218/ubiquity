@@ -1,3 +1,10 @@
+ubiquity (2.4.9) UNRELEASED; urgency=low
+
+  * Log which package (albeit only the first one) caused us to declare
+    language support incomplete.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 08 Oct 2010 10:59:24 +0100
+
 ubiquity (2.4.8) maverick; urgency=low
 
   * Automatic update of included source packages: apt-setup

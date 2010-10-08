@@ -488,6 +488,7 @@ class Install(install_misc.InstallBase):
                 continue
             cachedpkg = install_misc.get_cache_pkg(cache, pkg)
             if cachedpkg is None or not cachedpkg.is_installed:
+                syslog.syslog('incomplete language support: %s missing', pkg)
                 incomplete = True
                 break
         if incomplete:
