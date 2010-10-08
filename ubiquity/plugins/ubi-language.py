@@ -419,6 +419,7 @@ class PageKde(PageBase):
             self.update_installer = True
             if self.controller.oem_config or auto_update.already_updated():
                 self.update_installer = False
+            self.release_notes_found = False
             try:
                 release_notes = open(_release_notes_url_path)
                 self.release_notes_url = release_notes.read().rstrip('\n')

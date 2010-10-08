@@ -2,6 +2,8 @@ ubiquity (2.4.9) UNRELEASED; urgency=low
 
   * Log which package (albeit only the first one) caused us to declare
     language support incomplete.
+  * Initialise release_notes_found in KDE prepare plugin, so that it doesn't
+    break in oem-config mode (LP: #656983).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 08 Oct 2010 10:59:24 +0100
 
