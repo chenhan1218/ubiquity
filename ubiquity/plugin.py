@@ -32,7 +32,7 @@ class Plugin(FilteredCommand):
         return None
 
 class InstallPlugin(Plugin):
-    def install(self, target, progress, *args, **kwargs):
+    def install(self, *args, **kwargs):
         return self.run_command(auto_process=True)
 
 # Use this as a decorator if you want to guard against a function being called
