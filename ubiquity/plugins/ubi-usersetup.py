@@ -28,7 +28,7 @@ import os, re
 
 from ubiquity import validation
 from ubiquity.misc import execute, execute_root, dmimodel
-from ubiquity.plugin import *
+from ubiquity import plugin
 import debconf
 
 NAME = 'usersetup'
@@ -54,7 +54,7 @@ def check_hostname(hostname):
                      'or contain the sequence "..".')
     return "\n".join(e)
 
-class PageBase(PluginUI):
+class PageBase(plugin.PluginUI):
     def __init__(self):
         self.suffix = dmimodel()
         if self.suffix:
@@ -150,7 +150,6 @@ class PageGtk(PageBase):
         self.hostname_edited = False
 
         import gtk
-        from ubiquity.gtkwidgets import LabelledEntry
         builder = gtk.Builder()
         self.controller.add_builder(builder)
         builder.add_from_file('/usr/share/ubiquity/gtk/stepUserInfo.ui')
@@ -397,7 +396,6 @@ class PageKde(PageBase):
         self.controller = controller
 
         from PyQt4 import uic
-        from PyQt4.QtGui import QDialog
         from PyKDE4.kdeui import KIconLoader
 
         self.plugin_widgets = uic.loadUi('/usr/share/ubiquity/qt/stepUserSetup.ui')
@@ -620,7 +618,7 @@ class PageNoninteractive(PageBase):
     def clear_errors(self):
         pass
 
-class Page(Plugin):
+class Page(plugin.Plugin):
     def prepare(self, unfiltered=False):
         if ('UBIQUITY_FRONTEND' not in os.environ or
             os.environ['UBIQUITY_FRONTEND'] != 'debconf_ui'):
@@ -694,7 +692,7 @@ class Page(Plugin):
                 self.ui.set_username(value)
 
     def run(self, priority, question):
-        return Plugin.run(self, priority, question)
+        return plugin.Plugin.run(self, priority, question)
 
     def ok_handler(self):
         self.ui.clear_errors()
@@ -738,7 +736,7 @@ class Page(Plugin):
             else:
                 self.preseed('netcfg/get_domain', '')
 
-        Plugin.ok_handler(self)
+        plugin.Plugin.ok_handler(self)
 
     def error(self, priority, question):
         if question.startswith('passwd/username-'):
@@ -748,9 +746,9 @@ class Page(Plugin):
         else:
             self.ui.error_dialog(self.description(question),
                                        self.extended_description(question))
-        return Plugin.error(self, priority, question)
+        return plugin.Plugin.error(self, priority, question)
 
-class Install(InstallPlugin):
+class Install(plugin.InstallPlugin):
     def prepare(self, unfiltered=False):
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
             environ = {'OVERRIDE_SYSTEM_USER': '1'}
@@ -762,9 +760,9 @@ class Install(InstallPlugin):
     def error(self, priority, question):
         self.ui.error_dialog(self.description(question),
                              self.extended_description(question))
-        return InstallPlugin.error(self, priority, question)
+        return plugin.InstallPlugin.error(self, priority, question)
 
     def install(self, target, progress, *args, **kwargs):
         progress.info('ubiquity/install/user')
-        return InstallPlugin.install(self, target, progress, *args, **kwargs)
+        return plugin.InstallPlugin.install(self, target, progress, *args, **kwargs)
 

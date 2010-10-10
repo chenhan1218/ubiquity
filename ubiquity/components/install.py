@@ -23,10 +23,6 @@ from ubiquity.filteredcommand import FilteredCommand
 
 class Install(FilteredCommand):
     def prepare(self, unfiltered=False):
-        http_proxy = self.frontend.get_proxy()
-        if http_proxy:
-            self.preseed('mirror/http/proxy', http_proxy)
-
         reboot = self.db.get('ubiquity/reboot')
         if reboot == 'true':
             self.frontend.set_reboot(True)

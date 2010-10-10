@@ -17,8 +17,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-from ubiquity.plugin import *
-from ubiquity import misc, install_misc, osextras, i18n
+from ubiquity import plugin
+from ubiquity import misc, osextras, i18n
 from hashlib import md5
 import os
 import sys
@@ -50,7 +50,7 @@ WGET_HASH = '4589f42e1546aa47ca181e5d949d310b'
 
 # TODO: Set the 'have at least 3 GB' from /cdrom/casper/filesystem.size + a
 # fudge factor.
-class PreparePageBase(PluginUI):
+class PreparePageBase(plugin.PluginUI):
     plugin_title = 'ubiquity/text/prepare_heading_label'
 
     def setup_power_watch(self):
@@ -75,7 +75,7 @@ class PreparePageBase(PluginUI):
         self.wget_proc = None
         self.network_change()
 
-    @only_this_page
+    @plugin.only_this_page
     def check_returncode(self, *args):
         if self.wget_retcode is not None or self.wget_proc is None:
             self.wget_proc = subprocess.Popen(
@@ -114,7 +114,6 @@ class PreparePageBase(PluginUI):
 class PageGtk(PreparePageBase):
     restricted_package_name = 'ubuntu-restricted-addons'
     def __init__(self, controller, *args, **kwargs):
-        from ubiquity.gtkwidgets import StateBox
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             self.page = None
             return
@@ -202,7 +201,6 @@ class PageKde(PreparePageBase):
         self.controller = controller
         try:
             from PyQt4 import uic
-            from PyQt4.QtGui import QLabel, QWidget
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepPrepare.ui')
             self.prepare_download_updates = self.page.prepare_download_updates
             self.prepare_nonfree_software = self.page.prepare_nonfree_software
@@ -280,7 +278,7 @@ class PageKde(PreparePageBase):
             text = "<b>" + text + "</b>"
             widget.setText(text)
 
-class Page(Plugin):
+class Page(plugin.Plugin):
     def prepare(self):
         if (self.db.get('apt-setup/restricted') == 'false' or
             self.db.get('apt-setup/multiverse') == 'false'):
@@ -345,7 +343,7 @@ class Page(Plugin):
                 env['DEBCONF_DB_REPLACE'] = 'configdb'
                 env['DEBCONF_DB_OVERRIDE'] = 'Pipe{infd:none outfd:none}'
                 subprocess.Popen(['/usr/share/jockey/jockey-backend', '--timeout=120'], env=env)
-        Plugin.ok_handler(self)
+        plugin.Plugin.ok_handler(self)
 
     def set_online_state(self, state):
         # We maintain this state in debconf so that plugins, specficially the
