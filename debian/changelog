@@ -1,4 +1,4 @@
-ubiquity (2.4.9) UNRELEASED; urgency=low
+ubiquity (2.5.0) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Log which package (albeit only the first one) caused us to declare
