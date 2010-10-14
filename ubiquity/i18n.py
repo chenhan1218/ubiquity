@@ -193,7 +193,7 @@ string_questions = {
     'okbutton1': 'ubiquity/imported/ok',
 }
 
-string_extended = set('grub_device_label')
+string_extended = set(('grub_device_label',))
 
 def map_widget_name(prefix, name):
     """Map a widget name to its translatable template."""

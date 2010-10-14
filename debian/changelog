@@ -6,6 +6,7 @@ ubiquity (2.5.0) UNRELEASED; urgency=low
   * Initialise release_notes_found in KDE prepare plugin, so that it doesn't
     break in oem-config mode (LP: #656983).
   * Re-enable alpha warning for natty.
+  * Fix ubiquity.i18n.string_extended set creation syntax.
 
   [ Evan Dandrea ]
   * Merge with the maverick-cleanup branch.
