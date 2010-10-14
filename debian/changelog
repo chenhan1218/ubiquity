@@ -7,6 +7,9 @@ ubiquity (2.5.0) UNRELEASED; urgency=low
     break in oem-config mode (LP: #656983).
   * Re-enable alpha warning for natty.
   * Fix ubiquity.i18n.string_extended set creation syntax.
+  * GTK frontend:
+    - Display inline error messages for bad usernames, rather than just
+      silently greying out the Forward button (LP: #555896).
 
   [ Evan Dandrea ]
   * Merge with the maverick-cleanup branch.

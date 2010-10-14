@@ -54,6 +54,25 @@ def check_hostname(hostname):
                      'or contain the sequence "..".')
     return "\n".join(e)
 
+def check_username(username):
+    """Returns a newline separated string of reasons why the username is
+    invalid."""
+    # TODO: i18n
+    e = []
+    # Ahem.  We can cheat here by inserting newlines where needed.  Hopefully
+    # by the time we translate this, GTK+ will have decent layout management.
+    if username:
+        if not re.match('[a-z]', username[0]):
+            e.append("Must start with a lower-case letter.")
+        # Technically both these conditions might hold.  However, the common
+        # case seems to be that somebody starts typing their name beginning
+        # with an upper-case letter, and it's probably sufficient to just
+        # issue the first error in that case.
+        elif not re.match('^[-a-z0-9_]+$', username):
+            e.append("May only contain lower-case letters,\n"
+                     "digits, hyphens, and underscores.")
+    return "\n".join(e)
+
 class PageBase(plugin.PluginUI):
     def __init__(self):
         self.suffix = dmimodel()
@@ -257,7 +276,8 @@ class PageGtk(PageBase):
 
     def username_error(self, msg):
         self.username_ok.hide()
-        self.username_error_label.set_text(msg)
+        m = '<small><span foreground="darkred"><b>%s</b></span></small>' % msg
+        self.username_error_label.set_markup(m)
         self.username_error_label.show()
 
     def hostname_error(self, msg):
@@ -268,7 +288,8 @@ class PageGtk(PageBase):
 
     def password_error(self, msg):
         self.password_strength.hide()
-        self.password_error_label.set_text(msg)
+        m = '<small><span foreground="darkred"><b>%s</b></span></small>' % msg
+        self.password_error_label.set_markup(m)
         self.password_error_label.show()
 
     def get_hostname (self):
@@ -319,10 +340,17 @@ class PageGtk(PageBase):
             self.fullname_ok.hide()
 
         text = self.username.get_text()
-        if re.match('^[a-z][-a-z0-9_]*$', text):
-            self.username_ok.show()
+        if text:
+            error_msg = check_username(text)
+            if error_msg:
+                self.username_error(error_msg)
+                complete = False
+            else:
+                self.username_ok.show()
+                self.username_error_label.hide()
         else:
             self.username_ok.hide()
+            self.username_error_label.hide()
             complete = False
 
         passw = self.password.get_text()
