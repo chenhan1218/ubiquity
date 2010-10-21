@@ -10,6 +10,7 @@ ubiquity (2.5.0) UNRELEASED; urgency=low
   * GTK frontend:
     - Display inline error messages for bad usernames, rather than just
       silently greying out the Forward button (LP: #555896).
+  * Adjust for changes in base-installer 1.113ubuntu1.
 
   [ Evan Dandrea ]
   * Merge with the maverick-cleanup branch.
