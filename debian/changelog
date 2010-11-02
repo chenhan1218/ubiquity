@@ -15,6 +15,10 @@ ubiquity (2.5.0) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Merge with the maverick-cleanup branch.
 
+  [ Martin Pitt ]
+  * debian/rules: Run dh_scour to compress shipped SVG images. Add
+    python-scour build dependency.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 08 Oct 2010 10:59:24 +0100
 
 ubiquity (2.4.8) maverick; urgency=low
