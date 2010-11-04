@@ -46,6 +46,7 @@ my @basebd = (
     'python-central (>= 0.5)',
     'python-gobject-dev',
     'python-gtk2-dev',
+    'python-scour',
     'xkb-data (>= 0.9)',
     'xkb-data-i18n',
 );

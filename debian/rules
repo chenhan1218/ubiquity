@@ -232,6 +232,7 @@ binary-indep: install
 	dh_installman
 	dh_lintian
 	dh_link
+	dh_scour
 	dh_strip
 	dh_compress
 	dh_fixperms
@@ -272,6 +273,7 @@ binary-arch: install
 	dh_installinit --no-start --name=ubiquity
 	dh_installman
 	dh_link
+	dh_scour
 	dh_strip
 	dh_compress
 	dh_fixperms
