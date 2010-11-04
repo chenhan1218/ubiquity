@@ -235,7 +235,7 @@ class Wizard(BaseFrontend):
         # set default language
         self.locale = i18n.reset_locale(self)
 
-        gobject.timeout_add(30000, self.poke_screensaver)
+        gobject.timeout_add_seconds(30, self.poke_screensaver)
 
         # set custom language
         self.set_locales()
