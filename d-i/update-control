@@ -33,6 +33,7 @@ my @basebd = (
     'debhelper (>= 7.0.1)',
     'dh-di (>= 3)',
     'dpkg-dev (>= 1.14.4)',
+    'python-scour',
     'intltool (>= 0.40.0)',
     'keymapper (>= 0.5.3-7)',
     'libcheese-gtk-dev',
