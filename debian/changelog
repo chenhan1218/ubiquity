@@ -1,4 +1,4 @@
-ubiquity (2.5.0) UNRELEASED; urgency=low
+ubiquity (2.5.0) natty; urgency=low
 
   [ Colin Watson ]
   * Log which package (albeit only the first one) caused us to declare
@@ -31,7 +31,7 @@ ubiquity (2.5.0) UNRELEASED; urgency=low
   * debian/rules: Run dh_scour to compress shipped SVG images. Add
     python-scour build dependency.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 08 Oct 2010 10:59:24 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 08 Nov 2010 14:00:56 +0000
 
 ubiquity (2.4.8) maverick; urgency=low
 
