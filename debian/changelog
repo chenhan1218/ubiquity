@@ -13,6 +13,15 @@ ubiquity (2.5.0) UNRELEASED; urgency=low
   * Adjust for changes in base-installer 1.113ubuntu1.
   * Use gobject.timeout_add_seconds rather than gobject.timeout_add in a
     couple of places where the exact timeout period isn't critical.
+  * Automatic update of included source packages: apt-setup 1:0.48ubuntu1,
+    base-installer 1.113ubuntu1, choose-mirror 2.35ubuntu1, clock-setup
+    0.104ubuntu1, debian-installer-utils 1.80ubuntu1, hw-detect 1.80ubuntu1,
+    netcfg 1.56ubuntu1, partconf 1.34, partman-auto 93ubuntu1, partman-base
+    145ubuntu1, partman-basicfilesystems 67ubuntu1, partman-basicmethods 45,
+    partman-btrfs 3, partman-ext3 60ubuntu1, partman-jfs 31,
+    partman-newworld 23, partman-partitioning 77ubuntu1, partman-reiserfs
+    48, partman-target 69ubuntu1, partman-xfs 45, preseed 1.46,
+    yaboot-installer 1.1.17ubuntu1.
 
   [ Evan Dandrea ]
   * Merge with the maverick-cleanup branch.
