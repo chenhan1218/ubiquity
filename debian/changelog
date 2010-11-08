@@ -10,9 +10,9 @@ ubiquity (2.5.0) UNRELEASED; urgency=low
   * GTK frontend:
     - Display inline error messages for bad usernames, rather than just
       silently greying out the Forward button (LP: #555896).
+    - Use gobject.timeout_add_seconds rather than gobject.timeout_add in a
+      couple of places where the exact timeout period isn't critical.
   * Adjust for changes in base-installer 1.113ubuntu1.
-  * Use gobject.timeout_add_seconds rather than gobject.timeout_add in a
-    couple of places where the exact timeout period isn't critical.
   * Install new files from apt-setup 1:0.48ubuntu1.
   * Automatic update of included source packages: apt-setup 1:0.48ubuntu1,
     base-installer 1.113ubuntu1, choose-mirror 2.35ubuntu1, clock-setup
