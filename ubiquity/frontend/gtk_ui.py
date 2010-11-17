@@ -164,6 +164,13 @@ class Controller(ubiquity.frontend.base.Controller):
     def get_string(self, name, lang=None, prefix=None):
         return self._wizard.get_string(name, lang, prefix)
 
+    def toggle_navigation_control(self,hideFlag):
+        if hideFlag:
+            self._wizard.navigation_control.show()
+        else:
+            self._wizard.navigation_control.hide()
+        self._wizard.refresh()
+
 class Wizard(BaseFrontend):
 
     def __init__(self, distro):
