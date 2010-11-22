@@ -350,10 +350,12 @@ EndSection
                 wm_cmd = ['xfwm4']
             elif osextras.find_on_path('matchbox-window-manager'):
                 wm_cmd = ['matchbox-window-manager']
+            elif osextras.find_on_path('openbox-lubuntu'):
+                wm_cmd = ['openbox-lubuntu']
             else:
                 raise MissingProgramError, \
                     ("No window manager found (tried metacity, xfwm4, "
-                     "matchbox-window-manager)")
+                     "matchbox-window-manager, openbox-lubuntu)")
             wm = subprocess.Popen(wm_cmd,
                 stdin=null, stdout=logfile, stderr=logfile,
                 **maybe_drop_privileges)
@@ -373,6 +375,12 @@ EndSection
                     **maybe_drop_privileges))
                 extras.append(subprocess.Popen(
                     ['/usr/bin/xfsettingsd'],
+                    stdin=null, stdout=logfile, stderr=logfile,
+                    **maybe_drop_privileges))
+
+            if osextras.find_on_path('lxsession'):
+                extras.append(subprocess.Popen(
+                    ['lxsession','-s','Lubuntu', '-e', 'LXDE', '-a'],
                     stdin=null, stdout=logfile, stderr=logfile,
                     **maybe_drop_privileges))
 

@@ -8,7 +8,12 @@ ubiquity (2.5.1) UNRELEASED; urgency=low
   * Expose the navigation control in the GTK frontend API.
     Thanks Ying-Chun Liu!
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 15 Nov 2010 12:05:19 +0000
+  [ Julien Lavergne ]
+  * debian/ubiquity.ubiquity.upstart:
+   - Add lxdm support.
+  * Add support for openbox-lubuntu and lxsession for ubiquity-dm (LP: #546445)
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Mon, 22 Nov 2010 19:45:30 +0100
 
 ubiquity (2.5.0) natty; urgency=low
 
