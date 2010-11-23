@@ -11,6 +11,17 @@ ubiquity (2.5.1) UNRELEASED; urgency=low
     parted_server is no longer running by the time it starts, but that's
     of no matter as it runs long after the partitioning has been
     committed.
+  * Automatic update of included source packages: apt-setup
+    1:0.49ubuntu1, base-installer 1.114ubuntu1, choose-mirror
+    2.36ubuntu1, clock-setup 0.105ubuntu1, debian-installer-utils
+    1.81ubuntu1, grub-installer 1.57ubuntu1, hw-detect 1.81ubuntu1,
+    migration-assistant 0.6.8, netcfg 1.57ubuntu2, partconf 1.35,
+    partman-base 146ubuntu2, partman-basicfilesystems 68ubuntu1,
+    partman-basicmethods 46, partman-btrfs 4, partman-efi 22ubuntu1,
+    partman-ext3 61ubuntu1, partman-jfs 32, partman-newworld 24,
+    partman-partitioning 78ubuntu1, partman-reiserfs 49, partman-target
+    70ubuntu1, partman-xfs 46, preseed 1.47, yaboot-installer
+    1.1.18ubuntu1.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 15 Nov 2010 12:05:19 +0000
 
