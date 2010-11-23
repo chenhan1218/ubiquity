@@ -7,6 +7,10 @@ ubiquity (2.5.1) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Expose the navigation control in the GTK frontend API.
     Thanks Ying-Chun Liu!
+  * Do not filter out partitions in migration-assistant anymore.
+    parted_server is no longer running by the time it starts, but that's
+    of no matter as it runs long after the partitioning has been
+    committed.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 15 Nov 2010 12:05:19 +0000
 
