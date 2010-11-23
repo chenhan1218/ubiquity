@@ -1,4 +1,4 @@
-ubiquity (2.5.1) UNRELEASED; urgency=low
+ubiquity (2.5.1) natty; urgency=low
 
   [ Colin Watson ]
   * Remove 'localhost' from default ::1 line in /etc/hosts (see netcfg 1.57,
@@ -23,7 +23,7 @@ ubiquity (2.5.1) UNRELEASED; urgency=low
     70ubuntu1, partman-xfs 46, preseed 1.47, yaboot-installer
     1.1.18ubuntu1.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 15 Nov 2010 12:05:19 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 23 Nov 2010 17:46:54 +0000
 
 ubiquity (2.5.0) natty; urgency=low
 
