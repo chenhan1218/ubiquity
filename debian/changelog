@@ -1,8 +1,13 @@
 ubiquity (2.5.2) UNRELEASED; urgency=low
 
+  [ Julien Lavergne ]
   * debian/ubiquity.ubiquity.upstart, debian/oem-config.oem-config.upstart:
     - Add lxdm support.
   * Add support for openbox-lubuntu and lxsession for ubiquity-dm (LP: #546445)
+
+  [ Colin Watson ]
+  * Automatic update of included source packages: apt-setup 1:0.49ubuntu2,
+    user-setup 1.28ubuntu11.
 
  -- Julien Lavergne <gilir@ubuntu.com>  Mon, 22 Nov 2010 19:45:30 +0100
 
