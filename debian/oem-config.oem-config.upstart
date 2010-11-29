@@ -9,12 +9,14 @@ author		"Ubuntu Installer Team <ubuntu-installer@lists.ubuntu.com>"
 start on (starting gdm
 	  or starting kdm
 	  or starting xdm
+	  or starting lxdm
 	  or starting uxlaunch
 	  or stopping rc RUNLEVEL=[2345])
 stop on (runlevel [06]
 	 or stopping gdm
 	 or stopping kdm
 	 or stopping xdm
+	 or stopping lxdm
 	 or stopping uxlaunch)
 
 emits starting-dm
