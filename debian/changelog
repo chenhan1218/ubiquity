@@ -1,3 +1,11 @@
+ubiquity (2.5.2) UNRELEASED; urgency=low
+
+  * debian/ubiquity.ubiquity.upstart:
+   - Add lxdm support.
+  * Add support for openbox-lubuntu and lxsession for ubiquity-dm (LP: #546445)
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Mon, 22 Nov 2010 19:45:30 +0100
+
 ubiquity (2.5.1) natty; urgency=low
 
   [ Colin Watson ]
