@@ -1,6 +1,7 @@
 ubiquity (2.5.5) UNRELEASED; urgency=low
 
   * Ensure that /var/lib/ubiquity exists in scripts/plugininstall.py.
+  * Automatic update of included source packages: partman-auto 93ubuntu2.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 02 Dec 2010 16:14:18 +0000
 
