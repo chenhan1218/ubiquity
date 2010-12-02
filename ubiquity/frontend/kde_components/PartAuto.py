@@ -28,7 +28,7 @@ def addBars(parent, before_bar, after_bar):
 class PartAuto(QtGui.QWidget):
 
     def __init__(self, controller):
-        QWidget.__init__(self)
+        QtGui.QWidget.__init__(self)
         self.controller = controller
 
         uic.loadUi(os.path.join(_uidir,'stepPartAuto.ui'), self)
