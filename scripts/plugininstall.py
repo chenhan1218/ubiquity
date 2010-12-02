@@ -1420,6 +1420,9 @@ class Install(install_misc.InstallBase):
                 self.target, 'etc/apt/apt.conf.d', apt_conf))
 
 if __name__ == '__main__':
+    if not os.path.exists('/var/lib/ubiquity'):
+        os.makedirs('/var/lib/ubiquity')
+
     install = Install()
     sys.excepthook = install_misc.excepthook
     install.run()

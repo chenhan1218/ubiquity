@@ -1,3 +1,9 @@
+ubiquity (2.5.5) UNRELEASED; urgency=low
+
+  * Ensure that /var/lib/ubiquity exists in scripts/plugininstall.py.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 02 Dec 2010 16:14:18 +0000
+
 ubiquity (2.5.4) natty; urgency=low
 
   * ubiquity/frontend/kde_components/PartAuto.py fix namespace on QWidget
