@@ -1,3 +1,9 @@
+ubiquity (2.5.6) UNRELEASED; urgency=low
+
+  * Recommend btrfs-tools (LP: #674805).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 02 Dec 2010 19:49:45 +0000
+
 ubiquity (2.5.5) natty; urgency=low
 
   * Ensure that /var/lib/ubiquity exists in scripts/plugininstall.py.
