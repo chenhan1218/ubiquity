@@ -227,10 +227,14 @@ set_background(GtkWidget *win) {
 	GtkPixmap *pixmap;
 	pixbuf = gdk_pixbuf_new_from_file("/usr/share/themes/Ambiance/gtk-2.0/apps/img/panel.png", NULL);
 	if (pixbuf) {
-		gdk_pixbuf_render_pixmap_and_mask(pixbuf, &pixmap, NULL, 0);
-		if (pixmap)
-			gdk_window_set_back_pixmap(win->window, pixmap, FALSE);
-		gdk_pixbuf_unref(pixbuf);
+	    pixbuf = gdk_pixbuf_new_from_file("/usr/share/lxpanel/images/lubuntu-background.png", NULL);
+	{
+	    if (pixbuf) {
+		    gdk_pixbuf_render_pixmap_and_mask(pixbuf, &pixmap, NULL, 0);
+		    if (pixmap)
+			    gdk_window_set_back_pixmap(win->window, pixmap, FALSE);
+		    gdk_pixbuf_unref(pixbuf);
+		}
 	} else {
 		g_warning("Could not find background image.");
 	}

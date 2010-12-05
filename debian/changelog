@@ -1,8 +1,16 @@
 ubiquity (2.5.6) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Recommend btrfs-tools (LP: #674805).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 02 Dec 2010 19:49:45 +0000
+  [ Julien Lavergne ]
+  * bin/ubiquity-dm:
+   - Wait lxsession before launching the panel, to have theming support.
+     (LP: #684802)
+  * src/panel/panel.c
+   - Load lxpanel background for the panel when it's available.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Sun, 05 Dec 2010 17:53:48 +0100
 
 ubiquity (2.5.5) natty; urgency=low
 
