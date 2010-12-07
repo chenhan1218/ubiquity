@@ -164,16 +164,16 @@ class Install(install_misc.InstallBase):
         apt_install_direct.close()
 
         self.next_region()
-        self.db.progress('INFO', 'ubiquity/install/bootloader')
-        self.configure_bootloader()
-
-        self.next_region()
         self.db.progress('INFO', 'ubiquity/install/installing')
 
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
             self.install_oem_extras()
         else:
             self.install_extras()
+
+        self.next_region()
+        self.db.progress('INFO', 'ubiquity/install/bootloader')
+        self.configure_bootloader()
 
         self.next_region(size=4)
         self.db.progress('INFO', 'ubiquity/install/removing')
@@ -768,6 +768,12 @@ class Install(install_misc.InstallBase):
         hardware system."""
 
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            #the language might be different than initial install.
+            #recopy translations if we have them now
+            lang = self.db.get('debian-installer/locale').split('.')[0]
+            source = '/usr/share/locale-langpack/%s/LC_MESSAGES/grub.mo' % lang
+            if os.path.exists(source) and os.path.isdir('/boot/grub/locale'):
+                shutil.copy(source, '/boot/grub/locale/%s.mo' % lang)
             return
 
         inst_boot = self.db.get('ubiquity/install_bootloader')
