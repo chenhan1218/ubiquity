@@ -770,10 +770,12 @@ class Install(install_misc.InstallBase):
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
             #the language might be different than initial install.
             #recopy translations if we have them now
-            lang = self.db.get('debian-installer/locale').split('.')[0]
-            source = '/usr/share/locale-langpack/%s/LC_MESSAGES/grub.mo' % lang
-            if os.path.exists(source) and os.path.isdir('/boot/grub/locale'):
-                shutil.copy(source, '/boot/grub/locale/%s.mo' % lang)
+            full_lang = self.db.get('debian-installer/locale').split('.')[0]
+            for lang in [full_lang.split('.')[0], full_lang.split('_')[0]]:
+                source = '/usr/share/locale-langpack/%s/LC_MESSAGES/grub.mo' % lang
+                if os.path.exists(source) and os.path.isdir('/boot/grub/locale'):
+                    shutil.copy(source, '/boot/grub/locale/%s.mo' % lang)
+                    break
             return
 
         inst_boot = self.db.get('ubiquity/install_bootloader')
