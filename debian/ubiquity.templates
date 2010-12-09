@@ -182,6 +182,10 @@ Template: ubiquity/text/password_debug_warning_label
 Type: text
 _Description: You are running in debugging mode. Do not use a valuable password!
 
+Template: ubiquity/text/password_mismatch
+Type: text
+_Description: Passwords do not match
+
 Template: ubiquity/text/password/too_short
 Type: text
 _Description: Short password
