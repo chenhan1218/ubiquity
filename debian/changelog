@@ -2,6 +2,9 @@ ubiquity (2.5.6) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Recommend btrfs-tools (LP: #674805).
+  * Sync network configuration with netcfg: drop ip6-allhosts (see Debian
+    #533384), and strip trailing dots from the hostname and leading dots
+    from the domain.
 
   [ Mario Limonciello ]
   * If available, copy GRUB translations in oem-config user mode.

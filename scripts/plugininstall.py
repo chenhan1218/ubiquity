@@ -262,8 +262,7 @@ class Install(install_misc.InstallBase):
             fe00::0 ip6-localnet
             ff00::0 ip6-mcastprefix
             ff02::1 ip6-allnodes
-            ff02::2 ip6-allrouters
-            ff02::3 ip6-allhosts""")
+            ff02::2 ip6-allrouters""")
         hosts.close()
 
         # Network Manager's ifupdown plugin has an inotify watch on
