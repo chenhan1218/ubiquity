@@ -21,7 +21,6 @@ import os
 import debconf
 
 from ubiquity import plugin
-from ubiquity import misc
 
 NAME = 'migrationassistant'
 AFTER = 'usersetup'
