@@ -219,7 +219,7 @@ class TreeItem:
             else:
                 return QtCore.Qt.Unchecked
         else:
-            return QtCore.Qt.Unchecked  ##FIXME should be enabled(False)
+            return QtCore.Qt.Unchecked # FIXME should be enabled(False)
 
     def formatEnabled(self):
         """is the format tickbox enabled"""

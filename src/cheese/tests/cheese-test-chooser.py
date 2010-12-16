@@ -17,24 +17,27 @@ import locale
 PACKAGE_LOCALEDIR = '/usr/share/locale/'
 GETTEXT_PACKAGE = 'cheese'
 
-def init_i18n() :
+
+def init_i18n():
     locale.setlocale(locale.LC_ALL, '')
     gettext.bindtextdomain(GETTEXT_PACKAGE, PACKAGE_LOCALEDIR)
     gettext.textdomain(GETTEXT_PACKAGE)
     gettext.install(GETTEXT_PACKAGE, PACKAGE_LOCALEDIR)
 
+
 def destroy(*args):
     """ Callback function that is activated when the program is destoyed """
     gtk.main_quit()
 
-def response_cb(widget, response,chooser) :
-    if response == gtk.RESPONSE_ACCEPT :
+
+def response_cb(widget, response,chooser):
+    if response == gtk.RESPONSE_ACCEPT:
         print "PixBuf captured"
         print chooser.get_property('pixbuf')    
     gtk.main_quit()
 
 
-def main(args) :
+def main(args):
 
     gtk.gdk.threads_init()
 
@@ -50,5 +53,5 @@ def main(args) :
     gtk.main()
     gtk.gdk.threads_leave()
 
-if __name__ == '__main__' :
+if __name__ == '__main__':
     sys.exit(main(sys.argv))

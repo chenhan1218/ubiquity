@@ -528,7 +528,6 @@ class SegmentedBar(gtk.Widget):
         else:
             fd.set_size(self.pango_size_normal)
 
-
         if bold:
             fd.set_weight(pango.WEIGHT_BOLD)
         else:

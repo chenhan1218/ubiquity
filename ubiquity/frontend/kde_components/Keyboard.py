@@ -51,7 +51,7 @@ class Keyboard(QWidget):
     lowerFont = QFont("Helvetica", 10, QFont.DemiBold)
     upperFont = QFont("Helvetica", 8)
 
-    def __init__(self, parent = None):
+    def __init__(self, parent=None):
         QWidget.__init__(self, parent)
         self.codes = []
 
@@ -265,7 +265,7 @@ if __name__ == "__main__":
     win = QWidget()
     l = QVBoxLayout(win)
 
-    def addKb(layout, variant = ""):
+    def addKb(layout, variant=""):
         kb1 = Keyboard()
         kb1.setLayout(layout)
         kb1.setVariant(variant)

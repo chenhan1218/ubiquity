@@ -230,7 +230,7 @@ class PageKde(plugin.PluginUI):
                 self.keyboardDisplay.setLayout(ly)
 
                 #no variants, force update by setting none
-                #if not keyboard_names.lang[l]['variants'].has_key(ly):
+                #if ly not in keyboard_names.lang[l]['variants']:
                 #    self.keyboardDisplay.setVariant(None)
 
             self.current_layout = layout
@@ -245,7 +245,7 @@ class PageKde(plugin.PluginUI):
             var = None
             l = self.controller.dbfilter.get_locale()
             ly = keyboard_names.lang[l]['layouts'][layout]
-            if variant and keyboard_names.lang[l]['variants'].has_key(ly):
+            if variant and ly in keyboard_names.lang[l]['variants']:
                 variantMap = keyboard_names.lang[l]['variants'][ly]
                 var = variantMap[utf8(variant)]
 
@@ -300,7 +300,7 @@ class PageKde(plugin.PluginUI):
             var = None
             l = self.controller.dbfilter.get_locale()
             layout = keyboard_names.lang[l]['layouts'][self.get_keyboard()]
-            if variant and keyboard_names.lang[l]['variants'].has_key(layout):
+            if variant and layout in keyboard_names.lang[l]['variants']:
                 variantMap = keyboard_names.lang[l]['variants'][layout]
                 var = variantMap[utf8(variant)]
 

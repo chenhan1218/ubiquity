@@ -20,9 +20,9 @@ class KeyboardDetector:
     def read_step(self, step):
         if self.current_step != -1:
             if step not in self.keycodes.values() + [self.present] + [self.not_present]:
-                raise KeyError, 'invalid argument'
+                raise KeyError('invalid argument')
             if self.result:
-                raise Exception, 'already done'
+                raise Exception('already done')
 
         step_type = KeyboardDetector.UNKNOWN
         self.keycodes = {}

@@ -794,4 +794,3 @@ class Install(plugin.InstallPlugin):
     def install(self, target, progress, *args, **kwargs):
         progress.info('ubiquity/install/user')
         return plugin.InstallPlugin.install(self, target, progress, *args, **kwargs)
-

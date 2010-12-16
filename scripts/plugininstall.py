@@ -48,6 +48,7 @@ from ubiquity import plugin_manager
 from ubiquity.casper import get_casper
 from ubiquity.components import apt_setup, hw_detect, check_kernels
 
+
 def cleanup_after(func):
     def wrapper(self):
         try:
@@ -61,6 +62,7 @@ def cleanup_after(func):
             except:
                 pass
     return wrapper
+
 
 class Install(install_misc.InstallBase):
     def __init__(self):
@@ -335,10 +337,13 @@ class Install(install_misc.InstallBase):
         class Progress:
             def __init__(self, db):
                 self._db = db
+
             def info(self, title):
                 self._db.progress('INFO', title)
+
             def get(self, question):
                 return self._db.get(question)
+
             def substitute(self, template, substr, data):
                 self._db.subst(template, substr, data)
 
@@ -510,7 +515,7 @@ class Install(install_misc.InstallBase):
         if kern is None:
             return None
         pkc = cache._depcache.GetCandidateVer(kern._pkg)
-        if pkc.depends_list.has_key('Depends'):
+        if 'Depends' in pkc.depends_list:
             dependencies = pkc.depends_list['Depends']
         else:
             # Didn't find.

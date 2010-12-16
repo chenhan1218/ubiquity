@@ -33,6 +33,6 @@ class PageDebconf(plugin.PluginUI):
 class Page(plugin.Plugin):
     def prepare(self, unfiltered=False):
         if not unfiltered:
-            raise TasksUnfilteredOnly, \
-                "tasks component only usable with debconf frontend"
+            raise TasksUnfilteredOnly(
+                "tasks component only usable with debconf frontend")
         return ['tasksel']

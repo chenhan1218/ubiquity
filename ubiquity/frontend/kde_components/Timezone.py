@@ -65,18 +65,13 @@ class TimezoneMap(QtGui.QWidget):
             zoneS = str(zoneHour)
 
             #try to find the closest zone
-            if not zonePixmaps.has_key(zoneS):
-                if zonePixmaps.has_key(str(zoneHour + .25)):
-                    zoneS = str(zoneHour + .25)
-                elif zonePixmaps.has_key(str(zoneHour + .25)):
-                    zoneS = str(zoneHour - .25)
-                elif zonePixmaps.has_key(str(zoneHour + .5)):
-                    zoneS = str(zoneHour + .5)
-                elif zonePixmaps.has_key(str(zoneHour - .5)):
-                    zoneS = str(zoneHour - .5)
-                else:
-                    #no zone...default to nothing
-                    zoneS = None
+            if zoneS not in zonePixmaps:
+                zoneS = None
+                for offset in (.25, -.25, .5, -.5): 
+                    zstring = str(zoneHour + offset)
+                    if zstring in zonePixmaps:
+                        zoneS = zstring
+                        break
 
             pixmap = zoneS and zonePixmaps[zoneS]
 

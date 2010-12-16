@@ -140,11 +140,11 @@ class Wizard(BaseFrontend):
                     tbfile = open('/var/lib/ubiquity/install.trace')
                     realtb = tbfile.read()
                     tbfile.close()
-                    raise RuntimeError, ("Install failed with exit code %s\n%s" %
-                                         (ret, realtb))
+                    raise RuntimeError("Install failed with exit code %s\n%s" %
+                                      (ret, realtb))
                 else:
-                    raise RuntimeError, ("Install failed with exit code %s; see "
-                                         "/var/log/syslog" % ret)
+                    raise RuntimeError("Install failed with exit code %s; see "
+                                       "/var/log/syslog" % ret)
 
             return 0
         else:

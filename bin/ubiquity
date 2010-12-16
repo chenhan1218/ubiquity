@@ -226,8 +226,8 @@ def install(frontend=None, query=False):
                     del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
             break
     else:
-        raise AttributeError, ('No frontend available; tried %s' %
-                               ', '.join(frontends))
+        raise AttributeError('No frontend available; tried %s' %
+                             ', '.join(frontends))
     os.environ['UBIQUITY_FRONTEND'] = chosen
     if query:
         print >> sys.__stdout__, os.environ['UBIQUITY_FRONTEND']

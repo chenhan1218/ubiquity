@@ -474,7 +474,7 @@ class PageGtk(PageBase):
             # Is the encoding necessary?
             return self.use_device_choice, unicode(disk, 'utf-8', 'replace')
         else:
-            raise AssertionError, "Couldn't get autopartition choice"
+            raise AssertionError("Couldn't get autopartition choice")
 
     # Advanced partitioning page
 
@@ -1346,8 +1346,8 @@ class Page(plugin.Plugin):
                 (want_arg is None or arg == want_arg)):
                 return (script, arg, option)
         else:
-            raise PartmanOptionError, ("%s should have %s (%s) option" %
-                                       (question, want_script, want_arg))
+            raise PartmanOptionError("%s should have %s (%s) option" %
+                                    (question, want_script, want_arg))
 
     def preseed_script(self, question, menu_options,
                        want_script, want_arg=None):
@@ -1959,7 +1959,7 @@ class Page(plugin.Plugin):
                         self.disk_cache, self.partition_cache,
                         self.cache_order)
             elif self.deleting_partition:
-                raise AssertionError, "Deleting partition didn't rebuild cache?"
+                raise AssertionError("Deleting partition didn't rebuild cache?")
 
             if self.debug_enabled():
                 import pprint
@@ -2026,8 +2026,8 @@ class Page(plugin.Plugin):
                 return True
 
             else:
-                raise AssertionError, ("Returned to %s with nothing to do" %
-                                       question)
+                raise AssertionError("Returned to %s with nothing to do" %
+                                     question)
 
         elif question == 'partman-partitioning/confirm_new_label':
             if self.creating_label:
@@ -2041,14 +2041,14 @@ class Page(plugin.Plugin):
                     self.preseed(question, 'false', seen=False)
                 return True
             else:
-                raise AssertionError, "Arrived at %s unexpectedly" % question
+                raise AssertionError("Arrived at %s unexpectedly" % question)
 
         elif question == 'partman/free_space':
             if self.creating_partition:
                 self.preseed_script(question, menu_options, 'new')
                 return True
             else:
-                raise AssertionError, "Arrived at %s unexpectedly" % question
+                raise AssertionError("Arrived at %s unexpectedly" % question)
 
         elif question == 'partman-partitioning/new_partition_size':
             if self.creating_partition:
@@ -2061,7 +2061,7 @@ class Page(plugin.Plugin):
                 self.preseed(question, size, seen=False)
                 return True
             else:
-                raise AssertionError, "Arrived at %s unexpectedly" % question
+                raise AssertionError("Arrived at %s unexpectedly" % question)
 
         elif question == 'partman-partitioning/new_partition_type':
             if self.creating_partition:
@@ -2071,7 +2071,7 @@ class Page(plugin.Plugin):
                     self.preseed(question, 'Logical', seen=False)
                 return True
             else:
-                raise AssertionError, "Arrived at %s unexpectedly" % question
+                raise AssertionError("Arrived at %s unexpectedly" % question)
 
         elif question == 'partman-partitioning/new_partition_place':
             if self.creating_partition:
@@ -2082,7 +2082,7 @@ class Page(plugin.Plugin):
                     self.preseed(question, 'End', seen=False)
                 return True
             else:
-                raise AssertionError, "Arrived at %s unexpectedly" % question
+                raise AssertionError("Arrived at %s unexpectedly" % question)
 
         elif question == 'partman/active_partition':
             if self.building_cache:
@@ -2204,7 +2204,7 @@ class Page(plugin.Plugin):
                 return True
 
             else:
-                raise AssertionError, "Arrived at %s unexpectedly" % question
+                raise AssertionError("Arrived at %s unexpectedly" % question)
 
         elif question == 'partman-partitioning/confirm_resize':
             if self.autopartition_question is not None:
@@ -2242,7 +2242,7 @@ class Page(plugin.Plugin):
                     self.preseed(question, 'false', seen=False)
                 return True
             else:
-                raise AssertionError, "Arrived at %s unexpectedly" % question
+                raise AssertionError("Arrived at %s unexpectedly" % question)
 
         elif question == 'partman-partitioning/new_size':
             if self.autopartition_question is not None:
@@ -2280,7 +2280,7 @@ class Page(plugin.Plugin):
                 self.preseed(question, size, seen=False)
                 return True
             else:
-                raise AssertionError, "Arrived at %s unexpectedly" % question
+                raise AssertionError("Arrived at %s unexpectedly" % question)
 
         elif question == 'partman-target/choose_method':
             if self.creating_partition or self.editing_partition:
@@ -2293,7 +2293,7 @@ class Page(plugin.Plugin):
                                     None, request['method'])
                 return True
             else:
-                raise AssertionError, "Arrived at %s unexpectedly" % question
+                raise AssertionError("Arrived at %s unexpectedly" % question)
 
         elif question in ('partman-basicfilesystems/mountpoint',
                           'partman-basicfilesystems/fat_mountpoint',
@@ -2313,7 +2313,7 @@ class Page(plugin.Plugin):
                     self.preseed(question, 'Enter manually', seen=False)
                 return True
             else:
-                raise AssertionError, "Arrived at %s unexpectedly" % question
+                raise AssertionError("Arrived at %s unexpectedly" % question)
 
         elif question == 'partman-basicfilesystems/mountpoint_manual':
             if self.creating_partition or self.editing_partition:
@@ -2327,7 +2327,7 @@ class Page(plugin.Plugin):
                 self.preseed(question, request['mountpoint'], seen=False)
                 return True
             else:
-                raise AssertionError, "Arrived at %s unexpectedly" % question
+                raise AssertionError("Arrived at %s unexpectedly" % question)
 
         elif question.startswith('partman/confirm'):
             self.db.set('ubiquity/partman-confirm', question[8:])
