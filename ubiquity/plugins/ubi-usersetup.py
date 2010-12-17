@@ -659,7 +659,7 @@ class Page(plugin.Plugin):
                         domain = self.db.get('netcfg/get_domain')
                         if hostname and domain:
                             hostname = '%s.%s' % (hostname.rstrip('.'),
-                                                  domain.lstrip('.'))
+                                                  domain.strip('.'))
                         if hostname != '':
                             self.ui.set_hostname(hostname)
                 except debconf.DebconfError:

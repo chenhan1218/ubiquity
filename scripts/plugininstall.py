@@ -244,7 +244,7 @@ class Install(install_misc.InstallBase):
         except debconf.DebconfError:
             hostname = ''
         try:
-            domain = self.db.get('netcfg/get_domain')
+            domain = self.db.get('netcfg/get_domain').rstrip('.')
         except debconf.DebconfError:
             domain = ''
         if hostname == '':
