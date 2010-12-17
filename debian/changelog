@@ -5,6 +5,9 @@ ubiquity (2.5.6) UNRELEASED; urgency=low
   * Sync network configuration with netcfg: drop ip6-allhosts (see Debian
     #533384); strip trailing dots from the hostname and leading and trailing
     dots from the domain.
+  * Automatic update of included source packages: grub-installer
+    1.57ubuntu2, netcfg 1.57ubuntu3, partman-auto 93ubuntu3, partman-target
+    71ubuntu1, user-setup 1.28ubuntu12.
 
   [ Mario Limonciello ]
   * If available, copy GRUB translations in oem-config user mode.
