@@ -731,7 +731,9 @@ class Wizard(BaseFrontend):
 
         #Parse the slideshow size early to prevent the window from growing
         self.slideshow = '/usr/share/ubiquity-slideshow'
-        if os.path.exists(self.slideshow):
+        if 'UBIQUITY_AUTOMATIC' in os.environ and self.hide_slideshow == True:
+            self.slideshow = None
+        elif os.path.exists(self.slideshow):
             try:
                 cfg = ConfigParser.ConfigParser()
                 cfg.read(os.path.join(self.slideshow, 'slideshow.conf'))

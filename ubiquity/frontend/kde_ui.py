@@ -504,10 +504,13 @@ class Wizard(BaseFrontend):
 
     def start_slideshow(self):
         slideshow_dir = '/usr/share/ubiquity-slideshow'
+        if 'UBIQUITY_AUTOMATIC' in os.environ and self.hide_slideshow == True:
+            self.slideshow = None
         slideshow_locale = self.slideshow_get_available_locale(slideshow_dir,
                                                                self.locale)
         slideshow_main = slideshow_dir + '/slides/index.html'
-        if not os.path.exists(slideshow_main):
+        if (not os.path.exists(slideshow_main)) or
+            ('UBIQUITY_AUTOMATIC' in os.environ and self.hide_slideshow == True):
             self.ui.pageMode.hide()
             return
 
