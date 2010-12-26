@@ -191,7 +191,10 @@ class Wizard(BaseFrontend):
             """Make a widget callable by the toplevel."""
             if not isinstance(widget, gtk.Widget):
                 return
-            widget.set_name(gtk.Buildable.get_name(widget))
+            name = gtk.Buildable.get_name(widget)
+            widget.set_name(name)
+            atk_desc = widget.get_accessible()
+            atk_desc.set_name(name)
             self.all_widgets.add(widget)
             setattr(self, widget.get_name(), widget)
             # We generally want labels to be selectable so that people can
