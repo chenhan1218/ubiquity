@@ -260,16 +260,15 @@ def apply_keyboard():
     
     # Mostly taken from ubi-console-setup.
     
-    # We need to get rid of /etc/default/console-setup, or console-setup
-    # will think it's already configured and behave differently. Try to
-    # save the old file for interest's sake, but it's not a big deal if
-    # we can't.
-    osextras.unlink_force('/etc/default/console-setup.pre-ubiquity')
+    # We need to get rid of /etc/default/keyboard, or keyboard-configuration
+    # will think it's already configured and behave differently. Try to save
+    # the old file for interest's sake, but it's not a big deal if we can't.
+    osextras.unlink_force('/etc/default/keyboard.pre-ubiquity')
     try:
-        os.rename('/etc/default/console-setup',
-                  '/etc/default/console-setup.pre-ubiquity')
+        os.rename('/etc/default/keyboard',
+                  '/etc/default/keyboard.pre-ubiquity')
     except OSError:
-        osextras.unlink_force('/etc/default/console-setup')
+        osextras.unlink_force('/etc/default/keyboard')
 
     import debconf
     dccomm = subprocess.Popen(['debconf-communicate',
@@ -282,9 +281,9 @@ def apply_keyboard():
             # Make sure debconf doesn't do anything with crazy "preseeded"
             # answers to these questions. If you want to preseed these, use the
             # *code variants.
-            dc.fset('console-setup/layout', 'seen', 'false')
-            dc.fset('console-setup/variant', 'seen', 'false')
-            dc.fset('console-setup/model', 'seen', 'false')
+            dc.fset('keyboard-configuration/layout', 'seen', 'false')
+            dc.fset('keyboard-configuration/variant', 'seen', 'false')
+            dc.fset('keyboard-configuration/model', 'seen', 'false')
             dc.fset('console-setup/codeset', 'seen', 'false')
         except debconf.DebconfError:
             return
@@ -295,7 +294,8 @@ def apply_keyboard():
     # Accept all the defaults, given the preseeded language.
     child_env = dict(os.environ)
     child_env['OVERRIDE_ALLOW_PRESEEDING'] = '1'
-    subprocess.call(['dpkg-reconfigure', '-fnoninteractive', 'console-setup'],
+    subprocess.call(['dpkg-reconfigure', '-fnoninteractive',
+                     'keyboard-configuration'],
                     env=child_env)
     misc.execute('setupcon', '--save-only')
     # Reprocess /lib/udev/rules.d/64-xorg-xkb.rules
@@ -308,7 +308,7 @@ def copy_debconf():
     if not TARGET:
         return
     targetdb = TARGET + '/var/cache/debconf/config.dat'
-    for q in ('^console-setup/', '^oem-config/'):
+    for q in ('^keyboard-configuration/', '^console-setup/', '^oem-config/'):
         misc.execute_root('debconf-copydb', 'configdb', 'targetdb', '-p', q,
                      '--config=Name:targetdb', '--config=Driver:File',
                      '--config=Filename:%s' % targetdb)
@@ -498,7 +498,7 @@ def main(oem_config):
     # Initialise cdebconf if necessary, to work around
     # http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=451130.
     if options.cdebconf:
-        for package in ('ubiquity', 'console-setup'):
+        for package in ('ubiquity', 'keyboard-configuration', 'console-setup'):
             subprocess.call(['debconf-loadtemplate', package,
                              '/var/lib/dpkg/info/%s.templates' % package])
 

@@ -1,6 +1,11 @@
 ubiquity (2.5.7) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Set the accessible name of every widget.
+
+  [ Colin Watson ]
+  * Update for changes in console-setup up to 1.57ubuntu1, particularly the
+    introduction of /etc/default/keyboard and keyboard-configuration.
 
  -- Evan Dandrea <evand@ubuntu.com>  Sun, 26 Dec 2010 16:30:54 +0000
 

@@ -8,9 +8,10 @@ else
     . /usr/share/debconf/confmodule
 
     mkdir -p /target/etc/default
-    cp -a /etc/default/console-setup /target/etc/default/
+    cp -a /etc/default/keyboard /target/etc/default/
     chroot /target setupcon --save-only
 
+    apt-install keyboard-configuration || true
     apt-install console-setup || true
 fi
 

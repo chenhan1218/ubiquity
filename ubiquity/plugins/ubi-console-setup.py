@@ -343,27 +343,28 @@ class Page(plugin.Plugin):
     def prepare(self, unfiltered=False):
         self.preseed('console-setup/ask_detect', 'false')
 
-        # We need to get rid of /etc/default/console-setup, or console-setup
-        # will think it's already configured and behave differently. Try to
-        # save the old file for interest's sake, but it's not a big deal if
-        # we can't.
+        # We need to get rid of /etc/default/keyboard, or console-setup will
+        # think it's already configured and behave differently. Try to save
+        # the old file for interest's sake, but it's not a big deal if we
+        # can't.
         with misc.raised_privileges():
-            osextras.unlink_force('/etc/default/console-setup.pre-ubiquity')
+            osextras.unlink_force('/etc/default/keyboard.pre-ubiquity')
             try:
-                os.rename('/etc/default/console-setup',
-                          '/etc/default/console-setup.pre-ubiquity')
+                os.rename('/etc/default/keyboard',
+                          '/etc/default/keyboard.pre-ubiquity')
             except OSError:
-                osextras.unlink_force('/etc/default/console-setup')
+                osextras.unlink_force('/etc/default/keyboard')
         # Make sure debconf doesn't do anything with crazy "preseeded"
         # answers to these questions. If you want to preseed these, use the
         # *code variants.
-        self.db.fset('console-setup/layout', 'seen', 'false')
-        self.db.fset('console-setup/variant', 'seen', 'false')
-        self.db.fset('console-setup/model', 'seen', 'false')
+        self.db.fset('keyboard-configuration/layout', 'seen', 'false')
+        self.db.fset('keyboard-configuration/variant', 'seen', 'false')
+        self.db.fset('keyboard-configuration/model', 'seen', 'false')
         self.db.fset('console-setup/codeset', 'seen', 'false')
 
         # Roughly taken from console-setup's config.proto:
-        l = self.db.get('debian-installer/locale').rsplit('.', 1)[0]
+        di_locale = self.db.get('debian-installer/locale')
+        l = di_locale.rsplit('.', 1)[0]
         if l not in keyboard_names.lang:
             self.debug("Untranslated layout '%s'" % l)
             l = l.rsplit('_', 1)[0]
@@ -376,42 +377,49 @@ class Page(plugin.Plugin):
         # but that isn't currently needed and it would require querying
         # apt/dpkg for the current version, which would be slow, so we don't
         # bother for now.
-        return (['/usr/lib/ubiquity/console-setup/console-setup.postinst',
+        return (['/usr/lib/ubiquity/console-setup/keyboard-configuration.postinst',
                  'configure'],
-                ['^console-setup/layout', '^console-setup/variant',
-                 '^console-setup/unsupported_'],
-                {'OVERRIDE_ALLOW_PRESEEDING': '1'})
+                ['^keyboard-configuration/layout', '^keyboard-configuration/variant',
+                 '^keyboard-configuration/model',
+                 '^keyboard-configuration/unsupported_'],
+                {'OVERRIDE_ALLOW_PRESEEDING': '1',
+                 'LC_ALL': di_locale})
 
     def run(self, priority, question):
         if self.done:
             return self.succeeded
 
-        if question == 'console-setup/layout':
+        if question == 'keyboard-configuration/layout':
             # Reset this in case we just backed up from the variant
             # question.
             self.succeeded = True
-            # TODO cjwatson 2006-09-07: no console-setup support for layout
-            # choice translation yet
+            # TODO cjwatson 2006-09-07: no keyboard-configuration support
+            # for layout choice translation yet
             self.ui.set_keyboard_choices(
                 self.choices_untranslated(question))
             self.ui.set_keyboard(self.db.get(question))
             return True
-        elif question == 'console-setup/variant':
-            # TODO cjwatson 2006-10-02: no console-setup support for variant
-            # choice translation yet
+        elif question == 'keyboard-configuration/variant':
+            # TODO cjwatson 2006-10-02: no keyboard-configuration support
+            # for variant choice translation yet
             self.ui.set_keyboard_variant_choices(
                 self.choices_untranslated(question))
             self.ui.set_keyboard_variant(self.db.get(question))
-            # console-setup preseeding is special, and needs to be checked
-            # by hand. The seen flag on console-setup/layout is used
-            # internally by console-setup, so we can't just force it to
-            # true.
+            # keyboard-configuration preseeding is special, and needs to be
+            # checked by hand. The seen flag on
+            # keyboard-configuration/layout is used internally by
+            # keyboard-configuration, so we can't just force it to true.
             if ('UBIQUITY_AUTOMATIC' in os.environ and
-                self.db.fget('console-setup/layoutcode', 'seen') == 'true'):
+                self.db.fget('keyboard-configuration/layoutcode', 'seen') == 'true'):
                 return True
             else:
                 return plugin.Plugin.run(self, priority, question)
-        elif question.startswith('console-setup/unsupported_'):
+        elif question == 'keyboard-configuration/model':
+            # Backing up from the variant question inconveniently goes back
+            # to the model question.  Catch this and go forward again so
+            # that we can reach the layout question.
+            return True
+        elif question.startswith('keyboard-configuration/unsupported_'):
             response = self.frontend.question_dialog(
                 self.description(question),
                 self.extended_description(question),
@@ -425,23 +433,24 @@ class Page(plugin.Plugin):
             return True
 
     def change_layout(self, layout):
-        self.preseed('console-setup/layout', layout)
-        # Back up in order to get console-setup to recalculate the list of
-        # possible variants.
+        self.preseed('keyboard-configuration/layout', layout)
+        # Back up in order to get keyboard-configuration to recalculate the
+        # list of possible variants.
         self.succeeded = False
         self.exit_ui_loops()
 
     def ok_handler(self):
         variant = self.ui.get_keyboard_variant()
         if variant is not None:
-            self.preseed('console-setup/variant', variant)
+            self.preseed('keyboard-configuration/variant', variant)
         return plugin.Plugin.ok_handler(self)
 
-    # TODO cjwatson 2006-09-07: This is duplication from console-setup, but
-    # currently difficult to avoid; we need to apply the keymap immediately
-    # when the user selects it in the UI (and before they move to the next
-    # page), so this needs to be fast and moving through console-setup to
-    # get the corrections it applies will be too slow.
+    # TODO cjwatson 2006-09-07: This is duplication from
+    # keyboard-configuration, but currently difficult to avoid; we need to
+    # apply the keymap immediately when the user selects it in the UI (and
+    # before they move to the next page), so this needs to be fast and
+    # moving through keyboard-configuration to get the corrections it
+    # applies will be too slow.
     def adjust_keyboard(self, model, layout, variant, options):
         """Apply any necessary tweaks to the supplied model, layout, variant,
         and options."""
@@ -532,7 +541,7 @@ class Page(plugin.Plugin):
         return self._locale
 
     def apply_keyboard(self, layout, variant):
-        model = self.db.get('console-setup/modelcode')
+        model = self.db.get('keyboard-configuration/modelcode')
 
         l = self.get_locale()
         if layout not in keyboard_names.lang[l]['layouts']:
@@ -660,10 +669,10 @@ class Page(plugin.Plugin):
         # always supported that up to now). So we get this horrible mess
         # instead ...
 
-        model = self.db.get('console-setup/modelcode')
-        layout = self.db.get('console-setup/layoutcode')
-        variant = self.db.get('console-setup/variantcode')
-        options = self.db.get('console-setup/optionscode')
+        model = self.db.get('keyboard-configuration/modelcode')
+        layout = self.db.get('keyboard-configuration/layoutcode')
+        variant = self.db.get('keyboard-configuration/variantcode')
+        options = self.db.get('keyboard-configuration/optionscode')
         if options:
             options_list = options.split(',')
         else:
