@@ -6,6 +6,11 @@ ubiquity (2.5.7) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Update for changes in console-setup up to 1.57ubuntu1, particularly the
     introduction of /etc/default/keyboard and keyboard-configuration.
+  * Automatic update of included source packages: console-setup 1.57ubuntu1,
+    debian-installer-utils 1.82ubuntu1, flash-kernel 2.28ubuntu11, partconf
+    1.36, partman-base 147ubuntu1, partman-basicmethods 47, partman-btrfs 5,
+    partman-jfs 33, partman-newworld 25, partman-reiserfs 50, partman-xfs
+    47, preseed 1.48.
 
  -- Evan Dandrea <evand@ubuntu.com>  Sun, 26 Dec 2010 16:30:54 +0000
 
