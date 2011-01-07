@@ -1,3 +1,10 @@
+ubiquity (2.5.8) UNRELEASED; urgency=low
+
+  * Allow overriding frontend using the ubiquity/frontend= boot parameter
+    (thanks, Roberto C. Morano and Juanje Ojeda; LP: #364009).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 07 Jan 2011 14:55:25 +0000
+
 ubiquity (2.5.7) natty; urgency=low
 
   [ Evan Dandrea ]
