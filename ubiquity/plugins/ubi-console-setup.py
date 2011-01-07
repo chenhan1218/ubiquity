@@ -360,7 +360,7 @@ class Page(plugin.Plugin):
         self.db.fset('keyboard-configuration/layout', 'seen', 'false')
         self.db.fset('keyboard-configuration/variant', 'seen', 'false')
         self.db.fset('keyboard-configuration/model', 'seen', 'false')
-        self.db.fset('console-setup/codeset', 'seen', 'false')
+        self.db.fset('console-setup/codeset47', 'seen', 'false')
 
         # Roughly taken from console-setup's config.proto:
         di_locale = self.db.get('debian-installer/locale')

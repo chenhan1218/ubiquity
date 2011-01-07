@@ -284,7 +284,7 @@ def apply_keyboard():
             dc.fset('keyboard-configuration/layout', 'seen', 'false')
             dc.fset('keyboard-configuration/variant', 'seen', 'false')
             dc.fset('keyboard-configuration/model', 'seen', 'false')
-            dc.fset('console-setup/codeset', 'seen', 'false')
+            dc.fset('console-setup/codeset47', 'seen', 'false')
         except debconf.DebconfError:
             return
     finally:
