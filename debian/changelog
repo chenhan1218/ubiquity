@@ -4,6 +4,8 @@ ubiquity (2.5.8) UNRELEASED; urgency=low
     (thanks, Roberto C. Morano and Juanje Ojeda; LP: #364009).
   * console-setup/codeset was renamed to console-setup/codeset47
     (LP: #699829).
+  * Automatic update of included source packages: base-installer
+    1.114ubuntu2, console-setup 1.57ubuntu2, netcfg 1.59ubuntu1.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 07 Jan 2011 14:55:25 +0000
 

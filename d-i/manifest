@@ -1,9 +1,9 @@
 apt-setup 1:0.49ubuntu3
-base-installer 1.114ubuntu1
+base-installer 1.114ubuntu2
 bterm-unifont 1.2
 choose-mirror 2.36ubuntu1
 clock-setup 0.105ubuntu1
-console-setup 1.57ubuntu1
+console-setup 1.57ubuntu2
 debian-installer-utils 1.82ubuntu1
 flash-kernel 2.28ubuntu11
 grub-installer 1.57ubuntu2
@@ -11,7 +11,7 @@ hw-detect 1.81ubuntu1
 kboot-installer 0.0.1ubuntu9
 localechooser 2.12ubuntu3
 migration-assistant 0.6.8
-netcfg 1.57ubuntu3
+netcfg 1.59ubuntu1
 partconf 1.36
 partman-auto 93ubuntu3
 partman-auto-loop 0ubuntu18
