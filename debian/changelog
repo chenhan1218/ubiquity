@@ -1,7 +1,12 @@
 ubiquity (2.5.9) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
   * If upgradable packages are marked for installation by a plugin, upgrade
     them rather than ignoring.
+
+  [ Colin Watson ]
+  * Depend on new archdetect-deb package rather than installing it from
+    hw-detect ourselves.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 10 Jan 2011 14:17:44 -0600
 
