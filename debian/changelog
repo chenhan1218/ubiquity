@@ -1,3 +1,10 @@
+ubiquity (2.5.9) UNRELEASED; urgency=low
+
+  * If upgradable packages are marked for installation by a plugin, upgrade
+    them rather than ignoring.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 10 Jan 2011 14:17:44 -0600
+
 ubiquity (2.5.8) natty; urgency=low
 
   * Allow overriding frontend using the ubiquity/frontend= boot parameter
