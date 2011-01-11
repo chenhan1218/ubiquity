@@ -11,6 +11,8 @@ ubiquity (2.5.9) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Avoid running oem-config in the live environment in custom
     configurations (LP: #699720).  Thanks Shih-Yuan Lee!
+  * Queue a redraw of the panel after setting the background (LP:
+    #693300).  Thanks Cyrus Lien!
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 10 Jan 2011 14:17:44 -0600
 
