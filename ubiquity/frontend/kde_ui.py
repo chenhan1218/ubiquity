@@ -1144,7 +1144,7 @@ class Wizard(BaseFrontend):
         # TODO need to handle the case where debconffilters launched from
         # here crash.  Factor code out of dbfilter_handle_status.
         last_page = self.pages[-1].module.__name__
-        if finished_step == last_page:
+        if finished_step == last_page and not self.backup:
             self.finished_pages = True
             if self.finished_installing or self.oem_user_config:
                 self.ui.progressBar.show()
