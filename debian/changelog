@@ -3,6 +3,8 @@ ubiquity (2.5.9) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * If upgradable packages are marked for installation by a plugin, upgrade
     them rather than ignoring.
+  * Don't start plugininstall if the user presses back on the last page in
+    oem-config.
 
   [ Colin Watson ]
   * Depend on new archdetect-deb package rather than installing it from
