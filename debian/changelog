@@ -1,4 +1,4 @@
-ubiquity (2.5.9) UNRELEASED; urgency=low
+ubiquity (2.5.9) natty; urgency=low
 
   [ Mario Limonciello ]
   * If upgradable packages are marked for installation by a plugin, upgrade
@@ -20,7 +20,7 @@ ubiquity (2.5.9) UNRELEASED; urgency=low
   * Queue a redraw of the panel after setting the background (LP:
     #693300).  Thanks Cyrus Lien!
 
- -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 10 Jan 2011 14:17:44 -0600
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 14 Jan 2011 16:32:30 -0600
 
 ubiquity (2.5.8) natty; urgency=low
 
