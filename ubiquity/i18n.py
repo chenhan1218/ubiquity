@@ -276,14 +276,11 @@ def get_languages(current_language_index=-1, only_installable=False):
         if line == '' or line == '\n':
             continue
         code, name, trans = line.strip(u'\n').split(u':')[1:]
-        if code in ('dz', 'km'):
+        if code in ('C', 'dz', 'km'):
             i += 1
             continue
 
         if only_installable:
-            if code == 'C':
-                i += 1
-                continue
             pkg_name = 'language-pack-%s' % code
             #special case these
             if pkg_name.endswith('_CN'):

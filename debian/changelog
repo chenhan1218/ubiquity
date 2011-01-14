@@ -5,6 +5,7 @@ ubiquity (2.5.9) UNRELEASED; urgency=low
     them rather than ignoring.
   * Don't start plugininstall if the user presses back on the last page in
     oem-config.
+  * Don't show "No Localization" as a language option. (LP: #697326)
 
   [ Colin Watson ]
   * Depend on new archdetect-deb package rather than installing it from
