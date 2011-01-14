@@ -6,6 +6,9 @@ ubiquity (2.5.9) UNRELEASED; urgency=low
   * Don't start plugininstall if the user presses back on the last page in
     oem-config.
   * Don't show "No Localization" as a language option. (LP: #697326)
+  * Automatic update of included source packages: base-installer
+    1.114ubuntu3, flash-kernel 2.28ubuntu12, hw-detect 1.81ubuntu2,
+    partman-btrfs 5ubuntu1, user-setup 1.28ubuntu13.
 
   [ Colin Watson ]
   * Depend on new archdetect-deb package rather than installing it from
