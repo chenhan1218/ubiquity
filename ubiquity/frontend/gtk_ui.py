@@ -119,7 +119,7 @@ class Controller(ubiquity.frontend.base.Controller):
 
     def allow_go_forward(self, allowed):
         try:
-             self._wizard.allow_go_forward(allowed)
+            self._wizard.allow_go_forward(allowed)
         except AttributeError:
             pass
 
@@ -191,7 +191,10 @@ class Wizard(BaseFrontend):
             """Make a widget callable by the toplevel."""
             if not isinstance(widget, gtk.Widget):
                 return
-            widget.set_name(gtk.Buildable.get_name(widget))
+            name = gtk.Buildable.get_name(widget)
+            widget.set_name(name)
+            atk_desc = widget.get_accessible()
+            atk_desc.set_name(name)
             self.all_widgets.add(widget)
             setattr(self, widget.get_name(), widget)
             # We generally want labels to be selectable so that people can
@@ -286,7 +289,8 @@ class Wizard(BaseFrontend):
                         if not isinstance(widget_list, list):
                             widget_list = [widget_list]
                         for w in widget_list:
-                            if not w: continue
+                            if not w:
+                                continue
                             if isinstance(w, str):
                                 w = add_subpage(self, steps, w)
                             else:
@@ -584,7 +588,6 @@ class Wizard(BaseFrontend):
                         self.refresh()
                 if self.backup:
                     self.pagesindex = self.pop_history()
-
 
             while gtk.events_pending():
                 gtk.main_iteration()
@@ -1277,7 +1280,6 @@ class Wizard(BaseFrontend):
                              gobject.IO_IN | gobject.IO_ERR | gobject.IO_HUP,
                              self.watch_debconf_fd_helper, process_input)
 
-
     def watch_debconf_fd_helper (self, source, cb_condition, callback):
         debconf_condition = 0
         if (cb_condition & gobject.IO_IN) != 0:
@@ -1334,7 +1336,6 @@ class Wizard(BaseFrontend):
     def on_progress_cancel_button_clicked (self, unused_button):
         self.progress_cancelled = True
 
-
     def debconffilter_done (self, dbfilter):
         if not dbfilter.status:
             self.find_next_step(dbfilter.__module__)
@@ -1358,7 +1359,7 @@ class Wizard(BaseFrontend):
         # TODO need to handle the case where debconffilters launched from
         # here crash.  Factor code out of dbfilter_handle_status.
         last_page = self.pages[-1].module.__name__
-        if finished_step == last_page:
+        if finished_step == last_page and not self.backup:
             self.finished_pages = True
             if self.finished_installing or self.oem_user_config:
                 self.progress_section.show()
@@ -1420,7 +1421,8 @@ class Wizard(BaseFrontend):
                 if page.module.NAME == 'partman':
                     self.pagesindex = self.pages.index(page)
                     break
-            if self.pagesindex == -1: return
+            if self.pagesindex == -1:
+                return
 
             self.start_debconf()
             ui = self.pages[self.pagesindex].ui

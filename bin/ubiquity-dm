@@ -121,8 +121,8 @@ class DM:
             except ImportError:
                 pass
         else:
-            raise AttributeError, ('No frontend available; tried %s' %
-                                   ', '.join(frontend_names))
+            raise AttributeError('No frontend available; tried %s' %
+                                 ', '.join(frontend_names))
 
         db = DebconfCommunicator('ubiquity', cloexec=True)
         try:
@@ -241,13 +241,13 @@ EndSection
                     if type(status) is int and status != 0:
                         if plymouth_running:
                             subprocess.call(['plymouth', 'quit'])
-                        raise XStartupError, \
-                            "X server exited with return code " + str(status)
+                        raise XStartupError('X server exited with return code '
+                                            + str(status))
                     if timeout == 0:
                         if plymouth_running:
                             subprocess.call(['plymouth', 'quit'])
-                        raise XStartupError, \
-                            "X server failed to start after 60 seconds"
+                        raise XStartupError('X server failed to start after 60'
+                                            ' seconds')
                     time.sleep(1)
                     timeout -= 1
                 if plymouth_running:
@@ -353,9 +353,9 @@ EndSection
             elif osextras.find_on_path('openbox-lubuntu'):
                 wm_cmd = ['openbox-lubuntu']
             else:
-                raise MissingProgramError, \
-                    ("No window manager found (tried metacity, xfwm4, "
-                     "matchbox-window-manager, openbox-lubuntu)")
+                raise MissingProgramError('No window manager found (tried '
+                    'metacity, xfwm4, matchbox-window-manager, '
+                    'openbox-lubuntu)')
             wm = subprocess.Popen(wm_cmd,
                 stdin=null, stdout=logfile, stderr=logfile,
                 **maybe_drop_privileges)

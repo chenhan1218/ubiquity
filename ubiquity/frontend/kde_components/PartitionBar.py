@@ -96,7 +96,7 @@ class PartitionsBar(QtGui.QWidget):
             trunc_pix -= pix_size
 
             #use the right color for the filesystem
-            if Partition.filesystemColours.has_key(p.fs):
+            if p.fs in Partition.filesystemColours:
                 pColor = QtGui.QColor(Partition.filesystemColours[p.fs])
             else:
                 pColor = QtGui.QColor(Partition.filesystemColours['free'])

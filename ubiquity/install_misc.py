@@ -471,7 +471,7 @@ def broken_packages(cache):
 
 def mark_install(cache, pkg):
     cachedpkg = get_cache_pkg(cache, pkg)
-    if cachedpkg is not None and not cachedpkg.is_installed:
+    if cachedpkg is not None and (not cachedpkg.is_installed or cachedpkg.is_upgradable):
         apt_error = False
         try:
             cachedpkg.mark_install()

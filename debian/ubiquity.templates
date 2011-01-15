@@ -165,6 +165,10 @@ Template: ubiquity/text/password_again_inactive_label
 Type: text
 _Description: Confirm password
 
+Template: ubiquity/text/verified_password_label
+Type: text
+_Description: Confirm your password:
+
 Template: ubiquity/text/hostname_label
 Type: text
 _Description: Your computer's name:
@@ -177,6 +181,10 @@ _Description: The name it uses when it talks to other computers.
 Template: ubiquity/text/password_debug_warning_label
 Type: text
 _Description: You are running in debugging mode. Do not use a valuable password!
+
+Template: ubiquity/text/password_mismatch
+Type: text
+_Description: Passwords do not match
 
 Template: ubiquity/text/password/too_short
 Type: text

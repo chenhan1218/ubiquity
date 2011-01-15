@@ -179,7 +179,7 @@ class PartAuto(QtGui.QWidget):
         if bId > -1:
             choice = unicode(self.autopartitionTexts[bId])
         else:
-            raise AssertionError, "no active autopartitioning choice"
+            raise AssertionError("no active autopartitioning choice")
 
         if choice == self.resizeChoice:
             # resize choice should have been hidden otherwise
@@ -211,4 +211,3 @@ class PartAuto(QtGui.QWidget):
         else:
             # If we haven't added any items to the disk combobox, hide it.
             self.part_auto_disk_box.show()
-

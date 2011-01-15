@@ -361,8 +361,8 @@ class PageGtk(PageBase):
             self.password_ok.hide()
             if passw and (len(vpassw) / float(len(passw)) > 0.8):
                 # TODO Cache, use a custom string.
-                #txt = self.controller.get_string('user-setup/password-mismatch')
-                txt = '<small><span foreground="darkred"><b>Passwords do not match</b></span></small>'
+                txt = self.controller.get_string('ubiquity/text/password_mismatch')
+                txt = '<small><span foreground="darkred"><b>%s</b></span></small>' % txt
                 self.password_error_label.set_markup(txt)
                 self.password_error_label.show()
         else:
@@ -658,7 +658,8 @@ class Page(plugin.Plugin):
                         hostname = self.db.get('netcfg/get_hostname')
                         domain = self.db.get('netcfg/get_domain')
                         if hostname and domain:
-                            hostname = '%s.%s' % (hostname, domain)
+                            hostname = '%s.%s' % (hostname.rstrip('.'),
+                                                  domain.strip('.'))
                         if hostname != '':
                             self.ui.set_hostname(hostname)
                 except debconf.DebconfError:
@@ -793,4 +794,3 @@ class Install(plugin.InstallPlugin):
     def install(self, target, progress, *args, **kwargs):
         progress.info('ubiquity/install/user')
         return plugin.InstallPlugin.install(self, target, progress, *args, **kwargs)
-

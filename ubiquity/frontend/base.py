@@ -92,7 +92,7 @@ class BaseFrontend:
 
         self.oem_user_config = False
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
-          self.oem_user_config = True
+            self.oem_user_config = True
 
         try:
             self.custom_title = self.db.get('ubiquity/custom_title_text')
@@ -149,7 +149,7 @@ class BaseFrontend:
             self.modules.append(comp)
 
         if not self.modules:
-            raise ValueError, 'No valid steps.'
+            raise ValueError('No valid steps.')
 
         if 'SUDO_USER' in os.environ:
             os.environ['SCIM_USER'] = os.environ['SUDO_USER']

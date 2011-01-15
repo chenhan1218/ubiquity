@@ -84,7 +84,7 @@ class KeyboardQuery(gtk.Window):
             self.emit('layout_result', self.keyboard_detect.result)
             self.hide()
         else:
-            raise Exception, 'should not have got here'
+            raise Exception('should not have got here')
 
     def have_key(self, *args):
         try:

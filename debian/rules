@@ -58,7 +58,6 @@ clean: check
 	$(MAKE) -C d-i clean
 	dh_auto_clean
 	dh_clean
-	rm -f debian/kbdnames.gz
 	rm -rf build-locale
 
 	$(MAKE) -C d-i check
@@ -67,16 +66,11 @@ d-i/source/console-setup/Keyboard/MyKeyboardNames.pl:
 	$(MAKE) -C d-i/source/console-setup/Keyboard MyKeyboardNames.pl \
 		pc105.tree xkbdir=/usr/share/X11/xkb
 
-debian/kbdnames.gz: d-i/source/console-setup/Keyboard/MyKeyboardNames.pl
-	( cd d-i/source/console-setup/Keyboard \
-	&& ./kbdnames-maker MyKeyboardNames.pl \
-	| grep -v '^C[*]' | grep -v '[*]model[*]' | sort | gzip -9 ) >$@
-
 ubiquity/keyboard_names.py: d-i/source/console-setup/Keyboard/MyKeyboardNames.pl
 	d-i/make-keyboard-names $< > $@
 
 install: DH_OPTIONS=
-install: build ubiquity/keyboard_names.py debian/kbdnames.gz
+install: build ubiquity/keyboard_names.py
 	dh_testdir
 	dh_testroot
 	dh_prep
@@ -141,11 +135,11 @@ endif
 		d-i/source/clock-setup/finish-install.d/10clock-setup \
 		> debian/ubiquity/usr/lib/ubiquity/clock-setup/finish-install
 	chmod +x debian/ubiquity/usr/lib/ubiquity/clock-setup/finish-install
-	sed -e 's,/usr/share/console-setup-mini/console-setup.config,/var/lib/dpkg/info/console-setup.config,g' \
+	sed -e 's,/usr/share/console-setup-mini/keyboard-configuration.config,/var/lib/dpkg/info/keyboard-configuration.config,g' \
 	    -e 's,^\([[:space:]]*\)update-initramfs,\1: update-initramfs,' \
-		d-i/source/console-setup/debian/console-setup.postinst \
-		> debian/ubiquity/usr/lib/ubiquity/console-setup/console-setup.postinst
-	chmod +x debian/ubiquity/usr/lib/ubiquity/console-setup/console-setup.postinst
+		d-i/source/console-setup/debian/keyboard-configuration.postinst \
+		> debian/ubiquity/usr/lib/ubiquity/console-setup/keyboard-configuration.postinst
+	chmod +x debian/ubiquity/usr/lib/ubiquity/console-setup/keyboard-configuration.postinst
 	sed 's,\(finish-install=\).*,\1/dev/null,' \
 		d-i/source/hw-detect/debian/hw-detect/bin/hw-detect \
 		> debian/ubiquity/bin/hw-detect

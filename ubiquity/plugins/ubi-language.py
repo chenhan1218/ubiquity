@@ -549,9 +549,9 @@ class PageKde(PageBase):
         lang = self.selected_language()
         if link == "release-notes":
             if lang:
-               lang = lang.split('.')[0].lower()
-               url = self.release_notes_url.replace('${LANG}', lang)
-               self.openURL(url)
+                lang = lang.split('.')[0].lower()
+                url = self.release_notes_url.replace('${LANG}', lang)
+                self.openURL(url)
         elif link == "update":
             if not auto_update.update(self.controller._wizard):
                 # no updates, so don't check again
@@ -699,9 +699,9 @@ class Page(plugin.Plugin):
         questions = ['localechooser/languagelist']
         environ = {'PATH': '/usr/lib/ubiquity/localechooser:' + os.environ['PATH']}
         if 'UBIQUITY_FRONTEND' in os.environ and os.environ['UBIQUITY_FRONTEND'] == "debconf_ui":
-          environ['TERM_FRAMEBUFFER'] = '1'
+            environ['TERM_FRAMEBUFFER'] = '1'
         else:
-          environ['OVERRIDE_SHOW_ALL_LANGUAGES'] = '1'
+            environ['OVERRIDE_SHOW_ALL_LANGUAGES'] = '1'
         return (localechooser_script, questions, environ)
 
     def run(self, priority, question):

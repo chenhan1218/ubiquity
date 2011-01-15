@@ -57,7 +57,7 @@ UIDIR = os.path.join(PATH, 'qt')
 
 class UbiquityUI(kdeui.KMainWindow):
 
-    def __init__(self, parent = None):
+    def __init__(self, parent=None):
         QtGui.QMainWindow.__init__(self, parent)
         uic.loadUi(os.path.join(UIDIR, "app.ui"), self)
 
@@ -756,10 +756,10 @@ class Wizard(BaseFrontend):
 
     def step_index(self, step_name):
         if hasattr(self.ui, step_name):
-          step = getattr(self.ui, step_name)
-          return self.stackLayout.indexOf(step)
+            step = getattr(self.ui, step_name)
+            return self.stackLayout.indexOf(step)
         else:
-          return 0
+            return 0
 
     def set_page(self, n):
         self.run_automation_error_cmd()
@@ -1144,7 +1144,7 @@ class Wizard(BaseFrontend):
         # TODO need to handle the case where debconffilters launched from
         # here crash.  Factor code out of dbfilter_handle_status.
         last_page = self.pages[-1].module.__name__
-        if finished_step == last_page:
+        if finished_step == last_page and not self.backup:
             self.finished_pages = True
             if self.finished_installing or self.oem_user_config:
                 self.ui.progressBar.show()
@@ -1270,14 +1270,13 @@ class Wizard(BaseFrontend):
     def run_main_loop (self):
         self.allow_change_step(True)
         self.mainLoopRunning = True
-        while self.mainLoopRunning:    # nasty, but works OK
+        while self.mainLoopRunning:  # nasty, but works OK
             self.app.processEvents(QtCore.QEventLoop.WaitForMoreEvents)
 
     # Return control to the next level up.
     def quit_main_loop (self):
-        #self.app.exit()
         self.mainLoopRunning = False
 
     # returns the current wizard page
     def get_current_page(self):
-      return self.stackLayout.indexOf(self.stackLayout.currentWidget())
+        return self.stackLayout.indexOf(self.stackLayout.currentWidget())

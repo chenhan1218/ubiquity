@@ -449,7 +449,7 @@ class PartMan(QtGui.QWidget):
         self.part_advanced_bootloader_frame.setVisible(True)
         self.grub_device_entry.clear()
         for opt in options:
-           self.grub_device_entry.addItem(opt[0]);
+            self.grub_device_entry.addItem(opt[0]);
 
         index = self.grub_device_entry.findText(default)
         if (index == -1):

@@ -32,6 +32,7 @@ script
     debug=
     noninteractive=
     choose=
+    frontend=
     for x in $(cat /proc/cmdline); do
 	case $x in
 	    debug-ubiquity)
@@ -52,6 +53,9 @@ script
 	    noninteractive)
 		ubiquity=1
 		noninteractive=1
+		;;
+	    ubiquity/frontend=*)
+		frontend="${x#*=}"
 		;;
 	esac
     done
@@ -75,7 +79,7 @@ script
 	plymouth quit || :
 	exec ubiquity noninteractive $debug
     else
-	if ! ubiquity-dm vt7 :0 ubuntu /usr/bin/ubiquity $debug $automatic $choose --only; then
+	if ! ubiquity-dm vt7 :0 ubuntu /usr/bin/ubiquity $debug $automatic $choose --only $frontend; then
 	    # has X crashed, or has ubiquity?
             if [ "$automatic" ] && ! [ -f /var/log/installer/version ]; then
                 # in case we crashed before the X startup sequence

@@ -1,17 +1,86 @@
-ubiquity (2.5.6) UNRELEASED; urgency=low
+ubiquity (2.5.10) UNRELEASED; urgency=low
 
-  [ Colin Watson ]
-  * Recommend btrfs-tools (LP: #674805).
-
-  [ Julien Lavergne ]
   * bin/ubiquity-dm:
    - Wait lxsession before launching the panel, to have theming support.
      (LP: #684802)
   * src/panel/panel.c
    - Load lxpanel background for the panel when it's available.
 
- -- Julien Lavergne <gilir@ubuntu.com>  Sun, 05 Dec 2010 17:53:48 +0100
+ -- Julien Lavergne <gilir@ubuntu.com>  Sat, 15 Jan 2011 14:47:20 +0100
 
+ubiquity (2.5.9) natty; urgency=low
+
+  [ Mario Limonciello ]
+  * If upgradable packages are marked for installation by a plugin, upgrade
+    them rather than ignoring.
+  * Don't start plugininstall if the user presses back on the last page in
+    oem-config.
+  * Don't show "No Localization" as a language option. (LP: #697326)
+  * Automatic update of included source packages: base-installer
+    1.114ubuntu3, flash-kernel 2.28ubuntu12, hw-detect 1.81ubuntu2,
+    partman-btrfs 5ubuntu1, user-setup 1.28ubuntu13.
+
+  [ Colin Watson ]
+  * Depend on new archdetect-deb package rather than installing it from
+    hw-detect ourselves.
+
+  [ Evan Dandrea ]
+  * Avoid running oem-config in the live environment in custom
+    configurations (LP: #699720).  Thanks Shih-Yuan Lee!
+  * Queue a redraw of the panel after setting the background (LP:
+    #693300).  Thanks Cyrus Lien!
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 14 Jan 2011 16:32:30 -0600
+
+ubiquity (2.5.8) natty; urgency=low
+
+  * Allow overriding frontend using the ubiquity/frontend= boot parameter
+    (thanks, Roberto C. Morano and Juanje Ojeda; LP: #364009).
+  * console-setup/codeset was renamed to console-setup/codeset47
+    (LP: #699829).
+  * Automatic update of included source packages: base-installer
+    1.114ubuntu2, console-setup 1.57ubuntu2, netcfg 1.59ubuntu1.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 07 Jan 2011 15:09:58 +0000
+
+ubiquity (2.5.7) natty; urgency=low
+
+  [ Evan Dandrea ]
+  * Set the accessible name of every widget.
+
+  [ Colin Watson ]
+  * Update for changes in console-setup up to 1.57ubuntu1, particularly the
+    introduction of /etc/default/keyboard and keyboard-configuration.
+  * Automatic update of included source packages: console-setup 1.57ubuntu1,
+    debian-installer-utils 1.82ubuntu1, flash-kernel 2.28ubuntu11, partconf
+    1.36, partman-base 147ubuntu1, partman-basicmethods 47, partman-btrfs 5,
+    partman-jfs 33, partman-newworld 25, partman-reiserfs 50, partman-xfs
+    47, preseed 1.48.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 05 Jan 2011 17:19:11 +0000
+
+ubiquity (2.5.6) natty; urgency=low
+
+  [ Colin Watson ]
+  * Recommend btrfs-tools (LP: #674805).
+  * Sync network configuration with netcfg: drop ip6-allhosts (see Debian
+    #533384); strip trailing dots from the hostname and leading and trailing
+    dots from the domain.
+  * Automatic update of included source packages: grub-installer
+    1.57ubuntu2, netcfg 1.57ubuntu3, partman-auto 93ubuntu3, partman-target
+    71ubuntu1, user-setup 1.28ubuntu12.
+
+  [ Mario Limonciello ]
+  * If available, copy GRUB translations in oem-config user mode.
+    (LP: #686789)
+
+  [ Evan Dandrea ]
+  * Add debconf template for password confirmation (LP: #654491).
+  * Translate the 'passwords do not match' string (LP: #686737).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 17 Dec 2010 15:02:18 +0000
+
+>>>>>>> MERGE-SOURCE
 ubiquity (2.5.5) natty; urgency=low
 
   * Ensure that /var/lib/ubiquity exists in scripts/plugininstall.py.

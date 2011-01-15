@@ -48,6 +48,7 @@ from ubiquity import plugin_manager
 from ubiquity.casper import get_casper
 from ubiquity.components import apt_setup, hw_detect, check_kernels
 
+
 def cleanup_after(func):
     def wrapper(self):
         try:
@@ -61,6 +62,7 @@ def cleanup_after(func):
             except:
                 pass
     return wrapper
+
 
 class Install(install_misc.InstallBase):
     def __init__(self):
@@ -164,16 +166,16 @@ class Install(install_misc.InstallBase):
         apt_install_direct.close()
 
         self.next_region()
-        self.db.progress('INFO', 'ubiquity/install/bootloader')
-        self.configure_bootloader()
-
-        self.next_region()
         self.db.progress('INFO', 'ubiquity/install/installing')
 
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
             self.install_oem_extras()
         else:
             self.install_extras()
+
+        self.next_region()
+        self.db.progress('INFO', 'ubiquity/install/bootloader')
+        self.configure_bootloader()
 
         self.next_region(size=4)
         self.db.progress('INFO', 'ubiquity/install/removing')
@@ -242,7 +244,7 @@ class Install(install_misc.InstallBase):
         except debconf.DebconfError:
             hostname = ''
         try:
-            domain = self.db.get('netcfg/get_domain')
+            domain = self.db.get('netcfg/get_domain').rstrip('.')
         except debconf.DebconfError:
             domain = ''
         if hostname == '':
@@ -262,8 +264,7 @@ class Install(install_misc.InstallBase):
             fe00::0 ip6-localnet
             ff00::0 ip6-mcastprefix
             ff02::1 ip6-allnodes
-            ff02::2 ip6-allrouters
-            ff02::3 ip6-allhosts""")
+            ff02::2 ip6-allrouters""")
         hosts.close()
 
         # Network Manager's ifupdown plugin has an inotify watch on
@@ -336,10 +337,13 @@ class Install(install_misc.InstallBase):
         class Progress:
             def __init__(self, db):
                 self._db = db
+
             def info(self, title):
                 self._db.progress('INFO', title)
+
             def get(self, question):
                 return self._db.get(question)
+
             def substitute(self, template, substr, data):
                 self._db.subst(template, substr, data)
 
@@ -511,7 +515,7 @@ class Install(install_misc.InstallBase):
         if kern is None:
             return None
         pkc = cache._depcache.GetCandidateVer(kern._pkg)
-        if pkc.depends_list.has_key('Depends'):
+        if 'Depends' in pkc.depends_list:
             dependencies = pkc.depends_list['Depends']
         else:
             # Didn't find.
@@ -768,6 +772,14 @@ class Install(install_misc.InstallBase):
         hardware system."""
 
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            #the language might be different than initial install.
+            #recopy translations if we have them now
+            full_lang = self.db.get('debian-installer/locale').split('.')[0]
+            for lang in [full_lang.split('.')[0], full_lang.split('_')[0]]:
+                source = '/usr/share/locale-langpack/%s/LC_MESSAGES/grub.mo' % lang
+                if os.path.exists(source) and os.path.isdir('/boot/grub/locale'):
+                    shutil.copy(source, '/boot/grub/locale/%s.mo' % lang)
+                    break
             return
 
         inst_boot = self.db.get('ubiquity/install_bootloader')
