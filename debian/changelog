@@ -1,3 +1,9 @@
+ubiquity (2.5.10) UNRELEASED; urgency=low
+
+  * No change rebuild for new libindicator2.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Mon, 17 Jan 2011 12:01:15 +0000
+
 ubiquity (2.5.9) natty; urgency=low
 
   [ Mario Limonciello ]
