@@ -1,3 +1,10 @@
+ubiquity (2.5.11) UNRELEASED; urgency=low
+
+  * Automatic update of included source packages: partman-partitioning
+    78ubuntu2.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 18 Jan 2011 15:08:51 -0600
+
 ubiquity (2.5.10) natty; urgency=low
 
   * No change rebuild for new libindicator2.
