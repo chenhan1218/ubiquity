@@ -8,14 +8,14 @@ msgstr ""
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-12-17 14:54+0000\n"
 "PO-Revision-Date: 2010-08-27 20:43+0000\n"
-"Last-Translator: Evan Dandrea <ev@ubuntu.com>\n"
+"Last-Translator: Evan Dandrea <evan.dandrea@canonical.com>\n"
 "Language-Team: Amharic\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
+"X-Generator: Launchpad (build 12214)\n"
 
 #. Type: text
 #. Description
@@ -1546,23 +1546,26 @@ msgstr ""
 #~ msgid "Advanced Options"
 #~ msgstr "የረቀቀ ምርጫ"
 
-#~ msgid "Install boot loader"
-#~ msgstr "ማስነሻ መጫኛውን መግጠም"
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "በጥቅል ተጠቃሚነት ቆጠራ ስለመሳተፍ"
 
 #~ msgid "Popularity contest"
 #~ msgstr "ተወዳጅ ውድድር"
 
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "በጥቅል ተጠቃሚነት ቆጠራ ስለመሳተፍ"
+#~ msgid "HTTP proxy:"
+#~ msgstr "የኤችቲቲፒ ወኪል"
 
 #~ msgid "Network proxy"
 #~ msgstr "የኔትዎርክ ወኪል"
 
-#~ msgid "HTTP proxy:"
-#~ msgstr "የኤችቲቲፒ ወኪል"
-
 #~ msgid "Port:"
 #~ msgstr "ፖርት"
+
+#~ msgid "Summary"
+#~ msgstr "ማጠቃለያ"
+
+#~ msgid "Install boot loader"
+#~ msgstr "ማስነሻ መጫኛውን መግጠም"
 
 #~ msgid ""
 #~ " Language: ${LANGUAGE}\n"
@@ -1580,6 +1583,3 @@ msgstr ""
 #~ "አካባቢ: ${LOCATION}\\n\n"
 #~ "የመፍለስ እርዳታ:\\n\n"
 #~ "${MIGRATE}"
-
-#~ msgid "Summary"
-#~ msgstr "ማጠቃለያ"

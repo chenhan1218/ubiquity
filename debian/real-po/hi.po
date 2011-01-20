@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-12-17 14:54+0000\n"
-"PO-Revision-Date: 2010-09-23 09:14+0000\n"
+"PO-Revision-Date: 2010-11-14 11:52+0000\n"
 "Last-Translator: Abhijeet Kumar Singh <neo.1in@gmail.com>\n"
 "Language-Team: Hindi <debian-in-workers@lists.alioth.debian.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
+"X-Generator: Launchpad (build 12214)\n"
 
 #. Type: text
 #. Description
@@ -33,7 +33,7 @@ msgstr "पूरे डिस्क को मिटाकर कर उपय�
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "अन्य ऑपरेटिंग तंत्र के अनुपार्श्व संस्थापित करें"
 
 #. Type: text
 #. Description
@@ -130,18 +130,11 @@ msgstr "आप <a href=\"अद्यतन\">संस्थापक का �
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2011."
 msgstr ""
-"यह ${RELEASE} के पूर्व-संस्करण का लाइव ${MEDIUM} का इंस्टालर है.यह ${RELEASE} का एक "
-"अंतिम संस्करण नहीं है जो अक्टूबर 2010 में आएगा"
 
 #. Type: text
 #. Description
@@ -188,7 +181,7 @@ msgstr "अपने कुंजीपटल को जाँचने के �
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Figure Out Keyboard Layout"
-msgstr ""
+msgstr "कुंजीपटल विन्यास को समझे"
 
 #. Type: text
 #. Description
@@ -259,22 +252,20 @@ msgstr "पासवर्ड (कूट शब्द) निश्चित क
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
-#, fuzzy
-#| msgid "Confirm password"
 msgid "Confirm your password:"
-msgstr "पासवर्ड (कूट शब्द) निश्चित करें"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Your computer's name:"
-msgstr ""
+msgstr "आपका कंप्यूटर नामः"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "इस नाम का उपयोग अन्य कंप्यूटर के साथ संपर्क के समय होता है"
 
 #. Type: text
 #. Description
@@ -890,7 +881,7 @@ msgstr "संस्थापना के लॉग का नकल हो र
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Configuring target system..."
-msgstr "लक्षित तंत्र का संरुप..."
+msgstr "लक्षि"
 
 #. Type: text
 #. Description
@@ -1392,7 +1383,7 @@ msgstr "नीचे विभाजक को खींचकर ड्रा�
 #. Description
 #: ../ubiquity.templates:207001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "संपूर्ण डिस्क का उपयोग होगाः"
 
 #. Type: text
 #. Description
@@ -1402,6 +1393,8 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d छोटा विभाजन छुपा हुआ है, अधिक नियंत्रण हेतु <a href=\"\">advanced partitioning "
+"tool</a> का प्रयोग करें"
 
 #. Type: text
 #. Description
@@ -1410,6 +1403,8 @@ msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 छोटा विभाजन छुपा हुआ है, अधिक नियंत्रण हेतु <a href=\"\">advanced partitioning "
+"tool</a> का प्रयोग करें"
 
 #. Type: text
 #. Description
@@ -1419,6 +1414,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d छोटा विभाजन मिटा दिया जाएगा, अधिक नियंत्रण हेतु <a href=\"\">advanced "
+"partitioning tool</a> का प्रयोग करें"
 
 #. Type: text
 #. Description
@@ -1427,6 +1424,8 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 छोटा विभाजन मिटा दिया जाएगा, अधिक नियंत्रण हेतु <a href=\"\">advanced "
+"partitioning tool</a> का प्रयोग करें"
 
 #. Type: text
 #. Description
@@ -1450,25 +1449,25 @@ msgstr "विशालतम पार्टीशन का विभाजन
 #. Description
 #: ../ubiquity.templates:216001
 msgid "For best results, please ensure that this computer:"
-msgstr ""
+msgstr "सर्वश्रेष्ठ नतीजे के लिए, कृपया सुनिश्चत करें कि यह कंप्यूटर:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
 msgid "has at least ${SIZE} available drive space"
-msgstr ""
+msgstr "कम से कम ${SIZE} ड्राइव स्थान उपलब्ध होगा"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
 msgid "is plugged in to a power source"
-msgstr ""
+msgstr "शक्ति स्रोत से प्लग किया गया है"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "अंतर्जाल से संयोजिता है"
 
 #. Type: text
 #. Description
@@ -1479,6 +1478,9 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} तृतीय पार्टी सॉफ्टवेयर का इस्तेमाल फ्लैश दिखाने, एमपी3 तथा अन्य मिडिया "
+"चलाने, तथा कुछ बेतार हार्डवेयर के साथ काम करने हेतु करता है. यह सॉप्टवेयर सॉफ्टवेयर दस्तावेज "
+"में समाहित लाइसेंस शर्तों के रहते होगा."
 
 #. Type: text
 #. Description
@@ -1487,12 +1489,14 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
+"फ्लूनडो एमपी3 प्लगिन अपने में एमपीईजी लेयर-3 आडियो डिकोडिंग तकनीकी समाहित करता है "
+"जिसका लाइसेंस फॉन्डहोपर IIS तथा थॉमसन से प्राप्त है."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "इस तृतीय-पार्टी सॉफ्टवेयर को संस्थापित करें"
 
 #. Type: text
 #. Description
@@ -1546,7 +1550,7 @@ msgstr "क्षेत्र"
 #. Description
 #: ../ubiquity.templates:233001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[परिवर्तन हेतु यहाँ टंकण करें]"
 
 #. Type: title
 #. Description
@@ -1610,29 +1614,38 @@ msgstr ""
 msgid "Removing packages"
 msgstr "पैकेज हटा रहा है"
 
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr "एक बार कुछ प्रश्नो का जबाब दे, फिर यह कम्प्यूटर उपयोग हेतु तैयार हो जाएगा."
-
-#~ msgid "Advanced Options"
-#~ msgstr "उन्नत विकल्प"
-
 #~ msgid "Install boot loader"
 #~ msgstr "बूटलोडर संस्थापन"
-
-#~ msgid "Popularity contest"
-#~ msgstr "लोकप्रिय विवाद"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "पैकेज उपयोगिता सर्वेक्षण में भाग लें"
-
-#~ msgid "Network proxy"
-#~ msgstr "संजाल प्रोक्सी"
 
 #~ msgid "HTTP proxy:"
 #~ msgstr "HTTP प्रोक्सी:"
 
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "पैकेज उपयोगिता सर्वेक्षण में भाग लें"
+
+#~ msgid "Popularity contest"
+#~ msgstr "लोकप्रिय विवाद"
+
 #~ msgid "Port:"
 #~ msgstr "पोर्टः"
+
+#~ msgid "Summary"
+#~ msgstr "सारांश"
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr "एक बार कुछ प्रश्नो का जबाब दे, फिर यह कम्प्यूटर उपयोग हेतु तैयार हो जाएगा."
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the "
+#~ "live ${MEDIUM} can be installed on this computer so you can run "
+#~ "${RELEASE} at full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "संस्थापन हेतु तैयार हैं? एक बार बस कुछ प्रश्नो के जबाब दें इस सजीव ${MEDIUM} के अंश आपके "
+#~ "कम्प्यूटर में संस्थापित हो जाएगा ताकि आप ${RELEASE} को बिना ${MEDIUM} के पूरे गति से "
+#~ "चला सकेंगे."
+
+#~ msgid "Advanced Options"
+#~ msgstr "उन्नत विकल्प"
 
 #~ msgid ""
 #~ " Language: ${LANGUAGE}\n"
@@ -1651,14 +1664,13 @@ msgstr "पैकेज हटा रहा है"
 #~ " प्रवास सहायता:\n"
 #~ " ${MIGRATE}"
 
-#~ msgid "Summary"
-#~ msgstr "सारांश"
+#~ msgid "Network proxy"
+#~ msgstr "संजाल प्रोक्सी"
 
 #~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
 #~ msgstr ""
-#~ "संस्थापन हेतु तैयार हैं? एक बार बस कुछ प्रश्नो के जबाब दें इस सजीव ${MEDIUM} के अंश आपके "
-#~ "कम्प्यूटर में संस्थापित हो जाएगा ताकि आप ${RELEASE} को बिना ${MEDIUM} के पूरे गति से "
-#~ "चला सकेंगे."
+#~ "यह ${RELEASE} के पूर्व-संस्करण का लाइव ${MEDIUM} का इंस्टालर है.यह ${RELEASE} का "
+#~ "एक अंतिम संस्करण नहीं है जो अक्टूबर 2010 में आएगा"

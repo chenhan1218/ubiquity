@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-12-17 14:54+0000\n"
-"PO-Revision-Date: 2010-09-24 08:53+0000\n"
+"PO-Revision-Date: 2011-01-19 17:08+0000\n"
 "Last-Translator: Xandru Martino <Unknown>\n"
 "Language-Team: Asturian <ast@li.org>\n"
 "Language: ast\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
+"X-Generator: Launchpad (build 12214)\n"
 
 #. Type: text
 #. Description
@@ -65,9 +65,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"Ta instalando nel mou de fabricantes de sistemes. Por favor, introduza un "
+"Tas instalando nel mou de fabricantes de sistemes. Por favor, introduz un "
 "nome únicu pa esti llote de sistemes. Esti nome guardaráse nel sistema "
-"instaláu y podrá usase p'aidar con informes d'error."
+"instaláu y podrá usase p'ayudar con informes d'error."
 
 #. Type: text
 #. Description
@@ -134,19 +134,13 @@ msgstr "Ye dable que quieras <a href=\"update\">anovar esti instalador</a>."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2011."
 msgstr ""
-"Esto ye un llanzamientu previu del instalador live ${MEDIUM} de ${RELEASE}. "
-"Nun ye una versión final, qu'apaecerá col llanzamientu final de ${RELEASE} "
-"n'ochobre de 2010."
+"Esto ye un prellanzamientu del instalador de ${RELEASE} live ${MEDIUM}. El "
+"llanzamientu final saldrá con ${RELEASE} n'Abril de 2011."
 
 #. Type: text
 #. Description
@@ -265,10 +259,8 @@ msgstr "Confirmar  contraseña:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
-#, fuzzy
-#| msgid "Confirm password"
 msgid "Confirm your password:"
-msgstr "Confirmar  contraseña:"
+msgstr "Confirma la to contraseña:"
 
 #. Type: text
 #. Description
@@ -294,7 +286,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Les contraseñes nun concasen"
 
 #. Type: text
 #. Description
@@ -568,12 +560,12 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
-"Sentímoslo; l'instalador tien fallao. Por favor, unvíe un nuevu informe de "
-"fallu en https://launchpad.net/ubuntu/+source/ubiquity/+filebug (nun axunte "
-"los sos detáis a nengún informe de fallu esistente) y un desarrollador "
-"atenderá'l so problema tan ceo como-y seya dable. P'aidar a los "
-"desendolcadores a atalantar qué pudo dir mal, incluya los siguientes detáis "
-"nel so informe de fallu, y axunte los ficheros /var/log/syslog y /var/log/"
+"Sentímoslo; l'instalador tien fallao. Por favor, unvia un nuevu informe de "
+"fallu en https://launchpad.net/ubuntu/+source/ubiquity/+filebug (nun axuntes "
+"los detalles a nengún informe de fallu esistente) y un desarrollador "
+"atenderá'l to problema tan ceo como-y seya dable. P'ayudar a los "
+"desendolcadores a atalantar qué pudo dir mal, inclúi los siguientes detalles "
+"nel informe de fallu, y axunta los ficheros /var/log/syslog y /var/log/"
 "partman:"
 
 #. Type: text
@@ -852,9 +844,9 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Esto débese a un CD/DVD o unidá defeutuosa. Podría aidar llimpiar el CD/DVD, "
-"grabar el CD/DVD a una velocidá menor, o llimpiar la lente de la unidá de CD/"
-"DVD (en tiendes d'electrónica pue alcontrar sistemes de llimpieza)."
+"Esto débese a un CD/DVD o unidá defeutuosa. Podría ayudar llimpiar el CD/"
+"DVD, grabar el CD/DVD a una velocidá menor, o llimpiar la lente de la unidá "
+"de CD/DVD (en tiendes d'electrónica pues alcontrar sistemes de llimpieza)."
 
 #. Type: error
 #. Description
@@ -864,8 +856,8 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Esto débese davezu a un discu duru defeutuosu. Podría aidar revisar si'l "
-"discu duru ye antiguu y necesita ser reemplazáu, o mover el sistema a un "
+"Esto débese davezu a un discu duru defeutuosu. Podría ser d'ayuda revisar "
+"si'l discu duru ye antiguu y necesita reemplazase, o mover el sistema a un "
 "ambiente más frescu."
 
 #. Type: error
@@ -885,10 +877,10 @@ msgid ""
 "replacement, or to move the system to a cooler environment."
 msgstr ""
 "Davezu, esto débese a un discu o unidá de CD/DVD defeutuosos, o bien a un "
-"discu duru defeutuosu. Pue prebar a llimpiar el CD/DVD, grabar el CD/DVD a "
+"discu duru defeutuosu. Pues probar a llimpiar el CD/DVD, grabar el CD/DVD a "
 "menos velocidá, llimpiar la lente de la unidá de CD/DVD (puen alcontrase "
 "kits de llimpieza en les tiendes de suministros electrónicos), comprobar "
-"si'l discu duru ye vieyu y necesita ser sustituyíu, o mover el sistema a un "
+"si'l discu duru ye vieyu y necesita sustituyise, o mover el sistema a un "
 "entornu más frescu."
 
 #. Type: select
@@ -937,7 +929,7 @@ msgstr "Configurando'l tecláu..."
 #. Description
 #: ../ubiquity.templates:128001
 msgid "Creating user..."
-msgstr "Criando usuariu..."
+msgstr "Creando usuariu..."
 
 #. Type: text
 #. Description
@@ -1125,7 +1117,7 @@ msgstr "Calculando ficheros pa escluyir del copiáu..."
 #. Description
 #: ../ubiquity.templates:152001
 msgid "Ready when you are..."
-msgstr "Preparáu cuando tú lo teas..."
+msgstr "Preparáu cuando tu lo teas..."
 
 #. Type: title
 #. Description
@@ -1428,7 +1420,7 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"%d pequeñes particiones tán tapecíes, usa'l <a href=\"\">preséu avanzáu de "
+"Hai %d pequeñes particiones tapecíes, usa'l <a href=\"\">preséu avanzáu de "
 "particionáu</a> pa tener más control"
 
 #. Type: text
@@ -1449,7 +1441,7 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"%d particiones van desaniciase, usa'l <a href=\"\">preséu avanzáu de "
+"Van desaniciase %d particiones, usa'l <a href=\"\">preséu avanzáu de "
 "particionáu</a> pa tener más control"
 
 #. Type: text
@@ -1490,7 +1482,7 @@ msgstr "Pa tener los meyores resultaos, asegúrate qu'esti equipu:"
 #. Description
 #: ../ubiquity.templates:217001
 msgid "has at least ${SIZE} available drive space"
-msgstr "tienes polo menos ${SIZE} d'espaciu de discu disponible"
+msgstr "tien polo menos ${SIZE} d'espaciu de discu disponible"
 
 #. Type: text
 #. Description
@@ -1515,8 +1507,8 @@ msgid ""
 msgstr ""
 "${RELEASE} usa software de terceros p'amosar Flash, MP3 y otros ficheros "
 "multimedia y pa trabayar con dellos dispositivos inalámbricos. Parte d'esti "
-"software ye de códigu zarráu. El software ta baxo a los términos de la "
-"llicencia incluyida cola documentación del software."
+"software ye de códigu zarráu. El software ta baxo los términos de la "
+"llicencia que s'inclúi cola documentación del software."
 
 #. Type: text
 #. Description
@@ -1652,31 +1644,17 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Desaniciando paquetes"
 
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Una vegada respuendas a unes entrugues, l'ordenador tará preparáu pa "
-#~ "usase."
+#~ msgid "Install boot loader"
+#~ msgstr "Instalar cargador d'arranque"
 
 #~ msgid "Advanced Options"
 #~ msgstr "Opciones avanzaes"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Instalar cargador d'arranque"
 
 #~ msgid "Popularity contest"
 #~ msgstr "Concursu de popularidá"
 
 #~ msgid "Participate in the package usage survey"
 #~ msgstr "Participar na encuesta d'usu de paquetes"
-
-#~ msgid "Network proxy"
-#~ msgstr "Proxy de rede"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "Proxy HTTP:"
-
-#~ msgid "Port:"
-#~ msgstr "Puertu:"
 
 #~ msgid ""
 #~ " Language: ${LANGUAGE}\n"
@@ -1695,8 +1673,22 @@ msgstr "Desaniciando paquetes"
 #~ " Asistente de migración:\n"
 #~ " ${MIGRATE}"
 
+#~ msgid "HTTP proxy:"
+#~ msgstr "Proxy HTTP:"
+
+#~ msgid "Network proxy"
+#~ msgstr "Proxy de rede"
+
+#~ msgid "Port:"
+#~ msgstr "Puertu:"
+
 #~ msgid "Summary"
 #~ msgstr "Resume"
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "Una vegada respuendas a unes entrugues, l'ordenador tará preparáu pa "
+#~ "usase."
 
 #~ msgid ""
 #~ "Ready to install?  Once you answer a few questions, the contents of the "
@@ -1706,3 +1698,12 @@ msgstr "Desaniciando paquetes"
 #~ "Preparáu pa instalar?  Una vegada tengas contestao a unes entrugues, los "
 #~ "conteníos en ${MEDIUM} van instalase nel equipu y podrás executar "
 #~ "${RELEASE} normalmente, ensin ${MEDIUM}."
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "Esto ye un llanzamientu previu del instalador live ${MEDIUM} de "
+#~ "${RELEASE}. Nun ye una versión final, qu'apaecerá col llanzamientu final "
+#~ "de ${RELEASE} n'ochobre de 2010."

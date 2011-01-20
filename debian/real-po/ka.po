@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
+"X-Generator: Launchpad (build 12214)\n"
 
 #. Type: text
 #. Description
@@ -27,7 +27,7 @@ msgstr "ყველაზე დიდი უწყვეტი თავის
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr ""
+msgstr "წაშლა და სრულიად მთელი დისკის გამოყენება"
 
 #. Type: text
 #. Description
@@ -89,13 +89,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Try ${RELEASE}"
-msgstr ""
+msgstr "გასინჯვა - ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "Install ${RELEASE}"
-msgstr ""
+msgstr "დაყენება - ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -122,6 +122,8 @@ msgstr ""
 #: ../ubiquity.templates:16001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
 msgstr ""
+"შესაძლოა მოგესურვებათ <a href=\"release-notes\">განაახლოთ ეს საინსტალაციო "
+"პაკეტი</a>."
 
 #. Type: text
 #. Description
@@ -187,13 +189,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Please press one of the following keys:"
-msgstr ""
+msgstr "გთხოვთ, დააჭირეთ შემდეგი ღილაკებიდან ერთ-ერთს:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Is the following key present on your keyboard?"
-msgstr ""
+msgstr "არის თუ არა შემდეგი ღილაკი თქვენს კლავიატურაზე?"
 
 #. Type: text
 #. Description
@@ -313,7 +315,7 @@ msgstr "სისტემაში ავტომატური დარე�
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Require my password to log in"
-msgstr ""
+msgstr "შემოსვლისთვის პაროლი მოთხოვნა"
 
 #. Type: text
 #. Description
@@ -1570,11 +1572,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr ""
 
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "გაეცით პასუხი რამდენიმე კითხვას და თქვენი კომპიუტერი მზად იქნება "
-#~ "გამოყენებისთვის."
-
 #~ msgid "Advanced Options"
 #~ msgstr "დამატებითი პარამეტრები"
 
@@ -1612,6 +1609,11 @@ msgstr ""
 #~ " მდებარეობა: ${LOCATION}\n"
 #~ " მიგრაციის ასისტენტი:\n"
 #~ " ${MIGRATE}"
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "გაეცით პასუხი რამდენიმე კითხვას და თქვენი კომპიუტერი მზად იქნება "
+#~ "გამოყენებისთვის."
 
 #~ msgid "Summary"
 #~ msgstr "შეჯამება"

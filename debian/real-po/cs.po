@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-12-17 14:54+0000\n"
-"PO-Revision-Date: 2010-09-30 19:08+0000\n"
+"PO-Revision-Date: 2010-12-22 17:03+0000\n"
 "Last-Translator: Adrian Guniš <andygun696@gmail.com>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
+"X-Generator: Launchpad (build 12214)\n"
 
 #. Type: text
 #. Description
@@ -135,18 +135,13 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2011."
 msgstr ""
 "Toto je předběžné vydání instalátoru spustitelného ${MEDIUM} pro ${RELEASE}. "
-"Nejedná se o konečné vydání, které přijde s ${RELEASE} v říjnu 2010."
+"Nejedná se o konečné vydání, které přijde s ${RELEASE} v dubnu 2011."
 
 #. Type: text
 #. Description
@@ -265,10 +260,8 @@ msgstr "Potvrďte heslo"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
-#, fuzzy
-#| msgid "Confirm password"
 msgid "Confirm your password:"
-msgstr "Potvrďte heslo"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1638,10 +1631,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Odstraňování balíků"
 
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Jakmile odpovíte na pár otázek, bude tento počítač připraven k použití."
-
 #~ msgid "Advanced Options"
 #~ msgstr "Pokročilé volby"
 
@@ -1680,6 +1669,10 @@ msgstr "Odstraňování balíků"
 #~ " Pomocník migrace:\n"
 #~ " ${MIGRATE}"
 
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "Jakmile odpovíte na pár otázek, bude tento počítač připraven k použití."
+
 #~ msgid "Summary"
 #~ msgstr "Shrnutí"
 
@@ -1692,3 +1685,12 @@ msgstr "Odstraňování balíků"
 #~ "tohoto spustitelného ${MEDIUM} nainstalován na váš počítač. Díky tomu "
 #~ "budete moci ${RELEASE} používat daleko rychleji a bez potřeby vkládat "
 #~ "${MEDIUM}."
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "Toto je předběžné vydání instalátoru spustitelného ${MEDIUM} pro "
+#~ "${RELEASE}. Nejedná se o konečné vydání, které přijde s ${RELEASE} v "
+#~ "říjnu 2010."

@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-12-17 14:54+0000\n"
-"PO-Revision-Date: 2010-09-28 06:31+0000\n"
+"PO-Revision-Date: 2010-10-02 15:36+0000\n"
 "Last-Translator: SiraNokyoongtong <gumaraa@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
+"X-Generator: Launchpad (build 12214)\n"
 
 #. Type: text
 #. Description
@@ -130,18 +130,11 @@ msgstr "คุณอาจต้องการที่จะ <a href=\"update\
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2011."
 msgstr ""
-"นี่เป็นรุ่นก่อนเสถียรของ ${RELEASE} ตัวติดตั้งแบบเล่นสดบน ${MEDIUM} นี่ไม่ใช่รุ่นสุดท้าย "
-"ซึ่งรุ่นสุดท้ายของ ${RELEASE} จะออกในเดือนตุลาคมปี 2010"
 
 #. Type: text
 #. Description
@@ -259,10 +252,8 @@ msgstr "ยืนยันรหัสผ่าน"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
-#, fuzzy
-#| msgid "Confirm password"
 msgid "Confirm your password:"
-msgstr "ยืนยันรหัสผ่าน"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1600,17 +1591,17 @@ msgstr ""
 msgid "Removing packages"
 msgstr "กำลังถอดถอนแพกเกจ"
 
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr "เพียงคุณตอบคำถามไม่กี่ข้อ คอมพิวเตอร์เครื่องนี้ก็จะพร้อมใช้งาน"
-
 #~ msgid "Advanced Options"
 #~ msgstr "ตัวเลือกขั้นสูง"
 
 #~ msgid "Install boot loader"
 #~ msgstr "ติดตั้งบูตโหลดเดอร์"
 
-#~ msgid "Popularity contest"
-#~ msgstr "ประกวดความนิยม"
+#~ msgid "Port:"
+#~ msgstr "พอร์ต:"
+
+#~ msgid "Summary"
+#~ msgstr "ภาพรวม"
 
 #~ msgid "Participate in the package usage survey"
 #~ msgstr "เข้าร่วมในการสำรวจการใช้งานแพกเกจ"
@@ -1618,11 +1609,11 @@ msgstr "กำลังถอดถอนแพกเกจ"
 #~ msgid "Network proxy"
 #~ msgstr "พร็อกซีเครือข่าย"
 
+#~ msgid "Popularity contest"
+#~ msgstr "ประกวดความนิยม"
+
 #~ msgid "HTTP proxy:"
 #~ msgstr "พร็อกซี HTTP:"
-
-#~ msgid "Port:"
-#~ msgstr "พอร์ต:"
 
 #~ msgid ""
 #~ " Language: ${LANGUAGE}\n"
@@ -1641,8 +1632,16 @@ msgstr "กำลังถอดถอนแพกเกจ"
 #~ " ผู้ช่วยเหลือในการโอนย้าย:\n"
 #~ " ${MIGRATE}"
 
-#~ msgid "Summary"
-#~ msgstr "ภาพรวม"
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr "เพียงคุณตอบคำถามไม่กี่ข้อ คอมพิวเตอร์เครื่องนี้ก็จะพร้อมใช้งาน"
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "นี่เป็นรุ่นก่อนเสถียรของ ${RELEASE} ตัวติดตั้งแบบเล่นสดบน ${MEDIUM} นี่ไม่ใช่รุ่นสุดท้าย "
+#~ "ซึ่งรุ่นสุดท้ายของ ${RELEASE} จะออกในเดือนตุลาคมปี 2010"
 
 #~ msgid ""
 #~ "Ready to install?  Once you answer a few questions, the contents of the "

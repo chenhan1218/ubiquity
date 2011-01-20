@@ -1,6 +1,10 @@
 ubiquity (2.5.12) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
   * Fix oem-config-remove-gtk for changes in AptClient's commit_packages.
+
+  [ Evan Dandrea ]
+  * Update translations from Launchpad.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 20 Jan 2011 05:53:11 -0600
 

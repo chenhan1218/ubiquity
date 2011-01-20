@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-12-17 14:54+0000\n"
-"PO-Revision-Date: 2010-04-29 04:16+0000\n"
-"Last-Translator: nasir khan saikat <nasir8891@gmail.com>\n"
+"PO-Revision-Date: 2010-12-07 08:37+0000\n"
+"Last-Translator: Aniruddha Adhikary <Unknown>\n"
 "Language-Team: Bangla <core@BengaLinux.Org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
+"X-Generator: Launchpad (build 12214)\n"
 
 #. Type: text
 #. Description
@@ -33,7 +33,7 @@ msgstr "পুরো হার্ড-ডিস্ক মুছে ব্যব�
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "অন্য অপারেটিং সিস্টেমের সাথে ইন্সটল করুন"
 
 #. Type: text
 #. Description
@@ -109,18 +109,20 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
+"আপনি ইচ্ছে করলে <a href=\"release-notes\">রিলিজ নোটসমূহ</a> পড়তে পারেন কিংবা "
+"<a href=\"update\">এই ইন্সটলারকে আপডেট করতে পারেন</a>।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr ""
+msgstr "আপনি ইচ্ছে করলে <a href=\"release-notes\">রিলিজ নোটসমূহ</a> পড়তে পারেন।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr ""
+msgstr "আপনি ইচ্ছে করলে <a href=\"update\">এই ইন্সটলারকে আপডেট করতে পারেন</a>।"
 
 #. Type: text
 #. Description
@@ -144,7 +146,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Warning"
-msgstr ""
+msgstr "সতর্কীকরণ"
 
 #. Type: text
 #. Description
@@ -162,25 +164,25 @@ msgstr "কীবোর্ড বিন্যাস (Layout)"
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Choose your keyboard layout:"
-msgstr ""
+msgstr "আপনার কীবোর্ড লেআউট বাছাই করুন"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "আপনার কীবোর্ড পরীক্ষা করার জন্য এখানে লিখুন"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Figure Out Keyboard Layout"
-msgstr ""
+msgstr "কীবোর্ড লেআউট বুঝে নাও"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Figure out keyboard layout"
-msgstr ""
+msgstr "কীবোর্ড লেআউট বুঝে নাও"
 
 #. Type: text
 #. Description
@@ -204,43 +206,43 @@ msgstr "আপনি কে?"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Your name:"
-msgstr ""
+msgstr "আপনার নামঃ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Your name"
-msgstr ""
+msgstr "আপনার নাম"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Pick a username:"
-msgstr ""
+msgstr "ব্যবহারকারীর নাম বাছাই করুনঃ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Username"
-msgstr ""
+msgstr "ব্যবহারকারীর নাম"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Choose a password:"
-msgstr ""
+msgstr "একটি পাসওয়ার্ড চয়ন করুনঃ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Password"
-msgstr ""
+msgstr "পাসওয়ার্ড"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Confirm password"
-msgstr ""
+msgstr "পাসওয়ার্ড নিশ্চিত করুন"
 
 #. Type: text
 #. Description
@@ -252,13 +254,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Your computer's name:"
-msgstr ""
+msgstr "আপনার কম্পিউটারের নামঃ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "অন্য কম্পিউটারের সাথে কথা বলার সময় যে নামটি এটি ব্যবহার করবে।"
 
 #. Type: text
 #. Description
@@ -278,31 +280,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Short password"
-msgstr ""
+msgstr "সংক্ষিপ্ত পাসওয়ার্ড"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Weak password"
-msgstr ""
+msgstr "দুর্বল পাসওয়ার্ড"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Fair password"
-msgstr ""
+msgstr "মোটামোটি পাসওয়ার্ড"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Good password"
-msgstr ""
+msgstr "ভালো পাসওয়ার্ড"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Strong password"
-msgstr ""
+msgstr "শক্তিশালী পাসওয়ার্ড"
 
 #. Type: text
 #. Description
@@ -320,7 +322,7 @@ msgstr "লগইন করার জন্য আমার পাসওয়র�
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "আমার হোম ফোল্ডার এনক্রিপ্ট কর"
 
 #. Type: text
 #. Description
@@ -352,7 +354,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Allocate drive space"
-msgstr ""
+msgstr "ড্রাইভের স্পেস বন্টন"
 
 #. Type: text
 #. Description
@@ -428,13 +430,13 @@ msgstr "উন্নততর ..."
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:63001
 msgid "_Install Now[ action ]"
-msgstr ""
+msgstr "এখন ইন্সটল কর(_I)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr ""
+msgstr "ধাপ ${INDEX}/${TOTAL}"
 
 #. Type: title
 #. Description
@@ -460,7 +462,7 @@ msgstr "বুটলোডার ইনস্টল ব্যার্থ হয়
 msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
-msgstr ""
+msgstr "দুঃখিত, একটি ত্রুটি হয়েছে এবং উল্লিখিত স্থানে বুটলোডার ইন্সটল করা সম্ভব হয়নি।"
 
 #. Type: text
 #. Description
@@ -712,6 +714,8 @@ msgid ""
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
+"ইন্সটলেশন সম্পূর্ণ হয়েছে। আপনি ${RELEASE} চালিয়ে যেতে পারেন, কিন্তু আপনি রিষ্টার্ট "
+"দেওয়ার আগ পর্যন্ত কোন পরিবর্তন সংরক্ষণ করা হবে না।"
 
 #. Type: text
 #. Description
@@ -741,7 +745,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:110001
 msgid "Verifying the installation configuration..."
-msgstr ""
+msgstr "ইন্সটলেশন কনফিগারেশন পরীক্ষা-নিরীক্ষা করা হচ্ছে..."
 
 #. Type: title
 #. Description
@@ -1051,7 +1055,7 @@ msgstr "প্যাকেজসমূহ অপসারণের সময় এ
 #. Description
 #: ../ubiquity.templates:146001
 msgid "Error migrating documents and settings"
-msgstr ""
+msgstr "নথী এবং সেটিং অভিবাসন সংক্রান্ত ত্রুটি পাওয়া গেছে"
 
 #. Type: error
 #. Description
@@ -1067,7 +1071,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:147001
 msgid "Error copying network configuration"
-msgstr ""
+msgstr "নেটওয়ার্ক কনফিগারেশন কপি করার সময় ত্রুটি পরিলক্ষিত"
 
 #. Type: error
 #. Description
@@ -1088,7 +1092,7 @@ msgstr "অনুলিপি করা এড়াতে ফাইলসমূহ
 #. Description
 #: ../ubiquity.templates:152001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "প্রস্তুত যখন আপনিও প্রস্তুত..."
 
 #. Type: title
 #. Description
@@ -1197,7 +1201,7 @@ msgstr "ভাষা"
 #. Description
 #: ../ubiquity.templates:176001
 msgid "Prepare"
-msgstr ""
+msgstr "প্রস্তুত"
 
 #. Type: text
 #. Description
@@ -1233,7 +1237,7 @@ msgstr "ইনস্টল প্রক্রিয়া"
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Checking for installer updates"
-msgstr ""
+msgstr "ইন্সটলারের আপডেটের জন্য পরীক্ষা করা হচ্ছে"
 
 #. Type: text
 #. Description
@@ -1269,7 +1273,7 @@ msgstr "আপডেট সমূহ ইনস্টল করা হচ্ছ�
 #. Description
 #: ../ubiquity.templates:190001
 msgid "Error updating installer"
-msgstr ""
+msgstr "ইন্সটলার আপডেট করার সময় ত্রুটি পরিলক্ষিত"
 
 #. Type: text
 #. Description
@@ -1282,7 +1286,7 @@ msgstr ""
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:191001
 msgid "USB disk"
-msgstr ""
+msgstr "ইউএসবি ডিস্ক"
 
 #. Type: text
 #. Description
@@ -1312,7 +1316,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:195001
 msgid "Continue with installation."
-msgstr ""
+msgstr "ইন্সটলেশন চালিয়ে যাও"
 
 #. Type: text
 #. Description
@@ -1320,7 +1324,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:196001 ../ubiquity.templates:197001
 msgid "Installation failed"
-msgstr ""
+msgstr "ইনস্টলেশন ব্যর্থ"
 
 #. Type: text
 #. Description
@@ -1335,30 +1339,32 @@ msgstr ""
 #: ../ubiquity.templates:197001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
+"সমাধানযোগ্য নহে এমন একটি ত্রুটির সম্মুখীন হয়েছে ইনস্টলার, এখন সিস্টেম পুনরায় আরম্ভ "
+"করা হবে।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:199001
 msgid "Preparing to install ${RELEASE}"
-msgstr ""
+msgstr "${RELEASE} ইন্সটল করার প্রস্তুতি নিচ্ছি"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
 msgid "Wireless"
-msgstr ""
+msgstr "বেতার"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
 msgid "Please select your wireless network from this list"
-msgstr ""
+msgstr "তালিকা থেকে আপনার বেতার নেটওয়ার্ক বাছাই করুন"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
 msgid "Select drive:"
-msgstr ""
+msgstr "ড্রাইভ সিলেক্ট করুনঃ"
 
 #. Type: text
 #. Description
@@ -1370,7 +1376,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:207001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "সম্পূর্ণ ড্রাইভ ব্যবহার হবেঃ"
 
 #. Type: text
 #. Description
@@ -1410,43 +1416,43 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:212001
 msgid "Use Entire Partition"
-msgstr ""
+msgstr "সম্পূর্ণ পার্টিশন ব্যবহার কর"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:213001
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "সম্পূর্ণ ডিস্ক ব্যবহার কর"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
 msgid "Split Largest Partition"
-msgstr ""
+msgstr "বৃহত্তম পার্টিশন ভাগ কর"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:216001
 msgid "For best results, please ensure that this computer:"
-msgstr ""
+msgstr "সর্বোত্তম ফলাফলের জন্য নিশ্চিত করুন যে এই কম্পিউটারেঃ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
 msgid "has at least ${SIZE} available drive space"
-msgstr ""
+msgstr "কমপক্ষে ${SIZE} ড্রাইভ স্পেস আছে"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
 msgid "is plugged in to a power source"
-msgstr ""
+msgstr "বৈদ্যুতিক উৎসের সঙ্গে সংযুক্ত"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "ইন্টারনেটের সঙ্গে সংযুক্ত"
 
 #. Type: text
 #. Description
@@ -1457,6 +1463,9 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"ফ্ল্যাশ, এমপি৩ ও অন্যান্য মিডিয়া দেখানোর জন্য এবং কিছু বেতার হার্ডওয়্যারের সাথে কাজ "
+"করার জন্য ${RELEASE} ৩য় পক্ষের সফটওয়্যার ব্যবহার করে। এই সফটওয়্যারের কিছু ক্লোজড-"
+"সোর্স। এই সফটওয়্যার তার ডকুমেন্টেশনের অন্তর্ভূক্ত লাইসেন্সের সঙ্গে সঙ্গতিপূর্ণ।"
 
 #. Type: text
 #. Description
@@ -1465,18 +1474,20 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
+"ফ্লুয়েন্ডো এমপি৩ প্লাগ-ইনে ফ্রনহফার আইআইএস এবং থমসনের এমপেগ অডিও লেয়ার-৩ টেকনোলজি "
+"রয়েছে।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "এই ৩য় পক্ষের সফটওয়্যার ইন্সটল কর"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "ইন্সটলের সাথে সাথে আপডেট ডাউনলোড কর"
 
 #. Type: text
 #. Description
@@ -1488,7 +1499,7 @@ msgstr "লেআউট:"
 #. Description
 #: ../ubiquity.templates:228001
 msgid "Variant:"
-msgstr ""
+msgstr "ভেরিয়েন্টঃ"
 
 #. Type: text
 #. Description
@@ -1512,7 +1523,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:231001
 msgid "Time Zone:"
-msgstr ""
+msgstr "সময় অঞ্চল"
 
 #. Type: text
 #. Description
@@ -1524,14 +1535,14 @@ msgstr "এলাকা:"
 #. Description
 #: ../ubiquity.templates:233001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[পরিবর্তনের জন্য এখানে লিখুন]"
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
 msgid "OEM mode (for manufacturers only)"
-msgstr ""
+msgstr "OEM মোড (শুধু মাত্র প্রস্তুতকারকদের জন্য)"
 
 #. Type: text
 #. Description
@@ -1542,20 +1553,20 @@ msgstr ""
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
 msgid "Prepare for OEM configuration"
-msgstr ""
+msgstr "OEM কনফিগারেশনের জন্য প্রস্তুত"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
 msgid "Preparing for OEM configuration..."
-msgstr ""
+msgstr "OEM কনফিগারেশনের জন্য প্রস্তুত হচ্ছি..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
 msgid "Ready for OEM configuration"
-msgstr ""
+msgstr "OEM কনফিগারেশনের জন্য প্রস্তুত"
 
 #. Type: text
 #. Description
@@ -1580,28 +1591,10 @@ msgstr ""
 #. Description
 #: ../oem-config.templates:2001
 msgid "Removing packages"
-msgstr ""
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr "কয়েকটি প্রশ্নের উত্তর দেয়া হলেই এই কম্পিউটারটা ব্যবহারোপযোগী হয়ে যাবে।"
-
-#~ msgid "Advanced Options"
-#~ msgstr "উন্নততর বিকল্পসমূহ"
+msgstr "প্যাকেজসমূহ অপসারণ করা হচ্ছে"
 
 #~ msgid "Install boot loader"
 #~ msgstr "বুট লোডার ইনস্টল করুন"
-
-#~ msgid "Popularity contest"
-#~ msgstr "জনপ্রিয়তার প্রতিযোগিতা"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "প্যাকেজ ব্যবহার বিষয়ের জরিপে অংশগ্রহণ করুন"
-
-#~ msgid "Network proxy"
-#~ msgstr "নেটওয়র্ক প্রক্সি"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP প্রক্সি:"
 
 #~ msgid "Port:"
 #~ msgstr "পোর্ট:"
@@ -1622,6 +1615,24 @@ msgstr ""
 #~ " এলাকা: ${LOCATION}\n"
 #~ " মাইগ্রেশন সহকারী::\n"
 #~ " ${MIGRATE}"
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr "কয়েকটি প্রশ্নের উত্তর দেয়া হলেই এই কম্পিউটারটা ব্যবহারোপযোগী হয়ে যাবে।"
+
+#~ msgid "Advanced Options"
+#~ msgstr "উন্নততর বিকল্পসমূহ"
+
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "প্যাকেজ ব্যবহার বিষয়ের জরিপে অংশগ্রহণ করুন"
+
+#~ msgid "Popularity contest"
+#~ msgstr "জনপ্রিয়তার প্রতিযোগিতা"
+
+#~ msgid "HTTP proxy:"
+#~ msgstr "HTTP প্রক্সি:"
+
+#~ msgid "Network proxy"
+#~ msgstr "নেটওয়র্ক প্রক্সি"
 
 #~ msgid "Summary"
 #~ msgstr "সারসংক্ষেপ"

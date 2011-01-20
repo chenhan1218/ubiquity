@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-12-17 14:54+0000\n"
-"PO-Revision-Date: 2010-09-27 08:29+0000\n"
+"PO-Revision-Date: 2010-10-04 08:25+0000\n"
 "Last-Translator: Sergiy Gavrylov <sergiovana@bigmir.net>\n"
 "Language-Team: uk <>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
+"X-Generator: Launchpad (build 12214)\n"
 
 #. Type: text
 #. Description
@@ -133,18 +133,11 @@ msgstr "Можливо ви хочете <a href=\"update\">оновити це�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2011."
 msgstr ""
-"Це предреліз  ${RELEASE} установщика ${MEDIUM}. Це не фінальний реліз; "
-"версія ${RELEASE} вийде офіційно в Жовтні 2010 року."
 
 #. Type: text
 #. Description
@@ -191,7 +184,7 @@ msgstr "Введіть тут текст щоб перевірити клаві�
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Figure Out Keyboard Layout"
-msgstr ""
+msgstr "Визначаю розкладку клавіатури"
 
 #. Type: text
 #. Description
@@ -262,10 +255,8 @@ msgstr "Підтвердіть пароль"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
-#, fuzzy
-#| msgid "Confirm password"
 msgid "Confirm your password:"
-msgstr "Підтвердіть пароль"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -277,7 +268,7 @@ msgstr "Назва вашого комп'ютера:"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "Ім'я, що вікористовується для зв'язку з іншими комп'ютерами."
 
 #. Type: text
 #. Description
@@ -1413,7 +1404,7 @@ msgstr "Розподілити дисковий простір пересува�
 #. Description
 #: ../ubiquity.templates:207001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "Буде використано весь простір жорсткого диску:"
 
 #. Type: text
 #. Description
@@ -1423,6 +1414,8 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d менших розділів приховано, використовуйте <a href=\"\">розвинену програму "
+"розмітки дисків</a>, щоб повністю контролювати розмітку."
 
 #. Type: text
 #. Description
@@ -1431,6 +1424,8 @@ msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 менший розділ сховано, використайте <a href=\"\">advanced partitioning "
+"tool</a> для детальнішого огляду"
 
 #. Type: text
 #. Description
@@ -1440,6 +1435,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d розділ буде видалено, використайте <a href=\"\">advanced partitioning "
+"tool</a> для детальнішого огляду"
 
 #. Type: text
 #. Description
@@ -1448,6 +1445,8 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 розділ буде видалено, використайте <a href=\"\">advanced partitioning "
+"tool</a> для детальнішого огляду"
 
 #. Type: text
 #. Description
@@ -1477,13 +1476,13 @@ msgstr "Для найкращих результатів, переконайте
 #. Description
 #: ../ubiquity.templates:217001
 msgid "has at least ${SIZE} available drive space"
-msgstr ""
+msgstr "Є, що найменше, ${SIZE} вільного простору на жорсткому диску"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
 msgid "is plugged in to a power source"
-msgstr ""
+msgstr "підключено до джерела струму"
 
 #. Type: text
 #. Description
@@ -1500,6 +1499,10 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} використовує стороннє програмне забезпечення для програвання "
+"Flash, MP3  та інших медіа форматів, а також для роботи з бездротовим "
+"обладнанням. Дещо з даного програмного забезпечення має закрите ядро. І є "
+"об'єктом ліцензійних умов поданих у програмній документації."
 
 #. Type: text
 #. Description
@@ -1508,12 +1511,14 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
+"Fluendo MP3 plugin включає MPEG Layer-3 ліцензовану технологію аудіо "
+"декодування від Fraunhofer IIS і Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "Встановити це стороннє програмне забезпечення"
 
 #. Type: text
 #. Description
@@ -1566,7 +1571,7 @@ msgstr "Регіон:"
 #. Description
 #: ../ubiquity.templates:233001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[вводьте тут для змін]"
 
 #. Type: title
 #. Description
@@ -1632,31 +1637,23 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Вилучення пакунків"
 
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Дайте відповідь на кілька запитань і цей комп'ютер буде готовий до "
-#~ "використання."
-
 #~ msgid "Advanced Options"
 #~ msgstr "Розширені налаштування"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Встановити початковий завантажувач"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Рейтинг популярності"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Брати участь в досліджені рейтингу пакунків"
-
-#~ msgid "Network proxy"
-#~ msgstr "Проксі сервер"
 
 #~ msgid "HTTP proxy:"
 #~ msgstr "HTTP проксі:"
 
 #~ msgid "Port:"
 #~ msgstr "Порт:"
+
+#~ msgid "Install boot loader"
+#~ msgstr "Встановити початковий завантажувач"
+
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "Брати участь в досліджені рейтингу пакунків"
+
+#~ msgid "Popularity contest"
+#~ msgstr "Рейтинг популярності"
 
 #~ msgid ""
 #~ " Language: ${LANGUAGE}\n"
@@ -1675,6 +1672,9 @@ msgstr "Вилучення пакунків"
 #~ " Допомога з міграції:\n"
 #~ " ${MIGRATE}"
 
+#~ msgid "Network proxy"
+#~ msgstr "Проксі сервер"
+
 #~ msgid "Summary"
 #~ msgstr "Зведення"
 
@@ -1686,3 +1686,16 @@ msgstr "Вилучення пакунків"
 #~ "Готові розпочати процес встановлення? Дайте відповідь на кілька запитань, "
 #~ "після чого вміст ${MEDIUM} буде встановлено на цей комп'ютер та "
 #~ "${RELEASE} буде працювати на повну потужність, без потреби в ${MEDIUM}."
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "Дайте відповідь на кілька запитань і цей комп'ютер буде готовий до "
+#~ "використання."
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "Це предреліз  ${RELEASE} установщика ${MEDIUM}. Це не фінальний реліз; "
+#~ "версія ${RELEASE} вийде офіційно в Жовтні 2010 року."
