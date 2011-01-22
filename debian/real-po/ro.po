@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-12-17 14:54+0000\n"
-"PO-Revision-Date: 2010-10-01 00:12+0000\n"
-"Last-Translator: Lucian Adrian Grijincu <lucian.grijincu@gmail.com>\n"
+"PO-Revision-Date: 2011-01-13 22:25+0000\n"
+"Last-Translator: Daniel Șerbănescu <cyber19rider@gmail.com>\n"
 "Language-Team: Romanian Gnome Team <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
+"X-Generator: Launchpad (build 12214)\n"
 
 #. Type: text
 #. Description
@@ -131,19 +131,14 @@ msgstr "Puteți <a href=\"update\">actualiza programul de instalare</a>."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2011."
 msgstr ""
-"Aceasta este o versiune de dezvoltare a acestui ${MEDIUM} de instalare "
-"pentru ${RELEASE}. Nu este versiunea finală, care va veni cu ultima lansare "
-"a ${RELEASE} în octombrie 2010."
+"Aceasta este o versiune de test a programului de instalare live ${MEDIUM} "
+"pentru versiunea ${RELEASE}. Nu este o versiune finală; ea va fi disponibilă "
+"odată cu lansarea versiunii ${RELEASE} în aprilie 2011."
 
 #. Type: text
 #. Description
@@ -262,10 +257,8 @@ msgstr "Confirmați parola"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
-#, fuzzy
-#| msgid "Confirm password"
 msgid "Confirm your password:"
-msgstr "Confirmați parola"
+msgstr "Confirmați parola:"
 
 #. Type: text
 #. Description
@@ -289,7 +282,7 @@ msgstr "Rulați în modul de depanare. Nu utilizați o parolă importantă!"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Parolele nu se potrivesc"
 
 #. Type: text
 #. Description
@@ -772,7 +765,7 @@ msgstr "Se verifică configurarea instalării..."
 #. Description
 #: ../ubiquity.templates:111001
 msgid "Installing system"
-msgstr "Instalarea sistemului"
+msgstr "Se instalează sistemul"
 
 #. Type: text
 #. Description
@@ -1653,22 +1646,8 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Se elimină pachetele"
 
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "După ce veți răspunde la câteva întrebări, calculatorul va fi pregătit de "
-#~ "utilizare."
-
-#~ msgid "Advanced Options"
-#~ msgstr "Opțiuni avansate"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Instalează programul de încărcare a sistemului"
-
 #~ msgid "Popularity contest"
 #~ msgstr "Concurs de popularitate"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Participați la sondajul privind utilizarea pachetelor"
 
 #~ msgid "Network proxy"
 #~ msgstr "Proxy rețea"
@@ -1678,6 +1657,42 @@ msgstr "Se elimină pachetele"
 
 #~ msgid "Port:"
 #~ msgstr "Port:"
+
+#~ msgid "Summary"
+#~ msgstr "Rezumat"
+
+#~ msgid "Advanced Options"
+#~ msgstr "Opțiuni avansate"
+
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "Participați la sondajul privind utilizarea pachetelor"
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "După ce veți răspunde la câteva întrebări, calculatorul va fi pregătit de "
+#~ "utilizare."
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the "
+#~ "live ${MEDIUM} can be installed on this computer so you can run "
+#~ "${RELEASE} at full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "Gata de instalare? Odată ce ați răspuns la câteva întrebări, conținutul "
+#~ "acestui ${MEDIUM} live poate fi instalat pe calculator, astfel încât veți "
+#~ "putea folosi ${RELEASE} la viteză întreagă, fără a mai fi nevoie de "
+#~ "${MEDIUM}."
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "Aceasta este o versiune de dezvoltare a acestui ${MEDIUM} de instalare "
+#~ "pentru ${RELEASE}. Nu este versiunea finală, care va veni cu ultima "
+#~ "lansare a ${RELEASE} în octombrie 2010."
+
+#~ msgid "Install boot loader"
+#~ msgstr "Instalează programul de încărcare a sistemului"
 
 #~ msgid ""
 #~ " Language: ${LANGUAGE}\n"
@@ -1695,16 +1710,3 @@ msgstr "Se elimină pachetele"
 #~ " Locația: ${LOCATION}\n"
 #~ " Asistare migrare:\n"
 #~ " ${MIGRATE}"
-
-#~ msgid "Summary"
-#~ msgstr "Rezumat"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Gata de instalare? Odată ce ați răspuns la câteva întrebări, conținutul "
-#~ "acestui ${MEDIUM} live poate fi instalat pe calculator, astfel încât veți "
-#~ "putea folosi ${RELEASE} la viteză întreagă, fără a mai fi nevoie de "
-#~ "${MEDIUM}."

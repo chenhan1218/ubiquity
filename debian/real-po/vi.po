@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-12-17 14:54+0000\n"
-"PO-Revision-Date: 2010-08-27 20:12+0000\n"
-"Last-Translator: Evan Dandrea <ev@ubuntu.com>\n"
+"PO-Revision-Date: 2010-10-10 03:36+0000\n"
+"Last-Translator: Lê Hoàng Phương <Unknown>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
+"X-Generator: Launchpad (build 12214)\n"
 
 #. Type: text
 #. Description
@@ -33,7 +33,7 @@ msgstr "Xóa và dùng toàn bộ ổ cứng"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "Cài đặt bên cạnh các hệ điều hành khác"
 
 #. Type: text
 #. Description
@@ -75,6 +75,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
+"Bạn có thể thử ${RELEASE} mà không tạo bất cứ thay đổi nào với máy tính của "
+"bạn, trực tiếp từ ${MEDIUM}"
 
 #. Type: text
 #. Description
@@ -83,6 +85,8 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
+"Hoặc bạn đã sẵn sàng, bạn có thể cài đặt ${RELEASE} bên cạnh (hoặc thay thế) "
+"hệ điều hành hiện tại của bạn. Sẽ không mất nhiều thời gian đâu."
 
 #. Type: text
 #. Description
@@ -152,7 +156,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Warning"
-msgstr ""
+msgstr "Cảnh báo"
 
 #. Type: text
 #. Description
@@ -170,25 +174,25 @@ msgstr "Bố trí bàn phím"
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Choose your keyboard layout:"
-msgstr ""
+msgstr "Chọn sơ đồ bàn phím của bạn:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Nhập vào đây để thử bàn phím của bạn"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Figure Out Keyboard Layout"
-msgstr ""
+msgstr "Nhận dạng sơ đồ bàn phím"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Figure out keyboard layout"
-msgstr ""
+msgstr "Nhận dạng sơ đồ bàn phím"
 
 #. Type: text
 #. Description
@@ -212,19 +216,19 @@ msgstr "Bạn là ai?"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Your name:"
-msgstr ""
+msgstr "Tên của bạn:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Your name"
-msgstr ""
+msgstr "Tên của bạn"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Pick a username:"
-msgstr ""
+msgstr "Chọn một tên người dùng:"
 
 #. Type: text
 #. Description
@@ -236,7 +240,7 @@ msgstr "Tên người dùng"
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Choose a password:"
-msgstr ""
+msgstr "Chọn một mật khẩu:"
 
 #. Type: text
 #. Description
@@ -248,7 +252,7 @@ msgstr "Mật khẩu"
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Confirm password"
-msgstr ""
+msgstr "Xác nhận mật khẩu"
 
 #. Type: text
 #. Description
@@ -260,13 +264,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Your computer's name:"
-msgstr ""
+msgstr "Tên máy tính của bạn:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "Tên mà máy sử dụng khi nói chuyện với các máy tính khác."
 
 #. Type: text
 #. Description
@@ -285,31 +289,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Short password"
-msgstr ""
+msgstr "Mật khẩu ngắn"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Weak password"
-msgstr ""
+msgstr "Mật khẩu yếu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Fair password"
-msgstr ""
+msgstr "Mật khẩu hợp lý"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Good password"
-msgstr ""
+msgstr "Mật khẩu tốt"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Strong password"
-msgstr ""
+msgstr "Mật khẩu mạnh"
 
 #. Type: text
 #. Description
@@ -327,7 +331,7 @@ msgstr "Yêu cầu mật khẩu để đăng nhập"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "Mã hóa thư mục chính của tôi"
 
 #. Type: text
 #. Description
@@ -360,7 +364,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Allocate drive space"
-msgstr ""
+msgstr "Phân bổ không gian ổ đĩa"
 
 #. Type: text
 #. Description
@@ -436,13 +440,13 @@ msgstr "Nâng cao..."
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:63001
 msgid "_Install Now[ action ]"
-msgstr ""
+msgstr "_Cài đặt bây giờ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr ""
+msgstr "Bước ${INDEX}/${TOTAL}"
 
 #. Type: title
 #. Description
@@ -722,6 +726,9 @@ msgid ""
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
+"Việc cài đặt đã hoàn tất. Bạn có thể tiếp tục thử nghiệm ${RELEASE} bây giờ, "
+"nhưng cho đến khi bạn khởi động lại máy tính, bất cứ thay đổi nào bạn đã "
+"thực hiện hay bất cứ tài liệu nào bạn đã lưu đều không được bảo toàn."
 
 #. Type: text
 #. Description
@@ -1100,7 +1107,7 @@ msgstr "Đang tính toán các tập tin để bỏ qua sao chép..."
 #. Description
 #: ../ubiquity.templates:152001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "Sẵn sàng khi bạn có thể..."
 
 #. Type: title
 #. Description
@@ -1210,7 +1217,7 @@ msgstr "Ngôn ngữ"
 #. Description
 #: ../ubiquity.templates:176001
 msgid "Prepare"
-msgstr ""
+msgstr "Chuẩn bị"
 
 #. Type: text
 #. Description
@@ -1295,7 +1302,7 @@ msgstr "Trình cài đặt đã gặp lỗi trong lúc tiến hành tự cập n
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:191001
 msgid "USB disk"
-msgstr ""
+msgstr "ổ USB"
 
 #. Type: text
 #. Description
@@ -1311,6 +1318,8 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
+"Hãy lựa chọn ngôn ngữ sử dụng cho quá trình cài đặt. Ngôn ngữ này cũng sẽ là "
+"ngôn ngữ mặc định cho máy tính."
 
 #. Type: text
 #. Description
@@ -1359,37 +1368,37 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:199001
 msgid "Preparing to install ${RELEASE}"
-msgstr ""
+msgstr "Chuẩn bị cài đặt ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
 msgid "Wireless"
-msgstr ""
+msgstr "Không dây"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
 msgid "Please select your wireless network from this list"
-msgstr ""
+msgstr "Hãy lựa chọn mạng không dây của bạn từ danh sách này"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
 msgid "Select drive:"
-msgstr ""
+msgstr "Lựa chọn ổ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:206001
 msgid "Allocate drive space by dragging the divider below:"
-msgstr ""
+msgstr "Phân bổ không gian đĩa bằng cách kéo bộ phân đĩa dưới đây:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:207001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "Toàn bộ ổ đĩa sẽ được sử dụng:"
 
 #. Type: text
 #. Description
@@ -1399,6 +1408,8 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d các phân vùng nhỏ hơn đã bị ẩn, sử dụng <a href=\"\">công cụ phân vùng "
+"nâng cao</a> để điều chỉnh nhiều hơn"
 
 #. Type: text
 #. Description
@@ -1407,6 +1418,8 @@ msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 phân vùng nhỏ hơn bị ẩn, sử dụng <a href=\"\">công cụ phân vùng nâng cao</"
+"a> để điều chỉnh nhiều hơn"
 
 #. Type: text
 #. Description
@@ -1416,6 +1429,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d phân vùng sẽ bị xóa, sử dụng <a href=\"\">công cụ phân vùng nâng cao</a> "
+"để điều chỉnh nhiều hơn"
 
 #. Type: text
 #. Description
@@ -1424,48 +1439,50 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 phân vùng sẽ bị xóa, sử dụng <a href=\"\">công cụ phân vùng nâng cao</a> "
+"để điều chỉnh nhiều hơn"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:212001
 msgid "Use Entire Partition"
-msgstr ""
+msgstr "Sử dụng toàn bộ phân vùng"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:213001
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "Sử dụng toàn bộ ổ đĩa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
 msgid "Split Largest Partition"
-msgstr ""
+msgstr "Chia phân vùng lớn nhất"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:216001
 msgid "For best results, please ensure that this computer:"
-msgstr ""
+msgstr "Để có kết quả tốt nhất, hãy chắc chắn rằng máy tính này:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
 msgid "has at least ${SIZE} available drive space"
-msgstr ""
+msgstr "có ít nhất ${SIZE} không gian đĩa trống"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
 msgid "is plugged in to a power source"
-msgstr ""
+msgstr "được gắn vào một nguồn điện"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "được nối với Internet"
 
 #. Type: text
 #. Description
@@ -1476,6 +1493,10 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} sử dụng phần mềm hãng thứ ba để chạy Flash, MP3 cùng các phương "
+"tiện khác, và làm việc với một vài thiết bị phần cứng không dây. Một vài "
+"trong số những phần mềm này là nguồn đóng. Những phần mềm này lệ thuộc vào "
+"các điều khoản giấy phép đính kèm trong tài liệu của phần mềm."
 
 #. Type: text
 #. Description
@@ -1484,18 +1505,20 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
+"Phần bổ trợ Fluendo MP3 bao gồm công nghệ giải mã âm thanh MPEG Layer-3 cấp "
+"phép bởi Frauhofer IIS và Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "Cài đặt phần mềm hãng thứ ba này"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "Tải các cập nhật trong khi cài đặt"
 
 #. Type: text
 #. Description
@@ -1543,7 +1566,7 @@ msgstr "Quốc gia hay Vùng:"
 #. Description
 #: ../ubiquity.templates:233001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[nhập vào đây để thay đổi]"
 
 #. Type: title
 #. Description
@@ -1608,10 +1631,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Gỡ bỏ gói"
 
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Sau khi trả lời xong một vài câu hỏi, máy tính này sẽ sẵn sàng sử dụng."
-
 #~ msgid "Advanced Options"
 #~ msgstr "Tùy chọn nâng cao"
 
@@ -1650,6 +1669,10 @@ msgstr "Gỡ bỏ gói"
 #~ " Trợ lý di cư:\n"
 #~ " ${MIGRATE}"
 
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "Sau khi trả lời xong một vài câu hỏi, máy tính này sẽ sẵn sàng sử dụng."
+
 #~ msgid "Summary"
 #~ msgstr "Tóm tắt"
 
@@ -1661,3 +1684,12 @@ msgstr "Gỡ bỏ gói"
 #~ "Sẵn sàng cài đặt chưa?  Sau khi trả lời một vài câu hỏi, nội dung của "
 #~ "live ${MEDIUM} sẽ được cài đặt trên máy tính này, cho phép bạn chạy được "
 #~ "${RELEASE} một cách nhanh nhất không dùng ${MEDIUM}."
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "Đây là bản tiền phát hành của bộ cài đặt ${RELEASE} live ${MEDIUM}. Đây "
+#~ "chưa phải là bản phát hành cuổi cùng - được phát hành vào ${RELEASE} "
+#~ "trong tháng 10 năm 2010."

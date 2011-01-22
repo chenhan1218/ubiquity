@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-12-17 14:54+0000\n"
-"PO-Revision-Date: 2010-09-29 09:00+0000\n"
-"Last-Translator: jmb_kz <Unknown>\n"
+"PO-Revision-Date: 2010-10-02 15:37+0000\n"
+"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
 "Language-Team: Kazakh\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
+"X-Generator: Launchpad (build 12214)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr "Ең ұзақ (үлкен) бос орынды қолдану"
+msgstr "Ең үлкен үзіліссіз бос орынды қолдану"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Erase and use the entire disk"
-msgstr "Дискінің бәрін жойып, толығымен қолдану"
+msgstr "Дискті толығымен тазартып, қолдану"
 
 #. Type: text
 #. Description
@@ -39,7 +39,7 @@ msgstr "Басқа операциялық жүйелер қасында орна
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Specify partitions manually (advanced)"
-msgstr "Дискінің бөлімдерің өзінше көрсету (кеңейтілген)"
+msgstr "Диск бөлімдерін өзінше көрсету (кеңейтілген)"
 
 #. Type: text
 #. Description
@@ -54,7 +54,7 @@ msgstr "Орнату"
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "Орнату (OEM режимі, жабдық өндірушелір үшін)"
+msgstr "Орнату (OEM режимі, тек жабдық өндірушілері үшін)"
 
 #. Type: text
 #. Description
@@ -64,9 +64,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"Сіз жабдық өндіруші режимін таңдадыңыз. Жүйелер пакетінің атын енгізіңіз. "
-"Енгізілетін ат қайталанбайтын болуы керек, ол жүйеде сақталып, оны қате "
-"кеткен жағдайда қолдануға болады."
+"Сіз жабдық өндіруші режимін таңдадыңыз. Осы жүйе атын енгізіңіз. Енгізілетін "
+"ат қайталанбайтын болуы керек, себебі ол жүйеде сақталынып, қате жөнінде "
+"хабарлау кезінде қолданылатын болады."
 
 #. Type: text
 #. Description
@@ -75,8 +75,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"Өзіңіздің жүйеңізге ешбір тәуекелсіз ақ, ${MEDIUM} дискідегі ${RELEASE} "
-"қолданып көре аласыз."
+"Өзіңіздің компьютеріңізге ешбір өзгеріссіз-ақ, ${MEDIUM} дискідегі "
+"${RELEASE} қолданып көре аласыз."
 
 #. Type: text
 #. Description
@@ -86,7 +86,7 @@ msgid ""
 "your current operating system.  This shouldn't take too long."
 msgstr ""
 "Егер дайын болсаңыз, ${RELEASE} өзіңіздің операциялық жүйеңіздің қасында (не "
-"оның орнына) орнатсаңыз болады. Бұл көп уақыт алмайды."
+"оның орнына) орната аласыз. Бұл көп уақыт алмайды."
 
 #. Type: text
 #. Description
@@ -136,19 +136,11 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2011."
 msgstr ""
-"Бұл ${MEDIUM} орнатылымның ${RELEASE} алдын ала релиз (предрелиз) болып "
-"табылады. Бұл финальный релиз емес; ресми ${RELEASE} нұсқасы 2010 жылының 10 "
-"айының 10 жұлдызында шығады."
 
 #. Type: text
 #. Description
@@ -267,10 +259,8 @@ msgstr "Құпия сөзді растаңыз"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
-#, fuzzy
-#| msgid "Confirm password"
 msgid "Confirm your password:"
-msgstr "Құпия сөзді растаңыз"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -288,7 +278,7 @@ msgstr "Басқа компьютермен басланысатын кезде 
 #. Description
 #: ../ubiquity.templates:39001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "Жүйе жөндеу режимінде жегілген. Шын парольдарыңызды енгізбеңіз!"
+msgstr "Жүйе жөндеу режимінде жүктелінген. Маңызды құпия сөздерді қолдабаңыз!"
 
 #. Type: text
 #. Description
@@ -576,7 +566,7 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:82001
 msgid "New Partition Table..."
-msgstr "Жаңа Бөлімшелер Кестесі"
+msgstr "Жаңа бөлімдер кестесі..."
 
 #. Type: text
 #. Description
@@ -759,8 +749,8 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Орнату аяқталды. Жаңадан орнатылған жүйені пайдалана бастау үшін компьютерді "
-"қайта жегу керек."
+"Орнату аяқталды. Жаңадан орнатылған жүйемен жұмысты бастау үшін, компьютерді "
+"қайта жүктеу қажет."
 
 #. Type: text
 #. Description
@@ -943,7 +933,7 @@ msgstr "Құжаттар мен баптауды импорттау..."
 #. Description
 #: ../ubiquity.templates:130001
 msgid "Configuring hardware..."
-msgstr "Жабдықы баптау..."
+msgstr "Жабдықты баптау..."
 
 #. Type: text
 #. Description
@@ -1645,11 +1635,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Пакеттер жойылуда"
 
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Бірнеше сұрақтарға жауап бергеннен кейін, бұл дербес компьютер жұмысқа "
-#~ "дайын болады."
-
 #~ msgid "Advanced Options"
 #~ msgstr "Қосымша параметрлер"
 
@@ -1671,6 +1656,9 @@ msgstr "Пакеттер жойылуда"
 #~ msgid "Port:"
 #~ msgstr "Порты:"
 
+#~ msgid "Summary"
+#~ msgstr "Жинақталған ақпарат"
+
 #~ msgid ""
 #~ " Language: ${LANGUAGE}\n"
 #~ " Keyboard layout: ${KEYMAP}\n"
@@ -1688,9 +1676,6 @@ msgstr "Пакеттер жойылуда"
 #~ " Көшіріп әкелу көмекшісі:\n"
 #~ " ${MIGRATE}"
 
-#~ msgid "Summary"
-#~ msgstr "Жинақталған ақпарат"
-
 #~ msgid ""
 #~ "Ready to install?  Once you answer a few questions, the contents of the "
 #~ "live ${MEDIUM} can be installed on this computer so you can run "
@@ -1699,3 +1684,17 @@ msgstr "Пакеттер жойылуда"
 #~ "Орнатылым үрдісін бастауға дайынсыз ба? Бірнеше жауапқа жауап беру "
 #~ "арқылы, ${MEDIUM} құрамы компьютерге орнатылып, ${RELEASE} толық қуатымен "
 #~ "${MEDIUM} дискісіз-ақ жұмыс істейтін болады."
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "Бұл ${MEDIUM} орнатылымның ${RELEASE} алдын ала релиз (предрелиз) болып "
+#~ "табылады. Бұл финальный релиз емес; ресми ${RELEASE} нұсқасы 2010 жылының "
+#~ "10 айының 10 жұлдызында шығады."
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "Бірнеше сұрақтарға жауап бергеніңізден кейін, бұл дербес компьютер "
+#~ "жұмысқа дайын болады."

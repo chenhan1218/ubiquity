@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-12-17 14:54+0000\n"
-"PO-Revision-Date: 2010-09-23 09:23+0000\n"
-"Last-Translator: danielt998 <daniel@fearnley.net>\n"
+"PO-Revision-Date: 2010-12-16 06:57+0000\n"
+"Last-Translator: David Jones <Unknown>\n"
 "Language-Team: Welsh <>\n"
 "Language: cy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
+"X-Generator: Launchpad (build 12214)\n"
 
 #. Type: text
 #. Description
@@ -246,10 +246,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Confirm your password:"
-msgstr "Dewiswch cyfrinair"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -579,7 +577,7 @@ msgstr "Newid..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:85001
 msgid "Delete"
-msgstr ""
+msgstr "Dileu"
 
 #. Type: text
 #. Description
@@ -607,7 +605,7 @@ msgstr "Dyfais"
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:89001
 msgid "Type"
-msgstr ""
+msgstr "Teip"
 
 #. Type: text
 #. Description
@@ -650,7 +648,7 @@ msgstr "Lle rhydd"
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:95001
 msgid "unknown"
-msgstr ""
+msgstr "anhysbys"
 
 #. Type: text
 #. Description
@@ -1586,17 +1584,17 @@ msgstr ""
 #~ msgid "Advanced Options"
 #~ msgstr "Opsiynau Uwch"
 
-#~ msgid "Popularity contest"
-#~ msgstr "Cystadleuaeth poblogrwydd"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Cymryd rhan yn yr arolwg defnydd pecyn"
+#~ msgid "HTTP proxy:"
+#~ msgstr "Dirprwy HTTP:"
 
 #~ msgid "Network proxy"
 #~ msgstr "Dirprwy rhwydwaith"
 
-#~ msgid "HTTP proxy:"
-#~ msgstr "Dirprwy HTTP:"
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "Cymryd rhan yn yr arolwg defnydd pecyn"
+
+#~ msgid "Popularity contest"
+#~ msgstr "Cystadleuaeth poblogrwydd"
 
 #~ msgid "Port:"
 #~ msgstr "Porth:"

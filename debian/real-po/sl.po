@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-12-17 14:54+0000\n"
-"PO-Revision-Date: 2010-09-23 10:06+0000\n"
+"PO-Revision-Date: 2011-01-05 10:22+0000\n"
 "Last-Translator: Andrej Znidarsic <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
+"X-Generator: Launchpad (build 12214)\n"
 
 #. Type: text
 #. Description
@@ -132,18 +132,14 @@ msgstr "Lahko <a href=\"update\">posodobite ta namestilnik</a>."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2011."
 msgstr ""
-"To je predizdaja namestilnika živega ${MEDIUM}-ja ${RELEASE}. To ni dokončna "
-"izdaja; ta bo izdana oktobra 2010."
+"To je predizdaja živega ${MEDIUM} namestilnika ${RELEASE}. To ni končna "
+"različica namestilnika. Ta bo prišla s končno različico ${RELEASE}, ki izide "
+"aprila 2011."
 
 #. Type: text
 #. Description
@@ -262,10 +258,8 @@ msgstr "Potrdite geslo"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
-#, fuzzy
-#| msgid "Confirm password"
 msgid "Confirm your password:"
-msgstr "Potrdite geslo"
+msgstr "Potrdite svoje geslo:"
 
 #. Type: text
 #. Description
@@ -291,7 +285,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Gesli se ne ujemata"
 
 #. Type: text
 #. Description
@@ -1481,7 +1475,7 @@ msgstr "Za najboljše rezultate se prepričajte, da ta računalnik:"
 #. Description
 #: ../ubiquity.templates:217001
 msgid "has at least ${SIZE} available drive space"
-msgstr "ima vsaj %{SIZE} razpoložljivega prostora na disku"
+msgstr "ima vsaj ${SIZE} razpoložljivega prostora na disku"
 
 #. Type: text
 #. Description
@@ -1642,31 +1636,29 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Odstranjevanje paketov"
 
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Ko boste odgovorili na nekaj vprašanj, bo vaš računalnik pripravljen za "
-#~ "uporabo."
-
-#~ msgid "Advanced Options"
-#~ msgstr "Napredne možnosti"
-
 #~ msgid "Install boot loader"
 #~ msgstr "Namesti zagonski nalagalnik"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Raziskava priljubljenosti"
 
 #~ msgid "Participate in the package usage survey"
 #~ msgstr "Sodelujte v raziskavi o uporabi paketov"
 
+#~ msgid "Port:"
+#~ msgstr "Vrata:"
+
+#~ msgid "Summary"
+#~ msgstr "Povzetek"
+
+#~ msgid "Popularity contest"
+#~ msgstr "Raziskava priljubljenosti"
+
 #~ msgid "Network proxy"
 #~ msgstr "Posredniški strežnik omrežja"
 
+#~ msgid "Advanced Options"
+#~ msgstr "Napredne možnosti"
+
 #~ msgid "HTTP proxy:"
 #~ msgstr "Posredniški strežnik HTTP:"
-
-#~ msgid "Port:"
-#~ msgstr "Vrata:"
 
 #~ msgid ""
 #~ " Language: ${LANGUAGE}\n"
@@ -1685,8 +1677,13 @@ msgstr "Odstranjevanje paketov"
 #~ " Pomočnik pri prehodu:\n"
 #~ " ${MIGRATE}"
 
-#~ msgid "Summary"
-#~ msgstr "Povzetek"
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "To je predizdaja namestilnika živega ${MEDIUM}-ja ${RELEASE}. To ni "
+#~ "dokončna izdaja; ta bo izdana oktobra 2010."
 
 #~ msgid ""
 #~ "Ready to install?  Once you answer a few questions, the contents of the "
@@ -1696,3 +1693,8 @@ msgstr "Odstranjevanje paketov"
 #~ "Pripravljeni na namestitev? Ko odgovorite na nekaj vprašanj, se bo "
 #~ "vsebina z živega ${MEDIUM}-ja namestila na ta računalnik. Nato boste "
 #~ "lahko uporabljali ${RELEASE} s polno hitrostjo brez ${MEDIUM}-ja."
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "Ko boste odgovorili na nekaj vprašanj, bo vaš računalnik pripravljen za "
+#~ "uporabo."

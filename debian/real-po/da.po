@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-12-17 14:54+0000\n"
-"PO-Revision-Date: 2010-09-28 14:12+0000\n"
-"Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
+"PO-Revision-Date: 2011-01-10 19:35+0000\n"
+"Last-Translator: Joe Hansen <Unknown>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
+"X-Generator: Launchpad (build 12214)\n"
 "X-Poedit-Language: Danish\n"
 
 #. Type: text
@@ -135,11 +135,6 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
@@ -147,7 +142,7 @@ msgid ""
 msgstr ""
 "Dette er en præudgivelse af ${RELEASE} live${MEDIUM}-installationsprogram. "
 "Det er ikke en endelig udgave; den kommer med den endelige udgivelse af "
-"${RELEASE} i oktober 2010."
+"${RELEASE} i april 2010."
 
 #. Type: text
 #. Description
@@ -266,10 +261,8 @@ msgstr "Bekræft adgangskode"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
-#, fuzzy
-#| msgid "Confirm password"
 msgid "Confirm your password:"
-msgstr "Bekræft adgangskode"
+msgstr "Bekræft din adgangskode:"
 
 #. Type: text
 #. Description
@@ -294,7 +287,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Adgangskoderne er ikke ens"
 
 #. Type: text
 #. Description
@@ -1656,11 +1649,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Fjerner pakker"
 
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Når du har besvaret et par spørgsmål, vil denne computer være klar til "
-#~ "brug."
-
 #~ msgid "Advanced Options"
 #~ msgstr "Avancerede indstillinger"
 
@@ -1699,6 +1687,11 @@ msgstr "Fjerner pakker"
 #~ " Overførselshjælper:\\n\n"
 #~ " ${MIGRATE}"
 
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "Når du har besvaret et par spørgsmål, vil denne computer være klar til "
+#~ "brug."
+
 #~ msgid "Summary"
 #~ msgstr "Oversigt"
 
@@ -1710,3 +1703,12 @@ msgstr "Fjerner pakker"
 #~ "Klar til at installere? Når du har besvaret et par spørgsmål, kan "
 #~ "indholdet af denne live-${MEDIUM} installeres på denne computer, så du "
 #~ "kan køre ${RELEASE} ved fuld hastighed, uden ${MEDIUM}'en."
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "Dette er en præudgivelse af ${RELEASE} live${MEDIUM}-"
+#~ "installationsprogram. Det er ikke en endelig udgave; den kommer med den "
+#~ "endelige udgivelse af ${RELEASE} i oktober 2010."

@@ -1,12 +1,32 @@
-ubiquity (2.5.10) UNRELEASED; urgency=low
+ubiquity (2.5.12) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
+  * Fix oem-config-remove-gtk for changes in AptClient's commit_packages.
+
+  [ Evan Dandrea ]
+  * Update translations from Launchpad.
+
+  [ Julien Lavergne ]
   * bin/ubiquity-dm:
    - Wait lxsession before launching the panel, to have theming support.
      (LP: #684802)
   * src/panel/panel.c
    - Load lxpanel background for the panel when it's available.
 
- -- Julien Lavergne <gilir@ubuntu.com>  Sat, 15 Jan 2011 14:47:20 +0100
+ -- Julien Lavergne <gilir@ubuntu.com>  Sat, 22 Jan 2011 03:01:27 +0100
+
+ubiquity (2.5.11) natty; urgency=low
+
+  * Automatic update of included source packages: partman-partitioning
+    78ubuntu2.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 18 Jan 2011 15:11:14 -0600
+
+ubiquity (2.5.10) natty; urgency=low
+
+  * No change rebuild for new libindicator2.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Mon, 17 Jan 2011 12:30:07 +0000
 
 ubiquity (2.5.9) natty; urgency=low
 
@@ -80,7 +100,6 @@ ubiquity (2.5.6) natty; urgency=low
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 17 Dec 2010 15:02:18 +0000
 
->>>>>>> MERGE-SOURCE
 ubiquity (2.5.5) natty; urgency=low
 
   * Ensure that /var/lib/ubiquity exists in scripts/plugininstall.py.

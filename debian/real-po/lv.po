@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
+"X-Generator: Launchpad (build 12214)\n"
 
 #. Type: text
 #. Description
@@ -33,7 +33,7 @@ msgstr "Dzēst un izmantot visu disku"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "Instalēt blakus citai operētājsistēmai"
 
 #. Type: text
 #. Description
@@ -75,6 +75,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
+"Jūs varat izmēģināt ${RELEASE}, neveicot izmaiņas datorā, izmantojot tikai "
+"${MEDIUM} tieši."
 
 #. Type: text
 #. Description
@@ -83,6 +85,8 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
+"Vai arī, ja esat gatavs, varat instalēt ${RELEASE} blakus (vai aizvietojot) "
+"jūsu esošo operētājsistēmu.  Tam nevajadzētu aizņemt daudz laika."
 
 #. Type: text
 #. Description
@@ -150,7 +154,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Warning"
-msgstr ""
+msgstr "Brīdinājums"
 
 #. Type: text
 #. Description
@@ -168,25 +172,25 @@ msgstr "Tastatūras izkārtojums"
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Choose your keyboard layout:"
-msgstr ""
+msgstr "Izvēlieties savas tastatūras izkārtojumu:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Rakstiet šeit, lai pārbaudītu savu tastatūru"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Figure Out Keyboard Layout"
-msgstr ""
+msgstr "Uzminēt tastatūras izkārtojumu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Figure out keyboard layout"
-msgstr ""
+msgstr "Uzminēt tastatūras izkārtojumu"
 
 #. Type: text
 #. Description
@@ -210,19 +214,19 @@ msgstr "Kas jūs esat?"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Your name:"
-msgstr ""
+msgstr "Jūsu vārds:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Your name"
-msgstr ""
+msgstr "Jūsu vārds"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Pick a username:"
-msgstr ""
+msgstr "Izvēlieties lietotājvārdu:"
 
 #. Type: text
 #. Description
@@ -234,7 +238,7 @@ msgstr "Lietotājvārds"
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Choose a password:"
-msgstr ""
+msgstr "Izvēlieties paroli:"
 
 #. Type: text
 #. Description
@@ -246,7 +250,7 @@ msgstr "Parole"
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Confirm password"
-msgstr ""
+msgstr "Apstipriniet paroli"
 
 #. Type: text
 #. Description
@@ -258,13 +262,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Your computer's name:"
-msgstr ""
+msgstr "Datora nosaukums:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "Šo nosaukumu izmanto, sazinoties ar citiem datoriem."
 
 #. Type: text
 #. Description
@@ -282,31 +286,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Short password"
-msgstr ""
+msgstr "Īsa parole"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Weak password"
-msgstr ""
+msgstr "Vāja parole"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Fair password"
-msgstr ""
+msgstr "Pieņemama parole"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Good password"
-msgstr ""
+msgstr "Laba parole"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Strong password"
-msgstr ""
+msgstr "Stipra parole"
 
 #. Type: text
 #. Description
@@ -324,7 +328,7 @@ msgstr "Pieprasīt manu paroli, lai pieteiktos sistēmā"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "Šifrēt manu mājas mapi"
 
 #. Type: text
 #. Description
@@ -355,7 +359,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Allocate drive space"
-msgstr ""
+msgstr "Iedalīt diska vietu"
 
 #. Type: text
 #. Description
@@ -432,13 +436,13 @@ msgstr "Papildus..."
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:63001
 msgid "_Install Now[ action ]"
-msgstr ""
+msgstr "_Instalēt tagad"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr ""
+msgstr "Solis ${INDEX}/${TOTAL}"
 
 #. Type: title
 #. Description
@@ -719,6 +723,9 @@ msgid ""
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
+"Instalēšana pabeigta. Jūs varat turpināt testēt ${RELEASE}, bet, kamēr "
+"nepārstartēsiet datoru, veiktās izmaiņas vai saglabātie dokumenti netiks "
+"saglabāti."
 
 #. Type: text
 #. Description
@@ -1101,7 +1108,7 @@ msgstr "Aprēķina failus, kurus izlaist kopējot..."
 #. Description
 #: ../ubiquity.templates:152001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "Gaidu..."
 
 #. Type: title
 #. Description
@@ -1211,7 +1218,7 @@ msgstr "Valoda"
 #. Description
 #: ../ubiquity.templates:176001
 msgid "Prepare"
-msgstr ""
+msgstr "Gatavo"
 
 #. Type: text
 #. Description
@@ -1296,7 +1303,7 @@ msgstr "Instalatoram gadījās kļūda mēģinot atjaunināt sevi:"
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:191001
 msgid "USB disk"
-msgstr ""
+msgstr "USB disks"
 
 #. Type: text
 #. Description
@@ -1312,6 +1319,8 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
+"Lūdzu, izvēlieties valodu, kuru izmantot instalēšanas gaitā. Šī valoda būs "
+"noklusētā valoda šim datoram."
 
 #. Type: text
 #. Description
@@ -1320,8 +1329,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Lūdzu, izvēlieties valodu, kura tiks lietota konfigurācijas procesā. Šī "
-"valoda būs pamatvaloda šim datoram."
+"Lūdzu, izvēlieties valodu, kura tiks lietota konfigurēšanas gaitā. Šī valoda "
+"būs pamatvaloda šim datoram."
 
 #. Type: text
 #. Description
@@ -1359,37 +1368,37 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:199001
 msgid "Preparing to install ${RELEASE}"
-msgstr ""
+msgstr "Gatavojas instalēt ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
 msgid "Wireless"
-msgstr ""
+msgstr "Bezvadu tīkls"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
 msgid "Please select your wireless network from this list"
-msgstr ""
+msgstr "Lūdzu, izvēlieties savu bezvadu tīklu no saraksta"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
 msgid "Select drive:"
-msgstr ""
+msgstr "Izvēlieties dzini:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:206001
 msgid "Allocate drive space by dragging the divider below:"
-msgstr ""
+msgstr "Iedalīt diska vietu, zemāk ievelkot atdalītāju:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:207001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "Tiks izmantot viss disks:"
 
 #. Type: text
 #. Description
@@ -1399,6 +1408,8 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d mazākās sadaļas ir slēptas. Izmantojiet <a href=\"\">paplašināto "
+"dalīšanas rīku</a>, lai izmantotu papildus iespējas"
 
 #. Type: text
 #. Description
@@ -1407,6 +1418,8 @@ msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 mazāka sadaļa ir slēpta. Izmantojiet <a href=\"\">paplašināto dalīšanas "
+"rīku</a>, lai izmantotu papildus iespējas"
 
 #. Type: text
 #. Description
@@ -1416,6 +1429,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d sadaļas tiks dzēstas. Izmantojiet <a href=\"\">paplašināto dalīšanas "
+"rīku</a>, lai izmantotu papildus iespējas"
 
 #. Type: text
 #. Description
@@ -1424,48 +1439,50 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 sadaļa tiks dzēsta. Izmantojiet <a href=\"\">paplašināto dalīšanas rīku</"
+"a>, lai izmantotu papildus iespējas"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:212001
 msgid "Use Entire Partition"
-msgstr ""
+msgstr "Izmantot visu sadaļu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:213001
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "Izmantot visu disku"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
 msgid "Split Largest Partition"
-msgstr ""
+msgstr "Sadalīt lielāko sadaļu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:216001
 msgid "For best results, please ensure that this computer:"
-msgstr ""
+msgstr "Vislabāk izdosies, ja datoram izpildīsies šie nosacījumi:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
 msgid "has at least ${SIZE} available drive space"
-msgstr ""
+msgstr "ir pieejami vismaz ${SIZE} diska vietas"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
 msgid "is plugged in to a power source"
-msgstr ""
+msgstr "ir pievienots strāvas avotam"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "ir savienojums ar Internetu"
 
 #. Type: text
 #. Description
@@ -1476,6 +1493,10 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} izmanto trešās puses programmatūru lai atskaņotu MP3, Flash un "
+"citus medijus, kā arī lai darbotos daļa no bezvadu tīkla aparatūras. Daļa no "
+"šīs programmatūras ir slēgtā pirmkoda. Programmatūras lietošanu nosaka "
+"licences nosacījumi, kuri ir iekļauti programmatūras dokumentācijā."
 
 #. Type: text
 #. Description
@@ -1484,18 +1505,20 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
+"Fluendo MP3 spraudnis iekļauj MPEG Layer-3 audio atkodēšanas tehnoloģiju, "
+"kura ir licencēta no Fraunhofer IIS and Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "Instalēt trešās puses programmatūru"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "Lejupielādēt atjauninājumus instalēšanas laikā"
 
 #. Type: text
 #. Description
@@ -1543,7 +1566,7 @@ msgstr "Reģions:"
 #. Description
 #: ../ubiquity.templates:233001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[rakstiet šeit, lai mainītu]"
 
 #. Type: title
 #. Description
@@ -1609,22 +1632,11 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Noņem pakotnes"
 
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Tiklīdz jūs būsiet atbildējis uz dažiem jautājumiem, dators būs gatavs "
-#~ "lietošanai."
-
 #~ msgid "Advanced Options"
 #~ msgstr "Paplašinātās opcijas"
 
 #~ msgid "Install boot loader"
 #~ msgstr "Instalēt palaidēju"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Popularitātes aptauja"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Piedalieties programmatūras pakotņu izmantošanas aptaujā"
 
 #~ msgid "Network proxy"
 #~ msgstr "Tīkla starpniekserveris"
@@ -1652,6 +1664,17 @@ msgstr "Noņem pakotnes"
 #~ " Dokumentu un iestatījumu pārcelšana: \n"
 #~ " ${MIGRATE}"
 
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "Tiklīdz jūs būsiet atbildējis uz dažiem jautājumiem, dators būs gatavs "
+#~ "lietošanai."
+
+#~ msgid "Popularity contest"
+#~ msgstr "Popularitātes aptauja"
+
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "Piedalieties programmatūras pakotņu izmantošanas aptaujā"
+
 #~ msgid "Summary"
 #~ msgstr "Kopsavilkums"
 
@@ -1663,3 +1686,12 @@ msgstr "Noņem pakotnes"
 #~ "Esat gatavi instalēt? Pēc tam, kad būsiet atbildējuši uz dažiem "
 #~ "jautājumiem, dzīvā ${MEDIUM} saturs var tikt instalēts šajā datorā, lai "
 #~ "jūs varētu palaist ${RELEASE} pilnā apjomā, neizmantojot ${MEDIUM}."
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "Šī ir pirmslaidiena versija ${RELEASE} dzīvā ${MEDIUM} instalatoram. Šis "
+#~ "nav galējais laidiens; tā gala versija ${RELEASE} iznāks kā 2010 gada "
+#~ "oktobrī."

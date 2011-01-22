@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
+"X-Generator: Launchpad (build 12214)\n"
 
 #. Type: text
 #. Description
@@ -33,7 +33,7 @@ msgstr "Hapus dan gunakan seluruh cakram"
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Install alongside other operating systems"
-msgstr ""
+msgstr "Install bersamaan dengan sistem operasi lain."
 
 #. Type: text
 #. Description
@@ -75,6 +75,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
+"Anda dapat mencoba ${RELEASE} tanpa merubah apapun pada komputer Anda, "
+"langsung dari media ${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -83,6 +85,8 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
+"Atau jika Anda mau, Anda dapat meng-install ${RELEASE} bersamaan (atau "
+"selain) dengan sistem operasi saat ini. Ini tidak akan memerlukan waktu lama."
 
 #. Type: text
 #. Description
@@ -151,7 +155,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Warning"
-msgstr ""
+msgstr "Peringatan"
 
 #. Type: text
 #. Description
@@ -169,25 +173,25 @@ msgstr "Susunan papan ketik"
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Choose your keyboard layout:"
-msgstr ""
+msgstr "Pilih tampilan keyboard Anda:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Ketik disini untuk mencoba keyboard Anda."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Figure Out Keyboard Layout"
-msgstr ""
+msgstr "Tentukan Tampilan Keyboard"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Figure out keyboard layout"
-msgstr ""
+msgstr "Tentukan tampilan keyboard"
 
 #. Type: text
 #. Description
@@ -211,19 +215,19 @@ msgstr "Siapakan anda?"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Your name:"
-msgstr ""
+msgstr "Nama anda:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Your name"
-msgstr ""
+msgstr "Nama Anda"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Pick a username:"
-msgstr ""
+msgstr "Tentukan nama pengguna:"
 
 #. Type: text
 #. Description
@@ -235,7 +239,7 @@ msgstr "Nama Pengguna"
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Choose a password:"
-msgstr ""
+msgstr "Pilih kata sandi:"
 
 #. Type: text
 #. Description
@@ -247,7 +251,7 @@ msgstr "Kata sandi"
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Confirm password"
-msgstr ""
+msgstr "Ulangi kata sandi"
 
 #. Type: text
 #. Description
@@ -259,13 +263,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Your computer's name:"
-msgstr ""
+msgstr "Nama komputer anda"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "Nama tersebut digunakan sewaktu berkomunikasi dengan komputer lain."
 
 #. Type: text
 #. Description
@@ -285,31 +289,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Short password"
-msgstr ""
+msgstr "Sandi terlalu pendek"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Weak password"
-msgstr ""
+msgstr "Sandi lemah"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Fair password"
-msgstr ""
+msgstr "Sandi cukup aman."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Good password"
-msgstr ""
+msgstr "Sandi bagus"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Strong password"
-msgstr ""
+msgstr "Sandi kuat"
 
 #. Type: text
 #. Description
@@ -327,7 +331,7 @@ msgstr "Memerlukan kata sandi saya untuk masuk."
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "Enkripsi berkas home saya"
 
 #. Type: text
 #. Description
@@ -359,7 +363,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Allocate drive space"
-msgstr ""
+msgstr "Alokasikan ruang harddisk"
 
 #. Type: text
 #. Description
@@ -436,13 +440,13 @@ msgstr "Lanjut..."
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:63001
 msgid "_Install Now[ action ]"
-msgstr ""
+msgstr "_Pasang Sekarang[ action ]"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Step ${INDEX}/${TOTAL}"
-msgstr ""
+msgstr "Langkah ${INDEX}/${TOTAL}"
 
 #. Type: title
 #. Description
@@ -723,6 +727,9 @@ msgid ""
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
+"Instalasi telah selesai. Anda dapat melanjutkan untuk menguji ${RELEASE} "
+"sekarang, tapi hingga anda restart komputer, semua perubahan yang telah "
+"dibuat atau dokumen yang Anda simpan tidak akan tersimpan."
 
 #. Type: text
 #. Description
@@ -1075,6 +1082,9 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"Ada error ketika pemindahan data. Detil errornya dapat dilihat di /var/log/"
+"syslog. Pemasangan akan dilanjutkan, tapi beberapa atau semua dokumen dan "
+"pengaturan yang diminta mungkin tidak dipindah ke sistem yang terpasang"
 
 #. Type: error
 #. Description
@@ -1090,6 +1100,8 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"Ada error ketika menyalin pengaturan jaringan. Instalasi akan dilanjutkan, "
+"tapi konfigurasi jaringan harus diatur lagi nanti pada sistem yang terinstal"
 
 #. Type: text
 #. Description
@@ -1101,7 +1113,7 @@ msgstr "Menghitung berkas untuk melewati penyalinan"
 #. Description
 #: ../ubiquity.templates:152001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "Siap....."
 
 #. Type: title
 #. Description
@@ -1215,7 +1227,7 @@ msgstr "Bahasa"
 #. Description
 #: ../ubiquity.templates:176001
 msgid "Prepare"
-msgstr ""
+msgstr "Persiapan"
 
 #. Type: text
 #. Description
@@ -1300,7 +1312,7 @@ msgstr "Pemasang menemui galat ketika mencoba memperbarui dirinya sendiri:"
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:191001
 msgid "USB disk"
-msgstr ""
+msgstr "USB disk"
 
 #. Type: text
 #. Description
@@ -1316,6 +1328,8 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
+"Silahkan pilih bahasa yang akan dipakai selama proses pemasangan. Bahasa ini "
+"akan menjadi bahasa tetap untuk komputer ini."
 
 #. Type: text
 #. Description
@@ -1331,7 +1345,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:195001
 msgid "Continue with installation."
-msgstr ""
+msgstr "Lanjutkan dengan instalasi."
 
 #. Type: text
 #. Description
@@ -1339,7 +1353,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:196001 ../ubiquity.templates:197001
 msgid "Installation failed"
-msgstr ""
+msgstr "Instalasi gagal"
 
 #. Type: text
 #. Description
@@ -1348,48 +1362,50 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
+"Installer menemukan error yang tak terbaiki. Sesi desktop sekarang akan "
+"dijalankan sehingga anda dapat mencari masalahnya atau coba memasangnya lagi."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:197001
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr ""
+msgstr "Installer menemukan error yang tak terbaiki dan sekarang akan reboot."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:199001
 msgid "Preparing to install ${RELEASE}"
-msgstr ""
+msgstr "Persiapan untuk meng-install ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
 msgid "Wireless"
-msgstr ""
+msgstr "Nirkabel"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
 msgid "Please select your wireless network from this list"
-msgstr ""
+msgstr "Silahkan pilih jaringan nirkabel anda dari daftar berikut"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
 msgid "Select drive:"
-msgstr ""
+msgstr "Pilih drive:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:206001
 msgid "Allocate drive space by dragging the divider below:"
-msgstr ""
+msgstr "Sediakan ruang drive dengan menarik pembagi dibawah:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:207001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "Semua yang ada di disk akan dipakai:"
 
 #. Type: text
 #. Description
@@ -1399,6 +1415,8 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d partisi yang terkecil akan disembunyikan, gunakan <a href=\"\"> Alat "
+"partisi canggih </a> untuk mengendalikan lebih lanjut"
 
 #. Type: text
 #. Description
@@ -1407,6 +1425,8 @@ msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 partisi yang terkecil telah disembunyikan, gunakan <a href=\"\"> alat "
+"partisi canggih </a> untuk mengendalikan lebih lanjut"
 
 #. Type: text
 #. Description
@@ -1416,6 +1436,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d partisi akan dihapus, gunakan <a href=\"\"> alat partisi canggih </a> "
+"untuk mengendalikan lebih lanjut"
 
 #. Type: text
 #. Description
@@ -1424,48 +1446,50 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 partisi akan dihapus, gunakan <a href=\"\"> alat partisi canggih </a> "
+"untuk mengendalikan lebih lanjut"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:212001
 msgid "Use Entire Partition"
-msgstr ""
+msgstr "Gunakan semua partisi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:213001
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "Gunakan semua disk"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
 msgid "Split Largest Partition"
-msgstr ""
+msgstr "Bagi partisi yang terbesar"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:216001
 msgid "For best results, please ensure that this computer:"
-msgstr ""
+msgstr "Untuk hasil yang terbaik, tolong pastikan dalam komputer ini:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
 msgid "has at least ${SIZE} available drive space"
-msgstr ""
+msgstr "Harus ada sedikitnya ${SIZE} tersedia dalam ruang drive"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
 msgid "is plugged in to a power source"
-msgstr ""
+msgstr "apakah sudah menancap di sumber listrik"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "apakah sudah terhubung ke internet"
 
 #. Type: text
 #. Description
@@ -1476,6 +1500,10 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} Menggunakan program buatan perusahaan lain untuk memperlihatkan "
+"flash, MP3, dan media lainnya, dan untuk membuat beberapa perangkat wireless "
+"bekerja. Beberapa program ini berasal dari sumber yang tertutup. Program ini "
+"memiliki syarat lisensi yang disertakan di dalam dokumen program ini."
 
 #. Type: text
 #. Description
@@ -1484,18 +1512,20 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
+"Fluendo MP3 plugin termasuk teknologi MPEG layer-3 audio decoding adalah "
+"lisensi dari Fraunhofer IIS dan Thomson."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:222001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "Instal program buatan perusahaan lain"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "Unduh update ketika sedang menginstal"
 
 #. Type: text
 #. Description
@@ -1543,14 +1573,14 @@ msgstr "Daerah:"
 #. Description
 #: ../ubiquity.templates:233001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[ketik disini untuk mengganti]"
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
 msgid "OEM mode (for manufacturers only)"
-msgstr ""
+msgstr "Mode OEM (hanya untuk pemanufaktur)"
 
 #. Type: text
 #. Description
@@ -1561,20 +1591,20 @@ msgstr ""
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
 msgid "Prepare for OEM configuration"
-msgstr ""
+msgstr "Siapkan konfigurasi OEM"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
 msgid "Preparing for OEM configuration..."
-msgstr ""
+msgstr "Mempersiapkan konfigurasi OEM"
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
 msgid "Ready for OEM configuration"
-msgstr ""
+msgstr "Siap untuk konfigurasi OEM"
 
 #. Type: text
 #. Description
@@ -1585,6 +1615,11 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"Ketika anda melakukan boot ke dalam sistem yang baru ini, anda akan dapat "
+"melakukan log in sebagai user 'oem' dengan password yang anda pilih "
+"sebelumnya; user ini juga memiliki hak administratif menggunakan 'sudo'. "
+"Anda kemudian dapat membuat modifikasi tambahan yang anda perlukan terhadap "
+"sistem tersebut."
 
 #. Type: text
 #. Description
@@ -1594,16 +1629,16 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"Setelah sistem dikonfigurasi sesuai dengan selera anda, jalankan 'oem-config-"
+"prepare'. Ini akan menyebabkan sistem menghapus pengguna sementara 'oem' dan "
+"menanyakan pengguna akhir berbagai pertanyaan konfigurasi saat berikutnya "
+"dia di-boot."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
 msgid "Removing packages"
-msgstr ""
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Setelah anda menjawab beberapa pertanyaan, komputer ini siap digunakan."
+msgstr "Menghapus paket-paket"
 
 #~ msgid "Advanced Options"
 #~ msgstr "Pilihan Tingkat Lanjut"
@@ -1643,6 +1678,10 @@ msgstr ""
 #~ " Asisten migrasi:\n"
 #~ " ${MIGRATE}"
 
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "Setelah anda menjawab beberapa pertanyaan, komputer ini siap digunakan."
+
 #~ msgid "Summary"
 #~ msgstr "Ringkasan"
 
@@ -1654,3 +1693,12 @@ msgstr ""
 #~ "Siap memasang? Setelah anda menjawab beberapa pertanyaan, isi dari "
 #~ "${MEDIUM} live dapat dipasang pada komputer sehingga anda dapat "
 #~ "menjalankan ${RELEASE} dengan kecepatan penuh tanpa ${MEDIUM}nya."
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "Ini adalah versi awal dari ${RELEASE} live ${MEDIUM} instalasi. Ini "
+#~ "bukanlah versi akhir; yang akan digabungkan dengan versi akhir dari "
+#~ "${RELEASE} pada Oktober 2010."

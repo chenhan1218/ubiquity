@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-12-17 14:54+0000\n"
-"PO-Revision-Date: 2010-09-23 14:26+0000\n"
-"Last-Translator: Hendrik Knackstedt <Unknown>\n"
+"PO-Revision-Date: 2011-01-06 16:02+0000\n"
+"Last-Translator: Dennis Baudys <Unknown>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
+"X-Generator: Launchpad (build 12214)\n"
 
 #. Type: text
 #. Description
@@ -86,8 +86,9 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
-"Wenn Sie möchten, können Sie ${RELEASE} auch neben (oder anstatt) Ihres "
-"bisherigen Betriebssystems installieren. Dies dauert nur einige Minuten."
+"Wenn Sie möchten, können Sie ${RELEASE} auch neben Ihrem bisherigen "
+"Betriebssystem (oder stattdessen) installieren. Dies dauert nur einige "
+"Minuten."
 
 #. Type: text
 #. Description
@@ -135,20 +136,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2011."
 msgstr ""
-"Dies ist eine Vorveröffentlichung des ${MEDIUM}-Live-Installationsprogramms "
-"von ${RELEASE}. Dies ist keine finale Veröffentlichung; diese wird mit der "
-"finalen Veröffentlichung von ${RELEASE} im Oktober 2010 veröffentlicht "
-"werden."
+"Dies ist eine Vorabversion des Installationsprogramms für die ${RELEASE}-"
+"Live-${MEDIUM}. Es ist nicht die endgültige Version; diese wird mit der "
+"Freigabe der stabilen, endgültigen Version von ${RELEASE} im April 2011 "
+"erscheinen."
 
 #. Type: text
 #. Description
@@ -179,7 +175,7 @@ msgstr "Wo befinden Sie sich?"
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Keyboard layout"
-msgstr "Tastenbelegung"
+msgstr "Tastaturbelegung"
 
 #. Type: text
 #. Description
@@ -268,10 +264,8 @@ msgstr "Passwort bestätigen"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
-#, fuzzy
-#| msgid "Confirm password"
 msgid "Confirm your password:"
-msgstr "Passwort bestätigen"
+msgstr "Passwort wiederholen:"
 
 #. Type: text
 #. Description
@@ -298,7 +292,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Passwörter stimmen nicht überein"
 
 #. Type: text
 #. Description
@@ -737,7 +731,7 @@ msgstr "Eine Partition bearbeiten"
 #. Description
 #: ../ubiquity.templates:105001
 msgid "Boot loader"
-msgstr "Bootloader"
+msgstr "Boot-Loader"
 
 #. Type: text
 #. Description
@@ -791,19 +785,19 @@ msgstr "Installation des Grundsystems"
 #. Description
 #: ../ubiquity.templates:112001
 msgid "Finding the distribution to copy..."
-msgstr "Zu kopierende Distribution wird gesucht ..."
+msgstr "Zu kopierende Distribution wird gesucht …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:114001
 msgid "Scanning files..."
-msgstr "Dateien werden untersucht ..."
+msgstr "Dateien werden untersucht …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:115001
 msgid "Copying files..."
-msgstr "Dateien werden kopiert ..."
+msgstr "Dateien werden kopiert …"
 
 #. Type: text
 #. Description
@@ -912,115 +906,115 @@ msgstr "Die folgende Datei entspricht nicht ihrer Quellkopie auf der CD/DVD:"
 #. Description
 #: ../ubiquity.templates:122001
 msgid "Copying installation logs..."
-msgstr "Installationsprotokolle werden kopiert ..."
+msgstr "Installationsprotokolle werden kopiert …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Configuring target system..."
-msgstr "Das Zielsystem wird eingerichtet ..."
+msgstr "Zielsystem wird eingerichtet …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124001
 msgid "Configuring system locales..."
-msgstr "Das System-Gebietsschema wird eingerichtet ..."
+msgstr "System-Gebietsschema wird eingerichtet …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:125001
 msgid "Configuring apt..."
-msgstr "Apt wird eingerichtet ..."
+msgstr "APT wird eingerichtet …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:126001
 msgid "Configuring time zone..."
-msgstr "Zeitzone wird eingerichtet ..."
+msgstr "Zeitzone wird eingerichtet …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:127001
 msgid "Configuring keyboard..."
-msgstr "Tastatur wird eingerichtet ..."
+msgstr "Tastatur wird eingerichtet …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:128001
 msgid "Creating user..."
-msgstr "Benutzer wird erstellt ..."
+msgstr "Benutzer wird hinzugefügt …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Importing documents and settings..."
-msgstr "Dokumente und Einstellungen werden importiert ..."
+msgstr "Dokumente und Einstellungen werden importiert …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:130001
 msgid "Configuring hardware..."
-msgstr "Hardware wird eingerichtet ..."
+msgstr "Hardware wird eingerichtet …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:131001
 msgid "Configuring network..."
-msgstr "Das Netzwerk wird eingerichtet ..."
+msgstr "Netzwerk wird eingerichtet …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Setting computer name..."
-msgstr "Rechnername wird gesetzt ..."
+msgstr "Rechnername wird festgelegt …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Configuring boot loader..."
-msgstr "Bootloader wird eingerichtet ..."
+msgstr "Boot-Loader wird eingerichtet …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Installing additional packages..."
-msgstr "Zusätzliche Pakete installieren ..."
+msgstr "Zusätzliche Pakete werden installiert …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:135001
 msgid "Checking for packages to install..."
-msgstr "Zu installierende Pakete werden überprüft ..."
+msgstr "Zu installierende Pakete werden überprüft …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:136001
 msgid "Removing extra packages..."
-msgstr "Zusatzpakete werden entfernt ..."
+msgstr "Zusatzpakete werden entfernt …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Checking for packages to remove..."
-msgstr "Nach zu entfernenden Paketen wird geprüft ..."
+msgstr "Nach zu entfernenden Paketen wird geprüft …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Pakete werden heruntergeladen (${TIME} verbleibend) ..."
+msgstr "Pakete werden heruntergeladen (${TIME} verbleibend) …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:139001
 msgid "Downloading package lists..."
-msgstr "Paketliste wird heruntergeladen ..."
+msgstr "Paketliste wird heruntergeladen …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:140001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Paketliste wird heruntergeladen (${TIME} verbleibend) ..."
+msgstr "Paketliste wird heruntergeladen (${TIME} verbleibend) …"
 
 #. Type: error
 #. Description
@@ -1130,7 +1124,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:151001
 msgid "Calculating files to skip copying..."
-msgstr "Beim Kopiervorgang zu überspringende Dateien werden berechnet ..."
+msgstr "Beim Kopieren auszulassende Dateien werden ermittelt …"
 
 #. Type: text
 #. Description
@@ -1148,7 +1142,7 @@ msgstr "Sprachpakete werden installiert"
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Sprachpakete werden heruntergeladen (${TIME} verbleibend) ..."
+msgstr "Sprachpakete werden heruntergeladen (${TIME} verbleibend) …"
 
 #. Type: boolean
 #. Description
@@ -1353,8 +1347,8 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Bitte wählen sie die Sprache, die Sie für die Installation verwenden "
-"möchten. Diese wird die vorgegebene Sprache auf diesem Rechner."
+"Bitte wählen Sie die Sprache, die Sie für die Installation verwenden "
+"möchten. Diese Sprache wird zur Vorgabe auf diesem Rechner."
 
 #. Type: text
 #. Description
@@ -1364,7 +1358,7 @@ msgid ""
 "will be the default language for this computer."
 msgstr ""
 "Bitte wählen Sie die Sprache für den Konfigurationsvorgang. Diese Sprache "
-"wird die vorgegebene  Sprache auf dem Rechner."
+"wird zur Vorgabe auf diesem Rechner."
 
 #. Type: text
 #. Description
@@ -1533,10 +1527,10 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
-"${RELEASE} verwendet Drittanbieter-Software, um Flash, MP3 und andere Medien "
-"wiederzugeben sowie für die Steuerung einiger WLAN-Hardware-Komponenten. "
-"Einige dieser Programme sind nicht quelloffen. Diese Software unterliegt den "
-"in ihrer Dokumentation enthaltenen Lizenzbestimmungen."
+"${RELEASE} verwendet Software von Drittanbietern, um Flash, MP3 und andere "
+"Medien wiederzugeben sowie für die Steuerung einiger WLAN-Hardware-"
+"Komponenten. Einige dieser Programme sind nicht quelloffen. Diese Software "
+"unterliegt den in ihrer Dokumentation enthaltenen Lizenzbestimmungen."
 
 #. Type: text
 #. Description
@@ -1552,7 +1546,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:222001
 msgid "Install this third-party software"
-msgstr "Drittanbieter-Software installieren"
+msgstr "Software von Drittanbietern installieren"
 
 #. Type: text
 #. Description
@@ -1631,7 +1625,7 @@ msgstr "Für die OEM-Konfiguration vorbereiten"
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
 msgid "Preparing for OEM configuration..."
-msgstr "Die OEM-Konfiguration wird vorbereitet ..."
+msgstr "OEM-Konfiguration wird vorbereitet …"
 
 #. Type: text
 #. Description
@@ -1672,11 +1666,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Pakete werden entfernt"
 
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Nach der Beantwortung einiger Fragen wird der Rechner zur Benutzung "
-#~ "bereit sein."
-
 #~ msgid "Advanced Options"
 #~ msgstr "Erweiterte Einstellungen"
 
@@ -1686,17 +1675,14 @@ msgstr "Pakete werden entfernt"
 #~ msgid "Popularity contest"
 #~ msgstr "Beliebtheitswettbewerb"
 
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "An der Erhebung über die Verwendung von Softwarepaketen teilnehmen"
-
-#~ msgid "Network proxy"
-#~ msgstr "Netzwerkproxy"
-
 #~ msgid "HTTP proxy:"
 #~ msgstr "HTTP-Proxy:"
 
 #~ msgid "Port:"
 #~ msgstr "Port:"
+
+#~ msgid "Summary"
+#~ msgstr "Zusammenfassung"
 
 #~ msgid ""
 #~ " Language: ${LANGUAGE}\n"
@@ -1715,15 +1701,33 @@ msgstr "Pakete werden entfernt"
 #~ " Migrationsassistent:\n"
 #~ " ${MIGRATE}"
 
-#~ msgid "Summary"
-#~ msgstr "Zusammenfassung"
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "Nach der Beantwortung einiger Fragen wird der Rechner zur Benutzung "
+#~ "bereit sein."
+
+#~ msgid "Network proxy"
+#~ msgstr "Netzwerkproxy"
+
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "An der Erhebung über die Verwendung von Softwarepaketen teilnehmen"
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "Dies ist eine Vorveröffentlichung des ${MEDIUM}-Live-"
+#~ "Installationsprogramms von ${RELEASE}. Dies ist keine finale "
+#~ "Veröffentlichung; diese wird mit der finalen Veröffentlichung von "
+#~ "${RELEASE} im Oktober 2010 veröffentlicht werden."
 
 #~ msgid ""
 #~ "Ready to install?  Once you answer a few questions, the contents of the "
 #~ "live ${MEDIUM} can be installed on this computer so you can run "
 #~ "${RELEASE} at full speed without the ${MEDIUM}."
 #~ msgstr ""
-#~ "Bereit für die Installation? Sobald Sie einige Fragen beantwortet haben, "
+#~ "Bereit für die Installation? Nachdem Sie einige Fragen beantwortet haben, "
 #~ "kann der Inhalt des Live-Systems (${MEDIUM}) auf diesem Rechner "
-#~ "installiert werden, so dass Sie ${RELEASE} ohne ${MEDIUM} mit voller "
+#~ "installiert werden, sodass Sie ${RELEASE} ohne ${MEDIUM} mit voller "
 #~ "Geschwindigkeit nutzen können."

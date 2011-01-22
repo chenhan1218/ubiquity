@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-12-17 14:54+0000\n"
-"PO-Revision-Date: 2010-09-28 14:01+0000\n"
+"PO-Revision-Date: 2010-10-02 15:37+0000\n"
 "Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-01 08:44+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
+"X-Generator: Launchpad (build 12214)\n"
 
 #. Type: text
 #. Description
@@ -134,18 +134,11 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2011."
 msgstr ""
-"Tai yra preliminari ${RELEASE} ${MEDIUM} diegimo programa. Tai nėra galutinė "
-"laida; galutinė ${RELEASE} laida bus išleista 2010 m. spalį."
 
 #. Type: text
 #. Description
@@ -264,10 +257,8 @@ msgstr "Patvirtinkite slaptažodį"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
-#, fuzzy
-#| msgid "Confirm password"
 msgid "Confirm your password:"
-msgstr "Patvirtinkite slaptažodį"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1644,9 +1635,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Šalinami paketai"
 
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr "Kompiuteris bus paruoštas darbui kai atsakysite į keletą klausimų."
-
 #~ msgid "Advanced Options"
 #~ msgstr "Sudėtingesnės parinktys"
 
@@ -1655,9 +1643,6 @@ msgstr "Šalinami paketai"
 
 #~ msgid "Popularity contest"
 #~ msgstr "Populiarumo varžybos"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Dalyvauti paketų naudojimo apžvalgoje"
 
 #~ msgid "Network proxy"
 #~ msgstr "Tinklo proxy"
@@ -1685,8 +1670,14 @@ msgstr "Šalinami paketai"
 #~ " Duomenų bei nustatymų importavimas:\n"
 #~ " ${MIGRATE}"
 
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr "Kompiuteris bus paruoštas darbui kai atsakysite į keletą klausimų."
+
 #~ msgid "Summary"
 #~ msgstr "Santrauka"
+
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "Dalyvauti paketų naudojimo apžvalgoje"
 
 #~ msgid ""
 #~ "Ready to install?  Once you answer a few questions, the contents of the "
@@ -1696,3 +1687,11 @@ msgstr "Šalinami paketai"
 #~ "Pasiruošę įdiegimui? Atsakykite į kelis klausimus ir ${MEDIUM} turinys "
 #~ "bus įdiegtas į šį kompiuterį, kad galėtumėte naudoti ${RELEASE} visu "
 #~ "greičiu be ${MEDIUM}."
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "Tai yra preliminari ${RELEASE} ${MEDIUM} diegimo programa. Tai nėra "
+#~ "galutinė laida; galutinė ${RELEASE} laida bus išleista 2010 m. spalį."
