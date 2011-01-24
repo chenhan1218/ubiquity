@@ -883,6 +883,8 @@ class Wizard(BaseFrontend):
         name = widget.get_name()
 
         if isinstance(widget, gtk.Label):
+            widget.set_markup(text)
+
             # Ideally, these attributes would be in the ui file (and can be if
             # we bump required gtk+ to 2.16), but as long as we support glade
             # files, we can't make the change.

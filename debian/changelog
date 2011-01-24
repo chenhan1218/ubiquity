@@ -7,6 +7,8 @@ ubiquity (2.5.12) UNRELEASED; urgency=low
   * Update translations from Launchpad.
   * If a session indicator gconf key starts unset, make sure it ends
     that way (LP: #684052).
+  * Fix mistake in the cleanup branch merge that broke translations
+    (LP: #691671).
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 20 Jan 2011 05:53:11 -0600
 
