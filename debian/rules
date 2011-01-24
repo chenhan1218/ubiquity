@@ -64,7 +64,7 @@ clean: check
 
 d-i/source/console-setup/Keyboard/MyKeyboardNames.pl:
 	$(MAKE) -C d-i/source/console-setup/Keyboard MyKeyboardNames.pl \
-		pc105.tree xkbdir=/usr/share/X11/xkb
+		xkbdir=/usr/share/X11/xkb
 
 ubiquity/keyboard_names.py: d-i/source/console-setup/Keyboard/MyKeyboardNames.pl
 	d-i/make-keyboard-names $< > $@
