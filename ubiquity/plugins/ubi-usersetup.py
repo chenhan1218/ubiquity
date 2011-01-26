@@ -167,6 +167,7 @@ class PageGtk(PageBase):
         self.hostname_changed_id = None
         self.username_edited = False
         self.hostname_edited = False
+        self.hostname_timeout_id = 0
 
         import gtk
         builder = gtk.Builder()
@@ -407,6 +408,33 @@ class PageGtk(PageBase):
 
     def on_hostname_changed(self, widget):
         self.hostname_edited = (widget.get_text() != '')
+
+        # Lets not call this every time the user presses a key.
+        import gobject
+        if self.hostname_timeout_id:
+            gobject.source_remove(self.hostname_timeout_id)
+        self.hostname_timeout_id = gobject.timeout_add(300,
+                                        self.hostname_timeout, widget)
+
+    def lookup_result(self, resolver, result):
+        import glib
+        try:
+            resolver.lookup_by_name_finish(result)
+        except glib.GError:
+            pass
+        else:
+            # FIXME: i18n
+            self.hostname_error('That name already exists on the network.')
+            self.hostname_ok.hide()
+            self.controller.allow_go_forward(False)
+
+    def hostname_timeout(self, widget):
+        import gio
+        if self.hostname_ok.get_property('visible'):
+            res = gio.resolver_get_default()
+            hostname = widget.get_text()
+            for host in (hostname, '%s.local' % hostname):
+                res.lookup_by_name_async(self.lookup_result, host)
 
     def on_authentication_toggled(self, w):
         if w == self.login_auto and w.get_active():

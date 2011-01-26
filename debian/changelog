@@ -11,6 +11,7 @@ ubiquity (2.5.12) UNRELEASED; urgency=low
     (LP: #691671).
   * pc105.tree is included in console-setup now, which speeds up
     ubiquity builds.
+  * Detect hostname collisions (LP: #634187).
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 20 Jan 2011 05:53:11 -0600
 
