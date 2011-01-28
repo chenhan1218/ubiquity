@@ -1,4 +1,4 @@
-ubiquity (2.5.12) UNRELEASED; urgency=low
+ubiquity (2.5.12) natty; urgency=low
 
   [ Mario Limonciello ]
   * Fix oem-config-remove-gtk for changes in AptClient's commit_packages.
@@ -19,7 +19,7 @@ ubiquity (2.5.12) UNRELEASED; urgency=low
     console-setup 1.57ubuntu5, partman-basicfilesystems 69ubuntu1,
     partman-efi 23ubuntu1, partman-partitioning 79ubuntu1.
 
- -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 20 Jan 2011 05:53:11 -0600
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 28 Jan 2011 15:06:19 +0000
 
 ubiquity (2.5.11) natty; urgency=low
 
