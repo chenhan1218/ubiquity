@@ -29,6 +29,12 @@ class Install(FilteredCommand):
         else:
             self.frontend.set_reboot(False)
 
+        shutdown = self.db.get('ubiquity/poweroff')
+        if shutdown == 'true':
+            self.frontend.set_shutdown(True)
+        else:
+            self.frontend.set_shutdown(False)
+
         if self.frontend.oem_config:
             self.preseed('oem-config/enable', 'true')
 

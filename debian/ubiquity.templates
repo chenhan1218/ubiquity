@@ -349,6 +349,10 @@ Template: ubiquity/text/reboot_button
 Type: text
 _Description: Restart Now
 
+Template: ubiquity/text/shutdown_button
+Type: text
+_Description: Shutdown Now
+
 Template: ubiquity/text/crash_dialog
 Type: text
 _Description: Installer crashed
@@ -860,6 +864,11 @@ Template: ubiquity/reboot
 Type: boolean
 Default: false
 Description: for internal use; automatically reboot when the install completes.
+
+Template: ubiquity/poweroff
+Type: boolean
+Default: false
+Description: for internal use; automatically shutdown when the install completes.
 
 Template: ubiquity/success_command
 Type: string

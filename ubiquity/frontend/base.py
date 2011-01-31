@@ -329,6 +329,25 @@ class BaseFrontend:
         else:
             return True
 
+    def set_shutdown(self, shutdown):
+        """Set whether to shutdown automatically when the install completes."""
+        self.shutdown_after_install = shutdown
+
+    def get_shutdown(self):
+        return self.shutdown_after_install
+
+    def get_shutdown_seen(self):
+        shutdown_seen = 'false'
+        try:
+            shutdown_seen = self.debconf_operation('fget', 'ubiquity/poweroff',
+                'seen')
+        except debconf.DebconfError:
+            pass
+        if shutdown_seen == 'false':
+            return False
+        else:
+            return True
+
     # General facilities for components.
 
     def error_dialog(self, title, msg, fatal=True):
