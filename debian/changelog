@@ -1,3 +1,9 @@
+ubiquity (2.5.13) UNRELEASED; urgency=low
+
+  * Fix layout issues in stepPartMan.ui and stepLanguage.ui LP: #705915
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 31 Jan 2011 12:02:17 +0000
+
 ubiquity (2.5.12) natty; urgency=low
 
   [ Mario Limonciello ]
