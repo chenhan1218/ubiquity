@@ -353,6 +353,12 @@ Template: ubiquity/text/shutdown_button
 Type: text
 _Description: Shutdown Now
 
+Template: ubiquity/show_shutdown_button
+Type: boolean
+Default: false
+Description: for internal use; can be preseeded
+ Show the Shutdown Now button at the end of installation
+
 Template: ubiquity/text/crash_dialog
 Type: text
 _Description: Installer crashed

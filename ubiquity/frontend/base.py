@@ -134,6 +134,12 @@ class BaseFrontend:
         except debconf.DebconfError:
             pass
 
+        try:
+            self.show_shutdown_button = \
+                self.db.get('ubiquity/show_shutdown_button') == 'true'
+        except debconf.DebconfError:
+            self.show_shutdown_button = False
+
         # Load plugins
         plugins = plugin_manager.load_plugins()
         modules = plugin_manager.order_plugins(plugins)

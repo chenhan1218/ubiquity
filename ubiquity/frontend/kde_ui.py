@@ -489,7 +489,9 @@ class Wizard(BaseFrontend):
                                          quitText, QtGui.QMessageBox.NoButton,
                                          self.ui)
                 messageBox.addButton(rebootButtonText, QtGui.QMessageBox.AcceptRole)
-                messageBox.addButton(shutdownButtonText, QtGui.QMessageBox.AcceptRole)
+                if self.show_shutdown_button:
+                    messageBox.addButton(shutdownButtonText,
+                                         QtGui.QMessageBox.AcceptRole)
                 if ('UBIQUITY_ONLY' not in os.environ and
                     'UBIQUITY_GREETER' not in os.environ):
                     messageBox.addButton(quitButtonText, QtGui.QMessageBox.RejectRole)

@@ -734,7 +734,11 @@ class Wizard(BaseFrontend):
         self.grub_new_device_entry.pack_start(renderer, True)
         self.grub_new_device_entry.add_attribute(renderer, 'text', 1)
 
-        #Parse the slideshow size early to prevent the window from growing
+        # Only show the Shutdown Now button if explicitly asked to.
+        if not self.show_shutdown_button:
+            self.shutdown_button.hide()
+
+        # Parse the slideshow size early to prevent the window from growing
         self.slideshow = '/usr/share/ubiquity-slideshow'
         if os.path.exists(self.slideshow):
             try:
