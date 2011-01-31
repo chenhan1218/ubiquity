@@ -472,6 +472,7 @@ class Wizard(BaseFrontend):
 
             quitText = '<qt>%s</qt>' % self.get_string("finished_label")
             rebootButtonText = self.get_string("reboot_button")
+            shutdownButtonText = self.get_string("shutdown_button")
             quitButtonText = self.get_string("quit_button")
             titleText = self.get_string("finished_dialog")
 
@@ -479,7 +480,7 @@ class Wizard(BaseFrontend):
             self.run_success_cmd()
             if self.oem_user_config:
                 self.quit()
-            elif not self.get_reboot_seen():
+            elif not self.get_reboot_seen() or not self.get_shutdown_seen():
                 if ('UBIQUITY_ONLY' in os.environ or
                     'UBIQUITY_GREETER' in os.environ):
                     quitText = self.get_string('ubiquity/finished_restart_only')
@@ -488,6 +489,7 @@ class Wizard(BaseFrontend):
                                          quitText, QtGui.QMessageBox.NoButton,
                                          self.ui)
                 messageBox.addButton(rebootButtonText, QtGui.QMessageBox.AcceptRole)
+                messageBox.addButton(shutdownButtonText, QtGui.QMessageBox.AcceptRole)
                 if ('UBIQUITY_ONLY' not in os.environ and
                     'UBIQUITY_GREETER' not in os.environ):
                     messageBox.addButton(quitButtonText, QtGui.QMessageBox.RejectRole)
@@ -499,6 +501,8 @@ class Wizard(BaseFrontend):
                     self.reboot()
             elif self.get_reboot():
                 self.reboot()
+            elif self.get_shutdown():
+                self.shutdown()
 
         return self.returncode
 
@@ -877,7 +881,11 @@ class Wizard(BaseFrontend):
         """reboot the system after installing process."""
         self.returncode = 10
         self.quit()
+    def shutdown(self, *args):
+        """Shutdown the system after installing process."""
 
+        self.returncode = 11
+        self.quit()
     def do_reboot(self):
         """Callback for main program to actually reboot the machine."""
         try:
@@ -892,6 +900,22 @@ class Wizard(BaseFrontend):
             ksmserver.logout(0, 1, 2)
         else:
             misc.execute_root('reboot')
+
+    def do_shutdown(self):
+        """Callback for main program to actually shutdown the machine."""
+        try:
+            session = dbus.Bus.get_session()
+            ksmserver = session.name_has_owner('org.kde.ksmserver')
+        except dbus.exceptions.DBusException:
+            ksmserver = False
+        if ksmserver:
+            ksmserver = session.get_object('org.kde.ksmserver', '/KSMServer')
+            ksmserver = dbus.Interface(ksmserver, 'org.kde.KSMServerInterface')
+            # ShutdownConfirmNo, ShutdownTypeReboot, ShutdownModeForceNow
+            ksmserver.logout(0, 2, 2)
+        else:
+            misc.execute_root('poweroff')
+
 
     def quit(self):
         """quit installer cleanly."""

@@ -1,6 +1,10 @@
 ubiquity (2.5.13) UNRELEASED; urgency=low
 
+  [ Jonathan Riddell ]
   * Fix layout issues in stepPartMan.ui and stepLanguage.ui LP: #705915
+
+  [ Evan Dandrea ]
+  * Show a Shutdown Now button (LP: #690726). Thanks Cyrus Lien!
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 31 Jan 2011 12:02:17 +0000
 
