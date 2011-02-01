@@ -210,6 +210,7 @@ on_realize(GtkWidget *win, gpointer data) {
 	gtk_window_set_type_hint(GTK_WINDOW(win), GDK_WINDOW_TYPE_HINT_DOCK);
 	gdk_window_set_geometry_hints (win->window, NULL, GDK_HINT_POS);
 	gdk_window_move_resize(win->window, 0, 0, width, allocation.height);
+	gtk_window_set_has_resize_grip(GTK_WINDOW(win), FALSE);
 }
 
 static const char* indicators[] = {
