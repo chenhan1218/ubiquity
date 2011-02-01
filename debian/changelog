@@ -9,6 +9,11 @@ ubiquity (2.5.13) UNRELEASED; urgency=low
     preseeded true.
   * Don't show a resize grip on the panel.
 
+  [ Colin Watson ]
+  * Automatic update of included source packages: base-installer
+    1.115ubuntu1, choose-mirror 2.37ubuntu1, partman-btrfs 5ubuntu2,
+    partman-ext3 62ubuntu1, yaboot-installer 1.1.19ubuntu1.
+
  -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 31 Jan 2011 12:02:17 +0000
 
 ubiquity (2.5.12) natty; urgency=low
