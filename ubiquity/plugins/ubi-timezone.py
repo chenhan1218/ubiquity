@@ -127,7 +127,7 @@ class PageGtk(plugin.PluginUI):
                     # Might want to match the debconf format.
                     name, loc = result
                     model.append([name, '', loc.human_country,
-                                  loc.latitude, loc.longitude])
+                                  str(loc.latitude), str(loc.longitude)])
 
                 try:
                     import urllib2, urllib, json
