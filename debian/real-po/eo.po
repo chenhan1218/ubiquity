@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-02-02 10:05+0000\n"
-"PO-Revision-Date: 2011-01-07 12:55+0000\n"
-"Last-Translator: Kristjan SCHMIDT <Unknown>\n"
+"PO-Revision-Date: 2011-01-20 13:41+0000\n"
+"Last-Translator: Serge Leblanc <serge.leblanc@nerim.fr>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
-"X-Generator: Launchpad (build 12214)\n"
+"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
+"X-Generator: Launchpad (build 12274)\n"
 
 #. Type: text
 #. Description
@@ -258,7 +258,7 @@ msgstr "Konfirmi pasvorton"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Confirm your password:"
-msgstr ""
+msgstr "Konfirmu vian pasvorton:"
 
 #. Type: text
 #. Description
@@ -282,7 +282,7 @@ msgstr "Vi rulas en sencimiga reĝimo. Ne uzu multvaloran pasvorton!"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Pasvortoj malkongruas"
 
 #. Type: text
 #. Description

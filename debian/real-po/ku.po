@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-02-02 10:05+0000\n"
-"PO-Revision-Date: 2010-04-29 04:16+0000\n"
+"PO-Revision-Date: 2011-01-30 13:52+0000\n"
 "Last-Translator: Erdal Ronahi <erdal.ronahi@gmail.com>\n"
 "Language-Team: ku <ubuntu-l10n-kur@lists.ubuntu.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
-"X-Generator: Launchpad (build 12214)\n"
+"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
+"X-Generator: Launchpad (build 12274)\n"
 
 #. Type: text
 #. Description
@@ -88,13 +88,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Try ${RELEASE}"
-msgstr ""
+msgstr "${RELEASE}'yê biceribîne"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "Install ${RELEASE}"
-msgstr ""
+msgstr "${RELEASE}'yê saz bike"
 
 #. Type: text
 #. Description
@@ -144,7 +144,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Warning"
-msgstr ""
+msgstr "Hişyarî"
 
 #. Type: text
 #. Description
@@ -204,25 +204,25 @@ msgstr "Tu ki yî?"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Your name:"
-msgstr ""
+msgstr "Navê te:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Your name"
-msgstr ""
+msgstr "Navê te"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Pick a username:"
-msgstr ""
+msgstr "Navê bikarhêner hilbijêre:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Username"
-msgstr ""
+msgstr "Navê bikarhêner"
 
 #. Type: text
 #. Description
@@ -234,7 +234,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Password"
-msgstr ""
+msgstr "Şîfre"
 
 #. Type: text
 #. Description
@@ -270,37 +270,37 @@ msgstr "Di moda neqandina çewtiyan de dixebitî. Nasnavekî girîng bi kar neyn
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Şîfre ji hev nagirin"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Short password"
-msgstr ""
+msgstr "Şîfreya kin"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Weak password"
-msgstr ""
+msgstr "Şîfreya lawaz"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Fair password"
-msgstr ""
+msgstr "Şîfreya nexerab"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Good password"
-msgstr ""
+msgstr "Şîfreya baş"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Strong password"
-msgstr ""
+msgstr "Şîfreya xurt"
 
 #. Type: text
 #. Description
@@ -483,7 +483,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:72001
 msgid "Cancel the installation."
-msgstr ""
+msgstr "Sazkirinê betal bike."
 
 #. Type: text
 #. Description
@@ -1201,7 +1201,7 @@ msgstr "Ziman"
 #. Description
 #: ../ubiquity.templates:179001
 msgid "Prepare"
-msgstr ""
+msgstr "Amadekirin"
 
 #. Type: text
 #. Description
@@ -1243,7 +1243,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:188001
 msgid "Reading package information"
-msgstr ""
+msgstr "Agahiya pakêtê tê xwendin"
 
 #. Type: text
 #. Description
@@ -1255,13 +1255,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:190001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr ""
+msgstr "Pelê ${INDEX} ji ${TOTAL} bi ${SPEED}/ç"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:191001
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Pelê ${INDEX} ji ${TOTAL}"
 
 #. Type: text
 #. Description
@@ -1286,14 +1286,14 @@ msgstr ""
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:194001
 msgid "USB disk"
-msgstr ""
+msgstr "Dîska USB"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
 #: ../ubiquity.templates:195001
 msgid "CD"
-msgstr ""
+msgstr "CD"
 
 #. Type: text
 #. Description
@@ -1323,7 +1323,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:199001 ../ubiquity.templates:200001
 msgid "Installation failed"
-msgstr ""
+msgstr "Sazkirin têk çû"
 
 #. Type: text
 #. Description

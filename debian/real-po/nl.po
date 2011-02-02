@@ -7,21 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-02-02 10:05+0000\n"
-"PO-Revision-Date: 2010-10-03 11:31+0000\n"
-"Last-Translator: cumulus007 <cumulus0007@gmail.com>\n"
+"PO-Revision-Date: 2011-01-30 16:10+0000\n"
+"Last-Translator: Hannie Dumoleyn <Unknown>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
-"X-Generator: Launchpad (build 12214)\n"
+"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
+"X-Generator: Launchpad (build 12274)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Use the largest continuous free space"
-msgstr ""
+msgstr "Grootste aaneengesloten vrije ruimte gebruiken"
 
 #. Type: text
 #. Description
@@ -137,6 +137,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2011."
 msgstr ""
+"Dit is een pre-release van het ${RELEASE} live ${MEDIUM} installatie-"
+"programma. Het is niet de definitieve versie; die komt met de definitieve "
+"versie van ${RELEASE} in April 2011."
 
 #. Type: text
 #. Description
@@ -256,7 +259,7 @@ msgstr "Wachtwoord bevestigen"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Confirm your password:"
-msgstr ""
+msgstr "Wachtwoord bevestigen:"
 
 #. Type: text
 #. Description
@@ -283,7 +286,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Wachtwoorden komen niet overeen"
 
 #. Type: text
 #. Description

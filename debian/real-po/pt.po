@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-02-02 10:05+0000\n"
-"PO-Revision-Date: 2011-01-04 00:47+0000\n"
+"PO-Revision-Date: 2011-01-22 09:54+0000\n"
 "Last-Translator: Almufadado <Unknown>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
-"X-Generator: Launchpad (build 12214)\n"
+"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
+"X-Generator: Launchpad (build 12274)\n"
 
 #. Type: text
 #. Description
@@ -1397,13 +1397,13 @@ msgstr "A preparar para instalar o ${RELEASE}"
 #. Description
 #: ../ubiquity.templates:203001
 msgid "Wireless"
-msgstr "Rede Sem-Fios"
+msgstr "Rede Sem Fios"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
 msgid "Please select your wireless network from this list"
-msgstr "Por favor seleccione a sua rede sem-fios (wireless) desta lista"
+msgstr "Por favor seleccione a sua rede sem fios (wireless) desta lista"
 
 #. Type: text
 #. Description

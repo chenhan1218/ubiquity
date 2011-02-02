@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-02-02 10:05+0000\n"
-"PO-Revision-Date: 2010-12-22 17:03+0000\n"
+"PO-Revision-Date: 2011-01-21 21:12+0000\n"
 "Last-Translator: Adrian Guniš <andygun696@gmail.com>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
-"X-Generator: Launchpad (build 12214)\n"
+"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
+"X-Generator: Launchpad (build 12274)\n"
 
 #. Type: text
 #. Description
@@ -261,7 +261,7 @@ msgstr "Potvrďte heslo"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Confirm your password:"
-msgstr ""
+msgstr "Potvrďte své heslo:"
 
 #. Type: text
 #. Description
@@ -285,7 +285,7 @@ msgstr "Jste v ladícím režimu. Nepoužívejte hodnotné heslo!"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Hesla se neshodují"
 
 #. Type: text
 #. Description
