@@ -1,9 +1,9 @@
-ubiquity (2.5.14) UNRELEASED; urgency=low
+ubiquity (2.5.14) natty; urgency=low
 
   * Append to the timezone model using the correct types (LP: #702898).
   * Update translations from Launchpad.
 
- -- Evan Dandrea <ev@ubuntu.com>  Wed, 02 Feb 2011 10:03:07 +0000
+ -- Evan Dandrea <ev@ubuntu.com>  Wed, 02 Feb 2011 10:24:41 +0000
 
 ubiquity (2.5.13) natty; urgency=low
 
