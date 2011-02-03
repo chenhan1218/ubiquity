@@ -86,7 +86,7 @@ class UbiquityUI(kdeui.KMainWindow):
 
         # don't use stylesheet cause we want to scale the wallpaper for various
         # screen sizes as well as support larger screens
-        self.bgImage = QtGui.QImage("/usr/share/wallpapers/Ethais/contents/images/1920x1200.png")
+        self.bgImage = QtGui.QImage("/usr/share/wallpapers/kde-default.png")
         self.scaledBgImage = self.bgImage
 
     def paintEvent(self, pe):
