@@ -519,6 +519,8 @@ def dmimodel():
         # Replace each gap of non-alphanumeric characters with a dash.
         # Ensure the resulting string does not begin or end with a dash.
         model = re.sub('[^a-zA-Z0-9]+', '-', model).rstrip('-').lstrip('-')
+        if model.lower() == 'not-available':
+            return
     except Exception:
         syslog.syslog(syslog.LOG_ERR, 'Unable to determine the model from DMI')
     return model

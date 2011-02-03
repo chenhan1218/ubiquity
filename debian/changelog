@@ -1,3 +1,9 @@
+ubiquity (2.5.15) UNRELEASED; urgency=low
+
+  * Ignore "Not Available" strings in dmidecode output (LP: #711968).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 03 Feb 2011 15:20:03 +0000
+
 ubiquity (2.5.14) natty; urgency=low
 
   * Append to the timezone model using the correct types (LP: #702898).
