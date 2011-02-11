@@ -2,6 +2,8 @@ ubiquity (2.5.15) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Ignore "Not Available" strings in dmidecode output (LP: #711968).
+  * Tell keyboard-configuration not to write defaults in the debconf
+    database when we're in the process of changing the layout (LP: #705917).
 
   [ Jonathan Riddell ]
   * frontend/kde_ui.py use new KDE wallpaper
