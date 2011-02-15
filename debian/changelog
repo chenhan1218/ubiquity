@@ -1,3 +1,9 @@
+ubiquity (2.5.16) UNRELEASED; urgency=low
+
+  * Rename the keyboard layout guessing button (LP: #717500).
+
+ -- Evan Dandrea <ev@ubuntu.com>  Tue, 15 Feb 2011 17:29:49 +0000
+
 ubiquity (2.5.15) natty; urgency=low
 
   [ Colin Watson ]

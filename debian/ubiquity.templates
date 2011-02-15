@@ -123,7 +123,7 @@ _Description: Figure Out Keyboard Layout
 
 Template: ubiquity/text/keyboard_query_title
 Type: text
-_Description: Figure out keyboard layout
+_Description: Detect Keyboard Layout...
 
 Template: ubiquity/text/keyboard_query_press
 Type: text
