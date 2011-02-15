@@ -4,6 +4,10 @@ ubiquity (2.5.15) UNRELEASED; urgency=low
   * Ignore "Not Available" strings in dmidecode output (LP: #711968).
   * Tell keyboard-configuration not to write defaults in the debconf
     database when we're in the process of changing the layout (LP: #705917).
+  * Automatic update of included source packages: console-setup 1.57ubuntu7,
+    flash-kernel 2.28ubuntu13, grub-installer 1.60ubuntu1, netcfg
+    1.60ubuntu2, partman-auto 93ubuntu4, partman-btrfs 5ubuntu3,
+    partman-partitioning 79ubuntu2.
 
   [ Jonathan Riddell ]
   * frontend/kde_ui.py use new KDE wallpaper
