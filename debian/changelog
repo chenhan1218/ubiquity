@@ -1,4 +1,4 @@
-ubiquity (2.5.15) UNRELEASED; urgency=low
+ubiquity (2.5.15) natty; urgency=low
 
   [ Colin Watson ]
   * Ignore "Not Available" strings in dmidecode output (LP: #711968).
@@ -12,7 +12,7 @@ ubiquity (2.5.15) UNRELEASED; urgency=low
   [ Jonathan Riddell ]
   * frontend/kde_ui.py use new KDE wallpaper
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 03 Feb 2011 15:20:03 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 15 Feb 2011 11:52:27 +0000
 
 ubiquity (2.5.14) natty; urgency=low
 
