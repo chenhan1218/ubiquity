@@ -3,6 +3,7 @@ ubiquity (2.5.16) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Rename the keyboard layout guessing button (LP: #717500).
   * Install oem-config-slideshow-ubuntu alongside oem-config-gtk.
+  * Fix accessibility support in the installer session.
 
   [ Mario Limonciello ]
   * Create a dummy job for oem-config-debconf to prevent race
