@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-02 10:05+0000\n"
+"POT-Creation-Date: 2011-02-20 02:57+0000\n"
 "PO-Revision-Date: 2011-01-04 08:19+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Ubuntu Serbian Translators\n"
@@ -191,8 +191,10 @@ msgstr "Пронађи распоред тастатуре"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-msgid "Figure out keyboard layout"
-msgstr "Пронађите распоред тастатуре"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout..."
+msgstr "Пронађи распоред тастатуре"
 
 #. Type: text
 #. Description
@@ -1642,6 +1644,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Уклањам пакете"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Пронађите распоред тастатуре"
 
 #~ msgid "Popularity contest"
 #~ msgstr "Такмичење у популарности"

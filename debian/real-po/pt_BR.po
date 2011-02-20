@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-02 10:05+0000\n"
+"POT-Creation-Date: 2011-02-20 02:57+0000\n"
 "PO-Revision-Date: 2011-01-04 16:47+0000\n"
 "Last-Translator: Tiago Hillebrandt <tiagoscd@yahoo.com.br>\n"
 "Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
@@ -192,7 +192,9 @@ msgstr "Descobrir disposição do teclado"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-msgid "Figure out keyboard layout"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout..."
 msgstr "Descobrir disposição do teclado"
 
 #. Type: text
@@ -1649,6 +1651,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Removendo pacotes"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Descobrir disposição do teclado"
 
 #~ msgid "Popularity contest"
 #~ msgstr "Concurso de popularidade"

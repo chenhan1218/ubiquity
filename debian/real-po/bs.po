@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-02 10:05+0000\n"
+"POT-Creation-Date: 2011-02-20 02:57+0000\n"
 "PO-Revision-Date: 2011-01-31 12:14+0000\n"
 "Last-Translator: megaribi <Unknown>\n"
 "Language-Team: Bosnian <lokal@linux.org.ba>\n"
@@ -191,8 +191,10 @@ msgstr "Odredite raspored tastature"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-msgid "Figure out keyboard layout"
-msgstr "Odredi raspored tastature"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout..."
+msgstr "Odredite raspored tastature"
 
 #. Type: text
 #. Description
@@ -1643,6 +1645,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Uklanjanje paketa"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Odredi raspored tastature"
 
 #~ msgid "Once you answer a few questions, this computer will be ready to use."
 #~ msgstr ""

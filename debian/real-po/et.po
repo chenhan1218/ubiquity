@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-02 10:05+0000\n"
+"POT-Creation-Date: 2011-02-20 02:57+0000\n"
 "PO-Revision-Date: 2011-01-29 23:22+0000\n"
 "Last-Translator: BloodDw <Unknown>\n"
 "Language-Team: Eesti <linuxiabi@hot.ee>\n"
@@ -189,8 +189,10 @@ msgstr "Klaviatuuripaigutuse tuvastamine"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-msgid "Figure out keyboard layout"
-msgstr "Tuvasta klaviatuuripaigutus"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout..."
+msgstr "Klaviatuuripaigutuse tuvastamine"
 
 #. Type: text
 #. Description
@@ -1631,6 +1633,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Pakettide eemaldamine"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Tuvasta klaviatuuripaigutus"
 
 #~ msgid "Install boot loader"
 #~ msgstr "Paigalda alglaadur"

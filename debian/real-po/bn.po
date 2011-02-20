@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-02 10:05+0000\n"
+"POT-Creation-Date: 2011-02-20 02:57+0000\n"
 "PO-Revision-Date: 2010-12-07 08:37+0000\n"
 "Last-Translator: Aniruddha Adhikary <Unknown>\n"
 "Language-Team: Bangla <core@BengaLinux.Org>\n"
@@ -181,7 +181,9 @@ msgstr "কীবোর্ড লেআউট বুঝে নাও"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-msgid "Figure out keyboard layout"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout..."
 msgstr "কীবোর্ড লেআউট বুঝে নাও"
 
 #. Type: text
@@ -1598,6 +1600,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "প্যাকেজসমূহ অপসারণ করা হচ্ছে"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "কীবোর্ড লেআউট বুঝে নাও"
 
 #~ msgid "Install boot loader"
 #~ msgstr "বুট লোডার ইনস্টল করুন"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-02 10:05+0000\n"
+"POT-Creation-Date: 2011-02-20 02:57+0000\n"
 "PO-Revision-Date: 2010-10-04 08:25+0000\n"
 "Last-Translator: Sergiy Gavrylov <sergiovana@bigmir.net>\n"
 "Language-Team: uk <>\n"
@@ -189,8 +189,10 @@ msgstr "Визначаю розкладку клавіатури"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-msgid "Figure out keyboard layout"
-msgstr "З’ясувати розкладку клавіатури"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout..."
+msgstr "Визначаю розкладку клавіатури"
 
 #. Type: text
 #. Description
@@ -1642,6 +1644,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Вилучення пакунків"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "З’ясувати розкладку клавіатури"
 
 #~ msgid "Advanced Options"
 #~ msgstr "Розширені налаштування"

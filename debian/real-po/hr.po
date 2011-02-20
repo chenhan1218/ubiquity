@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-02 10:05+0000\n"
+"POT-Creation-Date: 2011-02-20 02:57+0000\n"
 "PO-Revision-Date: 2010-12-29 23:14+0000\n"
 "Last-Translator: Saša Teković <Unknown>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -195,7 +195,9 @@ msgstr "Saznaj raspored tipkovnice"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-msgid "Figure out keyboard layout"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout..."
 msgstr "Saznaj raspored tipkovnice"
 
 #. Type: text
@@ -1649,6 +1651,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Uklanjanje paketa"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Saznaj raspored tipkovnice"
 
 #~ msgid "Popularity contest"
 #~ msgstr "Natjecanje u popularnosti"

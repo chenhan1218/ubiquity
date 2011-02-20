@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-02 10:05+0000\n"
+"POT-Creation-Date: 2011-02-20 02:57+0000\n"
 "PO-Revision-Date: 2011-01-30 01:57+0000\n"
 "Last-Translator: Manish Kumar <manishku86@yahoo.co.in>\n"
 "Language-Team: Hindi <debian-in-workers@lists.alioth.debian.org>\n"
@@ -188,8 +188,10 @@ msgstr "कुंजीपटल विन्यास को समझे"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-msgid "Figure out keyboard layout"
-msgstr "सही कुंजीपटल अभिन्यास का पता लगाएँ"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout..."
+msgstr "कुंजीपटल विन्यास को समझे"
 
 #. Type: text
 #. Description
@@ -1621,6 +1623,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "पैकेज हटा रहा है"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "सही कुंजीपटल अभिन्यास का पता लगाएँ"
 
 #~ msgid "Install boot loader"
 #~ msgstr "बूटलोडर संस्थापन"

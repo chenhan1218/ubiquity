@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-02 10:05+0000\n"
+"POT-Creation-Date: 2011-02-20 02:57+0000\n"
 "PO-Revision-Date: 2010-10-10 03:36+0000\n"
 "Last-Translator: Lê Hoàng Phương <Unknown>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -191,7 +191,9 @@ msgstr "Nhận dạng sơ đồ bàn phím"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-msgid "Figure out keyboard layout"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout..."
 msgstr "Nhận dạng sơ đồ bàn phím"
 
 #. Type: text
@@ -1636,6 +1638,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Gỡ bỏ gói"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Nhận dạng sơ đồ bàn phím"
 
 #~ msgid "Advanced Options"
 #~ msgstr "Tùy chọn nâng cao"

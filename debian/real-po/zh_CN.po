@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-02 10:05+0000\n"
+"POT-Creation-Date: 2011-02-20 02:57+0000\n"
 "PO-Revision-Date: 2011-01-21 14:45+0000\n"
 "Last-Translator: Qiu Haoyu <Unknown>\n"
 "Language-Team: Simplified Chinese <debian-chinese-gb@lists.debian.org>\n"
@@ -186,8 +186,10 @@ msgstr "查看键盘布局"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-msgid "Figure out keyboard layout"
-msgstr "决定键盘布局"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout..."
+msgstr "查看键盘布局"
 
 #. Type: text
 #. Description
@@ -1587,6 +1589,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "正在删除软件包"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "决定键盘布局"
 
 #~ msgid "Advanced Options"
 #~ msgstr "高级选项"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-02 10:05+0000\n"
+"POT-Creation-Date: 2011-02-20 02:57+0000\n"
 "PO-Revision-Date: 2011-01-27 16:59+0000\n"
 "Last-Translator: Kárász Gábor <fendrus@t-online.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
@@ -192,8 +192,10 @@ msgstr "Billentyűzetkiosztás felismerése"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-msgid "Figure out keyboard layout"
-msgstr "Billentyűkiosztás felismerése"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout..."
+msgstr "Billentyűzetkiosztás felismerése"
 
 #. Type: text
 #. Description
@@ -1646,6 +1648,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Csomagok eltávolítása"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Billentyűkiosztás felismerése"
 
 #~ msgid "Advanced Options"
 #~ msgstr "Speciális beállítások"

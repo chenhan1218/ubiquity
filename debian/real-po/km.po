@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian_real-po_ubiquity-debconf-km\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-02 10:05+0000\n"
+"POT-Creation-Date: 2011-02-20 02:57+0000\n"
 "PO-Revision-Date: 2010-10-10 05:35+0000\n"
 "Last-Translator: Nguon Chan <Unknown>\n"
 "Language-Team: Khmer <en@li.org>\n"
@@ -188,8 +188,10 @@ msgstr "ស្វែងយល់​អំពីប្លង់​ក្ដារ
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-msgid "Figure out keyboard layout"
-msgstr "ស្វែង​យល់​អំពី​ប្លង់​ក្តារ​ចុច"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout..."
+msgstr "ស្វែងយល់​អំពីប្លង់​ក្ដារចុច"
 
 #. Type: text
 #. Description
@@ -1615,6 +1617,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "យក​កញ្ចប់​ចេញ"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "ស្វែង​យល់​អំពី​ប្លង់​ក្តារ​ចុច"
 
 #~ msgid "Advanced Options"
 #~ msgstr "ជម្រើស​កម្រិត​ខ្ពស់"

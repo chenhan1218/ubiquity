@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-02 10:05+0000\n"
+"POT-Creation-Date: 2011-02-20 02:57+0000\n"
 "PO-Revision-Date: 2011-01-05 10:22+0000\n"
 "Last-Translator: Andrej Znidarsic <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -192,8 +192,10 @@ msgstr "Ugotovi razpored tipkovnice"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-msgid "Figure out keyboard layout"
-msgstr "Ugotovite razporeditev tipkovnice"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout..."
+msgstr "Ugotovi razpored tipkovnice"
 
 #. Type: text
 #. Description
@@ -1641,6 +1643,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Odstranjevanje paketov"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Ugotovite razporeditev tipkovnice"
 
 #~ msgid "Install boot loader"
 #~ msgstr "Namesti zagonski nalagalnik"

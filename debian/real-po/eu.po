@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-02 10:05+0000\n"
+"POT-Creation-Date: 2011-02-20 02:57+0000\n"
 "PO-Revision-Date: 2011-02-01 08:38+0000\n"
 "Last-Translator: Oier Mees <Unknown>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
@@ -190,7 +190,9 @@ msgstr "Detektatu teklatuaren diseinua"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-msgid "Figure out keyboard layout"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout..."
 msgstr "Detektatu teklatuaren diseinua"
 
 #. Type: text
@@ -1645,6 +1647,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Paketeak ezabatzen"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Detektatu teklatuaren diseinua"
 
 #~ msgid "Advanced Options"
 #~ msgstr "Aukera aurreratuak"

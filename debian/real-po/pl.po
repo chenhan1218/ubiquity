@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-02 10:05+0000\n"
+"POT-Creation-Date: 2011-02-20 02:57+0000\n"
 "PO-Revision-Date: 2011-01-09 20:17+0000\n"
 "Last-Translator: GTriderXC <gtriderxc@yahoo.com>\n"
 "Language-Team: Polish <debian-l10n-polish@lists.debian.org>\n"
@@ -191,8 +191,10 @@ msgstr "Wykrywanie układu klawiatury"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-msgid "Figure out keyboard layout"
-msgstr "Określ układ klawiatury ręcznie"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout..."
+msgstr "Wykrywanie układu klawiatury"
 
 #. Type: text
 #. Description
@@ -1646,6 +1648,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Usuwanie pakietów"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Określ układ klawiatury ręcznie"
 
 #~ msgid "Advanced Options"
 #~ msgstr "Opcje zaawansowane"

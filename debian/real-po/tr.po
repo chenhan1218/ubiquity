@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-02 10:05+0000\n"
+"POT-Creation-Date: 2011-02-20 02:57+0000\n"
 "PO-Revision-Date: 2011-01-07 16:50+0000\n"
 "Last-Translator: ubuntuki <Unknown>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
@@ -193,8 +193,10 @@ msgstr "Klavye Düzenini Denetleyin"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-msgid "Figure out keyboard layout"
-msgstr "Klavye düzenini denetleyin"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout..."
+msgstr "Klavye Düzenini Denetleyin"
 
 #. Type: text
 #. Description
@@ -1644,6 +1646,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Paketler kaldırılıyor"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Klavye düzenini denetleyin"
 
 #~ msgid "Advanced Options"
 #~ msgstr "Gelişmiş Seçenekler"
