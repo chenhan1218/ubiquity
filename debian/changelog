@@ -1,4 +1,4 @@
-ubiquity (2.5.16) UNRELEASED; urgency=low
+ubiquity (2.5.16) natty; urgency=low
 
   [ Evan Dandrea ]
   * Rename the keyboard layout guessing button (LP: #717500).
@@ -11,7 +11,7 @@ ubiquity (2.5.16) UNRELEASED; urgency=low
   * Create a dummy job for oem-config-debconf to prevent race
     conditions with oem-config-gtk and gdm. (LP: #650703)
 
- -- Evan Dandrea <ev@ubuntu.com>  Tue, 15 Feb 2011 17:29:49 +0000
+ -- Evan Dandrea <ev@ubuntu.com>  Sun, 20 Feb 2011 03:00:54 +0000
 
 ubiquity (2.5.15) natty; urgency=low
 
