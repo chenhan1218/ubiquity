@@ -29,6 +29,10 @@ from ubiquity import parted_server
 from ubiquity import misc
 from ubiquity import osextras
 from ubiquity.install_misc import archdetect
+from collections import namedtuple
+
+PartitioningOption = namedtuple('PartitioningOption',
+                                ['title', 'desc', 'option'])
 
 NAME = 'partman'
 AFTER = 'prepare'
@@ -42,7 +46,7 @@ class PageBase(plugin.PluginUI):
         self.resize_choice = None
         self.manual_choice = None
         self.biggest_free_choice = None
-        pass
+        self.reuse_choice = None
 
     def show_page_advanced(self):
         pass
@@ -56,13 +60,15 @@ class PageBase(plugin.PluginUI):
 
     def set_autopartition_choices(self, choices, extra_options,
                                   resize_choice, manual_choice,
-                                  biggest_free_choice, use_device_choice):
+                                  biggest_free_choice, use_device_choice,
+                                  reuse_choice):
         """Set available autopartitioning choices."""
         self.resize_choice = resize_choice
         self.manual_choice = manual_choice
         self.biggest_free_choice = biggest_free_choice
         self.use_device_choice = use_device_choice
         self.extra_options = extra_options
+        self.resue_choice = reuse_choice
 
     def get_autopartition_choice(self):
         """Get the selected autopartitioning choice."""
@@ -109,11 +115,22 @@ class PageGtk(PageBase):
             self.resize_use_free = builder.get_object('resize_use_free')
             self.custom_partitioning = builder.get_object('custom_partitioning')
             self.use_device = builder.get_object('use_device')
+            self.reuse_partition = builder.get_object('reuse_partition')
             self.part_auto_allocate_label = builder.get_object('part_auto_allocate_label')
             self.part_auto_use_entire_disk = builder.get_object('part_auto_use_entire_disk')
             self.part_auto_use_entire_partition = builder.get_object('part_auto_use_entire_partition')
             self.part_auto_hidden_label = builder.get_object('part_auto_hidden_label')
             self.part_advanced_vbox = builder.get_object('part_advanced_vbox')
+
+            # Ask page
+            self.use_device_title = builder.get_object('use_device_title')
+            self.use_device_desc = builder.get_object('use_device_desc')
+            self.reuse_partition_title = builder.get_object('reuse_partition_title')
+            self.reuse_partition_desc = builder.get_object('reuse_partition_desc')
+            self.resize_use_free_title = builder.get_object('resize_use_free_title')
+            self.resize_use_free_desc = builder.get_object('resize_use_free_desc')
+            self.custom_partitioning_title = builder.get_object('custom_partitioning_title')
+            self.custom_partitioning_desc = builder.get_object('custom_partitioning_desc')
 
             # Advanced page
             self.partition_create_mount_combo = builder.get_object('partition_create_mount_combo')
@@ -146,20 +163,12 @@ class PageGtk(PageBase):
 
             self.partition_bars = {}
             self.segmented_bar_vbox = None
-            self.format_warnings = {}
-            self.format_warning = None
-            self.format_warning_align = None
-            self.autopartition_extras = {}
             self.resize_min_size = None
             self.resize_max_size = None
             self.resize_pref_size = None
             self.resize_path = ''
-            self.new_size_scale = None
             self.use_entire_disk = False
-            # FIXME: Grab this from the GTK theme.
-            self.release_color = 'D07316'
             self.auto_colors = ['3465a4', '73d216', 'f57900']
-            self.dev_colors = {}
 
             self.partition_create_mount_combo.child.set_activates_default(True)
             self.partition_edit_mount_combo.child.set_activates_default(True)
@@ -232,7 +241,7 @@ class PageGtk(PageBase):
         m = self.part_auto_select_drive.get_model()
         val = m.get_value(i, 0)
 
-        partman_id = self.extra_options[self.use_device_choice][val][0]
+        partman_id = self.extra_options['use_device'][val][0]
         disk_id = partman_id.rsplit('/', 1)[1]
         return disk_id
 
@@ -266,7 +275,7 @@ class PageGtk(PageBase):
             return
 
         resize_min_size, resize_max_size, resize_pref_size, resize_path = \
-            self.extra_options[self.resize_choice][disk_id][1:]
+            self.extra_options['resize'][disk_id][1:]
         self.resizewidget.set_property('min_size', int(resize_min_size))
         self.resizewidget.set_property('max_size', int(resize_max_size))
 
@@ -360,7 +369,7 @@ class PageGtk(PageBase):
             return
         m = self.part_auto_select_drive.get_model()
         val = m.get_value(i, 0)
-        size = self.extra_options[self.use_device_choice][val][1]
+        size = self.extra_options['use_device'][val][1]
         self.partitionbox.set_size(size)
 
     def part_auto_select_drive_changed (self, unused_widget):
@@ -373,9 +382,9 @@ class PageGtk(PageBase):
         disk_id = self.get_current_disk_partman_id()
         if not disk_id:
             return
-        if (self.resize_choice in self.extra_options and
+        if ('resize' in self.extra_options and
            self.resize_use_free.get_active() and
-           disk_id in self.extra_options[self.resize_choice]):
+           disk_id in self.extra_options['resize']):
             # Resize.
             self.initialize_resize_mode()
         else:
@@ -412,13 +421,21 @@ class PageGtk(PageBase):
             self.debug('No active iterator for grub device entry.')
             return misc.grub_default()
 
+    # TODO: This has gotten out of hand.  Get rid of choices? Or move to a dictionary.
     def set_autopartition_choices (self, choices, extra_options, resize_choice,
                                    manual_choice, biggest_free_choice,
-                                   use_device_choice):
+                                   use_device_choice, reuse_choice):
+        print 'choices:', choices
+        print 'extra_options:', extra_options
+        print 'resize_choice:', resize_choice
+        print 'manual_choice:', manual_choice
+        print 'biggest_free_choice:', biggest_free_choice
+        print 'use_device_choice:', use_device_choice
+        print 'reuse_choice:', reuse_choice
         PageBase.set_autopartition_choices(self, choices, extra_options,
                                            resize_choice, manual_choice,
                                            biggest_free_choice,
-                                           use_device_choice)
+                                           use_device_choice, reuse_choice)
 
         m = self.part_auto_select_drive.get_model()
         m.clear()
@@ -441,7 +458,6 @@ class PageGtk(PageBase):
             # No resizeable disks.  Select the first one.
             self.part_auto_select_drive.set_active(0)
 
-        # TODO somehow remember previous choice on back press.
         if not resize_choice in extra_options:
             self.use_device.set_active(True)
             self.resize_use_free.hide()
@@ -449,10 +465,69 @@ class PageGtk(PageBase):
             self.resize_use_free.set_active(True)
             self.resize_use_free.show()
 
+        if reuse_choice in choices:
+            self.reuse_partition.show()
+        else:
+            self.reuse_partition.hide()
+
         # make sure we're on the autopartitioning page
         self.current_page = self.page
 
+    def set_autopartition_options(self, options, extra_options):
+        self.extra_options = extra_options
+
+        fmt = '<span size="small">%s</span>'
+        # TODO need an option for replace in glade.
+        self.use_device_title.set_label(options['use_device'].title)
+        self.use_device_desc.set_markup(fmt % options['use_device'].desc)
+        self.use_device_desc.set_sensitive(False)
+        self.custom_partitioning_title.set_label(options['manual'].title)
+        self.custom_partitioning_desc.set_markup(fmt % options['manual'].desc)
+        self.custom_partitioning_desc.set_sensitive(False)
+
+        if 'reuse' in options:
+            self.reuse_partition.show()
+            self.reuse_partition_title.set_label(options['reuse'].title)
+            self.reuse_partition_desc.set_markup(fmt % options['reuse'].desc)
+            self.reuse_partition_desc.set_sensitive(False)
+        else:
+            self.reuse_partition.hide()
+
+        if 'resize' in options:
+            self.resize_use_free.show()
+            self.resize_use_free_title.set_label(options['resize'].title)
+            self.resize_use_free_desc.set_markup(fmt % options['resize'].desc)
+            self.resize_use_free_desc.set_sensitive(False)
+        else:
+            self.resize_use_free.hide()
+
+        # Set up the second page.
+        m = self.part_auto_select_drive.get_model()
+        m.clear()
+        selected = False
+        for disk in extra_options['use_device']:
+            i = m.append([disk])
+            # TODO move to ask page choice processing, so we don't set the
+            # combobox to sdb when we're formatting?
+
+            # Make sure that we're setting the disk combo box to a disk that
+            # can be resized, should one exist, so that selecting resize and
+            # proceeding defaults to a resizable disk.
+            if 'resize' in extra_options:
+                disk_id = \
+                    self.extra_options['use_device'][disk][0].rsplit('/', 1)[1]
+                if disk_id in extra_options['resize'] and not selected:
+                    selected = True
+                self.part_auto_select_drive.set_active_iter(i)
+        if not selected:
+            # No resizeable disks.  Select the first one.
+            self.part_auto_select_drive.set_active(0)
+
+        # Make sure we're on the autopartitioning page.
+        self.current_page = self.page
+
     def get_autopartition_choice (self):
+        # TODO somehow remember previous choice on back press.
         if self.custom_partitioning.get_active():
             return self.manual_choice, None
         
@@ -460,7 +535,7 @@ class PageGtk(PageBase):
             disk_id = self.get_current_disk_partman_id()
             # Resize
             if self.part_auto_use_entire_partition.get_property('sensitive'):
-                choice = self.extra_options[self.resize_choice][disk_id][0]
+                choice = self.extra_options['resize'][disk_id][0]
                 return choice, '%s B' % self.resizewidget.get_size()
             # Use entire partition
             else:
@@ -1187,15 +1262,16 @@ class PageKde(PageBase):
 
     def set_autopartition_choices (self, choices, extra_options,
                                    resize_choice, manual_choice,
-                                   biggest_free_choice, use_device_choice):
+                                   biggest_free_choice, use_device_choice, reuse_choice):
         PageBase.set_autopartition_choices(self, choices, extra_options,
                                                resize_choice, manual_choice,
                                                biggest_free_choice,
-                                               use_device_choice)
+                                               use_device_choice, reuse_choice)
 
         self.partAuto.setupChoices(choices, extra_options,
                                    resize_choice, manual_choice,
-                                   biggest_free_choice, use_device_choice)
+                                   biggest_free_choice, use_device_choice,
+                                   reuse_choice)
 
         self.current_page = self.page
 
@@ -1228,6 +1304,7 @@ class Page(plugin.Plugin):
         self.some_device_desc = ''
         self.resize_desc = ''
         self.manual_desc = ''
+        self.reuse_desc = ''
         with misc.raised_privileges():
             # If an old parted_server is still running, clean it up.
             if os.path.exists('/var/run/parted_server.pid'):
@@ -1624,6 +1701,181 @@ class Page(plugin.Plugin):
             if not self.update_partitions:
                 self.thaw_choices('choose_partition')
 
+    def calculate_reuse_option(self, ubuntu, release):
+        '''Takes the current Ubuntu version on disk and the release we're about
+        to install as parameters.'''
+        # TODO: verify that ubuntu is the same partition as one of the ones
+        #       offered in the reuse options.
+        # TODO: come up with a better version check than this.
+        if '(%s)' % release.version in ubuntu:
+            # "Windows (or Mac, ...) and the current version of Ubuntu are
+            # present" case
+            q = 'ubiquity/partitioner/ubuntu_reinstall'
+            self.db.subst(q, 'CURDISTRO', ubuntu)
+            title = self.description(q)
+            desc = self.extended_description(q)
+            return PartitioningOption(title, desc, None)
+        else:
+            # "Windows (or Mac, ...) and an older version of Ubuntu are
+            # present" case
+            # TODO: Verify that the version is in fact older.
+            q = 'ubiquity/partitioner/ubuntu_upgrade'
+            self.db.subst(q, 'CURDISTRO', ubuntu)
+            self.db.subst(q, 'VER', release.version)
+            title = self.description(q)
+            desc = self.extended_description(q)
+            return PartitioningOption(title, desc, None)
+
+    # TODO this function should be easily testable by constructing a fake
+    # layout and Mock db.
+    def calculate_autopartitioning_options(self, layout):
+        '''
+        There are six possibilities we have to consider:
+        - Just Windows (or Mac, ...) is present
+        - An older version of Ubuntu is present
+        - There are no operating systems present
+        - Windows (or Mac, ...) and an older version of Ubuntu are present
+        - Windows (or Mac, ...) and the current version of Ubuntu are present
+        - There are multiple operating systems present
+
+        We leave ordering and providing icons for each option to the frontend,
+        since each option falls under a specific partman-auto operation of a
+        finite set.
+        '''
+        # NOTE to self: wont need to make partman-auto show all resizable
+        # partitions because the wording is the same even though we're always
+        # opting for the biggest one.
+
+        options = {}
+
+        # Get your #2 pencil ready, it's time to crunch some numbers.
+        operating_systems = []
+        release = misc.get_release()
+        for disk in layout:
+            for partition in layout[disk]:
+                system = misc.find_in_os_prober(partition[0])
+                if system and system != 'swap':
+                    operating_systems.append(system)
+        os_count = len(operating_systems)
+        ubuntu_systems = filter(lambda x: x.lower().find('buntu') != -1,
+                                operating_systems)
+
+        # We always have the manual partitioner, and it always has the same
+        # title and description.
+        q = 'ubiquity/partitioner/advanced'
+        title = self.description(q)
+        desc = self.extended_description(q)
+        options['manual'] = PartitioningOption(title, desc, None)
+
+        if os_count == 0:
+            # "There are no operating systems present" case
+            q = 'ubiquity/partitioner/no_systems_format'
+            self.db.subst(q, 'DISTRO', release.name)
+            title = self.description(q)
+            desc = self.extended_description(q)
+            opt = PartitioningOption(title, desc, None)
+            options['use_device'] = opt
+        elif os_count == 1:
+            system = operating_systems[0]
+            if len(ubuntu_systems) == 1:
+                # "An older version of Ubuntu is present" case
+                q = 'ubiquity/partitioner/ubuntu_format'
+                self.db.subst(q, 'CURDISTRO', system)
+                title = self.description(q)
+                desc = self.extended_description(q)
+                opt = PartitioningOption(title, desc, None)
+                options['use_device'] = opt
+
+                if 'resize' in self.extra_options:
+                    q = 'ubiquity/partitioner/ubuntu_resize'
+                    self.db.subst(q, 'DISTRO', release.name)
+                    self.db.subst(q, 'VER', release.version)
+                    self.db.subst(q, 'CURDISTRO', system)
+                    title = self.description(q)
+                    desc = self.extended_description(q)
+                    opt = PartitioningOption(title, desc, None)
+                    options['resize'] = opt
+
+                options['reuse'] = self.calculate_reuse_option(system, release)
+            else:
+                # "Just Windows (or Mac, ...) is present" case
+                q = 'ubiquity/partitioner/single_os_replace'
+                self.db.subst(q, 'OS', system)
+                self.db.subst(q, 'DISTRO', release.name)
+                title = self.description(q)
+                desc = self.extended_description(q)
+                opt = PartitioningOption(title, desc, None)
+                options['use_device'] = opt
+
+                if 'resize' in self.extra_options:
+                    q = 'ubiquity/partitioner/single_os_resize'
+                    self.db.subst(q, 'DISTRO', release.name)
+                    title = self.description(q)
+                    desc = self.extended_description(q)
+                    opt = PartitioningOption(title, desc, None)
+                    options['resize'] = opt
+                    # TODO: or biggest_free, choose one of the two here,
+                    # presumably whichever is bigger. Calculated at number
+                    # crunching above, of course, as it could be used in other
+                    # branches.
+
+        elif os_count == 2 and len(ubuntu_systems) == 1:
+            # TODO: verify that ubuntu_systems[0] is the same partition as one
+            # of the ones offered in the replace options.
+            ubuntu = ubuntu_systems[0]
+            q = 'ubiquity/partitioner/ubuntu_format'
+            self.db.subst(q, 'CURDISTRO', ubuntu)
+            title = self.description(q)
+            desc = self.extended_description(q)
+            opt = PartitioningOption(title, desc, None)
+            options['replace'] = opt
+
+            q = 'ubiquity/partitioner/ubuntu_and_os_format'
+            self.db.subst(q, 'CURDISTRO', ubuntu)
+            title = self.description(q)
+            desc = self.extended_description(q)
+            opt = PartitioningOption(title, desc, None)
+            options['use_device'] = opt
+
+            options['reuse'] = self.calculate_reuse_option(ubuntu, release)
+        else:
+            # "There are multiple operating systems present" case
+            q = 'ubiquity/partitioner/multiple_os_format'
+            self.db.subst(q, 'DISTRO', release.name)
+            title = self.description(q)
+            desc = self.extended_description(q)
+            opt = PartitioningOption(title, desc, None)
+            options['use_device'] = opt
+
+            if 'resize' in self.extra_options:
+                q = 'ubiquity/partitioner/multiple_os_resize'
+                self.db.subst(q, 'DISTRO', release.name)
+                title = self.description(q)
+                desc = self.extended_description(q)
+                opt = PartitioningOption(title, desc, None)
+                # TODO: or biggest_free.  See above note.
+                options['resize'] = opt
+
+        #biggest_free = self.find_script(menu_options, 'biggest_free')
+        #if biggest_free:
+        #    biggest_free = biggest_free[0][1]
+        #    biggest_free = self.split_devpart(biggest_free)[1]
+        #self.extra_options[self.biggest_free_desc] = biggest_free
+
+        # TODO need to map partitions to choice parameters (presumably from
+        # extra_options). No, extra_options only has the resize_path for
+        # resize_use_free.  Instead, get the right-hand-side of the split on
+        # ____ for each choice, which is a partman ID pointing to the path
+        # representing the partition affected.  Need to find the right dialog
+        # to open to turn that into a device node as it's not the directory
+        # structure. Split again on // and use the RHS for PARTITION_INFO?
+
+        # TODO getting rid of the debconf names as keys for extra_options is
+        # tricky as they're generated by looping auto_state.  Might have to
+        # stick with them, at least on the d-i facing side.
+        print options
+        return options
+
     def run(self, priority, question):
         if self.done:
             # user answered confirmation question or backed up
@@ -1649,6 +1901,8 @@ class Page(plugin.Plugin):
                     self.description('partman-auto/text/custom_partitioning')
                 self.biggest_free_desc = \
                     self.description('partman-auto/text/use_biggest_free')
+                self.reuse_desc = \
+                    self.description('partman-auto/text/reuse')
                 self.extra_options = {}
                 if choices:
                     self.auto_state = [0, None]
@@ -1688,15 +1942,11 @@ class Page(plugin.Plugin):
             else:
                 self.auto_state = None
 
-            if self.resize_desc not in self.extra_options:
-                try:
-                    del choices[choices.index(self.resize_desc)]
-                except ValueError:
-                    pass
             with misc.raised_privileges():
                 # {'/dev/sda' : ('/dev/sda1', 24973242, '32256-2352430079'), ...
                 # TODO evand 2009-04-16: We should really use named tuples
                 # here.
+                # so do it now...
                 parted = parted_server.PartedServer()
                 layout = {}
                 for disk in parted.disks():
@@ -1710,40 +1960,12 @@ class Page(plugin.Plugin):
                             dev = partition[5]
                         ret.append((dev, size, partition[1], partition[4]))
                     layout[disk] = ret
+
             self.ui.set_disk_layout(layout)
-
-            # Set up translation mappings to avoid debian-installer
-            # specific text ('Guided -').
-            self.translation_mappings = {}
-            def map_trans(di_string, ubiquity_string):
-                ubiquity_string = self.description(ubiquity_string)
-                self.translation_mappings[ubiquity_string] = di_string
-                try:
-                    choices[choices.index(di_string)] = ubiquity_string
-                except ValueError:
-                    pass
-                if di_string in self.extra_options:
-                    t = self.extra_options[di_string]
-                    del self.extra_options[di_string]
-                    self.extra_options[ubiquity_string] = t
-                return ubiquity_string
-
-            self.some_device_desc = map_trans(self.some_device_desc, 'ubiquity/text/use_device')
-            self.biggest_free_desc = map_trans(self.biggest_free_desc, 'ubiquity/text/biggest_free')
-            self.resize_desc = self.description('ubiquity/text/resize_use_free')
-            self.manual_desc = map_trans(self.manual_desc, 'ubiquity/text/custom_partitioning')
-
-            biggest_free = self.find_script(menu_options, 'biggest_free')
-            if biggest_free:
-                biggest_free = biggest_free[0][1]
-                biggest_free = self.split_devpart(biggest_free)[1]
-            self.extra_options[self.biggest_free_desc] = biggest_free
-
             self.ui.set_default_filesystem(self.db.get('partman/default_filesystem'))
-            self.ui.set_autopartition_choices(
-                choices, self.extra_options, self.resize_desc,
-                self.manual_desc, self.biggest_free_desc,
-                self.some_device_desc)
+            options = self.calculate_autopartitioning_options(layout)
+            print 'extra_ops', self.extra_options
+            self.ui.set_autopartition_options(options, self.extra_options)
 
         elif question == 'partman-auto/select_disk':
             if self.auto_state is not None:
@@ -1760,7 +1982,9 @@ class Page(plugin.Plugin):
                             size = fp.readline()
                         size = int(size)
                         disks[choices[i]] = (choices_c[i], size)
-                self.extra_options[self.auto_state[1]] = disks
+                print 'MARK', self.auto_state[1]
+                print 'DATA', disks
+                self.extra_options['use_device'] = disks
                 # Back up to autopartitioning question.
                 self.succeeded = False
                 return False
@@ -2247,12 +2471,11 @@ class Page(plugin.Plugin):
         elif question == 'partman-partitioning/new_size':
             if self.autopartition_question is not None:
                 if self.auto_state is not None:
-                    desc = self.description('ubiquity/text/resize_use_free')
-                    if desc not in self.extra_options:
-                        self.extra_options[desc] = {}
+                    if 'resize' not in self.extra_options:
+                        self.extra_options['resize'] = {}
                     disk = self.translate_to_c(self.autopartition_question, self.auto_state[1])
                     disk = re.search('/var/lib/partman/devices/(.*)//', disk).group(1)
-                    self.extra_options[desc][disk] = \
+                    self.extra_options['resize'][disk] = \
                         (self.auto_state[1], self.resize_min_size, self.resize_max_size,
                             self.resize_pref_size, self.resize_path)
                     # Back up to autopartitioning question.
