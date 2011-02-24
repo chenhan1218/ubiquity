@@ -43,10 +43,6 @@ OEM = False
 class PageBase(plugin.PluginUI):
     def __init__(self, *args, **kwargs):
         plugin.PluginUI.__init__(self)
-        self.resize_choice = None
-        self.manual_choice = None
-        self.biggest_free_choice = None
-        self.reuse_choice = None
 
     def show_page_advanced(self):
         pass
@@ -57,18 +53,6 @@ class PageBase(plugin.PluginUI):
     def set_default_filesystem(self, fs):
         '''The default filesystem used when creating partitions.'''
         self.default_filesystem = fs
-
-    def set_autopartition_choices(self, choices, extra_options,
-                                  resize_choice, manual_choice,
-                                  biggest_free_choice, use_device_choice,
-                                  reuse_choice):
-        """Set available autopartitioning choices."""
-        self.resize_choice = resize_choice
-        self.manual_choice = manual_choice
-        self.biggest_free_choice = biggest_free_choice
-        self.use_device_choice = use_device_choice
-        self.extra_options = extra_options
-        self.resue_choice = reuse_choice
 
     def get_autopartition_choice(self):
         """Get the selected autopartitioning choice."""
@@ -478,7 +462,7 @@ class PageGtk(PageBase):
     def get_autopartition_choice (self):
         # TODO somehow remember previous choice on back press.
         if self.custom_partitioning.get_active():
-            return self.manual_choice, None
+            return self.extra_options['manual'], None
         
         if self.resize_use_free.get_active() and not self.use_entire_disk:
             disk_id = self.get_current_disk_partman_id()
@@ -1898,6 +1882,8 @@ class Page(plugin.Plugin):
 
             self.ui.set_disk_layout(layout)
             self.ui.set_default_filesystem(self.db.get('partman/default_filesystem'))
+            # We always have the manual option.
+            self.extra_options['manual'] = self.manual_desc
             options = self.calculate_autopartitioning_options(layout)
             print 'extra_ops', self.extra_options
             self.ui.set_autopartition_options(options, self.extra_options)
@@ -2550,9 +2536,6 @@ class Page(plugin.Plugin):
         if self.current_question.endswith('automatically_partition'):
             (autopartition_choice, self.extra_choice) = \
                 self.ui.get_autopartition_choice()
-            if autopartition_choice in self.translation_mappings:
-                autopartition_choice = \
-                    self.translation_mappings[autopartition_choice]
             self.preseed_as_c(self.current_question, autopartition_choice,
                               seen=False)
             # Don't exit partman yet.
