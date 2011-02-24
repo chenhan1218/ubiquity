@@ -34,6 +34,7 @@ from collections import namedtuple
 PartitioningOption = namedtuple('PartitioningOption',
                                 ['title', 'desc', 'option'])
 
+
 NAME = 'partman'
 AFTER = 'prepare'
 WEIGHT = 11
@@ -284,9 +285,9 @@ class PageGtk(PageBase):
         # TODO at some point we should re-evaluate the structure of
         # self.disk_layout
         for partition in self.disk_layout[disk_id]:
-            if partition[0] == resize_path:
-                size = partition[1]
-                fs = partition[3]
+            if partition.device == resize_path:
+                size = partition.size
+                fs   = partition.filesystem
                 break
         assert size is not None, 'Could not find size for %s:\n%s\n%s' % \
             (str(resize_path), str(disk_id), str(self.disk_layout))
@@ -421,58 +422,6 @@ class PageGtk(PageBase):
             self.debug('No active iterator for grub device entry.')
             return misc.grub_default()
 
-    # TODO: This has gotten out of hand.  Get rid of choices? Or move to a dictionary.
-    def set_autopartition_choices (self, choices, extra_options, resize_choice,
-                                   manual_choice, biggest_free_choice,
-                                   use_device_choice, reuse_choice):
-        print 'choices:', choices
-        print 'extra_options:', extra_options
-        print 'resize_choice:', resize_choice
-        print 'manual_choice:', manual_choice
-        print 'biggest_free_choice:', biggest_free_choice
-        print 'use_device_choice:', use_device_choice
-        print 'reuse_choice:', reuse_choice
-        PageBase.set_autopartition_choices(self, choices, extra_options,
-                                           resize_choice, manual_choice,
-                                           biggest_free_choice,
-                                           use_device_choice, reuse_choice)
-
-        m = self.part_auto_select_drive.get_model()
-        m.clear()
-        selected = False
-        for disk in extra_options[use_device_choice]:
-            i = m.append([disk])
-
-            # TODO move to ask page choice processing, so we don't set the
-            # combobox to sdb when we're formatting?
-
-            # Make sure that we're setting the disk combo box to a disk that
-            # can be resized, should one exist, so that selecting resize and
-            # proceeding defaults to a resizable disk.
-            if resize_choice in extra_options:
-                disk_id = extra_options[use_device_choice][disk][0].rsplit('/', 1)[1]
-                if disk_id in extra_options[resize_choice] and not selected:
-                    selected = True
-                self.part_auto_select_drive.set_active_iter(i)
-        if not selected:
-            # No resizeable disks.  Select the first one.
-            self.part_auto_select_drive.set_active(0)
-
-        if not resize_choice in extra_options:
-            self.use_device.set_active(True)
-            self.resize_use_free.hide()
-        else:
-            self.resize_use_free.set_active(True)
-            self.resize_use_free.show()
-
-        if reuse_choice in choices:
-            self.reuse_partition.show()
-        else:
-            self.reuse_partition.hide()
-
-        # make sure we're on the autopartitioning page
-        self.current_page = self.page
-
     def set_autopartition_options(self, options, extra_options):
         self.extra_options = extra_options
 
@@ -480,6 +429,7 @@ class PageGtk(PageBase):
         # TODO need an option for replace in glade.
         self.use_device_title.set_label(options['use_device'].title)
         self.use_device_desc.set_markup(fmt % options['use_device'].desc)
+        # To give a nice text effect.
         self.use_device_desc.set_sensitive(False)
         self.custom_partitioning_title.set_label(options['manual'].title)
         self.custom_partitioning_desc.set_markup(fmt % options['manual'].desc)
@@ -1753,7 +1703,7 @@ class Page(plugin.Plugin):
         release = misc.get_release()
         for disk in layout:
             for partition in layout[disk]:
-                system = misc.find_in_os_prober(partition[0])
+                system = misc.find_in_os_prober(partition.device)
                 if system and system != 'swap':
                     operating_systems.append(system)
         os_count = len(operating_systems)
@@ -1862,17 +1812,6 @@ class Page(plugin.Plugin):
         #    biggest_free = self.split_devpart(biggest_free)[1]
         #self.extra_options[self.biggest_free_desc] = biggest_free
 
-        # TODO need to map partitions to choice parameters (presumably from
-        # extra_options). No, extra_options only has the resize_path for
-        # resize_use_free.  Instead, get the right-hand-side of the split on
-        # ____ for each choice, which is a partman ID pointing to the path
-        # representing the partition affected.  Need to find the right dialog
-        # to open to turn that into a device node as it's not the directory
-        # structure. Split again on // and use the RHS for PARTITION_INFO?
-
-        # TODO getting rid of the debconf names as keys for extra_options is
-        # tricky as they're generated by looping auto_state.  Might have to
-        # stick with them, at least on the d-i facing side.
         print options
         return options
 
@@ -1914,21 +1853,17 @@ class Page(plugin.Plugin):
                 if (self.auto_state[1] == self.some_device_desc or
                     self.auto_state[1] == self.resize_desc):
                     break
-                # TODO Check what template this comes from instead?
-                # How could we find out if it came from partman-auto/text/some_partition?
                 elif description_c[2:].startswith('resize_use_free'):
                     replace = description_c.split('__________', 1)[1]
                     replace = replace.startswith('replace=')
                     if not replace:
                         break
                     else:
-                        #desc = self.description('ubiquity/text/resize_use_free')
-                        desc = 'some_partition'
-                        if desc not in self.extra_options:
-                            self.extra_options[desc] = {}
+                        if 'some_partition' not in self.extra_options:
+                            self.extra_options['some_partition'] = {}
                         disk = self.translate_to_c(self.autopartition_question, self.auto_state[1])
                         disk = re.search('/var/lib/partman/devices/(.*)//', disk).group(1)
-                        self.extra_options[desc][disk] = self.auto_state[1]
+                        self.extra_options['some_partition'][disk] = self.auto_state[1]
                         # We assume that the partition being replaced is the
                         # same as the partition being resized for the disk in
                         # question.
@@ -1944,9 +1879,8 @@ class Page(plugin.Plugin):
 
             with misc.raised_privileges():
                 # {'/dev/sda' : ('/dev/sda1', 24973242, '32256-2352430079'), ...
-                # TODO evand 2009-04-16: We should really use named tuples
-                # here.
-                # so do it now...
+                Partition = namedtuple('Partition',
+                                       ['device', 'size', 'id', 'filesystem'])
                 parted = parted_server.PartedServer()
                 layout = {}
                 for disk in parted.disks():
@@ -1958,7 +1892,9 @@ class Page(plugin.Plugin):
                             dev = 'free'
                         else:
                             dev = partition[5]
-                        ret.append((dev, size, partition[1], partition[4]))
+                        ret.append(Partition(dev, size,
+                                             partition[1],
+                                             partition[4]))
                     layout[disk] = ret
 
             self.ui.set_disk_layout(layout)

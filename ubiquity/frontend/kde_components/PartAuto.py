@@ -148,7 +148,7 @@ class PartAuto(QtGui.QWidget):
             after_bar = PartitionsBar()
 
             for p in dev:
-                before_bar.addPartition(p[0], int(p[1]), p[3])
+                before_bar.addPartition(p.device, int(p.size), p.filesystem)
             if before_bar.diskSize > 0:
                 after_bar.addPartition(release_name, before_bar.diskSize, 'auto')
             else:
