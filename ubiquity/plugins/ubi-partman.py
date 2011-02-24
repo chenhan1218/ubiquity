@@ -1663,7 +1663,7 @@ class Page(plugin.Plugin):
             self.db.subst(q, 'CURDISTRO', ubuntu)
             title = self.description(q)
             desc = self.extended_description(q)
-            return PartitioningOption(title, desc, None)
+            return PartitioningOption(title, desc)
         else:
             # "Windows (or Mac, ...) and an older version of Ubuntu are
             # present" case
@@ -1673,7 +1673,7 @@ class Page(plugin.Plugin):
             self.db.subst(q, 'VER', release.version)
             title = self.description(q)
             desc = self.extended_description(q)
-            return PartitioningOption(title, desc, None)
+            return PartitioningOption(title, desc)
 
     # TODO this function should be easily testable by constructing a fake
     # layout and Mock db.
