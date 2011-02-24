@@ -31,8 +31,7 @@ from ubiquity import osextras
 from ubiquity.install_misc import archdetect
 from collections import namedtuple
 
-PartitioningOption = namedtuple('PartitioningOption',
-                                ['title', 'desc', 'option'])
+PartitioningOption = namedtuple('PartitioningOption', ['title', 'desc'])
 
 
 NAME = 'partman'
@@ -1715,7 +1714,7 @@ class Page(plugin.Plugin):
         q = 'ubiquity/partitioner/advanced'
         title = self.description(q)
         desc = self.extended_description(q)
-        options['manual'] = PartitioningOption(title, desc, None)
+        options['manual'] = PartitioningOption(title, desc)
 
         if os_count == 0:
             # "There are no operating systems present" case
@@ -1723,7 +1722,7 @@ class Page(plugin.Plugin):
             self.db.subst(q, 'DISTRO', release.name)
             title = self.description(q)
             desc = self.extended_description(q)
-            opt = PartitioningOption(title, desc, None)
+            opt = PartitioningOption(title, desc)
             options['use_device'] = opt
         elif os_count == 1:
             system = operating_systems[0]
@@ -1733,7 +1732,7 @@ class Page(plugin.Plugin):
                 self.db.subst(q, 'CURDISTRO', system)
                 title = self.description(q)
                 desc = self.extended_description(q)
-                opt = PartitioningOption(title, desc, None)
+                opt = PartitioningOption(title, desc)
                 options['use_device'] = opt
 
                 if 'resize' in self.extra_options:
@@ -1743,7 +1742,7 @@ class Page(plugin.Plugin):
                     self.db.subst(q, 'CURDISTRO', system)
                     title = self.description(q)
                     desc = self.extended_description(q)
-                    opt = PartitioningOption(title, desc, None)
+                    opt = PartitioningOption(title, desc)
                     options['resize'] = opt
 
                 options['reuse'] = self.calculate_reuse_option(system, release)
@@ -1754,7 +1753,7 @@ class Page(plugin.Plugin):
                 self.db.subst(q, 'DISTRO', release.name)
                 title = self.description(q)
                 desc = self.extended_description(q)
-                opt = PartitioningOption(title, desc, None)
+                opt = PartitioningOption(title, desc)
                 options['use_device'] = opt
 
                 if 'resize' in self.extra_options:
@@ -1762,7 +1761,7 @@ class Page(plugin.Plugin):
                     self.db.subst(q, 'DISTRO', release.name)
                     title = self.description(q)
                     desc = self.extended_description(q)
-                    opt = PartitioningOption(title, desc, None)
+                    opt = PartitioningOption(title, desc)
                     options['resize'] = opt
                     # TODO: or biggest_free, choose one of the two here,
                     # presumably whichever is bigger. Calculated at number
@@ -1777,14 +1776,14 @@ class Page(plugin.Plugin):
             self.db.subst(q, 'CURDISTRO', ubuntu)
             title = self.description(q)
             desc = self.extended_description(q)
-            opt = PartitioningOption(title, desc, None)
+            opt = PartitioningOption(title, desc)
             options['replace'] = opt
 
             q = 'ubiquity/partitioner/ubuntu_and_os_format'
             self.db.subst(q, 'CURDISTRO', ubuntu)
             title = self.description(q)
             desc = self.extended_description(q)
-            opt = PartitioningOption(title, desc, None)
+            opt = PartitioningOption(title, desc)
             options['use_device'] = opt
 
             options['reuse'] = self.calculate_reuse_option(ubuntu, release)
@@ -1794,7 +1793,7 @@ class Page(plugin.Plugin):
             self.db.subst(q, 'DISTRO', release.name)
             title = self.description(q)
             desc = self.extended_description(q)
-            opt = PartitioningOption(title, desc, None)
+            opt = PartitioningOption(title, desc)
             options['use_device'] = opt
 
             if 'resize' in self.extra_options:
@@ -1802,7 +1801,7 @@ class Page(plugin.Plugin):
                 self.db.subst(q, 'DISTRO', release.name)
                 title = self.description(q)
                 desc = self.extended_description(q)
-                opt = PartitioningOption(title, desc, None)
+                opt = PartitioningOption(title, desc)
                 # TODO: or biggest_free.  See above note.
                 options['resize'] = opt
 
