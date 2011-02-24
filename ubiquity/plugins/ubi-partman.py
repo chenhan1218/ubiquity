@@ -258,22 +258,10 @@ class PageGtk(PageBase):
         if not disk_id:
             return
 
-        resize_min_size, resize_max_size, resize_pref_size, resize_path = \
-            self.extra_options['resize'][disk_id][1:]
+        (resize_min_size, resize_max_size, resize_pref_size,
+         resize_path, size, fs) = self.extra_options['resize'][disk_id][1:]
         self.resizewidget.set_property('min_size', int(resize_min_size))
         self.resizewidget.set_property('max_size', int(resize_max_size))
-
-        # Lets gather some data.
-        size, fs = None, None
-        # TODO at some point we should re-evaluate the structure of
-        # self.disk_layout
-        for partition in self.disk_layout[disk_id]:
-            if partition.device == resize_path:
-                size = partition.size
-                fs   = partition.filesystem
-                break
-        assert size is not None, 'Could not find size for %s:\n%s\n%s' % \
-            (str(resize_path), str(disk_id), str(self.disk_layout))
 
         title = misc.find_in_os_prober(resize_path)
         icon = self.resizewidget.get_child1().child
@@ -430,6 +418,11 @@ class PageGtk(PageBase):
             self.resize_use_free.show()
             self.resize_use_free_title.set_label(options['resize'].title)
             self.resize_use_free_desc.set_markup(fmt % options['resize'].desc)
+            self.resize_use_free_desc.set_sensitive(False)
+        elif 'biggest_free' in options:
+            self.resize_use_free.show()
+            self.resize_use_free_title.set_label(options['biggest_free'].title)
+            self.resize_use_free_desc.set_markup(fmt % options['biggest_free'].desc)
             self.resize_use_free_desc.set_sensitive(False)
         else:
             self.resize_use_free.hide()
@@ -1693,6 +1686,22 @@ class Page(plugin.Plugin):
         ubuntu_systems = filter(lambda x: x.lower().find('buntu') != -1,
                                 operating_systems)
 
+        resize_or_free = None
+        if 'resize' in self.extra_options:
+            if 'biggest_free' in self.extra_options:
+                biggest_free = self.extra_options['biggest_free'][1]
+                resize = self.extra_options['resize']
+                for disk in resize:
+                    if resize[disk][5] - resize[disk][1] > biggest_free:
+                        resize_or_free = 'resize'
+                        break
+                if resize_or_free is None:
+                    resize_or_free = 'biggest_free'
+            else:
+                resize_or_free = 'resize'
+        elif 'biggest_free' in self.extra_options:
+            resize_or_free = 'biggest_free'
+
         # We always have the manual partitioner, and it always has the same
         # title and description.
         q = 'ubiquity/partitioner/advanced'
@@ -1719,7 +1728,7 @@ class Page(plugin.Plugin):
                 opt = PartitioningOption(title, desc)
                 options['use_device'] = opt
 
-                if 'resize' in self.extra_options:
+                if resize_or_free is not None:
                     q = 'ubiquity/partitioner/ubuntu_resize'
                     self.db.subst(q, 'DISTRO', release.name)
                     self.db.subst(q, 'VER', release.version)
@@ -1727,7 +1736,7 @@ class Page(plugin.Plugin):
                     title = self.description(q)
                     desc = self.extended_description(q)
                     opt = PartitioningOption(title, desc)
-                    options['resize'] = opt
+                    options[resize_or_free] = opt
 
                 options['reuse'] = self.calculate_reuse_option(system, release)
             else:
@@ -1740,13 +1749,13 @@ class Page(plugin.Plugin):
                 opt = PartitioningOption(title, desc)
                 options['use_device'] = opt
 
-                if 'resize' in self.extra_options:
+                if resize_or_free is not None:
                     q = 'ubiquity/partitioner/single_os_resize'
                     self.db.subst(q, 'DISTRO', release.name)
                     title = self.description(q)
                     desc = self.extended_description(q)
                     opt = PartitioningOption(title, desc)
-                    options['resize'] = opt
+                    options[resize_or_free] = opt
                     # TODO: or biggest_free, choose one of the two here,
                     # presumably whichever is bigger. Calculated at number
                     # crunching above, of course, as it could be used in other
@@ -1780,20 +1789,14 @@ class Page(plugin.Plugin):
             opt = PartitioningOption(title, desc)
             options['use_device'] = opt
 
-            if 'resize' in self.extra_options:
+            if resize_or_free is not None:
                 q = 'ubiquity/partitioner/multiple_os_resize'
                 self.db.subst(q, 'DISTRO', release.name)
                 title = self.description(q)
                 desc = self.extended_description(q)
                 opt = PartitioningOption(title, desc)
                 # TODO: or biggest_free.  See above note.
-                options['resize'] = opt
-
-        #biggest_free = self.find_script(menu_options, 'biggest_free')
-        #if biggest_free:
-        #    biggest_free = biggest_free[0][1]
-        #    biggest_free = self.split_devpart(biggest_free)[1]
-        #self.extra_options[self.biggest_free_desc] = biggest_free
+                options[resize_or_free] = opt
 
         print options
         return options
@@ -1860,6 +1863,12 @@ class Page(plugin.Plugin):
             else:
                 self.auto_state = None
 
+            biggest_free = self.find_script(menu_options, 'biggest_free')
+            biggest_free_size = None
+            if biggest_free:
+                biggest_free = biggest_free[0][1]
+                biggest_free = self.split_devpart(biggest_free)[1]
+
             with misc.raised_privileges():
                 # {'/dev/sda' : ('/dev/sda1', 24973242, '32256-2352430079'), ...
                 Partition = namedtuple('Partition',
@@ -1878,12 +1887,18 @@ class Page(plugin.Plugin):
                         ret.append(Partition(dev, size,
                                              partition[1],
                                              partition[4]))
+                    if (biggest_free and partition[1] == biggest_free):
+                        biggest_free_size = size
                     layout[disk] = ret
 
             self.ui.set_disk_layout(layout)
             self.ui.set_default_filesystem(self.db.get('partman/default_filesystem'))
             # We always have the manual option.
             self.extra_options['manual'] = self.manual_desc
+            if biggest_free and biggest_free_size is not None:
+                self.extra_options['biggest_free'] = (biggest_free,
+                                                      biggest_free_size)
+
             options = self.calculate_autopartitioning_options(layout)
             print 'extra_ops', self.extra_options
             self.ui.set_autopartition_options(options, self.extra_options)
@@ -1903,8 +1918,6 @@ class Page(plugin.Plugin):
                             size = fp.readline()
                         size = int(size)
                         disks[choices[i]] = (choices_c[i], size)
-                print 'MARK', self.auto_state[1]
-                print 'DATA', disks
                 self.extra_options['use_device'] = disks
                 # Back up to autopartitioning question.
                 self.succeeded = False
@@ -2394,11 +2407,19 @@ class Page(plugin.Plugin):
                 if self.auto_state is not None:
                     if 'resize' not in self.extra_options:
                         self.extra_options['resize'] = {}
+                    p_id = self.translate_to_c(self.autopartition_question,
+                                               self.auto_state[1])
+                    p_id = p_id.rsplit('//')[1]
                     disk = self.translate_to_c(self.autopartition_question, self.auto_state[1])
                     disk = re.search('/var/lib/partman/devices/(.*)//', disk).group(1)
+                    with misc.raised_privileges():
+                        parted = parted_server.PartedServer()
+                        parted.select_disk(disk)
+                        size = int(parted.partition_info(p_id)[2])
+                        fs   = parted.partition_info(p_id)[4]
                     self.extra_options['resize'][disk] = \
                         (self.auto_state[1], self.resize_min_size, self.resize_max_size,
-                            self.resize_pref_size, self.resize_path)
+                            self.resize_pref_size, self.resize_path, size, fs)
                     # Back up to autopartitioning question.
                     self.succeeded = False
                     return False
