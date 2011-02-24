@@ -650,6 +650,10 @@ Template: ubiquity/install/hardware
 Type: text
 _Description: Configuring hardware...
 
+Template: ubiquity/install/nonfree
+Type: text
+_Description: Installing third-party software...
+
 Template: ubiquity/install/network
 Type: text
 _Description: Configuring network...

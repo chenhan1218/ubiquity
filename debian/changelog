@@ -1,6 +1,8 @@
 ubiquity (2.5.17) UNRELEASED; urgency=low
 
   * Do not show the installer in dbusmneu.  Thanks Ken VanDine!
+  * Install a composite-enabled graphics driver when the third-party
+    software option is checked.
 
  -- Evan Dandrea <ev@ubuntu.com>  Thu, 24 Feb 2011 16:53:01 +0000
 
