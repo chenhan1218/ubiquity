@@ -170,24 +170,25 @@ class PageGtk(PageBase):
             self.page_ask = None
         self.plugin_widgets = self.page_ask
 
-    #def plugin_get_current_page(self):
-    #    if self.current_page == self.page_ask:
-    #        self.plugin_is_install = False
-    #    else:
-    #        self.plugin_is_install = True
-    #    return self.current_page
+    def plugin_get_current_page(self):
+        return self.current_page
     
     def plugin_on_next_clicked(self):
-        if self.plugin_is_install:
-            return False
-
         if self.current_page == self.page_ask:
             if not self.custom_partitioning.get_active():
                 self.current_page = self.page_auto
                 self.controller.go_to_page(self.current_page)
                 self.controller.toggle_install_button(True)
                 self.plugin_is_install = True
-        return True
+                return True
+            else:
+                self.current_page = self.page_advanced
+                self.controller.go_to_page(self.current_page)
+                self.controller.toggle_install_button(True)
+                self.plugin_is_install = True
+                return False
+        else:
+            return False
 
     def plugin_on_back_clicked(self):
         if self.current_page in self.plugin_optional_widgets:
